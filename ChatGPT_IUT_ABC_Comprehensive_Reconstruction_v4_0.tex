@@ -1,0 +1,882 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[a4paper,margin=1.02in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs,bm}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink,capitalize,noabbrev]{cleveref}
+\usepackage[most]{tcolorbox}
+\usepackage{listings}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!45!black,
+  pdftitle={A Comprehensive Reconstruction of the IUT-ABC Proof Programme},
+  pdfauthor={ChatGPT}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{counterexample}[theorem]{Counterexample}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{construction}[theorem]{Construction}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{status}[theorem]{Status}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\UTheta}{\mathcal U_\Theta}
+\newcommand{\mup}{\mu_{\mathrm{proc}}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\Reg}{\operatorname{Reg}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\FMod}{\mathcal F_{\mathrm{MOD}}}
+\newcommand{\Fmod}{\mathcal F_{\mathrm{mod}}}
+
+\title[Comprehensive IUT--$abc$ reconstruction]{A Comprehensive Reconstruction of the IUT--$abc$ Proof Programme\\
+\large Proven components, countermodels, normalization corrections, non-circular closure, and the exact remaining construction theorems}
+\author{ChatGPT}
+\date{August 20, 2026}
+
+\subjclass[2020]{Primary 11D75, 11G50; Secondary 03B35, 18A40, 28C10}
+\keywords{ABC conjecture, inter-universal Teichm\"uller theory, Lean, poly-isomorphism, q-pilot, log-volume, formal verification}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper consolidates the mathematical and formal results obtained in a
+long-form reconstruction of the proposed inter-universal Teichm\"uller
+(IUT) route to the $abc$ conjecture.  The work separates three layers that
+must not be conflated: elementary and categorical implications that can be
+proved independently of the full IUT source; source-level reconstructions of
+the pilot bridge; and the actual inhabitation theorems required to turn the
+public Lean specification into a parameter-free proof.
+
+The following components are proved in ordinary mathematics and encoded in
+Lean source: representative extraction from equality of composite
+poly-morphisms; Kummer conjugation for full poly-isomorphisms; a finite
+countermodel showing that projection-wise compatibility is insufficient;
+generation of a theta-pilot region as the union of concrete outputs;
+finite-positive log-volume monotonicity; ramification-correct q-pilot
+normalization; product-weight marginalization; procession averaging;
+finite-exception absorption; the scalar IUT IV algebra; the geometric tripod
+to logarithmic $abc$ transfer; the correct pointwise quantifier structure;
+and a circularity theorem showing that a former downstream certificate
+already contained the $abc$ conjecture as a field.
+
+A non-circular final certificate is defined.  Its inhabitation would produce
+a parameter-free Lean theorem stating the standard logarithmic $abc$
+conjecture.  No inhabitant is constructed here.  The remaining obligations
+are an actual initial-theta-data family, an actual IUT III
+Hodge-theater/Frobenioid/multiradial source family, and a uniform IUT IV
+geometric height bridge.  The public IUT formalization deliberately leaves
+these objects behind interfaces.  Consequently this paper is a comprehensive
+reconstruction and formalization audit, not an unconditional proof of $abc$.
+\end{abstract}
+
+\begin{tcolorbox}[colback=yellow!5,colframe=black!65,title=Final status]
+The paper proves a large collection of genuine lemmas and an honest
+non-circular closure theorem
+\[
+  \texttt{FourStageProgram}\Longrightarrow\texttt{ABCConjecture}.
+\]
+It does not prove
+\[
+  \operatorname{Nonempty}(\texttt{FourStageProgram}).
+\]
+Thus no theorem of the form
+\[
+  \texttt{theorem abc\_conjecture : ABCConjecture}
+\]
+has been obtained without parameters.
+\end{tcolorbox}
+
+\tableofcontents
+
+\section{The target statement}
+
+For a positive integer $n$, let
+\[
+ \rad(n)=\prod_{p\mid n}p
+\]
+be the product of the distinct prime divisors.  The logarithmic form of the
+$abc$ conjecture is the following.
+
+\begin{theorem}[ABC conjecture --- target statement]\label{thm:abc-target}
+For every $\eps>0$ there exists $C_\eps\in\R$ such that, for all positive
+pairwise coprime integers $a,b,c$ with $a+b=c$,
+\[
+ \log\max\{a,b,c\}
+ \le
+ (1+\eps)\log\rad(abc)+C_\eps.
+\]
+\end{theorem}
+
+The formal development defines exactly this proposition.  The issue is not the
+syntax of the final statement.  The issue is constructing, uniformly in the
+arithmetic input and in $\eps$, all source and height-theoretic data needed to
+prove it.
+
+\section{The IUT numerical corridor}
+
+The decisive IUT III corridor is usually displayed as
+\[
+\begin{tikzcd}[column sep=small]
+W\in\UTheta,\quad \mup(W)=-|\log q|
+\arrow[r]
+&
+-|\log q|\le-|\log\Theta|
+\arrow[r]
+&
+C_\Theta\ge-1.
+\end{tikzcd}
+\]
+The first implication uses monotonicity of the procession-normalized volume;
+the second combines the bridge with
+\[
+ -|\log\Theta|\le C_\Theta|\log q|,
+ \qquad |\log q|>0.
+\]
+The downstream IUT IV argument is intended to turn $C_\Theta\ge-1$ into a
+Vojta-type inequality on the tripod
+$\PP^1\setminus\{0,1,\infty\}$ and then into \cref{thm:abc-target}.
+
+The research programme therefore decomposes into four stages:
+
+\begin{enumerate}[label=(\arabic*)]
+\item construct an actual family of initial theta-data;
+\item construct an actual IUT III multiradial output family and the witness
+$W$;
+\item prove a uniform, non-circular IUT IV geometric bridge;
+\item compose the preceding stages to obtain the parameter-free $abc$
+theorem.
+\end{enumerate}
+
+\section{Weak compatibility is not enough}
+
+The first important negative result is that a common source, a horizontal
+pilot map, compatibility on projected unit data, and the presence of an
+ordinary Kummer branch do not by themselves force a coherent pilot output.
+
+\begin{counterexample}[Finite common-source countermodel]\label{cex:weak}
+Let
+\[
+ A_0=A_1=C_0=C_1=\{0,1\}.
+\]
+Take the theta-pilot to be $0$, the q-pilot to be $1$, and let the horizontal
+map interchange $0$ and $1$.  Let both Kummer maps be identities.  Suppose
+the only allowed coric transport is the identity.  Make every unit and label
+projection a singleton, let Ind2 act trivially, and include an ordinary branch
+whose possible output is $0$.
+
+Then all projected compatibility conditions hold and the horizontal map sends
+the theta-pilot to the q-pilot, but no allowed coric map sends the Kummer image
+of $0$ to the Kummer image of $1$.
+\end{counterexample}
+
+This counterexample does not refute IUT.  It refutes the inference from a list
+of weak projection-wise properties to the existence of one object-level
+coherent tuple.  It also explains why a formalization must identify the exact
+level at which fullness or compatibility is asserted.
+
+\section{Poly-morphism representative extraction}
+
+Let
+\[
+ K_0:A_0\overset\sim\longrightarrow C_0,
+ \qquad
+ K_1:A_1\overset\sim\longrightarrow C_1
+\]
+be Kummer isomorphisms.  Let
+\[
+ H\subseteq\operatorname{Iso}(A_0,A_1),
+ \qquad
+ P\subseteq\operatorname{Iso}(C_0,C_1)
+\]
+be poly-isomorphisms.  Define
+\[
+ K_1H=\{K_1\circ h:h\in H\},
+ \qquad
+ PK_0=\{p\circ K_0:p\in P\}.
+\]
+
+\begin{theorem}[Representative extraction]\label{thm:extract}
+If
+\[
+ K_1H=PK_0,
+\]
+then for every $h\in H$ there exists $p\in P$ such that
+\[
+ pK_0=K_1h.
+\]
+\end{theorem}
+
+\begin{proof}
+The composite $K_1h$ lies in $K_1H$.  By equality of the two composite sets,
+it lies in $PK_0$, hence equals $pK_0$ for some $p\in P$.
+\end{proof}
+
+This elementary theorem was one of the first points to be formalized in Lean.
+It isolates the precise logical difference between compatibility of complete
+composite poly-morphisms and separate compatibility of their projections.
+
+\section{Full-poly conjugation}
+
+If the coric relation is the full poly-isomorphism, the explicit equality of
+composite sets is unnecessary.
+
+\begin{definition}[Kummer conjugate]
+Given a horizontal isomorphism $h:A_0\simeq A_1$, define
+\[
+ P=K_1hK_0^{-1}:C_0\simeq C_1.
+\]
+\end{definition}
+
+\begin{theorem}[Full-poly conjugation]\label{thm:conjugate}
+For every $x\in A_0$,
+\[
+ P(K_0x)=K_1(hx).
+\]
+If the allowed coric relation is the full poly-isomorphism
+$\operatorname{Iso}(C_0,C_1)$, then $P$ is automatically an allowed
+representative.
+\end{theorem}
+
+\begin{proof}
+The first assertion is cancellation.  The second is the definition of a full
+poly-isomorphism.
+\end{proof}
+
+The Boolean countermodel in \cref{cex:weak} shows that fullness is essential:
+for a proper restricted family the conjugate need not be allowed.
+
+\section{Fixed-branch reconstruction}
+
+The actual possible-image set is a union over many choices.  To prove
+existence of one witness, it is not necessary to control all branches
+simultaneously.
+
+Fix a horizontal representative $h$, a Kummer input index, the identity
+representatives for Ind1 and Ind2, and the ordinary Kummer branch for Ind3.
+The source statements used by this reconstruction are:
+
+\begin{enumerate}[label=(\roman*)]
+\item horizontal LGP/lgp links map theta-pilot objects to q-pilot objects;
+\item the local upper-semicompatible containers contain the ordinary Kummer
+image;
+\item local fractional ideals globalize to objects of the corresponding
+global Frobenioids;
+\item global log-volume agrees with arithmetic degree after normalization.
+\end{enumerate}
+
+Under the structured compatibility hypothesis, the fixed branch produces a
+global fractional-ideal region $W$ satisfying
+\[
+ W\in\UTheta,
+ \qquad
+ \mup(W)=-|\log q|.
+\]
+The numerical bridge follows.
+
+This is a source-level reconstruction.  It is not yet an object generated by a
+complete Lean encoding of Hodge theaters and Frobenioids.
+
+\section{Generated possible-image unions}
+
+An independent membership field can be removed by defining the theta-pilot
+region from the concrete outputs.
+
+Let $\mathscr O$ be a nonempty type of outputs and let $R_{o,i}$ be the
+admissible region associated to output $o$ in capsule $i$.  Assume that for
+each $i$ there is a finite set $S_i$ of rational places such that
+\[
+ v_{\Q}\notin S_i
+ \Longrightarrow
+ R_{o,i}(v_{\Q})=\OO_{i,v_{\Q}}
+\]
+for all outputs $o$.
+
+\begin{definition}[Generated theta-pilot union]
+Define
+\[
+ T_i(v_{\Q})=\bigcup_{o\in\mathscr O}R_{o,i}(v_{\Q}).
+\]
+\end{definition}
+
+\begin{theorem}[Admissibility and definitional membership]\label{thm:union}
+Each $T_i$ is a restricted-product admissible region, and
+\[
+ R_{o,i}\subseteq T_i
+\]
+for every $o$.
+\end{theorem}
+
+\begin{proof}
+Outside $S_i$ all regions in the union equal the same integral region.  Since
+$\mathscr O$ is nonempty, the union equals that integral region there.  Hence
+the support is finite.  Membership is the canonical injection into a union.
+\end{proof}
+
+This construction was implemented directly against the public
+\texttt{LargeVolumeContainerData.AdmissibleRegion} type.  It removes the
+separate field asserting that the native output belongs to a previously
+supplied theta region.
+
+\section{Actual public-region witness theorem}
+
+Let
+\[
+ X:\texttt{Iut.Corollary312VariantData}.
+\]
+An actual witness consists of a capsule-indexed family of public admissible
+regions $W_i$, containment $W_i\subseteq\Theta_i$, an exact q-volume identity,
+and monotonicity on the two good region families used in the argument.
+
+\begin{theorem}[Actual witness closes the public numerical variant]
+An actual public-type witness implies
+\[
+ \texttt{Iut.Corollary312Variant}(X).
+\]
+\end{theorem}
+
+\begin{proof}
+The public hull system gives
+\[
+ \Theta_i\subseteq H(\Theta_i).
+\]
+Thus $W_i\subseteq H(\Theta_i)$.  Using the exact q-volume identity and
+procession-volume monotonicity gives
+\[
+ X.\texttt{qPilot.lhs}
+ \le
+ X.\texttt{rhsData.rhs}.
+\]
+\end{proof}
+
+This is one of the strongest formal results obtained: the numerical theorem no
+longer uses an auxiliary region type.  The remaining problem is constructing
+the actual witness from complete IUT source definitions.
+
+\section{Finite-positive log-volume monotonicity}
+
+The public volume interface is total on arbitrary regions and therefore does
+not impose a global monotonicity axiom.  For finite positive measure-realized
+regions, the required theorem is standard.
+
+\begin{theorem}[Logarithmic measure monotonicity]\label{thm:log-mono}
+Let $\mu$ be a measure and let $A\subseteq B$.  If
+\[
+ \mu(A)>0,
+ \qquad
+ \mu(B)<\infty,
+\]
+then
+\[
+ \log\mu(A)\le\log\mu(B).
+\]
+\end{theorem}
+
+\begin{proof}
+Measure monotonicity gives $\mu(A)\le\mu(B)$.  The real logarithm is
+increasing on $(0,\infty)$.
+\end{proof}
+
+Nonnegative finite weighted sums and finite averages preserve pointwise
+inequalities.  Hence packet and procession monotonicity follow once the actual
+component log-volumes are represented by finite positive Haar measures.
+
+\section{Native q-pilot normalization}
+
+Let
+\[
+ D_q=\sum_v n_v[v]
+\]
+be the arithmetic q-divisor, where $n_v=\operatorname{ord}_v(q_v)$ is the
+integer uniformizer order.  Define
+\[
+ \log(q)=\deg_{\mathrm{norm}}(D_q).
+\]
+The q-pilot uses a $2\ell$-th root of the Tate parameter, so its realified
+divisor is
+\[
+ D_{\mathbf q}=\frac1{2\ell}D_q.
+\]
+By linearity,
+\[
+ \deg_{\mathrm{norm}}(D_{\mathbf q})
+ =\frac1{2\ell}\log(q)=|\log q|.
+\]
+With the signed volume convention,
+\[
+ \boxed{\mup(Q_{\mathrm{pilot}})=-|\log q|.}
+\]
+This closes the scalar calibration of the native object.  It does not prove
+that the same object is an actual member of the theta-pilot possible-image
+union.
+
+\section{Ramification correction}
+
+Let $L/\Q_p$ have ramification index $e$ and residue degree $f$.  Write
+\[
+ p=u\pi^e,
+ \qquad
+ q=u_q\pi^n,
+\]
+with units $u,u_q$.  Suppose $\rho$ is the packet-normalized logarithmic
+response, additive under multiplication, zero on units, and normalized by
+\[
+ \rho(p)=-\log p.
+\]
+Then
+\[
+ \rho(\pi)=-\frac1e\log p,
+ \qquad
+ \rho(q)=-\frac ne\log p.
+\]
+Multiplying by the normalized local-degree weight
+\[
+ \frac{ef}{[K:\Q]}
+\]
+cancels $e$ and yields
+\[
+ -\frac{nf}{[K:\Q]}\log p,
+\]
+which is the normalized arithmetic-divisor contribution.
+
+This proves a normalization fork:
+
+\begin{itemize}
+\item local-degree weight $ef/d$ must be paired with p-normalized order $n/e$;
+\item integer uniformizer order $n$ must be paired with residue-degree weight
+$f/d$.
+\end{itemize}
+
+Using local-degree weight and integer order simultaneously introduces an
+extra factor $e$.  A ramified quadratic counterexample was formalized.
+
+\section{Packet marginalization and procession averaging}
+
+Let $S$ be a finite label set, let $V_p$ be the finite fiber over $p$, and let
+$w:V_p\to\R$ satisfy
+\[
+ \sum_{v\in V_p}w(v)=1.
+\]
+A packet component is a function $c:S\to V_p$ with product weight
+\[
+ W(c)=\prod_{j\in S}w(c(j)).
+\]
+
+\begin{theorem}[Product-weight marginalization]\label{thm:marginal}
+For every distinguished label $j_0\in S$ and every $f:V_p\to\R$,
+\[
+ \sum_{c:S\to V_p}W(c)f(c(j_0))
+ =
+ \sum_{v\in V_p}w(v)f(v).
+\]
+\end{theorem}
+
+\begin{proof}
+Split $c$ into its $j_0$ coordinate and the remaining coordinates.  For a
+fixed value of the distinguished coordinate, the sum of the weights over the
+remaining coordinates is the product of copies of $\sum_vw(v)=1$.
+\end{proof}
+
+More generally, any barycentric allocation across labels whose coefficients
+sum to one has the same normalized reading.  A naive diagonal action at every
+label is impossible: it multiplies a nonzero response by the capsule
+cardinality, which varies along the procession.
+
+If every capsule has the same calibrated global q-reading, its procession
+average is that same value.  This removes procession averaging as an
+independent hypothesis.
+
+\section{Holomorphic hull reductions}
+
+Two independent reductions were obtained.
+
+First, if a generated union lies inside a log-shell whose closure is compact,
+then the closure of the generated union is compact.  This proves the relative
+compactness portion of hull admissibility.
+
+Second, suppose a family of regions is indexed by exponents in an antitone
+chain.  If the exponent family has an attained lower bound $m$, then the
+region at exponent $m$ is the least member of the chain containing the union.
+This proves the order-theoretic portion of a least-hull construction.
+
+The remaining local-field task is to instantiate the chain by the actual
+nonarchimedean lattices and the archimedean closed balls or polydiscs in the
+IUT packet summands.
+
+\section{The IUT IV downstream reconstruction}
+
+Once the corrected Corollary 3.12 estimate is available, the final scalar
+algebra is elementary.  A typical coefficient has the form
+\[
+ C_\Theta
+ =\lambda\left(A-\frac16\log q\right)-1,
+ \qquad \lambda>0.
+\]
+Then $C_\Theta\ge-1$ implies
+\[
+ \frac16\log q\le A.
+\]
+The subsequent $\eps$-absorption inequalities have also been formalized.
+
+The geometric part has three standard components.
+
+\subsection{The Legendre height comparison}
+For
+\[
+ E_\lambda:y^2=x(x-1)(x-\lambda),
+\]
+the $j$-invariant is
+\[
+ j(\lambda)=2^8\frac{(1-\lambda+\lambda^2)^3}
+ {\lambda^2(1-\lambda)^2}.
+\]
+Its pole divisor is $2[0]+2[1]+2[\infty]$.  Hence
+\[
+ h_\infty(j(\lambda))
+ =6h_{\omega_{\PP^1}(0+1+\infty)}(\lambda)+O(1).
+\]
+Tate uniformization identifies $\log q$ with the pole-height of $j$ up to
+bounded discrepancy on the relevant compactly bounded family, yielding
+\[
+ \frac16\log q
+ =h_{\omega_{\PP^1}(0+1+\infty)}+O(1).
+\]
+
+\subsection{Tripod different and conductor}
+For a coprime triple $a+b=c$ and $\lambda=a/c$,
+\[
+ h(\lambda)=\log\max\{a,b,c\},
+\]
+the relative different over $\Q$ is zero, and
+\[
+ \log\operatorname{Cond}_{\{0,1,\infty\}}(\lambda)
+ =\sum_{p\mid abc}\log p
+ =\log\rad(abc).
+\]
+Thus the tripod Vojta inequality specializes exactly to the logarithmic
+$abc$ inequality.
+
+\subsection{Exceptional sets and admissible primes}
+A finite exceptional set can be absorbed into the bounded-discrepancy
+constant.  The elementary prime-selection step --- choosing a prime above a
+bound and outside a finite set --- is also formalized.  The non-elementary
+part is proving that the Galois-image, Tate-order, and initial-theta
+conditions fail only on an admissible exceptional family; that remains part
+of the actual IUT IV source theorem.
+
+\section{Tripod Statement II implies abc}
+
+Let $T$ be an actual geometric tripod height theory.  Suppose there is an
+encoding of $abc$ triples into points of $T$ and constants $A_h,A_d,A_c$ such
+that
+\[
+ \log\max\{a,b,c\}
+ \le h_T(P)+A_h,
+\]
+\[
+ \log\operatorname{Diff}_T(P)\le A_d,
+\]
+\[
+ \log\operatorname{Cond}_T(P)
+ \le\log\rad(abc)+A_c.
+\]
+If Statement II gives, uniformly in $P$,
+\[
+ h_T(P)
+ \le
+ (1+\eps)
+ \bigl(\log\operatorname{Diff}_T(P)+
+       \log\operatorname{Cond}_T(P)\bigr)+B_\eps,
+\]
+then the logarithmic $abc$ conjecture follows after absorbing the comparison
+constants.  This implication is formalized without storing $abc$ as a field.
+
+\section{The quantifier correction}
+
+A universal Diophantine theorem cannot follow from one isolated initial
+Theta datum.  The correct source is a dependent family
+\[
+ x\longmapsto
+ \bigl(D_x,Q_x,S_x\bigr)
+\]
+indexed by all arithmetic inputs to which the theorem applies.
+
+A finite Boolean countermodel formalizes the logical point:
+\[
+ \exists x\,\operatorname{Certificate}(x)
+ \not\Rightarrow
+ \forall x\,\operatorname{Certificate}(x).
+\]
+
+Thus the first two construction goals must have the form
+\[
+ \forall x:\mathrm{Input},\quad
+ D_x:\texttt{InitialThetaData},
+\]
+\[
+ \forall x:\mathrm{Input},\quad
+ S_x:\texttt{GeneratedNativeSource}(D_x,Q_x).
+\]
+
+\section{Circularity of the former downstream certificate}
+
+An earlier certificate used a field
+\[
+ \bigl(\forall x,\operatorname{Cor312}(x)\bigr)
+ \longrightarrow ABCConjecture.
+\]
+For a fixed source family $F$, the type of such downstream objects is
+inhabited if and only if the target proposition is already true:
+\[
+ \boxed{
+ \operatorname{Nonempty}
+ (\operatorname{UniformDownstream}(F,T))
+ \iff T.
+ }
+\]
+Consequently the former three-closure certificate was inhabited precisely
+when an upstream family existed and $abc$ was already true.  This circularity
+was proved in Lean.
+
+\section{The non-circular final certificate}
+
+The circular field is replaced by explicit intermediate data:
+
+\begin{itemize}
+\item an encoding of $abc$ points into the input family;
+\item functions $\log Q$, $\log\mathrm{Diff}$, and $\log\mathrm{Cond}$;
+\item uniform height, different, and conductor comparison constants;
+\item for each $\eps>0$, one constant $C_\eps$ such that Corollary 3.12 for
+the encoded input implies the uniform q-height estimate.
+\end{itemize}
+
+This structure is called a non-circular IUT IV bridge.  Lean proves that a
+pointwise actual IUT III source family together with this bridge implies the
+standard logarithmic $abc$ conjecture.
+
+\section{The four-stage programme}
+
+The final honest formal structure has three construction stages and one
+consequence:
+
+\begin{enumerate}[label=(\arabic*)]
+\item an actual initial Theta-data family;
+\item an actual IUT III multiradial source family;
+\item an actual non-circular uniform IUT IV geometric bridge;
+\item the theorem $abc$.
+\end{enumerate}
+
+The Lean project defines a structure \texttt{FourStageProgram} containing the
+first three stages and proves
+\[
+ \boxed{
+ \texttt{FourStageProgram}
+ \Longrightarrow
+ \texttt{ABCConjecture}.
+ }
+\]
+Equivalently,
+\[
+ \operatorname{Nonempty}(\texttt{FourStageProgram})
+ \Longrightarrow
+ ABCConjecture.
+\]
+
+No inhabitant of \texttt{FourStageProgram} is constructed.
+
+\section{Why the four missing constructions were not solved here}
+
+The remaining problem is not a shortage of wrapper definitions.  It is the
+absence of proofs inhabiting the fields.
+
+\subsection{Actual initial Theta-data family}
+The public structure contains a number field, an elliptic curve, an admissible
+prime, a genuine mod-$\ell$ representation, a torsion field, orbicurves,
+coverings, fundamental groups, core relations, cusps, Tate parameters, and
+local conditions.  Defining a record with these field names does not construct
+these objects or prove their compatibility.
+
+\subsection{Actual IUT III source family}
+The public Corollary 3.12 project takes the theta region, packet presentation,
+log-volume, and hull system as interface data.  It does not define a complete
+Hodge-theater/Frobenioid/log-link/Kummer/multiradial source whose output
+inhabits those interfaces.  The generated-union construction proves what to
+do with concrete outputs; it does not manufacture the outputs.
+
+\subsection{Actual IUT IV uniform bridge}
+The non-circular bridge requires one uniform constant for all arithmetic
+points and all the actual height, different, and conductor comparisons.  It
+also requires the source theorems controlling exceptional sets, admissible
+primes, and the actual local/global packet estimates.  Packaging these
+statements as fields does not prove them.
+
+\subsection{Parameter-free abc theorem}
+The final theorem is a consequence of the preceding stages, not an additional
+independent construction.  A declaration
+\[
+ \texttt{theorem abc\_conjecture : ABCConjecture}
+\]
+without a term inhabiting the first three stages would hide an unproved axiom.
+
+\section{Ledger of results}
+
+\begin{longtable}{@{}p{0.46\textwidth}p{0.19\textwidth}p{0.28\textwidth}@{}}
+\toprule
+Result & Status & Comment\\
+\midrule
+\endfirsthead
+\toprule
+Result & Status & Comment\\
+\midrule
+\endhead
+Standard logarithmic $abc$ statement & Formalized & Exact target proposition\\
+Weak common-source sufficiency & Refuted & Finite Boolean countermodel\\
+Composite poly-morphism extraction & Proved & Elementary set-valued composition\\
+Full-poly Kummer conjugation & Proved & Requires fullness at the correct level\\
+Ordinary generated membership & Proved & Definitional in generated choice type\\
+Actual public witness $\Rightarrow$ public Cor312 variant & Proved & Uses public region/hull types\\
+Generated theta union admissible & Proved conditionally & Requires common finite support\\
+Finite-positive log-volume monotonicity & Proved & Standard measure theory\\
+Native q-pilot degree calibration & Proved abstractly & Uses linear arithmetic degree\\
+Ramification correction & Proved & Local response is $-(n/e)\log p$\\
+Packet marginalization & Proved & Finite product-measure identity\\
+Procession averaging & Proved & Constant capsule reading\\
+Finite exceptional-set absorption & Proved & Does not prove Galois-finiteness\\
+Elementary prime avoidance & Proved & Does not prove large Galois image\\
+IUT IV scalar algebra & Proved & Does not prove actual packet estimates\\
+Tripod Statement II $\Rightarrow abc$ & Proved conditionally & Requires actual comparison package\\
+Pointwise quantifier correction & Proved & One certificate is insufficient\\
+Circularity of old downstream certificate & Proved & Old certificate already contained $abc$\\
+Non-circular bridge $\Rightarrow abc$ & Proved & Honest final logical closure\\
+Actual initial Theta-data family & Open & No source inhabitant constructed\\
+Actual IUT III source family & Open & Complete source types absent\\
+Actual uniform IUT IV bridge & Open & Uniform geometric theorem absent\\
+Parameter-free $abc$ theorem & Open & Equivalent to inhabiting prior stages\\
+\bottomrule
+\end{longtable}
+
+\section{Lean package architecture}
+
+The accompanying project contains thirty-seven Lean modules.  Its main groups
+are:
+
+\begin{description}[leftmargin=0pt,labelindent=0pt,style=nextline,itemsep=0.45em]
+\item[Public Corollary 3.12 adapter]
+\texttt{ActualPilotWitness.lean}, \texttt{GeneratedSource.lean}.
+\item[Quantifier and circularity audit]
+\texttt{QuantifierCorrectClosure.lean}, \texttt{CircularityAudit.lean},
+\texttt{NonCircularDownstream.lean}.
+\item[Full-poly and countermodel core]
+\texttt{FullPolyCore.lean}, \texttt{WeakCompatibilityCountermodel.lean}.
+\item[Q-pilot normalization]
+\texttt{QPilotNormalizationAudit.lean},
+\texttt{QPilotNormalizationFork.lean},
+\texttt{RootQPilotDivisor.lean},
+\texttt{RamificationCorrectedQPilot.lean}.
+\item[Packets, volumes, and hulls]
+\texttt{FinitePositiveLogVolumeMonotonicity.lean},
+\texttt{ProductWeightMarginalization.lean},
+\texttt{PrimePowerQPilotRegion.lean},
+\texttt{NativeQPilotCalibration.lean},
+\texttt{FiniteExponentHull.lean}.
+\item[Downstream algebra]
+\texttt{FiniteExceptionalSet.lean},
+\texttt{AdmissiblePrimeSelection.lean},
+\texttt{Cor312CoefficientAlgebra.lean},
+\texttt{IUTIVAbsorption.lean}.
+\item[Final honest closure]
+\texttt{FourOpenConstructions.lean},
+\texttt{AxiomAudit.lean}.
+\end{description}
+
+The source contains no explicit \texttt{sorry}, \texttt{admit}, or
+user-declared \texttt{axiom}.  The current runtime did not contain Lean, so the
+v4.0 archive received static auditing but not a fresh local kernel build.
+
+\section{Conclusion}
+
+The research programme has reached a sharp boundary.  The categorical,
+measure-theoretic, normalization, averaging, scalar-algebra, quantifier, and
+final-transfer components are no longer vague.  They have been stated as
+precise theorems, many of them formalized.
+
+What remains is substantially deeper: actual construction of the source
+objects that the public Lean interfaces deliberately leave abstract.  No
+amount of renaming certificates can replace the existence theorems for those
+objects.  Accordingly, the present work is a comprehensive reconstruction and
+formalization audit, but it does not claim an unconditional solution of the
+$abc$ conjecture.
+
+\appendix
+
+\section{Exact non-circular theorem}
+
+The formal theorem has the schematic shape
+\[
+\begin{aligned}
+&\text{pointwise actual IUT III source family}\\
+&\quad+\text{uniform q-height estimate from Corollary 3.12}\\
+&\quad+\text{height/different/conductor comparisons}\\
+&\qquad\Longrightarrow ABCConjecture.
+\end{aligned}
+\]
+The exact remaining proposition is
+\[
+ \operatorname{Nonempty}(\texttt{FourStageProgram}).
+\]
+
+\section{Bibliographic sources}
+
+\begin{thebibliography}{99}
+
+\bibitem{IUT1}
+S.~Mochizuki,
+\emph{Inter-universal Teichm\"uller Theory I: Construction of Hodge Theaters},
+Publ. RIMS 57 (2021), 3--207.
+
+\bibitem{IUT2}
+S.~Mochizuki,
+\emph{Inter-universal Teichm\"uller Theory II: Hodge--Arakelov-theoretic Evaluation},
+Publ. RIMS 57 (2021), 209--401.
+
+\bibitem{IUT3}
+S.~Mochizuki,
+\emph{Inter-universal Teichm\"uller Theory III: Canonical Splittings of the
+Log-theta-lattice},
+Publ. RIMS 57 (2021), 403--626.
+
+\bibitem{IUT4}
+S.~Mochizuki,
+\emph{Inter-universal Teichm\"uller Theory IV: Log-volume Computations and
+Set-theoretic Foundations},
+Publ. RIMS 57 (2021), 627--723.
+
+\bibitem{GenEll}
+S.~Mochizuki,
+\emph{Arithmetic Elliptic Curves in General Position}.
+
+\bibitem{LANA-IUT}
+LANA contributors,
+\emph{Inter-universal Teichm\"uller theory: the ABC/IUT trunk},
+Lean 4 formalization project.
+
+\end{thebibliography}
+
+\end{document}

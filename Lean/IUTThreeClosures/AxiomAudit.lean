@@ -1,0 +1,4 @@
+import IUTThreeClosures.ThreeClosureTheorems
+
+#print axioms IUTThreeClosures.PointwiseIUTIIIFamily.corollary312Variant_all
+#print axioms IUTThreeClosures.ThreeClosureCertificate.abc_conjecture_of_three_closures

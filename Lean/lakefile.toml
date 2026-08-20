@@ -1,0 +1,27 @@
+name = "IUTABCComprehensiveResearch"
+version = "0.4.0"
+defaultTargets = ["IUTThreeClosures"]
+
+[leanOptions]
+pp.unicode.fun = true
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "iut"
+git = "https://github.com/lana-agents/iut.git"
+rev = "ddaddc274281adb5674d647e24fa478745ac6d40"
+
+[[require]]
+name = "genl"
+git = "https://github.com/LANA-Project/genl.git"
+rev = "6e9a6543b46a2a02fd7fe7ec8ab203d878f32859"
+
+[[require]]
+name = "iut4Sec1"
+git = "https://github.com/LANA-Project/iut4-sec1.git"
+rev = "a7551d2f575b7e462cf9e82c587d9c6308e7b15c"
+
+[[lean_lib]]
+name = "IUTThreeClosures"
