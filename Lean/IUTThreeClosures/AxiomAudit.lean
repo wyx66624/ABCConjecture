@@ -1,6 +1,9 @@
-import IUTThreeClosures.BridgeInhabitationAudit
+import IUTThreeClosures.LogVolumeEmptyRegionNoGo
 
 #print axioms IUTThreeClosures.PointwiseIUTIIIFamily.corollary312Variant_all
 #print axioms IUTThreeClosures.ThreeClosureCertificate.abc_conjecture_of_three_closures
 #print axioms IUTThreeClosures.NonCircularIUTIVBridge.nonempty_iff_abc
 #print axioms IUTThreeClosures.nonempty_fourStageProgram_iff
+#print axioms IUTThreeClosures.GeneratedRHSData.contradiction
+#print axioms IUTThreeClosures.PointwiseIUTIIIFamily.contradiction
+#print axioms IUTThreeClosures.not_nonempty_fourStageProgram

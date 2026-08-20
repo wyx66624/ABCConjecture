@@ -11,6 +11,7 @@ import IUTThreeClosures.FullPolyCore
 import IUTThreeClosures.WeakCompatibilityCountermodel
 import IUTThreeClosures.FourOpenConstructions
 import IUTThreeClosures.BridgeInhabitationAudit
+import IUTThreeClosures.LogVolumeEmptyRegionNoGo
 import IUTThreeClosures.QPilotNormalizationAudit
 import IUTThreeClosures.QPilotNormalizationFork
 import IUTThreeClosures.RootQPilotDivisor
