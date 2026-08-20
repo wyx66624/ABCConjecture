@@ -44,7 +44,9 @@ theorem statementII
   intro P hP
   by_cases hExc : P ∈ D.exceptional d ε K
   · have hPE : P ∈ E := by
-      simp [E, hExc, S, hP]
+      apply Finset.mem_filter.mpr
+      refine ⟨hExc, ?_⟩
+      simpa [S] using hP
     have h := hCin P hPE
     have hmax : Cin ≤ max B Cin := le_max_right _ _
     linarith
