@@ -12,8 +12,11 @@ import IUTThreeClosures.WeakCompatibilityCountermodel
 import IUTThreeClosures.FourOpenConstructions
 import IUTThreeClosures.BridgeInhabitationAudit
 import IUTThreeClosures.BridgeInhabitationExact
+
+-- Canonical, source-derived replacement for the freely populated bridge.
 import IUTThreeClosures.CanonicalQPilotCorridor
 import IUTThreeClosures.SourceDerivedIUTIVBridge
+
 import IUTThreeClosures.QPilotNormalizationAudit
 import IUTThreeClosures.QPilotNormalizationFork
 import IUTThreeClosures.RootQPilotDivisor
