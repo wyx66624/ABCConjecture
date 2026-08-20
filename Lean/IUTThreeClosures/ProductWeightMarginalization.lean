@@ -1,12 +1,11 @@
-import Mathlib.Algebra.BigOperators.Ring.Finset
-import Mathlib.Logic.Equiv.Basic
+import Mathlib
 
 /-!
 # Marginalization of product packet weights
 
 For a finite label type `L`, a finite place fiber `V`, and normalized place
 weights `w`, the product weight on components `c : L → V` has marginal `w`
-at every distinguished label.  This is the finite product-measure identity
+at every distinguished label. This is the finite product-measure identity
 needed to reduce a packet q-pilot calculation to the weighted local place sum.
 -/
 
