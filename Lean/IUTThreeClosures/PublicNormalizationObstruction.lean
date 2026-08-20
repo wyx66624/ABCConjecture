@@ -5,7 +5,7 @@ import Mathlib
 
 If an integer Tate order is normalized by a uniformizer, the arithmetic-divisor
 contribution is proportional to the residue degree `f`, not the local degree
-`e*f`.  Equality of the two positive local contributions forces ramification
+`e*f`. Equality of the two positive local contributions forces ramification
 index `e = 1`.
 -/
 
@@ -29,7 +29,7 @@ theorem equality_forces_unramified
     e = 1 := by
   have hbase : 0 < arithmeticLocalContribution n f d logp := by
     exact mul_pos (mul_pos (div_pos hf hd) hn) hlogp
-  unfold documentedLocalDegreeContribution arithmeticLocalContribution at hEq ⊢
+  unfold documentedLocalDegreeContribution arithmeticLocalContribution at hEq hbase
   have hfactor :
       (e * f / d) * n * logp =
         e * ((f / d) * n * logp) := by ring
