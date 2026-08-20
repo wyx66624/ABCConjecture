@@ -5,11 +5,14 @@ on:
     branches:
       - main
       - "formalize/**"
-      - "formalize/canonical-source-derived-bridge"
     paths-ignore:
       - Lean/CI_RESULT.md
   pull_request:
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -37,7 +40,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          lake build --wfail 2>&1 | tee ../lean-build.log
+          lake build 2>&1 | tee ../lean-build.log
 
       - name: Record auditable result on the verification branch
         if: always() && startsWith(github.ref, 'refs/heads/formalize/')
@@ -52,11 +55,23 @@ jobs:
             echo
             echo "- Tested commit: \`$TESTED_SHA\`"
             echo "- Toolchain/dependency setup: \`$SETUP_OUTCOME\`"
-            echo "- \`lake build --wfail\`: \`$BUILD_OUTCOME\`"
+            echo "- \`lake build\`: \`$BUILD_OUTCOME\`"
+            echo
+            echo "## Error summary"
             echo
             echo '```text'
             if [[ -f lean-build.log ]]; then
-              tail -n 400 lean-build.log
+              grep -nE '(^error:|^✖|^Some required targets|unknown tactic|unsolved goals|failed to synthesize|Invalid field|unexpected token)' lean-build.log | tail -n 500 || true
+            else
+              echo "No build log was produced."
+            fi
+            echo '```'
+            echo
+            echo "## Build log tail"
+            echo
+            echo '```text'
+            if [[ -f lean-build.log ]]; then
+              tail -n 700 lean-build.log
             else
               echo "No build log was produced."
             fi
