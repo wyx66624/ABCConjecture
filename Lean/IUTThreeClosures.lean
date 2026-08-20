@@ -15,6 +15,7 @@ import IUTThreeClosures.BridgeInhabitationExact
 
 -- Canonical, source-derived replacement for the freely populated bridge.
 import IUTThreeClosures.CanonicalQPilotCorridor
+import IUTThreeClosures.CanonicalCorridorAudit
 import IUTThreeClosures.SourceDerivedIUTIVBridge
 
 import IUTThreeClosures.QPilotNormalizationAudit
