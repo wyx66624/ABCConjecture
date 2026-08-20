@@ -10,6 +10,7 @@ import IUTThreeClosures.NonCircularDownstream
 import IUTThreeClosures.FullPolyCore
 import IUTThreeClosures.WeakCompatibilityCountermodel
 import IUTThreeClosures.FourOpenConstructions
+import IUTThreeClosures.BridgeInhabitationAudit
 import IUTThreeClosures.QPilotNormalizationAudit
 import IUTThreeClosures.QPilotNormalizationFork
 import IUTThreeClosures.RootQPilotDivisor
