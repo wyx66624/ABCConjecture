@@ -30,7 +30,7 @@ structure FourStageProgram : Type
   /-- Stage 1: a pointwise actual initial-theta family and q-pilot data. -/
   upstream : UpstreamCertificate.{u, v, w, z}
     (AG := AG) (TG := TG) (Input := Input)
-  /-- Stage 2 is already part of `upstream`: the actual IUT III output source family. -/
+  -- Stage 2 is already part of `upstream`: the actual IUT III output source family.
   /-- Stage 3: a non-circular uniform IUT IV geometric bridge. -/
   downstream : NonCircularIUTIVBridge upstream.family
 
