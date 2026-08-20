@@ -1,8 +1,8 @@
-# IUT/ABC comprehensive research formalization v4.0
+# IUT/ABC comprehensive research formalization v4.1
 
 Author: ChatGPT
 
-This Lean 4.32 project consolidates the formal results obtained in the IUT/ABC
+This Lean 4.32 project consolidates formal results obtained in the IUT/ABC
 research programme. It uses the public `lana-agents/iut` Corollary 3.12 types
 and imports selected public IUT IV/general-position interfaces.
 
@@ -13,7 +13,7 @@ and imports selected public IUT IV/general-position interfaces.
 - construction of the public theta-pilot region as the union of concrete outputs;
 - the correct pointwise quantifier structure for a universal Diophantine theorem;
 - a circularity audit of the old downstream certificate;
-- a non-circular IUT IV certificate and its implication to abc;
+- an explicit q-height comparison package and its implication to abc;
 - Kummer conjugation in a full poly-isomorphism and generated ordinary membership;
 - a countermodel for proper restricted coric families;
 - finite-positive logarithmic-measure monotonicity;
@@ -25,9 +25,10 @@ and imports selected public IUT IV/general-position interfaces.
 - finite exceptional-set absorption and prime avoidance;
 - nested-chain hull lemmas;
 - the scalar Corollary 3.12 / IUT IV coefficient algebra;
-- the exact four-stage non-circular closure programme.
+- the exact four-stage closure programme;
+- an inhabitation audit of the current `NonCircularIUTIVBridge`.
 
-## Exact final theorem proved by the package
+## Exact conditional theorem proved by the package
 
 ```lean
 theorem FourStageProgram.abc_conjecture
@@ -43,19 +44,45 @@ theorem abc_of_four_stages_inhabited
     ABCConjecture
 ```
 
+## Critical inhabitation audit
+
+For an inhabited arithmetic input type and a fixed pointwise IUT III family `F`,
+the current bridge type satisfies
+
+```lean
+Nonempty (NonCircularIUTIVBridge F) ↔ ABCConjecture
+```
+
+and the current four-stage package satisfies
+
+```lean
+Nonempty FourStageProgram ↔
+  Nonempty UpstreamCertificate ∧ ABCConjecture
+```
+
+The reverse construction fills `qEstimate` from an already available abc
+inequality and does not use the Corollary 3.12 premise. Therefore the bridge is
+syntactically free of an `ABCConjecture` field, but unrestricted bridge
+inhabitation is still logically as strong as abc. It must not be counted as an
+independently constructed IUT IV theorem.
+
 ## What is not proved
 
-No term of type `FourStageProgram` is constructed. In particular, the package
-does not construct:
+No term of type `FourStageProgram` is constructed from the intended IUT source.
+In particular, the package does not construct:
 
-1. the actual initial theta-data family for every arithmetic input;
-2. the actual IUT III Hodge-theater/Frobenioid/multiradial output family;
-3. the actual uniform IUT IV geometric height bridge;
-4. an unparameterized theorem `abc_conjecture : ABCConjecture`.
+1. a concrete `AnabelianGeometry` implementation;
+2. a concrete `TemperedGeometry` implementation;
+3. the actual admissible-prime family for every arithmetic input;
+4. the actual orbicurve/core/cusp and local theta-data families;
+5. the actual IUT III Hodge-theater/Frobenioid/Kummer/log-link/multiradial outputs;
+6. a source-derived uniform IUT IV geometric height theorem;
+7. an unparameterized theorem `abc_conjecture : ABCConjecture`.
 
-The public IUT repository explicitly leaves the required source constructions
-behind interfaces/specification boundaries. Merely defining replacement
-structures does not prove their inhabitation.
+The public IUT repository leaves the required source constructions behind
+interfaces/specification boundaries. Merely defining replacement structures or
+populating their fields from an assumed abc inequality does not prove their
+inhabitation.
 
 ## Build
 
@@ -65,10 +92,13 @@ lake exe cache get
 lake build --wfail
 ```
 
-The current ChatGPT runtime did not contain a Lean toolchain, so this v4.0
-archive has undergone static source auditing but not a fresh local kernel build.
+A GitHub Actions workflow runs the Lean build and `leanchecker` from the `Lean/`
+package directory. A successful workflow run, together with the axiom report in
+`IUTThreeClosures/AxiomAudit.lean`, is required before a change is described as
+kernel-checked.
 
-## Static audit
+## Honesty rules
 
-See `STATIC_AUDIT.json`. The source contains no explicit `sorry`, `admit`, or
-user-declared `axiom`.
+The formal target may not be closed with `sorry`, `admit`, a new axiom, an opaque
+existence assumption, or a structure field whose inhabitation is equivalent to
+`ABCConjecture`. Such a declaration would only rename the missing theorem.
