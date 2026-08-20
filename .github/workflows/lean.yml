@@ -1,5 +1,7 @@
 name: Lean kernel build
 
+# Push-triggered runs on verification branches write their result back to
+# Lean/CI_RESULT.md so the build remains auditable through the repository API.
 on:
   push:
     branches:
