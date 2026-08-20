@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - "formalize/**"
+      - "formalize/canonical-source-derived-bridge"
     paths-ignore:
       - Lean/CI_RESULT.md
   pull_request:
@@ -55,7 +56,7 @@ jobs:
             echo
             echo '```text'
             if [[ -f lean-build.log ]]; then
-              tail -n 300 lean-build.log
+              tail -n 400 lean-build.log
             else
               echo "No build log was produced."
             fi
