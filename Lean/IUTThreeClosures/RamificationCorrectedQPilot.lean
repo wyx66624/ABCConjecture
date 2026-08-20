@@ -4,10 +4,10 @@ import Mathlib
 # Ramification-corrected local q-pilot response
 
 The public packet normalization is expressed using the rational residue
-characteristic `p`: multiplication by `p` subtracts `log p`.  For a local
+characteristic `p`: multiplication by `p` subtracts `log p`. For a local
 uniformizer `π` with `p = u * π^e`, where `u` is a unit and `e` is the
 ramification index, the correct normalized response is therefore
-`-(1/e) * log p`.  A Tate parameter `q = u_q * π^n` has response
+`-(1/e) * log p`. A Tate parameter `q = u_q * π^n` has response
 `-(n/e) * log p`.
 
 This corrects the tempting but generally false identification of `q O` with
@@ -88,6 +88,5 @@ theorem normalized_local_degree_contribution
     ((e * f) / d) * (-(n / e) * logp) =
       -((n * f) / d) * logp := by
   field_simp [he, hd]
-  ring
 
 end IUTThreeClosures
