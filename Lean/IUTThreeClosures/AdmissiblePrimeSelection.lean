@@ -1,10 +1,9 @@
-import Mathlib.Data.Nat.Prime.Infinite
-import Mathlib.Tactic.Omega
+import Mathlib
 
 /-!
 # Prime selection above a bound and outside a finite set
 
-This formalizes the purely elementary selection step.  It does not prove that
+This formalizes the purely elementary selection step. It does not prove that
 the Galois-image, Tate-order, or Corollary 2.2 conditions fail at only finitely
 many primes; those are the substantive arithmetic inputs.
 -/
