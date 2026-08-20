@@ -27,7 +27,7 @@ theorem preimage_primeImage
   · intro hx
     rcases hx with ⟨y, hy, hxy⟩
     have hp : (((p : ℕ) : F)) ≠ 0 := by
-      exact_mod_cast p.ne_zero
+      exact_mod_cast p.2.ne_zero
     have hyx : y = x := by
       apply mul_left_cancel₀ hp
       exact hxy
@@ -62,7 +62,7 @@ theorem componentVol_primePowerImage
   induction n with
   | zero => simp [primePowerImage]
   | succ n ih =>
-      rw [primePowerImage, vol.componentVol_primeImage, ih]
+      rw [primePowerImage, componentVol_primeImage vol, ih]
       push_cast
       ring
 
@@ -71,9 +71,9 @@ theorem componentVol_primePowerIntegral
     (c : D.Components i (.finite p))
     (n : ℕ) :
     vol.componentVol i (.finite p) c
-        (primePowerImage p n (D.packet i (.finite p)).integral c) =
+        (primePowerImage p n ((D.packet i (.finite p)).integral c)) =
       - (n : ℝ) * Real.log p := by
-  rw [vol.componentVol_primePowerImage]
+  rw [componentVol_primePowerImage vol]
   rw [vol.componentVol_integral_nonarch]
   ring
 
@@ -82,7 +82,7 @@ def packetPrimePowerRegion
     (order : D.Components i (.finite p) → ℕ) :
     Set (D.packet i (.finite p)).Total :=
   (D.packet i (.finite p)).productRegion fun c =>
-    primePowerImage p (order c) (D.packet i (.finite p)).integral c
+    primePowerImage p (order c) ((D.packet i (.finite p)).integral c)
 
 theorem packetVol_packetPrimePowerRegion
     (i : Fin D.proc.length) (p : Nat.Primes)
@@ -93,7 +93,7 @@ theorem packetVol_packetPrimePowerRegion
   rw [packetPrimePowerRegion, vol.packetVol_product']
   apply Finset.sum_congr rfl
   intro c hc
-  rw [vol.componentVol_primePowerIntegral]
+  rw [componentVol_primePowerIntegral vol]
 
 end PrimePowerQPilotRegion
 end Iut
