@@ -10,6 +10,8 @@ many primes; those are the substantive arithmetic inputs.
 
 namespace IUTThreeClosures
 
+open scoped BigOperators
+
 private theorem mem_le_sum (s : Finset ℕ) {p : ℕ} (hp : p ∈ s) :
     p ≤ ∑ q in s, q := by
   classical
