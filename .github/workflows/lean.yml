@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - "formalize/**"
+      - "formalize/canonical-source-derived-bridge"
     paths-ignore:
       - Lean/CI_RESULT.md
   pull_request:
