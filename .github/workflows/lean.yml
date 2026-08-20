@@ -1,0 +1,73 @@
+name: Lean kernel build
+
+on:
+  push:
+    branches:
+      - main
+      - "formalize/**"
+    paths-ignore:
+      - Lean/CI_RESULT.md
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean and restore dependencies
+        id: setup
+        continue-on-error: true
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "true"
+
+      - name: Run kernel build
+        id: kernel_build
+        continue-on-error: true
+        working-directory: Lean
+        shell: bash
+        run: |
+          set -o pipefail
+          lake build --wfail 2>&1 | tee ../lean-build.log
+
+      - name: Record auditable result on the verification branch
+        if: always() && startsWith(github.ref, 'refs/heads/formalize/')
+        shell: bash
+        env:
+          TESTED_SHA: ${{ github.sha }}
+          SETUP_OUTCOME: ${{ steps.setup.outcome }}
+          BUILD_OUTCOME: ${{ steps.kernel_build.outcome }}
+        run: |
+          {
+            echo "# Lean CI result"
+            echo
+            echo "- Tested commit: \`$TESTED_SHA\`"
+            echo "- Toolchain/dependency setup: \`$SETUP_OUTCOME\`"
+            echo "- \`lake build --wfail\`: \`$BUILD_OUTCOME\`"
+            echo
+            echo '```text'
+            if [[ -f lean-build.log ]]; then
+              tail -n 300 lean-build.log
+            else
+              echo "No build log was produced."
+            fi
+            echo '```'
+          } > Lean/CI_RESULT.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- Lean/CI_RESULT.md
+          git commit -m "ci: record Lean build for $TESTED_SHA" || true
+          git push
+
+      - name: Enforce successful build
+        if: steps.setup.outcome != 'success' || steps.kernel_build.outcome != 'success'
+        shell: bash
+        run: exit 1
