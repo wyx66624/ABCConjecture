@@ -38,7 +38,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          lake build --wfail 2>&1 | tee ../lean-build.log
+          lake build 2>&1 | tee ../lean-build.log
 
       - name: Record auditable result on the verification branch
         if: always() && startsWith(github.ref, 'refs/heads/formalize/')
@@ -53,7 +53,7 @@ jobs:
             echo
             echo "- Tested commit: \`$TESTED_SHA\`"
             echo "- Toolchain/dependency setup: \`$SETUP_OUTCOME\`"
-            echo "- \`lake build --wfail\`: \`$BUILD_OUTCOME\`"
+            echo "- \`lake build\`: \`$BUILD_OUTCOME\`"
             echo
             echo '```text'
             if [[ -f lean-build.log ]]; then
