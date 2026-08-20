@@ -9,8 +9,8 @@ import IUTThreeClosures.BridgeInhabitationAudit
 # Empty-region obstruction in the public log-volume interface
 
 `Iut.LogVolumeData.componentVol_prime_preimage` currently requires the prime-scaling
-identity for every set.  Substituting the empty set makes the preimage equal to the
-empty set and forces `x = x + log p` for a rational prime `p`.  Since `p > 1`, this is
+identity for every set. Substituting the empty set makes the preimage equal to the
+empty set and forces `x = x + log p` for a rational prime `p`. Since `p > 1`, this is
 impossible.
 
 The consequences formalized below are stronger than a missing implementation:
@@ -47,7 +47,7 @@ theorem logVolumeData_empty_region_contradiction_of_component
     (c : D.Components i (.finite p)) : False := by
   have h :
       vol.componentVol i (.finite p) c (∅) =
-        vol.componentVol i (.finite p) c (∅) + Real.log p := by
+        vol.componentVol i (.finite p) c (∅) + Real.log (p : ℝ) := by
     simpa using vol.componentVol_prime_preimage i p c (∅)
   have hp : (1 : ℝ) < (p : ℝ) := by
     exact_mod_cast p.2.one_lt
@@ -82,16 +82,17 @@ theorem finitePlace_residueChar_ne_zero
     {K : Type u} [Field K] [NumberField K]
     (x : FinitePlace K) : residueChar x ≠ 0 := by
   unfold residueChar
-  exact CharP.ringChar_ne_zero_of_finite _
+  exact CharP.ringChar_ne_zero_of_finite
+    (𝓞 K ⧸ x.maximalIdeal.asIdeal)
 
 namespace GeneratedRHSData
 
 variable {AG : AnabelianGeometry.{u}} {TG : TemperedGeometry AG}
 variable {D : InitialThetaData AG TG}
 
-/-- The current public `GeneratedRHSData` type is uninhabited.  Its standard procession
+/-- The current public `GeneratedRHSData` type is uninhabited. Its standard procession
 is nonempty because the admissible prime is at least five, while every number field has
-a finite place.  The required rational-place compatibility puts that place into a
+a finite place. The required rational-place compatibility puts that place into a
 finite-prime fiber, where the empty-region log-volume contradiction applies. -/
 theorem contradiction (G : GeneratedRHSData.{u, v, w} D) : False := by
   have hfive : 5 ≤ D.ℓ := D.prime.five_le
@@ -115,7 +116,7 @@ end GeneratedRHSData
 namespace GeneratedNativeSource
 
 variable {AG : AnabelianGeometry.{u}} {TG : TemperedGeometry AG}
-variable {D : InitialThetaData AG TG} {Q : QPilot D}
+variable {D : InitialThetaData AG TG} {Q : QPilotData D}
 
 /-- No generated native source can inhabit the current interface. -/
 theorem contradiction (S : GeneratedNativeSource.{u, v, w} D Q) : False :=
