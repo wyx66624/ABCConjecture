@@ -92,9 +92,7 @@ theorem completeFreyJPacket_div_six_le_freyConductor
   have h := (B.estimate P).qTerm_le_main_of_componentUpper
     (B.qPositive P) h312 (B.factorPositive P)
     (B.componentFormula P)
-  change (1 / 6 : ℝ) * completeGlobalJPacket ℚ (abcFreyCurve P).j ≤
-    P.freyDiscriminantConductor at h
-  nlinarith
+  simpa only [div_eq_mul_inv] using h
 
 /-- Auditable pointwise abc-height bound with completely explicit constants. -/
 theorem pointwise_height_bound
