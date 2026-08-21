@@ -1,0 +1,65 @@
+name: Lean diagnostic recorder
+
+on:
+  push:
+    branches:
+      - formalize/prime-power-generated-theta-hull-v2
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: formalize/prime-power-generated-theta-hull-v2
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve dependencies
+        working-directory: Lean
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Build and record concise diagnostics
+        shell: bash
+        run: |
+          set +e
+          cd Lean
+          lake build > ../lean-build-diagnostic.log 2>&1
+          rc=$?
+          cd ..
+          {
+            echo '# Lean diagnostic'
+            echo
+            echo "Build return code: $rc"
+            echo
+            echo '```text'
+            grep -E '(^| )error:|✖|unsolved goals|type mismatch|unknown identifier|application type mismatch|typeclass instance problem' lean-build-diagnostic.log | tail -n 160 || true
+            echo '```'
+            echo
+            echo '## Tail'
+            echo
+            echo '```text'
+            tail -n 220 lean-build-diagnostic.log
+            echo '```'
+          } > Lean/CI_DIAGNOSTIC.md
+
+      - name: Commit diagnostic
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add Lean/CI_DIAGNOSTIC.md
+          git commit -m 'ci: record Lean diagnostic [skip ci]' || exit 0
+          git push origin HEAD:formalize/prime-power-generated-theta-hull-v2
