@@ -2,19 +2,16 @@ import IUTThreeClosures.PublicLogVolumeInconsistency
 import IUTThreeClosures.FourOpenConstructions
 
 /-!
-# The current public source programme is uninhabited
+# Finite-component obstruction for the current public source programme
 
-The empty-region contradiction in `PublicLogVolumeInconsistency` propagates to
-the exact research-level certificate types. On any inhabited input type:
+The current public `LogVolumeData` translation law is inconsistent as soon as
+one nonarchimedean packet component exists.  This file propagates that precise
+obstruction to the research-level source and four-stage programme types.
 
-* no `UpstreamCertificate` exists;
-* no `FourStageProgram` exists;
-* hence the current public interfaces cannot yield a parameter-free
-  `abc_conjecture` by inhabitation.
-
-This is a theorem about the present Lean specification, not about the intended
-finite-positive Haar-volume mathematics. The corrected programme must use the
-honest finite-positive volume domain before the geometric inhabitants can be
+Unlike an earlier draft, it does not assert that every abstract public source
+has such a component.  That final existence step depends on the intended
+number-field packet construction and must be proved separately.  The results
+below say exactly what follows once a concrete finite component has been
 constructed.
 -/
 
@@ -25,35 +22,71 @@ open Iut
 universe u v w z
 
 variable {AG : AnabelianGeometry.{u}} {TG : TemperedGeometry AG}
-variable (Input : Type z) [Nonempty Input]
+variable {Input : Type z}
 
-/-- The current upstream certificate is impossible on a nonempty input type. -/
-theorem not_nonempty_upstreamCertificate :
+/-- A concrete nonarchimedean component in one member of a pointwise public
+IUT III source family. -/
+structure PublicFiniteComponent
+    (F : PointwiseIUTIIIFamily.{u, v, w, z}
+      (AG := AG) (TG := TG) Input) where
+  x : Input
+  i : Fin (F.source x).rhs.container.proc.length
+  p : Nat.Primes
+  c : (F.source x).rhs.container.Components i (.finite p)
+
+namespace PublicFiniteComponent
+
+/-- A concrete finite component contradicts the public total log-volume law. -/
+theorem false
+    {F : PointwiseIUTIIIFamily.{u, v, w, z}
+      (AG := AG) (TG := TG) Input}
+    (W : PublicFiniteComponent F) : False :=
+  not_generatedRHSData_of_nonarch_component
+    (F.source W.x).rhs W.i W.p W.c
+
+end PublicFiniteComponent
+
+/-- An upstream certificate is impossible whenever one constructs a finite
+component in its associated public source family. -/
+theorem upstreamCertificate_false_of_finite_component
+    (U : UpstreamCertificate.{u, v, w, z}
+      (AG := AG) (TG := TG) (Input := Input))
+    (W : PublicFiniteComponent U.family) : False :=
+  W.false
+
+/-- A four-stage programme is impossible whenever one constructs a finite
+component in its associated public source family. -/
+theorem fourStageProgram_false_of_finite_component
+    (P : FourStageProgram.{u, v, w, z}
+      (AG := AG) (TG := TG) (Input := Input))
+    (W : PublicFiniteComponent P.upstream.family) : False :=
+  W.false
+
+/-- If every candidate upstream certificate necessarily carries a concrete
+finite component, then the current public upstream type is uninhabited. -/
+theorem not_nonempty_upstreamCertificate_of_finite_components
+    (hcomponent :
+      ∀ U : UpstreamCertificate.{u, v, w, z}
+        (AG := AG) (TG := TG) (Input := Input),
+        Nonempty (PublicFiniteComponent U.family)) :
     ¬ Nonempty
       (UpstreamCertificate.{u, v, w, z}
         (AG := AG) (TG := TG) (Input := Input)) := by
   rintro ⟨U⟩
-  have hfamily : Nonempty
-      (PointwiseIUTIIIFamily.{u, v, w, z}
-        (AG := AG) (TG := TG) Input) :=
-    ⟨U.family⟩
-  exact not_nonempty_pointwiseIUTIIIFamily
-    (AG := AG) (TG := TG) (v := v) (w := w) Input hfamily
+  rcases hcomponent U with ⟨W⟩
+  exact W.false
 
-/-- The current four-stage record is impossible on a nonempty input type. -/
-theorem not_nonempty_fourStageProgram :
+/-- The corresponding conditional obstruction for the four-stage programme. -/
+theorem not_nonempty_fourStageProgram_of_finite_components
+    (hcomponent :
+      ∀ P : FourStageProgram.{u, v, w, z}
+        (AG := AG) (TG := TG) (Input := Input),
+        Nonempty (PublicFiniteComponent P.upstream.family)) :
     ¬ Nonempty
       (FourStageProgram.{u, v, w, z}
         (AG := AG) (TG := TG) (Input := Input)) := by
   rintro ⟨P⟩
-  exact not_nonempty_upstreamCertificate
-    (AG := AG) (TG := TG) (v := v) (w := w) Input ⟨P.upstream⟩
-
-/-- The exact public inhabitation proposition is false. -/
-theorem not_fourStagesInhabited :
-    ¬ FourStagesInhabited.{u, v, w, z}
-      (AG := AG) (TG := TG) (Input := Input) :=
-  not_nonempty_fourStageProgram
-    (AG := AG) (TG := TG) (v := v) (w := w) Input
+  rcases hcomponent P with ⟨W⟩
+  exact W.false
 
 end IUTThreeClosures
