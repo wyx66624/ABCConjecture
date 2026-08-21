@@ -52,6 +52,7 @@ import IUTThreeClosures.RootQPilotDivisor
 import IUTThreeClosures.FinitePositiveLogVolumeMonotonicity
 import IUTThreeClosures.RamificationCorrectedQPilot
 import IUTThreeClosures.ProductWeightMarginalization
+import IUTThreeClosures.CanonicalLocalDegreeWeights
 import IUTThreeClosures.PrimePowerQPilotRegion
 import IUTThreeClosures.DistinguishedLabelQPilot
 import IUTThreeClosures.NativeQPilotCalibration
