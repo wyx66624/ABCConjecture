@@ -39,6 +39,8 @@ namespace Iut
 
 open scoped Pointwise
 
+universe u₁ u₂ v₁
+
 namespace PrimePowerQPilotRegion
 
 /-- Prime-power image membership is multiplication by the corresponding
@@ -116,9 +118,8 @@ theorem primePowerImage_integral_antitone
 
 /-- A packet prime-power region is genuinely a public hull region `a · O`. -/
 theorem packetPrimePowerRegion_isHullRegion
-    {u₁ u₂ v : Level}
     {ι : Type u₁} {V : Type u₂}
-    {D : LargeVolumeContainerData.{u₁, u₂, v} ι V}
+    {D : LargeVolumeContainerData.{u₁, u₂, v₁} ι V}
     (i : Fin D.proc.length) (p : Nat.Primes)
     (order : D.Components i (.finite p) → ℕ)
     (hp : ∀ c : D.Components i (.finite p),
