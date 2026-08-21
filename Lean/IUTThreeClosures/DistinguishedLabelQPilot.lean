@@ -33,6 +33,7 @@ theorem packetVol_distinguishedLabel
       ∑ v : D.Fiber (.finite p),
         vol.weight (.finite p) v *
           (- (order v : ℝ) * Real.log p) := by
+  classical
   rw [packetVol_packetPrimePowerRegion vol i p
     (fun c => order (c j₀)) hp]
   exact IUTThreeClosures.product_weight_marginal
