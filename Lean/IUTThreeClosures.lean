@@ -25,6 +25,7 @@ import IUTThreeClosures.CanonicalCorridorAudit
 import IUTThreeClosures.SourceDerivedIUTIVBridge
 import IUTThreeClosures.FreyCalibratedIUTIVBridge
 import IUTThreeClosures.GlobalQPilotReconstruction
+import IUTThreeClosures.CompleteGlobalJPacket
 
 -- Arithmetic input route: point-dependent Legendre and integral Frey curves,
 -- their exact rational Weil heights and conductor arithmetic, an explicit
