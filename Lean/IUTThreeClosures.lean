@@ -18,6 +18,9 @@ import IUTThreeClosures.CanonicalQPilotCorridor
 import IUTThreeClosures.CanonicalCorridorAudit
 import IUTThreeClosures.SourceDerivedIUTIVBridge
 
+-- Group-theoretic persistence of a perfect mod-ℓ image after solvable base change.
+import IUTThreeClosures.SolvableRestrictionImage
+
 import IUTThreeClosures.QPilotNormalizationAudit
 import IUTThreeClosures.QPilotNormalizationFork
 import IUTThreeClosures.RootQPilotDivisor
