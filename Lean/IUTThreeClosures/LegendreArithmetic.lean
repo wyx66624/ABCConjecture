@@ -57,6 +57,7 @@ theorem legendre_quadratic_eq_core_div (P : ABCPoint) :
   unfold legendreCore
   field_simp [hc]
   rw [← hsum]
+  push_cast
   ring
 
 /-- The core is coprime to `a`. -/
@@ -140,6 +141,5 @@ theorem abcLegendre_j_eq_core
       have hb : (P.b : ℚ) ≠ 0 := by exact_mod_cast P.b_pos.ne'
       have hc : (P.c : ℚ) ≠ 0 := by exact_mod_cast P.c_pos.ne'
       field_simp [ha, hb, hc]
-      ring
 
 end IUTThreeClosures
