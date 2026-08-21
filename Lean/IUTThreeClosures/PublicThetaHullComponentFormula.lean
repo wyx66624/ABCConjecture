@@ -3,7 +3,7 @@ Copyright (c) 2026 ChatGPT. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: ChatGPT
 -/
-import Iut.Cor312.RightHandSide
+import Iut.Cor312.Statement
 
 /-!
 # The actual public theta-hull component formula
