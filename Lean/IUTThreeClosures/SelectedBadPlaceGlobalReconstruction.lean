@@ -5,19 +5,19 @@ import IUTThreeClosures.TateLocalQJContribution
 # Reconstructing the global `j`-height from selected bad-place Tate data
 
 A selected bad-place Tate packet is only part of the finite contribution to a
-global Weil height.  This module makes the missing complement canonical:
+global Weil height. This module makes the missing complement canonical:
 
 `omittedFinite = completeFinite - selectedBad`.
 
 It then proves an exact all-place reconstruction using the selected Tate
 q-sizes, the omitted finite contribution, and the weighted archimedean
-contribution.  No real-valued error function is supplied independently; every
+contribution. No real-valued error function is supplied independently; every
 term is derived from the initial theta data and the number-field height.
 
 To turn this identity into the uniform reverse q-pilot bound required by abc,
 one must still prove that the omitted-finite, procession, different and root
 normalization terms of the actual multiradial packet have a point-independent
-upper bound.  The exact identity here prevents those terms from being hidden
+upper bound. The exact identity here prevents those terms from being hidden
 inside an opaque bridge field.
 -/
 
@@ -30,7 +30,7 @@ universe u
 variable {AG : AnabelianGeometry.{u}} {TG : TemperedGeometry AG}
 
 /-- The canonical finite-place contribution omitted by the selected bad-place
-set.  It is defined from the complete height decomposition and the actual
+set. It is defined from the complete height decomposition and the actual
 selected places, not as an arbitrary correction. -/
 noncomputable def omittedFiniteJContribution
     (D : InitialThetaData AG TG) (Q : QPilotData D) : ℝ :=
@@ -93,9 +93,10 @@ theorem selectedTateGlobalPacket_eq_height
       w ∈ Q.badFinset → ‖(12 : Iut.localCompletion w)‖ = 1) :
     selectedTateGlobalPacket D Q =
       Heights.normalizedLogHeight D.F D.E.j := by
-  unfold selectedTateGlobalPacket selectedBadPlaceGlobalPacket
-  rw [selectedBadPlaceTateAbsLogQ_eq_JContribution D Q h12]
-  exact selectedBadPlaceGlobalPacket_eq_height D Q
+  rw [selectedTateGlobalPacket,
+    selectedBadPlaceTateAbsLogQ_eq_JContribution D Q h12]
+  simpa [selectedBadPlaceGlobalPacket] using
+    selectedBadPlaceGlobalPacket_eq_height D Q
 
 /-- If the canonical omitted finite and archimedean complement is uniformly
 bounded above, then the selected Tate q-size controls the global `j`-height in
@@ -114,12 +115,19 @@ theorem normalizedLogHeight_le_selectedTate_add
         C / (Module.finrank ℚ D.F : ℝ) := by
   have hdeg : (0 : ℝ) < Module.finrank ℚ D.F :=
     Heights.numberFieldDegree_pos D.F
-  have hreconstruct := selectedTateGlobalPacket_eq_height D Q h12
-  rw [← hreconstruct]
+  rw [← selectedTateGlobalPacket_eq_height D Q h12]
   unfold selectedTateGlobalPacket
-  apply (div_le_div_iff_of_pos_right hdeg).2
-  have := hcomplement
-  ring_nf at this ⊢
-  linarith
+  calc
+    (selectedBadPlaceTateAbsLogQ D Q +
+          omittedFiniteJContribution D Q +
+          completeArchimedeanJContribution D.F D.E.j) /
+        (Module.finrank ℚ D.F : ℝ) ≤
+      (selectedBadPlaceTateAbsLogQ D Q + C) /
+        (Module.finrank ℚ D.F : ℝ) := by
+          apply (div_le_div_iff_of_pos_right hdeg).2
+          linarith
+    _ = selectedBadPlaceTateAbsLogQ D Q /
+          (Module.finrank ℚ D.F : ℝ) +
+        C / (Module.finrank ℚ D.F : ℝ) := by ring
 
 end IUTThreeClosures
