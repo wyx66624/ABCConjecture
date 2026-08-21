@@ -25,6 +25,14 @@ universe u v
 
 variable {ι : Type u} {V : Type v}
 
+/-- Public packet components use a finite function type.  We choose a concrete
+`Fintype` from its `Finite` instance so all dependent capsule sums share the
+same enumeration. -/
+noncomputable local instance packetFunctionFintype
+    (P : Iut.Procession ι) [Fintype V] (i : Fin P.length) :
+    Fintype ((P.capsule i).LabelType → V) :=
+  Fintype.ofFinite _
+
 section AbstractWeights
 
 variable (P : Iut.Procession ι)
@@ -50,8 +58,9 @@ theorem capsuleBarycentricReading_eq_local
     capsuleBarycentricReading P coeff weight value i =
       ∑ v, weight v * value v := by
   classical
-  exact product_weight_barycentric_of_sum_one
-    (coeff i) weight value (hcoeff i) hweight
+  simpa [capsuleBarycentricReading] using
+    (product_weight_barycentric_of_sum_one
+      (coeff i) weight value (hcoeff i) hweight)
 
 /-- Average of the capsule readings over the procession. -/
 noncomputable def processionBarycentricReading
