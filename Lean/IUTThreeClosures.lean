@@ -18,10 +18,11 @@ import IUTThreeClosures.CanonicalQPilotCorridor
 import IUTThreeClosures.CanonicalCorridorAudit
 import IUTThreeClosures.SourceDerivedIUTIVBridge
 
--- Arithmetic input route: point-dependent Legendre curves, an explicit fixed
--- comparison curve, and preservation of perfect mod-ℓ image after solvable
--- auxiliary base change.
+-- Arithmetic input route: point-dependent Legendre curves and their height
+-- arithmetic, an explicit fixed comparison curve, and preservation of perfect
+-- mod-ℓ image after solvable auxiliary base change.
 import IUTThreeClosures.ABCPointLegendreCurve
+import IUTThreeClosures.LegendreArithmetic
 import IUTThreeClosures.ExplicitSemistableCurve
 import IUTThreeClosures.SolvableRestrictionImage
 import IUTThreeClosures.ZModSL2Perfect
