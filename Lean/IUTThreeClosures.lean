@@ -26,6 +26,7 @@ import IUTThreeClosures.SourceDerivedIUTIVBridge
 import IUTThreeClosures.FreyCalibratedIUTIVBridge
 import IUTThreeClosures.GlobalQPilotReconstruction
 import IUTThreeClosures.CompleteGlobalJPacket
+import IUTThreeClosures.TateLocalQJContribution
 
 -- Arithmetic input route: point-dependent Legendre and integral Frey curves,
 -- their exact rational Weil heights and conductor arithmetic, an explicit
