@@ -1,4 +1,4 @@
-import Iut.Cor312.ThetaData.AdmissiblePrime
+import Iut.Cor312.LeftHandSide
 import TateCurvesTheta.TateCurve.JInvariant
 import Mathlib.NumberTheory.NumberField.Completion.FinitePlace
 
@@ -10,14 +10,14 @@ At a split multiplicative place, the Tate-curve identity
 `‖j(E_q)‖ = ‖q‖⁻¹`
 
 implies that the positive local logarithmic contribution of `j` is exactly
-`-log ‖q‖`.  This file formalizes that identity first over an arbitrary
+`-log ‖q‖`. This file formalizes that identity first over an arbitrary
 complete ultrametric field and then for every bad place carried by actual
 initial theta data.
 
 The theorem requires `‖12‖ = 1`, exactly as the current Tate-curve library's
-norm theorem does.  Thus residue characteristics `2` and `3` must either be
+norm theorem does. Thus residue characteristics `2` and `3` must either be
 handled separately as a finite exceptional contribution or covered by a
-strengthened integral Tate-curve norm theorem.  The route is not discarded;
+strengthened integral Tate-curve norm theorem. The route is not discarded;
 the exceptional-place term is one of the bounded complements isolated by
 `GlobalQPilotReconstruction`.
 -/
@@ -61,15 +61,16 @@ theorem finitePlace_posLog_eq_tateAbsLogQ
 
 universe u
 
-variable {AG : AnabelianGeometry.{u}} {TG : TemperedGeometry AG}
+variable {AG : Iut.AnabelianGeometry.{u}}
+variable {TG : Iut.TemperedGeometry AG}
 
 /-- At every actual bad place of initial theta data, the local `j`-height
 contribution is the norm q-size, away from the current library's `2,3`
 exception. -/
 theorem initialTheta_badPlace_posLog_eq_tateAbsLogQ
-    (D : InitialThetaData AG TG)
+    (D : Iut.InitialThetaData AG TG)
     (w : FinitePlace D.F)
-    (hw : w ∈ badPlacesOver D.F D.E D.VBad)
+    (hw : w ∈ Iut.badPlacesOver D.F D.E D.VBad)
     (h12 : ‖(12 : Iut.localCompletion w)‖ = 1) :
     Real.posLog (w D.E.j) =
       -Real.log ‖((D.prime.tate w hw).q : Iut.localCompletion w)‖ := by
@@ -79,7 +80,7 @@ theorem initialTheta_badPlace_posLog_eq_tateAbsLogQ
 /-- The selected bad-place packet built directly from the actual Tate
 parameters, without an independent real weight function. -/
 noncomputable def selectedBadPlaceTateAbsLogQ
-    (D : InitialThetaData AG TG) (Q : QPilotData D) : ℝ :=
+    (D : Iut.InitialThetaData AG TG) (Q : Iut.QPilotData D) : ℝ :=
   ∑ w ∈ Q.badFinset.attach,
     -Real.log ‖((D.prime.tate w.1 (Q.mem_bad w.2)).q :
       Iut.localCompletion w.1)‖
@@ -87,14 +88,14 @@ noncomputable def selectedBadPlaceTateAbsLogQ
 /-- The corresponding selected finite-place positive-log contribution of the
 global elliptic `j`-invariant. -/
 noncomputable def selectedBadPlaceJContribution
-    (D : InitialThetaData AG TG) (Q : QPilotData D) : ℝ :=
+    (D : Iut.InitialThetaData AG TG) (Q : Iut.QPilotData D) : ℝ :=
   ∑ w ∈ Q.badFinset.attach, Real.posLog (w.1 D.E.j)
 
 /-- Away from residue characteristics where the current Tate norm theorem
 needs a separate argument, the actual q-packet is exactly the selected
 finite-place `j`-height contribution. -/
 theorem selectedBadPlaceTateAbsLogQ_eq_JContribution
-    (D : InitialThetaData AG TG) (Q : QPilotData D)
+    (D : Iut.InitialThetaData AG TG) (Q : Iut.QPilotData D)
     (h12 : ∀ w : FinitePlace D.F,
       w ∈ Q.badFinset → ‖(12 : Iut.localCompletion w)‖ = 1) :
     selectedBadPlaceTateAbsLogQ D Q =
