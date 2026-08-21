@@ -22,6 +22,7 @@ import IUTThreeClosures.BridgeInhabitationExact
 import IUTThreeClosures.CanonicalQPilotCorridor
 import IUTThreeClosures.CanonicalCorridorAudit
 import IUTThreeClosures.SourceDerivedIUTIVBridge
+import IUTThreeClosures.FreyCalibratedIUTIVBridge
 
 -- Arithmetic input route: point-dependent Legendre and integral Frey curves,
 -- their exact rational Weil heights and height arithmetic, an explicit fixed
