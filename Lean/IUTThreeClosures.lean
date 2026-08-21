@@ -5,6 +5,7 @@ import IUTThreeClosures.HonestFinitePositiveLogVolume
 import IUTThreeClosures.FiniteProductLogVolume
 import IUTThreeClosures.PublicThetaHullComponentFormula
 import IUTThreeClosures.PublicThetaHullUpperBound
+import IUTThreeClosures.PublicIUTIVTheorem110
 import IUTThreeClosures.HonestPilotWitness
 import IUTThreeClosures.HonestGeneratedSource
 import IUTThreeClosures.HonestContainerSource
