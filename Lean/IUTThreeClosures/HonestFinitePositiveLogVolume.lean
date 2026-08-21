@@ -4,11 +4,11 @@ import Mathlib
 # A consistent finite-positive logarithmic volume domain
 
 The public `LogVolumeData` applies a real-valued logarithmic volume and its
-scaling law to every set, which is inconsistent on `∅`.  The mathematically
+scaling law to every set, which is inconsistent on `∅`. The mathematically
 correct domain consists of measurable regions of finite, nonzero measure.
 
-This module defines that domain directly from a measure.  Log-volume is no
-longer a freely populated function: it is `log ((μ U).toReal)`.  Monotonicity
+This module defines that domain directly from a measure. Log-volume is no
+longer a freely populated function: it is `log ((μ U).toReal)`. Monotonicity
 is proved from measure monotonicity, and scaling laws are represented by
 maps between finite-positive regions rather than statements about arbitrary
 sets.
@@ -26,7 +26,7 @@ structure FinitePositiveRegion
   carrier : Set α
   measurable : MeasurableSet carrier
   measure_ne_zero : μ carrier ≠ 0
-  measure_ne_top : μ carrier ≠ ∞
+  measure_ne_top : μ carrier ≠ ⊤
 
 namespace FinitePositiveRegion
 
@@ -34,7 +34,7 @@ variable {α : Type u} [MeasurableSpace α] {μ : Measure α}
 
 instance : SetLike (FinitePositiveRegion α μ) α where
   coe U := U.carrier
-  coe_injective' := by
+  coe_injective := by
     intro U V h
     cases U
     cases V
@@ -42,7 +42,7 @@ instance : SetLike (FinitePositiveRegion α μ) α where
 
 @[ext]
 theorem ext {U V : FinitePositiveRegion α μ}
-    (h : (U : Set α) = V) : U = V :=
+    (h : (U : Set α) = (V : Set α)) : U = V :=
   SetLike.coe_injective h
 
 /-- The canonical logarithmic volume. -/
@@ -58,7 +58,7 @@ theorem measure_toReal_pos (U : FinitePositiveRegion α μ) :
 /-- Inclusion of finite-positive regions gives monotonicity of canonical
 log-volume. -/
 theorem logVolume_mono {U V : FinitePositiveRegion α μ}
-    (hUV : (U : Set α) ⊆ V) :
+    (hUV : (U : Set α) ⊆ (V : Set α)) :
     U.logVolume ≤ V.logVolume := by
   have hμ : μ U.carrier ≤ μ V.carrier := measure_mono hUV
   have hreal : (μ U.carrier).toReal ≤ (μ V.carrier).toReal :=
@@ -72,10 +72,10 @@ theorem logVolume_eq_add_of_measure_toReal_eq_mul
     (hr : 0 < r)
     (hscale : (μ U.carrier).toReal = r * (μ V.carrier).toReal) :
     U.logVolume = Real.log r + V.logVolume := by
-  rw [logVolume, logVolume, hscale, Real.log_mul hr.ne'
-    V.measure_toReal_pos.ne']
+  rw [logVolume, logVolume, hscale,
+    Real.log_mul hr.ne' V.measure_toReal_pos.ne']
 
-/-- A scaling operation on the honest domain.  The target region is required
+/-- A scaling operation on the honest domain. The target region is required
 to remain finite-positive, so `∅` can never be fed to the scaling law. -/
 structure ScalingLaw
     (transform : Set α → Set α) (logJacobian : ℝ) where
@@ -115,7 +115,7 @@ noncomputable def ScalingLaw.iterate
           logVolume_pullback := ?_ }
       · intro U
         rw [F.carrier_pullback, G.carrier_pullback]
-        rfl
+        exact (Function.iterate_succ_apply' f n (U : Set α)).symm
       · intro U
         rw [F.logVolume_pullback, G.logVolume_pullback]
         push_cast
