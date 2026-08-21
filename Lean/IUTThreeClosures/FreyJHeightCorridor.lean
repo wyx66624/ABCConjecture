@@ -45,7 +45,7 @@ theorem abcFrey_j_eq_reduced (P : ABCPoint) :
     exact_mod_cast P.freyJContent_pos.ne'
   have hd : (P.freyJReducedDen : ℚ) ≠ 0 := by
     exact_mod_cast P.freyJReducedDen_pos.ne'
-  field_simp [hg, hd] <;> ring
+  field_simp [hg, hd]
 
 /-- The reduced natural numerator is the numerator stored by `ℚ`. -/
 theorem abcFrey_j_num (P : ABCPoint) :
@@ -74,7 +74,12 @@ theorem abcFrey_j_den (P : ABCPoint) :
   have h := Rat.den_div_eq_of_coprime
     (a := (P.freyJReducedNum : ℤ))
     (b := (P.freyJReducedDen : ℤ)) hd hcop
-  exact_mod_cast h
+  have h' :
+      ((((P.freyJReducedNum : ℚ) /
+        (P.freyJReducedDen : ℚ)).den : ℕ) : ℤ) =
+        (P.freyJReducedDen : ℤ) := by
+    simpa using h
+  exact Int.ofNat_inj.mp h'
 
 /-- Exact expression for the actual absolute rational Weil height of the Frey
 `j`-invariant. -/
@@ -107,8 +112,11 @@ theorem height_le_normalizedLogHeight_abcFrey_j (P : ABCPoint) :
   have hlog := Real.log_le_log (pow_pos hcR 6) hreal
   rw [Real.log_pow,
     Real.log_mul (by norm_num : (8 : ℝ) ≠ 0) hMR.ne'] at hlog
-  norm_num at hlog ⊢
-  nlinarith
+  have hgoal :
+      Real.log (P.c : ℝ) ≤
+        Real.log (M : ℝ) / 6 + Real.log 8 / 6 := by
+    nlinarith [hlog]
+  simpa [M] using hgoal
 
 /-- Conversely, one sixth of the canonical Frey `j`-height is bounded by the
 abc height up to the explicit constant `log 256 / 6`. -/
@@ -131,8 +139,11 @@ theorem normalizedLogHeight_abcFrey_j_div_six_le (P : ABCPoint) :
   rw [Real.log_mul (by norm_num : (256 : ℝ) ≠ 0)
       (pow_pos hcR 6).ne',
     Real.log_pow] at hlog
-  norm_num at hlog ⊢
-  nlinarith
+  have hgoal :
+      Real.log (M : ℝ) / 6 ≤
+        Real.log (P.c : ℝ) + Real.log 256 / 6 := by
+    nlinarith [hlog]
+  simpa [M] using hgoal
 
 /-- Two-sided bounded discrepancy between the target height and one sixth of
 the canonical Frey `j`-height. -/
