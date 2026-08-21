@@ -13,6 +13,7 @@ import IUTThreeClosures.NonCircularDownstream
 import IUTThreeClosures.FullPolyCore
 import IUTThreeClosures.WeakCompatibilityCountermodel
 import IUTThreeClosures.FourOpenConstructions
+import IUTThreeClosures.PublicProgramUninhabited
 import IUTThreeClosures.BridgeInhabitationAudit
 import IUTThreeClosures.BridgeInhabitationExact
 
