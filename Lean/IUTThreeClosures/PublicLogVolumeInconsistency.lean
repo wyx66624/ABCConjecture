@@ -1,4 +1,5 @@
 import Iut.Cor312.LogVolume
+import IUTThreeClosures.GeneratedSource
 
 /-!
 # Inconsistency of the public total log-volume translation law
@@ -24,7 +25,7 @@ namespace IUTThreeClosures
 
 open Iut
 
-universe u₁ u₂ v
+universe u₁ u₂ v w
 
 variable {ι : Type u₁} {V : Type u₂}
 variable {D : LargeVolumeContainerData.{u₁, u₂, v} ι V}
@@ -62,7 +63,6 @@ theorem not_generatedRHSData_of_nonarch_component
     {AG : AnabelianGeometry.{u₂}}
     {TG : TemperedGeometry AG}
     {Dθ : InitialThetaData AG TG}
-    {w : Level}
     (G : GeneratedRHSData.{u₂, v, w} Dθ)
     (i : Fin G.container.proc.length) (p : Nat.Primes)
     (c : G.container.Components i (.finite p)) : False := by
