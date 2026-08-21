@@ -1,6 +1,8 @@
 import IUTThreeClosures.ActualPilotWitness
 import IUTThreeClosures.GeneratedSource
 import IUTThreeClosures.PublicLogVolumeInconsistency
+import IUTThreeClosures.HonestFinitePositiveLogVolume
+import IUTThreeClosures.HonestPilotWitness
 import IUTThreeClosures.QuantifierCorrectClosure
 import IUTThreeClosures.ABCStatement
 import IUTThreeClosures.ABCClosure
