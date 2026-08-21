@@ -4,18 +4,18 @@ import IUTThreeClosures.CanonicalLocalDegreeWeights
 # Tame different contribution under root normalization
 
 For a finite flat extension and a prime `p` of the base, the tame different
-exponent at `q | p` is `e(q/p) - 1`.  With the canonical local-degree
+exponent at `q | p` is `e(q/p) - 1`. With the canonical local-degree
 normalization its weight is
 
 `(e(q/p) - 1) f(q/p) / [S : R]`.
 
 Since `e - 1 ≤ e` and `∑_{q|p} e f = [S:R]`, the total normalized tame
-different contribution at `p` is at most `log p`.  After the IUT `2ℓ`-th-root
+different contribution at `p` is at most `log p`. After the IUT `2ℓ`-th-root
 normalization it is at most `log p / (2ℓ)`, and hence at most
 `ε log p` whenever `1/(2ℓ) ≤ ε`.
 
 This proves the tame part of the different correction with the exact
-coefficient needed for epsilon absorption.  Wild different exponents and the
+coefficient needed for epsilon absorption. Wild different exponents and the
 geometric identification of the source correction with this arithmetic sum
 remain separate tasks.
 -/
@@ -89,7 +89,7 @@ the base-prime logarithm. -/
 theorem canonicalTameDifferentContribution_le
     (hdeg : 0 < Module.finrank R S)
     {primeLog : ℝ} (hlog : 0 ≤ primeLog) :
-    canonicalTameDifferentContribution p primeLog ≤ primeLog := by
+    canonicalTameDifferentContribution (S := S) p primeLog ≤ primeLog := by
   unfold canonicalTameDifferentContribution
   calc
     ∑ q : p.primesOver S,
@@ -108,7 +108,7 @@ theorem canonicalTameDifferentContribution_le
 /-- `2ℓ`-root-normalized tame different contribution. -/
 noncomputable def rootNormalizedTameDifferentContribution
     (ell : ℕ) (primeLog : ℝ) : ℝ :=
-  canonicalTameDifferentContribution p primeLog /
+  canonicalTameDifferentContribution (S := S) p primeLog /
     (2 * (ell : ℝ))
 
 /-- Root normalization gives the exact `1/(2ℓ)` upper coefficient. -/
@@ -116,13 +116,13 @@ theorem rootNormalizedTameDifferentContribution_le
     (hdeg : 0 < Module.finrank R S)
     {ell : ℕ} (hell : 0 < ell)
     {primeLog : ℝ} (hlog : 0 ≤ primeLog) :
-    rootNormalizedTameDifferentContribution p ell primeLog ≤
+    rootNormalizedTameDifferentContribution (S := S) (p := p) ell primeLog ≤
       primeLog / (2 * (ell : ℝ)) := by
   unfold rootNormalizedTameDifferentContribution
   have hden : 0 < (2 : ℝ) * (ell : ℝ) := by
     positivity
   exact (div_le_div_iff_of_pos_right hden).2
-    (canonicalTameDifferentContribution_le p hdeg hlog)
+    (canonicalTameDifferentContribution_le (S := S) p hdeg hlog)
 
 /-- If the root coefficient is below `ε`, the tame different contribution is
 absorbed by `ε` times the base-prime conductor contribution. -/
@@ -131,12 +131,13 @@ theorem rootNormalizedTameDifferentContribution_le_epsilon
     {ell : ℕ} (hell : 0 < ell)
     {primeLog ε : ℝ} (hlog : 0 ≤ primeLog)
     (hscale : 1 / (2 * (ell : ℝ)) ≤ ε) :
-    rootNormalizedTameDifferentContribution p ell primeLog ≤
+    rootNormalizedTameDifferentContribution (S := S) (p := p) ell primeLog ≤
       ε * primeLog := by
   calc
-    rootNormalizedTameDifferentContribution p ell primeLog ≤
+    rootNormalizedTameDifferentContribution (S := S) (p := p) ell primeLog ≤
         primeLog / (2 * (ell : ℝ)) :=
-      rootNormalizedTameDifferentContribution_le p hdeg hell hlog
+      rootNormalizedTameDifferentContribution_le
+        (S := S) (p := p) hdeg hell hlog
     _ = (1 / (2 * (ell : ℝ))) * primeLog := by ring
     _ ≤ ε * primeLog :=
       mul_le_mul_of_nonneg_right hscale hlog
