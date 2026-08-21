@@ -43,6 +43,7 @@ theorem shiftedJ_eq_num_div (P : ABCPoint) :
     exact_mod_cast P.c_pos.ne'
   rw [shiftedJ, ABCPoint.lambda]
   field_simp [hc]
+  push_cast
   ring
 
 /-- The shifted parameter lies strictly between `2` and `3`. -/
@@ -72,6 +73,12 @@ theorem coprime_shiftedJ_num_den (P : ABCPoint) :
   rw [show 2 * P.c + P.a = P.a + P.c * 2 by omega]
   exact (Nat.coprime_add_mul_left_left P.a P.c 2).2 P.coprime_a_c
 
+private theorem shiftedJ_num_natAbs (P : ABCPoint) :
+    (2 * (P.c : ℤ) + (P.a : ℤ)).natAbs = 2 * P.c + P.a := by
+  rw [Int.natAbs_of_nonneg]
+  · norm_cast
+  · positivity
+
 /-- The reduced numerator of `j_shift` is exactly `2c+a`. -/
 theorem shiftedJ_num (P : ABCPoint) :
     P.shiftedJ.num = (2 * P.c + P.a : ℕ) := by
@@ -80,7 +87,9 @@ theorem shiftedJ_num (P : ABCPoint) :
     exact_mod_cast P.c_pos
   have hcop : Nat.Coprime
       (2 * P.c + P.a : ℤ).natAbs (P.c : ℤ).natAbs := by
-    simpa using P.coprime_shiftedJ_num_den
+    rw [P.shiftedJ_num_natAbs]
+    simp only [Int.natAbs_natCast]
+    exact P.coprime_shiftedJ_num_den
   simpa using Rat.num_div_eq_of_coprime
     (a := (2 * P.c + P.a : ℤ)) (b := (P.c : ℤ)) hc hcop
 
@@ -92,7 +101,9 @@ theorem shiftedJ_den (P : ABCPoint) :
     exact_mod_cast P.c_pos
   have hcop : Nat.Coprime
       (2 * P.c + P.a : ℤ).natAbs (P.c : ℤ).natAbs := by
-    simpa using P.coprime_shiftedJ_num_den
+    rw [P.shiftedJ_num_natAbs]
+    simp only [Int.natAbs_natCast]
+    exact P.coprime_shiftedJ_num_den
   have h := Rat.den_div_eq_of_coprime
     (a := (2 * P.c + P.a : ℤ)) (b := (P.c : ℤ)) hc hcop
   have h' :
@@ -103,11 +114,15 @@ theorem shiftedJ_den (P : ABCPoint) :
 
 /-- Every positive abc triple has `c ≥ 2`. -/
 theorem two_le_c (P : ABCPoint) : 2 ≤ P.c := by
+  have ha := P.a_pos
+  have hb := P.b_pos
+  have hs := P.sum_eq
   omega
 
 /-- The shifted parameter has nontrivial denominator. -/
 theorem shiftedJ_den_ne_one (P : ABCPoint) : P.shiftedJ.den ≠ 1 := by
   rw [P.shiftedJ_den]
+  have hc := P.two_le_c
   omega
 
 /-- The shifted rational parameter is not the image of an integer. -/
@@ -121,11 +136,14 @@ theorem shiftedJ_not_integer (P : ABCPoint) :
 /-- The numerator is strictly larger than `2c`. -/
 theorem two_c_lt_shiftedJ_numNat (P : ABCPoint) :
     2 * P.c < 2 * P.c + P.a := by
+  have ha := P.a_pos
   omega
 
 /-- In particular the numerator is strictly larger than `c`. -/
 theorem c_lt_shiftedJ_numNat (P : ABCPoint) :
     P.c < 2 * P.c + P.a := by
+  have hc := P.c_pos
+  have ha := P.a_pos
   omega
 
 /-- The numerator is strictly smaller than `3c`. -/
@@ -153,7 +171,7 @@ theorem height_add_log_two_le_shiftedJHeight (P : ABCPoint) :
     exact_mod_cast (show 2 * P.c ≤ 2 * P.c + P.a by omega)
   have hlog := Real.log_le_log (mul_pos (by norm_num) hc) hle
   rw [Real.log_mul (by norm_num : (2 : ℝ) ≠ 0) hc.ne'] at hlog
-  exact hlog
+  simpa [add_comm] using hlog
 
 /-- The shifted `j`-height is at most `height(P)+log 3`. -/
 theorem shiftedJHeight_le_height_add_log_three (P : ABCPoint) :
@@ -162,8 +180,12 @@ theorem shiftedJHeight_le_height_add_log_three (P : ABCPoint) :
   rw [P.height_eq_log_c, P.normalizedLogHeight_shiftedJ]
   have hc : (0 : ℝ) < P.c := by
     exact_mod_cast P.c_pos
+  have hnat : 0 < 2 * P.c + P.a := by
+    have hcNat := P.c_pos
+    have haNat := P.a_pos
+    omega
   have hnum : (0 : ℝ) < ((2 * P.c + P.a : ℕ) : ℝ) := by
-    exact_mod_cast (show 0 < 2 * P.c + P.a by omega)
+    exact_mod_cast hnat
   have hle : ((2 * P.c + P.a : ℕ) : ℝ) ≤ (3 : ℝ) * P.c := by
     exact_mod_cast Nat.le_of_lt P.shiftedJ_numNat_lt_three_c
   have hlog := Real.log_le_log hnum hle
