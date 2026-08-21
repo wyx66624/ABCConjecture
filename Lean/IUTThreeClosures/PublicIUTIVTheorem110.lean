@@ -91,8 +91,12 @@ theorem theorem110_main_coefficient_le
           ell ^ 3 := by
     field_simp [hell_ne]
     ring
-  rw [hid]
-  exact hfrac
+  have hdiff :
+      0 ≤ (1 - 12 / ell ^ 2) * (1 + 20 * dmod / ell) -
+        (1 + 12 * dmod / ell) := by
+    rw [hid]
+    exact hfrac
+  linarith
 
 /-- The coefficient `10` of the remaining error term is at most
 `20 * (1 - 12/ell²)` for `ell ≥ 7`. -/
@@ -151,7 +155,18 @@ theorem theorem110_q_bound
       ring
     rw [hleft]
     exact hcore.trans hright
-  exact (mul_le_mul_left hden).mp hscaled
+  by_contra hnot
+  have hlt :
+      (1 + 20 * dmod / ell) * (different + conductor) +
+          20 * error < rawQ / 6 :=
+    lt_of_not_ge hnot
+  have hposprod :
+      0 < (1 - 12 / ell ^ 2) *
+        (rawQ / 6 -
+          ((1 + 20 * dmod / ell) * (different + conductor) +
+            20 * error)) :=
+    mul_pos hden (sub_pos.mpr hlt)
+  nlinarith [hscaled, hposprod]
 
 /-- Corollary 3.12 and the public theta-coefficient upper formula imply the
 core inequality of IUT IV, Theorem 1.10. -/
