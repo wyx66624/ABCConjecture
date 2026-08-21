@@ -20,6 +20,8 @@ with the local-degree weight is the arithmetic-divisor term.
 
 namespace IUTThreeClosures
 
+open scoped BigOperators
+
 structure LocalQPilotNormalizationDatum where
   ramification : ℝ
   residueDegree : ℝ
@@ -116,24 +118,28 @@ theorem ramifiedQuadraticExample_mismatch :
 
 section Global
 
-variable {V : Type*} [Fintype V]
+universe uV
 
-structure GlobalQPilotNormalizationDatum (V : Type*) where
-  local : V → LocalQPilotNormalizationDatum
+variable {V : Type uV} [Fintype V]
+
+/-- A finite family of local normalization data.  The field is deliberately
+not named `local`, which is a Lean command keyword. -/
+structure GlobalQPilotNormalizationDatum (V : Type uV) where
+  datum : V → LocalQPilotNormalizationDatum
 
 namespace GlobalQPilotNormalizationDatum
 
 noncomputable def documentedLogQ
     (D : GlobalQPilotNormalizationDatum V) : ℝ :=
-  ∑ v, (D.local v).documentedTerm
+  ∑ v, (D.datum v).documentedTerm
 
 noncomputable def divisorLogQ
     (D : GlobalQPilotNormalizationDatum V) : ℝ :=
-  ∑ v, (D.local v).divisorTerm
+  ∑ v, (D.datum v).divisorTerm
 
 noncomputable def correctedPacketLogQ
     (D : GlobalQPilotNormalizationDatum V) : ℝ :=
-  ∑ v, (D.local v).correctedPacketTerm
+  ∑ v, (D.datum v).correctedPacketTerm
 
 theorem correctedPacketLogQ_eq_divisorLogQ
     (D : GlobalQPilotNormalizationDatum V) :
@@ -141,7 +147,7 @@ theorem correctedPacketLogQ_eq_divisorLogQ
   unfold correctedPacketLogQ divisorLogQ
   apply Finset.sum_congr rfl
   intro v hv
-  exact (D.local v).correctedPacketTerm_eq_divisorTerm
+  exact (D.datum v).correctedPacketTerm_eq_divisorTerm
 
 end GlobalQPilotNormalizationDatum
 end Global
