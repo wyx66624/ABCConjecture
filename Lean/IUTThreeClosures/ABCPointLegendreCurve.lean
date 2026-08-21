@@ -31,10 +31,12 @@ theorem lambda_pos (P : ABCPoint) : 0 < P.lambda := by
   · exact_mod_cast P.c_pos
 
 theorem a_lt_c (P : ABCPoint) : P.a < P.c := by
-  omega
+  rw [← P.sum_eq]
+  exact Nat.lt_add_of_pos_right P.b_pos
 
 theorem b_lt_c (P : ABCPoint) : P.b < P.c := by
-  omega
+  rw [← P.sum_eq]
+  exact Nat.lt_add_of_pos_left P.a_pos
 
 theorem lambda_lt_one (P : ABCPoint) : P.lambda < 1 := by
   apply (div_lt_one (by exact_mod_cast P.c_pos)).2
@@ -91,7 +93,6 @@ noncomputable def abcLegendreCurve (P : ABCPoint) : WeierstrassCurve ℚ where
 @[simp] theorem abcLegendre_b₈ (P : ABCPoint) :
     (abcLegendreCurve P).b₈ = -(P.lambda ^ 2) := by
   simp [abcLegendreCurve, WeierstrassCurve.b₈]
-  ring
 
 @[simp] theorem abcLegendre_c₄ (P : ABCPoint) :
     (abcLegendreCurve P).c₄ =
@@ -121,9 +122,8 @@ theorem abcLegendre_j (P : ABCPoint) :
       256 * (1 - P.lambda + P.lambda ^ 2) ^ 3 /
         (P.lambda ^ 2 * (1 - P.lambda) ^ 2) := by
   rw [WeierstrassCurve.j]
-  change ((abcLegendreCurve P).Δ' : ℚ)⁻¹ *
-      (abcLegendreCurve P).c₄ ^ 3 = _
-  rw [WeierstrassCurve.coe_Δ', abcLegendre_Δ, abcLegendre_c₄]
+  simp only [Units.val_inv_eq_inv_val, WeierstrassCurve.coe_Δ',
+    abcLegendre_Δ, abcLegendre_c₄]
   field_simp [P.lambda_ne_zero, P.one_sub_lambda_ne_zero]
   ring
 
