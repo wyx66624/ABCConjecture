@@ -16,7 +16,7 @@ Moreover `H` is coprime to `abc`, and
 `3 c² ≤ 4 H ≤ 4 c²`.
 
 These facts isolate the elementary part of the bounded-discrepancy comparison
-between the Legendre `j`-height and six times the abc height.  In particular,
+between the Legendre `j`-height and six times the abc height. In particular,
 all cancellation in the displayed rational expression for `j` is confined to
 the fixed factor `256`; no point-dependent prime can cancel between `H³` and
 `a²b²c²`.
@@ -56,7 +56,8 @@ theorem legendre_quadratic_eq_core_div (P : ABCPoint) :
   rw [ABCPoint.lambda]
   unfold legendreCore
   field_simp [hc]
-  nlinarith
+  rw [← hsum]
+  ring
 
 /-- The core is coprime to `a`. -/
 theorem coprime_a_legendreCore (P : ABCPoint) :
@@ -127,12 +128,18 @@ theorem abcLegendre_j_eq_core
     (abcLegendreCurve P).j =
       256 * (P.legendreCore : ℚ) ^ 3 /
         ((P.a : ℚ) ^ 2 * (P.b : ℚ) ^ 2 * (P.c : ℚ) ^ 2) := by
-  rw [abcLegendre_j, P.legendre_quadratic_eq_core_div,
-    ABCPoint.lambda, P.one_sub_lambda_eq_b_div_c]
-  have ha : (P.a : ℚ) ≠ 0 := by exact_mod_cast P.a_pos.ne'
-  have hb : (P.b : ℚ) ≠ 0 := by exact_mod_cast P.b_pos.ne'
-  have hc : (P.c : ℚ) ≠ 0 := by exact_mod_cast P.c_pos.ne'
-  field_simp [ha, hb, hc]
-  ring
+  calc
+    (abcLegendreCurve P).j =
+        256 * (1 - P.lambda + P.lambda ^ 2) ^ 3 /
+          (P.lambda ^ 2 * (1 - P.lambda) ^ 2) := abcLegendre_j P
+    _ = 256 * (P.legendreCore : ℚ) ^ 3 /
+          ((P.a : ℚ) ^ 2 * (P.b : ℚ) ^ 2 * (P.c : ℚ) ^ 2) := by
+      rw [P.legendre_quadratic_eq_core_div,
+        P.one_sub_lambda_eq_b_div_c, ABCPoint.lambda]
+      have ha : (P.a : ℚ) ≠ 0 := by exact_mod_cast P.a_pos.ne'
+      have hb : (P.b : ℚ) ≠ 0 := by exact_mod_cast P.b_pos.ne'
+      have hc : (P.c : ℚ) ≠ 0 := by exact_mod_cast P.c_pos.ne'
+      field_simp [ha, hb, hc]
+      ring
 
 end IUTThreeClosures
