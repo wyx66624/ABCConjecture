@@ -67,19 +67,27 @@ namespace FreyConductorCalibratedIUTIVBridge
 variable {F : PointwiseIUTIIIFamily.{u, v, w, z}
   (AG := AG) (TG := TG) Input}
 
-/-- The source main-term estimate follows with the explicit constant `log 16`. -/
+/-- Pointwise arithmetic estimate for the canonical source main term, with the
+explicit constant `log 16`. -/
+theorem mainTerm_le
+    (B : FreyConductorCalibratedIUTIVBridge F)
+    {ε : ℝ} (hε : 0 < ε) (P : ABCPoint) :
+    B.corridor.mainTerm P ≤
+      (1 + ε) * P.conductor + Real.log 16 := by
+  rw [B.mainTerm_eq_freyDiscriminantConductor P]
+  have hdisc := P.freyDiscriminantConductor_le
+  have hnonneg := P.conductor_nonneg
+  nlinarith [mul_nonneg hε.le hnonneg]
+
+/-- The uniform source main-term estimate follows with the explicit constant
+`log 16`. -/
 theorem mainTerm_estimate
     (B : FreyConductorCalibratedIUTIVBridge F) :
     ∀ ε : ℝ, 0 < ε →
       ∃ C : ℝ, ∀ P : ABCPoint,
         B.corridor.mainTerm P ≤ (1 + ε) * P.conductor + C := by
   intro ε hε
-  refine ⟨Real.log 16, ?_⟩
-  intro P
-  rw [B.mainTerm_eq_freyDiscriminantConductor P]
-  have hdisc := P.freyDiscriminantConductor_le
-  have hnonneg := P.conductor_nonneg
-  nlinarith [mul_nonneg hε.le hnonneg]
+  exact ⟨Real.log 16, B.mainTerm_le hε⟩
 
 /-- Forget the conductor calibration to recover the Frey-height calibrated
 bridge, with its main-term estimate now proved rather than postulated. -/
@@ -102,7 +110,7 @@ theorem pointwise_height_bound
       (1 + ε) * P.conductor +
         (Real.log 16 + Real.log 8 / 6) := by
   exact B.toFreyCalibrated.pointwise_height_bound hε
-    (C := Real.log 16) ((B.mainTerm_estimate ε hε).choose_spec) P
+    (C := Real.log 16) (B.mainTerm_le hε) P
 
 end FreyConductorCalibratedIUTIVBridge
 
