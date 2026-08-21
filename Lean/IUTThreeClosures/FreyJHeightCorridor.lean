@@ -112,10 +112,16 @@ theorem height_le_normalizedLogHeight_abcFrey_j (P : ABCPoint) :
   have hlog := Real.log_le_log (pow_pos hcR 6) hreal
   rw [Real.log_pow,
     Real.log_mul (by norm_num : (8 : ℝ) ≠ 0) hMR.ne'] at hlog
+  have hsix : (0 : ℝ) < 6 := by norm_num
   have hgoal :
       Real.log (P.c : ℝ) ≤
         Real.log (M : ℝ) / 6 + Real.log 8 / 6 := by
-    nlinarith [hlog]
+    calc
+      Real.log (P.c : ℝ) =
+          (6 * Real.log (P.c : ℝ)) / 6 := by ring
+      _ ≤ (Real.log 8 + Real.log (M : ℝ)) / 6 :=
+        (div_le_div_iff_of_pos_right hsix).2 (by simpa using hlog)
+      _ = Real.log (M : ℝ) / 6 + Real.log 8 / 6 := by ring
   simpa [M] using hgoal
 
 /-- Conversely, one sixth of the canonical Frey `j`-height is bounded by the
@@ -139,10 +145,15 @@ theorem normalizedLogHeight_abcFrey_j_div_six_le (P : ABCPoint) :
   rw [Real.log_mul (by norm_num : (256 : ℝ) ≠ 0)
       (pow_pos hcR 6).ne',
     Real.log_pow] at hlog
+  have hsix : (0 : ℝ) < 6 := by norm_num
   have hgoal :
       Real.log (M : ℝ) / 6 ≤
         Real.log (P.c : ℝ) + Real.log 256 / 6 := by
-    nlinarith [hlog]
+    calc
+      Real.log (M : ℝ) / 6 ≤
+          (Real.log 256 + 6 * Real.log (P.c : ℝ)) / 6 :=
+        (div_le_div_iff_of_pos_right hsix).2 (by simpa using hlog)
+      _ = Real.log (P.c : ℝ) + Real.log 256 / 6 := by ring
   simpa [M] using hgoal
 
 /-- Two-sided bounded discrepancy between the target height and one sixth of
