@@ -3,6 +3,8 @@ import IUTThreeClosures.GeneratedSource
 import IUTThreeClosures.PublicLogVolumeInconsistency
 import IUTThreeClosures.HonestFinitePositiveLogVolume
 import IUTThreeClosures.FiniteProductLogVolume
+import IUTThreeClosures.PublicThetaHullComponentFormula
+import IUTThreeClosures.PublicThetaHullUpperBound
 import IUTThreeClosures.HonestPilotWitness
 import IUTThreeClosures.HonestGeneratedSource
 import IUTThreeClosures.HonestContainerSource
@@ -26,6 +28,7 @@ import IUTThreeClosures.CanonicalCorridorAudit
 import IUTThreeClosures.SourceDerivedIUTIVBridge
 import IUTThreeClosures.FreyCalibratedIUTIVBridge
 import IUTThreeClosures.FreyConductorCalibratedIUTIVBridge
+import IUTThreeClosures.PublicFreyComponentBridge
 import IUTThreeClosures.GlobalQPilotReconstruction
 import IUTThreeClosures.CompleteGlobalJPacket
 import IUTThreeClosures.TateLocalQJContribution
