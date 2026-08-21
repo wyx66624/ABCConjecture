@@ -32,6 +32,7 @@ import IUTThreeClosures.LegendreArithmetic
 import IUTThreeClosures.ABCFreyCurve
 import IUTThreeClosures.TripodWeilHeight
 import IUTThreeClosures.LegendreHeightCorridor
+import IUTThreeClosures.LegendreJHeight
 import IUTThreeClosures.ExplicitSemistableCurve
 import IUTThreeClosures.SolvableRestrictionImage
 import IUTThreeClosures.ZModSL2Perfect
