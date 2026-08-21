@@ -14,7 +14,7 @@ This equation is integral over `ℤ`, has
 * `j = 256 (a² + ab + b²)³ / (a² b² c²)`.
 
 The last expression agrees with the `j`-invariant of the Legendre curve at
-`λ = a/c`.  The integral model is the useful one for local reduction: the
+`λ = a/c`. The integral model is the useful one for local reduction: the
 core `a²+ab+b²` is coprime to `abc`, so at every odd prime dividing `abc` the
 `c₄` invariant is a unit while the discriminant has positive order.
 -/
@@ -31,19 +31,22 @@ def abcFreyCurveZ (P : ABCPoint) : WeierstrassCurve ℤ where
   a₄ := -((P.a : ℤ) * P.b)
   a₆ := 0
 
-/-- The Frey curve over `ℚ`. -/
-def abcFreyCurve (P : ABCPoint) : WeierstrassCurve ℚ :=
-  (abcFreyCurveZ P).baseChange ℚ
+/-- The same Frey equation over `ℚ`. It is written directly so that its
+invariants reduce definitionally during kernel checking. -/
+def abcFreyCurve (P : ABCPoint) : WeierstrassCurve ℚ where
+  a₁ := 0
+  a₂ := (P.b : ℚ) - P.a
+  a₃ := 0
+  a₄ := -((P.a : ℚ) * P.b)
+  a₆ := 0
 
 @[simp] theorem abcFreyZ_b₂ (P : ABCPoint) :
     (abcFreyCurveZ P).b₂ = 4 * ((P.b : ℤ) - P.a) := by
-  simp [abcFreyCurveZ, WeierstrassCurve.b₂]
-  ring
+  simp [abcFreyCurveZ, WeierstrassCurve.b₂] <;> ring
 
 @[simp] theorem abcFreyZ_b₄ (P : ABCPoint) :
     (abcFreyCurveZ P).b₄ = -2 * (P.a : ℤ) * P.b := by
-  simp [abcFreyCurveZ, WeierstrassCurve.b₄]
-  ring
+  simp [abcFreyCurveZ, WeierstrassCurve.b₄] <;> ring
 
 @[simp] theorem abcFreyZ_b₆ (P : ABCPoint) :
     (abcFreyCurveZ P).b₆ = 0 := by
@@ -51,8 +54,7 @@ def abcFreyCurve (P : ABCPoint) : WeierstrassCurve ℚ :=
 
 @[simp] theorem abcFreyZ_b₈ (P : ABCPoint) :
     (abcFreyCurveZ P).b₈ = -((P.a : ℤ) ^ 2 * (P.b : ℤ) ^ 2) := by
-  simp [abcFreyCurveZ, WeierstrassCurve.b₈]
-  ring
+  simp [abcFreyCurveZ, WeierstrassCurve.b₈] <;> ring
 
 @[simp] theorem abcFreyZ_c₄ (P : ABCPoint) :
     (abcFreyCurveZ P).c₄ = 16 * (P.legendreCore : ℤ) := by
@@ -71,14 +73,38 @@ def abcFreyCurve (P : ABCPoint) : WeierstrassCurve ℚ :=
   rw [← hsum]
   ring
 
+@[simp] theorem abcFrey_b₂ (P : ABCPoint) :
+    (abcFreyCurve P).b₂ = 4 * ((P.b : ℚ) - P.a) := by
+  simp [abcFreyCurve, WeierstrassCurve.b₂] <;> ring
+
+@[simp] theorem abcFrey_b₄ (P : ABCPoint) :
+    (abcFreyCurve P).b₄ = -2 * (P.a : ℚ) * P.b := by
+  simp [abcFreyCurve, WeierstrassCurve.b₄] <;> ring
+
+@[simp] theorem abcFrey_b₆ (P : ABCPoint) :
+    (abcFreyCurve P).b₆ = 0 := by
+  simp [abcFreyCurve, WeierstrassCurve.b₆]
+
+@[simp] theorem abcFrey_b₈ (P : ABCPoint) :
+    (abcFreyCurve P).b₈ = -((P.a : ℚ) ^ 2 * (P.b : ℚ) ^ 2) := by
+  simp [abcFreyCurve, WeierstrassCurve.b₈] <;> ring
+
 @[simp] theorem abcFrey_c₄ (P : ABCPoint) :
     (abcFreyCurve P).c₄ = 16 * (P.legendreCore : ℚ) := by
-  simp [abcFreyCurve]
+  rw [WeierstrassCurve.c₄, abcFrey_b₂, abcFrey_b₄]
+  unfold ABCPoint.legendreCore
+  push_cast
+  ring
 
 @[simp] theorem abcFrey_Δ (P : ABCPoint) :
     (abcFreyCurve P).Δ =
       16 * (P.a : ℚ) ^ 2 * (P.b : ℚ) ^ 2 * (P.c : ℚ) ^ 2 := by
-  simp [abcFreyCurve]
+  rw [WeierstrassCurve.Δ, abcFrey_b₂, abcFrey_b₄,
+    abcFrey_b₆, abcFrey_b₈]
+  have hsum : (P.a : ℚ) + P.b = P.c := by
+    exact_mod_cast P.sum_eq
+  rw [← hsum]
+  ring
 
 /-- The Frey equation is nonsingular. -/
 noncomputable instance abcFrey_isElliptic (P : ABCPoint) :
@@ -99,9 +125,8 @@ theorem abcFrey_j (P : ABCPoint) :
       256 * (P.legendreCore : ℚ) ^ 3 /
         ((P.a : ℚ) ^ 2 * (P.b : ℚ) ^ 2 * (P.c : ℚ) ^ 2) := by
   rw [WeierstrassCurve.j]
-  change ((abcFreyCurve P).Δ' : ℚ)⁻¹ *
-      (abcFreyCurve P).c₄ ^ 3 = _
-  rw [WeierstrassCurve.coe_Δ', abcFrey_Δ, abcFrey_c₄]
+  simp only [Units.val_inv_eq_inv_val, WeierstrassCurve.coe_Δ',
+    abcFrey_Δ, abcFrey_c₄]
   have ha : (P.a : ℚ) ≠ 0 := by exact_mod_cast P.a_pos.ne'
   have hb : (P.b : ℚ) ≠ 0 := by exact_mod_cast P.b_pos.ne'
   have hc : (P.c : ℚ) ≠ 0 := by exact_mod_cast P.c_pos.ne'
