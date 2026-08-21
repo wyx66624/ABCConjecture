@@ -20,6 +20,8 @@ removed `HonestPacketFamily` interface. It does not construct the measures or
 multiradial images; those remain the local geometric inhabitant problem.
 -/
 
+set_option linter.checkUnivs false
+
 namespace IUTThreeClosures
 
 open Iut MeasureTheory NumberField
@@ -145,7 +147,7 @@ structure HonestGeneratedRHSData
 structure HonestGeneratedNativeSource
     (Dθ : InitialThetaData AG TG)
     (Q : QPilotData Dθ) : Type (max (u + 1) (v + 1) (w + 1)) where
-  rhs : HonestGeneratedRHSData.{u, v, w} Dθ
+  rhs : HonestGeneratedRHSData Dθ
   lhs_eq : Q.lhs = -rhs.source.generated.qLog
 
 namespace HonestGeneratedNativeSource
@@ -154,7 +156,7 @@ namespace HonestGeneratedNativeSource
 total arbitrary-set log-volume. -/
 theorem qPilot_le_thetaAverage
     {Dθ : InitialThetaData AG TG} {Q : QPilotData Dθ}
-    (S : HonestGeneratedNativeSource.{u, v, w} Dθ Q) :
+    (S : HonestGeneratedNativeSource Dθ Q) :
     Q.lhs ≤ S.rhs.source.generated.thetaAverage := by
   rw [S.lhs_eq]
   exact S.rhs.source.neg_qLog_le_thetaAverage
