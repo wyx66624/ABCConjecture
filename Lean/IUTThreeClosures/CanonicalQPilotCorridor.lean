@@ -86,7 +86,7 @@ theorem thetaCoefficient_ge_neg_one
     simpa [qLog, Iut.QPilotData.lhs] using h312
   rw [thetaCoefficient]
   apply (le_div_iff₀ (C.qPositive P)).2
-  simpa using hraw
+  nlinarith [hraw]
 
 /-- The canonical coefficient formula converts the Corollary 3.12 lower bound
 into the q-height bound. -/
