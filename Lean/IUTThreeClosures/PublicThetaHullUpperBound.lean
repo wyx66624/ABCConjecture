@@ -102,7 +102,10 @@ theorem globalVol_thetaHull_le
     simpa only [packetVol_thetaHull_eq_componentSum] using
       (R.vol.finite_support_packetVol (R.thetaHull i))
   refine finsum_le_finsum' hactual ?_ fun vQ => ?_
-  · simpa only [packetUpperSum] using E.upper_finiteSupport i
+  · change (Function.support fun vQ : RationalPlace =>
+      ∑ c : R.container.Components i vQ,
+        R.vol.packetWeight i vQ c * E.upper i vQ c).Finite
+    exact E.upper_finiteSupport i
   · rw [← packetVol_thetaHull_eq_componentSum]
     exact E.packetVol_thetaHull_le i vQ
 
@@ -117,8 +120,12 @@ procession average of the component upper values. -/
 theorem rhs_le_processionUpperAverage
     (E : ThetaHullComponentUpperEstimate R) :
     R.rhs ≤ E.processionUpperAverage := by
-  rw [rhs_eq_thetaHullProcessionComponentAverage]
-  unfold thetaHullProcessionComponentAverage processionUpperAverage
+  change
+    (∑ i : Fin R.container.proc.length,
+        R.vol.globalVol (R.thetaHull i)) /
+        (R.container.proc.length : ℝ) ≤
+      (∑ i : Fin R.container.proc.length, E.globalUpperSum i) /
+        (R.container.proc.length : ℝ)
   apply div_le_div_of_nonneg_right
   · exact Finset.sum_le_sum fun i _ => E.globalVol_thetaHull_le i
   · positivity
@@ -135,7 +142,8 @@ theorem publicThetaCoefficient_le_of_processionUpper
     publicThetaCoefficient X ≤ B := by
   rw [publicThetaCoefficient]
   apply (div_le_iff₀ hq).2
-  exact (E.rhs_le_processionUpperAverage).trans hupper
+  simpa only [mul_comm] using
+    (E.rhs_le_processionUpperAverage.trans hupper)
 
 /-- Direct source-faithful bridge from local component estimates to the
 q-term bound. -/
