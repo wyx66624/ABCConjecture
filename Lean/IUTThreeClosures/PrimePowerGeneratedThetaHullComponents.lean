@@ -9,7 +9,7 @@ import IUTThreeClosures.PrimePowerGeneratedThetaHull
 # Component regions of a prime-power generated theta hull
 
 Equality of two nonempty direct-product regions determines every component
-factor.  Applying this elementary fact to the two presentations of the actual
+factor. Applying this elementary fact to the two presentations of the actual
 finite theta hull — the public scaled-integral presentation and the canonical
 minimum prime-power presentation — identifies each actual component region
 itself, not merely the total packet.
@@ -54,7 +54,7 @@ theorem component_eq_of_productRegion_eq
       by_cases hdc : d = c
       · subst d
         simpa [z] using hx
-      · simpa [z, hdc] using hU0 d
+      · simpa [z, hdc, Ne.symm hdc] using hU0 d
     have hzV : z ∈ P.productRegion V := by
       rw [← hEq]
       exact hzU
@@ -66,7 +66,7 @@ theorem component_eq_of_productRegion_eq
       by_cases hdc : d = c
       · subst d
         simpa [z] using hx
-      · simpa [z, hdc] using hV0 d
+      · simpa [z, hdc, Ne.symm hdc] using hV0 d
     have hzU : z ∈ P.productRegion U := by
       rw [hEq]
       exact hzV
@@ -109,7 +109,7 @@ theorem thetaHullComponentRegion_finite_eq
     simp [smul_eq_mul]
   · intro d
     exact PrimePowerQPilotRegion.zero_mem_primePowerImage_integral
-      p (G.container.packet i (.finite p)).integral d
+      p ((G.container.packet i (.finite p)).integral d)
       (A.minimumExponent i p d)
   · change
       (G.container.packet i (.finite p)).scaledIntegral
