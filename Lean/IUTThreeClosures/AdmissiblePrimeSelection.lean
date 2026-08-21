@@ -3,9 +3,14 @@ import Mathlib
 /-!
 # Prime selection above a bound and outside a finite set
 
-This formalizes the purely elementary selection step. It does not prove that
-the Galois-image, Tate-order, or Corollary 2.2 conditions fail at only finitely
-many primes; those are the substantive arithmetic inputs.
+This formalizes the elementary selection layer needed by an actual
+admissible-prime construction.  Besides avoiding a finite exceptional set, a
+single sufficiently large prime is simultaneously coprime to every member of
+a prescribed finite family of nonzero residue characteristics, Tate orders,
+and extension degrees.
+
+It still does not prove the substantive eventual large-image or local
+geometric properties; those must be supplied separately.
 -/
 
 namespace IUTThreeClosures
@@ -36,6 +41,56 @@ theorem exists_prime_above_not_mem (N : ℕ) (s : Finset ℕ) :
     have hle := mem_le_sum s hps
     dsimp [B] at hBp
     omega
+
+/-- A prime above the sum of a finite family of nonzero naturals is coprime to
+every member of the family. -/
+theorem exists_prime_above_coprime_finset
+    (N : ℕ) (s : Finset ℕ)
+    (hs : ∀ n ∈ s, n ≠ 0) :
+    ∃ p : ℕ, p.Prime ∧ N < p ∧ ∀ n ∈ s, Nat.Coprime p n := by
+  classical
+  let B : ℕ := N + s.sum id + 1
+  rcases Nat.exists_infinite_primes B with ⟨p, hBp, hp⟩
+  refine ⟨p, hp, ?_, ?_⟩
+  · dsimp [B] at hBp
+    omega
+  · intro n hn
+    apply hp.coprime_iff_not_dvd.mpr
+    intro hpn
+    have hple : p ≤ n := Nat.le_of_dvd (Nat.pos_of_ne_zero (hs n hn)) hpn
+    have hnle : n ≤ s.sum id := mem_le_sum s hn
+    dsimp [B] at hBp
+    omega
+
+/-- Simultaneous elementary admissible-prime selection: avoid one finite set,
+be coprime to all members of another finite nonzero family, and satisfy any
+property known for all sufficiently large primes outside the exceptional set. -/
+theorem exists_prime_of_eventual_finite_exception_and_coprimality
+    (N : ℕ) (exceptional orders : Finset ℕ)
+    (horders : ∀ n ∈ orders, n ≠ 0)
+    (P : ℕ → Prop)
+    (hP : ∀ p, p.Prime → N < p → p ∉ exceptional → P p) :
+    ∃ p : ℕ, p.Prime ∧ P p ∧ p ∉ exceptional ∧
+      ∀ n ∈ orders, Nat.Coprime p n := by
+  classical
+  let B : ℕ := N + exceptional.sum id + orders.sum id + 2
+  rcases Nat.exists_infinite_primes B with ⟨p, hBp, hp⟩
+  have hN : N < p := by
+    dsimp [B] at hBp
+    omega
+  have hExc : p ∉ exceptional := by
+    intro hpExc
+    have hle := mem_le_sum exceptional hpExc
+    dsimp [B] at hBp
+    omega
+  refine ⟨p, hp, hP p hp hN hExc, hExc, ?_⟩
+  intro n hn
+  apply hp.coprime_iff_not_dvd.mpr
+  intro hpn
+  have hple : p ≤ n := Nat.le_of_dvd (Nat.pos_of_ne_zero (horders n hn)) hpn
+  have hnle : n ≤ orders.sum id := mem_le_sum orders hn
+  dsimp [B] at hBp
+  omega
 
 /-- If a desired prime property holds for every sufficiently large prime
 outside a finite exceptional set, then a prime with that property exists. -/
