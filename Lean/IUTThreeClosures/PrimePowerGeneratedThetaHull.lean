@@ -11,26 +11,34 @@ import IUTThreeClosures.PublicThetaHullUpperBound
 # Prime-power generated theta hulls
 
 At a nonarchimedean rational place, the Kummer images used by the q-pilot are
-fractional-ideal regions of the form `p^n O`.  These regions form a nested
-chain: a larger exponent gives a smaller region.  If the allowed output family
-has a componentwise lower exponent vector which is attained by one output,
-then the union of all outputs is already the single product region determined
-by that minimum vector.  Since this product region is itself a hull region,
-its public holomorphic hull is fixed by the least-hull operation.
+fractional-ideal regions of the form `p^n O`. These regions form a nested
+chain: a larger exponent gives a smaller region.
 
-This file proves the resulting formula at the level of the actual generated
-public theta-pilot.  In particular, at every finite rational place, each
-component of the public theta hull has exact log-volume
+Suppose every output has exponent at least `m_c` in component `c`, and for
+each component separately some allowed output attains `m_c`. The same output
+need not attain all minima simultaneously. Nevertheless the least
+holomorphic hull of the union is exactly the product `∏_c p^{m_c} O_c`.
+Indeed, this product contains every output. Conversely, if a hull region
+contains the union, then for a fixed component `c` one inserts an arbitrary
+point of `p^{m_c} O_c` into an output attaining the minimum at `c`, and puts
+zero in the other components. The resulting vector belongs to the union and
+hence to the competing hull; projecting to `c` proves the required component
+containment.
 
-`- minimumExponent * log p`,
+Thus the holomorphic hull itself performs the missing independent mixing of
+local Kummer choices. No single globally minimizing output and no additional
+multiradial independence axiom are required.
 
-and the packet log-volume is the corresponding product-weighted sum.  No
-independent component-volume formula is assumed.
+The file applies this argument to the actual generated public theta-pilot. At
+every finite rational place each component of the public theta hull has the
+prime-power exponent `m_c`, and the packet log-volume is exactly the
+product-weighted sum
 
-The simultaneous-attainment premise is the precise coherence condition on the
-actual theta/Kummer/tempered output family: the independently minimal local
-choices must occur in one allowed multiradial output.  Establishing this
-premise from the concrete indeterminacy actions remains the source-level task.
+`∑_c packetWeight(c) * (-(m_c : ℝ) * log p)`.
+
+The remaining source-level obligation is now only the local statement that
+each concrete theta/Kummer/tempered output is a prime-power product region and
+that every componentwise minimum is attained by some allowed output.
 -/
 
 set_option linter.checkUnivs false
@@ -162,7 +170,8 @@ variable {AG : AnabelianGeometry.{u}} {TG : TemperedGeometry AG}
 variable {D : InitialThetaData AG TG}
 
 /-- Finite-place prime-power description of an actual generated output family.
-The lower exponent vector must be attained simultaneously by one output. -/
+Each componentwise lower exponent need only be attained by some output; a
+single simultaneous minimizer is not required. -/
 structure GeneratedPrimePowerThetaHullData
     (G : GeneratedRHSData.{u, v, w} D) :
     Type (max (u + 1) (v + 1) (w + 1)) where
@@ -181,8 +190,8 @@ structure GeneratedPrimePowerThetaHullData
         (exponent o i p)
   minimum_le : ∀ o i p c,
     minimum i p c ≤ exponent o i p c
-  minimum_attained : ∀ i p,
-    ∃ o : G.outputs.Output, ∀ c,
+  minimum_attained : ∀ i p c,
+    ∃ o : G.outputs.Output,
       exponent o i p c = minimum i p c
   prime_ne_zero : ∀ i p c,
     (((p : ℕ) :
@@ -193,7 +202,7 @@ namespace GeneratedPrimePowerThetaHullData
 variable {G : GeneratedRHSData.{u, v, w} D}
 
 /-- Every actual finite-place output is contained in the product region given
-by the minimum exponent vector. -/
+by the componentwise minimum exponent vector. -/
 theorem realize_finite_subset_minimum
     (A : GeneratedPrimePowerThetaHullData G)
     (o : G.outputs.Output)
@@ -217,29 +226,74 @@ theorem realize_finite_subset_minimum
     p (G.container.packet i (.finite p)).integral c
     (A.minimum_le o i p c) (hx c)
 
-/-- The finite-place union of all actual outputs is exactly the minimum
-prime-power product region. -/
-theorem unionRegion_finite_eq_minimum
+/-- The generated finite-place union is contained in the minimum product
+region. -/
+theorem unionRegion_finite_subset_minimum
     (A : GeneratedPrimePowerThetaHullData G)
     (i : Fin G.container.proc.length)
     (p : Nat.Primes) :
-    (G.outputs.unionRegion i).region (.finite p) =
+    (G.outputs.unionRegion i).region (.finite p) ⊆
       PrimePowerQPilotRegion.packetPrimePowerRegion i p
         (A.minimum i p) := by
-  apply Set.Subset.antisymm
-  · intro x hx
-    rcases Set.mem_iUnion.mp hx with ⟨o, hx⟩
-    exact A.realize_finite_subset_minimum o i p hx
-  · rcases A.minimum_attained i p with ⟨o, ho⟩
-    have hexp : A.exponent o i p = A.minimum i p := funext ho
-    intro x hx
-    apply Set.mem_iUnion.mpr
-    refine ⟨o, ?_⟩
-    rw [A.realize_finite o i p, hexp]
-    exact hx
+  intro x hx
+  rcases Set.mem_iUnion.mp hx with ⟨o, hx⟩
+  exact A.realize_finite_subset_minimum o i p hx
 
-/-- The actual public theta hull at a finite rational place is already the
-minimum prime-power product region. -/
+/-- The minimum prime-power product is the least hull region containing the
+actual generated finite-place union. Componentwise attainment is enough: the
+least product hull combines the separately attained local minima. -/
+theorem minimumRegion_isLeastHullRegion
+    (A : GeneratedPrimePowerThetaHullData G)
+    (i : Fin G.container.proc.length)
+    (p : Nat.Primes) :
+    (G.container.packet i (.finite p)).IsLeastHullRegion
+      ((G.outputs.unionRegion i).region (.finite p))
+      (PrimePowerQPilotRegion.packetPrimePowerRegion i p
+        (A.minimum i p)) := by
+  refine ⟨
+    PrimePowerQPilotRegion.packetPrimePowerRegion_isHullRegion
+      i p (A.minimum i p) (A.prime_ne_zero i p),
+    A.unionRegion_finite_subset_minimum i p,
+    ?_⟩
+  intro R' hR' hUnionR'
+  rcases hR' with ⟨a, ha, hRa⟩
+  rw [hRa]
+  intro x hx
+  change
+    ∀ c, x c ∈ a c •
+      ((G.container.packet i (.finite p)).integral c :
+        Set ((G.container.packet i (.finite p)).Summand c))
+  intro c
+  rcases A.minimum_attained i p c with ⟨o, ho⟩
+  classical
+  let z : (G.container.packet i (.finite p)).Total :=
+    Function.update (fun _ => 0) c (x c)
+  have hzOutput :
+      z ∈ (G.outputs.realize o i).region (.finite p) := by
+    rw [A.realize_finite o i p]
+    change
+      ∀ d, z d ∈ PrimePowerQPilotRegion.primePowerImage p
+        (A.exponent o i p d)
+        ((G.container.packet i (.finite p)).integral d)
+    intro d
+    by_cases hdc : d = c
+    · subst d
+      rw [ho]
+      simpa [z] using hx c
+    · have hz0 :=
+        PrimePowerQPilotRegion.zero_mem_primePowerImage_integral
+          p (G.container.packet i (.finite p)).integral d
+          (A.exponent o i p d)
+      simpa [z, hdc] using hz0
+  have hzUnion :
+      z ∈ (G.outputs.unionRegion i).region (.finite p) :=
+    Set.mem_iUnion.mpr ⟨o, hzOutput⟩
+  have hzR' : z ∈ R' := hUnionR' hzUnion
+  rw [hRa] at hzR'
+  simpa [z] using hzR' c
+
+/-- The actual public theta hull at a finite rational place is exactly the
+componentwise-minimum prime-power product region. -/
 theorem thetaHull_finite_eq_minimum
     (A : GeneratedPrimePowerThetaHullData G)
     (i : Fin G.container.proc.length)
@@ -247,19 +301,14 @@ theorem thetaHull_finite_eq_minimum
     ((G.toRHSData).thetaHull i).region (.finite p) =
       PrimePowerQPilotRegion.packetPrimePowerRegion i p
         (A.minimum i p) := by
-  have hregion := A.unionRegion_finite_eq_minimum i p
-  have hHull :
-      (G.container.packet i (.finite p)).IsHullRegion
-        ((G.outputs.unionRegion i).region (.finite p)) := by
-    rw [hregion]
-    exact PrimePowerQPilotRegion.packetPrimePowerRegion_isHullRegion
-      i p (A.minimum i p) (A.prime_ne_zero i p)
   change
     (G.hull.system i (.finite p)).hull
       ((G.outputs.unionRegion i).region (.finite p)) = _
-  rw [(G.hull.system i (.finite p)).hull_eq_self
-    (G.union_hullAdmissible i (.finite p)) hHull]
-  exact hregion
+  exact
+    ((G.hull.system i (.finite p)).isLeastHullRegion_hull
+      ((G.outputs.unionRegion i).region (.finite p))
+      (G.union_hullAdmissible i (.finite p))).unique
+        (A.minimumRegion_isLeastHullRegion i p)
 
 /-- Exact finite-place packet formula for the actual generated public theta
 hull. -/
