@@ -63,7 +63,7 @@ theorem mem_primePowerImage_iff
     (p : Nat.Primes) (n : ℕ) (U : Set F) (x : F) :
     x ∈ primePowerImage p n U ↔
       ∃ y ∈ U, x = ((((p : ℕ) : F)) ^ n) * y := by
-  induction n with
+  induction n generalizing x with
   | zero => simp [primePowerImage]
   | succ n ih =>
       rw [primePowerImage]
@@ -93,6 +93,15 @@ theorem primePowerImage_eq_pow_smul
   · rintro ⟨y, hy, hxy⟩
     exact ⟨y, hy, by simpa [smul_eq_mul] using hxy.symm⟩
 
+/-- Every natural scalar belongs to every subring. -/
+theorem natCast_mem_subring
+    {F : Type*} [Field F] (O : Subring F) (n : ℕ) :
+    (n : F) ∈ O := by
+  induction n with
+  | zero => simpa using O.zero_mem
+  | succ n ih =>
+      simpa [Nat.cast_succ] using O.add_mem ih O.one_mem
+
 /-- Every prime-power image of an integral subring remains in that subring. -/
 theorem primePowerImage_integral_subset
     {F : Type*} [Field F]
@@ -101,7 +110,8 @@ theorem primePowerImage_integral_subset
   intro x hx
   rcases (mem_primePowerImage_iff p n (O : Set F) x).1 hx with
     ⟨y, hy, rfl⟩
-  have hpO : (((p : ℕ) : F)) ∈ O := O.natCast_mem _
+  have hpO : (((p : ℕ) : F)) ∈ O :=
+    natCast_mem_subring O (p : ℕ)
   exact O.mul_mem (O.pow_mem hpO n) hy
 
 /-- The chain `p^n O` is antitone in the exponent. -/
@@ -114,7 +124,8 @@ theorem primePowerImage_integral_antitone
   intro x hx
   rcases (mem_primePowerImage_iff p n (O : Set F) x).1 hx with
     ⟨y, hy, rfl⟩
-  have hpO : (((p : ℕ) : F)) ∈ O := O.natCast_mem _
+  have hpO : (((p : ℕ) : F)) ∈ O :=
+    natCast_mem_subring O (p : ℕ)
   apply (mem_primePowerImage_iff p m (O : Set F) _).2
   refine ⟨((((p : ℕ) : F)) ^ (n - m)) * y, ?_, ?_⟩
   · exact O.mul_mem (O.pow_mem hpO (n - m)) hy
@@ -148,7 +159,13 @@ theorem packetPrimePowerRegion_isHullRegion
       ((((p : ℕ) : (D.packet i (.finite p)).Summand c)) ^ order c) •
         ((D.packet i (.finite p)).integral c :
           Set ((D.packet i (.finite p)).Summand c))
-  simp_rw [primePowerImage_eq_pow_smul]
+  constructor
+  · intro hx c
+    rw [primePowerImage_eq_pow_smul] at hx
+    exact hx c
+  · intro hx c
+    rw [primePowerImage_eq_pow_smul]
+    exact hx c
 
 /-- Zero belongs to every prime-power image of an integral subring. -/
 theorem zero_mem_primePowerImage_integral
@@ -260,7 +277,7 @@ theorem realize_finite_subset_minimum
       ((G.container.packet i (.finite p)).integral c)
   intro c
   exact PrimePowerQPilotRegion.primePowerImage_integral_antitone
-    p (G.container.packet i (.finite p)).integral c
+    p ((G.container.packet i (.finite p)).integral c)
     (A.minimumExponent_le o i p c) (hx c)
 
 /-- The generated finite-place union is contained in the canonical minimum
@@ -319,7 +336,7 @@ theorem minimumRegion_isLeastHullRegion
       simpa [z] using hx c
     · have hz0 :=
         PrimePowerQPilotRegion.zero_mem_primePowerImage_integral
-          p (G.container.packet i (.finite p)).integral d
+          p ((G.container.packet i (.finite p)).integral d)
           (A.exponent o i p d)
       simpa [z, hdc] using hz0
   have hzUnion :
