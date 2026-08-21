@@ -51,8 +51,9 @@ theorem one_sub_lambda_ne_zero (P : ABCPoint) : 1 - P.lambda ≠ 0 :=
 
 /-- For a positive abc point, the elementary maximum is exactly `c`. -/
 theorem max_eq_c (P : ABCPoint) : max P.a (max P.b P.c) = P.c := by
-  rw [max_eq_right (Nat.le_of_lt P.a_lt_c)]
-  rw [max_eq_right (Nat.le_of_lt P.b_lt_c)]
+  have hb : max P.b P.c = P.c :=
+    max_eq_right (Nat.le_of_lt P.b_lt_c)
+  rw [hb, max_eq_right (Nat.le_of_lt P.a_lt_c)]
 
 /-- The elementary logarithmic height is `log c`. -/
 theorem height_eq_log_c (P : ABCPoint) :
