@@ -96,7 +96,10 @@ theorem not_nonempty_generatedRHSData
   have hlen : G.container.proc.length = (Dθ.ℓ - 1) / 2 := by
     rw [G.proc_standard]
     rfl
-  let i : Fin G.container.proc.length := ⟨0, by simpa [hlen] using hn⟩
+  have hlenpos : 0 < G.container.proc.length := by
+    rw [hlen]
+    exact hn
+  let i : Fin G.container.proc.length := ⟨0, hlenpos⟩
   rcases Dθ.global.bad_nonempty with ⟨vmod, hvmod⟩
   let wK : FinitePlace ↥Dθ.prime.torsionField :=
     Dθ.localData.sect.sectFin vmod
