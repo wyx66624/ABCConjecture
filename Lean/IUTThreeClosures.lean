@@ -62,6 +62,7 @@ import IUTThreeClosures.ProductWeightMarginalization
 import IUTThreeClosures.CanonicalLocalDegreeWeights
 import IUTThreeClosures.DifferentSupportAbsorption
 import IUTThreeClosures.PrimePowerQPilotRegion
+import IUTThreeClosures.PrimePowerGeneratedThetaHull
 import IUTThreeClosures.DistinguishedLabelQPilot
 import IUTThreeClosures.NativeQPilotCalibration
 import IUTThreeClosures.GeneratedUnionCompactness
