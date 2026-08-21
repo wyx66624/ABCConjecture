@@ -5,7 +5,7 @@ import IUTThreeClosures.FreyDiscriminantConductor
 # Frey-conductor calibration of the source main term
 
 The Frey-calibrated bridge still asks for a uniform estimate of the canonical
-source main term by the elementary abc conductor.  The arithmetic part of that
+source main term by the elementary abc conductor. The arithmetic part of that
 estimate is already exact once the source main term is identified with the
 radical conductor of the actual Frey discriminant:
 
@@ -19,7 +19,7 @@ and hence, for every positive epsilon,
 
 `freyDiscriminantConductor ≤ (1 + epsilon) conductor + log 16`.
 
-This module removes the freely supplied `mainTerm_estimate` field.  The only
+This module removes the freely supplied `mainTerm_estimate` field. The only
 remaining source-level main-term obligation is the equality identifying the
 canonical IUT IV main term with the actual Frey discriminant conductor.
 -/
@@ -35,7 +35,7 @@ universe u v w z
 variable {AG : AnabelianGeometry.{u}} {TG : TemperedGeometry AG}
 variable {Input : Type z}
 
-/-- A fully arithmetic-calibrated downstream bridge.  Neither a height error
+/-- A fully arithmetic-calibrated downstream bridge. Neither a height error
 nor a conductor estimate is supplied by the caller. -/
 structure FreyConductorCalibratedIUTIVBridge
     (F : PointwiseIUTIIIFamily.{u, v, w, z}
@@ -101,8 +101,15 @@ theorem pointwise_height_bound
     P.height ≤
       (1 + ε) * P.conductor +
         (Real.log 16 + Real.log 8 / 6) := by
-  exact B.toFreyCalibrated.pointwise_height_bound hε
-    (C := Real.log 16) ((B.mainTerm_estimate ε hε).choose_spec) P
+  have hC : ∀ Q : ABCPoint,
+      B.corridor.mainTerm Q ≤
+        (1 + ε) * Q.conductor + Real.log 16 := by
+    intro Q
+    rw [B.mainTerm_eq_freyDiscriminantConductor Q]
+    have hdisc := Q.freyDiscriminantConductor_le
+    have hnonneg := Q.conductor_nonneg
+    nlinarith [mul_nonneg hε.le hnonneg]
+  exact B.toFreyCalibrated.pointwise_height_bound hε hC P
 
 end FreyConductorCalibratedIUTIVBridge
 
