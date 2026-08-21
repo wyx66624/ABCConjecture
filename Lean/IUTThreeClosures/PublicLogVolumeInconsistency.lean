@@ -117,14 +117,14 @@ theorem not_nonempty_generatedRHSData
     (Dθ : InitialThetaData AG TG) :
     ¬ Nonempty (GeneratedRHSData.{u₂, v, w} Dθ) := by
   rintro ⟨G⟩
-  have htwo : 2 ≤ Dθ.ℓ - 1 := by
+  have htwo : 2 ≤ Dθ.prime.ℓ - 1 := by
     have h5 := Dθ.prime.five_le
     omega
-  have hn : 0 < (Dθ.ℓ - 1) / 2 :=
+  have hn : 0 < (Dθ.prime.ℓ - 1) / 2 :=
     Nat.div_pos htwo (by norm_num)
   have hlen : 0 < G.container.proc.length := by
     rw [G.proc_standard]
-    simpa using hn
+    simpa [InitialThetaData.ℓ] using hn
   exact (not_logVolumeData_of_procession_pos
     (D := G.container) hlen) ⟨G.vol⟩
 
