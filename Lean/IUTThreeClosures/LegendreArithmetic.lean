@@ -34,27 +34,29 @@ def legendreCore (P : ABCPoint) : ℕ :=
 
 @[simp] theorem legendreCore_pos (P : ABCPoint) : 0 < P.legendreCore := by
   unfold legendreCore
-  positivity
+  nlinarith [P.a_pos, P.b_pos]
 
 /-- `1 - λ = b/c`. -/
 theorem one_sub_lambda_eq_b_div_c (P : ABCPoint) :
     (1 - P.lambda : ℚ) = (P.b : ℚ) / (P.c : ℚ) := by
   have hc : (P.c : ℚ) ≠ 0 := by exact_mod_cast P.c_pos.ne'
+  have hsum : (P.a : ℚ) + (P.b : ℚ) = (P.c : ℚ) := by
+    exact_mod_cast P.sum_eq
   rw [ABCPoint.lambda]
   field_simp [hc]
-  exact_mod_cast P.sum_eq
+  linarith
 
 /-- `1 - λ + λ² = H/c²`. -/
 theorem legendre_quadratic_eq_core_div (P : ABCPoint) :
     (1 - P.lambda + P.lambda ^ 2 : ℚ) =
       (P.legendreCore : ℚ) / (P.c : ℚ) ^ 2 := by
   have hc : (P.c : ℚ) ≠ 0 := by exact_mod_cast P.c_pos.ne'
+  have hsum : (P.a : ℚ) + (P.b : ℚ) = (P.c : ℚ) := by
+    exact_mod_cast P.sum_eq
   rw [ABCPoint.lambda]
   unfold legendreCore
   field_simp [hc]
-  have hsum : (P.a : ℚ) + P.b = P.c := by exact_mod_cast P.sum_eq
-  rw [← hsum]
-  ring
+  nlinarith
 
 /-- The core is coprime to `a`. -/
 theorem coprime_a_legendreCore (P : ABCPoint) :
@@ -94,23 +96,25 @@ theorem coprime_c_legendreCore (P : ABCPoint) :
 theorem coprime_abc_legendreCore (P : ABCPoint) :
     Nat.Coprime (P.a * P.b * P.c) P.legendreCore := by
   rw [Nat.coprime_mul_iff_left, Nat.coprime_mul_iff_left]
-  exact ⟨P.coprime_a_legendreCore,
-    P.coprime_b_legendreCore, P.coprime_c_legendreCore⟩
+  exact ⟨⟨P.coprime_a_legendreCore, P.coprime_b_legendreCore⟩,
+    P.coprime_c_legendreCore⟩
 
 /-- The quadratic core is at most `c²`. -/
 theorem legendreCore_le_c_sq (P : ABCPoint) :
     P.legendreCore ≤ P.c ^ 2 := by
+  rw [← P.sum_eq]
   unfold legendreCore
-  omega
+  nlinarith [Nat.zero_le (P.a * P.b)]
 
 /-- A uniform lower bound: `H ≥ 3c²/4`. -/
 theorem three_c_sq_le_four_legendreCore (P : ABCPoint) :
     3 * P.c ^ 2 ≤ 4 * P.legendreCore := by
-  have hsum : (P.a : ℤ) + P.b = P.c := by exact_mod_cast P.sum_eq
-  have hsquare : 0 ≤ ((P.a : ℤ) - P.b) ^ 2 := sq_nonneg _
+  have hsum : (P.a : ℤ) + (P.b : ℤ) = (P.c : ℤ) := by
+    exact_mod_cast P.sum_eq
+  have hsquare : 0 ≤ ((P.a : ℤ) - (P.b : ℤ)) ^ 2 := sq_nonneg _
   unfold legendreCore
   exact_mod_cast (show 3 * (P.c : ℤ) ^ 2 ≤
-      4 * ((P.a : ℤ) ^ 2 + P.a * P.b + (P.b : ℤ) ^ 2) by
+      4 * ((P.a : ℤ) ^ 2 + (P.a : ℤ) * (P.b : ℤ) + (P.b : ℤ) ^ 2) by
     rw [← hsum]
     nlinarith)
 
