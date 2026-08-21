@@ -25,13 +25,16 @@ theorem packetVol_distinguishedLabel
     (vol : LogVolumeData D)
     (i : Fin D.proc.length) (p : Nat.Primes)
     (j₀ : (D.proc.capsule i).LabelType)
-    (order : D.Fiber (.finite p) → ℕ) :
+    (order : D.Fiber (.finite p) → ℕ)
+    (hp : ∀ c : D.Components i (.finite p),
+      (((p : ℕ) : (D.packet i (.finite p)).Summand c)) ≠ 0) :
     vol.packetVol i (.finite p)
         (packetPrimePowerRegion i p (fun c => order (c j₀))) =
       ∑ v : D.Fiber (.finite p),
         vol.weight (.finite p) v *
           (- (order v : ℝ) * Real.log p) := by
-  rw [vol.packetVol_packetPrimePowerRegion]
+  rw [packetVol_packetPrimePowerRegion vol i p
+    (fun c => order (c j₀)) hp]
   exact IUTThreeClosures.product_weight_marginal
     j₀ (vol.weight (.finite p))
     (fun v => - (order v : ℝ) * Real.log p)
