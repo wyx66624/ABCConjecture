@@ -18,7 +18,9 @@ import IUTThreeClosures.CanonicalQPilotCorridor
 import IUTThreeClosures.CanonicalCorridorAudit
 import IUTThreeClosures.SourceDerivedIUTIVBridge
 
--- Group-theoretic persistence of a perfect mod-ℓ image after solvable base change.
+-- Arithmetic input route: an explicit semistable candidate and preservation
+-- of the perfect mod-ℓ image after solvable auxiliary base change.
+import IUTThreeClosures.ExplicitSemistableCurve
 import IUTThreeClosures.SolvableRestrictionImage
 
 import IUTThreeClosures.QPilotNormalizationAudit
