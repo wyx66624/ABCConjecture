@@ -84,9 +84,13 @@ theorem thetaCoefficient_ge_neg_one
     change (F.qPilot (C.encode P)).lhs ≤
       (F.source (C.encode P)).toVariantData.rhsData.rhs at h312
     simpa [qLog, Iut.QPilotData.lhs] using h312
+  change -(F.qPilot (C.encode P)).absLogQ ≤
+    (F.source (C.encode P)).toVariantData.rhsData.rhs at hraw
   rw [thetaCoefficient]
   apply (le_div_iff₀ (C.qPositive P)).2
-  nlinarith [hraw]
+  change (-1 : ℝ) * (F.qPilot (C.encode P)).absLogQ ≤
+    (F.source (C.encode P)).toVariantData.rhsData.rhs
+  simpa only [neg_mul, one_mul] using hraw
 
 /-- The canonical coefficient formula converts the Corollary 3.12 lower bound
 into the q-height bound. -/
