@@ -78,10 +78,8 @@ theorem abc (B : SourceDerivedIUTIVBridge F) : ABCConjecture := by
       P.height ≤ (1 + ε) * P.conductor + (C + B.heightError) := by
     calc
       P.height ≤ B.corridor.qLog P / 6 + B.heightError := hh
-      _ ≤ B.corridor.mainTerm P + B.heightError :=
-        add_le_add_right hq B.heightError
-      _ ≤ ((1 + ε) * P.conductor + C) + B.heightError :=
-        add_le_add_right hm B.heightError
+      _ ≤ B.corridor.mainTerm P + B.heightError := by linarith
+      _ ≤ ((1 + ε) * P.conductor + C) + B.heightError := by linarith
       _ = (1 + ε) * P.conductor + (C + B.heightError) := by ring
   simpa [ABCPoint.height, ABCPoint.conductor, P] using hfinal
 
