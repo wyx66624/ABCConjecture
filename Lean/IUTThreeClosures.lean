@@ -41,9 +41,6 @@ import IUTThreeClosures.ExplicitSemistableCurve
 import IUTThreeClosures.SolvableRestrictionImage
 import IUTThreeClosures.ZModSL2Perfect
 
--- Concrete algebraic starting point for the orbicurve route.
-import IUTThreeClosures.LegendreAffineOrbicurveModel
-
 import IUTThreeClosures.QPilotNormalizationAudit
 import IUTThreeClosures.QPilotNormalizationFork
 import IUTThreeClosures.RootQPilotDivisor
