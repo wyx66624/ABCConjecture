@@ -36,6 +36,13 @@ theorem packetVol_distinguishedLabel
   classical
   rw [packetVol_packetPrimePowerRegion vol i p
     (fun c => order (c j₀)) hp]
+  change
+    (∑ c : (D.proc.capsule i).LabelType → D.Fiber (.finite p),
+        (∏ j, vol.weight (.finite p) (c j)) *
+          (- (order (c j₀) : ℝ) * Real.log p)) =
+      ∑ v : D.Fiber (.finite p),
+        vol.weight (.finite p) v *
+          (- (order v : ℝ) * Real.log p)
   exact IUTThreeClosures.product_weight_marginal
     j₀ (vol.weight (.finite p))
     (fun v => - (order v : ℝ) * Real.log p)
