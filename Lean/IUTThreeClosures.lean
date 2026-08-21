@@ -4,6 +4,7 @@ import IUTThreeClosures.PublicLogVolumeInconsistency
 import IUTThreeClosures.HonestFinitePositiveLogVolume
 import IUTThreeClosures.HonestPilotWitness
 import IUTThreeClosures.HonestGeneratedSource
+import IUTThreeClosures.HonestContainerSource
 import IUTThreeClosures.QuantifierCorrectClosure
 import IUTThreeClosures.ABCStatement
 import IUTThreeClosures.ABCClosure
@@ -23,6 +24,7 @@ import IUTThreeClosures.CanonicalQPilotCorridor
 import IUTThreeClosures.CanonicalCorridorAudit
 import IUTThreeClosures.SourceDerivedIUTIVBridge
 import IUTThreeClosures.FreyCalibratedIUTIVBridge
+import IUTThreeClosures.GlobalQPilotReconstruction
 
 -- Arithmetic input route: point-dependent Legendre and integral Frey curves,
 -- their exact rational Weil heights and conductor arithmetic, an explicit
