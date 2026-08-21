@@ -19,9 +19,9 @@ private theorem mem_le_sum (s : Finset ℕ) {p : ℕ} (hp : p ∈ s) :
       rw [Finset.sum_insert ha]
       simp only [Finset.mem_insert] at hp
       rcases hp with rfl | hp
-      · omega
-      · have h := ih hp
-        omega
+      · simp [id]
+      · simp only [id_eq]
+        exact (ih hp).trans (Nat.le_add_left _ _)
 
 /-- There is a prime strictly above `N` and outside any prescribed finite set. -/
 theorem exists_prime_above_not_mem (N : ℕ) (s : Finset ℕ) :
