@@ -4,6 +4,7 @@ import IUTThreeClosures.PublicLogVolumeInconsistency
 import IUTThreeClosures.HonestFinitePositiveLogVolume
 import IUTThreeClosures.HonestPilotWitness
 import IUTThreeClosures.HonestGeneratedSource
+import IUTThreeClosures.HonestContainerSource
 import IUTThreeClosures.QuantifierCorrectClosure
 import IUTThreeClosures.ABCStatement
 import IUTThreeClosures.ABCClosure
@@ -22,11 +23,16 @@ import IUTThreeClosures.BridgeInhabitationExact
 import IUTThreeClosures.CanonicalQPilotCorridor
 import IUTThreeClosures.CanonicalCorridorAudit
 import IUTThreeClosures.SourceDerivedIUTIVBridge
+import IUTThreeClosures.FreyCalibratedIUTIVBridge
+import IUTThreeClosures.GlobalQPilotReconstruction
+import IUTThreeClosures.CompleteGlobalJPacket
+import IUTThreeClosures.TateLocalQJContribution
+import IUTThreeClosures.SelectedBadPlaceGlobalReconstruction
 
 -- Arithmetic input route: point-dependent Legendre and integral Frey curves,
--- their exact rational Weil heights and height arithmetic, an explicit fixed
--- comparison curve, and preservation of perfect mod-ℓ image after solvable
--- base change.
+-- their exact rational Weil heights and conductor arithmetic, an explicit
+-- fixed comparison curve, a nonintegral shifted-j family, and preservation of
+-- perfect mod-ℓ image after solvable base change.
 import IUTThreeClosures.ABCPointLegendreCurve
 import IUTThreeClosures.LegendreArithmetic
 import IUTThreeClosures.ABCFreyCurve
@@ -34,6 +40,8 @@ import IUTThreeClosures.TripodWeilHeight
 import IUTThreeClosures.LegendreHeightCorridor
 import IUTThreeClosures.FreyJReducedData
 import IUTThreeClosures.FreyJHeightCorridor
+import IUTThreeClosures.FreyDiscriminantConductor
+import IUTThreeClosures.ShiftedJAdmissibleCurve
 import IUTThreeClosures.ExplicitSemistableCurve
 import IUTThreeClosures.SolvableRestrictionImage
 import IUTThreeClosures.ZModSL2Perfect
