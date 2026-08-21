@@ -24,14 +24,15 @@ import IUTThreeClosures.CanonicalCorridorAudit
 import IUTThreeClosures.SourceDerivedIUTIVBridge
 
 -- Arithmetic input route: point-dependent Legendre and integral Frey curves,
--- their exact rational Weil heights and height arithmetic, an explicit fixed
--- comparison curve, and preservation of perfect mod-ℓ image after solvable
--- base change.
+-- a nonintegral shifted-j curve for the admissible-prime route, their exact
+-- rational Weil heights and height arithmetic, an explicit fixed comparison
+-- curve, and preservation of perfect mod-ℓ image after solvable base change.
 import IUTThreeClosures.ABCPointLegendreCurve
 import IUTThreeClosures.LegendreArithmetic
 import IUTThreeClosures.ABCFreyCurve
 import IUTThreeClosures.TripodWeilHeight
 import IUTThreeClosures.LegendreHeightCorridor
+import IUTThreeClosures.ShiftedJAdmissibleCurve
 import IUTThreeClosures.ExplicitSemistableCurve
 import IUTThreeClosures.SolvableRestrictionImage
 import IUTThreeClosures.ZModSL2Perfect
