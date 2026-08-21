@@ -5,15 +5,15 @@ import Mathlib.MeasureTheory.Constructions.Pi
 # Finite product regions and additive logarithmic volume
 
 For a finite family of sigma-finite measures, the product measure of a
-measurable rectangle is the product of its coordinate measures.  On the
+measurable rectangle is the product of its coordinate measures. On the
 finite-positive domain this implies that logarithmic volume is exactly
 additive:
 
 `logVol (∏ i, U i) = ∑ i, logVol (U i)`.
 
 This is the measure-theoretic local theorem required by the multiradial packet
-route.  It replaces a freely supplied component-volume formula by the genuine
-Jacobian-one formula for rectangular tensor regions.  Identifying the actual
+route. It replaces a freely supplied component-volume formula by the genuine
+Jacobian-one formula for rectangular tensor regions. Identifying the actual
 theta/Kummer output region with such a rectangle, or with a controlled image
 of one, remains a separate geometric step.
 -/
@@ -66,17 +66,17 @@ theorem logVolume_pi
       ∑ i, (U i).logVolume := by
   calc
     (FinitePositiveRegion.pi μ U).logVolume =
-        Real.log ((∏ i, μ i (U i).carrier).toReal) := by
+        Real.log ((∏ i, μ i (U i : Set (α i))).toReal) := by
       simp [FinitePositiveRegion.logVolume, FinitePositiveRegion.pi,
         Measure.pi_pi]
-    _ = Real.log (∏ i, (μ i (U i).carrier).toReal) := by
+    _ = Real.log (∏ i, (μ i (U i : Set (α i))).toReal) := by
       rw [ENNReal.toReal_prod]
-    _ = ∑ i, Real.log ((μ i (U i).carrier).toReal) := by
+    _ = ∑ i, Real.log ((μ i (U i : Set (α i))).toReal) := by
       rw [Real.log_prod]
       intro i hi
       exact (U i).measure_toReal_pos.ne'
     _ = ∑ i, (U i).logVolume := by
-      rfl
+      simp only [FinitePositiveRegion.logVolume]
 
 /-- A rectangular component therefore satisfies the exact labelwise component
 formula with coefficient one at every label. -/
