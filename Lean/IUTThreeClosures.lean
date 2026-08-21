@@ -2,6 +2,7 @@ import IUTThreeClosures.ActualPilotWitness
 import IUTThreeClosures.GeneratedSource
 import IUTThreeClosures.PublicLogVolumeInconsistency
 import IUTThreeClosures.HonestFinitePositiveLogVolume
+import IUTThreeClosures.FiniteProductLogVolume
 import IUTThreeClosures.HonestPilotWitness
 import IUTThreeClosures.HonestGeneratedSource
 import IUTThreeClosures.HonestContainerSource
