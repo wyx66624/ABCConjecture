@@ -337,8 +337,7 @@ theorem minimumRegion_isLeastHullRegion
           p ((G.container.packet i (.finite p)).integral d)
           (A.exponent o i p d)
       have hzd : z d = 0 := by
-        dsimp [z]
-        exact Function.update_noteq hdc
+        simp [z, hdc]
       rw [hzd]
       exact hz0
   have hzUnion :
