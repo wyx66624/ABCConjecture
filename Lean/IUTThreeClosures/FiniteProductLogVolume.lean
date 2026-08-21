@@ -76,7 +76,11 @@ theorem logVolume_pi
       intro i hi
       exact (U i).measure_toReal_pos.ne'
     _ = ∑ i, (U i).logVolume := by
-      simp only [FinitePositiveRegion.logVolume]
+      apply Finset.sum_congr rfl
+      intro i hi
+      change Real.log ((μ i) (U i).carrier).toReal =
+        Real.log ((μ i) (U i).carrier).toReal
+      rfl
 
 /-- A rectangular component therefore satisfies the exact labelwise component
 formula with coefficient one at every label. -/
