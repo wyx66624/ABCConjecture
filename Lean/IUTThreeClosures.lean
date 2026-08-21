@@ -49,6 +49,7 @@ import IUTThreeClosures.ZModSL2Perfect
 import IUTThreeClosures.QPilotNormalizationAudit
 import IUTThreeClosures.QPilotNormalizationFork
 import IUTThreeClosures.RootQPilotDivisor
+import IUTThreeClosures.ExactRootNormalization
 import IUTThreeClosures.FinitePositiveLogVolumeMonotonicity
 import IUTThreeClosures.RamificationCorrectedQPilot
 import IUTThreeClosures.ProductWeightMarginalization
