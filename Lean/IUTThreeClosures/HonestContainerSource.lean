@@ -147,7 +147,7 @@ structure HonestGeneratedRHSData
 structure HonestGeneratedNativeSource
     (Dθ : InitialThetaData AG TG)
     (Q : QPilotData Dθ) : Type (max (u + 1) (v + 1) (w + 1)) where
-  rhs : HonestGeneratedRHSData Dθ
+  rhs : HonestGeneratedRHSData.{v, u, w} Dθ
   lhs_eq : Q.lhs = -rhs.source.generated.qLog
 
 namespace HonestGeneratedNativeSource
@@ -156,7 +156,7 @@ namespace HonestGeneratedNativeSource
 total arbitrary-set log-volume. -/
 theorem qPilot_le_thetaAverage
     {Dθ : InitialThetaData AG TG} {Q : QPilotData Dθ}
-    (S : HonestGeneratedNativeSource Dθ Q) :
+    (S : HonestGeneratedNativeSource.{v, u, w} Dθ Q) :
     Q.lhs ≤ S.rhs.source.generated.thetaAverage := by
   rw [S.lhs_eq]
   exact S.rhs.source.neg_qLog_le_thetaAverage
