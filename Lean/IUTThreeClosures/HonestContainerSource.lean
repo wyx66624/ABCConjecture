@@ -8,15 +8,15 @@ This module adapts the current finite-positive `HonestGeneratedSource` to the
 actual packet totals of `Iut.LargeVolumeContainerData`.
 
 A container has infinitely many rational places, whereas any concrete
-log-volume comparison uses only finitely many active packet coordinates.  The
+log-volume comparison uses only finitely many active packet coordinates. The
 index type below is therefore the finite sigma type of capsule/place pairs
-selected by `active`.  Each selected packet carries an actual measurable
-structure, an actual measure and a finite-positive integral region.  The
+selected by `active`. Each selected packet carries an actual measurable
+structure, an actual measure and a finite-positive integral region. The
 source's theta region and output regions are then genuine measure-derived
 objects on these packet totals.
 
 This is a corrected replacement for an older draft that depended on the
-removed `HonestPacketFamily` interface.  It does not construct the measures or
+removed `HonestPacketFamily` interface. It does not construct the measures or
 multiradial images; those remain the local geometric inhabitant problem.
 -/
 
@@ -24,14 +24,14 @@ namespace IUTThreeClosures
 
 open Iut MeasureTheory NumberField
 
-universe u₁ u₂ v
+universe u₁ u₂ v uO
 
 variable {ι : Type u₁} {V : Type u₂}
 variable {D : LargeVolumeContainerData.{u₁, u₂, v} ι V}
 
 /-- Genuine measured-packet data on every packet of a public large-volume
 container, together with the finite set of packet coordinates used by one
-comparison.  Log-volume is derived from these measures and is not a field. -/
+comparison. Log-volume is derived from these measures and is not a field. -/
 structure ContainerMeasuredRealization
     (D : LargeVolumeContainerData.{u₁, u₂, v} ι V) where
   active : Fin D.proc.length → Finset RationalPlace
@@ -58,7 +58,8 @@ instance : Fintype M.ActivePacketIndex := by
   infer_instance
 
 /-- The actual packet total at an active coordinate. -/
-def ActivePacketCarrier (x : M.ActivePacketIndex) : Type _ :=
+def ActivePacketCarrier (x : M.ActivePacketIndex) :
+    Type (max (max u₁ u₂) v) :=
   (D.packet x.1 x.2.1).Total
 
 instance activePacketMeasurableSpace (x : M.ActivePacketIndex) :
@@ -86,11 +87,13 @@ theorem activeIntegral_carrier (x : M.ActivePacketIndex) :
 end ContainerMeasuredRealization
 
 /-- A generated finite-positive source on actual active packet totals of a
-large-volume container. -/
+large-volume container. The output universe is exposed explicitly so that
+this adapter does not leave an unconstrained universe metavariable. -/
 structure HonestContainerSource
     (M : ContainerMeasuredRealization D) where
-  generated : HonestGeneratedSource
-    M.ActivePacketIndex M.ActivePacketCarrier M.activePacketMeasure
+  generated :
+    HonestGeneratedSource.{max (max u₁ u₂) v, 0, uO}
+      M.ActivePacketIndex M.ActivePacketCarrier M.activePacketMeasure
   theta_le_logShell : ∀ x : M.ActivePacketIndex,
     (generated.theta x : Set (M.ActivePacketCarrier x)) ⊆
       D.logShell x.1 x.2.1
@@ -102,7 +105,7 @@ variable {M : ContainerMeasuredRealization D}
 /-- Every concrete output lies in the corresponding public log-shell because
 it lies in the source-generated theta union. -/
 theorem realize_le_logShell
-    (S : HonestContainerSource M)
+    (S : HonestContainerSource.{u₁, u₂, v, uO} M)
     (o : S.generated.Output) (x : M.ActivePacketIndex) :
     (S.generated.realize o x : Set (M.ActivePacketCarrier x)) ⊆
       D.logShell x.1 x.2.1 := by
@@ -112,7 +115,7 @@ theorem realize_le_logShell
 
 /-- The canonical numerical inequality on actual packet totals. -/
 theorem neg_qLog_le_thetaAverage
-    (S : HonestContainerSource M) :
+    (S : HonestContainerSource.{u₁, u₂, v, uO} M) :
     -S.generated.qLog ≤ S.generated.thetaAverage :=
   S.generated.neg_qLog_le_thetaAverage
 
@@ -122,7 +125,7 @@ universe u w
 
 variable {AG : AnabelianGeometry.{u}} {TG : TemperedGeometry AG}
 
-/-- Corrected RHS data over actual initial theta data.  The public container
+/-- Corrected RHS data over actual initial theta data. The public container
 compatibilities are retained, but the inconsistent total real-valued
 `LogVolumeData` is replaced by finite-positive measured packets. -/
 structure HonestGeneratedRHSData
@@ -136,7 +139,7 @@ structure HonestGeneratedRHSData
   toRational_infinite : ∀ x : InfinitePlace ↥Dθ.prime.torsionField,
     container.toRational (Place.infinite x) = RationalPlace.infinite
   measured : ContainerMeasuredRealization container
-  source : HonestContainerSource measured
+  source : HonestContainerSource.{0, u, v, w} measured
 
 /-- Corrected native source data for one actual public q-pilot. -/
 structure HonestGeneratedNativeSource
