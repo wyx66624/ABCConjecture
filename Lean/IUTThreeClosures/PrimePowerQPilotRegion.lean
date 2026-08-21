@@ -107,15 +107,15 @@ theorem packetVol_packetPrimePowerRegion
 end PrimePowerQPilotRegion
 end Iut
 
-/-! Compatibility lemma for the argument order used by the generated-hull
-construction.  It is a direct simplification theorem for `Function.update`. -/
+/-! Compatibility lemma for the zero-valued packet used by the generated-hull
+construction.  Its argument order matches the historical proof term. -/
 namespace Function
 
 theorem update_noteq
-    {α β : Type*} [DecidableEq α]
-    {f : α → β} {a b : α} {v : β}
+    {α β : Type*} [DecidableEq α] [Zero β]
+    {a b : α} {v : β}
     (h : b ≠ a) :
-    Function.update f a v b = f b := by
+    Function.update (fun _ : α => (0 : β)) a v b = 0 := by
   simp [Function.update, h]
 
 end Function
