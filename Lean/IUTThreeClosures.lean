@@ -22,6 +22,7 @@ import IUTThreeClosures.SourceDerivedIUTIVBridge
 -- of the perfect mod-ℓ image after solvable auxiliary base change.
 import IUTThreeClosures.ExplicitSemistableCurve
 import IUTThreeClosures.SolvableRestrictionImage
+import IUTThreeClosures.ZModSL2Perfect
 
 import IUTThreeClosures.QPilotNormalizationAudit
 import IUTThreeClosures.QPilotNormalizationFork
