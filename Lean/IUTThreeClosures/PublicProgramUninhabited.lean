@@ -2,17 +2,18 @@ import IUTThreeClosures.PublicLogVolumeInconsistency
 import IUTThreeClosures.FourOpenConstructions
 
 /-!
-# Finite-component obstruction for the current public source programme
+# Uninhabitedness of the current public source programme
 
-The current public `LogVolumeData` translation law is inconsistent as soon as
-one nonarchimedean packet component exists.  This file propagates that precise
-obstruction to the research-level source and four-stage programme types.
+The current public `LogVolumeData` translation law is inconsistent on the empty
+set.  Its normalized weight sum also forces every rational-place fiber to be
+nonempty.  Since the standard procession of initial theta data has positive
+length for `ℓ ≥ 5`, every current public pointwise IUT III source family on a
+nonempty input type is uninhabited.
 
-Unlike an earlier draft, it does not assert that every abstract public source
-has such a component.  That final existence step depends on the intended
-number-field packet construction and must be proved separately.  The results
-below say exactly what follows once a concrete finite component has been
-constructed.
+This file propagates that specification-level obstruction to the research
+`UpstreamCertificate` and `FourStageProgram` types.  These theorems concern the
+current public Lean interface, not the intended finite-positive Haar-volume
+mathematics; the repaired route is `HonestGeneratedSource`.
 -/
 
 namespace IUTThreeClosures
@@ -88,5 +89,27 @@ theorem not_nonempty_fourStageProgram_of_finite_components
   rintro ⟨P⟩
   rcases hcomponent P with ⟨W⟩
   exact W.false
+
+/-- For a nonempty input type, the current public upstream certificate is
+uninhabited unconditionally. -/
+theorem not_nonempty_public_upstreamCertificate
+    [Nonempty Input] :
+    ¬ Nonempty
+      (UpstreamCertificate.{u, v, w, z}
+        (AG := AG) (TG := TG) (Input := Input)) := by
+  rintro ⟨U⟩
+  exact not_nonempty_pointwiseIUTIIIFamily
+    (AG := AG) (TG := TG) Input ⟨U.family⟩
+
+/-- Consequently the current public four-stage programme is also uninhabited
+on every nonempty input type. -/
+theorem not_nonempty_public_fourStageProgram
+    [Nonempty Input] :
+    ¬ Nonempty
+      (FourStageProgram.{u, v, w, z}
+        (AG := AG) (TG := TG) (Input := Input)) := by
+  rintro ⟨P⟩
+  exact not_nonempty_public_upstreamCertificate
+    (AG := AG) (TG := TG) (Input := Input) ⟨P.upstream⟩
 
 end IUTThreeClosures
