@@ -88,4 +88,31 @@ theorem perfect_subgroup_le_range_restriction_of_solvable_quotient
   rcases himage with ⟨g, hgN, rfl⟩
   exact ⟨⟨g, hgN⟩, rfl⟩
 
+/-- The elementary commutator criterion used to make `SL₂(F)` perfect. -/
+theorem sl2_isPerfect_of_element
+    {F : Type*} [Field F]
+    {a : F} (ha : a ≠ 0) (hasq : a ^ 2 ≠ 1) :
+    Group.IsPerfect (Matrix.SpecialLinearGroup (Fin 2) F) :=
+  ⟨Matrix.SL2.commutator_eq_top ha hasq⟩
+
+/-- A surjective representation into `GL(ι,R)` retains the full embedded
+special-linear subgroup after restriction to a normal subgroup with solvable
+quotient, provided the special-linear group is perfect. -/
+theorem specialLinear_mem_range_restriction_of_solvable_quotient
+    {G ι R : Type*} [Group G] [Fintype ι] [DecidableEq ι] [Field R]
+    (ρ : G →* Matrix.GeneralLinearGroup ι R)
+    (hρ : Function.Surjective ρ)
+    (N : Subgroup G) [N.Normal]
+    [IsSolvable (G ⧸ N)]
+    [Group.IsPerfect (Matrix.SpecialLinearGroup ι R)]
+    (A : Matrix.SpecialLinearGroup ι R) :
+    A.toGL ∈ (ρ.comp N.subtype).range := by
+  let toGLHom : Matrix.SpecialLinearGroup ι R →*
+      Matrix.GeneralLinearGroup ι R := Matrix.SpecialLinearGroup.toGL
+  let S : Subgroup (Matrix.GeneralLinearGroup ι R) := toGLHom.range
+  letI : Group.IsPerfect S := Group.IsPerfect.range toGLHom
+  apply perfect_subgroup_le_range_restriction_of_solvable_quotient
+    ρ hρ N S
+  exact ⟨A, rfl⟩
+
 end IUTThreeClosures
