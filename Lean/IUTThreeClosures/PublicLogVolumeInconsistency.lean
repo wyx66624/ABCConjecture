@@ -69,14 +69,4 @@ theorem not_generatedRHSData_of_nonarch_component
     (c : G.container.Components i (.finite p)) : False := by
   exact not_logVolumeData_of_nonarch_component i p c ⟨G.vol⟩
 
-/-- A generated RHS is impossible whenever one of its finite component types
-is inhabited. -/
-theorem not_nonempty_generatedRHSData_of_nonempty_components
-    {AG : AnabelianGeometry.{u₂}}
-    {TG : TemperedGeometry AG}
-    {Dθ : InitialThetaData AG TG}
-    (i : Fin ((GeneratedRHSData.{u₂, v, w} Dθ).container).proc.length)
-    (p : Nat.Primes) : True := by
-  trivial
-
 end IUTThreeClosures
