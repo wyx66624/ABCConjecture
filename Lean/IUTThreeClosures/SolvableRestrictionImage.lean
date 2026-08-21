@@ -54,8 +54,11 @@ theorem perfect_subgroup_le_normal_image_of_solvable_quotient
     (S : Subgroup K) [Group.IsPerfect S] :
     S ≤ N.map ρ := by
   letI hmapNormal : (N.map ρ).Normal := hN.map ρ hρ
+  have hmap : N ≤ (N.map ρ).comap ρ := by
+    intro g hg
+    exact ⟨g, hg, rfl⟩
   let qρ : G ⧸ N →* K ⧸ N.map ρ :=
-    QuotientGroup.map N (N.map ρ) ρ (Subgroup.le_comap_map)
+    QuotientGroup.map N (N.map ρ) ρ hmap
   have hqρ : Function.Surjective qρ := by
     intro y
     rcases QuotientGroup.mk'_surjective (N.map ρ) y with ⟨k, rfl⟩
