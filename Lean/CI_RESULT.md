@@ -1,15 +1,21 @@
 # Lean CI result
 
-- Tested commit: `7338104fb825307c15df209f274b8fe900fcc3e4`
+- Tested commit: `7275497e2da2b861325f4f5ab809175af696e87e`
 - Lean setup: `success`
 - Dependency resolution/cache: `success`
-- `lake build`: `success`
+- `lake build`: `failure`
 
 ## Error summary
 
 ```text
 ===== lean-dependencies.log =====
 ===== lean-build.log =====
+538:✖ [8799/8802] Building IUTThreeClosures.FreyJHeightCorridor (4.7s)
+545:error: IUTThreeClosures/FreyJHeightCorridor.lean:118:4: linarith failed to find a contradiction
+557:error: IUTThreeClosures/FreyJHeightCorridor.lean:145:4: linarith failed to find a contradiction
+569:error: Lean exited with code 1
+570:Some required targets logged failures:
+572:error: build failed
 ```
 
 ## Dependency log tail
@@ -17,12 +23,59 @@
 ```text
 info: heights: cloning https://github.com/lana-agents/heights.git
 info: heights: checking out revision '3539e2a12dd3470c057a4eb531dc3fd627d4c97b'
+info: genl: cloning https://github.com/LANA-Project/genl.git
+info: genl: checking out revision '6e9a6543b46a2a02fd7fe7ec8ab203d878f32859'
+info: iut: cloning https://github.com/lana-agents/iut.git
+info: iut: checking out revision 'ddaddc274281adb5674d647e24fa478745ac6d40'
 info: toolchain not updated; already up-to-date
+info: mathlib: cloning https://github.com/leanprover-community/mathlib4
+info: mathlib: checking out revision '81a5d257c8e410db227a6665ed08f64fea08e997'
+info: tate-curves-theta: cloning https://github.com/lana-agents/tate-curves-theta
+info: tate-curves-theta: checking out revision '90d7fac0e4ef2d6bf2a619326c30adb862d1b3de'
+info: plausible: cloning https://github.com/leanprover-community/plausible
+info: plausible: checking out revision 'e12c1910fe855cbfc38803cd4e55543906d5fa62'
+info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision 'c5d5b8fe6e5158def25cd28eb94e4141ad97c843'
+info: importGraph: cloning https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision '7e9612bf0b9ee66db3cb5b9988a35afc706f5a12'
+info: proofwidgets: cloning https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision '6e311e2a844da9b2cc3971187df2fe0066947b93'
+info: aesop: cloning https://github.com/leanprover-community/aesop
+info: aesop: checking out revision 'a7dbf0c63b694e47f425f3dcddbc0e178bb432d3'
+info: Qq: cloning https://github.com/leanprover-community/quote4
+info: Qq: checking out revision '38d591e778f100aec9762bb582f9c7f55f50e9dc'
+info: batteries: cloning https://github.com/leanprover-community/batteries
+info: batteries: checking out revision '023ce7d62a0531e22a5331e20b587817a80d49ff'
+info: formal-schemes: cloning https://github.com/lana-agents/formal-schemes
+info: formal-schemes: checking out revision '51aa935079537bf4dc580751a6e70727fb23ca93'
+info: Cli: cloning https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision '88679d088c9720c27ebdf2ba4dafe17341747f94'
 info: mathlib: running post-update hooks
+✔ [2/6] Built Cache.Cli (368ms)
+✔ [3/6] Built Cache.Lean (469ms)
+✔ [8/27] Built Cache.Cli:c.o (182ms)
+✔ [10/27] Built Cache.Lean:c.o (282ms)
+✔ [11/27] Built Cache.Infra (492ms)
+✔ [12/27] Built Cache.Infra:c.o (212ms)
+✔ [13/27] Built Cache.IO (1.5s)
+✔ [14/27] Built Cache.Hashing (851ms)
+✔ [15/27] Built Cache.Hashing:c.o (427ms)
+✔ [16/27] Built Cache.IO:c.o (1.7s)
+✔ [17/27] Built Cache.Requests (2.1s)
+✔ [18/27] Built Cache.Marker (644ms)
+✔ [19/27] Built Cache.Marker:c.o (126ms)
+✔ [20/27] Built Cache.Query (813ms)
+✔ [21/27] Built Cache.Query:c.o (301ms)
+✔ [22/27] Built Cache.Warning (857ms)
+✔ [23/27] Built Cache.Warning:c.o (258ms)
+✔ [24/27] Built Cache.Requests:c.o (3.0s)
+✔ [25/27] Built Cache.Main (1.6s)
+✔ [26/27] Built Cache.Main:c.o (879ms)
+✔ [27/27] Built cache:exe (742ms)
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
 Attempting to download 8639 file(s) from leanprover-community/mathlib4 cache at https://lakecache.blob.core.windows.net/mathlib4-master
-Downloaded: 1 file(s) [attempted 1/8639 = 0%, 15 KB/s], Decompressed: 0Downloaded: 103 file(s) [attempted 103/8639 = 1%, 92 KB/s], Decompressed: 100Downloaded: 225 file(s) [attempted 225/8639 = 2%, 386 KB/s], Decompressed: 222Downloaded: 362 file(s) [attempted 362/8639 = 4%, 2382 KB/s], Decompressed: 358Downloaded: 493 file(s) [attempted 493/8639 = 5%, 1009 KB/s], Decompressed: 491Downloaded: 626 file(s) [attempted 626/8639 = 7%, 699 KB/s], Decompressed: 619Downloaded: 776 file(s) [attempted 776/8639 = 8%, 3484 KB/s], Decompressed: 768Downloaded: 920 file(s) [attempted 920/8639 = 10%, 716 KB/s], Decompressed: 918Downloaded: 1068 file(s) [attempted 1068/8639 = 12%, 3696 KB/s], Decompressed: 1062Downloaded: 1219 file(s) [attempted 1219/8639 = 14%, 3467 KB/s], Decompressed: 1214Downloaded: 1357 file(s) [attempted 1357/8639 = 15%, 2072 KB/s], Decompressed: 1347Downloaded: 1498 file(s) [attempted 1498/8639 = 17%, 471 KB/s], Decompressed: 1494Downloaded: 1641 file(s) [attempted 1641/8639 = 18%, 816 KB/s], Decompressed: 1633Downloaded: 1786 file(s) [attempted 1786/8639 = 20%, 1757 KB/s], Decompressed: 1780Downloaded: 1914 file(s) [attempted 1914/8639 = 22%, 83 KB/s], Decompressed: 1911Downloaded: 2053 file(s) [attempted 2053/8639 = 23%, 711 KB/s], Decompressed: 2048Downloaded: 2199 file(s) [attempted 2199/8639 = 25%, 781 KB/s], Decompressed: 2195Downloaded: 2348 file(s) [attempted 2348/8639 = 27%, 511 KB/s], Decompressed: 2344Downloaded: 2481 file(s) [attempted 2481/8639 = 28%, 688 KB/s], Decompressed: 2473Downloaded: 2626 file(s) [attempted 2626/8639 = 30%, 215 KB/s], Decompressed: 2617Downloaded: 2773 file(s) [attempted 2773/8639 = 32%, 944 KB/s], Decompressed: 2766Downloaded: 2913 file(s) [attempted 2913/8639 = 33%, 844 KB/s], Decompressed: 2908Downloaded: 3055 file(s) [attempted 3055/8639 = 35%, 4676 KB/s], Decompressed: 3048Downloaded: 3191 file(s) [attempted 3191/8639 = 36%, 1420 KB/s], Decompressed: 3184Downloaded: 3337 file(s) [attempted 3337/8639 = 38%, 327 KB/s], Decompressed: 3333Downloaded: 3482 file(s) [attempted 3482/8639 = 40%, 427 KB/s], Decompressed: 3475Downloaded: 3627 file(s) [attempted 3627/8639 = 41%, 3183 KB/s], Decompressed: 3624Downloaded: 3777 file(s) [attempted 3777/8639 = 43%, 723 KB/s], Decompressed: 3771Downloaded: 3922 file(s) [attempted 3922/8639 = 45%, 423 KB/s], Decompressed: 3915Downloaded: 4069 file(s) [attempted 4069/8639 = 47%, 695 KB/s], Decompressed: 4058Downloaded: 4202 file(s) [attempted 4202/8639 = 48%, 1600 KB/s], Decompressed: 4190Downloaded: 4345 file(s) [attempted 4345/8639 = 50%, 2416 KB/s], Decompressed: 4340Downloaded: 4494 file(s) [attempted 4494/8639 = 52%, 1167 KB/s], Decompressed: 4477Downloaded: 4639 file(s) [attempted 4639/8639 = 53%, 186 KB/s], Decompressed: 4629Downloaded: 4781 file(s) [attempted 4781/8639 = 55%, 673 KB/s], Decompressed: 4771Downloaded: 4927 file(s) [attempted 4927/8639 = 57%, 633 KB/s], Decompressed: 4925Downloaded: 5067 file(s) [attempted 5067/8639 = 58%, 1278 KB/s], Decompressed: 5062Downloaded: 5212 file(s) [attempted 5212/8639 = 60%, 2938 KB/s], Decompressed: 5204Downloaded: 5363 file(s) [attempted 5363/8639 = 62%, 340 KB/s], Decompressed: 5356Downloaded: 5512 file(s) [attempted 5512/8639 = 63%, 887 KB/s], Decompressed: 5507Downloaded: 5654 file(s) [attempted 5654/8639 = 65%, 3585 KB/s], Decompressed: 5652Downloaded: 5799 file(s) [attempted 5799/8639 = 67%, 205 KB/s], Decompressed: 5794Downloaded: 5946 file(s) [attempted 5946/8639 = 68%, 424 KB/s], Decompressed: 5943Downloaded: 6078 file(s) [attempted 6078/8639 = 70%, 2715 KB/s], Decompressed: 6074Downloaded: 6228 file(s) [attempted 6228/8639 = 72%, 2952 KB/s], Decompressed: 6223Downloaded: 6370 file(s) [attempted 6370/8639 = 73%, 1033 KB/s], Decompressed: 6363Downloaded: 6499 file(s) [attempted 6499/8639 = 75%, 898 KB/s], Decompressed: 6496Downloaded: 6646 file(s) [attempted 6646/8639 = 76%, 388 KB/s], Decompressed: 6640Downloaded: 6796 file(s) [attempted 6796/8639 = 78%, 495 KB/s], Decompressed: 6794Downloaded: 6940 file(s) [attempted 6940/8639 = 80%, 2380 KB/s], Decompressed: 6936Downloaded: 7086 file(s) [attempted 7086/8639 = 82%, 167 KB/s], Decompressed: 7076Downloaded: 7232 file(s) [attempted 7232/8639 = 83%, 161 KB/s], Decompressed: 7223Downloaded: 7375 file(s) [attempted 7375/8639 = 85%, 1313 KB/s], Decompressed: 7372Downloaded: 7522 file(s) [attempted 7522/8639 = 87%, 548 KB/s], Decompressed: 7512Downloaded: 7662 file(s) [attempted 7662/8639 = 88%, 1856 KB/s], Decompressed: 7657Downloaded: 7806 file(s) [attempted 7806/8639 = 90%, 757 KB/s], Decompressed: 7803Downloaded: 7943 file(s) [attempted 7943/8639 = 91%, 985 KB/s], Decompressed: 7939Downloaded: 8089 file(s) [attempted 8089/8639 = 93%, 1271 KB/s], Decompressed: 8085Downloaded: 8232 file(s) [attempted 8232/8639 = 95%, 703 KB/s], Decompressed: 8230Downloaded: 8379 file(s) [attempted 8379/8639 = 96%, 308 KB/s], Decompressed: 8377Downloaded: 8520 file(s) [attempted 8520/8639 = 98%, 330 KB/s], Decompressed: 8514Downloaded: 8638 file(s) [attempted 8638/8639 = 99%, 925 KB/s], Decompressed: 8633Downloaded: 8639 file(s) [attempted 8639/8639 = 100%, 925 KB/s], Decompressed: 8633
+Downloaded: 1 file(s) [attempted 1/8639 = 0%, 16 KB/s], Decompressed: 0Downloaded: 94 file(s) [attempted 94/8639 = 1%, 92 KB/s], Decompressed: 16Downloaded: 202 file(s) [attempted 202/8639 = 2%, 2079 KB/s], Decompressed: 44Downloaded: 318 file(s) [attempted 318/8639 = 3%, 580 KB/s], Decompressed: 44Downloaded: 442 file(s) [attempted 442/8639 = 5%, 1659 KB/s], Decompressed: 44Downloaded: 565 file(s) [attempted 565/8639 = 6%, 992 KB/s], Decompressed: 150Downloaded: 700 file(s) [attempted 700/8639 = 8%, 607 KB/s], Decompressed: 150Downloaded: 836 file(s) [attempted 836/8639 = 9%, 2561 KB/s], Decompressed: 150Downloaded: 962 file(s) [attempted 962/8639 = 11%, 624 KB/s], Decompressed: 150Downloaded: 1100 file(s) [attempted 1100/8639 = 12%, 316 KB/s], Decompressed: 150Downloaded: 1237 file(s) [attempted 1237/8639 = 14%, 619 KB/s], Decompressed: 150Downloaded: 1372 file(s) [attempted 1372/8639 = 15%, 3794 KB/s], Decompressed: 150Downloaded: 1502 file(s) [attempted 1502/8639 = 17%, 1590 KB/s], Decompressed: 150Downloaded: 1636 file(s) [attempted 1636/8639 = 18%, 191 KB/s], Decompressed: 150Downloaded: 1741 file(s) [attempted 1741/8639 = 20%, 619 KB/s], Decompressed: 150Downloaded: 1876 file(s) [attempted 1876/8639 = 21%, 2889 KB/s], Decompressed: 150Downloaded: 2006 file(s) [attempted 2006/8639 = 23%, 163 KB/s], Decompressed: 150Downloaded: 2130 file(s) [attempted 2130/8639 = 24%, 1247 KB/s], Decompressed: 150Downloaded: 2256 file(s) [attempted 2256/8639 = 26%, 406 KB/s], Decompressed: 150Downloaded: 2391 file(s) [attempted 2391/8639 = 27%, 823 KB/s], Decompressed: 150Downloaded: 2510 file(s) [attempted 2510/8639 = 29%, 228 KB/s], Decompressed: 561Downloaded: 2622 file(s) [attempted 2622/8639 = 30%, 1218 KB/s], Decompressed: 561Downloaded: 2764 file(s) [attempted 2764/8639 = 31%, 630 KB/s], Decompressed: 561Downloaded: 2878 file(s) [attempted 2878/8639 = 33%, 2098 KB/s], Decompressed: 561Downloaded: 2978 file(s) [attempted 2978/8639 = 34%, 300 KB/s], Decompressed: 561Downloaded: 3051 file(s) [attempted 3051/8639 = 35%, 5569 KB/s], Decompressed: 561Downloaded: 3151 file(s) [attempted 3151/8639 = 36%, 634 KB/s], Decompressed: 561Downloaded: 3269 file(s) [attempted 3269/8639 = 37%, 818 KB/s], Decompressed: 561Downloaded: 3398 file(s) [attempted 3398/8639 = 39%, 2229 KB/s], Decompressed: 561Downloaded: 3515 file(s) [attempted 3515/8639 = 40%, 1682 KB/s], Decompressed: 561Downloaded: 3636 file(s) [attempted 3636/8639 = 42%, 237 KB/s], Decompressed: 561Downloaded: 3762 file(s) [attempted 3762/8639 = 43%, 772 KB/s], Decompressed: 561Downloaded: 3904 file(s) [attempted 3904/8639 = 45%, 3667 KB/s], Decompressed: 561Downloaded: 4039 file(s) [attempted 4039/8639 = 46%, 435 KB/s], Decompressed: 561Downloaded: 4107 file(s) [attempted 4107/8639 = 47%, 1074 KB/s], Decompressed: 561Downloaded: 4229 file(s) [attempted 4229/8639 = 48%, 177 KB/s], Decompressed: 561Downloaded: 4352 file(s) [attempted 4352/8639 = 50%, 6071 KB/s], Decompressed: 561Downloaded: 4459 file(s) [attempted 4459/8639 = 51%, 3909 KB/s], Decompressed: 561Downloaded: 4578 file(s) [attempted 4578/8639 = 52%, 404 KB/s], Decompressed: 561Downloaded: 4682 file(s) [attempted 4682/8639 = 54%, 124 KB/s], Decompressed: 561Downloaded: 4764 file(s) [attempted 4764/8639 = 55%, 193 KB/s], Decompressed: 561Downloaded: 4860 file(s) [attempted 4860/8639 = 56%, 743 KB/s], Decompressed: 561Downloaded: 4960 file(s) [attempted 4960/8639 = 57%, 3343 KB/s], Decompressed: 561Downloaded: 5090 file(s) [attempted 5090/8639 = 58%, 4743 KB/s], Decompressed: 561Downloaded: 5198 file(s) [attempted 5198/8639 = 60%, 1283 KB/s], Decompressed: 561Downloaded: 5312 file(s) [attempted 5312/8639 = 61%, 945 KB/s], Decompressed: 561Downloaded: 5445 file(s) [attempted 5445/8639 = 63%, 1586 KB/s], Decompressed: 561Downloaded: 5568 file(s) [attempted 5568/8639 = 64%, 2792 KB/s], Decompressed: 561Downloaded: 5682 file(s) [attempted 5682/8639 = 65%, 1480 KB/s], Decompressed: 561Downloaded: 5814 file(s) [attempted 5814/8639 = 67%, 1217 KB/s], Decompressed: 561Downloaded: 5927 file(s) [attempted 5927/8639 = 68%, 2359 KB/s], Decompressed: 561Downloaded: 6015 file(s) [attempted 6015/8639 = 69%, 1888 KB/s], Decompressed: 561Downloaded: 6139 file(s) [attempted 6139/8639 = 71%, 420 KB/s], Decompressed: 561Downloaded: 6251 file(s) [attempted 6251/8639 = 72%, 523 KB/s], Decompressed: 561Downloaded: 6384 file(s) [attempted 6384/8639 = 73%, 711 KB/s], Decompressed: 561Downloaded: 6505 file(s) [attempted 6505/8639 = 75%, 1105 KB/s], Decompressed: 561Downloaded: 6607 file(s) [attempted 6607/8639 = 76%, 225 KB/s], Decompressed: 561Downloaded: 6671 file(s) [attempted 6671/8639 = 77%, 2094 KB/s], Decompressed: 561Downloaded: 6787 file(s) [attempted 6787/8639 = 78%, 862 KB/s], Decompressed: 561Downloaded: 6904 file(s) [attempted 6904/8639 = 79%, 3910 KB/s], Decompressed: 561Downloaded: 7042 file(s) [attempted 7042/8639 = 81%, 1031 KB/s], Decompressed: 561Downloaded: 7160 file(s) [attempted 7160/8639 = 82%, 398 KB/s], Decompressed: 561Downloaded: 7291 file(s) [attempted 7291/8639 = 84%, 5388 KB/s], Decompressed: 561Downloaded: 7421 file(s) [attempted 7421/8639 = 85%, 383 KB/s], Decompressed: 561Downloaded: 7557 file(s) [attempted 7557/8639 = 87%, 2207 KB/s], Decompressed: 561Downloaded: 7675 file(s) [attempted 7675/8639 = 88%, 834 KB/s], Decompressed: 561Downloaded: 7808 file(s) [attempted 7808/8639 = 90%, 602 KB/s], Decompressed: 561Downloaded: 7925 file(s) [attempted 7925/8639 = 91%, 2513 KB/s], Decompressed: 561Downloaded: 8060 file(s) [attempted 8060/8639 = 93%, 858 KB/s], Decompressed: 561Downloaded: 8186 file(s) [attempted 8186/8639 = 94%, 989 KB/s], Decompressed: 561Downloaded: 8321 file(s) [attempted 8321/8639 = 96%, 100 KB/s], Decompressed: 561Downloaded: 8445 file(s) [attempted 8445/8639 = 97%, 1930 KB/s], Decompressed: 561Downloaded: 8503 file(s) [attempted 8503/8639 = 98%, 6675 KB/s], Decompressed: 561Downloaded: 8610 file(s) [attempted 8610/8639 = 99%, 4485 KB/s], Decompressed: 561Downloaded: 8639 file(s) [attempted 8639/8639 = 100%, 4485 KB/s], Decompressed: 561
 Decompressed 8639 file(s)
 Already decompressed 8639 file(s)
 Current branch: HEAD
@@ -34,69 +87,66 @@ Already decompressed 8639 file(s)
 ## Build log tail
 
 ```text
-✔ [8656/8667] Built TateCurvesTheta.Basic (456ms)
-✔ [8657/8667] Built TateCurvesTheta.Analysis.MaxTerm (3.2s)
-✔ [8658/8667] Built TateCurvesTheta.Analysis.UltrametricSum (3.4s)
-✔ [8659/8667] Built TateCurvesTheta.QParameter.Basic (3.6s)
-✔ [8660/8667] Built TateCurvesTheta.Arithmetic.DivisorConvolution (7.8s)
-✔ [8661/8673] Built TateCurvesTheta.AnalyticQuotient (7.6s)
+✔ [8656/8667] Built TateCurvesTheta.Basic (455ms)
+✔ [8657/8667] Built TateCurvesTheta.Analysis.MaxTerm (2.0s)
+✔ [8658/8667] Built TateCurvesTheta.Analysis.UltrametricSum (3.5s)
+✔ [8659/8667] Built TateCurvesTheta.QParameter.Basic (3.8s)
+✔ [8660/8667] Built TateCurvesTheta.Arithmetic.DivisorConvolution (8.2s)
+✔ [8661/8673] Built TateCurvesTheta.AnalyticQuotient (8.6s)
 ✔ [8662/8673] Built Iut.Cor312.ThetaData.Places (7.4s)
-✔ [8663/8675] Built TateCurvesTheta.QParameter.BaseChange (3.3s)
+✔ [8663/8675] Built TateCurvesTheta.QParameter.BaseChange (3.6s)
 ✔ [8664/8675] Built TateCurvesTheta.Analysis.Strassmann (4.6s)
-✔ [8665/8675] Built TateCurvesTheta.TateCurve.Weierstrass (3.6s)
-✔ [8666/8675] Built TateCurvesTheta.QParameter.PrimeToOrder (2.8s)
-✔ [8667/8679] Built TateCurvesTheta.TateCurve.Discriminant (5.1s)
-✔ [8668/8679] Built TateCurvesTheta.Analysis.StrassmannSphere (5.9s)
-✔ [8669/8679] Built TateCurvesTheta.QParameter.NormalizedOrder (4.1s)
-✔ [8670/8680] Built TateCurvesTheta.TateCurve.JInvariant (3.1s)
-✔ [8671/8684] Built TateCurvesTheta.TateCurve.SplitReduction (4.7s)
-✔ [8672/8685] Built TateCurvesTheta.TateCurve.Parametrization (4.6s)
-✔ [8673/8689] Built Iut.Cor312.ThetaData.GlobalField (13s)
-✔ [8674/8691] Built TateCurvesTheta.Theta.Basic (3.7s)
-✔ [8675/8692] Built TateCurvesTheta.TateCurve.WeierstrassIdentity (4.4s)
-✔ [8676/8693] Built TateCurvesTheta.TateCurve.CoordinateExpansion (5.2s)
-✔ [8677/8693] Built TateCurvesTheta.QParameter.JParametrization (8.6s)
-✔ [8678/8696] Built TateCurvesTheta.Theta.Periodicity (3.8s)
-✔ [8679/8696] Built TateCurvesTheta.TateCurve.EisensteinKernels (4.6s)
-✔ [8680/8696] Built TateCurvesTheta.QParameter.Characterization (3.1s)
-✔ [8681/8704] Built TateCurvesTheta.TateCurve.CoordinateAnnulusLaurentY (7.8s)
-✔ [8682/8704] Built TateCurvesTheta.Theta.Product (5.5s)
-✔ [8683/8704] Built TateCurvesTheta.TateCurve.CoordinateAnnulusLaurent (8.9s)
-✔ [8684/8704] Built TateCurvesTheta.Theta.QBinomial (6.6s)
-✔ [8685/8705] Built TateCurvesTheta.Theta.Divisor (7.1s)
-✔ [8686/8708] Built TateCurvesTheta.Theta.Uniqueness (6.2s)
-✔ [8687/8708] Built TateCurvesTheta.TateCurve.EisensteinSeries (12s)
-✔ [8688/8708] Built TateCurvesTheta.TateCurve.CoordinateInversion (3.6s)
-✔ [8689/8708] Built TateCurvesTheta.Theta.FactorSeries (4.9s)
-✔ [8690/8708] Built TateCurvesTheta.Theta.LaurentSphere (3.9s)
-✔ [8691/8712] Built TateCurvesTheta.TateCurve.TatePointMem (3.8s)
-✔ [8692/8713] Built TateCurvesTheta.Theta.LaurentSphereReduce (3.7s)
-✔ [8693/8714] Built TateCurvesTheta.Theta.ThetaProdLaurent (5.3s)
-✔ [8694/8715] Built TateCurvesTheta.TateCurve.IntegralModel (4.9s)
-✔ [8695/8717] Built TateCurvesTheta.TateCurve.Quotient (6.4s)
-✔ [8696/8717] Built TateCurvesTheta.Theta.LaurentUnitSphere (3.9s)
-✔ [8697/8719] Built TateCurvesTheta.TateCurve.SphereBounds (6.1s)
-✔ [8698/8721] Built TateCurvesTheta.Theta.ThetaProdGlobalLaurent (4.0s)
-✔ [8699/8721] Built TateCurvesTheta.Theta.FactorReciprocal (4.0s)
-✔ [8700/8721] Built TateCurvesTheta.Theta.LaurentUnique (3.4s)
-✔ [8701/8721] Built TateCurvesTheta.TateCurve.DefectAnnulusLaurent (3.8s)
-✔ [8702/8729] Built TateCurvesTheta.TateCurve.PointMap (8.2s)
-✔ [8703/8729] Built TateCurvesTheta.Theta.Normalization (3.7s)
-✔ [8704/8729] Built TateCurvesTheta.Theta.SeriesZero (3.8s)
-✔ [8705/8729] Built TateCurvesTheta.Theta.RatioAnnulus (3.9s)
-✔ [8706/8729] Built TateCurvesTheta.Theta.TripleProduct (4.6s)
-✔ [8707/8731] Built TateCurvesTheta.Theta.StrictDominant (9.1s)
-✔ [8708/8733] Built TateCurvesTheta.Theta.Durfee (5.5s)
-✔ [8709/8733] Built TateCurvesTheta.Uniformization (10s)
-✔ [8710/8735] Built TateCurvesTheta.Theta.Inversion (3.5s)
-✔ [8711/8735] Built Iut.Cor312.Procession (6.6s)
-✔ [8712/8735] Built Iut.Cor312.RationalPlace (5.0s)
-✔ [8713/8765] Built Iut.Cor312.PacketPresentation (11s)
-✔ [8714/8765] Built TateCurvesTheta.Theta.WeightSpace (16s)
-✔ [8715/8765] Built Iut.Cor312.Container (9.7s)
-✔ [8716/8765] Built Iut.Cor312.HolomorphicHull (10s)
-✔ [8717/8765] Built IUTThreeClosures.ABCStatement (3.2s)
-⚠ [8718/8765] Built IUTThreeClosures.HonestFinitePositiveLogVolume (9.3s)
+✔ [8665/8675] Built TateCurvesTheta.TateCurve.Weierstrass (3.7s)
+✔ [8666/8678] Built TateCurvesTheta.QParameter.PrimeToOrder (3.0s)
+✔ [8667/8679] Built TateCurvesTheta.Analysis.StrassmannSphere (5.7s)
+✔ [8668/8680] Built TateCurvesTheta.TateCurve.Discriminant (5.2s)
+✔ [8669/8680] Built TateCurvesTheta.QParameter.NormalizedOrder (4.2s)
+✔ [8670/8680] Built TateCurvesTheta.TateCurve.Parametrization (4.3s)
+✔ [8671/8680] Built TateCurvesTheta.TateCurve.JInvariant (3.4s)
+✔ [8672/8684] Built TateCurvesTheta.TateCurve.SplitReduction (4.7s)
+✔ [8673/8684] Built TateCurvesTheta.TateCurve.WeierstrassIdentity (2.9s)
+✔ [8674/8692] Built Iut.Cor312.ThetaData.GlobalField (15s)
+✔ [8675/8696] Built TateCurvesTheta.TateCurve.CoordinateExpansion (4.0s)
+✔ [8676/8696] Built TateCurvesTheta.Theta.Basic (4.4s)
+✔ [8677/8696] Built TateCurvesTheta.TateCurve.EisensteinKernels (6.2s)
+✔ [8678/8696] Built TateCurvesTheta.QParameter.JParametrization (9.5s)
+✔ [8679/8696] Built TateCurvesTheta.Theta.Periodicity (4.2s)
+✔ [8680/8696] Built TateCurvesTheta.TateCurve.CoordinateAnnulusLaurentY (10s)
+✔ [8681/8704] Built TateCurvesTheta.TateCurve.CoordinateAnnulusLaurent (9.6s)
+✔ [8682/8705] Built TateCurvesTheta.QParameter.Characterization (4.1s)
+✔ [8683/8708] Built TateCurvesTheta.Theta.Product (5.9s)
+✔ [8684/8708] Built TateCurvesTheta.TateCurve.EisensteinSeries (13s)
+✔ [8685/8708] Built TateCurvesTheta.TateCurve.CoordinateInversion (5.9s)
+✔ [8686/8708] Built TateCurvesTheta.Theta.QBinomial (7.1s)
+✔ [8687/8712] Built TateCurvesTheta.Theta.Divisor (5.3s)
+✔ [8688/8713] Built TateCurvesTheta.Theta.Uniqueness (3.5s)
+✔ [8689/8714] Built TateCurvesTheta.Theta.FactorSeries (5.3s)
+✔ [8690/8714] Built TateCurvesTheta.TateCurve.IntegralModel (5.4s)
+✔ [8691/8714] Built TateCurvesTheta.TateCurve.Quotient (7.8s)
+✔ [8692/8715] Built TateCurvesTheta.Theta.LaurentSphere (4.0s)
+✔ [8693/8715] Built TateCurvesTheta.TateCurve.SphereBounds (7.2s)
+✔ [8694/8717] Built TateCurvesTheta.TateCurve.TatePointMem (4.3s)
+✔ [8695/8719] Built TateCurvesTheta.Theta.ThetaProdLaurent (4.0s)
+✔ [8696/8719] Built TateCurvesTheta.Theta.LaurentSphereReduce (3.6s)
+✔ [8697/8721] Built TateCurvesTheta.Theta.FactorReciprocal (3.6s)
+✔ [8698/8721] Built TateCurvesTheta.Theta.ThetaProdGlobalLaurent (4.7s)
+✔ [8699/8721] Built TateCurvesTheta.Theta.LaurentUnique (3.9s)
+✔ [8700/8729] Built TateCurvesTheta.TateCurve.PointMap (7.8s)
+✔ [8701/8729] Built TateCurvesTheta.Theta.LaurentUnitSphere (3.4s)
+✔ [8702/8729] Built TateCurvesTheta.Theta.RatioAnnulus (3.4s)
+✔ [8703/8729] Built TateCurvesTheta.Theta.SeriesZero (3.0s)
+✔ [8704/8729] Built TateCurvesTheta.TateCurve.DefectAnnulusLaurent (4.2s)
+✔ [8705/8729] Built TateCurvesTheta.Theta.TripleProduct (5.4s)
+✔ [8706/8731] Built TateCurvesTheta.Theta.StrictDominant (9.0s)
+✔ [8707/8733] Built TateCurvesTheta.Theta.Normalization (4.8s)
+✔ [8708/8735] Built TateCurvesTheta.Uniformization (10s)
+✔ [8709/8735] Built TateCurvesTheta.Theta.Durfee (4.4s)
+✔ [8710/8765] Built Iut.Cor312.Procession (6.6s)
+✔ [8711/8765] Built Iut.Cor312.RationalPlace (6.3s)
+✔ [8712/8765] Built TateCurvesTheta.Theta.Inversion (3.9s)
+✔ [8713/8765] Built Iut.Cor312.PacketPresentation (7.5s)
+✔ [8714/8765] Built TateCurvesTheta.Theta.WeightSpace (14s)
+⚠ [8715/8765] Built IUTThreeClosures.HonestFinitePositiveLogVolume (10s)
 warning: IUTThreeClosures/HonestFinitePositiveLogVolume.lean:1:1: * '-/':
 Copyright too short!
 
@@ -105,8 +155,9 @@ Note: This linter can be disabled with `set_option linter.style.header false`
 warning: IUTThreeClosures/HonestFinitePositiveLogVolume.lean:126:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-✔ [8719/8784] Built IUTThreeClosures.FullPolyCore (7.8s)
-⚠ [8721/8784] Built IUTThreeClosures.Cor312CoefficientAlgebra (7.3s)
+✔ [8716/8765] Built IUTThreeClosures.ABCStatement (4.7s)
+✔ [8717/8787] Built IUTThreeClosures.FullPolyCore (9.4s)
+⚠ [8719/8787] Built IUTThreeClosures.Cor312CoefficientAlgebra (9.9s)
 warning: IUTThreeClosures/Cor312CoefficientAlgebra.lean:1:1: * '-/':
 Copyright too short!
 
@@ -148,10 +199,9 @@ warning: IUTThreeClosures/Cor312CoefficientAlgebra.lean:3:0: The module doc-stri
 Please, add a module doc-string before ``.
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-✔ [8722/8784] Built TateCurvesTheta.Theta.PuncturedProduct (44s)
-✔ [8723/8784] Built Iut.Cor312.LogVolume (7.0s)
-✔ [8724/8784] Built Iut.Cor312.ContainerHull (6.3s)
-⚠ [8725/8784] Built IUTThreeClosures.HonestPilotWitness (6.1s)
+✔ [8720/8787] Built Iut.Cor312.Container (9.6s)
+✔ [8721/8787] Built Iut.Cor312.HolomorphicHull (9.1s)
+⚠ [8722/8787] Built IUTThreeClosures.HonestPilotWitness (7.8s)
 warning: IUTThreeClosures/HonestPilotWitness.lean:1:1: * '-/':
 Copyright too short!
 
@@ -160,9 +210,10 @@ Note: This linter can be disabled with `set_option linter.style.header false`
 warning: IUTThreeClosures/HonestPilotWitness.lean:86:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-✔ [8726/8784] Built IUTThreeClosures.WeakCompatibilityCountermodel (6.4s)
-✔ [8727/8784] Built Heights.WeilHeight (8.3s)
-⚠ [8728/8784] Built IUTThreeClosures.ExplicitSemistableCurve (6.4s)
+✔ [8723/8787] Built IUTThreeClosures.WeakCompatibilityCountermodel (7.8s)
+✔ [8724/8787] Built TateCurvesTheta.Theta.PuncturedProduct (44s)
+✔ [8725/8787] Built Heights.WeilHeight (9.1s)
+⚠ [8726/8787] Built IUTThreeClosures.ExplicitSemistableCurve (7.4s)
 warning: IUTThreeClosures/ExplicitSemistableCurve.lean:1:1: * '-/':
 Copyright too short!
 
@@ -171,7 +222,7 @@ Note: This linter can be disabled with `set_option linter.style.header false`
 warning: IUTThreeClosures/ExplicitSemistableCurve.lean:95:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-⚠ [8729/8784] Built IUTThreeClosures.SolvableRestrictionImage (7.4s)
+⚠ [8727/8787] Built IUTThreeClosures.SolvableRestrictionImage (7.1s)
 warning: IUTThreeClosures/SolvableRestrictionImage.lean:1:1: * '-/':
 Copyright too short!
 
@@ -180,7 +231,13 @@ Note: This linter can be disabled with `set_option linter.style.header false`
 warning: IUTThreeClosures/SolvableRestrictionImage.lean:121:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-⚠ [8730/8784] Built IUTThreeClosures.QPilotNormalizationAudit (6.7s)
+⚠ [8728/8787] Built IUTThreeClosures.RootQPilotDivisor (6.6s)
+warning: IUTThreeClosures/RootQPilotDivisor.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+⚠ [8729/8787] Built IUTThreeClosures.QPilotNormalizationAudit (6.7s)
 warning: IUTThreeClosures/QPilotNormalizationAudit.lean:1:1: * '-/':
 Copyright too short!
 
@@ -189,26 +246,19 @@ Note: This linter can be disabled with `set_option linter.style.header false`
 warning: IUTThreeClosures/QPilotNormalizationAudit.lean:155:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-⚠ [8731/8784] Built IUTThreeClosures.RootQPilotDivisor (6.4s)
-warning: IUTThreeClosures/RootQPilotDivisor.lean:1:1: * '-/':
-Copyright too short!
-
-
-Note: This linter can be disabled with `set_option linter.style.header false`
-⚠ [8732/8784] Built IUTThreeClosures.FinitePositiveLogVolumeMonotonicity (6.3s)
+⚠ [8730/8787] Built IUTThreeClosures.FinitePositiveLogVolumeMonotonicity (6.3s)
 warning: IUTThreeClosures/FinitePositiveLogVolumeMonotonicity.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-⚠ [8733/8784] Built IUTThreeClosures.RamificationCorrectedQPilot (6.9s)
+⚠ [8731/8787] Built IUTThreeClosures.RamificationCorrectedQPilot (7.0s)
 warning: IUTThreeClosures/RamificationCorrectedQPilot.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-✔ [8734/8784] Built TateCurvesTheta.TateCurve.DefectVanishing (87s)
-⚠ [8735/8784] Built IUTThreeClosures.ProductWeightMarginalization (7.5s)
+⚠ [8732/8787] Built IUTThreeClosures.ProductWeightMarginalization (7.6s)
 warning: IUTThreeClosures/ProductWeightMarginalization.lean:1:1: * '-/':
 Copyright too short!
 
@@ -230,13 +280,7 @@ Note: This linter can be disabled with `set_option linter.unusedDecidableInType 
 warning: IUTThreeClosures/ProductWeightMarginalization.lean:105:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-⚠ [8737/8784] Built IUTThreeClosures.GeneratedUnionCompactness (6.1s)
-warning: IUTThreeClosures/GeneratedUnionCompactness.lean:1:1: * '-/':
-Copyright too short!
-
-
-Note: This linter can be disabled with `set_option linter.style.header false`
-⚠ [8738/8784] Built IUTThreeClosures.AdmissiblePrimeSelection (6.0s)
+⚠ [8734/8787] Built IUTThreeClosures.AdmissiblePrimeSelection (6.6s)
 warning: IUTThreeClosures/AdmissiblePrimeSelection.lean:1:1: * '-/':
 Copyright too short!
 
@@ -245,28 +289,28 @@ Note: This linter can be disabled with `set_option linter.style.header false`
 warning: IUTThreeClosures/AdmissiblePrimeSelection.lean:104:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-⚠ [8739/8784] Built IUTThreeClosures.FiniteExceptionalSet (6.0s)
+✔ [8735/8787] Built TateCurvesTheta.TateCurve.DefectVanishing (92s)
+⚠ [8736/8787] Built IUTThreeClosures.FiniteExceptionalSet (6.5s)
 warning: IUTThreeClosures/FiniteExceptionalSet.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-⚠ [8740/8784] Built IUTThreeClosures.PrimePowerQPilotRegion (6.4s)
-warning: IUTThreeClosures/PrimePowerQPilotRegion.lean:1:1: * '-/':
+⚠ [8737/8787] Built IUTThreeClosures.GeneratedUnionCompactness (6.2s)
+warning: IUTThreeClosures/GeneratedUnionCompactness.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-warning: IUTThreeClosures/PrimePowerQPilotRegion.lean:108:7: '' starts on column 7, but all commands should start at the beginning of the line.
-
-Note: This linter can be disabled with `set_option linter.style.whitespace false`
-⚠ [8742/8799] Built IUTThreeClosures.HonestGeneratedSource (6.2s)
+✔ [8738/8787] Built Iut.Cor312.LogVolume (6.6s)
+✔ [8739/8787] Built Iut.Cor312.ContainerHull (6.1s)
+⚠ [8740/8798] Built IUTThreeClosures.HonestGeneratedSource (6.4s)
 warning: IUTThreeClosures/HonestGeneratedSource.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-⚠ [8743/8799] Built IUTThreeClosures.ZModSL2Perfect (5.9s)
+⚠ [8742/8802] Built IUTThreeClosures.ZModSL2Perfect (6.1s)
 warning: IUTThreeClosures/ZModSL2Perfect.lean:1:1: * '-/':
 Copyright too short!
 
@@ -275,42 +319,42 @@ Note: This linter can be disabled with `set_option linter.style.header false`
 warning: IUTThreeClosures/ZModSL2Perfect.lean:62:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-⚠ [8744/8799] Built IUTThreeClosures.QPilotNormalizationFork (6.5s)
+⚠ [8743/8802] Built IUTThreeClosures.QPilotNormalizationFork (6.1s)
 warning: IUTThreeClosures/QPilotNormalizationFork.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-✔ [8745/8799] Built Genl.Mathlib.Order.BoundedDiscrepancy (3.6s)
-✔ [8746/8799] Built TateCurvesTheta.TateCurve.TatePointOnCurve (6.6s)
-⚠ [8747/8799] Built IUTThreeClosures.TateParameterUnitBallRegion (3.1s)
+✔ [8744/8802] Built Genl.Mathlib.Order.BoundedDiscrepancy (2.7s)
+⚠ [8745/8802] Built IUTThreeClosures.TateParameterUnitBallRegion (4.2s)
 warning: IUTThreeClosures/TateParameterUnitBallRegion.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-⚠ [8748/8799] Built IUTThreeClosures.DistinguishedLabelQPilot (6.8s)
-warning: IUTThreeClosures/DistinguishedLabelQPilot.lean:1:1: * '-/':
+✔ [8746/8802] Built TateCurvesTheta.TateCurve.TatePointOnCurve (7.3s)
+⚠ [8747/8802] Built IUTThreeClosures.PrimePowerQPilotRegion (7.1s)
+warning: IUTThreeClosures/PrimePowerQPilotRegion.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-warning: IUTThreeClosures/DistinguishedLabelQPilot.lean:52:7: '' starts on column 7, but all commands should start at the beginning of the line.
+warning: IUTThreeClosures/PrimePowerQPilotRegion.lean:108:7: '' starts on column 7, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-⚠ [8749/8799] Built IUTThreeClosures.FiniteExponentHull (5.0s)
+⚠ [8748/8802] Built IUTThreeClosures.FiniteExponentHull (6.8s)
 warning: IUTThreeClosures/FiniteExponentHull.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-⚠ [8750/8799] Built IUTThreeClosures.StandardZeroLabel (5.7s)
+⚠ [8749/8802] Built IUTThreeClosures.StandardZeroLabel (5.8s)
 warning: IUTThreeClosures/StandardZeroLabel.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-⚠ [8751/8799] Built IUTThreeClosures.BarycentricPacketReading (6.2s)
+⚠ [8750/8802] Built IUTThreeClosures.BarycentricPacketReading (6.1s)
 warning: IUTThreeClosures/BarycentricPacketReading.lean:1:1: * '-/':
 Copyright too short!
 
@@ -331,21 +375,20 @@ Note: This linter can be disabled with `set_option linter.unusedDecidableInType 
 warning: IUTThreeClosures/BarycentricPacketReading.lean:70:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-⚠ [8752/8799] Built IUTThreeClosures.DiagonalPacketNoGo (6.1s)
+⚠ [8751/8802] Built IUTThreeClosures.DiagonalPacketNoGo (5.0s)
 warning: IUTThreeClosures/DiagonalPacketNoGo.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-✔ [8753/8799] Built Genl.GeneralPosition.HeightTheory (1.8s)
-⚠ [8754/8799] Built IUTThreeClosures.PublicNormalizationObstruction (6.6s)
+✔ [8752/8802] Built Genl.GeneralPosition.HeightTheory (1.8s)
+⚠ [8753/8802] Built IUTThreeClosures.PublicNormalizationObstruction (6.8s)
 warning: IUTThreeClosures/PublicNormalizationObstruction.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-✔ [8755/8799] Built Iut4Sec1.Global.ArithmeticDivisor (6.1s)
-⚠ [8756/8799] Built IUTThreeClosures.IUTIVAbsorption (8.8s)
+⚠ [8754/8802] Built IUTThreeClosures.IUTIVAbsorption (9.2s)
 warning: IUTThreeClosures/IUTIVAbsorption.lean:1:1: * '-/':
 Copyright too short!
 
@@ -397,9 +440,20 @@ warning: IUTThreeClosures/IUTIVAbsorption.lean:3:0: The module doc-string for a 
 Please, add a module doc-string before ``.
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-✔ [8757/8799] Built TateCurvesTheta.TateCurve.AdditionLaw (10s)
-✔ [8758/8799] Built TateCurvesTheta.TateCurve.DefectCoeffBaseChange (9.1s)
-⚠ [8759/8799] Built IUTThreeClosures.ZeroLabelBarycentric (9.9s)
+✔ [8755/8802] Built Iut4Sec1.Global.ArithmeticDivisor (6.2s)
+✔ [8756/8802] Built TateCurvesTheta.TateCurve.AdditionLaw (11s)
+⚠ [8757/8802] Built IUTThreeClosures.DistinguishedLabelQPilot (9.4s)
+warning: IUTThreeClosures/DistinguishedLabelQPilot.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+warning: IUTThreeClosures/DistinguishedLabelQPilot.lean:52:7: '' starts on column 7, but all commands should start at the beginning of the line.
+
+Note: This linter can be disabled with `set_option linter.style.whitespace false`
+✔ [8758/8802] Built TateCurvesTheta.TateCurve.DefectCoeffBaseChange (9.5s)
+✔ [8759/8802] Built TateCurvesTheta.TateCurve.LargePointParametrization (14s)
+⚠ [8760/8802] Built IUTThreeClosures.ZeroLabelBarycentric (7.5s)
 warning: IUTThreeClosures/ZeroLabelBarycentric.lean:1:1: * '-/':
 Copyright too short!
 
@@ -411,8 +465,7 @@ warning: IUTThreeClosures/ZeroLabelBarycentric.lean:24:0: `product_weight_pointM
 Consider removing this hypothesis and using `classical` in the proof instead. For terms, consider using `open scoped Classical in` at the term level (not the command level).
 
 Note: This linter can be disabled with `set_option linter.unusedDecidableInType false`
-✔ [8760/8799] Built TateCurvesTheta.TateCurve.LargePointParametrization (13s)
-⚠ [8761/8799] Built IUTThreeClosures.StatementIIOutsideFinite (7.5s)
+⚠ [8761/8802] Built IUTThreeClosures.StatementIIOutsideFinite (6.7s)
 warning: IUTThreeClosures/StatementIIOutsideFinite.lean:1:1: * '-/':
 Copyright too short!
 
@@ -433,25 +486,26 @@ warning: IUTThreeClosures/StatementIIOutsideFinite.lean:18:35: Variable name `K`
 The binding can be removed (if unused) or named `_` (if used implicitly).
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
-✔ [8762/8799] Built TateCurvesTheta.TateCurve.AbelStep (6.9s)
-✔ [8763/8799] Built TateCurvesTheta.TateCurve.GroupLaw (10s)
-✔ [8764/8799] Built TateCurvesTheta.TateCurve.SurjectivityAnnulus (21s)
-✔ [8765/8799] Built TateCurvesTheta.TateCurve.SurjectivitySphere (25s)
-✔ [8766/8799] Built TateCurvesTheta.TateCurve.TateUniformization (4.3s)
-✔ [8767/8799] Built TateCurvesTheta (3.7s)
-✔ [8768/8799] Built Iut.Cor312.ThetaData.AdmissiblePrime (4.8s)
-✔ [8769/8799] Built Iut.Cor312.ThetaData.Orbicurve (4.7s)
-✔ [8770/8799] Built Iut.Cor312.ThetaData.LocalConditions (7.6s)
-✔ [8771/8799] Built Iut.Cor312.ThetaData.Basic (4.6s)
-✔ [8772/8799] Built Iut.Cor312.LeftHandSide (4.1s)
-✔ [8773/8799] Built Iut.Cor312.RightHandSide (4.4s)
-⚠ [8774/8799] Built IUTThreeClosures.NativeQPilotCalibration (4.5s)
+✔ [8762/8802] Built TateCurvesTheta.TateCurve.AbelStep (7.9s)
+✔ [8763/8802] Built TateCurvesTheta.TateCurve.GroupLaw (10s)
+✔ [8764/8802] Built TateCurvesTheta.TateCurve.SurjectivityAnnulus (21s)
+✔ [8765/8802] Built TateCurvesTheta.TateCurve.SurjectivitySphere (26s)
+✔ [8766/8802] Built TateCurvesTheta.TateCurve.TateUniformization (4.5s)
+✔ [8767/8802] Built TateCurvesTheta (3.7s)
+✔ [8768/8802] Built Iut.Cor312.ThetaData.AdmissiblePrime (4.0s)
+✔ [8769/8802] Built Iut.Cor312.ThetaData.Orbicurve (4.8s)
+✔ [8770/8802] Built Iut.Cor312.ThetaData.LocalConditions (7.9s)
+✔ [8771/8802] Built Iut.Cor312.ThetaData.Basic (4.7s)
+✔ [8772/8802] Built Iut.Cor312.LeftHandSide (4.2s)
+✔ [8773/8802] Built Iut.Cor312.RightHandSide (4.5s)
+⚠ [8774/8802] Built IUTThreeClosures.NativeQPilotCalibration (4.7s)
 warning: IUTThreeClosures/NativeQPilotCalibration.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-⚠ [8775/8799] Built IUTThreeClosures.CorrectedQPilotDivisor (5.4s)
+✔ [8775/8802] Built Iut.Cor312.Statement (5.1s)
+⚠ [8776/8802] Built IUTThreeClosures.CorrectedQPilotDivisor (5.7s)
 warning: IUTThreeClosures/CorrectedQPilotDivisor.lean:1:1: * '-/':
 Copyright too short!
 
@@ -463,23 +517,22 @@ Note: This linter can be disabled with `set_option linter.unnecessarySimpa false
 warning: IUTThreeClosures/CorrectedQPilotDivisor.lean:122:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-✔ [8776/8799] Built Iut.Cor312.Statement (5.3s)
-✔ [8777/8799] Built IUTThreeClosures.ActualPilotWitness (4.1s)
-✔ [8778/8799] Built IUTThreeClosures.GeneratedSource (4.6s)
-✔ [8779/8799] Built IUTThreeClosures.QuantifierCorrectClosure (4.1s)
-✔ [8780/8799] Built IUTThreeClosures.ABCClosure (4.3s)
-⚠ [8781/8799] Built IUTThreeClosures.PublicLogVolumeInconsistency (4.6s)
+✔ [8777/8802] Built IUTThreeClosures.ActualPilotWitness (4.2s)
+✔ [8778/8802] Built IUTThreeClosures.GeneratedSource (4.6s)
+✔ [8779/8802] Built IUTThreeClosures.QuantifierCorrectClosure (4.1s)
+✔ [8780/8802] Built IUTThreeClosures.ABCClosure (4.2s)
+⚠ [8781/8802] Built IUTThreeClosures.PublicLogVolumeInconsistency (4.6s)
 warning: IUTThreeClosures/PublicLogVolumeInconsistency.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-✔ [8782/8799] Built IUTThreeClosures.ThreeClosureTheorems (4.0s)
-✔ [8783/8799] Built IUTThreeClosures.InhabitationBoundary (4.2s)
-✔ [8784/8799] Built IUTThreeClosures.CircularityAudit (4.3s)
-✔ [8785/8799] Built IUTThreeClosures.NonCircularDownstream (5.2s)
-✔ [8786/8799] Built IUTThreeClosures.FourOpenConstructions (4.4s)
-⚠ [8787/8799] Built IUTThreeClosures.ABCPointLegendreCurve (4.9s)
+✔ [8782/8802] Built IUTThreeClosures.ThreeClosureTheorems (4.1s)
+✔ [8783/8802] Built IUTThreeClosures.InhabitationBoundary (4.2s)
+✔ [8784/8802] Built IUTThreeClosures.CircularityAudit (4.3s)
+✔ [8785/8802] Built IUTThreeClosures.NonCircularDownstream (5.3s)
+✔ [8786/8802] Built IUTThreeClosures.FourOpenConstructions (4.3s)
+⚠ [8787/8802] Built IUTThreeClosures.ABCPointLegendreCurve (4.7s)
 warning: IUTThreeClosures/ABCPointLegendreCurve.lean:1:1: * '-/':
 Copyright too short!
 
@@ -488,13 +541,7 @@ Note: This linter can be disabled with `set_option linter.style.header false`
 warning: IUTThreeClosures/ABCPointLegendreCurve.lean:130:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-⚠ [8788/8799] Built IUTThreeClosures.PublicProgramUninhabited (4.7s)
-warning: IUTThreeClosures/PublicProgramUninhabited.lean:1:1: * '-/':
-Copyright too short!
-
-
-Note: This linter can be disabled with `set_option linter.style.header false`
-⚠ [8789/8799] Built IUTThreeClosures.BridgeInhabitationAudit (6.2s)
+⚠ [8788/8802] Built IUTThreeClosures.BridgeInhabitationAudit (5.1s)
 warning: IUTThreeClosures/BridgeInhabitationAudit.lean:55:4: 'change P.height ≤ (6 : ℝ) * P.height / 6 + 0' tactic does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
@@ -504,13 +551,20 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 warning: IUTThreeClosures/BridgeInhabitationAudit.lean:64:4: 'change P.conductor ≤ P.conductor + 0' tactic does nothing
 
 Note: This linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [8790/8799] Built IUTThreeClosures.LegendreArithmetic (5.9s)
+⚠ [8789/8802] Built IUTThreeClosures.PublicProgramUninhabited (5.7s)
+warning: IUTThreeClosures/PublicProgramUninhabited.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+⚠ [8790/8802] Built IUTThreeClosures.LegendreArithmetic (6.3s)
 warning: IUTThreeClosures/LegendreArithmetic.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-⚠ [8791/8799] Built IUTThreeClosures.ABCFreyCurve (5.2s)
+✔ [8791/8802] Built IUTThreeClosures.BridgeInhabitationExact (5.3s)
+⚠ [8792/8802] Built IUTThreeClosures.ABCFreyCurve (5.6s)
 warning: IUTThreeClosures/ABCFreyCurve.lean:1:1: * '-/':
 Copyright too short!
 
@@ -540,8 +594,7 @@ Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus fa
 warning: IUTThreeClosures/ABCFreyCurve.lean:90:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-✔ [8792/8799] Built IUTThreeClosures.BridgeInhabitationExact (5.6s)
-⚠ [8793/8799] Built IUTThreeClosures.TripodWeilHeight (5.8s)
+⚠ [8793/8802] Built IUTThreeClosures.TripodWeilHeight (5.8s)
 warning: IUTThreeClosures/TripodWeilHeight.lean:1:1: * '-/':
 Copyright too short!
 
@@ -550,24 +603,60 @@ Note: This linter can be disabled with `set_option linter.style.header false`
 warning: IUTThreeClosures/TripodWeilHeight.lean:94:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-⚠ [8794/8799] Built IUTThreeClosures.CanonicalQPilotCorridor (4.4s)
+⚠ [8794/8802] Built IUTThreeClosures.CanonicalQPilotCorridor (4.8s)
 warning: IUTThreeClosures/CanonicalQPilotCorridor.lean:109:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-⚠ [8795/8799] Built IUTThreeClosures.LegendreHeightCorridor (4.6s)
+⚠ [8795/8802] Built IUTThreeClosures.LegendreHeightCorridor (5.1s)
 warning: IUTThreeClosures/LegendreHeightCorridor.lean:1:1: * '-/':
 Copyright too short!
 
 
 Note: This linter can be disabled with `set_option linter.style.header false`
-✔ [8796/8799] Built IUTThreeClosures.CanonicalCorridorAudit (4.3s)
-⚠ [8797/8799] Built IUTThreeClosures.SourceDerivedIUTIVBridge (5.2s)
+✔ [8796/8802] Built IUTThreeClosures.CanonicalCorridorAudit (5.0s)
+⚠ [8797/8802] Built IUTThreeClosures.SourceDerivedIUTIVBridge (6.1s)
 warning: IUTThreeClosures/SourceDerivedIUTIVBridge.lean:88:20: '' starts on column 20, but all commands should start at the beginning of the line.
 
 Note: This linter can be disabled with `set_option linter.style.whitespace false`
-⚠ [8798/8799] Built IUTThreeClosures (3.9s)
-warning: IUTThreeClosures.lean:61:46: '' starts on column 46, but all commands should start at the beginning of the line.
+⚠ [8798/8802] Built IUTThreeClosures.FreyJReducedData (4.0s)
+warning: IUTThreeClosures/FreyJReducedData.lean:1:1: * '-/':
+Copyright too short!
 
-Note: This linter can be disabled with `set_option linter.style.whitespace false`
-Build completed successfully (8799 jobs).
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+✖ [8799/8802] Building IUTThreeClosures.FreyJHeightCorridor (4.7s)
+trace: .> LEAN_PATH=/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/formal-schemes/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/tate-curves-theta/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/iut/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/genl/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/packages/heights/.lake/build/lib/lean:/home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/build/lib/lean /home/runner/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean /home/runner/work/ABCConjecture/ABCConjecture/Lean/IUTThreeClosures/FreyJHeightCorridor.lean -o /home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/build/lib/lean/IUTThreeClosures/FreyJHeightCorridor.olean -i /home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/build/lib/lean/IUTThreeClosures/FreyJHeightCorridor.ilean -c /home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/build/ir/IUTThreeClosures/FreyJHeightCorridor.c --setup /home/runner/work/ABCConjecture/ABCConjecture/Lean/.lake/build/ir/IUTThreeClosures/FreyJHeightCorridor.setup.json --json
+warning: IUTThreeClosures/FreyJHeightCorridor.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+error: IUTThreeClosures/FreyJHeightCorridor.lean:118:4: linarith failed to find a contradiction
+P : ABCPoint
+M : ℕ := max P.freyJReducedNum P.freyJReducedDen
+hM : 0 < M
+hnat : P.c ^ 6 ≤ 8 * M
+hcR : 0 < ↑P.c
+hMR : 0 < ↑M
+hreal : ↑P.c ^ 6 ≤ 8 * ↑M
+hlog : ↑6 * Real.log ↑P.c ≤ Real.log 8 + Real.log ↑M
+a✝ : Real.log ↑M / 6 + Real.log 8 / 6 < Real.log ↑P.c
+⊢ False
+failed
+error: IUTThreeClosures/FreyJHeightCorridor.lean:145:4: linarith failed to find a contradiction
+P : ABCPoint
+M : ℕ := max P.freyJReducedNum P.freyJReducedDen
+hM : 0 < M
+hnat : M ≤ 256 * P.c ^ 6
+hMR : 0 < ↑M
+hcR : 0 < ↑P.c
+hreal : ↑M ≤ 256 * ↑P.c ^ 6
+hlog : Real.log ↑M ≤ Real.log 256 + ↑6 * Real.log ↑P.c
+a✝ : Real.log ↑P.c + Real.log 256 / 6 < Real.log ↑M / 6
+⊢ False
+failed
+error: Lean exited with code 1
+Some required targets logged failures:
+- IUTThreeClosures.FreyJHeightCorridor
+error: build failed
 ```
