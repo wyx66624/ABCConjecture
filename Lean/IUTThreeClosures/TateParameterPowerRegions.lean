@@ -17,6 +17,8 @@ componentwise-minimum theta-hull calculation.
 
 namespace TateCurvesTheta
 
+open scoped Pointwise
+
 variable {K : Type*} [NormedField K]
 
 namespace TateParameter
@@ -25,6 +27,20 @@ namespace TateParameter
 parameter. -/
 def qPowerRegion (t : TateParameter K) (n : ℕ) : Set K :=
   scaledRegion ((t.q : K) ^ n) (normIntegralRegion (K := K))
+
+/-- The image definition agrees with the pointwise scalar-set presentation
+used by public packet hulls. -/
+theorem qPowerRegion_eq_pow_smul
+    (t : TateParameter K) (n : ℕ) :
+    t.qPowerRegion n =
+      ((t.q : K) ^ n) • normIntegralRegion (K := K) := by
+  ext x
+  constructor
+  · rintro ⟨y, hy, rfl⟩
+    exact ⟨y, hy, by simp [qPowerRegion, scaledRegion, smul_eq_mul]⟩
+  · rintro ⟨y, hy, hxy⟩
+    refine ⟨y, hy, ?_⟩
+    simpa [qPowerRegion, scaledRegion, smul_eq_mul] using hxy.symm
 
 @[simp]
 theorem qPowerRegion_zero (t : TateParameter K) :
