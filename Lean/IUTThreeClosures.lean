@@ -1,5 +1,9 @@
 import IUTThreeClosures.ActualPilotWitness
 import IUTThreeClosures.GeneratedSource
+import IUTThreeClosures.PublicLogVolumeInconsistency
+import IUTThreeClosures.HonestFinitePositiveLogVolume
+import IUTThreeClosures.HonestPilotWitness
+import IUTThreeClosures.HonestGeneratedSource
 import IUTThreeClosures.QuantifierCorrectClosure
 import IUTThreeClosures.ABCStatement
 import IUTThreeClosures.ABCClosure
@@ -10,7 +14,28 @@ import IUTThreeClosures.NonCircularDownstream
 import IUTThreeClosures.FullPolyCore
 import IUTThreeClosures.WeakCompatibilityCountermodel
 import IUTThreeClosures.FourOpenConstructions
+import IUTThreeClosures.PublicProgramUninhabited
 import IUTThreeClosures.BridgeInhabitationAudit
+import IUTThreeClosures.BridgeInhabitationExact
+
+-- Canonical, source-derived replacement for the freely populated bridge.
+import IUTThreeClosures.CanonicalQPilotCorridor
+import IUTThreeClosures.CanonicalCorridorAudit
+import IUTThreeClosures.SourceDerivedIUTIVBridge
+
+-- Arithmetic input route: point-dependent Legendre and integral Frey curves,
+-- their exact rational Weil heights and height arithmetic, an explicit fixed
+-- comparison curve, and preservation of perfect mod-ℓ image after solvable
+-- base change.
+import IUTThreeClosures.ABCPointLegendreCurve
+import IUTThreeClosures.LegendreArithmetic
+import IUTThreeClosures.ABCFreyCurve
+import IUTThreeClosures.TripodWeilHeight
+import IUTThreeClosures.LegendreHeightCorridor
+import IUTThreeClosures.ExplicitSemistableCurve
+import IUTThreeClosures.SolvableRestrictionImage
+import IUTThreeClosures.ZModSL2Perfect
+
 import IUTThreeClosures.QPilotNormalizationAudit
 import IUTThreeClosures.QPilotNormalizationFork
 import IUTThreeClosures.RootQPilotDivisor

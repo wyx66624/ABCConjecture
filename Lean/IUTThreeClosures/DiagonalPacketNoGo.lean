@@ -16,7 +16,7 @@ by the capsule cardinality. -/
 theorem diagonal_response_eq_card_mul
     [Fintype L] (a : ℝ) :
     (∑ _j : L, a) = (Fintype.card L : ℝ) * a := by
-  simp [Fintype.card_eq_sum_ones]
+  simp only [Finset.sum_const, Finset.card_univ, nsmul_eq_mul]
 
 /-- Different capsule sizes cannot have one common nonzero diagonal reading. -/
 theorem diagonal_readings_ne_of_card_ne

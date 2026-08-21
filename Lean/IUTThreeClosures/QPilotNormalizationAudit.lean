@@ -10,15 +10,17 @@ There are two natural local quantities at a finite place over `p`.
 * The public local q-order is the integer uniformizer order `n`, i.e.
   `ord_v(π) = 1`.
 
-Multiplying these directly gives `e f n log(p) / d`.  On the other hand, the
+Multiplying these directly gives `e f n log(p) / d`. On the other hand, the
 normalized arithmetic-divisor degree of the divisor with coefficient `n` is
-`f n log(p) / d`.  The two differ by the ramification index.
+`f n log(p) / d`. The two differ by the ramification index.
 
 The correct packet-normalized local response is `(n/e) log p`, so the product
 with the local-degree weight is the arithmetic-divisor term.
 -/
 
 namespace IUTThreeClosures
+
+open scoped BigOperators
 
 structure LocalQPilotNormalizationDatum where
   ramification : ℝ
@@ -57,19 +59,20 @@ theorem correctedPacketTerm_eq_divisorTerm
     D.correctedPacketTerm = D.divisorTerm := by
   unfold correctedPacketTerm divisorTerm
   field_simp [D.ramification_pos.ne', D.globalDegree_pos.ne']
-  ring
 
 theorem documentedTerm_eq_ramification_mul_divisorTerm
     (D : LocalQPilotNormalizationDatum) :
     D.documentedTerm = D.ramification * D.divisorTerm := by
   unfold documentedTerm divisorTerm
   field_simp [D.globalDegree_pos.ne']
-  ring
 
 theorem divisorTerm_pos (D : LocalQPilotNormalizationDatum) :
     0 < D.divisorTerm := by
   unfold divisorTerm
-  positivity
+  exact mul_pos
+    (mul_pos (div_pos D.residueDegree_pos D.globalDegree_pos)
+      D.uniformizerOrder_pos)
+    D.logPrime_pos
 
 /-- At a genuinely ramified place, the direct combination of local-degree
 weight and integer uniformizer order cannot equal the arithmetic-divisor
@@ -108,38 +111,43 @@ noncomputable def ramifiedQuadraticExample : LocalQPilotNormalizationDatum where
 
 theorem ramifiedQuadraticExample_mismatch :
     ramifiedQuadraticExample.documentedTerm ≠
-      ramifiedQuadraticExample.divisorTerm :=
-  ramifiedQuadraticExample.documentedTerm_ne_divisorTerm_of_ramified
-    (by norm_num)
+      ramifiedQuadraticExample.divisorTerm := by
+  apply LocalQPilotNormalizationDatum.documentedTerm_ne_divisorTerm_of_ramified
+  change (1 : ℝ) < 2
+  norm_num
 
 section Global
 
-variable {V : Type*} [Fintype V]
+universe uV
 
-structure GlobalQPilotNormalizationDatum where
-  local : V → LocalQPilotNormalizationDatum
+variable {V : Type uV} [Fintype V]
+
+/-- A finite family of local normalization data.  The field is deliberately
+not named `local`, which is a Lean command keyword. -/
+structure GlobalQPilotNormalizationDatum (V : Type uV) where
+  datum : V → LocalQPilotNormalizationDatum
 
 namespace GlobalQPilotNormalizationDatum
 
 noncomputable def documentedLogQ
-    (D : GlobalQPilotNormalizationDatum (V := V)) : ℝ :=
-  ∑ v, (D.local v).documentedTerm
+    (D : GlobalQPilotNormalizationDatum V) : ℝ :=
+  ∑ v, (D.datum v).documentedTerm
 
 noncomputable def divisorLogQ
-    (D : GlobalQPilotNormalizationDatum (V := V)) : ℝ :=
-  ∑ v, (D.local v).divisorTerm
+    (D : GlobalQPilotNormalizationDatum V) : ℝ :=
+  ∑ v, (D.datum v).divisorTerm
 
 noncomputable def correctedPacketLogQ
-    (D : GlobalQPilotNormalizationDatum (V := V)) : ℝ :=
-  ∑ v, (D.local v).correctedPacketTerm
+    (D : GlobalQPilotNormalizationDatum V) : ℝ :=
+  ∑ v, (D.datum v).correctedPacketTerm
 
 theorem correctedPacketLogQ_eq_divisorLogQ
-    (D : GlobalQPilotNormalizationDatum (V := V)) :
+    (D : GlobalQPilotNormalizationDatum V) :
     D.correctedPacketLogQ = D.divisorLogQ := by
   unfold correctedPacketLogQ divisorLogQ
   apply Finset.sum_congr rfl
   intro v hv
-  exact (D.local v).correctedPacketTerm_eq_divisorTerm
+  exact (D.datum v).correctedPacketTerm_eq_divisorTerm
 
 end GlobalQPilotNormalizationDatum
 end Global

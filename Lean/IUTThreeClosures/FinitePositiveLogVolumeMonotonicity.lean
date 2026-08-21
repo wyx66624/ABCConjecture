@@ -12,10 +12,10 @@ open scoped BigOperators
 theorem log_measure_toReal_mono
     {α : Type*} [MeasurableSpace α]
     (μ : Measure α) {A B : Set α}
-    (hAB : A ⊆ B) (hA_ne_zero : μ A ≠ 0) (hB_ne_top : μ B ≠ ∞) :
+    (hAB : A ⊆ B) (hA_ne_zero : μ A ≠ 0) (hB_ne_top : μ B ≠ ⊤) :
     Real.log (μ A).toReal ≤ Real.log (μ B).toReal := by
   have hμ : μ A ≤ μ B := measure_mono hAB
-  have hA_ne_top : μ A ≠ ∞ := ne_top_of_le_ne_top hB_ne_top hμ
+  have hA_ne_top : μ A ≠ ⊤ := ne_top_of_le_ne_top hB_ne_top hμ
   have hB_ne_zero : μ B ≠ 0 := by
     intro hB
     apply hA_ne_zero

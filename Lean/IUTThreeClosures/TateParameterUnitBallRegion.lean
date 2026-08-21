@@ -41,16 +41,16 @@ theorem scaledRegion_normIntegral_of_norm_eq_one
     · change ‖u⁻¹ * x‖ ≤ 1
       rw [norm_mul, norm_inv, hu]
       simpa [normIntegralRegion] using hx
-    · simp [hu0, mul_assoc]
+    · simp [hu0]
 
 theorem scaledRegion_eq_of_norm_eq
     {a b : K} (hb : b ≠ 0) (hab : ‖a‖ = ‖b‖) :
     scaledRegion a (normIntegralRegion (K := K)) =
       scaledRegion b (normIntegralRegion (K := K)) := by
   let u : K := a / b
+  have hnb : ‖b‖ ≠ 0 := norm_ne_zero_iff.mpr hb
   have hu : ‖u‖ = 1 := by
-    rw [u, norm_div, hab, div_self]
-    exact norm_ne_zero_iff.mpr hb
+    simp [u, norm_div, hab, hnb]
   have ha : a = b * u := by
     dsimp [u]
     field_simp
@@ -66,7 +66,7 @@ theorem scaledRegion_q_eq_uniformizerPower
         (normIntegralRegion (K := K)) := by
   apply scaledRegion_eq_of_norm_eq
   · exact pow_ne_zero _ hπ.ne_zero
-  · exact t.norm_q_eq_pow_orderNat hπ
+  · simpa [norm_pow] using t.norm_q_eq_pow_orderNat hπ
 
 end TateParameter
 end TateCurvesTheta

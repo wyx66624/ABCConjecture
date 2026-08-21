@@ -1,13 +1,17 @@
-import Mathlib.Algebra.BigOperators.Ring.Finset
-import Mathlib.Logic.Equiv.Basic
+import Mathlib
 
 /-!
 # Marginalization of product packet weights
 
 For a finite label type `L`, a finite place fiber `V`, and normalized place
 weights `w`, the product weight on components `c : L → V` has marginal `w`
-at every distinguished label.  This is the finite product-measure identity
+at every distinguished label. This is the finite product-measure identity
 needed to reduce a packet q-pilot calculation to the weighted local place sum.
+
+The marginal theorem accepts an explicit `Fintype (L → V)` instance. This is
+important for public packet components, whose finite enumeration is produced
+by `Fintype.ofFinite` rather than definitionally by `Pi.instFintype`; the sum
+is independent of that implementation choice.
 -/
 
 namespace IUTThreeClosures
@@ -45,6 +49,7 @@ theorem sum_product_weights_eq_one
 
 theorem product_weight_marginal
     [Fintype L] [DecidableEq L] [Fintype V] [DecidableEq V]
+    [Fintype (L → V)]
     (j₀ : L) (w f : V → ℝ) (hw : ∑ v, w v = 1) :
     (∑ c : L → V, (∏ j, w (c j)) * f (c j₀)) =
       ∑ v, w v * f v := by
@@ -57,9 +62,19 @@ theorem product_weight_marginal
       (x : V × ({j : L // j ≠ j₀} → V)) :
       (∏ j, w ((E.symm x) j)) * f ((E.symm x) j₀) =
         (w x.1 * f x.1) * ∏ j, w (x.2 j) := by
+    have hhead : (E.symm x) j₀ = x.1 := by
+      simp [E, splitAtEquiv]
+    have htail (j : {j : L // j ≠ j₀}) :
+        (E.symm x) j.1 = x.2 j := by
+      simp [E, splitAtEquiv, j.property]
+    have hprod :
+        (∏ j : {j : L // j ≠ j₀}, w ((E.symm x) j.1)) =
+          ∏ j, w (x.2 j) := by
+      apply Fintype.prod_congr
+      intro j
+      rw [htail j]
     rw [Fintype.prod_eq_mul_prod_subtype_ne
-      (fun j => w ((E.symm x) j)) j₀]
-    simp [E, splitAtEquiv]
+      (fun j => w ((E.symm x) j)) j₀, hhead, hprod]
     ring
   calc
     (∑ c : L → V, (∏ j, w (c j)) * f (c j₀))

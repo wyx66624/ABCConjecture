@@ -49,7 +49,7 @@ variable {Extra : Type u₄}
 def output
     (k₀ : A₀ ≃ C₀) (theta : A₀)
     (extraOutput : Extra → C₁) :
-    GeneratedChoice Extra → C₁
+    GeneratedChoice (C₀ := C₀) (C₁ := C₁) Extra → C₁
   | .ordinary p => p (k₀ theta)
   | .extra e => extraOutput e
 
@@ -84,7 +84,8 @@ theorem singleton_volume_le_generated
     volume {x} ≤ volume U := by
   apply hmono
   intro y hy
-  simpa using hx
+  have hyx : y = x := by simpa using hy
+  simpa [hyx] using hx
 
 /-- Scalar consequence used in Corollary 3.12. -/
 theorem coefficient_ge_neg_one_of_bridge

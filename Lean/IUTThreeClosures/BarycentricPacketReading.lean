@@ -31,14 +31,21 @@ theorem product_weight_barycentric
     (∑ c : L → V,
         (∏ j, weight (c j)) *
           (∑ j, coeff j * value (c j))) =
-      ∑ j, coeff j *
-        (∑ c : L → V, (∏ k, weight (c k)) * value (c j)) := by
-          rw [Finset.sum_comm]
+      ∑ c : L → V, ∑ j : L,
+        (∏ k, weight (c k)) * (coeff j * value (c j)) := by
           apply Finset.sum_congr rfl
           intro c hc
           rw [Finset.mul_sum]
+    _ = ∑ j : L, ∑ c : L → V,
+        (∏ k, weight (c k)) * (coeff j * value (c j)) := by
+          rw [Finset.sum_comm]
+    _ = ∑ j, coeff j *
+        (∑ c : L → V, (∏ k, weight (c k)) * value (c j)) := by
           apply Finset.sum_congr rfl
           intro j hj
+          rw [Finset.mul_sum]
+          apply Finset.sum_congr rfl
+          intro c hc
           ring
     _ = ∑ j, coeff j * (∑ v, weight v * value v) := by
           apply Finset.sum_congr rfl

@@ -42,7 +42,7 @@ noncomputable def arithmeticLogQ (Q : Iut.QPilotData D) : ℝ :=
 so it is independent of a choice of notation for ramification and inertia
 indices. -/
 def QPilotWeightDegreeCompatible (Q : Iut.QPilotData D) : Prop :=
-  ∀ w (hw : w ∈ Q.badFinset),
+  ∀ w (_hw : w ∈ Q.badFinset),
     Q.weight w * Real.log (Iut.residueChar w) =
       Iut4Sec1.arithmeticPlaceWeight (.inl w) /
         (Module.finrank ℚ D.F : ℝ)
@@ -85,8 +85,21 @@ theorem arithmeticLogQ_eq_publicLogQ
   apply Finset.sum_congr rfl
   intro w hw
   have hc := hcompat w.1 (by simpa using w.2)
-  rw [← hc]
-  ring
+  calc
+    (D.prime.qOrder w.1 (Q.mem_bad w.2) : ℝ) *
+          Iut4Sec1.arithmeticPlaceWeight (.inl w.1) /
+            (Module.finrank ℚ D.F : ℝ) =
+        (D.prime.qOrder w.1 (Q.mem_bad w.2) : ℝ) *
+          (Iut4Sec1.arithmeticPlaceWeight (.inl w.1) /
+            (Module.finrank ℚ D.F : ℝ)) := by ring
+    _ = (D.prime.qOrder w.1 (Q.mem_bad w.2) : ℝ) *
+          (Q.weight w.1 * Real.log (Iut.residueChar w.1)) := by
+      exact congrArg
+        (fun x : ℝ => (D.prime.qOrder w.1 (Q.mem_bad w.2) : ℝ) * x)
+        hc.symm
+    _ = Q.weight w.1 *
+          (D.prime.qOrder w.1 (Q.mem_bad w.2) : ℝ) *
+            Real.log (Iut.residueChar w.1) := by ring
 
 /-- Corrected absolute q-logarithm defined directly from the arithmetic
 q-divisor, without an independent real weight field. -/
