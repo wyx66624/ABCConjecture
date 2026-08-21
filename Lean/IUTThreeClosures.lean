@@ -3,6 +3,7 @@ import IUTThreeClosures.GeneratedSource
 import IUTThreeClosures.PublicLogVolumeInconsistency
 import IUTThreeClosures.HonestFinitePositiveLogVolume
 import IUTThreeClosures.FiniteProductLogVolume
+import IUTThreeClosures.PublicThetaHullComponentFormula
 import IUTThreeClosures.HonestPilotWitness
 import IUTThreeClosures.HonestGeneratedSource
 import IUTThreeClosures.HonestContainerSource
