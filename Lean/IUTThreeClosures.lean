@@ -23,6 +23,7 @@ import IUTThreeClosures.PublicProgramUninhabited
 import IUTThreeClosures.BridgeInhabitationAudit
 import IUTThreeClosures.BridgeInhabitationExact
 import IUTThreeClosures.GeneratedOutputHullEnvelope
+import IUTThreeClosures.PossibleImageGeneratorClosure
 import IUTThreeClosures.TensorPacketDistribution
 import IUTThreeClosures.SemisimplePacketCoordinates
 
