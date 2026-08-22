@@ -23,6 +23,7 @@ import IUTThreeClosures.PublicProgramUninhabited
 import IUTThreeClosures.BridgeInhabitationAudit
 import IUTThreeClosures.BridgeInhabitationExact
 import IUTThreeClosures.GeneratedOutputHullEnvelope
+import IUTThreeClosures.SemisimplePacketCoordinates
 
 -- Canonical, source-derived replacement for the freely populated bridge.
 import IUTThreeClosures.CanonicalQPilotCorridor
