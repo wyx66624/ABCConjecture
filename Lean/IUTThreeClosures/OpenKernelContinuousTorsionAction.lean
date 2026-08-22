@@ -16,7 +16,7 @@ kernel is the inverse image of the open singleton `{1}`.
 
 Combined with `matrixRepresentationFromAction_ker`, this proves that the
 matrix representation derived from an actual continuous torsion action has the
-same open kernel.  The remaining source theorem is continuity of the genuine
+same open kernel. The remaining source theorem is continuity of the genuine
 Galois action in the Krull topology; the matrix conversion introduces no new
 topological obligation.
 -/
@@ -37,7 +37,11 @@ theorem isOpen_ker_of_continuous_to_discrete
     isOpen_discrete {1}
   have hpre : IsOpen (f ⁻¹' ({1} : Set H)) :=
     hopen.preimage hf
-  simpa [MonoidHom.mem_ker] using hpre
+  have hker : (f.ker : Set G) = f ⁻¹' ({1} : Set H) := by
+    ext x
+    simp [MonoidHom.mem_ker]
+  rw [hker]
+  exact hpre
 
 section MatrixAction
 
