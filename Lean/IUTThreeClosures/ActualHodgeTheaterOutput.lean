@@ -25,21 +25,20 @@ For a bad finite place of the global curve it derives, rather than supplies:
   completion.
 
 On the Tate completion, the theta label `j` is represented by the nonzero
-Kummer point `q^(j^2)`.  Horizontal Kummer arrows are the unique translations
-sending one distinguished point to another.  They satisfy the expected
-identity, inverse and cocycle laws by the group laws.
+Kummer point `q^(j^2)`. Horizontal Kummer arrows are translations sending one
+distinguished point to another.
 
-The three indeterminacies are represented separately:
+The three candidate indeterminacies are represented separately:
 
 * `Ind1`: multiplication by a norm-one Kummer unit;
 * `Ind2`: permutation of the finite label type;
 * `Ind3`: a nonnegative componentwise exponent enlargement.
 
-The resulting output value is consequently an actual unit-twisted power of
-`q`; its norm and principal norm-unit-ball region are theorems.  Finally, an
-explicit semisimple coordinate equivalence transports this concrete product
-region to a region of a public `DirectSumPresentation`.  No arbitrary region,
-volume, theta coefficient, height inequality or abc statement is an input.
+The resulting output is an actual unit-twisted power of `q`; its norm and
+principal norm-unit-ball region are theorems. An explicit carrier equivalence
+then transports this concrete product region to a public packet. The theorem
+identifying this candidate choice model with every genuine IUT possible image
+remains a separate source theorem.
 -/
 
 set_option linter.checkUnivs false
@@ -56,7 +55,7 @@ variable {AG : AnabelianGeometry.{u}} {TG : TemperedGeometry AG}
 /-! ## Actual local objects derived from initial theta data -/
 
 /-- A bad finite place of the global field occurring in actual initial theta
-data.  Membership in `badPlacesOver` retains the field-of-moduli place below
+data. Membership in `badPlacesOver` retains the field-of-moduli place below
 it. -/
 structure ActualBadHodgeTheaterPlace
     (D : InitialThetaData AG TG) where
@@ -147,7 +146,7 @@ end ActualBadHodgeTheaterPlace
 
 namespace KummerTorsor
 
-variable {K : Type v} [Field K]
+variable {K : Type v} [NormedField K]
 
 /-- Left translation on the multiplicative Kummer torsor. -/
 def leftMulEquiv (a : Kˣ) : Kˣ ≃ Kˣ where
@@ -180,27 +179,28 @@ noncomputable def horizontalEquiv
     (t : TateParameter K) (j k : ℕ) : Kˣ ≃ Kˣ :=
   leftMulEquiv (horizontalMultiplier t j k)
 
-/-- The horizontal equivalence sends the distinguished source theta point to
-the distinguished target theta point. -/
+/-- The horizontal equivalence sends the distinguished source point to the
+distinguished target point. -/
 @[simp]
 theorem horizontalEquiv_thetaPoint
     (t : TateParameter K) (j k : ℕ) :
     horizontalEquiv t j k (thetaPoint t j) = thetaPoint t k := by
-  change (thetaPoint t k * (thetaPoint t j)⁻¹) * thetaPoint t j = thetaPoint t k
-  simp [mul_assoc]
+  simp [horizontalEquiv, horizontalMultiplier, leftMulEquiv, mul_assoc]
 
 /-- The horizontal arrow at one label is the identity. -/
 theorem horizontalEquiv_refl
     (t : TateParameter K) (j : ℕ) :
     horizontalEquiv t j j = Equiv.refl Kˣ := by
-  ext x
+  apply Equiv.ext
+  intro x
   simp [horizontalEquiv, horizontalMultiplier, leftMulEquiv]
 
 /-- Reversing a horizontal arrow gives its inverse. -/
 theorem horizontalEquiv_symm
     (t : TateParameter K) (j k : ℕ) :
     (horizontalEquiv t j k).symm = horizontalEquiv t k j := by
-  ext x
+  apply Equiv.ext
+  intro x
   simp [horizontalEquiv, horizontalMultiplier, leftMulEquiv,
     mul_assoc, mul_comm, mul_left_comm]
 
@@ -209,7 +209,8 @@ theorem horizontalEquiv_trans
     (t : TateParameter K) (i j k : ℕ) :
     (horizontalEquiv t i j).trans (horizontalEquiv t j k) =
       horizontalEquiv t i k := by
-  ext x
+  apply Equiv.ext
+  intro x
   simp [horizontalEquiv, horizontalMultiplier, leftMulEquiv,
     mul_assoc, mul_comm, mul_left_comm]
 
@@ -254,10 +255,7 @@ def one : NormOneKummerUnit K where
 
 end NormOneKummerUnit
 
-/-- The concrete local choice type for the three indeterminacies.
-
-`labelNat` is external fixed theater data. `ind2` permutes the finite labels,
-while `ind3` records only a nonnegative enlargement of each output exponent. -/
+/-- A concrete candidate model for the three local indeterminacies. -/
 structure ThetaIndeterminacyChoice
     (K : Type v) [NormedField K] (Label : Type w) where
   ind1 : NormOneKummerUnit K
@@ -282,7 +280,7 @@ def outputPower
     (j : Label) : ℕ :=
   (labelNat (C.ind2 j)) ^ 2 + C.ind3 j
 
-/-- The actual Kummer output value after Ind1, Ind2 and Ind3. -/
+/-- The Kummer output value after the candidate Ind1, Ind2 and Ind3 choices. -/
 noncomputable def outputValue
     (t : TateParameter K)
     (labelNat : Label → ℕ)
@@ -290,7 +288,7 @@ noncomputable def outputValue
     (j : Label) : K :=
   (C.ind1.unit : K) * (t.q : K) ^ C.outputPower labelNat j
 
-/-- Every output value is nonzero. -/
+/-- Every candidate output value is nonzero. -/
 theorem outputValue_ne_zero
     (t : TateParameter K)
     (labelNat : Label → ℕ)
@@ -301,7 +299,7 @@ theorem outputValue_ne_zero
   exact mul_ne_zero (Units.ne_zero C.ind1.unit)
     (pow_ne_zero _ t.q.ne_zero)
 
-/-- Exact local norm formula for the actual three-indeterminacy output. -/
+/-- Exact local norm formula for the candidate output. -/
 theorem norm_outputValue
     (t : TateParameter K)
     (labelNat : Label → ℕ)
@@ -312,7 +310,7 @@ theorem norm_outputValue
   unfold outputValue
   rw [norm_mul, C.ind1.norm_eq_one, one_mul, norm_pow]
 
-/-- The component region generated by the actual output value. -/
+/-- The component region generated by the candidate output value. -/
 def outputRegion
     (t : TateParameter K)
     (labelNat : Label → ℕ)
@@ -321,8 +319,7 @@ def outputRegion
   scaledRegion (C.outputValue t labelNat j)
     (normIntegralRegion (K := K))
 
-/-- Ind1 does not alter the principal region: every output region is exactly
-the Tate-power region determined by the Ind2/Ind3 exponent. -/
+/-- Ind1 does not alter the principal region. -/
 theorem outputRegion_eq_qPowerRegion
     (t : TateParameter K)
     (labelNat : Label → ℕ)
@@ -333,7 +330,7 @@ theorem outputRegion_eq_qPowerRegion
   unfold outputRegion TateParameter.qPowerRegion
   apply scaledRegion_eq_of_norm_eq
   · exact pow_ne_zero _ t.q.ne_zero
-  · exact C.norm_outputValue t labelNat j
+  · simpa only [norm_pow] using C.norm_outputValue t labelNat j
 
 /-- Product packet region obtained from one concrete choice. -/
 def packetRegion
@@ -342,7 +339,6 @@ def packetRegion
     (C : ThetaIndeterminacyChoice K Label) : Set (Label → K) :=
   {x | ∀ j, x j ∈ C.outputRegion t labelNat j}
 
-/-- Membership in the packet is literally componentwise membership. -/
 @[simp]
 theorem mem_packetRegion
     (t : TateParameter K)
@@ -373,9 +369,9 @@ end ThetaIndeterminacyChoice
 
 /-! ## Transport to a public packet presentation -/
 
-/-- The semisimple coordinate identification between an actual local Kummer
-packet and one public direct-sum packet.  This is the precise local-field seam:
-it contains an equivalence of carriers, not a freely chosen output region. -/
+/-- A carrier coordinate identification between a concrete Kummer packet and a
+public direct-sum packet. The actual semisimple local-field construction of
+this equivalence is a separate theorem. -/
 structure PublicPacketKummerCoordinates
     {C : Type u} (P : DirectSumPresentation.{u, v} C)
     (K : Type v) (Label : Type w) where
@@ -387,8 +383,7 @@ variable {C : Type u} {P : DirectSumPresentation.{u, v} C}
 variable {K : Type v} [NormedField K]
 variable {Label : Type w}
 
-/-- Realization of a concrete Ind1/Ind2/Ind3 choice as a region of the public
-packet carrier. -/
+/-- Realization of a concrete choice as a region of the public packet carrier. -/
 def realize
     (M : PublicPacketKummerCoordinates P K Label)
     (t : TateParameter K)
@@ -407,8 +402,8 @@ theorem mem_realize
       M.coordinates x ∈ choice.packetRegion t labelNat :=
   Iff.rfl
 
-/-- The public realization is not arbitrary: in coordinates it is exactly the
-componentwise product of the source-derived Tate-power regions. -/
+/-- In coordinates, the public realization is exactly the componentwise
+product of the source-derived Tate-power regions. -/
 theorem coordinates_image_realize
     (M : PublicPacketKummerCoordinates P K Label)
     (t : TateParameter K)
@@ -416,12 +411,11 @@ theorem coordinates_image_realize
     (choice : ThetaIndeterminacyChoice K Label) :
     M.coordinates '' M.realize t labelNat choice =
       choice.packetRegion t labelNat := by
-  ext y
-  constructor
-  · rintro ⟨x, hx, rfl⟩
+  apply Set.Subset.antisymm
+  · rintro y ⟨x, hx, rfl⟩
     exact hx
-  · intro hy
-    refine ⟨M.coordinates.symm y, ?_, by simp⟩
+  · intro y hy
+    refine ⟨M.coordinates.symm y, ?_, M.coordinates.apply_symm_apply y⟩
     simpa using hy
 
 end PublicPacketKummerCoordinates
