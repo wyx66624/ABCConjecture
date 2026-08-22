@@ -92,7 +92,7 @@ theorem sum_capsuleAverage_transport
       exact A.capsuleAverage_transport value i
     _ = ∑ i : Fin P.length, capsuleAverage value i := by
       simpa using
-        (A.capsulePerm.sum_comp (capsuleAverage value))
+        (A.capsulePerm.sum_comp (capsuleAverage value)).symm
 
 /-- Hence the procession-normalized average is exactly invariant under Ind1
 reindexing. -/
