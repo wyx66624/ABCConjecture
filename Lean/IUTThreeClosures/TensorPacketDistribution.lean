@@ -23,6 +23,8 @@ implemented in `SemisimplePacketCoordinates`.
 
 namespace IUTThreeClosures
 
+open PiTensorProduct DirectSum TensorProduct
+
 universe u v w
 
 variable (k : Type u) [Field k]
