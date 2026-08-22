@@ -40,7 +40,7 @@ import IUTThreeClosures.SelectedBadPlaceGlobalReconstruction
 -- Arithmetic input route: point-dependent Legendre and integral Frey curves,
 -- their exact rational Weil heights and conductor arithmetic, an explicit
 -- fixed comparison curve, a nonintegral shifted-j family, and preservation of
--- perfect mod-ℓ image after solvable base change.
+-- perfect mod-ell image after solvable base change.
 import IUTThreeClosures.ABCPointLegendreCurve
 import IUTThreeClosures.LegendreArithmetic
 import IUTThreeClosures.ABCFreyCurve
@@ -73,6 +73,7 @@ import IUTThreeClosures.FiniteExceptionalSet
 import IUTThreeClosures.StatementIIOutsideFinite
 import IUTThreeClosures.TateParameterUnitBallRegion
 import IUTThreeClosures.TateParameterPowerRegions
+import IUTThreeClosures.ActualHodgeTheaterOutput
 import IUTThreeClosures.FiniteExponentHull
 import IUTThreeClosures.StandardZeroLabel
 import IUTThreeClosures.BarycentricPacketReading
