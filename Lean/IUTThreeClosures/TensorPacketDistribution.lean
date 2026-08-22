@@ -9,14 +9,14 @@ import Mathlib.LinearAlgebra.PiTensorProduct.DirectSum
 # Tensor packets distribute over local direct sums
 
 This is the first, purely multilinear, half of the local tensor-packet
-coordinate theorem. For a finite label type `J`, local modules `K j v`, and
-the direct sum over places in every label, Mathlib's n-ary tensor product gives
-canonically
+coordinate theorem. For a finite label type `Label`, local modules `K j v`,
+and the direct sum over places in every label, Mathlib's n-ary tensor product
+gives canonically
 
 `⨂ j, (⨁ v, K j v) ≃ₗ[k] ⨁ c, ⨂ j, K j (c j)`.
 
-Thus the tuple-of-places indexing is a theorem of multilinear algebra, not a
-field supplied to the packet. The second half is algebraic: each tuple tensor
+Thus tuple-of-places indexing is a theorem of multilinear algebra, not a field
+supplied to the packet. The second half is algebraic: each tuple tensor
 algebra must be split into its primitive field factors. That refinement is
 implemented in `SemisimplePacketCoordinates`.
 -/
@@ -34,7 +34,7 @@ variable [∀ j v, Module k (K j v)]
 
 /-- The local direct sum in the `j`-th label. -/
 abbrev TensorPacketLocalSum (j : Label) : Type (max v w) :=
-  ⨁ v, K j v
+  ⨁ v : Place j, K j v
 
 /-- A choice of one local place in every label. -/
 abbrev TensorPacketTuple : Type (max v w) :=
@@ -52,7 +52,8 @@ abbrev TensorPacketTupleModule
 /-- Canonical tuple expansion of a tensor packet. -/
 noncomputable def tensorPacketTupleExpansion :
     TensorPacketModule k Label Place K ≃ₗ[k]
-      ⨁ c, TensorPacketTupleModule k Label Place K c :=
+      ⨁ c : TensorPacketTuple Label Place,
+        TensorPacketTupleModule k Label Place K c :=
   PiTensorProduct.ofDirectSumEquiv
 
 /-- On a pure tensor supported in one place of every label, tuple expansion
