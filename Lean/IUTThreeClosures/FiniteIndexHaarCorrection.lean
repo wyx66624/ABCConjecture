@@ -10,7 +10,7 @@ import Mathlib.Analysis.SpecialFunctions.Log.Basic
 # Finite-index Haar corrections
 
 Let `H` be a measurable finite-index additive subgroup of a group equipped
-with a normalized additive Haar measure.  The cosets of `H` partition the
+with a normalized additive Haar measure. The cosets of `H` partition the
 ambient group, so
 
 `H.index * μ(H) = μ(univ) = 1`.
@@ -21,7 +21,7 @@ Consequently
 
 This is the exact measure-theoretic mechanism by which a proper integral order
 inside the product of the integral closures contributes a logarithmic index
-term.  It is not legitimate to identify the two integral structures by
+term. It is not legitimate to identify the two integral structures by
 definition; their discrepancy is a finite-index Haar Jacobian and belongs in
 the different/discriminant correction.
 -/
@@ -33,7 +33,7 @@ open MeasureTheory Set
 universe u
 
 variable {G : Type u} [AddGroup G] [MeasurableSpace G] [MeasurableAdd G]
-variable (μ : Measure G) [IsAddLeftInvariant μ]
+variable (μ : Measure G) [Measure.IsAddLeftInvariant μ]
 variable (H : AddSubgroup G) [H.FiniteIndex]
 
 /-- A finite-index subgroup of a nonempty group has positive index. -/
@@ -46,7 +46,7 @@ its index is exactly one. -/
 theorem finiteIndex_index_mul_measure_eq_one
     (hH : MeasurableSet (H : Set G))
     (hnorm : μ Set.univ = 1) :
-    (H.index : ℝ≥0∞) * μ H = 1 := by
+    H.index * μ H = 1 := by
   simpa [hnorm] using AddSubgroup.index_mul_measure H hH μ
 
 /-- Real-valued form of the normalized finite-index measure identity. -/
@@ -78,8 +78,8 @@ theorem finiteIndex_log_measure_eq_neg_log_index
 additive order `K`; a finite-index suborder contributes minus the logarithm of
 the relative index. -/
 theorem finiteIndex_suborder_log_correction
-    {K : AddSubgroup G} (hHK : H ≤ K)
-    (ν : Measure K) [IsAddLeftInvariant ν]
+    {K : AddSubgroup G}
+    (ν : Measure K) [Measure.IsAddLeftInvariant ν]
     [(H.subgroupOf K).FiniteIndex]
     (hH : MeasurableSet ((H.subgroupOf K : AddSubgroup K) : Set K))
     (hnorm : ν Set.univ = 1) :
