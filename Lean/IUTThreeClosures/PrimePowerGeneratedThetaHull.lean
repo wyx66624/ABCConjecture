@@ -319,7 +319,7 @@ theorem minimumRegion_isLeastHullRegion
   rcases A.minimumExponent_attained i p c with ⟨o, ho⟩
   classical
   let z : (G.container.packet i (.finite p)).Total :=
-    Function.update (fun _ => 0) c (x c)
+    Pi.single c (x c)
   have hzOutput :
       z ∈ (G.outputs.realize o i).region (.finite p) := by
     rw [A.realize_finite o i p]
@@ -332,15 +332,10 @@ theorem minimumRegion_isLeastHullRegion
     · subst d
       rw [ho]
       simpa [z] using hx c
-    · have hz0 :=
+    · simpa [z, hdc] using
         PrimePowerQPilotRegion.zero_mem_primePowerImage_integral
           p ((G.container.packet i (.finite p)).integral d)
           (A.exponent o i p d)
-      have hzd : z d = 0 := by
-        dsimp [z]
-        rw [Function.update_noteq hdc]
-      rw [hzd]
-      exact hz0
   have hzUnion :
       z ∈ (G.outputs.unionRegion i).region (.finite p) :=
     Set.mem_iUnion.mpr ⟨o, hzOutput⟩
