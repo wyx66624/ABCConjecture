@@ -51,12 +51,6 @@ noncomputable def finiteEtaleSemisimpleEquiv :
     Algebra.FormallyUnramified.isReduced_of_field k A
   exact (IsArtinianRing.equivPi A).restrictScalars k
 
-/-- The maximal-factor index of a finite etale algebra is finite. -/
-noncomputable instance finiteMaximalSpectrum :
-    Finite (MaximalSpectrum A) := by
-  letI : IsArtinianRing A := .of_finite k A
-  infer_instance
-
 end FiniteEtale
 
 section Obstruction
@@ -125,8 +119,8 @@ noncomputable instance summandField (d : P.RefinedComponent) :
 
 noncomputable instance refinedComponentFinite [Finite Tuple] :
     Finite P.RefinedComponent := by
-  letI (c : Tuple) : Finite (MaximalSpectrum (P.AlgebraAt c)) :=
-    finiteMaximalSpectrum k (P.AlgebraAt c)
+  letI (c : Tuple) : IsArtinianRing (P.AlgebraAt c) :=
+    .of_finite k (P.AlgebraAt c)
   infer_instance
 
 /-- Canonical semisimple coordinates inside one place tuple. -/
@@ -136,7 +130,7 @@ noncomputable def tupleCoordinates (c : Tuple) :
         P.AlgebraAt c ⧸ m.asIdeal :=
   finiteEtaleSemisimpleEquiv k (P.AlgebraAt c)
 
-/-- Canonical semisimple coordinates for all place tuples at once.  The target
+/-- Canonical semisimple coordinates for all place tuples at once. The target
 is indexed by the corrected sigma-type `(tuple, primitive factor)`. -/
 noncomputable def allTupleCoordinates :
     (∀ c : Tuple, P.AlgebraAt c) ≃ₐ[k]
