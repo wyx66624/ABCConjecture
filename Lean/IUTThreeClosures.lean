@@ -25,6 +25,7 @@ import IUTThreeClosures.BridgeInhabitationExact
 import IUTThreeClosures.GeneratedOutputHullEnvelope
 import IUTThreeClosures.TensorPacketDistribution
 import IUTThreeClosures.SemisimplePacketCoordinates
+import IUTThreeClosures.RefinedFactorLocalFieldData
 
 -- Canonical, source-derived replacement for the freely populated bridge.
 import IUTThreeClosures.CanonicalQPilotCorridor
