@@ -65,6 +65,7 @@ import IUTThreeClosures.ProductWeightMarginalization
 import IUTThreeClosures.CanonicalLocalDegreeWeights
 import IUTThreeClosures.DifferentSupportAbsorption
 import IUTThreeClosures.FiniteIndexHaarCorrection
+import IUTThreeClosures.FiniteIndexScaledHaarRegion
 import IUTThreeClosures.PrimePowerQPilotRegion
 import IUTThreeClosures.DistinguishedLabelQPilot
 import IUTThreeClosures.NativeQPilotCalibration
