@@ -22,6 +22,7 @@ import IUTThreeClosures.FourOpenConstructions
 import IUTThreeClosures.PublicProgramUninhabited
 import IUTThreeClosures.BridgeInhabitationAudit
 import IUTThreeClosures.BridgeInhabitationExact
+import IUTThreeClosures.GeneratedOutputHullEnvelope
 
 -- Canonical, source-derived replacement for the freely populated bridge.
 import IUTThreeClosures.CanonicalQPilotCorridor
