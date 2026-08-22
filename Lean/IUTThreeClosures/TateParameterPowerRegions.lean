@@ -88,8 +88,13 @@ theorem qPowerRegion_eq_uniformizerPower
   unfold qPowerRegion
   apply scaledRegion_eq_of_norm_eq
   · exact pow_ne_zero _ hπ.ne_zero
-  · simp only [norm_pow, t.norm_q_eq_pow_orderNat hπ]
-    simpa [pow_mul, Nat.mul_comm]
+  · rw [norm_pow, t.norm_q_eq_pow_orderNat hπ, norm_pow]
+    calc
+      (‖π‖ ^ (t.toOrdered hπ).orderNat) ^ n =
+          ‖π‖ ^ ((t.toOrdered hπ).orderNat * n) :=
+        (pow_mul ‖π‖ (t.toOrdered hπ).orderNat n).symm
+      _ = ‖π‖ ^ (n * (t.toOrdered hπ).orderNat) := by
+        rw [Nat.mul_comm]
 
 /-- The canonical uniformizer exponent of a Tate-power output. -/
 noncomputable def qPowerOrder
