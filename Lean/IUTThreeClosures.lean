@@ -72,6 +72,7 @@ import IUTThreeClosures.FiniteExceptionalSet
 import IUTThreeClosures.StatementIIOutsideFinite
 import IUTThreeClosures.TateParameterUnitBallRegion
 import IUTThreeClosures.TateParameterPowerRegions
+import IUTThreeClosures.ThetaPilotSquareNorm
 import IUTThreeClosures.FiniteExponentHull
 import IUTThreeClosures.StandardZeroLabel
 import IUTThreeClosures.BarycentricPacketReading
