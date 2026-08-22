@@ -336,8 +336,9 @@ theorem minimumRegion_isLeastHullRegion
         PrimePowerQPilotRegion.zero_mem_primePowerImage_integral
           p ((G.container.packet i (.finite p)).integral d)
           (A.exponent o i p d)
-      have hzd : z d = 0 :=
-        Function.update_noteq hdc
+      have hzd : z d = 0 := by
+        change Function.update (fun _ => 0) c (x c) d = 0
+        exact Function.update_noteq hdc
       rw [hzd]
       exact hz0
   have hzUnion :
