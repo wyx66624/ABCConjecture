@@ -2,6 +2,7 @@ import IUTThreeClosures.ActualPilotWitness
 import IUTThreeClosures.GeneratedSource
 import IUTThreeClosures.PublicLogVolumeInconsistency
 import IUTThreeClosures.HonestFinitePositiveLogVolume
+import IUTThreeClosures.HonestDistribHaarScaling
 import IUTThreeClosures.FiniteProductLogVolume
 import IUTThreeClosures.PublicThetaHullComponentFormula
 import IUTThreeClosures.PublicThetaHullUpperBound
