@@ -21,29 +21,9 @@ attained least element. No minimum exponent, lower-bound theorem, or
 simultaneous minimizing output is supplied as data.
 
 The least holomorphic hull of the union is exactly the product of these
-componentwise minimum regions. Indeed, this product contains every output.
-Conversely, if a hull region contains the union, then for a fixed component
-`c` one inserts an arbitrary point of the minimum region at `c` into an output
-attaining the minimum at `c`, and puts zero in all other components. This
-vector belongs to the union and therefore to the competing hull; projecting
-to `c` proves the required component containment.
-
-Thus the holomorphic hull itself performs the independent mixing of local
-Kummer choices. A single globally minimizing output and an extra multiradial
-independence axiom are unnecessary.
-
-Applied to the actual generated public theta-pilot, the theorem gives at every
-finite rational place
-
-`thetaHull = ∏_c p^(minimumExponent c) O_c`
-
-and hence the exact packet formula
-
-`∑_c packetWeight(c) * (-(minimumExponent c : ℝ) * log p)`.
-
-The remaining finite-place source obligation is reduced to the local statement
-that every concrete theta/Kummer/tempered output is a prime-power product
-region and that the rational prime has nonzero image in every summand field.
+componentwise minimum regions. A single output attaining all component minima
+is unnecessary: the least product hull combines the separately attained
+coordinate minima.
 -/
 
 set_option linter.checkUnivs false
@@ -209,8 +189,7 @@ namespace GeneratedPrimePowerThetaHullData
 
 variable {G : GeneratedRHSData.{u, v, w} D}
 
-/-- There is at least one exponent value at each component, because the output
-family is nonempty. -/
+/-- There is at least one exponent value at each component. -/
 theorem exponentValue_exists
     (A : GeneratedPrimePowerThetaHullData G)
     (i : Fin G.container.proc.length)
@@ -221,8 +200,7 @@ theorem exponentValue_exists
   let o : G.outputs.Output := Classical.choice G.outputs.outputNonempty
   exact ⟨A.exponent o i p c, o, rfl⟩
 
-/-- Canonical componentwise minimum exponent occurring among the actual
-outputs. -/
+/-- Canonical componentwise minimum exponent. -/
 noncomputable def minimumExponent
     (A : GeneratedPrimePowerThetaHullData G)
     (i : Fin G.container.proc.length)
@@ -253,8 +231,7 @@ theorem minimumExponent_le
   classical
   exact Nat.find_min' (A.exponentValue_exists i p c) ⟨o, rfl⟩
 
-/-- Every actual finite-place output is contained in the product region given
-by the canonical componentwise minimum exponent vector. -/
+/-- Every actual finite-place output lies in the componentwise minimum region. -/
 theorem realize_finite_subset_minimum
     (A : GeneratedPrimePowerThetaHullData G)
     (o : G.outputs.Output)
@@ -278,8 +255,7 @@ theorem realize_finite_subset_minimum
     p ((G.container.packet i (.finite p)).integral c)
     (A.minimumExponent_le o i p c) (hx c)
 
-/-- The generated finite-place union is contained in the canonical minimum
-product region. -/
+/-- The generated union lies in the canonical minimum product region. -/
 theorem unionRegion_finite_subset_minimum
     (A : GeneratedPrimePowerThetaHullData G)
     (i : Fin G.container.proc.length)
@@ -291,9 +267,7 @@ theorem unionRegion_finite_subset_minimum
   rcases Set.mem_iUnion.mp hx with ⟨o, hx⟩
   exact A.realize_finite_subset_minimum o i p hx
 
-/-- The canonical minimum prime-power product is the least hull region
-containing the actual generated finite-place union. The least product hull
-combines the separately attained local minima. -/
+/-- The minimum product is the least hull region containing the generated union. -/
 theorem minimumRegion_isLeastHullRegion
     (A : GeneratedPrimePowerThetaHullData G)
     (i : Fin G.container.proc.length)
@@ -332,10 +306,13 @@ theorem minimumRegion_isLeastHullRegion
     · subst d
       rw [ho]
       simpa [z] using hx c
-    · simpa [z, hdc] using
-        PrimePowerQPilotRegion.zero_mem_primePowerImage_integral
-          p ((G.container.packet i (.finite p)).integral d)
-          (A.exponent o i p d)
+    · have hzd : z d = 0 := by
+        dsimp [z]
+        exact Pi.single_eq_of_ne hdc (x c)
+      rw [hzd]
+      exact PrimePowerQPilotRegion.zero_mem_primePowerImage_integral
+        p ((G.container.packet i (.finite p)).integral d)
+        (A.exponent o i p d)
   have hzUnion :
       z ∈ (G.outputs.unionRegion i).region (.finite p) :=
     Set.mem_iUnion.mpr ⟨o, hzOutput⟩
@@ -343,8 +320,7 @@ theorem minimumRegion_isLeastHullRegion
   rw [hRa] at hzR'
   simpa [z] using hzR' c
 
-/-- The actual public theta hull at a finite rational place is exactly the
-canonical componentwise-minimum prime-power product region. -/
+/-- The actual public theta hull is the componentwise-minimum product region. -/
 theorem thetaHull_finite_eq_minimum
     (A : GeneratedPrimePowerThetaHullData G)
     (i : Fin G.container.proc.length)
@@ -361,8 +337,7 @@ theorem thetaHull_finite_eq_minimum
       (G.union_hullAdmissible i (.finite p))).unique
         (A.minimumRegion_isLeastHullRegion i p)
 
-/-- Exact finite-place packet formula for the actual generated public theta
-hull. -/
+/-- Exact finite-place packet formula for the generated public theta hull. -/
 theorem packetVol_thetaHull_finite_eq
     (A : GeneratedPrimePowerThetaHullData G)
     (i : Fin G.container.proc.length)
