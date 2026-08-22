@@ -26,6 +26,7 @@ import IUTThreeClosures.GeneratedOutputHullEnvelope
 import IUTThreeClosures.TensorPacketDistribution
 import IUTThreeClosures.SemisimplePacketCoordinates
 import IUTThreeClosures.RefinedFactorLocalFieldData
+import IUTThreeClosures.SpectralInd2Preservation
 
 -- Canonical, source-derived replacement for the freely populated bridge.
 import IUTThreeClosures.CanonicalQPilotCorridor
