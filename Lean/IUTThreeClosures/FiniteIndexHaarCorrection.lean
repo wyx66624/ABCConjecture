@@ -59,7 +59,8 @@ theorem finiteIndex_index_mul_measureToReal_eq_one
   simpa using h
 
 /-- Exact logarithmic Haar correction attached to a finite-index integral
-subgroup. -/
+subgroup.  The same theorem applies to a relative order simply by taking the
+ambient group to be the larger order and `H` to be the induced subgroup. -/
 theorem finiteIndex_log_measure_eq_neg_log_index
     (hH : MeasurableSet (H : Set G))
     (hnorm : μ Set.univ = 1) :
@@ -73,20 +74,5 @@ theorem finiteIndex_log_measure_eq_neg_log_index
       Real.log (H.index : ℝ) + Real.log (μ H).toReal = 0 := by
     rw [← Real.log_mul hindex.ne' hmeasure.ne', hmul, Real.log_one]
   linarith
-
-/-- Relative-order version: normalize Haar measure on the larger compact
-additive order `K`; a finite-index suborder contributes minus the logarithm of
-the relative index. -/
-theorem finiteIndex_suborder_log_correction
-    {K : AddSubgroup G}
-    (ν : Measure K) [Measure.IsAddLeftInvariant ν]
-    [(H.subgroupOf K).FiniteIndex]
-    (hH : MeasurableSet ((H.subgroupOf K : AddSubgroup K) : Set K))
-    (hnorm : ν Set.univ = 1) :
-    Real.log (ν (H.subgroupOf K)).toReal =
-      -Real.log (H.relIndex K : ℝ) := by
-  simpa [AddSubgroup.relIndex] using
-    finiteIndex_log_measure_eq_neg_log_index
-      ν (H.subgroupOf K) hH hnorm
 
 end IUTThreeClosures
