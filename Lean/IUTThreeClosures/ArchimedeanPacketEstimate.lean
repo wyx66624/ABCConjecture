@@ -17,16 +17,16 @@ presentation, a pure tensor has component
 
 `c ↦ ∏ i, x i (c i)`.
 
-If every factor component has norm at most `λ`, every packet component has
-norm at most `λ ^ card I`.  For `λ = π`, the radial logarithmic scale is at
-most `2 * card I`, since `log π ≤ 2`.  In the standard procession every
+If every factor component has norm at most `r`, every packet component has
+norm at most `r ^ card I`. For `r = π`, the radial logarithmic scale is at
+most `2 * card I`, since `log π ≤ 2`. In the standard procession every
 capsule has at most `n + 1` labels, so the procession average is at most
-`2(n+1)`.  When `ℓ = 2n+1`, this is exactly the `ℓ+1` archimedean allowance
-used in the coefficient calculation.
+`2(n+1)`. When `ell = 2n+1`, this is exactly the `ell+1` archimedean
+allowance used in the coefficient calculation.
 
 The final section records a counterexample showing that the single public
 normalization `componentVol archBall = 0` cannot by itself imply an upper
-bound on any other region.  An actual source adapter must therefore connect
+bound on any other region. An actual source adapter must therefore connect
 the public component to the metric packet calculation above.
 -/
 
@@ -51,30 +51,30 @@ def archPacketBall
 /-- Componentwise norm estimate for a pure tensor. -/
 theorem norm_archPureTensorCoordinate_le
     {I : Type u} {V : Type v} [Fintype I]
-    (x : I → V → ℂ) (c : I → V) {λ : ℝ}
-    (hλ : 0 ≤ λ) (hx : ∀ i v, ‖x i v‖ ≤ λ) :
-    ‖archPureTensorCoordinate x c‖ ≤ λ ^ Fintype.card I := by
+    (x : I → V → ℂ) (c : I → V) {r : ℝ}
+    (hr : 0 ≤ r) (hx : ∀ i v, ‖x i v‖ ≤ r) :
+    ‖archPureTensorCoordinate x c‖ ≤ r ^ Fintype.card I := by
   classical
   simp only [archPureTensorCoordinate, norm_prod]
   calc
-    ∏ i, ‖x i (c i)‖ ≤ ∏ _i : I, λ := by
+    ∏ i, ‖x i (c i)‖ ≤ ∏ _i : I, r := by
       apply Finset.prod_le_prod
       · intro i hi
         exact norm_nonneg _
       · intro i hi
         exact hx i (c i)
-    _ = λ ^ Fintype.card I := by simp
+    _ = r ^ Fintype.card I := by simp
 
 /-- The whole decomposed pure tensor belongs to the packet ball of radius
-`λ ^ card I`. -/
+`r ^ card I`. -/
 theorem archPureTensor_mem_packetBall
     {I : Type u} {V : Type v} [Fintype I]
-    (x : I → V → ℂ) {λ : ℝ}
-    (hλ : 0 ≤ λ) (hx : ∀ i v, ‖x i v‖ ≤ λ) :
+    (x : I → V → ℂ) {r : ℝ}
+    (hr : 0 ≤ r) (hx : ∀ i v, ‖x i v‖ ≤ r) :
     (fun c => archPureTensorCoordinate x c) ∈
-      archPacketBall (I := I) (V := V) (λ ^ Fintype.card I) := by
+      archPacketBall (I := I) (V := V) (r ^ Fintype.card I) := by
   intro c
-  exact norm_archPureTensorCoordinate_le x c hλ hx
+  exact norm_archPureTensorCoordinate_le x c hr hx
 
 /-- The elementary lower sign needed for radial logarithmic estimates. -/
 theorem log_pi_nonneg : 0 ≤ Real.log Real.pi := by
@@ -111,11 +111,11 @@ theorem log_pi_le_two : Real.log Real.pi ≤ 2 := by
 theorem card_mul_log_pi_le_two_mul_card (m : ℕ) :
     (m : ℝ) * Real.log Real.pi ≤ 2 * m := by
   have hm : (0 : ℝ) ≤ m := by positivity
-  have := mul_le_mul_of_nonneg_left log_pi_le_two hm
-  simpa [mul_comm, mul_left_comm, mul_assoc] using this
+  have h := mul_le_mul_of_nonneg_left log_pi_le_two hm
+  simpa [mul_comm, mul_left_comm, mul_assoc] using h
 
 /-- The archimedean upper contribution assigned to the `i`-th capsule of the
-standard procession.  The capsule has `i+2` labels. -/
+standard procession. The capsule has `i+2` labels. -/
 noncomputable def standardArchCapsuleUpper
     (n : ℕ) (i : Fin n) : ℝ :=
   ((i.1 + 2 : ℕ) : ℝ) * Real.log Real.pi
@@ -130,7 +130,7 @@ theorem standard_capsule_card_le (n : ℕ) (i : Fin n) :
   omega
 
 /-- The complete standard-procession archimedean average is at most
-`2(n+1)`.  This avoids any independent archimedean error term. -/
+`2(n+1)`. -/
 theorem standardArchProcessionAverage_le
     (n : ℕ) (hn : 0 < n) :
     standardArchProcessionAverage n ≤ 2 * ((n + 1 : ℕ) : ℝ) := by
@@ -154,14 +154,14 @@ theorem standardArchProcessionAverage_le
         (((n + 1 : ℕ) : ℝ) * Real.log Real.pi) := by simp
     _ ≤ (n : ℝ) * (2 * ((n + 1 : ℕ) : ℝ)) := by
       apply mul_le_mul_of_nonneg_left
-      · have hnonneg : (0 : ℝ) ≤ (n + 1 : ℕ) := by positivity
+      · have hnonneg : (0 : ℝ) ≤ ((n + 1 : ℕ) : ℝ) := by positivity
         have h := mul_le_mul_of_nonneg_left log_pi_le_two hnonneg
         nlinarith
       · positivity
     _ = (2 * ((n + 1 : ℕ) : ℝ)) * (n : ℝ) := by ring
 
-/-- In the IUT indexing `ℓ = 2n+1`, the archimedean procession allowance is
-exactly bounded by `ℓ+1`. -/
+/-- In the IUT indexing `ell = 2n+1`, the archimedean procession allowance is
+bounded by `ell+1`. -/
 theorem standardArchProcessionAverage_le_ell_add_one
     (n ell : ℕ) (hn : 0 < n) (hell : ell = 2 * n + 1) :
     standardArchProcessionAverage n ≤ ((ell + 1 : ℕ) : ℝ) := by
@@ -176,15 +176,19 @@ theorem standardArchProcessionAverage_le_ell_add_one
 
 namespace ArchNormalizationCounterexample
 
-/-- A single normalization at one region gives no control on another region.
-This is the precise logical obstruction in the current public archimedean
-`LogVolumeData` interface. -/
+/-- A single normalization at one region gives no control on another region. -/
 theorem one_normalization_does_not_bound_other_regions (B : ℝ) :
     ∃ vol : Set Bool → ℝ,
       vol ∅ = 0 ∧ ¬ vol Set.univ ≤ B := by
   refine ⟨fun U => if U = ∅ then 0 else B + 1, ?_, ?_⟩
   · simp
-  · simp
+  · have huniv : (Set.univ : Set Bool) ≠ ∅ := by
+      intro h
+      have ht : true ∈ (Set.univ : Set Bool) := Set.mem_univ true
+      rw [h] at ht
+      simpa using ht
+    simp only [huniv, if_false]
+    linarith
 
 end ArchNormalizationCounterexample
 
