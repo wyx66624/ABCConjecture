@@ -14,20 +14,20 @@ It must not be identified by definition with the product of the integral
 closures of the primitive field factors.
 
 This module defines the generated tensor order and proves the universal
-factor-inclusion theorem.  If a ring map from the tensor algebra to a target
+factor-inclusion theorem. If a ring map from the tensor algebra to a target
 factor sends every label-wise integral generator into a chosen target order,
-then it sends the entire generated tensor order into that target order.  The
+then it sends the entire generated tensor order into that target order. The
 proof is the minimality of `Subring.closure`.
 
 Applied to every primitive finite-etale factor, the generator condition follows
-from preservation of integrality.  The remaining arithmetic theorem is that
+from preservation of integrality. The remaining arithmetic theorem is that
 the resulting inclusion has finite index and that its index is controlled by
 (or identified with) the local different/discriminant correction.
 -/
 
 namespace IUTThreeClosures
 
-open PiTensorProduct
+open PiTensorProduct TensorProduct
 
 universe u v w
 
