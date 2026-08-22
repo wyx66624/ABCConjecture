@@ -292,8 +292,8 @@ theorem minimumRegion_isLeastHullRegion
   intro c
   rcases A.minimumExponent_attained i p c with ⟨o, ho⟩
   classical
-  let z : (G.container.packet i (.finite p)).Total :=
-    Pi.single c (x c)
+  let z : (G.container.packet i (.finite p)).Total := fun d =>
+    if h : d = c then h.symm ▸ x c else 0
   have hzOutput :
       z ∈ (G.outputs.realize o i).region (.finite p) := by
     rw [A.realize_finite o i p]
@@ -304,11 +304,10 @@ theorem minimumRegion_isLeastHullRegion
     intro d
     by_cases hdc : d = c
     · subst d
-      rw [ho]
-      simpa [z] using hx c
-    · have hzd : z d = 0 := by
-        dsimp [z]
-        exact Pi.single_eq_of_ne hdc (x c)
+      have hzc : z c = x c := by simp [z]
+      rw [hzc, ho]
+      exact hx c
+    · have hzd : z d = 0 := by simp [z, hdc]
       rw [hzd]
       exact PrimePowerQPilotRegion.zero_mem_primePowerImage_integral
         p ((G.container.packet i (.finite p)).integral d)
@@ -318,7 +317,9 @@ theorem minimumRegion_isLeastHullRegion
     Set.mem_iUnion.mpr ⟨o, hzOutput⟩
   have hzR' : z ∈ R' := hUnionR' hzUnion
   rw [hRa] at hzR'
-  simpa [z] using hzR' c
+  have hzc : z c = x c := by simp [z]
+  rw [← hzc]
+  exact hzR' c
 
 /-- The actual public theta hull is the componentwise-minimum product region. -/
 theorem thetaHull_finite_eq_minimum
