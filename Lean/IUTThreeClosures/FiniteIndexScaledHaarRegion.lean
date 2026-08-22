@@ -10,10 +10,10 @@ import IUTThreeClosures.HonestFinitePositiveLogVolume
 # Scaled finite-index Haar regions
 
 A measurable finite-index additive order in a compact additive ambient order
-is automatically a finite-positive measured region.  After normalizing the
+is automatically a finite-positive measured region. After normalizing the
 ambient Haar measure to have total mass one, its base logarithmic volume is
-exactly minus the logarithm of its index.  Iterating any genuine measure
-scaling law therefore gives
+exactly minus the logarithm of its index. Iterating any genuine measure scaling
+law therefore gives
 
 `logVol(T^[n](H)) = n * logJacobian - log(index H)`.
 
@@ -22,8 +22,9 @@ Jacobian with `log ‖q‖`, this becomes the precise factor-level formula
 
 `logVol(q^n H) = n * log ‖q‖ - log(index H)`.
 
-Thus the integral-order discrepancy is a canonical index term; it is neither a
-free real error nor something that may be erased by choosing coordinates.
+Equivalently, passing from the actual suborder to the full product order adds
+exactly `log(index H)`. This is the positive correction that must be controlled
+by the different/discriminant term in the IUT IV comparison.
 -/
 
 namespace IUTThreeClosures
@@ -77,6 +78,20 @@ theorem scaledFiniteIndexHaarRegion_logVolume
         (n : ℝ) * a - Real.log (H.index : ℝ) := by
   rw [(F.iterate n).logVolume_pullback,
     finiteIndexHaarRegion_logVolume μ H hH hnorm]
+  ring
+
+/-- Moving from the scaled actual suborder to the corresponding scaled product
+order adds exactly the logarithm of the order index. -/
+theorem scaledFiniteIndexHaarRegion_add_logIndex
+    {transform : Set G → Set G} {a : ℝ}
+    (F : FinitePositiveRegion.ScalingLaw (μ := μ) transform a)
+    (hH : MeasurableSet (H : Set G))
+    (hnorm : μ Set.univ = 1)
+    (n : ℕ) :
+    ((F.iterate n).pullback
+      (finiteIndexHaarRegion μ H hH hnorm)).logVolume +
+        Real.log (H.index : ℝ) = (n : ℝ) * a := by
+  rw [scaledFiniteIndexHaarRegion_logVolume μ H F hH hnorm n]
   ring
 
 end IUTThreeClosures
