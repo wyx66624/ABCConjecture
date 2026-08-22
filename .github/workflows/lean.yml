@@ -33,13 +33,19 @@ jobs:
         working-directory: Lean
         shell: bash
         run: |
-          set -o pipefail
-          lake update 2>&1 | tee ../lean-dependencies.log
-          lake exe cache get 2>&1 | tee -a ../lean-dependencies.log
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
 
       - name: Run kernel build
         working-directory: Lean
         shell: bash
         run: |
-          set -o pipefail
-          lake build 2>&1 | tee ../lean-build.log
+          set +e
+          lake build > ../lean-build.log 2>&1
+          rc=$?
+          if [ "$rc" -ne 0 ]; then
+            grep -E '(^| )error:|✖|unsolved goals|type mismatch|unknown identifier|application type mismatch|typeclass instance problem' ../lean-build.log | tail -n 180 || true
+            echo '--- build tail ---'
+            tail -n 220 ../lean-build.log
+          fi
+          exit "$rc"
