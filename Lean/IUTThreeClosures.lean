@@ -2,6 +2,7 @@ import IUTThreeClosures.ActualPilotWitness
 import IUTThreeClosures.GeneratedSource
 import IUTThreeClosures.PublicLogVolumeInconsistency
 import IUTThreeClosures.HonestFinitePositiveLogVolume
+import IUTThreeClosures.HonestDistribHaarScaling
 import IUTThreeClosures.FiniteProductLogVolume
 import IUTThreeClosures.PublicThetaHullComponentFormula
 import IUTThreeClosures.PublicThetaHullUpperBound
@@ -26,7 +27,6 @@ import IUTThreeClosures.GeneratedOutputHullEnvelope
 import IUTThreeClosures.TensorPacketDistribution
 import IUTThreeClosures.SemisimplePacketCoordinates
 import IUTThreeClosures.RefinedFactorLocalFieldData
-import IUTThreeClosures.HaarApiProbe
 
 -- Canonical, source-derived replacement for the freely populated bridge.
 import IUTThreeClosures.CanonicalQPilotCorridor
