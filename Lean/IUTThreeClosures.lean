@@ -82,3 +82,4 @@ import IUTThreeClosures.IUTIVAbsorption
 import IUTThreeClosures.PublicNormalizationObstruction
 import IUTThreeClosures.CorrectedQPilotDivisor
 import IUTThreeClosures.ArchimedeanPacketEstimate
+import IUTThreeClosures.ActualArchimedeanComponentEstimate
