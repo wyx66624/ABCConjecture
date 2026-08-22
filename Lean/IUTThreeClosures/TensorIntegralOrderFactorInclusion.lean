@@ -87,6 +87,32 @@ theorem map_mem_of_mem_tensorIntegralOrder
     f x ∈ BOrder :=
   tensorIntegralOrder_le_comap R ι A O BOrder f hgen hx
 
+/-- The componentwise product of a family of subrings.  This explicit
+construction is used instead of a nonexistent `Subring.pi` API. -/
+def productSubring
+    {κ : Type*} (Bκ : κ → Type*) [∀ k, CommRing (Bκ k)]
+    (BOrder : ∀ k, Subring (Bκ k)) :
+    Subring (∀ k, Bκ k) where
+  carrier := {x | ∀ k, x k ∈ BOrder k}
+  zero_mem' := fun k => (BOrder k).zero_mem
+  one_mem' := fun k => (BOrder k).one_mem
+  add_mem' := by
+    intro x y hx hy k
+    exact (BOrder k).add_mem (hx k) (hy k)
+  neg_mem' := by
+    intro x hx k
+    exact (BOrder k).neg_mem (hx k)
+  mul_mem' := by
+    intro x y hx hy k
+    exact (BOrder k).mul_mem (hx k) (hy k)
+
+@[simp]
+theorem mem_productSubring
+    {κ : Type*} (Bκ : κ → Type*) [∀ k, CommRing (Bκ k)]
+    (BOrder : ∀ k, Subring (Bκ k)) (x : ∀ k, Bκ k) :
+    x ∈ productSubring Bκ BOrder ↔ ∀ k, x k ∈ BOrder k :=
+  Iff.rfl
+
 /-- Simultaneous inclusion in a product of primitive factor orders. -/
 theorem tensorIntegralOrder_le_pi_comap
     {κ : Type*} (O : ∀ i, Subring (A i))
@@ -96,7 +122,7 @@ theorem tensorIntegralOrder_le_pi_comap
     (hgen : ∀ i a, a ∈ O i →
       ∀ k, f (singleAlgHom (R := R) (A := A) i a) k ∈ BOrder k) :
     tensorIntegralOrder R ι A O ≤
-      (Subring.pi Set.univ BOrder).comap f := by
+      (productSubring Bκ BOrder).comap f := by
   apply tensorIntegralOrder_le_comap R ι A O
   intro i a ha
   exact fun k => hgen i a ha k
