@@ -40,7 +40,7 @@ theorem qPowerRegion_eq_pow_smul
     exact ⟨y, hy, by simp [qPowerRegion, scaledRegion, smul_eq_mul]⟩
   · rintro ⟨y, hy, hxy⟩
     refine ⟨y, hy, ?_⟩
-    simpa [qPowerRegion, scaledRegion, smul_eq_mul] using hxy.symm
+    simpa [smul_eq_mul] using hxy
 
 @[simp]
 theorem qPowerRegion_zero (t : TateParameter K) :
@@ -70,13 +70,12 @@ theorem qPowerRegion_antitone
         mul_le_mul hpow hy (norm_nonneg _) (by norm_num)
       _ = 1 := by norm_num
   · calc
-      (t.q : K) ^ n * y =
+      (t.q : K) ^ m * (((t.q : K) ^ (n - m)) * y) =
           (t.q : K) ^ (m + (n - m)) * y := by
-        rw [Nat.add_sub_of_le hmn]
-      _ = (t.q : K) ^ m *
-          (((t.q : K) ^ (n - m)) * y) := by
         rw [pow_add]
         ring
+      _ = (t.q : K) ^ n * y := by
+        rw [Nat.add_sub_of_le hmn]
 
 /-- The actual `qⁿ`-region is the uniformizer-power region whose exponent is
 `n * ord_π(q)`. -/
@@ -88,14 +87,12 @@ theorem qPowerRegion_eq_uniformizerPower
         (normIntegralRegion (K := K)) := by
   unfold qPowerRegion
   apply scaledRegion_eq_of_norm_eq
-  · exact pow_ne_zero _ t.q.ne_zero
-  · rw [norm_pow, t.norm_q_eq_pow_orderNat hπ, norm_pow]
-    rw [← pow_mul]
-    congr 1
-    omega
+  · exact pow_ne_zero _ hπ.ne_zero
+  · simp only [norm_pow, t.norm_q_eq_pow_orderNat hπ]
+    simpa [pow_mul, Nat.mul_comm]
 
 /-- The canonical uniformizer exponent of a Tate-power output. -/
-def qPowerOrder
+noncomputable def qPowerOrder
     (t : TateParameter K) {π : K} (hπ : IsUniformizer π) (n : ℕ) : ℕ :=
   n * (t.toOrdered hπ).orderNat
 
