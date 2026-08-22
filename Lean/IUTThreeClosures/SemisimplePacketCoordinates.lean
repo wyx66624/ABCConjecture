@@ -136,6 +136,35 @@ noncomputable def tupleCoordinates (c : Tuple) :
         P.AlgebraAt c ⧸ m.asIdeal :=
   finiteEtaleSemisimpleEquiv k (P.AlgebraAt c)
 
+/-- Canonical semisimple coordinates for all place tuples at once.  The target
+is indexed by the corrected sigma-type `(tuple, primitive factor)`. -/
+noncomputable def allTupleCoordinates :
+    (∀ c : Tuple, P.AlgebraAt c) ≃ₐ[k]
+      ∀ d : P.RefinedComponent, P.Summand d where
+  toFun x d := P.tupleCoordinates d.1 (x d.1) d.2
+  invFun y c :=
+    (P.tupleCoordinates c).symm (fun m => y ⟨c, m⟩)
+  left_inv x := by
+    funext c
+    exact (P.tupleCoordinates c).symm_apply_apply (x c)
+  right_inv y := by
+    funext d
+    rcases d with ⟨c, m⟩
+    exact congrFun
+      ((P.tupleCoordinates c).apply_symm_apply
+        (fun m => y ⟨c, m⟩)) m
+  map_mul' x y := by
+    funext d
+    exact congrFun
+      (map_mul (P.tupleCoordinates d.1) (x d.1) (y d.1)) d.2
+  map_add' x y := by
+    funext d
+    exact congrFun
+      (map_add (P.tupleCoordinates d.1) (x d.1) (y d.1)) d.2
+  commutes' r := by
+    funext d
+    exact congrFun ((P.tupleCoordinates d.1).commutes r) d.2
+
 end TupleFiniteEtalePacket
 
 end IUTThreeClosures
