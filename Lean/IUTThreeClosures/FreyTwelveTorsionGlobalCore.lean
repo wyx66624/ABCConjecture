@@ -71,8 +71,7 @@ theorem freyCurveOver_j
 
 /-- Rationality over `F` of all `n`-torsion points after passage to an
 algebraic closure `Fbar`. -/
-open scoped Classical in
-def TorsionRationalAt
+noncomputable def TorsionRationalAt
     (F : Type u) [Field F]
     (E : WeierstrassCurve F) [E.IsElliptic]
     (Fbar : Type u) [Field Fbar] [Algebra F Fbar]
@@ -89,10 +88,7 @@ theorem torsionBy_le_of_dvd
   intro x hx
   rw [AddSubgroup.torsionBy.nsmul_iff] at hx ⊢
   rcases hmn with ⟨k, rfl⟩
-  calc
-    (m * k) • x = k • (m • x) := by
-      rw [Nat.mul_comm, mul_nsmul]
-    _ = 0 := by rw [hx, nsmul_zero]
+  rw [Nat.mul_comm, mul_nsmul, hx, nsmul_zero]
 
 /-- Rationality of a larger torsion level implies rationality of every
 sublevel dividing it. -/
@@ -117,10 +113,8 @@ theorem sixTorsionRational_of_twelve
     {Fbar : Type u} [Field Fbar] [Algebra F Fbar]
     (h12 : TorsionRationalAt F E Fbar 12) :
     SixTorsionRational F E Fbar := by
-  classical
-  unfold SixTorsionRational TorsionRationalAt at h12 ⊢
-  intro Q hQ
-  exact h12 Q (torsionBy_le_of_dvd (by norm_num : 6 ∣ 12) hQ)
+  exact torsionRationalAt_of_dvd
+    (by norm_num : 6 ∣ 12) h12
 
 /-- Stable reduction away from 2 and stable reduction away from 3 together
 cover every finite place.  This is the elementary local patching step behind
