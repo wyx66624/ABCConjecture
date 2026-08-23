@@ -30,6 +30,7 @@ import IUTThreeClosures.TensorPacketDistribution
 import IUTThreeClosures.SemisimplePacketCoordinates
 import IUTThreeClosures.RefinedFactorLocalFieldData
 import IUTThreeClosures.SpectralInd2Preservation
+import IUTThreeClosures.FixedCoreOrbicurveDecomposition
 
 -- Canonical, source-derived replacement for the freely populated bridge.
 import IUTThreeClosures.CanonicalQPilotCorridor
