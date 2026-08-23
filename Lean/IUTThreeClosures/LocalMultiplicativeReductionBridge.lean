@@ -40,9 +40,9 @@ theorem hasMultiplicativeReduction_of_minimal_valuations
     (W : WeierstrassCurve K)
     (hmin : W.IsMinimal R)
     (hDelta :
-      valuation K (IsLocalRing.maximalIdeal R) W.Δ < 1)
+      valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ < 1)
     (hc4 :
-      valuation K (IsLocalRing.maximalIdeal R) W.c₄ = 1) :
+      valuation K (IsDiscreteValuationRing.maximalIdeal R) W.c₄ = 1) :
     W.HasMultiplicativeReduction R := by
   letI : W.IsMinimal R := hmin
   exact {
@@ -59,8 +59,8 @@ theorem hasMultiplicativeReduction_iff_minimal_valuations
     (W : WeierstrassCurve K) :
     W.HasMultiplicativeReduction R ↔
       W.IsMinimal R ∧
-      valuation K (IsLocalRing.maximalIdeal R) W.Δ < 1 ∧
-      valuation K (IsLocalRing.maximalIdeal R) W.c₄ = 1 := by
+      valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ < 1 ∧
+      valuation K (IsDiscreteValuationRing.maximalIdeal R) W.c₄ = 1 := by
   constructor
   · intro h
     exact ⟨h.toIsMinimal, h.badReduction, h.multiplicativeReduction⟩
