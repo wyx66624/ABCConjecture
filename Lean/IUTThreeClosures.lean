@@ -87,6 +87,7 @@ import IUTThreeClosures.NativeQPilotCalibration
 import IUTThreeClosures.GeneratedUnionCompactness
 import IUTThreeClosures.AdmissiblePrimeSelection
 import IUTThreeClosures.PointwiseRealizationPrimeSupply
+import IUTThreeClosures.CompatibleFrobeniusDatum
 import IUTThreeClosures.FiniteExceptionalSet
 import IUTThreeClosures.StatementIIOutsideFinite
 import IUTThreeClosures.TateParameterUnitBallRegion
