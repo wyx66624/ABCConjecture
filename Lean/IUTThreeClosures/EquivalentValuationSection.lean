@@ -60,8 +60,9 @@ theorem finitePlaceEquivalentLiesOver_of_ideal
     FinitePlace.norm_embedding,
     FinitePlace.norm_embedding,
     NumberField.HeightOneSpectrum.adicAbv_def,
-    NumberField.HeightOneSpectrum.adicAbv_def,
-    WithZeroMulInt.toNNReal_lt_one_iff
+    NumberField.HeightOneSpectrum.adicAbv_def]
+  norm_cast
+  rw [WithZeroMulInt.toNNReal_lt_one_iff
       (NumberField.HeightOneSpectrum.one_lt_absNorm_nnreal w.maximalIdeal),
     WithZeroMulInt.toNNReal_lt_one_iff
       (NumberField.HeightOneSpectrum.one_lt_absNorm_nnreal v.maximalIdeal),
