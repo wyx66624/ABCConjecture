@@ -13,56 +13,54 @@ interface. Consequently, no theorem quantified over *arbitrary* interfaces can
 construct initial theta-data: the interface predicates may themselves rule out every
 core.
 
-This module makes that obstruction kernel-checkable. It constructs a perfectly
-inhabited interface whose orbicurve, covering, fundamental-group, cusp and tempered
-types are all trivial, but whose `HasCore` predicate is identically false. The
-corresponding `InitialThetaData` type is empty because its `OrbicurveData.CKu_core`
-field would be a proof of `False`.
+This module makes that obstruction kernel-checkable at universe zero. It constructs
+an inhabited interface whose orbicurve, covering, fundamental-group, cusp and
+tempered types are all trivial, but whose `HasCore` predicate is identically false.
+The corresponding `InitialThetaData` type is empty because its
+`OrbicurveData.CKu_core` field would be a proof of `False`.
 
 This does not rule out initial theta-data for the intended concrete anabelian and
-tempered geometries. It proves that an honest existence theorem must either
-construct those concrete interfaces first or state the exact realization hypotheses;
-it cannot be polymorphic in arbitrary `AG` and `TG`.
+tempered geometries. It proves that an honest existence theorem must construct those
+concrete interfaces first, or state their exact realization hypotheses; it cannot be
+polymorphic in arbitrary `AG` and `TG`.
 -/
 
 namespace IUTThreeClosures
 
 open Iut
 
-universe u
-
 /-- A deliberately hostile, but internally consistent, anabelian interface. All
 underlying objects are trivial; only the core predicate is empty. -/
-noncomputable def falseCoreAnabelianGeometry : AnabelianGeometry.{u} where
-  Orbicurve := fun _ => PUnit.{u}
-  Cover := fun _ _ => PUnit.{u}
+noncomputable def falseCoreAnabelianGeometry : AnabelianGeometry.{0} where
+  Orbicurve := fun _ => PUnit
+  Cover := fun _ _ => PUnit
   coverComp := fun _ _ => PUnit.unit
   baseChange := fun _ _ => PUnit.unit
   coverBaseChange := fun _ _ => PUnit.unit
   oncePunctured := fun _ => PUnit.unit
   pmQuotient := fun _ => PUnit.unit
-  pi1 := fun _ => ProfiniteGrp.of PUnit.{u}
-  pi1Cover := fun _ => MonoidHom.id PUnit.{u}
+  pi1 := fun _ => ProfiniteGrp.of PUnit
+  pi1Cover := fun _ => MonoidHom.id PUnit
   pi1Cover_continuous := by
     intro k _ X Y f
-    fun_prop
+    exact continuous_id
   pi1Cover_isOpenEmbedding := by
     intro k _ X Y f
-    simpa using (Homeomorph.refl PUnit.{u}).isOpenEmbedding
+    simpa using (Homeomorph.refl PUnit).isOpenEmbedding
   IsCartesianSquare := fun _ _ _ _ => True
-  Cusp := fun _ => PUnit.{u}
+  Cusp := fun _ => PUnit
   cuspBaseChange := fun _ _ => PUnit.unit
   HasCore := fun _ _ => False
   IsTypeOneEllTors := fun _ _ => True
   IsTypeOneEllTorsPM := fun _ _ => True
   IsTypeOneZModPM := fun _ _ => True
-  RankOneQuotient := fun _ _ => PUnit.{u}
+  RankOneQuotient := fun _ _ => PUnit
   cuspOfQuotient := fun _ _ _ => PUnit.unit
 
 /-- A trivial tempered interface over `falseCoreAnabelianGeometry`. -/
 noncomputable def falseCoreTemperedGeometry :
-    TemperedGeometry falseCoreAnabelianGeometry.{u} where
-  tempPi1 := fun _ => PUnit.{u}
+    TemperedGeometry falseCoreAnabelianGeometry where
+  tempPi1 := fun _ => PUnit
   tempPi1Group := by
     intro k _ X
     infer_instance
@@ -71,10 +69,10 @@ noncomputable def falseCoreTemperedGeometry :
     infer_instance
   tempToEtale := by
     intro k _ X
-    exact MonoidHom.id PUnit.{u}
+    exact MonoidHom.id PUnit
   tempToEtale_continuous := by
     intro k _ X
-    fun_prop
+    exact continuous_id
   IsThetaRootModel := fun _ _ => True
   canonicalGraphCusp := fun _ => PUnit.unit
 
@@ -83,8 +81,8 @@ countermodel its required core witness is literally a proof of `False`. -/
 theorem falseCore_initialThetaData_isEmpty :
     IsEmpty
       (InitialThetaData
-        falseCoreAnabelianGeometry.{u}
-        falseCoreTemperedGeometry.{u}) := by
+        falseCoreAnabelianGeometry
+        falseCoreTemperedGeometry) := by
   constructor
   intro D
   have h := D.orb.CKu_core
@@ -95,8 +93,8 @@ theorem falseCore_initialThetaData_isEmpty :
 theorem not_nonempty_initialThetaData_for_all_interfaces :
     ¬ Nonempty
       (InitialThetaData
-        falseCoreAnabelianGeometry.{u}
-        falseCoreTemperedGeometry.{u}) := by
+        falseCoreAnabelianGeometry
+        falseCoreTemperedGeometry) := by
   intro h
   exact falseCore_initialThetaData_isEmpty.false h.some
 
