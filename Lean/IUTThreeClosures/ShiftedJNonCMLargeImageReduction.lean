@@ -107,22 +107,20 @@ theorem exists_shiftedJ_largeImage_prime_coprime
   classical
   rcases S.shiftedJCurve_eventual_largeImage P with ⟨N, hN⟩
   let B : ℕ := max N 5
+  let Good : ℕ → Prop := fun ell =>
+    5 ≤ ell ∧ S.LargeImageAt (abcShiftedJCurve P) ell
   rcases exists_prime_of_eventual_finite_exception_and_coprimality
-      B ∅ orders horders
-      (S.LargeImageAt (abcShiftedJCurve P))
+      B ∅ orders horders Good
       (by
         intro ell hell hBell hellNot
-        apply hN ell hell
-        exact lt_of_le_of_lt (le_max_left N 5) hBell) with
-    ⟨ell, hell, hlarge, hellNot, hcop⟩
-  refine ⟨ell, hell, ?_, hlarge, hcop⟩
-  exact (le_max_right N 5).trans (Nat.le_of_lt (by simpa [B] using
-    (show B < ell from by
-      have := hellNot
-      exact by
-        -- recover the bound supplied to the prime-selection theorem
-        have h := Nat.lt_of_lt_of_le (Nat.lt_succ_self B) (Nat.le_refl (B + 1))
-        omega)))
+        constructor
+        · have h5B : 5 ≤ B := by simp [B]
+          exact h5B.trans (Nat.le_of_lt hBell)
+        · apply hN ell hell
+          have hNB : N ≤ B := by simp [B]
+          exact lt_of_le_of_lt hNB hBell) with
+    ⟨ell, hell, hGood, hellNot, hcop⟩
+  exact ⟨ell, hell, hGood.1, hGood.2, hcop⟩
 
 end RationalCMOpenImagePackage
 
