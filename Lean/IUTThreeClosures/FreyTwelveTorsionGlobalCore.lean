@@ -115,10 +115,12 @@ theorem sixTorsionRational_of_twelve
     (h12 : TorsionRationalAt F E Fbar 12) :
     SixTorsionRational F E Fbar := by
   classical
-  simpa only [Iut.SixTorsionRational, TorsionRationalAt] using
-    (torsionRationalAt_of_dvd
-      (F := F) (E := E) (Fbar := Fbar)
-      (by norm_num : 6 ∣ 12) h12)
+  rw [Iut.SixTorsionRational]
+  intro Q hQ
+  apply h12 Q
+  apply torsionBy_le_of_dvd (m := 6) (n := 12)
+    (by norm_num : 6 ∣ 12)
+  simpa using hQ
 
 /-- Stable reduction away from 2 and stable reduction away from 3 together
 cover every finite place. This is the elementary local patching step behind
