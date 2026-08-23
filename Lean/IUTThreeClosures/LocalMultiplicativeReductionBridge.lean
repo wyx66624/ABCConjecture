@@ -16,19 +16,18 @@ fraction field of a discrete valuation ring by three conditions:
 * the valuation of `c₄` is one.
 
 This module records the exact constructor and equivalence in a form that can
-be consumed by the Frey odd-prime calculation.  It also records the immediate
+be consumed by the Frey odd-prime calculation. It also records the immediate
 passage from multiplicative to stable reduction at a number-field place.
 
 Thus the remaining Frey local theorem is no longer the whole reduction
 predicate: it is precisely the proof that the completed integral Frey model is
 minimal and that the elementary divisibility signature maps to the two
-valuation statements.  No global, IUT III, height or abc input occurs here.
+valuation statements. No global, IUT III, height or abc input occurs here.
 -/
 
 namespace IUTThreeClosures
 
 open WeierstrassCurve
-open IsDedekindDomain.HeightOneSpectrum
 
 universe u v
 
@@ -40,8 +39,10 @@ theorem hasMultiplicativeReduction_of_minimal_valuations
     {K : Type v} [Field K] [Algebra R K] [IsFractionRing R K]
     (W : WeierstrassCurve K)
     (hmin : W.IsMinimal R)
-    (hDelta : valuation K (maximalIdeal R) W.Δ < 1)
-    (hc4 : valuation K (maximalIdeal R) W.c₄ = 1) :
+    (hDelta :
+      valuation K (IsLocalRing.maximalIdeal R) W.Δ < 1)
+    (hc4 :
+      valuation K (IsLocalRing.maximalIdeal R) W.c₄ = 1) :
     W.HasMultiplicativeReduction R := by
   letI : W.IsMinimal R := hmin
   exact {
@@ -58,8 +59,8 @@ theorem hasMultiplicativeReduction_iff_minimal_valuations
     (W : WeierstrassCurve K) :
     W.HasMultiplicativeReduction R ↔
       W.IsMinimal R ∧
-      valuation K (maximalIdeal R) W.Δ < 1 ∧
-      valuation K (maximalIdeal R) W.c₄ = 1 := by
+      valuation K (IsLocalRing.maximalIdeal R) W.Δ < 1 ∧
+      valuation K (IsLocalRing.maximalIdeal R) W.c₄ = 1 := by
   constructor
   · intro h
     exact ⟨h.toIsMinimal, h.badReduction, h.multiplicativeReduction⟩
