@@ -55,8 +55,8 @@ theorem fieldOfModuli_eq_bot_of_j_rational
     intro x hx
     simp only [Set.mem_singleton_iff] at hx
     subst x
-    rw [IntermediateField.mem_bot]
-    exact ⟨q, hq.symm⟩
+    simpa [hq] using
+      ((⊥ : IntermediateField ℚ D.F).algebraMap_mem q)
   · exact bot_le
 
 /-- The field of moduli of rational-j initial theta-data has degree one over
