@@ -41,12 +41,13 @@ variable {TG : TemperedGeometry AG}
 variable (D : InitialThetaData AG TG)
 variable (Q : QPilotData D)
 
-/-- The finite index type of the actual bad-place q-packet. -/
-abbrev CanonicalQPacketIndex := Q.badFinset.attach
+/-- The exact finite bad-place coordinate type used by the q-packet. -/
+abbrev CanonicalQPacketIndex :=
+  {w : FinitePlace D.F // w ∈ Q.badFinset}
 
 /-- The dependent type of one Tate parameter at every enumerated bad place. -/
 def CanonicalQPacket : Type u :=
-  ∀ w : CanonicalQPacketIndex D Q,
+  ∀ w : {w : FinitePlace D.F // w ∈ Q.badFinset},
     TateCurvesTheta.TateParameter (localCompletion w.1)
 
 /-- The canonical packet is obtained directly from the Tate parameters in the
@@ -62,37 +63,37 @@ theorem canonicalQPacket_nonempty :
 
 /-- The actual Tate parameter at one packet coordinate. -/
 noncomputable def canonicalQParameter
-    (w : CanonicalQPacketIndex D Q) :
+    (w : {w : FinitePlace D.F // w ∈ Q.badFinset}) :
     TateCurvesTheta.TateParameter (localCompletion w.1) :=
   canonicalQPacket D Q w
 
 /-- The actual normalized uniformizer at one packet coordinate. -/
 noncomputable def canonicalQUniformizer
-    (w : CanonicalQPacketIndex D Q) :
+    (w : {w : FinitePlace D.F // w ∈ Q.badFinset}) :
     localCompletion w.1 :=
   D.prime.unif w.1 (Q.mem_bad w.2)
 
 /-- The packet uniformizer is genuinely a uniformizer. -/
 theorem canonicalQUniformizer_isUniformizer
-    (w : CanonicalQPacketIndex D Q) :
+    (w : {w : FinitePlace D.F // w ∈ Q.badFinset}) :
     TateCurvesTheta.IsUniformizer (canonicalQUniformizer D Q w) :=
   D.prime.unif_isUniformizer w.1 (Q.mem_bad w.2)
 
 /-- The canonical positive integer order of the q-parameter. -/
 noncomputable def canonicalQOrder
-    (w : CanonicalQPacketIndex D Q) : ℕ :=
+    (w : {w : FinitePlace D.F // w ∈ Q.badFinset}) : ℕ :=
   D.prime.qOrder w.1 (Q.mem_bad w.2)
 
 /-- Every canonical packet order is positive. -/
 theorem canonicalQOrder_pos
-    (w : CanonicalQPacketIndex D Q) :
+    (w : {w : FinitePlace D.F // w ∈ Q.badFinset}) :
     0 < canonicalQOrder D Q w :=
   D.prime.qOrder_pos w.1 (Q.mem_bad w.2)
 
 /-- Each packet parameter is pinned to the actual source elliptic curve by the
 Tate j-invariant identity. -/
 theorem canonicalQParameter_tateJ_eq
-    (w : CanonicalQPacketIndex D Q) :
+    (w : {w : FinitePlace D.F // w ∈ Q.badFinset}) :
     (canonicalQParameter D Q w).tateJ =
       FinitePlace.embedding w.1.maximalIdeal D.E.j :=
   D.prime.tateJ_eq w.1 (Q.mem_bad w.2)
