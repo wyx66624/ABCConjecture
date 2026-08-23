@@ -83,6 +83,7 @@ import IUTThreeClosures.StatementIIOutsideFinite
 import IUTThreeClosures.TateParameterUnitBallRegion
 import IUTThreeClosures.TateParameterPowerRegions
 import IUTThreeClosures.ActualHodgeTheaterOutput
+import IUTThreeClosures.ActualTateLocalOutputRelation
 import IUTThreeClosures.FiniteExponentHull
 import IUTThreeClosures.StandardZeroLabel
 import IUTThreeClosures.BarycentricPacketReading
