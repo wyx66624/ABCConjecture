@@ -56,6 +56,7 @@ import IUTThreeClosures.SelectedBadPlaceGlobalReconstruction
 import IUTThreeClosures.ABCPointLegendreCurve
 import IUTThreeClosures.LegendreArithmetic
 import IUTThreeClosures.ABCFreyCurve
+import IUTThreeClosures.FreyTwelveTorsionGlobalCore
 import IUTThreeClosures.TripodWeilHeight
 import IUTThreeClosures.LegendreHeightCorridor
 import IUTThreeClosures.FreyJReducedData
