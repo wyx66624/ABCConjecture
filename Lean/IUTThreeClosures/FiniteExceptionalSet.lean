@@ -1,4 +1,5 @@
 import Mathlib
+import IUTThreeClosures.CandidateKummerPossibleImageRelations
 
 /-!
 # Absorbing a finite exceptional set into a bounded-discrepancy constant
