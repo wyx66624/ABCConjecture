@@ -62,6 +62,8 @@ import IUTThreeClosures.TripodWeilHeight
 import IUTThreeClosures.LegendreHeightCorridor
 import IUTThreeClosures.FreyJReducedData
 import IUTThreeClosures.FreyJHeightCorridor
+import IUTThreeClosures.FreyOddPrimeSupport
+import IUTThreeClosures.FreyOddMultiplicativeCriterion
 import IUTThreeClosures.FreyDiscriminantConductor
 import IUTThreeClosures.ShiftedJAdmissibleCurve
 import IUTThreeClosures.ShiftedJNonCMLargeImageReduction
