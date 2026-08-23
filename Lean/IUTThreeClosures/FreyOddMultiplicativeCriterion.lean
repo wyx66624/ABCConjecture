@@ -47,6 +47,7 @@ theorem abcFrey_c4_eq_freyC4Nat (P : ABCPoint) :
   rw [abcFrey_c₄]
   unfold freyC4Nat legendreCore
   push_cast
+  ring
 
 /-- The rational discriminant is the cast of the integral Frey discriminant. -/
 theorem abcFrey_delta_eq_freyDeltaNat (P : ABCPoint) :
@@ -88,7 +89,7 @@ theorem oddPrime_not_dvd_freyC4Nat
   intro hpc4
   unfold freyC4Nat at hpc4
   rcases hp.dvd_mul.mp hpc4 with hp16 | hpH
-  · apply P.oddPrime_not_dvd_256 hp hp_ne_two
+  · apply oddPrime_not_dvd_256 hp hp_ne_two
     exact hp16.trans (by norm_num : 16 ∣ 256)
   · exact P.prime_not_dvd_legendreCore hp hpabc hpH
 
