@@ -28,6 +28,7 @@ valuation statements. No global, IUT III, height or abc input occurs here.
 namespace IUTThreeClosures
 
 open WeierstrassCurve
+open IsDedekindDomain.HeightOneSpectrum
 
 universe u v
 
