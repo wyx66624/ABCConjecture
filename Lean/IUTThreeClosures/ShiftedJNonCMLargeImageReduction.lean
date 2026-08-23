@@ -16,17 +16,17 @@ j-invariant
 
 `2 + P.a / P.c`.
 
-The preceding module proves that this rational number is not an integer.  The
+The preceding module proves that this rational number is not an integer. The
 classical CM-integrality theorem says that the j-invariant of a CM elliptic
-curve is an algebraic integer; the ring of integers of `ℚ` is `ℤ`.  Hence the
-shifted-j curve is non-CM.  Serre's open-image theorem then says that its
+curve is an algebraic integer; the ring of integers of `ℚ` is `ℤ`. Hence the
+shifted-j curve is non-CM. Serre's open-image theorem then says that its
 mod-ell image is maximal for every sufficiently large prime ell.
 
 Those two deep theorems are not presently declarations of Mathlib, so this
 module packages their exact statements as a reusable source theorem rather
-than replacing them by an arbitrary final inequality.  The rational
+than replacing them by an arbitrary final inequality. The rational
 specialization from `IsIntegral ℤ j` to an actual integer is proved here using
-Mathlib's equivalence `𝓞 ℚ ≃+* ℤ`.  All further deductions are also proved:
+Mathlib's equivalence `𝓞 ℚ ≃+* ℤ`. All further deductions are also proved:
 
 * the shifted-j curve is non-CM;
 * it has eventual large mod-ell image;
@@ -58,39 +58,38 @@ structure RationalCMOpenImagePackage where
   /-- The intended maximal/large mod-ell image predicate. -/
   LargeImageAt : WeierstrassCurve ℚ → ℕ → Prop
   /-- CM j-invariants are algebraic integers. -/
-  cm_j_integral : ∀ E : WeierstrassCurve ℚ,
-    E.IsElliptic → HasCM E → IsIntegral ℤ E.j
+  cm_j_integral : ∀ (E : WeierstrassCurve ℚ) [E.IsElliptic],
+    HasCM E → IsIntegral ℤ E.j
   /-- Serre open image in the form used here: a non-CM rational elliptic curve
   has large mod-ell image at every sufficiently large prime. -/
-  serre_eventual_large_image : ∀ E : WeierstrassCurve ℚ,
-    E.IsElliptic → ¬ HasCM E →
+  serre_eventual_large_image : ∀ (E : WeierstrassCurve ℚ) [E.IsElliptic],
+    ¬ HasCM E →
       ∃ N : ℕ, ∀ ell : ℕ, ell.Prime → N < ell → LargeImageAt E ell
 
 namespace RationalCMOpenImagePackage
 
 /-- A rational algebraic integer is an integer, specialized to a CM
-j-invariant.  This step is fully formalized; it is not an extra source field. -/
+j-invariant. This step is fully formalized; it is not an extra source field. -/
 theorem cm_j_integer
     (S : RationalCMOpenImagePackage)
     (E : WeierstrassCurve ℚ)
-    (hE : E.IsElliptic)
+    [E.IsElliptic]
     (hCM : S.HasCM E) :
     ∃ z : ℤ, E.j = (z : ℚ) := by
-  let zO : 𝓞 ℚ := ⟨E.j, S.cm_j_integral E hE hCM⟩
+  let zO : 𝓞 ℚ := ⟨E.j, S.cm_j_integral E hCM⟩
   refine ⟨Rat.ringOfIntegersEquiv zO, ?_⟩
   have h := Rat.ringOfIntegersEquiv_apply_coe zO
   simpa [zO] using h.symm
 
-/-- **Shifted-j non-CM theorem.**  CM integrality contradicts the already
+/-- **Shifted-j non-CM theorem.** CM integrality contradicts the already
 proved fact that the shifted rational j-invariant has denominator `P.c >= 2`. -/
 theorem shiftedJCurve_nonCM
     (S : RationalCMOpenImagePackage)
     (P : ABCPoint) :
     ¬ S.HasCM (abcShiftedJCurve P) := by
   intro hCM
-  rcases S.cm_j_integer (abcShiftedJCurve P)
-      (abcShiftedJCurve_isElliptic P) hCM with ⟨z, hz⟩
-  exact P.abcShiftedJCurve_j_not_integer ⟨z, hz⟩
+  rcases S.cm_j_integer (abcShiftedJCurve P) hCM with ⟨z, hz⟩
+  exact abcShiftedJCurve_j_not_integer P ⟨z, hz⟩
 
 /-- **Eventual large-image theorem for the shifted-j family.** -/
 theorem shiftedJCurve_eventual_largeImage
@@ -100,7 +99,6 @@ theorem shiftedJCurve_eventual_largeImage
       S.LargeImageAt (abcShiftedJCurve P) ell :=
   S.serre_eventual_large_image
     (abcShiftedJCurve P)
-    (abcShiftedJCurve_isElliptic P)
     (S.shiftedJCurve_nonCM P)
 
 /-- Simultaneous admissible-prime selection for one shifted-j curve.
@@ -144,10 +142,10 @@ variable {AG : AnabelianGeometry.{u}} {TG : TemperedGeometry AG}
 
 /-- Exact remaining source-facing assembler.
 
-This structure does not store an abc inequality or a Corollary 3.12 proof.  It
+This structure does not store an abc inequality or a Corollary 3.12 proof. It
 states what the actual geometric construction must consume: a nonexceptional
 abc point, a prime at least five, the large-image theorem, and all required
-finite coprimality conditions.  Its output is the full `InitialThetaData`, so
+finite coprimality conditions. Its output is the full `InitialThetaData`, so
 implementing `assemble` requires the genuine orbicurve/core/tempered geometry
 and local theta models. -/
 structure ShiftedJInitialThetaAssembly
@@ -169,7 +167,7 @@ structure ShiftedJInitialThetaAssembly
 namespace ShiftedJInitialThetaAssembly
 
 /-- **Pointwise initial theta-data outside the exceptional set**, reduced to
-its genuine source assembler.  All prime-existence and simultaneous
+its genuine source assembler. All prime-existence and simultaneous
 coprimality work is discharged by the preceding theorems. -/
 theorem shiftedJ_initialThetaData_outside_exceptional
     {S : RationalCMOpenImagePackage}
