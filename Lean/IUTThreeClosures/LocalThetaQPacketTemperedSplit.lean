@@ -9,19 +9,18 @@ import Iut.Cor312.LeftHandSide
 # Canonical q-packets and tempered local-theta enhancements
 
 The public initial-theta interface stores the Tate parameters in
-`AdmissiblePrimeData`, not in `LocalThetaData`.  Consequently the honest split
+`AdmissiblePrimeData`, not in `LocalThetaData`. Consequently the honest split
 is as follows.
 
-* For a public `QPilotData`, the finite bad-place q-packet is a derived
-  dependent function of the actual Tate parameters already pinned to the
-  source elliptic curve by their j-invariants.  It is not an additional family
-  choice.
+* For public `QPilotData`, the finite bad-place q-packet is a derived dependent
+  function of the actual Tate parameters already pinned to the source
+  elliptic curve by their j-invariants. It is not an additional family choice.
 * `LocalThetaData` itself splits into an etale/local core (valuation section,
   cartesian base-change diagrams and decomposition groups) and a tempered
   enhancement (bad-place type, theta-root model and canonical graph-cusp
   conditions).
 
-The constructions below are exact projections and reassembly theorems.  They
+The constructions below are exact projections and reassembly theorems. They
 do not construct the valuation section or the tempered/anabelian conditions.
 -/
 
@@ -47,7 +46,7 @@ abbrev CanonicalQPacketIndex := Q.badFinset.attach
 
 /-- The dependent type of one Tate parameter at every enumerated bad place. -/
 def CanonicalQPacket : Type u :=
-  ∀ w : CanonicalQPacketIndex Q,
+  ∀ w : CanonicalQPacketIndex D Q,
     TateCurvesTheta.TateParameter (localCompletion w.1)
 
 /-- The canonical packet is obtained directly from the Tate parameters in the
@@ -63,37 +62,37 @@ theorem canonicalQPacket_nonempty :
 
 /-- The actual Tate parameter at one packet coordinate. -/
 noncomputable def canonicalQParameter
-    (w : CanonicalQPacketIndex Q) :
+    (w : CanonicalQPacketIndex D Q) :
     TateCurvesTheta.TateParameter (localCompletion w.1) :=
   canonicalQPacket D Q w
 
 /-- The actual normalized uniformizer at one packet coordinate. -/
 noncomputable def canonicalQUniformizer
-    (w : CanonicalQPacketIndex Q) :
+    (w : CanonicalQPacketIndex D Q) :
     localCompletion w.1 :=
   D.prime.unif w.1 (Q.mem_bad w.2)
 
 /-- The packet uniformizer is genuinely a uniformizer. -/
 theorem canonicalQUniformizer_isUniformizer
-    (w : CanonicalQPacketIndex Q) :
+    (w : CanonicalQPacketIndex D Q) :
     TateCurvesTheta.IsUniformizer (canonicalQUniformizer D Q w) :=
   D.prime.unif_isUniformizer w.1 (Q.mem_bad w.2)
 
 /-- The canonical positive integer order of the q-parameter. -/
 noncomputable def canonicalQOrder
-    (w : CanonicalQPacketIndex Q) : ℕ :=
+    (w : CanonicalQPacketIndex D Q) : ℕ :=
   D.prime.qOrder w.1 (Q.mem_bad w.2)
 
 /-- Every canonical packet order is positive. -/
 theorem canonicalQOrder_pos
-    (w : CanonicalQPacketIndex Q) :
+    (w : CanonicalQPacketIndex D Q) :
     0 < canonicalQOrder D Q w :=
   D.prime.qOrder_pos w.1 (Q.mem_bad w.2)
 
 /-- Each packet parameter is pinned to the actual source elliptic curve by the
 Tate j-invariant identity. -/
 theorem canonicalQParameter_tateJ_eq
-    (w : CanonicalQPacketIndex Q) :
+    (w : CanonicalQPacketIndex D Q) :
     (canonicalQParameter D Q w).tateJ =
       FinitePlace.embedding w.1.maximalIdeal D.E.j :=
   D.prime.tateJ_eq w.1 (Q.mem_bad w.2)
@@ -146,7 +145,7 @@ structure LocalThetaEtaleCore : Type u where
 
 /-- The genuinely theta-root/tempered enhancement of one local etale core. -/
 structure LocalThetaTemperedEnhancement
-    (C : LocalThetaEtaleCore AG TG F E Fbar VBad P O) : Type u where
+    (C : LocalThetaEtaleCore AG F E Fbar VBad P O) : Type u where
   bad_type :
     ∀ v ∈ VBad,
       AG.IsTypeOneZModPM P.ℓ
@@ -168,7 +167,7 @@ namespace LocalThetaEtaleCore
 /-- Project the etale/core layer from public local theta-data. -/
 def ofLocalThetaData
     (L : LocalThetaData AG TG F E Fbar VBad P O) :
-    LocalThetaEtaleCore AG TG F E Fbar VBad P O where
+    LocalThetaEtaleCore AG F E Fbar VBad P O where
   sect := L.sect
   local_diagram_cartesian := L.local_diagram_cartesian
   decomp := L.decomp
@@ -190,7 +189,7 @@ def ofLocalThetaData
 
 /-- Reassemble the exact public local theta-data. -/
 def assemble
-    (C : LocalThetaEtaleCore AG TG F E Fbar VBad P O)
+    (C : LocalThetaEtaleCore AG F E Fbar VBad P O)
     (T : LocalThetaTemperedEnhancement
       AG TG F E Fbar VBad P O C) :
     LocalThetaData AG TG F E Fbar VBad P O where
@@ -219,7 +218,7 @@ end LocalThetaTemperedEnhancement
 tempered enhancement. -/
 theorem localThetaData_nonempty_iff_core_tempered :
     Nonempty (LocalThetaData AG TG F E Fbar VBad P O) ↔
-      ∃ C : LocalThetaEtaleCore AG TG F E Fbar VBad P O,
+      ∃ C : LocalThetaEtaleCore AG F E Fbar VBad P O,
         Nonempty
           (LocalThetaTemperedEnhancement
             AG TG F E Fbar VBad P O C) := by
