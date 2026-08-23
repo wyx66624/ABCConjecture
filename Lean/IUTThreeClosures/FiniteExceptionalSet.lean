@@ -1,4 +1,5 @@
 import Mathlib
+import IUTThreeClosures.FreyOddPrimeNonCMReduction
 
 /-!
 # Absorbing a finite exceptional set into a bounded-discrepancy constant
