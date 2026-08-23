@@ -61,10 +61,10 @@ theorem finiteIdealLiesOver_of_absoluteValueLiesOver
   have hx :
       w (algebraMap (𝓞 K) K (algebraMap (𝓞 k) (𝓞 K) x)) =
         v (algebraMap (𝓞 k) k x) := by
-    change w (algebraMap k K (x : k)) = v (x : k)
+    change w.1 (algebraMap k K (x : k)) = v.1 (x : k)
     have hcomp : w.1.comp (algebraMap k K).injective = v.1 :=
       AbsoluteValue.LiesOver.comp_eq w.1 v.1
-    simpa using congrArg (fun a : AbsoluteValue k ℝ => a (x : k)) hcomp
+    exact congrArg (fun a : AbsoluteValue k ℝ => a (x : k)) hcomp
   rw [hx]
 
 /-- Every finite place of the base number field has an extension in the usual
@@ -94,7 +94,8 @@ theorem exists_finiteIdealLiesOver (v : FinitePlace k) :
   let qHeight : IsDedekindDomain.HeightOneSpectrum (𝓞 K) :=
     ⟨q, hqPrime, hqNeBot⟩
   refine ⟨FinitePlace.mk qHeight, ?_⟩
-  simpa [FiniteIdealLiesOver, p, qHeight] using hqComap
+  rw [FiniteIdealLiesOver, FinitePlace.maximalIdeal_mk]
+  simpa only [p, qHeight] using hqComap
 
 /-- A corrected section of all places of a number-field extension.  Finite
 places use contraction of prime ideals; infinite places retain literal
@@ -127,6 +128,6 @@ theorem nonempty_idealValuationSection :
     have hv : (si v).comap (algebraMap k K) = v :=
       Classical.choose_spec (InfinitePlace.comap_surjective (K := K) v)
     refine ⟨?_⟩
-    simpa [si] using congrArg Subtype.val hv
+    exact congrArg Subtype.val hv
 
 end IUTThreeClosures
