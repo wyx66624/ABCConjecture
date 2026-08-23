@@ -8,7 +8,7 @@ import IUTThreeClosures.ActualPilotWitness
 /-!
 # A standalone Corollary 3.12 statement and its inequality ledger
 
-This module contains no abc target and no downstream height theorem.  For one
+This module contains no abc target and no downstream height theorem. For one
 public Corollary 3.12 data bundle `X`, the standalone proposition is exactly
 
 `X.qPilot.lhs <= X.rhsData.rhs`.
@@ -24,7 +24,7 @@ steps rather than compressed into one calculation:
 6. theta-hull procession volume is definitionally the public right-hand side.
 
 The final standalone theorem and the coefficient inequality `-1 <= CTheta`
-are derived only after these ledger entries have been established.  No field
+are derived only after these ledger entries have been established. No field
 of any structure has the standalone proposition, a q-bound, a height bound or
 `ABCConjecture` as its codomain.
 -/
@@ -54,11 +54,10 @@ theorem standaloneCorollary312_iff_public
 namespace Cor312InequalityLedger
 
 variable {X : Corollary312VariantData.{u, v} AG TG}
-variable (W : ActualPilotWitness X)
 
 /-- Ledger entry 1: the actual native q-pilot region lies in the supplied
 actual theta-pilot region. -/
-theorem native_le_thetaPilot :
+theorem native_le_thetaPilot (W : ActualPilotWitness X) :
     ∀ i, W.region i ≤ X.rhsData.thetaPilot i :=
   W.region_le_thetaPilot
 
@@ -73,14 +72,14 @@ theorem thetaPilot_le_thetaHull :
     (X.rhsData.thetaPilot_hullAdmissible i)
 
 /-- Ledger entry 3: the native q-pilot region lies in the public theta hull. -/
-theorem native_le_thetaHull :
+theorem native_le_thetaHull (W : ActualPilotWitness X) :
     ∀ i, W.region i ≤ X.rhsData.thetaHull i := by
   intro i vQ x hx
-  exact W.thetaPilot_le_thetaHull i vQ
-    (W.native_le_thetaPilot i vQ hx)
+  exact thetaPilot_le_thetaHull (X := X) i vQ
+    (native_le_thetaPilot W i vQ hx)
 
 /-- Procession volume of the actual native q-pilot family. -/
-noncomputable def nativeVolume : ℝ :=
+noncomputable def nativeVolume (W : ActualPilotWitness X) : ℝ :=
   X.rhsData.vol.processionVol W.region
 
 /-- Procession volume of the actual public theta-hull family. -/
@@ -89,33 +88,34 @@ noncomputable def thetaHullVolume : ℝ :=
 
 /-- Ledger entry 4: native volume is exactly the public q-pilot left-hand
 side. -/
-theorem nativeVolume_eq_lhs :
-    W.nativeVolume = X.qPilot.lhs :=
+theorem nativeVolume_eq_lhs (W : ActualPilotWitness X) :
+    nativeVolume W = X.qPilot.lhs :=
   W.qVolume
 
 /-- Ledger entry 5: monotonicity carries native-region inclusion to the
 procession-volume inequality. -/
-theorem nativeVolume_le_thetaHullVolume :
-    W.nativeVolume ≤ W.thetaHullVolume := by
-  exact W.processionVol_mono W.native_le_thetaHull
+theorem nativeVolume_le_thetaHullVolume (W : ActualPilotWitness X) :
+    nativeVolume W ≤ thetaHullVolume (X := X) := by
+  exact W.processionVol_mono (native_le_thetaHull W)
 
 /-- Ledger entry 6: the public right-hand side is definitionally the
 procession volume of the actual holomorphic theta hull. -/
 theorem thetaHullVolume_eq_rhs :
-    W.thetaHullVolume = X.rhsData.rhs :=
+    thetaHullVolume (X := X) = X.rhsData.rhs :=
   rfl
 
 /-- The complete target-free Corollary 3.12 inequality, assembled only from
 the six ledger entries above. -/
-theorem standalone : StandaloneCorollary312 X := by
+theorem standalone (W : ActualPilotWitness X) : StandaloneCorollary312 X := by
+  show X.qPilot.lhs ≤ X.rhsData.rhs
   calc
-    X.qPilot.lhs = W.nativeVolume := W.nativeVolume_eq_lhs.symm
-    _ ≤ W.thetaHullVolume := W.nativeVolume_le_thetaHullVolume
-    _ = X.rhsData.rhs := W.thetaHullVolume_eq_rhs
+    X.qPilot.lhs = nativeVolume W := (nativeVolume_eq_lhs W).symm
+    _ ≤ thetaHullVolume (X := X) := nativeVolume_le_thetaHullVolume W
+    _ = X.rhsData.rhs := thetaHullVolume_eq_rhs (X := X)
 
 /-- Public specialization of the same ledger proof. -/
-theorem public : Corollary312Variant X :=
-  (standaloneCorollary312_iff_public X).mp W.standalone
+theorem toPublic (W : ActualPilotWitness X) : Corollary312Variant X :=
+  (standaloneCorollary312_iff_public X).mp (standalone W)
 
 end Cor312InequalityLedger
 
@@ -134,8 +134,7 @@ theorem standaloneThetaCoefficient_ge_neg_one
     -1 ≤ standaloneThetaCoefficient X := by
   rw [standaloneThetaCoefficient]
   apply (le_div_iff₀ hq).2
-  change (-1 : ℝ) * X.qPilot.absLogQ ≤ X.rhsData.rhs
-  simpa [QPilotData.lhs] using h312
+  simpa [StandaloneCorollary312, QPilotData.lhs] using h312
 
 /-- An actual native-region witness produces the coefficient bound through the
 standalone ledger, without any downstream target field. -/
