@@ -6,6 +6,7 @@ Authors: ChatGPT
 import IUTThreeClosures.ShiftedJAdmissibleCurve
 import IUTThreeClosures.AdmissiblePrimeSelection
 import Iut.Cor312.ThetaData.Basic
+import Mathlib.NumberTheory.NumberField.Basic
 
 /-!
 # The shifted-j route to admissible primes and pointwise initial theta-data
@@ -17,14 +18,15 @@ j-invariant
 
 The preceding module proves that this rational number is not an integer.  The
 classical CM-integrality theorem says that the j-invariant of a CM elliptic
-curve is an algebraic integer; over `ℚ` this is an integer.  Hence the shifted-j
-curve is non-CM.  Serre's open-image theorem then says that its mod-ell image
-is maximal for every sufficiently large prime ell.
+curve is an algebraic integer; the ring of integers of `ℚ` is `ℤ`.  Hence the
+shifted-j curve is non-CM.  Serre's open-image theorem then says that its
+mod-ell image is maximal for every sufficiently large prime ell.
 
 Those two deep theorems are not presently declarations of Mathlib, so this
 module packages their exact statements as a reusable source theorem rather
-than replacing them by an arbitrary final inequality.  All deductions after
-those source theorems are proved here:
+than replacing them by an arbitrary final inequality.  The rational
+specialization from `IsIntegral ℤ j` to an actual integer is proved here using
+Mathlib's equivalence `𝓞 ℚ ≃+* ℤ`.  All further deductions are also proved:
 
 * the shifted-j curve is non-CM;
 * it has eventual large mod-ell image;
@@ -40,7 +42,7 @@ anabelian/tempered orbicurves, cores, Tate models and local theta data.
 
 namespace IUTThreeClosures
 
-open Iut
+open Iut NumberField
 
 universe u
 
@@ -55,10 +57,9 @@ structure RationalCMOpenImagePackage where
   HasCM : WeierstrassCurve ℚ → Prop
   /-- The intended maximal/large mod-ell image predicate. -/
   LargeImageAt : WeierstrassCurve ℚ → ℕ → Prop
-  /-- Rational CM j-invariants are integers.  This is the rational specialization
-  of the algebraic-integrality theorem for singular moduli. -/
-  cm_j_integer : ∀ E : WeierstrassCurve ℚ,
-    E.IsElliptic → HasCM E → ∃ z : ℤ, E.j = (z : ℚ)
+  /-- CM j-invariants are algebraic integers. -/
+  cm_j_integral : ∀ E : WeierstrassCurve ℚ,
+    E.IsElliptic → HasCM E → IsIntegral ℤ E.j
   /-- Serre open image in the form used here: a non-CM rational elliptic curve
   has large mod-ell image at every sufficiently large prime. -/
   serre_eventual_large_image : ∀ E : WeierstrassCurve ℚ,
@@ -66,6 +67,19 @@ structure RationalCMOpenImagePackage where
       ∃ N : ℕ, ∀ ell : ℕ, ell.Prime → N < ell → LargeImageAt E ell
 
 namespace RationalCMOpenImagePackage
+
+/-- A rational algebraic integer is an integer, specialized to a CM
+j-invariant.  This step is fully formalized; it is not an extra source field. -/
+theorem cm_j_integer
+    (S : RationalCMOpenImagePackage)
+    (E : WeierstrassCurve ℚ)
+    (hE : E.IsElliptic)
+    (hCM : S.HasCM E) :
+    ∃ z : ℤ, E.j = (z : ℚ) := by
+  let zO : 𝓞 ℚ := ⟨E.j, S.cm_j_integral E hE hCM⟩
+  refine ⟨Rat.ringOfIntegersEquiv zO, ?_⟩
+  have h := Rat.ringOfIntegersEquiv_apply_coe zO
+  simpa [zO] using h.symm
 
 /-- **Shifted-j non-CM theorem.**  CM integrality contradicts the already
 proved fact that the shifted rational j-invariant has denominator `P.c >= 2`. -/
