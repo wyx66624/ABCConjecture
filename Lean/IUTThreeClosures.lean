@@ -61,6 +61,7 @@ import IUTThreeClosures.FreyDiscriminantConductor
 import IUTThreeClosures.ShiftedJAdmissibleCurve
 import IUTThreeClosures.ShiftedJNonCMLargeImageReduction
 import IUTThreeClosures.FreyNonCMOutsideFinite
+import IUTThreeClosures.FreyInitialThetaAssembly
 import IUTThreeClosures.ExplicitSemistableCurve
 import IUTThreeClosures.SolvableRestrictionImage
 import IUTThreeClosures.ZModSL2Perfect
