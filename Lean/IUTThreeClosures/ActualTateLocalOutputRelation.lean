@@ -51,13 +51,13 @@ actual local field to `Type 0`. -/
 abbrev TateLocalIndex : Type u := ULift.{u} Unit
 
 /-- The unique local component. -/
-def tateLocalIndex : TateLocalIndex (u := u) := ⟨Unit.unit⟩
+def tateLocalIndex : TateLocalIndex.{u} := ⟨Unit.unit⟩
 
 /-- The source-generated local relation associated to the genuine Tate
 parameter at an actual bad Hodge-theater place. -/
 noncomputable def actualTateLocalOutputRelation
     (H : ActualBadHodgeTheaterPlace D) :
-    ActualIUTOutputRelation D (TateLocalIndex (u := u))
+    ActualIUTOutputRelation D TateLocalIndex.{u}
       (fun _ => H.TateField) where
   Ordinary := ℕ
   Ind1 := NormOneKummerUnit H.TateField
@@ -107,16 +107,14 @@ noncomputable def actualTateLocalOutputRelation
 @[simp]
 theorem actualTateLocal_nativeQPilotRegion
     (H : ActualBadHodgeTheaterPlace D) :
-    H.actualTateLocalOutputRelation.nativeQPilotRegion
-        (tateLocalIndex (u := u)) =
+    H.actualTateLocalOutputRelation.nativeQPilotRegion tateLocalIndex.{u} =
       H.tate.qPowerRegion 1 :=
   rfl
 
 @[simp]
 theorem actualTateLocal_envelope
     (H : ActualBadHodgeTheaterPlace D) :
-    H.actualTateLocalOutputRelation.envelope
-        (tateLocalIndex (u := u)) =
+    H.actualTateLocalOutputRelation.envelope tateLocalIndex.{u} =
       normIntegralRegion (K := H.TateField) :=
   rfl
 
@@ -126,10 +124,9 @@ theorem actualTateNativeImage
     (H : ActualBadHodgeTheaterPlace D) :
     H.tate.qPowerRegion 1 ⊆
       H.actualTateLocalOutputRelation.actualThetaPossibleUnion
-        (tateLocalIndex (u := u)) := by
+        tateLocalIndex.{u} := by
   simpa using
-    H.actualTateLocalOutputRelation.actualNativeImage
-      (tateLocalIndex (u := u))
+    H.actualTateLocalOutputRelation.actualNativeImage tateLocalIndex.{u}
 
 /-- **Actual local possible-image envelope theorem.** Every finite composition
 of the ordinary Tate branch, norm-one Kummer ambiguity and nonnegative vertical
@@ -137,11 +134,10 @@ q-scaling lies in the actual local norm unit ball. -/
 theorem actualTatePossibleImageEnvelope
     (H : ActualBadHodgeTheaterPlace D) :
     H.actualTateLocalOutputRelation.actualThetaPossibleUnion
-        (tateLocalIndex (u := u)) ⊆
+        tateLocalIndex.{u} ⊆
       normIntegralRegion (K := H.TateField) := by
   simpa using
-    H.actualTateLocalOutputRelation.actualPossibleImageEnvelope
-      (tateLocalIndex (u := u))
+    H.actualTateLocalOutputRelation.actualPossibleImageEnvelope tateLocalIndex.{u}
 
 /-- In particular the native q-pilot region lies in the actual local unit-ball
 envelope. -/
