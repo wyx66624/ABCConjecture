@@ -19,18 +19,18 @@ First, after choosing an identification
 
 of the rank-one quotient, the distinguished nonzero quotient element may be
 taken to be the inverse image of `1`; its cusp is then definitionally
-`cuspOfQuotient` of this element.  Thus the quotient element and cusp do not
+`cuspOfQuotient` of this element. Thus the quotient element and cusp do not
 form an independent existence seam.
 
 Second, the public `LocalThetaData.decomp` field currently asks only for a
 closed subgroup at every finite place and imposes no characterizing
-relationship with a place.  The full subgroup is therefore a canonical closed
-choice.  Thus decomposition-group choice is not an independent obstruction in
+relationship with a place. The full subgroup is therefore a canonical closed
+choice. Thus decomposition-group choice is not an independent obstruction in
 the present public interface; any stronger arithmetic meaning must be added as
 an explicit future condition.
 
 This module packages both reductions and proves exact nonemptiness
-equivalences.  It does not construct orbicurves, coverings, cores, valuation
+equivalences. It does not construct orbicurves, coverings, cores, valuation
 sections, cartesian local diagrams, theta-root models, tempered groups or the
 IUT III source.
 -/
@@ -81,8 +81,8 @@ noncomputable def canonicalQ
 theorem canonicalQ_ne_zero
     (A : OrbicurveStructuralEnhancement AG F E Fbar VBad P C) :
     A.QIso A.canonicalQ ≠ 0 := by
-  letI : NeZero P.ℓ := ⟨P.ℓ_prime.ne_zero⟩
-  simp [canonicalQ]
+  letI : Fact P.ℓ.Prime := ⟨P.ℓ_prime⟩
+  simpa [canonicalQ] using (one_ne_zero : (1 : ZMod P.ℓ) ≠ 0)
 
 /-- The distinguished cusp derived from the canonical quotient element. -/
 noncomputable def canonicalCusp
@@ -126,9 +126,11 @@ theorem orbicurveAnabelianEnhancement_nonempty_iff_structural :
         (OrbicurveStructuralEnhancement AG F E Fbar VBad P C) := by
   constructor
   · rintro ⟨A⟩
-    exact ⟨A.ofAnabelianEnhancement⟩
+    exact ⟨OrbicurveStructuralEnhancement.ofAnabelianEnhancement
+      AG F E Fbar VBad P C A⟩
   · rintro ⟨A⟩
-    exact ⟨A.toAnabelianEnhancement⟩
+    exact ⟨OrbicurveStructuralEnhancement.toAnabelianEnhancement
+      AG F E Fbar VBad P C A⟩
 
 end OrbicurveAutomaticChoices
 
@@ -141,6 +143,7 @@ variable (TG : TemperedGeometry AG)
 variable (F : Type u) [Field F] [NumberField F]
 variable (E : WeierstrassCurve F) [E.IsElliptic]
 variable (Fbar : Type u) [Field Fbar] [Algebra F Fbar]
+variable [IsAlgClosure F Fbar]
 variable (VBad : Set (FinitePlace ↥(fieldOfModuli F E)))
 variable (P : AdmissiblePrimeData F E Fbar VBad)
 variable [NumberField ↥P.torsionField]
@@ -173,7 +176,7 @@ namespace LocalThetaSectionCore
 
 /-- Complete the public etale core using the full Galois group as its closed
 subgroup at every finite place. -/
-def toEtaleCore
+noncomputable def toEtaleCore
     (C : LocalThetaSectionCore AG F E Fbar VBad P O) :
     LocalThetaEtaleCore AG F E Fbar VBad P O where
   sect := C.sect
@@ -181,12 +184,12 @@ def toEtaleCore
   decomp := fun _ => ⊤
   decomp_isClosed := by
     intro v
-    simpa using
-      (isClosed_univ :
-        IsClosed (Set.univ : Set (Fbar ≃ₐ[↥P.torsionField] Fbar)))
+    change IsClosed
+      (Set.univ : Set (Fbar ≃ₐ[↥P.torsionField] Fbar))
+    exact isClosed_univ
 
 /-- Forget the automatic full-subgroup choices. -/
-def ofEtaleCore
+noncomputable def ofEtaleCore
     (C : LocalThetaEtaleCore AG F E Fbar VBad P O) :
     LocalThetaSectionCore AG F E Fbar VBad P O where
   sect := C.sect
@@ -201,9 +204,11 @@ theorem localThetaEtaleCore_nonempty_iff_sectionCore :
       Nonempty (LocalThetaSectionCore AG F E Fbar VBad P O) := by
   constructor
   · rintro ⟨C⟩
-    exact ⟨C.ofEtaleCore⟩
+    exact ⟨LocalThetaSectionCore.ofEtaleCore
+      AG TG F E Fbar VBad P O C⟩
   · rintro ⟨C⟩
-    exact ⟨C.toEtaleCore⟩
+    exact ⟨LocalThetaSectionCore.toEtaleCore
+      AG TG F E Fbar VBad P O C⟩
 
 end LocalAutomaticChoices
 
