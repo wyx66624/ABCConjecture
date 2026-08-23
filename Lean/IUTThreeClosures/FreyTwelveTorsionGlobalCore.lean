@@ -10,28 +10,28 @@ import IUTThreeClosures.ABCFreyCurve
 # A twelve-torsion route to the fixed Frey global core
 
 For an abc point `P`, let `E_P` be the integral Frey curve and base change it
-to a number field `F`.  The standard arithmetic route to the global portion
+to a number field `F`. The standard arithmetic route to the global portion
 of initial theta-data is to take a field over which the full 12-torsion is
-rational.  Three consequences are then needed:
+rational. Three consequences are then needed:
 
 * full 12-torsion rationality implies the public six-torsion rationality
   condition; this implication is proved here;
 * full 4-torsion rationality, together with the Weil pairing, supplies a
   square root of `-1`;
 * the semistable-reduction theorem applied at levels 3 and 4 gives stable
-  reduction away from residue characteristics 3 and 2 respectively.  These
+  reduction away from residue characteristics 3 and 2 respectively. These
   two complements cover every finite place; the covering argument is proved
   here.
 
 The current imported libraries do not yet contain the Weil-pairing and
-semistable-reduction theorems in the required elliptic-curve form.  The
+semistable-reduction theorems in the required elliptic-curve form. The
 structure `FreyTwelveTorsionGlobalInput` therefore exposes exactly those two
 source-facing consequences, rather than storing the final
 `IsInitialThetaGlobalData` object as an opaque field.
 
 A single odd multiplicative bad moduli place is then enough to construct the
-nonempty bad locus.  The module assembles an actual `FixedIUTCore` and proves
-that its source curve has the genuine rational Frey j-invariant.  No
+nonempty bad locus. The module assembles an actual `FixedIUTCore` and proves
+that its source curve has the genuine rational Frey j-invariant. No
 admissible-prime, orbicurve, tempered, IUT III, Corollary 3.12, or abc
 inequality is assumed.
 -/
@@ -69,6 +69,7 @@ theorem freyCurveOver_j
     (WeierstrassCurve.map_j
       (abcFreyCurve P) (algebraMap ℚ F))
 
+open scoped Classical in
 /-- Rationality over `F` of all `n`-torsion points after passage to an
 algebraic closure `Fbar`. -/
 noncomputable def TorsionRationalAt
@@ -88,7 +89,8 @@ theorem torsionBy_le_of_dvd
   intro x hx
   rw [AddSubgroup.torsionBy.nsmul_iff] at hx ⊢
   rcases hmn with ⟨k, rfl⟩
-  rw [Nat.mul_comm, mul_nsmul, hx, nsmul_zero]
+  have hk := congrArg (fun y : A => k • y) hx
+  simpa [Nat.mul_comm, mul_nsmul] using hk
 
 /-- Rationality of a larger torsion level implies rationality of every
 sublevel dividing it. -/
@@ -101,7 +103,6 @@ theorem torsionRationalAt_of_dvd
     (hn : TorsionRationalAt F E Fbar n) :
     TorsionRationalAt F E Fbar m := by
   classical
-  unfold TorsionRationalAt at hn ⊢
   intro Q hQ
   exact hn Q (torsionBy_le_of_dvd hmn hQ)
 
@@ -113,11 +114,14 @@ theorem sixTorsionRational_of_twelve
     {Fbar : Type u} [Field Fbar] [Algebra F Fbar]
     (h12 : TorsionRationalAt F E Fbar 12) :
     SixTorsionRational F E Fbar := by
-  exact torsionRationalAt_of_dvd
-    (by norm_num : 6 ∣ 12) h12
+  classical
+  simpa only [Iut.SixTorsionRational, TorsionRationalAt] using
+    (torsionRationalAt_of_dvd
+      (F := F) (E := E) (Fbar := Fbar)
+      (by norm_num : 6 ∣ 12) h12)
 
 /-- Stable reduction away from 2 and stable reduction away from 3 together
-cover every finite place.  This is the elementary local patching step behind
+cover every finite place. This is the elementary local patching step behind
 the levels 4 and 3 semistability route. -/
 theorem stableReduction_of_away_two_and_three
     {F : Type u} [Field F] [NumberField F]
@@ -139,7 +143,7 @@ initial-theta datum.
 
 The fields `sqrt_neg_one`, `stable_away_two`, and `stable_away_three` are the
 precise outputs expected respectively from the Weil pairing and the two
-semistable-reduction applications.  They are not replaced by a preassembled
+semistable-reduction applications. They are not replaced by a preassembled
 `IsInitialThetaGlobalData` field. -/
 structure FreyTwelveTorsionGlobalInput (P : ABCPoint) : Type (u + 1) where
   F : Type u
