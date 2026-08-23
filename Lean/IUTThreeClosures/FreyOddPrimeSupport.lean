@@ -46,7 +46,7 @@ theorem oddPrime_dvd_freyJReducedDen
     p ∣ P.freyJReducedDen := by
   have hpraw : p ∣ P.freyJRawDen := by
     rcases hpabc with ⟨k, hk⟩
-    refine ⟨k ^ 2, ?_⟩
+    refine ⟨p * k ^ 2, ?_⟩
     unfold freyJRawDen
     rw [hk]
     ring
@@ -56,7 +56,7 @@ theorem oddPrime_dvd_freyJReducedDen
   rcases hp.dvd_mul.mp hpprod with hpred | hpcontent
   · exact hpred
   · exfalso
-    apply P.oddPrime_not_dvd_256 hp hp_ne_two
+    apply oddPrime_not_dvd_256 hp hp_ne_two
     exact hpcontent.trans P.freyJContent_dvd_256
 
 /-- The reduced Frey denominator is nontrivial whenever an odd prime divides
@@ -95,7 +95,9 @@ private theorem exists_oddPrime_dvd_of_mod_two_eq_one
   have hp_ne_two : p ≠ 2 := by
     intro hp2
     rcases hpd with ⟨k, hk⟩
-    rw [hp2, hk] at hnmod
+    have hk2 : n = 2 * k := by
+      simpa [hp2] using hk
+    rw [hk2] at hnmod
     omega
   exact ⟨p, hp, hp_ne_two, hpd⟩
 
@@ -149,6 +151,7 @@ theorem exists_oddPrime_dvd_abc_or_exceptional (P : ABCPoint) :
         omega
       have hc1 : P.c = 1 :=
         eq_one_of_no_oddPrime_dvd P.c_pos hcmod hno_c
+      have hsum := P.sum_eq
       omega
     · have ha1 : P.a = 1 :=
         eq_one_of_no_oddPrime_dvd P.a_pos ha hno_a
@@ -157,6 +160,7 @@ theorem exists_oddPrime_dvd_abc_or_exceptional (P : ABCPoint) :
         omega
       have hc1 : P.c = 1 :=
         eq_one_of_no_oddPrime_dvd P.c_pos hcmod hno_c
+      have hsum := P.sum_eq
       omega
     · have ha1 : P.a = 1 :=
         eq_one_of_no_oddPrime_dvd P.a_pos ha hno_a
