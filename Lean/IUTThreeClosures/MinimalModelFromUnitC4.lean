@@ -8,7 +8,7 @@ import Mathlib.AlgebraicGeometry.EllipticCurve.Reduction
 /-!
 # Minimality from an integral unit c₄
 
-Let `R` be a discrete valuation ring with fraction field `K`.  If a
+Let `R` be a discrete valuation ring with fraction field `K`. If a
 Weierstrass equation over `K` is integral over `R` and its `c₄`-invariant is a
 valuation unit, then the equation is minimal.
 
@@ -16,9 +16,9 @@ Indeed, for an admissible variable change `C` one has
 
 `c₄(C • W) = u⁻⁴ c₄(W)` and `Δ(C • W) = u⁻¹² Δ(W)`.
 
-If `C • W` remains integral, then its `c₄` has valuation at most one.  Since
+If `C • W` remains integral, then its `c₄` has valuation at most one. Since
 the original `c₄` has valuation one, this forces the valuation of `u⁻¹` to be
-at most one.  The discriminant valuation can therefore only decrease in the
+at most one. The discriminant valuation can therefore only decrease in the
 multiplicative ordering, which is precisely Mathlib's maximality definition of
 a minimal equation.
 
@@ -52,8 +52,10 @@ theorem isMinimal_of_isIntegral_c4_valuation_eq_one
   · intro C hC
     letI : (C • W).IsIntegral R := hC
     simp only [one_smul]
-    rw [valuation_Δ_aux_eq_of_isIntegral,
-      valuation_Δ_aux_eq_of_isIntegral]
+    change
+      valuation_Δ_aux R (C • W) ≤ valuation_Δ_aux R W
+    rw [valuation_Δ_aux_eq_of_isIntegral R (C • W),
+      valuation_Δ_aux_eq_of_isIntegral R W]
     have hc4_le :
         valuation K (IsDiscreteValuationRing.maximalIdeal R)
             (C • W).c₄ ≤ 1 := by
