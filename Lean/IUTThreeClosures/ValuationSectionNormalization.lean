@@ -22,9 +22,15 @@ This file isolates the source-independent repair.
   relation.
 * strict `AbsoluteValue.LiesOver` implies `FiniteIdealLiesOver`;
 * every finite place has an ideal-theoretic extension by going-up;
+* every nonempty finite-place locus has a nonempty ideal-theoretic inverse image;
 * every infinite place has an extension by extension of complex embeddings;
 * consequently the corrected mixed finite/infinite valuation section is always
   inhabited for an extension of number fields.
+
+The corrected bad-place inverse image is also specialized to `Iut.fieldOfModuli`.
+This matters because the old strict inverse image may be empty even when
+`V_mod^bad` is nonempty, making later multiplicative-reduction and Tate-parameter
+fields vacuous.
 
 No anabelian, theta, Hodge-theater, or abc statement is assumed.
 -/
@@ -96,6 +102,60 @@ theorem exists_finiteIdealLiesOver (v : FinitePlace k) :
   refine ⟨FinitePlace.mk qHeight, ?_⟩
   rw [FiniteIdealLiesOver, FinitePlace.maximalIdeal_mk]
   simpa only [p, qHeight] using hqComap
+
+/-- The usual inverse image of a set of finite places under extension of
+number fields, expressed through contraction of maximal ideals. -/
+def finiteIdealPlacesOver (V : Set (FinitePlace k)) : Set (FinitePlace K) :=
+  {w | ∃ v ∈ V, FiniteIdealLiesOver w v}
+
+/-- The inverse image of a nonempty finite-place locus is nonempty. -/
+theorem finiteIdealPlacesOver_nonempty
+    {V : Set (FinitePlace k)} (hV : V.Nonempty) :
+    (finiteIdealPlacesOver (K := K) V).Nonempty := by
+  rcases hV with ⟨v, hv⟩
+  rcases exists_finiteIdealLiesOver (K := K) v with ⟨w, hw⟩
+  exact ⟨w, ⟨v, hv, hw⟩⟩
+
+/-- The old inverse image defined by literal equality of normalized absolute
+values is contained in the arithmetic inverse image defined by prime-ideal
+contraction.  In positive local degree the containment can be strict. -/
+theorem strictFinitePlacesOver_subset_finiteIdealPlacesOver
+    (V : Set (FinitePlace k)) :
+    {w : FinitePlace K | ∃ v ∈ V, w.1.LiesOver v.1} ⊆
+      finiteIdealPlacesOver (K := K) V := by
+  rintro w ⟨v, hv, hstrict⟩
+  exact ⟨v, hv,
+    finiteIdealLiesOver_of_absoluteValueLiesOver v w hstrict⟩
+
+/-- Corrected version of `Iut.badPlacesOver`: finite places of `F` whose
+maximal ideals contract to a member of `V_mod^bad`. -/
+def idealBadPlacesOver
+    (F : Type u) [Field F] [NumberField F]
+    (E : WeierstrassCurve F) [E.IsElliptic]
+    (VBad : Set (FinitePlace ↥(Iut.fieldOfModuli F E))) :
+    Set (FinitePlace F) :=
+  finiteIdealPlacesOver (K := F) VBad
+
+/-- A nonempty moduli-field bad locus has a nonempty corrected inverse image in
+`F`; this is the non-vacuity property needed before choosing Tate parameters. -/
+theorem idealBadPlacesOver_nonempty
+    (F : Type u) [Field F] [NumberField F]
+    (E : WeierstrassCurve F) [E.IsElliptic]
+    {VBad : Set (FinitePlace ↥(Iut.fieldOfModuli F E))}
+    (hVBad : VBad.Nonempty) :
+    (idealBadPlacesOver F E VBad).Nonempty :=
+  finiteIdealPlacesOver_nonempty hVBad
+
+/-- The upstream strict bad-place set is always contained in the corrected
+ideal-theoretic bad-place set. -/
+theorem badPlacesOver_subset_idealBadPlacesOver
+    (F : Type u) [Field F] [NumberField F]
+    (E : WeierstrassCurve F) [E.IsElliptic]
+    (VBad : Set (FinitePlace ↥(Iut.fieldOfModuli F E))) :
+    Iut.badPlacesOver F E VBad ⊆ idealBadPlacesOver F E VBad := by
+  simpa [Iut.badPlacesOver, idealBadPlacesOver] using
+    (strictFinitePlacesOver_subset_finiteIdealPlacesOver
+      (K := F) VBad)
 
 /-- A corrected section of all places of a number-field extension.  Finite
 places use contraction of prime ideals; infinite places retain literal
