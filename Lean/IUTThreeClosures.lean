@@ -8,6 +8,7 @@ import IUTThreeClosures.PublicThetaHullUpperBound
 import IUTThreeClosures.PublicIUTIVTheorem110
 import IUTThreeClosures.HonestPilotWitness
 import IUTThreeClosures.HonestGeneratedSource
+import IUTThreeClosures.HonestCountableGeneratedSource
 import IUTThreeClosures.HonestContainerSource
 import IUTThreeClosures.QuantifierCorrectClosure
 import IUTThreeClosures.ABCStatement
@@ -24,6 +25,7 @@ import IUTThreeClosures.BridgeInhabitationAudit
 import IUTThreeClosures.BridgeInhabitationExact
 import IUTThreeClosures.GeneratedOutputHullEnvelope
 import IUTThreeClosures.PossibleImageGeneratorClosure
+import IUTThreeClosures.ActualIUTOutputRelation
 import IUTThreeClosures.TensorPacketDistribution
 import IUTThreeClosures.SemisimplePacketCoordinates
 import IUTThreeClosures.RefinedFactorLocalFieldData
