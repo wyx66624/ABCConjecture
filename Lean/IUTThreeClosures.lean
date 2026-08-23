@@ -94,3 +94,4 @@ import IUTThreeClosures.IUTIVAbsorption
 import IUTThreeClosures.PublicNormalizationObstruction
 import IUTThreeClosures.CorrectedQPilotDivisor
 import IUTThreeClosures.ValuationSectionNormalization
+import IUTThreeClosures.EquivalentValuationSection
