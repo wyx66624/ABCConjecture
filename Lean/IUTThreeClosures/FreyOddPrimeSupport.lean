@@ -95,7 +95,8 @@ private theorem exists_oddPrime_dvd_of_mod_two_eq_one
   have hp_ne_two : p ≠ 2 := by
     intro hp2
     have htwo : 2 ∣ n := by simpa [hp2] using hpd
-    exact (Nat.not_dvd_of_mod_ne_zero (by omega : n % 2 ≠ 0)) htwo
+    have hmod0 : n % 2 = 0 := Nat.dvd_iff_mod_eq_zero.mp htwo
+    omega
   exact ⟨p, hp, hp_ne_two, hpd⟩
 
 private theorem eq_one_of_no_oddPrime_dvd
@@ -149,9 +150,10 @@ theorem exists_oddPrime_dvd_abc_or_exceptional (P : ABCPoint) :
       have hc1 : P.c = 1 :=
         eq_one_of_no_oddPrime_dvd P.c_pos hcmod hno_c
       exfalso
-      have h : P.a + 1 = 1 := by
+      have hsum : P.a + 1 = 0 + 1 := by
         simpa [hb1, hc1] using P.sum_eq
-      omega
+      have ha0 : P.a = 0 := Nat.add_right_cancel hsum
+      exact P.a_pos.ne' ha0
     · have ha1 : P.a = 1 :=
         eq_one_of_no_oddPrime_dvd P.a_pos ha hno_a
       have hcmod : P.c % 2 = 1 := by
@@ -160,9 +162,10 @@ theorem exists_oddPrime_dvd_abc_or_exceptional (P : ABCPoint) :
       have hc1 : P.c = 1 :=
         eq_one_of_no_oddPrime_dvd P.c_pos hcmod hno_c
       exfalso
-      have h : 1 + P.b = 1 := by
+      have hsum : 1 + P.b = 1 + 0 := by
         simpa [ha1, hc1] using P.sum_eq
-      omega
+      have hb0 : P.b = 0 := Nat.add_left_cancel hsum
+      exact P.b_pos.ne' hb0
     · have ha1 : P.a = 1 :=
         eq_one_of_no_oddPrime_dvd P.a_pos ha hno_a
       have hb1 : P.b = 1 :=
