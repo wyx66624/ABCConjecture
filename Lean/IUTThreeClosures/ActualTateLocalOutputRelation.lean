@@ -22,11 +22,11 @@ At one local component:
 * the common envelope is the norm unit ball `O`.
 
 Every ordinary region lies in `O`, norm-one scaling preserves `O`, and further
-q-power scaling preserves `O` because `||q|| < 1`.  Hence the generic
+q-power scaling preserves `O` because `||q|| < 1`. Hence the generic
 `actualNativeImage` and `actualPossibleImageEnvelope` theorems become genuine
 local Tate statements without a freely supplied envelope proof.
 
-This closes the local analytic part of the output relation.  The remaining
+This closes the local analytic part of the output relation. The remaining
 source theorem is the global identification of the paper's Hodge-theater/
 log-Kummer possible-image system with the generated local operations assembled
 here, together with packet coordinates and the archimedean branches.
@@ -44,11 +44,21 @@ variable {D : InitialThetaData AG TG}
 
 namespace ActualBadHodgeTheaterPlace
 
+/-- A one-point component index lifted to the same universe as the genuine
+local Tate field. `ActualIUTOutputRelation` intentionally keeps its operation
+and component-index types in one universe; this lift avoids collapsing the
+actual local field to `Type 0`. -/
+abbrev TateLocalIndex : Type u := ULift.{u} Unit
+
+/-- The unique local component. -/
+def tateLocalIndex : TateLocalIndex (u := u) := ⟨Unit.unit⟩
+
 /-- The source-generated local relation associated to the genuine Tate
 parameter at an actual bad Hodge-theater place. -/
 noncomputable def actualTateLocalOutputRelation
     (H : ActualBadHodgeTheaterPlace D) :
-    ActualIUTOutputRelation D Unit (fun _ => H.TateField) where
+    ActualIUTOutputRelation D (TateLocalIndex (u := u))
+      (fun _ => H.TateField) where
   Ordinary := ℕ
   Ind1 := NormOneKummerUnit H.TateField
   Ind2 := Unit
@@ -97,34 +107,41 @@ noncomputable def actualTateLocalOutputRelation
 @[simp]
 theorem actualTateLocal_nativeQPilotRegion
     (H : ActualBadHodgeTheaterPlace D) :
-    H.actualTateLocalOutputRelation.nativeQPilotRegion Unit.unit =
+    H.actualTateLocalOutputRelation.nativeQPilotRegion
+        (tateLocalIndex (u := u)) =
       H.tate.qPowerRegion 1 :=
   rfl
 
 @[simp]
 theorem actualTateLocal_envelope
     (H : ActualBadHodgeTheaterPlace D) :
-    H.actualTateLocalOutputRelation.envelope Unit.unit =
+    H.actualTateLocalOutputRelation.envelope
+        (tateLocalIndex (u := u)) =
       normIntegralRegion (K := H.TateField) :=
   rfl
 
-/-- **Actual local native-image theorem.**  The genuine `q O` region is one
-of the generated local possible images. -/
+/-- **Actual local native-image theorem.** The genuine `q O` region is one of
+the generated local possible images. -/
 theorem actualTateNativeImage
     (H : ActualBadHodgeTheaterPlace D) :
     H.tate.qPowerRegion 1 ⊆
-      H.actualTateLocalOutputRelation.actualThetaPossibleUnion Unit.unit := by
-  simpa using H.actualTateLocalOutputRelation.actualNativeImage Unit.unit
+      H.actualTateLocalOutputRelation.actualThetaPossibleUnion
+        (tateLocalIndex (u := u)) := by
+  simpa using
+    H.actualTateLocalOutputRelation.actualNativeImage
+      (tateLocalIndex (u := u))
 
-/-- **Actual local possible-image envelope theorem.**  Every finite
-composition of the ordinary Tate branch, norm-one Kummer ambiguity and
-nonnegative vertical q-scaling lies in the actual local norm unit ball. -/
+/-- **Actual local possible-image envelope theorem.** Every finite composition
+of the ordinary Tate branch, norm-one Kummer ambiguity and nonnegative vertical
+q-scaling lies in the actual local norm unit ball. -/
 theorem actualTatePossibleImageEnvelope
     (H : ActualBadHodgeTheaterPlace D) :
-    H.actualTateLocalOutputRelation.actualThetaPossibleUnion Unit.unit ⊆
+    H.actualTateLocalOutputRelation.actualThetaPossibleUnion
+        (tateLocalIndex (u := u)) ⊆
       normIntegralRegion (K := H.TateField) := by
   simpa using
-    H.actualTateLocalOutputRelation.actualPossibleImageEnvelope Unit.unit
+    H.actualTateLocalOutputRelation.actualPossibleImageEnvelope
+      (tateLocalIndex (u := u))
 
 /-- In particular the native q-pilot region lies in the actual local unit-ball
 envelope. -/
