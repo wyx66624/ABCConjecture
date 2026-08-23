@@ -57,6 +57,7 @@ import IUTThreeClosures.FreyJReducedData
 import IUTThreeClosures.FreyJHeightCorridor
 import IUTThreeClosures.FreyDiscriminantConductor
 import IUTThreeClosures.ShiftedJAdmissibleCurve
+import IUTThreeClosures.ShiftedJNonCMLargeImageReduction
 import IUTThreeClosures.ExplicitSemistableCurve
 import IUTThreeClosures.SolvableRestrictionImage
 import IUTThreeClosures.ZModSL2Perfect
