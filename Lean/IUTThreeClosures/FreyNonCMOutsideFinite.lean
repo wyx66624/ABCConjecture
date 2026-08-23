@@ -37,6 +37,24 @@ namespace IUTThreeClosures
 
 open Iut
 
+/-- Equality of abc points is determined by the three numerical coordinates;
+all remaining fields are propositions. -/
+theorem abcPoint_ext_data
+    {P Q : ABCPoint}
+    (ha : P.a = Q.a)
+    (hb : P.b = Q.b)
+    (hc : P.c = Q.c) :
+    P = Q := by
+  cases P with
+  | mk a b c a_pos b_pos c_pos sum_eq pairwise_coprime =>
+      cases Q with
+      | mk a' b' c' a_pos' b_pos' c_pos' sum_eq' pairwise_coprime' =>
+          dsimp at ha hb hc
+          subst a'
+          subst b'
+          subst c'
+          rfl
+
 /-- The subtype containing the explicit finite exceptional locus. -/
 def FreySmallExceptionalPoint := {P : ABCPoint // P.c ≤ 256}
 
@@ -50,9 +68,11 @@ noncomputable instance freySmallExceptionalPointFinite :
     fun P =>
       (⟨P.1.a, by
           have ha := P.1.a_lt_c
+          have hc := P.2
           omega⟩,
        ⟨P.1.b, by
           have hb := P.1.b_lt_c
+          have hc := P.2
           omega⟩)
   apply Finite.of_injective encode
   intro P Q h
@@ -62,19 +82,24 @@ noncomputable instance freySmallExceptionalPointFinite :
   have hb : P.1.b = Q.1.b :=
     congrArg (fun x : Fin 257 × Fin 257 => x.2.val) h
   have hc : P.1.c = Q.1.c := by
-    omega
-  exact ABCPoint.ext ha hb hc
+    rw [← P.1.sum_eq, ← Q.1.sum_eq, ha, hb]
+  exact abcPoint_ext_data ha hb hc
+
+noncomputable instance freySmallExceptionalPointFintype :
+    Fintype FreySmallExceptionalPoint :=
+  Fintype.ofFinite _
 
 /-- The explicit finite exceptional set of Frey abc points. -/
 noncomputable def freyCMExceptional : Finset ABCPoint := by
   classical
-  exact Finset.univ.image
-    (fun P : FreySmallExceptionalPoint => P.1)
+  exact (Finset.univ : Finset FreySmallExceptionalPoint).image
+    (fun P => P.1)
 
 @[simp]
 theorem mem_freyCMExceptional_iff (P : ABCPoint) :
     P ∈ freyCMExceptional ↔ P.c ≤ 256 := by
   classical
+  unfold freyCMExceptional
   constructor
   · intro hP
     rcases Finset.mem_image.mp hP with ⟨Q, _hQ, hQP⟩
