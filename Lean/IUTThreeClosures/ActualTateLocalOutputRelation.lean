@@ -44,14 +44,16 @@ variable {D : InitialThetaData AG TG}
 
 namespace ActualBadHodgeTheaterPlace
 
-/-- A one-point component index lifted to the same universe as the genuine
-local Tate field. `ActualIUTOutputRelation` intentionally keeps its operation
-and component-index types in one universe; this lift avoids collapsing the
-actual local field to `Type 0`. -/
-abbrev TateLocalIndex : Type u := ULift.{u} Unit
+/-! `ActualIUTOutputRelation` keeps the component index and all four operation
+sorts in one universe.  The small arithmetic indices are therefore lifted to
+the universe of the genuine local field. -/
 
-/-- The unique local component. -/
+abbrev TateLocalIndex : Type u := ULift.{u} Unit
+abbrev TateLocalNat : Type u := ULift.{u} ℕ
+abbrev TateLocalUnit : Type u := ULift.{u} Unit
+
 def tateLocalIndex : TateLocalIndex.{u} := ⟨Unit.unit⟩
+def tateLocalOne : TateLocalNat.{u} := ⟨1⟩
 
 /-- The source-generated local relation associated to the genuine Tate
 parameter at an actual bad Hodge-theater place. -/
@@ -59,22 +61,22 @@ noncomputable def actualTateLocalOutputRelation
     (H : ActualBadHodgeTheaterPlace D) :
     ActualIUTOutputRelation D TateLocalIndex.{u}
       (fun _ => H.TateField) where
-  Ordinary := ℕ
+  Ordinary := TateLocalNat.{u}
   Ind1 := NormOneKummerUnit H.TateField
-  Ind2 := Unit
-  Ind3 := ℕ
+  Ind2 := TateLocalUnit.{u}
+  Ind3 := TateLocalNat.{u}
 
-  ordinaryRegion := fun n _ => H.tate.qPowerRegion n
+  ordinaryRegion := fun n _ => H.tate.qPowerRegion n.down
   act1 := fun a _ U => scaledRegion (a.unit : H.TateField) U
   act2 := fun _ _ U => U
-  act3 := fun n _ U => scaledRegion ((H.tate.q : H.TateField) ^ n) U
+  act3 := fun n _ U => scaledRegion ((H.tate.q : H.TateField) ^ n.down) U
 
-  native := 1
+  native := tateLocalOne.{u}
   envelope := fun _ => normIntegralRegion (K := H.TateField)
 
   ordinary_le_envelope := by
     intro n i
-    have h := H.tate.qPowerRegion_antitone (Nat.zero_le n)
+    have h := H.tate.qPowerRegion_antitone (Nat.zero_le n.down)
     simpa using h
 
   ind1_preserves_envelope := by
@@ -93,12 +95,12 @@ noncomputable def actualTateLocalOutputRelation
     intro n i U hU
     rintro x ⟨y, hy, rfl⟩
     have hy' : ‖y‖ ≤ 1 := hU hy
-    have hpow : ‖(H.tate.q : H.TateField)‖ ^ n ≤ 1 :=
+    have hpow : ‖(H.tate.q : H.TateField)‖ ^ n.down ≤ 1 :=
       pow_le_one₀ (norm_nonneg _) H.tate.norm_lt_one.le
-    change ‖((H.tate.q : H.TateField) ^ n) * y‖ ≤ 1
+    change ‖((H.tate.q : H.TateField) ^ n.down) * y‖ ≤ 1
     calc
-      ‖((H.tate.q : H.TateField) ^ n) * y‖ =
-          ‖(H.tate.q : H.TateField)‖ ^ n * ‖y‖ := by
+      ‖((H.tate.q : H.TateField) ^ n.down) * y‖ =
+          ‖(H.tate.q : H.TateField)‖ ^ n.down * ‖y‖ := by
         rw [norm_mul, norm_pow]
       _ ≤ 1 * 1 :=
         mul_le_mul hpow hy' (norm_nonneg _) (by norm_num)
@@ -108,7 +110,7 @@ noncomputable def actualTateLocalOutputRelation
 theorem actualTateLocal_nativeQPilotRegion
     (H : ActualBadHodgeTheaterPlace D) :
     H.actualTateLocalOutputRelation.nativeQPilotRegion tateLocalIndex.{u} =
-      H.tate.qPowerRegion 1 :=
+      H.tate.qPowerRegion 1 := by
   rfl
 
 @[simp]
