@@ -110,7 +110,11 @@ theorem thetaProd_pullback_shift
     _ = (((r * v : Kˣ) : K)⁻¹) ^ ell *
         t.thetaProd (v ^ ell) := by
       rw [hbaseK]
-      simpa only [inv_pow]
+      congr 1
+      change
+        ((((r * v : Kˣ) : K) ^ ell)⁻¹) =
+          (((r * v : Kˣ) : K)⁻¹) ^ ell
+      rw [inv_pow]
 
 /-- The forward lift of the Tate translation to the pulled-back theta-root
 locus. -/
