@@ -173,8 +173,7 @@ theorem actualTatePacket_nativeImage
     (t : TateParameter K)
     (labelNat : Label → ℕ) :
     tatePacketQPowerRegion t (fun j => labelNat j ^ 2) ⊆
-      ((actualTatePacketRelationalSource t labelNat)
-        .toUpperSemicompatibleSystem).possibleUnion := by
+      (actualTatePacketRelationalSource t labelNat).toUpperSemicompatibleSystem.possibleUnion := by
   simpa using
     (actualTatePacketRelationalSource t labelNat).actualNativeImage
 
@@ -183,8 +182,7 @@ ball. -/
 theorem actualTatePacket_possibleImageEnvelope
     (t : TateParameter K)
     (labelNat : Label → ℕ) :
-    ((actualTatePacketRelationalSource t labelNat)
-        .toUpperSemicompatibleSystem).possibleUnion ⊆
+    (actualTatePacketRelationalSource t labelNat).toUpperSemicompatibleSystem.possibleUnion ⊆
       radialEnvelope (α := Label → K) 1 :=
   (actualTatePacketRelationalSource t labelNat).actualPossibleImageEnvelope
 
