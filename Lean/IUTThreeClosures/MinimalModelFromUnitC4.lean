@@ -51,7 +51,7 @@ theorem isMinimal_of_isIntegral_c4_valuation_eq_one
   · simpa using hIntegral
   · intro C hC _hcomparison
     letI : (C • W).IsIntegral R := hC
-    simp only [one_smul]
+    change valuation_Δ_aux R (C • W) ≤ valuation_Δ_aux R W
     rw [valuation_Δ_aux_eq_of_isIntegral R (C • W),
       valuation_Δ_aux_eq_of_isIntegral R W]
     have hc4_le :
