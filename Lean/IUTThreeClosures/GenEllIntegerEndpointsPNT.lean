@@ -68,8 +68,9 @@ theorem eventual_chebyshev_ratio_window
       ∀ᶠ n : ℕ in atTop,
         1 - δ < Chebyshev.theta n / (n : ℝ) ∧
           Chebyshev.theta n / (n : ℝ) < 1 + δ := by
-    apply hPNT.eventually
-    exact Ioo_mem_nhds (by linarith) (by linarith)
+    simpa only [Set.mem_Ioo] using
+      hPNT.eventually
+        (Ioo_mem_nhds (by linarith) (by linarith))
   have hpositive : ∀ᶠ n : ℕ in atTop, 1 ≤ n :=
     eventually_atTop.2 ⟨1, fun n hn => hn⟩
   filter_upwards [hratio, hpositive] with n hnratio hn
