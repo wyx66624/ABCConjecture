@@ -53,11 +53,17 @@ theorem no_integral_laurent_exponent_for_theta_root_shift
     {ell : ℕ} (hell : 2 ≤ ell) :
     ¬ ∃ m : ℤ, (ell : ℤ) * m = -1 := by
   rintro ⟨m, hm⟩
-  rcases Int.eq_one_or_neg_one_of_mul_eq_neg_one' hm with h | h
-  · have hell_eq : ell = 1 := by
-      exact_mod_cast h.1
+  have hellZ : (2 : ℤ) ≤ (ell : ℤ) := by
+    exact_mod_cast hell
+  by_cases hm_nonneg : 0 ≤ m
+  · have hprod_nonneg : 0 ≤ (ell : ℤ) * m :=
+      mul_nonneg (by omega) hm_nonneg
     omega
-  · have hell_nonneg : (0 : ℤ) ≤ (ell : ℤ) := by positivity
+  · have hm_le : m ≤ -1 := by omega
+    have hell_nonneg : 0 ≤ (ell : ℤ) := by omega
+    have hprod_le : (ell : ℤ) * m ≤ -(ell : ℤ) := by
+      simpa using
+        (mul_le_mul_of_nonneg_left hm_le hell_nonneg)
     omega
 
 /-- A point of the theta-root locus after the power pullback `u = v^ell`. -/
@@ -88,18 +94,23 @@ theorem thetaProd_pullback_shift
     t.thetaProd ((r * v) ^ ell) =
       (((r * v : Kˣ) : K)⁻¹) ^ ell *
         t.thetaProd (v ^ ell) := by
+  have hbase : t.q * v ^ ell = (r * v) ^ ell := by
+    rw [mul_pow, hr]
+  have hbaseK :
+      (t.q : K) * ((v ^ ell : Kˣ) : K) =
+        (((r * v) ^ ell : Kˣ) : K) :=
+    congrArg (fun x : Kˣ => (x : K)) hbase
   calc
     t.thetaProd ((r * v) ^ ell) =
-        t.thetaProd (t.q * (v ^ ell)) := by
-      rw [mul_pow, hr]
-    _ = (((t.q * (v ^ ell) : Kˣ) : K)⁻¹) *
-        t.thetaProd (v ^ ell) := by
-      simpa only [Units.val_mul] using
-        (t.thetaProd_q_smul (v ^ ell))
+        t.thetaProd (t.q * v ^ ell) :=
+      congrArg t.thetaProd hbase.symm
+    _ = ((t.q : K) * ((v ^ ell : Kˣ) : K))⁻¹ *
+        t.thetaProd (v ^ ell) :=
+      t.thetaProd_q_smul (v ^ ell)
     _ = (((r * v : Kˣ) : K)⁻¹) ^ ell *
         t.thetaProd (v ^ ell) := by
-      rw [← hr]
-      simp only [Units.val_mul, Units.val_pow, inv_pow, mul_pow]
+      rw [hbaseK]
+      simp [inv_pow]
 
 /-- The forward lift of the Tate translation to the pulled-back theta-root
 locus. -/
