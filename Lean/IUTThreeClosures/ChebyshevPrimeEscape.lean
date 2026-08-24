@@ -21,10 +21,10 @@ then some prime in `(h, X]` is not in `A`. Otherwise all primes up to `X`
 would be covered by the primes up to `h` together with `A`, forcing the reverse
 Chebyshev-mass inequality.
 
-This module proves that exact finite-sum step. It isolates the remaining
-analytic input in GenEll Lemma 4.1: choose an explicit `X` for which the strict
-Chebyshev inequality holds. No Galois-image or elliptic-curve statement is
-assumed here.
+This module proves that exact finite-sum step and then combines it with
+Mathlib's explicit upper and lower Chebyshev estimates. The only remaining
+analytic task in GenEll Lemma 4.1 is to choose a concrete `X` for which the
+displayed elementary inequality holds.
 -/
 
 namespace IUTThreeClosures
@@ -115,5 +115,29 @@ theorem exists_prime_not_mem_of_theta_gt
     theta_le_theta_add_primeLogMass_of_interval_covered
       A hA hcovered
   linarith
+
+/-- A completely explicit sufficient inequality, obtained by combining
+Mathlib's Chebyshev upper bound at `h` and lower bound at `X`.
+
+Thus the prescribed-size prime problem is reduced to an ordinary real
+inequality involving only `h`, `X`, and the forbidden logarithmic mass. -/
+theorem exists_prime_not_mem_of_explicit_chebyshev_bound
+    (A : Finset ℕ) (hA : ∀ p ∈ A, p.Prime)
+    {h X : ℕ}
+    (hbound :
+      Real.log 4 * (h : ℝ) + primeLogMass A <
+        (X : ℝ) * Real.log 2 - Real.log ((X : ℝ) + 1) -
+          2 * Real.sqrt X * Real.log X) :
+    ∃ p : ℕ, p.Prime ∧ h < p ∧ p ≤ X ∧ p ∉ A := by
+  apply exists_prime_not_mem_of_theta_gt A hA
+  have hupper :
+      Chebyshev.theta h ≤ Real.log 4 * (h : ℝ) :=
+    Chebyshev.theta_le_log4_mul_x (by positivity)
+  have hlower :
+      (X : ℝ) * Real.log 2 - Real.log ((X : ℝ) + 1) -
+          2 * Real.sqrt X * Real.log X ≤ Chebyshev.theta X := by
+    simpa using Chebyshev.theta_ge X
+  exact (add_lt_add_right hupper (primeLogMass A)).trans_lt
+    (hbound.trans_le hlower)
 
 end IUTThreeClosures
