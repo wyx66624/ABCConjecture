@@ -205,10 +205,10 @@ theorem localThetaEtaleCore_nonempty_iff_sectionCore :
   constructor
   · rintro ⟨C⟩
     exact ⟨LocalThetaSectionCore.ofEtaleCore
-      AG TG F E Fbar VBad P O C⟩
+      AG F E Fbar VBad P O C⟩
   · rintro ⟨C⟩
     exact ⟨LocalThetaSectionCore.toEtaleCore
-      AG TG F E Fbar VBad P O C⟩
+      AG F E Fbar VBad P O C⟩
 
 end LocalAutomaticChoices
 
