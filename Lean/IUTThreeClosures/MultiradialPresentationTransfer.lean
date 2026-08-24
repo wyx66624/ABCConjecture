@@ -85,21 +85,26 @@ variable
 syntax union. -/
 theorem genuineUnion_le_syntaxUnion :
     representedUnion genuineRegion ⊆ representedUnion syntaxRegion := by
-  rintro x ⟨g, hx⟩
-  exact ⟨P.encode g, P.encode_sound g hx⟩
+  intro x hx
+  rcases (mem_representedUnion.mp hx) with ⟨g, hg⟩
+  rcases P with ⟨encode, encode_sound, _decode, _decode_complete⟩
+  exact mem_representedUnion.mpr ⟨encode g, encode_sound g hg⟩
 
 /-- Completeness gives the reverse inclusion. -/
 theorem syntaxUnion_le_genuineUnion :
     representedUnion syntaxRegion ⊆ representedUnion genuineRegion := by
-  rintro x ⟨s, hx⟩
-  exact ⟨P.decode s, P.decode_complete s hx⟩
+  intro x hx
+  rcases (mem_representedUnion.mp hx) with ⟨s, hs⟩
+  rcases P with ⟨_encode, _encode_sound, decode, decode_complete⟩
+  exact mem_representedUnion.mpr ⟨decode s, decode_complete s hs⟩
 
 /-- A sound and complete presentation identifies the full possible-image
 unions exactly. -/
 theorem representedUnion_eq :
     representedUnion genuineRegion = representedUnion syntaxRegion :=
   Set.Subset.antisymm
-    P.genuineUnion_le_syntaxUnion P.syntaxUnion_le_genuineUnion
+    (genuineUnion_le_syntaxUnion P)
+    (syntaxUnion_le_genuineUnion P)
 
 /-- A native region contained in the genuine output union is also contained in
 the generated syntax union. -/
@@ -107,7 +112,7 @@ theorem native_le_syntaxUnion
     (native : Set α)
     (hnative : native ⊆ representedUnion genuineRegion) :
     native ⊆ representedUnion syntaxRegion :=
-  hnative.trans P.genuineUnion_le_syntaxUnion
+  hnative.trans (genuineUnion_le_syntaxUnion P)
 
 /-- An envelope proved for every generated syntax output also contains every
 genuine output. -/
@@ -115,7 +120,7 @@ theorem genuineUnion_le_envelope
     (envelope : Set α)
     (henvelope : representedUnion syntaxRegion ⊆ envelope) :
     representedUnion genuineRegion ⊆ envelope :=
-  P.genuineUnion_le_syntaxUnion.trans henvelope
+  (genuineUnion_le_syntaxUnion P).trans henvelope
 
 /-- Conversely, an envelope for genuine outputs contains the syntax union by
 completeness. -/
@@ -123,7 +128,7 @@ theorem syntaxUnion_le_envelope
     (envelope : Set α)
     (henvelope : representedUnion genuineRegion ⊆ envelope) :
     representedUnion syntaxRegion ⊆ envelope :=
-  P.syntaxUnion_le_genuineUnion.trans henvelope
+  (syntaxUnion_le_genuineUnion P).trans henvelope
 
 /-- Any extensional construction on sets takes the same value on the genuine
 and generated possible-image unions. -/
@@ -131,7 +136,7 @@ theorem extensional_observable_eq
     {β : Type*} (observable : Set α → β) :
     observable (representedUnion genuineRegion) =
       observable (representedUnion syntaxRegion) := by
-  rw [P.representedUnion_eq]
+  rw [representedUnion_eq P]
 
 end MultiradialSemanticPresentation
 
@@ -151,9 +156,13 @@ def MultiradialSemanticPresentation.ofRegionEqualities
     MultiradialSemanticPresentation
       Genuine Syntax genuineRegion syntaxRegion where
   encode := encode
-  encode_sound := fun g => (hencode g).le
+  encode_sound := by
+    intro g
+    rw [hencode g]
   decode := decode
-  decode_complete := fun s => (hdecode s).le
+  decode_complete := by
+    intro s
+    rw [hdecode s]
 
 /-- A one-sided source theorem is enough for the lower-bound portion: if each
 genuine output has a sound syntax representation, then a genuine native branch
@@ -170,10 +179,10 @@ theorem native_le_generated_of_sound_encoding
     (hnative : native ⊆ representedUnion genuineRegion) :
     native ⊆ representedUnion syntaxRegion := by
   intro x hx
-  rcases hnative hx with ⟨g, hg⟩
-  exact ⟨encode g, hsound g hg⟩
+  rcases mem_representedUnion.mp (hnative hx) with ⟨g, hg⟩
+  exact mem_representedUnion.mpr ⟨encode g, hsound g hg⟩
 
-/-- A one-sided completeness theorem is enough to transfer a generated
+/-- A one-sided soundness theorem is enough to transfer a generated
 upper-envelope theorem back to every genuine output. -/
 theorem genuine_le_envelope_of_sound_encoding
     {α : Type u}
@@ -186,7 +195,8 @@ theorem genuine_le_envelope_of_sound_encoding
     (envelope : Set α)
     (hsyntax : representedUnion syntaxRegion ⊆ envelope) :
     representedUnion genuineRegion ⊆ envelope := by
-  rintro x ⟨g, hg⟩
-  exact hsyntax ⟨encode g, hsound g hg⟩
+  intro x hx
+  rcases mem_representedUnion.mp hx with ⟨g, hg⟩
+  exact hsyntax (mem_representedUnion.mpr ⟨encode g, hsound g hg⟩)
 
 end IUTThreeClosures
