@@ -104,7 +104,8 @@ noncomputable def actualTatePacketRelationalSource
   ordinaryRegion := tatePacketQPowerRegion t
   native := fun j => labelNat j ^ 2
   radius := 1
-  ordinary_le_radius := t.tatePacketQPowerRegion_subset_unitBall
+  ordinary_le_radius :=
+    tatePacketQPowerRegion_subset_unitBall t
   ind1Map := fun a z j => ((a j).unit : K) * z j
   ind2Map := fun σ z => z ∘ σ.perm
   ind3Map := fun n z j => (t.q : K) ^ n j * z j
@@ -172,8 +173,8 @@ theorem actualTatePacket_nativeImage
     (t : TateParameter K)
     (labelNat : Label → ℕ) :
     tatePacketQPowerRegion t (fun j => labelNat j ^ 2) ⊆
-      (actualTatePacketRelationalSource t labelNat)
-        .toUpperSemicompatibleSystem.possibleUnion := by
+      (actualTatePacketRelationalSource t labelNat).
+        toUpperSemicompatibleSystem.possibleUnion := by
   simpa using
     (actualTatePacketRelationalSource t labelNat).actualNativeImage
 
@@ -182,10 +183,10 @@ ball. -/
 theorem actualTatePacket_possibleImageEnvelope
     (t : TateParameter K)
     (labelNat : Label → ℕ) :
-    (actualTatePacketRelationalSource t labelNat)
-        .toUpperSemicompatibleSystem.possibleUnion ⊆
+    (actualTatePacketRelationalSource t labelNat).
+        toUpperSemicompatibleSystem.possibleUnion ⊆
       radialEnvelope (α := Label → K) 1 :=
-  (actualTatePacketRelationalSource t labelNat)
-    .actualPossibleImageEnvelope
+  (actualTatePacketRelationalSource t labelNat).
+    actualPossibleImageEnvelope
 
 end IUTThreeClosures
