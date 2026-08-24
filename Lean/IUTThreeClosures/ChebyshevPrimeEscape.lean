@@ -140,7 +140,7 @@ theorem exists_prime_not_mem_of_explicit_chebyshev_bound
   have hmass :
       Chebyshev.theta h + primeLogMass A ≤
         Real.log 4 * (h : ℝ) + primeLogMass A := by
-    exact add_le_add_right hupper (primeLogMass A)
+    linarith
   exact (hmass.trans_lt hbound).trans_le hlower
 
 end IUTThreeClosures
