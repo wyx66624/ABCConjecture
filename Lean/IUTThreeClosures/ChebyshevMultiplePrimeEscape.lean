@@ -9,14 +9,14 @@ import IUTThreeClosures.ChebyshevPrimeEscape
 # A multiple-prime Chebyshev escape criterion
 
 GenEll Lemma 4.1 requires several distinct primes in one bounded interval,
-all outside a finite forbidden set.  The one-prime Chebyshev escape theorem
+all outside a finite forbidden set. The one-prime Chebyshev escape theorem
 extends to this setting by a counting argument.
 
 Let `B(A,h,X)` be the finite set of primes `p` with
 
 `h < p <= X` and `p ∉ A`.
 
-Every prime up to `X` lies either below `h`, in `A`, or in `B`.  Hence
+Every prime up to `X` lies either below `h`, in `A`, or in `B`. Hence
 
 `theta X <= theta h + x_A + sum_{p in B} log p`.
 
@@ -28,8 +28,8 @@ Consequently, if
 
 `theta h + x_A + M * log X < theta X`,
 
-then `B` contains more than `M` elements.  The shifted form with
-`(M - 1) * log X` gives at least `M` distinct escaping primes.  Combining
+then `B` contains more than `M` elements. The shifted form with
+`(M - 1) * log X` gives at least `M` distinct escaping primes. Combining
 this with explicit upper/lower Chebyshev estimates reduces the remaining
 analytic part of GenEll Lemma 4.1 to one real inequality.
 -/
@@ -50,7 +50,13 @@ theorem mem_escapingPrimes_iff
     p ∈ escapingPrimes A h X ↔
       p.Prime ∧ h < p ∧ p ≤ X ∧ p ∉ A := by
   classical
-  simp [escapingPrimes, and_assoc, and_left_comm, and_comm]
+  rw [escapingPrimes, Finset.mem_filter]
+  constructor
+  · rintro ⟨hpLE, hhp, hpA⟩
+    exact ⟨prime_of_mem_primesLE hpLE, hhp,
+      le_of_mem_primesLE hpLE, hpA⟩
+  · rintro ⟨hp, hhp, hpX, hpA⟩
+    exact ⟨mem_primesLE.mpr ⟨hpX, hp⟩, hhp, hpA⟩
 
 /-- Every escaping element is prime. -/
 theorem prime_of_mem_escapingPrimes
@@ -148,7 +154,7 @@ theorem theta_le_theta_add_forbidden_add_escaping
     primeLogMass_union_le A (escapingPrimes A h X) hA hEscPrime
   linarith
 
-/-- **Multiple-prime escape theorem.**  If the Chebyshev excess is larger
+/-- **Multiple-prime escape theorem.** If the Chebyshev excess is larger
 than the logarithmic mass of `M` possible escaping primes, then there are in
 fact more than `M` distinct escaping primes. -/
 theorem card_escapingPrimes_gt_of_theta_gt
