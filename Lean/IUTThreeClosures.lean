@@ -54,6 +54,7 @@ import IUTThreeClosures.ChebyshevPrimeEscape
 import IUTThreeClosures.ChebyshevMultiplePrimeEscape
 import IUTThreeClosures.BertrandBoundedPrimeEscape
 import IUTThreeClosures.GenEllLemma41ScalarCore
+import IUTThreeClosures.GenEllIntegerEndpointsPNT
 import IUTThreeClosures.RationalJModuliDegree
 import IUTThreeClosures.PublicFreyTheorem110OutsideFinite
 import IUTThreeClosures.GlobalQPilotReconstruction
