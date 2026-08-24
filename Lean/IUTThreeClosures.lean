@@ -63,6 +63,7 @@ import IUTThreeClosures.LegendreHeightCorridor
 import IUTThreeClosures.FreyJReducedData
 import IUTThreeClosures.FreyJHeightCorridor
 import IUTThreeClosures.FreyDiscriminantConductor
+import IUTThreeClosures.LocalMultiplicativeReductionBridge
 import IUTThreeClosures.ShiftedJAdmissibleCurve
 import IUTThreeClosures.ShiftedJNonCMLargeImageReduction
 import IUTThreeClosures.FreyNonCMOutsideFinite
