@@ -70,8 +70,12 @@ theorem root_norm_lt_one
 theorem log_root_norm_neg
     (t : TateParameter K) (ell : ℕ)
     (r : Kˣ) (hr : r ^ ell = t.q) :
-    Real.log ‖(r : K)‖ < 0 :=
-  Real.log_neg (root_norm_pos r) (root_norm_lt_one t ell r hr)
+    Real.log ‖(r : K)‖ < 0 := by
+  calc
+    Real.log ‖(r : K)‖ < Real.log 1 :=
+      Real.log_lt_log (root_norm_pos r)
+        (root_norm_lt_one t ell r hr)
+    _ = 0 := Real.log_one
 
 /-- Hence the normalizing logarithm is nonzero. -/
 theorem log_root_norm_ne_zero
@@ -100,7 +104,6 @@ theorem coordinate_shift
   have hz0 : ‖(z.base : K)‖ ≠ 0 := ne_of_gt (base_norm_pos z)
   have hlog : Real.log ‖(r : K)‖ ≠ 0 :=
     log_root_norm_ne_zero t ell r hr
-  unfold coordinate
   change
     Real.log ‖((r * z.base : Kˣ) : K)‖ /
         Real.log ‖(r : K)‖ =
