@@ -139,8 +139,8 @@ theorem exists_prime_not_mem_of_explicit_chebyshev_bound
     simpa using Chebyshev.theta_ge X
   have hmass :
       Chebyshev.theta h + primeLogMass A ≤
-        Real.log 4 * (h : ℝ) + primeLogMass A :=
-    add_le_add_right hupper _
+        Real.log 4 * (h : ℝ) + primeLogMass A := by
+    exact add_le_add_right hupper (primeLogMass A)
   exact (hmass.trans_lt hbound).trans_le hlower
 
 end IUTThreeClosures
