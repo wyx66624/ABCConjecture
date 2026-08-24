@@ -47,7 +47,7 @@ theorem abcFrey_c4_eq_freyC4Nat (P : ABCPoint) :
   rw [abcFrey_c₄]
   unfold freyC4Nat legendreCore
   push_cast
-  ring
+  rfl
 
 /-- The rational discriminant is the cast of the integral Frey discriminant. -/
 theorem abcFrey_delta_eq_freyDeltaNat (P : ABCPoint) :
