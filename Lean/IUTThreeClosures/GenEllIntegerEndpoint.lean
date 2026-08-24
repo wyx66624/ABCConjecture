@@ -52,9 +52,10 @@ theorem one_le_genEllNaturalEndpoint
 theorem log_genEllNaturalEndpoint_lt_log_add_one
     {y : ℝ} (hy : 1 ≤ y) :
     Real.log (genEllNaturalEndpoint y) < Real.log (y + 1) := by
+  have hXnat : 0 < genEllNaturalEndpoint y :=
+    Nat.zero_lt_one.trans_le (one_le_genEllNaturalEndpoint hy)
   have hXpos : (0 : ℝ) < genEllNaturalEndpoint y := by
-    exact_mod_cast (one_le_genEllNaturalEndpoint hy).trans_lt
-      (Nat.lt_succ_self _)
+    exact_mod_cast hXnat
   have hy0 : 0 ≤ y := zero_le_one.trans hy
   exact Real.log_lt_log hXpos
     (genEllNaturalEndpoint_lt_add_one hy0)
@@ -102,7 +103,9 @@ theorem counting_log_transfer_to_ceiling
     mul_le_mul_of_nonneg_left hlt.le hcoeff
   exact hle.trans hlog
 
-/-- **Endpoint-correct counting form of GenEll Lemma 4.1.** -/
+/-- **Endpoint-correct counting form of GenEll Lemma 4.1 with a real base
+height.**  This direct form avoids coercing the printed real height to a
+natural number. -/
 theorem genEllLemma41_many_primes_with_ceiling_endpoints
     (A : Finset ℕ)
     (hA : ∀ p ∈ A, p.Prime)
@@ -164,10 +167,18 @@ theorem genEllLemma41_many_primes_with_ceiling_endpoints
     simpa [X] using counting_log_transfer_to_ceiling hy hlog
   have hX : 1 ≤ X := by
     exact one_le_genEllNaturalEndpoint hy
-  simpa [H, X] using
-    genEllLemma41_many_primes
-      A hA H X M hX
-      hεpos hεlt hxεpos hC hxA hxA_mass
-      hlog' hupper' hlower'
+  have hscalar :
+      xA <
+        -(((M - 1 : ℕ) : ℝ) * Real.log X) -
+          Chebyshev.theta H + Chebyshev.theta X := by
+    exact genEllLemma41_lt_offending_bound
+      hεpos hεlt hxεpos hC hxA hh
+        hlog' hupper' hlower'
+  rw [hxA_mass] at hscalar
+  refine ⟨escapingPrimes A H X, ?_, ?_⟩
+  · apply card_escapingPrimes_ge_of_theta_gt A hA H X M hX
+    linarith
+  · intro p hp
+    simpa [H, X] using (mem_escapingPrimes_iff A H X p).mp hp
 
 end IUTThreeClosures
