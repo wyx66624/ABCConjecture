@@ -9,21 +9,21 @@ import Mathlib.NumberTheory.Chebyshev
 # A Chebyshev-mass criterion for escaping a finite forbidden set
 
 The analytic core of the prescribed-size prime argument is elementary once a
-sufficient lower bound for the Chebyshev function has been supplied.  Let
+sufficient lower bound for the Chebyshev function has been supplied. Let
 
 `x_A = sum_{p in A} log p`
 
-for a finite set `A` of forbidden primes.  If
+for a finite set `A` of forbidden primes. If
 
 `theta X > theta h + x_A`,
 
-then some prime in `(h, X]` is not in `A`.  Otherwise all primes up to `X`
+then some prime in `(h, X]` is not in `A`. Otherwise all primes up to `X`
 would be covered by the primes up to `h` together with `A`, forcing the reverse
 Chebyshev-mass inequality.
 
-This module proves that exact finite-sum step.  It isolates the remaining
+This module proves that exact finite-sum step. It isolates the remaining
 analytic input in GenEll Lemma 4.1: choose an explicit `X` for which the strict
-Chebyshev inequality holds.  No Galois-image or elliptic-curve statement is
+Chebyshev inequality holds. No Galois-image or elliptic-curve statement is
 assumed here.
 -/
 
@@ -32,7 +32,7 @@ namespace IUTThreeClosures
 open Finset Nat Real
 open scoped BigOperators Nat.Prime
 
-/-- Logarithmic mass of a finite forbidden set of natural numbers.  In the
+/-- Logarithmic mass of a finite forbidden set of natural numbers. In the
 applications every member is prime. -/
 noncomputable def primeLogMass (A : Finset ℕ) : ℝ :=
   ∑ p ∈ A, Real.log p
@@ -96,7 +96,7 @@ theorem theta_le_theta_add_primeLogMass_of_interval_covered
     linarith
   exact hsum_subset.trans hunion
 
-/-- **One-prime Chebyshev escape theorem.**  A strict excess of Chebyshev mass
+/-- **One-prime Chebyshev escape theorem.** A strict excess of Chebyshev mass
 above the old-prime and forbidden-prime masses produces a prime in the desired
 bounded interval outside the forbidden set. -/
 theorem exists_prime_not_mem_of_theta_gt
@@ -106,11 +106,11 @@ theorem exists_prime_not_mem_of_theta_gt
       Chebyshev.theta h + primeLogMass A < Chebyshev.theta X) :
     ∃ p : ℕ, p.Prime ∧ h < p ∧ p ≤ X ∧ p ∉ A := by
   by_contra hnone
-  push_neg at hnone
   have hcovered :
       ∀ p : ℕ, p.Prime → p ≤ X → h < p → p ∈ A := by
     intro p hp hpX hhp
-    exact not_not.mp (hnone p hp hhp hpX)
+    by_contra hpA
+    exact hnone ⟨p, hp, hhp, hpX, hpA⟩
   have hle :=
     theta_le_theta_add_primeLogMass_of_interval_covered
       A hA hcovered
