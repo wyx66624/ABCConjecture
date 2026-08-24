@@ -1,0 +1,833 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[a4paper,margin=1.02in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs,bm}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink,capitalize,noabbrev]{cleveref}
+\usepackage[most]{tcolorbox}
+\usepackage{listings}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!45!black,
+  pdftitle={Decisive Obstacles in the IUT--ABC Formalization Programme},
+  pdfauthor={ChatGPT}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{counterexample}[theorem]{Counterexample}
+\newtheorem{criterion}[theorem]{Criterion}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{construction}[theorem]{Construction}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{status}[theorem]{Formalization status}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Vol}{\operatorname{Vol}}
+\newcommand{\Corr}{\operatorname{Corr}}
+\newcommand{\Diff}{\operatorname{Diff}}
+\newcommand{\Err}{\operatorname{Err}}
+\newcommand{\Cond}{\operatorname{Cond}}
+\newcommand{\ThetaOut}{\mathcal U_{\Theta}}
+\newcommand{\ThetaEnv}{\mathcal E_{\Theta}}
+\newcommand{\thetaK}{\vartheta}
+
+\title[Decisive IUT--ABC obstacles]{Decisive Obstacles in the IUT--$abc$ Formalization Programme\\
+\large Local theta-root geometry, relational multiradial source realization, and quantitative auxiliary-prime control}
+\author{ChatGPT}
+\date{August 24, 2026}
+
+\subjclass[2020]{Primary 11D75, 11G50; Secondary 11R58, 14G22, 03B35, 28C10}
+\keywords{ABC conjecture, inter-universal Teichm\"uller theory, Lean, Tate curve, Kummer cover, Chebyshev function, log-volume, formal verification}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We isolate and attack the three remaining bottlenecks closest to the final
+IUT--$abc$ implication in the accompanying Lean development.  The first is
+the construction of an actual anabelian/tempered initial-theta fiber.  We
+separate its automatic choices from its genuine geometric content and reduce
+the local theta-root model to separable Kummer fibers
+$Y^{\ell}-\thetaK_q(u)$ away from the Tate theta zero orbit.  The second is the
+realization of the source of IUT III, Theorem~3.11.  We give a
+source-faithful relational formalism in which Ind1 and Ind2 are deterministic
+transformations while Ind3 is an upper-semicompatible relation, and prove that
+a pointwise norm estimate for the log-link is sufficient to control the full
+possible-image union.  The third is the quantifier problem in the auxiliary
+prime.  We prove two independent alternatives: a bounded-interval
+Chebyshev-mass escape criterion, and an asymptotic relative-defect criterion
+under which no upper bound for the selected prime is required.  We also record
+counterexamples showing that none of the three relative defects may be ignored
+in isolation.
+
+The paper distinguishes ordinary mathematical proofs, Lean-kernel-verified
+files, files undergoing continuous integration, and genuine source theorems
+that remain unproved.  The resulting dependency graph is non-circular and
+ends in the standard logarithmic $abc$ conjecture once the stated geometric
+and uniform asymptotic source theorems are supplied.  No unconditional proof
+of $abc$ is claimed.
+\end{abstract}
+
+\begin{tcolorbox}[colback=yellow!5,colframe=black!65,title=Honesty boundary]
+The verified downstream chain proves implications of the form
+\[
+ \text{actual initial-theta family}
+ \Longrightarrow
+ \text{actual IUT III source}
+ \Longrightarrow
+ \text{IUT IV estimate}
+ \Longrightarrow
+ abc.
+\]
+This paper improves the first three antecedents and proves several exact
+reduction theorems.  It does not construct every antecedent unconditionally.
+In particular, there is presently no parameter-free Lean declaration
+\[
+ \texttt{theorem abc\_conjecture : ABCConjecture}.
+\]
+\end{tcolorbox}
+
+\tableofcontents
+
+\section{Target statement and proof architecture}
+
+For a positive integer $n$, write
+\[
+ \rad(n)=\prod_{p\mid n}p.
+\]
+The target is the logarithmic $abc$ conjecture.
+
+\begin{theorem}[Target]\label{thm:abc-target}
+For every $\eps>0$ there exists $C_{\eps}\in\R$ such that every positive,
+pairwise coprime triple $a+b=c$ satisfies
+\[
+ \log \max\{a,b,c\}
+ \le (1+\eps)\log\rad(abc)+C_{\eps}.
+\]
+\end{theorem}
+
+The formal programme is organized into the following dependency chain:
+\[
+\begin{tikzcd}[column sep=small]
+\text{Frey arithmetic}
+ \arrow[r]
+&\text{initial-theta data}
+ \arrow[r]
+&\text{Theorem 3.11 source}
+ \arrow[r]
+&\text{Corollary 3.12}
+ \arrow[r]
+&\text{IUT IV q-bound}
+ \arrow[r]
+&abc.
+\end{tikzcd}
+\]
+The elementary arithmetic, the scalar IUT IV algebra, and the final
+height--radical passage have been substantially formalized.  The decisive
+open constructions lie in the middle of the chain.
+
+\section{Research-group decomposition}
+
+To avoid premature convergence, the investigation is divided into independent
+cells.
+
+\begin{enumerate}[label=\textbf{Cell \Alph*:},leftmargin=2.7em]
+\item \emph{Fiber geometry}: construct actual local theta-root covers,
+orbicurves, cores, cartesian diagrams, graph cusps, and tempered comparison
+maps.
+\item \emph{Multiradial source}: realize ordinary branches and Ind1--Ind3
+operations from genuine Hodge theaters and prove their pointwise norm or
+volume control.
+\item \emph{Auxiliary prime and uniformity}: pursue both bounded-prime
+selection and unbounded-prime relative-error absorption.
+\item \emph{Adversarial audit}: construct countermodels to overstrong
+interfaces and identify quantifier orders that cannot be recovered from
+weaker hypotheses.
+\item \emph{Formal verification}: maintain a separate Lean branch for each
+mathematical direction and merge only after a pinned kernel build succeeds.
+\end{enumerate}
+
+A direction is not discarded merely because it lacks a current library
+implementation.  It is removed only after a strict counterexample,
+contradiction, or theorem showing that the proposed implication is impossible.
+
+\section{The Frey local input}
+
+For an $abc$ point $P=(a,b,c)$, consider the integral Frey model
+\[
+ E_P:\qquad y^2=x(x-a)(x+b).
+\]
+Its standard invariants are
+\[
+ c_4(E_P)=16(a^2+ab+b^2),
+ \qquad
+ \Delta(E_P)=16(abc)^2.
+\]
+The quadratic core is coprime to $abc$ for a primitive triple.
+
+\begin{proposition}[Odd multiplicative signature]\label{prop:odd-signature}
+Let $p$ be an odd prime dividing $abc$.  Then
+\[
+ p\mid \Delta(E_P),
+ \qquad
+ p\nmid c_4(E_P).
+\]
+Moreover, every primitive positive $abc$ point other than $(1,1,2)$ admits
+such an odd prime.
+\end{proposition}
+
+\begin{proof}
+The divisibility $p\mid\Delta(E_P)$ follows immediately from
+$\Delta(E_P)=16(abc)^2$.  Since $p$ is odd, it does not divide $16$.  If
+$p\mid c_4(E_P)$, then $p$ divides $a^2+ab+b^2$.  But the primitive relations
+and $a+b=c$ imply
+\[
+ \gcd\bigl(abc,a^2+ab+b^2\bigr)=1,
+\]
+a contradiction.
+
+If no odd prime divides $abc$, then each of $a,b,c$ is a power of $2$.
+Pairwise coprimality implies at most one of them is even.  Since $a+b=c$ and
+$a,b>0$, the only possibility is $a=b=1$ and $c=2$.
+\end{proof}
+
+\begin{lemma}[Unit $c_4$ forces minimality]\label{lem:unit-c4-minimal}
+Let $R$ be a discrete valuation ring with fraction field $K$.  Let $W$ be an
+integral Weierstrass equation over $R$.  If
+\[
+ v(c_4(W))=1
+\]
+in the multiplicative valuation convention, then $W$ is minimal.
+\end{lemma}
+
+\begin{proof}
+For an admissible variable change $C$ with scaling parameter $u$, one has
+\[
+ c_4(C\cdot W)=u^{-4}c_4(W),
+ \qquad
+ \Delta(C\cdot W)=u^{-12}\Delta(W).
+\]
+Assume $C\cdot W$ remains integral.  Integrality gives
+$v(c_4(C\cdot W))\le 1$.  Hence
+\[
+ v(u^{-1})^4v(c_4(W))\le1.
+\]
+Since $v(c_4(W))=1$, we obtain $v(u^{-1})^4\le1$, and therefore
+$v(u^{-1})\le1$.  It follows that
+\[
+ v(\Delta(C\cdot W))
+ =v(u^{-1})^{12}v(\Delta(W))
+ \le v(\Delta(W)).
+\]
+Thus the original integral equation has maximal discriminant valuation among
+all integral equations in its isomorphism class, which is the definition of
+minimality used in the formal library.
+\end{proof}
+
+\begin{corollary}[Local multiplicative reduction criterion]
+Under the hypotheses of \cref{lem:unit-c4-minimal}, if in addition
+\[
+ v(\Delta(W))<1,
+\]
+then $W$ has multiplicative reduction.
+\end{corollary}
+
+\begin{status}
+The odd-support and exact invariant calculations are Lean-kernel verified on
+\texttt{main}.  The generic constructor for multiplicative reduction is also
+verified.  The direct proof of \cref{lem:unit-c4-minimal} is maintained on a
+separate branch until its pinned build succeeds.  The arithmetic transfer from
+integer divisibility to maximal-ideal membership in the completed local ring
+remains a separate theorem.
+\end{status}
+
+\section{Actual global core: what has and has not been constructed}
+
+The formal development now proves a precise assembler theorem.  Given a
+number field $F$, an algebraic closure $\overline F$, full rationality of
+$E_P[12]$, a square root of $-1$, stable reduction away from $2$ and away from
+$3$, and one odd multiplicative bad moduli place, one obtains the public global
+initial-theta conditions and a fixed IUT core.
+
+\begin{theorem}[Fixed-core assembly]\label{thm:fixed-core-assembly}
+An explicit twelve-torsion global input package for the Frey curve determines
+an actual fixed global core, calibrated by
+\[
+ j(E_P/F)=\operatorname{algebraMap}_{\Q,F}(j(E_P/\Q)).
+\]
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The inclusion $E[6]\subseteq E[12]$ follows from $6\mid12$, so full
+$12$-torsion rationality implies the public six-torsion condition.  Stable
+reduction away from $2$ and away from $3$ covers every finite place: a residue
+characteristic cannot equal both $2$ and $3$.  Taking the singleton containing
+the supplied odd multiplicative moduli place gives a nonempty bad locus.  The
+remaining structure fields are then assembled definitionally.
+\end{proof}
+
+This is an assembly theorem, not an unconditional existence theorem.  The
+remaining standard sources are the Weil-pairing/cyclotomic input, the
+semistable-reduction theorem at levels $3$ and $4$, and the completed local
+multiplicative place supplied by \cref{prop:odd-signature} and the local
+valuation transfer.
+
+\section{Removing automatic choices from the fiber gap}
+
+Several fields in the public interface are not independent geometric
+obstructions.
+
+\begin{proposition}[Canonical quotient element and cusp]
+Suppose a rank-one quotient is identified with $\Z/\ell\Z$ by
+\[
+ \phi:Q\overset\sim\longrightarrow \Z/\ell\Z,
+\]
+where $\ell$ is prime.  Then
+\[
+ q:=\phi^{-1}(1)
+\]
+is nonzero, and the distinguished cusp may be defined as the cusp associated
+to $q$.
+\end{proposition}
+
+\begin{proof}
+Since $\ell$ is prime, $1\ne0$ in $\Z/\ell\Z$.  Hence
+$\phi(q)=1\ne0$, so $q\ne0$.  The cusp specification is then definitional.
+\end{proof}
+
+\begin{proposition}[Presently weak decomposition-group choice]
+If the public local interface asks only for a closed subgroup and states no
+place-stabilizer characterization, the full Galois group is a canonical closed
+choice.
+\end{proposition}
+
+\begin{remark}
+This proposition does not identify the full group with the genuine
+decomposition group.  It proves that the current interface is too weak to
+express that arithmetic meaning.  A faithful interface should add a
+characterizing condition such as
+\[
+ \sigma\in D_w\quad\Longleftrightarrow\quad \sigma(w)=w,
+\]
+up to the intended conjugacy convention.
+\end{remark}
+
+Consequently, the genuine fiber gap consists of the orbicurves and covers,
+type and core theorems, cartesian diagrams, corrected valuation section,
+theta-root model, tempered comparison, and graph-cusp compatibility.  The
+quotient representative, its nonzero proof, the derived cusp, and the weak
+closed-subgroup field are automatic.
+
+\section{Pointwise theta Kummer fibers}
+
+Let $K$ be a complete nonarchimedean normed field, let $q\in K$ satisfy
+$0<|q|<1$, and let $\thetaK_q(u)$ denote the Tate theta product.  The available
+theta divisor theorem says that
+\[
+ \thetaK_q(u)=0
+ \quad\Longleftrightarrow\quad
+ u=-q^k\text{ for some }k\in\Z.
+\]
+
+\begin{definition}[Theta Kummer polynomial]
+For $\ell\ge1$ and $u\in K^\times$, define
+\[
+ f_{q,u,\ell}(Y)=Y^\ell-\thetaK_q(u)\in K[Y].
+\]
+\end{definition}
+
+\begin{theorem}[Separable theta Kummer fiber]\label{thm:kummer-fiber}
+Assume $u\ne-q^k$ for all $k\in\Z$, and assume $\ell$ is invertible in $K$.
+Then $f_{q,u,\ell}$ is monic and separable.  Every geometric root is simple.
+The algebra
+\[
+ K[Y]/(f_{q,u,\ell})
+\]
+contains a canonical element $y$ satisfying
+\[
+ y^\ell=\thetaK_q(u),
+ \qquad y\ne0.
+\]
+\end{theorem}
+
+\begin{proof}
+The zero-orbit hypothesis gives $\thetaK_q(u)\ne0$.  The polynomial is monic
+because its leading term is $Y^\ell$.  Its derivative is
+\[
+ f'_{q,u,\ell}(Y)=\ell Y^{\ell-1}.
+\]
+If a geometric element $x$ were a common root of $f$ and $f'$, invertibility
+of $\ell$ would imply $x=0$.  But then
+$f(0)=-\thetaK_q(u)\ne0$, a contradiction.  Thus $f$ is separable and all its
+roots are simple.  The canonical class of $Y$ in the quotient satisfies the
+power equation by construction.  If it were zero, then its positive
+$\ell$-th power would be zero, contradicting
+$\thetaK_q(u)\ne0$.
+\end{proof}
+
+\begin{status}
+The pointwise Kummer construction is encoded on a research branch using the
+actual theta-product divisor theorem and the library's Kummer-polynomial API.
+The remaining geometric task is to globalize these fibers over
+$K^\times/q^{\Z}$, prove period descent and ramification behavior, and identify
+the resulting cover with the required orbicurve and tempered object.
+\end{status}
+
+\section{A relational model of the genuine Theorem 3.11 source}
+
+An exact word normal form for every possible image is stronger than the source
+statement needed in IUT III.  The Ind3 ambiguity is naturally relational.
+
+\begin{definition}[Upper-semicompatible source system]
+Fix a carrier $X$.  A source system consists of:
+\begin{itemize}
+\item ordinary regions $U_o\subseteq X$;
+\item deterministic operations $T_{1,a}$ and $T_{2,b}$ on regions;
+\item a relation $R_{3,c}(U,V)$ for Ind3;
+\item a distinguished ordinary region $U_{\mathrm{nat}}$;
+\item an envelope $\ThetaEnv\subseteq X$.
+\end{itemize}
+Reachability is the least relation generated by ordinary regions, Ind1,
+Ind2, and all relational steps $R_{3,c}(U,V)$.
+\end{definition}
+
+\begin{theorem}[Relational envelope theorem]\label{thm:relational-envelope}
+Assume:
+\begin{enumerate}[label=(\roman*)]
+\item every ordinary region lies in $\ThetaEnv$;
+\item Ind1 preserves containment in $\ThetaEnv$;
+\item Ind2 preserves containment in $\ThetaEnv$;
+\item whenever $U\subseteq\ThetaEnv$ and $R_{3,c}(U,V)$, one has
+$V\subseteq\ThetaEnv$.
+\end{enumerate}
+Then
+\[
+ U_{\mathrm{nat}}\subseteq\ThetaOut
+ \subseteq\ThetaEnv,
+\]
+where $\ThetaOut$ is the union of all reachable regions.
+\end{theorem}
+
+\begin{proof}
+The native inclusion holds because the distinguished ordinary region is one
+of the constructors of reachability.  For the envelope inclusion, perform
+induction on the reachability derivation.  The ordinary case is (i), the Ind1
+and Ind2 cases are (ii) and (iii), and the relational Ind3 case is (iv).
+Taking the union over all reachable regions gives the result.
+\end{proof}
+
+The point of the relational formulation is that Ind3 may be verified by a
+local map rather than an arbitrary set-level volume assertion.
+
+\begin{theorem}[Pointwise norm reduction]\label{thm:norm-reduction}
+Let $f:X\to Y$ be a map between seminormed additive groups satisfying
+\[
+ \|f(x)\|\le\|x\|\qquad\text{for all }x.
+\]
+Let
+\[
+ B_X(r)=\{x:\|x\|\le r\},
+ \qquad
+ B_Y(r)=\{y:\|y\|\le r\}.
+\]
+If $U\subseteq B_X(r)$ and $V\subseteq f(U)$, then
+\[
+ V\subseteq B_Y(r).
+\]
+The same assertion holds coordinatewise for a product packet.
+\end{theorem}
+
+\begin{proof}
+For $y\in V$, choose $x\in U$ with $f(x)=y$.  Then
+\[
+ \|y\|=\|f(x)\|\le\|x\|\le r.
+\]
+The product statement follows by applying the same estimate in each
+coordinate.
+\end{proof}
+
+\begin{corollary}[Source obligations reduced to local estimates]
+If the genuine Ind1, Ind2, and log-link maps are pointwise
+norm-nonincreasing, and the genuine Ind3 target is contained in the image of
+the source under the log-link, then the complete possible-image union is
+contained in the radial packet envelope.
+\end{corollary}
+
+Thus the set-theoretic portion of the genuine Theorem~3.11 source reduces to:
+\begin{enumerate}[label=(\alph*)]
+\item identify the actual ordinary branches;
+\item prove norm control for procession reindexing;
+\item prove norm control for spectral-factor automorphisms;
+\item prove norm control for the log-link;
+\item identify the public packet coordinates and the genuine measured hull.
+\end{enumerate}
+
+\section{The native volume and Corollary 3.12}
+
+Once the source relations
+\[
+ U_{\mathrm{nat}}\subseteq\ThetaOut\subseteq\ThetaEnv
+\]
+are established in a finite-positive measured realization, monotonicity gives
+\[
+ \log\mu(U_{\mathrm{nat}})
+ \le \log\mu(\ThetaOut)
+ \le \log\mu(\ThetaEnv).
+\]
+The intended calibration is
+\[
+ \log\mu(U_{\mathrm{nat}})=-|\log q|.
+\]
+If the theta coefficient is defined by
+\[
+ -|\log\Theta|=C_{\Theta}|\log q|,
+\]
+then the native inclusion yields $C_{\Theta}\ge-1$.
+
+The formal downstream implication is already available.  The genuine source
+work is the construction of the Haar-measured packet, the actual hull or outer
+measure, and the identification of the native packet volume with the
+procession-normalized $q$-pilot value.
+
+\section{Why eventual large image is not enough}
+
+A Serre-style theorem normally states that a desired representation-theoretic
+property holds for every sufficiently large prime.  Such an eventual statement
+supplies no independent upper bound for the first usable prime.
+
+\begin{counterexample}[Eventuality without a bounded witness]
+Fix $B\in\N$ and define a prime property by
+\[
+ P(p)\quad\Longleftrightarrow\quad B<p.
+\]
+Then $P$ holds for every sufficiently large prime, but no prime satisfying
+$P$ is at most $B$.
+\end{counterexample}
+
+Therefore a proof requiring both
+\[
+ p>N
+ \qquad\text{and}\qquad
+ p\le B
+\]
+cannot obtain the second inequality from eventuality alone.  One must either
+prove a quantitative prime theorem or eliminate the need for an upper bound.
+
+\section{Bounded-prime route via Chebyshev mass}
+
+Let
+\[
+ \theta(X)=\sum_{p\le X}\log p
+\]
+be the Chebyshev theta function.  For a finite forbidden set $A$ of primes,
+define
+\[
+ m(A)=\sum_{p\in A}\log p.
+\]
+
+\begin{theorem}[Chebyshev escape]\label{thm:chebyshev-escape}
+Let $h,X\in\N$.  If
+\[
+ \theta(h)+m(A)<\theta(X),
+\]
+then there exists a prime $p$ satisfying
+\[
+ h<p\le X,
+ \qquad p\notin A.
+\]
+\end{theorem}
+
+\begin{proof}
+Suppose no such prime exists.  Then every prime at most $X$ belongs either to
+the set of primes at most $h$ or to $A$.  Since every logarithmic summand is
+nonnegative,
+\[
+ \theta(X)\le\theta(h)+m(A),
+\]
+contradicting the strict hypothesis.
+\end{proof}
+
+Using explicit estimates of the form
+\[
+ \theta(h)\le (\log4)h
+\]
+and
+\[
+ X\log2-\log(X+1)-2\sqrt X\log X\le\theta(X),
+\]
+one obtains the following purely real sufficient condition:
+\[
+ (\log4)h+m(A)
+ <X\log2-\log(X+1)-2\sqrt X\log X.
+\]
+The remaining analytic step is to choose an explicit $X=X(h,m(A))$ satisfying
+this inequality.  This route is retained independently of the asymptotic
+route below.
+
+\section{Unbounded-prime route via relative source defects}
+
+Let $P$ be an $abc$ point and let $B_n$ be genuine public IUT IV sources.
+Write
+\[
+ \Corr_n(P)=\frac{20d_{\mathrm{mod},n}(P)}{\ell_n}.
+\]
+Suppose there are scalar sequences
+$\gamma_n,\alpha_n,\beta_n,D_n,E_n$ such that
+\begin{align*}
+ \Corr_n(P)&\le\gamma_n,\\
+ \Diff_n(P)&\le\alpha_n\Cond(P)+D_n,\\
+ \Err_n(P)&\le\beta_n\Cond(P)+E_n.
+\end{align*}
+The constants $D_n,E_n$ may depend on $n$, because the final $abc$ constant
+may depend on $\eps$.
+
+\begin{theorem}[Relative absorption criterion]\label{thm:relative-absorption}
+Assume that for every $\rho>0$ there exists a common $n$ satisfying
+\[
+ \gamma_n\le\rho,
+ \qquad
+ \alpha_n\le\rho,
+ \qquad
+ 20\beta_n\le\rho.
+\]
+Then the logarithmic $abc$ conjecture holds.
+\end{theorem}
+
+\begin{proof}
+The public IUT IV bound has the form
+\[
+ H(P)\le
+ (1+\Corr_n(P))
+ \bigl(\Diff_n(P)+\Cond_{\mathrm{Frey}}(P)\bigr)
+ +20\Err_n(P)+C_0.
+\]
+The verified Frey conductor comparison gives
+\[
+ \Cond_{\mathrm{Frey}}(P)
+ \le\Cond(P)+\log16.
+\]
+Substituting the three source bounds and collecting conductor terms yields
+\[
+ H(P)\le
+ \bigl((1+\gamma_n)(1+\alpha_n)+20\beta_n\bigr)\Cond(P)
+ +C_n.
+\]
+For $0\le\rho\le1$ and the common index above,
+\[
+ (1+\gamma_n)(1+\alpha_n)+20\beta_n
+ \le (1+\rho)^2+\rho
+ \le1+4\rho.
+\]
+Given $\eps>0$, choose $\rho=\min\{1,\eps/4\}$.  Then
+$1+4\rho\le1+\eps$, and the additive terms form the allowed constant
+$C_{\eps}$.
+\end{proof}
+
+\begin{theorem}[Uniform convergence criterion]\label{thm:uniform-convergence}
+The common-index hypothesis of \cref{thm:relative-absorption} follows if
+\[
+ \gamma_n\to0,
+ \qquad
+ \alpha_n\to0,
+ \qquad
+ 20\beta_n\to0.
+\]
+Consequently these three uniform limits imply $abc$.
+\end{theorem}
+
+\begin{proof}
+For a fixed $\rho>0$, convergence of each sequence gives an eventual set of
+indices on which the corresponding value is less than $\rho$.  The
+intersection of three eventual sets is eventual and therefore nonempty.
+Choose one common index in this intersection and apply
+\cref{thm:relative-absorption}.
+\end{proof}
+
+\section{Necessity of simultaneous control}
+
+The simultaneous nature of \cref{thm:relative-absorption} is not cosmetic.
+Each defect can independently destroy a target coefficient $1+\eps$.
+
+\begin{counterexample}[Persistent correction]
+If $\Corr_n(P)\ge\delta>0$ uniformly while all other defects vanish, the
+coefficient is at least $1+\delta$.  Hence no conclusion with
+$\eps<\delta$ follows.
+\end{counterexample}
+
+\begin{counterexample}[Persistent different slope]
+If $\alpha_n\ge\delta>0$ uniformly and the correction and error slope vanish,
+the coefficient is at least $1+\delta$.  Again, no conclusion with
+$\eps<\delta$ follows.
+\end{counterexample}
+
+\begin{counterexample}[Persistent error slope]
+If $20\beta_n\ge\delta>0$ uniformly and the remaining defects vanish, the
+coefficient is at least $1+\delta$.
+\end{counterexample}
+
+These examples do not rule out cancellation in a more refined source formula.
+They rule out the proposed implication from bounds that leave one positive
+linear defect uncontrolled.
+
+\section{Two retained quantitative strategies}
+
+The bounded and unbounded routes solve different problems and neither is
+eliminated.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}lXX@{}}
+\toprule
+Route & Required theorem & Advantage \\
+\midrule
+Bounded Chebyshev route & An explicit $X$ satisfying the Chebyshev mass
+inequality, together with a quantitative exceptional-prime bound & Direct
+control of the first usable prime and every prime-dependent additive term \\
+\addlinespace
+Relative asymptotic route & Uniform limits
+$\gamma_n,\alpha_n,20\beta_n\to0$ along genuine sources & Uses only
+arbitrarily large admissible primes; no independent upper bound is needed \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+A future proof may combine them: use a bounded interval to control a finite
+set of difficult local factors, while using relative absorption for all terms
+that are sublinear in the conductor.
+
+\section{Exact remaining geometric and analytic theorems}
+
+The unresolved obligations can now be stated without broad interface labels.
+
+\subsection{Fiber theorem}
+One must construct, for the actual Frey and admissible-prime data:
+\begin{enumerate}[label=(F\arabic*)]
+\item the Tate-quotient theta-root cover obtained by globalizing
+\cref{thm:kummer-fiber};
+\item descent under $u\mapsto qu$ and treatment of the theta zero orbit;
+\item the required orbicurve type and core;
+\item the global and localized cartesian squares;
+\item a valuation section formulated up to the correct equivalence of
+normalized places;
+\item the tempered fundamental group and its comparison with the profinite
+\'etale group;
+\item the canonical graph cusp and its compatibility with the global cusp.
+\end{enumerate}
+
+\subsection{Theorem 3.11 source theorem}
+One must prove:
+\begin{enumerate}[label=(S\arabic*)]
+\item genuine Hodge-theater ordinary branches map to the native packet;
+\item Ind1 and Ind2 are represented by the proposed packet maps;
+\item the actual Ind3 target satisfies the relational log-link containment;
+\item the three maps satisfy the pointwise norm estimates consumed by
+\cref{thm:norm-reduction};
+\item the possible-image union admits the intended finite-positive measured
+hull or outer-measure interpretation;
+\item the native procession volume is exactly $-|\log q|$;
+\item the explicit envelope volume agrees with the public component formula
+used in IUT IV.
+\end{enumerate}
+
+\subsection{Quantifier-correct final source family}
+One must prove either:
+\begin{enumerate}[label=(Q\arabic*)]
+\item a bounded-prime theorem strong enough to select a usable prime below the
+source-dependent upper threshold; or
+\item the three uniform limits in \cref{thm:uniform-convergence}; or
+\item another theorem whose algebra implies the same $1+\eps$ coefficient.
+\end{enumerate}
+
+\section{Lean correspondence}
+
+The principal formal files are organized as follows.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+Mathematical result & Lean module \\
+\midrule
+Odd support and Frey signature &
+\texttt{FreyOddPrimeSupport}, \texttt{FreyOddMultiplicativeCriterion} \\
+Fixed global-core assembly &
+\texttt{FreyTwelveTorsionGlobalCore} \\
+Automatic quotient/cusp/decomposition choices &
+\texttt{FiberAutomaticChoices} \\
+Local multiplicative constructor &
+\texttt{LocalMultiplicativeReductionBridge} \\
+Unit-$c_4$ minimality &
+\texttt{MinimalModelFromUnitC4} \\
+Pointwise theta Kummer fiber &
+\texttt{TateThetaKummerFiber} \\
+Relational Ind3 source &
+\texttt{UpperSemicompatiblePossibleImageSystem} \\
+Pointwise norm reduction &
+\texttt{Ind3NormEnvelopeReduction},
+\texttt{NormControlledSourceGenerators} \\
+Chebyshev bounded-prime criterion &
+\texttt{ChebyshevPrimeEscape} \\
+Relative defect absorption &
+\texttt{RelativeSourceTermAbsorption} \\
+Uniform convergence criterion &
+\texttt{AsymptoticRelativeSourceTermAbsorption} \\
+Necessity counterexamples &
+\texttt{RelativeSourceTermNecessity},
+\texttt{QuantitativeLargeImagePrimeNecessity} \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+A file is merged into \texttt{main} only after the repository's pinned Lean
+kernel build succeeds.  Research branches preserve independent approaches,
+and obsolete branches are closed only after their mathematical content has
+been retained in a verified replacement or after a strict counterexample has
+invalidated the proposed implication.
+
+\section{Conclusion}
+
+The three decisive obstacles have been reduced to substantially sharper
+statements.
+
+\begin{enumerate}[label=(\arabic*)]
+\item The actual fiber is no longer an undifferentiated structure: its
+automatic fields have been removed, and its first genuine local algebraic
+piece is the separable Tate theta Kummer fiber.
+\item The genuine Theorem~3.11 source need not satisfy an artificial exact
+normal form.  A relational Ind3 presentation is sufficient, and its global
+envelope theorem follows from pointwise norm control.
+\item The auxiliary-prime problem has two rigorous routes.  The bounded route
+is reduced to a Chebyshev inequality; the unbounded route is reduced to three
+uniform relative-defect limits.  Counterexamples show why simultaneous
+control is necessary.
+\end{enumerate}
+
+The remaining gap is difficult but explicit: globalize the theta-root cover
+and construct the anabelian/tempered geometry; prove the genuine Hodge-theater
+source maps and norm/volume calibration; and establish either quantitative
+prime control or uniform asymptotic source decay.  Once these are proved, the
+already formalized non-circular downstream chain yields
+\cref{thm:abc-target}.  Until then, the correct status is a verified research
+programme with exact open theorems, not a completed proof of $abc$.
+
+\end{document}
