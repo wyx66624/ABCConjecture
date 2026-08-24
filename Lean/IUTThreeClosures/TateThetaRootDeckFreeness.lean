@@ -140,7 +140,7 @@ theorem q_pow_eq_one_of_root_pow_eq_one
         rw [hrn]
         simp
   have hcoerced := congrArg (fun a : Kˣ => (a : K)) hqUnits
-  simpa only [Units.val_pow, Units.val_one] using hcoerced
+  simpa using hcoerced
 
 /-- **Freeness theorem.** No positive iterate of the corrected theta-root
 translation fixes a point. -/
