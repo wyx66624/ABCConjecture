@@ -53,8 +53,9 @@ theorem isMinimal_of_isIntegral_c4_valuation_eq_one
     letI : (C • W).IsIntegral R := hC
     have hval :
         valuation_Δ_aux R (C • W) ≤ valuation_Δ_aux R W := by
-      rw [valuation_Δ_aux_eq_of_isIntegral R (C • W),
-        valuation_Δ_aux_eq_of_isIntegral R W]
+      change
+        valuation K (IsDiscreteValuationRing.maximalIdeal R) (C • W).Δ ≤
+          valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ
       have hc4_le :
           valuation K (IsDiscreteValuationRing.maximalIdeal R)
               (C • W).c₄ ≤ 1 := by
