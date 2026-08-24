@@ -95,11 +95,15 @@ theorem continuous_shift
   have hbase :
       Continuous (fun z : TateThetaRootPullbackPoint t ell => r * z.base) :=
     continuous_const.mul (continuous_base t ell)
+  have hbaseVal :
+      Continuous (fun z : TateThetaRootPullbackPoint t ell =>
+        ((r * z.base : Kˣ) : K)) :=
+    Units.continuous_val.comp hbase
   have hinv :
       Continuous (fun z : TateThetaRootPullbackPoint t ell =>
-        (((r * z.base : Kˣ) : K)⁻¹)) := by
-    simpa using Units.continuous_coe_inv.comp hbase
-  exact hbase.prod_mk (hinv.mul (continuous_root t ell))
+        (((r * z.base : Kˣ) : K)⁻¹)) :=
+    hbaseVal.inv₀ fun z => Units.ne_zero (r * z.base)
+  exact hbase.prodMk (hinv.mul (continuous_root t ell))
 
 /-- The corrected inverse deck transformation is continuous. -/
 theorem continuous_shiftInv
@@ -111,7 +115,7 @@ theorem continuous_shiftInv
   have hbase :
       Continuous (fun z : TateThetaRootPullbackPoint t ell => r⁻¹ * z.base) :=
     continuous_const.mul (continuous_base t ell)
-  exact hbase.prod_mk
+  exact hbase.prodMk
     ((continuous_base_val t ell).mul (continuous_root t ell))
 
 /-- The corrected deck generator is a homeomorphism of the actual topological
