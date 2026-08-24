@@ -3,7 +3,7 @@ Copyright (c) 2026 ChatGPT. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: ChatGPT
 -/
-import Mathlib.AlgebraicGeometry.EllipticCurve.Reduction
+import IUTThreeClosures.LocalMultiplicativeReductionBridge
 
 /-!
 # Minimality from an integral unit c₄
@@ -58,31 +58,40 @@ theorem isMinimal_of_isIntegral_c4_valuation_eq_one
       exact valuation_le_one
         (IsDiscreteValuationRing.maximalIdeal R)
         (integralModel R (C • W)).c₄
+    have hc4_change :
+        valuation K (IsDiscreteValuationRing.maximalIdeal R)
+            (C • W).c₄ =
+          (valuation K (IsDiscreteValuationRing.maximalIdeal R)
+            (C.u⁻¹ : K)) ^ 4 := by
+      rw [variableChange_c₄, map_mul, map_pow, hc4, mul_one]
     have hu_pow :
         (valuation K (IsDiscreteValuationRing.maximalIdeal R)
             (C.u⁻¹ : K)) ^ 4 ≤ 1 := by
-      simpa only [variableChange_c₄, map_mul, map_pow,
-        hc4, mul_one] using hc4_le
+      rw [← hc4_change]
+      exact hc4_le
     have hu :
         valuation K (IsDiscreteValuationRing.maximalIdeal R)
             (C.u⁻¹ : K) ≤ 1 :=
       (pow_le_one_iff (by norm_num : (4 : ℕ) ≠ 0)).mp hu_pow
+    have hu12 :
+        (valuation K (IsDiscreteValuationRing.maximalIdeal R)
+            (C.u⁻¹ : K)) ^ 12 ≤ 1 :=
+      (pow_le_one_iff (by norm_num : (12 : ℕ) ≠ 0)).mpr hu
+    have hscaled :
+        (valuation K (IsDiscreteValuationRing.maximalIdeal R)
+            (C.u⁻¹ : K)) ^ 12 *
+            valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ ≤
+          valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ :=
+      mul_le_of_le_one_left (zero_le _) hu12
     have hdisc :
         valuation K (IsDiscreteValuationRing.maximalIdeal R) (C • W).Δ ≤
           valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ := by
       rw [variableChange_Δ, map_mul, map_pow]
-      calc
-        (valuation K (IsDiscreteValuationRing.maximalIdeal R)
-            (C.u⁻¹ : K)) ^ 12 *
-            valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ
-            ≤ 1 * valuation K
-                (IsDiscreteValuationRing.maximalIdeal R) W.Δ :=
-          mul_le_mul_of_nonneg_right
-            ((pow_le_one_iff (by norm_num : (12 : ℕ) ≠ 0)).mpr hu)
-            (zero_le _)
-        _ = valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ :=
-          one_mul _
-    simpa only [one_smul, valuation_Δ_aux_eq_of_isIntegral] using hdisc
+      exact hscaled
+    change valuation_Δ_aux R (C • W) ≤ valuation_Δ_aux R W
+    rw [valuation_Δ_aux_eq_of_isIntegral,
+      valuation_Δ_aux_eq_of_isIntegral]
+    exact hdisc
 
 /-- Consequently, an integral equation with bad discriminant and unit `c₄`
 has multiplicative reduction, without a separate minimality hypothesis. -/
@@ -97,11 +106,8 @@ theorem hasMultiplicativeReduction_of_integral_valuations
     (hc4 :
       valuation K (IsDiscreteValuationRing.maximalIdeal R) W.c₄ = 1) :
     W.HasMultiplicativeReduction R := by
-  letI : W.IsMinimal R :=
-    isMinimal_of_isIntegral_c4_valuation_eq_one W hIntegral hc4
-  exact {
-    badReduction := hDelta
-    multiplicativeReduction := hc4
-  }
+  exact hasMultiplicativeReduction_of_minimal_valuations
+    W (isMinimal_of_isIntegral_c4_valuation_eq_one W hIntegral hc4)
+      hDelta hc4
 
 end IUTThreeClosures
