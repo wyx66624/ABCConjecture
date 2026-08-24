@@ -11,7 +11,7 @@ import Mathlib.FieldTheory.Separable
 # Separable Kummer fibers of the Tate theta product
 
 The local bad-place model in the étale-theta construction is obtained by
-extracting an `ell`-th root of the theta function.  The pinned
+extracting an `ell`-th root of the theta function. The pinned
 `tate-curves-theta` dependency already proves that the product form
 `thetaProd` vanishes exactly on the single `q^ℤ`-orbit of `-1`.
 
@@ -20,11 +20,11 @@ This module constructs the corresponding pointwise Kummer polynomial
 `Y^ell - thetaProd(u)`
 
 and proves that, away from that zero orbit, it is monic and separable whenever
-`ell` is invertible in the ground field.  Consequently every geometric root
-is simple.  The associated `AdjoinRoot` algebra contains a canonical root with
+`ell` is invertible in the ground field. Consequently every geometric root
+is simple. The associated `AdjoinRoot` algebra contains a canonical root with
 exact `ell`-th power equal to the theta value.
 
-This is a genuine algebraic ingredient of the local theta-root cover.  It does
+This is a genuine algebraic ingredient of the local theta-root cover. It does
 not yet construct the analytic family on the Tate quotient, the tempered
 fundamental group, or the global orbicurve/cartesian package.
 -/
@@ -101,7 +101,7 @@ theorem thetaKummerFiber_root_pow
     (AdjoinRoot.root (thetaKummerPolynomial t u ell)) ^ ell =
       AdjoinRoot.of (thetaKummerPolynomial t u ell) (t.thetaProd u) := by
   simpa [thetaKummerPolynomial] using
-    (AdjoinRoot.root_X_pow_sub_C_pow ell (t.thetaProd u))
+    (root_X_pow_sub_C_pow ell (t.thetaProd u))
 
 /-- Away from the zero orbit, the canonical theta root is nonzero whenever the
 exponent is positive. -/
@@ -114,7 +114,7 @@ theorem thetaKummerFiber_root_ne_zero
   have htheta : t.thetaProd u ≠ 0 :=
     thetaProd_ne_zero_of_not_zeroOrbit t u hu
   simpa [thetaKummerPolynomial] using
-    (AdjoinRoot.root_X_pow_sub_C_ne_zero'
+    (root_X_pow_sub_C_ne_zero'
       (K := K) hell htheta)
 
 end IUTThreeClosures
