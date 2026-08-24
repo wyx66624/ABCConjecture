@@ -1,6 +1,7 @@
 import IUTThreeClosures.ActualPilotWitness
 import IUTThreeClosures.StandaloneCor312Ledger
 import IUTThreeClosures.GeneratedSource
+import IUTThreeClosures.ProcessionMultiradialSemanticSource
 import IUTThreeClosures.PublicLogVolumeInconsistency
 import IUTThreeClosures.HonestFinitePositiveLogVolume
 import IUTThreeClosures.FiniteProductLogVolume
