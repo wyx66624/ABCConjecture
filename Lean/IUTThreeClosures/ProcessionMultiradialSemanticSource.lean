@@ -155,12 +155,14 @@ def ofRegionEqualities
       C Genuine Syntax genuineRealize syntaxRealize where
   encode := encode
   encode_sound := by
-    intro g i
-    rw [hencode g i]
+    intro g i vQ a ha
+    rw [← hencode g i]
+    exact ha
   decode := decode
   decode_complete := by
-    intro s i
-    rw [hdecode s i]
+    intro s i vQ a ha
+    rw [← hdecode s i]
+    exact ha
 
 end ProcessionMultiradialSemanticPresentation
 
