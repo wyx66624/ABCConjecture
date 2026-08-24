@@ -61,15 +61,8 @@ theorem root_norm_lt_one
     ‖(r : K)‖ < 1 := by
   by_contra hnot
   have hge : 1 ≤ ‖(r : K)‖ := le_of_not_gt hnot
-  have hpow : 1 ≤ ‖(r : K)‖ ^ ell := by
-    induction ell with
-    | zero => simp
-    | succ n ih =>
-        rw [pow_succ]
-        simpa only [one_mul] using
-          (mul_le_mul ih hge
-            (by norm_num : (0 : ℝ) ≤ 1)
-            (pow_nonneg (norm_nonneg (r : K)) n))
+  have hpow : 1 ≤ ‖(r : K)‖ ^ ell :=
+    Left.one_le_pow_of_le (M := ℝ) hge ell
   rw [root_norm_pow_eq_q_norm t ell r hr] at hpow
   exact (not_le_of_gt t.norm_lt_one) hpow
 
