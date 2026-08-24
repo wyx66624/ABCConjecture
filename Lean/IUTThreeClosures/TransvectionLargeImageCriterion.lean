@@ -67,29 +67,16 @@ instance [Semiring F] : Monoid (Matrix2 F) where
   mul := mul
   one_mul := by
     intro A
-    apply Matrix2.ext
-    · simp [identity, mul]
-    · simp [identity, mul]
-    · simp [identity, mul]
-    · simp [identity, mul]
+    change mul identity A = A
+    apply Matrix2.ext <;> dsimp [mul, identity] <;> noncomm_ring
   mul_one := by
     intro A
-    apply Matrix2.ext
-    · simp [identity, mul]
-    · simp [identity, mul]
-    · simp [identity, mul]
-    · simp [identity, mul]
+    change mul A identity = A
+    apply Matrix2.ext <;> dsimp [mul, identity] <;> noncomm_ring
   mul_assoc := by
     intro A B C
-    apply Matrix2.ext
-    · simp only [mul]
-      noncomm_ring
-    · simp only [mul]
-      noncomm_ring
-    · simp only [mul]
-      noncomm_ring
-    · simp only [mul]
-      noncomm_ring
+    change mul (mul A B) C = mul A (mul B C)
+    apply Matrix2.ext <;> dsimp [mul] <;> noncomm_ring
 
 /-- Determinant. -/
 def det [CommRing F] (A : Matrix2 F) : F :=
@@ -111,44 +98,43 @@ def lower [Zero F] [One F] (x : F) : Matrix2 F where
 
 @[simp]
 theorem upper_zero [Semiring F] : upper (0 : F) = 1 := by
+  change upper (0 : F) = identity
   apply Matrix2.ext <;> rfl
 
 @[simp]
 theorem lower_zero [Semiring F] : lower (0 : F) = 1 := by
+  change lower (0 : F) = identity
   apply Matrix2.ext <;> rfl
 
 @[simp]
 theorem upper_mul_upper [Semiring F] (x y : F) :
     upper x * upper y = upper (x + y) := by
-  apply Matrix2.ext
-  · simp [upper, mul]
-  · simp [upper, mul, add_comm]
-  · simp [upper, mul]
-  · simp [upper, mul]
+  change mul (upper x) (upper y) = upper (x + y)
+  apply Matrix2.ext <;> dsimp [mul, upper] <;> noncomm_ring
 
 @[simp]
 theorem lower_mul_lower [Semiring F] (x y : F) :
     lower x * lower y = lower (x + y) := by
-  apply Matrix2.ext
-  · simp [lower, mul]
-  · simp [lower, mul]
-  · simp [lower, mul, add_comm]
-  · simp [lower, mul]
+  change mul (lower x) (lower y) = lower (x + y)
+  apply Matrix2.ext <;> dsimp [mul, lower] <;> noncomm_ring
 
 @[simp]
 theorem det_upper [CommRing F] (x : F) :
     det (upper x) = 1 := by
-  simp [det, upper]
+  dsimp [det, upper]
+  ring
 
 @[simp]
 theorem det_lower [CommRing F] (x : F) :
     det (lower x) = 1 := by
-  simp [det, lower]
+  dsimp [det, lower]
+  ring
 
 /-- Determinant is multiplicative. -/
 theorem det_mul [CommRing F] (A B : Matrix2 F) :
     det (A * B) = det A * det B := by
-  simp only [det, mul]
+  change det (mul A B) = det A * det B
+  dsimp [det, mul]
   ring
 
 /-- Exact three-unipotent factorization in the nontriangular cell. -/
@@ -163,19 +149,20 @@ theorem factor_of_det_one_of_c_ne_zero
           upper ((A.d - 1) / A.c) := by
   have hdet' : A.a * A.d - A.b * A.c = 1 := by
     simpa [det] using hdet
+  change A =
+    mul
+      (mul (upper ((A.a - 1) / A.c)) (lower A.c))
+      (upper ((A.d - 1) / A.c))
   apply Matrix2.ext
-  · simp only [upper, lower, mul, one_mul, zero_mul, zero_add,
-      mul_zero, add_zero, mul_one]
-    field_simp [hc]
-  · simp only [upper, lower, mul, one_mul, zero_mul, zero_add,
-      mul_zero, add_zero, mul_one]
+  · dsimp [mul, upper, lower]
+    field_simp [hc] <;> ring
+  · dsimp [mul, upper, lower]
     field_simp [hc]
     linear_combination hdet'
-  · simp only [upper, lower, mul, one_mul, zero_mul, zero_add,
-      mul_zero, add_zero, mul_one]
-  · simp only [upper, lower, mul, one_mul, zero_mul, zero_add,
-      mul_zero, add_zero, mul_one]
-    field_simp [hc]
+  · dsimp [mul, upper, lower]
+    ring
+  · dsimp [mul, upper, lower]
+    field_simp [hc] <;> ring
 
 /-- Powers of one upper transvection add its parameter. -/
 theorem upper_pow [Semiring F] (x : F) (n : ℕ) :
@@ -183,9 +170,14 @@ theorem upper_pow [Semiring F] (x : F) (n : ℕ) :
   induction n with
   | zero => simp
   | succ n ih =>
-      rw [pow_succ, ih, upper_mul_upper]
-      congr 1
-      simp [Nat.cast_succ, add_mul]
+      calc
+        upper x ^ (n + 1) = upper ((n : F) * x) * upper x := by
+          rw [pow_succ, ih]
+        _ = upper ((n : F) * x + x) := upper_mul_upper _ _
+        _ = upper (((n + 1 : ℕ) : F) * x) := by
+          congr 1
+          rw [Nat.cast_succ]
+          ring
 
 /-- Powers of one lower transvection add its parameter. -/
 theorem lower_pow [Semiring F] (x : F) (n : ℕ) :
@@ -193,9 +185,14 @@ theorem lower_pow [Semiring F] (x : F) (n : ℕ) :
   induction n with
   | zero => simp
   | succ n ih =>
-      rw [pow_succ, ih, lower_mul_lower]
-      congr 1
-      simp [Nat.cast_succ, add_mul]
+      calc
+        lower x ^ (n + 1) = lower ((n : F) * x) * lower x := by
+          rw [pow_succ, ih]
+        _ = lower ((n : F) * x + x) := lower_mul_lower _ _
+        _ = lower (((n + 1 : ℕ) : F) * x) := by
+          congr 1
+          rw [Nat.cast_succ]
+          ring
 
 end Matrix2
 
@@ -279,8 +276,14 @@ theorem lower_of_upper_and_mover
   have hmem : upper (-x) * g * upper (-y) ∈ C.carrier :=
     C.mul_mem (C.mul_mem (hupper (-x)) hg) (hupper (-y))
   have hisolate : upper (-x) * g * upper (-y) = lower g.c := by
-    rw [hfactor]
-    simp [mul_assoc]
+    calc
+      upper (-x) * g * upper (-y) =
+          upper (-x) * (upper x * lower g.c * upper y) *
+            upper (-y) := by rw [hfactor]
+      _ = (upper (-x) * upper x) * lower g.c *
+            (upper y * upper (-y)) := by
+          simp only [mul_assoc]
+      _ = lower g.c := by simp
   rwa [hisolate] at hmem
 
 /-- If both complete unipotent root subgroups are present, then every
@@ -315,7 +318,11 @@ theorem all_det_one_mem_of_upper_lower
       exact zero_ne_one hzero
     let B : Matrix2 F := lower 1 * A
     have hBc : B.c ≠ 0 := by
-      simpa [B, lower, Matrix2.mul, hc] using ha
+      intro hBzero
+      change (lower (1 : F) * A).c = 0 at hBzero
+      change A.a + A.c = 0 at hBzero
+      rw [hc, add_zero] at hBzero
+      exact ha hBzero
     have hBdet : det B = 1 := by
       calc
         det B = det (lower (1 : F)) * det A := by
@@ -324,11 +331,11 @@ theorem all_det_one_mem_of_upper_lower
     have hBmem :=
       mem_of_det_one_of_c_ne_zero C hupper hlower B hBdet hBc
     have hrecover : lower (-1 : F) * B = A := by
-      apply Matrix2.ext
-      · simp [B, lower, Matrix2.mul, hc]
-      · simp [B, lower, Matrix2.mul, hc]
-      · simp [B, lower, Matrix2.mul, hc]
-      · simp [B, lower, Matrix2.mul, hc]
+      calc
+        lower (-1 : F) * B =
+            (lower (-1 : F) * lower 1) * A := by
+          rw [B, ← mul_assoc]
+        _ = A := by simp
     have hleft := C.mul_mem (hlower (-1)) hBmem
     rwa [hrecover] at hleft
   · exact mem_of_det_one_of_c_ne_zero
