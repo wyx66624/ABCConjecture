@@ -131,3 +131,6 @@ import IUTThreeClosures.Cor312CoefficientAlgebra
 import IUTThreeClosures.IUTIVAbsorption
 import IUTThreeClosures.PublicNormalizationObstruction
 import IUTThreeClosures.CorrectedQPilotDivisor
+
+-- Fully compile the two-local-inertia quantitative route.
+import IUTThreeClosures.TwoInertiaSublinearHeight
