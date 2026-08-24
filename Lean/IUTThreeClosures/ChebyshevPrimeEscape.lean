@@ -137,7 +137,10 @@ theorem exists_prime_not_mem_of_explicit_chebyshev_bound
       (X : ℝ) * Real.log 2 - Real.log ((X : ℝ) + 1) -
           2 * Real.sqrt X * Real.log X ≤ Chebyshev.theta X := by
     simpa using Chebyshev.theta_ge X
-  exact (add_lt_add_right hupper (primeLogMass A)).trans_lt
-    (hbound.trans_le hlower)
+  have hmass :
+      Chebyshev.theta h + primeLogMass A ≤
+        Real.log 4 * (h : ℝ) + primeLogMass A :=
+    add_le_add_right hupper _
+  exact (hmass.trans_lt hbound).trans_le hlower
 
 end IUTThreeClosures
