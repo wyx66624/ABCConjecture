@@ -1,0 +1,595 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{counterexample}[theorem]{Counterexample}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\im}{\operatorname{im}}
+
+\title{Quantitative Frey Primes, Stacky Orbicurves, and the Exact Remaining Source Theorems in a Lean Formalization of the $abc$ Conjecture}
+\author{ABCConjecture formalization project}
+\date{August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We isolate and prove several structural and quantitative statements that occur
+immediately before the unresolved anabelian, tempered, and multiradial source
+theorems in an inter-universal-Teichm\"uller-theoretic route to the
+$abc$ conjecture.  The principal new arithmetic route replaces a merely
+eventual open-image theorem by a uniform semistable argument: Mazur
+irreducibility, a Tate-inertia transvection, and an explicit elementary
+factorization of determinant-one matrices imply containment of
+$\SL_2(\F_\ell)$.  A two-stage Euclidean construction then selects such a
+prime above an arbitrary lower threshold, avoiding a local Tate order and one
+residue characteristic, with a polynomial upper bound in the local order.
+Consequently the logarithm of the selected prime is logarithmic in the Frey
+height.  We prove two independent absorption principles showing that either a
+relative conductor estimate or a sublinear-height estimate for the genuine
+IUT different/error terms is sufficient for $abc$.
+
+On the geometric side we prove that the coarse quotient by the sign
+involution cannot satisfy the required cartesian square, exhibit the missing
+stacky inertia, and prove the generic action-groupoid weak-pullback theorem on
+objects and morphisms.  On the multiradial side we separate the distinguished
+$q$-branch needed for the lower Corollary~3.12 inequality from the all-output
+upper estimate, construct a semantic transfer theorem from genuine outputs to
+a generated Ind1/Ind2/Ind3 syntax, and distinguish permutation-orbit volume
+from the generally larger volume of a componentwise union.  We record exact
+counterexamples to coarse quotients, componentwise arbitrary-Ind2 unions, and
+unrestricted positive rescaling.
+
+Every theorem claimed as formalized is represented by a corresponding Lean
+module in the repository.  The paper does not claim a complete proof of
+$abc$: the remaining source theorems are stated precisely in the final
+section.
+\end{abstract}
+
+\section{The logarithmic $abc$ target and the Frey curve}
+
+Let $a,b,c\in\Z_{>0}$ satisfy
+\[
+  a+b=c,\qquad \gcd(a,b)=\gcd(b,c)=\gcd(c,a)=1.
+\]
+Write
+\[
+  h(a,b,c)=\log c,
+  \qquad r(a,b,c)=\log\rad(abc).
+\]
+The logarithmic $abc$ conjecture asserts that for every $\varepsilon>0$ there
+is a constant $C_\varepsilon$ such that
+\[
+  h(a,b,c)\le (1+\varepsilon)r(a,b,c)+C_\varepsilon.
+\]
+We use the integral Frey equation
+\[
+ E_{a,b}: y^2=x(x-a)(x+b).
+\]
+Its standard invariants are
+\[
+ c_4=16(a^2+ab+b^2),
+ \qquad \Delta=16(abc)^2.
+\]
+The existing Lean development proves the exact rational $j$-invariant,
+height corridor, discriminant--conductor comparison, and the reduction of the
+public IUT IV inequality to the logarithmic $abc$ target.
+
+\section{Odd support and the local multiplicative signature}
+
+\begin{lemma}[Odd support outside one point]
+Every primitive positive $abc$ triple either admits an odd prime
+$p\mid abc$, or equals $(1,1,2)$.
+\end{lemma}
+
+\begin{proof}
+If no odd prime divides any of $a,b,c$, then each is a power of two.  Pairwise
+coprimality permits at most one of them to exceed one.  Since $a+b=c$ and
+$a,b>0$, it follows that $a=b=1$ and $c=2$.
+\end{proof}
+
+\begin{lemma}[Odd multiplicative signature]
+Let $p$ be an odd prime dividing $abc$.  Then
+\[
+ p\mid\Delta,
+ \qquad p\nmid c_4.
+\]
+\end{lemma}
+
+\begin{proof}
+The first assertion follows from $\Delta=16(abc)^2$.  Suppose, for example,
+that $p\mid a$.  Pairwise coprimality gives $p\nmid b$, while
+\[
+ a^2+ab+b^2\equiv b^2\not\equiv0\pmod p.
+\]
+The cases $p\mid b$ and $p\mid c=a+b$ are identical; in the latter case
+$a\equiv-b\pmod p$, so
+$a^2+ab+b^2\equiv a^2\not\equiv0\pmod p$.
+Since $p$ is odd, the factor $16$ is invertible modulo $p$.
+\end{proof}
+
+For a DVR, an integral model with unit $c_4$ is minimal.  Indeed, under an
+admissible variable change of scale $u$,
+\[
+ c_4' =u^{-4}c_4,
+ \qquad \Delta'=u^{-12}\Delta.
+\]
+If the transformed model remains integral, then its $c_4$-valuation is at
+most one in the multiplicative convention.  When the original $c_4$ has
+valuation one, this implies $v(u^{-1})\le1$, hence
+$v(\Delta')\le v(\Delta)$.  This is precisely the maximality condition in
+Mathlib's definition of a minimal equation.
+
+\begin{theorem}[Integral-model reduction criterion]
+Let $R$ be a DVR with fraction field $K$ and let $W_0/R$ be a Weierstrass
+equation.  Let $W/K$ be its base change.
+\begin{enumerate}[label=(\roman*)]
+\item If $\Delta(W_0)$ is a unit of $R$, then $W$ has good reduction.
+\item If $\Delta(W_0)$ is a nonunit and $c_4(W_0)$ is a unit, then $W$ has
+multiplicative reduction.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The mapped equation is integral.  The adic valuation identities
+\[
+ v(r)=1\iff r\notin\mathfrak m,
+ \qquad v(r)<1\iff r\in\mathfrak m
+\]
+translate the two ideal signatures into Mathlib's good and multiplicative
+reduction predicates.  In (ii), minimality follows from the unit-$c_4$
+argument above; in (i), the unit discriminant already attains the maximal
+possible valuation among integral models.
+\end{proof}
+
+If $R\to S$ is a ring map and the maximal ideal $\mathfrak q$ of $S$
+contracts to $\mathfrak p$ of $R$, then
+\[
+ f(r)\in\mathfrak q\iff r\in\mathfrak p.
+\]
+Hence the same signatures transfer through a chosen lying-over prime.  This
+reduces the number-field completion theorem to the construction of the
+integral ring map and its contraction identity.
+
+\section{A uniform large-image theorem from Mazur and Tate inertia}
+
+For a field $k$ put
+\[
+ U(t)=\begin{pmatrix}1&t\\0&1\end{pmatrix},
+ \qquad
+ L(t)=\begin{pmatrix}1&0\\t&1\end{pmatrix}.
+\]
+
+\begin{lemma}[Explicit unipotent factorization]
+Let $A=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)\in
+\SL_2(k)$.
+If $c\ne0$, then
+\[
+ A=U\!\left(\frac{a-1}{c}\right)L(c)
+   U\!\left(\frac{d-1}{c}\right).
+\]
+If $c=0$, then $A$ is a product of four matrices of the form $U(t),L(t)$.
+\end{lemma}
+
+\begin{proof}
+The first identity follows by direct multiplication and the equation
+$ad-bc=1$.  In the triangular case, multiply by $L(1)$ to obtain a matrix with
+nonzero lower-left entry, apply the first identity, and multiply back by
+$L(-1)$.
+\end{proof}
+
+\begin{theorem}[Irreducible transvection criterion]
+Let $\ell$ be prime and let $H\le\GL_2(\F_\ell)$.  If $H$ acts irreducibly on
+$\F_\ell^2$ and contains a nontrivial transvection, then
+\[
+ \SL_2(\F_\ell)\le H.
+\]
+\end{theorem}
+
+\begin{proof}
+Choose a basis in which the transvection is $U(s)$ with $s\ne0$.  Its powers
+contain every $U(t)$ because $\F_\ell$ is the prime field.  Irreducibility
+supplies $A\in H$ moving the fixed line $\F_\ell e_1$, so the lower-left entry
+$c$ of $A$ is nonzero.  Conjugating $A U(1)A^{-1}$ by
+$U(-a/c)$ yields
+\[
+ L\!\left(-\frac{c^2}{\det A}\right),
+\]
+a nontrivial lower transvection.  Its powers give all $L(t)$.  The explicit
+factorization now gives every determinant-one matrix.
+\end{proof}
+
+This argument avoids the classification of subgroups of $\GL_2(\F_\ell)$.
+For a semistable elliptic curve over $\Q$, the required arithmetic inputs are:
+
+\begin{enumerate}[label=(\arabic*)]
+\item if $\ell>163$, the mod-$\ell$ representation is irreducible, because a
+reducible representation gives a rational cyclic $\ell$-isogeny and Mazur's
+prime-isogeny list is
+\[
+ \{2,3,5,7,11,13,17,19,37,43,67,163\};
+\]
+\item at a multiplicative prime $p\ne\ell$, Tate uniformization gives, in a
+suitable basis,
+\[
+ \rho(\sigma)=
+ \begin{pmatrix}1&N\,t_\ell(\sigma)\\0&1\end{pmatrix}
+ \quad(\sigma\in I_p),
+\]
+where $N=\ord_p(q)=\ord_p(\Delta_{\min})$ and the tame character is
+surjective modulo $\ell$.
+\end{enumerate}
+Thus $\ell\nmid N$ produces a nonzero transvection.
+
+\section{A bounded Euclidean auxiliary prime}
+
+\begin{theorem}[One-stage selector]
+Let $B,N\in\Z_{>0}$ and put
+\[
+ A=B!N+1.
+\]
+Any prime divisor $\ell$ of $A$ satisfies
+\[
+ B<\ell,\qquad \ell\nmid N,\qquad \ell\le B!N+1.
+\]
+\end{theorem}
+
+\begin{proof}
+A prime $\ell\le B$ divides $B!$, hence cannot divide $B!N+1$.
+Likewise, a prime dividing $N$ cannot divide $B!N+1$.  The upper bound follows
+from $\ell\mid A$.
+\end{proof}
+
+The multiplicative inertia theorem also requires $\ell\ne p$.  Including $p$
+in the avoidance product would introduce an unnecessarily large factor.  A
+second Euclidean step avoids it without this loss.
+
+\begin{theorem}[Two-stage selector]
+Let $A_1=B!N+1$ and let $\ell_1$ be a prime divisor of $A_1$.  If
+$\ell_1\ne p$, set $\ell=\ell_1$.  If $\ell_1=p$, choose a prime divisor
+$\ell$ of
+\[
+ A_2=B!NA_1+1.
+\]
+Then
+\[
+ B<\ell,\qquad \ell\nmid N,
+ \qquad \ell\ne p,
+\]
+and
+\[
+ \ell\le B!N(B!N+1)+1.
+\]
+\end{theorem}
+
+\begin{proof}
+Only the second case needs explanation.  The new prime divides neither $N$
+nor $A_1$.  Since $p=\ell_1$ divides $A_1$, it cannot equal the new prime.
+The displayed upper bound is the defining integer $A_2$.
+\end{proof}
+
+For fixed $B$,
+\[
+ B!N(B!N+1)+1
+ \le \bigl((B!+1)(N+1)\bigr)^2,
+\]
+so
+\[
+ \log\ell\le
+ 2\log(B!+1)+2\log(N+1).
+\]
+
+\section{The local order is height-controlled}
+
+Suppose $p^n\mid abc$.  Then
+\[
+ n\log p\le\log(abc).
+\]
+Since $a,b\le c$,
+\[
+ abc\le c^3,
+ \qquad \log(abc)\le3\log c.
+\]
+Therefore
+\[
+ n\log2\le3h(a,b,c).
+\]
+At an odd multiplicative Frey prime,
+\[
+ N=\ord_p(\Delta_{\min})=2n,
+\]
+so
+\[
+ N\log2\le6h(a,b,c).
+\]
+Combining this with the Euclidean selector yields
+\[
+ \log\ell\le 2\log(1+h(a,b,c))+O_{\varepsilon}(1)
+\]
+after choosing
+\[
+ B\ge\max\left\{163,7,\left\lceil\frac{20}{\varepsilon}\right\rceil\right\}.
+\]
+The implied constant may depend on $\varepsilon$, as permitted in $abc$.
+
+\section{Two exact absorption principles}
+
+The verified public IUT IV specialization has the schematic form
+\[
+ h\le (1+\kappa)
+       (\operatorname{Diff}+\operatorname{Cond}_{\mathrm{Frey}})
+      +20\operatorname{Err}+O(1),
+\]
+where $\kappa=20d_{\mathrm{mod}}/\ell$.  For a rational Frey $j$-invariant,
+$d_{\mathrm{mod}}=1$.
+
+\begin{theorem}[Relative conductor absorption]
+Assume that for every $\delta>0$ one can choose a genuine source such that
+\[
+ \kappa\le\delta
+\]
+and
+\[
+ (1+\delta)\operatorname{Diff}+20\operatorname{Err}
+ \le \delta r+C_\delta
+\]
+uniformly in the $abc$ point.  Then the logarithmic $abc$ conjecture holds.
+\end{theorem}
+
+\begin{proof}
+The Frey discriminant--conductor comparison gives
+\[
+ h\le(1+2\delta)r+O_\delta(1).
+\]
+Take $\delta=\varepsilon/2$.
+\end{proof}
+
+\begin{theorem}[Sublinear-height absorption]
+Assume that for every $\delta,\eta>0$ one can choose a genuine source such
+that $\kappa\le\delta$ and
+\[
+ (1+\delta)\operatorname{Diff}+20\operatorname{Err}
+ \le \eta h+C_{\delta,\eta}.
+\]
+Then the logarithmic $abc$ conjecture holds.
+\end{theorem}
+
+\begin{proof}
+Rearrangement gives
+\[
+ (1-\eta)h\le(1+\delta)r+O_{\delta,\eta}(1).
+\]
+For target $\varepsilon>0$, set
+\[
+ \delta=\frac{\varepsilon}{2},
+ \qquad
+ \eta=\frac{\varepsilon}{2(1+\varepsilon)}.
+\]
+Then
+\[
+ \frac{1+\delta}{1-\eta}=1+\varepsilon.
+\]
+\end{proof}
+
+The elementary inequality
+\[
+ \log(1+x)\le \rho x+\rho-1-\log\rho
+ \qquad(x\ge0,\ \rho>0)
+\]
+shows that every $O(\log(1+h))$ source term satisfies the second theorem.
+Consequently the remaining quantitative target may be stated as:
+\[
+ (1+\delta)\operatorname{Diff}+20\operatorname{Err}
+   =O_\delta(\log\ell+\log(N+1)+1).
+\]
+
+\section{The stacky sign quotient and the orbicurve square}
+
+The object-level cover underlying the type $(1,\ell\text{-tors})$ construction
+is
+\[
+ E\setminus E[\ell]\xrightarrow{[\ell]} E\setminus\{0\}.
+\]
+For every additive group $A$ one has the exact inverse-image identity
+\[
+ [n]^{-1}(A\setminus\{0\})=A\setminus A[n],
+\]
+and the map is equivariant for $x\mapsto-x$.
+
+A coarse sign quotient is insufficient.
+
+\begin{counterexample}[Failure of the coarse pullback]
+In $A=\Z/6\Z$ with $n=3$, the distinct elements $1$ and $5=-1$ have the same
+coarse sign orbit and both map to $3$.  Therefore
+\[
+ x\longmapsto([x],3x)
+\]
+is not injective, so the corresponding square of orbit sets is not
+cartesian.
+\end{counterexample}
+
+The missing datum is the sign morphism.  For a group $G$ acting on $X,Y$ and
+an equivariant map $f:X\to Y$, an object of the weak pullback of
+$[X/G]\to[Y/G]$ along the atlas $Y\to[Y/G]$ is a quadruple
+\[
+ (x,y,g,\ g f(x)=y).
+\]
+Its normalized point is $gx$.  The assignment to $gx$ induces an equivalence
+on isomorphism classes with $X$.  More strongly, a morphism between two such
+objects exists exactly when their normalized points agree, and it is unique.
+Thus the weak pullback groupoid is equivalent to the discrete groupoid on
+$X$.
+
+For the sign action, the stabilizer is trivial away from $A[2]$ and is the
+full sign group at a two-torsion point.  This stacky inertia is precisely what
+the coarse quotient erases.
+
+The remaining geometric theorem is to realize the punctured torsion map as a
+finite \emph{\'etale} map of algebraic curves, form the quotient stack, and
+transport the resulting 2-cartesian square to the required Galois categories
+and fundamental groups.
+
+\section{The cyclic skeleton quotient}
+
+An orientation-preserving deck transformation of an $\ell$-cycle is a
+permutation of $\Z/\ell\Z$ commuting with $x\mapsto x+1$.  Such a permutation
+is uniquely translation by its value at zero.  Hence
+\[
+ \operatorname{Deck}^+(C_\ell)\simeq\Z/\ell\Z,
+\]
+with canonical generator translation by one.  This is the finite graph
+quotient expected from an $\ell$-fold cover of the oriented Tate/Berkovich
+skeleton.
+
+The remaining tempered theorem is an equivalence between the actual
+rank-one quotient of the theta-root cover and this oriented deck group,
+together with compatibility of the canonical graph cusp.
+
+\section{Multiradial semantics and exact no-go results}
+
+Let $\mathcal G$ denote genuine Theorem~3.11 outputs and $\mathcal S$ a
+generated Ind1/Ind2/Ind3 syntax.  A semantic presentation consists of maps
+\[
+ \mathcal G\rightleftarrows\mathcal S
+\]
+whose represented regions include one another in the corresponding
+directions.  Soundness and completeness identify the full possible-image
+unions.  One-sided soundness already transfers the native lower branch.
+
+\subsection{The distinguished branch}
+For the lower inequality in Corollary~3.12, a classification of all genuine
+outputs is unnecessary.  It suffices to produce one genuine output whose
+represented region equals the native $q$-pilot region.  The complete candidate
+Tate--Kummer model contains such an ordinary branch.  What remains is the
+source theorem identifying this candidate branch with the actual
+$\Theta^{\times\mu}_{\mathrm{LGP}}$ gluing output.
+
+\subsection{Permutation quotient versus componentwise union}
+Arbitrary label permutations preserve the total and uniform average of the
+component volumes.  Therefore the average descends to the permutation-orbit
+quotient.  They do not, however, preserve the volume of a componentwise union.
+
+\begin{counterexample}[Orbit volume does not control union volume]
+Take two labels and a two-point carrier.  Let the first component contain one
+point and the second contain two.  The packet and its label swap both have
+total cardinality $3$, whereas their componentwise union has total cardinality
+$4$.
+\end{counterexample}
+
+Thus arbitrary Ind2 is valid only at a permutation-orbit/coarse numerical
+level, unless a further correlated-packet theorem justifies a literal union.
+The separate spectrum-preserving region model remains available for
+componentwise inclusions.
+
+\subsection{Scale rigidity}
+If a nonempty set of positive $q$-log magnitudes is invariant under every
+positive real scaling, then it contains every positive real number.  It is
+therefore unbounded above and not bounded away from zero.  Hence an interface
+that forgets scale up to unrestricted positive rescaling cannot support a
+finite $q$-linked log-volume estimate.  The genuine log-Kummer theorem must
+prove spectrum preservation or a specific finite envelope; unrestricted
+scale-forgetting is excluded.
+
+\section{Exact remaining theorem chain}
+
+The reliable formal reductions leave the following source theorems.
+
+\subsection*{Arithmetic global core}
+\begin{enumerate}[label=G\arabic*.]
+\item Construct a finite level-twelve torsion field for the Frey curve.
+\item Either obtain $\sqrt{-1}$ by the Weil pairing or adjoin it explicitly;
+prove the resulting finite extension and its Galois image.
+\item Prove semistability after this extension, either by Raynaud's level
+$3/4$ theorem or by direct ideal-signature transfer at all places.
+\item Construct one odd multiplicative moduli place and identify its Tate
+order with $2\ord_p(abc)$.
+\end{enumerate}
+
+\subsection*{Quantitative admissible prime}
+\begin{enumerate}[label=P\arabic*.]
+\item Formalize reducibility $\Rightarrow$ rational cyclic isogeny and Mazur's
+prime-isogeny classification.
+\item Formalize the Tate-inertia matrix and surjective tame character.
+\item Transport the actual $\GL_2$ representation image to the explicit
+matrix model.
+\item Prove solvability of the fixed level-twelve (and optional quadratic)
+extension and apply perfect-image restriction.
+\item Prove a logarithmic or relative bound for the genuine IUT
+$\operatorname{Diff}/\operatorname{Err}$ terms.
+\end{enumerate}
+
+\subsection*{Anabelian and tempered fiber}
+\begin{enumerate}[label=A\arabic*.]
+\item Realize the punctured torsion map as a finite \'etale cover.
+\item Construct the sign quotient stack/orbicurve and its 2-cartesian square.
+\item Identify the corresponding \'etale fundamental groups, core, and type
+predicates.
+\item Construct the local Tate/Berkovich skeleton and theta-root cover.
+\item Identify the rank-one tempered quotient and canonical graph cusp.
+\end{enumerate}
+
+\subsection*{Genuine multiradial source}
+\begin{enumerate}[label=M\arabic*.]
+\item Construct actual Hodge-theater/log-Kummer output objects.
+\item Prove the distinguished gluing branch equals the native $q$-pilot.
+\item Prove a sound semantic presentation by the generated syntax.
+\item Prove Ind1/Ind2 volume invariance in the correct quotient semantics.
+\item Prove Ind3 upper semi-compatibility and the all-output envelope.
+\item Prove native procession-volume calibration and the public IUT IV
+component formula.
+\end{enumerate}
+
+Only after G1--G4, P1--P5, A1--A5, and M1--M6 are established independently
+and connected to the already verified downstream Lean chain is it legitimate
+to conclude an unconditional proof of the $abc$ conjecture.
+
+\section*{Lean correspondence}
+The principal modules associated with the results of this manuscript include:
+\begin{itemize}
+\item \texttt{FreyOddPrimeSupport},
+  \texttt{MinimalModelFromUnitC4},
+  \texttt{LocalIntegralModelReduction},
+  \texttt{LocalReductionLiesOverTransfer};
+\item \texttt{SL2UnipotentFactorization},
+  \texttt{SL2IrreducibleTransvectionCriterion},
+  \texttt{TateInertiaTransvectionReduction},
+  \texttt{MazurPrimeIsogenyBoundary};
+\item \texttt{EuclidAuxiliaryPrimeSelector},
+  \texttt{EuclidAuxiliaryPrimeAvoidOne},
+  \texttt{EuclidAuxiliaryPrimeLogBound},
+  \texttt{FreyLocalOrderHeightBound};
+\item \texttt{RelativeDifferentErrorAbsorption},
+  \texttt{SublinearHeightSourceAbsorption},
+  \texttt{LogOnePlusSublinear};
+\item \texttt{PuncturedTorsionCover},
+  \texttt{OrbifoldQuotientNecessity},
+  \texttt{ActionGroupoidPullbackClasses},
+  \texttt{ActionGroupoidPullbackMorphisms},
+  \texttt{SignStabilizerInertia};
+\item \texttt{TemperedCycleSkeleton},
+  \texttt{MultiradialPresentationTransfer},
+  \texttt{DistinguishedMultiradialBranch},
+  \texttt{Ind2PermutationVolumeQuotient}, and
+  \texttt{ValueGroupScaleRigidity}.
+\end{itemize}
+Each module is merged into the main branch only after the Lean kernel build
+succeeds.
+
+\end{document}
