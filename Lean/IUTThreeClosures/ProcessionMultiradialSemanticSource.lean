@@ -11,24 +11,24 @@ import IUTThreeClosures.MultiradialPresentationTransfer
 
 The genuine output of IUT III, Theorem 3.11 is naturally described by
 Hodge-theater, log-Kummer and Frobenioid objects, while the downstream Lean
-proof uses a generated Ind1/Ind2/Ind3 syntax.  Equality of the two output types
-is neither expected nor required.  What is required is a capsule-wise semantic
+proof uses a generated Ind1/Ind2/Ind3 syntax. Equality of the two output types
+is neither expected nor required. What is required is a capsule-wise semantic
 presentation that is sound and complete at every rational place.
 
 This module lifts `MultiradialSemanticPresentation` to the complete public
-procession interface.  It proves that a sound/complete presentation identifies
+procession interface. It proves that a sound/complete presentation identifies
 all genuine and generated possible-image unions, capsule by capsule and place
-by place.  Consequently the generated public theta-pilot is extensionally the
+by place. Consequently the generated public theta-pilot is extensionally the
 union of the genuine outputs.
 
 A second structure packages one genuine native q-output whose encoded syntax
 region is exactly the same region and whose procession volume is the public
-q-pilot left-hand side.  From this source-facing information we construct the
+q-pilot left-hand side. From this source-facing information we construct the
 existing `GeneratedNativeSource`, hence an `ActualPilotWitness` and the
 standalone Corollary 3.12 inequality.
 
 No Corollary 3.12 inequality, component upper estimate, height estimate or abc
-statement is stored as a field.  The remaining source theorem is now precisely
+statement is stored as a field. The remaining source theorem is now precisely
 to construct the genuine output family and prove the soundness, completeness
 and native-volume calibration fields below.
 -/
@@ -44,7 +44,7 @@ universe u v w x
 variable {AG : AnabelianGeometry.{u}} {TG : TemperedGeometry AG}
 
 /-- A sound and complete semantic presentation of genuine procession outputs
-by a generated output syntax.  The comparisons are made as inclusions of
+by a generated output syntax. The comparisons are made as inclusions of
 public admissible regions in every capsule. -/
 structure ProcessionMultiradialSemanticPresentation
     {D : InitialThetaData AG TG}
@@ -79,12 +79,16 @@ variable
 
 /-- The raw genuine possible-image union at one capsule and rational place. -/
 def genuineUnionSet
+    (_P : ProcessionMultiradialSemanticPresentation
+      C Genuine Syntax genuineRealize syntaxRealize)
     (i : Fin C.proc.length) (vQ : RationalPlace) :
     Set (C.packet i vQ).Total :=
   ⋃ g : Genuine, (genuineRealize g i).region vQ
 
 /-- The corresponding generated-syntax possible-image union. -/
 def syntaxUnionSet
+    (_P : ProcessionMultiradialSemanticPresentation
+      C Genuine Syntax genuineRealize syntaxRealize)
     (i : Fin C.proc.length) (vQ : RationalPlace) :
     Set (C.packet i vQ).Total :=
   ⋃ s : Syntax, (syntaxRealize s i).region vQ
@@ -93,7 +97,7 @@ def syntaxUnionSet
 theorem mem_genuineUnionSet
     {i : Fin C.proc.length} {vQ : RationalPlace}
     {a : (C.packet i vQ).Total} :
-    a ∈ P.genuineUnionSet i vQ ↔
+    a ∈ genuineUnionSet P i vQ ↔
       ∃ g : Genuine, a ∈ (genuineRealize g i).region vQ := by
   simp [genuineUnionSet]
 
@@ -101,32 +105,48 @@ theorem mem_genuineUnionSet
 theorem mem_syntaxUnionSet
     {i : Fin C.proc.length} {vQ : RationalPlace}
     {a : (C.packet i vQ).Total} :
-    a ∈ P.syntaxUnionSet i vQ ↔
+    a ∈ syntaxUnionSet P i vQ ↔
       ∃ s : Syntax, a ∈ (syntaxRealize s i).region vQ := by
   simp [syntaxUnionSet]
 
 /-- Soundness carries every genuine possible image into the syntax union. -/
 theorem genuineUnion_le_syntaxUnion
     (i : Fin C.proc.length) (vQ : RationalPlace) :
-    P.genuineUnionSet i vQ ⊆ P.syntaxUnionSet i vQ := by
-  rintro a ⟨g, ha⟩
-  exact ⟨P.encode g, P.encode_sound g i vQ ha⟩
+    genuineUnionSet P i vQ ⊆ syntaxUnionSet P i vQ := by
+  intro a ha
+  rcases (mem_genuineUnionSet P).mp ha with ⟨g, hg⟩
+  rcases P with ⟨encode, encode_sound, _decode, _decode_complete⟩
+  exact (mem_syntaxUnionSet
+    (P := {
+      encode := encode
+      encode_sound := encode_sound
+      decode := _decode
+      decode_complete := _decode_complete })).mpr
+    ⟨encode g, encode_sound g i vQ hg⟩
 
 /-- Completeness carries every generated output back to a genuine output. -/
 theorem syntaxUnion_le_genuineUnion
     (i : Fin C.proc.length) (vQ : RationalPlace) :
-    P.syntaxUnionSet i vQ ⊆ P.genuineUnionSet i vQ := by
-  rintro a ⟨s, ha⟩
-  exact ⟨P.decode s, P.decode_complete s i vQ ha⟩
+    syntaxUnionSet P i vQ ⊆ genuineUnionSet P i vQ := by
+  intro a ha
+  rcases (mem_syntaxUnionSet P).mp ha with ⟨s, hs⟩
+  rcases P with ⟨_encode, _encode_sound, decode, decode_complete⟩
+  exact (mem_genuineUnionSet
+    (P := {
+      encode := _encode
+      encode_sound := _encode_sound
+      decode := decode
+      decode_complete := decode_complete })).mpr
+    ⟨decode s, decode_complete s i vQ hs⟩
 
 /-- The genuine and generated possible-image unions agree at every capsule
 and rational place. -/
 theorem unionSet_eq
     (i : Fin C.proc.length) (vQ : RationalPlace) :
-    P.genuineUnionSet i vQ = P.syntaxUnionSet i vQ :=
+    genuineUnionSet P i vQ = syntaxUnionSet P i vQ :=
   Set.Subset.antisymm
-    (P.genuineUnion_le_syntaxUnion i vQ)
-    (P.syntaxUnion_le_genuineUnion i vQ)
+    (genuineUnion_le_syntaxUnion P i vQ)
+    (syntaxUnion_le_genuineUnion P i vQ)
 
 /-- A convenient stronger constructor when encoding and decoding preserve the
 complete admissible region exactly. -/
@@ -142,9 +162,13 @@ def ofRegionEqualities
     ProcessionMultiradialSemanticPresentation
       C Genuine Syntax genuineRealize syntaxRealize where
   encode := encode
-  encode_sound := fun g i => (hencode g i).le
+  encode_sound := by
+    intro g i
+    rw [hencode g i]
   decode := decode
-  decode_complete := fun s i => (hdecode s i).le
+  decode_complete := by
+    intro s i
+    rw [hdecode s i]
 
 end ProcessionMultiradialSemanticPresentation
 
@@ -186,13 +210,18 @@ theorem genuineUnionSet_eq_thetaPilot
     (S : SemanticGeneratedNativeSource.{u, v, w, x} D Q)
     (i : Fin S.rhs.container.proc.length)
     (vQ : RationalPlace) :
-    S.presentation.genuineUnionSet i vQ =
+    ProcessionMultiradialSemanticPresentation.genuineUnionSet
+        S.presentation i vQ =
       (S.rhs.outputs.unionRegion i).region vQ := by
   calc
-    S.presentation.genuineUnionSet i vQ =
-        S.presentation.syntaxUnionSet i vQ :=
-      S.presentation.unionSet_eq i vQ
-    _ = (S.rhs.outputs.unionRegion i).region vQ := rfl
+    ProcessionMultiradialSemanticPresentation.genuineUnionSet
+        S.presentation i vQ =
+        ProcessionMultiradialSemanticPresentation.syntaxUnionSet
+          S.presentation i vQ :=
+      ProcessionMultiradialSemanticPresentation.unionSet_eq
+        S.presentation i vQ
+    _ = (S.rhs.outputs.unionRegion i).region vQ := by
+      rfl
 
 /-- The semantic source constructs the already audited generated native
 source. -/
