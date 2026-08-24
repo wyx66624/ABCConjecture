@@ -34,6 +34,23 @@ acceptance are not counterexamples and are not grounds for deleting a route.
 - `research/joshi-arithmetic-teichmuller`: independent audit and possible
   formalization of Kirti Joshi's Arithmetic Teichmuller Spaces.
 
+## Retired claims with recorded counterexamples
+
+- **Root-pullback equals graph cover.**  If `r^ell=q`, the map induced by
+  `v |-> v^ell` from the `r`-Tate quotient to the `q`-Tate quotient has degree
+  one on normalized radial skeletons and angular kernel `mu_ell(K)`.  It is not
+  the graph-direction `Z/ell Z` cover.  The cyclotomic/Kummer isogeny results
+  are retained; the corrected graph-period route uses `<q^ell> <= <q>`.
+- **Complete global `j` packet may directly replace the IUT IV odd q-divisor.**
+  The Frey family `(1,2^m,2^m+1)` gives an omitted height packet larger than
+  `2 * log(rad(abc))` up to a positive constant, so the replacement forces a
+  nonvanishing conductor-error slope.  The source-faithful odd-q and
+  compact-tripod/GenEll route is retained.
+
+The full mathematical arguments are recorded as B.0 and C.0 in
+`CORE_PROOF_NOTEBOOK.md`.  These entries retire only the stated identifications,
+not abc, IUT, or the corrected surviving routes.
+
 ## Merge policy
 
 Only kernel-checked, non-circular statements are merged into `main`. When an old

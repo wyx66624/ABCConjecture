@@ -4,6 +4,7 @@ import IUTThreeClosures.GeneratedSource
 import IUTThreeClosures.PublicLogVolumeInconsistency
 import IUTThreeClosures.HonestFinitePositiveLogVolume
 import IUTThreeClosures.FiniteProductLogVolume
+import IUTThreeClosures.MaximalValuationRingHull
 import IUTThreeClosures.PublicThetaHullComponentFormula
 import IUTThreeClosures.PublicThetaHullUpperBound
 import IUTThreeClosures.PublicIUTIVTheorem110
@@ -114,6 +115,7 @@ import IUTThreeClosures.LocalThetaQPacketTemperedSplit
 import IUTThreeClosures.TateThetaKummerFiber
 import IUTThreeClosures.TateThetaRootEquivariantDescent
 import IUTThreeClosures.TateThetaRootDeckFreeness
+import IUTThreeClosures.TateThetaOddGraphDescent
 import IUTThreeClosures.FiberAutomaticChoices
 import IUTThreeClosures.CorrectedLocalThetaFiber
 import IUTThreeClosures.ActualHodgeTheaterOutput
@@ -127,5 +129,6 @@ import IUTThreeClosures.ZeroLabelBarycentric
 import IUTThreeClosures.DiagonalPacketNoGo
 import IUTThreeClosures.Cor312CoefficientAlgebra
 import IUTThreeClosures.IUTIVAbsorption
+import IUTThreeClosures.SublinearQPilotAbsorption
 import IUTThreeClosures.PublicNormalizationObstruction
 import IUTThreeClosures.CorrectedQPilotDivisor
