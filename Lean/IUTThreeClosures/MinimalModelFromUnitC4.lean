@@ -51,27 +51,25 @@ theorem isMinimal_of_isIntegral_c4_valuation_eq_one
   · simpa using hIntegral
   · intro C hC _hcomparison
     letI : (C • W).IsIntegral R := hC
-    have hval :
-        valuation_Δ_aux R (C • W) ≤ valuation_Δ_aux R W := by
-      change
+    have hc4_le :
+        valuation K (IsDiscreteValuationRing.maximalIdeal R)
+            (C • W).c₄ ≤ 1 := by
+      rw [← integralModel_c₄_eq R (C • W)]
+      exact valuation_le_one
+        (IsDiscreteValuationRing.maximalIdeal R)
+        (integralModel R (C • W)).c₄
+    have hu_pow :
+        (valuation K (IsDiscreteValuationRing.maximalIdeal R)
+            (C.u⁻¹ : K)) ^ 4 ≤ 1 := by
+      simpa only [variableChange_c₄, map_mul, map_pow,
+        hc4, mul_one] using hc4_le
+    have hu :
+        valuation K (IsDiscreteValuationRing.maximalIdeal R)
+            (C.u⁻¹ : K) ≤ 1 :=
+      (pow_le_one_iff (by norm_num : (4 : ℕ) ≠ 0)).mp hu_pow
+    have hdisc :
         valuation K (IsDiscreteValuationRing.maximalIdeal R) (C • W).Δ ≤
-          valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ
-      have hc4_le :
-          valuation K (IsDiscreteValuationRing.maximalIdeal R)
-              (C • W).c₄ ≤ 1 := by
-        rw [← integralModel_c₄_eq R (C • W)]
-        exact valuation_le_one
-          (IsDiscreteValuationRing.maximalIdeal R)
-          (integralModel R (C • W)).c₄
-      have hu_pow :
-          (valuation K (IsDiscreteValuationRing.maximalIdeal R)
-              (C.u⁻¹ : K)) ^ 4 ≤ 1 := by
-        simpa only [variableChange_c₄, map_mul, map_pow,
-          hc4, mul_one] using hc4_le
-      have hu :
-          valuation K (IsDiscreteValuationRing.maximalIdeal R)
-              (C.u⁻¹ : K) ≤ 1 :=
-        (pow_le_one_iff (by norm_num : (4 : ℕ) ≠ 0)).mp hu_pow
+          valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ := by
       rw [variableChange_Δ, map_mul, map_pow]
       calc
         (valuation K (IsDiscreteValuationRing.maximalIdeal R)
@@ -84,7 +82,7 @@ theorem isMinimal_of_isIntegral_c4_valuation_eq_one
             (zero_le _)
         _ = valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ :=
           one_mul _
-    simpa only [one_smul] using hval
+    simpa only [one_smul, valuation_Δ_aux_eq_of_isIntegral] using hdisc
 
 /-- Consequently, an integral equation with bad discriminant and unit `c₄`
 has multiplicative reduction, without a separate minimality hypothesis. -/
