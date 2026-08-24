@@ -107,8 +107,7 @@ theorem productNativeRegion_le_possibleUnion
     (F : MeasuredNormControlledSourceFamily.{u, v, w, x, y, z}
       J α μ) :
     (F.productNativeRegion : Set (∀ j : J, α j)) ⊆
-      (F.toNormControlledSourceFamily.productSource
-        .toUpperSemicompatibleSystem).possibleUnion := by
+      F.toNormControlledSourceFamily.productSource.toUpperSemicompatibleSystem.possibleUnion := by
   rw [F.productNativeRegion_carrier]
   exact F.toNormControlledSourceFamily.productNativeImage
 
