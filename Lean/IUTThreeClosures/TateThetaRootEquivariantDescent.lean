@@ -53,11 +53,12 @@ theorem no_integral_laurent_exponent_for_theta_root_shift
     {ell : ℕ} (hell : 2 ≤ ell) :
     ¬ ∃ m : ℤ, (ell : ℤ) * m = -1 := by
   rintro ⟨m, hm⟩
-  have hdiv : (ell : ℤ) ∣ (-1 : ℤ) := ⟨m, hm⟩
-  have habs : |(ell : ℤ)| ≤ |(-1 : ℤ)| :=
-    Int.natAbs_le_natAbs_of_dvd (by norm_num) hdiv
-  simp only [Int.natAbs_ofNat, Int.natAbs_neg, Int.natAbs_one] at habs
-  omega
+  rcases Int.eq_one_or_neg_one_of_mul_eq_neg_one' hm with h | h
+  · have hell_eq : ell = 1 := by
+      exact_mod_cast h.1
+    omega
+  · have hell_nonneg : (0 : ℤ) ≤ (ell : ℤ) := by positivity
+    omega
 
 /-- A point of the theta-root locus after the power pullback `u = v^ell`. -/
 structure TateThetaRootPullbackPoint
@@ -87,8 +88,18 @@ theorem thetaProd_pullback_shift
     t.thetaProd ((r * v) ^ ell) =
       (((r * v : Kˣ) : K)⁻¹) ^ ell *
         t.thetaProd (v ^ ell) := by
-  simpa [mul_pow, hr, inv_pow] using
-    (t.thetaProd_q_smul (v ^ ell))
+  calc
+    t.thetaProd ((r * v) ^ ell) =
+        t.thetaProd (t.q * (v ^ ell)) := by
+      rw [mul_pow, hr]
+    _ = (((t.q * (v ^ ell) : Kˣ) : K)⁻¹) *
+        t.thetaProd (v ^ ell) := by
+      simpa only [Units.val_mul] using
+        (t.thetaProd_q_smul (v ^ ell))
+    _ = (((r * v : Kˣ) : K)⁻¹) ^ ell *
+        t.thetaProd (v ^ ell) := by
+      rw [← hr]
+      simp only [Units.val_mul, Units.val_pow, inv_pow, mul_pow]
 
 /-- The forward lift of the Tate translation to the pulled-back theta-root
 locus. -/
