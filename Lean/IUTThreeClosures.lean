@@ -109,6 +109,7 @@ import IUTThreeClosures.ValuationSectionNormalization
 import IUTThreeClosures.EquivalentValuationSection
 import IUTThreeClosures.LocalThetaQPacketTemperedSplit
 import IUTThreeClosures.TateThetaKummerFiber
+import IUTThreeClosures.TateThetaKummerTorsor
 import IUTThreeClosures.FiberAutomaticChoices
 import IUTThreeClosures.CorrectedLocalThetaFiber
 import IUTThreeClosures.ActualHodgeTheaterOutput
