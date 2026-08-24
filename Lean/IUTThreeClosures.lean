@@ -132,3 +132,6 @@ import IUTThreeClosures.Cor312CoefficientAlgebra
 import IUTThreeClosures.IUTIVAbsorption
 import IUTThreeClosures.PublicNormalizationObstruction
 import IUTThreeClosures.CorrectedQPilotDivisor
+
+-- CI reachability audit for recently merged standalone core files.
+import IUTThreeClosures.RecentCoreReachability
