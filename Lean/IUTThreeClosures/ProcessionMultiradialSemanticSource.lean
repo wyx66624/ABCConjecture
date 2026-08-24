@@ -21,11 +21,11 @@ all genuine and generated possible-image unions, capsule by capsule and place
 by place. Consequently the generated public theta-pilot is extensionally the
 union of the genuine outputs.
 
-A second structure packages one genuine native q-output whose encoded syntax
-region is exactly the same region and whose procession volume is the public
-q-pilot left-hand side. From this source-facing information we construct the
-existing `GeneratedNativeSource`, hence an `ActualPilotWitness` and the
-standalone Corollary 3.12 inequality.
+A second structure packages one genuine native q-output and one syntax output
+representing exactly the same public admissible regions, together with the
+native procession-volume calibration. From this source-facing information we
+construct the existing `GeneratedNativeSource`, hence an `ActualPilotWitness`
+and the standalone Corollary 3.12 inequality.
 
 No Corollary 3.12 inequality, component upper estimate, height estimate or abc
 statement is stored as a field. The remaining source theorem is now precisely
@@ -114,30 +114,22 @@ theorem genuineUnion_le_syntaxUnion
     (i : Fin C.proc.length) (vQ : RationalPlace) :
     genuineUnionSet P i vQ ⊆ syntaxUnionSet P i vQ := by
   intro a ha
-  rcases (mem_genuineUnionSet P).mp ha with ⟨g, hg⟩
+  change a ∈ ⋃ g : Genuine, (genuineRealize g i).region vQ at ha
+  rcases Set.mem_iUnion.mp ha with ⟨g, hg⟩
+  change a ∈ ⋃ s : Syntax, (syntaxRealize s i).region vQ
   rcases P with ⟨encode, encode_sound, _decode, _decode_complete⟩
-  exact (mem_syntaxUnionSet
-    (P := {
-      encode := encode
-      encode_sound := encode_sound
-      decode := _decode
-      decode_complete := _decode_complete })).mpr
-    ⟨encode g, encode_sound g i vQ hg⟩
+  exact Set.mem_iUnion.mpr ⟨encode g, encode_sound g i vQ hg⟩
 
 /-- Completeness carries every generated output back to a genuine output. -/
 theorem syntaxUnion_le_genuineUnion
     (i : Fin C.proc.length) (vQ : RationalPlace) :
     syntaxUnionSet P i vQ ⊆ genuineUnionSet P i vQ := by
   intro a ha
-  rcases (mem_syntaxUnionSet P).mp ha with ⟨s, hs⟩
+  change a ∈ ⋃ s : Syntax, (syntaxRealize s i).region vQ at ha
+  rcases Set.mem_iUnion.mp ha with ⟨s, hs⟩
+  change a ∈ ⋃ g : Genuine, (genuineRealize g i).region vQ
   rcases P with ⟨_encode, _encode_sound, decode, decode_complete⟩
-  exact (mem_genuineUnionSet
-    (P := {
-      encode := _encode
-      encode_sound := _encode_sound
-      decode := decode
-      decode_complete := decode_complete })).mpr
-    ⟨decode s, decode_complete s i vQ hs⟩
+  exact Set.mem_iUnion.mpr ⟨decode s, decode_complete s i vQ hs⟩
 
 /-- The genuine and generated possible-image unions agree at every capsule
 and rational place. -/
@@ -175,8 +167,9 @@ end ProcessionMultiradialSemanticPresentation
 /-- A genuine multiradial source presented by the already verified generated
 public-output interface, together with one genuine native q-output.
 
-The equality `native_encode_eq` is a semantic identification of the native
-source region, not a numerical inequality or downstream target. -/
+`nativeSyntax` is required to represent exactly the same complete procession
+region as `native`. This is a semantic identification, not a downstream
+numerical inequality. -/
 structure SemanticGeneratedNativeSource
     (D : InitialThetaData AG TG)
     (Q : QPilotData D) : Type (max (u + 1) (v + 1) (w + 1) (x + 1)) where
@@ -189,9 +182,10 @@ structure SemanticGeneratedNativeSource
       rhs.container Genuine rhs.outputs.Output
       genuineRealize rhs.outputs.realize
   native : Genuine
-  native_encode_eq :
+  nativeSyntax : rhs.outputs.Output
+  native_region_eq :
     ∀ i,
-      rhs.outputs.realize (presentation.encode native) i =
+      rhs.outputs.realize nativeSyntax i =
         genuineRealize native i
   nativeVolume :
     rhs.vol.processionVol (genuineRealize native) = Q.lhs
@@ -229,14 +223,13 @@ noncomputable def toGeneratedNativeSource
     (S : SemanticGeneratedNativeSource.{u, v, w, x} D Q) :
     GeneratedNativeSource.{u, v, w} D Q where
   rhs := S.rhs
-  native := S.presentation.encode S.native
+  native := S.nativeSyntax
   nativeVolume := by
     have hregions :
-        S.rhs.outputs.realize
-            (S.presentation.encode S.native) =
+        S.rhs.outputs.realize S.nativeSyntax =
           S.genuineRealize S.native := by
       funext i
-      exact S.native_encode_eq i
+      exact S.native_region_eq i
     rw [hregions]
     exact S.nativeVolume
   processionVol_mono := S.processionVol_mono
@@ -245,21 +238,23 @@ noncomputable def toGeneratedNativeSource
 noncomputable def toVariantData
     (S : SemanticGeneratedNativeSource.{u, v, w, x} D Q) :
     Corollary312VariantData.{u, v} AG TG :=
-  S.toGeneratedNativeSource.toVariantData
+  GeneratedNativeSource.toVariantData (toGeneratedNativeSource S)
 
 /-- A genuine sound/complete multiradial presentation with calibrated native
 volume produces an actual public pilot witness. -/
 noncomputable def toActualPilotWitness
     (S : SemanticGeneratedNativeSource.{u, v, w, x} D Q) :
-    ActualPilotWitness S.toVariantData :=
-  S.toGeneratedNativeSource.toActualPilotWitness
+    ActualPilotWitness (toVariantData S) :=
+  GeneratedNativeSource.toActualPilotWitness
+    (toGeneratedNativeSource S)
 
 /-- Hence the standalone public Corollary 3.12 variant follows from the
 semantic source data, with no target proposition stored in the source. -/
 theorem corollary312Variant
     (S : SemanticGeneratedNativeSource.{u, v, w, x} D Q) :
-    Corollary312Variant S.toVariantData :=
-  S.toActualPilotWitness.corollary312Variant
+    Corollary312Variant (toVariantData S) :=
+  ActualPilotWitness.corollary312Variant
+    (toActualPilotWitness S)
 
 end SemanticGeneratedNativeSource
 
