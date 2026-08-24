@@ -152,8 +152,10 @@ tempered fundamental group is a later theorem, not part of B.2.
 
 ### B.3 — The graph-direction cyclic quotient
 
-**Status:** proved on paper as an abstract group statement; Lean formalization
-pending.
+**Status:** kernel-checked as the abstract quotient-group equivalence
+`TateGraphPeriodQuotient.graphPeriodQuotientEquivZMod` in
+`IUTThreeClosures/TateGraphPeriodQuotient.lean`.  The Lean theorem works for
+every natural `ell`; the graph-cover application below uses `ell>0`.
 
 Assume `q` has infinite order and `ell>0`.  Put
 
@@ -188,7 +190,179 @@ constructed, the radial model `R/(ell*w(q))Z -> R/w(q)Z` has graph degree
 of the abstract group statement alone.  Oddness is not needed for B.3; it is
 needed in B.2 to make the theta automorphy factor an `ell`-th power.
 
-### B.4 — Exact remaining geometric statement
+### B.4 — The integer action and its freeness
+
+**Status:** kernel-checked in
+`IUTThreeClosures/TateThetaOddGraphAction.lean`.
+
+Let `X=Y_ell` be the theta-root locus of B.2, let `ell=2k+1`, put
+`Q=q^ell`, and let `T:X->X` be the equivalence constructed there.  Define
+
+```text
+n . z = T^n(z),                    n in Z.              (B.4)
+```
+
+Then (B.4) is a free action of `Z` on `X`.
+
+**Proof.**  The identities `T^0=id` and `T^(m+n)=T^m*T^n` give the zero and
+addition laws, so (B.4) is an action.  The base-coordinate formulas for `T`
+and its explicit inverse are
+
+```text
+base(T(z))      = Q*base(z),
+base(T^(-1)(z)) = Q^(-1)*base(z).
+```
+
+Induction in the positive and negative directions therefore gives, for every
+integer `n`,
+
+```text
+base(T^n(z)) = Q^n*base(z).                            (B.5)
+```
+
+Suppose `T^n(z)=z`.  Since `base(z)` lies in `K^x`, (B.5) permits cancellation
+of this nonzero coordinate and yields `Q^n=1`.  But
+
+```text
+Q^n=(q^ell)^n=q^(ell*n).
+```
+
+A Tate parameter has infinite order: a positive natural power equal to one
+would have norm both strictly below one and equal to one.  Hence `ell*n=0`.
+As `ell=2k+1>0`, this forces `n=0`.  Thus every stabilizer is trivial, which is
+exactly freeness.  Notice that the argument uses only the base coordinate; it
+does not assume that the theta-root coordinate is nonzero.  ∎
+
+The Lean module constructs the actual integral iterates, proves (B.5) for
+all `n : ℤ`, derives the infinite order of the Tate parameter from its norm
+inequality, proves the fixed-point equivalence `T^n z = z ↔ n = 0`, and
+packages the result as Mathlib's `IsCancelVAdd` free-action class.  No
+topological or analytic quotient is hidden in this statement.
+
+#### B.4.1 — Proper discontinuity and the topological orbit cover
+
+Give `X` the topology induced by the injective coordinate map
+
+```text
+X -> (K x K) x K,       (u,y) |-> ((u,u^(-1)),y).
+```
+
+This is precisely the product topology on the unit coordinate and the root
+coordinate.  The explicit formulas for `T` and `T^(-1)` use only continuous
+unit multiplication, unit inversion/coercion, and field multiplication, so
+`T` is a homeomorphism and every integer iterate is continuous.
+
+Put `h(u,y)=log ||u||` and `a=log ||Q||`.  Since `0<||q||<1` and
+`Q=q^(2k+1)`, one has `a=(2k+1) log ||q||<0`; in particular `a` is nonzero.
+Formula (B.5) gives the exact height translation law
+
+```text
+h(T^n z) = n*a + h(z).                                  (B.6)
+```
+
+For compact subsets `C,D` of `X`, the two height images are compact.  If
+`T^n(C)` meets `D`, choose `z in C` with `T^n z in D`.  Then by (B.6)
+
+```text
+n*a = h(T^n z)-h(z)
+```
+
+belongs to the compact difference of the two height images.  The map
+`Z -> R`, `n |-> n*a`, has finite inverse image on every compact set when
+`a != 0`.  Hence only finitely many integer translates of `C` meet `D`.
+This is exactly `ProperlyDiscontinuousVAdd`, and is kernel-checked in
+`IUTThreeClosures/TateThetaOddGraphProperness.lean`.
+
+There is also a direct local covering argument which does not assume local
+compactness.  Around `e in X` take the inverse image under `h` of
+
+```text
+(h(e)-|a|/4, h(e)+|a|/4).
+```
+
+If this neighborhood meets its `n`-th translate, (B.6) and the two interval
+bounds imply `|n*a|<|a|`.  Since `a != 0`, this gives `|n|<1`, hence `n=0`.
+Thus the translates are pairwise disjoint.  Together with the quotient-map
+property and the exact orbit equivalence relation, this supplies all fields
+of Mathlib's `IsAddQuotientCoveringMap` for the orbit projection.  This is a
+statement about an ordinary topological covering only.  It does **not**
+construct a rigid-analytic or Berkovich quotient and does not identify a
+tempered fundamental group.
+
+The disjoint-neighborhood and orbit-cover conclusions are kernel-checked in
+the same module as `oddPeriodShiftAddAction_disjoint_nhds` and
+`oddPeriodShift_orbitQuotient_isAddQuotientCoveringMap`.
+
+### B.5 — From the topological orbit cover toward the Tate skeleton
+
+#### B.5.0 — The honest valuation-circle comparison
+
+**Status:** default-imported and kernel-checked in
+`IUTThreeClosures/TateThetaValuationCircleComparison.lean`.
+
+The local API audit gives an important distinction.  The current
+`TateParameter.AnalyticQuotient` is the group quotient `K^x/q^Z`, equipped
+with Mathlib's quotient topology.  The current `tateUniformization` is a group
+isomorphism on `K`-points.  Neither object carries a rigid, adic, Huber, or
+Berkovich analytic-space structure.
+
+There is nevertheless a genuine first comparison.  Let `X` be the odd
+theta-root locus, `T` its graph-period homeomorphism, and `ell=2k+1`.  Then
+
+```text
+beta : X/<T> -> K^x/q^Z,       beta([z])=[base(z)]       (B.7)
+```
+
+is well-defined and continuous.  Indeed, if `z'=T^n z`, then B.5 gives
+
+```text
+base(z')=(q^ell)^n*base(z)=q^(ell*n)*base(z),
+```
+
+so the two bases have the same class modulo `q^Z`.  Continuity follows from
+continuity of the base coordinate and the universal property of the two
+quotient topologies.
+
+Now put
+
+```text
+v(u)=-log ||u||,             L=ord(q)=-log ||q||>0.
+```
+
+Multiplicativity of the norm gives `v(uv)=v(u)+v(v)`, while
+
+```text
+v(q^n)=n*L.
+```
+
+Consequently `v` descends to a continuous homomorphism
+
+```text
+rho : K^x/q^Z -> R/LZ,       rho([u])=v(u) mod L.        (B.8)
+```
+
+Equations (B.7) and (B.8) give an explicit continuous valuation-circle
+coordinate on the verified orbit quotient.
+
+This map is not, in general, a skeleton equivalence on `K`-rational points.
+If `u` is a nontrivial norm-one unit, then `rho([u])=0`.  On the other hand
+`[u]` is nontrivial in `K^x/q^Z`: if `u=q^n`, taking norms gives
+`1=||q||^n`, hence `n=0` because `0<||q||<1`, and then `u=1`, a
+contradiction.  Thus every such unit gives a concrete nonzero kernel element.
+For example, over any field of characteristic different from two, `u=-1`
+does so; in particular this gives a witness-free corollary in characteristic
+zero.  This invariant rules out replacing the missing Berkovich skeleton
+comparison by an equivalence between the present `K`-point quotient and the
+full real circle.  It does **not** refute the usual Berkovich retraction onto
+a skeleton: that retraction is defined on a larger analytic-point space and
+is not asserted to be injective on all analytic or `K`-rational points.
+
+The continuous maps (B.7)--(B.8), their explicit value on representatives,
+the conditional norm-one kernel theorem, and the characteristic-zero
+`u=-1` corollary are formalized in
+`IUTThreeClosures/TateThetaValuationCircleComparison.lean`.
+
+#### B.5.1 — Exact remaining analytic/tempered statement
 
 The next unproved proposition is not another abstract interface.  It is:
 
@@ -277,9 +451,13 @@ strictly forever, so no least hull with nonzero scale exists.
 `mu(O)=1`, and construction of every nonzero scaled ball as an honest
 finite-positive region are kernel-checked in
 `IUTThreeClosures/MaximalValuationRingHull.lean`.  The residue-cardinality
-formula (A.1), product/log formula (A.2), and normalized p-preimage formulas
-(A.3)--(A.4) remain paper proofs pending the corresponding Mathlib local-field
-API.
+formula for an irreducible DVR uniformizer, its logarithmic form, the bridge
+from the repository's norm-uniformizer to irreducibility, and the resulting
+Tate-q/order formula are kernel-checked in
+`HaarResidueNormalization.lean`, `TateHaarResidueNormalization.lean`, and
+`ActualBadPlaceHaarNormalization.lean`.  The arbitrary-element/product form
+of (A.1)--(A.2) and the degree-normalized p-preimage formulas (A.3)--(A.4)
+remain paper proofs.
 
 Normalize additive Haar measure `mu_c` by `mu_c(O_c)=1`.  Let `pi_c` be a
 uniformizer, let the residue-field cardinality be `q_c`, and write
@@ -308,6 +486,27 @@ measure `pi_c^n O_c`.  For `n>=0`, `O_c/pi_c^n O_c` has `q_c^n` cosets of
 equal measure, proving (A.1).  For negative `n`, apply the same argument to
 `pi_c^(-n) O_c` and scale back.  The finite product formula and the logarithm
 of a finite product give (A.2).  ∎
+
+For the source's actual Tate parameter this argument is now formal at one
+place.  If `pi` generates the norm value group and `qOrder` is the canonical
+positive integer with `||q||=||pi||^qOrder`, the Lean theorems derive, rather
+than assume,
+
+```text
+Delta_K(pi) = (# residue(K))^(-1),
+log Delta_K(q) = -qOrder * log(# residue(K)).          (A.2a)
+```
+
+The first equality comes from the equal-measure cosets of the maximal ideal;
+the norm-defined uniformizer is proved irreducible by comparing it with a DVR
+uniformizer.  Equality of norms gives equality of the corresponding scaled
+integer balls and hence equality of their Haar characters.  The thin actual
+bad-place wrapper identifies the pre-existing `qOrder` definition with this
+canonical order.  No component-volume or desired-estimate field enters
+(A.2a).  At present that wrapper explicitly assumes the standard local-field
+instances (DVR valuation ring, finite residue field, properness, and Borel
+measurability); deriving them for every repository adic completion is a
+separate source-construction obligation.
 
 Now suppose `K_c/Q_p` has ramification degree `e_c`, residue degree `f_c`, and
 local degree `d_c=e_c f_c`.  On a finite-positive measurable set define
@@ -545,7 +744,19 @@ required initial theta data.
 
 The source-faithful route must retain the odd bad q-divisor and prove the IUT
 IV component estimate from local and procession calculations, rather than
-storing it as `componentFormula`.  Its next concrete stages are:
+storing it as `componentFormula`.
+
+The first local source step is now kernel-checked.  For the actual Tate
+parameter, `SourceFaithfulTheorem110.lean` constructs the finite-positive
+regions `q^n O_K` and proves their logarithmic volume is
+`n * log Delta_K(q)`.  The three Haar-normalization modules cited in A.2 then
+identify this with the residue-normalized numerical term
+`-n*qOrder*log(#k)` and provide a thin wrapper at an actual bad
+Hodge-theater place.  This replaces the inconsistent total-set volume law at
+this one component, but it does not produce an Ind1--Ind3 possible-image
+upper bound or the Theorem 1.10 component inequality.
+
+The next concrete stages are:
 
 1. prove that the three nonzero 2-torsion points of the rational Frey curve
    are rational, and deduce `F_tpd=Q`, moduli degree one, and zero relative
@@ -562,3 +773,236 @@ storing it as `componentFormula`.  Its next concrete stages are:
 
 None of these steps may replace the odd q-divisor by `completeGlobalJPacket`,
 or use an arbitrary `different`, `error`, or target estimate field.
+
+## Route D: the IUT III multiradial scale bridge
+
+### D.0 — Fixed-place common-scale obstruction
+
+**Status:** default-imported and kernel-checked in
+`IUTThreeClosures/MultiradialScaleCompatibilityNoGo.lean`.  This is a
+necessary compatibility test for a proposed
+degree-line bridge, not a refutation of a bridge that genuinely changes the
+valued fields or their place identifications.
+
+Let `K` be a normed field, let `q` be a Tate parameter, and put
+
+```text
+L = log ‖q‖ < 0.
+```
+
+For the repository's concrete theta-labeled Kummer points
+
+```text
+thetaPoint(j) = q^(j^2),
+```
+
+one has
+
+```text
+log ‖thetaPoint(j)‖ = j^2 * L.                        (D.1)
+```
+
+**Proof.**  The norm is multiplicative on natural powers, so
+`‖q^(j^2)‖=‖q‖^(j^2)`.  Since `‖q‖>0`, the logarithm-of-a-power identity gives
+(D.1).  The Tate inequality `‖q‖<1` gives `L<0`, in particular `L!=0`.  ∎
+
+Suppose now that a single real scale `s` is used at every procession label,
+as is forced by a literal common-place interpretation of the tensor
+identifications of multiplication by integers.  If the horizontal comparison
+is power-faithful and calibrates both the labels `1` and `2` back to the same
+q-pilot degree, then it asserts
+
+```text
+s * log ‖thetaPoint(1)‖ = L,
+s * log ‖thetaPoint(2)‖ = L.                          (D.2)
+```
+
+There is no such `s`.
+
+**Proof.**  By (D.1), equations (D.2) are `sL=L` and `4sL=L`.
+The first and `L!=0` give `s=1`; the second then gives `4L=L`, hence
+`3L=0`, contradicting `L!=0`.  ∎
+
+Thus the missing bridge cannot consist merely of the identities
+`‖q^(j^2)‖=‖q‖^(j^2)` inside one fixed normed field followed by one common
+rescaling.  A surviving construction must provide genuinely different
+arithmetic holomorphic structures (or valued-place identifications), explain
+which compatibility in (D.2) is replaced, and then prove that the replacement
+still supports the global product formula and procession log-volume.  This is
+the exact point at which an untilt/arithmeticoid proposal must add mathematics;
+storing a family of arbitrary real scales is not a construction.
+
+### D.1 — Unique labelwise calibration and its exact limitation
+
+**Status:** default-imported and kernel-checked in
+`IUTThreeClosures/MultiradialLabelScaleCalibration.lean`.
+
+Let `L != 0`, let `j` be a positive integer, and consider the label-`j`
+degree `j^2 L`.  There is a unique real scale `s_j` which calibrates this
+degree back to `L`, namely
+
+```text
+s_j = 1/j^2.                                           (D.3)
+```
+
+Moreover `s_j>0`, and the scales are multiplicatively coherent:
+
+```text
+s_(jk) = s_j s_k.                                      (D.4)
+```
+
+**Proof.**  Since `j>0`, the real number `j^2` is nonzero.  Hence
+`(1/j^2)(j^2 L)=L`, which proves existence, and `1/j^2>0`.  Conversely, if
+`s(j^2 L)=L`, cancellation of `L!=0` gives `s j^2=1`, hence `s=1/j^2`.
+Finally `(jk)^2=j^2k^2`, and taking inverses in `R` gives (D.4).  ∎
+
+This pointwise result also calibrates every finite weighted procession.  If
+`j_i>0` and `w_i` are real weights, then termwise application of (D.3) gives
+
+```text
+sum_i w_i s_(j_i)(j_i^2 L) = (sum_i w_i)L.            (D.5)
+```
+
+In particular, normalized weights with sum one give `L`.  Equation (D.5) is
+an algebraic consequence of the explicit scales; it does not assume a target
+log-volume estimate.
+
+There is a simple local model realizing (D.3): on a copy of a valued field,
+replace every logarithmic absolute value `lambda_v` by
+`lambda_(v,j)=j^(-2)lambda_v`.  Then
+
+```text
+lambda_(v,j)(q^(j^2)) = lambda_v(q).
+```
+
+If the original global logs satisfy a product formula, rescaling *all* places
+in the label-`j` copy by the same `j^(-2)` preserves a product formula for
+that copy, since its product-formula sum is merely multiplied by `j^(-2)`.
+Thus local calibration and a separate product formula at each label are not,
+by themselves, contradictory.
+
+They do not, however, supply Theorem 3.11.  Step (x) of the proof of
+Corollary 3.12 states that the tensor products identify multiplication by
+elements of `Z`, including the log-volume effect of that multiplication,
+across distinct labels.  In the rescaled-copy model, multiplication by an
+integer `a` has log effect `j^(-2)lambda_v(a)` at label `j`; for any `a,v`
+with `lambda_v(a)!=0`, these effects differ between labels `1` and `2`.
+Hence this model fails the stated cross-label tensor compatibility.
+
+Nor can one repair this merely by multiplying the local degree weight at
+label `j` by `j^2`.  Such a weight makes the integer effect label-independent,
+but it also changes the weighted degree of `q^(j^2)` back to `j^2` times the
+q-degree.  Abstractly, if `a_j` is the combined norm/degree coefficient,
+integer compatibility gives `a_1=a_2!=0`, while theta calibration gives
+`a_1*1=a_2*4`; these equations are inconsistent.
+
+Thus genuinely different field copies help only if the comparison is not a
+scalar renormalization of one fixed family of places.  A viable untilt/AHS
+construction must specify which ring-theoretic identifications are absent,
+construct the log-Kummer and horizontal comparison maps that replace them,
+and prove the retained tensor/procession and global-degree compatibilities.
+The explicit translations in `ActualHodgeTheaterOutput.horizontalEquiv`
+cannot play this role: they send `q^(j^2)` to `q^(k^2)` in the same normed
+field and are not log-norm preserving for, e.g., `j=1`, `k=2`.
+
+The zero label is necessarily excluded from (D.3): `thetaPoint(0)=1` has
+log-norm zero, so no finite real scale can calibrate it to the nonzero Tate
+log-degree.  This agrees with the use of nonzero theta labels in the source;
+the separate `0`/average-label identification used for the q-pilot must not be
+silently treated as another instance of pointwise division by `j^2`.
+
+### D.2 — Exact positive target
+
+The next positive theorem must construct, rather than postulate:
+
+1. the valued fields or untilts attached to at least the labels `1` and `2`;
+2. comparison maps carrying the theta and q pilots between their genuinely
+   different arithmetic holomorphic structures;
+3. normalized local degree maps compatible with the relevant global product
+   formula;
+4. the procession/tensor compatibility actually retained by those maps; and
+5. a proof that these data yield `-|log q| <= -|log Theta|` without assuming
+   that inequality as a field.
+
+Any candidate that reduces to a common fixed-place scale is rejected by D.0.
+
+## Route E: concrete GenEll covering and Belyi geometry
+
+### E.0 — Finite étale Kummer cover of a unit
+
+**Status:** default-imported and kernel-checked in
+`IUTThreeClosures/ConcreteGenEllKummerCover.lean` and
+`IUTThreeClosures/ConcreteGenEllTripodCover.lean`.
+
+Let `R` be a commutative ring, let `n>0`, and assume both `u:R` and the image
+of `n` in `R` are units.  Put
+
+```text
+f(X)=X^n-u.
+```
+
+Then the monogenic algebra `R[X]/(f)` is finite étale over `R`.
+
+**Proof.**  The polynomial is monic, so its quotient is finite free with basis
+`1,X,...,X^(n-1)`.  Its derivative is `f'=n X^(n-1)`.  Write `nInv` and
+`uInv` for the inverses of `n` and `u`.  The polynomial identity
+
+```text
+f' * ((nInv*uInv) X) + f * (-uInv) = 1               (E.1)
+```
+
+holds: the first summand is `uInv X^n`, while the second is
+`-uInv X^n+1`.  Hence `f` and `f'` generate the unit ideal.  Equivalently the
+class of `f'` is a unit in `R[X]/(f)`, so the standard monic presentation is
+formally étale.  Finite presentation together with finite freeness proves
+that the algebra is finite étale.  ∎
+
+Take now
+
+```text
+A = K[t, t^(-1), (1-t)^(-1)],
+```
+
+the coordinate ring of the tripod over a characteristic-zero field `K`.
+Both `t` and `1-t` are units and every positive integer `n` is invertible in
+`K`.  Applying E.0 twice gives the finite étale algebra
+
+```text
+B = A[x,y]/(x^n-t, y^n-(1-t)),                       (E.2)
+```
+
+of rank `n^2`.  Its affine equation is `x^n+y^n=1`, and the map to the tripod
+is `t=x^n`.  If `K` contains the `n`-th roots of unity, coordinatewise
+multiplication gives the expected `mu_n^2` action.  Thus (E.2) is the explicit
+affine Fermat/Kummer cover that should supply the ramified-covering step for
+the tripod after compactification.
+
+The Lean development constructs the two actual standard étale algebras and
+their composite algebra map, proves `Algebra.Etale`, `Module.Finite`, and
+`Module.Free` for the composite, and proves the exact tower rank
+
+```text
+finrank_A(B) = n^2.
+```
+
+The nontriviality needed for this rank statement is not assumed: the tripod
+localization is shown nontrivial from `X(1-X) != 0`, and each Kummer algebra is
+shown nontrivial from its explicit positive-dimensional power basis.  The
+distinguished elements in the final algebra satisfy both Kummer equations and
+`x^n+y^n=1`.  Positive freeness then gives `Module.FaithfullyFlat`, and the
+standard faithfully-flat theorem gives surjectivity of the induced
+`PrimeSpectrum.comap`.  Thus the affine ring map is now an honest finite
+étale cover on prime spectra.  A scheme-level `Spec` morphism object,
+connectedness, geometric irreducibility, compactification, and boundary
+ramification remain separate.
+
+### E.1 — Exact remaining GenEll geometry
+
+The following facts are not part of E.0 and remain to be proved and
+formalized: connectedness/geometric irreducibility of the Fermat cover;
+normal projective compactification and ramification index `n` over
+`0,1,infinity`; the canonical-height, different, and conductor comparisons;
+existence of a noncritical Belyi map on the resulting divisor-free curve; and
+the compactness argument producing the actual `BelyiDescent`.  Only after
+these constructions are available may the two fields of
+`Genl.HeightTheory.ProofPackage` be replaced by concrete theorems.

@@ -101,9 +101,37 @@ Thus the Kummer locus `y^ell = theta(u)` is equivariant for the lifted
 The exact mathematical proof and the Lean theorem names for the algebraic
 equivariance are recorded in `CORE_PROOF_NOTEBOOK.md`; that part is formalized
 in `IUTThreeClosures/TateThetaOddGraphDescent.lean`.  The abstract cyclic
-quotient is proved on paper there, but its Lean formalization and its analytic
-interpretation as a properly discontinuous graph cover remain separate pending
-steps.
+quotient, the free integer action, proper discontinuity, and the ordinary
+topological orbit covering are now formalized in the three subsequent
+graph-period modules.  The orbit cover also maps continuously to the Tate
+`K`-point quotient and its valuation circle.  In characteristic zero that
+last map is not injective (`-1` is a kernel witness), so the `K`-point quotient
+cannot itself be substituted for the Berkovich skeleton.  The rigid/Berkovich
+analytic quotient, theta-root cohomology class, puncture/divisor comparison,
+and tempered graph interpretation remain separate pending steps.
+
+## Further kernel-checked core diagnostics
+
+The fixed-field theta labels have log degrees `j^2 log||q||`.  A common real
+scale cannot calibrate both labels one and two, whereas the unique pointwise
+scale is `1/j^2`.  Uniformly rescaling every place inside one label preserves
+that label's product formula, but changes the log-volume effect of integer
+multiplication between labels.  This formalized calculation rules out a
+fixed-place/common-scale adapter; it does not construct or refute genuinely
+different untilts or arithmetic holomorphic structures.
+
+At one actual bad place, normalized additive Haar measure now gives the
+source-derived identity `log Delta(q)=-qOrder*log(#k)` under the explicit
+standard local-field instances.  This closes the local residue/order
+calculation but not the derivation of those instances for every actual
+completion, the Ind1--Ind3 possible-image estimate, procession assembly,
+different terms, or the IUT IV component inequality.
+
+The affine GenEll/Fermat step is also concrete: the two Kummer extensions over
+the tripod compose to a finite etale, faithfully flat algebra of exact rank
+`n^2`, surjective on prime spectra, with `x^n+y^n=1`.  Geometric
+irreducibility, projective compactification, boundary ramification, and the
+Belyi/height package remain open.
 
 ## Honesty condition
 
