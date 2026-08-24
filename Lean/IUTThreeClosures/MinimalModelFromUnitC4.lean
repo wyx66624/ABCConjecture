@@ -1,0 +1,108 @@
+/-
+Copyright (c) 2026 ChatGPT. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: ChatGPT
+-/
+import Mathlib.AlgebraicGeometry.EllipticCurve.Reduction
+
+/-!
+# Minimality from an integral unit c₄
+
+Let `R` be a discrete valuation ring with fraction field `K`. If a
+Weierstrass equation over `K` is integral over `R` and its `c₄`-invariant is a
+valuation unit, then the equation is minimal.
+
+Indeed, for an admissible variable change `C` one has
+
+`c₄(C • W) = u⁻⁴ c₄(W)` and `Δ(C • W) = u⁻¹² Δ(W)`.
+
+If `C • W` remains integral, then its `c₄` has valuation at most one. Since
+the original `c₄` has valuation one, this forces the valuation of `u⁻¹` to be
+at most one. The discriminant valuation can therefore only decrease in the
+multiplicative ordering, which is precisely Mathlib's maximality definition of
+a minimal equation.
+
+This closes the minimal-model part of the odd-prime Frey reduction argument.
+The remaining arithmetic transfer is to prove that the completed Frey
+invariants satisfy valuation `Δ < 1` and valuation `c₄ = 1` at an odd support
+prime.
+-/
+
+namespace IUTThreeClosures
+
+open WeierstrassCurve
+open IsDedekindDomain.HeightOneSpectrum
+
+universe u v
+
+/-- An integral Weierstrass equation whose `c₄` is a valuation unit is
+minimal. -/
+theorem isMinimal_of_isIntegral_c4_valuation_eq_one
+    {R : Type u} [CommRing R] [IsDomain R]
+    [IsDiscreteValuationRing R]
+    {K : Type v} [Field K] [Algebra R K] [IsFractionRing R K]
+    (W : WeierstrassCurve K)
+    (hIntegral : W.IsIntegral R)
+    (hc4 :
+      valuation K (IsDiscreteValuationRing.maximalIdeal R) W.c₄ = 1) :
+    W.IsMinimal R := by
+  letI : W.IsIntegral R := hIntegral
+  refine ⟨⟨?_, ?_⟩⟩
+  · simpa using hIntegral
+  · intro C hC _hcomparison
+    letI : (C • W).IsIntegral R := hC
+    have hval :
+        valuation_Δ_aux R (C • W) ≤ valuation_Δ_aux R W := by
+      rw [valuation_Δ_aux_eq_of_isIntegral R (C • W),
+        valuation_Δ_aux_eq_of_isIntegral R W]
+      have hc4_le :
+          valuation K (IsDiscreteValuationRing.maximalIdeal R)
+              (C • W).c₄ ≤ 1 := by
+        rw [← integralModel_c₄_eq R (C • W)]
+        exact valuation_le_one
+          (IsDiscreteValuationRing.maximalIdeal R)
+          (integralModel R (C • W)).c₄
+      have hu_pow :
+          (valuation K (IsDiscreteValuationRing.maximalIdeal R)
+              (C.u⁻¹ : K)) ^ 4 ≤ 1 := by
+        simpa only [variableChange_c₄, map_mul, map_pow,
+          hc4, mul_one] using hc4_le
+      have hu :
+          valuation K (IsDiscreteValuationRing.maximalIdeal R)
+              (C.u⁻¹ : K) ≤ 1 :=
+        (pow_le_one_iff (by norm_num : (4 : ℕ) ≠ 0)).mp hu_pow
+      rw [variableChange_Δ, map_mul, map_pow]
+      calc
+        (valuation K (IsDiscreteValuationRing.maximalIdeal R)
+            (C.u⁻¹ : K)) ^ 12 *
+            valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ
+            ≤ 1 * valuation K
+                (IsDiscreteValuationRing.maximalIdeal R) W.Δ :=
+          mul_le_mul_of_nonneg_right
+            ((pow_le_one_iff (by norm_num : (12 : ℕ) ≠ 0)).mpr hu)
+            (zero_le _)
+        _ = valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ :=
+          one_mul _
+    simpa only [one_smul] using hval
+
+/-- Consequently, an integral equation with bad discriminant and unit `c₄`
+has multiplicative reduction, without a separate minimality hypothesis. -/
+theorem hasMultiplicativeReduction_of_integral_valuations
+    {R : Type u} [CommRing R] [IsDomain R]
+    [IsDiscreteValuationRing R]
+    {K : Type v} [Field K] [Algebra R K] [IsFractionRing R K]
+    (W : WeierstrassCurve K)
+    (hIntegral : W.IsIntegral R)
+    (hDelta :
+      valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ < 1)
+    (hc4 :
+      valuation K (IsDiscreteValuationRing.maximalIdeal R) W.c₄ = 1) :
+    W.HasMultiplicativeReduction R := by
+  letI : W.IsMinimal R :=
+    isMinimal_of_isIntegral_c4_valuation_eq_one W hIntegral hc4
+  exact {
+    badReduction := hDelta
+    multiplicativeReduction := hc4
+  }
+
+end IUTThreeClosures
