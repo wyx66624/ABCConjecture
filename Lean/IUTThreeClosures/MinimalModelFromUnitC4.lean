@@ -49,7 +49,7 @@ theorem isMinimal_of_isIntegral_c4_valuation_eq_one
   letI : W.IsIntegral R := hIntegral
   refine ⟨⟨?_, ?_⟩⟩
   · simpa using hIntegral
-  · intro C hC _hcomparison
+  · intro C hC
     letI : (C • W).IsIntegral R := hC
     have hc4_le :
         valuation K (IsDiscreteValuationRing.maximalIdeal R)
@@ -63,7 +63,8 @@ theorem isMinimal_of_isIntegral_c4_valuation_eq_one
             (C • W).c₄ =
           (valuation K (IsDiscreteValuationRing.maximalIdeal R)
             (C.u⁻¹ : K)) ^ 4 := by
-      rw [variableChange_c₄, map_mul, map_pow, hc4, mul_one]
+      simp only [variableChange_c₄, map_mul, map_pow,
+        Units.val_inv_eq_inv_val, hc4, mul_one]
     have hu_pow :
         (valuation K (IsDiscreteValuationRing.maximalIdeal R)
             (C.u⁻¹ : K)) ^ 4 ≤ 1 := by
@@ -77,21 +78,22 @@ theorem isMinimal_of_isIntegral_c4_valuation_eq_one
         (valuation K (IsDiscreteValuationRing.maximalIdeal R)
             (C.u⁻¹ : K)) ^ 12 ≤ 1 :=
       (pow_le_one_iff (by norm_num : (12 : ℕ) ≠ 0)).mpr hu
+    have hnonneg :
+        0 ≤ valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ :=
+      bot_le
     have hscaled :
         (valuation K (IsDiscreteValuationRing.maximalIdeal R)
             (C.u⁻¹ : K)) ^ 12 *
             valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ ≤
-          valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ :=
-      mul_le_of_le_one_left (zero_le _) hu12
+          valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ := by
+      simpa only [one_mul] using
+        (mul_le_mul_of_nonneg_right hu12 hnonneg)
     have hdisc :
         valuation K (IsDiscreteValuationRing.maximalIdeal R) (C • W).Δ ≤
           valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ := by
-      rw [variableChange_Δ, map_mul, map_pow]
-      exact hscaled
-    change valuation_Δ_aux R (C • W) ≤ valuation_Δ_aux R W
-    rw [valuation_Δ_aux_eq_of_isIntegral,
-      valuation_Δ_aux_eq_of_isIntegral]
-    exact hdisc
+      simpa only [variableChange_Δ, map_mul, map_pow,
+        Units.val_inv_eq_inv_val] using hscaled
+    simpa only [one_smul, valuation_Δ_aux_eq_of_isIntegral] using hdisc
 
 /-- Consequently, an integral equation with bad discriminant and unit `c₄`
 has multiplicative reduction, without a separate minimality hypothesis. -/
