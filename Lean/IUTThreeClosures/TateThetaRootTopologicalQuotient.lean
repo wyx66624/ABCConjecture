@@ -11,18 +11,15 @@ import Mathlib.Topology.Covering.Quotient
 # The topological covering quotient of the theta-root locus
 
 The corrected theta-root equation locus now has its ambient subspace topology,
-a continuous radial coordinate and an honest integer deck action.  This module
+a continuous radial coordinate and an honest integer deck action. This module
 forms the orbit quotient with its quotient topology and proves directly that
 the quotient projection is a covering map.
 
 The local slice at a point `z` is the inverse image of the radial interval
-`(rho(z)-1/4,rho(z)+1/4)`.  Since the integer action translates `rho` by an
+`(rho(z)-1/4,rho(z)+1/4)`. Since the integer action translates `rho` by an
 integer, a translate of this slice can meet itself only for the zero integer.
 This gives the exact local disjointness field of Mathlib's
 `IsQuotientCoveringMap` without assuming local compactness.
-
-This is an ordinary topological quotient theorem.  It does not construct a
-Berkovich analytic structure or identify a tempered fundamental group.
 -/
 
 namespace IUTThreeClosures
@@ -80,13 +77,14 @@ theorem continuous_deckZ (n : ℤ) :
   rw [hfun]
   exact continuous_shiftInt t ell r hr n
 
-/-- The integer deck action is continuous for each fixed integer. -/
+/-- The indexed integer deck action is continuous for each fixed group
+element. -/
 noncomputable instance deckContinuousConstSMul :
-    ContinuousConstSMul (Multiplicative ℤ)
+    ContinuousConstSMul (DeckGroup t ell r hr)
       (TateThetaRootPullbackPoint t ell) where
   continuous_const_smul g := by
-    change Continuous (deckZ t ell r hr g.toAdd)
-    exact continuous_deckZ t ell r hr g.toAdd
+    change Continuous (deckZ t ell r hr (DeckGroup.toInt g))
+    exact continuous_deckZ t ell r hr (DeckGroup.toInt g)
 
 /-- The canonical quotient projection. -/
 noncomputable def deckQuotientMk :
@@ -99,7 +97,7 @@ translate. -/
 theorem exists_radial_disjoint_nhds
     (z : TateThetaRootPullbackPoint t ell) :
     ∃ U ∈ 𝓝 z,
-      ∀ g : Multiplicative ℤ,
+      ∀ g : DeckGroup t ell r hr,
         (((g • ·) '' U ∩ U).Nonempty → g = 1) := by
   let ρ : ℝ := coordinate t ell r z
   let U : Set (TateThetaRootPullbackPoint t ell) :=
@@ -115,25 +113,29 @@ theorem exists_radial_disjoint_nhds
     change ρ - 1 / 4 < coordinate t ell r u ∧
       coordinate t ell r u < ρ + 1 / 4 at hu
     change ρ - 1 / 4 <
-        coordinate t ell r (deckZ t ell r hr g.toAdd u) ∧
-      coordinate t ell r (deckZ t ell r hr g.toAdd u) <
+        coordinate t ell r
+          (deckZ t ell r hr (DeckGroup.toInt g) u) ∧
+      coordinate t ell r
+          (deckZ t ell r hr (DeckGroup.toInt g) u) <
         ρ + 1 / 4 at hgu
     rw [coordinate_deckZ] at hgu
-    have hnlo : (-1 : ℝ) < (g.toAdd : ℝ) := by
+    have hnlo : (-1 : ℝ) < (DeckGroup.toInt g : ℝ) := by
       linarith [hu.2, hgu.1]
-    have hnhi : (g.toAdd : ℝ) < 1 := by
+    have hnhi : (DeckGroup.toInt g : ℝ) < 1 := by
       linarith [hu.1, hgu.2]
-    have hnloZ : (-1 : ℤ) < g.toAdd := by exact_mod_cast hnlo
-    have hnhiZ : g.toAdd < (1 : ℤ) := by exact_mod_cast hnhi
-    have hn : g.toAdd = 0 := by omega
-    simpa using congrArg Multiplicative.ofAdd hn
+    have hnloZ : (-1 : ℤ) < DeckGroup.toInt g := by
+      exact_mod_cast hnlo
+    have hnhiZ : DeckGroup.toInt g < (1 : ℤ) := by
+      exact_mod_cast hnhi
+    have hn : DeckGroup.toInt g = 0 := by omega
+    simpa [DeckGroup.toInt] using congrArg Multiplicative.ofAdd hn
 
-/-- The orbit-quotient projection is a quotient covering map with deck group
-`Z`. -/
+/-- The orbit-quotient projection is a quotient covering map with indexed
+integer deck group. -/
 theorem deckQuotient_isQuotientCoveringMap :
     IsQuotientCoveringMap
       (deckQuotientMk t ell r hr)
-      (Multiplicative ℤ) where
+      (DeckGroup t ell r hr) where
   __ := isQuotientMap_quotient_mk'
   continuous_const_smul := fun g =>
     deckContinuousConstSMul.continuous_const_smul g
@@ -154,7 +156,8 @@ noncomputable def deckQuotientFiberEquivInt
     {x : DeckOrbitQuotient t ell r hr}
     (z : (deckQuotientMk t ell r hr) ⁻¹' {x}) :
     (deckQuotientMk t ell r hr) ⁻¹' {x} ≃ Multiplicative ℤ :=
-  (deckQuotient_isQuotientCoveringMap t ell r hr).fiberEquivGroup z
+  ((deckQuotient_isQuotientCoveringMap t ell r hr).fiberEquivGroup z).trans
+    (DeckGroup.equivMultiplicativeInt t ell r hr)
 
 end TateThetaRootRadialSkeleton
 
