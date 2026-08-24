@@ -14,15 +14,15 @@ The real logarithmic radius
 
 `rho(v) = log ‖v‖ / log ‖r‖`
 
-is well-defined because `0 < ‖r‖ < 1`.  Multiplication by `r` translates this
-coordinate by one.  More generally, the `n`-th positive deck iterate translates
+is well-defined because `0 < ‖r‖ < 1`. Multiplication by `r` translates this
+coordinate by one. More generally, the `n`-th positive deck iterate translates
 it by `n`.
 
 This gives an explicit bridge from the analytic Tate/Kummer deck action to the
 oriented cyclic-skeleton model: after quotienting the radial coordinate by
 integer translation, the deck generator is literally successor/translation by
-one.  The theorem does not construct the topological or Berkovich quotient;
-it identifies the exact invariant that such a quotient must carry.
+one. The theorem does not construct the topological or Berkovich quotient; it
+identifies the exact invariant that such a quotient must carry.
 -/
 
 namespace IUTThreeClosures
@@ -33,44 +33,45 @@ universe u
 
 variable {K : Type u} [NormedField K] [CompleteSpace K]
 
-namespace TateThetaRootPullbackPoint
+namespace TateThetaRootRadialSkeleton
 
 /-- The logarithmic radial coordinate normalized so that multiplication by
 `r` has translation length one. -/
-noncomputable def radialCoordinate
-    (ell : ℕ) (r : Kˣ)
-    (z : TateThetaRootPullbackPoint (K := K) (by
-      exact Classical.choice (show Nonempty (TateParameter K) from by infer_instance)) ell) : ℝ :=
-  Real.log ‖(z.base : K)‖ / Real.log ‖(r : K)‖
-
-end TateThetaRootPullbackPoint
-
-/-!
-The preceding fully explicit type annotation is inconvenient for actual use,
-since the Tate parameter is already a parameter of the point type.  The
-following namespace-local definition is the usable dependent version.
--/
-
-namespace TateThetaRootRadialSkeleton
-
-/-- Usable dependent radial coordinate. -/
 noncomputable def coordinate
     (t : TateParameter K) (ell : ℕ) (r : Kˣ)
     (z : TateThetaRootPullbackPoint t ell) : ℝ :=
   Real.log ‖(z.base : K)‖ / Real.log ‖(r : K)‖
 
 /-- The chosen root has positive norm. -/
-theorem root_norm_pos
-    (r : Kˣ) : 0 < ‖(r : K)‖ :=
+theorem root_norm_pos (r : Kˣ) : 0 < ‖(r : K)‖ :=
   norm_pos_iff.mpr (Units.ne_zero r)
+
+/-- Taking norms in `r^ell=q`. -/
+theorem root_norm_pow_eq_q_norm
+    (t : TateParameter K) (ell : ℕ)
+    (r : Kˣ) (hr : r ^ ell = t.q) :
+    ‖(r : K)‖ ^ ell = ‖(t.q : K)‖ := by
+  have h := congrArg (fun a : Kˣ => ‖(a : K)‖) hr
+  simpa only [Units.val_pow, norm_pow] using h
+
+/-- Every chosen root of a strict Tate parameter has norm strictly below one. -/
+theorem root_norm_lt_one
+    (t : TateParameter K) (ell : ℕ)
+    (r : Kˣ) (hr : r ^ ell = t.q) :
+    ‖(r : K)‖ < 1 := by
+  by_contra hnot
+  have hge : 1 ≤ ‖(r : K)‖ := le_of_not_gt hnot
+  have hpow : 1 ≤ ‖(r : K)‖ ^ ell :=
+    one_le_pow_of_one_le hge ell
+  rw [root_norm_pow_eq_q_norm t ell r hr] at hpow
+  exact (not_le_of_gt t.norm_lt_one) hpow
 
 /-- If `r^ell=q`, the normalizing logarithm is strictly negative. -/
 theorem log_root_norm_neg
     (t : TateParameter K) (ell : ℕ)
     (r : Kˣ) (hr : r ^ ell = t.q) :
     Real.log ‖(r : K)‖ < 0 :=
-  Real.log_neg (root_norm_pos r)
-    (TateThetaRootPullbackPoint.root_norm_lt_one t ell r hr)
+  Real.log_neg (root_norm_pos r) (root_norm_lt_one t ell r hr)
 
 /-- Hence the normalizing logarithm is nonzero. -/
 theorem log_root_norm_ne_zero
@@ -99,8 +100,11 @@ theorem coordinate_shift
   have hz0 : ‖(z.base : K)‖ ≠ 0 := ne_of_gt (base_norm_pos z)
   have hlog : Real.log ‖(r : K)‖ ≠ 0 :=
     log_root_norm_ne_zero t ell r hr
-  unfold coordinate TateThetaRootPullbackPoint.shift
-  simp only
+  unfold coordinate
+  change
+    Real.log ‖((r * z.base : Kˣ) : K)‖ /
+        Real.log ‖(r : K)‖ =
+      Real.log ‖(z.base : K)‖ / Real.log ‖(r : K)‖ + 1
   rw [Units.val_mul, norm_mul, Real.log_mul hr0 hz0]
   field_simp [hlog]
   ring
@@ -147,7 +151,8 @@ theorem coordinate_shiftNat_injective_index
           (TateThetaRootPullbackPoint.shiftNat t ell r hr n z)) :
     m = n := by
   rw [coordinate_shiftNat, coordinate_shiftNat] at hcoord
-  exact_mod_cast (add_left_cancel hcoord)
+  have hreal : (m : ℝ) = n := by linarith
+  exact_mod_cast hreal
 
 /-- The radial coordinate separates all positive points of one deck orbit. -/
 theorem shiftNat_ne_of_ne_index
