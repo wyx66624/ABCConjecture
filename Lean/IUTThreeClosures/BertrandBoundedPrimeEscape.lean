@@ -94,7 +94,7 @@ theorem exists_prime_above_not_mem_bounded
   · intro hpS
     have hpM : p ≤ M := by
       exact mem_le_bertrandEscapeScale N S hpS
-    exact hMp.not_le hpM
+    exact (not_lt_of_ge hpM) hMp
 
 /-- Quantitative closure of an eventual finite-exception prime property.
 The upper bound depends only on the supplied eventual threshold and forbidden
