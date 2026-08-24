@@ -101,9 +101,10 @@ theorem genEllLemma41_scalar_contradiction
     hxextra,
     hhterm]
 
-/-- A convenient reformulation: under the scalar hypotheses, every lower
-bound of the offending-set form is strictly smaller than `x_A`. -/
-theorem genEllLemma41_offending_bound_lt
+/-- A convenient reformulation: the scalar estimates force the offending
+lower bound to be strictly larger than `x_A`; hence an inequality placing that
+bound below `x_A` is impossible. -/
+theorem genEllLemma41_lt_offending_bound
     {ε xε Cε xA h Mlog thetaH thetaY : ℝ}
     (hεpos : 0 < ε)
     (hεlt : ε < 1 / 4)
@@ -117,7 +118,7 @@ theorem genEllLemma41_offending_bound_lt
         (5 / 4 : ℝ) * ((1 + 6 * ε) * h) + Cε)
     (hthetaY :
       (1 - ε) * genEllLemma41Radius ε xA h < thetaY) :
-    -Mlog - thetaH + thetaY < xA := by
+    xA < -Mlog - thetaH + thetaY := by
   exact lt_of_not_ge <|
     genEllLemma41_scalar_contradiction
       hεpos hεlt hxεpos hCε hxA hh
