@@ -100,8 +100,10 @@ theorem thetaKummerFiber_root_pow
     (t : TateParameter K) (u : Kˣ) (ell : ℕ) :
     (AdjoinRoot.root (thetaKummerPolynomial t u ell)) ^ ell =
       AdjoinRoot.of (thetaKummerPolynomial t u ell) (t.thetaProd u) := by
-  simpa [thetaKummerPolynomial] using
-    (root_X_pow_sub_C_pow ell (t.thetaProd u))
+  change
+    (AdjoinRoot.root (X ^ ell - C (t.thetaProd u))) ^ ell =
+      AdjoinRoot.of (X ^ ell - C (t.thetaProd u)) (t.thetaProd u)
+  exact root_X_pow_sub_C_pow ell (t.thetaProd u)
 
 /-- Away from the zero orbit, the canonical theta root is nonzero whenever the
 exponent is positive. -/
@@ -113,8 +115,7 @@ theorem thetaKummerFiber_root_ne_zero
     AdjoinRoot.root (thetaKummerPolynomial t u ell) ≠ 0 := by
   have htheta : t.thetaProd u ≠ 0 :=
     thetaProd_ne_zero_of_not_zeroOrbit t u hu
-  simpa [thetaKummerPolynomial] using
-    (root_X_pow_sub_C_ne_zero'
-      (K := K) hell htheta)
+  change AdjoinRoot.root (X ^ ell - C (t.thetaProd u)) ≠ 0
+  exact root_X_pow_sub_C_ne_zero' hell htheta
 
 end IUTThreeClosures
