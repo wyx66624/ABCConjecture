@@ -106,7 +106,6 @@ theorem pointwise_height_bound
     simpa [c] using publicFreyTheorem110Correction_nonneg B P
   have hc_le : c ≤ ρ := by
     have h := U.correction_le n P
-    dsimp [B, c] at h
     linarith
   have hα_le : α ≤ ρ := by
     simpa [α] using hdifferentSlope
@@ -117,7 +116,6 @@ theorem pointwise_height_bound
         (1 + α) * P.conductor + (D + Real.log 16) := by
     have hd := U.different_le n P
     have hdisc := P.freyDiscriminantConductor_le
-    dsimp [B, α, D] at hd
     calc
       B.different P + P.freyDiscriminantConductor ≤
           (α * P.conductor + D) +
