@@ -86,8 +86,20 @@ theorem simultaneous_decay
   have herror :
       ∀ᶠ n in atTop, 20 * U.errorSlope n < ρ :=
     U.weightedErrorSlope_tendsto.eventually (Iio_mem_nhds hρ)
-  filter_upwards [hcorrection, hdifferent, herror] with n hncorrection hndifferent hnerror
-  exact ⟨n, hncorrection.le, hndifferent.le, hnerror.le⟩
+  rcases (eventually_atTop.1 hcorrection) with ⟨nc, hnc⟩
+  rcases (eventually_atTop.1 hdifferent) with ⟨nd, hnd⟩
+  rcases (eventually_atTop.1 herror) with ⟨ne, hne⟩
+  let n := max nc (max nd ne)
+  refine ⟨n, ?_, ?_, ?_⟩
+  · exact (hnc n (by
+      dsimp [n]
+      exact le_max_left _ _)).le
+  · exact (hnd n (by
+      dsimp [n]
+      exact (le_max_left nd ne).trans (le_max_right nc (max nd ne)))).le
+  · exact (hne n (by
+      dsimp [n]
+      exact (le_max_right nd ne).trans (le_max_right nc (max nd ne)))).le
 
 /-- Forget the convergence proofs and retain the simultaneous relative-decay
 package consumed by the previously verified ABC theorem. -/
