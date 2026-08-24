@@ -94,8 +94,8 @@ theorem isMinimal_of_isIntegral_c4_valuation_eq_one
       simpa only [variableChange_Δ, map_mul, map_pow,
         Units.val_inv_eq_inv_val] using hscaled
     change
-      (valuation_Δ_aux R (C • W) : ℤᵐ⁰) ≤
-        (valuation_Δ_aux R W : ℤᵐ⁰)
+      (valuation_Δ_aux R (C • W)).1 ≤
+        (valuation_Δ_aux R W).1
     rw [valuation_Δ_aux_eq_of_isIntegral,
       valuation_Δ_aux_eq_of_isIntegral]
     exact hdisc
