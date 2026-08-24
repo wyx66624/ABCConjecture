@@ -111,6 +111,7 @@ import IUTThreeClosures.TateThetaKummerFiber
 import IUTThreeClosures.FiberAutomaticChoices
 import IUTThreeClosures.CorrectedLocalThetaFiber
 import IUTThreeClosures.ActualHodgeTheaterOutput
+import IUTThreeClosures.ActualTatePacketRelationalSource
 import IUTThreeClosures.ArbitraryInd2ComponentCollapse
 import IUTThreeClosures.SpectrumPreservingInd2Envelope
 import IUTThreeClosures.FiniteExponentHull
