@@ -17,7 +17,7 @@ does not carry a naive Laurent-monomial lift of the Tate translation
 `u ↦ q * u` when `ell ≥ 2`: the automorphy factor has `u`-exponent `-1`,
 which is not divisible by `ell`.
 
-There is, however, a canonical corrected construction.  After adjoining an
+There is, however, a canonical corrected construction. After adjoining an
 `ell`-th root `r` of `q` and pulling the base coordinate back by
 
 `u = v ^ ell`,
@@ -31,8 +31,8 @@ The translation `v ↦ r * v` then lifts by
 `(v, y) ↦ (r * v, (r * v)⁻¹ * y)`.
 
 Indeed, the `ell`-th power of the multiplier is exactly the automorphy factor
-for `thetaProd(q * v ^ ell)`.  This module proves the resulting self-equivalence
-of the complete pulled-back root locus.  It is a genuine algebraic descent
+for `thetaProd(q * v ^ ell)`. This module proves the resulting self-equivalence
+of the complete pulled-back root locus. It is a genuine algebraic descent
 ingredient for the local theta-root model; constructing the analytic quotient,
 its orbicurve compactification, tempered fundamental group and graph-cusp
 identification remains separate.
@@ -47,7 +47,7 @@ universe u
 variable {K : Type u} [NormedField K] [CompleteSpace K]
 
 /-- A strict exponent obstruction to a naive Laurent-monomial lift on the
-unpulled-back coordinate.  If `ell ≥ 2`, no integral Laurent exponent has
+unpulled-back coordinate. If `ell ≥ 2`, no integral Laurent exponent has
 `ell`-fold power equal to exponent `-1`. -/
 theorem no_integral_laurent_exponent_for_theta_root_shift
     {ell : ℕ} (hell : 2 ≤ ell) :
@@ -110,12 +110,7 @@ theorem thetaProd_pullback_shift
     _ = (((r * v : Kˣ) : K)⁻¹) ^ ell *
         t.thetaProd (v ^ ell) := by
       rw [hbaseK]
-      change
-        ((((r * v : Kˣ) : K) ^ ell)⁻¹) *
-            t.thetaProd (v ^ ell) =
-          (((r * v : Kˣ) : K)⁻¹) ^ ell *
-            t.thetaProd (v ^ ell)
-      rw [← inv_pow]
+      simpa only [inv_pow]
 
 /-- The forward lift of the Tate translation to the pulled-back theta-root
 locus. -/
