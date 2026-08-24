@@ -93,13 +93,12 @@ theorem isMinimal_of_isIntegral_c4_valuation_eq_one
           valuation K (IsDiscreteValuationRing.maximalIdeal R) W.Δ := by
       simpa only [variableChange_Δ, map_mul, map_pow,
         Units.val_inv_eq_inv_val] using hscaled
-    simp only [one_smul]
-    change
-      (valuation_Δ_aux R (C • W)).1 ≤
-        (valuation_Δ_aux R W).1
-    rw [valuation_Δ_aux_eq_of_isIntegral,
-      valuation_Δ_aux_eq_of_isIntegral]
-    exact hdisc
+    have haux :
+        valuation_Δ_aux R (C • W) ≤ valuation_Δ_aux R W := by
+      rw [valuation_Δ_aux_eq_of_isIntegral,
+        valuation_Δ_aux_eq_of_isIntegral]
+      exact hdisc
+    simpa only [one_smul] using haux
 
 /-- Consequently, an integral equation with bad discriminant and unit `c₄`
 has multiplicative reduction, without a separate minimality hypothesis. -/
