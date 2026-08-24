@@ -114,6 +114,7 @@ import IUTThreeClosures.ActualHodgeTheaterOutput
 import IUTThreeClosures.ActualTateRelationalSource
 import IUTThreeClosures.ArbitraryInd2ComponentCollapse
 import IUTThreeClosures.SpectrumPreservingInd2Envelope
+import IUTThreeClosures.SpectrumPreservingPacketUnion
 import IUTThreeClosures.FiniteExponentHull
 import IUTThreeClosures.StandardZeroLabel
 import IUTThreeClosures.BarycentricPacketReading
