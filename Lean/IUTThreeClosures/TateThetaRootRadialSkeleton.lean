@@ -62,7 +62,7 @@ theorem root_norm_lt_one
   by_contra hnot
   have hge : 1 ≤ ‖(r : K)‖ := le_of_not_gt hnot
   have hpow : 1 ≤ ‖(r : K)‖ ^ ell :=
-    Left.one_le_pow_of_le (M := ℝ) hge ell
+    one_le_pow₀ hge
   rw [root_norm_pow_eq_q_norm t ell r hr] at hpow
   exact (not_le_of_gt t.norm_lt_one) hpow
 
