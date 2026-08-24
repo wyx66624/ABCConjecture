@@ -117,6 +117,7 @@ import IUTThreeClosures.TateThetaKummerFiber
 import IUTThreeClosures.TateThetaRootEquivariantDescent
 import IUTThreeClosures.TateThetaRootDeckFreeness
 import IUTThreeClosures.TateThetaRootRadialSkeleton
+import IUTThreeClosures.TateThetaRootAmbientTopology
 import IUTThreeClosures.FiberAutomaticChoices
 import IUTThreeClosures.CorrectedLocalThetaFiber
 import IUTThreeClosures.ActualHodgeTheaterOutput
