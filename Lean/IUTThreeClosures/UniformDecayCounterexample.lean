@@ -34,7 +34,7 @@ def diagonalSourceDefect (n p : ℕ) : ℝ :=
 /-- For every fixed input, the diagonal defect tends to zero. -/
 theorem diagonalSourceDefect_pointwise_tendsto (p : ℕ) :
     Tendsto (fun n : ℕ => diagonalSourceDefect n p) atTop (𝓝 0) := by
-  refine tendsto_congr' ?_ tendsto_const_nhds
+  refine (tendsto_congr' ?_).mpr tendsto_const_nhds
   refine Filter.eventually_atTop.2 ⟨p + 1, ?_⟩
   intro n hn
   have hne : n ≠ p := by omega
