@@ -268,7 +268,8 @@ theorem localThetaData_nonempty_iff_corrected_strict :
     exact ⟨C, strictNormalizationOfPublic
       F E Fbar VBad P L.sect⟩
   · rintro ⟨L, N⟩
-    exact ⟨L.toLocalThetaData N⟩
+    exact ⟨EquivalentLocalThetaData.toLocalThetaData
+      AG TG F E Fbar VBad P O L N⟩
 
 end CorrectedLocalTheta
 
