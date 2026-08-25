@@ -180,8 +180,11 @@ import IUTThreeClosures.FreyFullTwoIsogenyGraph
 import IUTThreeClosures.ArithmeticLeibnizWronskian
 import IUTThreeClosures.WronskianKernelLattice
 import IUTThreeClosures.MultiDerivationExteriorEnergy
+import IUTThreeClosures.SecondJetQuadraticSystem
 import IUTThreeClosures.FermatKummerDiscriminant
 import IUTThreeClosures.TruncatedSMTCoefficientRigidity
+import IUTThreeClosures.ShearedFourFormArithmetic
+import IUTThreeClosures.MasonSpecializationBarrier
 
 -- Cloud modules retained after direct Lean 4.32 kernel verification.
 import IUTThreeClosures.AbsorbableSourceErrorBridge

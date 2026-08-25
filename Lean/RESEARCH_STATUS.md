@@ -160,6 +160,16 @@
   Gram determinant, and the exact conditional jet identity
   `bc*Gamma_a+ac*Gamma_b-ab*Gamma_c=W^2` whenever both first and Hessian
   values respect `a+b=c`
+- the exact straight second-jet diagonalization: on the first-compatible
+  hyperplane, Hessian compatibility is equivalent to
+  `c*(a*Ea+b*Eb-c*Ec)=a*b*(La-Lb)^2`; without imposing compatibility, the
+  Hessian defect enters with the literal factor `abc`, so the global
+  second-order quantity is the old transverse Wronskian squared rather than
+  a second independent normal direction
+- finite weighted Cauchy and the projected-lattice energy floor
+  `(c/rad(abc))^2/(Omega(a)+Omega(b))`, including the one-empty-prime-block
+  endpoint.  These are lower bounds on every nondegenerate integral straight
+  jet, not an existence or small-zero theorem
 - the exact polynomial discriminant of the integral Kummer binomial
   `T^n-A`, its honest prime-support implication, and the numerical tame
   boundary--different identity `g/n + (1-g/n) = 1` locally and over finite
@@ -170,6 +180,14 @@
   on that cover, but the constant must remain uniform in all arithmetic
   points and varying supports; positive averages of complete tame
   boundary--different budgets retain coefficient one
+- the exact Mason--Stothers specialization audit: the fixed polynomial
+  tripod `T,1-T,-1` is sharp with radical degree two and specializes at
+  `T=a/c`, after clearing denominators, to every primitive integer abc
+  triple.  The corresponding uniform moving-section inequality is proved
+  logically equivalent to `ABCConjecture`, not used as an input
+- a translated integral family `1,T+n,T+n+1` with constant degrees and unit
+  resultant but unbounded specialization multiplicity at `T=0`, together
+  with an explicit coefficient/point-height evaluation loss
 - both multiplicity and genuine reduced-support Riemann--Hurwitz bounds for a
   rational correspondence over the tripod.  If `r<=3` old reduced support
   points and `s` new reduced support points occur, then
@@ -182,6 +200,14 @@
   coefficient.  The geometric exceptional-locus avoidance and support-union
   inclusion are proved on paper; the surface SMT itself is not assumed by
   the Lean module
+- exact gcd/resultant separation for the sheared fourth form `c-u*a`, the
+  quadratic re-encoding `(u-1)a^2+c(c-u*a)=b(c-(u-1)a)`, and primitive
+  unbounded counterfamilies with one fixed radical, two adjacent radicals
+  simultaneously equal to `2,1`, or three consecutive shears all squares
+- the sharp scalar threshold: a coefficient `2-eta` four-form level-one
+  inequality, after paying the elementary one-height cost of `c-u*a`, gives
+  the desired coefficient `1/(1-eta)`.  The scalar rearrangement is proved;
+  the four-form arithmetic inequality is not
 
 These results are genuine components, numerical identities, and exact
 reformulations.  They do not construct the rigid/Berkovich theta quotient or
@@ -244,6 +270,12 @@ boundary-ramification and global GenEll/Belyi height package.
   the two-column exterior minor need not contain the square of the
   powerful-product.  This retires these first-order repackagings, not the new
   second-order energy route.
+- Straight Hessian compatibility does not create a second independent
+  transverse direction: its exact global defect identity closes on `W^2`.
+  Hence entropy, circle-method, or geometry-of-numbers arguments cannot
+  construct an integral jet below the proved projected-lattice energy floor.
+  This retires only claims of a free quadratic normal; it does not retire
+  high-dimensional rational isotropy or a genuinely new arithmetic selector.
 - Increasing the Fermat/Kummer degree alone cannot dilute the tame conductor
   coefficient below one: at every tame supported prime, normalized reduced
   boundary plus normalized different is exactly `log p`.  This retires only
@@ -262,6 +294,18 @@ boundary-ramification and global GenEll/Belyi height package.
   any claim that ordinary branching alone yields arbitrarily many free height
   copies.  It does not rule out a new arithmetic estimate showing unusually
   small radicals for the extra divisor values.
+- Pairwise gcd/resultant separation for a fixed finite list of shears does
+  not force radical growth.  Strict primitive families defeat one prescribed
+  shear, two adjacent shears, and a uniform `2/3` radical gain from three
+  consecutive shears simultaneously.  This retires resultant-only finite-
+  shear arguments, not a growing candidate set or a genuine variable-prime
+  truncation theorem.
+- Horizontal Mason degree, horizontal radical, bad-fibre support, and
+  pairwise resultants do not control arithmetic specialization height: the
+  unit-resultant family `1,T+2^m,T+2^m+1` has arbitrarily large intersection
+  multiplicity at the fixed section.  This strictly retires coefficient-free
+  or bad-fibre-only function-field-to-number-field bridges, not arithmetic
+  deformation with a genuinely uniform moving-section theorem.
 
 ## New exact obstruction
 
@@ -350,6 +394,11 @@ untilts or arithmetic holomorphic structures.
   `(1,2^m-1,2^m)`, `m>=3`, but general prime-dependent quadratic directions
   remain open.  The local energy definitions are not yet connected to a
   constructed global Hessian selector in Lean
+- a quantitative integral least-zero theorem for the compatible
+  linear--quadratic second-jet system.  In the indefinite internal dimension
+  at least five, Meyer's theorem gives a nonzero rational isotropic vector on
+  paper, but clearing denominators has no subpower bound; the proved energy
+  floor shows that any such bound must already control `c/rad(abc)`
 - the arithmetic realization refinements recorded only on paper for the
   Wronskian lattice: the exact `tau(n)` image subgroup, the relaxed Cramer
   upper bound, and the existence step for the full Mersenne counterfamily
@@ -367,6 +416,16 @@ untilts or arithmetic holomorphic structures.
   variable-prime level-one truncation is of Vojta/abc strength and is not a
   consequence of the standard fixed-place Schmidt or fixed-support S-unit
   theorem
+- the coefficient-two level-one inequality for the four forms
+  `a,b,c,c-u*a`, uniform in primitive points.  The quadratic identity at
+  `u=2` shows why applying an abc estimate to obtain it is circular, while
+  the explicit shear families show that standalone radical lower bounds for
+  the new form cannot replace it
+- a uniform arithmetic specialization theorem for moving sections of the
+  fixed polynomial tripod.  Its most direct height-versus-truncated-
+  intersection form has now been proved exactly equivalent to abc, so any
+  surviving Mason/deformation route must add genuinely new arithmetic data
+  rather than reuse the constant horizontal polynomial degrees
 - a uniform modified-Szpiro estimate for the actual Frey height and an honest
   bridge to the minimal model and Néron conductor.  The current
   `freyDiscriminantConductor` is only the radical of a displayed
