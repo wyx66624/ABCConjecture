@@ -165,6 +165,13 @@
   `(3^e,2,3^e+2)`, its exact unbounded `3`-adic Frey exponent, and the
   nonsquare tangent-cone certificate; the Kodaira and Tamagawa conclusions
   remain paper mathematics
+- the canonical exponent-excess module
+  `ZMod (n / rad(n))`.  Its finite arithmetic degree is exactly
+  `sum_{p|n} (v_p(n)-1)*log p`, and Lean proves the radical-plus-excess
+  decomposition as well as the exact equivalence between a radical upper
+  bound for this degree and the corresponding product-height inequality.
+  This constructs the missing `log p` weighting but does not prove its
+  global upper bound
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -348,6 +355,13 @@ boundary-ramification and global GenEll/Belyi height package.
   the nonsplit Frey family with constant rational Tamagawa number strictly
   retire the unweighted congruence-ideal/Tamagawa strategy audited here, not
   all higher-torsion or all modular approaches.
+- Formal arithmetic degree, Fitting ideals, or vertical intersection
+  positivity alone cannot bound exponent excess by reduced support.  The
+  canonical module is unbounded at fixed radical, distinct `p`- and
+  `ell`-primary vertical supports are comaximal when `p!=ell`, and fixed
+  unweighted congruence depth permits arbitrarily large `p`-weighted degree.
+  These are general vertical countermodels, not counterexamples on the abc
+  locus.
 - A generic one-row Siegel or Minkowski theorem cannot supply the needed
   nondegenerate Wronskian vector: an explicit family has a norm-one
   degenerate kernel vector while every nondegenerate one has norm at least
@@ -573,12 +587,13 @@ untilts or arithmetic holomorphic structures.
   intersection form has now been proved exactly equivalent to abc, so any
   surviving Mason/deformation route must add genuinely new arithmetic data
   rather than reuse the constant horizontal polynomial degrees
-- an Arakelov-weighted congruence or intersection module whose arithmetic
-  degree has a genuine lower bound containing
-  `sum_p (e_p-1)*log p`, together with a non-circular radical-level upper
-  bound.  Local `ell^k` torsion does detect `v_ell(e_p)`, but common-depth,
-  unweighted congruence ideals and rational Tamagawa numbers do not supply
-  this additive support-prime weight
+- a genuinely global Frey-locus upper bound for the now-explicit
+  exponent-excess module.  On the odd semistable Frey divisor it is
+  `D_exc = (1/2)*D_Delta-D_N`; an estimate
+  `D_exc <= (2+epsilon/2)*D_N+O_epsilon(1)` is exactly the
+  `6+epsilon` discriminant-conductor slope.  Thus the missing step is a new
+  global arithmetic theorem of Szpiro strength, not construction of the
+  weighted finite module or a formal Fitting/Deligne identity
 - alternatively, a uniform arithmetic estimate for the exponent-one
   radical layer.  It is a common sub-support for every exponent-divisibility
   proxy; when only odd residual primes are admissible the permanent layer is
