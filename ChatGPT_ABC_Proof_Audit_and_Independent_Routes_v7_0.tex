@@ -1,0 +1,105 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[a4paper,margin=1.02in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs,bm}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink,capitalize,noabbrev]{cleveref}
+\usepackage[most]{tcolorbox}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!45!black,
+  pdftitle={Audit of a Candidate Proof of the abc Conjecture and Independent Reduction Theorems},
+  pdfauthor={ChatGPT}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{counterexample}[theorem]{Counterexample}
+\newtheorem{obstruction}[theorem]{Obstruction}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{problem}[theorem]{Open problem}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{audit}[theorem]{Audit conclusion}
+
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\F}{\mathbb F}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\LogVol}{\operatorname{LogVol}}
+\newcommand{\Vol}{\operatorname{Vol}}
+\newcommand{\Cond}{\operatorname{Cond}}
+\newcommand{\Diff}{\operatorname{Diff}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ellstar}{\ell^{\ast}}
+\newcommand{\ThetaLoc}{\widetilde\Theta}
+\newcommand{\Pone}{\mathbf P^1}
+\newcommand{\temp}{\mathrm{temp}}
+\newcommand{\an}{\mathrm{an}}
+\newcommand{\modu}{\mathrm{mod}}
+
+\title[Audit of an $abc$ candidate proof]{Audit of a Candidate Proof of the $abc$ Conjecture\\
+\large Established local theorems, the unresolved normed theta comparison, and independent reduction routes}
+\author{ChatGPT}
+\date{August 24, 2026}
+
+\subjclass[2020]{Primary 11D75; Secondary 11G05, 11G50, 14G22, 14H30, 20G40}
+\keywords{$abc$ conjecture, Szpiro conjecture, Tate curve, Picard--Lefschetz monodromy, Berkovich skeleton, tempered fundamental group, inter-universal Teichmuller theory, proof audit}
+
+\begin{document}
+\begin{abstract}
+We audit the manuscript \emph{A Dependency-Complete Mathematical Reconstruction of the IUT--ABC Argument}, version 6.0, and the source papers on which its decisive numerical step depends.  The audit has a definite outcome: version 6.0 does not prove the $abc$ conjecture.  It proves a conditional implication whose antecedent contains a concrete global theta-values inequality and an IUT IV componentwise upper estimate.  Neither antecedent is derived in that manuscript from independently established theorems.
+
+We then separate the valid parts from the unresolved ones.  We give complete proofs of the local Tate inertia matrix, the generation of $\SL_2(\F_\ell)$ by two nonparallel transvections, and a prime-escape theorem that chooses an auxiliary prime avoiding the complete finite set of bad residue characteristics and all Tate orders.  This improves the auxiliary-prime stage: if the forbidden logarithmic mass is $O(\log c)$, then one may choose $\log\ell=O(\log\log c)=o(\log c)$.  We also prove a local counterexample showing that a single mod-$\ell$ representation is blind to the magnitude of a Tate order modulo $\ell$ and therefore cannot by itself yield the height--radical inequality.
+
+For the IUT/Arithmetic-Teichmuller route, we formulate the exact missing theorem as a normed, weight-preserving Rosetta comparison.  It must simultaneously preserve the concrete $j^2$-weighted theta values, the tensor cross norm, the procession weights, and the possible-image locus under Ind1--Ind3.  A set-theoretic or categorical correspondence is insufficient.  We explain why the global theorem claimed in Arithmetic Teichmuller Spaces III reduces to a local prototype plus this normed comparison, and why the Scholze--Stix objection directly targets the missing compatibility.
+
+Finally, we examine possible bypasses through modularity, torsion fields, $S$-unit equations, and Mason--Stothers-type differentiation.  Each route is reduced to a precise theorem at least as strong as a known open form of Szpiro or $abc$; none presently closes the argument.  Consequently this paper neither proves nor disproves $abc$.  It supplies a rigorous rejection of the version-6 candidate proof, preserves the unconditional mathematics, and isolates a falsifiable list of exact lemmas that any future proof must establish.
+\end{abstract}
+\maketitle
+
+\begin{tcolorbox}[colback=yellow!6,colframe=black!70,title=Main verdict]
+The version-6 manuscript is \emph{not} an unconditional proof of $abc$.  Its central theorem has the logical form
+\[
+  H_{\Theta}\ \wedge\ H_{\mathrm{upper}}\ \wedge\ H_{\mathrm{chart}}
+  \quad\Longrightarrow\quad abc,
+\]
+where $H_{\Theta}$ is explicitly introduced there as a ``Source Hypothesis''.  The present audit does not establish these three hypotheses from previously verified theorems.  Therefore no theorem of the form
+\[
+  \textnormal{Established mathematics}\Longrightarrow abc
+\]
+has been obtained.
+\end{tcolorbox}
+
+\tableofcontents
+
+\section{The target and the standard of proof}
+
+\input{paper/sections/01-target-and-audit}
+\input{paper/sections/02-local-arithmetic-and-prime}
+\input{paper/sections/03-analytic-and-theta-source}
+\input{paper/sections/04-component-and-bypass-routes}
+\input{paper/sections/05-verdict-and-appendices}
+
+\end{document}
