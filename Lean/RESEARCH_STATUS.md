@@ -123,6 +123,14 @@
   particular `O(|S|)` and `sum log log p` losses are harmless when they arise
   after taking the logarithm of multiplicative height; this is a sufficient
   bookkeeping theorem, not an actual S-unit height estimate
+- the anchored-descent audit for the rational S-unit tripod: all words in
+  complementation and inversion remain in one orbit of at most six points,
+  while the genuine Euclidean family
+  `(q+1,1,q+2) -> (q,1,q+1)` introduces the arbitrarily large new prime `q`.
+  The paper audit also separates the expanded-chain support explosion from
+  the compressed continued-fraction and power-chain failures.  The surviving
+  sufficient interface is a same-support descendant count linear in
+  `c/(rad*entropyLoss)`; it is explicitly open, not a proved height estimate
 - the ordinary-derivation obstruction over `Z` and `Q`, the canonical
   integer-valued `p`-derivation with its exact twisted additive and Leibniz
   laws, the local multiplicity test
@@ -334,6 +342,13 @@ boundary-ramification and global GenEll/Belyi height package.
   support-uniform linear height estimate: an explicit finite-fibre toy model
   has unbounded heights at singleton supports.  This is a quantifier
   countermodel only; it does not refute an actual uniform S-unit theorem.
+- Iterating the universal tripod symmetries cannot turn one high S-unit
+  solution into a large descendant family: the orbit has at most six points.
+  Ordinary Euclidean descent can lower height, but already its first step on
+  `(q+1,1,q+2)` leaves the old support, and its fully expanded chain acquires
+  all primes up to the original height scale.  This retires those standard
+  same-support descent mechanisms, not a new arithmetic bounded-additive
+  descent valid for every current descendant.
 - Direct absorption cannot remove either a fixed positive multiple of
   `log rad`, a fixed positive power of the largest support prime in a
   logarithmic-height bound, or a product of two independently growing
@@ -551,7 +566,11 @@ untilts or arithmetic holomorphic structures.
   `H <= C*rad*A^|S|*prod_p(1+log p)^B`.  The proved smooth/rough optimizer
   would absorb those entropy factors, but no actual arithmetic theorem of
   this form has been established; the unrestricted uniform tripod statement
-  remains exactly equivalent to abc
+  remains exactly equivalent to abc.  Equivalently, it would suffice to
+  produce at least `c/(rad*A^|S|*prod_p(1+log p)^B)` same-support solutions
+  from every high one, or a bounded additive descent that yields this count;
+  none of the audited tripod, Euclidean, continued-fraction, or power maps
+  supplies that anchor
 - a nondegenerate small-weight theorem for the free-prime arithmetic
   derivative: one must impose `D(a)+D(b)=D(c)`, avoid the Wronskian hyperplane
   `a*D(b)-b*D(a)=0`, and control the resulting archimedean weight; the basic

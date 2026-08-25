@@ -175,6 +175,7 @@ import IUTThreeClosures.ConcreteFermatBoundaryLocalRing
 import IUTThreeClosures.ArakelovFermatLogCanonical
 import IUTThreeClosures.SUnitUniformTripod
 import IUTThreeClosures.SUnitSupportEntropy
+import IUTThreeClosures.SUnitAnchoredDescentBarrier
 import IUTThreeClosures.ArithmeticPDerivation
 import IUTThreeClosures.FreyModifiedSzpiroRoute
 import IUTThreeClosures.FreyFullTwoIsogenyGraph

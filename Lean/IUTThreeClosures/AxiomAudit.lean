@@ -40,6 +40,7 @@ import IUTThreeClosures.ConcreteFermatBoundaryLocalRing
 import IUTThreeClosures.ArakelovFermatLogCanonical
 import IUTThreeClosures.SUnitUniformTripod
 import IUTThreeClosures.SUnitSupportEntropy
+import IUTThreeClosures.SUnitAnchoredDescentBarrier
 import IUTThreeClosures.ArithmeticPDerivation
 import IUTThreeClosures.FreyModifiedSzpiroRoute
 import IUTThreeClosures.FreyFullTwoIsogenyGraph
@@ -231,6 +232,12 @@ end IUTThreeClosures.ConcreteFermatBelyiRamification.TripodCertificate
 #print axioms IUTThreeClosures.fixed_mass_slope_not_absorbable
 #print axioms IUTThreeClosures.two_place_weight_product_not_linearly_absorbable
 #print axioms IUTThreeClosures.supportEntropyToy_no_uniform_linear_height
+#print axioms IUTThreeClosures.rationalTripodOrbit_card_le_six
+#print axioms IUTThreeClosures.evalRationalTripodWord_mem_orbit
+#print axioms
+  IUTThreeClosures.odd_prime_enters_euclidean_descendant_support
+#print axioms
+  IUTThreeClosures.excess_le_linear_of_exponential_proliferation
 #print axioms IUTThreeClosures.intDerivation_eq_zero
 #print axioms IUTThreeClosures.ratOverIntDerivation_eq_zero
 #print axioms IUTThreeClosures.fermatDelta_add
