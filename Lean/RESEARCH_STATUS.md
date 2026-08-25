@@ -117,6 +117,12 @@
   canonical inverse primitive positive abc triple, and
   `ABCConjecture <-> UniformRationalSUnitTripodBound` with the same uniform
   quantifier order
+- the exact support-entropy optimizer for a varying finite set of primes:
+  any nonnegative local overhead with tail cost `g(p)=o(log p)` is absorbed
+  into `epsilon*log rad + C_epsilon` by a finite smooth/rough split.  In
+  particular `O(|S|)` and `sum log log p` losses are harmless when they arise
+  after taking the logarithm of multiplicative height; this is a sufficient
+  bookkeeping theorem, not an actual S-unit height estimate
 - the ordinary-derivation obstruction over `Z` and `Q`, the canonical
   integer-valued `p`-derivation with its exact twisted additive and Leibniz
   laws, the local multiplicity test
@@ -322,6 +328,13 @@ boundary-ramification and global GenEll/Belyi height package.
   support-uniform linear height estimate: an explicit finite-fibre toy model
   has unbounded heights at singleton supports.  This is a quantifier
   countermodel only; it does not refute an actual uniform S-unit theorem.
+- Direct absorption cannot remove either a fixed positive multiple of
+  `log rad`, a fixed positive power of the largest support prime in a
+  logarithmic-height bound, or a product of two independently growing
+  place-logarithms.  The endpoint families `(1,p,p+1)` and
+  `(1,p*q,p*q+1)` make these losses explicit.  This retires only those
+  residual constant shapes, not a refined Baker, Subspace-Theorem, or gap
+  argument that first replaces them by tail-local costs.
 - For the original displayed Frey discriminant, no uniform fifth-power lower
   bound in `c` exists; for the displayed rational 2-torsion quotient, no
   uniform sixth-power lower bound exists.  Explicit endpoint triples
@@ -518,9 +531,13 @@ untilts or arithmetic holomorphic structures.
   cover identities alone have coefficient ratio one and do not supply this
   estimate
 - a quantitative rational S-unit/Baker/Subspace-Theorem estimate uniform as
-  the prime support varies; the proved uniform tripod statement is exactly
-  equivalent to abc, whereas fixed-support finiteness alone has the wrong
-  quantifier order
+  the prime support varies.  A concrete sufficient surviving target is a
+  coefficient-one radical bound whose extra local cost is uniformly
+  `g(p)=o(log p)`, equivalently a multiplicative-height envelope of the form
+  `H <= C*rad*A^|S|*prod_p(1+log p)^B`.  The proved smooth/rough optimizer
+  would absorb those entropy factors, but no actual arithmetic theorem of
+  this form has been established; the unrestricted uniform tripod statement
+  remains exactly equivalent to abc
 - a nondegenerate small-weight theorem for the free-prime arithmetic
   derivative: one must impose `D(a)+D(b)=D(c)`, avoid the Wronskian hyperplane
   `a*D(b)-b*D(a)=0`, and control the resulting archimedean weight; the basic

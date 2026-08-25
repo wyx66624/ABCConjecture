@@ -39,6 +39,7 @@ import IUTThreeClosures.LocalPowerRamificationIndex
 import IUTThreeClosures.ConcreteFermatBoundaryLocalRing
 import IUTThreeClosures.ArakelovFermatLogCanonical
 import IUTThreeClosures.SUnitUniformTripod
+import IUTThreeClosures.SUnitSupportEntropy
 import IUTThreeClosures.ArithmeticPDerivation
 import IUTThreeClosures.FreyModifiedSzpiroRoute
 import IUTThreeClosures.FreyFullTwoIsogenyGraph
@@ -221,6 +222,14 @@ end IUTThreeClosures.ConcreteFermatBelyiRamification.TripodCertificate
   IUTThreeClosures.abcConjecture_iff_uniformRationalSUnitTripodBound
 #print axioms IUTThreeClosures.toy_fixed_support_finite
 #print axioms IUTThreeClosures.toy_no_uniform_card_linear_bound
+#print axioms IUTThreeClosures.finiteSupportMass_small_add_tail
+#print axioms IUTThreeClosures.finiteSupportCost_le_epsilon_mass_add_fixed
+#print axioms IUTThreeClosures.supportCardCost_le_epsilon_mass_add_fixed
+#print axioms
+  IUTThreeClosures.height_le_one_add_epsilon_mass_of_tail_local_cost
+#print axioms IUTThreeClosures.fixed_mass_slope_not_absorbable
+#print axioms IUTThreeClosures.two_place_weight_product_not_linearly_absorbable
+#print axioms IUTThreeClosures.supportEntropyToy_no_uniform_linear_height
 #print axioms IUTThreeClosures.intDerivation_eq_zero
 #print axioms IUTThreeClosures.ratOverIntDerivation_eq_zero
 #print axioms IUTThreeClosures.fermatDelta_add
