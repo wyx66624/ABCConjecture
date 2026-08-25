@@ -22,20 +22,12 @@ factorization
 `A = U((a-1)/c) L(c) U((d-1)/c)`.
 
 Over the prime field `ZMod p`, one nonzero upper transvection generates every
-upper transvection by taking powers.  If the image also contains a
+upper transvection by taking powers. If the image also contains a
 determinant-one matrix whose lower-left entry is nonzero, the displayed
 factorization isolates one nonzero lower transvection; its powers generate all
-lower transvections.  The same factorization, together with a one-step lower
+lower transvections. The same factorization, together with a one-step lower
 shift in the triangular case, then puts every determinant-one matrix in the
 image.
-
-Thus a mod-`p` image is full on `SL₂` as soon as it contains
-
-* one nontrivial transvection, and
-* one element moving the transvection's fixed line.
-
-The remaining arithmetic/Galois tasks are to obtain the transvection from
-multiplicative inertia and the moving element from irreducibility.
 -/
 
 namespace IUTThreeClosures
@@ -75,13 +67,16 @@ instance [Semiring F] : Monoid (Matrix2 F) where
   mul := mul
   one_mul := by
     intro A
-    ext <;> simp [identity, mul]
+    change mul identity A = A
+    apply Matrix2.ext <;> dsimp [mul, identity] <;> noncomm_ring
   mul_one := by
     intro A
-    ext <;> simp [identity, mul]
+    change mul A identity = A
+    apply Matrix2.ext <;> dsimp [mul, identity] <;> noncomm_ring
   mul_assoc := by
     intro A B C
-    ext <;> simp [mul] <;> ring
+    change mul (mul A B) C = mul A (mul B C)
+    apply Matrix2.ext <;> dsimp [mul] <;> noncomm_ring
 
 /-- Determinant. -/
 def det [CommRing F] (A : Matrix2 F) : F :=
@@ -103,36 +98,43 @@ def lower [Zero F] [One F] (x : F) : Matrix2 F where
 
 @[simp]
 theorem upper_zero [Semiring F] : upper (0 : F) = 1 := by
-  ext <;> simp [upper, identity]
+  change upper (0 : F) = identity
+  apply Matrix2.ext <;> rfl
 
 @[simp]
 theorem lower_zero [Semiring F] : lower (0 : F) = 1 := by
-  ext <;> simp [lower, identity]
+  change lower (0 : F) = identity
+  apply Matrix2.ext <;> rfl
 
 @[simp]
 theorem upper_mul_upper [Semiring F] (x y : F) :
     upper x * upper y = upper (x + y) := by
-  ext <;> simp [upper, mul]
+  change mul (upper x) (upper y) = upper (x + y)
+  apply Matrix2.ext <;> dsimp [mul, upper] <;> noncomm_ring
 
 @[simp]
 theorem lower_mul_lower [Semiring F] (x y : F) :
     lower x * lower y = lower (x + y) := by
-  ext <;> simp [lower, mul]
+  change mul (lower x) (lower y) = lower (x + y)
+  apply Matrix2.ext <;> dsimp [mul, lower] <;> noncomm_ring
 
 @[simp]
 theorem det_upper [CommRing F] (x : F) :
     det (upper x) = 1 := by
-  simp [det, upper]
+  dsimp [det, upper]
+  ring
 
 @[simp]
 theorem det_lower [CommRing F] (x : F) :
     det (lower x) = 1 := by
-  simp [det, lower]
+  dsimp [det, lower]
+  ring
 
 /-- Determinant is multiplicative. -/
 theorem det_mul [CommRing F] (A B : Matrix2 F) :
     det (A * B) = det A * det B := by
-  simp [det, mul]
+  change det (mul A B) = det A * det B
+  dsimp [det, mul]
   ring
 
 /-- Exact three-unipotent factorization in the nontriangular cell. -/
@@ -145,11 +147,22 @@ theorem factor_of_det_one_of_c_ne_zero
       upper ((A.a - 1) / A.c) *
         lower A.c *
           upper ((A.d - 1) / A.c) := by
-  ext <;>
-    simp [upper, lower, mul, det] <;>
-    field_simp [hc] <;>
-    try ring
-  linear_combination hdet
+  have hdet' : A.a * A.d - A.b * A.c = 1 := by
+    simpa [det] using hdet
+  change A =
+    mul
+      (mul (upper ((A.a - 1) / A.c)) (lower A.c))
+      (upper ((A.d - 1) / A.c))
+  apply Matrix2.ext
+  · dsimp [mul, upper, lower]
+    field_simp [hc] <;> ring
+  · dsimp [mul, upper, lower]
+    field_simp [hc]
+    linear_combination hdet'
+  · dsimp [mul, upper, lower]
+    ring
+  · dsimp [mul, upper, lower]
+    field_simp [hc] <;> ring
 
 /-- Powers of one upper transvection add its parameter. -/
 theorem upper_pow [Semiring F] (x : F) (n : ℕ) :
@@ -157,10 +170,14 @@ theorem upper_pow [Semiring F] (x : F) (n : ℕ) :
   induction n with
   | zero => simp
   | succ n ih =>
-      rw [pow_succ, ih, upper_mul_upper]
-      congr 1
-      push_cast
-      ring
+      calc
+        upper x ^ (n + 1) = upper ((n : F) * x) * upper x := by
+          rw [pow_succ, ih]
+        _ = upper ((n : F) * x + x) := upper_mul_upper _ _
+        _ = upper (((n + 1 : ℕ) : F) * x) := by
+          congr 1
+          rw [Nat.cast_succ]
+          ring
 
 /-- Powers of one lower transvection add its parameter. -/
 theorem lower_pow [Semiring F] (x : F) (n : ℕ) :
@@ -168,18 +185,20 @@ theorem lower_pow [Semiring F] (x : F) (n : ℕ) :
   induction n with
   | zero => simp
   | succ n ih =>
-      rw [pow_succ, ih, lower_mul_lower]
-      congr 1
-      push_cast
-      ring
+      calc
+        lower x ^ (n + 1) = lower ((n : F) * x) * lower x := by
+          rw [pow_succ, ih]
+        _ = lower ((n : F) * x + x) := lower_mul_lower _ _
+        _ = lower (((n + 1 : ℕ) : F) * x) := by
+          congr 1
+          rw [Nat.cast_succ]
+          ring
 
 end Matrix2
 
 open Matrix2
 
-/-- A multiplicatively closed candidate image.  Inverses are not required for
-the proof: the assumed complete upper root subgroup already contains the
-negative parameters needed to isolate the lower transvection. -/
+/-- A multiplicatively closed candidate image. -/
 structure MultiplicativeCarrier (M : Type*) [Monoid M] where
   carrier : Set M
   one_mem : (1 : M) ∈ carrier
@@ -216,7 +235,9 @@ theorem all_upper_of_one_nonzero
   have hpow := C.pow_mem hupper y.val
   rw [upper_pow] at hpow
   have hparameter : (y.val : ZMod p) * u = x := by
-    simp [y, hu]
+    rw [ZMod.natCast_zmod_val]
+    dsimp [y]
+    exact div_mul_cancel₀ x hu
   simpa [hparameter] using hpow
 
 /-- The lower-root analogue. -/
@@ -231,7 +252,9 @@ theorem all_lower_of_one_nonzero
   have hpow := C.pow_mem hlower y.val
   rw [lower_pow] at hpow
   have hparameter : (y.val : ZMod p) * u = x := by
-    simp [y, hu]
+    rw [ZMod.natCast_zmod_val]
+    dsimp [y]
+    exact div_mul_cancel₀ x hu
   simpa [hparameter] using hpow
 
 /-- A complete upper root subgroup and one determinant-one element moving its
@@ -253,8 +276,14 @@ theorem lower_of_upper_and_mover
   have hmem : upper (-x) * g * upper (-y) ∈ C.carrier :=
     C.mul_mem (C.mul_mem (hupper (-x)) hg) (hupper (-y))
   have hisolate : upper (-x) * g * upper (-y) = lower g.c := by
-    rw [hfactor]
-    simp [mul_assoc]
+    calc
+      upper (-x) * g * upper (-y) =
+          upper (-x) * (upper x * lower g.c * upper y) *
+            upper (-y) := by rw [hfactor]
+      _ = (upper (-x) * upper x) * lower g.c *
+            (upper y * upper (-y)) := by
+          simp only [mul_assoc]
+      _ = lower g.c := by simp
   rwa [hisolate] at hmem
 
 /-- If both complete unipotent root subgroups are present, then every
@@ -289,7 +318,11 @@ theorem all_det_one_mem_of_upper_lower
       exact zero_ne_one hzero
     let B : Matrix2 F := lower 1 * A
     have hBc : B.c ≠ 0 := by
-      simpa [B, lower, Matrix2.mul] using ha
+      intro hBzero
+      change (lower (1 : F) * A).c = 0 at hBzero
+      change A.a + A.c = 0 at hBzero
+      rw [hc, add_zero] at hBzero
+      exact ha hBzero
     have hBdet : det B = 1 := by
       calc
         det B = det (lower (1 : F)) * det A := by
@@ -298,13 +331,17 @@ theorem all_det_one_mem_of_upper_lower
     have hBmem :=
       mem_of_det_one_of_c_ne_zero C hupper hlower B hBdet hBc
     have hrecover : lower (-1 : F) * B = A := by
-      ext <;> simp [B, lower, Matrix2.mul] <;> ring
+      calc
+        lower (-1 : F) * B =
+            (lower (-1 : F) * lower 1) * A := by
+          rw [B, ← mul_assoc]
+        _ = A := by simp
     have hleft := C.mul_mem (hlower (-1)) hBmem
     rwa [hrecover] at hleft
   · exact mem_of_det_one_of_c_ne_zero
       C hupper hlower A hdet hc
 
-/-- **Transvection-and-mover large-image criterion.**  One nonzero upper
+/-- **Transvection-and-mover large-image criterion.** One nonzero upper
 transvection and one determinant-one matrix with nonzero lower-left entry force
 the image to contain every determinant-one matrix over `ZMod p`. -/
 theorem all_det_one_mem_of_transvection_and_mover
@@ -323,9 +360,7 @@ theorem all_det_one_mem_of_transvection_and_mover
   have hlower := all_lower_of_one_nonzero p C hgc hLowerOne
   exact all_det_one_mem_of_upper_lower C hupper hlower
 
-/-- Chosen-basis irreducibility interface: failure of every image element to
-preserve the upper transvection's fixed line is exactly the existence of a
-mover with nonzero lower-left entry. -/
+/-- Chosen-basis irreducibility interface. -/
 def MovesUpperFixedLine
     {F : Type*} [Field F]
     (C : MultiplicativeCarrier (Matrix2 F)) : Prop :=
