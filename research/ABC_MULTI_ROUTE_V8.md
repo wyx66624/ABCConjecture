@@ -51,7 +51,7 @@ power-saving exceptional-set estimates into a precise constructive target.
 
 Detailed branch: `research/abc-exceptional-amplification-v8`.
 
-### 3. Full-torsion cancellation and three-direction recovery
+### 3. Local torsion-line energy and its global obstruction
 
 For a split Tate curve, the sum of local Neron heights over the canonical
 cyclic `ell`-line is
@@ -69,38 +69,49 @@ while every noncanonical line contributes
 The sum over all nonzero `ell`-torsion points is exactly zero. Thus a fully
 Galois-symmetric torsion packet cannot see the Tate parameter.
 
-The Frey-Legendre family has only three Picard-Lefschetz directions. If their
-Tate weights are `W_0,W_1,W_infinity`, one of the three global cyclic lines has
-score at least
+At one fixed place, the three Picard-Lefschetz directions of the
+Frey-Legendre family satisfy a positive concentration theorem. If their local
+weights are `W_0,W_1,W_infinity`, one direction has score at least
 
 \[
   \frac{(\ell-1)(\ell-2)}{36\ell}
-  (W_0+W_1+W_\infty),
-\]
-
-and the sum of all three line scores is
-
-\[
-  \frac{(\ell-1)(\ell-2)}{12\ell}
   (W_0+W_1+W_\infty).
 \]
 
-Detailed branch: `research/abc-torsion-line-energy-v8`.
-
-### 4. Classical three-line Hodge-Arakelov target
-
-Tensor the three evaluation determinants attached to the nonzero points of the
-three cyclic lines. Its finite multiplicative q-slope is
+However, a second theorem proves that every fixed place-independent weighted
+packet cancels after transitive projective Galois averaging. For fixed weights
+`w_D` and canonical line `C`, put
 
 \[
-  \kappa_\ell=\frac{(\ell-1)(\ell-2)}{12\ell}.
+ S_C(w)=A_\ell w_C+B_\ell\sum_{D\ne C}w_D,
 \]
 
-A classical proof of abc is reduced to an explicit determinant estimate
+where `A_ell=(ell-1)/12` and `B_ell=-(ell-1)/(12ell)`. Then
+
+\[
+ \frac1{\ell+1}\sum_C S_C(w)=0.
+\]
+
+This is a strict no-go theorem for the naive fixed three-line determinant.
+The corrected route must use locally adaptive canonical-line filtrations and
+an adelic slope/selection theorem.
+
+Detailed branch: `research/abc-torsion-line-energy-v8`.
+
+### 4. Corrected classical adelic Hodge-Arakelov target
+
+At each multiplicative place, enhance the local norm in the canonical inertia
+line selected by the three-direction concentration theorem. These local
+choices define an adelic filtered two-dimensional representation rather than
+one fixed global cyclic subgroup.
+
+A classical proof of abc is reduced to an explicit maximal-slope estimate
 
 \[
   \kappa_\ell Q
   \le K_\ell(D+N)+6\kappa_\ell E_\ell,
+  \qquad
+  \kappa_\ell=\frac{(\ell-1)(\ell-2)}{12\ell},
 \]
 
 with
@@ -110,9 +121,19 @@ with
   \qquad E_\ell=O(\log\ell).
 \]
 
-The unresolved inputs are an asymptotically sharp archimedean theta-determinant
-bound and a normalized different estimate for cyclic-line fields of degree at
-most `ell+1`.
+The normalized different of a cyclic-line field is already controlled. If
+`L_C` is the field of one cyclic line and the projective image is transitive,
+then
+
+\[
+  \frac1{\ell+1}\log|D_{L_C}|
+  \le
+  \frac{\ell-1}{\ell+1}\log N_E+2\log\ell.
+\]
+
+The decisive unresolved input is now an asymptotically sharp adelic
+maximal-slope/archimedean estimate for the place-dependent canonical-line
+filtrations, together with good-place integral unitness.
 
 Detailed branch: `research/abc-classical-hodge-arakelov-v8`.
 
@@ -121,7 +142,7 @@ Detailed branch: `research/abc-classical-hodge-arakelov-v8`.
 - uniform radical-height bounds on varying diagonal conics;
 - exceptional-set amplification by level structures, isogenies, polynomial
   identities, or norms;
-- the three-line determinant route;
+- the locally adaptive adelic torsion-line route;
 - uniform S-unit bounds with essentially linear support dependence;
 - modular/Szpiro estimates specialized to full rational 2-torsion Frey curves;
 - arithmetic-differentiation replacements that are not derivations of `Z`;
@@ -136,14 +157,20 @@ lacks a library implementation. A route may be closed only after a concrete
 counterexample, a logical contradiction, or a theorem proving that its
 required quantitative implication is impossible.
 
+The fixed place-independent three-line packet has now been excluded by the
+Galois-average cancellation theorem. The broader torsion-energy route remains
+active in its locally adaptive adelic form.
+
 ## Current closest target
 
-The closest new target is the classical three-line determinant estimate. It
-uses only conventional elliptic curves, cyclic torsion subgroups, Neron local
-functions, determinant lines, Haar/Arakelov norms, and the number-field product
-formula. It is independent of the disputed IUT/ATS Rosetta identification.
+The closest new target is the adelic maximal-slope estimate for the
+place-dependent canonical inertia-line filtrations. It uses conventional
+elliptic curves, local Neron functions, adelic norms, Arakelov slopes, and the
+number-field product formula. It is independent of the disputed IUT/ATS
+Rosetta identification, while the cancellation theorem prevents us from
+mistaking a fixed packet for a valid global source.
 
-A seven-page conventional paper draft containing the proofs above has been
-prepared as `ChatGPT_ABC_MultiRoute_Research_v8_0.tex`; it will be expanded on
-this branch as the archimedean determinant and cyclic-line-field different
-estimates are attacked.
+An eight-page conventional paper draft containing the proofs and the corrected
+no-go theorem has been prepared as
+`ChatGPT_ABC_MultiRoute_Research_v8_0.tex`; it will be expanded as the adelic
+slope and good-place integral estimates are attacked.
