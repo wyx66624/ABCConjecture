@@ -179,7 +179,9 @@ import IUTThreeClosures.FreyModifiedSzpiroRoute
 import IUTThreeClosures.FreyFullTwoIsogenyGraph
 import IUTThreeClosures.ArithmeticLeibnizWronskian
 import IUTThreeClosures.WronskianKernelLattice
+import IUTThreeClosures.MultiDerivationExteriorEnergy
 import IUTThreeClosures.FermatKummerDiscriminant
+import IUTThreeClosures.TruncatedSMTCoefficientRigidity
 
 -- Cloud modules retained after direct Lean 4.32 kernel verification.
 import IUTThreeClosures.AbsorbableSourceErrorBridge

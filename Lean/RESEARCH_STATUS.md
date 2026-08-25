@@ -148,11 +148,40 @@
   family whose actual compatible nondegenerate normalized derivative cost is
   greater than `m/2`; the complementary paper calculation places the relaxed
   minimum in `[c/R,c/R+1]`
+- the first-order multi-derivative classification: congruence compatibility
+  modulo the powerful part of `c` already suffices for the Wronskian bound,
+  two compatible value columns have an exterior minor divisible by one
+  powerful-product, all three pairwise Wronskians are the same transverse
+  scalar up to sign, and every triple of compatible value rows has zero
+  third exterior determinant
+- a genuinely second-order local energy
+  `Gamma_x,y(n)=sum_p v_p(n)*((n/p)x_p)*((n/p)y_p)`, with square
+  powerful-part divisibility, fourth-power divisibility of its two-direction
+  Gram determinant, and the exact conditional jet identity
+  `bc*Gamma_a+ac*Gamma_b-ab*Gamma_c=W^2` whenever both first and Hessian
+  values respect `a+b=c`
 - the exact polynomial discriminant of the integral Kummer binomial
   `T^n-A`, its honest prime-support implication, and the numerical tame
   boundary--different identity `g/n + (1-g/n) = 1` locally and over finite
   supports.  The actual local ramification and field-discriminant assembly
   are paper results, not yet Lean theorems
+- the scalar truncated-SMT coefficient audit: for a fixed `epsilon`, one may
+  select a single cover and allow its additive constant to depend arbitrarily
+  on that cover, but the constant must remain uniform in all arithmetic
+  points and varying supports; positive averages of complete tame
+  boundary--different budgets retain coefficient one
+- both multiplicity and genuine reduced-support Riemann--Hurwitz bounds for a
+  rational correspondence over the tripod.  If `r<=3` old reduced support
+  points and `s` new reduced support points occur, then
+  `3*d-(r+s)<=2*d-2`, hence `d-s<=1`; positive net gain forces
+  `r=3`, `s=d-1`, and equality in Riemann--Hurwitz
+- the bounded-shear scalar transfer on `(P1)^2`: rational height changes by a
+  bounded multiplier loss, a finite candidate set escapes any finite fibre
+  obstruction, and a hypothesized reduced-union surface truncated SMT with
+  slope `epsilon/(2*(1+epsilon))` rearranges to the target `1+epsilon`
+  coefficient.  The geometric exceptional-locus avoidance and support-union
+  inclusion are proved on paper; the surface SMT itself is not assumed by
+  the Lean module
 
 These results are genuine components, numerical identities, and exact
 reformulations.  They do not construct the rigid/Berkovich theta quotient or
@@ -207,11 +236,32 @@ boundary-ramification and global GenEll/Belyi height package.
   already has scale `c/rad(abc)`, so a sufficiently strong naked-lattice
   upper bound is an equivalent reformulation of abc rather than a cheap
   lemma.  This does not rule out extra arithmetic or adelic structure.
+- Repeating the same first-order prime-weight derivative, taking exterior
+  powers, randomizing weights, or optimizing entropy does not create several
+  independent avoiding directions: after the degenerate scaling line is
+  removed, the relaxed compatible value lattice has a rank-one quotient of
+  exact spacing `c/rad(abc)`.  A sharp paper example `(8,1,9)` also shows that
+  the two-column exterior minor need not contain the square of the
+  powerful-product.  This retires these first-order repackagings, not the new
+  second-order energy route.
 - Increasing the Fermat/Kummer degree alone cannot dilute the tame conductor
   coefficient below one: at every tame supported prime, normalized reduced
   boundary plus normalized different is exactly `log p`.  This retires only
   bare cover-degree averaging; a genuine bounded-degree truncated Vojta or
   second-main-theorem estimate on the lifted points remains viable.
+- A product of correlated Kummer lifts cannot copy the height more than twice
+  while paying one uniform counting/discriminant budget: any asserted
+  inequality `k*h<=q+rho*h+C` with `k-rho>2` is contradicted by the unbounded
+  family `(1,m,m+1)`.  A valid higher-dimensional theorem may put the whole
+  correlated diagonal in its exceptional set.  Replacing the diagonal by a
+  support-preserving tripod self-map also gives no infinite freedom:
+  Riemann--Hurwitz forces degree one.  These statements do not refute a
+  genuine truncated surface theorem outside its exceptional locus.
+- Allowing new branch support in a rational tripod correspondence has net
+  reduced-support gain at most one, with a rigid equality case.  This retires
+  any claim that ordinary branching alone yields arbitrarily many free height
+  copies.  It does not rule out a new arithmetic estimate showing unusually
+  small radicals for the extra divisor values.
 
 ## New exact obstruction
 
@@ -292,6 +342,14 @@ untilts or arithmetic holomorphic structures.
   `a*D(b)-b*D(a)=0`, and control the resulting archimedean weight; the basic
   Siegel lemma may return only degenerate short vectors and is insufficient
   without exploiting the special abc coefficient structure
+- an integral prime-dependent direction with subpower normalized second
+  energy satisfying both first-order and straight-Hessian compatibility and
+  having nonzero Wronskian.  Arbitrary Hasse accelerations add a fresh affine
+  variable and do not constrain the first tangent; a symmetric block-scaling
+  straight-Hessian scheme is ruled out on paper by
+  `(1,2^m-1,2^m)`, `m>=3`, but general prime-dependent quadratic directions
+  remain open.  The local energy definitions are not yet connected to a
+  constructed global Hessian selector in Lean
 - the arithmetic realization refinements recorded only on paper for the
   Wronskian lattice: the exact `tau(n)` image subgroup, the relaxed Cramer
   upper bound, and the existence step for the full Mersenne counterfamily
@@ -301,6 +359,14 @@ untilts or arithmetic holomorphic structures.
   assembly in Lean.  Even after these are built, the decisive missing input
   is the bounded-degree truncated Vojta inequality for the specifically
   chosen rational ample divisor `(K+D)/n^2`
+- the reduced-union surface inequality on
+  `((P1)^2, pr1^*{0,1,infinity}+pr2^*{0,1,infinity})` outside a proper
+  exceptional set.  The bounded shear `(lambda,u*lambda)` avoids any one
+  fixed proper exceptional locus and has paper-level support inclusion
+  `supp <= supp(abc) union supp(u) union supp(c-u*a)`, but the required
+  variable-prime level-one truncation is of Vojta/abc strength and is not a
+  consequence of the standard fixed-place Schmidt or fixed-support S-unit
+  theorem
 - a uniform modified-Szpiro estimate for the actual Frey height and an honest
   bridge to the minimal model and Néron conductor.  The current
   `freyDiscriminantConductor` is only the radical of a displayed
