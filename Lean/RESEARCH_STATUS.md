@@ -208,6 +208,21 @@
   and contact conservation identities; the Tate polygon, Burnside quotient,
   actual character submodules, invariant rings, and resolutions remain
   paper mathematics
+- the Frey four-branch binary-quartic audit: for
+  `F=Z*X*(X-a*Z)*(X+b*Z)`, the classical invariants satisfy
+  `I=a^2+a*b+b^2`, `J=(a-b)*(2a+b)*(a+2b)`, and
+  `4*I^3-J^2=27*a^2*b^2*c^2`.  Primitive abc data give
+  `gcd(I,abc)=1`, so high bad-prime multiplicity is genuine high-order
+  cancellation rather than removable common content.  The marked stable,
+  coarse discriminant, and reduced-base boundary multiplicities are
+  respectively `e_p`, `2*e_p`, and `1`.  A fixed-prime primitive family
+  strictly rules out any local bound using only the reduced fiber or its
+  mod-prime GIT orbit, while an adjacent family shows that replacing the
+  discriminant by invariant height yields no fixed coefficient saving.
+  Lean checks the invariant identities, cusp parameters, coprimality,
+  coefficient comparison, fixed-prime excess obstruction, and exact
+  slope-six scalar equivalence; GIT, stable models, minimization, cluster
+  pictures, and Arakelov intersections remain paper mathematics
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -678,7 +693,13 @@ untilts or arithmetic holomorphic structures.
   degree, then the exact paper identity is
   `E=2*E_plus+R_even`; controlling `E_plus` with the needed coefficient is
   another equivalent Szpiro-strength global input, not a quotient-theoretic
-  consequence
+  consequence.  The four-branch description sharpens the same missing input
+  to a cross-prime bound for the high-order congruences
+  `J^2 congruent 4*I^3`: reduced GIT data sees only their support, whereas
+  the required exponent-excess degree is their full contact multiplicity.
+  A global stable-height-to-truncated-boundary estimate of the required
+  strength is precisely the abc/Vojta step, and a branch-discriminant upper
+  is precisely the slope-six step
 - alternatively, a uniform arithmetic estimate for the exponent-one
   radical layer.  It is a common sub-support for every exponent-divisibility
   proxy; when only odd residual primes are admissible the permanent layer is

@@ -49,6 +49,7 @@ import IUTThreeClosures.HigherCongruenceDepthBarrier
 import IUTThreeClosures.ArakelovCongruenceDegreeBarrier
 import IUTThreeClosures.NeronNodeOrbitExcess
 import IUTThreeClosures.NeronNodeDihedralConservation
+import IUTThreeClosures.FreyBranchQuarticBarrier
 import IUTThreeClosures.ArithmeticLeibnizWronskian
 import IUTThreeClosures.WronskianKernelLattice
 import IUTThreeClosures.MultiDerivationExteriorEnergy
@@ -327,6 +328,22 @@ end IUTThreeClosures.ConcreteFermatBelyiRamification.TripodCertificate
   IUTThreeClosures.resolvedAffineQuotientNodeCount_add_oddParity
 #print axioms IUTThreeClosures.dihedral_character_degree_conservation
 #print axioms IUTThreeClosures.three_twoIsogeny_frey_contact_conservation
+#print axioms IUTThreeClosures.binaryQuarticI_frey_coefficients
+#print axioms IUTThreeClosures.binaryQuarticJ_frey_coefficients
+#print axioms
+  IUTThreeClosures.freyBranchQuartic_invariant_discriminant_identity
+#print axioms IUTThreeClosures.binaryQuartic_weighted_rescaling
+#print axioms IUTThreeClosures.one_sub_freyBranchCrossRatio
+#print axioms
+  IUTThreeClosures.freyBranchQuarticINat_coprime_branchProduct
+#print axioms
+  IUTThreeClosures.adjacent_invariant_discriminant_within_sixteen
+#print axioms
+  IUTThreeClosures.nonsplitThreeFreyPoint_branchContactExcess_three
+#print axioms
+  IUTThreeClosures.no_local_reducedBoundaryMultiplicity_branchExcess_bound
+#print axioms
+  IUTThreeClosures.branchQuartic_slopeSix_iff_exponentExcess_upper
 #print axioms IUTThreeClosures.powerfulProduct_dvd_arithmeticWronskian
 #print axioms IUTThreeClosures.log_c_le_log_radical_add_log_normalizedDerivative
 #print axioms IUTThreeClosures.weightedArithmeticDerivative_mul
