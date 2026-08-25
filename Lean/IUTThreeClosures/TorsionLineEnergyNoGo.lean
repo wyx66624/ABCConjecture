@@ -34,8 +34,6 @@ separate arithmetic theorem.  No abc conclusion is asserted here.
 
 namespace IUTThreeClosures
 
-open scoped BigOperators
-
 /-- The canonical Tate-line coefficient. -/
 noncomputable def canonicalTateLineCoefficient (ell : ℕ) : ℝ :=
   ((ell : ℝ) - 1) / 12
@@ -48,27 +46,28 @@ noncomputable def noncanonicalTateLineCoefficient (ell : ℕ) : ℝ :=
 noncomputable def weightedLineScore
     {ι : Type*} [Fintype ι] [DecidableEq ι]
     (A B : ℝ) (w : ι → ℝ) (c : ι) : ℝ :=
-  A * w c + B * (∑ d in Finset.univ.erase c, w d)
+  A * w c + B * Finset.sum (Finset.univ.erase c) w
 
 /-- Summing a fixed weighted packet over all possible canonical lines depends
 only on the total weight and the scalar `A + (card - 1) B`. -/
 theorem sum_weightedLineScore
     {ι : Type*} [Fintype ι] [DecidableEq ι]
     (A B : ℝ) (w : ι → ℝ) :
-    (∑ c : ι, weightedLineScore A B w c) =
+    Finset.sum Finset.univ (fun c => weightedLineScore A B w c) =
       (A + ((Fintype.card ι : ℝ) - 1) * B) *
-        (∑ c : ι, w c) := by
+        Finset.sum Finset.univ w := by
   classical
-  let T : ℝ := ∑ c : ι, w c
+  let T : ℝ := Finset.sum Finset.univ w
   have hinner (c : ι) :
-      (∑ d in Finset.univ.erase c, w d) = T - w c := by
+      Finset.sum (Finset.univ.erase c) w = T - w c := by
     have h := Finset.sum_erase_add Finset.univ w (Finset.mem_univ c)
     dsimp [T]
     linarith
   have hconst :
-      (∑ _c : ι, T) = (Fintype.card ι : ℝ) * T := by
+      Finset.sum Finset.univ (fun _c : ι => T) =
+        (Fintype.card ι : ℝ) * T := by
     simp
-  have hsumw : (∑ c : ι, w c) = T := rfl
+  have hsumw : Finset.sum Finset.univ w = T := rfl
   simp_rw [weightedLineScore, hinner]
   rw [Finset.sum_add_distrib, ← Finset.mul_sum, ← Finset.mul_sum,
     Finset.sum_sub_distrib, hconst, hsumw]
@@ -94,8 +93,8 @@ theorem fixedPacket_totalScore_eq_zero
     {ell : ℕ} (hell : 0 < ell)
     (hcard : Fintype.card ι = ell + 1)
     (w : ι → ℝ) :
-    (∑ c : ι,
-      weightedLineScore
+    Finset.sum Finset.univ
+      (fun c => weightedLineScore
         (canonicalTateLineCoefficient ell)
         (noncanonicalTateLineCoefficient ell) w c) = 0 := by
   rw [sum_weightedLineScore]
@@ -110,8 +109,8 @@ theorem fullTorsionPacket_totalScore_eq_zero
     {ι : Type*} [Fintype ι] [DecidableEq ι]
     {ell : ℕ} (hell : 0 < ell)
     (hcard : Fintype.card ι = ell + 1) :
-    (∑ c : ι,
-      weightedLineScore
+    Finset.sum Finset.univ
+      (fun c => weightedLineScore
         (canonicalTateLineCoefficient ell)
         (noncanonicalTateLineCoefficient ell)
         (fun _ => (1 : ℝ)) c) = 0 :=
