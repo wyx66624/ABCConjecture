@@ -12,10 +12,10 @@ The corrected deck transformation is a self-equivalence of the theta-root
 pullback. Integer powers of this equivalence therefore define an honest
 integer action.
 
-This file packages that action through the group of permutations, proves its
-addition law, and proves the radial translation formula directly for positive
-and negative powers.  The proof deliberately avoids recursively identifying
-the permutation power with the older piecewise `shiftInt` definition.
+This file packages that action through the canonical homomorphism from the
+multiplicative copy of the integers to the group of permutations.  The group
+homomorphism supplies the addition law directly and avoids brittle rewriting
+between integer powers and composition of equivalences.
 
 The action is provided as an explicit `MulAction` value rather than a global
 instance: it depends on the chosen root `r` and on the proof `r^ell=q`, neither
@@ -39,13 +39,22 @@ noncomputable def deckGenerator
     Equiv.Perm (TateThetaRootPullbackPoint t ell) :=
   TateThetaRootPullbackPoint.shiftEquiv t ell r hr
 
+/-- The canonical homomorphism sending the multiplicative integer generator to
+the corrected deck permutation. -/
+noncomputable def deckZHom
+    (t : TateParameter K) (ell : ℕ)
+    (r : Kˣ) (hr : r ^ ell = t.q) :
+    Multiplicative ℤ →*
+      Equiv.Perm (TateThetaRootPullbackPoint t ell) :=
+  zpowersHom _ (deckGenerator t ell r hr)
+
 /-- Integer powers of the corrected deck permutation. -/
 noncomputable def deckZEquiv
     (t : TateParameter K) (ell : ℕ)
     (r : Kˣ) (hr : r ^ ell = t.q)
     (n : ℤ) :
     Equiv.Perm (TateThetaRootPullbackPoint t ell) :=
-  deckGenerator t ell r hr ^ n
+  deckZHom t ell r hr (Multiplicative.ofAdd n)
 
 @[simp]
 theorem deckZEquiv_zero
@@ -54,18 +63,19 @@ theorem deckZEquiv_zero
     deckZEquiv t ell r hr 0 = Equiv.refl _ := by
   simp [deckZEquiv]
 
-/-- Integer addition is composition of deck equivalences. -/
+/-- Integer addition is multiplication in the permutation group. -/
 theorem deckZEquiv_add
     (t : TateParameter K) (ell : ℕ)
     (r : Kˣ) (hr : r ^ ell = t.q)
     (m n : ℤ) :
     deckZEquiv t ell r hr (m + n) =
-      (deckZEquiv t ell r hr n).trans
-        (deckZEquiv t ell r hr m) := by
-  unfold deckZEquiv
-  rw [zpow_add₀]
-  ext z
-  rfl
+      deckZEquiv t ell r hr m * deckZEquiv t ell r hr n := by
+  change
+    deckZHom t ell r hr (Multiplicative.ofAdd (m + n)) =
+      deckZHom t ell r hr (Multiplicative.ofAdd m) *
+        deckZHom t ell r hr (Multiplicative.ofAdd n)
+  exact map_mul (deckZHom t ell r hr)
+    (Multiplicative.ofAdd m) (Multiplicative.ofAdd n)
 
 /-- Point form of the integer deck action. -/
 noncomputable def deckZ
@@ -106,7 +116,7 @@ theorem deckZ_one
     (z : TateThetaRootPullbackPoint t ell) :
     deckZ t ell r hr 1 z =
       TateThetaRootPullbackPoint.shiftEquiv t ell r hr z := by
-  simp [deckZ, deckZEquiv, deckGenerator]
+  simp [deckZ, deckZEquiv, deckZHom, deckGenerator]
 
 @[simp]
 theorem deckZ_neg_one
@@ -115,7 +125,7 @@ theorem deckZ_neg_one
     (z : TateThetaRootPullbackPoint t ell) :
     deckZ t ell r hr (-1) z =
       (TateThetaRootPullbackPoint.shiftEquiv t ell r hr).symm z := by
-  simp [deckZ, deckZEquiv, deckGenerator]
+  simp [deckZ, deckZEquiv, deckZHom, deckGenerator]
 
 /-- Radial translation formula for nonnegative powers. -/
 theorem coordinate_deckZ_nat
