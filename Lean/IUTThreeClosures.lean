@@ -1,6 +1,7 @@
 import IUTThreeClosures.ActualPilotWitness
 import IUTThreeClosures.StandaloneCor312Ledger
 import IUTThreeClosures.GeneratedSource
+import IUTThreeClosures.ProcessionMultiradialSemanticSource
 import IUTThreeClosures.PublicLogVolumeInconsistency
 import IUTThreeClosures.HonestFinitePositiveLogVolume
 import IUTThreeClosures.FiniteProductLogVolume
@@ -57,6 +58,8 @@ import IUTThreeClosures.ChebyshevPrimeEscape
 import IUTThreeClosures.ChebyshevMultiplePrimeEscape
 import IUTThreeClosures.BertrandBoundedPrimeEscape
 import IUTThreeClosures.GenEllLemma41ScalarCore
+import IUTThreeClosures.GenEllIntegerEndpointsPNT
+import IUTThreeClosures.FormalPNTGenEllInstantiation
 import IUTThreeClosures.RationalJModuliDegree
 import IUTThreeClosures.PublicFreyTheorem110OutsideFinite
 import IUTThreeClosures.GlobalQPilotReconstruction
@@ -126,6 +129,9 @@ import IUTThreeClosures.TateThetaValuationCircleComparison
 import IUTThreeClosures.TateThetaDiscreteSkeletonImage
 import IUTThreeClosures.PolynomialGaussPointOrbit
 import IUTThreeClosures.LaurentGaussPointOrbit
+import IUTThreeClosures.TateThetaRootRadialSkeleton
+import IUTThreeClosures.TateThetaRootAmbientTopology
+import IUTThreeClosures.KPointBerkovichObstruction
 import IUTThreeClosures.FiberAutomaticChoices
 import IUTThreeClosures.CorrectedLocalThetaFiber
 import IUTThreeClosures.ActualHodgeTheaterOutput
@@ -161,3 +167,6 @@ import IUTThreeClosures.ConcreteFermatPresentationEquiv
 import IUTThreeClosures.ConcreteFermatTripodEquiv
 import IUTThreeClosures.ConcreteFermatBelyiRamification
 import IUTThreeClosures.LocalPowerRamificationIndex
+
+-- Fully compile the genuine integer deck action and its quotient tower.
+import IUTThreeClosures.TateThetaRootOrbitQuotientTower

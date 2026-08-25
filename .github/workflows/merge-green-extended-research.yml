@@ -1,0 +1,52 @@
+name: Merge green extended research
+
+on:
+  workflow_run:
+    workflows: ["Lean kernel build"]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  merge-selected-pr:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge an allowed same-repository PR at the tested head
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const allowedBranches = new Set([
+              'research/tate-theta-root-z-orbit-properness',
+              'research/tate-theta-root-cycle-quotient',
+              'research/genell-integer-endpoints-pnt-window',
+              'research/mathlib-chebyshev-pnt-instantiation',
+              'research/exceptional-prime-mass-avoidance-product',
+              'research/transvection-large-image-criterion',
+            ]);
+
+            for (const runPr of context.payload.workflow_run.pull_requests ?? []) {
+              const { data: pr } = await github.rest.pulls.get({
+                owner, repo, pull_number: runPr.number,
+              });
+              if (pr.state !== 'open') continue;
+              if (pr.base.ref !== 'main') continue;
+              if (pr.head.repo.full_name !== `${owner}/${repo}`) continue;
+              if (!allowedBranches.has(pr.head.ref)) continue;
+              if (runPr.head.sha !== pr.head.sha) continue;
+
+              await github.rest.pulls.merge({
+                owner,
+                repo,
+                pull_number: pr.number,
+                merge_method: 'merge',
+                sha: pr.head.sha,
+                commit_title: `${pr.title} (#${pr.number})`,
+                commit_message:
+                  'Automatically merged after the Lean 4.32 kernel build passed for the exact current PR head.',
+              });
+            }

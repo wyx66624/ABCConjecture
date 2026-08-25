@@ -1,0 +1,57 @@
+name: Merge green research targets
+
+on:
+  workflow_run:
+    workflows: ["Lean kernel build"]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  merge-selected-pr:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge an explicitly allowed same-repository PR
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const sha = context.payload.workflow_run.head_sha;
+            const allowed = new Map([
+              [160, 'research/tate-theta-root-radial-skeleton'],
+              [161, 'research/procession-multiradial-semantic-source'],
+              [162, 'research/ind2-permutation-volume-quotient'],
+              [164, 'research/genell-lemma41-counting-bridge'],
+            ]);
+
+            const { data: prs } =
+              await github.rest.repos.listPullRequestsAssociatedWithCommit({
+                owner,
+                repo,
+                commit_sha: sha,
+              });
+
+            for (const pr of prs) {
+              const expectedBranch = allowed.get(pr.number);
+              if (!expectedBranch) continue;
+              if (pr.state !== 'open') continue;
+              if (pr.head.repo.full_name !== `${owner}/${repo}`) continue;
+              if (pr.head.ref !== expectedBranch) continue;
+              if (pr.head.sha !== sha) continue;
+              if (pr.base.ref !== 'main') continue;
+
+              await github.rest.pulls.merge({
+                owner,
+                repo,
+                pull_number: pr.number,
+                merge_method: 'merge',
+                sha,
+                commit_title: `${pr.title} (#${pr.number})`,
+                commit_message:
+                  'Automatically merged after the Lean 4.32 kernel build passed for the exact PR head commit.',
+              });
+            }

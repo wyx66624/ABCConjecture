@@ -1,0 +1,88 @@
+name: Merge ready dependent research on main
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+  pull-requests: write
+
+jobs:
+  merge-ready:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v8
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const allowedBranches = new Set([
+              'research/tate-theta-root-z-orbit-properness',
+              'research/tate-theta-root-cycle-quotient',
+              'research/genell-integer-endpoints-pnt-window',
+              'research/mathlib-chebyshev-pnt-instantiation',
+              'research/exceptional-prime-mass-avoidance-product',
+              'research/transvection-large-image-criterion',
+              'research/tate-cycle-cusp-graph-model',
+            ]);
+            const requiredMainFiles = new Map([
+              ['research/tate-theta-root-z-orbit-properness',
+                'Lean/IUTThreeClosures/TateThetaRootRadialSkeleton.lean'],
+              ['research/tate-theta-root-cycle-quotient',
+                'Lean/IUTThreeClosures/TateThetaRootZOrbitProperness.lean'],
+              ['research/genell-integer-endpoints-pnt-window',
+                'Lean/IUTThreeClosures/GenEllLemma41CountingBridge.lean'],
+              ['research/mathlib-chebyshev-pnt-instantiation',
+                'Lean/IUTThreeClosures/GenEllIntegerEndpointsPNT.lean'],
+            ]);
+
+            const { data: prs } = await github.rest.pulls.list({
+              owner, repo, state: 'open', base: 'main', per_page: 100,
+            });
+
+            for (const pr of prs) {
+              if (pr.head.repo.full_name !== `${owner}/${repo}`) continue;
+              if (!allowedBranches.has(pr.head.ref)) continue;
+
+              const requiredFile = requiredMainFiles.get(pr.head.ref);
+              if (requiredFile) {
+                try {
+                  await github.rest.repos.getContent({
+                    owner, repo, path: requiredFile, ref: 'main',
+                  });
+                } catch (error) {
+                  if (error.status === 404) continue;
+                  throw error;
+                }
+              }
+
+              const { data: runs } =
+                await github.rest.actions.listWorkflowRunsForRepo({
+                  owner,
+                  repo,
+                  head_sha: pr.head.sha,
+                  event: 'pull_request',
+                  per_page: 100,
+                });
+              const green = runs.workflow_runs.some(run =>
+                run.name === 'Lean kernel build' &&
+                run.status === 'completed' &&
+                run.conclusion === 'success' &&
+                run.head_sha === pr.head.sha
+              );
+              if (!green) continue;
+
+              await github.rest.pulls.merge({
+                owner,
+                repo,
+                pull_number: pr.number,
+                merge_method: 'merge',
+                sha: pr.head.sha,
+                commit_title: `${pr.title} (#${pr.number})`,
+                commit_message:
+                  'Automatically merged after the exact current PR head passed the Lean 4.32 kernel build and its parent dependency was present on main.',
+              });
+            }

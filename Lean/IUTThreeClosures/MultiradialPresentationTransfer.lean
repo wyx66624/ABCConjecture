@@ -9,28 +9,17 @@ import Mathlib
 # Semantic transfer for a genuine multiradial presentation
 
 The existing downstream development works with a generated Ind1/Ind2/Ind3
-syntax.  The genuine source theorem, however, is naturally stated using
-Hodge-theater, log-Kummer and Frobenioid objects.  These two output types need
-not be definitionally equal.  What is required is a semantics-preserving
+syntax. The genuine source theorem, however, is naturally stated using
+Hodge-theater, log-Kummer and Frobenioid objects. These two output types need
+not be definitionally equal. What is required is a semantics-preserving
 presentation theorem.
 
-This module isolates the exact set-theoretic bridge.  A genuine output family
+This module isolates the exact set-theoretic bridge. A genuine output family
 `genuineRegion : Genuine → Set α` and a generated family
 `syntaxRegion : Syntax → Set α` describe the same possible-image union when
 there are maps in both directions whose represented regions are included in
-the corresponding target regions.  Equality of individual represented
-regions is a convenient stronger specialization.
-
-The transfer theorem then carries:
-
-* native-branch containment;
-* an upper envelope;
-* equality of the full possible-image unions;
-* every extensional numerical or hull construction on those unions.
-
-Thus the remaining Theorem 3.11 obligation may be attacked as a genuine
-source-to-syntax soundness/completeness theorem.  No Corollary 3.12 inequality,
-volume estimate, IUT IV bound or abc statement occurs in the interface.
+the corresponding target regions. Equality of individual represented regions
+is a convenient stronger specialization.
 -/
 
 namespace IUTThreeClosures
@@ -51,13 +40,7 @@ theorem mem_representedUnion
       ∃ o : Output, x ∈ region o := by
   simp [representedUnion]
 
-/-- A semantic presentation of genuine outputs by a generated syntax.
-
-`encode_sound` says that every genuine output is represented by its encoded
-syntax term.  `decode_complete` says that every generated syntax term is
-realized by some genuine output.  The use of inclusions rather than equalities
-allows either side to employ a coarser but extensionally equivalent notion of
-one output, while still forcing equality after taking the complete union. -/
+/-- A semantic presentation of genuine outputs by a generated syntax. -/
 structure MultiradialSemanticPresentation
     {α : Type u}
     (Genuine : Type v)
@@ -77,61 +60,77 @@ variable {α : Type u}
 variable {Genuine : Type v} {Syntax : Type w}
 variable {genuineRegion : Genuine → Set α}
 variable {syntaxRegion : Syntax → Set α}
-variable
-  (P : MultiradialSemanticPresentation
-    Genuine Syntax genuineRegion syntaxRegion)
 
 /-- Soundness gives inclusion of the genuine possible-image union in the
 syntax union. -/
-theorem genuineUnion_le_syntaxUnion :
+theorem genuineUnion_le_syntaxUnion
+    (P : MultiradialSemanticPresentation
+      Genuine Syntax genuineRegion syntaxRegion) :
     representedUnion genuineRegion ⊆ representedUnion syntaxRegion := by
-  rintro x ⟨g, hx⟩
-  exact ⟨P.encode g, P.encode_sound g hx⟩
+  intro x hx
+  rcases mem_representedUnion.mp hx with ⟨g, hg⟩
+  exact mem_representedUnion.mpr
+    ⟨P.encode g, P.encode_sound g hg⟩
 
 /-- Completeness gives the reverse inclusion. -/
-theorem syntaxUnion_le_genuineUnion :
+theorem syntaxUnion_le_genuineUnion
+    (P : MultiradialSemanticPresentation
+      Genuine Syntax genuineRegion syntaxRegion) :
     representedUnion syntaxRegion ⊆ representedUnion genuineRegion := by
-  rintro x ⟨s, hx⟩
-  exact ⟨P.decode s, P.decode_complete s hx⟩
+  intro x hx
+  rcases mem_representedUnion.mp hx with ⟨s, hs⟩
+  exact mem_representedUnion.mpr
+    ⟨P.decode s, P.decode_complete s hs⟩
 
 /-- A sound and complete presentation identifies the full possible-image
 unions exactly. -/
-theorem representedUnion_eq :
+theorem representedUnion_eq
+    (P : MultiradialSemanticPresentation
+      Genuine Syntax genuineRegion syntaxRegion) :
     representedUnion genuineRegion = representedUnion syntaxRegion :=
   Set.Subset.antisymm
-    P.genuineUnion_le_syntaxUnion P.syntaxUnion_le_genuineUnion
+    (genuineUnion_le_syntaxUnion P)
+    (syntaxUnion_le_genuineUnion P)
 
 /-- A native region contained in the genuine output union is also contained in
 the generated syntax union. -/
 theorem native_le_syntaxUnion
+    (P : MultiradialSemanticPresentation
+      Genuine Syntax genuineRegion syntaxRegion)
     (native : Set α)
     (hnative : native ⊆ representedUnion genuineRegion) :
     native ⊆ representedUnion syntaxRegion :=
-  hnative.trans P.genuineUnion_le_syntaxUnion
+  hnative.trans (genuineUnion_le_syntaxUnion P)
 
 /-- An envelope proved for every generated syntax output also contains every
 genuine output. -/
 theorem genuineUnion_le_envelope
+    (P : MultiradialSemanticPresentation
+      Genuine Syntax genuineRegion syntaxRegion)
     (envelope : Set α)
     (henvelope : representedUnion syntaxRegion ⊆ envelope) :
     representedUnion genuineRegion ⊆ envelope :=
-  P.genuineUnion_le_syntaxUnion.trans henvelope
+  (genuineUnion_le_syntaxUnion P).trans henvelope
 
 /-- Conversely, an envelope for genuine outputs contains the syntax union by
 completeness. -/
 theorem syntaxUnion_le_envelope
+    (P : MultiradialSemanticPresentation
+      Genuine Syntax genuineRegion syntaxRegion)
     (envelope : Set α)
     (henvelope : representedUnion genuineRegion ⊆ envelope) :
     representedUnion syntaxRegion ⊆ envelope :=
-  P.syntaxUnion_le_genuineUnion.trans henvelope
+  (syntaxUnion_le_genuineUnion P).trans henvelope
 
 /-- Any extensional construction on sets takes the same value on the genuine
 and generated possible-image unions. -/
 theorem extensional_observable_eq
+    (P : MultiradialSemanticPresentation
+      Genuine Syntax genuineRegion syntaxRegion)
     {β : Type*} (observable : Set α → β) :
     observable (representedUnion genuineRegion) =
       observable (representedUnion syntaxRegion) := by
-  rw [P.representedUnion_eq]
+  rw [representedUnion_eq P]
 
 end MultiradialSemanticPresentation
 
@@ -151,13 +150,17 @@ def MultiradialSemanticPresentation.ofRegionEqualities
     MultiradialSemanticPresentation
       Genuine Syntax genuineRegion syntaxRegion where
   encode := encode
-  encode_sound := fun g => (hencode g).le
+  encode_sound := by
+    intro g x hx
+    rw [← hencode g]
+    exact hx
   decode := decode
-  decode_complete := fun s => (hdecode s).le
+  decode_complete := by
+    intro s x hx
+    rw [← hdecode s]
+    exact hx
 
-/-- A one-sided source theorem is enough for the lower-bound portion: if each
-genuine output has a sound syntax representation, then a genuine native branch
-is contained in the generated possible-image union. -/
+/-- A one-sided source theorem is enough for the lower-bound portion. -/
 theorem native_le_generated_of_sound_encoding
     {α : Type u}
     {Genuine : Type v} {Syntax : Type w}
@@ -170,11 +173,11 @@ theorem native_le_generated_of_sound_encoding
     (hnative : native ⊆ representedUnion genuineRegion) :
     native ⊆ representedUnion syntaxRegion := by
   intro x hx
-  rcases hnative hx with ⟨g, hg⟩
-  exact ⟨encode g, hsound g hg⟩
+  rcases mem_representedUnion.mp (hnative hx) with ⟨g, hg⟩
+  exact mem_representedUnion.mpr ⟨encode g, hsound g hg⟩
 
-/-- A one-sided completeness theorem is enough to transfer a generated
-upper-envelope theorem back to every genuine output. -/
+/-- A one-sided soundness theorem transfers a syntax upper envelope back to
+all genuine outputs. -/
 theorem genuine_le_envelope_of_sound_encoding
     {α : Type u}
     {Genuine : Type v} {Syntax : Type w}
@@ -186,7 +189,9 @@ theorem genuine_le_envelope_of_sound_encoding
     (envelope : Set α)
     (hsyntax : representedUnion syntaxRegion ⊆ envelope) :
     representedUnion genuineRegion ⊆ envelope := by
-  rintro x ⟨g, hg⟩
-  exact hsyntax ⟨encode g, hsound g hg⟩
+  intro x hx
+  rcases mem_representedUnion.mp hx with ⟨g, hg⟩
+  exact hsyntax (mem_representedUnion.mpr
+    ⟨encode g, hsound g hg⟩)
 
 end IUTThreeClosures
