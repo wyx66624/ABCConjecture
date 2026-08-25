@@ -136,6 +136,7 @@ import IUTThreeClosures.Cor312CoefficientAlgebra
 import IUTThreeClosures.IUTIVAbsorption
 import IUTThreeClosures.PublicNormalizationObstruction
 import IUTThreeClosures.CorrectedQPilotDivisor
+import IUTThreeClosures.ExceptionalSetAmplification
 
 -- Fully compile the genuine integer deck action and its quotient tower.
 import IUTThreeClosures.TateThetaRootOrbitQuotientTower
