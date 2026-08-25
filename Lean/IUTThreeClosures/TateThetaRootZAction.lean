@@ -9,17 +9,17 @@ import IUTThreeClosures.TateThetaRootZOrbitProperness
 # The genuine integer deck action on the theta-root pullback
 
 The corrected deck transformation is a self-equivalence of the theta-root
-pullback.  Integer powers of this equivalence therefore define an honest
-`Z`-action, not merely a family of point maps.
+pullback. Integer powers of this equivalence therefore define an honest
+integer action.
 
 This file packages that action through the group of permutations, proves its
-zero and addition laws, identifies nonnegative powers with the previously
-verified natural iterates, and proves the normalized radial coordinate formula
-for all integer powers.
+addition law, and proves the radial translation formula directly for positive
+and negative powers.  The proof deliberately avoids recursively identifying
+the permutation power with the older piecewise `shiftInt` definition.
 
-The action is then exposed as a multiplicative action of `Multiplicative Z`,
-which gives Mathlib's canonical orbit setoid and hence a genuine orbit quotient
-for subsequent topology and covering-space constructions.
+The action is provided as an explicit `MulAction` value rather than a global
+instance: it depends on the chosen root `r` and on the proof `r^ell=q`, neither
+of which can be inferred from the acted-on type alone.
 -/
 
 namespace IUTThreeClosures
@@ -64,6 +64,7 @@ theorem deckZEquiv_add
         (deckZEquiv t ell r hr m) := by
   unfold deckZEquiv
   rw [zpow_add₀]
+  ext z
   rfl
 
 /-- Point form of the integer deck action. -/
@@ -91,62 +92,62 @@ theorem deckZ_add
     (z : TateThetaRootPullbackPoint t ell) :
     deckZ t ell r hr (m + n) z =
       deckZ t ell r hr m (deckZ t ell r hr n z) := by
-  rw [deckZ, deckZ, deckZ, deckZEquiv_add]
+  change
+    deckZEquiv t ell r hr (m + n) z =
+      deckZEquiv t ell r hr m
+        (deckZEquiv t ell r hr n z)
+  rw [deckZEquiv_add]
   rfl
 
-/-- A nonnegative integer power agrees with the existing natural iteration. -/
-theorem deckZ_ofNat
+@[simp]
+theorem deckZ_one
+    (t : TateParameter K) (ell : ℕ)
+    (r : Kˣ) (hr : r ^ ell = t.q)
+    (z : TateThetaRootPullbackPoint t ell) :
+    deckZ t ell r hr 1 z =
+      TateThetaRootPullbackPoint.shiftEquiv t ell r hr z := by
+  simp [deckZ, deckZEquiv, deckGenerator]
+
+@[simp]
+theorem deckZ_neg_one
+    (t : TateParameter K) (ell : ℕ)
+    (r : Kˣ) (hr : r ^ ell = t.q)
+    (z : TateThetaRootPullbackPoint t ell) :
+    deckZ t ell r hr (-1) z =
+      (TateThetaRootPullbackPoint.shiftEquiv t ell r hr).symm z := by
+  simp [deckZ, deckZEquiv, deckGenerator]
+
+/-- Radial translation formula for nonnegative powers. -/
+theorem coordinate_deckZ_nat
     (t : TateParameter K) (ell : ℕ)
     (r : Kˣ) (hr : r ^ ell = t.q)
     (n : ℕ)
     (z : TateThetaRootPullbackPoint t ell) :
-    deckZ t ell r hr (n : ℤ) z =
-      TateThetaRootPullbackPoint.shiftNat t ell r hr n z := by
+    coordinate t ell r (deckZ t ell r hr (n : ℤ) z) =
+      coordinate t ell r z + n := by
   induction n with
-  | zero => simp [deckZ]
+  | zero => simp
   | succ n ih =>
-      rw [Nat.cast_succ, deckZ_add, ih]
-      change
-        TateThetaRootPullbackPoint.shiftEquiv t ell r hr
-            (TateThetaRootPullbackPoint.shiftNat t ell r hr n z) =
-          TateThetaRootPullbackPoint.shiftNat t ell r hr (n + 1) z
-      rw [TateThetaRootPullbackPoint.shiftNat_succ]
+      rw [show ((n + 1 : ℕ) : ℤ) = 1 + (n : ℤ) by omega,
+        deckZ_add, deckZ_one, coordinate_shiftEquiv, ih]
+      push_cast
+      ring
 
-/-- The permutation-power action and the previously defined piecewise integer
-iteration agree. -/
-theorem deckZ_eq_shiftInt
+/-- Radial translation formula for negative natural powers. -/
+theorem coordinate_deckZ_negNat
     (t : TateParameter K) (ell : ℕ)
     (r : Kˣ) (hr : r ^ ell = t.q)
-    (n : ℤ)
+    (n : ℕ)
     (z : TateThetaRootPullbackPoint t ell) :
-    deckZ t ell r hr n z = shiftInt t ell r hr n z := by
-  cases n with
-  | ofNat k =>
-      simpa [shiftInt] using deckZ_ofNat t ell r hr k z
-  | negSucc k =>
-      induction k with
-      | zero =>
-          change
-            (deckGenerator t ell r hr)⁻¹ z =
-              (TateThetaRootPullbackPoint.shiftEquiv t ell r hr).symm z
-          rfl
-      | succ k ih =>
-          have hstep := deckZ_add t ell r hr
-            (-((k + 1 : ℕ) : ℤ)) (-1) z
-          change
-            deckZ t ell r hr (-((k + 2 : ℕ) : ℤ)) z =
-              shiftNegNat t ell r hr (k + 2) z
-          rw [show (-((k + 2 : ℕ) : ℤ)) =
-              -((k + 1 : ℕ) : ℤ) + (-1) by omega,
-            deckZ_add]
-          rw [deckZ_eq_shiftInt]
-          change
-            shiftNegNat t ell r hr (k + 1)
-                ((TateThetaRootPullbackPoint.shiftEquiv
-                  t ell r hr).symm z) =
-              shiftNegNat t ell r hr (k + 2) z
-          rfl
-termination_by n => Int.natAbs n
+    coordinate t ell r (deckZ t ell r hr (-((n : ℕ) : ℤ)) z) =
+      coordinate t ell r z - n := by
+  induction n with
+  | zero => simp
+  | succ n ih =>
+      rw [show (-((n + 1 : ℕ) : ℤ)) = (-1) + (-((n : ℕ) : ℤ)) by omega,
+        deckZ_add, deckZ_neg_one, coordinate_shiftEquiv_symm, ih]
+      push_cast
+      ring
 
 /-- The genuine integer action has the exact normalized radial translation
 formula. -/
@@ -157,8 +158,14 @@ theorem coordinate_deckZ
     (z : TateThetaRootPullbackPoint t ell) :
     coordinate t ell r (deckZ t ell r hr n z) =
       coordinate t ell r z + n := by
-  rw [deckZ_eq_shiftInt]
-  exact coordinate_shiftInt t ell r hr n z
+  cases n with
+  | ofNat k =>
+      simpa using coordinate_deckZ_nat t ell r hr k z
+  | negSucc k =>
+      rw [show (Int.negSucc k : ℤ) = -((k + 1 : ℕ) : ℤ) by omega,
+        coordinate_deckZ_negNat]
+      push_cast
+      ring
 
 /-- The genuine integer deck action is free. -/
 theorem deckZ_fixed_iff_zero
@@ -176,9 +183,9 @@ theorem deckZ_fixed_iff_zero
   · rintro rfl
     simp
 
-/-- The action as a multiplicative action of the multiplicative copy of the
-integer additive group. -/
-noncomputable instance deckMultiplicativeIntAction
+/-- The action as an explicit multiplicative action of the multiplicative copy
+of the integer additive group. -/
+noncomputable def deckMultiplicativeIntAction
     (t : TateParameter K) (ell : ℕ)
     (r : Kˣ) (hr : r ^ ell = t.q) :
     MulAction (Multiplicative ℤ)
@@ -194,12 +201,15 @@ noncomputable instance deckMultiplicativeIntAction
           (deckZ t ell r hr n.toAdd z)
     exact deckZ_add t ell r hr m.toAdd n.toAdd z
 
-/-- The canonical orbit setoid of the genuine integer deck action. -/
+/-- The canonical orbit setoid of the chosen genuine integer deck action. -/
 noncomputable def deckOrbitSetoid
     (t : TateParameter K) (ell : ℕ)
     (r : Kˣ) (hr : r ^ ell = t.q) :
-    Setoid (TateThetaRootPullbackPoint t ell) :=
-  MulAction.orbitRel (Multiplicative ℤ)
+    Setoid (TateThetaRootPullbackPoint t ell) := by
+  letI : MulAction (Multiplicative ℤ)
+      (TateThetaRootPullbackPoint t ell) :=
+    deckMultiplicativeIntAction t ell r hr
+  exact MulAction.orbitRel (Multiplicative ℤ)
     (TateThetaRootPullbackPoint t ell)
 
 /-- The genuine set-theoretic integer deck quotient. -/
