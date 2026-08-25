@@ -248,6 +248,12 @@
   the Hensel correction class, and the base-two Fermat specialization.  The
   resulting conditional density `1/p` is exact when the base lift varies;
   it is not asserted for the fixed base two
+- the exact odd-prime multiplicity-one calculation in every imprimitive
+  cyclotomic tower step `d*p^j -> d*p^(j+1)`.  The full paper-level
+  Moebius--LTE classification consequently gives
+  `E_d=Phi_d(2)/rad(Phi_d(2))` and realizes the cumulative first-order mass
+  as the powerful part of `lcm_{d<=X} Phi_d(2)`; the classification and lcm
+  identity are not yet Lean theorems
 - the exact polynomial discriminant of the integral Kummer binomial
   `T^n-A`, its honest prime-support implication, and the numerical tame
   boundary--different identity `g/n + (1-g/n) = 1` locally and over finite
@@ -423,6 +429,14 @@ boundary-ramification and global GenEll/Belyi height package.
   correlated.  These quantifier barriers retire the naive base-average,
   exponent-sieve, and fixed-extension Chebotarev transfers, not a genuinely
   fixed-base weighted theorem.
+- Cross-level cyclotomic resultants, polynomial discriminants and ordinary
+  derivative gcds cannot detect the order-level excess: on paper
+  `gcd(Phi_d(2),Phi'_d(2))=gcd(Phi_d(2),d)`, while `E_d` is coprime to the
+  cyclotomic discriminant, and every later `p`-tower layer retains only one
+  radical copy.  The explicit `p=1093,d=364` lift separates square contact
+  at the literal base `2` from simple contact at an adjacent lift.  This
+  retires these standard depth proxies, not a fixed-base singular-tail
+  integrability or average squarefree-value theorem.
 - Increasing the Fermat/Kummer degree alone cannot dilute the tame conductor
   coefficient below one: at every tame supported prime, normalized reduced
   boundary plus normalized different is exactly `log p`.  This retires only
@@ -563,7 +577,11 @@ untilts or arithmetic holomorphic structures.
   multiplicative order.  A necessary first step is to prove that for every
   `eta>0` only finitely many order-level Wieferich primes satisfy
   `log p >= eta*ord_p(2)`, followed by a weighted bound for the remaining
-  small-prime and higher-valuation layers
+  small-prime and higher-valuation layers.  The exact paper identity
+  `E_d=Phi_d(2)/rad(Phi_d(2))` reformulates this as uniform integrability of
+  the singular fixed section against varying exact torsion divisors, or as
+  a sufficiently strong average squarefree-value theorem for `Phi_d(2)`;
+  ordinary Bezout, discriminant and total-height estimates do not supply it
 - a quantitative integral least-zero theorem for the compatible
   linear--quadratic second-jet system.  In the indefinite internal dimension
   at least five, Meyer's theorem gives a nonzero rational isotropic vector on
