@@ -1,0 +1,98 @@
+
+\subsection{The unconditional product formula}
+
+\begin{proposition}[Componentwise logarithmic volume]\label{prop:component-volume}
+Let a local hull be an actual product region
+\[
+ \mathcal H_v=\prod_{c\in C_v}a_{v,c}\mathcal O_{v,c}
+\]
+in a finite product of locally compact fields, and let the normalized product measure use weights $w_{v,c}$.  Then
+\[
+ \LogVol_v(\mathcal H_v)
+ =\sum_{c\in C_v}w_{v,c}
+   \LogVol_{v,c}(a_{v,c}\mathcal O_{v,c}).
+\]
+Summing over places and averaging over a finite procession preserves this equality.
+\end{proposition}
+
+\begin{proof}
+Product Haar measure is multiplicative on rectangular measurable sets; logarithms turn products into sums.  Weighted normalized measures insert the weights termwise.  The adelic sum is finite because almost every region is integral of normalized volume one.
+\end{proof}
+
+This proposition is correct but applies only after proving that the actual theta hull is the stated product region and that its factors and weights agree with those in the source locus.
+
+\subsection{The imported upper estimate}
+
+IUT IV, Theorem 1.10, estimates the union of possible images of the theta pilot under Theorem 3.11 and Ind1--Ind3.  It obtains a bound of the shape
+\[
+ \frac16Q\le
+ \left(1+\delta+\frac{28d}{\ell}\right)(D+N)
+ +2\log(\ell\delta^{-7}).
+\]
+The algebra following this estimate is elementary and has been independently checked in the formal project.  The geometric upper estimate, however, depends on the exact same possible-image semantics audited in \cref{hyp:normed-rosetta}.  It cannot be treated as an unrelated established inequality while the source locus is replaced by a new ATS locus.
+
+\subsection{The compactly bounded reduction}
+
+The relation
+\[
+ \frac16Q\asymp h_{\Pone}(\lambda)
+\]
+is an equality of bounded-discrepancy classes on a compactly bounded subset.  The original route invokes the GenEll theorem to construct suitable initial theta data after passing to such subsets and then uses a Belyi-type equivalence to recover the general Vojta inequality.  Any independent proof must either reproduce that reduction or establish a global height comparison with all archimedean and $2$-adic terms included.
+
+\section{Independent bypass routes and their exact barriers}
+
+\subsection{Modularity and the Frey curve}
+
+Modularity gives automorphic control of the Galois representations of $E_{a,b}$.  Ribet-type level lowering can remove large discriminant exponents from the level, which is powerful for fixed exponent equations.  For arbitrary $abc$ triples, however, the desired inequality is precisely a uniform bound of minimal discriminant by conductor:
+\[
+ \log|\Delta_{\min}|
+ \le(6+\eps)\log N_E+O_\eps(1),
+\]
+a form of arithmetic Szpiro equivalent to $abc$.  Modularity alone does not supply this inequality.
+
+\subsection{Discriminants of torsion fields}
+
+The field $\Q(E[\ell])$ detects the support of multiplicative reduction and the Tate order modulo $\ell$, but \cref{counter:blindness} shows that one fixed level cannot detect its magnitude.  Passing to all levels recovers more Kummer data, but a uniform discriminant estimate strong enough to sum this information is itself a new global height theorem.
+
+\subsection{$S$-unit equations}
+
+For a fixed finite set $S$, the equation $x+y=1$ in $S$-units has finitely many solutions and effective bounds in many cases.  In $abc$, the set $S$ varies with the solution.  Known bounds grow too rapidly with $|S|$ and the primes in $S$ to imply a uniform exponent $1+\eps$.
+
+\subsection{Mason--Stothers differentiation}
+
+Over a function field, differentiation lowers multiplicities and proves the polynomial $abc$ theorem.  Over number fields there is no derivation that simultaneously lowers all $p$-adic multiplicities while obeying a product formula.  Arithmetic derivatives or logarithmic derivations introduce coefficients whose heights are not controlled by the radical with the required uniformity.
+
+\subsection{Probabilistic and entropy methods}
+
+Random-model heuristics predict $abc$ strongly, but a proof must cover exceptionally smooth correlated pairs.  A probability-one statement, average estimate, or density result cannot imply the pointwise inequality for every coprime triple without a deterministic exceptional-set theorem of comparable strength to $abc$.
+
+\section{The exact conditional theorem that remains valid}
+
+The sound conclusion obtainable from the established scalar algebra is the following reduction theorem.
+
+\begin{theorem}[Exact reduction to two audited numerical inputs]\label{thm:exact-reduction}
+Assume:
+\begin{enumerate}[label=(H\arabic*)]
+\item a full initial-theta datum exists for every sufficiently large primitive triple, with an auxiliary prime satisfying \cref{cor:full-prime};
+\item the normed, weight-preserving theta comparison \cref{hyp:normed-rosetta} holds;
+\item the IUT IV upper estimate holds for the same concrete locus, norms, weights, and indeterminacies;
+\item the compactly bounded/Belyi passage is valid with constants uniform in the required quantifier order.
+\end{enumerate}
+Then the $abc$ conjecture follows.
+\end{theorem}
+
+\begin{proof}
+Hypothesis (H2) gives the lower coefficient bound $C_\Theta\ge-1$.  Hypothesis (H3), together with \cref{prop:component-volume}, gives the q-bound
+\[
+ \frac16Q\le
+ \left(1+\delta+\frac{28d}{\ell}\right)(D+N)
+ +2\log(\ell\delta^{-7}).
+\]
+For rational points $d$ is fixed, while \cref{cor:full-prime} gives $\log\ell=o(\log c)$ and $d/\ell=o(1)$.  Choosing $\delta$ as a sufficiently small multiple of the target $\eps$ absorbs these terms.  Hypothesis (H4) identifies $Q/6$ with the height and $D+N$ with the log-different plus log-conductor in the globally correct bounded-discrepancy sense.  The standard equivalence between Vojta's inequality on $\Pone-\{0,1,\infty\}$ and $abc$ yields \cref{thm:abc}.
+\end{proof}
+
+\begin{remark}
+The theorem is a rigorous dependency theorem, not a proof of its hypotheses.  The auxiliary-prime part of (H1) is substantially reduced by \cref{cor:full-prime}; the decisive unresolved items are (H2), the source-dependent part of (H3), and the complete uniform passage in (H4).
+\end{remark}
+
+\section{Can the present audit disprove $abc$?}
