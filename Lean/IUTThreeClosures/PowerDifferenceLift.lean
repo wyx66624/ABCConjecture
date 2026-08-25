@@ -40,7 +40,7 @@ open scoped BigOperators
 /-- The homogeneous geometric factor `(c^m-a^m)/(c-a)`, defined without
 subtraction or division. -/
 def powerDifferenceFactor (a c m : ℕ) : ℕ :=
-  ∑ i in Finset.range m, a ^ i * c ^ (m - 1 - i)
+  ∑ i ∈ Finset.range m, a ^ i * c ^ (m - 1 - i)
 
 /-- Symmetry of the homogeneous geometric factor. -/
 theorem powerDifferenceFactor_comm (a c m : ℕ) :
@@ -85,7 +85,7 @@ theorem powerDifferenceLift_sum
   have hfactor := powerDifferenceFactor_mul_sub (a := a) (c := c) (m := m) hac
   have hsub : c - a = b := by omega
   rw [hsub] at hfactor
-  have hpow : a ^ m ≤ c ^ m := Nat.pow_le_pow_left hac
+  have hpow : a ^ m ≤ c ^ m := Nat.pow_le_pow_left hac m
   calc
     a ^ m + b * powerDifferenceFactor a c m =
         a ^ m + powerDifferenceFactor a c m * b := by ac_rfl
@@ -152,6 +152,6 @@ theorem powerDifference_degree_le_of_shell_height
     (hout : c ^ m ≤ X ^ κ) :
     m ≤ κ := by
   apply (Nat.pow_le_pow_iff_right hX).mp
-  exact (Nat.pow_le_pow_left hXc).trans hout
+  exact (Nat.pow_le_pow_left hXc m).trans hout
 
 end IUTThreeClosures
