@@ -230,6 +230,11 @@
   lift certificate at `1093`.  Lean also constructs divisibility-monotone
   spike models used in the paper proof that a vanishing ordinary normalized
   Cesaro mean need not imply a pointwise bound
+- the exact first-order lift calculation modulo `p^2`: Lean proves the
+  Taylor remainder, the affine square-divisibility criterion, uniqueness of
+  the Hensel correction class, and the base-two Fermat specialization.  The
+  resulting conditional density `1/p` is exact when the base lift varies;
+  it is not asserted for the fixed base two
 - the exact polynomial discriminant of the integral Kummer binomial
   `T^n-A`, its honest prime-support implication, and the numerical tame
   boundary--different identity `g/n + (1-g/n) = 1` locally and over finite
@@ -384,6 +389,13 @@ boundary-ramification and global GenEll/Belyi height package.
   the fixed-ceiling and size arguments retain a positive linear coefficient.
   This leaves averages of the nonredundant first-order blocks and genuinely
   uniform varying-prime p-adic distribution estimates open.
+- The exact `1/p` Hensel density obtained by varying the base cannot be
+  specialized to the fixed base `2` by a standard large sieve.  An exponent
+  sieve also sees every exceptional prime in the same order block through
+  the identical condition `d|n`, so their multiplicity mass is perfectly
+  correlated.  These quantifier barriers retire the naive base-average,
+  exponent-sieve, and fixed-extension Chebotarev transfers, not a genuinely
+  fixed-base weighted theorem.
 - Increasing the Fermat/Kummer degree alone cannot dilute the tame conductor
   coefficient below one: at every tame supported prime, normalized reduced
   boundary plus normalized different is exactly `log p`.  This retires only
@@ -517,7 +529,10 @@ untilts or arithmetic holomorphic structures.
   `sum_{d<=X} log E_d=o(X)`, or a uniform power saving
   `log E_d=O(d^(1-delta))` for some `0<delta<=1`.  An average over `W_n`
   itself is insufficient; the mass must be assigned once, at its first
-  multiplicative order
+  multiplicative order.  A necessary first step is to prove that for every
+  `eta>0` only finitely many order-level Wieferich primes satisfy
+  `log p >= eta*ord_p(2)`, followed by a weighted bound for the remaining
+  small-prime and higher-valuation layers
 - a quantitative integral least-zero theorem for the compatible
   linear--quadratic second-jet system.  In the indefinite internal dimension
   at least five, Meyer's theorem gives a nonzero rational isotropic vector on
