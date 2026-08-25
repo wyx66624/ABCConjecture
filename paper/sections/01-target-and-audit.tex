@@ -1,0 +1,88 @@
+
+For a nonzero integer $n$, put
+\[
+ \rad(n)=\prod_{p\mid n}p.
+\]
+The logarithmic $abc$ conjecture is the following.
+
+\begin{theorem}[Target statement]\label{thm:abc}
+For every $\eps>0$ there is a constant $C_\eps$ such that all pairwise coprime positive integers $a,b,c$ satisfying $a+b=c$ obey
+\[
+ \log c\le (1+\eps)\log\rad(abc)+C_\eps.
+\]
+\end{theorem}
+
+A valid proof may cite established theorems, but every cited theorem must have the hypotheses used, the same normalization of numerical invariants, and a proof independent of the target.  The following distinctions are essential.
+
+\begin{definition}[Four levels of a statement]
+A statement in a proposed proof is:
+\begin{enumerate}[label=(\roman*)]
+\item \emph{proved internally} if a proof is included;
+\item \emph{imported} if it is cited from another source;
+\item \emph{conditional} if it is placed among the hypotheses;
+\item \emph{semantic shorthand} if it merely renames or compares objects without proving that the numerical structures used later are preserved.
+\end{enumerate}
+Only (i) and a successfully audited instance of (ii) can close a proof.
+\end{definition}
+
+\begin{criterion}[Numerical-transport criterion]\label{crit:numerical-transport}
+Suppose objects $X$ and $Y$ are related by an isomorphism, equivalence, full poly-isomorphism, or Rosetta dictionary.  A numerical inequality involving norms, volumes, or degrees may be transported from $X$ to $Y$ only after proving that the comparison preserves:
+\begin{enumerate}[label=(\alph*)]
+\item the concrete elements being measured;
+\item the norm or measure on their ambient spaces;
+\item every scalar weight and normalization;
+\item products, tensor cross norms, and averaging operations;
+\item the direction of every inclusion used in a monotonicity argument.
+\end{enumerate}
+A categorical equivalence alone does not imply any of these properties.
+\end{criterion}
+
+\section{Logical audit of the version-6 manuscript}
+
+Let $M_6$ denote the manuscript \emph{A Dependency-Complete Mathematical Reconstruction of the IUT--ABC Argument}, version 6.0.
+
+\begin{theorem}[Conditionality certificate]\label{thm:conditionality}
+The main conclusion of $M_6$ is conditional.  More precisely, $M_6$ proves only
+\[
+ H_{\Theta}\wedge H_{\mathrm{IUTIV}}\Longrightarrow abc,
+\]
+where $H_{\Theta}$ is the statement labeled ``Concrete global theta-values theorem'' and $H_{\mathrm{IUTIV}}$ is the IUT IV upper estimate used later in the manuscript.
+\end{theorem}
+
+\begin{proof}
+The manuscript explicitly introduces $H_{\Theta}$ using a theorem environment named ``Source Hypothesis''.  Its subsequent ``Dependency-complete conclusion'' begins with the words ``Assume [the source hypothesis] and the componentwise upper estimate of IUT IV''.  The final proof invokes both inputs.  Nowhere before the final theorem is $H_{\Theta}$ derived from the local Tate, Berkovich, finite-group, or measure-theoretic lemmas proved in the manuscript.  Thus the proof is an implication from $H_{\Theta}\wedge H_{\mathrm{IUTIV}}$, not a proof of the antecedent.  This is a direct application of propositional logic.
+\end{proof}
+
+\begin{corollary}
+Deleting the word ``Hypothesis'' or renaming $H_{\Theta}$ as a theorem does not repair the proof.  A derivation of $H_{\Theta}$ satisfying \cref{crit:numerical-transport} is required.
+\end{corollary}
+
+\subsection{Additional gaps hidden by the coarse four-interface summary}
+
+The explicit source hypothesis is decisive, but it is not the only issue.
+
+\begin{audit}[Auxiliary-prime incompleteness]
+Initial theta data require the auxiliary prime to avoid every bad residue characteristic and every Tate $q$-order at every bad place.  The version-6 three-stage Euclid selector avoids only two selected local exponents and two selected residue characteristics.  It therefore does not by itself produce the full admissible-prime datum.
+\end{audit}
+
+\begin{audit}[Local monodromy compatibility]
+The separate local Tate formula is standard.  What must additionally be proved is a simultaneous identification, in one global basis of $E[\ell]$, of inertia at two arithmetic places with transvections having distinct fixed lines.  This follows from the labeled Picard--Lefschetz theory of the Legendre family, but it is a theorem to be stated and cited; it is not a consequence of two unrelated local basis choices.
+\end{audit}
+
+\begin{audit}[Berkovich/tempered overstatement]
+A properly discontinuous action on the set of $K$-rational solutions of a Kummer equation does not construct the full Berkovich analytic cover.  The Berkovich space has non-classical points, and a skeleton alone does not determine the residue-curve decorations, root-stack structure, or the full tempered covering category.  The version-6 manuscript proves useful point-set and skeleton statements, but it does not establish the exact identification with the IUT orbicurves of type $(1,\Z/\ell\Z)^{\pm}$, their core property, and their canonical graph cusp.
+\end{audit}
+
+\begin{audit}[Compactly bounded chart]
+The equality
+\[
+ \frac16\log q=\log c+O(1)
+\]
+was stated only on a compactly bounded chart, but the final proof applies it to all primitive triples.  The original IUT IV route uses a separate GenEll/Belyi reduction from general points to compactly bounded subsets.  Omitting that reduction leaves a global quantifier gap.
+\end{audit}
+
+\begin{audit}[Dependence of the upper estimate]
+The IUT IV componentwise upper estimate is not independent of the disputed Theorem 3.11 semantics.  Its proof explicitly estimates the union of possible images of the theta pilot under Ind1--Ind3.  Hence an audit must verify not only the lower theta inequality but also that the locus and indeterminacies used in the upper estimate are the same normed objects.
+\end{audit}
+
+\section{Unconditional local arithmetic retained from the candidate}
