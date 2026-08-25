@@ -27,6 +27,17 @@
   `|T|=r`, `|T^-1|=r^-1`, an explicit `T |-> qT` automorphism and exact
   covariance; the positive radial orbit quotient is homeomorphic to the
   logarithmic circle
+- the actual uniform completion of each positive-radius Laurent--Gauss norm,
+  with a complete normed `K`-algebra structure, exact multiplicativity of the
+  completed norm, an isometric injective dense Laurent embedding,
+  `||T^n||=r^n`, and an isometric completed `T |-> qT` equivalence between
+  radii `||q||r` and `r`
+- the honest Hausdorff pointwise space of contractive multiplicative
+  seminorms extending the base-field norm on each completion, its
+  contravariant functoriality under isometric algebra equivalences, the
+  completed Gauss point, and the scaling homeomorphism between the radius
+  `r` and `||q||r` spaces; when `||q||=1` this specializes to an actual
+  fixed-radius `Z`-action
 - existence and set-level uniqueness of least products of scaled maximal
   valuation rings for compact local packets with nonzero projections
 - normalized local additive Haar measure and honest finite-positive nonzero
@@ -41,12 +52,23 @@
   exactly the degree of the explicit q-divisor and `arithmeticLogQ`; its
   identification with public `logQ` is correctly conditional on weight-degree
   compatibility
+- a genuine finite-positive distinguished-label slice of the standard
+  procession, with exact square-label Haar log-volumes, exact finite square
+  averaging, source-derived odd bad-place selection, and a newly constructed
+  canonical residue-degree weighted `QPilotData` whose public `logQ` agrees
+  with the actual arithmetic q-divisor normalization
 - fixed-place rational prime scale rigidity after prime specialization
 - the unique labelwise `1/j^2` theta calibration, its finite weighted form,
   and the common-fixed-scale obstruction at labels one and two
 - actual nonarchimedean absolute-value copies rescaled by `1/j^2`, together
   with the fixed-place theorem that no ring equivalence between the label-one
   and label-two `Q_p` copies can preserve logarithmic norm
+- the balanced cross-label tensor theorem identifying multiplication by an
+  integer in every label, its compatibility with direct-sum tuple expansion,
+  and the exact finite-positive degree-line Haar law
+  `log vol(nU)=log|n|+log vol(U)`; a complementary p-adic theorem rules out
+  embedding the fixed-place `1/j^2` copies isometrically into that common
+  packet while identifying integers
 - an explicit source-faithful bound absorbing
   `sqrt(q) * log(A*q)` into an arbitrarily small multiple of `q`
 - an explicit affine Fermat/Kummer algebra over the tripod which is finite
@@ -75,11 +97,37 @@
 - an explicit `K`-algebra equivalence from the `X_2` homogeneous chart ring
   to the bivariate affine Fermat quotient, proved in both directions from
   chart generators, and transport of affine `Algebra.Smooth` to that chart
+- for every odd positive degree in characteristic zero, explicit equivalences
+  from all three homogeneous coordinate charts to the affine Fermat quotient
+  and a Zariski-local proof that the genuine structural morphism
+  `Proj(K[X,Y,Z]/(X^n+Y^n-Z^n)) -> Spec(K)` is smooth
+- at the genuine `X_2` homogeneous chart point `(u,v)=(0,1)` over zero,
+  the actual maximal ideal `(u,v-1)`, its `AtPrime` stalk DVR with
+  uniformizer `u`, the target DVR `K[t]_(t)`, and the localized power map
+  `t |-> u^n`, with additive valuation, extended maximal ideal, and
+  ramification index all exactly `n`
+- the exact Arakelov/tripod identities `N_D^(1)(a/c)=log rad(abc)` and
+  `h_K(x^n)=n*h_K(x)`, together with the complete numerical
+  Riemann--Hurwitz, ramification-degree, and log-canonical-degree profile of
+  the degree-`n^2` Fermat cover and its connection to the actual finite-etale
+  rank; in particular `deg(K+D)/deg(beta)=1`, so bare cover-degree
+  normalization cannot improve a fixed counting coefficient
+- the exact rational S-unit reformulation: the prime support of `a/c` and
+  `1-a/c` is exactly the support of `abc`, every rational `0<x<1` has a
+  canonical inverse primitive positive abc triple, and
+  `ABCConjecture <-> UniformRationalSUnitTripodBound` with the same uniform
+  quantifier order
+- the ordinary-derivation obstruction over `Z` and `Q`, the canonical
+  integer-valued `p`-derivation with its exact twisted additive and Leibniz
+  laws, the local multiplicity test
+  `p | delta_p(n) <-> p^2 | n` under `p | n`, and an explicit powers-of-two
+  proof that its raw size is unbounded while the input radical stays `2`
 
-These new results are local or scalar components.  They do not construct the
-rigid/Berkovich theta quotient or tempered comparison, the genuine IUT III
-possible-image system, the IUT IV source estimate, or the projective
-GenEll/Belyi height package.
+These results are genuine components, numerical identities, and exact
+reformulations.  They do not construct the rigid/Berkovich theta quotient or
+tempered comparison, the genuine IUT III possible-image system, the IUT IV
+global source estimate, a uniform S-unit/Vojta estimate, or the complete
+boundary-ramification and global GenEll/Belyi height package.
 
 ## Claims retired by concrete counterexamples
 
@@ -97,6 +145,16 @@ GenEll/Belyi height package.
   lies in the kernel.  This retires only the direct `K`-point equivalence; it
   does not refute the noninjective Berkovich retraction from an analytic space
   onto its skeleton.
+- Literal Mason--Stothers transport by an ordinary derivation on `Z` or `Q`
+  is impossible because every such relative derivation is zero.  Replacing it
+  by the canonical `p`-derivation survives locally, but the family
+  `n=2^(m+1)` strictly rules out every bound on its raw single-variable size
+  that depends only on `rad(n)`.  These counterexamples do not rule out a
+  three-variable arithmetic Wronskian with cross-prime cancellation.
+- Pointwise finiteness for every separately fixed support does not imply a
+  support-uniform linear height estimate: an explicit finite-fibre toy model
+  has unbounded heights at singleton supports.  This is a quantifier
+  countermodel only; it does not refute an actual uniform S-unit theorem.
 
 ## New exact obstruction
 
@@ -125,10 +183,14 @@ At the IUT III scale layer, one common scalar cannot calibrate both concrete
 labels `1` and `2`, since their log norms differ by the square factor four.
 The unique pointwise calibration is `1/j^2`, and it preserves a separate
 product formula after uniformly rescaling every place within one label.
-However, this scalar-copy model changes the log-volume effect of integer
-multiplication between labels and therefore does not construct the source's
-cross-label tensor/procession compatibility.  This is a no-go theorem for a
-fixed-place/common-scale adapter, not a refutation of genuinely different
+The balanced tensor packet now proves that, once all labelled modules really
+live over one common scalar ring, integer multiplication in any factor is the
+same global scalar endomorphism and has the expected one-dimensional Haar
+Jacobian.  What remains missing is precisely the source map placing the alien
+rescaled AHS/untilt/Kummer/log-link objects into this common packet.  Indeed,
+the fixed-place `1/j^2` copies cannot be embedded isometrically into one metric
+packet while identifying a rational prime.  This is a no-go theorem for the
+naive fixed-place isometric adapter, not a refutation of genuinely different
 untilts or arithmetic holomorphic structures.
 
 ## Not proved
@@ -139,22 +201,40 @@ untilts or arithmetic holomorphic structures.
 - actual orbicurve/core/cusp data in the intended anabelian geometry
 - actual local theta-data and tempered comparison data
 - actual Hodge-theater/Frobenioid/Kummer/log-link/multiradial output realization
-- completion of the proved Laurent Gauss ray to a Tate algebra and full
-  rigid/Berkovich analytic quotient, theta-root `H^1` and divisor control,
-  angular directions, deformation retraction, and tempered
+- a coefficient-series/affinoid universal-property identification of the
+  proved single-radius Laurent--Gauss completions, followed by the full
+  compact Berkovich/adic spectrum and `q^Z` quotient (for Tate `q`, the proved
+  scaling moves between different radius fibres rather than acting on one
+  fixed fibre), theta-root `H^1` and divisor control, angular directions,
+  deformation retraction, and tempered
   fundamental-group/skeleton comparison for the odd theta-root locus
 - the genuine cross-label AHS/untilt and Ind1--Ind3 degree-line bridge
 - the genuine Ind1--Ind3 possible-image/procession upper bound beyond the
-  proved finite actual bad-place Haar/q-divisor identity, including a
-  source construction of public weight compatibility and odd-place selection
+  proved finite actual bad-place Haar/q-divisor identity and distinguished
+  square-label procession slice; in particular, exhaustion by Theorem 3.11
+  possible images and the full capsule product remain open
 - Lean formalizations of the root-pullback and global-j-packet
   counterexamples recorded above (the valuation-circle kernel is formalized)
 - a source-derived, uniformly quantified IUT IV q-height theorem
-- geometric irreducibility, scheme-level packaging of the now identified
-  affine chart and honest localization as a compactification inside the
-  genuine Fermat `Proj`, scheme-level smoothness/normality/properness,
-  boundary local DVR/uniformizer identifications, and the noncritical
-  Belyi/height package
+- scheme-level normality/properness consequences not already supplied by the
+  `Proj` construction, the remaining root-of-unity branches above zero and
+  the boundary fibres above one and infinity, their global ramification and
+  different divisor assembly, and the noncritical Belyi/height package
+- a scheme-level canonical-divisor/genus Riemann--Hurwitz theorem for the
+  constructed Fermat `Proj`, normalized-height invariance under number-field
+  extension, and a uniform truncated second-main-theorem estimate controlling
+  the Fermat lifts' field discriminants and boundary counts; the numerical
+  cover identities alone have coefficient ratio one and do not supply this
+  estimate
+- a quantitative rational S-unit/Baker/Subspace-Theorem estimate uniform as
+  the prime support varies; the proved uniform tripod statement is exactly
+  equivalent to abc, whereas fixed-support finiteness alone has the wrong
+  quantifier order
+- a nondegenerate small-weight theorem for the free-prime arithmetic
+  derivative: one must impose `D(a)+D(b)=D(c)`, avoid the Wronskian hyperplane
+  `a*D(b)-b*D(a)=0`, and control the resulting archimedean weight; the basic
+  Siegel lemma may return only degenerate short vectors and is insufficient
+  without exploiting the special abc coefficient structure
 - `Nonempty UpstreamCertificate`
 - parameter-free `abc_conjecture`
 

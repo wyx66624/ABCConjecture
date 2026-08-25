@@ -609,6 +609,178 @@ algebra or an annulus completion, does not construct the full Berkovich
 multiplicative group, and does not by itself supply a rigid/adic Tate-curve
 quotient or tempered comparison. ∎
 
+#### B.9 — The honest Laurent--Gauss completion and radial scaling
+
+**Status:** mathematical proof complete and target-compiled in the independent
+module `IUTThreeClosures/LaurentGaussCompletion.lean`.  The Lean realization
+uses Mathlib's absolute-value-tagged type `WithAbs` and its separated uniform
+completion; this keeps the radius in the type and prevents completions at
+different radii from being silently identified by a local typeclass choice.
+The key declarations are `norm_mul_completed`, `toCompletionAlgHom`,
+`toCompletion_denseRange`, `scaleCompletion`, and
+`scaleCompletion_toCompletion`.
+
+Let `L=K[T,T^(-1)]`, let `r>0`, and equip `L` with the Laurent--Gauss
+absolute value of B.8.  Denote this normed ring by `L_r` and its metric
+completion by
+
+```text
+A_r = completion(L_r),       j_r : L_r -> A_r.          (B.26)
+```
+
+Then `A_r` is a complete normed commutative ring and a normed `K`-algebra;
+`j_r` is an injective isometric ring homomorphism with dense range.  In
+particular, for every Laurent polynomial `f`,
+
+```text
+||j_r(f)|| = |f|^Laur_r,      ||j_r(T^n)|| = r^n.        (B.27)
+```
+
+**Proof.**  B.8 proves that `|.|^Laur_r` is a nondegenerate absolute value,
+so `d_r(f,g)=|g-f|^Laur_r` is a metric.  The triangle inequality makes
+addition continuous, and exact multiplicativity implies the usual
+submultiplicative bound
+
+```text
+|fg|^Laur_r <= |f|^Laur_r |g|^Laur_r.
+```
+
+Thus `L_r` is a normed commutative ring.  Constants satisfy
+`|a|^Laur_r=||a||`, while
+
+```text
+|a f|^Laur_r=|a|^Laur_r |f|^Laur_r=||a|| |f|^Laur_r,
+```
+
+so it is a normed `K`-algebra.  Addition, multiplication, and scalar
+multiplication extend uniquely across Cauchy completion.  Standard completion
+theory then makes `A_r` a complete normed commutative `K`-algebra, and makes
+`j_r` isometric with dense range.  Its isometry and B.23 give (B.27). ∎
+
+Now let `q!=0` and put `r'=||q||r`.  The substitution automorphism
+`Sigma_q(f)(T)=f(qT)` extends uniquely to an equivalence
+
+```text
+widehat(Sigma_q) : A_(r') ~= A_r.                       (B.28)
+```
+
+It is an isometric `K`-algebra equivalence, and on the dense Laurent
+subalgebra it satisfies
+
+```text
+widehat(Sigma_q)(j_(r')(f)) = j_r(Sigma_q(f)).           (B.29)
+```
+
+**Proof.**  Equation (B.25) says exactly
+
+```text
+|Sigma_q(f)|^Laur_r = |f|^Laur_(r'),
+```
+
+so `Sigma_q : L_(r') -> L_r` is an isometry.  Its algebraic inverse is
+`Sigma_(q^(-1))`.  Moreover
+
+```text
+||q^(-1)|| r' = ||q^(-1)|| ||q|| r = r,
+```
+
+and B.25 applied to `q^(-1)` proves that this inverse is also an isometry.
+Both maps therefore extend uniquely to the completions.  Their composites
+agree with the identity on the dense images of the Laurent rings, hence are
+the identity everywhere.  Continuity of the extended operations makes the
+extensions ring homomorphisms; since substitution fixes constants, they are
+`K`-algebra homomorphisms.  Completion preserves the distance equality, so
+(B.28) is isometric, and the defining extension identity is (B.29). ∎
+
+This is the first genuine completion layer in the radial route.  It is the
+completion of finite Laurent polynomials for one Laurent--Gauss norm.  No
+coefficient-series presentation or universal affinoid property has yet been
+proved, so it is not identified here with a named Tate/annulus algebra.
+Likewise, (B.28) is not a construction of the Berkovich or adic spectrum, an
+analytic quotient by `q^Z`, or a tempered fundamental-group comparison.
+
+#### B.10 — The contractive multiplicative-seminorm space and radial pullback
+
+**Status:** mathematical proof complete and target-compiled in the independent
+module `IUTThreeClosures/LaurentGaussSeminormSpectrum.lean`.  Its main
+declarations are `BoundedKSeminorm`, `pullbackHomeomorph`,
+`completedGaussPoint`, `scaleSpectrumHomeomorph`, and
+`unitNormSpectrumZAction`.
+
+Let `A` be a normed `K`-algebra whose norm is exactly multiplicative and whose
+scalar embedding is isometric.  Define
+
+```text
+M_K(A) = { v : A -> R |
+  v is a multiplicative ring seminorm,
+  v(algebraMap(a)) = ||a|| for every a in K, and
+  v(x) <= ||x|| for every x in A }.                    (B.30)
+```
+
+Here “multiplicative ring seminorm” means that `v(0)=0`, `v(1)=1`,
+`v(xy)=v(x)v(y)`, `v(-x)=v(x)`, `v(x)>=0`, and
+`v(x+y)<=v(x)+v(y)`.  In particular, a seminorm is allowed to have a
+nonzero kernel; no field-valued character is being substituted for this
+notion.  Give `M_K(A)` the topology induced by the injection
+
+```text
+M_K(A) -> R^A,                 v |-> (x |-> v(x)).      (B.31)
+```
+
+Thus this is precisely the topology of pointwise convergence: every
+evaluation `ev_x(v)=v(x)` is continuous, and a map into `M_K(A)` is
+continuous whenever all its coordinate evaluations are continuous.  The
+injection (B.31) also proves that this topology is Hausdorff.
+
+Let `phi : A -> B` be a contractive `K`-algebra homomorphism.  Pullback gives
+
+```text
+phi^* : M_K(B) -> M_K(A),       phi^*(v)(x)=v(phi(x)).  (B.32)
+```
+
+Indeed, composition with a ring homomorphism preserves all multiplicative
+seminorm axioms.  Since `phi` fixes the scalar embedding, `phi^*(v)` extends
+the norm of `K`; and contractivity gives
+
+```text
+phi^*(v)(x) = v(phi(x)) <= ||phi(x)|| <= ||x||.
+```
+
+For continuity, the `x`-coordinate of (B.32) is the continuous evaluation at
+`phi(x)`.  If `phi` is an isometric `K`-algebra equivalence, its inverse is
+also isometric, and the two pullbacks are mutually inverse continuous maps.
+Consequently `phi^*` is a homeomorphism.
+
+Apply this construction to the completed Laurent--Gauss algebra `A_r` from
+B.9.  Exact multiplicativity of its norm and
+`||algebraMap(a)||=||a||` make the norm itself a distinguished point
+
+```text
+g_r in M_K(A_r),                    g_r(x)=||x||.       (B.33)
+```
+
+For `q!=0`, pullback along (B.28) therefore gives the genuine pointwise
+homeomorphism
+
+```text
+widehat(Sigma_q)^* : M_K(A_r) ~= M_K(A_(||q||r)),      (B.34)
+```
+
+and its isometry implies
+
+```text
+widehat(Sigma_q)^*(g_r) = g_(||q||r).                  (B.35)
+```
+
+When `||q||=1`, (B.34) is a self-homeomorphism of `M_K(A_r)`; its integral
+powers form the honest `q^Z` action on this fixed-radius seminorm space.
+This is a non-circular bounded multiplicative-seminorm space with its Gauss
+norm point and radial pullback.  The local Mathlib snapshot has no packaged
+`BerkovichSpectrum` API, so no compactness theorem or identification with a
+library Berkovich spectrum is asserted.  Nor is the orbit relation quotient
+by this action constructed here: an ordinary topological orbit quotient
+would still not be a rigid/adic Tate quotient or a tempered quotient. ∎
+
 ## Route A: honest local hulls and normalized Haar volume
 
 ### A.0 — Counterexample to the public total-set scaling law
@@ -2056,3 +2228,155 @@ normality or properness nor identifies boundary local rings as DVRs.  A
 scheme-level smoothness claim additionally requires the relevant affine
 scheme morphism/locality interface and is not obtained merely from the
 pointwise Jacobian calculation. ∎
+
+### E.12 — Odd-degree coordinate charts and scheme-level smoothness
+
+**Status:** mathematical proof complete and target-compiled in
+`IUTThreeClosures/ConcreteProjectiveFermatSchemeSmooth.lean`.
+
+Assume `char(K)=0`, `n>0`, and `n` odd.  Oddness is used only to identify all
+three standard charts with the single affine model from E.5; it is exactly
+the case needed for the odd auxiliary prime in the present application.
+For `i=0,1,2`, let `B_i=(A_n)_(x_i)` be the degree-zero homogeneous chart
+ring.  Choose coordinates
+
+```text
+(u_2,v_2) = (x_0/x_2,  x_1/x_2),
+(u_0,v_0) = (x_2/x_0, -x_1/x_0),
+(u_1,v_1) = (x_2/x_1, -x_0/x_1).                 (E.25)
+```
+
+The homogeneous equation and `(-a)^n=-a^n` give, on every chart,
+
+```text
+u_i^n+v_i^n=1.                                     (E.26)
+```
+
+Thus evaluation of the two affine variables gives a `K`-algebra map
+`Q_n -> B_i`.  In the reverse direction evaluate `(x_0,x_1,x_2)` at
+
+```text
+(1,-v_0,u_0),   (-v_1,1,u_1),   (u_2,v_2,1),       (E.27)
+```
+
+respectively.  In each case the projective relation vanishes by (E.26), and
+the denominator coordinate maps to `1`; hence quotient and localization
+universal properties give `B_i -> Q_n`.  The first composite fixes the two
+affine generators.  For the other composite, the homogeneous-Away generation
+theorem says that `B_i` is generated by all ratios `x_j/x_i`; these ratios
+are `1`, one selected coordinate in (E.25), or its negative.  Therefore the
+second composite also fixes a generating set.  We obtain explicit
+equivalences
+
+```text
+Q_n ≃ₐ[K] B_i        for every i : Fin 3.            (E.28)
+```
+
+By E.5, `Q_n` is smooth over `K`, so each `B_i` is smooth over `K` by
+transport across (E.28).  Let
+
+```text
+f : C_n = Proj(A_n) -> Spec(K)                       (E.29)
+```
+
+be the structural morphism, obtained from `Proj.toSpecZero` followed by the
+map induced by `K -> (A_n)_0`.  The standard Proj identity
+`away_i ; toSpecZero = Spec.map((A_n)_0 -> B_i)` shows that the restriction
+of `f` to `D_+(x_i)` is exactly `Spec.map(K -> B_i)`.  Hence every restricted
+morphism is smooth.  The opens `D_+(x_i)` cover `C_n` by E.10, and smoothness
+is Zariski-local on the source, so `f` itself is smooth.
+
+This proves genuine scheme-level smoothness of the odd-degree projective
+Fermat curve.  It still does not identify the boundary stalks as DVRs,
+instantiate the local ramification-index theorem at the three fibres, or
+prove the global Belyi height and different estimates. ∎
+
+### E.13 — The honest zero-boundary stalk and its ramification index
+
+**Status:** mathematical proof complete and target-compiled in the independent
+module `IUTThreeClosures/ConcreteFermatBoundaryLocalRing.lean`.
+
+Let `K` be a characteristic-zero field, let `n>0`, and use the genuine
+projective chart `D_+(X_2)` from E.10.  Its coordinate ring `C` is the
+degree-zero homogeneous localization, and E.11 identifies it with
+
+```text
+K[u,v]/(u^n+v^n-1),       u=X_0/X_2,  v=X_1/X_2.       (E.30)
+```
+
+Consider the `K`-rational point `(u,v)=(0,1)` over the target value zero.
+Evaluation defines a surjective map `epsilon:C→K`; put
+`m=ker(epsilon)`.  Polynomial division (equivalently, induction on the two
+polynomial generators before passing to the Fermat quotient) gives
+
+```text
+m=(u,v-1).                                             (E.31)
+```
+
+Indeed every polynomial `f` differs from its value `f(0,1)` by an element
+of `(u,v-1)`, while both displayed generators vanish under `epsilon`.
+Consequently `m` is maximal.  This is an ideal of the actual homogeneous
+chart ring, not a predicate on coordinate triples.
+
+Let `S=C_m`.  The affine Fermat ring is a domain by the Eisenstein argument
+of E.2, and E.11 transports that fact to `C`; it also transports
+Noetherianity.  Hence `S` is a Noetherian local domain.  Set
+
+```text
+g=1+v+⋯+v^(n-1).
+```
+
+Since `epsilon(g)=n` and `char(K)=0`, `g` does not lie in `m`, so its image
+in `S` is a unit.  The Fermat equation and the geometric-sum identity give
+
+```text
+g(v-1)=v^n-1=-u^n.                                   (E.32)
+```
+
+Thus `v-1` belongs to `(u)` in `S`.  Combining this with (E.31) and the
+standard description of the maximal ideal after localization yields
+
+```text
+maximalIdeal(S)=(u).                                  (E.33)
+```
+
+The element `u` is nonzero: under E.11 it is the coefficient variable in
+the monic `AdjoinRoot` presentation, whose coefficient map is injective.
+It lies in the maximal ideal, so `S` is not a field.  The DVR criterion for
+a Noetherian local domain with principal nonzero maximal ideal now proves
+that `S` is a discrete valuation ring, and (E.33) says that `u` is a
+uniformizer.
+
+On the target affine chart take
+
+```text
+R=K[t]_(t).
+```
+
+This is likewise a DVR with uniformizer `t`.  The power map is the ring map
+`K[t]→C`, `t↦u^n`.  Its inverse image of `m` is `(t)`, because
+evaluation at `(0,1)` after this map is evaluation at `t=0`.  It therefore
+localizes to a local homomorphism `R→S`, and by construction
+
+```text
+t ↦ u^n.                                             (E.34)
+```
+
+Applying E.9 with unit `1` gives the three exact conclusions
+
+```text
+ord_S(t)=n,
+(maximalIdeal R)S=(maximalIdeal S)^n,
+ramificationIdx(maximalIdeal S / R)=n.                 (E.35)
+```
+
+Finally, the prime `m` is a point of `Spec(C)`, and Mathlib's affine-scheme
+stalk isomorphism identifies its scheme stalk with `Localization.AtPrime m`.
+Together with the genuine Proj chart isomorphism of E.10, this records the
+scheme-theoretic origin of `S`; no coordinate-point equality is substituted
+for a stalk.
+
+This closes one actual boundary branch, namely `(u,v)=(0,1)` above zero.
+It does not yet cover the other points `v^n=1`, the fibre over one, or the
+points at infinity, and it does not yet assemble the three local statements
+into a global finite Belyi morphism or a different/height estimate. ∎
