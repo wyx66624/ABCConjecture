@@ -55,7 +55,7 @@ every fixed line-weight system satisfies
 `average_C S_C(w) = 0`
 
 under the complete transitive projective orbit. This eliminates the naive fixed
-three-line determinant variant. Its original work is retained at commit
+three-line packet variant. Its original work is retained at commit
 `30430eadad8a4f4035c35479e80cd2cc630c6cc0`; the no-go theorem and useful
 different estimate are ported into the v8 integration commit.
 
@@ -70,6 +70,21 @@ Thus that generic selector cannot produce a positive uniform q-coefficient.
 Its original work is retained at commit
 `a3decfc45e01e011dc38a6d4542b4dbcf4a2d662`; the dimension-barrier theorem is
 ported into the v8 integration commit.
+
+### Complete cyclic-line evaluation determinant
+
+For a cyclic subgroup `C` of odd order `ell`, the divisor of its nonzero points
+satisfies
+
+`sum_{P in C minus {0}} (P) ~ (ell - 1) (0)`.
+
+Hence a nonzero section of `O_E((ell-1)0)` vanishes at every evaluation point.
+The complete evaluation map from `H^0(E,O_E((ell-1)0))` to the `ell-1` point
+fibres has a nonzero kernel and every square evaluation matrix has determinant
+zero. This eliminates the naive evaluation-determinant implementation. The
+surviving corrections use a quotient determinant, a jet-augmented evaluation,
+a degree-`ell` line bundle, determinant of cohomology, or the globally labelled
+parabolic-Hodge construction.
 
 The corrected successors use locally adaptive filtrations or globally labelled
 three-cusp parabolic data and are not excluded by these no-go theorems.
