@@ -132,6 +132,21 @@
   `c4'=16(a^2-14ab+b^2)` and `Delta'=-256abc^4`; direct displayed-model
   size arguments therefore improve the limiting coefficient from `3/2` to
   `6/5`, but do not reach `1`
+- the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
+  divisible by the three powerful parts and having nonzero Wronskian imply
+  `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
+  derivative satisfies the ordinary Leibniz rule and all required local
+  divisibilities without storing a target estimate
+- the projected powerful-part kernel identity and its exact nondegenerate
+  lower bound `cost >= c/rad(abc)`, together with a powers-of-two/Mersenne
+  family whose actual compatible nondegenerate normalized derivative cost is
+  greater than `m/2`; the complementary paper calculation places the relaxed
+  minimum in `[c/R,c/R+1]`
+- the exact polynomial discriminant of the integral Kummer binomial
+  `T^n-A`, its honest prime-support implication, and the numerical tame
+  boundary--different identity `g/n + (1-g/n) = 1` locally and over finite
+  supports.  The actual local ramification and field-discriminant assembly
+  are paper results, not yet Lean theorems
 
 These results are genuine components, numerical identities, and exact
 reformulations.  They do not construct the rigid/Berkovich theta quotient or
@@ -171,6 +186,18 @@ boundary-ramification and global GenEll/Belyi height package.
   `(1,N,N+1)` prove both failures.  This retires only the two bare
   discriminant-size shortcuts, not a global modified-Szpiro estimate,
   Néron-conductor methods, or other isogeny-class constructions.
+- A generic one-row Siegel or Minkowski theorem cannot supply the needed
+  nondegenerate Wronskian vector: an explicit family has a norm-one
+  degenerate kernel vector while every nondegenerate one has norm at least
+  `H`.  In the actual powerful-part projection the first avoiding direction
+  already has scale `c/rad(abc)`, so a sufficiently strong naked-lattice
+  upper bound is an equivalent reformulation of abc rather than a cheap
+  lemma.  This does not rule out extra arithmetic or adelic structure.
+- Increasing the Fermat/Kummer degree alone cannot dilute the tame conductor
+  coefficient below one: at every tame supported prime, normalized reduced
+  boundary plus normalized different is exactly `log p`.  This retires only
+  bare cover-degree averaging; a genuine bounded-degree truncated Vojta or
+  second-main-theorem estimate on the lifted points remains viable.
 
 ## New exact obstruction
 
@@ -251,6 +278,15 @@ untilts or arithmetic holomorphic structures.
   `a*D(b)-b*D(a)=0`, and control the resulting archimedean weight; the basic
   Siegel lemma may return only degenerate short vectors and is insufficient
   without exploiting the special abc coefficient structure
+- the arithmetic realization refinements recorded only on paper for the
+  Wronskian lattice: the exact `tau(n)` image subgroup, the relaxed Cramer
+  upper bound, and the existence step for the full Mersenne counterfamily
+- actual local Kummer extensions at the three Fermat boundary fibres,
+  `e=n/gcd(n,m)`, tame different exponent `e-1`, unramifiedness outside
+  `nabc`, the fixed-`n` wild bound, and their number-field discriminant
+  assembly in Lean.  Even after these are built, the decisive missing input
+  is the bounded-degree truncated Vojta inequality for the specifically
+  chosen rational ample divisor `(K+D)/n^2`
 - a uniform modified-Szpiro estimate for the actual Frey height and an honest
   bridge to the minimal model and Néron conductor.  The current
   `freyDiscriminantConductor` is only the radical of a displayed

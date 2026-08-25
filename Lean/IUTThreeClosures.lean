@@ -176,6 +176,9 @@ import IUTThreeClosures.ArakelovFermatLogCanonical
 import IUTThreeClosures.SUnitUniformTripod
 import IUTThreeClosures.ArithmeticPDerivation
 import IUTThreeClosures.FreyModifiedSzpiroRoute
+import IUTThreeClosures.ArithmeticLeibnizWronskian
+import IUTThreeClosures.WronskianKernelLattice
+import IUTThreeClosures.FermatKummerDiscriminant
 
 -- Cloud modules retained after direct Lean 4.32 kernel verification.
 import IUTThreeClosures.AbsorbableSourceErrorBridge
