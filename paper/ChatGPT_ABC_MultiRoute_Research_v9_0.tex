@@ -1,0 +1,384 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[a4paper,margin=1.05in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink,capitalize,noabbrev]{cleveref}
+\usepackage[most]{tcolorbox}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!45!black,
+  pdftitle={New Reduction Theorems and Obstructions in a Multi-Route Programme toward the abc Conjecture},
+  pdfauthor={ChatGPT}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{obstruction}[theorem]{Obstruction}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{problem}[theorem]{Open problem}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\F}{\mathbb F}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\eps}{\varepsilon}
+
+\title[Multi-route research toward $abc$]{New Reduction Theorems and Obstructions in a Multi-Route Programme toward the $abc$ Conjecture}
+\author{ChatGPT}
+\date{August 25, 2026}
+\subjclass[2020]{Primary 11D75; Secondary 11G05, 11G50, 14G22, 14H30}
+\keywords{$abc$ conjecture, powerful integers, diagonal cubics, exceptional sets, Tate curves, parabolic Hodge bundles, auxiliary primes}
+
+\begin{document}
+
+\begin{abstract}
+We develop several independent routes toward the $abc$ conjecture without assuming the correctness of any claimed proof.  First, a prospective counterexample is shown to contain polynomially large square and cube cores, producing primitive points on varying squarefree diagonal conics and cube-free diagonal cubics.  Second, we prove an incidence-amplification criterion which turns a power-saving exceptional-set estimate into finiteness once a sufficiently prolific controlled amplification operation is found.  Third, we compute the local N\'eron energy of canonical and noncanonical cyclic torsion lines on a Tate curve.  The complete torsion packet cancels exactly, and every fixed place-independent weighted packet also cancels after transitive projective Galois averaging.  A generic full-orbit Chinese-remainder/Minkowski selector meets an exact dimension barrier.  Fourth, we correct the Legendre Hodge--Arakelov route: the degree-one logarithmic cotangent line on the coarse $\mathbf P^1$ has no ordinary square root, so the half-degree Hodge line is necessarily stacky or parabolic.  At levels $\ell\equiv1\pmod{12}$, a power of the Legendre discriminant gives an integral section with the exact finite Tate boundary coefficient and no ordinary good-place defect.  Finally, a twelfth-cyclotomic construction selects an auxiliary prime which is simultaneously above a threshold, avoids prescribed local exponents, is congruent to one modulo twelve, and has sublinear logarithmic height.  We also prove that fixed-depth isogeny amplification at such a subpolynomial level cannot close a power-saving exceptional set.
+
+None of the remaining global source theorems is assumed.  The closest surviving classical target is a stack-normalized archimedean and level-prime compensation inequality for the globally labelled three-cusp Legendre variation.  The paper neither proves nor disproves $abc$; it supplies exact new reductions, formalizable no-go theorems, and a sharpened dependency front for subsequent work.
+\end{abstract}
+
+\maketitle
+
+\begin{tcolorbox}[colback=yellow!5,colframe=black!70,title=Claim boundary]
+Every theorem stated as proved below has an elementary proof or is explicitly reduced to a standard named theorem.  Open arithmetic specialization, norm-comparison, and height estimates are labelled as problems.  In particular, no unconditional proof or disproof of the $abc$ conjecture is claimed.
+\end{tcolorbox}
+
+\section{The target}
+
+For pairwise coprime positive integers $a,b,c$ satisfying $a+b=c$, put
+\[
+ R(a,b,c)=\rad(abc).
+\]
+The logarithmic $abc$ conjecture asserts that for every $\eps>0$ there is a constant $C_\eps$ such that
+\[
+ \log c\le (1+\eps)\log R(a,b,c)+C_\eps.
+\]
+A disproof would require one fixed $\eps_0>0$ and infinitely many primitive triples for which
+\[
+ \frac{c}{R(a,b,c)^{1+\eps_0}}\longrightarrow\infty.
+\]
+The failure of a proposed proof mechanism does not constitute such a disproof.
+
+\section{Power cores forced by a counterexample}
+
+\begin{definition}
+For $n\ge1$, define the multiplicity excess
+\[
+ \operatorname{exc}(n)=\frac{n}{\rad(n)}.
+\]
+For $k\ge2$ and $n=\prod_pp^{e_p}$, define the $k$-th power core
+\[
+ U_k(n)=\prod_pp^{\lfloor e_p/k\rfloor}.
+\]
+\end{definition}
+
+\begin{theorem}[Global multiplicity excess]
+If $c>R^{1+\eps}$, then
+\[
+ \operatorname{exc}(a)\operatorname{exc}(b)\operatorname{exc}(c)
+ >c^{\eps/(1+\eps)}.
+\]
+\end{theorem}
+
+\begin{proof}
+Pairwise coprimality gives
+\[
+ \operatorname{exc}(a)\operatorname{exc}(b)\operatorname{exc}(c)
+ =\frac{abc}{R}\ge\frac cR.
+\]
+The hypothesis implies $R<c^{1/(1+\eps)}$.
+\end{proof}
+
+\begin{theorem}[Two-large-term square core]
+Let $x=\max\{a,b\}$.  Under the same hypothesis,
+\[
+ \max\{\operatorname{exc}(x),\operatorname{exc}(c)\}
+ >2^{-1/2}c^{(1+2\eps)/(2(1+\eps))}.
+\]
+Consequently one of $x,c$ contains a square divisor at least as large as the right-hand side.
+\end{theorem}
+
+\begin{proof}
+Since $x\ge c/2$ and $\rad(x)\rad(c)\le R$,
+\[
+ \operatorname{exc}(x)\operatorname{exc}(c)
+ \ge \frac{c^2}{2R}
+ >\frac12c^{(1+2\eps)/(1+\eps)}.
+\]
+Moreover $U_2(n)^2\ge n/\rad(n)=\operatorname{exc}(n)$, because
+$2\lfloor e/2\rfloor\ge e-1$ prime by prime.
+\end{proof}
+
+Writing
+\[
+ a=A x^2,\qquad b=B y^2,\qquad c=C z^2
+\]
+with $A,B,C$ squarefree gives a primitive point on
+\[
+ A x^2+B y^2=C z^2.
+\]
+
+\begin{theorem}[Large cube core]
+Let $U=U_3(abc)$.  If $c>R^{1+\eps}$, then
+\[
+ U^3>c^{2\eps/(1+\eps)}\left(1-\frac1c\right).
+\]
+Thus, after writing
+\[
+ a=A x^3,\quad b=B y^3,\quad c=C z^3
+\]
+with cube-free $A,B,C$, one has
+\[
+ \max\{x,y,z\}>
+ c^{2\eps/(9(1+\eps))}\left(1-\frac1c\right)^{1/9}.
+\]
+\end{theorem}
+
+\begin{proof}
+Primewise, $3\lfloor e/3\rfloor\ge e-2$, hence
+\[
+ U^3\ge \frac{abc}{R^2}.
+\]
+Since $ab\ge c-1$, the right-hand side is at least $c(c-1)/R^2$; substitute $R<c^{1/(1+\eps)}$.  Finally $xyz=U$.
+\end{proof}
+
+\begin{problem}
+Prove a uniform radical--height theorem for the resulting varying diagonal conics or diagonal cubics which uses the large-coordinate hypothesis above and has leading coefficient $1+\eps$.
+\end{problem}
+
+\section{Exceptional-set amplification}
+
+Let $E_\eps(Y)$ count exceptional primitive triples of height at most $Y$, and suppose
+\[
+ E_\eps(Y)\le C_\eps Y^\alpha
+\]
+for some $\alpha>0$.
+
+\begin{theorem}[Incidence amplification]
+Assume every exception $T$ of height in $[X,2X]$ produces a finite set $\mathcal A(T)$ of exceptions satisfying
+\[
+ |\mathcal A(T)|\ge X^\beta,
+ \qquad H(U)\le X^\kappa\quad(U\in\mathcal A(T)),
+\]
+and every possible output occurs in at most $X^\gamma$ such sets.  Then
+\[
+ N_\eps(X)\le C_\eps X^{\gamma+\kappa\alpha-\beta}.
+\]
+If $\beta>\gamma+\kappa\alpha$, there are no sufficiently large exceptions.
+\end{theorem}
+
+\begin{proof}
+Count incidences $(T,U)$ with $U\in\mathcal A(T)$.  The lower count is
+$N_\eps(X)X^\beta$.  The upper count is at most
+$X^\gamma E_\eps(X^\kappa)$.
+\end{proof}
+
+\begin{obstruction}[Fixed-depth small-level isogenies]
+At one prime $\ell$, a cyclic-isogeny step has at most $\ell+1$ subgroup labels.  A labelled depth-$r$ path has at most $(\ell+1)^r$ choices.  If $r$ is fixed and $\log\ell=o(\log X)$, the number of outputs is $X^{o(1)}$ and has amplification exponent $\beta=0$.  It cannot satisfy the preceding criterion when $\alpha>0$.
+\end{obstruction}
+
+\section{Tate cyclic-line energies and no-go theorems}
+
+Let $E_q$ be a split Tate curve and put $L=-\log|q|>0$.  For an odd prime $\ell$ away from the residue characteristic, the standard local N\'eron function gives the following two coefficients.
+
+\begin{theorem}[Canonical and noncanonical lines]
+For the canonical line $\mu_\ell$,
+\[
+ \sum_{P\in\mu_\ell\setminus\{0\}}\lambda(P)
+ =\frac{\ell-1}{12}L.
+\]
+For every noncanonical cyclic order-$\ell$ subgroup $C$,
+\[
+ \sum_{P\in C\setminus\{0\}}\lambda(P)
+ =-\frac{\ell-1}{12\ell}L.
+\]
+\end{theorem}
+
+\begin{proof}
+For the canonical line, every nonzero point has radial coordinate zero and $|1-\zeta|=1$.  For a noncanonical line, representatives are
+$u_j=\zeta^{tj}q^{j/\ell}$, hence $|1-u_j|=1$.  The result follows from
+\[
+ \sum_{j=1}^{\ell-1}B_2(j/\ell)
+ =-\frac{\ell-1}{6\ell}.
+\]
+\end{proof}
+
+Put
+\[
+ A_\ell=\frac{\ell-1}{12},\qquad
+ B_\ell=-\frac{\ell-1}{12\ell}.
+\]
+Then
+\[
+ A_\ell+\ell B_\ell=0.
+\]
+Thus the sum over all nonzero $\ell$-torsion points loses the entire $q$-signal.
+
+More generally, for fixed weights $w_D$ on the $\ell+1$ cyclic lines and canonical line $C$, put
+\[
+ S_C(w)=A_\ell w_C+B_\ell\sum_{D\ne C}w_D.
+\]
+
+\begin{theorem}[Galois-average cancellation]
+\[
+ \frac1{\ell+1}\sum_CS_C(w)=0.
+\]
+\end{theorem}
+
+\begin{proof}
+Every fixed line occurs once canonically and $\ell$ times noncanonically.
+\end{proof}
+
+A generic projective CRT/Minkowski selector retains only a fraction
+$1/(\ell+1)$ of the canonical/noncanonical gap, while the exact identity
+\[
+ B_\ell+\frac{A_\ell-B_\ell}{\ell+1}=0
+\]
+shows that this gain again cancels the baseline.  Hence neither a fixed packet nor a generic full-orbit linear selector can prove $abc$.
+
+\section{The stack-correct Legendre Hodge line}
+
+Let $X=\mathbf P^1$ and $D=\{0,1,\infty\}$.  Since
+\[
+ \Omega_X^1(\log D)\simeq\mathcal O_X(1),
+\]
+it has degree one.
+
+\begin{theorem}[Coarse parity obstruction]
+There is no ordinary line bundle $L$ on $\mathbf P^1$ satisfying
+\[
+ L^{\otimes2}\simeq\Omega_X^1(\log D).
+\]
+\end{theorem}
+
+\begin{proof}
+Such a line would satisfy $2\deg L=1$, impossible because $\deg L\in\Z$.
+\end{proof}
+
+The level-two moduli problem retains the generic involution $[-1]$, which fixes the two-torsion structure and acts by $-1$ on invariant differentials.  Thus the Hodge line is stacky; its square descends to the coarse logarithmic cotangent line.  Correctly interpreted,
+\[
+ \deg_{\rm par}\omega=\frac12.
+\]
+This explains the classical coefficient
+\[
+ \frac{\deg_{\rm par}\omega^{\ell-1}}{(\ell-1)/12}=6.
+\]
+
+\section{The integral Legendre discriminant section}
+
+The Legendre discriminant is a section of $\omega^{12}$ with divisor
+\[
+ 2D_0+2D_1+2D_\infty.
+\]
+Choose $\ell=12m+1$ and put
+\[
+ s_\ell=\Delta_{\rm Leg}^{\,m}\in H^0(\mathcal X(2),\omega^{\ell-1}).
+\]
+Then
+\[
+ \operatorname{div}(s_\ell)=\frac{\ell-1}{6}D.
+\]
+For a primitive specialization $\lambda=a/c$, $1-\lambda=b/c$, the finite cusp intersection is
+\[
+ \sum_p\bigl(v_p(a)+v_p(b)+v_p(c)\bigr)\log p=\log(abc).
+\]
+Consequently the finite boundary term is
+\[
+ \frac{\ell-1}{6}\log(abc)
+ =\frac{\ell-1}{12}\log|\Delta_{\min}|+O(\ell).
+\]
+At primes outside $2abc\ell$, the section is an integral unit.
+
+\begin{problem}[Stack-normalized compensation]
+Prove that the remaining archimedean, level-prime, stabilizer-descent and metric-Jacobian terms are at most
+\[
+ \left(\frac{\ell-1}{2}+o_\ell(\ell)\right)
+ (\log\operatorname{Diff}+\log\operatorname{Cond})
+ +O(\ell\log\ell).
+\]
+This would imply
+\[
+ \frac16\log|\Delta_{\min}|
+ \le(1+o(1))(\log\operatorname{Diff}+\log\operatorname{Cond})
+ +O(\log\ell).
+\]
+\end{problem}
+
+\section{A twelfth-cyclotomic auxiliary prime}
+
+Let
+\[
+ \Phi_{12}(X)=X^4-X^2+1.
+\]
+
+\begin{theorem}[Exact order twelve]
+If $6\mid M$ and $\ell$ is any prime divisor of $\Phi_{12}(M)$, then
+\[
+ \ord_\ell(M)=12,
+ \qquad \ell\equiv1\pmod{12}.
+\]
+\end{theorem}
+
+\begin{proof}
+The prime $\ell$ divides neither $2$, $3$, nor $M$.  The identity
+\[
+ (X^4-X^2+1)(X^2+1)=X^6+1
+\]
+gives $M^6\equiv-1\pmod\ell$, so the order divides $12$ but not $6$.  It is therefore $4$ or $12$.  Order $4$ would give $M^2\equiv-1$ and hence
+$\Phi_{12}(M)\equiv3\pmod\ell$, forcing $\ell=3$, a contradiction.  Lagrange's theorem now gives $12\mid\ell-1$.
+\end{proof}
+
+\begin{corollary}[Threshold and avoidance]
+For positive $B,m_1,m_2$, put
+\[
+ M=6B!m_1m_2.
+\]
+Every prime divisor $\ell$ of $\Phi_{12}(M)$ satisfies
+\[
+ \ell>B,\qquad \ell\nmid m_1m_2,\qquad
+ \ell\equiv1\pmod{12},\qquad
+ \ell<M^4+1.
+\]
+\end{corollary}
+
+If $m_i=O(\log c)$ at fixed $B$, then
+\[
+ \log\ell=O_B(\log\log c)=o(\log c).
+\]
+The prime is therefore compatible with both the local two-inertia route and the integral discriminant-section route.
+
+\section{Remaining dependency front}
+
+The current work separates the proof problem into explicit fronts.
+
+\begin{enumerate}
+\item Prove the stack-normalized archimedean and level-prime compensation estimate for $s_\ell$.
+\item Construct the two actual Frey--Legendre local Picard--Lefschetz inertia matrices in one global $\ell$-torsion basis, including the two-adic potentially multiplicative case.
+\item Formalize the exact-order-twelve prime selector and integrate it with the existing uniform prime-height budget.
+\item Prove a uniform radical--height theorem on the square-core conics or cube-core cubics.
+\item Construct an amplification mechanism whose incidence exponents beat the current exceptional-set exponent; fixed-depth small-level isogenies are now excluded.
+\item Independently prove or refute the normed, weight-preserving IUT/ATS numerical source theorem.
+\end{enumerate}
+
+\section{Conclusion}
+
+The programme has produced new unconditional reductions and exact obstructions, but not a closure of the $abc$ conjecture.  The closest classical front is now narrower than in earlier versions: the finite boundary coefficient and good finite places are controlled by an explicit integral discriminant section, while the unresolved content is concentrated in a stack-sensitive global compensation inequality.  In parallel, the twelfth-cyclotomic selector aligns the auxiliary-prime congruence, threshold, avoidance and sublinear-height requirements.  These results are suitable for independent audit and staged Lean formalization, but they do not justify a claim of proof or disproof.
+
+\end{document}
