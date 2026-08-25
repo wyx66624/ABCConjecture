@@ -176,6 +176,7 @@ import IUTThreeClosures.ArakelovFermatLogCanonical
 import IUTThreeClosures.SUnitUniformTripod
 import IUTThreeClosures.ArithmeticPDerivation
 import IUTThreeClosures.FreyModifiedSzpiroRoute
+import IUTThreeClosures.FreyFullTwoIsogenyGraph
 import IUTThreeClosures.ArithmeticLeibnizWronskian
 import IUTThreeClosures.WronskianKernelLattice
 import IUTThreeClosures.FermatKummerDiscriminant

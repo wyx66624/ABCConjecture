@@ -132,6 +132,12 @@
   `c4'=16(a^2-14ab+b^2)` and `Delta'=-256abc^4`; direct displayed-model
   size arguments therefore improve the limiting coefficient from `3/2` to
   `6/5`, but do not reach `1`
+- all three immediate rational two-torsion quotient models have now been
+  computed exactly: their absolute displayed discriminants are
+  `256abc*c^3`, `256abc*b^3`, and `256abc*a^3`.  The first is always maximal,
+  their product is exactly `256^3*(abc)^6`, and an explicit endpoint family
+  proves that the maximum of the original model and all three quotients still
+  has only fifth-power growth
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -186,6 +192,14 @@ boundary-ramification and global GenEll/Belyi height package.
   `(1,N,N+1)` prove both failures.  This retires only the two bare
   discriminant-size shortcuts, not a global modified-Szpiro estimate,
   Néron-conductor methods, or other isogeny-class constructions.
+- The full rational degree-two isogeny graph does not rescue that shortcut.
+  On the infinite endpoint family `a=1`, `b=c-1`, `c=256K+2`, each of the
+  three quotient leaves has only its dual rational two-isogeny back to the
+  centre, and every vertex has minimal discriminant at most `256*c^5`.
+  The Lean module proves the displayed-model ceiling and strict sixth-power
+  no-go; the exhaustion of the isogeny graph and passage to minimal models
+  are currently paper proofs.  This does not retire modular/Faltings-height
+  methods.
 - A generic one-row Siegel or Minkowski theorem cannot supply the needed
   nondegenerate Wronskian vector: an explicit family has a norm-one
   degenerate kernel vector while every nondegenerate one has norm at least
@@ -293,6 +307,13 @@ untilts or arithmetic holomorphic structures.
   discriminant.  Likewise, the checked rational quotient formula is not yet
   packaged as a characteristic-not-two degree-two elliptic-curve isogeny
   with kernel and extension across the affine exceptional points
+- the actual rational two-isogenies, dual maps, endpoint graph exhaustion,
+  and minimal-discriminant comparison in Lean; and the normalization-fixed
+  modular covolume estimate
+  `deg(phi)/(|c_phi|^2*||2*pi*i*f*dz||_geom^2) <= C_eta*N^(1+2*eta)`, together
+  with the relative-to-stable Faltings-height correction.  This estimate is
+  of slope-six/abc strength and is not supplied by qualitative modularity,
+  a Manin-constant assertion, or a modular-degree bound alone
 - `Nonempty UpstreamCertificate`
 - parameter-free `abc_conjecture`
 
