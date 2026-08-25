@@ -1,176 +1,207 @@
-# ABC multi-route research programme, version 8
+# ABC multi-route research programme, version 8.2
 
 This branch coordinates independent routes toward a proof or disproof of the
 abc conjecture. It does not assume the correctness of IUT, ATS, or any other
 claimed proof. Correct results from those theories may be imported only after
 the exact numerical statement has been independently verified.
 
-## New unconditional reductions
+## New unconditional reductions and no-go theorems
 
-### 1. Powerful-core theorem
+### 1. Powerful cores and the square--cube horizon
 
-For a primitive triple `a+b=c`, put `R=rad(abc)` and
-`exc(n)=n/rad(n)`. If `c>R^(1+epsilon)`, then
-
-\[
-  exc(a)exc(b)exc(c)>c^{\epsilon/(1+\epsilon)}.
-\]
-
-If `x=max(a,b)`, then
+For `n=prod p^e_p` and `k>=2`, define
 
 \[
-  \max\{exc(x),exc(c)\}
-  >2^{-1/2}c^{(1+2\epsilon)/(2(1+\epsilon))}.
+ U_k(n)=\prod_pp^{\lfloor e_p/k\rfloor}.
 \]
 
-The canonical square divisor `t(n)^2` satisfies `t(n)^2>=exc(n)`, so every
-counterexample has a polynomially large square core in one of its two largest
-terms. This produces a primitive diagonal-conic equation
+Then
 
 \[
-  A x^2+B y^2=C z^2
+ U_k(n)^k\ge n/\operatorname{rad}(n)^{k-1}.
 \]
 
-with squarefree `A,B,C` and a large square coordinate.
-
-Detailed branch: `research/abc-powerful-core-v8`.
-
-### 2. Exceptional-set amplification theorem
-
-Suppose the number of exceptions up to `Y` is at most `C Y^alpha`. If each
-exception of height in `[X,2X]` produces at least `X^beta` exceptions of height
-at most `X^kappa`, and each output has at most `X^gamma` preimages, then the
-number of input exceptions is at most
+If a primitive triple satisfies
 
 \[
-  C X^{\gamma+\kappa\alpha-\beta}.
+ c>\operatorname{rad}(abc)^{1+\epsilon},
 \]
 
-Therefore `beta>gamma+kappa*alpha` implies finiteness. This turns current
-power-saving exceptional-set estimates into a precise constructive target.
+then
 
-Detailed branch: `research/abc-exceptional-amplification-v8`.
+\[
+ U_k(abc)^k
+ >c^{(3+2\epsilon-k)/(1+\epsilon)}(1-1/c).
+\]
+
+For arbitrarily small positive `epsilon`, only `k=2` and `k=3` give a
+polynomially growing fixed-power core.  Thus the pure multiplicity route has two
+canonical outputs:
+
+\[
+ Ax^2+By^2=Cz^2,
+ \qquad
+ Ax^3+By^3=Cz^3,
+\]
+
+with squarefree or cube-free coefficients. Higher-power cores require extra
+arithmetic input.
+
+### 2. Exceptional-set amplification
+
+If exceptions up to `Y` are `O(Y^alpha)`, and every exception of height `X`
+produces `X^beta` outputs of height at most `X^kappa`, with overlap at most
+`X^gamma`, then
+
+\[
+ N_\epsilon(X)=O(X^{\gamma+\kappa\alpha-\beta}).
+\]
+
+Hence
+
+\[
+ \beta>\gamma+\kappa\alpha
+\]
+
+implies eventual emptiness.
+
+Two proposed amplifier subclasses are now eliminated.
+
+#### Exact three-point rational maps
+
+For a degree-`d` rational map `f:P^1->P^1`, Riemann--Hurwitz gives
+
+\[
+ |f^{-1}(\{0,1,\infty\})|\ge d+2.
+\]
+
+Therefore exact support preservation forces `d=1`, giving only one of the six
+anharmonic permutations. A degree-`d>1` map introduces at least `d-1` new
+boundary points.
+
+#### Rational cyclic isogenies over `Q`
+
+The Mazur--Kenku classification gives an absolute bound for the number of
+rational cyclic subgroup schemes of an elliptic curve over `Q`. A rational
+isogeny amplifier therefore has `beta=0` and cannot satisfy the amplification
+criterion for a positive exceptional-set exponent.
+
+Varying maps, growing number fields, Galois-orbit norms, and controlled descent
+remain active.
 
 ### 3. Local torsion-line energy and its global obstruction
 
-For a split Tate curve, the sum of local Neron heights over the canonical
-cyclic `ell`-line is
+For a split Tate curve, the canonical cyclic `ell`-line contributes
 
 \[
-  \frac{\ell-1}{12}(-\log|q|),
+ A_\ell(-\log|q|),
+ \qquad A_\ell=\frac{\ell-1}{12},
 \]
 
 while every noncanonical line contributes
 
 \[
-  -\frac{\ell-1}{12\ell}(-\log|q|).
+ B_\ell(-\log|q|),
+ \qquad B_\ell=-\frac{\ell-1}{12\ell}.
 \]
 
-The sum over all nonzero `ell`-torsion points is exactly zero. Thus a fully
-Galois-symmetric torsion packet cannot see the Tate parameter.
+The full nonzero torsion packet cancels exactly. More generally, every fixed
+place-independent weighted packet has zero average over the transitive
+projective Galois orbit.
 
-At one fixed place, the three Picard-Lefschetz directions of the
-Frey-Legendre family satisfy a positive concentration theorem. If their local
-weights are `W_0,W_1,W_infinity`, one direction has score at least
+A generic CRT/Minkowski selector retains only a `1/(ell+1)` fraction of local
+projective depth, and
 
 \[
-  \frac{(\ell-1)(\ell-2)}{36\ell}
-  (W_0+W_1+W_\infty).
+ B_\ell+\frac{A_\ell-B_\ell}{\ell+1}=0.
 \]
 
-However, a second theorem proves that every fixed place-independent weighted
-packet cancels after transitive projective Galois averaging. For fixed weights
-`w_D` and canonical line `C`, put
+Thus fixed packets and generic full-orbit selectors are excluded. Locally
+adaptive filtrations or globally labelled pre-specialization geometry remain
+active.
+
+### 4. Cyclic-line different and good-place determinant unitness
+
+For a semistable elliptic curve with transitive projective mod-`ell` image, a
+cyclic-line field `L_C` satisfies
 
 \[
- S_C(w)=A_\ell w_C+B_\ell\sum_{D\ne C}w_D,
+ [L_C:\mathbb Q]=\ell+1,
 \]
 
-where `A_ell=(ell-1)/12` and `B_ell=-(ell-1)/(12ell)`. Then
+and
 
 \[
- \frac1{\ell+1}\sum_C S_C(w)=0.
+ \frac1{\ell+1}\log|D_{L_C}|
+ \le
+ \frac{\ell-1}{\ell+1}\log N_E+2\log\ell.
 \]
 
-This is a strict no-go theorem for the naive fixed three-line determinant.
-The corrected route must use locally adaptive canonical-line filtrations and
-an adelic slope/selection theorem.
-
-Detailed branch: `research/abc-torsion-line-energy-v8`.
-
-### 4. Corrected classical adelic Hodge-Arakelov target
-
-At each multiplicative place, enhance the local norm in the canonical inertia
-line selected by the three-direction concentration theorem. These local
-choices define an adelic filtered two-dimensional representation rather than
-one fixed global cyclic subgroup.
-
-A classical proof of abc is reduced to an explicit maximal-slope estimate
+At a good finite place of residue characteristic different from `ell`, the
+cyclic subgroup extends as a finite etale subgroup scheme.  The exact sequence
 
 \[
-  \kappa_\ell Q
-  \le K_\ell(D+N)+6\kappa_\ell E_\ell,
-  \qquad
-  \kappa_\ell=\frac{(\ell-1)(\ell-2)}{12\ell},
+ 0\to O_E((\ell-1)e-D)
+ \to O_E((\ell-1)e)
+ \to O_D((\ell-1)e)\to0
 \]
 
-with
+is integral, and `O_E((ell-1)e-D)` is trivial because the nonzero cyclic points
+sum to the zero section.  Its determinant-of-cohomology isomorphism is therefore
+an isomorphism of free rank-one valuation-ring modules and has norm one.  Thus
+good finite places contribute exactly zero determinant defect.
+
+### 5. Closest surviving classical target
+
+The globally labelled Legendre three-cusp variation remains active.  Its Hodge
+line has parabolic degree `1/2`, so the highest line in the `(ell-1)`-st
+symmetric power has degree `(ell-1)/2`.  Dividing by the canonical Tate-line
+coefficient `(ell-1)/12` gives the exact factor six.
+
+The remaining theorem is an arithmetic specialization/maximal-slope estimate
+whose finite boundary term is `(ell-1)Q/12`, whose good-place defect is now
+zero, whose level-prime/Jacobian error is `O(ell log ell)`, and whose leading
+arithmetic degree is `(ell-1)/2+o(ell)` times different plus conductor.
+
+If proved, this yields
 
 \[
-  \frac{K_\ell}{6\kappa_\ell}=1+o(1),
-  \qquad E_\ell=O(\log\ell).
+ Q/6\le(1+o(1))(\operatorname{Diff}+\operatorname{Cond})+O(\log\ell),
 \]
 
-The normalized different of a cyclic-line field is already controlled. If
-`L_C` is the field of one cyclic line and the projective image is transitive,
-then
-
-\[
-  \frac1{\ell+1}\log|D_{L_C}|
-  \le
-  \frac{\ell-1}{\ell+1}\log N_E+2\log\ell.
-\]
-
-The decisive unresolved input is now an asymptotically sharp adelic
-maximal-slope/archimedean estimate for the place-dependent canonical-line
-filtrations, together with good-place integral unitness.
-
-Detailed branch: `research/abc-classical-hodge-arakelov-v8`.
+and hence abc after quantifier-correct auxiliary-prime selection.
 
 ## Retained independent routes
 
-- uniform radical-height bounds on varying diagonal conics;
-- exceptional-set amplification by level structures, isogenies, polynomial
-  identities, or norms;
-- the locally adaptive adelic torsion-line route;
-- uniform S-unit bounds with essentially linear support dependence;
+- square-core diagonal conics and cube-core diagonal genus-one curves;
+- exceptional-set amplification using varying maps, growing fields, polynomial
+  identities with quantified new factors, or norm/descent constructions;
+- locally adaptive torsion-line and parabolic Hodge--Arakelov slopes;
+- IUT/ATS only through independently verified normed comparisons;
+- uniform varying-`S` unit estimates;
 - modular/Szpiro estimates specialized to full rational 2-torsion Frey curves;
-- arithmetic-differentiation replacements that are not derivations of `Z`;
-- corrected normed theta comparisons, treated as one route rather than as an
-  assumed theorem;
-- probabilistic/entropy methods plus a deterministic exceptional-set theorem.
+- arithmetic-differentiation substitutes;
+- probabilistic/entropy methods plus deterministic exceptional-set elimination;
+- explicit computational searches for a fixed-epsilon counterexample family.
 
 ## Elimination policy
 
 No route is removed because it is unconventional, incomplete, or presently
 lacks a library implementation. A route may be closed only after a concrete
-counterexample, a logical contradiction, or a theorem proving that its
-required quantitative implication is impossible.
+counterexample, a logical contradiction, or a theorem proving that its required
+quantitative implication is impossible.
 
-The fixed place-independent three-line packet has now been excluded by the
-Galois-average cancellation theorem. The broader torsion-energy route remains
-active in its locally adaptive adelic form.
+## Formalization order
 
-## Current closest target
+The new mathematical package is intentionally kept on a research branch before
+Lean formalization. The next formal targets are:
 
-The closest new target is the adelic maximal-slope estimate for the
-place-dependent canonical inertia-line filtrations. It uses conventional
-elliptic curves, local Neron functions, adelic norms, Arakelov slopes, and the
-number-field product formula. It is independent of the disputed IUT/ATS
-Rosetta identification, while the cancellation theorem prevents us from
-mistaking a fixed packet for a valid global source.
+1. the finite combinatorial form of the amplification incidence theorem;
+2. the power-core inequalities in `Nat` and `Real.log` form;
+3. the finite-set average cancellation identities;
+4. the determinant-line good-place unit theorem once the required algebraic
+   geometry API is available;
+5. a formal Riemann--Hurwitz import or a separate function-field proof of the
+   three-point no-go theorem.
 
-An eight-page conventional paper draft containing the proofs and the corrected
-no-go theorem has been prepared as
-`ChatGPT_ABC_MultiRoute_Research_v8_0.tex`; it will be expanded as the adelic
-slope and good-place integral estimates are attacked.
+No theorem in this document claims an unconditional proof or disproof of abc.
