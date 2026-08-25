@@ -166,3 +166,9 @@ import IUTThreeClosures.ConcreteFermatPresentationEquiv
 import IUTThreeClosures.ConcreteFermatTripodEquiv
 import IUTThreeClosures.ConcreteFermatBelyiRamification
 import IUTThreeClosures.LocalPowerRamificationIndex
+
+-- Cloud modules retained after direct Lean 4.32 kernel verification.
+import IUTThreeClosures.AbsorbableSourceErrorBridge
+import IUTThreeClosures.ExceptionalPrimeMassProduct
+import IUTThreeClosures.MazurPrimeIsogenyBoundary
+import IUTThreeClosures.PermutationOrbitUnionCounterexample
