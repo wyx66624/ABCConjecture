@@ -65,10 +65,12 @@ Put
 
 #### Proof
 
-Since taking powers does not change the radical,
+Taking positive powers does not change prime support, and radical is
+submultiplicative. Hence
 
 \[
   R_m=\operatorname{rad}(abcS_m(a,c))
+  \leq R\,\operatorname{rad}(S_m(a,c))
   \leq R\,S_m(a,c).
 \]
 
@@ -203,30 +205,54 @@ The preceding construction is a genuine quality-preserving lift, but it does
 not by itself satisfy the amplification criterion currently used in the
 repository.
 
-### Theorem 4.1 (bounded-degree no-go)
+### Theorem 4.1 (bounded-degree no-go on a dyadic shell)
 
-Fix a height exponent `kappa>=1`.  From an input with `c<=X`, the lifts with
-
-\[
-  C_m=c^m\leq X^\kappa
-\]
-
-can use only integers
+Fix `X>1` and a height exponent `kappa>=1`.  Let the input satisfy
 
 \[
-  2\leq m\leq\lfloor\kappa\rfloor.
+  X\leq c\leq2X.
 \]
 
-Consequently the number of such power-difference outputs per input is at most
+If a power-difference lift also satisfies
+
+\[
+  C_m=c^m\leq X^\kappa,
+\]
+
+then
+
+\[
+  m\leq\kappa.
+\]
+
+Consequently only the integers
+
+\[
+  2\leq m\leq\lfloor\kappa\rfloor
+\]
+
+may occur.  The number of such outputs per input is at most
 `floor(kappa)-1`, or twice this number if the symmetric construction obtained
-by exchanging `a` and `b` is also included.  In the notation of the
-exceptional-set amplification theorem, this mechanism has exponent
+by exchanging `a` and `b` is included.
+
+#### Proof
+
+Since `c>=X>1`,
+
+\[
+  X^m\leq c^m=C_m\leq X^\kappa.
+\]
+
+Strict monotonicity of `r -> X^r` for `X>1` gives `m<=kappa`.
+
+In the notation of the exceptional-set amplification theorem, this mechanism
+therefore has exponent
 
 \[
   \beta=0.
 \]
 
-It therefore cannot satisfy
+It cannot satisfy
 
 \[
   \beta>\gamma+\kappa\alpha
