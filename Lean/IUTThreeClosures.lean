@@ -88,6 +88,7 @@ import IUTThreeClosures.ExplicitSemistableCurve
 import IUTThreeClosures.SolvableRestrictionImage
 import IUTThreeClosures.ZModSL2Perfect
 import IUTThreeClosures.MatrixRepresentationFromTorsionAction
+import IUTThreeClosures.OpenKernelContinuousTorsionAction
 
 import IUTThreeClosures.QPilotNormalizationAudit
 import IUTThreeClosures.QPilotNormalizationFork
