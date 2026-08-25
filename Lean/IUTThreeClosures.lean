@@ -167,6 +167,3 @@ import IUTThreeClosures.ConcreteFermatPresentationEquiv
 import IUTThreeClosures.ConcreteFermatTripodEquiv
 import IUTThreeClosures.ConcreteFermatBelyiRamification
 import IUTThreeClosures.LocalPowerRamificationIndex
-
--- Fully compile the genuine integer deck action and its quotient tower.
-import IUTThreeClosures.TateThetaRootOrbitQuotientTower
