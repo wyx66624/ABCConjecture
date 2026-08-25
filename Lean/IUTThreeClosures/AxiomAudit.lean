@@ -49,6 +49,7 @@ import IUTThreeClosures.SecondJetQuadraticSystem
 import IUTThreeClosures.FermatKummerDiscriminant
 import IUTThreeClosures.TruncatedSMTCoefficientRigidity
 import IUTThreeClosures.ShearedFourFormArithmetic
+import IUTThreeClosures.PolyrelationalWronskianShears
 import IUTThreeClosures.MasonSpecializationBarrier
 
 #print axioms IUTThreeClosures.PointwiseIUTIIIFamily.corollary312Variant_all
@@ -297,6 +298,15 @@ end IUTThreeClosures.ConcreteFermatBelyiRamification.TripodCertificate
 #print axioms
   IUTThreeClosures.threeSquareShearPoint_simultaneous_two_thirds_counterexample
 #print axioms IUTThreeClosures.four_form_threshold_rearrangement
+#print axioms
+  IUTThreeClosures.powerfulProduct_dvd_sourceArithmeticWronskian
+#print axioms
+  IUTThreeClosures.polyrelationalPowerfulLCM_dvd_sourceWronskian_natAbs
+#print axioms IUTThreeClosures.compatibleShearPairWronskian_rankOne
+#print axioms
+  IUTThreeClosures.weightedPolyrelationalPowerfulLCM_dvd_sourceWronskian_natAbs
+#print axioms
+  IUTThreeClosures.adjacentTwoThreeShears_force_sourceWronskian_zero
 #print axioms IUTThreeClosures.fixedMason_radical_natDegree
 #print axioms IUTThreeClosures.fixedMason_clear_denominator
 #print axioms IUTThreeClosures.translatedMason_resultant

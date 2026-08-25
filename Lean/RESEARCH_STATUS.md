@@ -204,6 +204,15 @@
   quadratic re-encoding `(u-1)a^2+c(c-u*a)=b(c-(u-1)a)`, and primitive
   unbounded counterfamilies with one fixed radical, two adjacent radicals
   simultaneously equal to `2,1`, or three consecutive shears all squares
+- the polyrelational Wronskian collapse: if a weighted derivative kills the
+  fixed coefficients and respects several shear relations, every new
+  powerful part divides the same source Wronskian, so a finite family gives
+  only one LCM; the Wronskian of two remainders is exactly `(u-v)` times the
+  same source normal
+- a strict unbounded family for the fixed shears `2,3`: imposing
+  `D(2)=D(3)=0` and both shear compatibilities forces the common source
+  Wronskian to vanish.  The fixed resultant product estimate and its full
+  constant are proved on paper; Lean verifies the common LCM and degeneracy
 - the sharp scalar threshold: a coefficient `2-eta` four-form level-one
   inequality, after paying the elementary one-height cost of `c-u*a`, gives
   the desired coefficient `1/(1-eta)`.  The scalar rearrangement is proved;
@@ -300,6 +309,12 @@ boundary-ramification and global GenEll/Belyi height package.
   consecutive shears simultaneously.  This retires resultant-only finite-
   shear arguments, not a growing candidate set or a genuine variable-prime
   truncation theorem.
+- Adding finitely many fixed first-order shear relations does not add normal
+  rank: all remainder determinants are scalar multiples of one Wronskian.
+  Moreover the fixed pair `2,3` has an infinite primitive family on which
+  coefficient killing plus simultaneous compatibility forces exact
+  degeneracy.  This retires that universal fixed-shear selector, not adaptive
+  parameters or controlled nonzero coefficient derivatives.
 - Horizontal Mason degree, horizontal radical, bad-fibre support, and
   pairwise resultants do not control arithmetic specialization height: the
   unit-resultant family `1,T+2^m,T+2^m+1` has arbitrarily large intersection
@@ -421,6 +436,10 @@ untilts or arithmetic holomorphic structures.
   `u=2` shows why applying an abc estimate to obtain it is circular, while
   the explicit shear families show that standalone radical lower bounds for
   the new form cannot replace it
+- a noncyclic polyrelational selector using either point-adaptive shear
+  parameters with the complete resultant cost, controlled `D(u) != 0`
+  correction terms, or an invariant genuinely independent of the common
+  rank-one Wronskian
 - a uniform arithmetic specialization theorem for moving sections of the
   fixed polynomial tripod.  Its most direct height-versus-truncated-
   intersection form has now been proved exactly equivalent to abc, so any

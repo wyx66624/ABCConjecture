@@ -184,6 +184,7 @@ import IUTThreeClosures.SecondJetQuadraticSystem
 import IUTThreeClosures.FermatKummerDiscriminant
 import IUTThreeClosures.TruncatedSMTCoefficientRigidity
 import IUTThreeClosures.ShearedFourFormArithmetic
+import IUTThreeClosures.PolyrelationalWronskianShears
 import IUTThreeClosures.MasonSpecializationBarrier
 
 -- Cloud modules retained after direct Lean 4.32 kernel verification.
