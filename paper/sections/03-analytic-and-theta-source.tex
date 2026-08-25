@@ -95,6 +95,95 @@ The proof of the global tensor estimate in Arithmetic Teichmuller Spaces III exp
 
 The concrete $j$-th theta pilot has arithmetic degree scaled by $j^2$ relative to the $q$ pilot.  Scholze and Stix observe that the natural identification of the abstract real lines attached to the prime strips does not encode this scaling; inserting $j^2$ into one side makes the total diagram inconsistent, while omitting it makes the resulting inequality essentially empty.
 
+\subsection{Three rigidity tests for any proposed repair}
+
+\begin{counterexample}[Abstract comparison does not preserve a bound]\label{cex:abstract-scaling}
+Let $V=W=\R$ as ordered one-dimensional vector spaces, let
+\[
+ S=\{1\}\subset V,\qquad H=[-1/2,1/2]\subset W.
+\]
+The ordered linear isomorphism $f(x)=2x$ does not send $S$ into $H$.  The
+isomorphism $g(x)=x/2$ does send $S$ into $H$, but changes the norm by the
+factor $1/2$.  Thus an abstract identification of ordered real lines gives
+neither the required inclusion nor norm preservation.
+\end{counterexample}
+
+\begin{lemma}[Base-field rigidity of a power scaling]\label{lem:base-field-rigidity}
+Let $E$ be a nontrivially valued field, let $K_1,K_2$ be valued extensions,
+and let $E\hookrightarrow K_i$ be isometric embeddings.  Suppose that a field
+isomorphism $\phi:K_1\to K_2$ is compatible with the two embeddings of $E$ and
+satisfies
+\[
+ |\phi(x)|_{K_2}=|x|_{K_1}^{\lambda}
+ \qquad(x\in K_1)
+\]
+for some $\lambda>0$.  Then $\lambda=1$.
+\end{lemma}
+
+\begin{proof}
+Choose $a\in E$ with $0<|a|_E<1$.  Base-field compatibility gives
+\[
+ |a|_E=|\phi(a)|_{K_2}=|a|_E^{\lambda}.
+\]
+Taking logarithms and using $\log|a|_E\ne0$ yields $\lambda=1$.
+\end{proof}
+
+In particular, a nontrivial $j^2$ scaling cannot be realized by a
+base-field-linear isomorphism between valued extensions that contain the same
+local field isometrically.  A construction that forgets the local base-field
+embedding must therefore prove an additional transport theorem back to the
+original arithmetic element.
+
+\begin{lemma}[Product-formula rigidity over $\Q$]\label{lem:product-rigidity}
+Let $\lambda_\infty>0$ and $\lambda_p>0$ for every prime $p$.  If
+\[
+ \lambda_\infty\log|x|_\infty+
+ \sum_p\lambda_p\log|x|_p=0
+ \qquad(x\in\Q^\times),
+\]
+then $\lambda_p=\lambda_\infty$ for every prime $p$.
+\end{lemma}
+
+\begin{proof}
+Set $x=p$.  Only the infinite and $p$-adic terms are nonzero, and the displayed
+identity becomes
+\[
+ (\lambda_\infty-\lambda_p)\log p=0.
+\]
+Since $\log p\ne0$, the result follows.
+\end{proof}
+
+The number-field analogue states that the standard local-degree weights are
+unique up to one common scalar.  Hence local $j^2$ exponents cannot be changed
+independently while preserving the product formula for the same diagonal
+number field.  A proposed ATS repair must either construct a genuinely new
+global arithmetic object and prove transport back to the original height,
+different, conductor, and Tate parameter, or show that the rescalings are
+globally proportional and re-evaluate the claimed relative $j^2$ effect.
+
+\begin{proposition}[Haar-volume determinant correction]\label{prop:haar-jacobian}
+Let $f:V\to W$ be an isomorphism of finite-dimensional $\Q_p$-vector spaces
+with Haar measures $\mu_V,\mu_W$.  There is a constant $J(f)>0$ such that
+\[
+ \mu_W(f(A))=J(f)\mu_V(A)
+\]
+for every measurable $A\subset V$.  The equality $J(f)=1$ requires a compatible
+normalization or a determinant-one/isometric theorem; it does not follow from
+bijectivity.
+\end{proposition}
+
+\begin{proof}
+The pullback $A\mapsto\mu_W(f(A))$ is a Haar measure on $V$, and hence is a
+positive scalar multiple of $\mu_V$.  In coordinates the scalar is the
+$p$-adic absolute value of the determinant, adjusted by the chosen lattice
+normalizations.
+\end{proof}
+
+These four elementary results turn the normalization issue into a falsifiable
+mathematical question.  A Banach-space, categorical, or prime-strip
+isomorphism is insufficient unless its base-field behavior, product-formula
+weights, and Haar Jacobian are explicitly proved.
+
 \begin{criterion}[Falsifiable repair criterion]\label{crit:repair}
 A proposed repair of Corollary 3.12 resolves the Scholze--Stix objection only if it exhibits a commutative diagram of \emph{normed} spaces in which:
 \begin{enumerate}[label=(\roman*)]
