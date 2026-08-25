@@ -153,6 +153,18 @@
   large exponents `1+t*prod(ell)` evade every chosen finite modulus, while
   the primitive family `(1,p,p+1)` forces the canonical fixed-`n`
   coefficient to be the unbounded prime `p`
+- the exact higher-prime-power arithmetic shadow: for odd `p` and odd
+  residual `ell`, `ell^k` divides the Frey discriminant exponent exactly
+  when it divides the corresponding abc exponent.  Constant local depth on
+  any finite support passes at depth `k` and fails at `k+1`, so repetition
+  alone does not multiply congruence depth
+- an away-from-the-support coefficient barrier: the numerical
+  level-raising proxy `e=p-2`, `A=3` has linear exponent depth, satisfies the
+  Weil-size and divisibility conditions, and every residual prime dividing
+  `e` is odd and different from `p`.  Lean also verifies the primitive family
+  `(3^e,2,3^e+2)`, its exact unbounded `3`-adic Frey exponent, and the
+  nonsquare tangent-cone certificate; the Kodaira and Tamagawa conclusions
+  remain paper mathematics
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -324,6 +336,13 @@ boundary-ramification and global GenEll/Belyi height package.
   `2^k`, and bad-prime Hecke compatibility is an additional missing input.
   This paper coefficient audit does not rule out higher `ell^k` congruence
   ideals.
+- Unweighted higher-torsion depth does not automatically accumulate over
+  removed primes: a common congruence records the minimum local depth, not
+  their sum, and repeated branches need a genuine transversality theorem
+  before their lengths may be added.  The paper congruence-algebra model and
+  the nonsplit Frey family with constant rational Tamagawa number strictly
+  retire the unweighted congruence-ideal/Tamagawa strategy audited here, not
+  all higher-torsion or all modular approaches.
 - A generic one-row Siegel or Minkowski theorem cannot supply the needed
   nondegenerate Wronskian vector: an explicit family has a norm-one
   degenerate kernel vector while every nondegenerate one has norm at least
@@ -539,12 +558,12 @@ untilts or arithmetic holomorphic structures.
   intersection form has now been proved exactly equivalent to abc, so any
   surviving Mason/deformation route must add genuinely new arithmetic data
   rather than reuse the constant horizontal polynomial degrees
-- a higher-congruence generalized-Fermat bridge: construct compatible
-  level-lowered systems modulo `ell^k` (or an integral congruence ideal) whose
-  depth detects `v_ell(e_p)` and whose global size accumulates with the
-  removed-prime weight `log p`.  Ordinary mod-`ell` support, finitely many
-  residual characteristics, and products of distinct `ell` have now been
-  proved quantitatively insufficient
+- an Arakelov-weighted congruence or intersection module whose arithmetic
+  degree has a genuine lower bound containing
+  `sum_p (e_p-1)*log p`, together with a non-circular radical-level upper
+  bound.  Local `ell^k` torsion does detect `v_ell(e_p)`, but common-depth,
+  unweighted congruence ideals and rational Tamagawa numbers do not supply
+  this additive support-prime weight
 - alternatively, a uniform arithmetic estimate for the exponent-one
   radical layer.  It is a common sub-support for every exponent-divisibility
   proxy; when only odd residual primes are admissible the permanent layer is
