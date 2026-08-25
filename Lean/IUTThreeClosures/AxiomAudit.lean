@@ -40,6 +40,7 @@ import IUTThreeClosures.ConcreteFermatBoundaryLocalRing
 import IUTThreeClosures.ArakelovFermatLogCanonical
 import IUTThreeClosures.SUnitUniformTripod
 import IUTThreeClosures.ArithmeticPDerivation
+import IUTThreeClosures.FreyModifiedSzpiroRoute
 
 #print axioms IUTThreeClosures.PointwiseIUTIIIFamily.corollary312Variant_all
 #print axioms IUTThreeClosures.ThreeClosureCertificate.abc_conjecture_of_three_closures
@@ -208,3 +209,14 @@ end IUTThreeClosures.ConcreteFermatBelyiRamification.TripodCertificate
 #print axioms IUTThreeClosures.fermatDelta_add
 #print axioms IUTThreeClosures.prime_dvd_fermatDelta_iff_sq_dvd
 #print axioms IUTThreeClosures.fermatDelta_unbounded_at_fixed_radical
+#print axioms IUTThreeClosures.ABCPoint.freyModifiedHeightNat_eq_invariants
+#print axioms IUTThreeClosures.ABCPoint.six_mul_height_le_freyModifiedHeight
+#print axioms IUTThreeClosures.ABCPoint.freyModifiedHeight_le
+#print axioms IUTThreeClosures.ABCPoint.freyDiscriminantConductor_le_log_two
+#print axioms IUTThreeClosures.abc_of_uniform_freyModifiedSzpiro
+#print axioms IUTThreeClosures.twoIsogenyAffineEquation
+#print axioms IUTThreeClosures.abcFreyTwoIsogenousZ_c₄
+#print axioms IUTThreeClosures.abcFreyTwoIsogenousZ_Δ
+#print axioms IUTThreeClosures.ABCPoint.height_le_of_twoIsogenousDiscriminantSzpiro
+#print axioms IUTThreeClosures.no_uniform_c_pow_five_lower_for_endpointFrey
+#print axioms IUTThreeClosures.no_uniform_c_pow_six_lower_for_endpointTwoIsogenous

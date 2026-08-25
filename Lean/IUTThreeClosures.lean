@@ -175,6 +175,7 @@ import IUTThreeClosures.ConcreteFermatBoundaryLocalRing
 import IUTThreeClosures.ArakelovFermatLogCanonical
 import IUTThreeClosures.SUnitUniformTripod
 import IUTThreeClosures.ArithmeticPDerivation
+import IUTThreeClosures.FreyModifiedSzpiroRoute
 
 -- Cloud modules retained after direct Lean 4.32 kernel verification.
 import IUTThreeClosures.AbsorbableSourceErrorBridge

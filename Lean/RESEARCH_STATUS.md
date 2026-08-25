@@ -122,6 +122,16 @@
   laws, the local multiplicity test
   `p | delta_p(n) <-> p^2 | n` under `p | n`, and an explicit powers-of-two
   proof that its raw size is unbounded while the input radical stays `2`
+- for the displayed integral Frey model, the actual modified height
+  `log max(|c4|^3,|Delta|)` lies between `6 log c` and
+  `6 log c + log 4096`, and a uniform slope-`6+6 epsilon` bound for this
+  quantity conditionally implies abc; the displayed discriminant-radical
+  differs from the elementary abc conductor by at most `log 2`
+- the standard rational 2-torsion quotient equation has been checked by a
+  cleared-denominator affine-map identity, with
+  `c4'=16(a^2-14ab+b^2)` and `Delta'=-256abc^4`; direct displayed-model
+  size arguments therefore improve the limiting coefficient from `3/2` to
+  `6/5`, but do not reach `1`
 
 These results are genuine components, numerical identities, and exact
 reformulations.  They do not construct the rigid/Berkovich theta quotient or
@@ -155,6 +165,12 @@ boundary-ramification and global GenEll/Belyi height package.
   support-uniform linear height estimate: an explicit finite-fibre toy model
   has unbounded heights at singleton supports.  This is a quantifier
   countermodel only; it does not refute an actual uniform S-unit theorem.
+- For the original displayed Frey discriminant, no uniform fifth-power lower
+  bound in `c` exists; for the displayed rational 2-torsion quotient, no
+  uniform sixth-power lower bound exists.  Explicit endpoint triples
+  `(1,N,N+1)` prove both failures.  This retires only the two bare
+  discriminant-size shortcuts, not a global modified-Szpiro estimate,
+  Néron-conductor methods, or other isogeny-class constructions.
 
 ## New exact obstruction
 
@@ -235,6 +251,12 @@ untilts or arithmetic holomorphic structures.
   `a*D(b)-b*D(a)=0`, and control the resulting archimedean weight; the basic
   Siegel lemma may return only degenerate short vectors and is insufficient
   without exploiting the special abc coefficient structure
+- a uniform modified-Szpiro estimate for the actual Frey height and an honest
+  bridge to the minimal model and Néron conductor.  The current
+  `freyDiscriminantConductor` is only the radical of a displayed
+  discriminant.  Likewise, the checked rational quotient formula is not yet
+  packaged as a characteristic-not-two degree-two elliptic-curve isogeny
+  with kernel and extension across the affine exceptional points
 - `Nonempty UpstreamCertificate`
 - parameter-free `abc_conjecture`
 
