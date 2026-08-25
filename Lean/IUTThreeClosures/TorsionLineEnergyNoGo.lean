@@ -48,7 +48,7 @@ noncomputable def noncanonicalTateLineCoefficient (ell : ℕ) : ℝ :=
 noncomputable def weightedLineScore
     {ι : Type*} [Fintype ι] [DecidableEq ι]
     (A B : ℝ) (w : ι → ℝ) (c : ι) : ℝ :=
-  A * w c + B * ∑ d in Finset.univ.erase c, w d
+  A * w c + B * (∑ d in Finset.univ.erase c, w d)
 
 /-- Summing a fixed weighted packet over all possible canonical lines depends
 only on the total weight and the scalar `A + (card - 1) B`. -/
@@ -56,7 +56,8 @@ theorem sum_weightedLineScore
     {ι : Type*} [Fintype ι] [DecidableEq ι]
     (A B : ℝ) (w : ι → ℝ) :
     (∑ c : ι, weightedLineScore A B w c) =
-      (A + ((Fintype.card ι : ℝ) - 1) * B) * ∑ c : ι, w c := by
+      (A + ((Fintype.card ι : ℝ) - 1) * B) *
+        (∑ c : ι, w c) := by
   classical
   let T : ℝ := ∑ c : ι, w c
   have hinner (c : ι) :
@@ -64,11 +65,14 @@ theorem sum_weightedLineScore
     have h := Finset.sum_erase_add Finset.univ w (Finset.mem_univ c)
     dsimp [T]
     linarith
+  have hconst :
+      (∑ _c : ι, T) = (Fintype.card ι : ℝ) * T := by
+    simp
+  have hsumw : (∑ c : ι, w c) = T := rfl
   simp_rw [weightedLineScore, hinner]
-  rw [Finset.sum_add_distrib]
-  rw [← Finset.mul_sum, ← Finset.mul_sum]
-  rw [Finset.sum_sub_distrib]
-  simp [T]
+  rw [Finset.sum_add_distrib, ← Finset.mul_sum, ← Finset.mul_sum,
+    Finset.sum_sub_distrib, hconst, hsumw]
+  dsimp [T]
   ring
 
 /-- The canonical contribution plus `ell` noncanonical contributions is zero. -/
