@@ -192,6 +192,17 @@
   `1093^2 | 2^364-1`, `1093^3` does not divide it, `1093` does not divide
   `364`, and the three maximal-proper-exponent residue checks.  The elementary
   combination `ord_1093(2)=364` remains stated and proved on paper
+- the exact first-order-block formulation
+  `W_m=prod_{d|m} E_d` on paper, with two honest sufficient targets:
+  cumulative first-occurrence mass `sum_{d<=X} log E_d=o(X)`, or a uniform
+  block saving `log E_d=O(d^(1-delta))` for some `0<delta<=1`.  Lean proves
+  the finite divisor-cardinality certificate behind the latter implication,
+  without assuming either asymptotic estimate
+- arbitrary prime-power persistence under an index multiplier coprime to the
+  prime, the literal p-adic size budget, and an explicit simple-root/square-
+  lift certificate at `1093`.  Lean also constructs divisibility-monotone
+  spike models used in the paper proof that a vanishing ordinary normalized
+  Cesaro mean need not imply a pointwise bound
 - the exact polynomial discriminant of the integral Kummer binomial
   `T^n-A`, its honest prime-support implication, and the numerical tame
   boundary--different identity `g/n + (1-g/n) = 1` locally and over finite
@@ -320,6 +331,13 @@ boundary-ramification and global GenEll/Belyi height package.
   shortcut that every primitive prime occurs only once.  This does not
   retire cyclotomic or p-adic methods capable of proving a genuinely
   subexponential total Wieferich excess.
+- Ordinary Cesaro averaging of the repeatedly counted masses, monotonicity
+  under divisibility, a fixed valuation ceiling `w_p<=B>1`, or the literal
+  estimate `p^w<=2^d-1` do not imply the needed pointwise subexponential
+  bound.  The spike model strictly refutes the average-to-pointwise shortcut;
+  the fixed-ceiling and size arguments retain a positive linear coefficient.
+  This leaves averages of the nonredundant first-order blocks and genuinely
+  uniform varying-prime p-adic distribution estimates open.
 - Increasing the Fermat/Kummer degree alone cannot dilute the tame conductor
   coefficient below one: at every tame supported prime, normalized reduced
   boundary plus normalized different is exactly `log p`.  This retires only
@@ -449,6 +467,11 @@ untilts or arithmetic holomorphic structures.
   polynomial radical bounds, a merely polynomial or sub-full-exponential
   primitive factor, and layerwise resultant separation are quantitatively
   insufficient
+- equivalently, prove one of the sharper nonredundant block estimates:
+  `sum_{d<=X} log E_d=o(X)`, or a uniform power saving
+  `log E_d=O(d^(1-delta))` for some `0<delta<=1`.  An average over `W_n`
+  itself is insufficient; the mass must be assigned once, at its first
+  multiplicative order
 - a quantitative integral least-zero theorem for the compatible
   linear--quadratic second-jet system.  In the indefinite internal dimension
   at least five, Meyer's theorem gives a nonzero rational isotropic vector on
