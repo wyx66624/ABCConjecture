@@ -239,6 +239,22 @@
   `O(N log N)` and `O(N log log N)`, so this audit is not a proof of that
   input.  Lean checks only the real scalar identities, the Pazuki-error
   absorption, and exact coefficient/no-cancellation witnesses
+- the Frey Selmer--regulator audit.  Full rational two-torsion gives the
+  honest ambient estimate `rank E(Q) <= 2*|S_f|`, but the primitive family
+  `(3^(2*n+2),2,3^(2*n+2)+2)` has a constant support/parity profile at `3`
+  and unbounded discriminant depth, so this qualitative rank bound cannot
+  control height.  At an odd `I_(2e)` place the three nonzero two-torsion
+  local heights are `e/6,-e/12,-e/12` times `log p`: the exponent mass is
+  visible but cancels exactly.  The real period calculation gives
+  `log c = 2*log(1/Omega_E)+O(log log c)`, and strong BSD rewrites
+  `-log Omega_E` as the logarithm of the regulator--Sha--Tamagawa quotient
+  divided by the leading term and torsion square.  Consequently the needed
+  half-slope bound for this quotient is equivalent, up to the explicit
+  period corridor, to the missing abc-height budget; it is not a consequence
+  of BSD, GRH, or the Selmer rank estimate alone.  Lean checks the finite
+  support/parity obstruction, signed local-height ledger, Selmer dimension
+  algebra, and conditional scalar bridge; Tate uniformization, the period
+  integral, BSD, and any global Mordell--Weil selector remain paper inputs
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -737,6 +753,16 @@ untilts or arithmetic holomorphic structures.
   supplied by qualitative modularity, Manin-constant boundedness, the
   adjoint-L nonvanishing bound, GRH, or the known exponential modular-degree
   estimates
+- a weighted Selmer/Cassels--Tate local-to-global selection theorem on the
+  Frey family: from the positive local-height choice at every odd
+  multiplicative prime, construct a non-torsion global Mordell--Weil class
+  retaining a fixed positive proportion of
+  `sum_p (v_p(abc)-1)*log p`, while uniformly controlling the negative finite
+  and archimedean contributions.  Rank-zero Frey curves show that qualitative
+  local solubility cannot suffice.  Equivalently, after strong BSD and the
+  proved period corridor one still needs the half-slope bound for the
+  regulator--Sha--Tamagawa quotient; on the Frey locus that bound is already
+  of abc strength, not a theorem supplied by BSD itself
 - `Nonempty UpstreamCertificate`
 - parameter-free `abc_conjecture`
 
