@@ -194,6 +194,20 @@
   quotient-by-constants finite model, exact degree, fixed-support
   unboundedness, and the scalar equivalence with slope-six Szpiro; it does
   not formalize the minimal regular model or finite-etale quotient scheme
+- the full rational two-torsion/inversion node-action audit: the abstract
+  affine group is `C_2^3`, but its effective permutation image on the
+  `I_(2e)` nodes is only `V_4`.  The coarse invariant rank
+  `ceil(e/2)-1` does not contract the exponent excess, because the missing
+  sign rank is `floor(e/2)` and the two ranks add exactly to `e-1`.
+  Paper local algebra gives the same verdict: the node-fixing `mu_2`
+  quotient has equation `XY=pi^2`, ordinary coarse orbits resolve into two
+  nodes, and the odd branch-swapping orbit becomes ramification.  The three
+  cyclic two-isogeny contact exponents `4e,e,e` average back to `2e`, while
+  the full translation quotient is `[2]`.  Lean checks only the abstract
+  paired-node action and the resulting rank, cardinality, degree, parity,
+  and contact conservation identities; the Tate polygon, Burnside quotient,
+  actual character submodules, invariant rings, and resolutions remain
+  paper mathematics
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -659,7 +673,12 @@ untilts or arithmetic holomorphic structures.
   weighted finite module, the geometric node carrier, or a formal
   Fitting/Deligne identity.  Fixed-prime Tate fibers and the actual Frey
   family `(3^e,2,3^e+2)` rule out any per-place reduced-support-only upper
-  bound
+  bound.  Passing to the full rational two-torsion quotient does not weaken
+  this missing theorem: if `E_plus` denotes the retained coarse invariant
+  degree, then the exact paper identity is
+  `E=2*E_plus+R_even`; controlling `E_plus` with the needed coefficient is
+  another equivalent Szpiro-strength global input, not a quotient-theoretic
+  consequence
 - alternatively, a uniform arithmetic estimate for the exponent-one
   radical layer.  It is a common sub-support for every exponent-divisibility
   proxy; when only odd residual primes are admissible the permanent layer is
