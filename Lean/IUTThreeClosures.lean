@@ -177,6 +177,7 @@ import IUTThreeClosures.SUnitUniformTripod
 import IUTThreeClosures.ArithmeticPDerivation
 import IUTThreeClosures.FreyModifiedSzpiroRoute
 import IUTThreeClosures.FreyFullTwoIsogenyGraph
+import IUTThreeClosures.GeneralizedFermatExponentLayers
 import IUTThreeClosures.ArithmeticLeibnizWronskian
 import IUTThreeClosures.WronskianKernelLattice
 import IUTThreeClosures.MultiDerivationExteriorEnergy

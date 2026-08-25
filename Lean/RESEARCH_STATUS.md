@@ -138,6 +138,21 @@
   their product is exactly `256^3*(abc)^6`, and an explicit endpoint family
   proves that the maximum of the original model and all three quotients still
   has only fifth-power growth
+- the canonical generalized-Fermat exponent decomposition
+  `x=kappa_n*X_n^n`, its exact real-weight identity `T=K_n+n*Q_n`, and the
+  mixed-signature kernel budget `(n-1)(R_a+R_b)+(r-1)R_c`.  Together with
+  the Frey discriminant identity, this proves that increasing the extracted
+  exponent does not automatically dilute discriminant height
+- the exact exponent-divisibility level proxy: at an odd prime the Frey
+  discriminant exponent is twice the abc exponent, so an odd residual prime
+  sees precisely whether it divides that exponent.  Lean proves the
+  exponent-one support inclusion, product/weight versions, finite-family
+  double counting, and the complete-support return when the modulus exceeds
+  every exponent
+- strict finite-modulus and finite-coefficient obstructions: arbitrarily
+  large exponents `1+t*prod(ell)` evade every chosen finite modulus, while
+  the primitive family `(1,p,p+1)` forces the canonical fixed-`n`
+  coefficient to be the unbounded prime `p`
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -297,6 +312,18 @@ boundary-ramification and global GenEll/Belyi height package.
   no-go; the exhaustion of the isogeny graph and passage to minimal models
   are currently paper proofs.  This does not retire modular/Faltings-height
   methods.
+- Extracting larger powers, choosing finitely many residual primes, or
+  putting generalized-Fermat coefficients in a fixed finite list does not by
+  itself improve the Frey coefficient budget.  Exponent-one primes survive
+  every modulus; with only odd residual primes, all power-of-two exponent
+  layers survive as well.  This retires the factorization-only version, not
+  a theorem exploiting the additive equation or higher congruence depth.
+- Even the optimistic same-newform/product-of-distinct-ell/Sturm strategy
+  first sees only the radical of the exponent product and pays for roughly
+  `R*polylog R` candidate form orbits.  It is blind to smooth depth such as
+  `2^k`, and bad-prime Hecke compatibility is an additional missing input.
+  This paper coefficient audit does not rule out higher `ell^k` congruence
+  ideals.
 - A generic one-row Siegel or Minkowski theorem cannot supply the needed
   nondegenerate Wronskian vector: an explicit family has a norm-one
   degenerate kernel vector while every nondegenerate one has norm at least
@@ -512,6 +539,16 @@ untilts or arithmetic holomorphic structures.
   intersection form has now been proved exactly equivalent to abc, so any
   surviving Mason/deformation route must add genuinely new arithmetic data
   rather than reuse the constant horizontal polynomial degrees
+- a higher-congruence generalized-Fermat bridge: construct compatible
+  level-lowered systems modulo `ell^k` (or an integral congruence ideal) whose
+  depth detects `v_ell(e_p)` and whose global size accumulates with the
+  removed-prime weight `log p`.  Ordinary mod-`ell` support, finitely many
+  residual characteristics, and products of distinct `ell` have now been
+  proved quantitatively insufficient
+- alternatively, a uniform arithmetic estimate for the exponent-one
+  radical layer.  It is a common sub-support for every exponent-divisibility
+  proxy; when only odd residual primes are admissible the permanent layer is
+  larger and includes all power-of-two exponent depths
 - a uniform modified-Szpiro estimate for the actual Frey height and an honest
   bridge to the minimal model and Néron conductor.  The current
   `freyDiscriminantConductor` is only the radical of a displayed
