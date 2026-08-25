@@ -272,6 +272,19 @@
   identities, and scalar coefficient transfer; periods, number-field
   heights, order indices, and the Goldfeld-type lower bound remain paper
   mathematics
+- the critical-period/Padé specialization audit.  Writing
+  `-log Omega=(1/2)*log c-log(2*K(sqrt(b/c)))`, the elliptic-integral kernel
+  is nonnegative and uniformly sublinear in `log c`; consequently the
+  all-eta period bound with exponent `1/2+eta` is quantitatively equivalent
+  to the all-epsilon abc budget, with every constant dependency explicit.
+  The six modular-lambda branches, eta/discriminant formula, odd-prime Tate
+  nome and locally integral Padé specialization all preserve the full
+  source height or valuation depth.  In particular a degree-`N`
+  specialization with unit leading coefficient pays exactly `N*v_p(c)`,
+  and taking all number-field conjugates multiplies rather than dilutes this
+  exponent.  Lean checks the uniform-budget equivalence, sharp scalar
+  coefficient and exact Horner denominator carrier; special-function,
+  period and number-field norm interpretations remain paper mathematics
 - the Frey reduction-cycle spectral audit.  For the geometric `I_(2e)`
   cycle the antipodal resistance is `e/2`, the metric/Tate Green row is
   `e/6,-e/12,-e/12`, and the discrete Moore--Penrose Green differs by the
@@ -297,6 +310,24 @@
   no-go.  The Kummer injection, rank deduction, Poitou--Tate criterion,
   Cassels--Tate obstruction and local-height interpretation remain explicit
   paper mathematics
+- the bounded-abscissa quadratic selector.  CRT residue avoidance plus the
+  degree-two torsion classification gives, for every positive loss target,
+  a non-torsion point `(j,sqrt(j*(j-a)*(j+b)))` over degree at most two with
+  `j` bounded only by that target.  A normalized composite weight makes the
+  same point retain the prescribed fraction of both exponent-excess and
+  reduced-radical mass, and normalized local degrees preserve the exact
+  identity-component coefficient.  This genuinely resolves the local
+  existence/Poitou--Tate obstruction after degree two.  Conversely, an
+  explicit infinite CRT family proves that every fixed finite abscissa
+  universe can be forced to pay a positive multiple of `log c` in both a
+  new twist conductor and the quadratic-field discriminant.  Thus the
+  fixed bounded-abscissa sublinear-conductor/discriminant refinement is
+  rigorously closed, while global cancellation, adaptive unbounded
+  abscissas and different auxiliary geometries remain open.  Lean checks
+  the collision/double-counting core, separated-mass ledger, normalized
+  degree identity and character orthogonality; Merel/classification, Neron
+  local heights, conductor induction and the infinite family are paper
+  mathematics
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -801,18 +832,20 @@ untilts or arithmetic holomorphic structures.
   nonmaximal-order index.  The audited AGM/Landen identities merely move the
   full height among real contraction, reciprocal conjugates and order
   conductors; the critical period bound is itself of Goldfeld/abc strength
-- a weighted Selmer/Cassels--Tate local-to-global selection theorem on the
-  positive-rank Frey family, or on a controlled auxiliary twist/cover:
-  satisfy the full relaxed Poitou--Tate orthogonality conditions, kill the
-  resulting `Sha[2]` class, lift to a non-torsion global point, and retain a
-  fixed positive proportion of `sum_p (v_p(abc)-1)*log p` after every adverse
-  finite and archimedean contribution.  The curve `(1,8,9)` rules out the
-  all-Frey formulation, and the Tate `q=p^(4m)` example shows that equality
-  of mod-two Kummer classes does not even preserve the local-height sign.
-  The reduction-graph one-third selector supplies the combinatorial choice
-  but lands in torsion and therefore cancels globally.  Equivalently, after
-  strong BSD and the proved period corridor one still needs the half-slope
-  regulator--Sha--Tamagawa bound, which is already of abc strength
+- a global height/cancellation theorem for a non-torsion auxiliary selector.
+  The local existence problem itself is now solved after degree at most two:
+  CRT plus uniform torsion boundedness produces a bounded-abscissa point
+  retaining arbitrarily large fractions of both exponent and radical mass.
+  What remains is to control its field discriminant, new conductor, adverse
+  finite components and archimedean height with a subcritical coefficient,
+  or to produce cancellation inside one character space.  The explicit CRT
+  family rules out a sublinear conductor/discriminant estimate for every
+  fixed finite abscissa universe, while character orthogonality rules out a
+  naive short-vector argument across distinct quadratic twists.  Adaptive
+  unbounded abscissas, same-character constructions and a genuinely global
+  cancellation identity remain open.  The rational all-Frey formulation is
+  still ruled out by `(1,8,9)`, and after strong BSD the alternative missing
+  statement is the same half-slope regulator--Sha--Tamagawa bound
 - `Nonempty UpstreamCertificate`
 - parameter-free `abc_conjecture`
 
