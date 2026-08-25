@@ -1,4 +1,4 @@
-# IUT/ABC comprehensive research formalization v4.1
+# IUT/ABC comprehensive research formalization v4.2
 
 Author: ChatGPT
 
@@ -26,7 +26,35 @@ and imports selected public IUT IV/general-position interfaces.
 - nested-chain hull lemmas;
 - the scalar Corollary 3.12 / IUT IV coefficient algebra;
 - the exact four-stage closure programme;
-- an inhabitation audit of the current `NonCircularIUTIVBridge`.
+- an inhabitation audit of the current `NonCircularIUTIVBridge`;
+- odd-period theta-root equivariance, its free properly discontinuous integer
+  action, and the resulting ordinary topological orbit covering;
+- the exact angular kernel and finite cyclic radial image of the Tate
+  `K`-point quotient in the discretely valued case;
+- genuine non-classical polynomial and Laurent Gauss points, strict
+  polynomial-to-Laurent extension, exact radial covariance under
+  `T |-> qT`, and the positive radial orbit quotient's homeomorphism with
+  the logarithmic circle;
+- honest local maximal-valuation-ring hulls and residue-normalized Haar
+  volume for a Tate parameter at an actual bad place;
+- the finite actual bad-place Haar packet, including completed/global residue
+  cardinality comparison, exact signed local terms, and reconstruction of
+  the arithmetic q-divisor degree and normalized `arithmeticLogQ`;
+- fixed-place multiradial scale obstructions and actual label-rescaled
+  nonarchimedean absolute-value copies;
+- concrete Fermat/Kummer algebras over the punctured tripod, including
+  integrality, exact rank `n^2`, finite etaleness, faithful flatness, affine
+  smoothness, and explicit coordinate formulas for the fibres over
+  `0`, `1`, and `infinity`;
+- a local DVR theorem turning a uniformizer power law
+  `t = unit * x^n` into exact additive order, maximal-ideal exponent, and
+  ramification index `n`;
+- a genuine homogeneous Fermat `Proj`, its three coordinate basic-open
+  cover, canonical affine chart presentations, and the Fermat equation on
+  the `X_2` chart;
+- an explicit equivalence between the `X_2` homogeneous chart and the
+  bivariate affine Fermat quotient, together with the transported affine
+  smoothness certificate.
 
 ## Exact conditional theorem proved by the package
 
@@ -77,7 +105,16 @@ In particular, the package does not construct:
 4. the actual orbicurve/core/cusp and local theta-data families;
 5. the actual IUT III Hodge-theater/Frobenioid/Kummer/log-link/multiradial outputs;
 6. a source-derived uniform IUT IV geometric height theorem;
-7. an unparameterized theorem `abc_conjecture : ABCConjecture`.
+7. completion of the Laurent Gauss ray to a Tate analytic space, the full
+   rigid/adic/Berkovich theta quotient, its angular and
+   retraction theory, and the tempered fundamental-group comparison;
+8. scheme-level packaging of the identified affine chart and honest
+   localization as a compactification inside the genuine Fermat `Proj`, its
+   scheme-level smoothness/normality, boundary DVR identifications and
+   instantiated ramification indices, and the noncritical Belyi and
+   height/different/conductor comparisons needed for the general-position
+   proof package;
+9. an unparameterized theorem `abc_conjecture : ABCConjecture`.
 
 The public IUT repository leaves the required source constructions behind
 interfaces/specification boundaries. Merely defining replacement structures or

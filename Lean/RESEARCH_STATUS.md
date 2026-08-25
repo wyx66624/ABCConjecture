@@ -19,21 +19,62 @@
 - a continuous comparison from that orbit quotient to the Tate `K`-point
   quotient and its valuation circle, together with the characteristic-zero
   norm-one-kernel obstruction to injectivity
+- the exact norm-one angular kernel of the valuation-circle map and, for a
+  discretely valued field, the finite `K`-rational radial image
+  `range(rho) ~= ZMod(order_pi(q))` with its exact cardinality
+- genuine non-classical polynomial Gauss absolute values of every positive
+  radius and their strict extension to Laurent polynomials, with
+  `|T|=r`, `|T^-1|=r^-1`, an explicit `T |-> qT` automorphism and exact
+  covariance; the positive radial orbit quotient is homeomorphic to the
+  logarithmic circle
 - existence and set-level uniqueness of least products of scaled maximal
   valuation rings for compact local packets with nonzero projections
 - normalized local additive Haar measure and honest finite-positive nonzero
   scaled integral balls
 - residue-cardinality normalization of the local Haar character, the bridge
   from norm-uniformizers to DVR uniformizers, and the actual bad-place formula
-  `log Delta(q) = -qOrder * log(#k)` under explicit local-field typeclasses
+  `log Delta(q) = -qOrder * log(#k)` with the DVR, finite-residue, proper and
+  Borel structures derived from the actual adic completion
+- the finite actual bad-place Haar packet: the completed residue field has
+  cardinality `absNorm(w)`, each signed entry is
+  `-qOrder(w) * log(absNorm(w))`, and the normalized negative packet sum is
+  exactly the degree of the explicit q-divisor and `arithmeticLogQ`; its
+  identification with public `logQ` is correctly conditional on weight-degree
+  compatibility
 - fixed-place rational prime scale rigidity after prime specialization
 - the unique labelwise `1/j^2` theta calibration, its finite weighted form,
   and the common-fixed-scale obstruction at labels one and two
+- actual nonarchimedean absolute-value copies rescaled by `1/j^2`, together
+  with the fixed-place theorem that no ring equivalence between the label-one
+  and label-two `Q_p` copies can preserve logarithmic norm
 - an explicit source-faithful bound absorbing
   `sqrt(q) * log(A*q)` into an arbitrarily small multiple of `q`
 - an explicit affine Fermat/Kummer algebra over the tripod which is finite
   etale, free of exact rank `n^2`, faithfully flat, surjective on prime
   spectra, and whose generators satisfy `x^n+y^n=1`
+- Eisenstein irreducibility and integrality of the affine Fermat presentation,
+  its honest boundary localization with both coordinates invertible, and a
+  target-local standard-smooth proof for the bivariate affine Fermat quotient
+- an explicit equivalence between the bivariate quotient and `AdjoinRoot`
+  presentations, transporting smoothness first to the integral affine ring
+  and then to the honest boundary localization
+- an explicit `K`-algebra equivalence from that honest open Fermat ring to
+  the two-stage tripod Kummer algebra, proved by localization, `AdjoinRoot`,
+  and two standard-etale universal properties
+- the Fermat power map's exact coordinate fibres over `0,1,infinity`, its
+  local power laws, and a base-compatible equivalence identifying the honest
+  open Fermat ring with the iterated Kummer presentation; under this
+  equivalence the honest open is finite etale of exact rank `n^2` over the
+  punctured tripod
+- the generic local DVR theorem that a uniformizer identity
+  `t = unit * x^n` forces additive order `n`, extended maximal ideal
+  `m_R S = m_S^n`, and ramification index exactly `n`
+- the genuinely graded homogeneous Fermat quotient and its actual `Proj`
+  scheme, covered by the three coordinate basic opens, with each chart
+  canonically affine and the `X_2`-chart ratios satisfying `u^n+v^n=1`
+- an explicit `K`-algebra equivalence from the `X_2` homogeneous chart ring
+  to the bivariate affine Fermat quotient, proved in both directions from
+  chart generators, and transport of affine `Algebra.Smooth` to that chart
 
 These new results are local or scalar components.  They do not construct the
 rigid/Berkovich theta quotient or tempered comparison, the genuine IUT III
@@ -98,19 +139,22 @@ untilts or arithmetic holomorphic structures.
 - actual orbicurve/core/cusp data in the intended anabelian geometry
 - actual local theta-data and tempered comparison data
 - actual Hodge-theater/Frobenioid/Kummer/log-link/multiradial output realization
-- the rigid/Berkovich analytic quotient, theta-root `H^1` and divisor control,
-  and tempered fundamental-group/skeleton comparison for the odd theta-root
-  locus
+- completion of the proved Laurent Gauss ray to a Tate algebra and full
+  rigid/Berkovich analytic quotient, theta-root `H^1` and divisor control,
+  angular directions, deformation retraction, and tempered
+  fundamental-group/skeleton comparison for the odd theta-root locus
 - the genuine cross-label AHS/untilt and Ind1--Ind3 degree-line bridge
-- the finite-product packet/log-volume formula and degree-normalized
-  p-preimage scaling beyond the proved single-place Tate-q normalization
-- derivation of the DVR, finite-residue, proper-space, and Borel instances for
-  every actual adic-completion `TateField` used by the thin bad-place wrapper
+- the genuine Ind1--Ind3 possible-image/procession upper bound beyond the
+  proved finite actual bad-place Haar/q-divisor identity, including a
+  source construction of public weight compatibility and odd-place selection
 - Lean formalizations of the root-pullback and global-j-packet
   counterexamples recorded above (the valuation-circle kernel is formalized)
 - a source-derived, uniformly quantified IUT IV q-height theorem
-- geometric irreducibility, projective compactification, boundary
-  ramification, and the noncritical Belyi/height package for the Fermat cover
+- geometric irreducibility, scheme-level packaging of the now identified
+  affine chart and honest localization as a compactification inside the
+  genuine Fermat `Proj`, scheme-level smoothness/normality/properness,
+  boundary local DVR/uniformizer identifications, and the noncritical
+  Belyi/height package
 - `Nonempty UpstreamCertificate`
 - parameter-free `abc_conjecture`
 
