@@ -182,6 +182,16 @@
   `Omega(2^m-1)<=m-1` force every arbitrary prime-coordinate real weight to
   vanish.  Lean proves the finite-coordinate theorem internally, not merely
   a block-constant specialization
+- the exact radical-power-loss reduction for the same Mersenne endpoint.
+  Writing `Q_m=(2^m-1)/rad(2^m-1)`, the paper-level order decomposition gives
+  `Q_m=W_m*I_m` with `I_m|m`, where `W_m` is the product of the base-2
+  Wieferich excesses at primes dividing `2^m-1`.  Hence endpoint abc is
+  equivalent to `log W_m=o(m)`.  Lean verifies the finite radical identity,
+  the required LTE/factorization lemmas, and the square-divisibility transfer
+- an explicit order-level obstruction at `p=1093`: Lean proves
+  `1093^2 | 2^364-1`, `1093^3` does not divide it, `1093` does not divide
+  `364`, and the three maximal-proper-exponent residue checks.  The elementary
+  combination `ord_1093(2)=364` remains stated and proved on paper
 - the exact polynomial discriminant of the integral Kummer binomial
   `T^n-A`, its honest prime-support implication, and the numerical tame
   boundary--different identity `g/n + (1-g/n) = 1` locally and over finite
@@ -304,6 +314,12 @@ boundary-ramification and global GenEll/Belyi height package.
   counterexamples do not retire mixed directions, controlled accelerations,
   or an argument that treats the anisotropic endpoint by a complementary
   arithmetic mechanism.
+- Primitive-divisor existence, pairwise cyclotomic resultants, and
+  cyclotomic discriminants do not by themselves control the multiplicity
+  mass in `2^m-1`.  The order-level square at `1093` strictly refutes the
+  shortcut that every primitive prime occurs only once.  This does not
+  retire cyclotomic or p-adic methods capable of proving a genuinely
+  subexponential total Wieferich excess.
 - Increasing the Fermat/Kummer degree alone cannot dilute the tame conductor
   coefficient below one: at every tame supported prime, normalized reduced
   boundary plus normalized different is exactly `log p`.  This retires only
@@ -426,6 +442,13 @@ untilts or arithmetic holomorphic structures.
   endpoint mechanism for `(1,2^m-1,2^m)`.  Any viable construction must also
   beat the proved projected-lattice energy floor when a nondegenerate jet
   exists
+- a uniform bound for the weighted base-2 Wieferich mass
+  `W_m=prod_{p|2^m-1} p^(v_p(2^(p-1)-1)-1)`: for every `eta>0`, prove
+  `W_m<=exp(eta*m)` for all sufficiently large `m`, or find a different
+  treatment of the Mersenne endpoint.  The exact reduction shows that
+  polynomial radical bounds, a merely polynomial or sub-full-exponential
+  primitive factor, and layerwise resultant separation are quantitatively
+  insufficient
 - a quantitative integral least-zero theorem for the compatible
   linear--quadratic second-jet system.  In the indefinite internal dimension
   at least five, Meyer's theorem gives a nonzero rational isotropic vector on
