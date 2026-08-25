@@ -170,6 +170,18 @@
   `(c/rad(abc))^2/(Omega(a)+Omega(b))`, including the one-empty-prime-block
   endpoint.  These are lower bounds on every nondegenerate integral straight
   jet, not an existence or small-zero theorem
+- the integral least-zero audit for straight second jets: the explicit
+  internal-coordinate chart and its Gram determinant (Lean for a
+  three-prime block), together with the five-variable family
+  `u1^2+u2^2-T^2*(v1^2+v2^2+v3^2)`.  For `T=2^k` this family has fixed
+  determinant radical `2` but exact least nonzero negative-block energy
+  `T^2`; hence dimension, signature, determinant square class, determinant
+  radical, and the bad-prime set do not control a least integral zero
+- the full straight-jet obstruction on the infinite Mersenne family
+  `(1,2^m-1,2^m)`, `m>=3`: the exact moment equation, weighted Cauchy, and
+  `Omega(2^m-1)<=m-1` force every arbitrary prime-coordinate real weight to
+  vanish.  Lean proves the finite-coordinate theorem internally, not merely
+  a block-constant specialization
 - the exact polynomial discriminant of the integral Kummer binomial
   `T^n-A`, its honest prime-support implication, and the numerical tame
   boundary--different identity `g/n + (1-g/n) = 1` locally and over finite
@@ -285,6 +297,13 @@ boundary-ramification and global GenEll/Belyi height package.
   construct an integral jet below the proved projected-lattice energy floor.
   This retires only claims of a free quadratic normal; it does not retire
   high-dimensional rational isotropy or a genuinely new arithmetic selector.
+- There is no universal nondegenerate prime-dependent straight second-jet
+  selector: the infinite Mersenne family forces all its real weights to zero.
+  Nor can a general least-zero theorem depend only on coarse quadratic-form
+  invariants, by the fixed-radical five-variable counterfamily.  These
+  counterexamples do not retire mixed directions, controlled accelerations,
+  or an argument that treats the anisotropic endpoint by a complementary
+  arithmetic mechanism.
 - Increasing the Fermat/Kummer degree alone cannot dilute the tame conductor
   coefficient below one: at every tame supported prime, normalized reduced
   boundary plus normalized different is exactly `log p`.  This retires only
@@ -401,22 +420,24 @@ untilts or arithmetic holomorphic structures.
   `a*D(b)-b*D(a)=0`, and control the resulting archimedean weight; the basic
   Siegel lemma may return only degenerate short vectors and is insufficient
   without exploiting the special abc coefficient structure
-- an integral prime-dependent direction with subpower normalized second
-  energy satisfying both first-order and straight-Hessian compatibility and
-  having nonzero Wronskian.  Arbitrary Hasse accelerations add a fresh affine
-  variable and do not constrain the first tangent; a symmetric block-scaling
-  straight-Hessian scheme is ruled out on paper by
-  `(1,2^m-1,2^m)`, `m>=3`, but general prime-dependent quadratic directions
-  remain open.  The local energy definitions are not yet connected to a
-  constructed global Hessian selector in Lean
+- a replacement for the now-refuted universal straight second-jet selector:
+  either mixed multi-direction Hessians, accelerations carrying an additional
+  arithmetic restriction rather than a free affine variable, or a separate
+  endpoint mechanism for `(1,2^m-1,2^m)`.  Any viable construction must also
+  beat the proved projected-lattice energy floor when a nondegenerate jet
+  exists
 - a quantitative integral least-zero theorem for the compatible
   linear--quadratic second-jet system.  In the indefinite internal dimension
   at least five, Meyer's theorem gives a nonzero rational isotropic vector on
   paper, but clearing denominators has no subpower bound; the proved energy
-  floor shows that any such bound must already control `c/rad(abc)`
+  floor shows that any such bound must already control `c/rad(abc)`.  Such a
+  theorem must retain the full integral lattice index or coefficient
+  valuations: determinant radical and other coarse form invariants have been
+  strictly ruled out
 - the arithmetic realization refinements recorded only on paper for the
-  Wronskian lattice: the exact `tau(n)` image subgroup, the relaxed Cramer
-  upper bound, and the existence step for the full Mersenne counterfamily
+  Wronskian lattice: the exact `tau(n)` image subgroup and the relaxed Cramer
+  upper bound.  The full arbitrary-weight Mersenne nonexistence theorem is
+  now kernel-checked in its finite-coordinate moment form
 - actual local Kummer extensions at the three Fermat boundary fibres,
   `e=n/gcd(n,m)`, tame different exponent `e-1`, unramifiedness outside
   `nabc`, the fixed-`n` wild bound, and their number-field discriminant

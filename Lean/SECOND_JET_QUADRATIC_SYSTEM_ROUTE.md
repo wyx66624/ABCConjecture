@@ -209,8 +209,12 @@ weights at `3,2` as `x,y`.  First compatibility is `x=4y`, while second
 compatibility is `0=2y^2`; hence only the degenerate zero direction exists.
 For `(1,8,9)`, first compatibility gives `12x=6y`, while the Hessians are
 `12x^2` and `2y^2`; again `x=y=0`.  These examples disprove universal
-solubility, but they are not an infinite counterfamily and therefore do not
-retire the general prime-dependent scheme.
+solubility.  The companion `SecondJetLeastZeroBarrier` module now strengthens
+this to the infinite family `(1,2^m-1,2^m)`, `m>=3`: its finite-coordinate
+moment theorem proves that every arbitrary prime-dependent straight weight
+vanishes.  Thus the universal straight selector is retired; mixed directions,
+arithmetically constrained accelerations, and complementary endpoint methods
+remain open.
 
 ## 5. Rational local--global existence in the stable indefinite range
 
