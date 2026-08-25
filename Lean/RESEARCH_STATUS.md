@@ -255,6 +255,48 @@
   support/parity obstruction, signed local-height ledger, Selmer dimension
   algebra, and conditional scalar bridge; Tate uniformization, the period
   integral, BSD, and any global Mordell--Weil selector remain paper inputs
+- the Frey real-period/AGM audit.  For the invariant differential
+  `dx/(2y)`, the primitive positive period is
+  `2*c^(-1/2)*K(sqrt(b/c)) = pi/AGM(sqrt(c),sqrt(a))`.  The first Landen
+  ratio satisfies a reciprocal quadratic with discriminant `16*a*c`; its
+  selected real contraction is inverted by the other square-root embedding,
+  and its algebraic height remains `1/2*log c+O(1)`.  On a fixed-prime
+  adjacent family the quadratic field is unramified at `3`, while the
+  nonmaximal-order index carries the entire unbounded `3`-adic depth.
+  Moreover the hypergeometric argument has exact height `log c`, and its
+  linear term already has denominator `4*c`.  Thus classical AGM convergence
+  and ordinary G-function denominator control do not yield radical saving;
+  the sufficient missing input is the critical radical-sensitive period
+  lower bound `Omega >= C_eta*rad(abc)^(-1/2-eta)`.  Lean checks the
+  reciprocal algebra, discriminant, finite valuation and denominator
+  identities, and scalar coefficient transfer; periods, number-field
+  heights, order indices, and the Goldfeld-type lower bound remain paper
+  mathematics
+- the Frey reduction-cycle spectral audit.  For the geometric `I_(2e)`
+  cycle the antipodal resistance is `e/2`, the metric/Tate Green row is
+  `e/6,-e/12,-e/12`, and the discrete Moore--Penrose Green differs by the
+  explicit subdivision constant.  Grouping bad primes by their colliding
+  two-torsion pair gives three fixed global pair energies whose sum is the
+  full weighted mass, so one fixed pair captures at least one third.  This
+  is a genuine non-circular selector, but the selected divisor is torsion:
+  Faltings--Hriljac and the product formula force its positive graph energy
+  to be cancelled by the remaining finite and archimedean terms.  Lean
+  checks the cycle formulas, Green-normalization difference, one-third
+  selection and scalar no-go; regular models, admissible intersections and
+  Faltings--Hriljac remain paper mathematics
+- the weighted Poitou--Tate selector audit.  The actual Frey curve for
+  `(1,8,9)` has positive `3`-adic exponent excess but rank zero: a full
+  two-descent supported on `{-1,2,3}` leaves exactly four classes after the
+  primitive modulo-`16` and modulo-`9` tests, and all four are represented
+  by its explicit eight torsion points.  This strictly refutes a universal
+  non-torsion selector on every Frey curve.  Locally, for Tate parameter
+  `q=p^(4m)`, two points in the same mod-two Kummer class can have Bernoulli
+  parameters `0` and `1/2`, hence opposite local-height signs; mod-two
+  descent alone cannot retain the desired weight.  Lean kernel-checks the
+  finite residue table, actual positive excess and abstract quantified
+  no-go.  The Kummer injection, rank deduction, Poitou--Tate criterion,
+  Cassels--Tate obstruction and local-height interpretation remain explicit
+  paper mathematics
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -753,16 +795,24 @@ untilts or arithmetic holomorphic structures.
   supplied by qualitative modularity, Manin-constant boundedness, the
   adjoint-L nonvanishing bound, GRH, or the known exponential modular-degree
   estimates
+- the radical-sensitive Frey period lower bound
+  `Omega_E >= C_eta*rad(abc)^(-1/2-eta)`, or an adelic hypergeometric/Padé
+  theorem strong enough to imply it while controlling every conjugate and
+  nonmaximal-order index.  The audited AGM/Landen identities merely move the
+  full height among real contraction, reciprocal conjugates and order
+  conductors; the critical period bound is itself of Goldfeld/abc strength
 - a weighted Selmer/Cassels--Tate local-to-global selection theorem on the
-  Frey family: from the positive local-height choice at every odd
-  multiplicative prime, construct a non-torsion global Mordell--Weil class
-  retaining a fixed positive proportion of
-  `sum_p (v_p(abc)-1)*log p`, while uniformly controlling the negative finite
-  and archimedean contributions.  Rank-zero Frey curves show that qualitative
-  local solubility cannot suffice.  Equivalently, after strong BSD and the
-  proved period corridor one still needs the half-slope bound for the
-  regulator--Sha--Tamagawa quotient; on the Frey locus that bound is already
-  of abc strength, not a theorem supplied by BSD itself
+  positive-rank Frey family, or on a controlled auxiliary twist/cover:
+  satisfy the full relaxed Poitou--Tate orthogonality conditions, kill the
+  resulting `Sha[2]` class, lift to a non-torsion global point, and retain a
+  fixed positive proportion of `sum_p (v_p(abc)-1)*log p` after every adverse
+  finite and archimedean contribution.  The curve `(1,8,9)` rules out the
+  all-Frey formulation, and the Tate `q=p^(4m)` example shows that equality
+  of mod-two Kummer classes does not even preserve the local-height sign.
+  The reduction-graph one-third selector supplies the combinatorial choice
+  but lands in torsion and therefore cancels globally.  Equivalently, after
+  strong BSD and the proved period corridor one still needs the half-slope
+  regulator--Sha--Tamagawa bound, which is already of abc strength
 - `Nonempty UpstreamCertificate`
 - parameter-free `abc_conjecture`
 
