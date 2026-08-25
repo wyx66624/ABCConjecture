@@ -186,6 +186,14 @@
   bound for this degree and the corresponding product-height inequality.
   This constructs the missing `log p` weighting but does not prove its
   global upper bound
+- a geometric source for the same weight at odd Frey places: on paper,
+  inversion freely pairs the `2e` nodes of an `I_(2e)` polygon, and the
+  quotient node algebra modulo constants has residue-field dimension
+  `e-1`.  Over `Q_p` its cardinality and arithmetic degree are exactly
+  `p^(e-1)` and `(e-1)*log p`.  Lean proves the paired-node combinatorics,
+  quotient-by-constants finite model, exact degree, fixed-support
+  unboundedness, and the scalar equivalence with slope-six Szpiro; it does
+  not formalize the minimal regular model or finite-etale quotient scheme
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -642,12 +650,16 @@ untilts or arithmetic holomorphic structures.
   surviving Mason/deformation route must add genuinely new arithmetic data
   rather than reuse the constant horizontal polynomial degrees
 - a genuinely global Frey-locus upper bound for the now-explicit
-  exponent-excess module.  On the odd semistable Frey divisor it is
+  exponent-excess module, equivalently for the node-orbit module supplied by
+  the odd `I_(2e)` fibers.  On the odd semistable Frey divisor it is
   `D_exc = (1/2)*D_Delta-D_N`; an estimate
   `D_exc <= (2+epsilon/2)*D_N+O_epsilon(1)` is exactly the
   `6+epsilon` discriminant-conductor slope.  Thus the missing step is a new
   global arithmetic theorem of Szpiro strength, not construction of the
-  weighted finite module or a formal Fitting/Deligne identity
+  weighted finite module, the geometric node carrier, or a formal
+  Fitting/Deligne identity.  Fixed-prime Tate fibers and the actual Frey
+  family `(3^e,2,3^e+2)` rule out any per-place reduced-support-only upper
+  bound
 - alternatively, a uniform arithmetic estimate for the exponent-one
   radical layer.  It is a common sub-support for every exponent-divisibility
   proxy; when only odd residual primes are admissible the permanent layer is
