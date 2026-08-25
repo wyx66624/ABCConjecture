@@ -45,7 +45,7 @@ noncomputable def amplificationColumnCount
 theorem card_filter_eq_sum_indicator
     {α : Type*} [DecidableEq α]
     (s : Finset α) (p : α → Prop) [DecidablePred p] :
-    (s.filter p).card = ∑ x in s, if p x then 1 else 0 := by
+    (s.filter p).card = (∑ x in s, if p x then 1 else 0) := by
   induction s using Finset.induction_on with
   | empty => simp
   | @insert a s ha ih =>
@@ -59,17 +59,17 @@ theorem sum_amplificationRowCount_eq_sum_amplificationColumnCount
     (inputs : Finset α) (outputs : Finset β)
     (R : α → β → Prop) :
     (∑ a in inputs, amplificationRowCount outputs R a) =
-      ∑ b in outputs, amplificationColumnCount inputs R b := by
+      (∑ b in outputs, amplificationColumnCount inputs R b) := by
   classical
   calc
     (∑ a in inputs, amplificationRowCount outputs R a) =
-        ∑ a in inputs, ∑ b in outputs, if R a b then 1 else 0 := by
+        (∑ a in inputs, ∑ b in outputs, if R a b then 1 else 0) := by
       apply Finset.sum_congr rfl
       intro a ha
       exact card_filter_eq_sum_indicator outputs (R a)
-    _ = ∑ b in outputs, ∑ a in inputs, if R a b then 1 else 0 := by
+    _ = (∑ b in outputs, ∑ a in inputs, if R a b then 1 else 0) := by
       rw [Finset.sum_comm]
-    _ = ∑ b in outputs, amplificationColumnCount inputs R b := by
+    _ = (∑ b in outputs, amplificationColumnCount inputs R b) := by
       apply Finset.sum_congr rfl
       intro b hb
       symm
@@ -90,12 +90,12 @@ theorem exceptionalSet_incidence_bound
       amplificationColumnCount inputs R b ≤ M) :
     inputs.card * L ≤ outputs.card * M := by
   calc
-    inputs.card * L = ∑ _a in inputs, L := by simp
-    _ ≤ ∑ a in inputs, amplificationRowCount outputs R a := by
+    inputs.card * L = (∑ _a in inputs, L) := by simp
+    _ ≤ (∑ a in inputs, amplificationRowCount outputs R a) := by
       exact Finset.sum_le_sum fun a ha => hrow a ha
-    _ = ∑ b in outputs, amplificationColumnCount inputs R b :=
+    _ = (∑ b in outputs, amplificationColumnCount inputs R b) :=
       sum_amplificationRowCount_eq_sum_amplificationColumnCount inputs outputs R
-    _ ≤ ∑ _b in outputs, M := by
+    _ ≤ (∑ _b in outputs, M) := by
       exact Finset.sum_le_sum fun b hb => hcolumn b hb
     _ = outputs.card * M := by simp
 
@@ -131,8 +131,12 @@ theorem exceptionalSet_empty_of_budget_lt
     inputs = ∅ := by
   have hbound := exceptionalSet_shell_bound
     inputs outputs R L M U hrow hcolumn houtputs
-  have hcard : inputs.card = 0 := by
-    omega
-  exact Finset.card_eq_zero.mp hcard
+  by_contra hne
+  have hnonempty : inputs.Nonempty := Finset.nonempty_iff_ne_empty.mpr hne
+  have hone : 1 ≤ inputs.card := Finset.card_pos.mpr hnonempty
+  have hLle : L ≤ inputs.card * L := by
+    have hmul := Nat.mul_le_mul_right L hone
+    simpa using hmul
+  omega
 
 end IUTThreeClosures
