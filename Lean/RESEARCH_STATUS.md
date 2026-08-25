@@ -223,6 +223,22 @@
   coefficient comparison, fixed-prime excess obstruction, and exact
   slope-six scalar equivalence; GIT, stable models, minimization, cluster
   pictures, and Arakelov intersections remain paper mathematics
+- the exact modular-degree/Petersson exponent audit on the Frey locus.  With
+  the unnormalized Petersson convention, the modular-area identity is
+  `2*h_rel = log(delta/c_f^2)-log((2*pi)^2*||f||^2)`, while the unconditional
+  symmetric-square lower bound supplies
+  `log((2*pi)^2*||f||^2) >= log N-O(log log N)`.  The optimal quotient is
+  joined to the displayed Frey curve by a rational isogeny of degree at most
+  `163`, stable Faltings height is no larger than relative height, and the
+  logarithmic error in the Faltings--`j` comparison has been explicitly
+  absorbed rather than treated as a constant.  Consequently the sole
+  remaining main-exponent input in this route is the normalized polynomial
+  modular-degree bound `delta/c_f^2 <= C_eta*N^(2+eta)`; it would give the
+  `6+epsilon` `j`-height slope and hence abc.  Existing unconditional and
+  Rankin--Selberg-GRH estimates only bound `log delta` by respectively
+  `O(N log N)` and `O(N log log N)`, so this audit is not a proof of that
+  input.  Lean checks only the real scalar identities, the Pazuki-error
+  absorption, and exact coefficient/no-cancellation witnesses
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -711,12 +727,16 @@ untilts or arithmetic holomorphic structures.
   packaged as a characteristic-not-two degree-two elliptic-curve isogeny
   with kernel and extension across the affine exceptional points
 - the actual rational two-isogenies, dual maps, endpoint graph exhaustion,
-  and minimal-discriminant comparison in Lean; and the normalization-fixed
-  modular covolume estimate
-  `deg(phi)/(|c_phi|^2*||2*pi*i*f*dz||_geom^2) <= C_eta*N^(1+2*eta)`, together
-  with the relative-to-stable Faltings-height correction.  This estimate is
-  of slope-six/abc strength and is not supplied by qualitative modularity,
-  a Manin-constant assertion, or a modular-degree bound alone
+  and minimal-discriminant comparison in Lean
+- the polynomial normalized modular-degree estimate on the Frey locus
+  `delta_(1,N)/c_f^2 <= C_eta*N^(2+eta)`.  The modular-area normalization,
+  optimal-to-displayed-curve isogeny seam, relative-to-stable direction,
+  Petersson lower coefficient one, 2-adic local-factor loss, and logarithmic
+  Faltings--`j` error have now all been audited.  Thus this bound is
+  sufficient for, and of the missing `6+epsilon`/abc strength; it is not
+  supplied by qualitative modularity, Manin-constant boundedness, the
+  adjoint-L nonvanishing bound, GRH, or the known exponential modular-degree
+  estimates
 - `Nonempty UpstreamCertificate`
 - parameter-free `abc_conjecture`
 

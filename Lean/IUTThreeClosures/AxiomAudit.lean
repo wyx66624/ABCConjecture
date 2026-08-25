@@ -50,6 +50,7 @@ import IUTThreeClosures.ArakelovCongruenceDegreeBarrier
 import IUTThreeClosures.NeronNodeOrbitExcess
 import IUTThreeClosures.NeronNodeDihedralConservation
 import IUTThreeClosures.FreyBranchQuarticBarrier
+import IUTThreeClosures.FreyModularDegreeExponentAudit
 import IUTThreeClosures.ArithmeticLeibnizWronskian
 import IUTThreeClosures.WronskianKernelLattice
 import IUTThreeClosures.MultiDerivationExteriorEnergy
@@ -344,6 +345,19 @@ end IUTThreeClosures.ConcreteFermatBelyiRamification.TripodCertificate
   IUTThreeClosures.no_local_reducedBoundaryMultiplicity_branchExcess_bound
 #print axioms
   IUTThreeClosures.branchQuartic_slopeSix_iff_exponentExcess_upper
+#print axioms IUTThreeClosures.relativeHeight_eq_of_modular_area
+#print axioms
+  IUTThreeClosures.modular_degree_petersson_coefficient_audit
+#print axioms
+  IUTThreeClosures.modular_degree_two_plus_eta_to_j_six_plus_six_eta
+#print axioms IUTThreeClosures.normalized_modular_degree_to_j_budget
+#print axioms IUTThreeClosures.modular_j_budget_to_abc_budget
+#print axioms IUTThreeClosures.pazukiLogError_sublinear
+#print axioms IUTThreeClosures.absorb_linear_j_error
+#print axioms IUTThreeClosures.degree_excess_survives_exactly
+#print axioms IUTThreeClosures.positive_degree_excess_breaks_slope_six
+#print axioms
+  IUTThreeClosures.coarse_degree_upper_does_not_force_exponent_two
 #print axioms IUTThreeClosures.powerfulProduct_dvd_arithmeticWronskian
 #print axioms IUTThreeClosures.log_c_le_log_radical_add_log_normalizedDerivative
 #print axioms IUTThreeClosures.weightedArithmeticDerivative_mul
