@@ -1,0 +1,226 @@
+
+\subsection{The Frey--Legendre curve}
+
+Let $a,b,c$ be pairwise coprime positive integers with $a+b=c$.  Consider
+\[
+ E_{a,b}:y^2=x(x-a)(x+b).
+\]
+Its invariants are
+\[
+ c_4=16(a^2+ab+b^2),\qquad
+ \Delta=16a^2b^2c^2,
+\]
+and
+\[
+ j=256\frac{(a^2+ab+b^2)^3}{a^2b^2c^2}.
+\]
+
+\begin{lemma}[Odd multiplicative places]\label{lem:odd-mult}
+If an odd prime $p$ divides $abc$, then
+\[
+ p\mid\Delta,\qquad p\nmid c_4.
+\]
+The integral equation is minimal at $p$, and $E_{a,b}$ has multiplicative reduction there.  If $p^m\Vert abc$, then
+\[
+ v_p(\Delta_{\min})=2m.
+\]
+\end{lemma}
+
+\begin{proof}
+If $p\mid a$, then $a^2+ab+b^2\equiv b^2\not\equiv0\pmod p$; the other two cases are identical.  Thus $c_4$ is a $p$-adic unit while $\Delta$ has positive valuation.  An integral Weierstrass equation with unit $c_4$ is minimal: under an admissible scaling $x=u^2x'$, $y=u^3y'$, one has $c_4'=u^{-4}c_4$; integrality of $c_4'$ forces $v_p(u)\le0$, so the discriminant valuation cannot be lowered.  The standard minimal reduction criterion then gives multiplicative reduction and the displayed discriminant order.
+\end{proof}
+
+\subsection{The actual Tate inertia matrix}
+
+\begin{theorem}[Tate inertia formula]\label{thm:tate-inertia}
+Let $K$ be a complete discretely valued field with residue characteristic $p$, let $\ell\ne p$ be an odd prime, and let $E_q/K$ be a split Tate curve with $N=v_K(q)>0$.  Choose
+\[
+ P=\zeta_\ell\in\mu_\ell,\qquad Q=q^{1/\ell}\in E_q[\ell](\overline K).
+\]
+Then there is a surjective tame character
+\[
+ t_\ell:I_K\twoheadrightarrow\F_\ell
+\]
+such that, in the basis $(P,Q)$,
+\[
+ \rho_{E,\ell}(\sigma)=
+ \begin{pmatrix}
+ 1&N\,t_\ell(\sigma)\\
+ 0&1
+ \end{pmatrix}
+ \quad(\sigma\in I_K).
+\]
+In particular, if $\ell\nmid N$, the inertia image contains a nontrivial transvection, indeed a conjugate of
+\[
+ U(1)=\begin{pmatrix}1&1\\0&1\end{pmatrix}.
+\]
+\end{theorem}
+
+\begin{proof}
+Tate uniformization gives an exact sequence
+\[
+ 0\longrightarrow\mu_\ell
+ \longrightarrow E_q[\ell]
+ \longrightarrow \Z/\ell\Z
+ \longrightarrow0.
+\]
+Since $\ell\ne p$, inertia fixes $\mu_\ell$.  Write $q=\pi^Nu$ with $u\in\OO_K^\times$.  The principal-unit subgroup is uniquely $\ell$-divisible and the residue-field part becomes $\ell$-divisible after an unramified extension; hence the ramified Kummer character of $q$ is the $N$-fold multiple of the tame Kummer character of $\pi$.  Thus
+\[
+ \sigma(Q)=P^{N t_\ell(\sigma)}Q,
+\]
+which is the displayed matrix.  Surjectivity of $t_\ell$ and $N\ne0$ in $\F_\ell$ give an element with upper-right entry $1$.
+\end{proof}
+
+\subsection{Two transvections generate the derived image}
+
+\begin{lemma}[Two-root generation]\label{lem:two-root}
+Let $\ell$ be odd.  Two nontrivial transvections in $\SL_2(\F_\ell)$ with distinct fixed lines generate $\SL_2(\F_\ell)$.
+\end{lemma}
+
+\begin{proof}
+Choose a basis taking the fixed line of the first transvection to $\F_\ell e_1$.  A change of basis in its stabilizer sends the second fixed line to $\F_\ell e_2$.  The two transvections then have the forms $U(a)$ and $L(b)$ with $a,b\ne0$, where
+\[
+ U(a)=\begin{pmatrix}1&a\\0&1\end{pmatrix},\qquad
+ L(b)=\begin{pmatrix}1&0\\b&1\end{pmatrix}.
+\]
+Taking powers produces $U(1)$ and $L(1)$.  The elementary matrices $U(x),L(y)$ generate $\SL_2$ by Gaussian elimination, or explicitly by the Bruhat factorization
+\[
+ \begin{pmatrix}\alpha&\beta\\\gamma&\delta\end{pmatrix}
+ =U\!\left(\frac{\alpha-1}{\gamma}\right)
+  L(\gamma)
+  U\!\left(\frac{\delta-1}{\gamma}\right)
+ \quad(\gamma\ne0),
+\]
+with the upper-triangular case handled using the Weyl element
+$U(1)L(-1)U(1)$.
+\end{proof}
+
+\begin{theorem}[Legendre two-place image theorem]\label{thm:legendre-two-place}
+For the full-$2$-torsion Frey--Legendre family, inertia at two distinct boundary directions among $0,1,\infty$ acts through transvections with distinct fixed lines in one common geometric basis of $E[\ell]$.  If their Tate orders are nonzero modulo $\ell$, the global image contains $\SL_2(\F_\ell)$.
+\end{theorem}
+
+\begin{proof}
+The local system $R^1f_\ast\F_\ell$ for the Legendre family on $\Pone-\{0,1,\infty\}$ has Picard--Lefschetz monodromy at the three boundary components.  The three vanishing cycles are the three pairwise collision cycles of the labeled $2$-torsion sections and have pairwise distinct lines.  Specialization to $\lambda=a/c$ identifies arithmetic inertia at a prime where one boundary component vanishes with the corresponding local monodromy.  The Tate coefficient is the local discriminant/Tate order from \cref{thm:tate-inertia}.  Apply \cref{lem:two-root}.
+\end{proof}
+
+\begin{remark}
+The theorem is a standard Picard--Lefschetz specialization statement.  It is stronger than choosing unrelated local Tate bases: the labels of the global $2$-torsion make the three vanishing-cycle lines simultaneous.
+\end{remark}
+
+\section{A complete forbidden-set auxiliary-prime theorem}
+
+The correct initial-theta prime must avoid all bad residue characteristics, all prime divisors of every Tate order, fixed ramification primes, and any prescribed lower bound.
+
+\begin{definition}[Logarithmic mass]
+For a finite set $A$ of primes, define
+\[
+ X(A)=\sum_{p\in A}\log p.
+\]
+Let
+\[
+ \vartheta(x)=\sum_{p\le x}\log p.
+\]
+\end{definition}
+
+\begin{theorem}[Prime escape from complete logarithmic mass]\label{thm:mass-escape}
+There are absolute constants $Y_0,C>0$ such that for every finite set $A$ of primes and every integer $B\ge2$, there is a prime $\ell$ satisfying
+\[
+ \ell>B,\qquad \ell\notin A,
+\]
+and
+\[
+ \ell\le C\bigl(X(A)+B\log B+Y_0\bigr).
+\]
+Consequently, for fixed $B$,
+\[
+ \log\ell\le \log(1+X(A))+O_B(1).
+\]
+\end{theorem}
+
+\begin{proof}
+By the prime number theorem, choose $Y_0$ such that
+\[
+ \vartheta(y)\ge\frac34y\qquad(y\ge Y_0).
+\]
+Also trivially $\vartheta(B)\le B\log B$.  Put
+\[
+ Y=4\bigl(X(A)+B\log B+Y_0\bigr).
+\]
+Then $Y\ge Y_0$ and
+\[
+ \vartheta(Y)-\vartheta(B)
+ \ge3\bigl(X(A)+B\log B+Y_0\bigr)-B\log B
+ >X(A).
+\]
+If every prime in $(B,Y]$ belonged to $A$, then the left-hand side would be at most $X(A)$, a contradiction.  Hence an escaping prime exists.  Taking $C=4$ gives the bound.
+\end{proof}
+
+\begin{proposition}[Mass of all Frey forbidden primes]\label{prop:frey-mass}
+Let $n=abc$.  Form the finite forbidden set $A(P)$ consisting of:
+\begin{enumerate}[label=(\roman*)]
+\item all rational primes dividing $n$;
+\item all prime divisors of every local Tate order $N_v$ at a bad place;
+\item a fixed finite set of small and base-field ramification primes.
+\end{enumerate}
+Then
+\[
+ X(A(P))=O(\log n)=O(\log c),
+\]
+with constants independent of the primitive triple.
+\end{proposition}
+
+\begin{proof}
+The contribution from (i) is $\log\rad(n)\le\log n$.  At odd $p\mid n$, one has $N_p=2v_p(n)$; at $2$ one has the same form up to an absolute additive correction.  Therefore
+\[
+ \sum_{p\mid n}\log N_p
+ \le C_1\sum_{p\mid n}v_p(n)+C_2\omega(n)
+ \le C_3\log n,
+\]
+because $\sum v_p(n)\le(\log n)/(\log2)$ and $\omega(n)\le(\log n)/(\log2)$.  The logarithmic mass of the prime divisors of the $N_p$ is at most $\sum\log N_p$.  The fixed set contributes a constant.  Finally $abc\le c^3$.
+\end{proof}
+
+\begin{corollary}[Full admissible-prime selection]\label{cor:full-prime}
+Fix the base field and a lower threshold $B$.  Outside the finite exceptional triples needed for two distinct degeneration directions, there is a prime $\ell$ such that:
+\begin{enumerate}[label=(\alph*)]
+\item $\ell>B$;
+\item $\ell$ is different from every bad residue characteristic;
+\item $\ell$ is prime to every local Tate order;
+\item $\ell$ is unramified in the fixed base field;
+\item the mod-$\ell$ Frey image contains $\SL_2(\F_\ell)$;
+\item $\log\ell=O(\log\log c)=o(\log c)$.
+\end{enumerate}
+If the cyclotomic determinant has full image, then the image is $\GL_2(\F_\ell)$.
+\end{corollary}
+
+\begin{proof}
+Apply \cref{thm:mass-escape,prop:frey-mass}.  Conditions (b)--(d) hold by construction.  Select two distinct boundary directions; their Tate orders are nonzero modulo $\ell$, so \cref{thm:legendre-two-place} gives $\SL_2$.  For a fixed number field, if an unramified prime $\ell$ had nontrivial intersection with $\Q(\mu_\ell)$, that intersection would be a nontrivial extension ramified only at $\ell$, forcing $\ell$ to ramify in the fixed field.  Thus the cyclotomic determinant is full outside the excluded finite set.  The growth assertion follows from $X(A(P))=O(\log c)$.
+\end{proof}
+
+\begin{audit}
+The auxiliary-prime part can therefore be repaired without importing the full Serre exceptional-prime theorem or GenEll Corollary 4.4, provided the standard two-place Picard--Lefschetz theorem is used.  This repair does not prove $abc$; it only produces the prime required by an initial-theta construction.
+\end{audit}
+
+\section{Why large image alone cannot prove $abc$}
+
+\begin{counterexample}[Mod-$\ell$ blindness to the Tate order]\label{counter:blindness}
+Fix distinct primes $p$ and $\ell$.  For any $N>0$, consider the split Tate curves over $\Q_p$ with parameters
+\[
+ q_N=p^N,\qquad q_{N+\ell}=p^{N+\ell}.
+\]
+Their mod-$\ell$ inertia representations are identical in suitable Tate bases, although
+\[
+ v_p(\Delta_{q_{N+\ell}})-v_p(\Delta_{q_N})=\ell.
+\]
+\end{counterexample}
+
+\begin{proof}
+By \cref{thm:tate-inertia}, the inertia matrix depends on the Tate order only through its residue in $\F_\ell$.  Since $N+\ell\equiv N\pmod\ell$, the matrices agree.  For a Tate curve the minimal discriminant order equals $v_p(q)$, giving the second assertion.
+\end{proof}
+
+\begin{corollary}
+No argument whose local input consists only of one mod-$\ell$ Galois representation can bound the magnitude of all discriminant exponents by the set of bad primes.  Additional information varying with $\ell$, an integral/adelic norm, or a genuinely new height inequality is necessary.
+\end{corollary}
+
+This counterexample explains why the successful repair of the auxiliary-prime theorem does not solve the global height problem.
+
+\section{Audit of the Berkovich, orbicurve, and tempered stage}
