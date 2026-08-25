@@ -61,7 +61,8 @@ theorem deckZEquiv_zero
     (t : TateParameter K) (ell : ℕ)
     (r : Kˣ) (hr : r ^ ell = t.q) :
     deckZEquiv t ell r hr 0 = Equiv.refl _ := by
-  simp [deckZEquiv]
+  change deckZHom t ell r hr 1 = 1
+  exact map_one (deckZHom t ell r hr)
 
 /-- Integer addition is multiplication in the permutation group. -/
 theorem deckZEquiv_add
