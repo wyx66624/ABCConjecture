@@ -35,12 +35,15 @@ acceptance are not counterexamples and are not grounds for deleting a route.
   formalization of Kirti Joshi's Arithmetic Teichmuller Spaces.
 - `research/abc-powerful-core-v8`: square-core, cube-core, diagonal-conic and
   diagonal-cubic reductions for prospective counterexamples.
-- `research/abc-exceptional-amplification-v8`: incidence amplification criterion
-  converting a power-saving exceptional-set estimate into finiteness.
+- `research/abc-exceptional-amplification-v8`: incidence amplification criterion;
+  exact three-point maps and rational isogenies have been removed as amplifier
+  subroutes, while varying maps, norm constructions and growing field orbits
+  remain active.
 - `research/abc-torsion-line-energy-v8`: local Tate-line energies and locally
   adaptive adelic successors after the fixed-packet no-go theorem.
 - `research/abc-legendre-parabolic-higgs-v8`: globally labelled three-cusp
-  parabolic/Higgs route; its arithmetic specialization theorem remains open.
+  parabolic/Higgs route; good-place determinant unitness is established, while
+  its arithmetic specialization/maximal-slope theorem remains open.
 
 ## Variants eliminated by proved no-go theorems
 
@@ -57,7 +60,7 @@ every fixed line-weight system satisfies
 under the complete transitive projective orbit. This eliminates the naive fixed
 three-line determinant variant. Its original work is retained at commit
 `30430eadad8a4f4035c35479e80cd2cc630c6cc0`; the no-go theorem and useful
-different estimate are ported into the v8 integration commit.
+different estimate are ported into `main`.
 
 ### Generic full-orbit CRT/Minkowski selector
 
@@ -69,10 +72,36 @@ projective depth, while
 Thus that generic selector cannot produce a positive uniform q-coefficient.
 Its original work is retained at commit
 `a3decfc45e01e011dc38a6d4542b4dbcf4a2d662`; the dimension-barrier theorem is
-ported into the v8 integration commit.
+ported into `main`.
 
-The corrected successors use locally adaptive filtrations or globally labelled
-three-cusp parabolic data and are not excluded by these no-go theorems.
+### Exact three-point rational-map amplification
+
+For a degree-`d` rational map `f : P^1 -> P^1`, Riemann--Hurwitz gives
+
+`|f^{-1}({0,1,infinity})| >= d + 2`.
+
+Hence a map whose inverse image of the three-point boundary is contained in the
+same three points has degree one and is only an anharmonic permutation. Every
+map of degree greater than one introduces at least `d-1` new boundary points.
+This eliminates exact prime-support-preserving Belyi/self-map amplification,
+but not amplification schemes that control the new factors quantitatively.
+
+### Rational cyclic-isogeny amplification over `Q`
+
+The Mazur--Kenku classification gives an absolute finite set of rational cyclic
+isogeny degrees. Consequently the number of rational cyclic subgroup schemes
+of any elliptic curve over `Q` is absolutely bounded. Such a mechanism has
+amplification exponent `beta = 0` and cannot satisfy
+
+`beta > gamma + kappa*alpha`
+
+for a positive exceptional-set exponent. Isogenies over growing fields, Galois
+orbits and norm/descent constructions remain active only with explicit radical,
+different and overlap control.
+
+The corrected successors use locally adaptive filtrations, globally labelled
+three-cusp parabolic data, varying maps, or growing arithmetic orbits and are not
+excluded by these no-go theorems.
 
 ## Merge policy
 
