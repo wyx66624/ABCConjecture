@@ -878,6 +878,22 @@ critical input behind a definition or opaque interface.
   below that `4/11` threshold.  Lean checks the full scalar local blocks and
   the division-free threshold implication; finite-field permutation,
   Hensel lifting and Dirichlet remain explicitly cited accepted inputs
+- a uniform, unconditional rank-two lower bound for the prime-index
+  Chebyshev Jacobians.  For every odd prime `p != 3`, the two explicit
+  half-divisors have descent squareclasses `[a-1]` and `[3*(a+1)]` in
+  `Q(2^(1/p))^*/Q(2^(1/p))^(2)`.  The first is nonsquare at the unique
+  dyadic place and the second has an odd valuation at a cofactor prime over
+  `3`; their product is nonsquare for the same reason.  Since the defining
+  odd-degree polynomial is irreducible, rational two-torsion vanishes, and
+  these classes give `rank J_p(Q) >= 2`.  Exact Selmer computations give
+  equality for `p=11,13`; for general `p` the missing reverse inclusion is
+  now the explicit growing two-adic localization identity (5.7), with the
+  possible `S`-class and Wieferich branches retained.  The uniform mod-5
+  Coleman residue-disc argument is also isolated, but its global
+  annihilating differential still requires that rank upper bound.  No GRH,
+  BSD, Tate--Shafarevich finiteness, or abc input is used.  Lean checks the
+  three displayed half-factor identities at `p=11,13,17`; the general
+  descent and local-squareclass argument is cited at paper level
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
