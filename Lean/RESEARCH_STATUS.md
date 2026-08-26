@@ -956,6 +956,17 @@ critical input behind a definition or opaque interface.
   reproducible PARI, Magma and Sage certificates without GRH, BSD or `abc`,
   but it deliberately does not eliminate index `17`.  Lean checks the
   displayed half-factor and Frobenius coefficient ledgers only
+- the odd-place descent at prime indices `19` and `23`.  For `p=19`,
+  PARI/GP unconditionally certifies the pure-field class number one, and
+  the explicit `S`-supported basis is independently deconditioned by a
+  full squareclass-product check.  The global space has dimension fourteen,
+  the norm kernel dimension ten, and the complete `Q_3` condition leaves
+  the expected genus-nine space `W_19`; hence only the rank-seven dyadic
+  quotient map remains.  At `p=23`, the exact candidate ledger has dimensions
+  `17 -> 13 -> 11`, but class-group certification did not finish, so this is
+  recorded only as a conditional computational pattern.  Neither case is
+  promoted to a dyadic Selmer bound or a uniform theorem.  Lean checks the
+  scalar dimension ledgers and the exact half-factor/discriminant identities
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
