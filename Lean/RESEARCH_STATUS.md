@@ -766,6 +766,22 @@ critical input behind a definition or opaque interface.
   `log(X_n)<=(2+eta)*log(3*A_n)+C_eta` for every positive `eta`.
   Lean checks the curve map, factor identities, ratio and the injectivity
   deduction from Bennett's explicitly supplied positive-coefficient premise
+- the index-transfer audit for that congruent-twist route.  The already
+  available pointwise class-number estimate
+  `A_n >> n^2/(log n)^2` implies
+  `#{n:3*A_n<=X} << sqrt(X)*log X`, which is asymptotically stronger than
+  Chan's unordered support count and therefore shows that the latter adds no
+  pointwise square-core information here.  An exact adjacent Pell Bezout
+  identity has fixed carrier `240`; the actual orbit is coprime to `240`, so
+  `gcd(c_n,c_(n+1))=1`.  A PNT-in-progressions separation profile nevertheless
+  has distinct squarefree cores `A_n` of size about `n^2*log n`, linear total
+  height, adjacent coprimality and `log(A_n)/log(c_n) -> 0`.  It is explicitly
+  a logical profile rather than a Pell solution.  Thus support sparsity,
+  pairwise distinct twists and adjacent coprimality together still do not
+  imply the missing pointwise coefficient-one core bound.  Lean checks the
+  exact resultant, divisor carrier, division-free counting envelope and
+  scalar separation ledger; PNT in arithmetic progressions remains a cited
+  accepted input in the accompanying note
 - the four-consecutive-product refinement.  Writing
   `b=A*u^2`, `b+1=B*v^2`, `b+2=3*r^2`, `b+3=s^2` gives the genuine norm-one
   unit with coefficient `D=3*A*B` and the additional constraint
