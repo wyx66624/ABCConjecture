@@ -1,5 +1,15 @@
 # Research status
 
+## Trust and dependency policy
+
+Kernel dependency reports are used for transparency, not as an aesthetic
+admission test.  Finite certified evaluation (`native_decide`), classical
+choice, and precisely cited theorems already accepted in the mathematical
+literature may be used.  They must be identified at the point of use.  What
+remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
+using an open conjecture as if it were a theorem; or hiding an unsourced
+critical input behind a definition or opaque interface.
+
 ## Proven and formalized
 
 - `ActualPilotWitness -> Iut.Corollary312Variant`
@@ -621,6 +631,49 @@
   critical equivalence, component-correct cube ledger and scalar absorption;
   Yu's theorem, residual orders, norm carriers and the final tail remain
   explicitly paper-only
+- the first-hit Kummer and cyclotomic refinement for the same Pell tail.  The
+  exact identities `lambda=q^8` and `gamma_i=beta_i^2` give the residual-order
+  squeezes `p-1>16*n` or `p-1>4*n`, according to the two support classes
+  modulo `24`, while preserving the full shifted depth in one square-root
+  branch.  If `d=gcd(n,t)`, `n=d*a` and `t=d*T`, then the target has exact
+  order `T>2*a`, and
+  `Res(Phi_t(X),X^n-Y)=Phi_T(Y)^(phi(t)/phi(T))`.  Order lifting gives the
+  exact truncated synchronization
+  `min(e,h_gamma)=min(e,h_lambda+v_p(a))`; at a first hit the last valuation
+  vanishes.  Every remaining collision layer is therefore an anomalously
+  small least representative modulo `t*p^(J-h)`, with the cube case bounded
+  by `1/(2*p^2)`.  Tame Kummer theory sees the residual class but not this
+  depth, and the required cumulative least-representative estimate remains
+  unproved.  Lean checks the scalar identities and an exact fixed-Pell
+  `p=23,n=1552` depth-three diagnostic.  Three finite certificates use
+  `native_decide` and are disclosed as such; local order lifting, resultants,
+  Kummer theory and the sufficient cumulative estimate remain paper-level
+- the repeated-hit prime-power reduction.  At each medium-order prime the
+  exact layer identity
+  `(e_p-2)_+=B_p+J_p+D_p` separates base depth, at most one transition copy,
+  and layers first in the selected inverse-target pair.  The total transition
+  mass is `o(n)`.  Splitting `D=C_cross+F_four` exposes a full prime-power
+  carrier for every cross-target layer, but summing its moving earlier index
+  gives only a quadratic budget; the base carrier has the analogous moving-
+  order defect.  The resulting minimum open inequality is the current-index
+  balance `W_n+C_n+F_n <= S1(X_n)+2*eta*H_n+o_eta(n)`.  Two conditional
+  fixed-unit profiles show that the audited marginal inputs do not imply this
+  balance; they explicitly respect target order, separate factor heights and
+  the full fixed-gap carrier, and are not asserted to occur in the Pell
+  sequence.  Lean checks the layer algebra, transition cutoff and the
+  carrier-compatible moving-index scalar profiles
+- the four-point same-index bridge.  On the Pell orbit
+  `b_n,b_n+1,b_n+2=3*r_n^2,b_n+3=s_n^2`, the two square branches consume at
+  most one height unit.  A level-one truncated inequality for the divisor
+  `{0,-1,-2,-3}` with coefficient `4-2=2` would therefore yield the missing
+  radical coefficient one and the complete current-index `W+C+F` balance.
+  Existing unconditional truncated approximation, fixed-support Subspace,
+  gcd-carrier and recurrence-radical theorems do not supply this pointwise
+  coefficient; obtaining it by two gap-two abc applications is circular.
+  Lean checks the exact coefficient subtraction and a two-index aggregate
+  counterprofile showing why a window average cannot replace the pointwise
+  statement.  The truncated coefficient-two inequality itself is explicitly
+  conjectural and is not stored as a theorem
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
