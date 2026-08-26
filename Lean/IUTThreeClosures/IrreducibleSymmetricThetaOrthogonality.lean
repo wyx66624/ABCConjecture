@@ -65,11 +65,10 @@ theorem equalSumSquares_frequency_norm
   calc
     ((x₁ ^ 2 - x₂ ^ 2) - (y₁ ^ 2 - y₂ ^ 2)) ^ 2 +
           (2 * (x₁ * x₂ - y₁ * y₂)) ^ 2 =
-        ((x₁ ^ 2 + x₂ ^ 2) + (y₁ ^ 2 + y₂ ^ 2)) ^ 2 -
-          4 * (x₁ * y₁ + x₂ * y₂) ^ 2 := by ring
+        ((x₁ ^ 2 + x₂ ^ 2) - (y₁ ^ 2 + y₂ ^ 2)) ^ 2 +
+          4 * (x₁ * y₂ - x₂ * y₁) ^ 2 := by ring
     _ = 4 * (x₁ * y₂ - x₂ * y₁) ^ 2 := by
-      rw [hQ]
-      ring
+      rw [hQ, sub_self, zero_pow (by norm_num : (2 : ℕ) ≠ 0), zero_add]
 
 /-- Anisotropy of the binary sum-of-two-squares form.  Over a field this is
 implied by nonsquareness of `-1`. -/
