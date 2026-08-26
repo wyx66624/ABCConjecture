@@ -451,6 +451,50 @@
   checks the unimodular value-set identity, determinant/Rayleigh ledgers,
   isogeny and base-change scalars and the Shioda correction inequality;
   canonical heights and elliptic-surface geometry remain paper mathematics
+- the Pell radical-recurrence barrier extracted from the fixed-field adelic
+  family.  With `q_n+p_n*sqrt(3)=(2+sqrt(3))^n`, its doubled coordinates
+  satisfy `s_n^2-3*r_n^2=1`, while the consecutive abc values
+  `b_n=s_n^2-3` and `c_n=s_n^2-2` obey the same nondegenerate order-three
+  recurrence `u_(n+3)=195*u_(n+2)-195*u_(n+1)+u_n`.  Their height is
+  `n*log(97+56*sqrt(3))+O(1)`, and abc on this actual infinite family is
+  exactly the missing joint estimate
+  `log rad(b_n)+log rad(c_n)>=(1-eta)*n*log(97+56*sqrt(3))-O_eta(1)`.
+  Stewart's general square-free-part theorem supplies only an `o(n)`
+  logarithmic lower bound, and Lucas/Lehmer primitive-divisor theorems do
+  not apply directly to these shifted order-three values.  Lean checks the
+  Pell orbit, doubled recurrence, consecutive identities and characteristic
+  polynomial; asymptotics, toric factorization and recurrence radical bounds
+  remain paper mathematics
+- the dual two-isogeny short-point reduction.  If a Frey curve has positive
+  rank and `R` realizes its first integral Mordell--Weil minimum, then `2*R`
+  lies in all three rational dual two-isogeny images and its rational half has
+  one Kummer packet at every odd collision type.  Purely from
+  `2*Lambda subset H_0 intersect H_a intersect H_b`, the shortest point in
+  the common image costs at most four times the first integral minimum; this
+  is the optimal abstract containment constant, not a claim of sharpness for
+  every Frey image.  The actual curve `(a,b,c)=(1,8,9)` has rank zero and
+  positive odd exponent excess, strictly ruling out an all-Frey rational
+  non-torsion selector.  Even in positive rank, one packet does not certify
+  the identity component or a favorable sign: a split `I_4` local example
+  stays on components one and three under all rational two-torsion
+  translations.  Lean checks the abstract dual-image containments, quadratic
+  height scaling, packet row and scalar local counterexample; actual
+  isogenies, Mordell--Weil minima and Tate uniformization remain paper mathematics
+- the four-half archimedean compensation audit on the same fixed-field Pell
+  family.  The four global translates of the single-packet point have
+  abscissas `2`, `-b/2`, `b+2`, and `-b/(b+2)`.  The last denominator
+  contributes `(1/2)*log b+O(1)` at good primes, so it cannot be omitted when
+  cancelling its archimedean term.  After separating odd bad, good finite and
+  infinite places, the centered four-column deficit matrix has every row and
+  column sum zero.  Any nonnegative global weighting with nonnegative
+  archimedean leading term has selected odd-bad mass at most its total height;
+  equality is only the repeated critical mixture, never a strict abc margin.
+  Signed combinations do not help because all four translates define the
+  same rank-one class modulo torsion.  This is a strict obstruction for
+  torsion translations and isomorphic relabellings of one Frey motive, not
+  for a genuinely different auxiliary motive.  Lean checks the translated
+  abscissas, complete slope/deficit ledgers and positive-weight optimization;
+  local heights, Pell specialization and Faltings--Hriljac remain paper mathematics
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -969,18 +1013,24 @@ untilts or arithmetic holomorphic structures.
   What remains is more precise.  One algebraic division branch can retain a
   full local identity packet while its canonical height scales by `m^(-2)`;
   in the rational two-division case its global Kummer line can privilege at
-  most one of the three collision types.  The missing theorem must construct
-  a short non-torsion point in the corresponding dual-isogeny image for a
-  sufficiently heavy type, make its favorable packet choice effective, and
-  control its branch discriminant, new conductor, places over `2`, and the
-  archimedean sum with a subcritical coefficient.  Odd finite theta terms are
-  already nonnegative and therefore are not the missing loss.  A fixed-field
-  Pell family shows that discriminant control alone is also insufficient:
-  the entire deficit can be `-(1/12)*log b` at infinity, and a critical
-  radical-scale lower bound for it is coefficient-for-coefficient equivalent
-  to abc on that subfamily.  Thus a successful continuation needs either a
-  genuinely new cancellation among several globally compatible branches or
-  motives, or an independent proof of this critical archimedean inequality.
+  most one of the three collision types.  Positive-rank membership in the
+  required dual image is no longer a separate gap: doubling a shortest
+  rational point lands in all three images at a universal factor-four height
+  cost.  What remains is an abc-useful upper bound for that first integral
+  minimum, a replacement on rank-zero curves, a favorable component/sign
+  theorem, and control of branch discriminant, new conductor, places over
+  `2`, and the archimedean sum with a subcritical coefficient.  Odd finite
+  theta terms are already nonnegative and therefore are not the missing loss.
+  A fixed-field Pell family shows that discriminant control alone is also
+  insufficient: the entire deficit can be `-(1/12)*log b` at infinity, and a
+  critical radical-scale lower bound for it is exactly the joint radical
+  theorem for the two explicit consecutive order-three recurrence values.
+  The four global two-torsion translates cannot cancel this deficit with a
+  strict margin: their missing mass reappears at good finite denominators and
+  their Mordell--Weil Gram matrix has rank one.  Thus a successful
+  continuation needs a genuinely different auxiliary motive with a new
+  cross-motive inequality, or an independent proof of the critical Pell
+  recurrence/archimedean estimate.
   Alternatively one needs a same-character
   Mordell--Weil lattice whose first integral successive minimum, not merely
   the real Gram eigenvalue in a chosen basis, is genuinely small.  The
