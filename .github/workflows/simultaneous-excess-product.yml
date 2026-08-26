@@ -1,0 +1,30 @@
+name: Simultaneous excess product
+
+on:
+  pull_request:
+    paths:
+      - 'Lean/IUTThreeClosures/SimultaneousExcessProduct.lean'
+      - '.github/workflows/simultaneous-excess-product.yml'
+  push:
+    branches:
+      - formalize/simultaneous-excess-product-v11
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: false
+          build: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        run: |
+          lake update
+          lake exe cache get
+      - name: Compile the module
+        working-directory: Lean
+        run: lake env lean IUTThreeClosures/SimultaneousExcessProduct.lean
