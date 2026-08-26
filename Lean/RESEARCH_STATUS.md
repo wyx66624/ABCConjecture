@@ -674,6 +674,53 @@ critical input behind a definition or opaque interface.
   counterprofile showing why a window average cannot replace the pointwise
   statement.  The truncated coefficient-two inequality itself is explicitly
   conjectural and is not stored as a theorem
+- the squarefree-part fundamental-unit audit for the Pell companion
+  `c_n=A_n*y_n^2`.  The exact quartic identity
+  `9*r_n^4-A_n*(y_n*s_n)^2=1`, Bennett--Walsh's uniqueness/index theorem and
+  a Chebyshev calculation modulo `3` force
+  `(c_n+1)+y_n*s_n*sqrt(A_n)` to be the first positive Pell unit.  Since
+  `A_n=23 (mod 24)` and a prime `23 (mod 24)` divides it, there is no
+  norm-minus-one unit; the displayed element is therefore the actual field
+  fundamental unit, and the parameters `A_n` are pairwise distinct.  The
+  exact class-number formula and Louboutin's all-conductor bound give only
+  `A_n >= (16-o(1))*H_n^2/log(H_n)^2`.  Retaining the fixed Euler factors at
+  `2` and `3` in Granville--Soundararajan improves the asymptotic constant to
+  `64/(2-2/sqrt(e))^2 = 103.347...`, but not the polynomial scale.  The
+  surviving coefficient-one input is still
+  `log(A_n) >= (1-o(1))*H_n`; Lean checks the elementary Pell, quartic,
+  Chebyshev and injectivity ledgers, while the cited Diophantine and analytic
+  theorems remain explicit paper inputs
+- the nonmaximal quadratic-order conductor audit for the same decomposition.
+  Because `A_n=3 (mod 4)`, the order `Z[y_n*sqrt(A_n)]` has exact conductor
+  `y_n` and discriminant `4*c_n`.  Its unit index, both wide and narrow, is
+  one, and the fundamental unit is congruent to one modulo the conductor.
+  Consequently the exact multiplier
+  `y_n*prod_(p|y_n)(1-chi(p)/p)` in the real ring-class formula is absorbed
+  by the enlarged order class number and cancels identically from the
+  imprimitive analytic formula.  Ray and genus class groups store the same
+  conductor mass rather than bounding it.  The correct radical identity is
+  `rad(c_n)=A_n*rad(y_n)/gcd(A_n,y_n)`; an exact computation gives the actual
+  overlap `v_23(c_1575)=3`.  Thus the one-factor coefficient-one conclusion
+  is equivalent to `log(y_n)=o(H_n)`, not to an almost-squarefree estimate
+  for `y_n`.  Lean checks the scalar cancellation, radical deficit, recurrence
+  certificate and transparent finite evaluation
+- the four-consecutive-product refinement.  Writing
+  `b=A*u^2`, `b+1=B*v^2`, `b+2=3*r^2`, `b+3=s^2` gives the genuine norm-one
+  unit with coefficient `D=3*A*B` and the additional constraint
+  `4*T_k(T)+5=(2*b+3)^2`.  Even unit indices are impossible.  For an odd
+  index, the tempting Jacobi-symbol shortcut requires an additional
+  congruence such as `5 | T_(k/p)(T)` and does not give an unconditional
+  restriction on the prime divisors of `k`; the audit records the explicit
+  `T=9,p=3` diagnostic preventing that misuse.  No accepted theorem located
+  in the audit proves the stronger uniform assertion that the displayed
+  square condition forces `k=1`; the extensive finite scan is recorded only
+  as evidence.  Even if that assertion were proved, generic regulator
+  inversion would give only
+  `A*B >> H^2/log(H)^2`, still far below the radical coefficient one.  The
+  remaining target is a moving-coefficient Pell--Mahler lower bound for the
+  square-base radical after overlap.  Lean checks the four-consecutive
+  algebra, norm equations, radical ledger and height-correct scalar barrier;
+  no uniform Chebyshev-square or radical theorem is assumed
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -1219,6 +1266,8 @@ untilts or arithmetic holomorphic structures.
 - `Nonempty UpstreamCertificate`
 - parameter-free `abc_conjecture`
 
-These are mathematical construction theorems, not missing record syntax. No
-`sorry`, `admit`, new axiom, or theorem equivalent to abc may be used to mark them
-complete.
+These are mathematical construction theorems, not missing record syntax.
+`sorry`, `admit`, an unsourced or circular axiom, or an open theorem equivalent
+to abc may not be used to mark them complete.  A transparent interface to a
+precisely cited theorem already accepted in the literature is allowed under the
+trust policy at the top of this file.
