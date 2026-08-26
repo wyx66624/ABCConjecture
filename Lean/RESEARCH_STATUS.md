@@ -840,6 +840,20 @@ critical input behind a definition or opaque interface.
   search cutoff enters.  Lean checks the scalar deductions from a transparent
   external certificate.  Thus the residual uniform prime-index proposition
   now starts at `p>=11`
+- the exact prime-eleven elimination.  On the genus-five curve
+  `y^2=4*T_11(T)+5`, an unconditional Magma V2.29-9 phi-Selmer computation
+  gives `Sel_2(J)=(Z/2Z)^2`.  Two explicit half-divisors have the correct
+  odd-degree descent images `[-U_1(theta)]` and `[-U_9(theta)]`; they generate
+  the full Selmer group, so `rank J(Q)=2` and their subgroup has finite odd
+  index.  A SageMath 10.9 Coleman computation at `5` gives a primitive
+  annihilating differential nonzero on all six residue discs.  Five rational
+  points occupy five discs, while the last zero is the unique non-rational
+  5-adic Weierstrass point.  Thus the only rational bases are `T=+/-1` and
+  there is no `T>1` solution at index `11`.  The complete Magma and Sage
+  scripts were independently rerun; no GRH, BSD, analytic-rank assumption,
+  search cutoff or abc input enters.  Lean checks the exact scalar models and
+  deductions from a transparently named external certificate.  The residual
+  prime indices become `p=13` and `p>=17`
 - the exact prime-thirteen elimination.  On the genus-six curve
   `y^2=4*T_13(T)+5`, an unconditional Magma V2.29-9 computation gives
   `Sel_2(J)=(Z/2Z)^2`; two explicit half-divisors have distinct nonzero
@@ -853,8 +867,7 @@ critical input behind a definition or opaque interface.
   and Sage scripts and outputs were independently rerun; no GRH, BSD,
   analytic-rank guess, saturation assumption or height cutoff enters.  Lean
   checks the exact model changes and the deductions from a transparent
-  external certificate.  The residual prime indices are now `p=11` and
-  `p>=17`
+  external certificate.  The residual prime indices are now `p>=17`
 - the exact ambiguous-class and S-unit descent for that remaining prime-index
   proposition.  If a hypothetical solution at prime `p>=11` is written as
   `b=A*u^2`, `b+1=B*v^2`, `b+2=3*r^2`, `b+3=s^2`, then
@@ -875,7 +888,7 @@ critical input behind a definition or opaque interface.
   `Q(sqrt(5))`, so primitive-divisor existence plus the necessary splitting
   condition is not a contradiction.  This is a method diagnostic, not a
   solution of the shifted-square equation.  The residual exclusion for every
-  prime `p>=11` remains explicitly unproved.  Lean checks all scalar
+  prime `p>=17` remains explicitly unproved.  Lean checks all scalar
   coordinates, norms, unit identities, degree-eight factorization and the
   large-integer diagnostic without asserting the number-field residual
 - the local-permutation barrier for the same prime-index problem.  For every
@@ -1421,9 +1434,10 @@ untilts or arithmetic holomorphic structures.
   four-consecutive unit-index reduction, Chebyshev index three is eliminated
   by the complete integral-point calculation on 216a1 and index five is
   eliminated by the complete two-cover/elliptic-Chabauty calculation above;
-  what remains is the
+  indices seven, eleven and thirteen are likewise eliminated by the exact
+  Coleman--Chabauty certificates above.  What remains is the
   prime-index statement that `4*T_p(T)+5` is not a square for every odd
-  prime `p>=11` (or its actual `T=23 (mod 24)` specialization), followed even
+  prime `p>=17` (or its actual `T=23 (mod 24)` specialization), followed even
   then by a moving square-base radical estimate.  Neither statement is
   assumed by the current formal package
 - a global height/cancellation theorem for a non-torsion auxiliary selector.
