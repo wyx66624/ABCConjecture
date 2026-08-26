@@ -922,6 +922,23 @@ critical input behind a definition or opaque interface.
   BSD, Tate--Shafarevich finiteness, or abc input is used.  Lean checks the
   three displayed half-factor identities at `p=11,13,17`; the general
   descent and local-squareclass argument is cited at paper level
+- the canonical exact splitting of the missing uniform Selmer upper bound.
+  With `E=<[a-1],[3*(a+1)]>`, the odd-admissible `S`-unit quotient has a
+  dyadic localization `lambda_U`, while the surviving `S`-class image has a
+  connecting map `partial_C` after correction by `im(lambda_U)`.  The
+  resulting short exact sequence gives
+  `dim Sel_2(J_p)=2+dim ker(lambda_U)+dim ker(partial_C)`.  Thus the desired
+  dimension two is exactly the simultaneous vanishing of these two kernels,
+  not a consequence of the unique dyadic prime or of a dimension count.  In
+  fact, under the precisely audited BSPT Hypotheses 5.2, the ordinary pure-
+  field class group injects disjointly from `E`, giving
+  `dim Sel_2(J_p)>=2+dim Cl(Q(2^(1/p)))[2]`.  Those hypotheses hold without
+  a component-group calculation when `p` is non-Wieferich to base `2` and
+  `ord_p(3)` is even; the complementary branches remain open.  This is an
+  unconditional exact reduction and a conditional class-group no-go, not a
+  uniform Selmer upper bound.  Lean checks only the scalar consequences;
+  the descent, class-group and local Kummer statements are cited at paper
+  level with their exact hypotheses
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
