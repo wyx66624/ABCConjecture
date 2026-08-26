@@ -824,6 +824,29 @@ critical input behind a definition or opaque interface.
   search cutoff enters.  Lean checks the scalar deductions from a transparent
   external certificate.  Thus the residual uniform prime-index proposition
   now starts at `p>=11`
+- the exact ambiguous-class and S-unit descent for that remaining prime-index
+  proposition.  If a hypothetical solution at prime `p>=11` is written as
+  `b=A*u^2`, `b+1=B*v^2`, `b+2=3*r^2`, `b+3=s^2`, then
+  `alpha=1+2*epsilon^p` has square ideal and its class is exactly the
+  ramified-prime class `[P_B]`.  In the biquadratic square-root field
+  `L=Q(sqrt(B),sqrt(3*A))`, the explicit element
+  `beta=v*s*sqrt(B)+u*r*sqrt(3*A)` satisfies `beta^2=alpha`; this field is
+  correctly not called the strict genus field because it remains ramified
+  above `2`.  The complete two-adic ledger is
+  `(2)=P^4` and `(beta-1)=(beta+1)=P^2`, while the three subfield norms reduce
+  to the exact unit equation `(delta-1)^2*epsilon^p=2*delta`.  Kubota's unit
+  classification and the degree-eight factorization see only the parity
+  squareclass of the odd exponent.  Beukers--Schlickewei supplies a uniform
+  numerical solution count but no uniform height for an individual moving-
+  field solution; the other audited S-unit, modular and Lucas results retain
+  fixed-field or fixed-coefficient hypotheses.  An exact fundamental-unit
+  example at `T=479,p=17` shows that all BHV primitive divisors can split in
+  `Q(sqrt(5))`, so primitive-divisor existence plus the necessary splitting
+  condition is not a contradiction.  This is a method diagnostic, not a
+  solution of the shifted-square equation.  The residual exclusion for every
+  prime `p>=11` remains explicitly unproved.  Lean checks all scalar
+  coordinates, norms, unit identities, degree-eight factorization and the
+  large-integer diagnostic without asserting the number-field residual
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
