@@ -731,6 +731,23 @@ critical input behind a definition or opaque interface.
   checks the exceptional-index pullback, norm-two/Yokoi identities and the
   division-free direction ledger; Tatuzawa, the class-number formula and
   Yokoi remain explicitly cited paper inputs
+- the accepted-theorem delta audit through 26 August 2026 for the same
+  square-base bottleneck.  The Lucas-atom valuation theorem of
+  Alecci--Miska--Murru--Romeo specializes here only to the first-occurrence
+  identity and does not control later depth when the Pell parameter moves.
+  Fellini--Murty's published Theorem 2.1 unconditionally detects the
+  existence of at least one ramified non-Wieferich core prime, but its
+  quantitative Theorems 2.2--2.4 require either number-field abc or the
+  unproved finiteness of super-Wieferich primes.  Exact-power modular results
+  fix the moving squarefree coefficient and therefore do not provide a
+  uniform level.  An actual recurrence certificate
+  `v_23(c_57)=2` confirms that radical support and parity core genuinely
+  diverge in the Pell family.  The exact surviving target remains
+  `log(y_n)=o(H_n)`; a coefficient-one radical estimate would imply it but is
+  strictly stronger.  Lean checks the full epsilon--constant quantifier
+  ledger, the coefficient-one implication and the separating scalar profile;
+  every cited arithmetic theorem and each conditional hypothesis remain
+  explicit in the accompanying audit
 - the four-consecutive-product refinement.  Writing
   `b=A*u^2`, `b+1=B*v^2`, `b+2=3*r^2`, `b+3=s^2` gives the genuine norm-one
   unit with coefficient `D=3*A*B` and the additional constraint
