@@ -51,21 +51,19 @@ noncomputable def deckZEquiv
 theorem deckZEquiv_zero
     (t : TateParameter K) (ell : ℕ)
     (r : Kˣ) (hr : r ^ ell = t.q) :
-    deckZEquiv t ell r hr 0 = Equiv.refl _ := by
+    deckZEquiv t ell r hr 0 =
+      (1 : Equiv.Perm (TateThetaRootPullbackPoint t ell)) := by
   simp [deckZEquiv]
 
-/-- Integer addition is composition of deck equivalences. -/
+/-- Integer addition is multiplication of deck permutations. -/
 theorem deckZEquiv_add
     (t : TateParameter K) (ell : ℕ)
     (r : Kˣ) (hr : r ^ ell = t.q)
     (m n : ℤ) :
     deckZEquiv t ell r hr (m + n) =
-      (deckZEquiv t ell r hr n).trans
-        (deckZEquiv t ell r hr m) := by
-  unfold deckZEquiv
-  rw [zpow_add₀]
-  ext z
-  rfl
+      deckZEquiv t ell r hr m *
+        deckZEquiv t ell r hr n := by
+  simp [deckZEquiv, zpow_add]
 
 /-- Point form of the integer deck action. -/
 noncomputable def deckZ

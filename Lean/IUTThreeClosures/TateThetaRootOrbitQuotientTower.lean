@@ -85,7 +85,7 @@ theorem integerOrbitRelated_trans
   rcases hxy with ⟨n, rfl⟩
   rcases hyz with ⟨m, rfl⟩
   refine ⟨m + n, ?_⟩
-  exact (deckZ_add t ell r hr m n x).symm
+  exact deckZ_add t ell r hr m n x
 
 /-- Setoid for the full corrected deck action. -/
 def integerOrbitSetoid :
@@ -136,8 +136,8 @@ theorem ellPeriodOrbitRelated_trans
       (ell : ℤ) * (m + n) =
         (ell : ℤ) * m + (ell : ℤ) * n := by ring
   rw [hexponent]
-  exact (deckZ_add t ell r hr
-    ((ell : ℤ) * m) ((ell : ℤ) * n) x).symm
+  exact deckZ_add t ell r hr
+    ((ell : ℤ) * m) ((ell : ℤ) * n) x
 
 /-- Setoid for the original Tate-period subgroup. -/
 def ellPeriodOrbitSetoid :
@@ -190,10 +190,10 @@ noncomputable def baseCycleCoordinate :
       intro x y hxy
       rcases hxy with ⟨n, rfl⟩
       rw [coordinate_deckZ]
-      change
-        (((coordinate t ell r x + (n : ℝ) : ℝ)) : UnitAddCircle) =
-          ((coordinate t ell r x : ℝ) : UnitAddCircle)
-      simpa using AddCircle.intCast_eq_zero (p := (1 : ℝ)) n)
+      have hnzero : ((n : ℝ) : UnitAddCircle) = 0 := by
+        rw [AddCircle.coe_eq_zero_iff]
+        exact ⟨n, by simp⟩
+      simpa only [AddCircle.coe_add, hnzero, add_zero])
 
 /-- `ell`-period radial coordinate `rho/ell mod Z` on the cover quotient. -/
 noncomputable def coverCycleCoordinate [NeZero ell] :
@@ -207,17 +207,17 @@ noncomputable def coverCycleCoordinate [NeZero ell] :
       rw [coordinate_deckZ]
       have hell : (ell : ℝ) ≠ 0 := by
         exact_mod_cast (NeZero.ne ell)
-      change
-        ((((coordinate t ell r x +
-          (((ell : ℤ) * n : ℤ) : ℝ)) / (ell : ℝ) : ℝ)) :
-            UnitAddCircle) =
-          ((coordinate t ell r x / (ell : ℝ) : ℝ) : UnitAddCircle)
-      have hexponent :
-          ((((ell : ℤ) * n : ℤ) : ℝ) / (ell : ℝ)) = (n : ℝ) := by
+      have hreal :
+          (coordinate t ell r x +
+              (((ell : ℤ) * n : ℤ) : ℝ)) / (ell : ℝ) =
+            coordinate t ell r x / (ell : ℝ) + (n : ℝ) := by
         push_cast
         field_simp [hell]
-      rw [add_div, hexponent]
-      simp)
+      rw [hreal]
+      have hnzero : ((n : ℝ) : UnitAddCircle) = 0 := by
+        rw [AddCircle.coe_eq_zero_iff]
+        exact ⟨n, by simp⟩
+      simpa only [AddCircle.coe_add, hnzero, add_zero])
 
 /-- On radial skeleton coordinates, the cover-to-base map is multiplication
 by `ell` on the unit additive circle. -/
@@ -231,11 +231,23 @@ theorem baseCycleCoordinate_coverToBase [NeZero ell]
     ((coordinate t ell r x : ℝ) : UnitAddCircle) =
       ell •
         ((coordinate t ell r x / (ell : ℝ) : ℝ) : UnitAddCircle)
-  rw [← AddCircle.coe_nsmul]
   have hell : (ell : ℝ) ≠ 0 := by
     exact_mod_cast (NeZero.ne ell)
-  congr 1
-  field_simp [hell]
+  have hreal :
+      ell • (coordinate t ell r x / (ell : ℝ)) =
+        coordinate t ell r x := by
+    change
+      (ell : ℝ) * (coordinate t ell r x / (ell : ℝ)) =
+        coordinate t ell r x
+    exact mul_div_cancel₀ _ hell
+  calc
+    ((coordinate t ell r x : ℝ) : UnitAddCircle) =
+        ((ell • (coordinate t ell r x / (ell : ℝ)) : ℝ) :
+          UnitAddCircle) := by rw [hreal]
+    _ = ell •
+        ((coordinate t ell r x / (ell : ℝ) : ℝ) : UnitAddCircle) :=
+      AddCircle.coe_nsmul (p := (1 : ℝ))
+        (n := ell) (x := coordinate t ell r x / (ell : ℝ))
 
 /-- One corrected deck step acts nontrivially on the cover quotient but is
 trivial after projection to the base quotient. -/
@@ -269,7 +281,7 @@ theorem coverToBase_residualDeckTranslate
   refine Quotient.inductionOn q ?_
   intro x
   apply Quotient.sound
-  exact ⟨j, rfl⟩
+  exact integerOrbitRelated_symm t ell r hr ⟨j, rfl⟩
 
 /-- On cover radial coordinates, residual integer translation adds `j/ell`. -/
 theorem coverCycleCoordinate_residualDeckTranslate
@@ -289,7 +301,9 @@ theorem coverCycleCoordinate_residualDeckTranslate
       ((coordinate t ell r x / (ell : ℝ) : ℝ) : UnitAddCircle) +
         (((j : ℝ) / (ell : ℝ) : ℝ) : UnitAddCircle)
   rw [coordinate_deckZ, add_div]
-  simp
+  exact AddCircle.coe_add (1 : ℝ)
+    (coordinate t ell r x / (ell : ℝ))
+    ((j : ℝ) / (ell : ℝ))
 
 end TateThetaRootRadialSkeleton
 
