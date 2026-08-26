@@ -234,16 +234,17 @@ theorem baseCycleCoordinate_coverToBase [NeZero ell]
   have hell : (ell : ℝ) ≠ 0 := by
     exact_mod_cast (NeZero.ne ell)
   have hreal :
-      ell • (coordinate t ell r x / (ell : ℝ)) =
-        coordinate t ell r x := by
-    change
       (ell : ℝ) * (coordinate t ell r x / (ell : ℝ)) =
-        coordinate t ell r x
-    exact mul_div_cancel₀ _ hell
+        coordinate t ell r x :=
+    mul_div_cancel₀ _ hell
   calc
     ((coordinate t ell r x : ℝ) : UnitAddCircle) =
-        ((ell • (coordinate t ell r x / (ell : ℝ)) : ℝ) :
-          UnitAddCircle) := by rw [hreal]
+        ((((ell : ℝ) *
+          (coordinate t ell r x / (ell : ℝ))) : ℝ) : UnitAddCircle) := by
+            rw [hreal]
+    _ = (((ell •
+          (coordinate t ell r x / (ell : ℝ)) : ℝ)) : UnitAddCircle) := by
+            simp only [nsmul_eq_mul]
     _ = ell •
         ((coordinate t ell r x / (ell : ℝ) : ℝ) : UnitAddCircle) :=
       AddCircle.coe_nsmul (p := (1 : ℝ))
