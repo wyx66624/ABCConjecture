@@ -773,6 +773,22 @@ critical input behind a definition or opaque interface.
   height cutoff enters.  Lean checks the substitution and deductions from a
   transparently named external certificate.  Thus the residual uniform
   prime-index proposition now starts at `p>=7`
+- the exact prime-seven elimination inside the same residual problem.  The
+  genus-three curve
+  `y^2=256*T^7-448*T^5+224*T^3-28*T+5` has Jacobian rank exactly two:
+  an unconditional Magma V2.29-9 2-Selmer computation gives rank at most two,
+  while two rational divisor classes have independent 5-adic logarithms.
+  On the good monic model at `5`, the resulting annihilating differential is
+  nonzero at every one of the six residue classes.  The elementary local
+  power-series estimate therefore gives at most one Coleman zero in each
+  disc, including at `p=5`; five rational points occupy five discs, and the
+  sixth zero is the non-rational 5-adic Weierstrass point.  Consequently the
+  only rational bases are `T=+/-1`, so no `T>1` solution exists.  The complete
+  Magma and SageMath 10.9 scripts were independently rerun in fresh official
+  sessions, and no GRH, BSD, saturation assumption, analytic-rank guess or
+  search cutoff enters.  Lean checks the scalar deductions from a transparent
+  external certificate.  Thus the residual uniform prime-index proposition
+  now starts at `p>=11`
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -1287,7 +1303,7 @@ untilts or arithmetic holomorphic structures.
   eliminated by the complete two-cover/elliptic-Chabauty calculation above;
   what remains is the
   prime-index statement that `4*T_p(T)+5` is not a square for every odd
-  prime `p>=7` (or its actual `T=23 (mod 24)` specialization), followed even
+  prime `p>=11` (or its actual `T=23 (mod 24)` specialization), followed even
   then by a moving square-base radical estimate.  Neither statement is
   assumed by the current formal package
 - a global height/cancellation theorem for a non-torsion auxiliary selector.
