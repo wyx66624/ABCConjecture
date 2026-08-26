@@ -109,11 +109,12 @@ theorem fullTorsionPacket_totalScore_eq_zero
     {ι : Type*} [Fintype ι] [DecidableEq ι]
     {ell : ℕ} (hell : 0 < ell)
     (hcard : Fintype.card ι = ell + 1) :
-    Finset.sum Finset.univ
-      (fun c => weightedLineScore
+    Finset.sum (Finset.univ : Finset ι)
+      (fun c : ι => weightedLineScore
+        (ι := ι)
         (canonicalTateLineCoefficient ell)
         (noncanonicalTateLineCoefficient ell)
-        (fun _ => (1 : ℝ)) c) = 0 := by
+        (fun _ : ι => (1 : ℝ)) c) = 0 := by
   exact fixedPacket_totalScore_eq_zero
     (ι := ι) (ell := ell) hell hcard (fun _ : ι => (1 : ℝ))
 
