@@ -540,6 +540,23 @@
   ratio `2/3`.  Lean checks the Bernoulli distributions, quotient-image
   identities and complete scalar optimization; Tate curves, Velu isogenies,
   local heights and Pell specialization remain paper mathematics
+- the non-diagonal correspondence audit on the same three quotient motives.
+  The dual-transported Pell points all equal `[2]Q`, so their canonical Gram
+  matrix has rank one.  A genuine nef Laplacian correspondence nevertheless
+  exists, with integral matrix `4*(3*I-J)` and zero cost on the selected
+  diagonal graph.  Interpolating it with the product polarization and
+  clearing denominators is honest, but the complete metrized ledger scales
+  simultaneously to odd bad `1-t`, good finite `(1-t)/2`, archimedean `0`
+  and total height `3*(1-t)/2`; the retained ratio is still exactly `2/3`.
+  If a different frame is asserted to retain bad mass `1`, product-formula
+  compensation forces good plus archimedean slope `1/2-3*t/2`, which is
+  strictly negative as soon as the claimed height falls below the bad mass.
+  Thus ordinary Rosati, Poincare-difference, fibre-product and Kani--Rosen
+  projectors do not provide a shared-height saving.  The surviving input
+  would be a new local positivity theorem for a noncanonical metrized
+  correspondence, controlling both good and infinite rows.  Lean checks the
+  quadratic forms, spectra, cleared interpolation and full scalar ledger;
+  abelian schemes, cubical metrics and the Hom-classification remain paper mathematics
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
