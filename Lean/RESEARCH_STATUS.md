@@ -863,6 +863,21 @@ critical input behind a definition or opaque interface.
   prime `p>=11` remains explicitly unproved.  Lean checks all scalar
   coordinates, norms, unit identities, degree-eight factorization and the
   large-integer diagnostic without asserting the number-field residual
+- the local-permutation barrier for the same prime-index problem.  For every
+  fixed odd residue characteristic below a sufficiently large prime index,
+  the Chebyshev map is a permutation and the complete half-angle, four-
+  consecutive, norm and square-root residual has a nonsingular local point;
+  the explicit signed branches at `2` and `3` then give a simultaneous CRT
+  point for every fixed finite prime-power test.  A moving prime with an
+  exact order-`2*p` eigenvalue can likewise satisfy all required quadratic
+  splitting and residual equations.  These are local method barriers, not
+  global Pell points.  On the positive side, fundamental-unit minimality
+  gives the exact necessary inequality `(3*A*B+1)^11 <= Z^2` for `p>=11`;
+  any accepted pointwise lower bound in the opposite direction would close
+  this branch, but the audited squarefree-kernel literature remains far
+  below that `4/11` threshold.  Lean checks the full scalar local blocks and
+  the division-free threshold implication; finite-field permutation,
+  Hensel lifting and Dirichlet remain explicitly cited accepted inputs
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
