@@ -7,11 +7,14 @@ the Steinberg sup-packet retains the local Tate signal by applying a nonlinear
 norm before summing over places.  The remaining issue was to realize its
 coordinates by one explicit classical algebraic object.
 
-This note supplies such a realization.  The coordinates are ratios of modular
-discriminants of the `ell+1` cyclic `ell`-isogenous quotients of a Tate curve.
-Their product is exactly one, their local logarithms are exactly the
-canonical/noncanonical Tate-line energy vector, and they are units at good
-places away from `ell`.
+This note supplies such a realization.  In their natural Tate
+trivializations, the coordinates are ratios of modular discriminants of the
+`ell+1` cyclic `ell`-isogenous quotients.  Their product is exactly one and
+their local logarithms are exactly the canonical/noncanonical Tate-line energy
+vector.  When all discriminant sections are transported into one common Hodge
+line, an explicit isogeny-differential factor appears; it is a unit away from
+the level prime and contributes only `O(log ell)` to the normalized global
+error.
 
 The construction is independent of IUT and of the singular naive cyclic-line
 evaluation determinant.
@@ -38,7 +41,7 @@ Every factor in `C(t)` has norm one, so
 \]
 
 The function `Delta_T` is the usual Tate `q`-expansion of the modular
-discriminant.
+discriminant relative to the standard Tate differential `du/u`.
 
 Fix an odd prime `ell`.  Assume that `K` contains a primitive `ell`-th root of
 unity `zeta` and an element `s` satisfying
@@ -63,8 +66,9 @@ The corresponding Tate quotient parameters are
 \tag{2.4}
 \]
 
-Indeed, quotienting `K^x/q^Z` by the class of an element `t` with
-`t^ell=q` replaces the period group `q^Z` by `t^Z`.
+For the canonical quotient the analytic map is induced by `u -> u^ell`.  For
+a root-period quotient it is induced by the identity on `G_m`, after enlarging
+the period group from `q^Z` to `(zeta^a s)^Z`.
 
 ## 3. Exact Hecke distribution of the Tate discriminant
 
@@ -88,7 +92,9 @@ If `ell` does not divide `n`, then `zeta^n` is again primitive and its powers
 are all `ell`-th roots of unity.  Thus the left side is `1-x^ell`.  If `ell`
 divides `n`, every root factor equals `1-x`.
 
-### Theorem 3.2 (Hecke discriminant product identity)
+### Theorem 3.2 (raw Tate-discriminant product identity)
+
+Relative to the standard Tate differential on each quotient separately,
 
 \[
  \boxed{
@@ -131,15 +137,15 @@ Here `ell` is odd, so `ell(ell-1)/2` is divisible by `ell`.  Combining
 No Jacobi-series identity is used; this is a direct identity of convergent
 Tate products.
 
-## 4. The norm-one Hecke packet
+## 4. Raw norm-one packet and the common-Hodge-line correction
 
-Define
+Define the raw Tate-coordinate ratios
 
 \[
- u_\infty(q)
+ u_\infty^{\rm raw}(q)
  =\frac{\Delta_T(q^\ell)}{\Delta_T(q)},
  \qquad
- u_a(q)
+ u_a^{\rm raw}(q)
  =\frac{\Delta_T(\zeta^a s)}{\Delta_T(q)}.
 \tag{4.1}
 \]
@@ -148,61 +154,134 @@ Theorem 3.2 gives
 
 \[
  \boxed{
- u_\infty(q)\prod_{a=0}^{\ell-1}u_a(q)=1.}
+ u_\infty^{\rm raw}(q)
+ \prod_{a=0}^{\ell-1}u_a^{\rm raw}(q)=1.}
 \tag{4.2}
 \]
 
-Thus the packet belongs to the norm-one torus in the permutation
-representation on the projective line of cyclic subgroups.  Galois permutes
-the coordinates, but their unordered packet and every permutation-invariant
-norm descend.
+Equation (4.2) compares coefficients in the standard differential of each
+Tate quotient.  A global arithmetic packet must instead transport all modular
+discriminant sections into a common Hodge line.
 
-## 5. Exact recovery of the Tate-line energies
+Let
+
+\[
+ \phi_C:E_q\longrightarrow E_q/C
+\]
+
+and choose standard Tate differentials `omega` and `omega_C`.  Write
+
+\[
+ \phi_C^*\omega_C=\alpha_C\omega.
+\tag{4.3}
+\]
+
+Since the modular discriminant is a section of the twelfth Hodge power, its
+coefficient in the common trivialization is
+
+\[
+ U_C
+ =\alpha_C^{12}
+  \frac{\Delta_T(q_C)}{\Delta_T(q)}.
+\tag{4.4}
+\]
+
+For the canonical quotient `u -> u^ell`, one has
+
+\[
+ \alpha_\infty=\ell.
+\]
+
+For each root-period quotient induced by the identity on `G_m`, one has
+
+\[
+ \alpha_a=1.
+\]
+
+Consequently
+
+\[
+ \boxed{\prod_CU_C=\ell^{12}.}
+\tag{4.5}
+\]
+
+Thus the global common-Hodge-line packet is projectively, rather than
+literally, norm one.  This distinction is essential.  At every finite place
+whose residue characteristic is different from `ell`, `ell` is a unit and the
+raw and transported packets have identical logarithmic norms.  At the level
+prime and at archimedean places the correction is explicitly bounded by a
+constant multiple of `log ell`.
+
+It is convenient to use centered logarithmic coordinates
+
+\[
+ \widetilde e_C
+ =-\frac1{12}\log|U_C|
+  +\frac1{12(\ell+1)}\sum_D\log|U_D|.
+\tag{4.6}
+\]
+
+They satisfy
+
+\[
+ \sum_C\widetilde e_C=0
+\]
+
+and are invariant under multiplying every coordinate by a common scalar.
+No extraction of an `(ell+1)`-st root is required.
+
+## 5. Exact recovery of the Tate-line energies away from the level prime
 
 Put
 
 \[
- L=-\log|q|>0
+ L=-\log|q|>0.
 \]
 
-and define the logarithmic packet
+At a place whose residue characteristic is different from `ell`, define
 
 \[
- e_C(q)=-\frac1{12}\log|u_C(q)|.
+ e_C^{\rm raw}(q)
+ =-\frac1{12}\log|u_C^{\rm raw}(q)|.
 \tag{5.1}
 \]
 
 ### Theorem 5.1
 
-At a split Tate place,
+At a split Tate place away from `ell`,
 
 \[
- e_\infty(q)=\frac{\ell-1}{12}L,
+ e_\infty^{\rm raw}(q)=\frac{\ell-1}{12}L,
 \tag{5.2}
 \]
 
 while every root-period coordinate satisfies
 
 \[
- e_a(q)=-\frac{\ell-1}{12\ell}L.
+ e_a^{\rm raw}(q)=-\frac{\ell-1}{12\ell}L.
 \tag{5.3}
 \]
+
+The same formulas hold for the centered common-Hodge-line coordinates
+`widetilde e_C`.
 
 ### Proof
 
 Equation (2.2) gives
 
 \[
- |u_\infty|=|q|^{\ell-1},
+ |u_\infty^{\rm raw}|=|q|^{\ell-1},
 \]
 
 which yields (5.2).  Since `|s|=|q|^{1/ell}` and roots of unity have norm one,
 
 \[
- |u_a|=|q|^{1/\ell-1},
+ |u_a^{\rm raw}|=|q|^{1/\ell-1},
 \]
 
-which yields (5.3).
+which yields (5.3).  Away from `ell`, every `alpha_C` in (4.3) is a unit, so
+transport to the common Hodge line changes no norm.  The raw logarithms sum to
+zero by (4.2), hence centering changes nothing.
 
 Consequently
 
@@ -214,10 +293,10 @@ Consequently
 \]
 
 exactly the augmentation/Steinberg vector previously obtained from cyclic-line
-Neron energies.  The equality (4.2) is the multiplicative form of its zero
-linear average.
+Neron energies.
 
-This identifies the abstract energy packet with an actual modular-unit packet:
+In the Tate normalization, and away from the level prime, this identifies the
+abstract energy packet with an actual modular-discriminant packet:
 
 \[
  \boxed{
@@ -226,6 +305,9 @@ This identifies the abstract energy packet with an actual modular-unit packet:
    \left|\frac{\Delta(E/C)}{\Delta(E)}\right|.}
 \tag{5.5}
 \]
+
+At the level prime and archimedean places, formula (5.5) has the explicit
+isogeny-differential correction from (4.4).
 
 ## 6. Good-place unit theorem
 
@@ -236,36 +318,39 @@ the two invariant-differential lattices up to a unit.  Both minimal modular
 discriminant sections are units.  Therefore
 
 \[
- \boxed{u_C(E)\in R^\times}
+ \boxed{U_C(E)\in R^\times}
 \tag{6.1}
 \]
 
 for every cyclic line `C`.
 
-Thus the packet has no finite contribution outside the conductor, the level
-prime, and descent/different primes.
+Thus the common-Hodge-line packet has no finite contribution outside the
+conductor, the level prime, and descent/different primes.
 
 ## 7. The global projective packet height
 
-Let `F` be a number field over which all cyclic quotients are represented, and
-use isogeny pullback to regard the discriminant ratios as scalars.  Define
+Let `F` be a number field over which all cyclic quotients are represented and
+let `U_C(E)` be the transported coordinates (4.4).  Define
 
 \[
  \mathcal H_\ell(E)
  =\frac1{[F:\mathbb Q]}
    \sum_v n_v
-   \max_C\left\{-\frac1{12}\log|u_C(E)|_v\right\}.
+   \left[
+    \max_C\left\{-\frac1{12}\log|U_C(E)|_v\right\}
+    +\frac1{12(\ell+1)}\sum_C\log|U_C(E)|_v
+   \right].
 \tag{7.1}
 \]
 
-This is a permutation-invariant projective height of the norm-one Hecke
-packet; changing all coordinates by a common scalar does not change it after
-the usual projective normalization.
+The bracket is the maximum of the centered coordinates (4.6).  It is
+permutation invariant and unchanged by common rescaling of all coordinates.
+It therefore defines a genuine projective height of the Hecke packet.
 
-At every multiplicative finite place, Theorem 5.1 gives
+At every multiplicative finite place away from `ell`, Theorem 5.1 gives
 
 \[
- \max_C e_C
+ \max_C\widetilde e_C
  =\frac{\ell-1}{12}(-\log|q_v|).
 \]
 
@@ -274,11 +359,14 @@ Good places contribute zero.  Hence
 \[
  \boxed{
  \mathcal H_\ell(E)
- \ge\frac{\ell-1}{12}Q(E),}
+ \ge\frac{\ell-1}{12}Q^{(\ell)}(E)
+   -O(\log\ell),}
 \tag{7.2}
 \]
 
-up to the explicitly separated additive and level-prime terms.
+where `Q^(ell)` omits, or separately normalizes, the places above `ell`.  The
+lost level-prime and archimedean terms are explicit and belong to the
+`O(log ell)` source error.
 
 ## 8. Exact remaining global theorem
 
@@ -311,8 +399,8 @@ and the already verified absorption chain yields the logarithmic abc
 inequality.
 
 Target 8.1 is classical and falsifiable.  It is a height inequality for an
-explicit tuple of modular units on the `ell`-isogeny correspondence.  It may be
-attacked using:
+explicit projective tuple of modular discriminant ratios on the
+`ell`-isogeny correspondence.  It may be attacked using:
 
 1. arithmetic invariant theory for the factorization of the division
    polynomial into cyclic kernel polynomials;
@@ -321,9 +409,15 @@ attacked using:
 4. determinant of cohomology and the exact theta distribution identities;
 5. arithmetic intersections on `X_0(ell)` and its cusps.
 
+Existing explicit bounds for modular polynomials and averages of Hecke-point
+heights control the complexity of the full correspondence, but do not by
+themselves give the conductor-sensitive nonlinear projective estimate (8.1).
+Using a bound only in terms of the original `j`-height would retain the full
+multiplicity and would be circular for abc.
+
 ## 9. Relation to previous routes and no-go results
 
-The identity (4.2) explains the fixed-packet cancellation: linear averaging
+The raw identity (4.2) explains the fixed-packet cancellation: linear averaging
 sees only the product-one relation.  The projective maximum in (7.1) is
 nonlinear and retains the augmentation coordinate.
 
@@ -342,8 +436,9 @@ family or a theorem showing that its leading coefficient must exceed
 1. the odd triangular exponent and root-period monomial;
 2. the finite root-of-unity factor identity (3.1);
 3. finite/infinite product interchange in (3.3);
-4. the exact product identity (3.2);
-5. the scalar packet coefficients (5.2)--(5.4);
-6. the good-place unit theorem;
-7. the number-field projective packet height;
-8. only then the global height bound (8.1).
+4. the raw product identity (3.2);
+5. the isogeny-differential correction (4.3)--(4.5);
+6. the scalar packet coefficients (5.2)--(5.4);
+7. the good-place unit theorem;
+8. the number-field projective packet height;
+9. only then the global height bound (8.1).
