@@ -328,6 +328,47 @@
   degree identity and character orthogonality; Merel/classification, Neron
   local heights, conductor induction and the infinite family are paper
   mathematics
+- the exact fixed-abscissa height obstruction.  On the family
+  `(a,b,c)=(1,b,b+1)`, the selector section lives on a rational elliptic
+  surface with fibres `4 I_2 + I_4`, Shioda pairing one, and hence
+  `hhat(P_j)=(1/4) log b+O_j(1)`.  A simultaneous-power family makes every
+  member of any fixed finite abscissa list meet the identity component at
+  all odd bad primes; its finite local leading term is `(1/3) log b` and
+  the archimedean term is `-(1/12) log b`, leaving the sharp global
+  quarter-slope.  This rules out a small-height choice among the original
+  fixed points, but not bounded-degree division points: an explicit half
+  exists over degree at most eight and has slope `1/16`.  Lean checks the
+  duplication/twist identities and the exact scalar ledgers; elliptic
+  surfaces, Shioda heights and specialization remain paper mathematics
+- the adaptive pair-square selector.  The three abscissas
+  `k*a`, `-k*b`, and `a+(k-1)*c` extract respectively an `a^2`, `b^2`, or
+  `c^2` factor from the cubic value.  Sacrificing the lightest of the three
+  bad-prime packets, then applying weighted CRT and uniform degree-two
+  torsion boundedness, gives a non-torsion quadratic point with
+  `|Disc K|=O_delta(c)`, bad-depth loss at most `1/3+delta`, and retained
+  odd component ledger at least `(1-3*delta)W/12`.  A simultaneous CRT
+  family proves that every fixed finite coefficient universe still pays a
+  positive source-height share in new twist conductor and field
+  discriminant.  Unbounded coefficients survive, but require a genuinely
+  uniform large-square-divisor theorem for varying cubic values.  Lean
+  checks the pair-square identities, weighted ledgers and linear carriers;
+  the Neron/conductor interpretation and infinite-family construction are
+  paper mathematics
+- the division-height conservation audit.  An explicit half of a fixed
+  selector section has function-field canonical height `1/8` and
+  specialization slope `1/16`; at every deep odd prime its two conjugate
+  places occupy the identity and opposite components, so their normalized
+  Bernoulli component term is exactly one quarter of the original.  Forcing
+  the packet squareclass to collapse globally produces a K3 section whose
+  retained local term and global height both rise by the reciprocal factor
+  four.  More generally the Bernoulli multiplication formula shows that
+  the average over all `m^2` division branches and canonical height both
+  scale by `m^(-2)`.  This closes division by itself and branch averaging,
+  not a favorable single-branch theorem: asymmetric packet selection,
+  same-character cancellation and adverse finite/archimedean control remain
+  open.  Lean checks the half-point polynomial identities, numerical fibres,
+  Bernoulli finite sum and homogeneous scalar ledger; Tate uniformization,
+  Shioda pairings and specialization remain paper mathematics
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
