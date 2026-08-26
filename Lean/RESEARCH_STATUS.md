@@ -603,6 +603,24 @@
   cannot yield the critical coefficient.  Lean verifies both recurrences,
   the homogeneous carrier and the exact scalar gap; Stewart, BHV and
   Zsigmondy remain explicitly paper-only
+- the residual-order and cubeful-tail Pell audit.  Writing `C3_n` for the
+  logarithmic copies beyond the square layer and `S1_n` for exponent-one
+  support gives the exact identity
+  `2*E_n-log(X_n)=C3_n-S1_n`; prime squares are therefore neutral at the
+  critical coefficient, and the missing estimate is a balance between
+  super-square and exponent-one mass.  Yu's 2013 Main theorem, specialized
+  through the residual subgroup of order `t_p`, together with a fixed-order
+  norm carrier, proves that the high-prime contribution with
+  `t_p <= n^(1/3)/log(n)` is `o(n)`.  Combined with the shifted
+  Bilu--Hong--Gun cutoff, the only remaining tail has simultaneously
+  `p > sqrt(n)*exp(kappa*log(n)/log log(n))` and
+  `t_p > n^(1/3)/log(n)`.  The exact full-power identity shows why the norm
+  carrier can retain only one copy of a shifted first-hit cube, so the final
+  required proposition is the pointwise super-square balance (8.1), not an
+  ordinary support or gcd bound.  Lean checks the exponent-layer identities,
+  critical equivalence, component-correct cube ledger and scalar absorption;
+  Yu's theorem, residual orders, norm carriers and the final tail remain
+  explicitly paper-only
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
