@@ -3,25 +3,33 @@ Copyright (c) 2026 ChatGPT. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: ChatGPT
 -/
-import Mathlib
+import Mathlib.FieldTheory.KummerExtension
 
 /-!
-# The exponent in the noncanonical Tate theta distribution formula
+# Scalar cores of the cyclic Tate theta distribution formulas
 
 For an odd integer `ell = 2*k+1`, the root-period cyclic distribution formula
 contains the automorphy monomial
 
 ` s^(-ell*(ell-1)/2) `.
 
-If `s^ell=q`, its positive exponent is exactly `q^k`.  This module
-kernel-checks the natural-number exponent identities before the finite and
-infinite theta products are formalized.
+If `s^ell=q`, its positive exponent is exactly `q^k`.  This module also proves
+the finite root-of-unity factor identities
 
-No analytic theta identity or abc conclusion is assumed here.
+`prod_i (1-zeta^i*x)=1-x^ell`
+
+and, for odd `ell`,
+
+`prod_i (1+zeta^i*x)=1+x^ell`.
+
+These are the finite algebraic inputs to the canonical theta and Hecke
+discriminant distribution formulas.  No infinite-product interchange, metric
+comparison or abc conclusion is assumed here.
 -/
 
 namespace IUTThreeClosures
 
+open Polynomial
 open scoped BigOperators
 
 /-- The triangular exponent of an odd number `ell=2*k+1` is `ell*k`. -/
@@ -74,5 +82,33 @@ theorem rootPeriod_inv_pow_oddTriangular
     (s q : K) (hs : s ^ ell = q) :
     (s ^ (ell * (ell - 1) / 2))⁻¹ = (q ^ k)⁻¹ := by
   rw [rootPeriod_pow_oddTriangular hell s q hs]
+
+/-- Product over all powers of a primitive root: the finite multiplicative
+factor used in the Tate products. -/
+theorem prod_one_sub_primitiveRoot_pow_mul
+    {R : Type*} [CommRing R] [IsDomain R]
+    {ell : ℕ} {ζ : R}
+    (hζ : IsPrimitiveRoot ζ ell)
+    (hell : 0 < ell)
+    (x : R) :
+    ∏ i ∈ Finset.range ell, (1 - ζ ^ i * x) = 1 - x ^ ell := by
+  have hpoly := X_pow_sub_C_eq_prod hζ
+    (α := x) (a := x ^ ell) hell rfl
+  apply_fun Polynomial.eval 1 at hpoly
+  simpa only [map_pow, eval_prod, eval_sub, eval_X, eval_pow, eval_C,
+    one_pow] using hpoly.symm
+
+/-- For odd order, replacing `x` by `-x` yields the plus-sign factor identity
+used by the canonical theta distribution. -/
+theorem prod_one_add_primitiveRoot_pow_mul
+    {R : Type*} [CommRing R] [IsDomain R]
+    {ell : ℕ} {ζ : R}
+    (hζ : IsPrimitiveRoot ζ ell)
+    (hell : 0 < ell)
+    (hellOdd : Odd ell)
+    (x : R) :
+    ∏ i ∈ Finset.range ell, (1 + ζ ^ i * x) = 1 + x ^ ell := by
+  have h := prod_one_sub_primitiveRoot_pow_mul hζ hell (-x)
+  simpa [mul_neg, hellOdd.neg_pow] using h
 
 end IUTThreeClosures
