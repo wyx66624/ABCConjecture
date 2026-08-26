@@ -402,6 +402,24 @@
   Lean checks the three finite torsion lines, packet counts, intersections,
   quotient coefficients and counterfamily identities; the Galois cocycle,
   isogeny equivalence and formal-group non-torsion proof are paper mathematics
+- the adelic packet-compensation audit.  With finite norm absolute values
+  and degree weights kept consistent, the Tate theta/intersection term on
+  the basic annulus is nonnegative.  Thus the odd finite contribution has
+  the sharp identity-packet gain `e_p/(6*d_p^2)` and opposite-packet floor
+  `-e_p/12`; the remaining adverse terms lie over `2` and infinity.  After
+  passing to one common field containing the branch and all torsion
+  translates, the place-by-branch deficit matrix has both row and column
+  sums zero.  More strictly, a fixed-field `Q(sqrt 6)` Pell--Frey family has
+  a non-torsion single-packet point with finite contribution
+  `(1/3)*log b+O(1)`, canonical height `(1/4)*log b+O(1)`, and archimedean
+  contribution `-(1/12)*log b+O(1)`, while the field discriminant remains
+  `24`.  Consequently an archimedean lower bound with coefficient `kappa`
+  is exactly equivalent on this family to a radical bound with coefficient
+  `12*kappa`; the critical `(1+epsilon)/12` input already has abc strength
+  on this genuine subfamily.  Lean checks the Bernoulli lower bounds,
+  finite/complement scalar ledgers, Pell identities and coefficient
+  equivalence; Tate heights, common-field Green functions and elliptic-surface
+  specialization remain paper mathematics
 - the same-character rank-two obstruction.  Rubin--Silverberg specialization
   supplies two points in one quadratic squareclass with generic canonical
   Gram matrix `I_2`; the only fixed carrier collapses at `v=+/-1`, exactly
@@ -954,9 +972,16 @@ untilts or arithmetic holomorphic structures.
   most one of the three collision types.  The missing theorem must construct
   a short non-torsion point in the corresponding dual-isogeny image for a
   sufficiently heavy type, make its favorable packet choice effective, and
-  control the branch discriminant, new conductor, adverse finite theta terms
-  and the archimedean sum with a subcritical coefficient.  Alternatively one
-  needs a same-character
+  control its branch discriminant, new conductor, places over `2`, and the
+  archimedean sum with a subcritical coefficient.  Odd finite theta terms are
+  already nonnegative and therefore are not the missing loss.  A fixed-field
+  Pell family shows that discriminant control alone is also insufficient:
+  the entire deficit can be `-(1/12)*log b` at infinity, and a critical
+  radical-scale lower bound for it is coefficient-for-coefficient equivalent
+  to abc on that subfamily.  Thus a successful continuation needs either a
+  genuinely new cancellation among several globally compatible branches or
+  motives, or an independent proof of this critical archimedean inequality.
+  Alternatively one needs a same-character
   Mordell--Weil lattice whose first integral successive minimum, not merely
   the real Gram eigenvalue in a chosen basis, is genuinely small.  The
   rational all-Frey formulation remains ruled out by `(1,8,9)`, and after
