@@ -356,10 +356,12 @@
   paper mathematics
 - the division-height conservation audit.  An explicit half of a fixed
   selector section has function-field canonical height `1/8` and
-  specialization slope `1/16`; at every deep odd prime its two conjugate
-  places occupy the identity and opposite components, so their normalized
-  Bernoulli component term is exactly one quarter of the original.  Forcing
-  the packet squareclass to collapse globally produces a K3 section whose
+  specialization slope `1/16`; when its half-field is genuinely quadratic,
+  the two conjugate places at every covered deep odd prime occupy the
+  identity and opposite components, so their normalized Bernoulli component
+  term is exactly one quarter of the original.  Rational-square degeneration
+  can instead produce one packet.  Forcing such a packet squareclass to
+  collapse globally produces a K3 section whose
   retained local term and global height both rise by the reciprocal factor
   four.  More generally the Bernoulli multiplication formula shows that
   the average over all `m^2` division branches and canonical height both
@@ -369,6 +371,34 @@
   open.  Lean checks the half-point polynomial identities, numerical fibres,
   Bernoulli finite sum and homogeneous scalar ledger; Tate uniformization,
   Shioda pairings and specialization remain paper mathematics
+- the asymmetric division-branch audit.  For a non-torsion identity-component
+  point whose conjugate branch packets form a uniformly weighted coset of
+  order `d | m`, the normalized Bernoulli coefficient is `d^(-2)` and its
+  exact gain relative to canonical-height scaling is `(m/d)^2`.  A single
+  identity packet retains the full positive local term, and Hensel lifting
+  constructs such a branch over an unramified local extension with zero
+  relative different.  Thus averaging does not close the single-branch
+  route.  A genuinely quadratic fixed-abscissa half has `d=2`; rational
+  squareclass collapse may give `d=1`, but the elementary aligned-root
+  mechanism pays a quadratic naive-height cost.  The exact surviving global
+  theorem is a simultaneous small-packet selector with radical-scale branch
+  discriminant/conductor and a lower bound for all adverse finite and
+  archimedean terms.  Lean checks the uniformly weighted packet algebra,
+  local-degree cancellation, exact gain and alignment inequality; local
+  fields, Kummer orbits and global height compensation remain paper mathematics
+- the same-character rank-two obstruction.  Rubin--Silverberg specialization
+  supplies two points in one quadratic squareclass with generic canonical
+  Gram matrix `I_2`; the only fixed carrier collapses at `v=+/-1`, exactly
+  where the two points become linearly dependent.  More strictly, a fixed
+  twist `D=6` Pell family has fibres `8 I_2 + 2 I_4`, canonical Gram `I_2`,
+  and every nonzero integer combination, even with coefficients varying
+  along the family, has height at least `(1/4-o(1))*log b` while retaining
+  the identity-component/Bernoulli baseline at the odd bad primes.  Rank two
+  in one character space is therefore insufficient; a proof would need a
+  genuinely small first successive minimum together with favorable local
+  components, not rank alone.  Lean checks the curve/carrier identities,
+  Pell points and the exact orthogonal scalar ledger; elliptic-surface fibres,
+  Shioda pairings and specialization are paper mathematics
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -877,16 +907,24 @@ untilts or arithmetic holomorphic structures.
   The local existence problem itself is now solved after degree at most two:
   CRT plus uniform torsion boundedness produces a bounded-abscissa point
   retaining arbitrarily large fractions of both exponent and radical mass.
-  What remains is to control its field discriminant, new conductor, adverse
-  finite components and archimedean height with a subcritical coefficient,
-  or to produce cancellation inside one character space.  The explicit CRT
-  family rules out a sublinear conductor/discriminant estimate for every
-  fixed finite abscissa universe, while character orthogonality rules out a
-  naive short-vector argument across distinct quadratic twists.  Adaptive
-  unbounded abscissas, same-character constructions and a genuinely global
-  cancellation identity remain open.  The rational all-Frey formulation is
-  still ruled out by `(1,8,9)`, and after strong BSD the alternative missing
-  statement is the same half-slope regulator--Sha--Tamagawa bound
+  The adaptive pair-square construction lowers the selector squareclass to
+  linear source size after sacrificing at most one third of the weighted
+  support, but every fixed coefficient universe still has a strict linear
+  conductor/discriminant obstruction.  Complete division-orbit averaging
+  cannot improve the local-height/global-height ratio, and merely placing
+  two independent points in one character space is also insufficient: the
+  fixed-`D=6` Pell family has a uniformly positive integral height minimum.
+  What remains is more precise.  One algebraic division branch can retain a
+  full local identity packet while its canonical height scales by `m^(-2)`;
+  the missing theorem must make such small packet images simultaneous on a
+  positive weighted support and control the branch discriminant, new
+  conductor, adverse finite theta terms and the archimedean sum with a
+  subcritical coefficient.  Alternatively one needs a same-character
+  Mordell--Weil lattice whose first integral successive minimum, not merely
+  the real Gram eigenvalue in a chosen basis, is genuinely small.  The
+  rational all-Frey formulation remains ruled out by `(1,8,9)`, and after
+  strong BSD the alternative missing statement is the same half-slope
+  regulator--Sha--Tamagawa bound
 - `Nonempty UpstreamCertificate`
 - parameter-free `abc_conjecture`
 
