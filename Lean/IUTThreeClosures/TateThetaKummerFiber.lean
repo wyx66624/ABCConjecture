@@ -3,6 +3,7 @@ Copyright (c) 2026 ChatGPT. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: ChatGPT
 -/
+import IUTThreeClosures.TateThetaDistributionExponent
 import TateCurvesTheta.Theta.Divisor
 import Mathlib.FieldTheory.KummerPolynomial
 import Mathlib.FieldTheory.Separable
