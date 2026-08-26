@@ -1,0 +1,377 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Explicit Torsion Packets, Algebraic Amplification Barriers,\\
+and Quantitative Routes toward the $abc$ Conjecture}
+\author{ChatGPT}
+\date{August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We report a multi-route investigation of the $abc$ conjecture which treats
+proof and disproof mechanisms symmetrically and does not assume the validity of
+any claimed proof.  On the proof side we construct explicit cyclic kernel
+sections, isolate exact Tate theta distribution identities, prove good-place
+integrality of the determinant complex, identify the Hodge weight and
+parabolic slope of the Steinberg packet, and obtain a conductor-plus-level
+bound for the root discriminant of the full torsion field.  We also construct
+one primitive integral vector which follows all three locally canonical
+Legendre boundary directions at their full arithmetic depths.  On the
+disproof side we derive the exact unequal-perfect-power gap criterion and prove
+that polynomial, fixed-curve, and support-preserving Belyi parametrizations
+cannot satisfy its strict exponent budget.  Several tempting global shortcuts
+are eliminated by explicit counterexamples: fixed Galois packets cancel,
+generic projective selectors reach exactly the cancellation threshold, and
+root-discriminant plus finite unitness does not control archimedean packet
+height.  The remaining proof-side problem is an explicit arithmetic metric
+comparison for a modular Steinberg packet; the remaining disproof-side problem
+requires a genuinely sparse, non-parametric close-perfect-power or radical-small
+sequence.  No unconditional proof or disproof of $abc$ is claimed.
+\end{abstract}
+
+\section{The target and the proof policy}
+
+For pairwise coprime positive integers $a,b,c$ with $a+b=c$, put
+\[
+  R(a,b,c)=\operatorname{rad}(abc).
+\]
+The logarithmic $abc$ conjecture states that for every $\varepsilon>0$ there
+exists $C_\varepsilon$ such that
+\[
+  \log c\le (1+\varepsilon)\log R(a,b,c)+C_\varepsilon.
+\]
+Every theorem below is proved from explicit hypotheses.  A route is abandoned
+only after a counterexample or a no-go theorem identifies the failing
+mechanism.  Conditional bridge structures are not counted as proofs of the
+conjecture.
+
+\section{Power cores forced by a hypothetical counterexample}
+
+For a positive integer $n$, define
+\[
+  \operatorname{exc}(n)=\frac{n}{\operatorname{rad}(n)}.
+\]
+
+\begin{theorem}[multiplicity excess]
+If $c>R(a,b,c)^{1+\varepsilon}$, then
+\[
+ \operatorname{exc}(a)\operatorname{exc}(b)
+ \operatorname{exc}(c)
+ >c^{\varepsilon/(1+\varepsilon)}.
+\]
+If $x=\max\{a,b\}$, then
+\[
+ \max\{\operatorname{exc}(x),\operatorname{exc}(c)\}
+ >2^{-1/2}c^{(1+2\varepsilon)/(2(1+\varepsilon))}.
+\]
+\end{theorem}
+
+\begin{proof}
+Pairwise coprimality gives
+\[
+ \operatorname{exc}(a)\operatorname{exc}(b)
+ \operatorname{exc}(c)=\frac{abc}{R(a,b,c)}\ge \frac{c}{R(a,b,c)}.
+\]
+The assumed inequality gives the first claim.  Since $x\ge c/2$ and
+$\operatorname{rad}(x)\operatorname{rad}(c)\le R(a,b,c)$,
+\[
+ \operatorname{exc}(x)\operatorname{exc}(c)
+ \ge \frac{c^2}{2R(a,b,c)},
+\]
+and the second assertion follows by taking square roots.
+\end{proof}
+
+For $k\ge2$, set
+\[
+ U_k(n)=\prod_p p^{\lfloor v_p(n)/k\rfloor}.
+\]
+Primewise,
+\[
+ U_k(n)^k\ge \frac{n}{\operatorname{rad}(n)^{k-1}}.
+\]
+In particular a prospective counterexample yields both a large square core
+and a large cube core, hence representations
+\[
+ Ax^2+By^2=Cz^2,
+ \qquad
+ A'x^3+B'y^3=C'z^3
+\]
+with squarefree or cube-free coefficients and a polynomially large power
+coordinate.  These reductions define independent conic and genus-one routes.
+
+\section{The unequal-perfect-power disproof budget}
+
+Suppose fixed integers $m,n\ge2$ admit infinitely many coprime positive
+solutions with
+\[
+ 0<y^n-x^m\le (y^n)^\theta.
+\]
+The associated triple
+\[
+ a=y^n-x^m,\qquad b=x^m,\qquad c=y^n
+\]
+satisfies
+\[
+ \operatorname{rad}(abc)\le c^{\theta+1/m+1/n}.
+\]
+Consequently, if
+\[
+ \theta+\frac1m+\frac1n<1,
+\]
+then one fixed positive $\varepsilon$ gives infinitely many violations of
+$abc$.  For square--cube gaps the exact threshold is $\theta<1/6$.
+
+\subsection{Polynomial and fixed-curve no-go theorems}
+
+\begin{theorem}[polynomial gap barrier]
+Let $k$ have characteristic zero and suppose pairwise coprime nonzero
+polynomials satisfy
+\[
+ X^m+A=Y^n.
+\]
+Writing $D=\max\{m\deg X,n\deg Y\}$, one has
+\[
+ \deg A\ge D\left(1-\frac1m-\frac1n\right)+1.
+\]
+\end{theorem}
+
+\begin{proof}
+Mason--Stothers gives
+\[
+ D\le \deg\operatorname{rad}(XAY)-1
+ \le \deg X+\deg Y+\deg A-1.
+\]
+Use $\deg X\le D/m$ and $\deg Y\le D/n$.
+\end{proof}
+
+The same argument over the function field of a fixed genus-$g$ curve gives
+\[
+ h(A)\ge
+ D\left(1-\frac1m-\frac1n\right)-(2g-2).
+\]
+Thus a fixed saving below the threshold forces genus to grow linearly with
+$D$.  Polynomial, rational-function, bounded-genus, and fixed-curve
+parametrizations cannot disprove $abc$ through close perfect powers.
+
+\section{Riemann--Hurwitz obstruction to algebraic amplification}
+
+Let $f:\mathbf P^1\to\mathbf P^1$ have degree $d$, let
+$D=\{0,1,\infty\}$, and let $r=\#f^{-1}(D)$ count distinct geometric points.
+
+\begin{theorem}[boundary count]
+One has $r\ge d+2$.  Equality holds precisely when all ramification lies above
+$D$.  In particular, if $f^{-1}(D)\subseteq D$, then $d=1$.
+\end{theorem}
+
+\begin{proof}
+The ramification contribution above $D$ is $3d-r$.  Riemann--Hurwitz gives
+total ramification $2d-2$.  Therefore $3d-r\le2d-2$.
+\end{proof}
+
+This excludes support-preserving one-variable Belyi self-amplification.  Any
+successful exceptional-set amplifier must use arithmetic common factors,
+correspondences, several variables, or input-dependent maps.
+
+\section{Tate cyclic-line energies and exact cancellation}
+
+Let $E_q$ be a split Tate curve and set $L=-\log|q|>0$.  For an odd prime
+$\ell$, the sum of the local N\'eron function over the canonical cyclic line is
+\[
+ A_\ell L,
+ \qquad A_\ell=\frac{\ell-1}{12},
+\]
+while every noncanonical cyclic line contributes
+\[
+ B_\ell L,
+ \qquad B_\ell=-\frac{\ell-1}{12\ell}.
+\]
+Thus $A_\ell+\ell B_\ell=0$.  The full torsion packet and every fixed
+place-independent weighted packet cancel after the complete transitive
+projective Galois average.  The generic $1/(\ell+1)$ CRT/Minkowski selector
+also reaches exactly the cancellation threshold
+\[
+ B_\ell+\frac{A_\ell-B_\ell}{\ell+1}=0.
+\]
+These are strict no-go theorems for linear packets and generic full-orbit
+selection, not for nonlinear or globally labelled successors.
+
+\section{Explicit cyclic sections and theta distributions}
+
+For a cyclic subgroup $C\subset E[\ell]$, define
+\[
+ \psi_C(X)=
+ \prod_{\{P,-P\}\subset C\setminus\{O\}}
+ (X-x(P)).
+\]
+Then
+\[
+ \operatorname{div}(\psi_C(x))
+ =\sum_{P\in C\setminus\{O\}}(P)-(\ell-1)(O).
+\]
+The polynomial descends for a Galois-stable line and is integral at good
+places away from $\ell$.  The resulting determinant-of-cohomology torsion and
+its dual have norm one at such places.
+
+For the Tate product theta function, if $s^\ell=q$, the exact cyclic
+identities are
+\[
+ \prod_{\zeta^\ell=1}\Theta_q(\zeta u)
+ =\frac{C(q)^\ell}{C(q^\ell)}\Theta_{q^\ell}(u^\ell),
+\]
+and
+\[
+ \prod_{j=0}^{\ell-1}\Theta_q(s^ju)
+ =\frac{C(q)^\ell}{C(s)}
+  s^{-\ell(\ell-1)/2}u^{-(\ell-1)}\Theta_s(u).
+\]
+The automorphy monomial is essential: it produces the negative noncanonical
+Bernoulli slope.  Translating from the divisor at $[-1]$ to the identity gives
+the analytic trivialization matching the kernel section.
+
+\section{The Steinberg packet and its geometric slope}
+
+Under a Weierstrass scaling $x=u^2x'$, $y=u^3y'$, the cyclic kernel section
+has Hodge weight $\ell-1$.  The augmentation packet is therefore naturally
+\[
+ \mathcal W_\ell=\omega^{\ell-1}\otimes\mathcal{St}_\ell,
+\]
+where $\mathcal{St}_\ell$ is the augmentation constituent of the finite
+permutation local system on $\mathbf P^1(\mathbf F_\ell)$.
+
+The finite-monodromy factor is parabolically polystable of degree zero.  On the
+level-two modular stack, maximal Kodaira--Spencer gives
+\[
+ \operatorname{pardeg}(\omega)=\frac12.
+\]
+Hence
+\[
+ \mu_{\max}^{\mathrm{par}}(\mathcal W_\ell)
+ =\frac{\ell-1}{2}.
+\]
+The ratio to the canonical Tate coefficient is exactly six:
+\[
+ \frac{(\ell-1)/2}{(\ell-1)/12}=6.
+\]
+This determines the geometric leading coefficient but not the arithmetic
+metric comparison.
+
+\section{Descent fields and an archimedean obstruction}
+
+Let $K=\mathbf Q(E[\ell])$ for a semistable elliptic curve and a good prime
+$\ell\ge5$.  Local different estimates give
+\[
+ \log\operatorname{rd}(K)
+ \le
+ \left(1-\frac1\ell\right)
+ \log\operatorname{rad}(N_E)+2\log\ell,
+\]
+up to the fixed local correction required by the chosen Frey model.  Every
+subfield has no larger root discriminant.
+
+This bound does not control arbitrary packet height.  In the fixed field
+$\mathbf Q(\sqrt2)$, let $u=3+2\sqrt2$ and
+\[
+ P_n=[u^n:u^{-n}].
+\]
+Both coordinates are finite-place units, their product is one, and the field
+root discriminant is fixed, yet
+\[
+ h(P_n)=n\log u\to\infty.
+\]
+Therefore the remaining theorem must use the explicit modular or theta
+functional identities; finite unitness and field discriminant alone are
+insufficient.
+
+\section{A simultaneous selector for the three Legendre directions}
+
+Let $a+b=c$ and define
+\[
+ v_{a,b}=(b,-a)\in\mathbf Z^2.
+\]
+For the three lines
+\[
+ L_a=\langle(1,0)\rangle,
+ \quad L_b=\langle(0,1)\rangle,
+ \quad L_c=\langle(1,1)\rangle,
+\]
+one has
+\[
+ v_{a,b}\equiv b(1,0)\pmod a,
+\quad
+ v_{a,b}\equiv-a(0,1)\pmod b,
+\quad
+ v_{a,b}\equiv-a(1,1)\pmod c.
+\]
+Thus one primitive global vector follows all three locally canonical boundary
+directions at their full prime-power depths.  Moreover
+\[
+ \frac c2\le\|v_{a,b}\|_\infty<c.
+\]
+This is stronger than a generic projective selector because it uses the
+additive relation $a+b=c$ itself.  The remaining problem is to realize this
+adelic subline in the actual metrized theta/determinant packet without
+reintroducing the full height through the archimedean norm.
+
+\section{The current decisive theorem}
+
+The proof-side programme has been reduced to an explicit arithmetic statement.
+For the normalized Hecke-discriminant or cyclic-theta Steinberg packet
+$\Sigma_\ell(E)$, one seeks
+\[
+ h_\infty(\Sigma_\ell(E))
+ \le
+ \left(\frac{\ell-1}{2}+o(\ell)\right)
+ (\operatorname{Different}(E)+\operatorname{Conductor}(E))
+ +O(\ell\log\ell),
+\]
+with the finite norms fixed by the cyclic distribution formulas and the
+integral determinant complex.  Together with the local coefficient
+$(\ell-1)/12$ and a quantifier-correct auxiliary prime satisfying
+$\log\ell=o(\log c)$, this would imply
+\[
+ \frac16Q\le(1+o(1))(D+N)+O(\log\ell)
+\]
+and hence $abc$.
+
+The disproof-side programme requires an infinite sparse sequence not arising
+from a fixed algebraic parametrization, for example unequal perfect powers with
+a fixed saving below the function-field threshold and independently controlled
+radical.  No such sequence is presently constructed.
+
+\section{Formalization ledger}
+
+Lean modules in the repository formalize, among other components, the
+quantifier-correct $abc$ and disproof statements, the scalar perfect-power gap
+budgets, the Riemann--Hurwitz boundary-count arithmetic, fixed-packet
+cancellation, the projective-dimension barrier, the theta automorphy exponent,
+the two-place unit-spread scalar identity, the three-boundary logarithmic
+semistability inequalities, and the simultaneous selector congruences.  The
+algebraic-geometry and arithmetic-metric layers are formalized only after their
+mathematical statements and normalizations are fixed; no unresolved source
+theorem is introduced as an axiom.
+
+\section{Conclusion}
+
+The $abc$ conjecture remains neither proved nor disproved.  The present work
+narrows the proof side to a concrete modular metric inequality and narrows the
+disproof side to genuinely sparse, non-parametric arithmetic constructions.
+It also supplies explicit local formulae and several rigorous barriers which
+prevent known failed mechanisms from being recycled under different names.
+
+\end{document}
