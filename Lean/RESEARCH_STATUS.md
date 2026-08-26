@@ -557,6 +557,24 @@
   correspondence, controlling both good and infinite rows.  Lean checks the
   quadratic forms, spectra, cleared interpolation and full scalar ledger;
   abelian schemes, cubical metrics and the Hom-classification remain paper mathematics
+- the Pell global truncated-counting audit.  For
+  `X_n = (s_n^2 - 3) * (s_n^2 - 2)`, Yu's Theorem 1' gives the corrected
+  moving-prime estimate
+  `v_p(X_n) << (p - 1) / log(p) * log(64 * max(n,3))`; hence the powerful
+  excess below `sqrt(n / log log n)` is pointwise `O(n / log log n) = o(n)`.
+  For every fixed gap `d`, a product of sixteen nonzero norm differences
+  gives a full-prime-power carrier
+  `gcd_odd(X_m,X_n) | R_|m-n|` with `log R_d = O(d)`, so radical overlap in
+  a fixed index window is bounded.  The coefficient ledger also corrects an
+  important scale issue: Pell abc needs only
+  `E_n <= (1 + eta) * n * log(lambda) + O_eta(1)`, not `E_n = o(n)`.
+  Equivalently, the surviving input is a four-target, one-orbit truncated
+  count with coefficient `4 - 2 = 2`, or just the corresponding tail bound
+  over moving primes above `sqrt(n / log log n)`.  Existing fixed-group gcd,
+  Subspace and ordinary average theorems do not supply that pointwise tail.
+  Lean checks the radical/excess coefficients, finite aggregation and the
+  corrected cleared-denominator cutoff; Yu's theorem, number fields, norm
+  carriers and truncated counting remain explicit paper mathematics
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
