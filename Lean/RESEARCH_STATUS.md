@@ -939,6 +939,23 @@ critical input behind a definition or opaque interface.
   uniform Selmer upper bound.  Lean checks only the scalar consequences;
   the descent, class-group and local Kummer statements are cited at paper
   level with their exact hypotheses
+- the exact index-seventeen descent obstruction.  PARI/GP certifies
+  `Cl(Q(2^(1/17)))=1`; the signature and four `S`-places therefore give a
+  thirteen-dimensional `K(S,2)`.  Thirteen explicit `S`-supported classes
+  are independently certified as a full basis by exhausting all `8191`
+  nonempty squareclass products.  The norm kernel has dimension nine, and
+  imposing the complete `Q_3` Kummer image leaves an eight-dimensional
+  space `W_3`.  The remaining Selmer upper bound is now the single dyadic
+  equality `ker(lambda_2)=<D_1,D_9>`; neither the official Magma descent
+  implementations nor the present exact scripts prove it.  Independently,
+  the exact Frobenius polynomial and root-ratio resultant at `67`, together
+  with Chebyshev real multiplication, specialization, the central `[-1]`
+  twist cocycle and the Rosati/Galois action, give geometric Neron--Severi
+  rank eight but rational rank one.  Hence the available `rank<=8` does not
+  satisfy quadratic Chabauty's strict `rank<8` condition.  This audit uses
+  reproducible PARI, Magma and Sage certificates without GRH, BSD or `abc`,
+  but it deliberately does not eliminate index `17`.  Lean checks the
+  displayed half-factor and Frobenius coefficient ledgers only
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
