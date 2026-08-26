@@ -36,7 +36,14 @@ open scoped BigOperators
 theorem oddTriangularExponent_eq
     {ell k : ℕ} (hell : ell = 2 * k + 1) :
     ell * (ell - 1) / 2 = ell * k := by
-  omega
+  subst ell
+  have hsub : 2 * k + 1 - 1 = 2 * k := by omega
+  rw [hsub]
+  have hmul :
+      (2 * k + 1) * (2 * k) = ((2 * k + 1) * k) * 2 := by
+    ring
+  rw [hmul]
+  exact Nat.mul_div_cancel _ (by norm_num)
 
 /-- Gauss' sum over the root-period indices has the same odd triangular
 exponent. -/
