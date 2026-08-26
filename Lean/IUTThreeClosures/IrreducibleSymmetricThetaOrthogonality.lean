@@ -24,9 +24,10 @@ after `(v,w)` is restricted to an arbitrary packet.  In particular it applies
 to the packet where `v^2+w^2` is nonsquare, i.e. to the irreducible symmetric
 matrices over a finite field in which `-1` is nonsquare.
 
-The counting theorem for this packet and the absolutely convergent analytic
-theta-series interchange are separate later layers.  No arithmetic source or
-abc conclusion is assumed here.
+The file also records the scalar identities behind the exact Gram matrix of the
+even theta frame.  The counting theorem, quadratic-character spectrum, block
+matrix packaging and analytic theta-series interchange are separate later
+layers.  No arithmetic source or abc conclusion is assumed here.
 -/
 
 namespace IUTThreeClosures
@@ -50,6 +51,25 @@ theorem symmetricQuadraticForm_expansion
       u * (x ^ 2 + y ^ 2) +
         (v * (x ^ 2 - y ^ 2) + 2 * w * x * y) := by
   ring
+
+/-- If two vectors have the same norm for `x^2+y^2`, then the norm of the
+corresponding traceless quadratic-frequency difference is four times the square
+of their determinant. -/
+theorem equalSumSquares_frequency_norm
+    {R : Type*} [CommRing R]
+    (x₁ x₂ y₁ y₂ : R)
+    (hQ : x₁ ^ 2 + x₂ ^ 2 = y₁ ^ 2 + y₂ ^ 2) :
+    ((x₁ ^ 2 - x₂ ^ 2) - (y₁ ^ 2 - y₂ ^ 2)) ^ 2 +
+        (2 * (x₁ * x₂ - y₁ * y₂)) ^ 2 =
+      4 * (x₁ * y₂ - x₂ * y₁) ^ 2 := by
+  calc
+    ((x₁ ^ 2 - x₂ ^ 2) - (y₁ ^ 2 - y₂ ^ 2)) ^ 2 +
+          (2 * (x₁ * x₂ - y₁ * y₂)) ^ 2 =
+        ((x₁ ^ 2 + x₂ ^ 2) + (y₁ ^ 2 + y₂ ^ 2)) ^ 2 -
+          4 * (x₁ * y₁ + x₂ * y₂) ^ 2 := by ring
+    _ = 4 * (x₁ * y₂ - x₂ * y₁) ^ 2 := by
+      rw [hQ]
+      ring
 
 /-- Anisotropy of the binary sum-of-two-squares form.  Over a field this is
 implied by nonsquareness of `-1`. -/
@@ -150,5 +170,46 @@ theorem sum_irreducibleSymmetricPhase_eq_zero
             u vw.1 vw.2 x y) = 0 :=
   sum_symmetricPhaseArgument_over_packet_eq_zero
     phase hphase hA hxy (irreducibleSymmetricPairPacket F)
+
+/-! ## Scalar eigenvalue identities for the exact Gram blocks -/
+
+/-- Size of the irreducible symmetric matrix packet in real scalar form. -/
+noncomputable def symmetricPacketSizeReal (ell : ℕ) : ℝ :=
+  (ell : ℝ) * ((ell : ℝ) ^ 2 - 1) / 2
+
+/-- Off-diagonal Gram coefficient for distinct sign classes of equal nonzero
+norm. -/
+noncomputable def symmetricGramOffDiagonal (ell : ℕ) : ℝ :=
+  -(ell : ℝ) * ((ell : ℝ) + 1) / 2
+
+/-- Size of one nonzero norm fibre after quotienting by sign. -/
+noncomputable def symmetricNormBlockSizeReal (ell : ℕ) : ℝ :=
+  ((ell : ℝ) + 1) / 2
+
+/-- Eigenvalue of a constant-off-diagonal Gram block on its constant vector. -/
+theorem symmetricGram_constant_eigenvalue (ell : ℕ) :
+    symmetricPacketSizeReal ell +
+        (symmetricNormBlockSizeReal ell - 1) *
+          symmetricGramOffDiagonal ell =
+      (ell : ℝ) * ((ell : ℝ) ^ 2 - 1) / 4 := by
+  unfold symmetricPacketSizeReal symmetricNormBlockSizeReal
+    symmetricGramOffDiagonal
+  ring
+
+/-- Eigenvalue of a constant-off-diagonal Gram block on the augmentation
+hyperplane. -/
+theorem symmetricGram_augmentation_eigenvalue (ell : ℕ) :
+    symmetricPacketSizeReal ell -
+        symmetricGramOffDiagonal ell =
+      (ell : ℝ) ^ 2 * ((ell : ℝ) + 1) / 2 := by
+  unfold symmetricPacketSizeReal symmetricGramOffDiagonal
+  ring
+
+/-- The smaller nonzero-block eigenvalue is exactly half the packet size. -/
+theorem symmetricGram_min_eigenvalue_eq_half_packet (ell : ℕ) :
+    (ell : ℝ) * ((ell : ℝ) ^ 2 - 1) / 4 =
+      symmetricPacketSizeReal ell / 2 := by
+  unfold symmetricPacketSizeReal
+  ring
 
 end IUTThreeClosures
