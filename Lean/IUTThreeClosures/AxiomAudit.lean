@@ -85,6 +85,7 @@ import IUTThreeClosures.FreyPellSquareclassRecurrenceAudit
 import IUTThreeClosures.FreyPellTatuzawaClassNumberFamilyAudit
 import IUTThreeClosures.FreyPellFourConsecutiveProductAudit
 import IUTThreeClosures.FreyPellChebyshevIndexThreeAudit
+import IUTThreeClosures.FreyPellChebyshevIndexFiveEllipticChabautyCertificate
 import IUTThreeClosures.ArithmeticLeibnizWronskian
 import IUTThreeClosures.WronskianKernelLattice
 import IUTThreeClosures.MultiDerivationExteriorEnergy
@@ -798,3 +799,10 @@ end IUTThreeClosures.ConcreteFermatBelyiRamification.TripodCertificate
 #print axioms IUTThreeClosures.magma216a1_positive_fourMultiple_filter
 #print axioms
   IUTThreeClosures.three_not_dvd_chebyshev_shiftSquare_index
+#print axioms IUTThreeClosures.indexFive_to_magma_model
+#print axioms
+  IUTThreeClosures.indexFive_base_eq_one_or_neg_one_of_external_certificate
+#print axioms
+  IUTThreeClosures.no_indexFive_polynomial_of_external_certificate
+#print axioms
+  IUTThreeClosures.no_indexFive_chebyshev_shiftSquare_of_external_certificate

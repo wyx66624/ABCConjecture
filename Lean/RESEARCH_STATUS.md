@@ -758,11 +758,21 @@ critical input behind a definition or opaque interface.
   transparently named external certificate, that every residual solution
   with `T>1` has `3` not dividing its unit index.  Lean proves the
   substitution, finite filter, growth and composition and accepts integral-
-  point completeness only as an explicit hypothesis.  For the prime-five
-  curve `y^2=64*T^5-80*T^3+20*T+5`, the displayed ordinary genus-two run
-  returned Jacobian rank bound `2`, equal to the genus, and the point-
-  completeness flag `all_known=false`; hence that run does not close `p=5`,
-  and the uniform prime-index proposition remains open
+  point completeness only as an explicit hypothesis
+- the exact prime-five elimination inside the same residual problem.  The
+  substitution `X=-2*T` identifies
+  `y^2=64*T^5-80*T^3+20*T+5` with the genus-two curve
+  `Y^2=-2*X^5+10*X^3-10*X+5`.  An exact Magma V2.29-9 two-cover descent
+  leaves one candidate in a possibly enlarged but rational-point-complete
+  candidate superset.  Its elliptic quotient over a quintic field has a
+  finite-odd-index Mordell--Weil subgroup, and single-prime elliptic
+  Chabauty returns `N=#V=8` and `R=1`.  Pullback gives exactly
+  `infinity, (-2,+/-3), (2,+/-1)`, so the original rational bases are only
+  `T=+/-1` and no `T>1` solution exists.  The full executable input and exact
+  transcript were independently rerun; no GRH, BSD, analytic-rank guess or
+  height cutoff enters.  Lean checks the substitution and deductions from a
+  transparently named external certificate.  Thus the residual uniform
+  prime-index proposition now starts at `p>=7`
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -1273,9 +1283,11 @@ untilts or arithmetic holomorphic structures.
   ring-class and generic regulator results have now been checked with their
   exact quantifiers and stop at polynomial growth of `A_n`.  In the related
   four-consecutive unit-index reduction, Chebyshev index three is eliminated
-  by the complete integral-point calculation on 216a1; what remains is the
+  by the complete integral-point calculation on 216a1 and index five is
+  eliminated by the complete two-cover/elliptic-Chabauty calculation above;
+  what remains is the
   prime-index statement that `4*T_p(T)+5` is not a square for every odd
-  prime `p>=5` (or its actual `T=23 (mod 24)` specialization), followed even
+  prime `p>=7` (or its actual `T=23 (mod 24)` specialization), followed even
   then by a moving square-base radical estimate.  Neither statement is
   assumed by the current formal package
 - a global height/cancellation theorem for a non-torsion auxiliary selector.
