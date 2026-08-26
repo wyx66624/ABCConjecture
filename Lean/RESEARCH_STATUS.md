@@ -575,6 +575,34 @@
   Lean checks the radical/excess coefficients, finite aggregation and the
   corrected cleared-denominator cutoff; Yu's theorem, number fields, norm
   carriers and truncated counting remain explicit paper mathematics
+- the shifted large-prime Pell audit.  Bilu--Hong--Gun's auxiliary-prime
+  construction remains valid after replacing one fixed target by any of the
+  four Pell targets: with exactly `m - 2` rational auxiliaries, the dimension
+  stays `m`, multiplicative independence is preserved, and `delta = 1` is
+  admissible.  It gives the pointwise improvement
+  `E_n(p <= sqrt(n) * exp(kappa * log(n) / log log(n))) = o(n)` for every
+  fixed `0 < kappa < 1 / 8000`.  The remaining local estimates still permit
+  a balanced pair of distinct first-hit cubes, one in each coprime factor,
+  with `3 * L_b = 3 * L_c = H`; this respects the separate factor heights
+  and has combined excess `4 * H / 3`.  It is only a finite-local/method
+  countermodel, not a Pell or abc counterexample.  Lean checks the cutoff
+  scalar substitution and the balanced prime-power ledger; the p-adic
+  logarithm theorem, prime sums and the unresolved moving-prime tail remain
+  paper mathematics
+- the squarefull and primitive-divisor Pell audit.  The joint product is an
+  exact simple nondegenerate order-five recurrence, but Stewart's unconditional
+  theorem gives only
+  `log rad(X_n) >> log(n) * log_2(n) / log_3(n) = o(n)`.  BHV applies
+  legitimately only to the normalized homogeneous Pell--Lucas carrier, with
+  the exact identity
+  `b_(m+k) - b_m = c_(m+k) - c_m = 3 * r_k * r_(2*m+k)`; it does not control
+  a first-hit prime's extra copies.  The actual recurrence
+  `M_n = 2 * (2^n - 1)^3` has eventual primitive support, no perfect powers
+  at positive indices and negligible fixed support, yet its normalized
+  powerful excess has lower limit at least `4 / 3`.  Thus those outputs alone
+  cannot yield the critical coefficient.  Lean verifies both recurrences,
+  the homogeneous carrier and the exact scalar gap; Stewart, BHV and
+  Zsigmondy remain explicitly paper-only
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
