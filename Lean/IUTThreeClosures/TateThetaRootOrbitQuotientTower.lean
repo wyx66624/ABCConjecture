@@ -193,12 +193,7 @@ noncomputable def baseCycleCoordinate :
       have hnzero : ((n : ℝ) : UnitAddCircle) = 0 := by
         rw [AddCircle.coe_eq_zero_iff]
         exact ⟨n, by simp⟩
-      calc
-        (((coordinate t ell r x + (n : ℝ) : ℝ)) : UnitAddCircle) =
-            ((coordinate t ell r x : ℝ) : UnitAddCircle) +
-              ((n : ℝ) : UnitAddCircle) := rfl
-        _ = ((coordinate t ell r x : ℝ) : UnitAddCircle) := by
-          rw [hnzero, add_zero])
+      simpa only [AddCircle.coe_add, hnzero, add_zero])
 
 /-- `ell`-period radial coordinate `rho/ell mod Z` on the cover quotient. -/
 noncomputable def coverCycleCoordinate [NeZero ell] :
@@ -218,18 +213,11 @@ noncomputable def coverCycleCoordinate [NeZero ell] :
             coordinate t ell r x / (ell : ℝ) + (n : ℝ) := by
         push_cast
         field_simp [hell]
-        ring
       rw [hreal]
       have hnzero : ((n : ℝ) : UnitAddCircle) = 0 := by
         rw [AddCircle.coe_eq_zero_iff]
         exact ⟨n, by simp⟩
-      calc
-        (((coordinate t ell r x / (ell : ℝ) + (n : ℝ) : ℝ)) :
-            UnitAddCircle) =
-          ((coordinate t ell r x / (ell : ℝ) : ℝ) : UnitAddCircle) +
-            ((n : ℝ) : UnitAddCircle) := rfl
-        _ = ((coordinate t ell r x / (ell : ℝ) : ℝ) : UnitAddCircle) := by
-          rw [hnzero, add_zero])
+      simpa only [AddCircle.coe_add, hnzero, add_zero])
 
 /-- On radial skeleton coordinates, the cover-to-base map is multiplication
 by `ell` on the unit additive circle. -/
@@ -243,11 +231,19 @@ theorem baseCycleCoordinate_coverToBase [NeZero ell]
     ((coordinate t ell r x : ℝ) : UnitAddCircle) =
       ell •
         ((coordinate t ell r x / (ell : ℝ) : ℝ) : UnitAddCircle)
-  rw [← AddCircle.coe_nsmul]
-  congr 1
   have hell : (ell : ℝ) ≠ 0 := by
     exact_mod_cast (NeZero.ne ell)
-  simp [nsmul_eq_mul, hell]
+  have hreal :
+      ell • (coordinate t ell r x / (ell : ℝ)) =
+        coordinate t ell r x := by
+    simp [nsmul_eq_mul, hell]
+  calc
+    ((coordinate t ell r x : ℝ) : UnitAddCircle) =
+        ((ell • (coordinate t ell r x / (ell : ℝ)) : ℝ) :
+          UnitAddCircle) := by rw [hreal]
+    _ = ell •
+        ((coordinate t ell r x / (ell : ℝ) : ℝ) : UnitAddCircle) :=
+      AddCircle.coe_nsmul (1 : ℝ)
 
 /-- One corrected deck step acts nontrivially on the cover quotient but is
 trivial after projection to the base quotient. -/
@@ -301,7 +297,7 @@ theorem coverCycleCoordinate_residualDeckTranslate
       ((coordinate t ell r x / (ell : ℝ) : ℝ) : UnitAddCircle) +
         (((j : ℝ) / (ell : ℝ) : ℝ) : UnitAddCircle)
   rw [coordinate_deckZ, add_div]
-  simp
+  exact AddCircle.coe_add (1 : ℝ)
 
 end TateThetaRootRadialSkeleton
 
