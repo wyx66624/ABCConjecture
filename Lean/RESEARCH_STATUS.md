@@ -840,6 +840,21 @@ critical input behind a definition or opaque interface.
   search cutoff enters.  Lean checks the scalar deductions from a transparent
   external certificate.  Thus the residual uniform prime-index proposition
   now starts at `p>=11`
+- the exact prime-thirteen elimination.  On the genus-six curve
+  `y^2=4*T_13(T)+5`, an unconditional Magma V2.29-9 computation gives
+  `Sel_2(J)=(Z/2Z)^2`; two explicit half-divisors have distinct nonzero
+  descent images generating that group, so `rank J(Q)=2` and their subgroup
+  has finite odd index.  At the good prime `5`, SageMath 10.9 computes the
+  full Mordell--Weil logarithm kernel and a primitive annihilating
+  differential nonzero on all six residue discs.  Five rational points
+  occupy five discs; the sixth Coleman zero is the unique non-rational
+  5-adic Weierstrass point.  Therefore the only rational bases are
+  `T=+/-1`, and no `T>1` solution exists at index `13`.  The complete Magma
+  and Sage scripts and outputs were independently rerun; no GRH, BSD,
+  analytic-rank guess, saturation assumption or height cutoff enters.  Lean
+  checks the exact model changes and the deductions from a transparent
+  external certificate.  The residual prime indices are now `p=11` and
+  `p>=17`
 - the exact ambiguous-class and S-unit descent for that remaining prime-index
   proposition.  If a hypothetical solution at prime `p>=11` is written as
   `b=A*u^2`, `b+1=B*v^2`, `b+2=3*r^2`, `b+3=s^2`, then
