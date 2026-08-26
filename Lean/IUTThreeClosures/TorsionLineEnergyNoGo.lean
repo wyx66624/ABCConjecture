@@ -113,8 +113,9 @@ theorem fullTorsionPacket_totalScore_eq_zero
       (fun c => weightedLineScore
         (canonicalTateLineCoefficient ell)
         (noncanonicalTateLineCoefficient ell)
-        (fun _ => (1 : ℝ)) c) = 0 :=
-  fixedPacket_totalScore_eq_zero hell hcard _
+        (fun _ => (1 : ℝ)) c) = 0 := by
+  exact fixedPacket_totalScore_eq_zero
+    (ι := ι) (ell := ell) hell hcard (fun _ : ι => (1 : ℝ))
 
 /-- **Projective-dimension barrier.**  The generic `1 / (ell + 1)` fraction of
 the canonical/noncanonical coefficient gap exactly cancels the noncanonical
