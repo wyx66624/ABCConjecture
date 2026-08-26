@@ -5,6 +5,7 @@ Authors: ChatGPT
 -/
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import Mathlib.Data.Nat.Factorization.Basic
+import IUTThreeClosures.AffineSteinbergInterpolation
 
 /-!
 # The logarithmic abc conjecture
