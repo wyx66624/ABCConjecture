@@ -137,6 +137,7 @@ import IUTThreeClosures.IUTIVAbsorption
 import IUTThreeClosures.PublicNormalizationObstruction
 import IUTThreeClosures.CorrectedQPilotDivisor
 import IUTThreeClosures.TorsionLineEnergyNoGo
+import IUTThreeClosures.IrreducibleSymmetricThetaOrthogonality
 
 -- Fully compile the genuine integer deck action and its quotient tower.
 import IUTThreeClosures.TateThetaRootOrbitQuotientTower
