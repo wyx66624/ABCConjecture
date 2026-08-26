@@ -748,6 +748,24 @@ critical input behind a definition or opaque interface.
   ledger, the coefficient-one implication and the separating scalar profile;
   every cited arithmetic theorem and each conditional hypothesis remain
   explicit in the accompanying audit
+- the congruent-number-twist realization of the Pell square-base system.
+  For `D_n=3*A_n`, the exact integral point
+  `X_n=9*A_n*r_n^2`, `Y_n=9*A_n^2*s_n*r_n*y_n` lies on
+  `Y^2=X^3-D_n^2*X`, and
+  `X_n/D_n^2=y_n^2/3+1/(3*A_n)`.  Bennett's theorem on three
+  prescribed consecutive square classes makes the moving `A_n` pairwise
+  distinct.  Chan's 2024 uniform theorem therefore gives the unconditional
+  sparse-set estimate
+  `#{n:3*A_n<=X} <<_epsilon X*(log X)^(-1/4+epsilon)`.
+  This is a genuine distributional advance but not a pointwise height bound:
+  Chan's fixed-twist/coset theorem permits up to thirty large integral points
+  on every moving twist.  The proof-level assertion excluding all such large
+  points for every exponent margin uses abc with an adjustable parameter and
+  is therefore circular here.  The surviving noncircular target is the
+  orbitwise estimate
+  `log(X_n)<=(2+eta)*log(3*A_n)+C_eta` for every positive `eta`.
+  Lean checks the curve map, factor identities, ratio and the injectivity
+  deduction from Bennett's explicitly supplied positive-coefficient premise
 - the four-consecutive-product refinement.  Writing
   `b=A*u^2`, `b+1=B*v^2`, `b+2=3*r^2`, `b+3=s^2` gives the genuine norm-one
   unit with coefficient `D=3*A*B` and the additional constraint
