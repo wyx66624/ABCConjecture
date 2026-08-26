@@ -61,7 +61,9 @@ import IUTThreeClosures.FreyBoundedAbscissaHeightObstruction
 import IUTThreeClosures.AdaptiveLinearPairSquareSelector
 import IUTThreeClosures.FreyDivisionHeightConservation
 import IUTThreeClosures.FreyAsymmetricDivisionBranchAudit
+import IUTThreeClosures.FreyKummerPacketClassification
 import IUTThreeClosures.FreySameCharacterRankTwoObstruction
+import IUTThreeClosures.FreyNearSingularHeightLatticeAudit
 import IUTThreeClosures.ArithmeticLeibnizWronskian
 import IUTThreeClosures.WronskianKernelLattice
 import IUTThreeClosures.MultiDerivationExteriorEnergy
@@ -575,6 +577,15 @@ end IUTThreeClosures.ConcreteFermatBelyiRamification.TripodCertificate
 #print axioms IUTThreeClosures.singleIdentityPacket_noComponentDecay
 #print axioms IUTThreeClosures.halfTranslationSums_recoverPairProducts
 #print axioms IUTThreeClosures.alignedHalf_retainedDivisor_quadraticCost
+#print axioms IUTThreeClosures.freyLineA_iff
+#print axioms IUTThreeClosures.freyLineB_iff
+#print axioms IUTThreeClosures.freyLineC_iff
+#print axioms IUTThreeClosures.freyLocalPacketCount_eq_one_iff
+#print axioms IUTThreeClosures.twoCollisionTypesAB_forceTrivial
+#print axioms IUTThreeClosures.freyPacketTable_Tb
+#print axioms IUTThreeClosures.freyPacketTable_full
+#print axioms IUTThreeClosures.kummerCounterfamily_point
+#print axioms IUTThreeClosures.kummerCounterfamily_doubleAbscissa
 #print axioms IUTThreeClosures.freyRankTwo_firstRadicand
 #print axioms IUTThreeClosures.freyRankTwo_secondRadicand
 #print axioms IUTThreeClosures.rubinSilverberg_freyCarrier
@@ -584,3 +595,10 @@ end IUTThreeClosures.ConcreteFermatBelyiRamification.TripodCertificate
 #print axioms IUTThreeClosures.pellFrey_doubleParametrization
 #print axioms IUTThreeClosures.integerCombination_mem_addSubgroup
 #print axioms IUTThreeClosures.orthogonalGram_noCancellation
+#print axioms IUTThreeClosures.shearedGram_nonzeroIntegralValues_eq
+#print axioms IUTThreeClosures.shearedGram_determinantInvariant
+#print axioms IUTThreeClosures.orthogonalShear_relationRayleigh
+#print axioms IUTThreeClosures.orthogonalShear_noIntegralCancellation
+#print axioms IUTThreeClosures.doubledOrbit_gramDeterminant
+#print axioms IUTThreeClosures.commonBaseChangeScale_cancels
+#print axioms IUTThreeClosures.shioda_targetDegree_lower

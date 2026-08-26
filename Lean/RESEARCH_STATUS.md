@@ -386,6 +386,22 @@
   archimedean terms.  Lean checks the uniformly weighted packet algebra,
   local-degree cancellation, exact gain and alignment inequality; local
   fields, Kummer orbits and global height compensation remain paper mathematics
+- the global two-Kummer packet classification.  On the full rational
+  two-torsion Frey curve the three odd collision types have identity lines
+  `<T_b>`, `<T_a>`, and `<T_0>`.  If `H` is the Galois difference subgroup of
+  one half, its exact packet count is `|H/(H intersect L_p)|`; hence one
+  nontrivial quadratic orbit can be single-packet for only one collision
+  type, while two distinct single-packet types force the half to be rational.
+  The line condition is exactly membership of the original point in the
+  corresponding dual two-isogeny image.  The primitive family
+  `(6,s^2-8,s^2-2)` with point `(8,4s)` is non-torsion but has orbit line
+  `<T_b>`, so only the fixed odd `a`-mass is single-packet and both growing
+  types remain double-packet for every half.  This strictly closes choosing
+  the heaviest type by translating a prescribed point; it leaves adaptive
+  construction of a short point in the required dual-isogeny image open.
+  Lean checks the three finite torsion lines, packet counts, intersections,
+  quotient coefficients and counterfamily identities; the Galois cocycle,
+  isogeny equivalence and formal-group non-torsion proof are paper mathematics
 - the same-character rank-two obstruction.  Rubin--Silverberg specialization
   supplies two points in one quadratic squareclass with generic canonical
   Gram matrix `I_2`; the only fixed carrier collapses at `v=+/-1`, exactly
@@ -399,6 +415,24 @@
   components, not rank alone.  Lean checks the curve/carrier identities,
   Pell points and the exact orthogonal scalar ledger; elliptic-surface fibres,
   Shioda pairings and specialization are paper mathematics
+- the near-singular height-lattice audit.  A displayed real Gram eigenvalue
+  is not a Mordell--Weil lattice invariant: the unimodular shear
+  `Q_N=N*P+R` can make that eigenvalue arbitrarily small while preserving
+  the complete set of nonzero integral quadratic-form values, the first
+  successive minimum and the regulator.  Applied to the actual fixed-`D=6`
+  Pell--Frey family, this costs no new field, conductor or local-component
+  condition and gives `lambda_min/log b -> 0` while the integral minimum
+  remains at least `(1/4-o(1))*log b`.  Rational two-isogenies only rescale
+  an existing lattice, a one-point dual orbit remains rank one, and finite
+  base change multiplies a pullback height lattice and its source divisor by
+  the same degree.  Shioda's formula further shows that an identity-target
+  section of `o(chi)` height needs at least `8*chi-o(chi)` auxiliary fibre
+  degree to cancel the baseline.  The valid target is therefore a genuinely
+  small integral first minimum or an explicit bounded-coefficient short
+  vector, with all auxiliary fibre and arithmetic costs retained.  Lean
+  checks the unimodular value-set identity, determinant/Rayleigh ledgers,
+  isogeny and base-change scalars and the Shioda correction inequality;
+  canonical heights and elliptic-surface geometry remain paper mathematics
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -916,10 +950,13 @@ untilts or arithmetic holomorphic structures.
   fixed-`D=6` Pell family has a uniformly positive integral height minimum.
   What remains is more precise.  One algebraic division branch can retain a
   full local identity packet while its canonical height scales by `m^(-2)`;
-  the missing theorem must make such small packet images simultaneous on a
-  positive weighted support and control the branch discriminant, new
-  conductor, adverse finite theta terms and the archimedean sum with a
-  subcritical coefficient.  Alternatively one needs a same-character
+  in the rational two-division case its global Kummer line can privilege at
+  most one of the three collision types.  The missing theorem must construct
+  a short non-torsion point in the corresponding dual-isogeny image for a
+  sufficiently heavy type, make its favorable packet choice effective, and
+  control the branch discriminant, new conductor, adverse finite theta terms
+  and the archimedean sum with a subcritical coefficient.  Alternatively one
+  needs a same-character
   Mordell--Weil lattice whose first integral successive minimum, not merely
   the real Gram eigenvalue in a chosen basis, is genuinely small.  The
   rational all-Frey formulation remains ruled out by `(1,8,9)`, and after
