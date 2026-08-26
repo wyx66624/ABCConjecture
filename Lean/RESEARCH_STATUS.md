@@ -495,6 +495,33 @@
   for a genuinely different auxiliary motive.  Lean checks the translated
   abscissas, complete slope/deficit ledgers and positive-weight optimization;
   local heights, Pell specialization and Faltings--Hriljac remain paper mathematics
+- the exact place-over-two packet ledger for primitive Frey curves.  If the
+  unique even entry has depth `e>=5`, the two large-depth branches are either
+  multiplicative `I_(2e-8)` or additive-star `I^*_(2e-4)`, but both have the
+  same sharp component lower bound `-(e-4)*log(2)/12`.  In the additive-star
+  branch the rational two-torsion packet is exactly two identity translates
+  and the same spinor translate twice; the vector component is geometrically
+  valid but is not visited.  Its corrected four-translate average is
+  `(e+8)*log(2)/24`, while a complete `m`-division packet has the usual
+  `m^(-2)` Bernoulli lower bound.  The actual families `(1,2^e,2^e+1)` and
+  `(3,2^e,2^e+3)` show that bounded conductor at the fixed prime `2` does not
+  make a chosen branch `O(1)`: the worst local value tends to minus infinity.
+  Lean checks the reduction-index scalars, corrected torsion averages and
+  packet inequalities; Tate's algorithm, blow-up component tracing and local
+  Neron functions remain paper mathematics
+- the cyclic two-isogeny cross-motive audit.  At a split `I_(2e)` fibre the
+  three quotient parameters are `q^2`, `sqrt(q)` and `-sqrt(q)`, with target
+  depths `4e,e,e` and identity-component values `e/3,e/12,e/12`.  For the
+  fixed-field Pell point their quotient abscissas are `(b+2)/2`, `2*(b+2)`
+  and `2/(b+2)`.  Restoring the last point's growing good denominator gives
+  the complete bad/good/infinite/height slopes
+  `(5/12,0,1/12,1/2)`, `(5/12,0,1/12,1/2)` and
+  `(1/6,1/2,-1/6,1/2)`.  Thus every nonzero nonnegative combination has
+  selected odd-bad mass strictly below its total canonical-height cost and
+  at most `5/6` of it; exact archimedean cancellation forces the sharper
+  ratio `2/3`.  Lean checks the Bernoulli distributions, quotient-image
+  identities and complete scalar optimization; Tate curves, Velu isogenies,
+  local heights and Pell specialization remain paper mathematics
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
