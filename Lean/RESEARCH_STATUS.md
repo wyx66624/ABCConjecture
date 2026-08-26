@@ -704,6 +704,33 @@ critical input behind a definition or opaque interface.
   is equivalent to `log(y_n)=o(H_n)`, not to an almost-squarefree estimate
   for `y_n`.  Lean checks the scalar cancellation, radical deficit, recurrence
   certificate and transparent finite evaluation
+- the parity-squareclass recurrence audit for `c_n=A_n*y_n^2`.  Stewart's
+  printed `Q(m)` is exactly `rad(m)`, not the squarefree representative
+  `A_n`; the fixed-multiplier Shorey--Stewart/Ribenboim theorems and the
+  McDaniel--Ribenboim collision theorem have no uniform index-versus-`log A`
+  conclusion.  The exact same-spectrum model `Z_n=2*s_n^2=2*c_n+4` retains
+  the reciprocal cubic recurrence while its squareclass is constantly `2`,
+  and the fixed parameter `47=23 (mod 24)` supports an infinite norm-two
+  Pell orbit once the simultaneous `Q(sqrt 3)` and least-unit conditions are
+  removed.  The factorization over `Q(sqrt 2)` only rewrites the same
+  regulator obstruction as a binary quadratic form.  Thus the strongest
+  accepted pointwise estimate audited here is still polynomial in `H_n`,
+  and the exact missing statement remains `log(y_n)=o(H_n)`.  Lean checks
+  the recurrence, fixed-47 orbit and scalar squareclass ledger
+- the Tatuzawa/class-number family audit.  Injectivity of the discriminants
+  correctly pulls Tatuzawa's one possible exceptional character back to at
+  most one index for each fixed exponent, and hence gives the ineffective
+  full-tail relation `log L(1,chi_D)=o(log A_n)`.  This is a lower `L`-bound
+  and does not invert the large real-quadratic regulator: together with the
+  class-number formula it yields only
+  `log(A_n) >= (2-o(1))*log(H_n)`.  The norm-two element makes the ramified
+  prime above `2` narrow-principal but does not remove another ordinary
+  genus bit.  Yokoi's invariant specializes exactly to `m_A=2*y_n^2`, so
+  its denominator is again `H_n+O(1)`; the Richaud--Degert remainder `-2`
+  occurs exactly at `y_n=1`, where `A_n=c_n` is already the easy case.  Lean
+  checks the exceptional-index pullback, norm-two/Yokoi identities and the
+  division-free direction ledger; Tatuzawa, the class-number formula and
+  Yokoi remain explicitly cited paper inputs
 - the four-consecutive-product refinement.  Writing
   `b=A*u^2`, `b+1=B*v^2`, `b+2=3*r^2`, `b+3=s^2` gives the genuine norm-one
   unit with coefficient `D=3*A*B` and the additional constraint
@@ -721,6 +748,21 @@ critical input behind a definition or opaque interface.
   square-base radical after overlap.  Lean checks the four-consecutive
   algebra, norm equations, radical ledger and height-correct scalar barrier;
   no uniform Chebyshev-square or radical theorem is assumed
+- the exact index-three elimination inside the residual Chebyshev-square
+  problem.  At `k=3`, the substitution `X=4*T`, `Y=2*y` identifies
+  `y^2=4*T_3(T)+5` with the elliptic curve
+  `Y^2=X^3-12*X+20` (216a1).  Magma V2.29-9, with a proved saturated
+  Mordell--Weil basis, and the independent LMFDB record give the complete
+  integral `X`-list `{-4,-2,1,2,4,10,22,89}`; its only positive multiple of
+  four is `4`.  Chebyshev composition therefore proves, relative to this
+  transparently named external certificate, that every residual solution
+  with `T>1` has `3` not dividing its unit index.  Lean proves the
+  substitution, finite filter, growth and composition and accepts integral-
+  point completeness only as an explicit hypothesis.  For the prime-five
+  curve `y^2=64*T^5-80*T^3+20*T+5`, the displayed ordinary genus-two run
+  returned Jacobian rank bound `2`, equal to the genus, and the point-
+  completeness flag `all_known=false`; hence that run does not close `p=5`,
+  and the uniform prime-index proposition remains open
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -1225,6 +1267,17 @@ untilts or arithmetic holomorphic structures.
   nonmaximal-order index.  The audited AGM/Landen identities merely move the
   full height among real contraction, reciprocal conjugates and order
   conductors; the critical period bound is itself of Goldfeld/abc strength
+- the pointwise Pell square-base estimate `log(y_n)=o(H_n)`, equivalently
+  `log(A_n)>=(1-o(1))*H_n` for `c_n=A_n*y_n^2`.  Accepted radical,
+  primitive-divisor, fixed-multiplier squareclass, Tatuzawa, class-number,
+  ring-class and generic regulator results have now been checked with their
+  exact quantifiers and stop at polynomial growth of `A_n`.  In the related
+  four-consecutive unit-index reduction, Chebyshev index three is eliminated
+  by the complete integral-point calculation on 216a1; what remains is the
+  prime-index statement that `4*T_p(T)+5` is not a square for every odd
+  prime `p>=5` (or its actual `T=23 (mod 24)` specialization), followed even
+  then by a moving square-base radical estimate.  Neither statement is
+  assumed by the current formal package
 - a global height/cancellation theorem for a non-torsion auxiliary selector.
   The local existence problem itself is now solved after degree at most two:
   CRT plus uniform torsion boundedness produces a bounded-abscissa point
