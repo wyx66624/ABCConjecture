@@ -465,6 +465,24 @@
   Pell orbit, doubled recurrence, consecutive identities and characteristic
   polynomial; asymptotics, toric factorization and recurrence radical bounds
   remain paper mathematics
+- the Pell first-hit and lifting refinement.  Every odd prime in the same
+  pair `b_n*c_n` has both `2` and `3` as quadratic residues, hence is
+  congruent to `+1` or `-1` modulo `24` and splits completely in
+  `Q(sqrt(2),sqrt(3))`.  For either toric target its hit indices are exactly
+  two classes `+r,-r` modulo the order of the Pell unit.  On either class the
+  complete valuation is an affine `p`-adic logarithm: it is either constant,
+  or equals `h+v_p(k-kappa)` for one `kappa in Z_p`, so every higher depth is
+  one residue class.  Same-target gcds retain full prime powers in two square
+  Pell carriers, while the cross gcd satisfies
+  `gcd_odd(b_m,c_n) | |B_n-C_m|` for explicit nonzero unit traces.  These are
+  genuine structural restrictions, but a separate finite local model proves
+  that first occurrence, simple roots, unique Hensel classes and disjoint gcd
+  carriers alone are compatible with logarithmic radical and linear size; it
+  is explicitly not an actual Pell counterexample.  The surviving input is a
+  uniform truncated-counting or first-hit-depth theorem for the fixed global
+  units as the prime moves.  Lean checks the toric Bezout/discriminant, trace
+  and scalar radical identities; reciprocity, local fields, `p`-adic logs and
+  the gcd carriers remain paper mathematics
 - the dual two-isogeny short-point reduction.  If a Frey curve has positive
   rank and `R` realizes its first integral Mordell--Weil minimum, then `2*R`
   lies in all three rational dual two-isogeny images and its rational half has
