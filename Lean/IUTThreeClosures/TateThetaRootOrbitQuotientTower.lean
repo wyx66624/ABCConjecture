@@ -236,14 +236,18 @@ theorem baseCycleCoordinate_coverToBase [NeZero ell]
   have hreal :
       ell • (coordinate t ell r x / (ell : ℝ)) =
         coordinate t ell r x := by
-    simp [nsmul_eq_mul, hell]
+    change
+      (ell : ℝ) * (coordinate t ell r x / (ell : ℝ)) =
+        coordinate t ell r x
+    exact mul_div_cancel₀ _ hell
   calc
     ((coordinate t ell r x : ℝ) : UnitAddCircle) =
         ((ell • (coordinate t ell r x / (ell : ℝ)) : ℝ) :
           UnitAddCircle) := by rw [hreal]
     _ = ell •
         ((coordinate t ell r x / (ell : ℝ) : ℝ) : UnitAddCircle) :=
-      AddCircle.coe_nsmul (1 : ℝ)
+      AddCircle.coe_nsmul (p := (1 : ℝ))
+        (n := ell) (x := coordinate t ell r x / (ell : ℝ))
 
 /-- One corrected deck step acts nontrivially on the cover quotient but is
 trivial after projection to the base quotient. -/
@@ -298,6 +302,8 @@ theorem coverCycleCoordinate_residualDeckTranslate
         (((j : ℝ) / (ell : ℝ) : ℝ) : UnitAddCircle)
   rw [coordinate_deckZ, add_div]
   exact AddCircle.coe_add (1 : ℝ)
+    (coordinate t ell r x / (ell : ℝ))
+    ((j : ℝ) / (ell : ℝ))
 
 end TateThetaRootRadialSkeleton
 
