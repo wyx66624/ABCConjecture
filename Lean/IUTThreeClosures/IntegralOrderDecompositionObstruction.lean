@@ -43,21 +43,33 @@ def congruenceOrder (n : ℤ) : Subring (ℤ × ℤ) where
     rcases ha with ⟨r, hr⟩
     rcases hb with ⟨s, hs⟩
     refine ⟨r + s, ?_⟩
-    rw [hr, hs]
-    ring
+    change a.1 + b.1 - (a.2 + b.2) = n * (r + s)
+    calc
+      a.1 + b.1 - (a.2 + b.2) =
+          (a.1 - a.2) + (b.1 - b.2) := by ring
+      _ = n * r + n * s := by rw [hr, hs]
+      _ = n * (r + s) := by ring
   neg_mem' := by
     intro a ha
     rcases ha with ⟨r, hr⟩
     refine ⟨-r, ?_⟩
-    rw [hr]
-    ring
+    change -a.1 - -a.2 = n * -r
+    calc
+      -a.1 - -a.2 = -(a.1 - a.2) := by ring
+      _ = -(n * r) := by rw [hr]
+      _ = n * -r := by ring
   mul_mem' := by
     intro a b ha hb
     rcases ha with ⟨r, hr⟩
     rcases hb with ⟨s, hs⟩
     refine ⟨a.1 * s + b.2 * r, ?_⟩
-    rw [hr, hs]
-    ring
+    change a.1 * b.1 - a.2 * b.2 =
+      n * (a.1 * s + b.2 * r)
+    calc
+      a.1 * b.1 - a.2 * b.2 =
+          a.1 * (b.1 - b.2) + b.2 * (a.1 - a.2) := by ring
+      _ = a.1 * (n * s) + b.2 * (n * r) := by rw [hr, hs]
+      _ = n * (a.1 * s + b.2 * r) := by ring
 
 @[simp]
 theorem mem_congruenceOrder_iff (n : ℤ) (x : ℤ × ℤ) :

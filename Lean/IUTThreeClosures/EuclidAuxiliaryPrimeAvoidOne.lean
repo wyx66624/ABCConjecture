@@ -59,30 +59,35 @@ theorem secondStageProduct_pos
 theorem euclidAuxiliaryPrimeAvoidOne_prime
     {B N p : ℕ} (hN : 0 < N) :
     Nat.Prime (euclidAuxiliaryPrimeAvoidOne B N p) := by
-  unfold euclidAuxiliaryPrimeAvoidOne
-  split_ifs
-  · exact euclidAuxiliaryPrime_prime (secondStageProduct_pos hN)
-  · exact euclidAuxiliaryPrime_prime hN
+  by_cases hfirst : euclidAuxiliaryPrime B N = p
+  · simp only [euclidAuxiliaryPrimeAvoidOne, hfirst, if_pos]
+    exact euclidAuxiliaryPrime_prime
+      (secondStageProduct_pos (B := B) hN)
+  · simp only [euclidAuxiliaryPrimeAvoidOne, hfirst, if_neg]
+    exact euclidAuxiliaryPrime_prime hN
 
 /-- The two-stage selector remains above the original threshold. -/
 theorem threshold_lt_euclidAuxiliaryPrimeAvoidOne
     {B N p : ℕ} (hN : 0 < N) :
     B < euclidAuxiliaryPrimeAvoidOne B N p := by
-  unfold euclidAuxiliaryPrimeAvoidOne
-  split_ifs
-  · exact threshold_lt_euclidAuxiliaryPrime
-      (secondStageProduct_pos hN)
-  · exact threshold_lt_euclidAuxiliaryPrime hN
+  by_cases hfirst : euclidAuxiliaryPrime B N = p
+  · simp only [euclidAuxiliaryPrimeAvoidOne, hfirst, if_pos]
+    exact threshold_lt_euclidAuxiliaryPrime
+      (secondStageProduct_pos (B := B) hN)
+  · simp only [euclidAuxiliaryPrimeAvoidOne, hfirst, if_neg]
+    exact threshold_lt_euclidAuxiliaryPrime hN
 
 /-- The two-stage selector avoids the original product `N`. -/
 theorem euclidAuxiliaryPrimeAvoidOne_not_dvd
     {B N p : ℕ} (hN : 0 < N) :
     ¬ euclidAuxiliaryPrimeAvoidOne B N p ∣ N := by
-  unfold euclidAuxiliaryPrimeAvoidOne
-  split_ifs
-  · exact euclidAuxiliaryPrime_not_dvd_of_dvd
-      (secondStageProduct_pos hN) (dvd_mul_right N (euclidAuxiliaryNumber B N))
-  · exact euclidAuxiliaryPrime_not_dvd hN
+  by_cases hfirst : euclidAuxiliaryPrime B N = p
+  · simp only [euclidAuxiliaryPrimeAvoidOne, hfirst, if_pos]
+    exact euclidAuxiliaryPrime_not_dvd_of_dvd
+      (secondStageProduct_pos (B := B) hN)
+      (dvd_mul_right N (euclidAuxiliaryNumber B N))
+  · simp only [euclidAuxiliaryPrimeAvoidOne, hfirst, if_neg]
+    exact euclidAuxiliaryPrime_not_dvd hN
 
 /-- The selected prime is distinct from the additionally excluded prime. -/
 theorem euclidAuxiliaryPrimeAvoidOne_ne
@@ -112,9 +117,11 @@ theorem euclidAuxiliaryNumber_le_avoidOneBound
     {B N : ℕ} (hN : 0 < N) :
     euclidAuxiliaryNumber B N ≤ euclidAvoidOneBound B N := by
   unfold euclidAuxiliaryNumber euclidAvoidOneBound
-  have hfac : 0 < B.factorial := Nat.factorial_pos B
-  have hprod : 0 < B.factorial * N := Nat.mul_pos hfac hN
-  nlinarith
+  apply Nat.add_le_add_right
+  calc
+    B.factorial * N = B.factorial * N * 1 := by simp
+    _ ≤ B.factorial * N * (B.factorial * N + 1) :=
+      Nat.mul_le_mul_left _ (by omega)
 
 /-- Explicit polynomial upper bound for the two-stage selector. -/
 theorem euclidAuxiliaryPrimeAvoidOne_le
@@ -123,7 +130,9 @@ theorem euclidAuxiliaryPrimeAvoidOne_le
   unfold euclidAuxiliaryPrimeAvoidOne
   by_cases hfirst : euclidAuxiliaryPrime B N = p
   · simp only [hfirst, if_pos]
-    have hle := euclidAuxiliaryPrime_le (secondStageProduct_pos hN)
+    have hle := euclidAuxiliaryPrime_le
+      (B := B) (N := N * euclidAuxiliaryNumber B N)
+      (secondStageProduct_pos (B := B) hN)
     simpa [euclidAuxiliaryNumber, euclidAvoidOneBound,
       Nat.mul_assoc] using hle
   · simp only [hfirst, if_neg]

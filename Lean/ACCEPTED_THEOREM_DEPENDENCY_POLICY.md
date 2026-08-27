@@ -1,6 +1,6 @@
 # Accepted-theorem dependency policy
 
-Author: ChatGPT  
+Author: ChatGPT
 Effective date: 2026-08-27
 
 ## Purpose

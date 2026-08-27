@@ -83,7 +83,8 @@ theorem prime_dvd_euclidAuxiliaryNumber_not_dvd_right
     Nat.dvd_iff_mod_eq_zero.mp hNdiv
   have hAmod_one : euclidAuxiliaryNumber B N % ell = 1 := by
     unfold euclidAuxiliaryNumber
-    simp [Nat.add_mod, Nat.mul_mod, hNmod, hell.one_lt]
+    simp [Nat.add_mod, Nat.mul_mod, hNmod,
+      Nat.mod_eq_of_lt hell.one_lt]
   omega
 
 /-- Any prime divisor of `B! * N + 1` is coprime to `B!`. -/
@@ -99,7 +100,8 @@ theorem prime_dvd_euclidAuxiliaryNumber_not_dvd_factorial
     Nat.dvd_iff_mod_eq_zero.mp hFdiv
   have hAmod_one : euclidAuxiliaryNumber B N % ell = 1 := by
     unfold euclidAuxiliaryNumber
-    simp [Nat.add_mod, Nat.mul_mod, hFmod, hell.one_lt]
+    simp [Nat.add_mod, Nat.mul_mod, hFmod,
+      Nat.mod_eq_of_lt hell.one_lt]
   omega
 
 /-- The selected auxiliary prime avoids the forbidden product. -/

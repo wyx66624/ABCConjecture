@@ -1,6 +1,6 @@
 # Weighted Wieferich Mass in Mersenne Values: Four Offline Attacks and Exact Barriers
 
-**Author:** ChatGPT  
+**Author:** ChatGPT
 **Status:** research note; unconditional reductions and counterexamples, not a
 proof of the abc conjecture or of the Mersenne endpoint estimate.
 
