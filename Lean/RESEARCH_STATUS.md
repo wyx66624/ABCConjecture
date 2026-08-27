@@ -1185,16 +1185,24 @@ boundary-ramification and global GenEll/Belyi height package.
   to `ABCConjecture`, with only the universal additive loss `log 2`; likewise,
   the critical uniform radical bound for the actual Frey `j`-height is
   equivalent to `ABCConjecture` through the proved two-sided height corridor.
+  There is also a bounded-fibre map from every primitive abc triple to the
+  fixed split conic of primitive Pythagorean triples; the critical bound
+  `2*log Z <= (1+epsilon)*log rad(X*Y*Z)+O_epsilon(1)` on that conic is again
+  equivalent to `ABCConjecture`.  In the standard rational parameter it is
+  exactly the coefficient-four truncated estimate for the six points
+  `0,infinity,+-1,+-i`, so it is an exact reformulation rather than an accepted
+  shortcut.
   A finite catalogue of fixed Pell orbits with uniformly bounded fibres and
   output logarithmic height `O(log c)` cannot encode all primitive triples:
   the endpoint family `(n,1,n+1)` has `N` sources but only `O(log N)` targets
-  in those fixed height balls.  The honest squarebase reduction for a general
-  triple is instead the moving identity `A*u^2+B*v^2=C*w^2`; for `A*C>1` its
-  quadratic field and norm coefficient move, while `A*C=1` is a split
-  quadratic étale degeneration.  This retires only fixed-orbit and hidden-
-  coefficient global bridges, not a genuinely uniform moving-coefficient
-  Pell or elliptic theorem.  Lean checks the selector and Frey equivalences
-  and both squarebase scalar identities without assuming abc.
+  in those fixed height balls.  A second natural sufficient interface is the
+  moving squarebase identity `A*u^2+B*v^2=C*w^2`; for `A*C>1` its quadratic
+  field and norm coefficient move, while `A*C=1` is a split quadratic etale
+  degeneration.  These statements retire finite fixed-Pell catalogues and
+  hidden-coefficient bridges, not every possible arithmetic construction.
+  Lean checks the selector and Frey equivalences, the Pythagorean scalar and
+  coefficient ledgers, and both squarebase scalar identities without assuming
+  abc.
 - Direct absorption cannot remove either a fixed positive multiple of
   `log rad`, a fixed positive power of the largest support prime in a
   logarithmic-height bound, or a product of two independently growing

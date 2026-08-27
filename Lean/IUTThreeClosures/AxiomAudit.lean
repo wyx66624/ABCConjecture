@@ -939,3 +939,7 @@ end IUTThreeClosures.ConcreteFermatBelyiRamification.TripodCertificate
 #print axioms IUTThreeClosures.abcConjecture_iff_uniformFreyJRadicalBound
 #print axioms IUTThreeClosures.squarebase_pell_scalar_identity
 #print axioms IUTThreeClosures.squarebase_split_AC_one_scalar_identity
+#print axioms IUTThreeClosures.pythagoreanMap_identity
+#print axioms IUTThreeClosures.pythagoreanOddOddNormalized_identity
+#print axioms IUTThreeClosures.pythagoreanCritical_scalar_transfer
+#print axioms IUTThreeClosures.pythagorean_eta_rescaling

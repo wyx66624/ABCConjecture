@@ -20,6 +20,9 @@ structure field.
 * A uniform radical bound for the actual normalized height of the Frey
   `j`-invariant is equivalent to `ABCConjecture`, by the already proved
   `FreyJHeightCorridor` inequalities.
+* The integral Pythagorean map, its odd--odd normalization, and the exact
+  `eta = epsilon / (4 + 3 * epsilon)` coefficient transfer are checked
+  directly.  No Pythagorean radical estimate is assumed.
 * The squarebase ternary equation gives the Pell scalar identity, while the
   degenerate case `A*C=1` over positive natural coefficients gives the split
   factorization `(w+u)(w-u)=B*v^2`.
@@ -177,6 +180,64 @@ theorem abcConjecture_iff_uniformFreyJRadicalBound :
     ABCConjecture ↔ UniformFreyJRadicalBound :=
   ⟨uniformFreyJRadicalBound_of_abc,
     abc_of_uniformFreyJRadicalBound⟩
+
+/-! ## The fixed Pythagorean conic and its scalar coefficient ledger -/
+
+/-- The integral map used in the fixed split-conic reduction. -/
+theorem pythagoreanMap_identity (a b : ℤ) :
+    (a ^ 2 - b ^ 2) ^ 2 + (2 * a * b) ^ 2 =
+      (a ^ 2 + b ^ 2) ^ 2 := by
+  ring
+
+/-- If `a = 2*m+1` and `b = 2*n+1`, division of the usual Pythagorean
+triple by its exact common factor two gives these integral coordinates. -/
+theorem pythagoreanOddOddNormalized_identity (m n : ℤ) :
+    (2 * (m - n) * (m + n + 1)) ^ 2 +
+        ((2 * m + 1) * (2 * n + 1)) ^ 2 =
+      (2 * m ^ 2 + 2 * m + 2 * n ^ 2 + 2 * n + 1) ^ 2 := by
+  ring
+
+/-- The scalar heart of the converse Pythagorean transfer.  `H` is the
+source height, `R` its radical count, `Z` the logarithmic Pythagorean
+hypotenuse, `N` the target radical count, and `K` collects the universal
+bounded errors.  The hypotheses encode
+`4*H-K <= 2*Z`, `N <= R+3*H+K`, and the critical target estimate. -/
+theorem pythagoreanCritical_scalar_transfer
+    (H R N Z η C K : ℝ)
+    (hη : 0 ≤ η)
+    (hZlower : 4 * H - K ≤ 2 * Z)
+    (hNupper : N ≤ R + 3 * H + K)
+    (hcritical : 2 * Z ≤ (1 + η) * N + C) :
+    (1 - 3 * η) * H ≤
+      (1 + η) * R + (2 + η) * K + C := by
+  have hone : 0 ≤ 1 + η := by linarith
+  have hscaled := mul_le_mul_of_nonneg_left hNupper hone
+  have hchain :
+      4 * H - K ≤ (1 + η) * (R + 3 * H + K) + C := by
+    calc
+      4 * H - K ≤ 2 * Z := hZlower
+      _ ≤ (1 + η) * N + C := hcritical
+      _ ≤ (1 + η) * (R + 3 * H + K) + C := by linarith
+  nlinarith
+
+/-- The parameter substitution in Proposition 4A.1 is positive, leaves a
+positive denominator, and changes the recovered coefficient exactly to
+`1 + epsilon`. -/
+theorem pythagorean_eta_rescaling (ε : ℝ) (hε : 0 < ε) :
+    let η := ε / (4 + 3 * ε)
+    0 < η ∧ η < 1 / 3 ∧ 0 < 1 - 3 * η ∧
+      (1 + η) / (1 - 3 * η) = 1 + ε := by
+  dsimp only
+  have hden : 0 < 4 + 3 * ε := by nlinarith
+  have hηpos : 0 < ε / (4 + 3 * ε) := div_pos hε hden
+  have hηlt : ε / (4 + 3 * ε) < (1 : ℝ) / 3 := by
+    rw [div_lt_iff₀ hden]
+    nlinarith
+  have hgap : 0 < 1 - 3 * (ε / (4 + 3 * ε)) := by
+    nlinarith
+  refine ⟨hηpos, hηlt, hgap, ?_⟩
+  field_simp [ne_of_gt hden, ne_of_gt hgap]
+  ring
 
 /-! ## Squarebase and split scalar identities -/
 

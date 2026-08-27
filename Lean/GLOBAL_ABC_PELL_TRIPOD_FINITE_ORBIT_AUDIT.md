@@ -24,7 +24,7 @@ that an accepted theorem on the target recovers
 \]
 
 The audit finds no such non-circular accepted bridge.  It gives four precise
-reasons.
+obstructions and one exact fixed split-conic equivalence.
 
 1. The rational tripod is a lossless global coordinate, but its required
    uniform height estimate is exactly equivalent to `abc`.
@@ -34,16 +34,23 @@ reasons.
 3. A finite catalogue of fixed Pell orbits cannot encode all primitive triples
    with bounded fibres and linear logarithmic-height distortion.  The endpoint
    family `(n,1,n+1)` gives an elementary counting contradiction.
-4. The Frey construction is global, but the critical `j`-height/conductor
+4. There is a bounded-fibre global map to the fixed split conic of primitive
+   Pythagorean triples.  However, the critical radical estimate on that conic
+   is again exactly equivalent to `abc`; in a rational parameter it is the
+   critical six-factor truncated-counting estimate.
+5. The Frey construction is global, but the critical `j`-height/conductor
    inequality on the Frey locus is also exactly equivalent to `abc`.  Division,
    Kummer, or bounded-abscissa selectors move the missing source height into a
    branch discriminant, twist conductor, or complementary local-height term.
 
-Thus, within the Pell/tripod/elliptic architectures audited below, the
-smallest surviving possibility is not a fixed Pell/CAS certificate.  It is a
-**moving-coefficient** Pell or elliptic certificate, uniform in the
-coefficients and with total new conductor/discriminant cost `o(log c)`.
-Establishing the target inequality for such certificates would be new global
+Thus, within the Pell/tripod/elliptic architectures audited below, two explicit
+sufficient interfaces left open by this audit are a **moving-coefficient**
+Pell or elliptic certificate whose total net cost is small enough to preserve
+coefficient one (for example `o(log c)`), and a fixed split-conic certificate
+carrying the critical six-factor truncated estimate of Section 4A.  This list
+is not asserted to exhaust every possible arithmetic construction.  The
+split-conic estimate is already equivalent to `abc`, rather than an accepted
+shortcut.  Establishing either displayed target inequality would be new global
 arithmetic content; no accepted theorem located in this audit supplies it.
 
 ## 1. A canonical lossless elementary global coordinate
@@ -331,6 +338,160 @@ genus-at-least-two curve has only finitely many rational points.  A fixed
 rational curve has enough points, but then one is back on `P^1`, where the
 tripod-support rigidity of Section 3 applies.
 
+## 4A. A fixed split-conic equivalence: Pythagorean `abc`
+
+Proposition 4.1 excludes a finite union of exponential-index Pell orbits.  It
+does not exclude a fixed rational conic, whose rational points have enough
+height entropy.  In fact there is a loss-controlled global map to the fixed
+Pythagorean conic.  The exact estimate required there is nevertheless another
+form of `abc`.
+
+Define **Pythagorean `abc`** to be the assertion that for every
+\(\varepsilon>0\) there is a constant \(C_\varepsilon\) such that every
+positive primitive Pythagorean triple
+
+\[
+ X^2+Y^2=Z^2,
+ \qquad \gcd(X,Y)=1,
+\]
+
+satisfies
+
+\[
+ 2\log Z\le(1+\varepsilon)
+   \log\operatorname {rad}(XYZ)+C_\varepsilon.       \tag{PT}
+\]
+
+### Proposition 4A.1
+
+`(PT)` is equivalent to the logarithmic `abc` conjecture.
+
+### Proof
+
+If `abc` holds, apply it to the primitive triple
+
+\[
+ X^2+Y^2=Z^2.
+\]
+
+Its radical is exactly \(\operatorname {rad}(XYZ)\), so `(PT)` follows.
+
+Conversely, let \(a+b=c\) be a positive primitive triple.  If \(a=b\), then
+coprimality forces \((a,b,c)=(1,1,2)\), which is absorbed in the final
+constant.  Otherwise put
+
+\[
+ d=\begin{cases}
+ 1,&a,b\text{ have opposite parity},\\
+ 2,&a,b\text{ are both odd},
+ \end{cases}
+\]
+
+and define
+
+\[
+ X={|a^2-b^2|\over d},\qquad
+ Y={2ab\over d},\qquad
+ Z={a^2+b^2\over d}.                                \tag{4A.1}
+\]
+
+Since \(a,b\) are coprime, they cannot both be even.  The standard identity
+
+\[
+ (a^2-b^2)^2+(2ab)^2=(a^2+b^2)^2                 \tag{4A.2}
+\]
+
+shows that (4A.1) is a Pythagorean triple.  It is primitive: before division,
+every common divisor of \(a^2-b^2\) and \(a^2+b^2\) divides `2`, while a
+prime common to \(ab\) and either sum or difference would divide both \(a\)
+and \(b\).  In the odd--odd case division by the exact common factor `2`
+leaves coprime coordinates.  The usual uniqueness of primitive Pythagorean
+parameters, together with the two parity branches above, also makes this map
+uniformly finite-to-one.
+
+Put
+
+\[
+ H=\log c,
+ \qquad R=\log\operatorname {rad}(abc).
+\]
+
+The elementary size and support ledgers are
+
+\[
+ Z\ge {c^2\over4},                                  \tag{4A.3}
+\]
+
+and
+
+\[
+ \begin{aligned}
+ \operatorname {rad}(XYZ)
+ &\le2\operatorname {rad}(abc)
+       |a-b|(a^2+b^2)\\
+ &\le2\operatorname {rad}(abc)c^3.                 \tag{4A.4}
+ \end{aligned}
+\]
+
+Indeed, the prime support of `XYZ` is contained in that of
+\(2abc(a-b)(a^2+b^2)\); division by `d` can only remove primes.  Apply `(PT)`
+with a parameter \(0<\eta<1/3\).  Equations (4A.3)--(4A.4) give
+
+\[
+ 4H-\log16
+ \le2\log Z
+ \le(1+\eta)(R+3H+\log2)+C_\eta,
+\]
+
+and hence
+
+\[
+ (1-3\eta)H\le(1+\eta)R+O_\eta(1).                \tag{4A.5}
+\]
+
+For a prescribed \(\varepsilon>0\), take
+
+\[
+ \eta={\varepsilon\over4+3\varepsilon}.
+\]
+
+Then \(0<\eta<1/3\) and
+
+\[
+ {1+\eta\over1-3\eta}=1+\varepsilon.              \tag{4A.6}
+\]
+
+Dividing (4A.5) by \(1-3\eta\) proves `abc`.  \(\square\)
+
+This equivalence identifies the exact fixed-conic cost.  Write a primitive
+Pythagorean triple in the usual form
+
+\[
+ X=m^2-n^2,\qquad Y=2mn,\qquad Z=m^2+n^2.
+\]
+
+After base change to \(\mathbf Q(i)\), its prime support is that of the six
+geometric factors
+
+\[
+ 2mn(m-n)(m+n)(m-in)(m+in),                       \tag{4A.7}
+\]
+
+or, over \(\mathbf Q\), of
+\(2mn(m-n)(m+n)(m^2+n^2)\).  On the parameter line the reduced geometric
+divisor is
+
+\[
+ [0]+[\infty]+[1]+[-1]+[i]+[-i].                 \tag{4A.8}
+\]
+
+Moreover \(2\log Z=4h(m:n)+O(1)\).  Thus `(PT)` is precisely the
+coefficient \(6-2=4\) truncated-counting estimate for this six-point divisor.
+The conic is fixed and split, but the needed theorem is still at the critical
+`abc` coefficient.  This does not contradict Proposition 4.1: a rational
+conic is not a finite union of exponential-index Pell orbits, and has far more
+points in logarithmic-height balls.
+
 ## 5. What the universal squarebase/Pellization actually produces
 
 Every triple has unique decompositions
@@ -484,8 +645,10 @@ alter this conclusion by formal averaging.  The repository audits show:
 
 An unbounded adaptive selector is not logically ruled out, but it would need
 a new theorem showing simultaneously that the retained local-height mass is
-large and that all branch-field, twist-conductor, and archimedean losses are
-`o(log c)`.  No accepted theorem found in this audit provides that package.
+large and that the net contribution of all branch-field, twist-conductor, and
+archimedean losses is absorbable in the `epsilon`-budget; an `o(log c)` total
+loss would suffice.  No accepted theorem found in this audit provides that
+package.
 
 ## 7. The repository's bridge types are conclusions, not inputs
 
@@ -562,11 +725,14 @@ Accordingly, accepted literature supplies several correct conditional
 reductions and many fixed-family theorems, but no non-circular uniform
 coefficient-one estimate for the moving data above.
 
-## 9. Minimal surviving global theorem
+## 9. One sufficient surviving global interface
 
-A bridge within the global Pell/elliptic architectures audited here would
-need to provide, for every primitive point `P`, target data `Q(P)` with all of
-the following properties.
+Section 4A leaves one fixed-coefficient possibility: prove the critical
+six-factor estimate `(PT)` on the split Pythagorean conic.  Proposition 4A.1
+shows exactly that this is an equivalent formulation of `abc`, not a weaker
+accepted theorem.  One sufficient template for a genuinely moving
+Pell/elliptic bridge would instead provide, for every primitive point `P`,
+target data `Q(P)` with all of the following properties.
 
 1. **Inverse height:**
 
@@ -582,16 +748,19 @@ the following properties.
       \le R(P)+o(H(P))+O(1).                        \tag{9.2}
    \]
 
-3. **Uniformity:** all theorem constants are independent of the moving Pell
-   discriminant, norm coefficient, Frey curve, Mordell--Weil rank, and prime
-   support.
+3. **Budgeted dependence:** every dependence on the moving Pell discriminant,
+   norm coefficient, Frey curve, Mordell--Weil rank, and prime support is
+   explicitly included in (9.1)--(9.2) or in the allowed
+   `O_epsilon(1)` term; no input-dependent constant is left unbudgeted.
 4. **Critical target slope:** after multiplying (9.1) by the target estimate,
    the coefficient of `R(P)` is at most `1+epsilon`.
 
 If (9.1)--(9.2) and the critical target estimate are proved, their composition
 is a valid proof of `abc`.  Omitting any moving coefficient or treating a
-fixed-family constant as uniform is precisely where the natural candidate
-reductions lose the coefficient.
+fixed-family constant as uniform is precisely where those natural candidate
+reductions lose the coefficient.  The fixed split-conic alternative avoids
+moving coefficients only by retaining the full critical six-point truncated
+count.
 
 Within the rational-tripod/counting strategy, a different sufficient theorem
 is the following anchored proliferation bound.  For a finite prime set
@@ -625,7 +794,10 @@ Lean targets after this paper audit is independently checked.
 4. Define the uniform Frey `j`-radical bound `(FJ)` and prove it equivalent to
    `ABCConjecture` from the existing `FreyJHeightCorridor` lemmas
    (Proposition 6.1).
-5. Formalize Proposition 4.1 first for abstract sequences satisfying
+5. Record the two integral Pythagorean identities (including the odd--odd
+   normalization) and the scalar transfer (4A.5)--(4A.6).  A full formal
+   `(PT)` equivalence additionally requires the natural-radical support ledger.
+6. Formalize Proposition 4.1 first for abstract sequences satisfying
    `h(Q_{j,k}) >= alpha_j |k|-beta_j`; instantiate Pell orbits only after an
    appropriate Pell API is available.
 
