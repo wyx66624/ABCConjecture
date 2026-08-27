@@ -146,7 +146,8 @@ theorem point_conductor_le (L : LowRadicalNeighbourBudget D) :
   unfold ABCPoint.conductor
   have hpos :
       0 < ((abcRadical (D.point.a * D.point.b * D.point.c) : ℕ) : ℝ) := by
-    exact_mod_cast abcRadical_pos (D.point.a * D.point.b * D.point.c)
+    exact_mod_cast
+      (abcRadical_pos (D.point.a * D.point.b * D.point.c))
   have hle :
       ((abcRadical (D.point.a * D.point.b * D.point.c) : ℕ) : ℝ) ≤
         (L.H * L.B * L.R : ℝ) := by
