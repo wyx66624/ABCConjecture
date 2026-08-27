@@ -259,6 +259,16 @@ import IUTThreeClosures.EtaOrbitMinimalGap
 import IUTThreeClosures.JoshiArithmeticTeichmullerAudit
 import IUTThreeClosures.TorsionLineEnergyNoGo
 
+-- Verified cloud branches that were previously absent from the default target.
+import IUTThreeClosures.LegendreSimultaneousSelector
+import IUTThreeClosures.FixedCurvePerfectPowerGapBudget
+import IUTThreeClosures.PerfectPowerGapGenusBarrier
+import IUTThreeClosures.PolynomialPerfectPowerGapBudget
+import IUTThreeClosures.BelyiAmplificationBarrier
+import IUTThreeClosures.WeightedThreeFlagSemistability
+import IUTThreeClosures.ProjectivePacketProductFormula
+import IUTThreeClosures.ProjectiveHodgeTwistNoGo
+
 -- Fully compile the repaired integer deck action and its quotient tower.
 import IUTThreeClosures.TateThetaRootOrbitQuotientTower
 

@@ -45,7 +45,6 @@ theorem packetAverage_add_const
   rw [Finset.sum_add_distrib]
   simp only [Finset.sum_const, Finset.card_univ, nsmul_eq_mul]
   field_simp [hcard]
-  ring
 
 /-- Every centered coordinate is invariant under a common scalar shift. -/
 theorem centeredPacketCoordinate_add_const

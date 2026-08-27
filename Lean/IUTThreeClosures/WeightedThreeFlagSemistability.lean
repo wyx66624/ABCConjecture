@@ -26,7 +26,16 @@ theorem sum_le_two_mul
     (ha : 0 < a) (hb : 0 < b)
     (h : a + b = c) :
     c ≤ 2 * a * b := by
-  omega
+  have ha1 : 1 ≤ a := ha
+  have hb1 : 1 ≤ b := hb
+  have hleft : a ≤ a * b := by
+    simpa using Nat.mul_le_mul_left a hb1
+  have hright : b ≤ a * b := by
+    simpa [Nat.mul_comm] using Nat.mul_le_mul_left b ha1
+  rw [← h]
+  calc
+    a + b ≤ a * b + a * b := Nat.add_le_add hleft hright
+    _ = 2 * a * b := by ring
 
 /-- If both legs are at least two, then `a+b <= ab`. -/
 theorem sum_le_mul_of_two_le
@@ -34,7 +43,17 @@ theorem sum_le_mul_of_two_le
     (ha : 2 ≤ a) (hb : 2 ≤ b)
     (h : a + b = c) :
     c ≤ a * b := by
-  omega
+  rw [← h]
+  by_cases hab : a ≤ b
+  · calc
+      a + b ≤ b + b := Nat.add_le_add_right hab b
+      _ = 2 * b := by ring
+      _ ≤ a * b := Nat.mul_le_mul_right b ha
+  · have hba : b ≤ a := Nat.le_of_lt (Nat.lt_of_not_ge hab)
+    calc
+      a + b ≤ a + a := Nat.add_le_add_left hba a
+      _ = a * 2 := by ring
+      _ ≤ a * b := Nat.mul_le_mul_left a hb
 
 /-- Logarithmic form of the uniform defect `log c <= log a + log b + log 2`. -/
 theorem log_sum_le_log_mul_add_log_two
@@ -49,10 +68,11 @@ theorem log_sum_le_log_mul_add_log_two
   have hposa : (0 : ℝ) < a := by exact_mod_cast ha
   have hposb : (0 : ℝ) < b := by exact_mod_cast hb
   have hlog := Real.log_le_log (by exact_mod_cast hc) hmul
-  rw [Real.log_mul (by positivity : (2 : ℝ) ≠ 0)
-      (by positivity : (a : ℝ) * b ≠ 0),
-    Real.log_mul (ne_of_gt hposa) (ne_of_gt hposb)] at hlog
-  simpa [add_assoc] using hlog
+  rw [Real.log_mul
+      (mul_ne_zero (ne_of_gt hpos2) (ne_of_gt hposa))
+      (ne_of_gt hposb),
+    Real.log_mul (ne_of_gt hpos2) (ne_of_gt hposa)] at hlog
+  simpa [add_comm, add_left_comm, add_assoc] using hlog
 
 /-- Exact semistability away from the unit-leg cases. -/
 theorem log_sum_le_log_mul_of_two_le

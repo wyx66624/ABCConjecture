@@ -67,7 +67,8 @@ theorem weighted_sum_packetAveragePF_eq_zero
                   ∑ v : ν, ∑ i : ι, weight v * x v i := by
                     apply Finset.sum_congr rfl
                     intro v _hv
-                    exact Finset.mul_sum weight (fun i : ι => x v i) Finset.univ
+                    simpa using
+                      (Finset.mul_sum Finset.univ (fun i : ι => x v i) (weight v))
               _ = ∑ i : ι, ∑ v : ν, weight v * x v i := by
                     rw [Finset.sum_comm]
     _ = 0 := by simp [hProduct]

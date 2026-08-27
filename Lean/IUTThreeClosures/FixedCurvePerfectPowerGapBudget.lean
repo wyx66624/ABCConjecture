@@ -60,8 +60,7 @@ theorem fixedCurvePerfectPowerGap_exponent_budget
       _ ≤ θ * D + G := by linarith
       _ = D * (θ + G / D) := by
         field_simp [ne_of_gt hD]
-        ring
-  exact (mul_le_mul_left hD).mp hmul
+  nlinarith [hmul]
 
 /-- Square--cube specialization with a fixed curve/genus error. -/
 theorem fixedCurveSquareCubeGap_degree_lower_bound

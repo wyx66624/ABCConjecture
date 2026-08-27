@@ -62,7 +62,7 @@ theorem polynomialPerfectPowerGap_exponent_lower_bound
       D * (1 - 1 / m - 1 / n) ≤ z := hgap
       _ ≤ θ * D := hz
       _ = D * θ := by ring
-  exact (mul_le_mul_left hD).mp hmul
+  nlinarith [hmul]
 
 /-- Square--cube specialization of the Mason degree threshold. -/
 theorem squareCubePolynomialGap_degree_lower_bound
