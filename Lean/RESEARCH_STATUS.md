@@ -902,12 +902,49 @@ critical input behind a definition or opaque interface.
   exact order-`2*p` eigenvalue can likewise satisfy all required quadratic
   splitting and residual equations.  These are local method barriers, not
   global Pell points.  On the positive side, fundamental-unit minimality
-  gives the exact necessary inequality `(3*A*B+1)^11 <= Z^2` for `p>=11`;
-  any accepted pointwise lower bound in the opposite direction would close
-  this branch, but the audited squarefree-kernel literature remains far
-  below that `4/11` threshold.  Lean checks the full scalar local blocks and
-  the division-free threshold implication; finite-field permutation,
-  Hensel lifting and Dirichlet remain explicitly cited accepted inputs
+  gives the general necessary power inequality, and the active range
+  `p>=31` sharpens it to `(3*A*B+1)^31 <= Z^2`.  The actual
+  four-consecutive residues `A=22 (mod 24)` and `B=23 (mod 24)` force
+  `A*B>=506`; together with `Z^2<(b+2)^4`, exact integer comparison gives
+  the unconditional height floor `b+2>4*10^24`.  This removes a huge finite
+  initial segment but does not give a uniform exclusion; the audited
+  squarefree-kernel literature remains below the required `4/31` scale.
+  Lean checks the full scalar local blocks, the generalized division-free
+  threshold, the active residue product floor and the exact height
+  comparison; finite-field permutation, Hensel lifting and Dirichlet remain
+  explicitly cited accepted inputs
+- the fixed-five and primitive-divisor refinement of the active prime-index
+  residual.  Every prime `q!=5` in the support of `T_p(X)` satisfies
+  `q=+/-1 (mod 5)`; if `5|T_p(X)`, then its valuation is exactly one.
+  This yields the complete CRT split
+  `X=71 or 119 (mod 120)` off 5 and the two classes `455` or `95 (mod 600)`
+  on the ramified branch.  Class number one of `Q(sqrt(5))` turns every
+  solution into the exact integral norm-composition residual
+  `r^2-5*s^2=4*X`, `u^2-5*v^2=4*H_p(X)`, `r*v+s*u=2`, with parity and
+  positivity.  The BHV primitive-divisor theorem at index `2*p` supplies a
+  prime `q|H_p(X)` with `q=+/-1 (mod 5)` and `4*p|q-1` or `4*p|q+1`, hence
+  `q>=4*p-1`, sharpened to `q>=8*p-1` when `5|X`.  The residue filters,
+  norm-composition algebra, adjacent-square gap, CRT tables and boundary
+  arithmetic are kernel checked; quadratic reciprocity, ideal selection and
+  BHV are explicitly accepted interfaces.  Local examples show that these
+  constraints remain compatible and therefore do not yet close all
+  `p>=31`
+- the exact scalar elimination inside that fixed-five residual.  The three
+  norm/cross equations imply
+  `X*v^2=H*s^2-s*u+1=H*s^2+r*v-1`, the inverse congruences
+  `X*v^2=1 (mod s)` and `H*s^2=1 (mod v)`, and the complete gcd ledger
+  `gcd(s,X)=gcd(v,H)=gcd(s,v)=gcd(r,u)=1`, with both same-factor gcds
+  dividing two.  After fixing one ideal factor and reducing its totally
+  positive generator by the norm-one unit action, the nonsquare target base
+  gives natural coordinates `a=s>=1`, `a^2<X` and `b=-v>=0`.  The exact
+  mixed equation then yields the pointwise square sandwich
+  `X*b^2<a^2*H<X*(b+1)^2`, hence
+  `b=floor(a*sqrt(H/X))`.  Lean kernel-checks the elimination, explicit
+  Bezout certificates, parity gcd argument, `r<2*X`, and the integer
+  sandwich; the unit-orbit normalization and the final real square-root/floor
+  translation remain paper-level interfaces.  This makes each fixed
+  `(X,p)` a finite exact check but supplies no uniform bound on either
+  parameter
 - a uniform, unconditional rank-two lower bound for the prime-index
   Chebyshev Jacobians.  For every odd prime `p != 3`, the two explicit
   half-divisors have descent squareclasses `[a-1]` and `[3*(a+1)]` in
@@ -1141,14 +1178,24 @@ critical input behind a definition or opaque interface.
   the Minkowski factor base through the same `2.66029287224239e15` bound.
   It therefore cannot serve as a ready-made 2-primary shortcut without a new
   odd-cokernel or mod-2 generation theorem.  Finally, the strict prime-31 BDF
-  threshold scan now evaluates the complete formula, not only its degree-one
-  lower sub-sum.  The full margin is strictly negative at `40,000,000` and
-  has certified lower endpoint `0.294405860175708454...>0` at `80,000,000`.
-  Thus the 4,668,356 prime ideals of norm below the latter cutoff generate
-  `Cl(Q(2^(1/31)))`.  No one of those ideals has yet been certified principal,
-  so this is a generation theorem only and not a class-number-one result; the
-  exact scan and trust ledger are in
-  `P31_CHEBYSHEV_BDF_THRESHOLD_SCAN.md`
+  threshold scan evaluates the complete formula, not only its degree-one
+  lower sub-sum.  Its certified lower endpoint at `80,000,000` is
+  `0.294405860175708454...>0`, so the prime ideals below that strict norm
+  cutoff generate `Cl(Q(2^(1/31)))`.  A 16-shard certificate now supplies
+  principal generators for all `4,668,356` such ideals, with independently
+  reconstructed residue-degree counts `{1:4667696,2:600,3:60}`.  The exact
+  verifier constructs no BNF, class group, regulator or unit group and checks
+  complete interval coverage, splitting, ideal membership and resultant
+  norms.  It was rerun during an audited publish recovery and ended with
+  `EXIT_CODE=0`; both earlier exit-1 ledgers and the generation-version GP
+  range-guard syntax diagnostic remain frozen, while verifier-side range and
+  completeness checks remove dependence on that skipped guard.  Consequently
+  the BDF theorem plus finite certificate proves unconditionally, at the
+  accepted-interface boundary, `Cl(Q(2^(1/31)))=1`.  This is not yet a wholly
+  Lean-kernel number-field proof and does not by itself settle the index-31
+  curve.  The exact scan is in `P31_CHEBYSHEV_BDF_THRESHOLD_SCAN.md`, and the
+  principal certificate and trust ledger are in
+  `P31_CL1_BDF_FACTORBASE_ROUTE.md`
 - a new uniform fixed-elliptic reconstruction of every remaining prime-index
   Chebyshev square.  Writing `U=(T+sqrt(T^2-1))^p` sends the equation to the
   fixed conductor-24 curve `Y^2=X*(X+1)*(X+4)`.  Translation by the rational
