@@ -956,6 +956,19 @@ critical input behind a definition or opaque interface.
   reproducible PARI, Magma and Sage certificates without GRH, BSD or `abc`,
   but it deliberately does not eliminate index `17`.  Lean checks the
   displayed half-factor and Frobenius coefficient ledgers only
+- the superseding exact closure of prime Chebyshev index `17`.  Eight proved
+  local divisor classes span the full eight-dimensional dyadic Kummer image;
+  its intersection with the eight-dimensional odd-place survivor has
+  dimension two and is exactly `<D_1,D_9>`.  The formerly omitted `Q_17` and
+  real-place conditions are also checked, so the global 2-Selmer group has
+  dimension two and the Jacobian has rank two.  A saturated modulo-5
+  Coleman--Chabauty calculation then gives the complete rational-point list
+  `{O,(-1,+/-1),(1,+/-3)}` and excludes every integral base `T>1`.  The
+  finite-precision quartic factor is promoted to an exact local squareclass
+  by a Hensel margin `616>34`.  Independent Magma and Sage reruns agree, and
+  no GRH, BSD, `abc`, bounded search or conjectural rank input is used.  Lean
+  checks the exact polynomial and scalar ledgers and keeps the external
+  rational-point certificate as an explicit proposition
 - the odd-place descent at prime indices `19` and `23`.  For `p=19`,
   PARI/GP unconditionally certifies the pure-field class number one, and
   the explicit `S`-supported basis is independently deconditioned by a
