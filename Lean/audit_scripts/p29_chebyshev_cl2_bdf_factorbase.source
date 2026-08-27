@@ -1,0 +1,14 @@
+SOURCE_TITLE=Small generators of the ideal class group
+AUTHORS=Karim Belabas; Francisco Diaz y Diaz; Eduardo Friedman
+PUBLICATION=Mathematics of Computation 77 (2008), 1185-1197
+DOI=10.1090/S0025-5718-07-02003-0
+SOURCE_URL=https://www.math.u-bordeaux.fr/~kbelabas/research/OnBach.pdf
+SOURCE_PDF_SHA256=e619d0f0c52bfddd0316e354d72c1b3b7946d85a1cdcbad05aac990cf911fc78
+SOURCE_LOCATION=Section 5; Theorem 5.1; Corollary 5.2; equations (23)-(24)
+
+AUDITED_STATEMENT:
+For every T>1, if the strict inequality in Corollary 5.2 holds, then the
+classes of all prime ideals of K having norm strictly less than T generate
+the full ideal class group.  Section 5 explicitly drops GRH.  The p29 script
+uses only the positive sub-sum from degree-one prime ideals, with every power
+whose norm is strictly less than T.

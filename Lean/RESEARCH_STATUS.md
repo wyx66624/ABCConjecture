@@ -1073,10 +1073,19 @@ critical input behind a definition or opaque interface.
   generic unconditional certification bounds of
   `2660292872242387` and `2660292872242388`; both runs were manually stopped
   and explicitly record `CERTIFICATE_COMPLETED=false`.  Thus the tentative
-  class number one is not promoted to a theorem.  Directly scaling the
+  class number one is not promoted to a theorem by those runs.  Directly scaling the
   p=23 split-prime explicit formula is predicted to require roughly
-  `1.5*10^9` records, so the priority is a compact unconditional 2-class
-  certificate rather than a literal billion-record clone.  A new paper-level
+  `1.5*10^9` records.  This generic barrier has now been bypassed at the
+  generation stage by Belabas--Diaz y Diaz--Friedman Corollary 5.2.  A
+  256-bit RealBall certificate with strict cutoff `T=40,000,000` has lower
+  margin `0.603060850068841328...>0`, and therefore proves unconditionally
+  that every prime ideal below that norm bound generates the full class
+  group.  The complete factor base has 2,434,953 ideals: 2,434,529 of
+  residue degree one and only 424 of higher residue degree.  A small
+  producer/verifier pilot confirms the exact principal-generator interface;
+  the remaining finite gate is the full relation table, not an uncertified
+  odd cokernel.  The formula gate and provenance are frozen in
+  `P29_CL2_BDF_FACTORBASE_ROUTE.md`.  A separate paper-level
   Galois-module amplification proves that nonzero `Cl(K)[2]` would put a
   28- or 29-dimensional `G`-stable submodule in
   `Hom(Cl(N),F_2)`, where `N=Q(2^(1/29),zeta_29)`: the 29-point permutation
@@ -1097,7 +1106,11 @@ critical input behind a definition or opaque interface.
   formalized in Lean.  The isolated finite fact
   `orderOf (2 : ZMod 29)=28` is now kernel checked in `P29FiniteCore.lean`,
   without `sorryAx` or a `native_decide` axiom; this does not formalize the
-  missing bridges.  The 2026 Chavarri Villarello--Dahmen Lean certificate
+  missing bridges.  The new `P29BDFFactorbaseCore.lean` separately kernel
+  checks the finite-group implication from a generating factor base whose
+  classes are doubles (or zero) to vanishing two-torsion (or a trivial class
+  group); it does not encode BDF as an axiom.  The 2026 Chavarri
+  Villarello--Dahmen Lean certificate
   generator was also audited: its `p`-saturation layer assumes a previously
   certified full generating set, while its current `v1` generator enumerates
   the Minkowski factor base through the same `2.66029287224239e15` bound.

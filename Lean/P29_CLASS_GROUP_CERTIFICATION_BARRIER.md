@@ -74,10 +74,14 @@ by itself prove `Cl(K)[2]=0`.  A new 2-primary generation or odd-cokernel
 certificate would be required before this formal framework becomes practical
 for the present field.
 
-The mathematical consequence is only strategic: two independent
-implementations agree that generic full-class-group certification reaches a
-prime bound around `2.66e15`.  A targeted 2-primary proof, the Galois-module
-upper-bound route in `P29_CL2_GALOIS_MODULE_AMPLIFICATION_AUDIT.md`, or a new
-compact explicit-formula certificate remains necessary.  The subsequently
-audited norm-relation shortcut is recorded, including its sharp rank-one
-term obstruction, in `P29_CL2_NORM_RELATION_AUDIT.md`.
+The mathematical consequence of these two diagnostics is only strategic:
+generic full-class-group certification reaches a prime bound around
+`2.66e15`.  This generic barrier has since been bypassed by the unconditional
+Belabas--Diaz y Diaz--Friedman factor-base criterion.  The certified
+RealBall gate in `P29_CL2_BDF_FACTORBASE_ROUTE.md` lowers the complete
+generation bound to `40,000,000`.  What remains is an exact relation or
+principal-generator certificate for that finite factor base, not a hidden
+odd-cokernel assumption.  The independent Galois-module route and the sharp
+norm-relation no-go remain recorded in
+`P29_CL2_GALOIS_MODULE_AMPLIFICATION_AUDIT.md` and
+`P29_CL2_NORM_RELATION_AUDIT.md` as alternative audits.

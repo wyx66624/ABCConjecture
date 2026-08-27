@@ -73,7 +73,33 @@ possible in principle but is operationally unattractive.  The immediate gate
 is a compact unconditional proof of `Cl(K)[2]=0` (or eventual independent
 full class-group certification), not a billion-record table.
 
-## 2.1 Galois-module amplification of the remaining class-group gate
+### 2.1 Unconditional BDF factor-base gate
+
+The generic Minkowski route is no longer the smallest complete-generation
+interface.  Belabas--Diaz y Diaz--Friedman, Corollary 5.2, gives an
+unconditional criterion for all prime ideals of norm below `T` to generate
+the full class group.  A 256-bit RealBall run at
+
+    T=40,000,000
+
+uses only the positive degree-one-prime sub-sum and has strict lower margin
+
+    0.603060850068841328285187034766... > 0.
+
+It therefore proves, without GRH, that the prime ideals of norm below this
+cutoff generate `Cl(K)`.  The formula, primary-source ledger, frozen
+transcript and checksum manifest are documented in
+`P29_CL2_BDF_FACTORBASE_ROUTE.md`.
+
+The exact splitting law gives 2,434,529 degree-one ideals and only 424
+additional higher-residue-degree ideals under the same strict cutoff, for a
+total factor base of 2,434,953 ideals.  A `T=100,000` producer/verifier pilot
+has already checked the intended exact principal-generator interface without
+trusting a BNF.  The remaining class-group gate is now the finite production
+and independent verification of the full relation table; the analytic
+generation/odd-cokernel problem itself is closed.
+
+## 2.2 Galois-module amplification of the remaining class-group gate
 
 There is now a paper-level reduction that makes a different compact target
 available.  Put
@@ -158,7 +184,8 @@ linear algebra gives, **conditional on their completeness**:
 The first 18 dyadic test classes already give rank 14 on `W`, so the
 candidate global over-approximation injects into the dyadic squareclass
 space.  This is strong feasibility evidence, not an unconditional Selmer
-bound, because the class-group gate remains open.
+bound, because the final BDF factor-base relation table has not yet been
+generated and verified.
 
 ## 4. Local and Coleman pilot
 
@@ -182,8 +209,9 @@ a frozen high-precision run remains to be made.
 No structural obstruction was found on the curve side.  The next steps, in
 order, are:
 
-1. either find a compact unconditional `Cl(Q(2^(1/29)))[2]=0` certificate,
-   or prove the now-sufficient upper bound `dim_F2 Cl(N)/2 < 28`;
+1. generate and independently verify the principal-generator (or mod-two
+   relation) table for the now-certified BDF factor base; this would prove
+   `Cl(Q(2^(1/29)))=1` (or at least its two-primary vanishing);
 2. certify the 19 S-squareclasses and rerun the exact global/dyadic matrices;
 3. execute the complete optimized Stoll shells on `T+1 in 8 Z_2`;
 4. freeze a high-precision Coleman unit-minor certificate;
