@@ -941,10 +941,27 @@ critical input behind a definition or opaque interface.
   `X*b^2<a^2*H<X*(b+1)^2`, hence
   `b=floor(a*sqrt(H/X))`.  Lean kernel-checks the elimination, explicit
   Bezout certificates, parity gcd argument, `r<2*X`, and the integer
-  sandwich; the unit-orbit normalization and the final real square-root/floor
-  translation remain paper-level interfaces.  This makes each fixed
+  sandwich, the strict real square-root interval and the exact natural-floor
+  identity.  Only the unit-orbit normalization which supplies the reduced
+  representative remains a paper-level interface.  This makes each fixed
   `(X,p)` a finite exact check but supplies no uniform bound on either
   parameter
+- the exact odd-Chebyshev quotient ledger and its first new interaction with
+  the fixed-five residual.  For every `m>=0`, Lean now defines the scalar
+  quotient `H_m`, proves `T_(2*m+1)(X)=X*H_m(X)`, and kernel-checks
+  `H_m(X)=(-1)^m*(2*m+1) (mod X^2)`,
+  `gcd(X,H_m(X))=gcd(X,2*m+1)`, and
+  `H_m(X)=1 (mod X^2-1)` (hence modulo eight for odd `X`).  In the ramified
+  branch `X=5*A`, the square equation and the full `X^2` congruence sharpen
+  the former first digit to
+  `A*(-1)^m*(2*m+1)=1,6,or 11 (mod 25)`.  For `p=31` this leaves exactly
+  `X=20,95,120 (mod 125)`.  The mixed equation also fixes the exact floor in
+  one residue class modulo `X^2` away from five: the norm residual gives
+  `gcd(r,X)|5`, so its quadratic derivative is a unit when `5` does not
+  divide `X`.  All of these scalar statements and a strictness witness are
+  kernel checked.  The local Hensel audit shows why this extra digit is still
+  a necessary filter rather than a uniform contradiction; the next concrete
+  target is the `X^4` coefficient of the quotient
 - a uniform, unconditional rank-two lower bound for the prime-index
   Chebyshev Jacobians.  For every odd prime `p != 3`, the two explicit
   half-divisors have descent squareclasses `[a-1]` and `[3*(a+1)]` in
@@ -1196,6 +1213,18 @@ critical input behind a definition or opaque interface.
   curve.  The exact scan is in `P31_CHEBYSHEV_BDF_THRESHOLD_SCAN.md`, and the
   principal certificate and trust ledger are in
   `P31_CL1_BDF_FACTORBASE_ROUTE.md`
+- using that class-number-one certificate, a separate exact supported-
+  squareclass certificate for `K=Q(2^(1/31))` is now frozen.  The signature is
+  `(1,15)`, the primes in `S` above `{2,3,31}` have residue degrees
+  `2:[1], 3:[1,30], 31:[1]`, and the standard S-unit exact sequence gives
+  `dim_F2 K(S,2)=20`.  Twenty explicit representatives have norm support only
+  in `S`; an independent Sage verifier which constructs no BNF, class group,
+  unit group or regulator gives combined exact norm/3-adic/dyadic Hilbert
+  detection rank 20.  Hence they form a basis of `K(S,2)`.  The 19-file
+  manifest rechecks both this packet and the preceding p31 class-number-one
+  packet.  This is an accepted-interface global basis, not yet the local
+  Selmer subspace, dyadic injection, Stoll recursion or Coleman closure; those
+  are the next fixed-index computations
 - a new uniform fixed-elliptic reconstruction of every remaining prime-index
   Chebyshev square.  Writing `U=(T+sqrt(T^2-1))^p` sends the equation to the
   fixed conductor-24 curve `Y^2=X*(X+1)*(X+4)`.  Translation by the rational
