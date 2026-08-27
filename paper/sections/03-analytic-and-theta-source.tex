@@ -1,0 +1,203 @@
+
+\subsection{What follows from standard analytic geometry}
+
+Let $K$ be a complete nonarchimedean field, $0<|q|<1$, and let $E_q$ be the Tate curve.  Standard Tate uniformization gives
+\[
+ E_q^{\an}\simeq\mathbf G_m^{\an}/q^{\Z}
+\]
+and a skeleton
+\[
+ \Sigma(E_q)\simeq\R/(-\log|q|)\Z.
+\]
+Finite tame Kummer maps induce finite harmonic morphisms of suitable skeleta.  Puncturing at the identity attaches an infinite ray, and quotienting by $[-1]$ reverses the cycle.  These statements justify the cycle, signed-cycle, and graph-cusp combinatorics used in the formal project.
+
+For the corrected theta-root equation
+\[
+ y^\ell=\theta_q(v^\ell),\qquad r^\ell=q,
+\]
+the theta automorphy formula yields the analytic candidate
+\[
+ T(v,y)=\bigl(rv,(rv)^{-1}y\bigr).
+\]
+On any analytic domain where the equation defines a finite etale Kummer cover, $T$ is an analytic automorphism.  Its radial coordinate satisfies
+\[
+ \rho(Tz)=\rho(z)+1,
+\]
+so the integer action is properly discontinuous on the analytic locus.
+
+\subsection{What does not follow from the skeleton alone}
+
+\begin{proposition}[Skeleton insufficiency]\label{prop:skeleton-insufficient}
+An isomorphism of metric skeletons, even with the same finite deck action, does not by itself determine an isomorphism of semistable analytic curves or orbicurves.
+\end{proposition}
+
+\begin{proof}
+A semistable analytic curve is encoded by a metrized complex: in addition to the metric graph, each type-II vertex carries a residue curve and marked tangent directions.  Different residue curves or different attaching data can have the same underlying metric graph and deck action.  Hence the forgetful map from metrized complexes to metric graphs is not injective on isomorphism classes.
+\end{proof}
+
+Consequently, a proof of the exact IUT local fiber must supply:
+\begin{enumerate}[label=(\roman*)]
+\item an analytic construction of the finite etale/root-stack theta cover, including non-classical Berkovich points;
+\item the extension to the required punctured orbicurve compactification;
+\item the $K$-core theorem and the cartesian covering diagrams;
+\item an equivalence of the genuine tempered covering category, not only of its cyclic graph quotient;
+\item identification of the distinguished cusp under that equivalence.
+\end{enumerate}
+
+The published etale-theta theory develops precisely such tempered and Frobenioid-theoretic structures for the Kummer class of the Tate theta function.  Those local theorems may be used after a theorem-by-theorem audit.  They do not, by themselves, establish the global numerical Corollary 3.12.
+
+\section{Audit of the genuine Theorem 3.11 source}
+
+\subsection{The numerical statement actually needed}
+
+Let $\ThetaLoc_{\mathrm{con}}$ be a concrete adelic locus whose elements are actual lifted theta values, equipped with a specified tensor norm and the processional weights.  Let
+\[
+ q_v^{j^2/(2\ell)}
+\]
+denote the concrete weighted theta values at the bad places.  The required theorem is not a bare existence statement for a locus.  It is the following normed comparison.
+
+\begin{hypothesis}[Normed, weight-preserving theta comparison]\label{hyp:normed-rosetta}
+There exists a comparison between the concrete arithmetic-theta locus and the IUT tensor-packet possible-image locus such that:
+\begin{enumerate}[label=(\alph*)]
+\item a calibrated element with all $j^2$ exponents belongs to the concrete locus;
+\item its image belongs to the IUT possible-image locus;
+\item the comparison preserves the local norms, tensor cross norms, normalized local-degree weights, and procession averaging;
+\item Ind1 and Ind2 act by measure-preserving maps and Ind3 enlarges the locus in the direction required for the lower bound;
+\item under these identifications,
+\[
+ -|\log q|\le -|\log\Theta|.
+\]
+\end{enumerate}
+\end{hypothesis}
+
+\begin{theorem}[What the Joshi global estimate proves conditionally]\label{thm:joshi-conditional}
+Assume the local prototype theorem for every relevant place, the cross-norm identity for the chosen completed tensor product, and the normed comparison in \cref{hyp:normed-rosetta}(b)--(d).  Then the product of the local calibrated elements gives the global lower bound asserted for the theta-values locus.
+\end{theorem}
+
+\begin{proof}
+At each relevant place choose a local element $Z_w$ satisfying
+\[
+ \|Z_w\|\ge |q_w^{1/(2\ell)}|.
+\]
+The cross-norm property gives
+\[
+ \left\|\bigotimes_{w\mid p}Z_w\right\|
+ =\prod_{w\mid p}\|Z_w\|.
+\]
+Multiplication over the finitely many relevant rational primes gives the adelic product bound.  The normed comparison then transports this concrete inequality to the IUT processional locus.
+\end{proof}
+
+\begin{audit}[Dependence of the published ATS III proof]
+The proof of the global tensor estimate in Arithmetic Teichmuller Spaces III explicitly invokes the local prototype theorem for each place and then applies a tensor cross-norm identity.  The later translation to Mochizuki's locus additionally requires the Rosetta comparison and the claimed equality of weights.  Thus the global theorem is not an independent replacement for the local and comparison problems; it packages them.
+\end{audit}
+
+\subsection{The Scholze--Stix obstruction}
+
+The concrete $j$-th theta pilot has arithmetic degree scaled by $j^2$ relative to the $q$ pilot.  Scholze and Stix observe that the natural identification of the abstract real lines attached to the prime strips does not encode this scaling; inserting $j^2$ into one side makes the total diagram inconsistent, while omitting it makes the resulting inequality essentially empty.
+
+\subsection{Three rigidity tests for any proposed repair}
+
+\begin{counterexample}[Abstract comparison does not preserve a bound]\label{cex:abstract-scaling}
+Let $V=W=\R$ as ordered one-dimensional vector spaces, let
+\[
+ S=\{1\}\subset V,\qquad H=[-1/2,1/2]\subset W.
+\]
+The ordered linear isomorphism $f(x)=2x$ does not send $S$ into $H$.  The
+isomorphism $g(x)=x/2$ does send $S$ into $H$, but changes the norm by the
+factor $1/2$.  Thus an abstract identification of ordered real lines gives
+neither the required inclusion nor norm preservation.
+\end{counterexample}
+
+\begin{lemma}[Base-field rigidity of a power scaling]\label{lem:base-field-rigidity}
+Let $E$ be a nontrivially valued field, let $K_1,K_2$ be valued extensions,
+and let $E\hookrightarrow K_i$ be isometric embeddings.  Suppose that a field
+isomorphism $\phi:K_1\to K_2$ is compatible with the two embeddings of $E$ and
+satisfies
+\[
+ |\phi(x)|_{K_2}=|x|_{K_1}^{\lambda}
+ \qquad(x\in K_1)
+\]
+for some $\lambda>0$.  Then $\lambda=1$.
+\end{lemma}
+
+\begin{proof}
+Choose $a\in E$ with $0<|a|_E<1$.  Base-field compatibility gives
+\[
+ |a|_E=|\phi(a)|_{K_2}=|a|_E^{\lambda}.
+\]
+Taking logarithms and using $\log|a|_E\ne0$ yields $\lambda=1$.
+\end{proof}
+
+In particular, a nontrivial $j^2$ scaling cannot be realized by a
+base-field-linear isomorphism between valued extensions that contain the same
+local field isometrically.  A construction that forgets the local base-field
+embedding must therefore prove an additional transport theorem back to the
+original arithmetic element.
+
+\begin{lemma}[Product-formula rigidity over $\Q$]\label{lem:product-rigidity}
+Let $\lambda_\infty>0$ and $\lambda_p>0$ for every prime $p$.  If
+\[
+ \lambda_\infty\log|x|_\infty+
+ \sum_p\lambda_p\log|x|_p=0
+ \qquad(x\in\Q^\times),
+\]
+then $\lambda_p=\lambda_\infty$ for every prime $p$.
+\end{lemma}
+
+\begin{proof}
+Set $x=p$.  Only the infinite and $p$-adic terms are nonzero, and the displayed
+identity becomes
+\[
+ (\lambda_\infty-\lambda_p)\log p=0.
+\]
+Since $\log p\ne0$, the result follows.
+\end{proof}
+
+The number-field analogue states that the standard local-degree weights are
+unique up to one common scalar.  Hence local $j^2$ exponents cannot be changed
+independently while preserving the product formula for the same diagonal
+number field.  A proposed ATS repair must either construct a genuinely new
+global arithmetic object and prove transport back to the original height,
+different, conductor, and Tate parameter, or show that the rescalings are
+globally proportional and re-evaluate the claimed relative $j^2$ effect.
+
+\begin{proposition}[Haar-volume determinant correction]\label{prop:haar-jacobian}
+Let $f:V\to W$ be an isomorphism of finite-dimensional $\Q_p$-vector spaces
+with Haar measures $\mu_V,\mu_W$.  There is a constant $J(f)>0$ such that
+\[
+ \mu_W(f(A))=J(f)\mu_V(A)
+\]
+for every measurable $A\subset V$.  The equality $J(f)=1$ requires a compatible
+normalization or a determinant-one/isometric theorem; it does not follow from
+bijectivity.
+\end{proposition}
+
+\begin{proof}
+The pullback $A\mapsto\mu_W(f(A))$ is a Haar measure on $V$, and hence is a
+positive scalar multiple of $\mu_V$.  In coordinates the scalar is the
+$p$-adic absolute value of the determinant, adjusted by the chosen lattice
+normalizations.
+\end{proof}
+
+These four elementary results turn the normalization issue into a falsifiable
+mathematical question.  A Banach-space, categorical, or prime-strip
+isomorphism is insufficient unless its base-field behavior, product-formula
+weights, and Haar Jacobian are explicitly proved.
+
+\begin{criterion}[Falsifiable repair criterion]\label{crit:repair}
+A proposed repair of Corollary 3.12 resolves the Scholze--Stix objection only if it exhibits a commutative diagram of \emph{normed} spaces in which:
+\begin{enumerate}[label=(\roman*)]
+\item the concrete $j^2$-weighted theta element is visible;
+\item all arrows and scalar identifications are specified;
+\item the diagram commutes before quotienting by indeterminacies;
+\item the quantitative loss introduced by each indeterminacy is bounded sharply enough to retain a coefficient strictly better than the trivial inequality;
+\item the same diagram is used in the IUT IV upper calculation.
+\end{enumerate}
+A table matching object names or categories is not a proof of this criterion.
+\end{criterion}
+
+\begin{audit}
+Neither the version-6 manuscript nor the present audit proves \cref{hyp:normed-rosetta,crit:repair}.  Therefore the decisive numerical source remains open in this reconstruction.
+\end{audit}
+
+\section{Audit of the component formula and IUT IV estimate}

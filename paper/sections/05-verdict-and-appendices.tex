@@ -1,0 +1,158 @@
+
+A disproof would require an $\eps_0>0$ and infinitely many primitive triples with
+\[
+ \log c>(1+\eps_0)\log\rad(abc)+O(1),
+\]
+or equivalently unbounded quality strictly above $1+\eps_0$.  None of the failures identified above produces such triples.  They are failures of proposed proofs, not counterexamples to the conjecture.
+
+\begin{proposition}[Proof failure does not imply conjecture failure]
+The Scholze--Stix scaling obstruction and the gaps in version 6.0 invalidate the corresponding deduction of $abc$, but they imply neither $abc$ nor its negation.
+\end{proposition}
+
+\begin{proof}
+They establish that certain premises do not entail the desired numerical inequality.  No arithmetic triple violating \cref{thm:abc} is constructed.  In classical logic, refuting an argument for a proposition is not a proof of the proposition's negation.
+\end{proof}
+
+\section{Final audit ledger}
+
+\begin{longtable}{p{0.27\textwidth}p{0.22\textwidth}p{0.43\textwidth}}
+\toprule
+Item & Verdict & Reason\\
+\midrule
+\endhead
+Frey invariants and odd multiplicative reduction & Established & Direct calculation and the standard minimal reduction criterion.\\
+Local split Tate inertia matrix & Established & Kummer description of $E_q[\ell]$ and tame inertia.\\
+Two distinct Legendre transvections generate $\SL_2$ & Established, subject to the standard simultaneous Picard--Lefschetz specialization theorem & Pure finite-group argument after the geometric monodromy identification.\\
+Auxiliary prime avoiding all residue primes and all q-orders & Established from PNT/Chebyshev plus a logarithmic-mass bound & \Cref{thm:mass-escape,prop:frey-mass,cor:full-prime}.\\
+Point-set/radial quotient of the corrected theta-root locus & Substantial partial result & Proper discontinuity and the cycle skeleton do not determine the full analytic/orbifold object.\\
+Exact IUT Berkovich/orbicurve/tempered fiber & Not established in the candidate & Requires analytic cover, root stack, core, cartesian, tempered-category, and cusp identifications.\\
+Product/component log-volume formula & Established for actual rectangular product regions & \Cref{prop:component-volume}.\\
+Concrete theta lower bound in the IUT locus & Not independently established here & ATS III reduces it to a local prototype and a normed Rosetta comparison; the latter is exactly disputed.\\
+IUT IV upper estimate for the replacement locus & Not independently established here & Its proof uses Theorem 3.11 possible images and Ind1--Ind3.\\
+Global height/q comparison for every triple & Not established by the chart lemma alone & Requires the compactly bounded/Belyi reduction or a new global theorem.\\
+Version-6 final $abc$ conclusion & Conditional only & Explicit Source Hypothesis and imported upper estimate.\\
+Disproof of $abc$ & Not obtained & No violating infinite family is produced.\\
+\bottomrule
+\end{longtable}
+
+\section{Conclusion}
+
+The audit rejects the statement that the version-6 manuscript is a complete proof of the $abc$ conjecture.  Its decisive source is assumed, and several additional identifications are stronger than the arguments supplied.
+
+The audit also preserves and strengthens important unconditional work.  In particular, the complete forbidden-set prime theorem shows that the auxiliary-prime problem can be solved with
+\[
+ \log\ell=O(\log\log c),
+\]
+without relying on a global exceptional-prime theorem, once the standard two-place Picard--Lefschetz monodromy is used.  This is a genuine advance in the dependency graph, but \cref{counter:blindness} proves that large mod-$\ell$ image alone cannot control the discriminant exponents.
+
+The shortest currently visible route to a complete proof is therefore not ``more prime selection''.  It is a proof of the normed, weight-preserving comparison \cref{hyp:normed-rosetta,crit:repair}, together with an upper estimate for precisely the same locus and a uniform global height passage.  Alternatively, an independent method must produce a new height--conductor inequality strong enough to replace those statements.  No such theorem, and no counterexample to $abc$, is proved in this paper.
+
+\appendix
+
+\section{Checklist for auditing any future claimed proof}
+
+A future manuscript claiming $abc$ should provide affirmative answers to all of the following.
+
+\begin{enumerate}[label=\textbf{A\arabic*.},leftmargin=3.4em]
+\item Is every source theorem stated as a theorem rather than a hypothesis, and is its proof independent of $abc$/Szpiro/Vojta?
+\item Are all local values embedded in one explicitly normed ambient space?
+\item Are the $j^2$ weights visible before and after every comparison?
+\item Are tensor norms genuine cross norms for the completed tensor product used?
+\item Is the possible-image locus in the lower estimate exactly the locus estimated above?
+\item Are Ind1--Ind3 represented by actual maps or relations with the required measure inequalities?
+\item Does the auxiliary prime avoid every bad residue characteristic and every q-order?
+\item Are all constants uniform in the order $\forall\eps\,\exists C_\eps\,\forall(a,b,c)$?
+\item Is the compactly bounded reduction proved rather than silently applied globally?
+\item Does the proof still produce a nontrivial coefficient after every normalization is made consistent?
+\end{enumerate}
+
+\section{A local no-go family for finite-level representation methods}
+
+The family in \cref{counter:blindness} has a useful extension.  For any finite set of auxiliary primes $S$, choose two positive integers $N,N'$ congruent modulo
+\[
+ M=\prod_{\ell\in S}\ell.
+\]
+Then the tame inertia actions on $E_{p^N}[\ell]$ and $E_{p^{N'}}[\ell]$ agree for every $\ell\in S$, while the discriminant orders differ by $|N-N'|$.  Hence no method using only finitely many fixed residual representations can uniformly recover the local height.  A successful representation-theoretic proof must choose levels depending quantitatively on the point or use integral $\ell$-adic data with a uniform global estimate.
+
+\begin{thebibliography}{99}
+
+\bibitem{ABBR}
+O.~Amini, M.~Baker, E.~Brugalle, and J.~Rabinoff,
+\emph{Lifting harmonic morphisms I: metrized complexes and Berkovich skeleta},
+Research in the Mathematical Sciences 2 (2015), Article 7.
+
+\bibitem{Andre}
+Y.~Andre,
+\emph{On a geometric description of $\Gal(\overline{\Q}_p/\Q_p)$ and a $p$-adic avatar of $\widehat{GT}$},
+Duke Math. J. 119 (2003), 1--39.
+
+\bibitem{Berkovich}
+V.~Berkovich,
+\emph{Spectral Theory and Analytic Geometry over Non-Archimedean Fields},
+AMS, 1990.
+
+\bibitem{BoschLutkebohmert}
+S.~Bosch and W.~Lutkebohmert,
+\emph{Stable reduction and uniformization of abelian varieties},
+Math. Ann. 270 (1985), 349--379.
+
+\bibitem{JoshiII}
+K.~Joshi,
+\emph{Construction of Arithmetic Teichmuller Spaces II: Proof of a local prototype of Mochizuki's Corollary 3.12},
+arXiv:2303.01662.
+
+\bibitem{JoshiIII}
+K.~Joshi,
+\emph{Construction of Arithmetic Teichmuller Spaces III: A Rosetta Stone and a proof of Mochizuki's Corollary 3.12},
+arXiv:2401.13508v4.
+
+\bibitem{JoshiIV}
+K.~Joshi,
+\emph{Construction of Arithmetic Teichmuller Spaces IV: Proof of the abc-conjecture},
+arXiv:2403.10430v2.
+
+\bibitem{MochEtaleTheta}
+S.~Mochizuki,
+\emph{The etale theta function and its Frobenioid-theoretic manifestations},
+Publ. Res. Inst. Math. Sci. 45 (2009), 227--349.
+
+\bibitem{IUT1}
+S.~Mochizuki,
+\emph{Inter-universal Teichmuller Theory I: Construction of Hodge Theaters},
+Publ. Res. Inst. Math. Sci. 57 (2021).
+
+\bibitem{IUT3}
+S.~Mochizuki,
+\emph{Inter-universal Teichmuller Theory III: Canonical Splittings of the Log-Theta-Lattice},
+Publ. Res. Inst. Math. Sci. 57 (2021).
+
+\bibitem{IUT4}
+S.~Mochizuki,
+\emph{Inter-universal Teichmuller Theory IV: Log-volume Computations and Set-theoretic Foundations},
+Publ. Res. Inst. Math. Sci. 57 (2021).
+
+\bibitem{SGA7}
+P.~Deligne and N.~Katz (eds.),
+\emph{Groupes de monodromie en geometrie algebrique, SGA 7 II},
+Lecture Notes in Mathematics 340, Springer, 1973.
+
+\bibitem{SilvermanAEC}
+J.~Silverman,
+\emph{The Arithmetic of Elliptic Curves}, 2nd ed., Springer, 2009.
+
+\bibitem{SilvermanAdvanced}
+J.~Silverman,
+\emph{Advanced Topics in the Arithmetic of Elliptic Curves},
+Springer, 1994.
+
+\bibitem{ScholzeStix}
+P.~Scholze and J.~Stix,
+\emph{Why abc is still a conjecture},
+2018 report.
+
+\bibitem{Tate}
+J.~Tate,
+\emph{$p$-divisible groups},
+Proc. Conf. Local Fields, Driebergen, 1966, 158--183.
+
+\end{thebibliography}

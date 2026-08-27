@@ -91,6 +91,7 @@ import IUTThreeClosures.ExplicitSemistableCurve
 import IUTThreeClosures.SolvableRestrictionImage
 import IUTThreeClosures.ZModSL2Perfect
 import IUTThreeClosures.MatrixRepresentationFromTorsionAction
+import IUTThreeClosures.PowerDifferenceLift
 
 import IUTThreeClosures.QPilotNormalizationAudit
 import IUTThreeClosures.QPilotNormalizationFork
@@ -256,6 +257,10 @@ import IUTThreeClosures.GlobalABCMovingDPythagoreanEquivalenceAudit
 import IUTThreeClosures.GlobalABCPTAlmostAllAmplificationAudit
 import IUTThreeClosures.EtaOrbitMinimalGap
 import IUTThreeClosures.JoshiArithmeticTeichmullerAudit
+import IUTThreeClosures.TorsionLineEnergyNoGo
+
+-- Fully compile the repaired integer deck action and its quotient tower.
+import IUTThreeClosures.TateThetaRootOrbitQuotientTower
 
 -- Cloud modules retained after direct Lean 4.32 kernel verification.
 import IUTThreeClosures.AbsorbableSourceErrorBridge
