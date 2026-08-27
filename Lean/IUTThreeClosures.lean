@@ -251,6 +251,7 @@ import IUTThreeClosures.ShearedFourFormArithmetic
 import IUTThreeClosures.PolyrelationalWronskianShears
 import IUTThreeClosures.MasonSpecializationBarrier
 import IUTThreeClosures.GlobalABCPellTripodFiniteOrbitAudit
+import IUTThreeClosures.GlobalABCMovingDPythagoreanEquivalenceAudit
 
 -- Cloud modules retained after direct Lean 4.32 kernel verification.
 import IUTThreeClosures.AbsorbableSourceErrorBridge

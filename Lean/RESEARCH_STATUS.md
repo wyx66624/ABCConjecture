@@ -1198,10 +1198,16 @@ boundary-ramification and global GenEll/Belyi height package.
   in those fixed height balls.  A second natural sufficient interface is the
   moving squarebase identity `A*u^2+B*v^2=C*w^2`; for `A*C>1` its quadratic
   field and norm coefficient move, while `A*C=1` is a split quadratic etale
-  degeneration.  These statements retire finite fixed-Pell catalogues and
-  hidden-coefficient bridges, not every possible arithmetic construction.
-  Lean checks the selector and Frey equivalences, the Pythagorean scalar and
-  coefficient ledgers, and both squarebase scalar identities without assuming
+  degeneration.  More precisely, writing `a=A*u^2`, `b=B*v^2`, `D=A*B` and
+  dividing by the parity factor `delta=1` or `2` gives a primitive moving
+  generalized-Pythagorean equation `X^2+D*Y^2=Z^2` with
+  `rad(D*X*Y*Z)<=2*rad(abc)*c` and `Z>=c/2`.  The uniform critical radical
+  bound over all squarefree `D` is again equivalent to `ABCConjecture`, by the
+  exact rescaling `eta=epsilon/(2+epsilon)`; it is not a fixed-`D` theorem.
+  These statements retire finite fixed-Pell catalogues and hidden-coefficient
+  bridges, not every possible arithmetic construction.  Lean checks the
+  selector and Frey equivalences, both Pythagorean scalar/coefficient ledgers,
+  primitivity transfer, and the squarebase scalar identities without assuming
   abc.
 - Direct absorption cannot remove either a fixed positive multiple of
   `log rad`, a fixed positive power of the largest support prime in a
