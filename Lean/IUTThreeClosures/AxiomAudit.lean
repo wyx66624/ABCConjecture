@@ -118,6 +118,15 @@ import IUTThreeClosures.ShearedFourFormArithmetic
 import IUTThreeClosures.PolyrelationalWronskianShears
 import IUTThreeClosures.MasonSpecializationBarrier
 
+/-!
+`#print axioms` is a dependency ledger.  Under
+`../ACCEPTED_THEOREM_DEPENDENCY_POLICY.md` it is not a requirement that every
+entry below use only a fixed three-axiom subset.  Any additional mathematical
+interface must instead be named, sourced, and classified as accepted or
+conditional; target-equivalent assumptions remain disallowed as unconditional
+inputs.
+-/
+
 #print axioms IUTThreeClosures.PointwiseIUTIIIFamily.corollary312Variant_all
 #print axioms IUTThreeClosures.ThreeClosureCertificate.abc_conjecture_of_three_closures
 #print axioms IUTThreeClosures.NonCircularIUTIVBridge.nonempty_iff_abc

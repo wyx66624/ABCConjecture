@@ -135,6 +135,15 @@ Belyi/height package remain open.
 
 ## Honesty condition
 
+The repository-wide dependency policy was broadened on 2026-08-27; see
+`ACCEPTED_THEOREM_DEPENDENCY_POLICY.md`.  In particular, the old preference
+for a three-item Lean kernel axiom report is diagnostic rather than a method
+restriction.  A precisely cited, generally accepted external theorem or
+certified exact computation may now be exposed through a named interface even
+when it is not yet formalized in mathlib.  The clauses below continue to govern
+the self-contained IUT core: they forbid hiding the disputed estimate or the
+target itself behind such an interface.
+
 A theorem is not a core advance if it merely stores any of the following as a
 field or hypothesis: the desired Corollary 3.12 estimate, the IUT IV component
 formula, a source-to-height comparison equivalent to abc, or a term whose
