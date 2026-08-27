@@ -30,8 +30,9 @@ Hence `|S|=4`.  Conditional on the still unproved gate `Cl(K)[2]=0`,
 
     dim_F2 K(S,2)=1+14+4=19.
 
-PARI `bnfinit` returned the candidate trivial class group in 0.507 seconds.
-This is discovery output only.  A later exact diagnostic under PARI 2.17.1
+PARI `bnfinit` initially returned the candidate trivial class group in 0.507
+seconds.  That output alone was discovery-only.  A later exact diagnostic
+under PARI 2.17.1
 again found the tentative class number one, but `bnfcertify(b,1)` then
 announced that it had to test primes through
 
@@ -93,11 +94,17 @@ transcript and checksum manifest are documented in
 
 The exact splitting law gives 2,434,529 degree-one ideals and only 424
 additional higher-residue-degree ideals under the same strict cutoff, for a
-total factor base of 2,434,953 ideals.  A `T=100,000` producer/verifier pilot
-has already checked the intended exact principal-generator interface without
-trusting a BNF.  The remaining class-group gate is now the finite production
-and independent verification of the full relation table; the analytic
-generation/odd-cokernel problem itself is closed.
+total factor base of 2,434,953 ideals.  The full 16-shard producer run and the
+independent BNF-free verifier have now checked an exact principal generator for
+every ideal, with the expected residue-degree counts.  Combining these
+principalities with the BDF generation theorem proves unconditionally
+
+```text
+Cl(Q(2^(1/29))) = 1.
+```
+
+The class-group gate and the earlier analytic odd-cokernel problem are both
+closed.
 
 ## 2.2 Galois-module amplification of the remaining class-group gate
 
@@ -172,8 +179,8 @@ where
 With `theta=-(2a+a^28)`, exact square tests identify the two Kummer classes
 as `a-1` and `3(a+1)`.  Their dyadic Hilbert signatures have rank two.
 
-Using 19 provisional S-unit candidates, exact finite-field and Hilbert-symbol
-linear algebra gives, **conditional on their completeness**:
+Using 19 explicit S-unit candidates, exact finite-field and Hilbert-symbol
+linear algebra gives:
 
     norm rank                         4,
     Q_3 local-pairing rank            4,
@@ -181,11 +188,13 @@ linear algebra gives, **conditional on their completeness**:
     combined codimension              5,
     dim W                            14.
 
-The first 18 dyadic test classes already give rank 14 on `W`, so the
-candidate global over-approximation injects into the dyadic squareclass
-space.  This is strong feasibility evidence, not an unconditional Selmer
-bound, because the final BDF factor-base relation table has not yet been
-generated and verified.
+The first 18 dyadic test classes already give rank 14 on `W`, so the candidate
+global over-approximation injects into the dyadic squareclass space.  The new
+class-number-one certificate supplies the previously missing dimension upper
+bound.  Moreover, any square relation among the 19 candidates would lie in
+`W` and have zero dyadic signature; injectivity forces it to be zero.  Thus an
+exact frozen rerun of these matrices can prove both independence and
+completeness without trusting a provisional fundamental-unit computation.
 
 ## 4. Local and Coleman pilot
 
@@ -209,13 +218,10 @@ a frozen high-precision run remains to be made.
 No structural obstruction was found on the curve side.  The next steps, in
 order, are:
 
-1. generate and independently verify the principal-generator (or mod-two
-   relation) table for the now-certified BDF factor base; this would prove
-   `Cl(Q(2^(1/29)))=1` (or at least its two-primary vanishing);
-2. certify the 19 S-squareclasses and rerun the exact global/dyadic matrices;
-3. execute the complete optimized Stoll shells on `T+1 in 8 Z_2`;
-4. freeze a high-precision Coleman unit-minor certificate;
-5. expose the resulting target-disk proposition transparently in Lean.
+1. certify the 19 S-squareclasses and rerun the exact global/dyadic matrices;
+2. execute the complete optimized Stoll shells on `T+1 in 8 Z_2`;
+3. freeze a high-precision Coleman unit-minor certificate;
+4. expose the resulting target-disk proposition transparently in Lean.
 
 [Pure-prime-degree class-number results](https://colinandmargaret.co.uk/Research/CDW_PureFields_76.pdf)
 such as Parry--Walter do not directly prove the required 2-class-group

@@ -1062,30 +1062,35 @@ critical input behind a definition or opaque interface.
   sufficient target is `(3*A*B+1)^29 > (b^2+3*b+1)^2`, whose critical
   squarefree-core scale is `A*B` of order `b^(4/29)`; available unconditional
   radical estimates do not reach this power scale
-- a read-only fixed-index feasibility scout at `p=29`, recorded separately
-  in `P29_CHEBYSHEV_FIXED_INDEX_SCOUT.md`.  Exact field arithmetic gives
-  signature `(1,14)`, `|S|=4`, and conditional S-squareclass dimension 19.
-  Provisional exact local linear algebra leaves a fourteen-dimensional
-  global over-approximation and finds a full-rank dyadic signature, while a
-  5-adic unit-minor pilot has the expected Coleman shape.  None of this is a
-  certificate: the repository has not yet certified
-  `Cl(Q(2^(1/29)))[2]=0`.  PARI 2.17.1 and Oscar/Hecke independently expose
+- a fixed-index program at `p=29`, recorded separately in
+  `P29_CHEBYSHEV_FIXED_INDEX_SCOUT.md`.  Exact field arithmetic gives
+  signature `(1,14)` and `|S|=4`.  PARI 2.17.1 and Oscar/Hecke independently
+  exposed
   generic unconditional certification bounds of
   `2660292872242387` and `2660292872242388`; both runs were manually stopped
   and explicitly record `CERTIFICATE_COMPLETED=false`.  Thus the tentative
-  class number one is not promoted to a theorem by those runs.  Directly scaling the
-  p=23 split-prime explicit formula is predicted to require roughly
+  class number one was not promoted to a theorem by those runs.  Directly
+  scaling the p=23 split-prime explicit formula was predicted to require roughly
   `1.5*10^9` records.  This generic barrier has now been bypassed at the
   generation stage by Belabas--Diaz y Diaz--Friedman Corollary 5.2.  A
   256-bit RealBall certificate with strict cutoff `T=40,000,000` has lower
   margin `0.603060850068841328...>0`, and therefore proves unconditionally
   that every prime ideal below that norm bound generates the full class
   group.  The complete factor base has 2,434,953 ideals: 2,434,529 of
-  residue degree one and only 424 of higher residue degree.  A small
-  producer/verifier pilot confirms the exact principal-generator interface;
-  the remaining finite gate is the full relation table, not an uncertified
-  odd cokernel.  The formula gate and provenance are frozen in
-  `P29_CL2_BDF_FACTORBASE_ROUTE.md`.  A separate paper-level
+  residue degree one and only 424 of higher residue degree.  The full
+  16-shard producer run is now complete, and an independent exact verifier
+  that constructs no BNF, class group, regulator, or unit group has proved a
+  principal generator for every factor-base ideal.  Its exact residue-degree
+  counts are `{1:2434529,2:406,4:14,7:4}`.  Therefore the BDF generation
+  theorem and the principal-ideal certificate prove unconditionally
+  `Cl(Q(2^(1/29)))=1`.  This is an accepted published theorem plus exact
+  finite certificate, not a wholly kernel-formalized number-field proof.  The
+  formula gate, full relation data, recovery provenance, frozen replay, and
+  trust boundary are recorded in `P29_CL2_BDF_FACTORBASE_ROUTE.md`.
+  Consequently `dim_F2 K(S,2)=19`; the next fixed-index gate is to freeze the
+  nineteen explicit squareclasses, certify the fourteen-dimensional global
+  over-approximation and its dyadic injection, and then run the complete Stoll
+  shells.  A separate paper-level
   Galois-module amplification proves that nonzero `Cl(K)[2]` would put a
   28- or 29-dimensional `G`-stable submodule in
   `Hom(Cl(N),F_2)`, where `N=Q(2^(1/29),zeta_29)`: the 29-point permutation
