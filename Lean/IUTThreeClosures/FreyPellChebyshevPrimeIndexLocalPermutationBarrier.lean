@@ -211,6 +211,53 @@ theorem pellPrimeLocal_strictParityBoundThirtyOne_excludes
     False :=
   (not_lt_of_ge hnecessary) hlower
 
+/-! ## An absolute height floor for every active residual -/
+
+/-- The four-consecutive branch has A = 22 and B = 23 modulo 24.  These
+residues alone force the exact lower bound A*B >= 506. -/
+theorem pellPrimeLocal_activeKernelProductFloor
+    (A B : ℕ)
+    (hA : A % 24 = 22)
+    (hB : B % 24 = 23) :
+    506 ≤ A * B := by
+  have hAle : 22 ≤ A := by omega
+  have hBle : 23 ≤ B := by omega
+  have hprod : 22 * 23 ≤ A * B := Nat.mul_le_mul hAle hBle
+  norm_num at hprod
+  exact hprod
+
+/-- Combining the active exponent-31 obstruction with the exact parity-core
+residues excludes every height b+2 at most 4*10^24.  The final comparison is
+an exact natural-number calculation, not a floating-point estimate. -/
+theorem pellPrimeLocal_activeHeightFloor
+    (A B b Z : ℕ)
+    (hA : A % 24 = 22)
+    (hB : B % 24 = 23)
+    (hnecessary : (3 * A * B + 1) ^ 31 ≤ Z ^ 2)
+    (hupper : Z ^ 2 < (b + 2) ^ 4) :
+    4_000_000_000_000_000_000_000_000 < b + 2 := by
+  have hAB : 506 ≤ A * B :=
+    pellPrimeLocal_activeKernelProductFloor A B hA hB
+  have hbase : 1519 ≤ 3 * A * B + 1 := by
+    calc
+      1519 = 3 * 506 + 1 := by norm_num
+      _ ≤ 3 * (A * B) + 1 :=
+        Nat.add_le_add_right (Nat.mul_le_mul_left 3 hAB) 1
+      _ = 3 * A * B + 1 := by ring
+  have hpow : 1519 ^ 31 ≤ (3 * A * B + 1) ^ 31 :=
+    Nat.pow_le_pow_left hbase 31
+  have hstrict : 1519 ^ 31 < (b + 2) ^ 4 :=
+    (hpow.trans hnecessary).trans_lt hupper
+  by_contra hheight
+  have hb : b + 2 ≤ 4_000_000_000_000_000_000_000_000 := by omega
+  have hbpow : (b + 2) ^ 4 ≤
+      4_000_000_000_000_000_000_000_000 ^ 4 :=
+    Nat.pow_le_pow_left hb 4
+  have himpossible : 1519 ^ 31 <
+      4_000_000_000_000_000_000_000_000 ^ 4 :=
+    hstrict.trans_le hbpow
+  norm_num at himpossible
+
 #print axioms pellPrimeLocal_halfAngleReconstruction
 #print axioms pellPrimeLocal_blockOne
 #print axioms pellPrimeLocal_derivativeFactor_ne_zero
@@ -223,5 +270,7 @@ theorem pellPrimeLocal_strictParityBoundThirtyOne_excludes
 #print axioms pellPrimeLocal_thirtyOneThreshold
 #print axioms pellPrimeLocal_fourThirtyOneParityThreshold
 #print axioms pellPrimeLocal_strictParityBoundThirtyOne_excludes
+#print axioms pellPrimeLocal_activeKernelProductFloor
+#print axioms pellPrimeLocal_activeHeightFloor
 
 end IUTThreeClosures

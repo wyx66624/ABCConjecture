@@ -193,6 +193,34 @@ Since \(Z=b^2+3b+1<(b+2)^2\), a slightly looser elementary version is
  AB<{(b+2)^{4/31}\over3}.                             \tag{2.7}
 \]
 
+The actual four-consecutive branch has the separately proved congruences
+
+\[
+ A\equiv22\pmod {24},\qquad B\equiv23\pmod {24}.
+\]
+
+Consequently \(AB\ge22\cdot23=506\) and \(3AB+1\ge1519\).  Combining
+this with (2.5) and \(Z^2<(b+2)^4\) gives
+
+\[
+ 1519^{31}<(b+2)^4.
+\]
+
+The exact integer comparison
+
+\[
+ 1519^{31}>(4\cdot10^{24})^4
+\]
+
+therefore yields the unconditional height floor
+
+\[
+ \boxed{b+2>4\cdot10^{24}}.                              \tag{2.8}
+\]
+
+This removes a huge finite initial segment; it is still only a necessary
+condition and not a uniform exclusion.
+
 The direction is important: (2.5)--(2.7) are *necessary upper bounds* on
 the moving parity kernel of a hypothetical prime-index residual.  They do
 not prove that \(AB\) is large.
@@ -201,7 +229,7 @@ There are also the separate necessary bounds
 
 \[
  A\le T-1<Z^{1/p},\qquad
- 3B\le T+1\le Z^{1/p}+1.                              \tag{2.8}
+ 3B\le T+1\le Z^{1/p}+1.                              \tag{2.9}
 \]
 
 The exact missing sufficient statement is therefore (0.5).  In particular,
