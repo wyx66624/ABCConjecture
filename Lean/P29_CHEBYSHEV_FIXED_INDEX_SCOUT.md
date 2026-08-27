@@ -31,9 +31,21 @@ Hence `|S|=4`.  Conditional on the still unproved gate `Cl(K)[2]=0`,
     dim_F2 K(S,2)=1+14+4=19.
 
 PARI `bnfinit` returned the candidate trivial class group in 0.507 seconds.
-This is discovery output only.  A separate `bnfcertify` trial ran for more
-than eight minutes without returning and was stopped; this scout has not
-produced a class-group certificate.
+This is discovery output only.  A later exact diagnostic under PARI 2.17.1
+again found the tentative class number one, but `bnfcertify(b,1)` then
+announced that it had to test primes through
+
+    2,660,292,872,242,387.
+
+It was manually stopped after reaching 572,827.  An independent
+Oscar 1.8.1 / Hecke 0.39.22 call with `GRH=false, redo=true` announced the
+adjacent bound 2,660,292,872,242,388 and was likewise manually stopped.
+Both transcripts say `CERTIFICATE_COMPLETED=false`; neither is a class-group
+certificate.  They show that the generic unconditional full-class-group
+verification path is computationally inappropriate here, rather than
+disproving the tentative answer.  The exact files, interruption semantics,
+and checksum manifest are indexed in
+`P29_CLASS_GROUP_CERTIFICATION_BARRIER.md`.
 
 ## 2. Why the prime-23 explicit-prime table does not scale directly
 
@@ -60,6 +72,57 @@ Therefore a literal clone of the p=23 principal-prime certificate appears
 possible in principle but is operationally unattractive.  The immediate gate
 is a compact unconditional proof of `Cl(K)[2]=0` (or eventual independent
 full class-group certification), not a billion-record table.
+
+## 2.1 Galois-module amplification of the remaining class-group gate
+
+There is now a paper-level reduction that makes a different compact target
+available.  Put
+
+    N=Q(a,zeta_29),
+    G=Gal(N/Q)=C_29 semidirect_product C_28.
+
+If `Cl(K)[2]` were nonzero, the conjugates over `N` of its quadratic Hilbert
+class extension would give a nonzero quotient of the 29-point permutation
+module `F_2[G/C_28]`.  Since `ord_29(2)=28`, its augmentation constituent is
+irreducible of dimension 28.  The only possible quotient dimensions are
+therefore 1, 28, and 29.
+
+The one-dimensional case can also be excluded.  Splitting of the unique
+prime above 29 gives a complement to the resulting central `C_2` extension,
+so the field is `N M` for a rational quadratic field `M`.  Its finite
+discriminant is supported on `{2,29}`.  Exhausting all seven signed
+squareclasses
+
+    -1, -2, -29, -58, 2, 29, 58
+
+against the unique quadratic subfields of `N_2` and `N_29` leaves only
+`M=Q(sqrt(29))`, already contained in `N`, a contradiction.  Consequently
+
+    Cl(K)[2] != 0  ==>  dim_F2 Cl(N)/2 >= 28.
+
+The full proof and its exact formalization boundary are recorded in
+`P29_CL2_GALOIS_MODULE_AMPLIFICATION_AUDIT.md`.  This is not a proof that
+`Cl(K)[2]=0`: an independent upper bound below 28 for the 2-rank of `Cl(N)`,
+or another exclusion of the 28-dimensional augmentation constituent, is
+still required.  In particular, an unfrozen `S`-unit enumeration would be
+circular at this point.
+
+The finite calculation `orderOf (2 : ZMod 29)=28` is separately checked by
+Lean in `IUTThreeClosures/P29FiniteCore.lean`, with no `sorryAx` or
+`native_decide` axiom.  The irreducible-module and class-field-theoretic
+bridges above remain paper-level and are not consequences of that small
+kernel theorem alone.
+
+The construction strengthens for several independent characters: if
+`r_K=dim_F2 Cl(K)/2` and `r_N=dim_F2 Cl(N)/2`, block projection and finite-
+field semilinear descent give `r_N >= 28*r_K`.  A tempting subfield shortcut
+using the odd-denominator norm relations of Biasse--Fieker--Hofmann--Page was
+audited and does not improve this coefficient.  Their class-group direct sum
+has one subfield copy for every term of the group-ring relation.  On the
+augmentation module `N_C28` has rank one, so any such relation needs at least
+28 terms involving `C_28`; the resulting upper bound already contains
+`28*r_K`.  The exact no-go calculation is recorded in
+`P29_CL2_NORM_RELATION_AUDIT.md`.
 
 ## 3. Conditional descent architecture
 
@@ -119,7 +182,8 @@ a frozen high-precision run remains to be made.
 No structural obstruction was found on the curve side.  The next steps, in
 order, are:
 
-1. find a compact unconditional `Cl(Q(2^(1/29)))[2]=0` certificate;
+1. either find a compact unconditional `Cl(Q(2^(1/29)))[2]=0` certificate,
+   or prove the now-sufficient upper bound `dim_F2 Cl(N)/2 < 28`;
 2. certify the 19 S-squareclasses and rerun the exact global/dyadic matrices;
 3. execute the complete optimized Stoll shells on `T+1 in 8 Z_2`;
 4. freeze a high-precision Coleman unit-minor certificate;

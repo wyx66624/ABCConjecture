@@ -1069,10 +1069,40 @@ critical input behind a definition or opaque interface.
   global over-approximation and finds a full-rank dyadic signature, while a
   5-adic unit-minor pilot has the expected Coleman shape.  None of this is a
   certificate: the repository has not yet certified
-  `Cl(Q(2^(1/29)))[2]=0`.  Directly scaling the
+  `Cl(Q(2^(1/29)))[2]=0`.  PARI 2.17.1 and Oscar/Hecke independently expose
+  generic unconditional certification bounds of
+  `2660292872242387` and `2660292872242388`; both runs were manually stopped
+  and explicitly record `CERTIFICATE_COMPLETED=false`.  Thus the tentative
+  class number one is not promoted to a theorem.  Directly scaling the
   p=23 split-prime explicit formula is predicted to require roughly
   `1.5*10^9` records, so the priority is a compact unconditional 2-class
-  certificate rather than a literal billion-record clone
+  certificate rather than a literal billion-record clone.  A new paper-level
+  Galois-module amplification proves that nonzero `Cl(K)[2]` would put a
+  28- or 29-dimensional `G`-stable submodule in
+  `Hom(Cl(N),F_2)`, where `N=Q(2^(1/29),zeta_29)`: the 29-point permutation
+  module is `1` plus an irreducible 28-dimensional augmentation module, and
+  splitting at 2 and 29 excludes the one-dimensional central quotient by a
+  complete signed rational-quadratic squareclass check.  This still does not
+  prove vanishing; it reduces the new arithmetic target to an independent
+  upper bound `dim_F2 Cl(N)/2 < 28` or another exclusion of that augmentation
+  constituent.  For `r_K=dim Cl(K)/2` the argument in fact amplifies to
+  `dim Cl(N)/2 >= 28*r_K`, using the defect-zero block and semilinear descent
+  to prevent independent characters from sharing one augmentation copy.
+  The odd-denominator norm relations of Biasse--Fieker--Hofmann--Page do not
+  close this bound: Proposition 3.7 counts a subfield-class-group copy for
+  every relation term, while rank one of `N_C28` on the augmentation module
+  forces at least 28 `K`-terms.  Thus the tempting upper bound with a single
+  `Cl(K)` copy is invalid and is explicitly withdrawn.  The class-field,
+  local-field, and norm-relation bridges are documented but not yet
+  formalized in Lean.  The isolated finite fact
+  `orderOf (2 : ZMod 29)=28` is now kernel checked in `P29FiniteCore.lean`,
+  without `sorryAx` or a `native_decide` axiom; this does not formalize the
+  missing bridges.  The 2026 Chavarri Villarello--Dahmen Lean certificate
+  generator was also audited: its `p`-saturation layer assumes a previously
+  certified full generating set, while its current `v1` generator enumerates
+  the Minkowski factor base through the same `2.66029287224239e15` bound.
+  It therefore cannot serve as a ready-made 2-primary shortcut without a new
+  odd-cokernel or mod-2 generation theorem
 - a new uniform fixed-elliptic reconstruction of every remaining prime-index
   Chebyshev square.  Writing `U=(T+sqrt(T^2-1))^p` sends the equation to the
   fixed conductor-24 curve `Y^2=X*(X+1)*(X+4)`.  Translation by the rational
