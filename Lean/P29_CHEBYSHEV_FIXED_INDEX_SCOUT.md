@@ -157,7 +157,7 @@ augmentation module `N_C28` has rank one, so any such relation needs at least
 `28*r_K`.  The exact no-go calculation is recorded in
 `P29_CL2_NORM_RELATION_AUDIT.md`.
 
-## 3. Conditional descent architecture
+## 3. Certified descent architecture
 
 The monic genus-14 model is
 
@@ -179,7 +179,8 @@ where
 With `theta=-(2a+a^28)`, exact square tests identify the two Kummer classes
 as `a-1` and `3(a+1)`.  Their dyadic Hilbert signatures have rank two.
 
-Using 19 explicit S-unit candidates, exact finite-field and Hilbert-symbol
+The frozen certificate in `P29_CHEBYSHEV_GLOBAL_DYADIC_CERTIFICATE.md` uses 19
+explicit supported representatives.  Exact finite-field and Hilbert-symbol
 linear algebra gives:
 
     norm rank                         4,
@@ -188,13 +189,13 @@ linear algebra gives:
     combined codimension              5,
     dim W                            14.
 
-The first 18 dyadic test classes already give rank 14 on `W`, so the candidate
-global over-approximation injects into the dyadic squareclass space.  The new
-class-number-one certificate supplies the previously missing dimension upper
-bound.  Moreover, any square relation among the 19 candidates would lie in
-`W` and have zero dyadic signature; injectivity forces it to be zero.  Thus an
-exact frozen rerun of these matrices can prove both independence and
-completeness without trusting a provisional fundamental-unit computation.
+The first 18 dyadic test classes give rank 14 on `W`, so the global
+over-approximation injects into the dyadic squareclass space.  Any square
+relation among the 19 representatives would lie in `W` and have zero dyadic
+signature; injectivity forces it to be zero.  The representatives are
+therefore independent and, by the dimension-19 theorem, complete.  The
+accepted descent interface now proves the actual 2-Selmer localization is
+injective.  No provisional fundamental-unit completeness is used.
 
 ## 4. Local and Coleman pilot
 
@@ -218,10 +219,9 @@ a frozen high-precision run remains to be made.
 No structural obstruction was found on the curve side.  The next steps, in
 order, are:
 
-1. certify the 19 S-squareclasses and rerun the exact global/dyadic matrices;
-2. execute the complete optimized Stoll shells on `T+1 in 8 Z_2`;
-3. freeze a high-precision Coleman unit-minor certificate;
-4. expose the resulting target-disk proposition transparently in Lean.
+1. execute the complete optimized Stoll shells on `T+1 in 8 Z_2`;
+2. freeze a high-precision Coleman unit-minor certificate;
+3. expose the resulting target-disk proposition transparently in Lean.
 
 [Pure-prime-degree class-number results](https://colinandmargaret.co.uk/Research/CDW_PureFields_76.pdf)
 such as Parry--Walter do not directly prove the required 2-class-group

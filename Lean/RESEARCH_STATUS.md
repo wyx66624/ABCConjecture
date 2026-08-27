@@ -1087,10 +1087,17 @@ critical input behind a definition or opaque interface.
   finite certificate, not a wholly kernel-formalized number-field proof.  The
   formula gate, full relation data, recovery provenance, frozen replay, and
   trust boundary are recorded in `P29_CL2_BDF_FACTORBASE_ROUTE.md`.
-  Consequently `dim_F2 K(S,2)=19`; the next fixed-index gate is to freeze the
-  nineteen explicit squareclasses, certify the fourteen-dimensional global
-  over-approximation and its dyadic injection, and then run the complete Stoll
-  shells.  A separate paper-level
+  Consequently `dim_F2 K(S,2)=19`.  The next exact certificate has also
+  passed: nineteen explicitly supported squareclasses have combined detection
+  rank 19, the norm and 3-adic conditions leave a fourteen-dimensional global
+  over-approximation `W`, and an exact `14 x 18` dyadic Hilbert-signature
+  matrix has rank 14.  Hence `W`, and therefore the actual 2-Selmer image,
+  localizes injectively at 2.  This closes Stoll's first condition without
+  trusting a provisional fundamental-unit computation; the source, runtime,
+  exact matrix and trust ledger are in
+  `P29_CHEBYSHEV_GLOBAL_DYADIC_CERTIFICATE.md`.  The next fixed-index gate is
+  the complete Stoll shell recursion and tail inequality.  A separate
+  paper-level
   Galois-module amplification proves that nonzero `Cl(K)[2]` would put a
   28- or 29-dimensional `G`-stable submodule in
   `Hom(Cl(N),F_2)`, where `N=Q(2^(1/29),zeta_29)`: the 29-point permutation
