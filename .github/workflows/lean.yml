@@ -51,28 +51,37 @@ jobs:
           fi
           exit "$rc"
 
-      - name: Compile conservative-transfer defect theorem
+      - name: Compile v13 research theorems
         working-directory: Lean
         shell: bash
         run: |
           lake env lean IUTThreeClosures/ConservativeTransferDefect.lean
+          lake env lean IUTThreeClosures/LegendreSelectorDeterminantBudget.lean
 
-      - name: Run explicit axiom ledger
+      - name: Run repository and v13 axiom ledgers
         working-directory: Lean
         shell: bash
         run: |
           set +e
           lake env lean IUTThreeClosures/AxiomAudit.lean > ../axiom-audit.log 2>&1
-          rc=$?
-          if [ "$rc" -ne 0 ]; then
-            echo '--- axiom audit tail ---'
+          rc_main=$?
+          lake env lean IUTThreeClosures/ResearchAxiomAudit.lean > ../research-axiom-audit.log 2>&1
+          rc_research=$?
+          if [ "$rc_main" -ne 0 ]; then
+            echo '--- repository axiom audit tail ---'
             tail -n 240 ../axiom-audit.log
-            exit "$rc"
+            exit "$rc_main"
           fi
-          if grep -q 'sorryAx' ../axiom-audit.log; then
-            echo 'The axiom ledger contains sorryAx.'
-            grep -n 'sorryAx' ../axiom-audit.log | head -n 80
+          if [ "$rc_research" -ne 0 ]; then
+            echo '--- research axiom audit tail ---'
+            tail -n 240 ../research-axiom-audit.log
+            exit "$rc_research"
+          fi
+          if grep -q 'sorryAx' ../axiom-audit.log ../research-axiom-audit.log; then
+            echo 'An axiom ledger contains sorryAx.'
+            grep -n 'sorryAx' ../axiom-audit.log ../research-axiom-audit.log | head -n 100
             exit 1
           fi
-          echo 'Axiom ledger completed without sorryAx.'
-          tail -n 120 ../axiom-audit.log
+          echo 'Both axiom ledgers completed without sorryAx.'
+          tail -n 80 ../axiom-audit.log
+          tail -n 120 ../research-axiom-audit.log
