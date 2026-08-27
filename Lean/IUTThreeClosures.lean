@@ -269,6 +269,13 @@ import IUTThreeClosures.WeightedThreeFlagSemistability
 import IUTThreeClosures.ProjectivePacketProductFormula
 import IUTThreeClosures.ProjectiveHodgeTwistNoGo
 
+-- Verified local modules promoted from the research workspace.
+import IUTThreeClosures.ActualBadPlaceConductorCarrier
+import IUTThreeClosures.FreyPellChebyshevIndexNineteenPureFieldDyadicNoGo
+import IUTThreeClosures.FreyPellChebyshevIndexNineteenSelmerChabautyBoundary
+import IUTThreeClosures.FreyPellChebyshevIndexTwentyThreeStollGammaCertificate
+import IUTThreeClosures.LogTwoFiniteRationalTripodSelector
+
 -- Fully compile the repaired integer deck action and its quotient tower.
 import IUTThreeClosures.TateThetaRootOrbitQuotientTower
 
