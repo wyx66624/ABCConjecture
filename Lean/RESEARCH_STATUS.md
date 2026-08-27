@@ -1047,20 +1047,24 @@ critical input behind a definition or opaque interface.
   `3,5,7,11,13,17,19,23`; the formerly missing prime-19 target-disk
   proposition is now exposed in its Stoll--Gamma Lean companion.  The
   residue hypothesis is deliberately explicit: oddness of the base alone
-  does not imply the class `23 (mod 24)`
+  does not imply the class `23 (mod 24)`.  Supplying the separately frozen
+  prime-29 proposition
+  `PARISageRationalTargetDiskCertificateIndexTwentyNine` to the new Lean
+  bridge moves the active residual to
+  `OddPrimeShiftSquareExclusionAtLeastThirtyOne`
 - an accepted-literature audit of the remaining uniform prime-index family.
   No currently accepted theorem found in the fixed-curve, hyperelliptic
   integral-point, BHV primitive-divisor, modular/Frey, uniform Chabauty, or
   two-descent literature proves the required all-`p`, all-`X` exclusion.
   Moreover, no finite collection of congruence obstructions can do so:
   for every modulus `M`, bases `X=-1 (mod lcm(24,M))` and `y=1 (mod M)`
-  are local solutions because odd `T_p(-1)=-1`.  Thus the residual named
-  proposition
-  `OddPrimeShiftSquareExclusionAtLeastTwentyNine` is a genuine new input,
+  are local solutions because odd `T_p(-1)=-1`.  After the fixed-index
+  prime-29 closure below, the active residual named proposition
+  `OddPrimeShiftSquareExclusionAtLeastThirtyOne` is a genuine new input,
   not a disguised published theorem.  If one keeps the full four-consecutive
   structure instead of proving that stronger curve statement, the weaker
-  sufficient target is `(3*A*B+1)^29 > (b^2+3*b+1)^2`, whose critical
-  squarefree-core scale is `A*B` of order `b^(4/29)`; available unconditional
+  worst-index target is `(3*A*B+1)^31 > (b^2+3*b+1)^2`, whose critical
+  squarefree-core scale is `A*B` of order `b^(4/31)`; available unconditional
   radical estimates do not reach this power scale
 - a fixed-index program at `p=29`, recorded separately in
   `P29_CHEBYSHEV_FIXED_INDEX_SCOUT.md`.  Exact field arithmetic gives
@@ -1095,10 +1099,19 @@ critical input behind a definition or opaque interface.
   localizes injectively at 2.  This closes Stoll's first condition without
   trusting a provisional fundamental-unit computation; the source, runtime,
   exact matrix and trust ledger are in
-  `P29_CHEBYSHEV_GLOBAL_DYADIC_CERTIFICATE.md`.  The next fixed-index gate is
-  the complete Stoll shell recursion and tail inequality.  A separate
-  paper-level
-  Galois-module amplification proves that nonzero `Cl(K)[2]` would put a
+  `P29_CHEBYSHEV_GLOBAL_DYADIC_CERTIFICATE.md`.  The complete Stoll recursion
+  then checks all 48 shell representatives, with maxima `5,6,7` and the tail
+  closing at equality in the fifth shell.  The frozen `Q_5` Coleman unit-minor
+  computation has normalized logarithm rank two and is nonvanishing on all
+  six residue disks.  The exact-lift, diskwise injectivity, endpoint scaling,
+  and trust ledger are assembled in
+  `P29_CHEBYSHEV_STOLL_COLEMAN_CLOSURE.md`.  They prove at the accepted
+  published-theorem/frozen-computation interface that the target disk contains
+  no integral base `T>1`; Lean checks the polynomial/model/scalar consequences
+  while retaining the rational-point result as an explicit external
+  proposition.  Thus the active uniform residual starts at odd primes `p>=31`.
+  A separate historical paper-level alternative, superseded for proving
+  `Cl(K)=1` by the BDF certificate above, shows that nonzero `Cl(K)[2]` would put a
   28- or 29-dimensional `G`-stable submodule in
   `Hom(Cl(N),F_2)`, where `N=Q(2^(1/29),zeta_29)`: the 29-point permutation
   module is `1` plus an irreducible 28-dimensional augmentation module, and
@@ -1127,7 +1140,12 @@ critical input behind a definition or opaque interface.
   certified full generating set, while its current `v1` generator enumerates
   the Minkowski factor base through the same `2.66029287224239e15` bound.
   It therefore cannot serve as a ready-made 2-primary shortcut without a new
-  odd-cokernel or mod-2 generation theorem
+  odd-cokernel or mod-2 generation theorem.  Finally, the strict
+  prime-31 BDF scout through `40,000,000` has a negative upper endpoint for
+  the deliberately truncated degree-one lower sum.  This says only that this
+  sufficient lower-bound gate does not close at that cutoff; it says neither
+  that the full BDF sum is negative nor anything about
+  `Cl(Q(2^(1/31)))`
 - a new uniform fixed-elliptic reconstruction of every remaining prime-index
   Chebyshev square.  Writing `U=(T+sqrt(T^2-1))^p` sends the equation to the
   fixed conductor-24 curve `Y^2=X*(X+1)*(X+4)`.  Translation by the rational
@@ -1728,10 +1746,11 @@ normalization interfaces are not proved by the cited accepted results.
   four-consecutive unit-index reduction, Chebyshev index three is eliminated
   by the complete integral-point calculation on 216a1 and index five is
   eliminated by the complete two-cover/elliptic-Chabauty calculation above;
-  indices seven, eleven and thirteen are likewise eliminated by the exact
-  Coleman--Chabauty certificates above.  What remains is the
+  indices seven, eleven, thirteen, seventeen, nineteen, twenty-three and
+  twenty-nine are likewise eliminated by the exact or accepted-interface
+  certificates above.  What remains is the
   prime-index statement that `4*T_p(X)+5` is not a square for every odd
-  prime `p>=29` and every relevant composite-reduction base
+  prime `p>=31` and every relevant composite-reduction base
   `X=T_(k/p)(T)>1` with `X=23 (mod 24)`, followed even then by a moving
   square-base radical estimate.  Restricting `X` to a first fundamental-unit
   coordinate would not cover composite odd indices.  Neither statement is

@@ -1,6 +1,7 @@
 import IUTThreeClosures.FreyPellChebyshevIndexSeventeenDyadicColemanCertificate
 import IUTThreeClosures.FreyPellChebyshevIndexNineteenStollGammaCertificate
 import IUTThreeClosures.FreyPellChebyshevIndexTwentyThreeStollGammaCertificate
+import IUTThreeClosures.FreyPellChebyshevIndexTwentyNineStollGammaCertificate
 
 /-!
 # Odd Chebyshev indices reduce exactly to prime indices at least 29
@@ -66,6 +67,13 @@ def OddPrimeShiftSquareExclusionBelowTwentyNine : Prop :=
 /-- The exact unresolved uniform prime-index statement. -/
 def OddPrimeShiftSquareExclusionAtLeastTwentyNine : Prop :=
   ∀ p : ℕ, Nat.Prime p → Odd p → 29 ≤ p →
+    ∀ X : ℤ, 1 < X → X % 24 = 23 →
+      ¬ ∃ z : ℤ, z ^ 2 = 4 * pellChebyshev p X + 5
+
+/-- The exact uniform residual after the transparent prime-twenty-nine
+certificate is supplied. -/
+def OddPrimeShiftSquareExclusionAtLeastThirtyOne : Prop :=
+  ∀ p : ℕ, Nat.Prime p → Odd p → 31 ≤ p →
     ∀ X : ℤ, 1 < X → X % 24 = 23 →
       ¬ ∃ z : ℤ, z ^ 2 = 4 * pellChebyshev p X + 5
 
@@ -169,6 +177,51 @@ theorem no_oddChebyshevIndex_shiftSquare_of_primeRanges
       hTresidue hy
   exact hlarge p hp hpodd hpge X hXgt hXresidue ⟨y, hshift⟩
 
+/-- Once the explicit prime-twenty-nine certificate is supplied, the exact
+composite-to-prime reduction lands at an odd prime at least 31. -/
+theorem oddChebyshevIndex_primeDivisor_reduction_atLeastThirtyOne
+    (hsmall : OddPrimeShiftSquareExclusionBelowTwentyNine)
+    (h29 : PARISageRationalTargetDiskCertificateIndexTwentyNine)
+    (k : ℕ) (T y : ℤ)
+    (hk : 1 < k) (hkodd : Odd k)
+    (hT : 1 < T) (hTresidue : T % 24 = 23)
+    (hsquare : y ^ 2 = 4 * pellChebyshev k T + 5) :
+    ∃ p m : ℕ, ∃ X : ℤ,
+      Nat.Prime p ∧ Odd p ∧ p ∣ k ∧ k = p * m ∧ 31 ≤ p ∧ Odd m ∧
+        X = pellChebyshev m T ∧ 1 < X ∧ X % 24 = 23 ∧
+          y ^ 2 = 4 * pellChebyshev p X + 5 := by
+  obtain ⟨p, m, X, hp, hpodd, hpdvd, hkfactor, hpge, hmodd,
+      hX, hXgt, hXresidue, hshift⟩ :=
+    oddChebyshevIndex_primeDivisor_reduction hsmall k T y hk hkodd hT
+      hTresidue hsquare
+  have hpne : p ≠ 29 := by
+    intro hp29
+    subst p
+    exact no_indexTwentyNine_chebyshev_shiftSquare_in_pellResidue_of_external_certificate
+      h29 X hXgt hXresidue ⟨y, hshift⟩
+  have hpoddCopy := hpodd
+  obtain ⟨r, hr⟩ := hpoddCopy
+  have hpge31 : 31 ≤ p := by omega
+  exact ⟨p, m, X, hp, hpodd, hpdvd, hkfactor, hpge31, hmodd,
+    hX, hXgt, hXresidue, hshift⟩
+
+/-- Small-prime certificates through 29 plus the displayed residual uniform
+statement exclude every odd Chebyshev index greater than one. -/
+theorem no_oddChebyshevIndex_shiftSquare_of_primeRanges_afterTwentyNine
+    (hsmall : OddPrimeShiftSquareExclusionBelowTwentyNine)
+    (h29 : PARISageRationalTargetDiskCertificateIndexTwentyNine)
+    (hlarge : OddPrimeShiftSquareExclusionAtLeastThirtyOne)
+    (k : ℕ) (T : ℤ)
+    (hk : 1 < k) (hkodd : Odd k)
+    (hT : 1 < T) (hTresidue : T % 24 = 23) :
+    ¬ ∃ y : ℤ, y ^ 2 = 4 * pellChebyshev k T + 5 := by
+  rintro ⟨y, hy⟩
+  obtain ⟨p, m, X, hp, hpodd, _hpdvd, _hkfactor, hpge, _hmodd,
+      _hX, hXgt, hXresidue, hshift⟩ :=
+    oddChebyshevIndex_primeDivisor_reduction_atLeastThirtyOne
+      hsmall h29 k T y hk hkodd hT hTresidue hy
+  exact hlarge p hp hpodd hpge X hXgt hXresidue ⟨y, hshift⟩
+
 #print axioms pellChebyshev_modEq
 #print axioms pellChebyshev_negOne_of_odd
 #print axioms pellChebyshev_pellResidue_of_odd
@@ -177,5 +230,8 @@ theorem no_oddChebyshevIndex_shiftSquare_of_primeRanges
   oddPrimeShiftSquareExclusionBelowTwentyNine_of_external_certificates
 #print axioms oddChebyshevIndex_primeDivisor_reduction
 #print axioms no_oddChebyshevIndex_shiftSquare_of_primeRanges
+#print axioms oddChebyshevIndex_primeDivisor_reduction_atLeastThirtyOne
+#print axioms
+  no_oddChebyshevIndex_shiftSquare_of_primeRanges_afterTwentyNine
 
 end IUTThreeClosures

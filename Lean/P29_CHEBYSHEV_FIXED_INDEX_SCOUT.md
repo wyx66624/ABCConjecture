@@ -1,9 +1,10 @@
 # Prime 29 fixed-index feasibility scout
 
-This note records a read-only Sage/PARI feasibility study.  It is **not** a
-rational-point certificate and none of its provisional class-group or Selmer
-outputs may be used as a theorem.  Its purpose is to identify the shortest
-credible next computation after the unconditional prime-23 closure.
+This note began as a read-only Sage/PARI feasibility scout and is retained for
+provenance.  Its formerly provisional stages have since been superseded by the
+frozen accepted-interface closure in
+`P29_CHEBYSHEV_STOLL_COLEMAN_CLOSURE.md`; this note must not be used in place
+of that certificate.
 
 ## 1. Exact field arithmetic
 
@@ -26,7 +27,9 @@ For `S` above `2,3,29`, the residue degrees are
     3 : (1,28),
     29: (1).
 
-Hence `|S|=4`.  Conditional on the still unproved gate `Cl(K)[2]=0`,
+Hence `|S|=4`.  The later unconditional BDF principal-factor-base certificate
+proves `Cl(K)=1`, so the standard `S`-unit exact sequence gives, at the
+accepted published-theorem/exact-certificate interface,
 
     dim_F2 K(S,2)=1+14+4=19.
 
@@ -69,10 +72,10 @@ benchmark through `10^5` produced 9,506 exact resultant records in 38.197
 seconds.  Naive single-core extrapolation is roughly 71 days and tens of
 gigabytes compressed.  These extrapolations are not proof outputs.
 
-Therefore a literal clone of the p=23 principal-prime certificate appears
-possible in principle but is operationally unattractive.  The immediate gate
-is a compact unconditional proof of `Cl(K)[2]=0` (or eventual independent
-full class-group certification), not a billion-record table.
+At the scout stage this showed that a literal clone of the p=23
+principal-prime certificate was possible in principle but operationally
+unattractive, and identified a compact unconditional proof of `Cl(K)[2]=0` as
+the immediate gate.  That gate was later closed by the BDF certificate below.
 
 ### 2.1 Unconditional BDF factor-base gate
 
@@ -106,7 +109,7 @@ Cl(Q(2^(1/29))) = 1.
 The class-group gate and the earlier analytic odd-cokernel problem are both
 closed.
 
-## 2.2 Galois-module amplification of the remaining class-group gate
+## 2.2 Historical alternative: amplification of the former class-group gate
 
 There is now a paper-level reduction that makes a different compact target
 available.  Put
@@ -134,11 +137,12 @@ against the unique quadratic subfields of `N_2` and `N_29` leaves only
     Cl(K)[2] != 0  ==>  dim_F2 Cl(N)/2 >= 28.
 
 The full proof and its exact formalization boundary are recorded in
-`P29_CL2_GALOIS_MODULE_AMPLIFICATION_AUDIT.md`.  This is not a proof that
-`Cl(K)[2]=0`: an independent upper bound below 28 for the 2-rank of `Cl(N)`,
-or another exclusion of the 28-dimensional augmentation constituent, is
-still required.  In particular, an unfrozen `S`-unit enumeration would be
-circular at this point.
+`P29_CL2_GALOIS_MODULE_AMPLIFICATION_AUDIT.md`.  This alternative route alone
+is not a proof that `Cl(K)[2]=0`: it would still require an independent upper
+bound below 28 for the 2-rank of `Cl(N)`, or another exclusion of the
+28-dimensional augmentation constituent.  In particular, an unfrozen
+`S`-unit enumeration would have been circular at that stage.  The independent
+BDF route in Section 2.1 has instead proved the stronger statement `Cl(K)=1`.
 
 The finite calculation `orderOf (2 : ZMod 29)=28` is separately checked by
 Lean in `IUTThreeClosures/P29FiniteCore.lean`, with no `sorryAx` or
@@ -197,31 +201,34 @@ therefore independent and, by the dimension-19 theorem, complete.  The
 accepted descent interface now proves the actual 2-Selmer localization is
 injective.  No provisional fundamental-unit completeness is used.
 
-## 4. Local and Coleman pilot
+## 4. Completed Stoll and Coleman certificates
 
-The target residue is again `T=23 (mod 24)`, hence `T+1 in 8 Z_2`.  A full
-Stoll shell recursion has not yet been run.  Its main cost will be repeated
-halving in dimension 14; terminal membership should use Hilbert signatures
-rather than enumerate all `2^14` products.
+The target residue is `T=23 (mod 24)`, hence `T+1 in 8 Z_2`.  The complete
+Stoll computation tests 48 shell representatives, with maxima `5,6,7`; every
+branch terminates outside the global image, and the tail closes at equality
+in the fifth shell.  The frozen `Q_5` Coleman run has endpoint-log contents
+`(1,1)`, normalized rank two, unit minor in columns `(0,2)`, and reduced unit
+values `(4,3,4,1)`.  The exact-lift and diskwise difference-quotient argument,
+not a global `p>2g` point-count bound, gives at most one zero in each of the
+six residue disks.  All inputs and trust boundaries are assembled in
+`P29_CHEBYSHEV_STOLL_COLEMAN_CLOSURE.md`.
 
-At 5 the curve has good reduction, six `F_5` points, and one simple
-Weierstrass root.  A 25-digit pilot gave endpoint-log contents `(1,1)` and
-rank two modulo five.  The annihilator reduction
+## 5. Completed outcome
 
-    cbar=(4,1,2,0,...,0,1)
+At the accepted published-theorem plus frozen-computation interface, the
+prime-29 target-disk certificate proves
 
-takes the unit values `(4,3,4,1)` at `0,1,-1,infinity`; columns 0 and 2 have
-unit determinant.  Thus the Coleman finish has the same shape as p=23, but
-a frozen high-precision run remains to be made.
+```text
+(T+1) % 8 = 0  and  y^2 = 4*T_29(T)+5  ==>  T=-1.
+```
 
-## 5. Actionable conclusion
-
-No structural obstruction was found on the curve side.  The next steps, in
-order, are:
-
-1. execute the complete optimized Stoll shells on `T+1 in 8 Z_2`;
-2. freeze a high-precision Coleman unit-minor certificate;
-3. expose the resulting target-disk proposition transparently in Lean.
+Thus there is no solution with `T>1` and `T=23 (mod 24)` at index 29.  Lean
+checks the polynomial/model/scalar bridges and keeps this rational-point
+certificate as an explicit external proposition; it is not a hidden kernel
+axiom.  The active uniform prime-index residual now begins at odd primes
+`p>=31`.  Neither that uniform statement nor the subsequent moving square-base
+radical estimate is proved here, so this fixed-index closure does not prove
+`abc`.
 
 [Pure-prime-degree class-number results](https://colinandmargaret.co.uk/Research/CDW_PureFields_76.pdf)
 such as Parry--Walter do not directly prove the required 2-class-group
