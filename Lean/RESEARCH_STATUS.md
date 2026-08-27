@@ -980,6 +980,20 @@ critical input behind a definition or opaque interface.
   recorded only as a conditional computational pattern.  Neither case is
   promoted to a dyadic Selmer bound or a uniform theorem.  Lean checks the
   scalar dimension ledgers and the exact half-factor/discriminant identities
+- the superseding dyadic computation at prime Chebyshev index `19`.  Nine
+  exact local divisor classes span the full nine-dimensional dyadic Kummer
+  image, while their stack with the nine-dimensional odd-place survivor has
+  rank fifteen.  Thus the dyadic quotient rank is six, not the previously
+  targeted seven, and the global 2-Selmer group has dimension three.  The
+  intersection is exactly `<D_1,D_9,E_extra>`, with the extra class supported
+  away from both endpoint coordinates.  The pure-field class-number input is
+  independently certified by PARI, all non-dyadic local conditions and the
+  complete squareclass basis are checked, and an independent official Magma
+  rerun reproduces the matrices and Hilbert pairings.  Consequently the
+  Mordell--Weil rank is only known to be two or three: no finiteness of Sha,
+  rank-three assertion, or rational-point classification is inferred from
+  this Selmer computation.  Lean checks the horizontal polynomial identities
+  and the exact scalar rank-nullity ledgers
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
