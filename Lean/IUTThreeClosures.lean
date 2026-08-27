@@ -134,6 +134,7 @@ import IUTThreeClosures.ZeroLabelBarycentric
 import IUTThreeClosures.DiagonalPacketNoGo
 import IUTThreeClosures.Cor312CoefficientAlgebra
 import IUTThreeClosures.IUTIVAbsorption
+import IUTThreeClosures.GeneralPositionPrimeAbsorption
 import IUTThreeClosures.PublicNormalizationObstruction
 import IUTThreeClosures.CorrectedQPilotDivisor
 import IUTThreeClosures.TorsionLineEnergyNoGo
