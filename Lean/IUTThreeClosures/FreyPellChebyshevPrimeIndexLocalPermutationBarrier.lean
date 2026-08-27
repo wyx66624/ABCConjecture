@@ -124,17 +124,17 @@ theorem pellPrimeLocal_minusOne_oddPow (m : ℕ) :
     (-1 : ℤ) ^ (2 * m + 1) = -1 := by
   simp [pow_add]
 
-/-! ## The exact 4/11 threshold -/
+/-! ## Exact power thresholds -/
 
-/-- The natural-number form of the global size argument.  The hypotheses
-are precisely D+1 <= T^2 and T^p <= Z.  For p >= 11 they imply the
-integer certificate (D+1)^11 <= Z^2, without real roots or asymptotics. -/
-theorem pellPrimeLocal_elevenThreshold
-    (D T Z p : ℕ)
+/-- The exponent-independent natural-number form of the global size
+argument.  Keeping the target exponent explicit lets later residual
+reductions instantiate the strongest lower bound currently available. -/
+theorem pellPrimeLocal_powerThreshold
+    (D T Z p k : ℕ)
     (hcoordinate : D + 1 ≤ T ^ 2)
     (hchebyshev : T ^ p ≤ Z)
-    (hp : 11 ≤ p) :
-    (D + 1) ^ 11 ≤ Z ^ 2 := by
+    (hk : k ≤ p) :
+    (D + 1) ^ k ≤ Z ^ 2 := by
   have hraise : (D + 1) ^ p ≤ (T ^ 2) ^ p :=
     Nat.pow_le_pow_left hcoordinate p
   have hmiddle : (T ^ 2) ^ p = (T ^ p) ^ 2 := by
@@ -145,7 +145,18 @@ theorem pellPrimeLocal_elevenThreshold
     rw [hmiddle] at hraise
     exact hraise.trans hsquare
   have hbase : 0 < D + 1 := by omega
-  exact (Nat.pow_le_pow_right hbase hp).trans hpPower
+  exact (Nat.pow_le_pow_right hbase hk).trans hpPower
+
+/-- The natural-number form of the global size argument.  The hypotheses
+are precisely D+1 <= T^2 and T^p <= Z.  For p >= 11 they imply the
+integer certificate (D+1)^11 <= Z^2, without real roots or asymptotics. -/
+theorem pellPrimeLocal_elevenThreshold
+    (D T Z p : ℕ)
+    (hcoordinate : D + 1 ≤ T ^ 2)
+    (hchebyshev : T ^ p ≤ Z)
+    (hp : 11 ≤ p) :
+    (D + 1) ^ 11 ≤ Z ^ 2 :=
+  pellPrimeLocal_powerThreshold D T Z p 11 hcoordinate hchebyshev hp
 
 /-- Substitution D=3*A*B gives the exact parity-core obstruction appearing
 in the companion note. -/
@@ -167,13 +178,50 @@ theorem pellPrimeLocal_strictParityBound_excludes
     False :=
   (not_lt_of_ge hnecessary) hlower
 
+/-! ## The active prime-index range: the exact 4/31 threshold -/
+
+/-- After the certified closures through prime index 29, every active
+prime-index residual has p >= 31.  The same integer argument therefore
+retains exponent 31 rather than weakening it to 11. -/
+theorem pellPrimeLocal_thirtyOneThreshold
+    (D T Z p : ℕ)
+    (hcoordinate : D + 1 ≤ T ^ 2)
+    (hchebyshev : T ^ p ≤ Z)
+    (hp : 31 ≤ p) :
+    (D + 1) ^ 31 ≤ Z ^ 2 :=
+  pellPrimeLocal_powerThreshold D T Z p 31 hcoordinate hchebyshev hp
+
+/-- Substitution D=3*A*B in the active p >= 31 range. -/
+theorem pellPrimeLocal_fourThirtyOneParityThreshold
+    (A B T Z p : ℕ)
+    (hcoordinate : 3 * A * B + 1 ≤ T ^ 2)
+    (hchebyshev : T ^ p ≤ Z)
+    (hp : 31 ≤ p) :
+    (3 * A * B + 1) ^ 31 ≤ Z ^ 2 :=
+  pellPrimeLocal_thirtyOneThreshold (3 * A * B) T Z p
+    hcoordinate hchebyshev hp
+
+/-- The exact remaining sufficient inequality in the active p >= 31
+range.  It deliberately assumes only the opposite strict parity-core bound;
+no unproved squarefree-part estimate is hidden here. -/
+theorem pellPrimeLocal_strictParityBoundThirtyOne_excludes
+    (A B Z : ℕ)
+    (hnecessary : (3 * A * B + 1) ^ 31 ≤ Z ^ 2)
+    (hlower : Z ^ 2 < (3 * A * B + 1) ^ 31) :
+    False :=
+  (not_lt_of_ge hnecessary) hlower
+
 #print axioms pellPrimeLocal_halfAngleReconstruction
 #print axioms pellPrimeLocal_blockOne
 #print axioms pellPrimeLocal_derivativeFactor_ne_zero
 #print axioms pellPrimeLocal_smallPrimeBranch
 #print axioms pellPrimeLocal_minusOne_oddPow
+#print axioms pellPrimeLocal_powerThreshold
 #print axioms pellPrimeLocal_elevenThreshold
 #print axioms pellPrimeLocal_fourElevenParityThreshold
 #print axioms pellPrimeLocal_strictParityBound_excludes
+#print axioms pellPrimeLocal_thirtyOneThreshold
+#print axioms pellPrimeLocal_fourThirtyOneParityThreshold
+#print axioms pellPrimeLocal_strictParityBoundThirtyOne_excludes
 
 end IUTThreeClosures

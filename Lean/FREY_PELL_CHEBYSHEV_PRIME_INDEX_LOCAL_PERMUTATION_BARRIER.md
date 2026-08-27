@@ -1,4 +1,4 @@
-# The prime-index Chebyshev residual: a \(4/11\) threshold and a local permutation barrier
+# The prime-index Chebyshev residual: the active \(4/31\) threshold and a local permutation barrier
 
 ## 0. Outcome and trust boundary
 
@@ -17,7 +17,9 @@ Pell family.  Its input is the complete residual package
 
 where \(A,B\) are positive, coprime and squarefree, \(3\nmid AB\),
 \(T\equiv23\pmod {24}\), \(\varepsilon\) is the positive fundamental
-norm-one unit of \(\mathbf Q(\sqrt D)\), and \(p\ge11\) is prime.  Equivalently,
+norm-one unit of \(\mathbf Q(\sqrt D)\), and \(p\ge31\) is prime.  The lower
+bound reflects the separately certified closures of all prime indices through
+29 in the current repository state.  Equivalently,
 
 \[
   Z=T_p(T),\qquad y^2=4T_p(T)+5,qquad y=2b+3.       \tag{0.2}
@@ -33,24 +35,24 @@ The notation for \(T_j,U_j\) is normalized by
                                                                \tag{0.3}
 \]
 
-There is no unconditional uniform exclusion of \(p\ge11\) below.  There are,
+There is no unconditional uniform exclusion of \(p\ge31\) below.  There are,
 however, two new rigorous conclusions.
 
 1. Every genuine residual point satisfies the sharp elementary necessary
    inequality
 
    \[
-       (3AB+1)^{11}\le Z^2.                              \tag{0.4}
+       (3AB+1)^{31}\le Z^2.                              \tag{0.4}
    \]
 
    Thus the residual would be closed by the pointwise parity-core estimate
 
    \[
-       (3AB+1)^{11}> (b^2+3b+1)^2.                       \tag{0.5}
+       (3AB+1)^{31}> (b^2+3b+1)^2.                       \tag{0.5}
    \]
 
    On an asymptotic scale, any uniform lower bound
-   \(AB\gg b^{4/11+\delta}\), \(\delta>0\), would suffice after a finite
+   \(AB\gg b^{4/31+\delta}\), \(\delta>0\), would suffice after a finite
    computation.  This is substantially weaker than a coefficient-one
    radical estimate, but it is not supplied by an accepted theorem.
 
@@ -133,7 +135,7 @@ both moving parity kernels, both half-angle factors, the norm equation, and
 both coefficients of the unit power.  They do not test only the shifted
 square in (0.2).
 
-## 2. The exact \(4/11\) threshold
+## 2. The exact active \(4/31\) threshold
 
 The norm equation in (0.1) is
 
@@ -171,22 +173,24 @@ Raising (2.2) to the \(p\)-th power and using (2.3) yields
  (D+1)^p\le T^{2p}\le Z^2.                           \tag{2.4}
 \]
 
-Because \(D+1\ge1\) and \(p\ge11\),
+In general, (2.4) gives \((D+1)^k\le Z^2\) for every \(k\le p\).
+Because the currently active residual has \(p\ge31\), retain the full fixed
+exponent 31:
 
 \[
- (3AB+1)^{11}=(D+1)^{11}\le(D+1)^p\le Z^2.           \tag{2.5}
+ (3AB+1)^{31}=(D+1)^{31}\le(D+1)^p\le Z^2.           \tag{2.5}
 \]
 
 Equivalently,
 
 \[
- 3AB+1\le Z^{2/p}\le Z^{2/11}.                       \tag{2.6}
+ 3AB+1\le Z^{2/p}\le Z^{2/31}.                       \tag{2.6}
 \]
 
 Since \(Z=b^2+3b+1<(b+2)^2\), a slightly looser elementary version is
 
 \[
- AB<{(b+2)^{4/11}\over3}.                             \tag{2.7}
+ AB<{(b+2)^{4/31}\over3}.                             \tag{2.7}
 \]
 
 The direction is important: (2.5)--(2.7) are *necessary upper bounds* on
@@ -477,7 +481,7 @@ not merely observing that the two principal ideals are squares.  Existing
 fixed-number-field asymptotic Fermat theorems do not provide that uniform
 control.
 
-## 7. Accepted squarefree-part results do not cross \(4/11\)
+## 7. Accepted squarefree-part results do not cross \(4/31\)
 
 The relevant unconditional results have the wrong scale or the wrong
 quantifier.
@@ -512,11 +516,11 @@ quantifier.
 Accordingly, the following is the smallest clean unconditional input found
 that would finish the prime-index residual:
 
-> **Four-consecutive parity-core \(4/11\) proposition.**  For every
+> **Four-consecutive parity-core \(4/31\) proposition.**  For every
 > sufficiently large member of the actual orbit
 > \(b=Au^2,\ b+1=Bv^2,\ b+2=3r^2,\ b+3=s^2\), one has
 > \[
->    (3AB+1)^{11}>(b^2+3b+1)^2.
+>    (3AB+1)^{31}>(b^2+3b+1)^2.
 > \]
 
 No accepted theorem located in the cited block, recurrence, Pell, or
@@ -581,8 +585,8 @@ first explicit examples.
 The prime-index residual is not closed unconditionally.  The present work
 does isolate what a successful next step must see.
 
-* A pointwise bound just beyond the \(4/11\) parity-core exponent would
-  finish every \(p\ge11\).
+* A pointwise bound just beyond the \(4/31\) parity-core exponent would
+  finish every currently active \(p\ge31\).
 * No fixed finite congruence covering can supply it: complete nondegenerate
   local points exist and Hensel-lift at every fixed \(q\ge5\).
 * Letting \(q\) grow with \(p\) does not help if one retains only order and
