@@ -887,8 +887,10 @@ critical input behind a definition or opaque interface.
   example at `T=479,p=17` shows that all BHV primitive divisors can split in
   `Q(sqrt(5))`, so primitive-divisor existence plus the necessary splitting
   condition is not a contradiction.  This is a method diagnostic, not a
-  solution of the shifted-square equation.  The residual exclusion for every
-  prime `p>=17` remains explicitly unproved.  Lean checks all scalar
+  solution of the shifted-square equation.  At this audit stage the residual
+  exclusion for every prime `p>=17` was explicitly unproved; the pointwise
+  `p=17,19` closures recorded below supersede those two cases.  Lean checks
+  all scalar
   coordinates, norms, unit identities, degree-eight factorization and the
   large-integer diagnostic without asserting the number-field residual
 - the local-permutation barrier for the same prime-index problem.  For every
@@ -1178,6 +1180,21 @@ boundary-ramification and global GenEll/Belyi height package.
   all primes up to the original height scale.  This retires those standard
   same-support descent mechanisms, not a new arithmetic bounded-additive
   descent valid for every current descendant.
+- The exact global Pell/tripod/finite-orbit audit now sharpens this boundary.
+  Choosing one favourable member of the six-point tripod orbit is equivalent
+  to `ABCConjecture`, with only the universal additive loss `log 2`; likewise,
+  the critical uniform radical bound for the actual Frey `j`-height is
+  equivalent to `ABCConjecture` through the proved two-sided height corridor.
+  A finite catalogue of fixed Pell orbits with uniformly bounded fibres and
+  output logarithmic height `O(log c)` cannot encode all primitive triples:
+  the endpoint family `(n,1,n+1)` has `N` sources but only `O(log N)` targets
+  in those fixed height balls.  The honest squarebase reduction for a general
+  triple is instead the moving identity `A*u^2+B*v^2=C*w^2`; for `A*C>1` its
+  quadratic field and norm coefficient move, while `A*C=1` is a split
+  quadratic étale degeneration.  This retires only fixed-orbit and hidden-
+  coefficient global bridges, not a genuinely uniform moving-coefficient
+  Pell or elliptic theorem.  Lean checks the selector and Frey equivalences
+  and both squarebase scalar identities without assuming abc.
 - Direct absorption cannot remove either a fixed positive multiple of
   `log rad`, a fixed positive power of the largest support prime in a
   logarithmic-height bound, or a product of two independently growing
@@ -1529,9 +1546,11 @@ untilts or arithmetic holomorphic structures.
   eliminated by the complete two-cover/elliptic-Chabauty calculation above;
   indices seven, eleven and thirteen are likewise eliminated by the exact
   Coleman--Chabauty certificates above.  What remains is the
-  prime-index statement that `4*T_p(T)+5` is not a square for every odd
-  prime `p>=17` (or its actual `T=23 (mod 24)` specialization), followed even
-  then by a moving square-base radical estimate.  Neither statement is
+  prime-index statement that `4*T_p(X)+5` is not a square for every odd
+  prime `p>=23` and every relevant composite-reduction base
+  `X=T_(k/p)(T)>1` with `X=23 (mod 24)`, followed even then by a moving
+  square-base radical estimate.  Restricting `X` to a first fundamental-unit
+  coordinate would not cover composite odd indices.  Neither statement is
   assumed by the current formal package
 - a global height/cancellation theorem for a non-torsion auxiliary selector.
   The local existence problem itself is now solved after degree at most two:
