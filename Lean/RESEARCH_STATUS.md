@@ -992,8 +992,23 @@ critical input behind a definition or opaque interface.
   and fourth digits are genuinely stronger than the preceding truncated
   data.  The two nonsingular square branches still lift, and even the three
   singular classes remain locally compatible.  Thus this is a sharper
-  necessary filter, not a uniform exclusion; another digit would require the
-  `X^4` coefficient in `H_m`, equivalently control modulo `X^6`
+  necessary filter, not a uniform exclusion.  The all-depth no-go below
+  shows that computing the `X^4` coefficient and further digits would only
+  resolve more of the same local solution graph, not produce a pure
+  five-adic contradiction
+- the all-depth ramified-five no-go theorem for the actual quotient.  Put
+  `F_m(A,z)=5*z^2-4*A*H_m(5*A)-1`.  If `5` does not divide `p=2*m+1`, then
+  `F_m(A,z)=A*c_m-1 (mod 5)` and its `A`-slope is the unit `-4*c_m`.
+  Lean kernel-checks the stronger exact digit formula
+  `F_m(A+5^n*t,z)-F_m(A,z)=-4*5^n*t*c_m (mod 5^(n+1))` for every depth,
+  as well as simultaneous CRT compatibility with
+  `A=19 (mod 24)`, `z=1 (mod 24)` and the full equation modulo `24`.
+  Standard simple-root Hensel therefore gives, for every `z in Z_5`, a
+  unique `A in Z_5` solving the exact local equation.  Consequently no
+  finite-depth sieve, nor even complete pure five-adic analysis, can empty
+  this ramified branch.  This is a local no-go only: the Hensel point need
+  not be an ordinary positive integer point and supplies neither a solution
+  nor a counterexample to `abc`
 - a uniform, unconditional rank-two lower bound for the prime-index
   Chebyshev Jacobians.  For every odd prime `p != 3`, the two explicit
   half-divisors have descent squareclasses `[a-1]` and `[3*(a+1)]` in
