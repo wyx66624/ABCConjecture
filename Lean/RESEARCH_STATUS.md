@@ -1017,6 +1017,22 @@ critical input behind a definition or opaque interface.
   finite-precision Coleman zeros are used only as stability evidence: exact
   annihilation is the algebraic unit-minor construction.  No GRH, BSD,
   finiteness of Sha, `abc`, bounded search, or conjectural rank input is used
+- a new uniform fixed-elliptic reconstruction of every remaining prime-index
+  Chebyshev square.  Writing `U=(T+sqrt(T^2-1))^p` sends the equation to the
+  fixed conductor-24 curve `Y^2=X*(X+1)*(X+4)`.  Translation by the rational
+  half-point `H=(-2,-2)` gives the rational twist coordinate
+  `x=-2*(y+1)/(y-1)` and, on the four-consecutive branch, the explicit point
+  `(-2*(b+2)/(b+1), 2*a*r*s/(B^2*v^3))` on the `3*A*B` twist.  On the
+  degree-one `X_0(24)` parametrization, the root coordinate is the modular
+  unit `U=X/2` with divisor `2[1/12]-2[infinity]`.  Wohlfahrt's theorem and an
+  exact CRT/perfectness argument show that every cyclic cover `z^p=U`,
+  `p>=5`, is noncongruence; thus congruence modular-curve classifications do
+  not close the problem.  The rational split branch is excluded by the exact
+  rank-zero torsion group of the fixed curve.  The surviving statement is a
+  modular-unit fundamental-unit `p`-th-power exclusion on moving quadratic
+  twists; no audited accepted theorem currently has those quantifiers.  Lean
+  checks the scalar curve, involution, translation and twist identities, not
+  the modular parametrization or the uniform rational-point residual
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight
@@ -1207,6 +1223,18 @@ boundary-ramification and global GenEll/Belyi height package.
   Stewart--Yu's accepted unconditional theorem specializes uniformly to
   `2*log Z << R^(1/3)*(log R)^3`, for `R=rad(D*X*Y*Z)`, so the remaining gap
   is one of growth type rather than a missing numerical coefficient.
+  Published `abc` exceptional-set bounds do not amplify either Pythagorean
+  bridge to the full conjecture.  The fixed transfer sends source height `c`
+  to target height comparable with `c^4`, while the entire squared primitive-
+  Pythagorean locus has only `O(T^(1/2))` points through target height `T`;
+  every currently applicable exceptional-set exponent is strictly above
+  `1/2`.  The moving-`D` transfer likewise creates only boundedly many targets
+  per source and worsens the direct counting exponent.  Infinite abc failures
+  may also be arbitrarily lacunary, so a positive-power exceptional upper
+  bound cannot imply finiteness.  The companion audit records the exact scalar
+  inequalities and also rejects Carella's arXiv:2608.16764v2 construction at
+  its first decisive estimate: an available summed error bound `O(h/u^6)` is
+  treated as `O(h*rho(u))`, although `rho(u)=o(u^(-A))` for every fixed `A`.
   These statements retire finite fixed-Pell catalogues and hidden-coefficient
   bridges, not every possible arithmetic construction.  Lean checks the
   selector and Frey equivalences, both Pythagorean scalar/coefficient ledgers,
@@ -1388,6 +1416,34 @@ the fixed-place `1/j^2` copies cannot be embedded isometrically into one metric
 packet while identifying a rational prime.  This is a no-go theorem for the
 naive fixed-place isometric adapter, not a refutation of genuinely different
 untilts or arithmetic holomorphic structures.
+
+The 2026 eta-orbit audit makes the source boundary still more explicit.  The
+literal public `LogVolumeData` carrier is uninhabited because its scaling law
+is quantified over the empty set; a source-faithful continuation must first
+use the honest finite-positive carrier.  After that repair, the smallest
+substantive IUT III input is not an arbitrary same-volume quotient class but a
+genuinely reachable anabelian output `S` whose one-action region has exactly
+the native q-pilot volume and lies in the theta possible-image region.  Equality
+of the associated one-dimensional eta maps then reduces formally to that one
+volume equality, but no accepted theorem currently proves the genuine-output
+existence.  Even such an eta witness would still leave the uniformly quantified
+IUT IV estimate for the authentic selected odd q-divisor and corrected
+ramification weights.
+
+A strict audit of Joshi's Arithmetic Teichmuller Parts III--IV reaches the
+same boundary and supplies several earlier source-level diagnostics.  The
+Part III rule sending a product tuple to its pure tensor is called a linear
+map, but is not additive already for two rational factors.  The later positive-
+volume theorem infers containment of a full tensor lattice from containment of
+distinguished points without proving independent-coordinate reachability or
+module stability, and its printed Corollary 9.11.1.1 has a nonpositive left
+side and positive right side.  Part IV additionally calls equality of two
+Frobenius-shifted hull volumes a tautology, imports the IUT IV Step-(v) upper
+bound without identifying its objects and normalization with the new locus,
+and equates a positive normalized Tate-divisor degree with a negative sum of
+local logarithms.  The claimed final Vojta theorem would have the correct
+uniform quantifiers and would imply standard abc, but these source and
+normalization interfaces are not proved by the cited accepted results.
 
 ## Not proved
 
