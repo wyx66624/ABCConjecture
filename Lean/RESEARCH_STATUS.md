@@ -994,6 +994,27 @@ critical input behind a definition or opaque interface.
   rank-three assertion, or rational-point classification is inferred from
   this Selmer computation.  Lean checks the horizontal polynomial identities
   and the exact scalar rank-nullity ledgers
+- the superseding unconditional closure of prime Chebyshev index `19`, which
+  bypasses the unresolved distinction between Mordell--Weil and Tate--Shafarevich
+  origins of the extra Selmer class.  For
+  `Gamma_2=<H_1,H_9>`, an exact implementation of Stoll's Selmer-saturation
+  criterion proves that every rational point in the Pell residue disk
+  `X in -4+32 Z_2` maps into `sat(Gamma_2)`.  The full shell computation uses
+  all sixteen odd residues modulo `32` at depths `3,4,5`, verifies the local
+  constancy thresholds `5,6,7`, and closes the infinite tail at equality in
+  Stoll's Lemma 3.10.  The hyperelliptic negative branch is handled with the
+  exact base-point correction `-i-2D_0=-i+4H_1`.  A characteristic-zero
+  `Q_5` Coleman differential, defined by a unit minor of the two actual
+  logarithms, is nonvanishing on all six residue disks and leaves only the
+  five known rational points; the sixth local anchor is a non-rational
+  Weierstrass point.  Consequently the target disk contains only
+  `(-4,+/-512)`, so no integral base `T>1` occurs at index `19`.  Official
+  Magma computations at precisions `4000` and `5000` have identical decisive
+  output, and an independent Sage 10.9 rerun agrees.  The global extra-class
+  representative is linked to the local one by exact square tests, and the
+  finite-precision Coleman zeros are used only as stability evidence: exact
+  annihilation is the algebraic unit-minor construction.  No GRH, BSD,
+  finiteness of Sha, `abc`, bounded search, or conjectural rank input is used
 - the exact arithmetic Leibniz--Wronskian bridge: compatible integer values
   divisible by the three powerful parts and having nonzero Wronskian imply
   `c <= rad(abc) * (|Da|/a + |Db|/b)`; the concrete free-prime-weight

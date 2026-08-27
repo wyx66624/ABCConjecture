@@ -1,0 +1,20 @@
+Official Magma calculator V2.29-9
+Submitted input path: tmp/p19_extra_selmer_gamma_rational.m
+Canonical byte-identical input: Lean/audit_scripts/p19_chebyshev_stoll_gamma_rational.m
+Input SHA256: A050120F881895C76F77D46187A657116A2C525DCD18C75D5BDEDD2670A2360B
+Seed: 987743902
+Total time: 0.030 seconds
+No errors.
+
+H1_U=x^9 - 2*x^8 - 32*x^7 + 56*x^6 + 336*x^5 - 480*x^4 - 1280*x^3 + 1280*x^2 +
+1280*x - 512
+H1_V=512
+H9_U=x^9 + 2*x^8 - 32*x^7 - 56*x^6 + 336*x^5 + 480*x^4 - 1280*x^3 - 1280*x^2 +
+1280*x + 512
+H9_V=1536
+G_U=x^9 - x^8 - 32*x^7 + 28*x^6 + 336*x^5 - 240*x^4 - 1280*x^3 + 640*x^2 +
+1280*x - 256
+G_V=-3*x^8 + 84*x^6 - 720*x^4 + 1920*x^2 - 768
+G_N=9
+DM_EQ_MINUS2H1=true DP_EQ_MINUS2H9=true
+P19_GAMMA_RATIONAL_MUMFORD_PASS

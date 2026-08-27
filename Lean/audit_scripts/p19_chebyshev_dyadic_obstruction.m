@@ -225,6 +225,31 @@ assert extraGlobalCoord eq
        Vector(F2,[0,1,1,1,0,1,0,1,1,0,0,0,0,1]);
 printf "EXTRA_GLOBAL_G_COORD=%o\n", extraGlobalCoord;
 
+// Exact bridge from the global pSelmerGroup basis to the small norm-one
+// representative used by the Stoll-Gamma2 local computation.  Both products
+// are formed inside K from the very same frozen representatives above.
+extraGlobalEltW := K!1;
+for j in [1..#Wglobal] do
+    if extra[j] eq 1 then extraGlobalEltW *:= Wglobal[j]; end if;
+end for;
+extraGlobalEltG := K!1;
+for j in [1..#reps] do
+    if extraGlobalCoord[j] eq 1 then extraGlobalEltG *:= reps[j]; end if;
+end for;
+wToGSquare, wToGRoot := IsSquare(extraGlobalEltW/extraGlobalEltG);
+assert wToGSquare and wToGRoot^2*extraGlobalEltG eq extraGlobalEltW;
+delta := -14*a^18 + 4*a^17 + 7*a^16 - 26*a^15 + 6*a^14
+         + 4*a^13 - 21*a^12 + 2*a^11 + 10*a^10 - 8*a^9
+         - 8*a^8 + 30*a^7 - 7*a^6 - 8*a^5 + 37*a^4
+         - 8*a^3 - 7*a^2 + 20*a + 5;
+assert Norm(delta) eq 1;
+deltaSquare, deltaRoot := IsSquare(extraGlobalEltG/delta);
+assert deltaSquare and deltaRoot^2*delta eq extraGlobalEltG;
+printf "EXTRA_SMALL_REP_NORM=%o EXTRA_GLOBAL_OVER_SMALL_REP_IS_SQUARE=%o\n",
+       Norm(delta), deltaSquare;
+printf "EXTRA_W_PRODUCT_OVER_G_PRODUCT_IS_SQUARE=%o\n", wToGSquare;
+printf "EXTRA_SMALL_REP=%o\n", delta;
+
 // Hilbert/Tate-pairing cross-check: the restriction has rank six, and the
 // two endpoint classes plus the displayed extra class are in its kernel.
 SelfPair := Matrix(F2,
