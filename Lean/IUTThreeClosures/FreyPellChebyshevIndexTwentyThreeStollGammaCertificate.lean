@@ -4,16 +4,16 @@ import IUTThreeClosures.FreyPellChebyshevIndexElevenColemanChabautyCertificate
 # Prime-twenty-three Stoll--Gamma closure: scalar companion
 
 The companion audit and the external PARI/Sage certificates implement the
-class-group quotient proof, the global-to-dyadic Kummer injection, Stoll's
+unconditional class-group 2-torsion proof, the global-to-dyadic Kummer injection, Stoll's
 finite shell recursion, and the Coleman finish.  This file checks the copied
 polynomial and finite scalar consequences and exposes the target-disk
 rational-point statement only as a transparent proposition supplied as a
 hypothesis.
 
-Until the separate PARI process returns the literal certified value `1`, this
-file must not be described as an unconditional rational-point certificate.
-It does not formalize class groups, Jacobians, Selmer groups, Hilbert symbols,
-p-adic halving, or Coleman integration.
+The external CL2 package has passed its rigorous real-ball and exact-resultant
+gates.  Those results remain transparent at the Lean boundary: this file does
+not formalize class groups, explicit formulas, Jacobians, Selmer groups,
+Hilbert symbols, p-adic halving, or Coleman integration.
 -/
 
 namespace IUTThreeClosures
@@ -98,6 +98,18 @@ theorem pellChebyshevTwentyThree_globalDyadicDimensionLedger :
       (11 : ℕ) ≤ 25 := by
   norm_num
 
+/-- Exact scalar inputs recorded by the external unconditional `Cl(K)[2]=0`
+certificate: the 23-adic index residue, the degree-one-prime count including
+the two separately treated ramified primes, and degree/signature arithmetic.
+The transcendental explicit-formula inequality remains external and
+transparent; it is deliberately not encoded as a scalar theorem here. -/
+theorem pellChebyshevTwentyThree_cl2ExplicitScalarLedger :
+    (2 : ℕ) ^ 22 % (23 ^ 2) = 392 ∧
+      598490 + 2 = 598492 ∧
+      2 * 23 = 46 ∧
+      2 + 2 * 22 = 46 := by
+  norm_num
+
 /-- The three complete shell computations have maxima 5, 6, and 7. -/
 theorem pellChebyshevTwentyThree_stollGammaShellMaxLedger :
     3 + 2 = 5 ∧ 4 + 2 = 6 ∧ 5 + 2 = 7 := by
@@ -170,8 +182,9 @@ def pellChebyshevTwentyThree_shiftSquarePolynomial (T : ℤ) : ℤ :=
             2024 * T ^ 3 - 23 * T) + 5
 
 /-- Transparent interface to the external PARI/Sage target-disk rational-point
-certificate.  It remains a hypothesis until every external gate in the audit,
-including the unconditional class-group quotient proof, is certified.  The
+certificate.  At the Lean boundary the external result remains an explicit
+hypothesis; the frozen audit independently certifies every gate, including the
+unconditional class-group 2-torsion proof.  The
 condition `(T + 1) % 8 = 0` is the integral form of the actual Stoll disk
 `T + 1 ∈ 8 * Z_2`; the external calculation does not cover every rational
 point of the genus-eleven curve. -/
@@ -214,6 +227,7 @@ theorem no_indexTwentyThree_chebyshev_shiftSquare_in_pellResidue_of_external_cer
 #print axioms pellChebyshevTwentyThree_stollColemanMonicModelBridge
 #print axioms pellChebyshevTwentyThree_stollColemanEndpointScaleLedger
 #print axioms pellChebyshevTwentyThree_globalDyadicDimensionLedger
+#print axioms pellChebyshevTwentyThree_cl2ExplicitScalarLedger
 #print axioms pellChebyshevTwentyThree_stollGammaShellMaxLedger
 #print axioms pellChebyshevTwentyThree_stollGammaLocalConstancyLedger
 #print axioms pellChebyshevTwentyThree_stollGammaRepresentativeCountLedger

@@ -971,17 +971,17 @@ critical input behind a definition or opaque interface.
   no GRH, BSD, `abc`, bounded search or conjectural rank input is used.  Lean
   checks the exact polynomial and scalar ledgers and keeps the external
   rational-point certificate as an explicit proposition
-- the odd-place descent at prime indices `19` and `23`.  For `p=19`,
+- the earlier odd-place descent at prime indices `19` and `23`.  For `p=19`,
   PARI/GP unconditionally certifies the pure-field class number one, and
   the explicit `S`-supported basis is independently deconditioned by a
   full squareclass-product check.  The global space has dimension fourteen,
   the norm kernel dimension ten, and the complete `Q_3` condition leaves
   the expected genus-nine space `W_19`; hence only the rank-seven dyadic
-  quotient map remains.  At `p=23`, the exact candidate ledger has dimensions
-  `17 -> 13 -> 11`, but class-group certification did not finish, so this is
-  recorded only as a conditional computational pattern.  Neither case is
-  promoted to a dyadic Selmer bound or a uniform theorem.  Lean checks the
-  scalar dimension ledgers and the exact half-factor/discriminant identities
+  quotient map remained at that stage.  At `p=23`, the earlier candidate
+  ledger `17 -> 13 -> 11` is retained only as provenance; its former
+  class-group gate is superseded by the unconditional target-disk
+  certificate below.  Lean checks the scalar dimension ledgers and the
+  exact half-factor/discriminant identities
 - the superseding dyadic computation at prime Chebyshev index `19`.  Nine
   exact local divisor classes span the full nine-dimensional dyadic Kummer
   image, while their stack with the nine-dimensional odd-place survivor has
@@ -1017,6 +1017,27 @@ critical input behind a definition or opaque interface.
   finite-precision Coleman zeros are used only as stability evidence: exact
   annihilation is the algebraic unit-minor construction.  No GRH, BSD,
   finiteness of Sha, `abc`, bounded search, or conjectural rank input is used
+- the superseding unconditional target-disk closure at prime Chebyshev index
+  `23`.  For `K=Q(a)`, `a^23=2`, exact principal generators certify all
+  `598492` degree-one prime ideals through norm `8928769` (the primes over
+  `2` and `23` being handled separately).  The unconditional
+  Brueggeman--Doud/Poitou explicit formula then proves `Cl(K)[2]=0`; it does
+  not claim `Cl(K)=1`.  This makes the seventeen frozen `S`-unit
+  squareclasses complete.  The exact norm and `Q_3` conditions reduce them
+  through dimensions `17 -> 13 -> 11`, and the full dyadic Hilbert
+  signatures inject that eleven-dimensional Selmer over-approximation.
+  Stoll's complete shell recursion on the actual disk
+  `T+1 in 8 Z_2`, followed by the `Q_5` Coleman unit-minor argument, gives
+  the integral target-disk implication
+  `(T+1)%8=0` and `y^2=4*T_23(T)+5` only if `T=-1` or `T=1`.
+  Since `T=23 (mod 24)` lies in this disk, no such Pell-relevant base
+  `T>1` occurs at index `23`.  This is a pointwise theorem for that dyadic
+  disk only: it does not classify the rest of the genus-eleven curve,
+  treat another prime index, or prove `abc`.  Lean checks the polynomial
+  and scalar consequences and exposes the external target-disk result as
+  the transparent proposition
+  `PARISageRationalTargetDiskCertificateIndexTwentyThree`; unconditionality
+  comes from the frozen external certificate, not from a hidden Lean axiom
 - a new uniform fixed-elliptic reconstruction of every remaining prime-index
   Chebyshev square.  Writing `U=(T+sqrt(T^2-1))^p` sends the equation to the
   fixed conductor-24 curve `Y^2=X*(X+1)*(X+4)`.  Translation by the rational
@@ -1620,7 +1641,7 @@ normalization interfaces are not proved by the cited accepted results.
   indices seven, eleven and thirteen are likewise eliminated by the exact
   Coleman--Chabauty certificates above.  What remains is the
   prime-index statement that `4*T_p(X)+5` is not a square for every odd
-  prime `p>=23` and every relevant composite-reduction base
+  prime `p>=29` and every relevant composite-reduction base
   `X=T_(k/p)(T)>1` with `X=23 (mod 24)`, followed even then by a moving
   square-base radical estimate.  Restricting `X` to a first fundamental-unit
   coordinate would not cover composite odd indices.  Neither statement is

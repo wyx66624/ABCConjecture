@@ -1,6 +1,7 @@
 \\ Deterministic S-unit basis companion for Q(a), a^23=2.
-\\ Completeness is supplied by the separate class-quotient run returning
-\\ CLASS_QUOTIENT_CERT=1 with exit code zero.
+\\ Completeness is supplied by the separate unconditional explicit-formula
+\\ certificate proving Cl(K)[2]=0.  Full certification of Cl(K)=1 is not
+\\ required for the S-squareclass dimension.
 default(parisizemax,8000000000);
 b=bnfinit(x^23-2,1);
 nf=b.nf;

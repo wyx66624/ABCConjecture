@@ -1,0 +1,45 @@
+SOURCE_TITLE=Local corrections of discriminant bounds and small degree extensions of quadratic base fields
+AUTHORS=Sharon Brueggeman; Darrin Doud
+PUBLICATION=International Journal of Number Theory 4 (2008), 349-361
+DOI=10.1142/S1793042108001389
+SOURCE_URL=https://mathdept.byu.edu/~doud/Papers/Local.pdf
+SOURCE_PDF_SHA256=69be5b06db965e8612be91e0d8b052cb8b5592112d328113bff66f9c99908cb8
+SOURCE_LOCATION=Proposition 2.3, equations (2.1)-(2.2), Theorem 2.4(1)
+
+TEST_FUNCTION_HYPOTHESES_FROM_PROPOSITION_2_3:
+The input f is continuous, even, nonnegative, and satisfies f(0)=1;
+integral_0^infinity f(x) dx converges; f(x)/cosh(x/2) and
+(1-f(x))/x are of bounded variation; and the Fourier transform of f is
+nonnegative.  On page 4 Brueggeman--Doud explicitly select Luc Tartar's
+
+  f(x) = [3(sin(x)-x*cos(x))/x^3]^2
+
+as satisfying these hypotheses, and record
+integral_0^infinity f(x*sqrt(y)) dx = 3*pi/(5*sqrt(y)).
+
+UNCONDITIONAL_FORMULA:
+For a number field L of degree n and r1 real embeddings, y>0, and a finite
+set S of prime ideals of known norms,
+
+  log|d_L| >= r1 + n(gamma+log(4*pi)) - 12*pi/(5*sqrt(y))
+                - I(y) + sum_{P in S} C(P,y),
+
+where
+
+  f(t) = [3(sin(t)-t*cos(t))/t^3]^2,  f(0)=1,
+
+  I(y) = r1 * integral_0^infinity
+                    (1-f(x*sqrt(y)))/(2*cosh(x/2)^2) dx
+       + n  * integral_0^infinity
+                    (1-f(x*sqrt(y)))/sinh(x) dx,
+
+  C(P,y) = 4 * sum_{j>=1}
+                    log(NP)/(1+(NP)^j) * f(j*log(NP)*sqrt(y)).
+
+The certificate script uses n=46, r1=2, sqrt(y)=1419/10000.  Each certified
+degree-one prime of K splits into two primes of L, so after division by 46 its
+retained normalized correction is
+
+  (8/46) * sum_j log(q)/(1+q^j) * f(j*log(q)*sqrt(y)).
+
+Only positive summands explicitly retained by the script are used.

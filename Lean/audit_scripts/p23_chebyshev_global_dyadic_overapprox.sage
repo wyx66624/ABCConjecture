@@ -1,8 +1,7 @@
 # Exact p=23 global squareclass and dyadic-injectivity certificate.
 # SageMath 10.9.  The 17 frozen representatives are the PARI S-unit
 # generators for S={places above 2,3,23}.  Their completeness uses the
-# separate class-quotient wrapper/GP run returning
-# CLASS_QUOTIENT_CERT=1 with exit code zero.
+# separate unconditional explicit-formula certificate proving Cl(K)[2]=0.
 
 Qx.<x> = QQ[]
 K.<a> = NumberField(x^23 - 2)
@@ -15,6 +14,8 @@ assert curvefm.discriminant() == -2^484 * 3^22 * 23^23
 
 P2 = K.primes_above(2)[0]
 P3 = K.primes_above(3)
+P3degrees = sorted(P.residue_class_degree() for P in P3)
+assert P3degrees == [1,11,11]
 reppols = [
     -1,
     x - 1,
@@ -78,7 +79,7 @@ L3 = span([ld1,ld9],F2)
 assert L3.dimension() == 2
 
 # W is an unconditional over-approximation to the global 2-Selmer image
-# once the separate class-number-one certificate is supplied: norm-square
+# once the separate class-group 2-torsion certificate is supplied: norm-square
 # plus the exact local Kummer condition at 3.  No condition at 2 is imposed.
 valid = []
 for mask in range(2^n):
@@ -113,7 +114,8 @@ assert W2sig.rank() == W.dimension() == 11
 assert Gamsig.rank() == 2
 
 print('NORM_RANK',NM.rank())
-print('P3COUNT',len(P3),'LOCAL3_PAIR_RANK',LM.rank(),'L3_DIM',L3.dimension())
+print('P3COUNT',len(P3),'P3_DEGREES',P3degrees,
+      'LOCAL3_PAIR_RANK',LM.rank(),'L3_DIM',L3.dimension())
 print('W3DIM',W.dimension(),'COUNT',len(valid),'WB',WB)
 print('HILBERT_BASIS_RANK',HG.rank(),'GLOBAL_REP_LOCAL_RANK',R2sig.rank(),
       'W2_SIGNATURE_RANK',W2sig.rank(),'KERNEL_DIM',W.dimension()-W2sig.rank(),

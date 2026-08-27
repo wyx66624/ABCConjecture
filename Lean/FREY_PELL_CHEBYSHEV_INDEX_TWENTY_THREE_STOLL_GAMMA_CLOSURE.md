@@ -13,21 +13,21 @@ over-approximation injects at 2, the literal Stoll recursion closes the full
 Pell disk with shell maxima `(5,6,7)`, and the independent Coleman
 calculation leaves only the known rational anchors.
 
-The only remaining gate at the time this ledger was first written is the
-unconditional completion of PARI `bnfcertify` for
+The former remaining class-group gate is now closed unconditionally for
 
     K=Q(a),  a^23=2.
 
-Logically, vanishing of the relevant S-class 2-torsion would suffice; the
-running certificate proves the stronger and simpler statement `Cl(K)=1`.
-
-PARI has already returned the candidate `CLGP=[1,[],[]]`; that candidate is
-not used as a theorem unless the same run returns the literal line
-`CLASS_QUOTIENT_CERT=1` and exits with code zero.  Thus, until both records
-are present, the rigorous residual is exactly
-
-    prove Cl(K)=1 and thereby certify completeness of the 17 frozen
-    S-squareclasses.
+The independent CL2 package proves `Cl(K)[2]=0` by contradiction: a
+hypothetical real-split unramified quadratic class field would have degree
+46 and root discriminant `23*2^(22/23)`; 598,492 certified split
+degree-one primes force a strictly larger unconditional
+Brueggeman--Doud/Odlyzko lower bound.  Its exact verifier checks 598,490
+records using only roots modulo `q` and integer resultants; the primes above
+2 and 23 are handled theoretically.  The frozen recheck records every input
+hash and exits zero.  This is exactly the needed result: every S-class group
+is a quotient of the odd-order ordinary class group, so its 2-torsion also
+vanishes.  The separate full `bnfcertify` route is optional diagnostic
+provenance, not a proof dependency.
 
 No finite computation below is extrapolated to another prime.  Everything
 in this note is pointwise at `p=23`.
@@ -101,9 +101,9 @@ the four classes `0,H1,H9,H1+H9` are distinct modulo `2J(Q_2)`, and
 ## 3. Global squareclasses and exact dyadic injection
 
 Let `S` contain every place of `K=Q(a)`, `a^23=2`, over `2,3,23`.  There
-are five such places.  If the separate PARI certificate returns
-`CLASS_QUOTIENT_CERT=1` with exit code zero,
-then the ordinary and S-class groups have no 2-torsion.  Since `K` has
+are five such places.  The unconditional CL2 certificate proves that the
+ordinary class group, and hence its S-class quotient, has no 2-torsion.
+Since `K` has
 signature `(1,11)`, the S-unit theorem gives
 
     dim K(S,2)=1+11+5=17.
@@ -131,7 +131,8 @@ independent, and the class certificate plus the dimension formula makes
 them a complete basis.
 
 The exact norm matrix has rank four.  Over `Q_3`, the script verifies that
-`X^23-2` has three field factors.  Hilbert pairing against the global
+`X^23-2` has three field factors of residue degrees `(1,11,11)`.
+Hilbert pairing against the global
 representatives has the full six-dimensional ambient rank.  The endpoint
 classes
 
@@ -297,20 +298,29 @@ known rational anchors and supplies no solution with `T>1`.
 
 ## 7. Reproduction and trust boundary
 
-PARI class-quotient and S-unit input:
+Unconditional class-group 2-torsion and S-unit input:
 
-    bash Lean/audit_scripts/run_p23_chebyshev_class_quotient_cert.sh
-    gp -q Lean/audit_scripts/p23_chebyshev_sunit_basis.gp
+    bash Lean/audit_scripts/run_p23_chebyshev_cl2_explicit_cert.sh
+    bash Lean/audit_scripts/run_p23_chebyshev_cl2_frozen_recheck.sh
+    gp -qf Lean/audit_scripts/p23_chebyshev_sunit_basis.gp
 
-The generator output is frozen in
-`p23_chebyshev_sunit_basis.transcript`.  The class run is accepted only when
-`p23_chebyshev_class_quotient_cert.transcript` contains
-`CLASS_QUOTIENT_CERT=1`, the separate `.exit` file contains zero, and the
-metadata contains an end timestamp.  The latest wrapper attempt stopped
-before producing any of those three acceptance conditions, so its partial
-generated files are deliberately not versioned.  The older
-`p23_chebyshev_class_cert_interrupted.transcript` is retained as negative
-provenance, not as a certificate.
+The first wrapper produced all `598490` retained degree-one principal-prime
+records and ended with formula, generation, and exact-verifier success gates
+and exit code zero.  The second wrapper is the canonical read-only recheck: it
+hashes every executable input and the compressed certificate before running,
+then independently repeats the RealBall explicit-formula calculation and the
+exact resultant verifier.  Its transcript ends with
+`P23_CL2_FROZEN_RECHECK_PASS` and `EXIT_CODE=0`.  Together with the two omitted
+ramified primes this gives exactly `598492` degree-one primes through the
+certified cutoff.  The proof and acceptance conditions are documented in
+`Lean/P23_CHEBYSHEV_CL2_EXPLICIT_CERTIFICATE.md`; the S-unit generator output
+is frozen separately in `p23_chebyshev_sunit_basis.transcript`.
+
+The older `p23_chebyshev_class_cert_interrupted.transcript` is retained only
+as negative provenance for a redundant full-class-group route, not as an
+input to the proof.  Full certification of `Cl(K)=1` is unnecessary here:
+the explicit-formula certificate proves exactly the required statement
+`Cl(K)[2]=0`.
 
 Exact SageMath 10.9 global and dyadic input:
 
@@ -335,14 +345,21 @@ Corollary 3.2, Lemma 3.10, Proposition 5.1 and Remark 5.2, and standard
 Coleman integration.  It does not infer a theorem for any other prime.
 
 The frozen byte manifest is
-`Lean/audit_scripts/p23_chebyshev_stoll_gamma2.sha256`.  At this stage it binds
-the ledger, conditional Lean companion, reproduction scripts, and every
-completed PARI/Sage transcript.  It intentionally omits the incomplete class
-run outputs.  After the literal success line and exit code zero appear, the
-manifest must be regenerated to add the executed metadata, transcript, and
-exit record.  The manifest does not hash itself.
+`Lean/audit_scripts/p23_chebyshev_cl2_explicit_cert.sha256`.  It binds this
+ledger and its Lean companion, the explicit-formula source ledger and all
+executed inputs, the compressed principal-prime certificate, both original
+and frozen-recheck transcripts/metadata/exit files, the S-unit/global/Stoll/
+Coleman inputs and transcripts, and the manifest-maker script.  The manifest
+does not hash itself.
 
-Reference: Michael Stoll, “Chabauty Without the Mordell-Weil Group,” in
+References:
+
+Sharon Brueggeman and Darrin Doud, “Local corrections of discriminant bounds
+and small degree extensions of quadratic base fields,” *International Journal
+of Number Theory* **4** (2008), 349–361,
+DOI [10.1142/S1793042108001389](https://doi.org/10.1142/S1793042108001389).
+
+Michael Stoll, “Chabauty Without the Mordell-Weil Group,” in
 *Algorithmic and Experimental Methods in Algebra, Geometry, and Number
 Theory*, Springer (2017), pp. 623–663,
 DOI [10.1007/978-3-319-70566-8_28](https://doi.org/10.1007/978-3-319-70566-8_28).
