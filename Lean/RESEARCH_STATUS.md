@@ -929,6 +929,23 @@ critical input behind a definition or opaque interface.
   BHV are explicitly accepted interfaces.  Local examples show that these
   constraints remain compatible and therefore do not yet close all
   `p>=31`
+- the primitive-divisor odd-valuation audit for the same quotient.  If
+  `p=2*m+1`, then `H_m=T_p/X` is exactly the Lucas cyclotomic block at index
+  `2*p`, equivalently the `p`-th term of the Lehmer pair
+  `(X+sqrt(X^2-1),-X+sqrt(X^2-1))`; the classical cyclotomic index is `4*p`.
+  BHV therefore gives a primitive `q` with
+  `4*p | q-( (X^2-1)/q )`, and the shifted-square equation adds
+  `q=+/-1 (mod 5)`, but BHV does not control the parity of `v_q(H_m)`.
+  Granville's accepted odd-valuation theorem has the incompatible recurrence
+  hypothesis `c=2 (mod 4)`; its general moving-sequence extension is stated
+  only as a conjecture, and the audited Rotkiewicz/Luca--Walsh/Yuan--Li
+  square-term results likewise miss the present Lehmer parameters.  More
+  decisively, every positive valuation can occur in the complete local
+  primitive/five-split packet, and even an odd valuation is allowed by the
+  split norm in `Q(sqrt 5)`.  Thus an odd-valuation theorem would strengthen
+  the ledger but would not be a uniform exclusion.  The exact source and
+  quantifier audit is frozen in
+  `FREY_PELL_CHEBYSHEV_PRIMITIVE_ODD_VALUATION_AUDIT.md`
 - the exact scalar elimination inside that fixed-five residual.  The three
   norm/cross equations imply
   `X*v^2=H*s^2-s*u+1=H*s^2+r*v-1`, the inverse congruences
@@ -960,8 +977,23 @@ critical input behind a definition or opaque interface.
   `gcd(r,X)|5`, so its quadratic derivative is a unit when `5` does not
   divide `X`.  All of these scalar statements and a strictness witness are
   kernel checked.  The local Hensel audit shows why this extra digit is still
-  a necessary filter rather than a uniform contradiction; the next concrete
-  target is the `X^4` coefficient of the quotient
+  a necessary filter rather than a uniform contradiction
+- the fourth-order odd-quotient lift.  If `p=2*m+1`, Lean now proves the exact
+  coefficient identity
+  `6*d_m=(-1)^(m+1)*p*(p^2-1)` and the congruence
+  `H_m(X)=c_m+d_m*X^2 (mod X^4)`.  On the ramified branch `X=5*A`, put
+  `E=4*A*c_m+1+100*d_m*A^3`.  The singular old class
+  `A*c_m=6 (mod 25)` then forces
+  `E mod 625` to lie in `{0,125,500}`.  At index `31` the complete third-digit
+  filter leaves eleven classes modulo `625`, and the singular branch has only
+  `X=620,1245,1870 (mod 3125)`; the corresponding index-`41` branch is
+  `X=705,1330,1955 (mod 3125)`.  Lean checks the coefficient, fourth-order
+  congruence, finite residue lists, and two witnesses showing that the third
+  and fourth digits are genuinely stronger than the preceding truncated
+  data.  The two nonsingular square branches still lift, and even the three
+  singular classes remain locally compatible.  Thus this is a sharper
+  necessary filter, not a uniform exclusion; another digit would require the
+  `X^4` coefficient in `H_m`, equivalently control modulo `X^6`
 - a uniform, unconditional rank-two lower bound for the prime-index
   Chebyshev Jacobians.  For every odd prime `p != 3`, the two explicit
   half-divisors have descent squareclasses `[a-1]` and `[3*(a+1)]` in
