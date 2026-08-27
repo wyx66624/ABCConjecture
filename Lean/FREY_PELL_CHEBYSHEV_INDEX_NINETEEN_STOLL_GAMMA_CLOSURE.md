@@ -222,6 +222,16 @@ Q5 Weierstrass point W=(alpha,0), alpha=0 mod 5. Irreducibility of f over Q
 shows W is not rational. Hence the target 2-adic disk contains no further
 rational point.
 
+In the integral Chebyshev coordinates, the exact downstream statement is
+
+    for all T,y in Z,
+    (T+1) mod 8 = 0 and y^2=4*T_19(T)+5
+    imply T=-1 or T=1.
+
+The extra alternative `T=1` is harmless (it is not in the target disk) and
+keeps the interface parallel to the other fixed-index certificates.  In
+particular, `T=23 (mod 24)` and `T>1` give no solution at index 19.
+
 ## 7. Reproduction and trust boundary
 
 The canonical byte manifest is
@@ -270,6 +280,13 @@ The exact rational Mumford/sign computation has its official output in
 Scalar Lean companion:
 
     lake env lean IUTThreeClosures/FreyPellChebyshevIndexNineteenStollGammaCertificate.lean
+
+The companion now verifies the full coefficient formula for `T_19`, defines
+the transparent proposition
+`MagmaSageRationalTargetDiskCertificateIndexNineteen`, and derives both the
+target-disk and `T=23 (mod 24)` no-solution theorems from that explicit
+parameter.  The external computation is therefore visible in theorem types;
+it is not inserted as a hidden Lean axiom.
 
 This ledger accepts Stoll Theorem 2.1, Lemma 2.4, Corollary 3.2,
 Lemma 3.10, Proposition 5.1 and Remark 5.2, standard hyperelliptic Kummer

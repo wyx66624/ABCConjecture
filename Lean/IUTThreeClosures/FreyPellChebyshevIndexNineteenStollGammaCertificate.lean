@@ -1,4 +1,5 @@
 import IUTThreeClosures.FreyPellChebyshevIndexNineteenDyadicObstruction
+import IUTThreeClosures.FreyPellChebyshevIndexSeventeenDyadicColemanCertificate
 
 /-!
 # Prime-nineteen Stoll--Gamma closure: scalar companion
@@ -15,6 +16,40 @@ halving, or Coleman integration.
 -/
 
 namespace IUTThreeClosures
+
+private theorem pellChebyshev_two_indexNineteen (x : ℤ) :
+    pellChebyshev 2 x = 2 * x ^ 2 - 1 := by
+  rw [show 2 = 0 + 2 by norm_num, pellChebyshev_add_two]
+  simp [pellChebyshev_zero, pellChebyshev_one]
+  ring_nf
+
+private theorem pellChebyshev_nine_indexNineteen (x : ℤ) :
+    pellChebyshev 9 x =
+      256 * x ^ 9 - 576 * x ^ 7 + 432 * x ^ 5 - 120 * x ^ 3 + 9 * x := by
+  rw [show 9 = 3 * 3 by norm_num, pellChebyshev_mul]
+  rw [pellChebyshev_three, pellChebyshev_three]
+  ring
+
+private theorem pellChebyshev_eighteen_indexNineteen (x : ℤ) :
+    pellChebyshev 18 x =
+      131072 * x ^ 18 - 589824 * x ^ 16 + 1105920 * x ^ 14 -
+        1118208 * x ^ 12 + 658944 * x ^ 10 - 228096 * x ^ 8 +
+          44352 * x ^ 6 - 4320 * x ^ 4 + 162 * x ^ 2 - 1 := by
+  rw [show 18 = 2 * 9 by norm_num, pellChebyshev_mul]
+  rw [pellChebyshev_two_indexNineteen, pellChebyshev_nine_indexNineteen]
+  ring
+
+/-- The first-kind nineteenth Chebyshev polynomial in the repository's Pell
+normalization. -/
+theorem pellChebyshev_nineteen (x : ℤ) :
+    pellChebyshev 19 x =
+      262144 * x ^ 19 - 1245184 * x ^ 17 + 2490368 * x ^ 15 -
+        2723840 * x ^ 13 + 1770496 * x ^ 11 - 695552 * x ^ 9 +
+          160512 * x ^ 7 - 20064 * x ^ 5 + 1140 * x ^ 3 - 19 * x := by
+  rw [show 19 = 17 + 2 by norm_num, pellChebyshev_add_two]
+  norm_num only [Nat.reduceAdd]
+  rw [pellChebyshev_eighteen_indexNineteen, pellChebyshev_seventeen]
+  ring
 
 /-- Exact coordinate bridge between the Coleman model
 `y_c^2=(4*T_19(x)+5)/2^20` and the monic dyadic model: `X=4x` and
@@ -120,6 +155,52 @@ theorem pellChebyshevNineteen_stollGammaColemanUnitValuesLedger :
       3 % 5 = 3 := by
   norm_num
 
+/-- The shifted-square polynomial in the coefficient form consumed by the
+external target-disk computation. -/
+def pellChebyshevNineteen_shiftSquarePolynomial (T : ℤ) : ℤ :=
+  4 * (262144 * T ^ 19 - 1245184 * T ^ 17 + 2490368 * T ^ 15 -
+    2723840 * T ^ 13 + 1770496 * T ^ 11 - 695552 * T ^ 9 +
+      160512 * T ^ 7 - 20064 * T ^ 5 + 1140 * T ^ 3 - 19 * T) + 5
+
+/-- Transparent Lean boundary for the frozen Magma/Sage rational-point
+certificate on the actual Pell disk.  The external audit proves this
+proposition unconditionally; Lean keeps it as an explicit hypothesis because
+the Jacobian, Stoll recursion, and Coleman integration are not reimplemented
+in the kernel. -/
+def MagmaSageRationalTargetDiskCertificateIndexNineteen : Prop :=
+  ∀ T y : ℤ,
+    (T + 1) % 8 = 0 →
+    y ^ 2 = pellChebyshevNineteen_shiftSquarePolynomial T →
+      T = -1 ∨ T = 1
+
+/-- The prime-nineteen shifted-square equation has the explicit genus-nine
+polynomial model used by the frozen certificate. -/
+theorem indexNineteen_genusNine_model (T y : ℤ)
+    (h : y ^ 2 = 4 * pellChebyshev 19 T + 5) :
+    y ^ 2 = pellChebyshevNineteen_shiftSquarePolynomial T := by
+  rw [pellChebyshev_nineteen] at h
+  simpa [pellChebyshevNineteen_shiftSquarePolynomial] using h
+
+/-- Conditional only at the transparent Lean boundary, the certified target
+disk contains no prime-nineteen shifted-square solution with base above one. -/
+theorem no_indexNineteen_chebyshev_shiftSquare_in_targetDisk_of_external_certificate
+    (hcert : MagmaSageRationalTargetDiskCertificateIndexNineteen)
+    (T : ℤ) (hT : 1 < T) (htarget : (T + 1) % 8 = 0) :
+    ¬ ∃ y : ℤ, y ^ 2 = 4 * pellChebyshev 19 T + 5 := by
+  rintro ⟨y, hy⟩
+  have hmodel := indexNineteen_genusNine_model T y hy
+  rcases hcert T y htarget hmodel with h | h <;> omega
+
+/-- The residue class `T = 23 (mod 24)` lies in the certified dyadic disk. -/
+theorem no_indexNineteen_chebyshev_shiftSquare_in_pellResidue_of_external_certificate
+    (hcert : MagmaSageRationalTargetDiskCertificateIndexNineteen)
+    (T : ℤ) (hT : 1 < T) (hresidue : T % 24 = 23) :
+    ¬ ∃ y : ℤ, y ^ 2 = 4 * pellChebyshev 19 T + 5 := by
+  apply no_indexNineteen_chebyshev_shiftSquare_in_targetDisk_of_external_certificate
+      hcert T hT
+  omega
+
+#print axioms pellChebyshev_nineteen
 #print axioms pellChebyshevNineteen_stollGammaShellMaxLedger
 #print axioms pellChebyshevNineteen_stollColemanMonicModelBridge
 #print axioms pellChebyshevNineteen_stollColemanEndpointScaleLedger
@@ -133,5 +214,10 @@ theorem pellChebyshevNineteen_stollGammaColemanUnitValuesLedger :
 #print axioms pellChebyshevNineteen_stollGammaColemanDiskLedger
 #print axioms pellChebyshevNineteen_stollGammaColemanUnitMinorLedger
 #print axioms pellChebyshevNineteen_stollGammaColemanUnitValuesLedger
+#print axioms indexNineteen_genusNine_model
+#print axioms
+  no_indexNineteen_chebyshev_shiftSquare_in_targetDisk_of_external_certificate
+#print axioms
+  no_indexNineteen_chebyshev_shiftSquare_in_pellResidue_of_external_certificate
 
 end IUTThreeClosures

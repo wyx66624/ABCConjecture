@@ -1038,6 +1038,41 @@ critical input behind a definition or opaque interface.
   the transparent proposition
   `PARISageRationalTargetDiskCertificateIndexTwentyThree`; unconditionality
   comes from the frozen external certificate, not from a hidden Lean axiom
+- the exact odd-index-to-prime-index quantifier bridge.  The Lean module
+  `FreyPellChebyshevPrimeIndexReduction` proves that a hypothetical solution
+  at any odd `k>1`, base `T>1` with `T=23 (mod 24)`, produces a solution at
+  a prime divisor `p>=29` with cofactor `m` odd and new base
+  `X=T_m(T)>1`, still `X=23 (mod 24)`.  The small-prime premise is derived
+  explicitly from the eight frozen certificate interfaces at
+  `3,5,7,11,13,17,19,23`; the formerly missing prime-19 target-disk
+  proposition is now exposed in its Stoll--Gamma Lean companion.  The
+  residue hypothesis is deliberately explicit: oddness of the base alone
+  does not imply the class `23 (mod 24)`
+- an accepted-literature audit of the remaining uniform prime-index family.
+  No currently accepted theorem found in the fixed-curve, hyperelliptic
+  integral-point, BHV primitive-divisor, modular/Frey, uniform Chabauty, or
+  two-descent literature proves the required all-`p`, all-`X` exclusion.
+  Moreover, no finite collection of congruence obstructions can do so:
+  for every modulus `M`, bases `X=-1 (mod lcm(24,M))` and `y=1 (mod M)`
+  are local solutions because odd `T_p(-1)=-1`.  Thus the residual named
+  proposition
+  `OddPrimeShiftSquareExclusionAtLeastTwentyNine` is a genuine new input,
+  not a disguised published theorem.  If one keeps the full four-consecutive
+  structure instead of proving that stronger curve statement, the weaker
+  sufficient target is `(3*A*B+1)^29 > (b^2+3*b+1)^2`, whose critical
+  squarefree-core scale is `A*B` of order `b^(4/29)`; available unconditional
+  radical estimates do not reach this power scale
+- a read-only fixed-index feasibility scout at `p=29`, recorded separately
+  in `P29_CHEBYSHEV_FIXED_INDEX_SCOUT.md`.  Exact field arithmetic gives
+  signature `(1,14)`, `|S|=4`, and conditional S-squareclass dimension 19.
+  Provisional exact local linear algebra leaves a fourteen-dimensional
+  global over-approximation and finds a full-rank dyadic signature, while a
+  5-adic unit-minor pilot has the expected Coleman shape.  None of this is a
+  certificate: the repository has not yet certified
+  `Cl(Q(2^(1/29)))[2]=0`.  Directly scaling the
+  p=23 split-prime explicit formula is predicted to require roughly
+  `1.5*10^9` records, so the priority is a compact unconditional 2-class
+  certificate rather than a literal billion-record clone
 - a new uniform fixed-elliptic reconstruction of every remaining prime-index
   Chebyshev square.  Writing `U=(T+sqrt(T^2-1))^p` sends the equation to the
   fixed conductor-24 curve `Y^2=X*(X+1)*(X+4)`.  Translation by the rational

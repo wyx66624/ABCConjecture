@@ -64,9 +64,12 @@ The elementary four-consecutive identity gives
  Z^2-3AB(uvrs)^2=1,\qquad 4Z+5=(2b+3)^2.                   \tag{1.5}
 \]
 
-For the actual branch one also has \(T\equiv23\pmod {24}\).  Since \(p\) is
-odd, \(Z\equiv23\pmod {24}\).  Solving (1.1)--(1.2) modulo \(24\) gives the
-single residue
+The target branch assumes \(T\equiv23\pmod {24}\); this residue must be
+supplied by the upstream four-consecutive reduction and is not implied by
+oddness of \(T\) alone.  The theorem
+`pellChebyshev_pellResidue_of_odd` now verifies in Lean that odd \(p\)
+then gives \(Z=T_p(T)\equiv23\pmod {24}\).  Solving (1.1)--(1.2) modulo
+\(24\) gives the single residue
 
 \[
  b\equiv22\pmod {24}.                                     \tag{1.6}
