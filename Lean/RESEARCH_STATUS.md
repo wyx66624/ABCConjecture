@@ -1140,12 +1140,15 @@ critical input behind a definition or opaque interface.
   certified full generating set, while its current `v1` generator enumerates
   the Minkowski factor base through the same `2.66029287224239e15` bound.
   It therefore cannot serve as a ready-made 2-primary shortcut without a new
-  odd-cokernel or mod-2 generation theorem.  Finally, the strict
-  prime-31 BDF scout through `40,000,000` has a negative upper endpoint for
-  the deliberately truncated degree-one lower sum.  This says only that this
-  sufficient lower-bound gate does not close at that cutoff; it says neither
-  that the full BDF sum is negative nor anything about
-  `Cl(Q(2^(1/31)))`
+  odd-cokernel or mod-2 generation theorem.  Finally, the strict prime-31 BDF
+  threshold scan now evaluates the complete formula, not only its degree-one
+  lower sub-sum.  The full margin is strictly negative at `40,000,000` and
+  has certified lower endpoint `0.294405860175708454...>0` at `80,000,000`.
+  Thus the 4,668,356 prime ideals of norm below the latter cutoff generate
+  `Cl(Q(2^(1/31)))`.  No one of those ideals has yet been certified principal,
+  so this is a generation theorem only and not a class-number-one result; the
+  exact scan and trust ledger are in
+  `P31_CHEBYSHEV_BDF_THRESHOLD_SCAN.md`
 - a new uniform fixed-elliptic reconstruction of every remaining prime-index
   Chebyshev square.  Writing `U=(T+sqrt(T^2-1))^p` sends the equation to the
   fixed conductor-24 curve `Y^2=X*(X+1)*(X+4)`.  Translation by the rational
