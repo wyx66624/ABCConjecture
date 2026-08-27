@@ -134,8 +134,17 @@ package directory. A successful workflow run, together with the axiom report in
 `IUTThreeClosures/AxiomAudit.lean`, is required before a change is described as
 kernel-checked.
 
+`kernel-checked` is one completion label, not the only admissible method.  The
+repository may also use an exact named interface to a generally accepted
+theorem or certified computation that is not yet in mathlib, under the source
+and trust-ledger requirements of `ACCEPTED_THEOREM_DEPENDENCY_POLICY.md`.
+
 ## Honesty rules
 
-The formal target may not be closed with `sorry`, `admit`, a new axiom, an opaque
-existence assumption, or a structure field whose inhabitation is equivalent to
-`ABCConjecture`. Such a declaration would only rename the missing theorem.
+The formal target may not be closed with `sorry`, `admit`, an undocumented or
+target-equivalent axiom, an opaque existence assumption, or a structure field
+whose inhabitation is equivalent to `ABCConjecture`.  A named external theorem
+interface is admissible only when it represents independently accepted
+mathematics or a certified exact computation and carries the dependency ledger
+required by `ACCEPTED_THEOREM_DEPENDENCY_POLICY.md`.  Giving an open, disputed,
+or abc-equivalent statement such a name would only rename the missing theorem.

@@ -6,6 +6,10 @@ This notebook is the mandatory mathematical stage before a result is admitted
 to the Lean development.  A result marked `proved on paper` has a complete
 argument below but is not yet counted as formalized.  A result marked
 `kernel-checked` must additionally name a module imported by the default build.
+Results that use accepted external theorem interfaces receive the distinct
+label `closed relative to accepted theorem interfaces` and must satisfy
+`ACCEPTED_THEOREM_DEPENDENCY_POLICY.md`; they are never silently relabelled
+`kernel-checked`.
 
 ## Route B: the odd theta-root graph cover
 

@@ -74,9 +74,13 @@ identifications, not abc, IUT, or the corrected surviving routes.
 
 ## Merge policy
 
-Only kernel-checked, non-circular statements are merged into `main`. When an old
-branch contains useful results but also stale history or broken interfaces, the
-result is ported onto a fresh branch based on current `main`; the old branch is
-retained unchanged.
+Only non-circular statements with a complete dependency audit are merged into
+`main`.  They may be Lean-kernel closed or closed relative to a precisely named
+accepted-theorem/certified-computation interface, using the labels and trust
+ledger in `ACCEPTED_THEOREM_DEPENDENCY_POLICY.md`.  Open, disputed, heuristic,
+or target-equivalent inputs remain conditional.  When an old branch contains
+useful results but also stale history or broken interfaces, the result is
+ported onto a fresh branch based on current `main`; the old branch is retained
+unchanged.
 
 No entry in this registry asserts a parameter-free proof of `ABCConjecture`.
