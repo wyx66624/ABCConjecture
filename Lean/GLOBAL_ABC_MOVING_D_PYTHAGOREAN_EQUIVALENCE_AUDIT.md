@@ -319,6 +319,44 @@ Together Propositions 5.1 and 5.2 prove
 ABCConjecture iff UniformGeneralizedPythagoreanCriticalBound. (5.4)
 ```
 
+### 5.3. The accepted unconditional baseline
+
+There is a uniform theorem here, but it is far below the critical scale.
+Stewart--Yu, *On the abc conjecture, II*, Duke Math. J. 108 (2001),
+Theorem 1, proves that an effectively computable absolute constant `c_0`
+exists such that every primitive positive equation `x+y=z`, with
+`G=rad(xyz)`, satisfies
+
+```text
+z < exp(c_0 G^(1/3) (log G)^3).                   (5.5)
+```
+
+Apply this accepted theorem to
+
+```text
+(x,y,z)=(X^2,DY^2,Z^2).
+```
+
+The strong primitive condition gives a primitive abc triple, and
+`rad(X^2 DY^2 Z^2)=rad(DXYZ)=N`.  Hence, uniformly in the moving squarefree
+coefficient `D`, one obtains the unconditional effective estimate
+
+```text
+2 log Z < c_0 N^(1/3) (log N)^3.                  (5.6)
+```
+
+This is a genuine uniform theorem, not a fixed-`D` result.  It nevertheless
+does not approach `(UGP)`: its right-hand side grows like a positive power of
+the radical, whereas `(UGP)` requires `(1+eta) log N+O_eta(1)`.  In
+particular the gap is one of growth type, not a numerical coefficient that
+can be absorbed.  Stewart--Yu's Theorem 2 can improve (5.5) when the smallest
+among the three largest prime factors is unusually small, but its general
+bound `p_* <= G^(1/3)` recovers no uniform improvement for this family.
+
+Reference: C. L. Stewart and K. Yu, *On the abc conjecture, II*, Duke
+Mathematical Journal 108 (2001), 169--181,
+<https://doi.org/10.1215/S0012-7094-01-10815-6>.
+
 ## 6. Finite counterexample search
 
 A diagnostic exhaustive search was run independently of the proof.

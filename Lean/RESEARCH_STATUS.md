@@ -1204,6 +1204,9 @@ boundary-ramification and global GenEll/Belyi height package.
   `rad(D*X*Y*Z)<=2*rad(abc)*c` and `Z>=c/2`.  The uniform critical radical
   bound over all squarefree `D` is again equivalent to `ABCConjecture`, by the
   exact rescaling `eta=epsilon/(2+epsilon)`; it is not a fixed-`D` theorem.
+  Stewart--Yu's accepted unconditional theorem specializes uniformly to
+  `2*log Z << R^(1/3)*(log R)^3`, for `R=rad(D*X*Y*Z)`, so the remaining gap
+  is one of growth type rather than a missing numerical coefficient.
   These statements retire finite fixed-Pell catalogues and hidden-coefficient
   bridges, not every possible arithmetic construction.  Lean checks the
   selector and Frey equivalences, both Pythagorean scalar/coefficient ledgers,
