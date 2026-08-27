@@ -189,12 +189,51 @@ X(b+1)^2-a^2H
 $$
 
 using (11) and $X\ge2$.  Thus (12) is the strict integer-square sandwich
-underlying the pointwise formula
-$b=\lfloor a\sqrt{H/X}\rfloor$.  The Lean theorem
-`pellFixedFiveResidual_pointwiseFloorSandwich` proves (12) directly over
-$\mathbf N`; it deliberately stops before importing analytic square-root
-and floor machinery.  It is pointwise: it does not bound $a$, $b$, $X$, or
-$p$ uniformly.
+underlying the pointwise formula.  To make that last step exact, put
+
+$$
+z=a\sqrt{H/X}.
+$$
+
+The assumptions already imply $X>0$.  Since $H\ge0$, the radicand is
+nonnegative and Mathlib's nonnegative real square root satisfies
+
+$$
+z^2=a^2\frac HX.
+$$
+
+Dividing (12) by the positive number $X$ gives
+
+$$
+b^2<z^2<(b+1)^2.
+\tag{14}
+$$
+
+All three quantities $b,z,b+1$ are nonnegative.  Strict monotonicity of
+squaring on the nonnegative reals therefore yields
+
+$$
+\boxed{b<a\sqrt{H/X}<b+1.}
+\tag{15}
+$$
+
+By the defining interval characterization of the natural floor,
+
+$$
+\boxed{\left\lfloor a\sqrt{H/X}\right\rfloor_{\mathbf N}=b.}
+\tag{16}
+$$
+
+The Lean theorem `pellFixedFiveResidual_pointwiseFloorSandwich` proves (12)
+over $\mathbf N$,
+`pellFixedFiveResidual_pointwiseSqrtInterval` proves (15) over $\mathbf R$,
+and `pellFixedFiveResidual_pointwiseNatFloor` proves (16) using Mathlib's
+notation `\lfloor\cdot\rfloor_+`.  None of these statements adds an $X>0$
+or $H>0$ assumption: $X>0$ is derived from $1\le a$ and $a^2<X$, while
+natural-number nonnegativity is sufficient for $H/X\ge0$.
+
+The conclusion is pointwise: it does not bound $a$, $b$, $X$, or $p$
+uniformly.
 
 The condition $1\le a$ is essential.  A statement using only a lower bound
 on $X$ would incorrectly admit degenerate reduced representatives such as
@@ -217,19 +256,21 @@ contains:
    specializations;
 6. `pellFixedFiveResidual_sameFactorGcds_dvd_two` and its numerical-bound
    corollary; and
-7. `pellFixedFiveResidual_pointwise_r_lt_two_mul_X` and
-   `pellFixedFiveResidual_pointwiseFloorSandwich`.
+7. `pellFixedFiveResidual_pointwise_r_lt_two_mul_X`,
+   `pellFixedFiveResidual_pointwiseFloorSandwich`,
+   `pellFixedFiveResidual_pointwiseSqrtInterval`, and
+   `pellFixedFiveResidual_pointwiseNatFloor`.
 
 Every theorem is followed by `#print axioms` in the source file.
 
 ## 7. Trust boundary and remaining gap
 
 The Lean layer uses only Mathlib's integer/natural-number algebra,
-divisibility, gcd, congruence, and arithmetic tactics.  Its axiom audit may
-show the standard Lean foundations `propext`, `Quot.sound`, and
-`Classical.choice`; it contains no `sorryAx`, custom axiom, BHV theorem,
-class-group computation, abc statement, or theorem equivalent to the desired
-uniform exclusion.
+divisibility, gcd, congruence, real square root, natural floor, and arithmetic
+tactics.  Its axiom audit may show the standard Lean foundations `propext`,
+`Quot.sound`, and `Classical.choice`; it contains no `sorryAx`, custom axiom,
+BHV theorem, class-group computation, abc statement, or theorem equivalent
+to the desired uniform exclusion.
 
 The following inputs remain outside this module:
 

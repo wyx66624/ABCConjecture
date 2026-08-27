@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 ChatGPT. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: ChatGPT
+-/
 import IUTThreeClosures.FreyPellChebyshevPrimeIndexUniformGenusAudit
 
 /-!
@@ -270,6 +275,85 @@ theorem pellFixedFiveResidual_pointwiseFloorSandwich
     Nat.mul_le_mul_right b hrStep
   constructor <;> nlinarith [hcoordinate, hmul]
 
+/-- The integer sandwich gives the strict real interval whose natural floor
+is `b`.  No extra positivity hypothesis on `H` is needed: natural-number
+nonnegativity and `X > 0` make the square-root argument nonnegative. -/
+theorem pellFixedFiveResidual_pointwiseSqrtInterval
+    (X H r a b : ℕ)
+    (ha : 1 ≤ a)
+    (haX : a ^ 2 < X)
+    (hr : r ^ 2 = 4 * X + 5 * a ^ 2)
+    (hcoordinate : a ^ 2 * H = X * b ^ 2 + r * b + 1) :
+    (b : ℝ) < (a : ℝ) * Real.sqrt ((H : ℝ) / (X : ℝ)) ∧
+      (a : ℝ) * Real.sqrt ((H : ℝ) / (X : ℝ)) < (b : ℝ) + 1 := by
+  have hsandwich := pellFixedFiveResidual_pointwiseFloorSandwich
+    X H r a b ha haX hr hcoordinate
+  have hXposNat : 0 < X := by nlinarith
+  have hXpos : (0 : ℝ) < (X : ℝ) := by exact_mod_cast hXposNat
+  have hradicand : 0 ≤ (H : ℝ) / (X : ℝ) :=
+    div_nonneg (Nat.cast_nonneg H) hXpos.le
+  let z : ℝ := (a : ℝ) * Real.sqrt ((H : ℝ) / (X : ℝ))
+  have hzNonneg : 0 ≤ z := by
+    dsimp [z]
+    positivity
+  have hzSq : z ^ 2 =
+      (a : ℝ) ^ 2 * ((H : ℝ) / (X : ℝ)) := by
+    dsimp [z]
+    rw [mul_pow, Real.sq_sqrt hradicand]
+  have hlowerReal :
+      (X : ℝ) * (b : ℝ) ^ 2 < (a : ℝ) ^ 2 * (H : ℝ) := by
+    exact_mod_cast hsandwich.1
+  have hupperReal :
+      (a : ℝ) ^ 2 * (H : ℝ) <
+        (X : ℝ) * ((b : ℝ) + 1) ^ 2 := by
+    exact_mod_cast hsandwich.2
+  have hlowerSq :
+      (b : ℝ) ^ 2 <
+        (a : ℝ) ^ 2 * ((H : ℝ) / (X : ℝ)) := by
+    calc
+      (b : ℝ) ^ 2 <
+          ((a : ℝ) ^ 2 * (H : ℝ)) / (X : ℝ) := by
+        apply (lt_div_iff₀ hXpos).2
+        simpa [mul_comm] using hlowerReal
+      _ = (a : ℝ) ^ 2 * ((H : ℝ) / (X : ℝ)) := by ring
+  have hupperSq :
+      (a : ℝ) ^ 2 * ((H : ℝ) / (X : ℝ)) <
+        ((b : ℝ) + 1) ^ 2 := by
+    calc
+      (a : ℝ) ^ 2 * ((H : ℝ) / (X : ℝ)) =
+          ((a : ℝ) ^ 2 * (H : ℝ)) / (X : ℝ) := by ring
+      _ < ((b : ℝ) + 1) ^ 2 := by
+        apply (div_lt_iff₀ hXpos).2
+        simpa [mul_comm] using hupperReal
+  have hlowerZSq : (b : ℝ) ^ 2 < z ^ 2 := by
+    rw [hzSq]
+    exact hlowerSq
+  have hupperZSq : z ^ 2 < ((b : ℝ) + 1) ^ 2 := by
+    rw [hzSq]
+    exact hupperSq
+  have hlowerZ : (b : ℝ) < z :=
+    (sq_lt_sq₀ (Nat.cast_nonneg b) hzNonneg).mp hlowerZSq
+  have hupperZ : z < (b : ℝ) + 1 :=
+    (sq_lt_sq₀ hzNonneg (by positivity)).mp hupperZSq
+  simpa [z] using And.intro hlowerZ hupperZ
+
+/-- Exact pointwise natural-floor identity for the reduced fixed-five
+residual. -/
+theorem pellFixedFiveResidual_pointwiseNatFloor
+    (X H r a b : ℕ)
+    (ha : 1 ≤ a)
+    (haX : a ^ 2 < X)
+    (hr : r ^ 2 = 4 * X + 5 * a ^ 2)
+    (hcoordinate : a ^ 2 * H = X * b ^ 2 + r * b + 1) :
+    ⌊(a : ℝ) * Real.sqrt ((H : ℝ) / (X : ℝ))⌋₊ = b := by
+  have hinterval := pellFixedFiveResidual_pointwiseSqrtInterval
+    X H r a b ha haX hr hcoordinate
+  have hnonneg :
+      0 ≤ (a : ℝ) * Real.sqrt ((H : ℝ) / (X : ℝ)) := by
+    positivity
+  apply (Nat.floor_eq_iff hnonneg).2
+  exact ⟨hinterval.1.le, hinterval.2⟩
+
 #print axioms pellFixedFiveResidual_scaledElimination
 #print axioms pellFixedFiveResidual_mixedCoordinateIdentities
 #print axioms pellFixedFiveResidual_mixedCoordinate_su
@@ -285,5 +369,7 @@ theorem pellFixedFiveResidual_pointwiseFloorSandwich
 #print axioms pellFixedFiveResidual_sameFactorGcds_le_two
 #print axioms pellFixedFiveResidual_pointwise_r_lt_two_mul_X
 #print axioms pellFixedFiveResidual_pointwiseFloorSandwich
+#print axioms pellFixedFiveResidual_pointwiseSqrtInterval
+#print axioms pellFixedFiveResidual_pointwiseNatFloor
 
 end IUTThreeClosures
