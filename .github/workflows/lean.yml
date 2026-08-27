@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - "formalize/**"
+      - "research/**"
   pull_request:
   workflow_dispatch:
 
@@ -36,7 +37,7 @@ jobs:
           lake update >/dev/null 2>&1
           lake exe cache get >/dev/null 2>&1
 
-      - name: Run kernel build
+      - name: Run default kernel build
         working-directory: Lean
         shell: bash
         run: |
@@ -49,3 +50,29 @@ jobs:
             tail -n 220 ../lean-build.log
           fi
           exit "$rc"
+
+      - name: Compile conservative-transfer defect theorem
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake env lean IUTThreeClosures/ConservativeTransferDefect.lean
+
+      - name: Run explicit axiom ledger
+        working-directory: Lean
+        shell: bash
+        run: |
+          set +e
+          lake env lean IUTThreeClosures/AxiomAudit.lean > ../axiom-audit.log 2>&1
+          rc=$?
+          if [ "$rc" -ne 0 ]; then
+            echo '--- axiom audit tail ---'
+            tail -n 240 ../axiom-audit.log
+            exit "$rc"
+          fi
+          if grep -q 'sorryAx' ../axiom-audit.log; then
+            echo 'The axiom ledger contains sorryAx.'
+            grep -n 'sorryAx' ../axiom-audit.log | head -n 80
+            exit 1
+          fi
+          echo 'Axiom ledger completed without sorryAx.'
+          tail -n 120 ../axiom-audit.log
