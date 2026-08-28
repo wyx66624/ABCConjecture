@@ -290,3 +290,6 @@ import IUTThreeClosures.AbsorbableSourceErrorBridge
 import IUTThreeClosures.ExceptionalPrimeMassProduct
 import IUTThreeClosures.MazurPrimeIsogenyBoundary
 import IUTThreeClosures.PermutationOrbitUnionCounterexample
+
+-- Radical compression for k-full endpoints in low-radical neighbour routes.
+import IUTThreeClosures.KFullRadicalCompression
