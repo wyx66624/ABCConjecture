@@ -225,9 +225,8 @@ theorem distinguishedProcessionProductRegion_logVolume
         FinitePositiveRegion.logVolume_pi]
     _ = ∑ m ∈ Finset.range (processionLength D),
           (distinguishedLabelProductRegion Q m).logVolume := by
-      simpa using Fin.sum_univ_eq_sum_range
-        (fun m => (distinguishedLabelProductRegion Q m).logVolume)
-        (processionLength D)
+      exact (Finset.sum_range
+        (fun m => (distinguishedLabelProductRegion Q m).logVolume)).symm
     _ = processionLogSum Q := by
       rw [processionLogSum]
       apply Finset.sum_congr rfl
