@@ -38,16 +38,16 @@ jobs:
           lake update >/dev/null 2>&1
           lake exe cache get >/dev/null 2>&1
 
+      - name: Build the project dependency graph with warnings as failures
+        working-directory: Lean
+        shell: bash
+        run: lake build --wfail
+
       - name: Elaborate theorem and axiom-audit modules directly
         working-directory: Lean
         shell: bash
         run: |
-          lake env lean IUTThreeClosures/MultiLabelProductWeightMarginalization.lean
-          lake env lean IUTThreeClosures/MultiLabelPacketQPilot.lean
-          lake env lean IUTThreeClosures/RepeatedLabelProcessionOvercount.lean
-          lake env lean IUTThreeClosures/RepeatedLabelProcessionOvercountAxiomAudit.lean
-
-      - name: Build the default project target with warnings as failures
-        working-directory: Lean
-        shell: bash
-        run: lake build --wfail
+          lake lean IUTThreeClosures/MultiLabelProductWeightMarginalization.lean
+          lake lean IUTThreeClosures/MultiLabelPacketQPilot.lean
+          lake lean IUTThreeClosures/RepeatedLabelProcessionOvercount.lean
+          lake lean IUTThreeClosures/RepeatedLabelProcessionOvercountAxiomAudit.lean
