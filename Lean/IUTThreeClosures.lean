@@ -4,6 +4,7 @@ import IUTThreeClosures.GeneratedSource
 import IUTThreeClosures.ProcessionMultiradialSemanticSource
 import IUTThreeClosures.PublicLogVolumeInconsistency
 import IUTThreeClosures.HonestFinitePositiveLogVolume
+import IUTThreeClosures.HonestDistribHaarScaling
 import IUTThreeClosures.FiniteProductLogVolume
 import IUTThreeClosures.MaximalValuationRingHull
 import IUTThreeClosures.HaarResidueNormalization
