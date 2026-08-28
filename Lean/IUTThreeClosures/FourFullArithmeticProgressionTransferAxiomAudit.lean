@@ -1,0 +1,30 @@
+import IUTThreeClosures.FourFullArithmeticProgressionTransfer
+
+/-! Dependency audit for the four-full arithmetic-progression transfer. -/
+
+#print axioms
+  IUTThreeClosures.AffineLogRadicalGapCertificate.violates_at
+#print axioms
+  IUTThreeClosures.not_abc_of_unbounded_affineLogRadicalGaps
+#print axioms
+  IUTThreeClosures.not_abc_of_unbounded_affineCertificates_of_delta_lt_one
+#print axioms IUTThreeClosures.log_mul_three_le_affine_sum
+#print axioms
+  IUTThreeClosures.ThreeTermRadicalAffineBudget.point_radical_le
+#print axioms
+  IUTThreeClosures.ThreeTermRadicalAffineBudget.toAffineLogRadicalGapCertificate
+#print axioms
+  IUTThreeClosures.PrimitiveThreeTermAPData.toNeighbour_a
+#print axioms
+  IUTThreeClosures.natCast_mul_log_radical_le_log_of_pow_le
+#print axioms IUTThreeClosures.abcRadical_two_mul_le
+#print axioms
+  IUTThreeClosures.FourthRadicalCompressedAPData.conductor_le_three_quarters_log_add_log_two
+#print axioms
+  IUTThreeClosures.not_abc_of_unbounded_fourthRadicalCompressedAPs
+#print axioms
+  IUTThreeClosures.powerful_three_term_reciprocal_sum_not_lt_one
+#print axioms
+  IUTThreeClosures.threeFull_three_term_reciprocal_sum_not_lt_one
+#print axioms
+  IUTThreeClosures.fourFull_three_term_reciprocal_sum_lt_one
