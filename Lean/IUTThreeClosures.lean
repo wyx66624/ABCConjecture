@@ -290,3 +290,6 @@ import IUTThreeClosures.AbsorbableSourceErrorBridge
 import IUTThreeClosures.ExceptionalPrimeMassProduct
 import IUTThreeClosures.MazurPrimeIsogenyBoundary
 import IUTThreeClosures.PermutationOrbitUnionCounterexample
+
+-- Actual finite product realization of each distinguished bad-place packet.
+import IUTThreeClosures.ActualBadPlaceProductRegion
