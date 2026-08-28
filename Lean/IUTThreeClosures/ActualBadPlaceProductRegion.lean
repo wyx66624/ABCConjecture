@@ -88,6 +88,16 @@ noncomputable def coordinateMeasure (Q : QPilotData D) :
     ∀ w : Index Q, Measure (place Q w).TateField :=
   fun _ => normalizedIntegerHaar
 
+/-- Typeclass exposure of the sigma-finiteness already proved for each
+normalized local Haar measure.  This explicit bridge is needed because the
+measure family is wrapped by `coordinateMeasure`. -/
+local instance coordinateMeasureSigmaFinite
+    (Q : QPilotData D) (w : Index Q) :
+    SigmaFinite (coordinateMeasure Q w) := by
+  change SigmaFinite
+    (normalizedIntegerHaar (K := (place Q w).TateField))
+  infer_instance
+
 /-- The actual square-label Tate region at one packet coordinate. -/
 noncomputable def coordinateRegion
     (Q : QPilotData D) (m : ℕ) (w : Index Q) :
