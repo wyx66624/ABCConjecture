@@ -1,0 +1,62 @@
+name: Record prime-power hull Lean success
+
+on:
+  push:
+    branches:
+      - formalize/prime-power-generated-theta-hull-v2
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-record:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: formalize/prime-power-generated-theta-hull-v2
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies
+        working-directory: Lean
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Run complete kernel build
+        working-directory: Lean
+        run: lake build
+
+      - name: Record verified head
+        shell: bash
+        run: |
+          tested="$(git rev-parse HEAD)"
+          cat > Lean/CI_SUCCESS_PR35.md <<EOF
+          # Lean 4.32 kernel verification
+
+          Verified commit: \`$tested\`
+
+          Command:
+
+          \`\`\`bash
+          cd Lean
+          lake update
+          lake exe cache get
+          lake build
+          \`\`\`
+
+          Result: success.
+          EOF
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add Lean/CI_SUCCESS_PR35.md
+          git commit -m 'ci: record verified prime-power hull build [skip ci]'
+          git push origin HEAD:formalize/prime-power-generated-theta-hull-v2
