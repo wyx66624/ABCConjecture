@@ -308,3 +308,11 @@ import IUTThreeClosures.PermutationOrbitUnionCounterexample
 
 -- Actual finite product realization of each distinguished bad-place packet.
 import IUTThreeClosures.ActualBadPlaceProductRegion
+
+-- Unified arithmetic gates and prescribed-Frobenius sieve audits.
+import IUTThreeClosures.PocklingtonPrimality
+import IUTThreeClosures.FreyPellChebyshevModFiveMainEquationSieve
+import IUTThreeClosures.FreyPellChebyshevPrescribedFrobeniusCounterexample
+import IUTThreeClosures.FreyPellChebyshevPrescribedFrobeniusSurvivingFiveSieveCounterexample
+import IUTThreeClosures.FreyEventualModifiedSzpiroGate
+import IUTThreeClosures.ABCCounterexampleExcessMassGate

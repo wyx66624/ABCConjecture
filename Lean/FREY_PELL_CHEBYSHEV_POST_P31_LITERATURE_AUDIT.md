@@ -46,11 +46,13 @@ The strongest verified consequences of the literature are instead:
   fixed-prime-support quantifiers that do not survive when \(p,X\), or the
   square-free kernels vary.
 
-The most direct missing input would be a primitive-divisor theorem with a
+A natural sufficient input would be a primitive-divisor theorem with a
 **prescribed Frobenius class** in \(\mathbf Q(\sqrt5)\).  No such
 per-index, uniform-in-\(X\), unconditional result was found in the checked
-primary literature.  Section 8 states precisely what would be sufficient and
-why ordinary Chebotarev-density statements do not supply it.
+primary literature.  More decisively, the subsequent exact example
+`X=47,p=43` shows that this proposed statement is false: its Chebyshev
+quotient is a single prime congruent to one modulo five.  Section 8 records
+both the tempting target and its counterexample.
 
 No conclusion below uses abc, GRH, BSD, finiteness of a Tate--Shafarevich
 group, or the conjectural general odd-valuation primitive-divisor statement.
@@ -512,10 +514,10 @@ records that the printed proof/exception list for **Theorem 2** omitted the equa
 No use of Theorem 2 or of that exception list is made here; only the
 fixed-base quantifier of Theorem 1 is relevant to this audit.
 
-## 8. The prescribed-Frobenius primitive-divisor target
+## 8. The failed prescribed-Frobenius primitive-divisor target
 
-The following statement would immediately exclude (0.1) in the desired
-range:
+The following statement, if true, would immediately exclude (0.1) in the
+desired range:
 
 > For every integer \(|X|>1\) and every prime \(p\ge37\), the Lehmer block
 > \(H_p(X)\) has a primitive prime divisor \(q\nmid10pX(X^2-1)\) such that
@@ -530,9 +532,78 @@ specified Legendre symbol.  Equivalently, one seeks a primitive divisor with
 
 rather than the split classes forced by a solution.
 
-**Literature verdict:** no unconditional theorem with this quantifier and
-this prescribed Frobenius conclusion was found in the checked primary
-sources.  In particular:
+### 8.1 Exact counterexample to the proposed statement
+
+Take
+
+\[
+ X=47\equiv23\pmod {24},\qquad p=43,
+\]
+
+and put \(H_{43}(X)=T_{43}(X)/X\).  Exact recurrence evaluation gives
+
+\[
+ H_{43}(47)=
+ 74004140258268729146484924335493884636794672907656673308440413484294395629906354561
+ =q.
+\]
+
+A proof-producing partial Pocklington certificate proves that this 83-digit
+integer is prime, and exact reduction gives \(q\equiv1\pmod5\).  PARI and an
+independent BigInt verifier replay the complete finite packet; this is an
+exact certificate rather than a probable-prime premise.  Lean exposes its
+primality conclusion as a transparent frozen-computation proposition, not as
+an axiom, and checks the strategy refutation conditional on that visible
+boundary.  Hence \(q\) is the only prime divisor of the quotient and
+\((5/q)=1\); there is no inert prime divisor at all.  A separate PARI/BigInt
+exact order certificate, not used by the Lean refutation, additionally gives
+
+\[
+ \operatorname{ord}_q\bigl(47+\sqrt{47^2-1}\bigr)=172=4\cdot43,
+\]
+
+so the unique split divisor is genuinely primitive and has exact valuation
+one.  The full proof and trust ledger are in
+`FREY_PELL_CHEBYSHEV_PRESCRIBED_FROBENIUS_COUNTEREXAMPLE.md` and its Lean
+companion.  This value is not a solution of (0.1): its right side is six
+modulo seven, a nonsquare.
+
+### 8.2 The modulo-five repair also fails
+
+The preceding base has \(47\equiv2\pmod5\), so the direct main-equation sieve
+already excludes it from being a shifted-square solution.  Restricting the
+uniform prescribed-Frobenius target to the surviving base classes does not
+repair the target.  At the smallest allowed base found for \(p=37\),
+
+\[
+ X=239\equiv23\pmod {24},\qquad X\equiv4\pmod5,
+\]
+
+exact recurrence and primality certificates give
+
+\[
+\begin{aligned}
+H_{37}(239)={}&204841621\cdot11179222169639\cdot
+1748257245007335071\\
+&\cdot719281385924874743830923395004066559868875967047929887269.
+\end{aligned}
+\]
+
+The four factors occur to exponent one and are congruent respectively to
+\(1,4,1,4\pmod5\).  Thus there is again no inert prime divisor at all, even
+after imposing \(X\bmod5\in\{0,1,4\}\).  This example is also not a solution:
+the shifted-square right side is \(6\pmod {13}\).  It therefore eliminates a
+second uniform **strategy statement**, not the equation conditional on being
+a solution.  Its companion Lean module kernel-checks the recurrence,
+factorization, residue classes, valuation-one identities and nonsquare
+obstruction.  The four large primality conclusions remain one transparent
+frozen-computation proposition supplied as an explicit theorem argument; the
+module does not turn the independently checked external packet into a hidden
+Lean axiom or an unconditional kernel theorem.
+
+**Final verdict:** not only was no unconditional theorem with this quantifier
+found; the statement itself is false.  The literature limitations remain
+instructive:
 
 * Bilu--Hanrot--Voutier Theorem 1.4 guarantees at least one primitive divisor
   at every index \(>30\), but does not prescribe its residue class in a
@@ -545,10 +616,12 @@ sources.  In particular:
   a primitive divisor in a chosen class, and here the recurrence itself varies
   with \(X\).
 
-Consequently the displayed statement is a new sufficient target, not an
-accepted theorem interface.  It may require a second primitive divisor, a
-relative cyclotomic norm argument, or a genuinely new effective
-Chebotarev/sieve input; its truth is not asserted by this audit.
+Consequently the displayed statement is not an accepted theorem interface
+and cannot be used as a future target.  The counterexample has only one prime
+divisor, so merely asking for a second primitive divisor also fails at the
+level of quantifiers.  Any successful Frobenius route would have to exploit
+additional hypotheses forced by the shifted-square equation itself, rather
+than all Chebyshev quotients in the relevant congruence class.
 
 ## 9. Final dependency verdict
 
@@ -564,9 +637,11 @@ Chebotarev/sieve input; its truth is not asserted by this audit.
 | Pell--Mahler, Theorems 2.1--2.2 | fixed-prime-support finiteness/count | the support varies with the solution |
 | consecutive power-free-part results | weak unconditional bounds; stronger abc-conditional bound | no unconditional pointwise bound of the required strength |
 | Bugeaud--Shorey, Theorem 1 | fixed-base generalized Ramanujan--Nagell control | \(4XH_p(X)\) is not a fixed-base power |
+| exact `X=47,p=43` certificate | the quotient is one split primitive prime | refutes the proposed prescribed-inert-divisor target |
+| exact `X=239,p=37` certificate | all four prime factors split and the base survives the mod-five sieve | refutes the residue-restricted repair of that target |
 
 Accordingly, this literature audit supplies no accepted theorem interface
 that would justify a uniform post-\(p=31\) closure.  Any such closure must add
 new arithmetic beyond the present primitive-divisor existence, congruence,
-and local-valuation data.  The sharpest identified missing statement is the
-prescribed-Frobenius primitive-divisor target of Section 8.
+and local-valuation data.  The prescribed-Frobenius primitive-divisor target
+of Section 8 is now explicitly eliminated rather than left as an open input.

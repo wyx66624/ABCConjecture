@@ -137,6 +137,12 @@ import IUTThreeClosures.PolyrelationalWronskianShears
 import IUTThreeClosures.MasonSpecializationBarrier
 import IUTThreeClosures.EtaOrbitMinimalGap
 import IUTThreeClosures.JoshiArithmeticTeichmullerAudit
+import IUTThreeClosures.PocklingtonPrimality
+import IUTThreeClosures.FreyPellChebyshevModFiveMainEquationSieve
+import IUTThreeClosures.FreyPellChebyshevPrescribedFrobeniusCounterexample
+import IUTThreeClosures.FreyPellChebyshevPrescribedFrobeniusSurvivingFiveSieveCounterexample
+import IUTThreeClosures.FreyEventualModifiedSzpiroGate
+import IUTThreeClosures.ABCCounterexampleExcessMassGate
 
 /-!
 `#print axioms` is a dependency ledger.  Under
@@ -1282,3 +1288,55 @@ end IUTThreeClosures.ConcreteFermatBelyiRamification.TripodCertificate
 #print axioms
   IUTThreeClosures.fixedPythagorean_quarticHeightExponent_mismatch
 #print axioms IUTThreeClosures.movingD_affineExponent_exactLoss
+
+/-! ## Unified gates and prescribed-Frobenius sieve audits -/
+
+#print axioms IUTThreeClosures.factor_dvd_orderOf_of_pow_eq_one
+#print axioms IUTThreeClosures.pocklington_primality
+
+#print axioms IUTThreeClosures.pellChebyshev_modFive_eq_self_of_prime_gt_five
+#print axioms IUTThreeClosures.pellChebyshev_shiftSquare_base_modFive
+#print axioms
+  IUTThreeClosures.pellChebyshev_ramifiedFive_signedIndex_mul_cofactor_modFive
+#print axioms
+  IUTThreeClosures.pellChebyshev_ramifiedFive_exact_base_divisibility
+#print axioms
+  IUTThreeClosures.pellChebyshev_prime_shiftSquare_ramifiedFive_conditions
+#print axioms
+  IUTThreeClosures.pellChebyshev_ramifiedFive_jacobiSym_five_index_eq_one
+#print axioms
+  IUTThreeClosures.no_pellChebyshev_prime_shiftSquare_of_five_dvd_base_of_jacobi_neg_one
+
+#print axioms IUTThreeClosures.lucas_primality_of_factorList
+#print axioms
+  IUTThreeClosures.prescribedFrobeniusCounterexamplePrime_prime_of_frozen_certificate
+#print axioms IUTThreeClosures.pellChebyshev_fortyThree_fortySeven_factorization
+#print axioms IUTThreeClosures.pellOddChebyshevQuotient_twentyOne_fortySeven
+#print axioms
+  IUTThreeClosures.prime_dvd_prescribedFrobeniusCounterexamplePrime_eq_of_frozen_certificate
+#print axioms
+  IUTThreeClosures.no_inert_prime_dvd_prescribedFrobeniusCounterexamplePrime_of_frozen_certificate
+#print axioms
+  IUTThreeClosures.not_prescribedInertPrimitiveDivisorTarget_of_frozen_certificate
+#print axioms
+  IUTThreeClosures.prescribedFrobeniusCounterexample_shiftedSquareRhs_mod_seven
+#print axioms IUTThreeClosures.prescribedFrobeniusCounterexample_not_shiftedSquare
+
+#print axioms
+  IUTThreeClosures.pellOddChebyshevQuotient_eighteen_twoThirtyNine_factorization
+#print axioms IUTThreeClosures.survivingFiveSieveFactors_exactlyOnce
+#print axioms
+  IUTThreeClosures.prime_dvd_survivingFiveSieveQuotient_cases_of_frozen_certificate
+#print axioms
+  IUTThreeClosures.no_inert_prime_dvd_survivingFiveSieveQuotient_of_frozen_certificate
+#print axioms
+  IUTThreeClosures.not_prescribedInertPrimitiveDivisorSurvivingFiveSieveTarget_of_frozen_certificate
+#print axioms IUTThreeClosures.survivingFiveSieve_shiftedSquareRhs_mod_thirteen
+#print axioms IUTThreeClosures.survivingFiveSieve_no_global_shiftedSquare
+
+#print axioms IUTThreeClosures.uniform_freyModifiedSzpiro_of_eventual
+#print axioms IUTThreeClosures.abc_of_eventual_freyModifiedSzpiro
+
+#print axioms IUTThreeClosures.adjacentABC_log_product_le_two_height
+#print axioms IUTThreeClosures.one_adjacent_pairwiseCoprimeABC
+#print axioms IUTThreeClosures.not_abcConjecture_of_adjacent_excessMass
