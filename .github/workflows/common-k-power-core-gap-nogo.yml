@@ -45,12 +45,12 @@ jobs:
         shell: bash
         run: lake build
 
-      - name: Elaborate the theorem module directly
+      - name: Elaborate the theorem module and all imports directly
         working-directory: Lean
         shell: bash
-        run: lake env lean IUTThreeClosures/CommonKPowerCoreGapNoGo.lean
+        run: lake lean IUTThreeClosures/CommonKPowerCoreGapNoGo.lean
 
-      - name: Elaborate the dependency audit directly
+      - name: Elaborate the dependency audit and all imports directly
         working-directory: Lean
         shell: bash
-        run: lake env lean IUTThreeClosures/CommonKPowerCoreGapNoGoAxiomAudit.lean
+        run: lake lean IUTThreeClosures/CommonKPowerCoreGapNoGoAxiomAudit.lean
