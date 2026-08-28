@@ -57,19 +57,13 @@ theorem no_unbounded_log_amplification_above_envelope
     (hlower : LogAmplificationLower scale outputLog p)
     (hupper : LogCountEnvelope scale outputLog q K) :
     False := by
-  let gap : ℝ := p - q
-  have hgapPos : 0 < gap := by
-    dsimp [gap]
-    linarith
-  obtain ⟨n, hn⟩ := hunbounded (K / gap)
-  have hchain : p * scale n ≤ q * scale n + K :=
-    (hlower n).trans (hupper n)
-  have hlarge : K < gap * scale n := by
-    have hmul : K < scale n * gap :=
-      (div_lt_iff₀ hgapPos).mp hn
-    nlinarith
-  dsimp [gap] at hlarge
-  linarith
+  have hgapPos : 0 < p - q := sub_pos.mpr hgap
+  obtain ⟨n, hn⟩ := hunbounded (K / (p - q))
+  have hlowerN : p * scale n ≤ outputLog n := hlower n
+  have hupperN : outputLog n ≤ q * scale n + K := hupper n
+  have hlarge : K < scale n * (p - q) :=
+    (div_lt_iff₀ hgapPos).mp hn
+  nlinarith
 
 /-- Browning--Lichtman--Teräväinen's `33/50` exponent. -/
 def bltExponent : ℝ := (33 : ℝ) / 50
