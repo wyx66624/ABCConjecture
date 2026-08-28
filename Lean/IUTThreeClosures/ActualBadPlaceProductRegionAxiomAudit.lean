@@ -1,0 +1,18 @@
+import IUTThreeClosures.ActualBadPlaceProductRegion
+
+/-! Dependency audit for the actual finite bad-place product region. -/
+
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProductRegion.localRegion_logVolume_eq
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProductRegion.packetRegion_logVolume_eq_sum
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProductRegion.packetRegion_logVolume_eq_sq_mul_signedHaarLogSum
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProductRegion.distinguishedPacketRegion_logVolume_eq_distinguishedLabelPacketLog
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProductRegion.neg_qPacketRegion_logVolume_eq_arithmeticDivisorDegree
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProductRegion.normalizedPacketLogQ_eq_arithmeticLogQ
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProductRegion.normalizedPacketLogQ_eq_publicLogQ
