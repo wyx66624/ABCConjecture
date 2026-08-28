@@ -1,4 +1,5 @@
 import Mathlib
+import IUTThreeClosures.FixedCoreRothAcceptedInterface
 
 /-!
 # Least region in a nested exponent chain
