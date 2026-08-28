@@ -1,0 +1,36 @@
+name: Lean target actual product region
+
+on:
+  push:
+    branches:
+      - formalize/actual-bad-place-product-region
+  workflow_dispatch:
+
+concurrency:
+  group: actual-product-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  target:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+      - name: Resolve dependencies and restore Mathlib cache
+        working-directory: Lean
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+      - name: Check actual product theorem and axiom audit
+        working-directory: Lean
+        run: |
+          lake env lean IUTThreeClosures/ActualBadPlaceProductRegionAxiomAudit.lean
