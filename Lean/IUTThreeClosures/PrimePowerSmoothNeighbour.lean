@@ -176,7 +176,7 @@ theorem point_conductor_le (B : PrimePowerNeighbourBudget D) :
       (abcRadical_pos (D.point.a * D.point.b * D.point.c))
   have hle :
       ((abcRadical (D.point.a * D.point.b * D.point.c) : ℕ) : ℝ) ≤
-        (B.H * D.p * B.R : ℝ) := by
+        ((B.H * D.p * B.R : ℕ) : ℝ) := by
     exact_mod_cast B.point_radical_le
   exact Real.log_le_log hpos hle
 

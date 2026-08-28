@@ -1,0 +1,55 @@
+name: Prime-power neighbour direct check
+
+on:
+  push:
+    branches:
+      - "repair/prime-power-neighbour-cast-v14"
+  pull_request:
+    paths:
+      - "Lean/IUTThreeClosures/PrimePowerSmoothNeighbour.lean"
+      - "Lean/IUTThreeClosures/LowRadicalNeighbourTransfer.lean"
+      - ".github/workflows/prime-power-neighbour-direct.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  direct-kernel-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Build the default project target
+        working-directory: Lean
+        shell: bash
+        run: lake build
+
+      - name: Elaborate the repaired module and import closure
+        working-directory: Lean
+        shell: bash
+        run: lake lean IUTThreeClosures/PrimePowerSmoothNeighbour.lean
+
+      - name: Elaborate the immediate downstream transfer
+        working-directory: Lean
+        shell: bash
+        run: lake lean IUTThreeClosures/LowRadicalNeighbourTransfer.lean
