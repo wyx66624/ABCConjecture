@@ -1,0 +1,68 @@
+name: Lean all-module audit
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "research/**"
+      - "formalize/**"
+      - "ci/**"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  all-modules:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Kernel-check the root and every project submodule
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake build
+
+      - name: Verify that every project source produced an olean
+        working-directory: Lean
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          sources = [Path("IUTThreeClosures.lean")]
+          sources.extend(sorted(Path("IUTThreeClosures").rglob("*.lean")))
+          build_root = Path(".lake/build/lib/lean")
+          missing = []
+          for source in sources:
+              built = build_root / source.with_suffix(".olean")
+              if not built.is_file():
+                  missing.append(str(built))
+
+          print(f"Audited {len(sources)} project modules")
+          if missing:
+              print("Missing compiled modules:")
+              print("\n".join(missing))
+              raise SystemExit(1)
+          PY
