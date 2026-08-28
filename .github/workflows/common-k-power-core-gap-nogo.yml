@@ -1,0 +1,56 @@
+name: Common k-power core gap no-go
+
+on:
+  push:
+    branches:
+      - "research/common-k-power-core-gap-nogo-v14"
+  pull_request:
+    paths:
+      - "Lean/IUTThreeClosures/CommonKPowerCoreGapNoGo.lean"
+      - "Lean/IUTThreeClosures/CommonKPowerCoreGapNoGoAxiomAudit.lean"
+      - "Lean/COMMON_K_POWER_CORE_GAP_NOGO.md"
+      - ".github/workflows/common-k-power-core-gap-nogo.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  direct-kernel-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Build the current repository dependency graph
+        working-directory: Lean
+        shell: bash
+        run: lake build
+
+      - name: Elaborate the theorem module directly
+        working-directory: Lean
+        shell: bash
+        run: lake env lean IUTThreeClosures/CommonKPowerCoreGapNoGo.lean
+
+      - name: Elaborate the dependency audit directly
+        working-directory: Lean
+        shell: bash
+        run: lake env lean IUTThreeClosures/CommonKPowerCoreGapNoGoAxiomAudit.lean
