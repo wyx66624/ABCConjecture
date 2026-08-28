@@ -1,0 +1,36 @@
+name: Lean target low radical budget
+
+on:
+  push:
+    branches:
+      - formalize/low-radical-exponent-budget
+  workflow_dispatch:
+
+concurrency:
+  group: low-radical-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  target:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+      - name: Resolve dependencies and restore Mathlib cache
+        working-directory: Lean
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+      - name: Check low-radical exponent theorem and axiom audit
+        working-directory: Lean
+        run: |
+          lake env lean IUTThreeClosures/LowRadicalExponentBudgetAxiomAudit.lean
