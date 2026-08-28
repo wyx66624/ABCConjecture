@@ -217,25 +217,13 @@ theorem distinguishedProcessionProductRegion_logVolume
     (Q : QPilotData D) :
     (distinguishedProcessionProductRegion Q).logVolume =
       processionLogSum Q := by
-  calc
-    (distinguishedProcessionProductRegion Q).logVolume =
-        ∑ m : Fin (processionLength D),
-          (distinguishedLabelProductRegion Q m.1).logVolume := by
-      rw [distinguishedProcessionProductRegion,
-        FinitePositiveRegion.logVolume_pi]
-    _ = ∑ m ∈ Finset.range (processionLength D),
-          (distinguishedLabelProductRegion Q m).logVolume := by
-      change
-        (∑ m : Fin (processionLength D),
-          (distinguishedLabelProductRegion Q m.1).logVolume) =
-        ∑ m : Fin (processionLength D),
-          (distinguishedLabelProductRegion Q m.1).logVolume
-      rfl
-    _ = processionLogSum Q := by
-      rw [processionLogSum]
-      apply Finset.sum_congr rfl
-      intro m hm
-      exact distinguishedLabelProductRegion_logVolume Q m
+  classical
+  rw [distinguishedProcessionProductRegion,
+    FinitePositiveRegion.logVolume_pi]
+  rw [processionLogSum, ← Fin.sum_univ_eq_sum_range]
+  apply Finset.sum_congr rfl
+  intro m hm
+  exact distinguishedLabelProductRegion_logVolume Q m.1
 
 /-- The independent-label product has nonpositive logarithmic volume. -/
 theorem distinguishedProcessionProductRegion_logVolume_le_zero

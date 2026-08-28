@@ -58,29 +58,29 @@ the integer. -/
 theorem radical_pow_dvd (h : IsKFull k n) :
     abcRadical n ^ k ∣ n := by
   rw [abcRadical_eq_natRadical]
-  have hd : Nat.radical n ^ k ≠ 0 :=
+  have hd : radical n ^ k ≠ 0 :=
     pow_ne_zero k (Nat.ne_of_gt (Nat.radical_pos n))
   rw [← Nat.factorization_le_iff_dvd hd h.ne_zero]
   intro p
   rw [Nat.factorization_pow]
-  change k * (Nat.radical n).factorization p ≤ n.factorization p
+  change k * (radical n).factorization p ≤ n.factorization p
   by_cases hp : p.Prime
   · by_cases hpn : p ∣ n
-    · have hprad : p ∣ Nat.radical n :=
+    · have hprad : p ∣ radical n :=
         (UniqueFactorizationMonoid.dvd_radical_iff_of_irreducible
-          hp.irreducible h.ne_zero).2 hpn
-      have hfac : (Nat.radical n).factorization p = 1 :=
+          hp h.ne_zero).2 hpn
+      have hfac : (radical n).factorization p = 1 :=
         Nat.factorization_eq_one_of_squarefree
           (UniqueFactorizationMonoid.squarefree_radical (a := n))
           hp hprad
       rw [hfac, mul_one]
       exact h.2 p hp hpn
-    · have hnrad : ¬p ∣ Nat.radical n := by
+    · have hnrad : ¬p ∣ radical n := by
         intro hprad
         apply hpn
         exact
           (UniqueFactorizationMonoid.dvd_radical_iff_of_irreducible
-            hp.irreducible h.ne_zero).1 hprad
+            hp h.ne_zero).1 hprad
       rw [Nat.factorization_eq_zero_of_not_dvd hnrad]
       simp
   · rw [Nat.factorization_eq_zero_of_not_prime _ hp]

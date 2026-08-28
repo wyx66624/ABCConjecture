@@ -99,7 +99,8 @@ def mersenneIntersectionWeight (m q : ℕ) : ℕ → ℤ :=
 theorem mersenne_coprime_two_pow
     (m : ℕ) (hm : m ≠ 0) :
     Nat.Coprime (2 ^ m - 1) (2 ^ m) := by
-  have hone : 1 ≤ 2 ^ m := by positivity
+  have hpowpos : 0 < 2 ^ m := pow_pos (by norm_num) m
+  have hone : 1 ≤ 2 ^ m := hpowpos
   exact (Nat.coprime_self_sub_left hone).2 (by simp)
 
 /-- No positive Mersenne number is divisible by `2`. -/
@@ -160,10 +161,11 @@ theorem weightedArithmeticDerivative_mersenneIntersection_right
       ((weightedPrimeCoefficient (2 ^ m - 1) q *
         mersenneTwoCoefficient m : ℕ) : ℤ) := by
   have hq2 : q ≠ 2 := prime_dvd_mersenne_ne_two hm hq hqdvd
+  have h2q : 2 ≠ q := Ne.symm hq2
   rw [weightedArithmeticDerivative_two_pow
     (mersenneIntersectionWeight m q) m hm]
   simp [mersenneIntersectionWeight, singlePrimeWeight,
-    hq2, weightedPrimeCoefficient, mersenneTwoCoefficient]
+    h2q, weightedPrimeCoefficient, mersenneTwoCoefficient]
   ring
 
 /-- Both factors in the realized common derivative value are positive. -/
@@ -268,6 +270,6 @@ theorem no_uniform_constant_mersenne_actualWeights :
   rintro ⟨K, hK⟩
   obtain ⟨m, x, hm, hcompat, hnonzero, hgt⟩ :=
     mersenne_actualWeight_normalized_unbounded K
-  exact hgt.not_le (hK m hm x hcompat hnonzero)
+  exact (not_le_of_gt hgt) (hK m hm x hcompat hnonzero)
 
 end IUTThreeClosures

@@ -49,12 +49,15 @@ theorem base_pow_mul_sub_le_pow_sub_pow
       z ^ (k - 1) ≤
         ∑ i ∈ Finset.range k, y ^ i * z ^ (k - 1 - i) := by
     have hzero : 0 ∈ Finset.range k := Finset.mem_range.mpr hk
-    have hterm : y ^ 0 * z ^ (k - 1 - 0) = z ^ (k - 1) := by
-      simp
-    rw [← hterm]
-    exact Finset.single_le_sum
-      (fun i hi => mul_nonneg (pow_nonneg hy _) (pow_nonneg hz _))
-      hzero
+    have hsingle :
+        y ^ 0 * z ^ (k - 1 - 0) ≤
+          ∑ i ∈ Finset.range k, y ^ i * z ^ (k - 1 - i) := by
+      exact Finset.single_le_sum
+        (s := Finset.range k)
+        (f := fun i => y ^ i * z ^ (k - 1 - i))
+        (fun i hi => mul_nonneg (pow_nonneg hy _) (pow_nonneg hz _))
+        hzero
+    simpa using hsingle
   rw [← geom_sum₂_mul_of_ge (x := y) (y := z) hzy k]
   exact mul_le_mul_of_nonneg_right hsum (sub_nonneg.mpr hzy)
 
@@ -121,7 +124,9 @@ theorem fixedCore_poweredGap_lower_bound
       rfl
     _ ≤ A ^ N * (d ^ N * x ^ (N + 1)) := hscaled
     _ = (A * d) ^ N * x ^ (N + 1) := by
-      rw [mul_pow]
+      have hmul_pow : (A * d) ^ N = A ^ N * d ^ N :=
+        mul_pow A d N
+      rw [hmul_pow]
       ring
     _ ≤ g ^ N * x ^ (N + 1) := hpowx
     _ = (t * y ^ k - s * x ^ k) ^ N * x ^ (N + 1) := by

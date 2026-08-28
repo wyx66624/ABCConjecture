@@ -160,7 +160,6 @@ theorem repeatedLabelAverageCoefficient_formula
   have hn0 : (n : ℝ) ≠ 0 := by
     exact_mod_cast Nat.ne_of_gt hn
   field_simp [hn0]
-  ring
 
 theorem distinguishedLabelAverageCoefficient_formula
     {n : ℕ} (hn : 0 < n) :
@@ -171,7 +170,6 @@ theorem distinguishedLabelAverageCoefficient_formula
   have hn0 : (n : ℝ) ≠ 0 := by
     exact_mod_cast Nat.ne_of_gt hn
   field_simp [hn0]
-  ring
 
 /-- Exact normalized excess caused by recounting inherited labels. -/
 theorem repeatedLabelAverageCoefficient_sub_distinguished
@@ -249,7 +247,6 @@ theorem inheritedLabelExcessCoefficient_pos
   have hn : (2 : ℝ) ≤ (processionLength D : ℝ) := by
     exact_mod_cast processionLength_two_le D
   rw [inheritedLabelExcessCoefficient]
-  dsimp
   have h0 : 0 < (processionLength D : ℝ) := by
     linarith
   have h1 : 0 < (processionLength D : ℝ) - 1 := by

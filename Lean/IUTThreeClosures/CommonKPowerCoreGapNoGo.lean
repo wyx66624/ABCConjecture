@@ -57,7 +57,8 @@ theorem commonCore_power_gap_lower
       s * x ^ k + s * x ^ (k - 1) ≤ s * y ^ k := by
     rw [← Nat.mul_add]
     exact Nat.mul_le_mul_left s hbase
-  exact Nat.le_sub_of_add_le hscaled
+  exact Nat.le_sub_of_add_le (by
+    simpa [Nat.add_comm] using hscaled)
 
 /-- Algebraic identity converting the elementary gap lower bound into the
 endpoint-height form used by the abc exponent budget. -/
