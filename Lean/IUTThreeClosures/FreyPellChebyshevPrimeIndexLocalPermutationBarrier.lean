@@ -258,6 +258,71 @@ theorem pellPrimeLocal_activeHeightFloor
     hstrict.trans_le hbpow
   norm_num at himpossible
 
+/-! ## The post-p31 active range: the exact 4/37 threshold -/
+
+/-- Once the fixed prime 31 is removed by its accepted Stoll--Coleman
+certificate, every remaining prime-index residual has `p ≥ 37`.  The generic
+power threshold can therefore retain exponent 37. -/
+theorem pellPrimeLocal_thirtySevenThreshold
+    (D T Z p : ℕ)
+    (hcoordinate : D + 1 ≤ T ^ 2)
+    (hchebyshev : T ^ p ≤ Z)
+    (hp : 37 ≤ p) :
+    (D + 1) ^ 37 ≤ Z ^ 2 :=
+  pellPrimeLocal_powerThreshold D T Z p 37 hcoordinate hchebyshev hp
+
+/-- Substitution `D=3*A*B` in the post-p31 active range. -/
+theorem pellPrimeLocal_fourThirtySevenParityThreshold
+    (A B T Z p : ℕ)
+    (hcoordinate : 3 * A * B + 1 ≤ T ^ 2)
+    (hchebyshev : T ^ p ≤ Z)
+    (hp : 37 ≤ p) :
+    (3 * A * B + 1) ^ 37 ≤ Z ^ 2 :=
+  pellPrimeLocal_thirtySevenThreshold (3 * A * B) T Z p
+    hcoordinate hchebyshev hp
+
+/-- Any strict parity-core estimate in the opposite direction closes the
+post-p31 residual immediately. -/
+theorem pellPrimeLocal_strictParityBoundThirtySeven_excludes
+    (A B Z : ℕ)
+    (hnecessary : (3 * A * B + 1) ^ 37 ≤ Z ^ 2)
+    (hlower : Z ^ 2 < (3 * A * B + 1) ^ 37) :
+    False :=
+  (not_lt_of_ge hnecessary) hlower
+
+/-- The exponent-37 threshold and the fixed residues of `A,B` exclude every
+height `b+2` at most `2.6*10^29`.  The final comparison is exact integer
+arithmetic. -/
+theorem pellPrimeLocal_activeHeightFloorAfterThirtyOne
+    (A B b Z : ℕ)
+    (hA : A % 24 = 22)
+    (hB : B % 24 = 23)
+    (hnecessary : (3 * A * B + 1) ^ 37 ≤ Z ^ 2)
+    (hupper : Z ^ 2 < (b + 2) ^ 4) :
+    260_000_000_000_000_000_000_000_000_000 < b + 2 := by
+  have hAB : 506 ≤ A * B :=
+    pellPrimeLocal_activeKernelProductFloor A B hA hB
+  have hbase : 1519 ≤ 3 * A * B + 1 := by
+    calc
+      1519 = 3 * 506 + 1 := by norm_num
+      _ ≤ 3 * (A * B) + 1 :=
+        Nat.add_le_add_right (Nat.mul_le_mul_left 3 hAB) 1
+      _ = 3 * A * B + 1 := by ring
+  have hpow : 1519 ^ 37 ≤ (3 * A * B + 1) ^ 37 :=
+    Nat.pow_le_pow_left hbase 37
+  have hstrict : 1519 ^ 37 < (b + 2) ^ 4 :=
+    (hpow.trans hnecessary).trans_lt hupper
+  by_contra hheight
+  have hb : b + 2 ≤
+      260_000_000_000_000_000_000_000_000_000 := by omega
+  have hbpow : (b + 2) ^ 4 ≤
+      260_000_000_000_000_000_000_000_000_000 ^ 4 :=
+    Nat.pow_le_pow_left hb 4
+  have himpossible : 1519 ^ 37 <
+      260_000_000_000_000_000_000_000_000_000 ^ 4 :=
+    hstrict.trans_le hbpow
+  norm_num at himpossible
+
 #print axioms pellPrimeLocal_halfAngleReconstruction
 #print axioms pellPrimeLocal_blockOne
 #print axioms pellPrimeLocal_derivativeFactor_ne_zero
@@ -272,5 +337,9 @@ theorem pellPrimeLocal_activeHeightFloor
 #print axioms pellPrimeLocal_strictParityBoundThirtyOne_excludes
 #print axioms pellPrimeLocal_activeKernelProductFloor
 #print axioms pellPrimeLocal_activeHeightFloor
+#print axioms pellPrimeLocal_thirtySevenThreshold
+#print axioms pellPrimeLocal_fourThirtySevenParityThreshold
+#print axioms pellPrimeLocal_strictParityBoundThirtySeven_excludes
+#print axioms pellPrimeLocal_activeHeightFloorAfterThirtyOne
 
 end IUTThreeClosures

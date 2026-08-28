@@ -902,13 +902,15 @@ critical input behind a definition or opaque interface.
   exact order-`2*p` eigenvalue can likewise satisfy all required quadratic
   splitting and residual equations.  These are local method barriers, not
   global Pell points.  On the positive side, fundamental-unit minimality
-  gives the general necessary power inequality, and the active range
-  `p>=31` sharpens it to `(3*A*B+1)^31 <= Z^2`.  The actual
+  gives the general necessary power inequality.  The accepted fixed-index
+  closure at `p=31` moves the active range to `p>=37` and sharpens it to
+  `(3*A*B+1)^37 <= Z^2`.  The actual
   four-consecutive residues `A=22 (mod 24)` and `B=23 (mod 24)` force
   `A*B>=506`; together with `Z^2<(b+2)^4`, exact integer comparison gives
-  the unconditional height floor `b+2>4*10^24`.  This removes a huge finite
+  the unconditional height floor
+  `b+2>260000000000000000000000000000`.  This removes a still larger finite
   initial segment but does not give a uniform exclusion; the audited
-  squarefree-kernel literature remains below the required `4/31` scale.
+  squarefree-kernel literature remains below the required `4/37` scale.
   Lean checks the full scalar local blocks, the generalized division-free
   threshold, the active residue product floor and the exact height
   comparison; finite-field permutation, Hensel lifting and Dirichlet remain
@@ -938,8 +940,8 @@ critical input behind a definition or opaque interface.
   norm-composition algebra, adjacent-square gap, CRT tables and boundary
   arithmetic are kernel checked; quadratic reciprocity, ideal selection and
   BHV are explicitly accepted interfaces.  Local examples show that these
-  constraints remain compatible and therefore do not yet close all
-  `p>=31`
+  constraints remain compatible and therefore do not close the active
+  `p>=37` family after the separate fixed-index closure at `p=31`
 - the primitive-divisor odd-valuation audit for the same quotient.  If
   `p=2*m+1`, then `H_m=T_p/X` is exactly the Lucas cyclotomic block at index
   `2*p`, equivalently the `p`-th term of the Lehmer pair
@@ -1190,8 +1192,12 @@ critical input behind a definition or opaque interface.
   does not imply the class `23 (mod 24)`.  Supplying the separately frozen
   prime-29 proposition
   `PARISageRationalTargetDiskCertificateIndexTwentyNine` to the new Lean
-  bridge moves the active residual to
-  `OddPrimeShiftSquareExclusionAtLeastThirtyOne`
+  bridge first moves the active residual to
+  `OddPrimeShiftSquareExclusionAtLeastThirtyOne`.  Supplying the separately
+  frozen prime-31 proposition
+  `PARISageRationalTargetDiskCertificateIndexThirtyOne` then uses the exact
+  absence of a prime strictly between 31 and 37 to move it to
+  `OddPrimeShiftSquareExclusionAtLeastThirtySeven`
 - an accepted-literature audit of the remaining uniform prime-index family.
   No currently accepted theorem found in the fixed-curve, hyperelliptic
   integral-point, BHV primitive-divisor, modular/Frey, uniform Chabauty, or
@@ -1199,13 +1205,21 @@ critical input behind a definition or opaque interface.
   Moreover, no finite collection of congruence obstructions can do so:
   for every modulus `M`, bases `X=-1 (mod lcm(24,M))` and `y=1 (mod M)`
   are local solutions because odd `T_p(-1)=-1`.  After the fixed-index
-  prime-29 closure below, the active residual named proposition
-  `OddPrimeShiftSquareExclusionAtLeastThirtyOne` is a genuine new input,
-  not a disguised published theorem.  If one keeps the full four-consecutive
-  structure instead of proving that stronger curve statement, the weaker
-  worst-index target is `(3*A*B+1)^31 > (b^2+3*b+1)^2`, whose critical
-  squarefree-core scale is `A*B` of order `b^(4/31)`; available unconditional
-  radical estimates do not reach this power scale
+  prime-31 closure below, the active residual named proposition
+  `OddPrimeShiftSquareExclusionAtLeastThirtySeven` is a genuine new input,
+  not a disguised published theorem.  Bilu--Tichy gives only fixed-`p`
+  finiteness, Bérczes--Evertse--Győry gives a huge fixed-`p` effective height,
+  and the one-point-at-infinity model fails the verified Runge inequalities.
+  BHV/Granville plus Bennett--Walsh/Cohn supplies an odd-valuation primitive
+  divisor, but a solution forces that prime to split in `Q(sqrt(5))`, where
+  odd ideal exponents remain compatible.  The sharp new sufficient target is
+  a primitive divisor with prescribed inert Frobenius; no accepted theorem
+  with the required per-index, uniform-in-`X` quantifiers was found.  If one
+  keeps the full four-consecutive structure, the post-31 worst-index target is
+  `(3*A*B+1)^37 > (b^2+3*b+1)^2`, whose critical squarefree-core scale is
+  `A*B` of order `b^(4/37)`; available unconditional radical estimates do not
+  reach this power scale.  The exact audit is frozen in
+  `FREY_PELL_CHEBYSHEV_POST_P31_LITERATURE_AUDIT.md`
 - a fixed-index program at `p=29`, recorded separately in
   `P29_CHEBYSHEV_FIXED_INDEX_SCOUT.md`.  Exact field arithmetic gives
   signature `(1,14)` and `|S|=4`.  PARI 2.17.1 and Oscar/Hecke independently
@@ -1249,7 +1263,9 @@ critical input behind a definition or opaque interface.
   published-theorem/frozen-computation interface that the target disk contains
   no integral base `T>1`; Lean checks the polynomial/model/scalar consequences
   while retaining the rational-point result as an explicit external
-  proposition.  Thus the active uniform residual starts at odd primes `p>=31`.
+  proposition.  At that stage the active uniform residual started at odd
+  primes `p>=31`; the prime-31 package below supersedes that boundary and
+  moves it to `p>=37`.
   A separate historical paper-level alternative, superseded for proving
   `Cl(K)=1` by the BDF certificate above, shows that nonzero `Cl(K)[2]` would put a
   28- or 29-dimensional `G`-stable submodule in
@@ -1318,12 +1334,33 @@ critical input behind a definition or opaque interface.
   `(-1)^15` endpoint sign, exact matrices and 9-file manifest are frozen in
   `P31_CHEBYSHEV_GLOBAL_DYADIC_CERTIFICATE.md`.  This closes the global-
   to-dyadic injectivity input at the accepted odd-degree descent/Sage-exact-
-  arithmetic interface.  It does not yet execute the Stoll recursion,
-  certify Coleman integration, classify rational points or settle index 31.
-  The independent Lean algebraic core kernel-checks the displayed
-  `T_31` polynomial, the original/Coleman/monic coordinate scale, both
-  endpoint ordinates, the BDF factor-base counts and all frozen dimension
-  scalars; it introduces no external theorem as an axiom
+  arithmetic interface.  The subsequent formal precision-12000 Stoll run
+  executes all 48 nodes in shells `m=3,4,5`.  Their initial residual
+  valuations are respectively `12021`, `12018`, and `12015`; the minimum
+  identity valuations are `9795`, `7419`, and `4017`, all above the immutable
+  threshold `2000`.  Every terminal membership flag is false, the two
+  terminal squareclasses fail direct membership, and the tail closes with
+  equality `2*5-3=7`.  The negative branch is covered by the exact correction
+  `4H1`.  Independently, the precision-120 `Q_5` Coleman calculation has
+  normalized logarithm rank two, a unit minor of determinant `3 (mod 5)`,
+  and a lifted differential reducing to numerator `1+x^13+x^14`, a unit on
+  all six residue disks.  Diskwise injectivity, rather than an unavailable
+  `5>2g` global bound, leaves infinity, four rational endpoints, and one
+  non-rational simple Weierstrass point.  Composing the Stoll saturation with
+  Coleman annihilation proves that the dyadic target disk contains only the
+  two points with `T=-1`; hence there is no Pell-relevant solution at index
+  `31`.  The complete composition and trust ledger are frozen in
+  `P31_CHEBYSHEV_STOLL_COLEMAN_CLOSURE.md`, with nested formal-Stoll and
+  Coleman manifests and a separate outer closure manifest.  The independent
+  Lean algebraic core kernel-checks the displayed `T_31` polynomial, the
+  original/Coleman/monic coordinate scale, endpoint ordinates, BDF counts and
+  dimension scalars.  Its Stoll--Gamma companion checks the copied shell,
+  branch, saturation and Coleman scalar ledgers and exposes the rational-
+  point result as the transparent external proposition
+  `PARISageRationalTargetDiskCertificateIndexThirtyOne`; it introduces no
+  external theorem as a Lean axiom.  This is an accepted-published-theorem
+  and frozen-exact-computation closure of the fixed index, not a wholly
+  kernel-formalized Stoll/Coleman proof and not a proof of `abc`
 - a new uniform fixed-elliptic reconstruction of every remaining prime-index
   Chebyshev square.  Writing `U=(T+sqrt(T^2-1))^p` sends the equation to the
   fixed conductor-24 curve `Y^2=X*(X+1)*(X+4)`.  Translation by the rational
@@ -1924,11 +1961,11 @@ normalization interfaces are not proved by the cited accepted results.
   four-consecutive unit-index reduction, Chebyshev index three is eliminated
   by the complete integral-point calculation on 216a1 and index five is
   eliminated by the complete two-cover/elliptic-Chabauty calculation above;
-  indices seven, eleven, thirteen, seventeen, nineteen, twenty-three and
-  twenty-nine are likewise eliminated by the exact or accepted-interface
-  certificates above.  What remains is the
+  indices seven, eleven, thirteen, seventeen, nineteen, twenty-three,
+  twenty-nine and thirty-one are likewise eliminated by the exact or
+  accepted-interface certificates above.  What remains is the
   prime-index statement that `4*T_p(X)+5` is not a square for every odd
-  prime `p>=31` and every relevant composite-reduction base
+  prime `p>=37` and every relevant composite-reduction base
   `X=T_(k/p)(T)>1` with `X=23 (mod 24)`, followed even then by a moving
   square-base radical estimate.  Restricting `X` to a first fundamental-unit
   coordinate would not cover composite odd indices.  Neither statement is
