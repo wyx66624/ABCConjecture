@@ -1,0 +1,9 @@
+import IUTThreeClosures.MersenneWronskianRealizationNoGo
+
+/-! Dependency audit for the actual Mersenne Wronskian realization no-go. -/
+
+#print axioms IUTThreeClosures.weightedArithmeticDerivative_singlePrimeWeight
+#print axioms IUTThreeClosures.mersenneIntersectionWeight_compatible_nondegenerate
+#print axioms IUTThreeClosures.exists_mersenne_actualWeight_normalized_gt_half
+#print axioms IUTThreeClosures.mersenne_actualWeight_normalized_unbounded
+#print axioms IUTThreeClosures.no_uniform_constant_mersenne_actualWeights
