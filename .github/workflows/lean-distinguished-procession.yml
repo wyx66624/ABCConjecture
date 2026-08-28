@@ -35,6 +35,12 @@ jobs:
           lake update
           lake exe cache get
 
+      - name: Build the project root and reachable dependencies
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake build
+
       - name: Compile the theorem module
         working-directory: Lean
         shell: bash
