@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: ChatGPT
 -/
 import Mathlib
+import IUTThreeClosures.ActualBadPlaceProcessionGeometry
 
 /-!
 # Orbitwise volume invariance does not control the volume of an orbit union
