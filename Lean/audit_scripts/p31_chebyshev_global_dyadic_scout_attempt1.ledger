@@ -1,0 +1,7 @@
+P31_GLOBAL_DYADIC_SCOUT_ATTEMPT=1
+RESULT=FAILED_BEFORE_W_CONSTRUCTION
+BASE_SQUARECLASS_VERIFY_PASS=1
+FAILURE_ASSERTION=Uminus(dtheta)/d1.is_square()
+CAUSE=p29_has_even_genus_14_but_p31_has_odd_genus_15
+CORRECTION=use_(-1)^15_times_U_endpoint_evaluation
+EXIT_CODE=1

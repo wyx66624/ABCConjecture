@@ -1269,9 +1269,18 @@ critical input behind a definition or opaque interface.
   unit group or regulator gives combined exact norm/3-adic/dyadic Hilbert
   detection rank 20.  Hence they form a basis of `K(S,2)`.  The 19-file
   manifest rechecks both this packet and the preceding p31 class-number-one
-  packet.  This is an accepted-interface global basis, not yet the local
-  Selmer subspace, dyadic injection, Stoll recursion or Coleman closure; those
-  are the next fixed-index computations
+  packet.  Applying the rational norm-square condition and the complete
+  local Kummer condition at the two places above `3` gives a
+  fifteen-dimensional over-approximation `W` with `32768` classes.  Exact
+  Hilbert signatures against 33 dyadic test classes have rank fifteen on
+  `W`, hence localization is injective on `W` (and therefore on the actual
+  Selmer image contained in it); the two endpoint classes have dyadic rank
+  two.  The formal rerun, failure ledger for the initially omitted
+  `(-1)^15` endpoint sign, exact matrices and 9-file manifest are frozen in
+  `P31_CHEBYSHEV_GLOBAL_DYADIC_CERTIFICATE.md`.  This closes the global-
+  to-dyadic injectivity input at the accepted odd-degree descent/Sage-exact-
+  arithmetic interface.  It does not yet execute the Stoll recursion,
+  certify Coleman integration, classify rational points or settle index 31
 - a new uniform fixed-elliptic reconstruction of every remaining prime-index
   Chebyshev square.  Writing `U=(T+sqrt(T^2-1))^p` sends the equation to the
   fixed conductor-24 curve `Y^2=X*(X+1)*(X+4)`.  Translation by the rational
