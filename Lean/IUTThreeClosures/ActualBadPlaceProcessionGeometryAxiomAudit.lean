@@ -1,0 +1,22 @@
+import IUTThreeClosures.ActualBadPlaceProcessionGeometry
+
+/-! Dependency audit for the actual bad-place procession geometry. -/
+
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProcessionGeometry.coordinateRegion_antitone
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProcessionGeometry.distinguishedLabelProductRegion_antitone
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProcessionGeometry.distinguishedProcessionUnion_eq_first
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProcessionGeometry.distinguishedProcessionUnionRegion_logVolume
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProcessionGeometry.distinguishedProcessionProductRegion_logVolume
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProcessionGeometry.distinguishedProcessionProductRegion_logVolume_le_zero
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProcessionGeometry.normalizedProcessionProductMass_eq_normalizedProcessionMass
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProcessionGeometry.normalizedProcessionProductMass_eq_squareAverage_mul_arithmeticLogQ
+#print axioms
+  IUTThreeClosures.ActualBadPlaceProcessionGeometry.canonicalQPilot_normalizedProcessionProductMass_eq_squareAverage_mul_publicLogQ
