@@ -1,0 +1,12 @@
+import IUTThreeClosures.FixedCoreRothAcceptedInterface
+
+#print axioms
+  IUTThreeClosures.FixedCoreRothGapBridge.base_pow_mul_sub_le_pow_sub_pow
+#print axioms
+  IUTThreeClosures.FixedCoreRothGapBridge.fixedCore_gap_factor_lower_bound
+#print axioms
+  IUTThreeClosures.FixedCoreRothGapBridge.fixedCore_poweredGap_lower_bound
+#print axioms
+  IUTThreeClosures.FixedCoreRothGapBridge.fixedCore_poweredGap_of_rothPoint
+#print axioms
+  IUTThreeClosures.FixedCoreRothGapBridge.exists_fixedCore_poweredGap_lower_bound_of_roth
