@@ -5,6 +5,13 @@ on:
   push:
     branches:
       - formalize/actual-procession-product-union-v14
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
 
 permissions:
   contents: write
@@ -17,6 +24,7 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
+          ref: formalize/actual-procession-product-union-v14
 
       - name: Apply exact finite-sum repair and persistent root import
         shell: bash
