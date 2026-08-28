@@ -1,0 +1,65 @@
+name: Lean diagnostics four-full AP transfer
+
+on:
+  push:
+    branches:
+      - formalize/fourfull-arithmetic-progression-transfer-v15
+  workflow_dispatch:
+
+concurrency:
+  group: diagnostics-fourfull-ap-v15
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  diagnostics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+      - name: Resolve dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+      - name: Compile and record concise diagnostics on failure
+        shell: bash
+        run: |
+          set +e
+          cd Lean
+          lake env lean IUTThreeClosures/FourFullArithmeticProgressionTransferAxiomAudit.lean \
+            > ../fourfull-ap-target.log 2>&1
+          rc=$?
+          cd ..
+          if [ "$rc" -eq 0 ]; then
+            rm -f debug/FourFullArithmeticProgressionTransfer.errors.log
+            exit 0
+          fi
+          mkdir -p debug
+          {
+            echo "head=$GITHUB_SHA"
+            echo "exit_code=$rc"
+            echo
+            grep -E -A10 -B4 'error:|unsolved goals|type mismatch|unknown identifier|application type mismatch|failed to synthesize|unexpected token' \
+              fourfull-ap-target.log | tail -n 420 || true
+            echo
+            echo '--- build tail ---'
+            tail -n 180 fourfull-ap-target.log
+          } > debug/FourFullArithmeticProgressionTransfer.errors.log
+          git config user.name "ChatGPT"
+          git config user.email "chatgpt@users.noreply.github.com"
+          git add debug/FourFullArithmeticProgressionTransfer.errors.log
+          git commit -m "Record four-full AP Lean diagnostics [skip ci]"
+          git push origin HEAD:formalize/fourfull-arithmetic-progression-transfer-v15
+          exit "$rc"
