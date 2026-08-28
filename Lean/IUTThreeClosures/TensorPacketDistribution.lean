@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: ChatGPT
 -/
 import Mathlib.LinearAlgebra.PiTensorProduct.DirectSum
+import IUTThreeClosures.RepeatedLabelProcessionOvercount
 
 /-!
 # Tensor packets distribute over local direct sums
