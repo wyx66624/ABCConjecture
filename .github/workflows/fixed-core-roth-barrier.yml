@@ -38,15 +38,15 @@ jobs:
           lake update >/dev/null 2>&1
           lake exe cache get >/dev/null 2>&1
 
+      - name: Build the project dependency graph with warnings as failures
+        working-directory: Lean
+        shell: bash
+        run: lake build --wfail
+
       - name: Elaborate theorem and dependency-audit modules directly
         working-directory: Lean
         shell: bash
         run: |
-          lake env lean IUTThreeClosures/FixedCoreRothGapBridge.lean
-          lake env lean IUTThreeClosures/FixedCoreRothAcceptedInterface.lean
-          lake env lean IUTThreeClosures/FixedCoreRothGapBridgeAxiomAudit.lean
-
-      - name: Build the default project target with warnings as failures
-        working-directory: Lean
-        shell: bash
-        run: lake build --wfail
+          lake lean IUTThreeClosures/FixedCoreRothGapBridge.lean
+          lake lean IUTThreeClosures/FixedCoreRothAcceptedInterface.lean
+          lake lean IUTThreeClosures/FixedCoreRothGapBridgeAxiomAudit.lean
