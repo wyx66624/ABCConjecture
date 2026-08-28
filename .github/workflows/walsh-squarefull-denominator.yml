@@ -1,0 +1,56 @@
+name: Walsh squarefull denominator
+
+on:
+  push:
+    branches:
+      - "research/walsh-squarefull-denominator-v14"
+  pull_request:
+    paths:
+      - "Lean/IUTThreeClosures/WalshSquarefullDenominator.lean"
+      - "Lean/IUTThreeClosures/WalshSquarefullDenominatorAxiomAudit.lean"
+      - "Lean/WALSH_SQUAREFULL_DENOMINATOR_ROUTE.md"
+      - ".github/workflows/walsh-squarefull-denominator.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  direct-kernel-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Build the stacked current repository dependency graph
+        working-directory: Lean
+        shell: bash
+        run: lake build
+
+      - name: Elaborate the theorem module and all imports directly
+        working-directory: Lean
+        shell: bash
+        run: lake lean IUTThreeClosures/WalshSquarefullDenominator.lean
+
+      - name: Elaborate the dependency audit and all imports directly
+        working-directory: Lean
+        shell: bash
+        run: lake lean IUTThreeClosures/WalshSquarefullDenominatorAxiomAudit.lean
