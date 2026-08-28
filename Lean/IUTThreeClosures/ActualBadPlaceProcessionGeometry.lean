@@ -105,8 +105,14 @@ theorem coordinateRegion_antitone
       (coordinateRegion Q m w : Set (place Q w).TateField) := by
   have hsquare : (m + 1) ^ 2 ≤ (n + 1) ^ 2 := by
     nlinarith
-  simpa [coordinateRegion] using
-    (place Q w).tate.qPowerRegion_antitone hsquare
+  change
+    ((place Q w).squareLabelRegion (n + 1) :
+      Set (place Q w).TateField) ⊆
+    ((place Q w).squareLabelRegion (m + 1) :
+      Set (place Q w).TateField)
+  rw [(place Q w).coe_squareLabelRegion,
+    (place Q w).coe_squareLabelRegion]
+  exact (place Q w).tate.qPowerRegion_antitone hsquare
 
 /-- The complete bad-place packet rectangles are nested in the label index. -/
 theorem distinguishedLabelProductRegion_antitone
@@ -115,12 +121,13 @@ theorem distinguishedLabelProductRegion_antitone
         Set (∀ w : Index Q, (place Q w).TateField)) ⊆
       (distinguishedLabelProductRegion Q m :
         Set (∀ w : Index Q, (place Q w).TateField)) := by
+  change
+    (Set.pi Set.univ fun w =>
+      (coordinateRegion Q n w : Set (place Q w).TateField)) ⊆
+    (Set.pi Set.univ fun w =>
+      (coordinateRegion Q m w : Set (place Q w).TateField))
   intro x hx
-  rw [distinguishedLabelProductRegion,
-    distinguishedLabelProductRegion,
-    FinitePositiveRegion.coe_pi,
-    FinitePositiveRegion.coe_pi,
-    Set.mem_pi] at hx ⊢
+  rw [Set.mem_pi] at hx ⊢
   intro w hw
   exact coordinateRegion_antitone Q hmn w (hx w hw)
 
@@ -186,8 +193,8 @@ local instance geometryPacketMeasureSigmaFinite
   infer_instance
 
 local instance geometryLabelPacketMeasureSigmaFinite
-    (Q : QPilotData D) (m : Fin (processionLength D)) :
-    SigmaFinite (labelPacketMeasure Q m) := by
+    (Q : QPilotData D) (_ : Fin (processionLength D)) :
+    SigmaFinite (labelPacketMeasure Q (by assumption)) := by
   change SigmaFinite (Measure.pi (coordinateMeasure Q))
   infer_instance
 
@@ -218,7 +225,7 @@ theorem distinguishedProcessionProductRegion_logVolume
         FinitePositiveRegion.logVolume_pi]
     _ = ∑ m ∈ Finset.range (processionLength D),
           (distinguishedLabelProductRegion Q m).logVolume := by
-      exact Fin.sum_univ_eq_sum_range
+      simpa using Fin.sum_univ_eq_sum_range
         (fun m => (distinguishedLabelProductRegion Q m).logVolume)
         (processionLength D)
     _ = processionLogSum Q := by
@@ -235,8 +242,7 @@ theorem distinguishedProcessionProductRegion_logVolume_le_zero
     processionLogSum]
   apply Finset.sum_nonpos
   intro m hm
-  rw [distinguishedLabelProductRegion_logVolume,
-    distinguishedLabelPacketLog]
+  rw [distinguishedLabelPacketLog]
   apply Finset.sum_nonpos
   intro w hw
   rw [componentLog_eq_squareLabelRegion_logVolume]
