@@ -290,3 +290,7 @@ import IUTThreeClosures.AbsorbableSourceErrorBridge
 import IUTThreeClosures.ExceptionalPrimeMassProduct
 import IUTThreeClosures.MazurPrimeIsogenyBoundary
 import IUTThreeClosures.PermutationOrbitUnionCounterexample
+
+-- Exact deterministic threshold for k-full abc disproof families.
+import IUTThreeClosures.KFullABCThreshold
+import IUTThreeClosures.KFullABCThresholdAxiomAudit
