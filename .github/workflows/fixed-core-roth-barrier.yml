@@ -1,0 +1,52 @@
+name: Fixed-core Roth barrier
+
+on:
+  push:
+    branches:
+      - research/fixed-core-roth-barrier-v15
+  pull_request:
+    paths:
+      - 'Lean/IUTThreeClosures/FixedCoreRothGapBridge.lean'
+      - 'Lean/IUTThreeClosures/FixedCoreRothAcceptedInterface.lean'
+      - 'Lean/IUTThreeClosures/FixedCoreRothGapBridgeAxiomAudit.lean'
+      - 'Lean/IUTThreeClosures/FiniteExponentHull.lean'
+      - 'Lean/ACCEPTED_THEOREM_ROTH_LEDGER.md'
+      - 'Lean/FIXED_CORE_ROTH_BARRIER.md'
+      - '.github/workflows/fixed-core-roth-barrier.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  direct-kernel-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: 'false'
+          build: 'false'
+          use-mathlib-cache: 'false'
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Elaborate theorem and dependency-audit modules directly
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake env lean IUTThreeClosures/FixedCoreRothGapBridge.lean
+          lake env lean IUTThreeClosures/FixedCoreRothAcceptedInterface.lean
+          lake env lean IUTThreeClosures/FixedCoreRothGapBridgeAxiomAudit.lean
+
+      - name: Build the default project target with warnings as failures
+        working-directory: Lean
+        shell: bash
+        run: lake build --wfail
