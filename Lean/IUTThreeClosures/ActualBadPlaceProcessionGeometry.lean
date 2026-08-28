@@ -193,8 +193,8 @@ local instance geometryPacketMeasureSigmaFinite
   infer_instance
 
 local instance geometryLabelPacketMeasureSigmaFinite
-    (Q : QPilotData D) (_ : Fin (processionLength D)) :
-    SigmaFinite (labelPacketMeasure Q (by assumption)) := by
+    (Q : QPilotData D) (m : Fin (processionLength D)) :
+    SigmaFinite (labelPacketMeasure Q m) := by
   change SigmaFinite (Measure.pi (coordinateMeasure Q))
   infer_instance
 
