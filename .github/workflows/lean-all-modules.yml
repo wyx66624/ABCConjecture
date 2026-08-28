@@ -38,6 +38,12 @@ jobs:
           lake update
           lake exe cache get
 
+      - name: Build the default project target
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake build
+
       - name: Generate an import root for every project module
         working-directory: Lean
         shell: bash
