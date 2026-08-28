@@ -1,0 +1,9 @@
+P31_STOLL_GAMMA2_SCOUT_ATTEMPT=2
+GLOBAL_DYADIC_PASS=1
+EXACT_CANTOR_SUM_PASS=1
+GAMMA2_LOCAL_INDEPENDENCE_PASS=1
+FAILURE=TypeError_symbolic_n_not_integer
+CAUSE=p31_base_verifier_does_not_export_old_integer_variable_n
+CORRECTION=set_n_equal_len_reps_and_assert_20
+SHELL_STARTED=0
+EXIT_CODE=1
