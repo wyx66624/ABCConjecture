@@ -1020,6 +1020,21 @@ critical input behind a definition or opaque interface.
   this ramified branch.  This is a local no-go only: the Hensel point need
   not be an ordinary positive integer point and supplies neither a solution
   nor a counterexample to `abc`
+- the moving-primitive/fundamental-Pell no-go beyond the fixed-five graph.
+  Preserving either Lucas or Lehmer root ratio makes Granville's
+  `c=2 (mod 4)` hypothesis contradict coprimality invariantly.  More
+  decisively, for every fixed five-adic depth and every prescribed positive
+  valuation at a moving primitive prime, a simultaneous squarefree sieve
+  produces infinitely many genuine fundamental Pell bases satisfying all
+  of the finite primitive-order, five-split, reciprocity and local target
+  conditions.  The exact `p=41` witness has valuation one and a solution
+  modulo `5^5`, while a nonsquare modulo seven proves that it has no global
+  integer ordinate.  Lean checks the root-ratio contradictions, Pell
+  template, modulo-24 square-shape restriction and the full finite witness;
+  Dirichlet, Hensel, reciprocity and the two-linear-form squarefree sieve are
+  explicit accepted interfaces.  This rules out the entire finite moving-q
+  packet as a uniform closure method, not the shifted-square equation and
+  not `abc`
 - a uniform, unconditional rank-two lower bound for the prime-index
   Chebyshev Jacobians.  For every odd prime `p != 3`, the two explicit
   half-divisors have descent squareclasses `[a-1]` and `[3*(a+1)]` in
