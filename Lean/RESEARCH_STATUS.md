@@ -10,6 +10,33 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
+## Current parallel program
+
+Prime-by-prime testing is no longer a main research line.  The completed
+`(p,X)=(43,47)` and `(37,239)` calculations are one-time counterexamples to
+two proposed prescribed-Frobenius **strategy statements**; neither is a
+solution of the shifted-square equation or a counterexample to abc.  Further
+finite-index work is admitted only when it tests a genuinely uniform lemma or
+supplies an input to one of the following global gates.
+
+- **Uniform proof route.**  Prove the eventual Frey modified-Szpiro estimate,
+  equivalently the missing normalized modular-degree/Szpiro-strength bound,
+  with the threshold and constant chosen uniformly before the abc point.  The
+  exact eventual-to-uniform implication is kernel-checked below.
+- **Deep-theory proof route.**  Construct a genuine theta possible-image
+  output with its native q-pilot volume and then a quantifier-correct global
+  IUT IV bridge of the form `for every epsilon, there are global choices that
+  work for every abc point`.  Accepted external theorems may be used, but an
+  unrestricted bridge whose inhabitation is already equivalent to abc is not
+  counted as an independent input.
+- **Uniform disproof route.**  Produce a fixed positive repeated-prime excess
+  along one height-unbounded, reindexed family.  The exact excess-mass
+  implication to `not ABCConjecture` is kernel-checked below.  Isolated
+  high-quality triples cannot satisfy the required uniform quantifiers.
+
+These routes run in parallel.  Computation is subordinate to them rather than
+an open-ended search over successive primes.
+
 ## Proven and formalized
 
 - `ActualPilotWitness -> Iut.Corollary312Variant`
@@ -1212,14 +1239,39 @@ critical input behind a definition or opaque interface.
   and the one-point-at-infinity model fails the verified Runge inequalities.
   BHV/Granville plus Bennett--Walsh/Cohn supplies an odd-valuation primitive
   divisor, but a solution forces that prime to split in `Q(sqrt(5))`, where
-  odd ideal exponents remain compatible.  The sharp new sufficient target is
-  a primitive divisor with prescribed inert Frobenius; no accepted theorem
-  with the required per-index, uniform-in-`X` quantifiers was found.  If one
-  keeps the full four-consecutive structure, the post-31 worst-index target is
+  odd ideal exponents remain compatible.  The formerly proposed sufficient
+  target--a primitive divisor with prescribed inert Frobenius--is now known to
+  be false.  Exact recurrence and primality certificates at `(p,X)=(43,47)`
+  give a quotient consisting of one prime congruent to `1 (mod 5)`, so there
+  is no inert divisor at all.  The stronger exact example `(p,X)=(37,239)`
+  has four prime factors, all split modulo five, while `X % 5 = 4`; thus merely
+  restricting the uniform target to the three base classes allowed by the
+  main equation modulo five does not repair it.  Neither example is a
+  shifted-square solution, so these are counterexamples to a strategy, not to
+  the residual equation or to `abc`.  If one keeps the full four-consecutive
+  structure, the post-31 worst-index target is
   `(3*A*B+1)^37 > (b^2+3*b+1)^2`, whose critical squarefree-core scale is
   `A*B` of order `b^(4/37)`; available unconditional radical estimates do not
-  reach this power scale.  The exact audit is frozen in
-  `FREY_PELL_CHEBYSHEV_POST_P31_LITERATURE_AUDIT.md`
+  reach this power scale.  The exact audit and trust boundary are frozen in
+  `FREY_PELL_CHEBYSHEV_POST_P31_LITERATURE_AUDIT.md` and
+  `FREY_PELL_CHEBYSHEV_PRESCRIBED_FROBENIUS_COUNTEREXAMPLE.md`
+- a direct main-equation modulo-five sieve, with no primitive-divisor input.
+  For prime `p>5`, Lean proves `T_p(X)=X (mod 5)`, so a shifted-square
+  solution forces `X % 5` to lie in `{0,1,4}`.  In the ramified branch
+  `X=5*u`, the exact first digit is
+  `((-1)^m*(2*m+1)*u) % 5 = 1`; in particular `25` does not divide `X`.
+  Under the positive Pell residue conditions the same equation forces the
+  Jacobi symbol `J(5|p)=1`, eliminating every ramified branch with
+  `J(5|p)=-1`.  These are uniform necessary conditions, not a closure of the
+  all-`p`, all-`X` residual
+- a fixed-index `p=37` feasibility scout, now frozen as a complexity audit
+  rather than the start of another prime-by-prime program.  The exact field
+  has degree `37`, signature `(1,18)`, discriminant `2^36*37^37` and five
+  relevant `S`-places.  Direct BDF scaling projects billions of prime ideals,
+  weeks of computation and hundreds of gigabytes before the class-group gate;
+  the present local/Stoll probes are discovery data, not a certificate.
+  `P37_CHEBYSHEV_FIXED_INDEX_SCOUT.md` records the exact margins and the
+  decision not to run this pipeline without a compact `Cl_S[2]=0` proof
 - a fixed-index program at `p=29`, recorded separately in
   `P29_CHEBYSHEV_FIXED_INDEX_SCOUT.md`.  Exact field arithmetic gives
   signature `(1,14)` and `|S|=4`.  PARI 2.17.1 and Oscar/Hecke independently
@@ -1947,6 +1999,17 @@ normalization interfaces are not proved by the cited accepted results.
   supplied by qualitative modularity, Manin-constant boundedness, the
   adjoint-L nonvanishing bound, GRH, or the known exponential modular-degree
   estimates
+- the exact eventual-to-uniform quantifier gate for the modified-Szpiro
+  route.  It is enough to prove the slope `6+6*epsilon` estimate for all Frey
+  points above a threshold `H_epsilon` chosen uniformly before the point.  A
+  single enlarged constant
+  `max(C_epsilon,6*H_epsilon+log(4096))` absorbs every lower-height point via
+  the unconditional Frey height corridor; no finite enumeration is needed.
+  Lean then applies the already checked uniform modified-Szpiro implication
+  to obtain `ABCConjecture`.  This removes a quantifier distraction but does
+  not supply the eventual Szpiro-strength estimate itself; the mathematical
+  proof and formal gate are in `FREY_EVENTUAL_MODIFIED_SZPIRO_GATE.md` and
+  `FreyEventualModifiedSzpiroGate.lean`
 - the radical-sensitive Frey period lower bound
   `Omega_E >= C_eta*rad(abc)^(-1/2-eta)`, or an adelic hypergeometric/Padé
   theorem strong enough to imply it while controlling every conjugate and
@@ -1970,6 +2033,19 @@ normalization interfaces are not proved by the cited accepted results.
   square-base radical estimate.  Restricting `X` to a first fundamental-unit
   coordinate would not cover composite odd indices.  Neither statement is
   assumed by the current formal package
+- the matching uniform gate for a genuine abc disproof.  For adjacent triples
+  `(1,b_n,b_n+1)`, put `H_n=log(b_n+1)` and
+  `E_n=log(b_n*(b_n+1))-log(rad(b_n*(b_n+1)))`.  Lean proves that if the
+  heights are unbounded and fixed constants `0<delta<1,K` satisfy
+  `E_n >= (1+delta)*H_n-K` throughout a reindexed family, then
+  `ABCConjecture` is false.  The proof chooses
+  `epsilon=delta/(2*(1-delta))` and contradicts the uniform abc constant.
+  No existing Pell, squarebase, four-consecutive or moving-`D` result proves
+  this fixed positive excess: all audited bounds stop at the critical
+  coefficient one.  Thus finite high-quality triples and individual prime
+  certificates do not count as a disproof.  The exact gate and its trust
+  ledger are in `ABC_COUNTEREXAMPLE_EXCESS_MASS_GATE.md` and
+  `ABCCounterexampleExcessMassGate.lean`
 - a global height/cancellation theorem for a non-torsion auxiliary selector.
   The local existence problem itself is now solved after degree at most two:
   CRT plus uniform torsion boundedness produces a bounded-abscissa point
