@@ -1,0 +1,56 @@
+name: K-full radical compression current
+
+on:
+  push:
+    branches:
+      - "formalize/kfull-radical-compression-current-v14"
+  pull_request:
+    paths:
+      - "Lean/IUTThreeClosures/KFullRadicalCompression.lean"
+      - "Lean/IUTThreeClosures/KFullRadicalCompressionAxiomAudit.lean"
+      - "Lean/KFULL_RADICAL_COMPRESSION_CURRENT.md"
+      - ".github/workflows/kfull-radical-compression-current.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  direct-kernel-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Build the current repository dependency graph
+        working-directory: Lean
+        shell: bash
+        run: lake build
+
+      - name: Elaborate the theorem module and all imports directly
+        working-directory: Lean
+        shell: bash
+        run: lake lean IUTThreeClosures/KFullRadicalCompression.lean
+
+      - name: Elaborate the dependency audit and all imports directly
+        working-directory: Lean
+        shell: bash
+        run: lake lean IUTThreeClosures/KFullRadicalCompressionAxiomAudit.lean
