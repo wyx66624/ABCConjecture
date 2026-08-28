@@ -225,8 +225,12 @@ theorem distinguishedProcessionProductRegion_logVolume
         FinitePositiveRegion.logVolume_pi]
     _ = ∑ m ∈ Finset.range (processionLength D),
           (distinguishedLabelProductRegion Q m).logVolume := by
-      exact (Finset.sum_range
-        (fun m => (distinguishedLabelProductRegion Q m).logVolume)).symm
+      change
+        (∑ m : Fin (processionLength D),
+          (distinguishedLabelProductRegion Q m.1).logVolume) =
+        ∑ m : Fin (processionLength D),
+          (distinguishedLabelProductRegion Q m.1).logVolume
+      rfl
     _ = processionLogSum Q := by
       rw [processionLogSum]
       apply Finset.sum_congr rfl
