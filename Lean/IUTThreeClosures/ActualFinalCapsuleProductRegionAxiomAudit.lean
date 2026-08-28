@@ -1,0 +1,20 @@
+import IUTThreeClosures.ActualFinalCapsuleProductRegion
+
+/-! Dependency audit for the actual final-capsule product region. -/
+
+#print axioms
+  IUTThreeClosures.ActualFinalCapsuleProductRegion.finalCapsuleIndexEquivLabelType
+#print axioms
+  IUTThreeClosures.ActualFinalCapsuleProductRegion.labelProductRegion_logVolume
+#print axioms
+  IUTThreeClosures.ActualFinalCapsuleProductRegion.finalCapsule_squareSum_eq_distinguished_squareSum
+#print axioms
+  IUTThreeClosures.ActualFinalCapsuleProductRegion.finalCapsuleProductRegion_logVolume_eq_processionLogSum
+#print axioms
+  IUTThreeClosures.ActualFinalCapsuleProductRegion.finalCapsuleProductRegion_logVolume_eq_distinguishedProcession
+#print axioms
+  IUTThreeClosures.ActualFinalCapsuleProductRegion.normalizedFinalCapsuleMass_eq_normalizedProcessionMass
+#print axioms
+  IUTThreeClosures.ActualFinalCapsuleProductRegion.normalizedFinalCapsuleMass_eq_squareAverage_mul_arithmeticLogQ
+#print axioms
+  IUTThreeClosures.ActualFinalCapsuleProductRegion.canonicalQPilot_normalizedFinalCapsuleMass_eq_publicLogQ
