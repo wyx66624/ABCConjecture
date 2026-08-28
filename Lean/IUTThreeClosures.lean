@@ -39,6 +39,7 @@ import IUTThreeClosures.HeterogeneousFiniteSourceProduct
 import IUTThreeClosures.TensorPacketDistribution
 import IUTThreeClosures.SemisimplePacketCoordinates
 import IUTThreeClosures.RefinedFactorLocalFieldData
+import IUTThreeClosures.RefinedFactorHaarProbe
 import IUTThreeClosures.SpectralInd2Preservation
 import IUTThreeClosures.FixedCoreOrbicurveDecomposition
 
