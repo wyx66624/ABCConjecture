@@ -1,0 +1,9 @@
+import IUTThreeClosures.MixedKFullABCSignature
+
+/-! Dependency audit for mixed k-full signature thresholds. -/
+
+#print axioms IUTThreeClosures.MixedKFullABCPoint.coordinate_exponent_mul_logRadical_le_height
+#print axioms IUTThreeClosures.MixedKFullABCPoint.conductor_le_coordinate_log_sum
+#print axioms IUTThreeClosures.MixedKFullABCPoint.mixed_exponent_mul_conductor_le
+#print axioms IUTThreeClosures.MixedKFullABCPoint.thirtySix_mul_conductor_le_thirtyThree_mul_height
+#print axioms IUTThreeClosures.not_abc_of_unbounded_threeThreeFourFullABC
