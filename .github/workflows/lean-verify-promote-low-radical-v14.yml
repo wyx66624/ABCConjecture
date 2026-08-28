@@ -1,0 +1,89 @@
+name: Verify and promote low-radical exponent budget
+
+on:
+  push:
+    branches:
+      - formalize/low-radical-exponent-budget-v14
+  workflow_dispatch:
+
+concurrency:
+  group: promote-low-radical-v14
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  verify-and-promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Kernel-check the theorem and axiom audit explicitly
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake env lean IUTThreeClosures/LowRadicalExponentBudgetAxiomAudit.lean
+
+      - name: Assemble candidate on the latest main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "ChatGPT"
+          git config user.email "chatgpt@users.noreply.github.com"
+          git fetch origin main
+          git checkout -B verified-low-radical-main origin/main
+          git cherry-pick \
+            5734e744c800cd0d90d8e21e85d5f4aab9e220fd \
+            88b9143bbab40af90581bff5419722cbaad522ac \
+            60062d508b2cc76f56095096fbc5ec601ee7ff1e
+          grep -qxF 'import IUTThreeClosures.LowRadicalExponentBudget' \
+            Lean/IUTThreeClosures.lean || \
+            printf '\nimport IUTThreeClosures.LowRadicalExponentBudget\n' >> \
+              Lean/IUTThreeClosures.lean
+          grep -qxF 'import IUTThreeClosures.LowRadicalExponentBudgetAxiomAudit' \
+            Lean/IUTThreeClosures.lean || \
+            printf 'import IUTThreeClosures.LowRadicalExponentBudgetAxiomAudit\n' >> \
+              Lean/IUTThreeClosures.lean
+          git add Lean/IUTThreeClosures.lean
+          git commit -m "Connect low-radical exponent threshold to default build"
+
+      - name: Run the complete default Lean build on the candidate main
+        working-directory: Lean
+        shell: bash
+        run: |
+          set +e
+          lake build > ../lean-low-radical-main-build.log 2>&1
+          rc=$?
+          if [ "$rc" -ne 0 ]; then
+            grep -E '(^| )error:|✖|unsolved goals|type mismatch|unknown identifier|application type mismatch|typeclass instance problem' \
+              ../lean-low-radical-main-build.log | tail -n 220 || true
+            echo '--- build tail ---'
+            tail -n 260 ../lean-low-radical-main-build.log
+          fi
+          exit "$rc"
+
+      - name: Promote only the verified candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$(git merge-base HEAD origin/main)"
+          git push origin HEAD:main
