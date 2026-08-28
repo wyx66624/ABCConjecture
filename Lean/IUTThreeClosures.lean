@@ -92,6 +92,7 @@ import IUTThreeClosures.SolvableRestrictionImage
 import IUTThreeClosures.ZModSL2Perfect
 import IUTThreeClosures.MatrixRepresentationFromTorsionAction
 import IUTThreeClosures.PowerDifferenceLift
+import IUTThreeClosures.SteinbergSupPacketScalar
 
 import IUTThreeClosures.QPilotNormalizationAudit
 import IUTThreeClosures.QPilotNormalizationFork
