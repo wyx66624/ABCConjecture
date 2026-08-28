@@ -40,6 +40,11 @@ jobs:
           lake update >/dev/null 2>&1
           lake exe cache get >/dev/null 2>&1
 
+      - name: Build the existing project dependency graph
+        working-directory: Lean
+        shell: bash
+        run: lake build
+
       - name: Elaborate the theorem module directly
         working-directory: Lean
         shell: bash
@@ -49,8 +54,3 @@ jobs:
         working-directory: Lean
         shell: bash
         run: lake env lean IUTThreeClosures/ActualBadPlaceProcessionGeometryAxiomAudit.lean
-
-      - name: Check the existing default target
-        working-directory: Lean
-        shell: bash
-        run: lake build
