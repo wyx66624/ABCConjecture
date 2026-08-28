@@ -45,18 +45,27 @@ theorem base_pow_mul_sub_le_pow_sub_pow
     (hz : 0 ≤ z) (hzy : z ≤ y) (hk : 0 < k) :
     z ^ (k - 1) * (y - z) ≤ y ^ k - z ^ k := by
   have hy : 0 ≤ y := hz.trans hzy
-  have hsum :
-      z ^ (k - 1) ≤
-        ∑ i ∈ Finset.range k, y ^ i * z ^ (k - 1 - i) := by
-    have hzero : 0 ∈ Finset.range k := Finset.mem_range.mpr hk
-    have hterm : y ^ 0 * z ^ (k - 1 - 0) = z ^ (k - 1) := by
-      simp
-    rw [← hterm]
-    exact Finset.single_le_sum
-      (fun i hi => mul_nonneg (pow_nonneg hy _) (pow_nonneg hz _))
-      hzero
-  rw [← geom_sum₂_mul_of_ge (x := y) (y := z) hzy k]
-  exact mul_le_mul_of_nonneg_right hsum (sub_nonneg.mpr hzy)
+  have hkone : 1 ≤ k := by omega
+  have hpow : z ^ (k - 1) ≤ y ^ (k - 1) :=
+    pow_le_pow_left₀ hz hzy (k - 1)
+  have hmul : y * z ^ (k - 1) ≤ y * y ^ (k - 1) :=
+    mul_le_mul_of_nonneg_left hpow hy
+  have hy_pow : y * y ^ (k - 1) = y ^ k := by
+    calc
+      y * y ^ (k - 1) = y ^ (k - 1) * y := by ring
+      _ = y ^ ((k - 1) + 1) := (pow_succ y (k - 1)).symm
+      _ = y ^ k := by rw [Nat.sub_add_cancel hkone]
+  have hz_pow : z * z ^ (k - 1) = z ^ k := by
+    calc
+      z * z ^ (k - 1) = z ^ (k - 1) * z := by ring
+      _ = z ^ ((k - 1) + 1) := (pow_succ z (k - 1)).symm
+      _ = z ^ k := by rw [Nat.sub_add_cancel hkone]
+  calc
+    z ^ (k - 1) * (y - z) =
+        y * z ^ (k - 1) - z * z ^ (k - 1) := by ring
+    _ ≤ y * y ^ (k - 1) - z * z ^ (k - 1) :=
+      sub_le_sub_right hmul _
+    _ = y ^ k - z ^ k := by rw [hy_pow, hz_pow]
 
 /-- Transfer from approximation of the fixed algebraic slope `alpha` to the
 actual difference of the two fixed-core powers. -/
@@ -122,7 +131,7 @@ theorem fixedCore_poweredGap_lower_bound
     _ ≤ A ^ N * (d ^ N * x ^ (N + 1)) := hscaled
     _ = (A * d) ^ N * x ^ (N + 1) := by
       rw [mul_pow]
-      ring
+      ring_nf
     _ ≤ g ^ N * x ^ (N + 1) := hpowx
     _ = (t * y ^ k - s * x ^ k) ^ N * x ^ (N + 1) := by
       rfl
