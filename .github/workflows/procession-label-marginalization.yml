@@ -1,0 +1,53 @@
+name: Procession label marginalization
+
+on:
+  push:
+    branches:
+      - formalize/procession-label-marginalization-audit-v15
+  pull_request:
+    paths:
+      - 'Lean/IUTThreeClosures/MultiLabelProductWeightMarginalization.lean'
+      - 'Lean/IUTThreeClosures/MultiLabelPacketQPilot.lean'
+      - 'Lean/IUTThreeClosures/RepeatedLabelProcessionOvercount.lean'
+      - 'Lean/IUTThreeClosures/RepeatedLabelProcessionOvercountAxiomAudit.lean'
+      - 'Lean/IUTThreeClosures/TensorPacketDistribution.lean'
+      - 'Lean/REPEATED_LABEL_PROCESSION_OVERCOUNT.md'
+      - '.github/workflows/procession-label-marginalization.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  direct-kernel-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: 'false'
+          build: 'false'
+          use-mathlib-cache: 'false'
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Elaborate theorem and axiom-audit modules directly
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake env lean IUTThreeClosures/MultiLabelProductWeightMarginalization.lean
+          lake env lean IUTThreeClosures/MultiLabelPacketQPilot.lean
+          lake env lean IUTThreeClosures/RepeatedLabelProcessionOvercount.lean
+          lake env lean IUTThreeClosures/RepeatedLabelProcessionOvercountAxiomAudit.lean
+
+      - name: Build the default project target with warnings as failures
+        working-directory: Lean
+        shell: bash
+        run: lake build --wfail
