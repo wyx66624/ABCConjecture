@@ -912,7 +912,18 @@ critical input behind a definition or opaque interface.
   Lean checks the full scalar local blocks, the generalized division-free
   threshold, the active residue product floor and the exact height
   comparison; finite-field permutation, Hensel lifting and Dirichlet remain
-  explicitly cited accepted inputs
+  explicitly cited accepted inputs.  The companion
+  `FREY_PELL_CHEBYSHEV_LOCAL_SIMPLE_ROOT_CORE.md` and its Lean module now
+  close the previously abstract polynomial seam with Mathlib's actual
+  Chebyshev polynomials: they prove
+  `T_n(x)^2-1=(x^2-1)U_(n-1)(x)^2`, evaluate `T_n'`, and show that a
+  target-five preimage in characteristic at least `5` is non-endpoint with
+  unit derivative when the characteristic does not divide the prime index.
+  Under an explicit bijectivity hypothesis it also proves uniqueness of the
+  target-five preimage, uniqueness of an abscissa for every ordinate, and
+  the scalar CRT bridge.  Dickson's permutation theorem and Hensel lifting
+  remain explicitly accepted published interfaces; the resulting points
+  are local points, not asserted global Pell/fundamental-unit solutions
 - the fixed-five and primitive-divisor refinement of the active prime-index
   residual.  Every prime `q!=5` in the support of `T_p(X)` satisfies
   `q=+/-1 (mod 5)`; if `5|T_p(X)`, then its valuation is exactly one.
@@ -1280,7 +1291,11 @@ critical input behind a definition or opaque interface.
   `P31_CHEBYSHEV_GLOBAL_DYADIC_CERTIFICATE.md`.  This closes the global-
   to-dyadic injectivity input at the accepted odd-degree descent/Sage-exact-
   arithmetic interface.  It does not yet execute the Stoll recursion,
-  certify Coleman integration, classify rational points or settle index 31
+  certify Coleman integration, classify rational points or settle index 31.
+  The independent Lean algebraic core kernel-checks the displayed
+  `T_31` polynomial, the original/Coleman/monic coordinate scale, both
+  endpoint ordinates, the BDF factor-base counts and all frozen dimension
+  scalars; it introduces no external theorem as an axiom
 - a new uniform fixed-elliptic reconstruction of every remaining prime-index
   Chebyshev square.  Writing `U=(T+sqrt(T^2-1))^p` sends the equation to the
   fixed conductor-24 curve `Y^2=X*(X+1)*(X+4)`.  Translation by the rational
