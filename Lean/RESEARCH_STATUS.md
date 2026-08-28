@@ -946,16 +946,15 @@ critical input behind a definition or opaque interface.
   `(X+sqrt(X^2-1),-X+sqrt(X^2-1))`; the classical cyclotomic index is `4*p`.
   BHV therefore gives a primitive `q` with
   `4*p | q-( (X^2-1)/q )`, and the shifted-square equation adds
-  `q=+/-1 (mod 5)`, but BHV does not control the parity of `v_q(H_m)`.
-  Granville's accepted odd-valuation theorem has the incompatible recurrence
-  hypothesis `c=2 (mod 4)`; its general moving-sequence extension is stated
-  only as a conjecture, and the audited Rotkiewicz/Luca--Walsh/Yuan--Li
-  square-term results likewise miss the present Lehmer parameters.  More
-  decisively, every positive valuation can occur in the complete local
-  primitive/five-split packet, and even an odd valuation is allowed by the
-  split norm in `Q(sqrt 5)`.  Thus an odd-valuation theorem would strengthen
-  the ledger but would not be a uniform exclusion.  The exact source and
-  quantifier audit is frozen in
+  `q=+/-1 (mod 5)`.  BHV alone does not control `v_q(H_m)`, and the direct
+  application of Granville Theorem 3 has the incompatible hypothesis
+  `c=2 (mod 4)`.  The Bennett--Walsh/Cohn repair below nevertheless excludes
+  both exceptional shapes in the general Granville Corollary 5 and therefore
+  supplies a primitive prime of odd exact valuation.  Every positive
+  valuation can still occur in the complete local primitive/five-split
+  packet, and an odd valuation is allowed by the split norm in `Q(sqrt 5)`.
+  Thus the valuation gap is closed but the shifted-square branch is not.
+  The exact source and quantifier audit is frozen in
   `FREY_PELL_CHEBYSHEV_PRIMITIVE_ODD_VALUATION_AUDIT.md`
 - the exact scalar elimination inside that fixed-five residual.  The three
   norm/cross equations imply
@@ -1035,6 +1034,20 @@ critical input behind a definition or opaque interface.
   explicit accepted interfaces.  This rules out the entire finite moving-q
   packet as a uniform closure method, not the shifted-square equation and
   not `abc`
+- the Bennett--Walsh/Cohn elimination of both Granville square classes.
+  Write `X=B*u^2` and realize `X=R_k` in the trace sequence of the fundamental
+  unit for the squarefree kernel of `X^2-1`.  Bennett--Walsh Theorem 1.2 and
+  Cohn's coefficient-one theorem exclude `H_p(X)=z^2`.  For
+  `H_p(X)=p*z^2`, the cases `p|B` and `p∤B` are handled separately; the
+  squarefree odd-multiple occurrence law and Bennett--Walsh Lemma 5.1 cover
+  `B=1`, `B/p=1`, `p|d`, and arbitrary parity of `k`.  Granville Corollary 5
+  at index `2*p` then gives a characteristic prime of odd exact multiplicity,
+  and the discriminant-rank check makes it primitive.  Lean kernel-checks
+  the combination relative to six transparent accepted-theorem interfaces;
+  all seven material theorem reports contain only `propext`,
+  `Classical.choice`, and `Quot.sound`.  The odd primitive valuation is a
+  genuine uniform theorem for `p>=31, X>1`, but split-prime ideal allocation
+  in `Q(sqrt 5)` still prevents a shifted-square contradiction
 - a uniform, unconditional rank-two lower bound for the prime-index
   Chebyshev Jacobians.  For every odd prime `p != 3`, the two explicit
   half-divisors have descent squareclasses `[a-1]` and `[3*(a+1)]` in

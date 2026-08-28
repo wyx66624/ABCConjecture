@@ -34,13 +34,15 @@ The conclusions are deliberately limited:
 2. the reciprocal Chebyshev structure strengthens the usual rank congruence
    to $4p\mid q-\chi_q$;
 3. equation (1) forces $q\equiv\pm1\pmod5$;
-4. no accepted theorem reviewed here forces $v_q(H_p(X))$ to be odd in this
-   moving family;
+4. BHV alone does not control $v_q(H_p(X))$, but Bennett--Walsh/Cohn exclude
+   both exceptional square classes in Granville Corollary 5 and therefore
+   supply a (possibly different) primitive $q$ of odd exact valuation;
 5. even an odd valuation is compatible with the split norm in
    $\mathbf Q(\sqrt5)$ and therefore does not close (1).
 
-Thus this is an obstruction and trust-boundary audit, not a new uniform
-exclusion theorem.
+Thus the earlier valuation gap is now closed, but the global
+shifted-square gap is not.  This remains an obstruction and trust-boundary
+audit, not a uniform exclusion of (1).
 
 ## 2. Lucas normalization
 
@@ -504,6 +506,11 @@ is proved there with a uniform small threshold. The general statement is
 conjectural, and even its stated threshold is allowed to depend on $X$.
 Therefore it cannot be invoked for the moving family (4).
 
+This failure concerns the direct application of Granville Theorem 3.  It
+does not prevent using the general Corollary 5 after independently excluding
+its two exceptional square shapes; that is the Bennett--Walsh/Cohn repair in
+the next section.
+
 ## 10. What the general cyclotomic ledger still gives
 
 Granville's Corollaries 3--5 contain a useful conditional classification
@@ -542,10 +549,28 @@ H_p(X)=z^2\text{ or }H_p(X)=pz^2.}
 \tag{40}
 $$
 
-This implication must not be reversed or attached to equation (1).
-Equation (1), including its fixed-$\mathbf Q(\sqrt5)$ reconstruction, does
-not imply either square shape in (40). For example, the norm ledger has the
-form
+The companion audit
+`FREY_PELL_CHEBYSHEV_BENNETT_WALSH_ODD_VALUATION.md` now excludes both
+alternatives in (40).  Its Pell-coordinate argument writes
+$X=B u^2$ and $X=R_k$ in the trace sequence of the fundamental unit of the
+squarefree kernel of $X^2-1$.  Bennett--Walsh Theorem 1.2 and Cohn's
+coefficient-one theorem exclude the square shape.  For the $p$-times-square
+shape, the proof splits into $p\mid B$ and $p\nmid B$; the odd-multiple
+occurrence law and Bennett--Walsh Lemma 5.1 handle the latter without any
+parity assumption on $k$.  Consequently contraposition of (40) gives
+
+$$
+\boxed{H_p(X)\text{ has a primitive prime divisor of odd exact valuation}.}
+\tag{40a}
+$$
+
+This conclusion holds for every prime $p\ge31$ and $X>1$; it does not use
+equation (1).
+
+Equation (1), including its fixed-$\mathbf Q(\sqrt5)$ reconstruction, must
+not itself be used to infer either square shape in (40).  The two shapes are
+excluded independently; they are not consequences of the shifted equation.
+For example, the norm ledger has the form
 
 $$
 4H_p(X)=u^2-5v^2,
@@ -555,8 +580,21 @@ which is not a square or $p$-times-square assertion.
 
 ## 11. Square and near-square theorem applicability ledger
 
-The following comparisons concern only the conditional alternatives in
-(40). None of them turns (1) into one of those alternatives.
+The following comparisons record why the initially reviewed termwise
+theorems did not settle the alternatives in (40).  They are now superseded
+for this purpose by the combined argument below; none of them turns (1)
+itself into a square-shape assertion.
+
+### 11.0 Bennett--Walsh and Cohn
+
+Bennett--Walsh Corollary 1.5 directly gives
+$H_p(X)\ne z^2$ for prime $p$ and $X>1$.  Independently, their Theorem 1.2,
+the squarefree-coefficient occurrence fact in the proof of Lemma 3.3,
+Lemma 5.1, and Cohn's 1997 coefficient-one theorem give both this exclusion
+and $H_p(X)\ne pz^2$.  The complete endpoint and squarefree-kernel ledger is
+in the companion audit cited after (40).  This is uniform in the moving
+Pell discriminant and prime index, so it repairs the limitation recorded in
+the earlier subsections.
 
 ### 11.1 Rotkiewicz
 
@@ -641,12 +679,14 @@ $$
 not a term $L_n$. Their square-term classification cannot be transferred to
 this quotient.
 
-### 11.4 Ljunggren, Cohn, and fixed-sequence perfect-power results
+### 11.4 Other fixed-sequence perfect-power results
 
-The classical Ljunggren and Cohn results used by the above papers concern
-fixed-coefficient Pell/quartic equations or square terms in a fixed
-recurrence. The present family moves both the parameter $2X$ and the prime
-index $p$, and again asks about a cyclotomic quotient.
+Taken one fixed recurrence at a time, the classical Pell/quartic results do
+not by themselves address a moving cyclotomic quotient.  The earlier audit
+stopped at that observation.  Section 11.0 explains the missing uniform
+reparameterization: Bennett--Walsh Theorem 1.2 is applied separately to the
+squarefree coefficient of $X$, while Cohn supplies its coefficient-one
+endpoint.
 
 Likewise, the Bugeaud--Mignotte--Siksek perfect-power theorems determine
 perfect powers in the Fibonacci/Lucas sequences or in another specified
@@ -668,14 +708,16 @@ move with $p$. General squarefree-value statements in unrestricted high
 degree commonly require an abc-type hypothesis; no such conjectural input
 is admitted in this audit.
 
-For each fixed $p$, finiteness theorems for the hyperelliptic curves attached
-to $H_p(X)=z^2$ are likewise non-uniform and generally ineffective. They do
-not exclude all $p\ge31$.
+For each fixed $p$, generic finiteness theorems for the hyperelliptic curves
+attached to $H_p(X)=z^2$ remain non-uniform and generally ineffective.  They
+are no longer needed for the square exclusion, which follows uniformly from
+Bennett--Walsh Corollary 1.5.
 
 ## 12. Why an odd valuation still does not close the norm equation
 
-Suppose, beyond what BHV proves, that a primitive prime $q\mid H_p(X)$ has
-odd valuation. From (26), $q$ splits in $K=\mathbf Q(\sqrt5)$:
+Let $q\mid H_p(X)$ be the odd-valuation primitive prime now supplied by
+(40a).  Under equation (1), (26) says that $q$ splits in
+$K=\mathbf Q(\sqrt5)$:
 
 $$
 (q)=\mathfrak q\,\overline{\mathfrak q}.
@@ -688,11 +730,18 @@ $$
 \tag{42}
 $$
 
-Since $q\ne2,5$, the two conjugate factors on the left of (42) cannot both
-be divisible by a prime above $q$: their difference is $2\sqrt5$. Thus the
-entire power $q^{v_q(H_p(X))}$ may occur in one conjugate factor and none
-in the other. A principal element in a split quadratic field may have an
-arbitrary exponent at one of the two conjugate prime ideals.
+Primitivity gives $q\ne2,5$ and $q\nmid X$: primes dividing $2X$ already
+occur at $L_2$, a discriminant prime cannot first occur at the composite
+index $2p$, and the rank of $5$ is at most six rather than $2p\ge62$.
+Thus the same prime ideal above $q$ cannot divide both conjugate
+factors on the left of (42): their difference is $2\sqrt5$.  If
+$q^e\mathbin\Vert H_p(X)$, then, after labeling the two primes, the ideal
+allocation must put
+$\mathfrak q^e$ in one factor and
+$\overline{\mathfrak q}^{e}$ in the other.  The conjugate prime ideals occur
+symmetrically, but neither one occurs in both factors.  A principal element
+in a split quadratic field may have an arbitrary exponent at either prime
+ideal.
 
 Consequently neither principality nor the class-number-one property of
 $\mathbf Q(\sqrt5)$ imposes evenness of this exponent. The same observation
@@ -702,18 +751,22 @@ $$
 u^2-5v^2=4H_p(X).
 $$
 
-An odd-valuation primitive divisor would strengthen the squareclass ledger,
-but it would not contradict the split norm and would not prove that (1) has
-no integer solutions.
+The odd-valuation primitive divisor strengthens the squareclass ledger, but
+it does not contradict the split norm and does not prove that (1) has no
+integer solutions.
 
 ## 13. Strongest justified proposition and non-conclusion
 
 The unconditional external-plus-elementary conclusion may be stated as
 follows.
 
-> **Primitive-prime constraint.** Let $p\ge31$ be an odd prime, let
-> $X>1$, and suppose that $y^2=4T_p(X)+5$. Then there is a prime
-> $q\mid H_p(X)$ such that
+> **Odd-valuation primitive-prime constraint.** Let $p\ge31$ be an odd
+> prime, let $X>1$, and suppose that $y^2=4T_p(X)+5$. Then there are a
+> prime $q$ and an odd positive integer $e$ such that
+> $$
+> q^e\mid H_p(X),\qquad q^{e+1}\nmid H_p(X),
+> $$
+> and
 > $$
 > q\nmid2pX(X^2-1),
 > \qquad
@@ -722,10 +775,9 @@ follows.
 > q\equiv\pm1\pmod5.
 > $$
 
-No assertion about the parity of $v_q(H_p(X))$ is justified by BHV. The
-known odd-valuation theorem does not cover this recurrence, its proposed
-general extension is conjectural and non-uniform in the sequence, and the
-split norm would accept an odd valuation in any event.
+BHV alone still makes no assertion about the parity of its chosen witness.
+The Bennett--Walsh/Cohn--Granville combination supplies an odd-valuation
+primitive witness, while the split norm accepts that odd valuation.
 
 A genuinely closing nonlocal lemma would therefore have to connect the
 Frobenius or ideal allocation of a new prime to some additional global
@@ -758,6 +810,9 @@ The following results are cited rather than re-proved:
 * Bilu--Hanrot--Voutier primitive divisors;
 * Granville's characteristic/primitive-factor classification and his
   special odd-valuation theorem;
+* Bennett--Walsh Theorem 1.2, the occurrence fact in the proof of Lemma
+  3.3, Lemma 5.1, and Corollary 1.5;
+* Cohn's 1997 theorem on $x^4-Dy^2=1$;
 * Rotkiewicz, Luca--Walsh, Yuan--Li, McDaniel, and
   Ribenboim--McDaniel square-term results;
 * Dirichlet's theorem and Hensel's lemma in the local obstruction
@@ -770,7 +825,8 @@ squarefree-value conjecture, abc consequence, or unproved uniformity is used.
 
 This audit does not claim:
 
-* that the BHV prime has odd valuation;
+* that an arbitrarily selected BHV witness has odd valuation (the combined
+  theorem supplies at least one odd-valuation primitive witness);
 * that equation (1) makes $H_p$ a square or $p$ times a square;
 * that an odd valuation contradicts a $\mathbf Q(\sqrt5)$ norm;
 * that the local construction gives an integer solution of (1);
@@ -785,6 +841,13 @@ This audit does not claim:
   sequences,” *Acta Arith.* **155** (2012), 431--452,
   [author PDF](https://dms.umontreal.ca/~andrew/PDF/PrimitivePrimeFactors.pdf),
   [DOI 10.4064/aa155-4-7](https://doi.org/10.4064/aa155-4-7).
+* M. A. Bennett and G. Walsh, “The Diophantine equation
+  $b^2X^4-dY^2=1$,” *Proc. Amer. Math. Soc.* **127** (1999), 3481--3491,
+  [author PDF](https://personal.math.ubc.ca/~bennett/BW-PAMS.pdf),
+  [DOI 10.1090/S0002-9939-99-05041-8](https://doi.org/10.1090/S0002-9939-99-05041-8).
+* J. H. E. Cohn, “The Diophantine equation $x^4-Dy^2=1$, II,”
+  *Acta Arith.* **78** (1997), 401--403,
+  [DOI 10.4064/aa-78-4-401-403](https://doi.org/10.4064/aa-78-4-401-403).
 * A. Rotkiewicz, “Applications of Jacobi's symbol to Lehmer's numbers,”
   *Acta Arith.* **42** (1983), 163--187,
   [publisher page and PDF](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/42/22/103738/applications-of-jacobi-s-symbol-to-lehmer-s-numbers),

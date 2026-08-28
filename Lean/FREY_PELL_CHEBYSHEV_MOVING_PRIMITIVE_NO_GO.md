@@ -23,15 +23,22 @@ compatible at every prescribed finite five-adic depth.  This is an
 unconditional no-go statement about that package; it is not a claim that
 the global integer equation has a solution.
 
-There are two smaller positive results.
+There are three positive results, the second coming from the separate
+Bennett--Walsh/Cohn companion.
 
-1. Granville's accepted odd-valuation theorem cannot be reached by an
-   equivalent integral Lucas or Lehmer normalization: its hypothesis
+1. Granville's direct Theorem 3 odd-valuation result cannot be reached by
+   an equivalent integral Lucas or Lehmer normalization: its hypothesis
    `c \equiv 2 (mod 4)` contradicts coprimality invariantly.
-2. If the exceptional shape is exactly `H_p(X)=p z^2`, then the actual
-   residue `X \equiv -1 (mod 24)` forces `p \equiv 1 (mod 24)`.  Together
+2. Bennett--Walsh Theorem 1.2, Cohn's coefficient-one theorem, and
+   Granville Corollary 5 together exclude both `H_p(X)=z^2` and
+   `H_p(X)=p z^2`.  Hence `H_p(X)` does have a primitive prime divisor of
+   odd exact multiplicity.  This stronger theorem still does not contradict
+   the split norm in `Q(sqrt(5))`.
+3. Independently, if the exceptional shape were `H_p(X)=p z^2`, then the
+   actual residue `X \equiv -1 (mod 24)` forces `p \equiv 1 (mod 24)`.  Together
    with `p \equiv \pm1 (mod 5)`, this leaves `p \equiv 1,49 (mod 120)`.
-   This is a real restriction, but it does not exclude the square shape.
+   This remains a useful kernel-checked cross-check, although the companion
+   theorem now excludes the shape globally.
 
 The finite algebra and an explicit `p=41` diagnostic are checked in
 `IUTThreeClosures/FreyPellChebyshevMovingPrimitiveNoGoCore.lean`.
@@ -343,7 +350,7 @@ kernel-checked by `primitivePellTemplate_identities`,
 and the fundamental-unit interpretation are accepted mathematical
 interfaces; no Lean axiom is introduced for them.
 
-## 7. The one surviving modulo-24 restriction
+## 7. The modulo-24 cross-check
 
 The recurrence congruence and the endpoint value give
 
@@ -363,9 +370,13 @@ Every invertible square modulo `24` is `1`.  Therefore an actual equality
 These are the Lean theorems
 `pellOddChebyshevQuotient_mod_twentyFour_of_negOne`,
 `primeSquareShape_forces_index_mod_twentyFour`, and
-`primeSquareShape_active_crt`.  Equation (7.2) only removes the
-`p times a square` alternative for the other index classes; it does not
-remove the ordinary-square alternative.
+`primeSquareShape_active_crt`.  By itself, (7.2) only removes the
+`p`-times-square alternative for the other index classes and says nothing
+about the ordinary-square alternative.  The separate file
+`FREY_PELL_CHEBYSHEV_BENNETT_WALSH_ODD_VALUATION.md` now excludes both
+shapes uniformly by Bennett--Walsh/Cohn and then applies Granville
+Corollary 5.  Thus (7.2) is retained as an independent finite congruence
+check, not as the strongest current exclusion.
 
 ## 8. Exact `p=41` diagnostic and its global failure
 
@@ -437,10 +448,13 @@ The present note adds:
    `(X-1/q)=chi`;
 4. a simultaneous squarefree template proving finite-depth compatibility
    with genuine Pell fundamental-unit minimality;
-5. the conditional modulo-24 restriction on the `p*z^2` shape;
-6. an exact `p=41` scalar witness, including the modulo-seven global
+5. the conditional modulo-24 cross-check on the `p*z^2` shape;
+6. the separate Bennett--Walsh/Cohn exclusion of both Granville square
+   shapes, which supplies an odd-multiplicity primitive divisor but no
+   shifted-square contradiction;
+7. an exact `p=41` scalar witness, including the modulo-seven global
    obstruction; and
-7. the 2025 complete Lucas-atom valuation theorem, whose first-rank case
+8. the 2025 complete Lucas-atom valuation theorem, whose first-rank case
    explicitly leaves the valuation unrestricted.
 
 ## 10. Trust ledger
@@ -470,6 +484,9 @@ decision axiom; it contains only the standard `propext`,
 - Carmichael, Theorem XXI, and BHV, Theorem 1.4;
 - Granville, Theorem 3, used only to audit its hypotheses (with Theorem 2
   separately identified as the characteristic-prime version);
+- Bennett--Walsh, Theorem 1.2, the occurrence fact in the proof of Lemma
+  3.3, Lemma 5.1, and Corollary 1.5, together with Cohn's 1997 theorem and
+  Granville Corollary 5, in the separate odd-valuation companion;
 - Dirichlet's theorem, Hensel's lemma, quadratic reciprocity, CRT, and the
   standard square criteria over `Z_2` and `Z_3`;
 - cyclicity of the multiplicative group of a finite field;
@@ -489,8 +506,9 @@ No accepted interface is installed as a Lean axiom.
   five-adic path;
 - no quartic reciprocity obstruction is asserted without a fourth-power
   input;
-- no uniform odd-valuation theorem is inferred outside Granville's proven
-  hypotheses;
+- no odd-valuation conclusion is inferred from BHV or the failed direct
+  Granville-Theorem-3 normalization alone; the separate companion obtains
+  it from Bennett--Walsh/Cohn plus Granville Corollary 5;
 - no open squarefree-value conjecture for nonlinear polynomials is used;
   only two linear forms are sieved; and
 - no conclusion about the abc conjecture follows from this no-go package
@@ -507,8 +525,9 @@ No accepted interface is installed as a Lean axiom.
    Mathematik 539 (2001), 75--122, Theorem 1.4.
    [DOI 10.1515/crll.2001.080](https://doi.org/10.1515/crll.2001.080).
 3. A. Granville, *Primitive prime factors in second-order linear recurrence
-   sequences*, Acta Arithmetica 155 (2012), 431--452, Theorems 2--3 and
-   Section 7. [Publisher page and PDF](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/en/publishing-house/journals-and-series/acta-arithmetica/all/155/4/82794/primitive-prime-factors-in-second-order-linear-recurrence-sequences),
+   sequences*, Acta Arithmetica 155 (2012), 431--452, Theorems 2--3,
+   Corollaries 3--5, and Section 7.
+   [Author PDF](https://dms.umontreal.ca/~andrew/PDF/PrimitivePrimeFactors.pdf),
    [DOI 10.4064/aa155-4-7](https://doi.org/10.4064/aa155-4-7).
 4. G. Alecci, P. Miska, N. Murru, and G. Romeo, *On alternative definition
    of Lucas atoms and their p-adic valuations*, Monatshefte fuer Mathematik
@@ -518,3 +537,11 @@ No accepted interface is installed as a Lean axiom.
 5. C. L. Stewart, *On divisors of Lucas and Lehmer numbers*, Acta
    Mathematica 211 (2013), Theorem 1.
    [Author preprint, arXiv:1008.1274](https://arxiv.org/abs/1008.1274).
+6. M. A. Bennett and G. Walsh, *The Diophantine equation
+   `b^2 X^4-dY^2=1`*, Proceedings of the American Mathematical Society 127
+   (1999), 3481--3491, Theorem 1.2, the proof of Lemma 3.3, Lemma 5.1, and
+   Corollary 1.5.
+   [DOI 10.1090/S0002-9939-99-05041-8](https://doi.org/10.1090/S0002-9939-99-05041-8).
+7. J. H. E. Cohn, *The Diophantine equation `x^4-Dy^2=1`, II*, Acta
+   Arithmetica 78 (1997), 401--403.
+   [DOI 10.4064/aa-78-4-401-403](https://doi.org/10.4064/aa-78-4-401-403).
