@@ -1,0 +1,51 @@
+name: Lean target four-full AP transfer
+
+on:
+  push:
+    branches:
+      - formalize/fourfull-arithmetic-progression-transfer-v15
+  workflow_dispatch:
+
+concurrency:
+  group: fourfull-ap-v15-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  target:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+      - name: Resolve dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+      - name: Check theorem and axiom audit
+        working-directory: Lean
+        shell: bash
+        run: |
+          set +e
+          lake env lean IUTThreeClosures/FourFullArithmeticProgressionTransferAxiomAudit.lean \
+            > ../fourfull-ap-target.log 2>&1
+          rc=$?
+          if [ "$rc" -ne 0 ]; then
+            grep -E -A8 -B3 'error:|unsolved goals|type mismatch|unknown identifier|application type mismatch|failed to synthesize|unexpected token' \
+              ../fourfull-ap-target.log | tail -n 320 > ../fourfull-ap-errors.log || true
+            cat ../fourfull-ap-errors.log
+          else
+            tail -n 160 ../fourfull-ap-target.log
+          fi
+          exit "$rc"
