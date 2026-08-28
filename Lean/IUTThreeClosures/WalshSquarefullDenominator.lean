@@ -56,7 +56,9 @@ theorem cube_of_twoFull_isSixFull {z : ℕ}
     (IsKFull.iff_prime_pow_dvd hz.ne_zero).1 hz q hq hqz
   have hpow : (q ^ 2) ^ 3 ∣ z ^ 3 :=
     pow_dvd_pow_of_dvd hq2 3
-  simpa [pow_mul] using hpow
+  calc
+    q ^ 6 = (q ^ 2) ^ 3 := by ring
+    _ ∣ z ^ 3 := hpow
 
 /-- Deterministic arithmetic data extracted from one Walsh-type solution,
 with the additional squarefull denominator condition isolated explicitly. -/
@@ -202,8 +204,8 @@ theorem six_mul_conductor_le_five_mul_height (D : Datum) :
       (D.point.c : ℝ) ^ 5 := by
     exact_mod_cast D.radical_product_pow_six_le_c_pow_five
   have hLog := Real.log_le_log (pow_pos hRadPos 6) hReal
-  rw [Real.log_pow, Real.log_pow, D.point.height_eq_log_c] at hLog
-  simpa [ABCPoint.conductor] using hLog
+  rw [Real.log_pow, Real.log_pow] at hLog
+  simpa [ABCPoint.conductor, D.point.height_eq_log_c] using hLog
 
 end Datum
 

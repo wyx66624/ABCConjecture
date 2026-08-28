@@ -87,7 +87,7 @@ local instance finalCapsuleNormalizedIntegerHaarSigmaFinite
   unfold normalizedIntegerHaar
   infer_instance
 
-local instance finalCapsuleCoordinateMeasureSigmaFinite
+local instance finalCapsuleBadPlaceCoordinateMeasureSigmaFinite
     (Q : QPilotData D) (w : Index Q) :
     SigmaFinite (coordinateMeasure Q w) := by
   change SigmaFinite
@@ -120,7 +120,7 @@ def finalCapsuleIndexEquivLabelType (D : InitialThetaData AG TG) :
     ext
     rfl
   right_inv j := by
-    ext
+    apply Subtype.ext
     rfl
 
 /-- The actual local square-label region for an arbitrary nonnegative label. -/
@@ -133,11 +133,8 @@ noncomputable def labelCoordinateRegion
 /-- The genuine product over every actual bad place for one arbitrary label. -/
 noncomputable def labelProductRegion
     (Q : QPilotData D) (j : ℕ) :
-    FinitePositiveRegion (Packet Q) (packetMeasure Q) := by
-  change FinitePositiveRegion
-    (∀ w : Index Q, (place Q w).TateField)
-    (Measure.pi (coordinateMeasure Q))
-  exact FinitePositiveRegion.pi (coordinateMeasure Q)
+    FinitePositiveRegion (Packet Q) (packetMeasure Q) :=
+  FinitePositiveRegion.pi (coordinateMeasure Q)
     (labelCoordinateRegion Q j)
 
 private theorem index_univ_eq_badFinset_attach (Q : QPilotData D) :
@@ -155,12 +152,13 @@ theorem labelCoordinateRegion_logVolume
   rfl
 
 /-- Exact bad-place product logarithmic volume at an arbitrary label. -/
-theorem labelProductRegion_logVolume
+  theorem labelProductRegion_logVolume
     (Q : QPilotData D) (j : ℕ) :
     (labelProductRegion Q j).logVolume =
       (j : ℝ) ^ 2 * signedHaarLogSum Q := by
   classical
-  rw [labelProductRegion, FinitePositiveRegion.logVolume_pi,
+  unfold labelProductRegion packetMeasure
+  rw [FinitePositiveRegion.logVolume_pi,
     index_univ_eq_badFinset_attach, signedHaarLogSum]
   calc
     ∑ w ∈ Q.badFinset.attach,
@@ -227,8 +225,8 @@ theorem finalCapsule_squareSum_eq_distinguished_squareSum
         (j.1 : ℝ) ^ 2 * signedHaarLogSum Q) =
       ∑ m ∈ Finset.range (processionLength D),
         (((m + 1 : ℕ) : ℝ) ^ 2 * signedHaarLogSum Q) := by
-  rw [Fin.sum_univ_eq_sum_range]
-  rw [Finset.sum_range_succ']
+  rw [← Fin.sum_univ_eq_sum_range]
+  rw [Fin.sum_univ_succ]
   norm_num
 
 /-- **Final capsule/procession identity.**  The logarithmic Haar volume of the
