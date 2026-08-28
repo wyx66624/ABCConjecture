@@ -1,0 +1,113 @@
+name: Verify and promote four-full AP transfer
+
+on:
+  push:
+    branches:
+      - formalize/fourfull-arithmetic-progression-transfer-v15
+  workflow_dispatch:
+
+concurrency:
+  group: promote-fourfull-ap-v15
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  verify-and-promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Kernel-check the theorem and axiom audit explicitly
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake env lean IUTThreeClosures/FourFullArithmeticProgressionTransferAxiomAudit.lean
+
+      - name: Assemble a clean candidate on the latest main
+        shell: bash
+        run: |
+          set -euo pipefail
+          RESEARCH_HEAD="$GITHUB_SHA"
+          git config user.name "ChatGPT"
+          git config user.email "chatgpt@users.noreply.github.com"
+          git fetch origin main
+          BASE_MAIN="$(git rev-parse origin/main)"
+          printf '%s\n' "$BASE_MAIN" > /tmp/base-main-sha
+          git checkout -B verified-fourfull-ap-main origin/main
+          git checkout "$RESEARCH_HEAD" -- \
+            Lean/FOURFULL_ARITHMETIC_PROGRESSION_TRANSFER.md \
+            Lean/IUTThreeClosures/FourFullArithmeticProgressionTransfer.lean \
+            Lean/IUTThreeClosures/FourFullArithmeticProgressionTransferAxiomAudit.lean
+          grep -qxF 'import IUTThreeClosures.FourFullArithmeticProgressionTransfer' \
+            Lean/IUTThreeClosures.lean || \
+            printf '\nimport IUTThreeClosures.FourFullArithmeticProgressionTransfer\n' >> \
+              Lean/IUTThreeClosures.lean
+          grep -qxF 'import IUTThreeClosures.FourFullArithmeticProgressionTransferAxiomAudit' \
+            Lean/IUTThreeClosures.lean || \
+            printf 'import IUTThreeClosures.FourFullArithmeticProgressionTransferAxiomAudit\n' >> \
+              Lean/IUTThreeClosures.lean
+          python3 - <<'PY'
+          from pathlib import Path
+          ledger = Path('Lean/THEOREM_LEDGER.md')
+          text = ledger.read_text()
+          proved = ('- affine logarithmic radical-gap certificates with a fixed additive error, '
+                    'and the exact four-full three-term arithmetic-progression transfer to '
+                    '`¬ ABCConjecture`;\n')
+          open_item = ('- construction or impossibility of an unbounded primitive four-full '
+                       'three-term arithmetic-progression family;\n')
+          if proved not in text:
+              marker = '## Not proved\n'
+              text = text.replace(marker, proved + '\n' + marker, 1)
+          if open_item not in text:
+              text += '\n' + open_item
+          ledger.write_text(text)
+          PY
+          git add \
+            Lean/IUTThreeClosures.lean \
+            Lean/THEOREM_LEDGER.md \
+            Lean/FOURFULL_ARITHMETIC_PROGRESSION_TRANSFER.md \
+            Lean/IUTThreeClosures/FourFullArithmeticProgressionTransfer.lean \
+            Lean/IUTThreeClosures/FourFullArithmeticProgressionTransferAxiomAudit.lean
+          git commit -m "Formalize the four-full arithmetic-progression abc transfer"
+
+      - name: Run the complete default Lean build on the candidate main
+        working-directory: Lean
+        shell: bash
+        run: |
+          set +e
+          lake build > ../lean-fourfull-ap-main-build.log 2>&1
+          rc=$?
+          if [ "$rc" -ne 0 ]; then
+            grep -E '(^| )error:|✖|unsolved goals|type mismatch|unknown identifier|application type mismatch|typeclass instance problem' \
+              ../lean-fourfull-ap-main-build.log | tail -n 240 || true
+            echo '--- build tail ---'
+            tail -n 300 ../lean-fourfull-ap-main-build.log
+          fi
+          exit "$rc"
+
+      - name: Promote only the verified candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$(cat /tmp/base-main-sha)"
+          git push origin HEAD:main
