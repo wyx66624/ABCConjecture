@@ -1,0 +1,488 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+
+\DeclareMathOperator{rad}{rad}
+\DeclareMathOperator{Card}{Card}
+\DeclareMathOperator{ord}{ord}
+
+\title{Closure Gates and Countermodels in Multi-Route Research\\
+on the $abc$ Conjecture}
+\author{ChatGPT}
+\date{28 August 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We report a proof-audit program for the $abc$ conjecture in which every
+proposed route is reduced to a small, explicitly quantified closure gate and
+then separated from its already verified downstream consequences.  The
+program covers a smooth-number counterexample construction, exceptional-set
+amplification, inter-universal Teichm\"uller theory, Frey--Szpiro height
+methods, and a Pell--Chebyshev reduction.  We prove five unconditional
+results.  First, negligibility relative to an ambient interval does not imply
+negligibility relative to a vanishing smooth-number main term.  Second, the
+correct exponent condition in a near-prime-power construction is a linear
+logarithmic-slope inequality, not a power inequality.  Third, a proposed
+ambient high-$\omega$ tail estimate at the $x^{3/5}$ scale is contradicted by
+multiples of primorial-type moduli, which already supply an $x^{4/5}$ lower
+bound along an explicit subsequence.  Fourth, a power-saving exceptional-set
+bound can yield finiteness only if a descendant construction crosses a precise
+amplification threshold.  Fifth, neither an existentially good output of a
+multivalued construction nor a nonnegative average of the existing Frey
+models supplies the pointwise or coefficient-one conclusion required by
+$abc$.  Lean 4 formalizations are provided for the scalar, finite-set, and
+quantifier-theoretic cores.  No unconditional proof or disproof of the $abc$
+conjecture is claimed.  The main contribution is an auditable map of the
+remaining global obligations.
+\end{abstract}
+
+\section{The target and the audit discipline}
+
+For coprime positive integers $a,b,c$ satisfying $a+b=c$, the classical
+$abc$ conjecture asserts that for every $\varepsilon>0$ there is a constant
+$C_\varepsilon>0$ such that
+\begin{equation}\label{eq:abc}
+ c\le C_\varepsilon\,\rad(abc)^{1+\varepsilon}.
+\end{equation}
+Equivalently,
+\begin{equation}\label{eq:abclog}
+ \log c\le (1+\varepsilon)\log\rad(abc)+O_\varepsilon(1).
+\end{equation}
+The repository accompanying this paper encodes the logarithmic form with a
+uniform additive constant.  The central methodological rule is that a Lean
+proof of a conditional implication is not a Lean proof of $abc$ unless every
+premise is either constructed or imported from an independently accepted
+unconditional theorem with matching quantifiers.
+
+We use the following three-way classification.
+\begin{enumerate}[label=(\roman*)]
+\item A \emph{kernel theorem} is fully checked in Lean from the stated
+      hypotheses.
+\item A \emph{closure gate} is an explicit premise whose proof would complete
+      a route.
+\item A \emph{countermodel} disproves a proposed inference or intermediate
+      assertion without deciding $abc$ itself.
+\end{enumerate}
+This distinction prevents an inhabited interface, an existential witness, or
+an asymptotic with the wrong reference scale from being counted as the missing
+arithmetic theorem.
+
+\section{Smooth numbers: the relative extraction gate}
+
+Let $h=h(x)$ be a short-interval length, let
+\[
+ S_x=\{n\in[x,x+h]:P^+(n)\le y\},
+\]
+and let $B_x\subseteq S_x$ be the subset whose number of distinct prime
+factors is too large for radical control.  Suppose that a smooth-number theorem
+gives
+\begin{equation}\label{eq:smoothmain}
+ |S_x|=h\rho(u)(1+o(1)),\qquad u=\frac{\log x}{\log y},
+\end{equation}
+where $\rho(u)\to0$.
+
+The extraction problem is finite and exact: one needs $|B_x|<|S_x|$.  An
+estimate $|B_x|=o(h)$ is not sufficient because the main set itself has
+vanishing density in the interval.
+
+\begin{proposition}[Ambient-scale countermodel]\label{prop:ambient}
+There exist sequences of finite sets $B_n\subseteq S_n$ and ambient scales
+$h_n\to\infty$ such that
+\[
+ |B_n|=o(h_n),\qquad B_n=S_n\quad\text{for every }n.
+\]
+Consequently ambient negligibility does not imply the existence of an element
+of $S_n\setminus B_n$.
+\end{proposition}
+
+\begin{proof}
+Take $h_n=n+1$ and $B_n=S_n=\{0\}$.  Then $|B_n|/h_n\to0$, but the complement
+$S_n\setminus B_n$ is empty for every $n$.
+\end{proof}
+
+\begin{corollary}[Correct extraction scale]\label{cor:relative}
+A sufficient asymptotic condition for extraction from \eqref{eq:smoothmain} is
+\[
+ |B_x|=o\!\left(h\rho(u)\right).
+\]
+More generally it suffices to prove the exact inequality $|B_x|<|S_x|$.
+\end{corollary}
+
+There is a second scale obstruction.  Dickman decay is faster than every
+fixed negative power of $u$.  Thus an ambient error of size $h/u^A$ need not
+be small relative to $h\rho(u)$; indeed
+\[
+ \frac{h/u^A}{h\rho(u)}=\frac{1}{u^A\rho(u)}\longrightarrow\infty.
+\]
+The Lean module \texttt{SmoothMainTermScaleAudit.lean} formalizes the finite
+countermodel, the exact cardinality extraction lemma, and a
+multiplication-only version of this super-polynomial obstruction.
+
+\section{Near-prime powers: the correct logarithmic exponent}
+
+Consider a prospective counterexample family
+\begin{equation}\label{eq:nearpp}
+ x=p^k,\qquad c=x+a,\qquad 0<a\le x^\theta,\qquad p\nmid c.
+\end{equation}
+Assume that
+\begin{equation}\label{eq:c-rad-slope}
+ \log\rad(c)\le (\eta+o(1))\log x.
+\end{equation}
+Then
+\[
+ \rad(ap^kc)\le a\,p\,\rad(c)
+ \le x^{\theta+1/k+\eta+o(1)}.
+\]
+The exponent in \eqref{eq:abc} is therefore controlled by the linear
+logarithmic condition
+\begin{equation}\label{eq:correct-slope}
+ (1+\varepsilon)\left(\theta+\frac1k+\eta\right)<1.
+\end{equation}
+
+\begin{proposition}[Power-condition counterexample]\label{prop:powerwrong}
+The inequality
+\[
+ \left(\theta+\frac1k\right)^{1+\varepsilon}<1
+\]
+does not imply \eqref{eq:correct-slope}, even when $\eta=0$.
+\end{proposition}
+
+\begin{proof}
+Take $\theta=3/5$, $k=5$, and $\varepsilon=1$.  Then
+\[
+ \left(\frac35+\frac15\right)^2=\frac{16}{25}<1,
+ \qquad
+ 2\left(\frac35+\frac15\right)=\frac85>1.
+\]
+\end{proof}
+
+For the interval exponent $\theta=3/5$, the exact corrected threshold is
+\begin{equation}\label{eq:threefifths}
+ (1+\varepsilon)\left(\frac35+\frac1k\right)<1
+ \quad\Longleftrightarrow\quad
+ 5(1+\varepsilon)<k(2-3\varepsilon).
+\end{equation}
+Hence no positive $k$ works once $\varepsilon\ge2/3$, while for small fixed
+$\varepsilon$ one may choose a sufficiently large $k$.  The radical loss
+$\eta$ must fit the remaining budget
+\[
+ \eta<\frac{1}{1+\varepsilon}-\theta-\frac1k.
+\]
+These identities and the counterexample in Proposition~\ref{prop:powerwrong}
+are formalized in \texttt{NearPrimePowerExponentAudit.lean}.
+
+\begin{theorem}[Subcritical radical-slope disproof gate]\label{thm:slopegate}
+Let $(a_n,b_n,c_n)$ be an unbounded family of positive pairwise coprime
+solutions of $a_n+b_n=c_n$.  Suppose that for some $q,K\in\mathbb R$,
+\[
+ \log\rad(a_nb_nc_n)\le q\log\max\{a_n,b_n,c_n\}+K
+\]
+for every $n$, and that $(1+\varepsilon)q<1$ for some $\varepsilon>0$.
+Then the $abc$ conjecture is false.
+\end{theorem}
+
+\begin{proof}
+If \eqref{eq:abclog} held with additive constant $C_\varepsilon$, then
+\[
+ \left(1-(1+\varepsilon)q\right)
+ \log\max\{a_n,b_n,c_n\}
+ \le (1+\varepsilon)K+C_\varepsilon.
+\]
+The coefficient on the left is positive, contradicting unbounded height.
+\end{proof}
+
+Theorem~\ref{thm:slopegate} is formalized in
+\texttt{SubcriticalRadicalSlopeDisproofGate.lean}.  It is a complete final
+implication, not a construction of the required family.
+
+\section{An elementary refutation of an ambient high-$\omega$ hypothesis}
+
+A proposed smooth-number counterexample argument additionally uses an ambient
+hypothesis of the form
+\begin{equation}\label{eq:ambientomega}
+ \#\{n\le x:\omega(n)>w(x)\}=o(x^{3/5}),
+\end{equation}
+with $w(x)=O(\log\log x)$.  This is false by a direct divisibility argument.
+
+\begin{theorem}[Primorial-multiple lower bound]\label{thm:omega}
+Let $S$ be a finite set of $r$ distinct primes and let
+$Q=\prod_{p\in S}p$.  Then
+\[
+ \#\{n\le Q^5:\omega(n)\ge r\}\ge Q^4.
+\]
+Consequently, for any unbounded sequence of such products satisfying
+$w(Q^5)<r$, the left side of \eqref{eq:ambientomega} is at least
+$x^{4/5}$ along $x=Q^5$.
+\end{theorem}
+
+\begin{proof}
+The numbers $Q,2Q,\ldots,Q^4Q$ are pairwise distinct and at most $Q^5$.
+Every one is divisible by all primes in $S$, hence has at least $r$ distinct
+prime factors.
+\end{proof}
+
+For the product $Q_r$ of the first $r$ primes, a crude iterative Bertrand
+bound gives $\log\log(Q_r^5)=O(\log r)$, so every threshold
+$w(x)=O(\log\log x)$ satisfies $w(Q_r^5)<r$ eventually.  Thus
+\[
+ \#\{n\le Q_r^5:\omega(n)>w(Q_r^5)\}
+ \ge Q_r^4=(Q_r^5)^{4/5},
+\]
+and the ratio to $(Q_r^5)^{3/5}$ tends to infinity.  The finite counting core
+is formalized in \texttt{HighOmegaAmbientTailRefutation.lean}.  This refutes
+an intermediate hypothesis, not the possibility of a different conditional
+distribution theorem inside the smooth set.
+
+\section{Exceptional sets and the amplification threshold}
+
+Suppose an exceptional-set theorem gives
+\begin{equation}\label{eq:exceptional}
+ E(X)\ll X^\beta.
+\end{equation}
+Such a power saving is compatible with an infinite lacunary set.  A proof of
+finiteness needs a propagation theorem that turns each bad source object into
+many distinct bad descendants.
+
+\begin{theorem}[Amplification threshold]\label{thm:amplification}
+Assume that a bad object of source height $H$ produces at least
+$H^{\gamma-o(1)}$ pairwise distinct bad descendants, all of height at most
+$H^{d+o(1)}$.  If \eqref{eq:exceptional} holds uniformly, then necessarily
+\[
+ \gamma\le d\beta.
+\]
+In particular, a construction with $\gamma>d\beta$ contradicts the
+exceptional-set envelope along an unbounded sequence.
+\end{theorem}
+
+\begin{proof}
+The descendants give
+$H^{\gamma-o(1)}\le E(H^{d+o(1)})\ll H^{d\beta+o(1)}$.
+Comparison of logarithmic exponents yields the claim.
+\end{proof}
+
+For the exponent $\beta=56/85$, quadratic height dilation demands
+$\gamma>112/85$, and quartic dilation demands $\gamma>224/85$.  The exact
+scalar contradiction is formalized in
+\texttt{ExceptionalSetAmplificationThreshold.lean}.  The remaining arithmetic
+problem is to construct descendants, prove bounded fibres after removing
+symmetries and common factors, and retain one fixed quality exponent.
+
+\section{IUT: existential output versus input-determined output}
+
+Let $\mathcal P(x)$ be a set of possible outputs of a multivalued construction
+and let $G(x,y)$ be the estimate required of an output.  The statement
+\begin{equation}\label{eq:exists-output}
+ \forall x\ \exists y\in\mathcal P(x),\quad G(x,y)
+\end{equation}
+does not imply that a distinguished output $\operatorname{sel}(x)$ satisfies
+$G$.
+
+\begin{proposition}[Two-output countermodel]\label{prop:output}
+There is a one-input, two-output model in which \eqref{eq:exists-output} holds,
+but the selected possible output is not good.
+\end{proposition}
+
+\begin{proof}
+Declare both Boolean values possible, declare only \texttt{true} good, and
+select \texttt{false}.
+\end{proof}
+
+Two sufficient repairs are immediate.
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Uniqueness:} all possible outputs for one input are equal.
+\item \emph{Fibre invariance:} if $y,z\in\mathcal P(x)$ and $G(x,y)$, then
+      $G(x,z)$.
+\end{enumerate}
+The countermodel and both repair theorems are formalized in
+\texttt{IUTOutputIdentificationAudit.lean}.  For the actual IUT route, the
+closure gate is source-derived uniqueness, invariance under all relevant
+indeterminacies, or a canonical quotient on which the normalized volume
+estimate is well defined.  Merely including a theta-pilot region and its shell
+containment as fields of an input structure does not prove that the actual
+algorithm produces the required pointwise output.
+
+\section{Frey--Szpiro: a convex-slope obstruction}
+
+The existing explicit Frey models control the abc height through
+discriminant-growth exponents $4$ and $5$, while a critical Szpiro inequality
+has conductor slope $6$.  Suppose nonnegative weights $w_4,w_5$ are used to
+combine the two estimates.  The resulting scalar ratio is
+\begin{equation}\label{eq:frey-ratio}
+ R(w_4,w_5)=\frac{6(w_4+w_5)}{4w_4+5w_5}.
+\end{equation}
+
+\begin{theorem}[Convex-slope barrier]\label{thm:frey}
+For $w_4,w_5\ge0$ and $w_4+w_5>0$,
+\[
+ R(w_4,w_5)\ge\frac65>1.
+\]
+Therefore nonnegative averaging of the two existing discriminant estimates
+cannot reach the coefficient one required by $abc$.
+\end{theorem}
+
+\begin{proof}
+The inequality $R\ge6/5$ is equivalent, after multiplication by the positive
+denominator, to
+$30(w_4+w_5)\ge24w_4+30w_5$, i.e. $6w_4\ge0$.
+\end{proof}
+
+More generally, a nonnegative combination cannot improve the best ratio
+$s_i/r_i$ among its components.  The modified integral height
+$\log\max\{|c_4|^3,|\Delta|\}$ is different because it grows as
+$6\log c+O(1)$, yielding the critical scalar ratio $6/6=1$.  The unresolved
+gate is a uniform, non-circular global estimate for that exponent-six height.
+Theorem~\ref{thm:frey} and the general two-model lemma are formalized in
+\texttt{FreyConvexSlopeBarrier.lean}.
+
+\section{Pell--Chebyshev: what a uniform theorem must supply}
+
+The fixed-prime computations through $p=31$ leave a residual prime-index
+family beginning at $p\ge37$.  Its exact scalar reduction has the form
+\begin{equation}\label{eq:pell}
+ (3AB+1)^{37}\le Z^2<(b+2)^4.
+\end{equation}
+Thus a pointwise lower bound just beyond the scale
+$AB\asymp b^{4/37}$ would close all remaining prime indices after a finite
+calculation.  Existing recurrence-support estimates control support rather
+than valuation parity and, after conversion along the Pell orbit, remain at a
+$b^{o(1)}$ scale.  The decisive theorem must therefore provide a fixed
+positive-power lower bound for the relevant parity kernel, or an alternative
+uniform Selmer/local obstruction independent of the prime index.  Continuing
+with one class-group and Chabauty certificate for each prime cannot by itself
+prove the infinite-index statement.
+
+\section{The remaining closure matrix}
+
+The current proof state may be summarized as follows.
+
+\begin{center}
+\begin{tabular}{p{0.18\textwidth}p{0.32\textwidth}p{0.38\textwidth}}
+\toprule
+Route & Kernel-checked or rigorously proved part & Remaining global obligation \\
+\midrule
+Smooth counterexample & Relative extraction scale; corrected exponent;
+subcritical slope implies $\neg abc$ & Construct low-radical smooth integers
+in the required short intervals on an unbounded prime-power subsequence \\
+Exceptional set & Exact threshold $\gamma>d\beta$ & Produce enough distinct
+quality-preserving descendants with controlled height and bounded fibres \\
+IUT & Existential/selected-output countermodel; uniqueness and invariance
+repairs & Derive the actual output and its volume estimate from genuine
+Hodge-theater/Kummer data with correct quantifiers \\
+Frey--Szpiro & Explicit local arithmetic; convex averaging barrier; conditional
+modified-height gate & Prove a uniform exponent-six global conductor/height
+estimate without importing an equivalent of $abc$ \\
+Pell--Chebyshev & Fixed-index certificates and the exact $4/37$ residual &
+Uniform positive-power parity-kernel bound or prime-independent
+Selmer/local obstruction \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Each remaining item is a global theorem rather than a missing line of scalar
+algebra.  Conversely, proving any one of the appropriate proof gates, or
+constructing the smooth-number family in the disproof gate, would activate an
+already explicit downstream chain.
+
+\section{Formalization and trust boundary}
+
+The Lean development uses Lean~4 and Mathlib.  The new modules associated with
+this paper are:
+\begin{verbatim}
+SmoothMainTermScaleAudit.lean
+SubcriticalRadicalSlopeDisproofGate.lean
+NearPrimePowerExponentAudit.lean
+HighOmegaAmbientTailRefutation.lean
+ExceptionalSetAmplificationThreshold.lean
+IUTOutputIdentificationAudit.lean
+FreyConvexSlopeBarrier.lean
+\end{verbatim}
+The files contain no \texttt{sorry}, \texttt{admit}, or newly postulated
+arithmetic axiom.  Their scope is intentionally limited to finite-set
+arguments, exact rational inequalities, generic logarithmic implications, and
+quantifier logic.  Analytic smooth-number estimates, IUT comparison theorems,
+modified Szpiro, external Chabauty certificates, and any uniform parity-kernel
+bound remain outside the kernel unless separately formalized and audited.
+
+Passing Lean elaboration establishes that a theorem follows from its encoded
+premises; it does not establish that an abstract structure has the intended
+mathematical semantics.  For this reason every bridge interface must be
+accompanied by an inhabitation audit and a source-construction theorem.
+
+\section{Conclusion}
+
+The multi-route program has not produced an unconditional proof or disproof of
+the $abc$ conjecture.  It has, however, replaced several ambiguous gaps by
+sharp mathematical obligations and eliminated three tempting but invalid
+shortcuts: ambient-scale extraction for a vanishing main term, the wrong
+near-prime-power exponent condition, and convex averaging of subcritical Frey
+height models.  It also supplies an elementary contradiction to a proposed
+ambient high-$\omega$ tail estimate and isolates the exact amplification and
+output-identification thresholds required by two other routes.
+
+The highest-priority positive targets are now: a source-derived IUT output
+invariance theorem, a non-circular exponent-six modified-height inequality,
+and a fixed positive-power parity-kernel estimate in the Pell--Chebyshev
+family.  The highest-priority disproof target is a direct construction of
+short-interval smooth integers whose radical slope fits
+\eqref{eq:correct-slope}.  Only after one of these global gates is closed and
+the complete dependency graph passes kernel and circularity audits should a
+theorem named \texttt{abc\_conjecture} or its negation be merged into the
+\texttt{main} branch.
+
+\begin{thebibliography}{99}
+
+\bibitem{Baker}
+A.~Baker,
+\emph{Logarithmic forms and the $abc$ conjecture},
+various foundational works on effective Diophantine approximation.
+
+\bibitem{BLT}
+T.~D. Browning, J.~D. Lichtman, and J.~Ter\"av\"ainen,
+work on power-saving bounds for the exceptional set in the $abc$ conjecture.
+
+\bibitem{Carella2026}
+N.~A. Carella,
+\emph{Note on the Exceptional Set in the ABC Conjecture},
+arXiv:2608.16764v2, 2026.
+
+\bibitem{Dickman}
+K.~Dickman,
+\emph{On the frequency of numbers containing prime factors of a certain
+relative magnitude}, Arkiv f\"or Matematik, Astronomi och Fysik, 1930.
+
+\bibitem{Li2025}
+R.~Li,
+\emph{On the exceptional set in the $abc$ conjecture},
+arXiv:2507.02885, 2025.
+
+\bibitem{Lichtman2025}
+J.~D. Lichtman,
+\emph{The $abc$ conjecture is true almost always},
+arXiv:2505.13991, 2025.
+
+\bibitem{MochizukiIUT}
+S.~Mochizuki,
+\emph{Inter-universal Teichm\"uller theory I--IV},
+Publ. Res. Inst. Math. Sci. 57 (2021).
+
+\bibitem{ProjectLANA2026}
+Project LANA,
+\emph{Formal verification of inter-universal Teichm\"uller theory: interim
+report}, 2026.
+
+\end{thebibliography}
+
+\end{document}
