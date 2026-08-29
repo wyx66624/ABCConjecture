@@ -10,7 +10,9 @@ import IUTThreeClosures.ArbitraryInd2ComponentCollapse
 
 The component-collapse theorem shows that arbitrary label permutations are too
 large: every coordinate can be moved to a zero label, so its independently
-unioned possible image becomes the full norm unit ball.
+unioned possible image becomes the full norm unit ball.  The packet-level
+collapse theorem strengthens this to the least rectangular hull of the literal
+union of complete packets.
 
 The natural replacement is to require Ind2 to preserve the theta-label
 spectrum `labelNat`.  This matches the spectral-norm interpretation of genuine
@@ -23,8 +25,10 @@ Under this restriction the output power at coordinate `j` is
 
 Thus Ind3 can only increase the exponent and shrink the Tate-power region.
 The identity Ind2 with zero Ind3 realizes the original exponent.  Consequently
-the componentwise union over all spectrum-preserving choices is **exactly**
-the native region `q^(labelNat j)^2 O`, not the whole unit ball.
+both the componentwise union and the literal union of complete packets are
+exactly their native squared-label Tate regions.  The complete-packet theorem
+uses one native choice simultaneously at every coordinate, so it does not
+interchange products and unions.
 
 This provides a positive, non-collapsing candidate envelope for the actual
 IUT III possible-image construction.  No volume estimate, Corollary 3.12, or
@@ -118,9 +122,9 @@ def spectrumPreservingComponentUnion
     ⋃ (_hC : C.PreservesLabelNat labelNat),
       C.outputRegion t labelNat j
 
-/-- **Non-collapsing envelope theorem.**  Restricting Ind2 to preserve the
-label spectrum makes the independently unioned component exactly the native
-q-power region. -/
+/-- **Non-collapsing component envelope theorem.**  Restricting Ind2 to
+preserve the label spectrum makes the independently unioned component exactly
+the native q-power region. -/
 theorem spectrumPreservingComponentUnion_eq_native_qPowerRegion
     (t : TateParameter K)
     (labelNat : Label → ℕ)
@@ -141,6 +145,59 @@ theorem spectrumPreservingComponentUnion_eq_native_qPowerRegion
       (K := K) (Label := Label) labelNat, ?_⟩
     rw [nativeChoice_outputRegion t labelNat j]
     exact hx
+
+/-! ## Complete spectrum-preserving packets -/
+
+/-- Ordinary squared-label Tate packet. -/
+def nativePacketRegion
+    (t : TateParameter K)
+    (labelNat : Label → ℕ) : Set (Label → K) :=
+  {x | ∀ j, x j ∈ t.qPowerRegion ((labelNat j) ^ 2)}
+
+/-- Literal union of complete packets over choices whose Ind2 permutation
+preserves the source label spectrum. -/
+def spectrumPreservingPacketUnion
+    (t : TateParameter K)
+    (labelNat : Label → ℕ) : Set (Label → K) :=
+  ⋃ C : {C : ThetaIndeterminacyChoice K Label //
+      C.PreservesLabelNat labelNat},
+    C.1.packetRegion t labelNat
+
+/-- **Joint non-collapsing envelope theorem.**  The literal union of complete
+spectrum-preserving packets is exactly the native squared-label Tate packet.
+The reverse inclusion is realized by one native choice at all coordinates
+simultaneously. -/
+theorem spectrumPreservingPacketUnion_eq_nativePacketRegion
+    (t : TateParameter K)
+    (labelNat : Label → ℕ) :
+    spectrumPreservingPacketUnion t labelNat =
+      nativePacketRegion t labelNat := by
+  apply Set.Subset.antisymm
+  · intro x hx j
+    rcases Set.mem_iUnion.mp hx with ⟨C, hxC⟩
+    exact C.1.outputRegion_subset_native_qPowerRegion
+      t labelNat C.2 j (hxC j)
+  · intro x hx
+    apply Set.mem_iUnion.mpr
+    let C : {C : ThetaIndeterminacyChoice K Label //
+        C.PreservesLabelNat labelNat} :=
+      ⟨nativeChoice, nativeChoice_preservesLabelNat labelNat⟩
+    refine ⟨C, ?_⟩
+    intro j
+    rw [C.1.nativeChoice_outputRegion t labelNat j]
+    exact hx j
+
+/-- The native packet is itself a product region. -/
+theorem nativePacketRegion_isProductRegion
+    (t : TateParameter K)
+    (labelNat : Label → ℕ) :
+    IsProductRegion (nativePacketRegion t labelNat) := by
+  refine ⟨fun j => t.qPowerRegion ((labelNat j) ^ 2), ?_⟩
+  rfl
+
+#print axioms spectrumPreservingComponentUnion_eq_native_qPowerRegion
+#print axioms spectrumPreservingPacketUnion_eq_nativePacketRegion
+#print axioms nativePacketRegion_isProductRegion
 
 end ThetaIndeterminacyChoice
 
