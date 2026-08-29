@@ -126,17 +126,21 @@ theorem squareRoot_density_threshold_iff
       neighbourSlope ((1 : ℝ) / 2) k beta < 1) ↔
       4 < k := by
   rw [density_gap_threshold_iff hk]
+  have htwo : (0 : ℝ) < 2 := by norm_num
   constructor
   · intro hthreshold
+    have hhalf : (2 : ℝ) < (k : ℝ) / 2 := by
+      convert hthreshold using 1 <;> ring
     have hkreal : (4 : ℝ) < (k : ℝ) := by
-      norm_num at hthreshold ⊢
-      nlinarith
+      have hmul := (lt_div_iff₀ htwo).mp hhalf
+      simpa using hmul
     exact_mod_cast hkreal
   · intro hkfour
     have hkreal : (4 : ℝ) < (k : ℝ) := by
       exact_mod_cast hkfour
-    norm_num at ⊢
-    nlinarith
+    have hhalf : (2 : ℝ) < (k : ℝ) / 2 :=
+      (lt_div_iff₀ htwo).2 (by simpa using hkreal)
+    convert hhalf using 1 <;> ring
 
 /-- The old square-root exponent-five feasible point is recovered by choosing
 `beta = 1/4`, but the present theorem identifies the entire feasible region. -/
