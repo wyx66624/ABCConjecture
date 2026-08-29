@@ -58,8 +58,6 @@ theorem isMinimal_of_isIntegral_c4_unit
   · intro C hC
     letI : (C • W).IsIntegral R := hC
     simp only [one_smul]
-    rw [valuation_Δ_aux_eq_of_isIntegral R (C • W),
-      valuation_Δ_aux_eq_of_isIntegral R W]
     have hc4le :
         valuation K (maximalIdeal R) (C • W).c₄ ≤ 1 := by
       rw [← integralModel_c₄_eq R (C • W)]
@@ -74,14 +72,24 @@ theorem isMinimal_of_isIntegral_c4_unit
     have hu12 :
         (valuation K (maximalIdeal R) ((C.u⁻¹ : Kˣ) : K)) ^ 12 ≤ 1 :=
       (pow_le_one_iff (by norm_num : (12 : ℕ) ≠ 0)).mpr hu
+    have hVal :
+        valuation K (maximalIdeal R) (C • W).Δ ≤
+          valuation K (maximalIdeal R) W.Δ := by
+      calc
+        valuation K (maximalIdeal R) (C • W).Δ =
+            (valuation K (maximalIdeal R) ((C.u⁻¹ : Kˣ) : K)) ^ 12 *
+              valuation K (maximalIdeal R) W.Δ := by
+                simp only [variableChange_Δ, map_mul, map_pow]
+        _ ≤ 1 * valuation K (maximalIdeal R) W.Δ :=
+          mul_le_mul_right' hu12 _
+        _ = valuation K (maximalIdeal R) W.Δ := one_mul _
     calc
-      valuation K (maximalIdeal R) (C • W).Δ =
-          (valuation K (maximalIdeal R) ((C.u⁻¹ : Kˣ) : K)) ^ 12 *
-            valuation K (maximalIdeal R) W.Δ := by
-              simp only [variableChange_Δ, map_mul, map_pow]
-      _ ≤ 1 * valuation K (maximalIdeal R) W.Δ :=
-        mul_le_mul_right' hu12 _
-      _ = valuation K (maximalIdeal R) W.Δ := one_mul _
+      valuation_Δ_aux R (C • W) =
+          valuation K (maximalIdeal R) (C • W).Δ :=
+        valuation_Δ_aux_eq_of_isIntegral R (C • W)
+      _ ≤ valuation K (maximalIdeal R) W.Δ := hVal
+      _ = valuation_Δ_aux R W :=
+        (valuation_Δ_aux_eq_of_isIntegral R W).symm
 
 /-- An integral Weierstrass equation whose discriminant has unit valuation is
 minimal. -/
@@ -95,13 +103,21 @@ theorem isMinimal_of_isIntegral_delta_unit
   · intro C hC
     letI : (C • W).IsIntegral R := hC
     simp only [one_smul]
-    rw [valuation_Δ_aux_eq_of_isIntegral R (C • W),
-      valuation_Δ_aux_eq_of_isIntegral R W]
     have hle : valuation K (maximalIdeal R) (C • W).Δ ≤ 1 := by
       rw [← integralModel_Δ_eq R (C • W)]
       exact valuation_le_one (maximalIdeal R)
         (integralModel R (C • W)).Δ
-    simpa only [hDelta] using hle
+    have hVal :
+        valuation K (maximalIdeal R) (C • W).Δ ≤
+          valuation K (maximalIdeal R) W.Δ := by
+      simpa only [hDelta] using hle
+    calc
+      valuation_Δ_aux R (C • W) =
+          valuation K (maximalIdeal R) (C • W).Δ :=
+        valuation_Δ_aux_eq_of_isIntegral R (C • W)
+      _ ≤ valuation K (maximalIdeal R) W.Δ := hVal
+      _ = valuation_Δ_aux R W :=
+        (valuation_Δ_aux_eq_of_isIntegral R W).symm
 
 /-- Unit discriminant gives good reduction without a separately supplied
 minimality certificate. -/
