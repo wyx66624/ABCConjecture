@@ -72,7 +72,7 @@ theorem two_fifths_saving_below_directTransferThreshold
 #print axioms primePowerCenterExponent_le_one_half_of_two_le
 #print axioms primePowerCenterExponent_lt_three_fifths_of_two_le
 #print axioms three_fifths_exceptionExponent_fails_direct_transfer
-#print axioms two_fifths_saving_below_directTransferSavingThreshold
+#print axioms two_fifths_saving_below_directTransferThreshold
 
 end CurrentExceptionalSetPrimePowerNoGo
 end IUTThreeClosures
