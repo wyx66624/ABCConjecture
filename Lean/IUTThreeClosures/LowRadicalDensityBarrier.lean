@@ -59,8 +59,11 @@ theorem exponent_gt_four_of_squareRoot_subcritical_and_density
       (1 : ℝ) / 2 + 1 / (k : ℝ) + beta < 1) :
     4 < k := by
   have hkreal : 0 < (k : ℝ) := by exact_mod_cast hk
-  have hratio : 2 / (k : ℝ) < (1 : ℝ) / 2 := by
+  have hinv :
+      2 * (1 / (k : ℝ)) < (1 : ℝ) / 2 := by
     linarith
+  have hratio : 2 / (k : ℝ) < (1 : ℝ) / 2 := by
+    simpa [div_eq_mul_inv] using hinv
   have hmul : (2 : ℝ) < ((1 : ℝ) / 2) * k :=
     (div_lt_iff₀ hkreal).mp hratio
   have hkfour : (4 : ℝ) < k := by
@@ -114,8 +117,7 @@ theorem exists_positive_epsilon_for_quarter_radical_slope
     have hkpos : 0 < (k : ℝ) := by exact_mod_cast hkposNat
     positivity
   · norm_num
-  · dsimp
-    linarith [hwindow.2]
+  · linarith [hwindow.2]
 
 #print axioms center_card_le_candidate_card_of_injective_selection
 #print axioms exponent_gt_four_of_squareRoot_subcritical_and_density
