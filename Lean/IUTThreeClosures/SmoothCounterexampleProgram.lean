@@ -7,6 +7,8 @@ import IUTThreeClosures.SmoothMainTermScaleAudit
 import IUTThreeClosures.SubcriticalRadicalSlopeDisproofGate
 import IUTThreeClosures.SmoothLowOmegaPrimePowerNeighbour
 import IUTThreeClosures.TiltedStatisticExtraction
+import IUTThreeClosures.SparseExceptionalTransfer
+import IUTThreeClosures.SquareRootSmoothNeighbourThreshold
 
 /-!
 # Smooth-neighbour counterexample program
@@ -17,7 +19,10 @@ smooth-neighbour disproof route:
 * the relative-main-term scale required for exceptional-set extraction;
 * the generic subcritical radical-slope implication to `not ABCConjecture`;
 * radical control from `y`-smoothness plus a low distinct-prime count;
-* extraction of a low-statistic element from a sufficiently large tilted sum.
+* extraction of a low-statistic element from a sufficiently large tilted sum;
+* the exact cardinality threshold for transferring an almost-all theorem to a
+  sparse family of prime-power centres;
+* the sharp radical threshold left by an all-interval square-root gap theorem.
 
 No unproved short-interval distribution statement is asserted here.
 -/
