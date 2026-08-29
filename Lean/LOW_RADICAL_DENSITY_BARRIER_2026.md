@@ -122,7 +122,8 @@ distinct candidates in `[X,3X]`.  Theorem 2.1 supplies at most
 \[
  O_\eta(X^{\beta+\eta})
 \]
-nsuch candidates.  If `theta+beta<1`, choose
+
+such candidates.  If `theta+beta<1`, choose
 `eta<1-theta-beta`; the two estimates contradict one another for large `X`.
 Consequently,
 
