@@ -1,0 +1,53 @@
+name: Lean v12 targeted local reduction
+
+on:
+  push:
+    branches:
+      - formalize/unit-c4-semistability-v12
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  target:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Check v12 modules
+        working-directory: Lean
+        shell: bash
+        run: |
+          set +e
+          lake env lean IUTThreeClosures/UnitC4SemistableReduction.lean > ../v12-unit-c4.log 2>&1
+          rc1=$?
+          if [ "$rc1" -ne 0 ]; then
+            cat ../v12-unit-c4.log
+            exit "$rc1"
+          fi
+          lake env lean IUTThreeClosures/FreyPadicSemistableReduction.lean > ../v12-frey-padic.log 2>&1
+          rc2=$?
+          if [ "$rc2" -ne 0 ]; then
+            cat ../v12-frey-padic.log
+          fi
+          exit "$rc2"
