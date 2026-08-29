@@ -11,6 +11,7 @@ import IUTThreeClosures.SparseExceptionalTransfer
 import IUTThreeClosures.SquareRootSmoothNeighbourThreshold
 import IUTThreeClosures.LowRadicalDensityBarrier
 import IUTThreeClosures.PrimePowerExceptionalExponentThreshold
+import IUTThreeClosures.CurrentExceptionalSetPrimePowerNoGo
 import IUTThreeClosures.PrimePowerCenteredMeanSquareGate
 
 /-!
@@ -32,6 +33,9 @@ smooth-neighbour disproof route:
 * the exact ambient power-saving threshold needed for direct transfer to
   `p^k` centres, including the `delta > 4/5` requirement in the feasible dense
   square-root range;
+* the rational comparison showing that the current `3/5` global abc
+  exceptional exponent is still larger than every fixed nontrivial
+  prime-power centre exponent;
 * a centre-wise mean-square extraction gate that avoids paying the ambient
   exceptional-set transfer tax by averaging directly over the target centres.
 
