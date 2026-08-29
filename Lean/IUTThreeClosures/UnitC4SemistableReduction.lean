@@ -55,7 +55,7 @@ theorem isMinimal_of_isIntegral_c4_unit
     W.IsMinimal R := by
   refine ⟨⟨?_, ?_⟩⟩
   · simpa only [one_smul] using hW
-  · intro C hC
+  · intro C hC _
     letI : (C • W).IsIntegral R := hC
     simp only [one_smul]
     have hc4le :
@@ -100,7 +100,7 @@ theorem isMinimal_of_isIntegral_delta_unit
     W.IsMinimal R := by
   refine ⟨⟨?_, ?_⟩⟩
   · simpa only [one_smul] using hW
-  · intro C hC
+  · intro C hC _
     letI : (C • W).IsIntegral R := hC
     simp only [one_smul]
     have hle : valuation K (maximalIdeal R) (C • W).Δ ≤ 1 := by
