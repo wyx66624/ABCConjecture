@@ -110,7 +110,7 @@ theorem oddPrime_dvd_freyDeltaNat_iff_dvd_abc
     unfold freyDeltaNat at hDelta
     rcases hp.dvd_mul.mp hDelta with h16 | hsq
     · exfalso
-      exact P.oddPrime_not_dvd_256 hp hp_ne_two
+      exact oddPrime_not_dvd_256 hp hp_ne_two
         (h16.trans (by norm_num : 16 ∣ 256))
     · exact hp.dvd_of_dvd_pow hsq
   · exact P.prime_dvd_freyDeltaNat
