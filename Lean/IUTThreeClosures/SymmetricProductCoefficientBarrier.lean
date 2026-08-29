@@ -27,7 +27,6 @@ uniform coefficient-two criterion implying `ABCConjecture`.
 -/
 
 namespace IUTThreeClosures
-namespace SymmetricProductCoefficientBarrier
 
 noncomputable section
 
@@ -136,6 +135,8 @@ theorem height_le_of_relative_symmetricProduct_error
 
 end ABCPoint
 
+namespace SymmetricProductCoefficientBarrier
+
 /-- Uniform coefficient-two control of the symmetric product is a clean,
 non-circular sufficient target for the abc conjecture. -/
 def UniformSymmetricProductBound : Prop :=
@@ -189,8 +190,10 @@ theorem coefficient_three_product_model_does_not_force_slope_one :
     dsimp [conductor]
     positivity
   have hlower : 2 * H ≤ product := by
-    dsimp [H, product]
-    ring_nf
+    have heq : 2 * H = product := by
+      dsimp [H, product]
+      ring
+    exact heq.le
   have hupper : product ≤ 3 * conductor := by
     dsimp [product]
   have hbad := hC H product conductor hconductor hlower hupper
@@ -207,6 +210,6 @@ theorem coefficient_three_product_model_does_not_force_slope_one :
 #print axioms abc_of_uniformSymmetricProductBound
 #print axioms coefficient_three_product_model_does_not_force_slope_one
 
-end
 end SymmetricProductCoefficientBarrier
+end
 end IUTThreeClosures
