@@ -39,13 +39,13 @@ jobs:
         shell: bash
         run: |
           set +e
-          lake env lean IUTThreeClosures/UnitC4SemistableReduction.lean > ../v12-unit-c4.log 2>&1
+          lake build IUTThreeClosures.UnitC4SemistableReduction > ../v12-unit-c4.log 2>&1
           rc1=$?
           if [ "$rc1" -ne 0 ]; then
             cat ../v12-unit-c4.log
             exit "$rc1"
           fi
-          lake env lean IUTThreeClosures/FreyPadicSemistableReduction.lean > ../v12-frey-padic.log 2>&1
+          lake build IUTThreeClosures.FreyPadicSemistableReduction > ../v12-frey-padic.log 2>&1
           rc2=$?
           if [ "$rc2" -ne 0 ]; then
             cat ../v12-frey-padic.log
