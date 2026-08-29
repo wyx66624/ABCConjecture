@@ -45,7 +45,7 @@ def neighbourSlope (theta : ℝ) (k : ℕ) (beta : ℝ) : ℝ :=
 when the gap and the two unavoidable `1/k` contributions have total slope
 strictly below one. -/
 theorem exists_density_compatible_beta_iff
-    {theta : ℝ} {k : ℕ} (hk : 0 < k) :
+    {theta : ℝ} {k : ℕ} (_hk : 0 < k) :
     (∃ beta : ℝ,
       1 / (k : ℝ) ≤ beta ∧
       neighbourSlope theta k beta < 1) ↔
@@ -114,7 +114,7 @@ theorem exists_positive_epsilon_at_density_edge
   have hkreal : 0 < (k : ℝ) := by exact_mod_cast hk
   apply exists_positive_epsilon_of_subunit_slope
   · have hdiv : 0 ≤ 2 / (k : ℝ) :=
-      (div_nonneg (by norm_num) hkreal.le)
+      div_nonneg (by norm_num) hkreal.le
     linarith
   · exact hthreshold
 
@@ -126,16 +126,16 @@ theorem squareRoot_density_threshold_iff
       neighbourSlope ((1 : ℝ) / 2) k beta < 1) ↔
       4 < k := by
   rw [density_gap_threshold_iff hk]
+  have hhalf : (1 - (1 : ℝ) / 2) = (1 : ℝ) / 2 := by norm_num
+  rw [hhalf]
   constructor
   · intro hthreshold
     have hkreal : (4 : ℝ) < (k : ℝ) := by
-      norm_num at hthreshold ⊢
       nlinarith
     exact_mod_cast hkreal
   · intro hkfour
     have hkreal : (4 : ℝ) < (k : ℝ) := by
       exact_mod_cast hkfour
-    norm_num at ⊢
     nlinarith
 
 /-- The old square-root exponent-five feasible point is recovered by choosing

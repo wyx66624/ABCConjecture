@@ -22,12 +22,11 @@ coefficient `3/2`; coefficient two is the exact sufficient threshold for the
 standard abc slope one.
 
 This module proves the endpoint inequality for the repository's actual
-`ABCPoint`, gives the sharp coefficient transfer, and packages a non-circular
+`ABCPoint`, gives the coefficient transfer, and packages a non-circular
 uniform coefficient-two criterion implying `ABCConjecture`.
 -/
 
 namespace IUTThreeClosures
-namespace SymmetricProductCoefficientBarrier
 
 noncomputable section
 
@@ -42,10 +41,10 @@ along endpoint-shaped triples. -/
 theorem c_sq_le_two_abc (P : ABCPoint) :
     (P.c : ℝ) ^ 2 ≤
       2 * ((P.a * P.b * P.c : ℕ) : ℝ) := by
-  have ha : (1 : ℝ) ≤ P.a := by
-    exact_mod_cast P.a_pos
-  have hb : (1 : ℝ) ≤ P.b := by
-    exact_mod_cast P.b_pos
+  have haNat : 1 ≤ P.a := Nat.succ_le_iff.mpr P.a_pos
+  have hbNat : 1 ≤ P.b := Nat.succ_le_iff.mpr P.b_pos
+  have ha : (1 : ℝ) ≤ P.a := by exact_mod_cast haNat
+  have hb : (1 : ℝ) ≤ P.b := by exact_mod_cast hbNat
   have hsum : (P.a : ℝ) + P.b = P.c := by
     exact_mod_cast P.sum_eq
   have hnonneg :
@@ -66,13 +65,14 @@ theorem c_sq_le_two_abc (P : ABCPoint) :
 theorem two_height_sub_log_two_le_symmetricProductLog (P : ABCPoint) :
     2 * P.height - Real.log 2 ≤ P.symmetricProductLog := by
   have hcpos : 0 < (P.c : ℝ) := by exact_mod_cast P.c_pos
+  have habcposNat : 0 < P.a * P.b * P.c :=
+    mul_pos (mul_pos P.a_pos P.b_pos) P.c_pos
   have habcpos :
       0 < ((P.a * P.b * P.c : ℕ) : ℝ) := by
-    exact_mod_cast (mul_pos (mul_pos P.a_pos P.b_pos) P.c_pos)
+    exact_mod_cast habcposNat
   have hlog := Real.log_le_log
     (pow_pos hcpos 2) P.c_sq_le_two_abc
-  rw [show (P.c : ℝ) ^ 2 = (P.c : ℝ) * P.c by ring,
-      Real.log_mul hcpos.ne' hcpos.ne',
+  rw [Real.log_pow,
       Real.log_mul (by norm_num : (2 : ℝ) ≠ 0) habcpos.ne'] at hlog
   rw [P.height_eq_log_c]
   unfold symmetricProductLog
@@ -112,7 +112,7 @@ theorem height_le_one_of_coefficient_two
     P.height ≤ P.conductor + (error + Real.log 2) / 2 := by
   have h := P.height_le_of_symmetricProduct_bound hproduct
   norm_num at h ⊢
-  linarith
+  exact h
 
 /-- A relative product error of slope `eta < 2` gives the exact transferred
 height denominator `2 - eta`. -/
@@ -135,6 +135,8 @@ theorem height_le_of_relative_symmetricProduct_error
   simpa [mul_comm] using hraw
 
 end ABCPoint
+
+namespace SymmetricProductCoefficientBarrier
 
 /-- Uniform coefficient-two control of the symmetric product is a clean,
 non-circular sufficient target for the abc conjecture. -/
@@ -162,13 +164,11 @@ theorem abc_of_uniformSymmetricProductBound
       c_pos := hc
       sum_eq := hsum
       pairwise_coprime := hcoprime }
-  have hproduct := hC P
-  have hlower := P.two_height_sub_log_two_le_symmetricProductLog
-  have hheight :
-      P.height ≤
-        (1 + epsilon) * P.conductor +
-          (C + Real.log 2) / 2 := by
-    nlinarith
+  have hheight :=
+    ABCPoint.height_le_of_symmetricProduct_bound P (hC P)
+  have hfactor : ((2 + 2 * epsilon) / 2 : ℝ) = 1 + epsilon := by
+    ring
+  rw [hfactor] at hheight
   simpa [ABCPoint.height, ABCPoint.conductor, P] using hheight
 
 /-- Pure coefficient countermodel: the two abstract inequalities
@@ -207,6 +207,7 @@ theorem coefficient_three_product_model_does_not_force_slope_one :
 #print axioms abc_of_uniformSymmetricProductBound
 #print axioms coefficient_three_product_model_does_not_force_slope_one
 
-end
 end SymmetricProductCoefficientBarrier
+
+end
 end IUTThreeClosures
