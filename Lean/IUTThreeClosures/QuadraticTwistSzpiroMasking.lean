@@ -119,6 +119,50 @@ theorem twist_bound_of_excess_ratio_le_twistLog
   apply (twist_bound_iff_excess_le_mask).2
   exact (div_le_iff₀ hcoef).1 hscale
 
+/-- A bounded twist fibre contains a good twist exactly when its maximum scale
+can absorb the whole base excess.  This packages the no-free-amplification
+statement: searching all twists up to `maxTwistLog` adds no algebraic capacity
+beyond `(2*q-6)*maxTwistLog`. -/
+theorem exists_good_twist_up_to_iff_excess_le_capacity
+    {discLog condLog q C maxTwistLog : ℝ}
+    (hq : 3 < q)
+    (hmax : 0 ≤ maxTwistLog) :
+    (∃ twistLog : ℝ,
+      0 ≤ twistLog ∧
+      twistLog ≤ maxTwistLog ∧
+      twistDiscriminantLog discLog twistLog ≤
+        q * twistConductorLog condLog twistLog + C) ↔
+      szpiroExcess discLog condLog q C ≤
+        (2 * q - 6) * maxTwistLog := by
+  have hcoef : 0 ≤ 2 * q - 6 := by linarith
+  constructor
+  · rintro ⟨twistLog, htwist, hle, hgood⟩
+    have hmask :=
+      (twist_bound_iff_excess_le_mask).1 hgood
+    exact le_trans hmask
+      (mul_le_mul_of_nonneg_left hle hcoef)
+  · intro hcapacity
+    refine ⟨maxTwistLog, hmax, le_rfl, ?_⟩
+    exact (twist_bound_iff_excess_le_mask).2 hcapacity
+
+/-- At exponent three, the existence of any nonnegative good twist in a
+nonempty bounded interval is equivalent to the base bound itself. -/
+theorem exists_critical_three_good_twist_iff_base_bound
+    {discLog condLog C maxTwistLog : ℝ}
+    (hmax : 0 ≤ maxTwistLog) :
+    (∃ twistLog : ℝ,
+      0 ≤ twistLog ∧
+      twistLog ≤ maxTwistLog ∧
+      twistDiscriminantLog discLog twistLog ≤
+        3 * twistConductorLog condLog twistLog + C) ↔
+      discLog ≤ 3 * condLog + C := by
+  constructor
+  · rintro ⟨twistLog, htwist, hle, hgood⟩
+    exact (critical_three_twist_bound_iff).1 hgood
+  · intro hbase
+    refine ⟨0, le_rfl, hmax, ?_⟩
+    exact (critical_three_twist_bound_iff).2 hbase
+
 /-- A good twist whose logarithmic size is bounded by `eta * height` transfers
 to the base curve with exactly the residual slope
 `(2*q-6)*eta`. -/
@@ -159,6 +203,8 @@ theorem maskingCoefficient_six_add
 #print axioms base_bound_of_twist_bound_of_q_le_three
 #print axioms twistLog_ge_excess_ratio_of_twist_bound
 #print axioms twist_bound_of_excess_ratio_le_twistLog
+#print axioms exists_good_twist_up_to_iff_excess_le_capacity
+#print axioms exists_critical_three_good_twist_iff_base_bound
 #print axioms base_bound_of_small_good_twist
 #print axioms maskingCoefficient_three_add
 #print axioms maskingCoefficient_six_add
