@@ -64,13 +64,13 @@ theorem c_sq_le_two_abc (P : ABCPoint) :
 
 /-- Universal conversion from height to symmetric product size. -/
 theorem two_height_sub_log_two_le_symmetricProductLog (P : ABCPoint) :
-    2 * P.height - Real.log 2 ≤ P.symmetricProductLog := by
+    2 * P.height - Real.log 2 ≤ symmetricProductLog P := by
   have hcpos : 0 < (P.c : ℝ) := by exact_mod_cast P.c_pos
   have habcpos :
       0 < ((P.a * P.b * P.c : ℕ) : ℝ) := by
     exact_mod_cast (mul_pos (mul_pos P.a_pos P.b_pos) P.c_pos)
   have hlog := Real.log_le_log
-    (pow_pos hcpos 2) P.c_sq_le_two_abc
+    (pow_pos hcpos 2) (c_sq_le_two_abc P)
   rw [show (P.c : ℝ) ^ 2 = (P.c : ℝ) * P.c by ring,
       Real.log_mul hcpos.ne' hcpos.ne',
       Real.log_mul (by norm_num : (2 : ℝ) ≠ 0) habcpos.ne'] at hlog
@@ -84,11 +84,11 @@ theorem height_le_of_symmetricProduct_bound
     (P : ABCPoint)
     {lambda error : ℝ}
     (hproduct :
-      P.symmetricProductLog ≤ lambda * P.conductor + error) :
+      symmetricProductLog P ≤ lambda * P.conductor + error) :
     P.height ≤
       (lambda / 2) * P.conductor +
         (error + Real.log 2) / 2 := by
-  have hlower := P.two_height_sub_log_two_le_symmetricProductLog
+  have hlower := two_height_sub_log_two_le_symmetricProductLog P
   nlinarith
 
 /-- Coefficient three transfers only to the universal height coefficient
@@ -97,20 +97,20 @@ theorem height_le_three_halves_of_coefficient_three
     (P : ABCPoint)
     {error : ℝ}
     (hproduct :
-      P.symmetricProductLog ≤ 3 * P.conductor + error) :
+      symmetricProductLog P ≤ 3 * P.conductor + error) :
     P.height ≤
       ((3 : ℝ) / 2) * P.conductor +
         (error + Real.log 2) / 2 := by
-  exact P.height_le_of_symmetricProduct_bound hproduct
+  exact height_le_of_symmetricProduct_bound P hproduct
 
 /-- Coefficient two is exactly sufficient to recover slope one. -/
 theorem height_le_one_of_coefficient_two
     (P : ABCPoint)
     {error : ℝ}
     (hproduct :
-      P.symmetricProductLog ≤ 2 * P.conductor + error) :
+      symmetricProductLog P ≤ 2 * P.conductor + error) :
     P.height ≤ P.conductor + (error + Real.log 2) / 2 := by
-  have h := P.height_le_of_symmetricProduct_bound hproduct
+  have h := height_le_of_symmetricProduct_bound P hproduct
   norm_num at h ⊢
   linarith
 
@@ -121,11 +121,11 @@ theorem height_le_of_relative_symmetricProduct_error
     {lambda error eta K : ℝ}
     (heta : eta < 2)
     (hproduct :
-      P.symmetricProductLog ≤ lambda * P.conductor + error)
+      symmetricProductLog P ≤ lambda * P.conductor + error)
     (herror : error ≤ eta * P.height + K) :
     P.height ≤
       (lambda * P.conductor + K + Real.log 2) / (2 - eta) := by
-  have hlower := P.two_height_sub_log_two_le_symmetricProductLog
+  have hlower := two_height_sub_log_two_le_symmetricProductLog P
   have hraw :
       (2 - eta) * P.height ≤
         lambda * P.conductor + K + Real.log 2 := by
@@ -141,7 +141,7 @@ non-circular sufficient target for the abc conjecture. -/
 def UniformSymmetricProductBound : Prop :=
   ∀ epsilon : ℝ, 0 < epsilon →
     ∃ C : ℝ, ∀ P : ABCPoint,
-      P.symmetricProductLog ≤
+      ABCPoint.symmetricProductLog P ≤
         (2 + 2 * epsilon) * P.conductor + C
 
 /-- The coefficient-two symmetric-product target implies the repository's
@@ -163,7 +163,7 @@ theorem abc_of_uniformSymmetricProductBound
       sum_eq := hsum
       pairwise_coprime := hcoprime }
   have hproduct := hC P
-  have hlower := P.two_height_sub_log_two_le_symmetricProductLog
+  have hlower := ABCPoint.two_height_sub_log_two_le_symmetricProductLog P
   have hheight :
       P.height ≤
         (1 + epsilon) * P.conductor +
@@ -191,8 +191,10 @@ theorem coefficient_three_product_model_does_not_force_slope_one :
   have hlower : 2 * H ≤ product := by
     dsimp [H, product]
     ring_nf
+    exact le_rfl
   have hupper : product ≤ 3 * conductor := by
     dsimp [product]
+    exact le_rfl
   have hbad := hC H product conductor hconductor hlower hupper
   have hCle : C ≤ |C| := le_abs_self C
   dsimp [H, conductor] at hbad

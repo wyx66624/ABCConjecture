@@ -114,7 +114,7 @@ theorem exists_positive_epsilon_at_density_edge
   have hkreal : 0 < (k : ℝ) := by exact_mod_cast hk
   apply exists_positive_epsilon_of_subunit_slope
   · have hdiv : 0 ≤ 2 / (k : ℝ) :=
-      (div_nonneg (by norm_num) hkreal.le)
+      div_nonneg (by norm_num) hkreal.le
     linarith
   · exact hthreshold
 
@@ -128,15 +128,21 @@ theorem squareRoot_density_threshold_iff
   rw [density_gap_threshold_iff hk]
   constructor
   · intro hthreshold
+    have hhalf : (2 : ℝ) < (k : ℝ) / 2 := by
+      calc
+        (2 : ℝ) < (1 - (1 : ℝ) / 2) * (k : ℝ) := hthreshold
+        _ = (k : ℝ) / 2 := by ring
     have hkreal : (4 : ℝ) < (k : ℝ) := by
-      norm_num at hthreshold ⊢
       nlinarith
     exact_mod_cast hkreal
   · intro hkfour
     have hkreal : (4 : ℝ) < (k : ℝ) := by
       exact_mod_cast hkfour
-    norm_num at ⊢
-    nlinarith
+    have hhalf : (2 : ℝ) < (k : ℝ) / 2 := by
+      nlinarith
+    calc
+      (2 : ℝ) < (k : ℝ) / 2 := hhalf
+      _ = (1 - (1 : ℝ) / 2) * (k : ℝ) := by ring
 
 /-- The old square-root exponent-five feasible point is recovered by choosing
 `beta = 1/4`, but the present theorem identifies the entire feasible region. -/

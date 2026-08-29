@@ -113,6 +113,7 @@ theorem positive_penalty_prevents_uniform_descent
   · dsimp [H, penalty, transformedHeight,
       transformedConductor, distortionPenalty]
     ring_nf
+    exact le_rfl
   · dsimp [H]
     linarith
 
