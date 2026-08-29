@@ -110,9 +110,13 @@ theorem positive_penalty_prevents_uniform_descent
     linarith
   let H : ℝ := lambda * N + penalty * D + C
   refine ⟨H, D, hD, ?_, ?_⟩
-  · dsimp [H, penalty, transformedHeight,
-      transformedConductor, distortionPenalty]
-    ring_nf
+  · have heq :
+        transformedHeight H alpha D =
+          lambda * transformedConductor N beta D + C := by
+      dsimp [H, penalty, transformedHeight,
+        transformedConductor, distortionPenalty]
+      ring
+    exact heq.le
   · dsimp [H]
     linarith
 
