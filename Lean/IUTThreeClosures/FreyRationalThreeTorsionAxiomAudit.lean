@@ -1,0 +1,19 @@
+import IUTThreeClosures.FreyRationalThreeTorsion
+
+/-!
+# Axiom audit for the rational three-torsion Frey family
+-/
+
+#print axioms IUTThreeClosures.ABCPoint.abcThreeTorsionA_c₄
+#print axioms IUTThreeClosures.ABCPoint.abcThreeTorsionA_Δ
+#print axioms IUTThreeClosures.ABCPoint.abcThreeTorsionB_c₄
+#print axioms IUTThreeClosures.ABCPoint.abcThreeTorsionB_Δ
+#print axioms IUTThreeClosures.ABCPoint.abcThreeTorsionA_j
+#print axioms IUTThreeClosures.ABCPoint.abcThreeTorsionB_j
+#print axioms IUTThreeClosures.ABCPoint.abcThreeTorsionA_j_eq_parameter
+#print axioms IUTThreeClosures.ABCPoint.abcThreeTorsionB_j_eq_parameter
+#print axioms IUTThreeClosures.ABCPoint.abcRadical_le_threeTorsionDiscriminantRadicalA
+#print axioms IUTThreeClosures.ABCPoint.abcRadical_le_threeTorsionDiscriminantRadicalB
+#print axioms IUTThreeClosures.ABCPoint.threeTorsionDiscriminantRadicalA_le_three
+#print axioms IUTThreeClosures.ABCPoint.threeTorsionDiscriminantRadicalB_le_three
+#print axioms IUTThreeClosures.ABCPoint.c_pow_four_le_two_mul_max_threeTorsionJRawDen
