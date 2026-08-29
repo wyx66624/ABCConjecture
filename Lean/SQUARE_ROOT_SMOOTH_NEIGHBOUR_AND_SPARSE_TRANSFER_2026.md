@@ -27,13 +27,17 @@ is short while `rad(c)` is small.  The resulting primitive triple is
   \le a\,p\,\operatorname{rad}(c).
 \]
 
-Two recent types of analytic results are relevant but must not be conflated:
+Two analytic inputs must be distinguished:
 
-1. an **all-interval** theorem, which gives a smooth number after every centre;
-2. an **almost-all** theorem, whose exceptional set may still contain every
+1. an **all-interval smoothness theorem**, which gives a smooth number after
+   every centre but does not control its radical;
+2. an **almost-all theorem**, whose exceptional set may still contain every
    point of a sparse arithmetic subfamily such as the prime powers.
 
-This note identifies the exact transfer conditions in both cases.
+A third obstruction is now decisive: integers with genuinely small radical
+are themselves sparse.  Therefore a subcritical low-radical statement cannot
+hold after every integer centre.  The surviving target must be formulated on
+prime-power centres or on a still sparser unbounded subsequence.
 
 ## 2. Current short-interval input
 
@@ -58,9 +62,8 @@ Thus the gap exponent is `1/2+o(1)`.  Younis obtains an asymptotic count in
 all intervals of length `x^theta` for every fixed `theta>17/30` in a related
 smoothness range.
 
-These theorems produce smoothness.  They do **not** by themselves produce a
-power saving for the radical.  In Jain's all-interval weights a represented
-integer has the form
+These theorems produce smoothness, not a power saving for the radical.  In
+Jain's all-interval weights a represented integer has the form
 
 \[
  n=q_1q_2p_1\cdots p_Jmr,
@@ -69,7 +72,7 @@ integer has the form
 where both `m` and `r` range over smooth sets.  Their smoothness does not bound
 the number of distinct prime factors.  A squarefree `y`-smooth integer still
 satisfies `rad(n)=n`.  Therefore the extra low-`omega` or low-radical estimate
-remains a separate theorem.
+is a separate theorem.
 
 References:
 
@@ -96,14 +99,14 @@ Then
  \left(\frac12+\frac1k+\beta+o(1)\right)\log b.
 \]
 
-A fixed `epsilon>0` can contradict abc exactly when
+A fixed `epsilon>0` can contradict abc precisely when
 
 \[
  (1+\epsilon)\left(\frac12+\frac1k+\beta\right)<1.
 \]
 
-Equivalently, before choosing a sufficiently small positive `epsilon`, the
-necessary and sufficient strict slope condition is
+Before choosing a sufficiently small positive `epsilon`, the strict slope
+condition is therefore
 
 \[
  \boxed{\ \beta<\frac12-\frac1k\ }.
@@ -115,12 +118,6 @@ Consequences:
 - `k=3` requires `beta<1/6`;
 - `k=4` requires `beta<1/4`;
 - large `k` approaches, but never reaches, the threshold `beta<1/2`.
-
-In particular, combining a square-root gap with only
-`rad(c)<=b^(1/2+o(1))` is still supercritical because of the positive
-prime-power term `1/k`.  The all-interval theorem therefore sharpens the
-remaining target to a **strict sub-square-root radical theorem**; it does not
-close the counterexample route.
 
 If `c` is `y`-smooth and has at most `w` distinct prime factors, then
 
@@ -134,9 +131,65 @@ Writing `y=b^(1/u)`, the required statistic becomes
  \boxed{\ \frac wu<\frac12-\frac1k\ }.
 \]
 
-This is the concrete analytic target for a tilted short-interval moment.
+## 4. Low-radical density changes the target
 
-## 4. A precise tilted target
+The companion note `LOW_RADICAL_DENSITY_BARRIER_2026.md` proves the Rankin
+bound
+
+\[
+ \#\{n\le X:\operatorname{rad}(n)\le R\}
+ \ll_\eta R X^\eta
+\]
+
+for every fixed `eta>0`.  Hence a theorem asserting, after every centre in
+`[X,2X]`, a gap at most `X^theta` and a candidate radical at most `X^beta`
+requires
+
+\[
+ \theta+\beta\ge1.
+\]
+
+This is incompatible with the abc-disproof budget
+
+\[
+ \theta+\beta+\frac1k<1.
+\]
+
+Thus the earlier proposed **all-centres tilted low-radical theorem is
+impossible**.  Jain's all-interval theorem may supply the geometric gap, but
+the low-radical strengthening must be restricted to a thin arithmetic locus.
+
+For all prime-power centres `p^k`, or for a fixed positive proportion of them,
+the same counting theorem and the prime number theorem force
+
+\[
+ \beta\ge\frac1k.
+\]
+
+At square-root gap scale this combines with the strict abc budget to give
+
+\[
+ \frac12+\frac2k<1,
+\]
+
+so a positive-density/all-primes route requires
+
+\[
+ \boxed{k\ge5}.
+\]
+
+For `k>=5` the feasible exponent window is
+
+\[
+ \frac1k\le\beta<\frac12-\frac1k.
+\]
+
+The universal test value `beta=1/4` lies in this window for every `k>=5`.
+A zero-density unbounded subsequence is not constrained by the lower bound
+`beta>=1/k`; consequently sparse `k=3` or `k=4` constructions remain logically
+possible.
+
+## 5. Correct tilted targets
 
 Let
 
@@ -144,22 +197,46 @@ Let
  S(b,h;y)=\{n\in(b,b+h]:P^+(n)\le y\}.
 \]
 
-The existing Lean extraction theorem shows that a bound of the form
+The existing Lean extraction theorem shows that
 
 \[
  \sum_{n\in S(b,h;y)} e^{-t\omega(n)}
    > |S(b,h;y)|e^{-tw}
 \]
 
-forces some `n` in the interval to satisfy `omega(n)<w`.  Hence one viable
-continuation is not another unweighted smooth-number count, but an
-**all-centres lower bound for a tilted friable sum** with a threshold satisfying
-`w/u<1/2-1/k`.
+forces some `n` in the packet to satisfy `omega(n)<w`.
 
-The unresolved point is analytic: presently cited short-interval theorems do
-not provide this inequality in the required parameter range.
+The viable analytic targets are now:
 
-## 5. Sparse exceptional-set transfer
+1. **Prime-power thin-locus target:** for one fixed `k>=5`, prove the tilted
+   lower bound directly for a positive proportion of centres `b=p^k`, with
+   asymptotic threshold
+
+   \[
+   \frac1k\le\frac wu<\frac12-\frac1k.
+   \]
+
+2. **Sparse subsequence target:** construct an unbounded sequence of
+   prime-power centres, possibly with `k=3` or `4`, for which the tilted packet
+   extracts
+
+   \[
+   \frac wu<\frac12-\frac1k.
+   \]
+
+3. **Improved-gap target:** replace the exponent `1/2` by a smaller `theta`
+   and re-optimize
+
+   \[
+   \theta+\frac1k+\beta<1
+   \]
+
+   while respecting the corresponding low-radical counting restriction.
+
+No presently cited short-interval theorem supplies any of these
+prime-power-specific low-radical estimates.
+
+## 6. Sparse exceptional-set transfer
 
 For an almost-all theorem, let `C_X` be the finite set of arithmetic centres
 of interest and let `E_X` contain all failed centres.  A good arithmetic centre
@@ -190,73 +267,72 @@ Thus a black-box cardinality transfer would need, for example,
  |E_X\cap C_{X,k}|=o\!\left(\frac{X^{1/k}}{\log X}\right),
 \]
 
-or a theorem formulated directly along prime-power centres.  Jain's
-almost-all bound is an ambient `o(X)` statement and therefore cannot be
-specialized to prime powers by cardinality alone.  The all-interval theorem
-avoids this obstruction, but still leaves the radical-statistic problem in
-Section 3.
+or a theorem formulated directly along prime-power centres.  An ambient
+`o(X)` statement cannot be specialized to prime powers by cardinality alone.
 
-The Lean module `SparseExceptionalTransfer.lean` kernel-formalizes both the
-positive relative-cardinality transfer and the countermodel showing why a
-mere ambient-density saving is insufficient.
+## 7. Parallel consequences for proof routes
 
-## 6. Parallel consequences for other abc routes
+### 7.1 Frey--Szpiro
 
-### 6.1 Frey--Szpiro
-
-Recent almost-all Szpiro theorems for elliptic curves with prescribed torsion
-are valuable distribution results, but abc needs a uniform estimate on every
-Frey curve attached to a primitive triple.  The same sparse-transfer theorem
-applies: one needs an exceptional-set estimate **on the Frey locus**, or an
-amplification fibre attached to every source triple that is larger than its
-intersection with the exceptional set.  An ambient density-one result in the
-full parameter box does not by itself give the uniform modified-Szpiro
-inequality.
+Almost-all Szpiro theorems are valuable distribution results, but abc needs a
+uniform estimate on every Frey curve attached to a primitive triple.  The
+same sparse-transfer theorem applies: one needs an exceptional-set estimate
+**on the Frey locus**, or a source-dependent amplification fibre whose
+intersection with the exceptional set is strictly smaller than the fibre.
+Ambient density one in the full elliptic-curve parameter box does not imply a
+uniform modified-Szpiro inequality on the thin Frey family.
 
 Reference:
 
 - S. Chan, *Almost all elliptic curves with prescribed torsion have Szpiro
   ratio close to the expected value*, arXiv:2407.13850.
 
-### 6.2 IUT
+### 7.2 IUT
 
-The current repository already proves that unrestricted inhabitation of its
-abstract downstream IUT-IV bridge is equivalent to `ABCConjecture`.  Therefore
-that record cannot be populated as a substitute for the missing mathematics.
-The surviving route remains the construction of a genuinely reachable theta
-possible-image output with its native q-pilot normalization, followed by a
-uniformly quantified global estimate.
+The repository proves that unrestricted inhabitation of its abstract
+downstream IUT-IV bridge is equivalent to `ABCConjecture`.  That record cannot
+be populated as a substitute for the missing mathematics.  The surviving
+route is the construction of a genuinely reachable theta possible-image
+output with its native q-pilot normalization, followed by a uniformly
+quantified global estimate.
 
-## 7. Formal additions
+## 8. Formal additions
 
 This research increment adds:
 
-- `SparseExceptionalTransfer.lean`:
-  relative exceptional-set extraction, sparse-family countermodel, and fibre
-  amplification;
-- `SquareRootSmoothNeighbourThreshold.lean`:
-  the equivalence between a strict square-root budget and
-  `primeSlope+smoothLoss<1/2`, the `k=2` no-go, and a specialization of the
-  exact repository disproof gate;
-- an expanded `SmoothCounterexampleProgram.lean` umbrella.
+- `SparseExceptionalTransfer.lean`: relative exceptional-set extraction,
+  sparse-family countermodel, and finite fibre amplification;
+- `SquareRootSmoothNeighbourThreshold.lean`: the exact square-root slope
+  threshold, the `k=2` no-go, and the bridge to the repository disproof gate;
+- `TiltedSmoothNeighbourPacketGate.lean`: composition of tilted extraction
+  with the smooth low-omega neighbour gate;
+- `LowRadicalDensityBarrier.lean`: finite selection and exact exponent
+  consequences, including the `k>=5` positive-density threshold;
+- `FreySparseExceptionalAmplification.lean`: the precise Frey-fibre
+  amplification interface;
+- the expanded `SmoothCounterexampleProgram.lean` umbrella.
 
-All statements are deterministic.  No short-interval theorem, Szpiro bound,
-IUT source object, or abc-equivalent hypothesis is inserted as an axiom.
+All Lean statements are deterministic.  No short-interval theorem, Szpiro
+bound, IUT source object, or abc-equivalent hypothesis is inserted as an
+axiom.  The infinite Euler-product convergence used in the paper proof of the
+Rankin bound remains explicitly outside the Lean kernel package pending a
+full analytic formalization.
 
-## 8. Research priority after this audit
+## 9. Research priority after this audit
 
-The strongest currently exposed counterexample target is:
+The strongest surviving counterexample targets are:
 
-> Construct, for an unbounded sequence of prime powers `p^k`, an integer
-> `c` in a square-root-sized interval to the right of `p^k` such that
-> `rad(c)<(p^k)^(1/2-1/k-delta)` for one fixed `delta>0`.
+> For one fixed `k>=5`, prove directly on a positive-density set of prime
+> centres `p` the existence of
+> `p^k<c<=p^k+(p^k)^(1/2+o(1))` with
+> `rad(c)<(p^k)^(1/2-1/k-delta)` for one fixed `delta>0`;
 
-Equivalent smooth-statistic form:
+or
 
-> Prove an all-centres tilted friable lower bound that extracts
-> `omega(c)/u<1/2-1/k-delta`.
+> Construct an unbounded sparse sequence of prime powers satisfying the same
+> strict radical budget, without requiring positive density.
 
 For the proof direction, the highest-priority independent target remains a
 uniform Frey-locus modified-Szpiro estimate of slope `6+epsilon`; for the IUT
-direction it remains a genuine source-level theta output and quantifier-correct
-global bridge.
+direction it remains a genuine source-level theta output and a
+quantifier-correct global bridge.
