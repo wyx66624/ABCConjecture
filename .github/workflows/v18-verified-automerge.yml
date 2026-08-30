@@ -1,0 +1,115 @@
+name: v18 verified auto-merge
+
+on:
+  push:
+    branches:
+      - "formalize/canonical-square-part-v18"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  verify-and-merge:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Kernel-check the complete project
+        working-directory: Lean
+        shell: bash
+        run: |
+          set -o pipefail
+          lake build 2>&1 | tee ../v18-build.log
+
+      - name: Verify every project source produced an olean
+        working-directory: Lean
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          sources = [Path("IUTThreeClosures.lean")]
+          sources.extend(sorted(Path("IUTThreeClosures").rglob("*.lean")))
+          build_root = Path(".lake/build/lib/lean")
+          missing = []
+          for source in sources:
+              built = build_root / source.with_suffix(".olean")
+              if not built.is_file():
+                  missing.append(str(built))
+          print(f"Audited {len(sources)} project modules")
+          if missing:
+              print("Missing compiled modules:")
+              print("\n".join(missing))
+              raise SystemExit(1)
+          PY
+
+      - name: Remove this temporary workflow from the merge head
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/v18-verified-automerge.yml
+          git commit -m "Remove temporary v18 verified auto-merge workflow"
+          git push origin HEAD:formalize/canonical-square-part-v18
+
+      - name: Merge the verified pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          pr_number=$(gh pr list \
+            --repo "${GITHUB_REPOSITORY}" \
+            --head "formalize/canonical-square-part-v18" \
+            --base main \
+            --state open \
+            --json number \
+            --jq '.[0].number')
+          test -n "$pr_number"
+          gh pr merge "$pr_number" \
+            --repo "${GITHUB_REPOSITORY}" \
+            --merge \
+            --subject "Merge square-part exponent-weight extraction" \
+            --body "Kernel-checked deterministic square-part capture of multiplicity excess."
+
+      - name: Comment diagnostics on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          pr_number=$(gh pr list \
+            --repo "${GITHUB_REPOSITORY}" \
+            --head "formalize/canonical-square-part-v18" \
+            --base main \
+            --state open \
+            --json number \
+            --jq '.[0].number')
+          if [ -n "$pr_number" ] && [ -f v18-build.log ]; then
+            {
+              echo '### v18 Lean diagnostics'
+              echo '```text'
+              tail -n 220 v18-build.log
+              echo '```'
+            } > /tmp/v18-comment.md
+            gh pr comment "$pr_number" --repo "${GITHUB_REPOSITORY}" --body-file /tmp/v18-comment.md
+          fi
