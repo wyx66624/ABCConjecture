@@ -163,11 +163,11 @@ theorem integer_layer_large_of_height_violation
   obtain hlarge | hc :=
     P.endpoint_signed_defect_large_of_height_violation hviolation
   · left
-    rw [P.singleEndpointSquareRadicalDefect_eq_integerLayers
+    rw [singleEndpointSquareRadicalDefect_eq_integerLayers
       P.largeEndpoint_pos.ne'] at hlarge
     exact hlarge
   · right
-    rw [P.singleEndpointSquareRadicalDefect_eq_integerLayers
+    rw [singleEndpointSquareRadicalDefect_eq_integerLayers
       P.c_pos.ne'] at hc
     exact hc
 
