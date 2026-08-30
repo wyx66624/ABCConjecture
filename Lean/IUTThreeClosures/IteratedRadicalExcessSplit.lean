@@ -4,19 +4,18 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: ChatGPT
 -/
 import IUTThreeClosures.LargeEndpointPrimePowerLocalization
+import Mathlib.Data.Nat.Factorization.PrimePow
 import Mathlib.RingTheory.Radical.NatInt
 import Mathlib.Tactic
 
 /-!
 # Splitting the cubeful excess between the two large abc endpoints
 
-The second radical quotient
-
-`Q₂(n) = divRadical (divRadical n)`
-
-removes the first two copies of every prime from `n`.  It is multiplicative on
-coprime natural numbers.  Since `max(a,b)` and `c` are coprime, the complete
-excess ledger splits exactly between these two adjacent endpoints.
+For a positive natural number, define the second radical quotient directly
+from its prime factorization by retaining exponent `max(v_p(n)-2,0)` at every
+prime.  This quantity is multiplicative on coprime natural numbers.  Since
+`max(a,b)` and `c` are coprime, the complete excess ledger splits exactly
+between these two adjacent endpoints.
 
 Consequently every violation of an abc bound forces conductor-scale excess on
 at least one individual endpoint, not merely on their product.
@@ -29,33 +28,76 @@ open UniqueFactorizationMonoid
 
 noncomputable section
 
+/-- The finitely supported prime-exponent profile above level two. -/
+def exponentAboveTwo (n : ℕ) : ℕ →₀ ℕ :=
+  n.factorization.mapRange (fun e => e - 2) (by simp)
+
+/-- Every index in the support of the excess profile is prime. -/
+theorem prime_of_mem_exponentAboveTwo_support
+    {n p : ℕ} (hp : p ∈ (exponentAboveTwo n).support) : p.Prime := by
+  have hne : exponentAboveTwo n p ≠ 0 := Finsupp.mem_support_iff.mp hp
+  have hfac : n.factorization p ≠ 0 := by
+    intro hzero
+    apply hne
+    simp [exponentAboveTwo, hzero]
+  have hmem : p ∈ n.factorization.support :=
+    Finsupp.mem_support_iff.mpr hfac
+  exact Nat.prime_of_mem_primeFactors (by simpa using hmem)
+
 /-- Remove the first two copies of every prime factor. -/
 def secondRadicalQuotient (n : ℕ) : ℕ :=
-  EuclideanDomain.divRadical (EuclideanDomain.divRadical n)
+  (exponentAboveTwo n).prod fun p e => p ^ e
 
-/-- Natural coprimality is relative primality in the factorization monoid. -/
-theorem natCoprime_isRelPrime {m n : ℕ} (h : Nat.Coprime m n) :
-    IsRelPrime m n :=
-  Nat.coprime_iff_isRelPrime.mp h
+/-- The second radical quotient has exactly the excess exponent profile. -/
+theorem secondRadicalQuotient_factorization (n : ℕ) :
+    (secondRadicalQuotient n).factorization = exponentAboveTwo n := by
+  unfold secondRadicalQuotient
+  exact Nat.prod_pow_factorization_eq_self
+    (fun p hp => prime_of_mem_exponentAboveTwo_support hp)
 
-/-- Division by the radical is multiplicative for coprime naturals. -/
-theorem divRadical_mul_of_coprime {m n : ℕ}
+/-- The second radical quotient of a positive integer is positive. -/
+theorem secondRadicalQuotient_pos {n : ℕ} (_hn : 0 < n) :
+    0 < secondRadicalQuotient n := by
+  classical
+  unfold secondRadicalQuotient Finsupp.prod
+  exact Finset.prod_pos fun p hp =>
+    pow_pos (prime_of_mem_exponentAboveTwo_support hp).pos _
+
+/-- The excess profile is additive on coprime inputs. -/
+theorem exponentAboveTwo_mul_of_coprime {m n : ℕ}
     (h : Nat.Coprime m n) :
-    EuclideanDomain.divRadical (m * n) =
-      EuclideanDomain.divRadical m * EuclideanDomain.divRadical n := by
-  unfold EuclideanDomain.divRadical
-  rw [UniqueFactorizationMonoid.radical_mul (natCoprime_isRelPrime h)]
-  rw [div_mul_div_comm
-    (UniqueFactorizationMonoid.radical_dvd_self (a := m))
-    (UniqueFactorizationMonoid.radical_dvd_self (a := n))]
-
-/-- Coprimality survives division by each radical. -/
-theorem coprime_divRadical {m n : ℕ} (h : Nat.Coprime m n) :
-    Nat.Coprime (EuclideanDomain.divRadical m)
-      (EuclideanDomain.divRadical n) :=
-  Nat.Coprime.of_dvd
-    (EuclideanDomain.divRadical_dvd_self m)
-    (EuclideanDomain.divRadical_dvd_self n) h
+    exponentAboveTwo (m * n) =
+      exponentAboveTwo m + exponentAboveTwo n := by
+  by_cases hm : m = 0
+  · subst m
+    have hn : n = 1 := by simpa using h
+    subst n
+    simp [exponentAboveTwo]
+  by_cases hn : n = 0
+  · subst n
+    have hm1 : m = 1 := by simpa using h
+    subst m
+    simp [exponentAboveTwo]
+  ext p
+  simp only [exponentAboveTwo, Finsupp.mapRange_apply]
+  rw [congrFun (congrArg DFunLike.coe (Nat.factorization_mul hm hn)) p]
+  simp only [Finsupp.add_apply]
+  by_cases hp : p.Prime
+  · have hzero :
+        m.factorization p = 0 ∨ n.factorization p = 0 := by
+      by_contra hnot
+      push Not at hnot
+      have hpm : p ∣ m := by
+        by_contra hpd
+        exact hnot.1 (Nat.factorization_eq_zero_of_not_dvd hpd)
+      have hpn : p ∣ n := by
+        by_contra hpd
+        exact hnot.2 (Nat.factorization_eq_zero_of_not_dvd hpd)
+      exact hp.ne_one (Nat.eq_one_of_dvd_coprimes h hpm hpn)
+    rcases hzero with hzero | hzero <;> simp [hzero]
+  · have hm0 := Nat.factorization_eq_zero_of_not_prime m hp
+    have hn0 := Nat.factorization_eq_zero_of_not_prime n hp
+    simp [hm0, hn0]
 
 /-- The second radical quotient is multiplicative on coprime naturals. -/
 theorem secondRadicalQuotient_mul_of_coprime {m n : ℕ}
@@ -63,39 +105,48 @@ theorem secondRadicalQuotient_mul_of_coprime {m n : ℕ}
     secondRadicalQuotient (m * n) =
       secondRadicalQuotient m * secondRadicalQuotient n := by
   unfold secondRadicalQuotient
-  rw [divRadical_mul_of_coprime h]
-  exact divRadical_mul_of_coprime (coprime_divRadical h)
+  rw [exponentAboveTwo_mul_of_coprime h]
+  exact Finsupp.prod_add_index'
+    (fun p => pow_zero p)
+    (fun p a b => pow_add p a b)
 
-/-- The second radical quotient of a positive integer is positive. -/
-theorem secondRadicalQuotient_pos {n : ℕ} (hn : 0 < n) :
-    0 < secondRadicalQuotient n := by
-  have hfirst : EuclideanDomain.divRadical n ≠ 0 :=
-    EuclideanDomain.divRadical_ne_zero hn.ne'
-  have hsecond :
-      EuclideanDomain.divRadical (EuclideanDomain.divRadical n) ≠ 0 :=
-    EuclideanDomain.divRadical_ne_zero hfirst
-  exact Nat.pos_of_ne_zero hsecond
-
-/-- The radical left after the first division is bounded by the original
-radical. -/
-theorem radical_divRadical_le (n : ℕ) (hn : n ≠ 0) :
-    radical (EuclideanDomain.divRadical n) ≤ radical n := by
-  have hdiv : EuclideanDomain.divRadical n ∣ n :=
-    EuclideanDomain.divRadical_dvd_self n
-  have hrad :
-      radical (EuclideanDomain.divRadical n) ∣ radical n :=
-    UniqueFactorizationMonoid.radical_dvd_radical hdiv hn
-  exact Nat.le_of_dvd (Nat.radical_pos n) hrad
-
-/-- Exact two-layer factorization before replacing the intermediate radical by
-an upper bound. -/
-theorem radical_mul_radical_divRadical_mul_second_eq (n : ℕ) :
-    radical n *
-        (radical (EuclideanDomain.divRadical n) *
-          secondRadicalQuotient n) = n := by
-  unfold secondRadicalQuotient
-  rw [EuclideanDomain.radical_mul_divRadical,
-    EuclideanDomain.radical_mul_divRadical]
+/-- The original integer divides radical square times the excess profile. -/
+theorem dvd_radical_sq_mul_secondRadicalQuotient (n : ℕ) :
+    n ∣ abcRadical n ^ 2 * secondRadicalQuotient n := by
+  by_cases hn : n = 0
+  · subst n
+    simp
+  have hradne : abcRadical n ^ 2 ≠ 0 :=
+    pow_ne_zero 2 (abcRadical_pos n).ne'
+  have hqne : secondRadicalQuotient n ≠ 0 :=
+    (secondRadicalQuotient_pos (Nat.pos_of_ne_zero hn)).ne'
+  have htarget :
+      abcRadical n ^ 2 * secondRadicalQuotient n ≠ 0 :=
+    mul_ne_zero hradne hqne
+  rw [← Nat.factorization_le_iff_dvd hn htarget]
+  intro p
+  rw [Nat.factorization_mul hradne hqne,
+    Nat.factorization_pow,
+    secondRadicalQuotient_factorization]
+  change n.factorization p ≤
+    2 * (abcRadical n).factorization p +
+      (n.factorization p - 2)
+  by_cases hp : p.Prime
+  · by_cases hpn : p ∣ n
+    · have hprad : p ∣ radical n :=
+        (UniqueFactorizationMonoid.dvd_radical_iff_of_irreducible
+          hp hn).2 hpn
+      have hfac : (abcRadical n).factorization p = 1 := by
+        rw [abcRadical_eq_natRadical]
+        exact Nat.factorization_eq_one_of_squarefree
+          (UniqueFactorizationMonoid.squarefree_radical (a := n))
+          hp hprad
+      rw [hfac]
+      omega
+    · rw [Nat.factorization_eq_zero_of_not_dvd hpn]
+      simp
+  · rw [Nat.factorization_eq_zero_of_not_prime n hp]
+    simp
 
 /-- The same radical-square inequality as the gcd-defined cubeful excess, now
 with an excess that is exactly multiplicative on coprime inputs. -/
@@ -103,20 +154,11 @@ theorem le_radical_sq_mul_secondRadicalQuotient (n : ℕ) :
     n ≤ abcRadical n ^ 2 * secondRadicalQuotient n := by
   by_cases hn : n = 0
   · subst n
-    simp [secondRadicalQuotient, abcRadical_eq_natRadical]
-  · have hrad := radical_divRadical_le n hn
-    calc
-      n = radical n *
-          (radical (EuclideanDomain.divRadical n) *
-            secondRadicalQuotient n) :=
-        (radical_mul_radical_divRadical_mul_second_eq n).symm
-      _ ≤ radical n *
-          (radical n * secondRadicalQuotient n) := by
-        exact Nat.mul_le_mul_left _
-          (Nat.mul_le_mul_right _ hrad)
-      _ = abcRadical n ^ 2 * secondRadicalQuotient n := by
-        rw [abcRadical_eq_natRadical]
-        ring
+    simp
+  exact Nat.le_of_dvd
+    (mul_pos (pow_pos (abcRadical_pos n) 2)
+      (secondRadicalQuotient_pos (Nat.pos_of_ne_zero hn)))
+    (dvd_radical_sq_mul_secondRadicalQuotient n)
 
 end
 end IteratedRadicalExcessSplit
@@ -251,7 +293,7 @@ theorem endpoint_secondRadicalQuotient_large_of_height_violation
     nlinarith
   rw [P.log_largeEndpointSecondRadicalQuotient_eq_add] at htotal
   by_contra hnot
-  push_neg at hnot
+  push Not at hnot
   nlinarith
 
 end ABCPoint
@@ -291,8 +333,11 @@ theorem abc_of_uniformSecondRadicalQuotientBound
     nlinarith
   simpa [P, ABCPoint.height, ABCPoint.conductor] using hpoint
 
-#print axioms divRadical_mul_of_coprime
+#print axioms prime_of_mem_exponentAboveTwo_support
+#print axioms secondRadicalQuotient_factorization
+#print axioms exponentAboveTwo_mul_of_coprime
 #print axioms secondRadicalQuotient_mul_of_coprime
+#print axioms dvd_radical_sq_mul_secondRadicalQuotient
 #print axioms le_radical_sq_mul_secondRadicalQuotient
 #print axioms ABCPoint.largeEndpointSecondRadicalQuotient_eq_mul
 #print axioms ABCPoint.two_mul_height_le_log_two_add_two_mul_conductor_add_log_secondQuotient
