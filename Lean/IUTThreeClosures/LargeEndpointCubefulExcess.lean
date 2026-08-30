@@ -50,15 +50,13 @@ theorem le_radical_sq_mul_cubefulExcess (n : ℕ) :
       (gcd_mul_cubefulExcess_eq n).symm
     _ ≤ abcRadical n ^ 2 * cubefulExcess n :=
       Nat.mul_le_mul_right _
-        (Nat.gcd_le_right n (abcRadical n ^ 2) (by positivity))
+        (Nat.gcd_le_right n (by positivity))
 
 /-- Cubeful excess is positive on positive inputs. -/
 theorem cubefulExcess_pos {n : ℕ} (hn : 0 < n) :
     0 < cubefulExcess n := by
-  unfold cubefulExcess
-  apply Nat.div_pos
-  · exact Nat.gcd_le_left _ _ hn
-  · exact Nat.gcd_pos_of_pos_left _ hn
+  simpa [cubefulExcess] using
+    Nat.div_gcd_pos_of_pos_left (abcRadical n ^ 2) hn
 
 end
 end LargeEndpointCubefulExcess
