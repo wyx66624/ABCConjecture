@@ -1,0 +1,148 @@
+name: v21 patch verify and auto-merge
+
+on:
+  push:
+    branches:
+      - "formalize/power-square-adjacent-nogo-v21"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  patch-verify-merge:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Repair positivity threshold in the constructed ABC point
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('Lean/IUTThreeClosures/PowerSquareAdjacentIdentityNoGo.lean')
+          s = p.read_text()
+          s = s.replace(
+              '(x k : ℕ) (hX : 2 ≤ x ^ k) : ABCPoint :=',
+              '(x k : ℕ) (hX : 3 ≤ x ^ k) : ABCPoint :=')
+          s = s.replace(
+              '''    b_pos := by
+      unfold adjacentPowerPart
+      have hsub : 0 < x ^ k - 2 := by
+        have : 2 < x ^ k := by
+          by_cases heq : x ^ k = 2
+          · subst heq
+            norm_num
+          · omega
+        omega
+      exact mul_pos (lt_of_lt_of_le (by norm_num) hX) hsub''',
+              '''    b_pos := by
+      unfold adjacentPowerPart
+      have hsub : 0 < x ^ k - 2 := by omega
+      exact mul_pos (by omega) hsub''')
+          s = s.replace(
+              '    sum_eq := one_add_adjacentPowerPart_eq_adjacentSquare hX\n',
+              '    sum_eq := one_add_adjacentPowerPart_eq_adjacentSquare (by omega)\n')
+          s = s.replace(
+              '      pairwiseCoprimeABC_one_adjacentPowerPart_adjacentSquare hX }',
+              '      pairwiseCoprimeABC_one_adjacentPowerPart_adjacentSquare (by omega) }')
+          s = s.replace(
+              '(x k : ℕ) (hX : 2 ≤ x ^ k) :\n    x ^ k ∣ (powerSquareABCPoint x k hX).b := by',
+              '(x k : ℕ) (hX : 3 ≤ x ^ k) :\n    x ^ k ∣ (powerSquareABCPoint x k hX).b := by')
+          s = s.replace(
+              '(x k : ℕ) (hX : 2 ≤ x ^ k) :\n    (powerSquareABCPoint x k hX).c = ((x ^ k) - 1) ^ 2 := rfl',
+              '(x k : ℕ) (hX : 3 ≤ x ^ k) :\n    (powerSquareABCPoint x k hX).c = ((x ^ k) - 1) ^ 2 := rfl')
+          p.write_text(s)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet; then
+            git add Lean/IUTThreeClosures/PowerSquareAdjacentIdentityNoGo.lean
+            git commit -m "Repair positivity threshold in power-square no-go family"
+            git push origin HEAD:formalize/power-square-adjacent-nogo-v21
+          fi
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve dependencies
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Kernel-check the complete project
+        working-directory: Lean
+        shell: bash
+        run: |
+          set -o pipefail
+          lake build 2>&1 | tee ../v21-build.log
+
+      - name: Verify every source produced an olean
+        working-directory: Lean
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          sources = [Path('IUTThreeClosures.lean')]
+          sources.extend(sorted(Path('IUTThreeClosures').rglob('*.lean')))
+          root = Path('.lake/build/lib/lean')
+          missing = [str(root / s.with_suffix('.olean')) for s in sources
+                     if not (root / s.with_suffix('.olean')).is_file()]
+          print(f'Audited {len(sources)} project modules')
+          if missing:
+            print('\n'.join(missing))
+            raise SystemExit(1)
+          PY
+
+      - name: Remove temporary workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/v21-patch-verify-automerge.yml
+          git commit -m "Remove temporary v21 verification workflow"
+          git push origin HEAD:formalize/power-square-adjacent-nogo-v21
+
+      - name: Merge verified PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          pr_number=$(gh pr list --repo "$GITHUB_REPOSITORY" \
+            --head formalize/power-square-adjacent-nogo-v21 --base main \
+            --state open --json number --jq '.[0].number')
+          test -n "$pr_number"
+          gh pr merge "$pr_number" --repo "$GITHUB_REPOSITORY" --merge \
+            --subject "Merge explicit power-square adjacent no-go family" \
+            --body "Kernel-checked identity excluding bare power-part gap arguments."
+
+      - name: Comment diagnostics on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          pr_number=$(gh pr list --repo "$GITHUB_REPOSITORY" \
+            --head formalize/power-square-adjacent-nogo-v21 --base main \
+            --state open --json number --jq '.[0].number')
+          if [ -n "$pr_number" ] && [ -f v21-build.log ]; then
+            {
+              echo '### v21 Lean diagnostics'
+              echo '```text'
+              tail -n 220 v21-build.log
+              echo '```'
+            } >/tmp/v21-comment.md
+            gh pr comment "$pr_number" --repo "$GITHUB_REPOSITORY" \
+              --body-file /tmp/v21-comment.md
+          fi
