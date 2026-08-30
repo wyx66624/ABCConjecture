@@ -21,7 +21,6 @@ neither the exponent-one cancellation nor any quantifier.
 -/
 
 namespace IUTThreeClosures
-namespace SignedEndpointSquareRadicalDefect
 
 noncomputable section
 
@@ -99,6 +98,8 @@ theorem signedEndpointSquareRadicalDefect_corridor (P : ABCPoint) :
     linarith
 
 end ABCPoint
+
+namespace SignedEndpointSquareRadicalDefect
 
 /-- Uniform subcritical control of the signed endpoint defect. -/
 def UniformSignedEndpointSquareRadicalDefectBound : Prop :=
@@ -187,6 +188,6 @@ theorem no_uniform_subunit_bound_for_unsigned_linear_excess
 #print axioms uniformSignedEndpointSquareRadicalDefectBound_iff_abc
 #print axioms no_uniform_subunit_bound_for_unsigned_linear_excess
 
-end
 end SignedEndpointSquareRadicalDefect
+end
 end IUTThreeClosures
