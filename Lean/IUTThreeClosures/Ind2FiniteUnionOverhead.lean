@@ -35,7 +35,7 @@ variable {α : Type u} {ι : Type v}
 /-- Measurability of a finite indexed union. -/
 theorem measurable_finset_iUnion
     (s : Finset ι) (U : ι → FinitePositiveRegion α μ) :
-    MeasurableSet (⋃ i ∈ s, (U i : Set α)) := by
+    MeasurableSet (⋃ i ∈ s, (U i).carrier) := by
   classical
   induction s using Finset.induction_on with
   | empty => simp
@@ -46,7 +46,7 @@ theorem measurable_finset_iUnion
 theorem measure_finset_iUnion_le_sum
     (s : Finset ι) (U : ι → Set α) :
     μ (⋃ i ∈ s, U i) ≤ ∑ i ∈ s, μ (U i) := by
-  exact measure_biUnion_finset_le
+  exact measure_biUnion_finset_le (μ := μ) s U
 
 /-- The finite sum of finite-positive orbit measures is finite. -/
 theorem measure_sum_ne_top
@@ -60,15 +60,15 @@ noncomputable def finsetUnionRegion
     (s : Finset ι) (hs : s.Nonempty)
     (U : ι → FinitePositiveRegion α μ) :
     FinitePositiveRegion α μ where
-  carrier := ⋃ i ∈ s, (U i : Set α)
+  carrier := ⋃ i ∈ s, (U i).carrier
   measurable := measurable_finset_iUnion s U
   measure_ne_zero := by
     obtain ⟨i, hi⟩ := hs
-    have hsub : (U i : Set α) ⊆ ⋃ j ∈ s, (U j : Set α) := by
+    have hsub : (U i).carrier ⊆ ⋃ j ∈ s, (U j).carrier := by
       intro x hx
       simp only [Set.mem_iUnion]
       exact ⟨i, ⟨hi, hx⟩⟩
-    have hle : μ (U i).carrier ≤ μ (⋃ j ∈ s, (U j : Set α)) :=
+    have hle : μ (U i).carrier ≤ μ (⋃ j ∈ s, (U j).carrier) :=
       measure_mono hsub
     intro hzero
     apply (U i).measure_ne_zero
@@ -76,9 +76,9 @@ noncomputable def finsetUnionRegion
     simpa [hzero] using hle
   measure_ne_top := by
     have hle :
-        μ (⋃ i ∈ s, (U i : Set α)) ≤
+        μ (⋃ i ∈ s, (U i).carrier) ≤
           ∑ i ∈ s, μ (U i).carrier :=
-      measure_finset_iUnion_le_sum s fun i => (U i : Set α)
+      measure_finset_iUnion_le_sum s fun i => (U i).carrier
     intro htop
     rw [htop] at hle
     exact (measure_sum_ne_top s U) (top_unique hle)
@@ -95,7 +95,7 @@ theorem toReal_measure_finsetUnion_le_card_mul
   have hmeasure :
       μ (finsetUnionRegion s hs U).carrier ≤
         ∑ i ∈ s, μ (U i).carrier := by
-    exact measure_finset_iUnion_le_sum s fun i => (U i : Set α)
+    exact measure_finset_iUnion_le_sum s fun i => (U i).carrier
   have hreal := ENNReal.toReal_mono (measure_sum_ne_top s U) hmeasure
   rw [ENNReal.toReal_sum
     (fun i hi => (U i).measure_ne_top)] at hreal
@@ -139,7 +139,7 @@ theorem logVolume_finsetUnion_le_of_card_le
     (U : ι → FinitePositiveRegion α μ)
     (V : FinitePositiveRegion α μ)
     (hEq : ∀ i ∈ s, μ (U i).carrier = μ V.carrier)
-    {B : ℕ} (hBpos : 0 < B) (hcard : s.card ≤ B) :
+    {B : ℕ} (_hBpos : 0 < B) (hcard : s.card ≤ B) :
     (finsetUnionRegion s hs U).logVolume ≤
       Real.log (B : ℝ) + V.logVolume := by
   have hbase := logVolume_finsetUnion_le_log_card_add s hs U V hEq
