@@ -10,24 +10,17 @@ import Mathlib.Tactic
 /-!
 # Endpoint balance and coefficient-three product estimates
 
-A coefficient-three estimate for `log (a*b*c)` does not by itself imply the
-standard abc coefficient one.  The missing information is precisely how far
-the triple lies from an endpoint.  Writing `m = min a b`, every positive abc
-point satisfies
+Writing `m = min a b`, every positive abc point satisfies
 
 `2 * height + log m - log 2 <= log (a*b*c)`.
 
-Consequently, on the balanced region `tau * height <= log m`, a product
-estimate
+Hence a product estimate
 
 `log (a*b*c) <= lambda * conductor + eta * height + K`
 
-transfers with denominator `2 + tau - eta`.  At coefficient three this gives
-an exact critical balance exponent.  Thus any remaining violation under a
-coefficient-three sublinear-error estimate must be endpoint-degenerate.
-
-No product estimate, IUT theorem, or abc statement is assumed as an axiom or
-stored in a structure in this module.
+on the region `tau * height <= log m` transfers with exact denominator
+`2 + tau - eta`.  At coefficient three this gives a sharp balance threshold.
+No product estimate or abc conclusion is assumed as an axiom in this file.
 -/
 
 namespace IUTThreeClosures
@@ -38,20 +31,19 @@ noncomputable section
 
 namespace ABCPoint
 
-/-- The smaller additive endpoint of a positive abc point. -/
+/-- The smaller additive endpoint. -/
 def endpointMin (P : ABCPoint) : ℕ := min P.a P.b
 
-/-- Logarithmic size of the smaller additive endpoint. -/
+/-- Its logarithmic size. -/
 def endpointMinLog (P : ABCPoint) : ℝ :=
   Real.log (endpointMin P : ℝ)
 
 @[simp]
 theorem endpointMin_pos (P : ABCPoint) : 0 < endpointMin P := by
   unfold endpointMin
-  omega
+  exact lt_min P.a_pos P.b_pos
 
-/-- The balance-sensitive integer-size inequality
-`min(a,b) * c^2 <= 2*a*b*c`. -/
+/-- Balance-sensitive size inequality `min(a,b) * c^2 <= 2abc`. -/
 theorem endpointMin_mul_c_sq_le_two_abc (P : ABCPoint) :
     (endpointMin P : ℝ) * (P.c : ℝ) ^ 2 ≤
       2 * ((P.a * P.b * P.c : ℕ) : ℝ) := by
@@ -65,9 +57,8 @@ theorem endpointMin_mul_c_sq_le_two_abc (P : ABCPoint) :
       exact_mod_cast hab
     have hc_le : (P.c : ℝ) ≤ 2 * (P.b : ℝ) := by
       linarith
-    have hnonneg : 0 ≤ (P.a : ℝ) * (P.c : ℝ) := by
-      positivity
-    have hmul := mul_le_mul_of_nonneg_left hc_le hnonneg
+    have hmul := mul_le_mul_of_nonneg_left hc_le
+      (show 0 ≤ (P.a : ℝ) * (P.c : ℝ) by positivity)
     calc
       (P.a : ℝ) * (P.c : ℝ) ^ 2 =
           ((P.a : ℝ) * (P.c : ℝ)) * (P.c : ℝ) := by ring
@@ -85,9 +76,8 @@ theorem endpointMin_mul_c_sq_le_two_abc (P : ABCPoint) :
       exact_mod_cast hba
     have hc_le : (P.c : ℝ) ≤ 2 * (P.a : ℝ) := by
       linarith
-    have hnonneg : 0 ≤ (P.b : ℝ) * (P.c : ℝ) := by
-      positivity
-    have hmul := mul_le_mul_of_nonneg_left hc_le hnonneg
+    have hmul := mul_le_mul_of_nonneg_left hc_le
+      (show 0 ≤ (P.b : ℝ) * (P.c : ℝ) by positivity)
     calc
       (P.b : ℝ) * (P.c : ℝ) ^ 2 =
           ((P.b : ℝ) * (P.c : ℝ)) * (P.c : ℝ) := by ring
@@ -96,7 +86,7 @@ theorem endpointMin_mul_c_sq_le_two_abc (P : ABCPoint) :
         push_cast
         ring
 
-/-- The exact balance-sensitive lower corridor for the symmetric product. -/
+/-- Exact balance-sensitive lower corridor for the symmetric product. -/
 theorem two_height_add_endpointMinLog_sub_log_two_le_symmetricProductLog
     (P : ABCPoint) :
     2 * P.height + endpointMinLog P - Real.log 2 ≤
@@ -127,8 +117,7 @@ theorem conductor_nonneg (P : ABCPoint) : 0 ≤ P.conductor := by
     (Nat.one_le_iff_ne_zero.mpr
       (abcRadical_pos (P.a * P.b * P.c)).ne')
 
-/-- General balanced transfer.  The available height denominator is exactly
-`2 + tau - eta`. -/
+/-- General balance transfer with exact denominator `2+tau-eta`. -/
 theorem height_le_of_balanced_symmetricProduct_bound
     (P : ABCPoint)
     {tau lambda eta K : ℝ}
@@ -146,15 +135,11 @@ theorem height_le_of_balanced_symmetricProduct_bound
       (2 + tau - eta) * P.height ≤
         lambda * P.conductor + K + Real.log 2 := by
     nlinarith
-  have hdenpos : 0 < 2 + tau - eta := by
-    linarith
+  have hdenpos : 0 < 2 + tau - eta := by linarith
   apply (le_div_iff₀ hdenpos).2
   simpa [mul_comm] using hraw
 
-/-- On triples with `log min(a,b) >= (1-epsilon/2) log c`, a coefficient-three
-product estimate with relative error `epsilon/2` gives the standard
-`1+epsilon` abc coefficient.  This convenient specialization is superseded by
-the exact critical exponent below, but is retained as a simple corollary. -/
+/-- Convenient coefficient-three balanced specialization. -/
 theorem height_le_one_add_epsilon_of_coefficient_three_balanced
     (P : ABCPoint)
     {epsilon K : ℝ}
@@ -170,17 +155,13 @@ theorem height_le_one_add_epsilon_of_coefficient_three_balanced
         (K + Real.log 2) / (3 - epsilon) := by
   have htransfer :=
     height_le_of_balanced_symmetricProduct_bound P
-      (tau := 1 - epsilon / 2)
-      (lambda := 3)
-      (eta := epsilon / 2)
-      (K := K)
+      (tau := 1 - epsilon / 2) (lambda := 3)
+      (eta := epsilon / 2) (K := K)
       (by linarith) hbalance hproduct
   have hdeneq :
-      2 + (1 - epsilon / 2) - epsilon / 2 = 3 - epsilon := by
-    ring
+      2 + (1 - epsilon / 2) - epsilon / 2 = 3 - epsilon := by ring
   rw [hdeneq] at htransfer
-  have hdenpos : 0 < 3 - epsilon := by
-    linarith
+  have hdenpos : 0 < 3 - epsilon := by linarith
   have hcoef : 3 / (3 - epsilon) ≤ 1 + epsilon := by
     apply (div_le_iff₀ hdenpos).2
     have hprod : 0 ≤ epsilon * (2 - epsilon) :=
@@ -191,13 +172,11 @@ theorem height_le_one_add_epsilon_of_coefficient_three_balanced
   have hsplit :
       (3 * P.conductor + K + Real.log 2) / (3 - epsilon) =
         (3 / (3 - epsilon)) * P.conductor +
-          (K + Real.log 2) / (3 - epsilon) := by
-    ring
+          (K + Real.log 2) / (3 - epsilon) := by ring
   rw [hsplit] at htransfer
-  exact htransfer.trans
-    (add_le_add_right hscaled ((K + Real.log 2) / (3 - epsilon)))
+  nlinarith [htransfer, hscaled]
 
-/-- Contrapositive localization for the convenient balance exponent. -/
+/-- Any violation under the same product estimate is endpoint-degenerate. -/
 theorem endpoint_unbalanced_of_coefficient_three_violation
     (P : ABCPoint)
     {epsilon K : ℝ}
@@ -223,14 +202,11 @@ end ABCPoint
 
 namespace EndpointBalanceCoefficientTransfer
 
-/-- Exact balance exponent at which a coefficient-three product estimate with
-relative height error `eta` transfers to target abc coefficient `1+epsilon`. -/
+/-- Exact balance exponent for coefficient-three transfer. -/
 def criticalBalanceExponent (epsilon eta : ℝ) : ℝ :=
   3 / (1 + epsilon) - 2 + eta
 
-/-- Exact critical transfer.  Unlike the convenient `1-epsilon/2`
-specialization, this loses no coefficient: the denominator is precisely
-`3/(1+epsilon)`. -/
+/-- Exact critical coefficient-three transfer. -/
 theorem height_le_one_add_epsilon_of_coefficient_three_criticalBalance
     (P : ABCPoint)
     {epsilon eta K : ℝ}
@@ -245,9 +221,9 @@ theorem height_le_one_add_epsilon_of_coefficient_three_criticalBalance
       (1 + epsilon) * P.conductor +
         (1 + epsilon) * (K + Real.log 2) / 3 := by
   have honepos : 0 < 1 + epsilon := by linarith
-  have hquotpos : 0 < 3 / (1 + epsilon) := by positivity
   have hden : eta < 2 + criticalBalanceExponent epsilon eta := by
     unfold criticalBalanceExponent
+    have hquotpos : 0 < 3 / (1 + epsilon) := by positivity
     linarith
   have htransfer :=
     ABCPoint.height_le_of_balanced_symmetricProduct_bound P
@@ -269,8 +245,8 @@ theorem height_le_one_add_epsilon_of_coefficient_three_criticalBalance
   rw [hidentity] at htransfer
   exact htransfer
 
-/-- A concrete uniform sublinear-error formulation of a coefficient-three
-symmetric-product estimate.  It contains no abc conclusion. -/
+/-- Uniform coefficient-three product bound with arbitrarily small relative
+height error.  This contains no abc conclusion. -/
 def UniformCoefficientThreeSublinearProduct : Prop :=
   ∀ eta : ℝ, 0 < eta →
     ∃ H K : ℝ, ∀ P : ABCPoint,
@@ -278,8 +254,7 @@ def UniformCoefficientThreeSublinearProduct : Prop :=
         SymmetricProductCoefficientBarrier.ABCPoint.symmetricProductLog P ≤
           3 * P.conductor + eta * P.height + K
 
-/-- Any uniform coefficient-three product theorem with arbitrarily small
-relative height error closes the convenient eventual balanced region. -/
+/-- The convenient eventual balanced region closes under such a product bound. -/
 theorem eventual_balanced_abc_of_uniformCoefficientThreeSublinearProduct
     (hproduct : UniformCoefficientThreeSublinearProduct) :
     ∀ epsilon : ℝ, 0 < epsilon → epsilon ≤ 1 →
@@ -295,9 +270,7 @@ theorem eventual_balanced_abc_of_uniformCoefficientThreeSublinearProduct
   exact ABCPoint.height_le_one_add_epsilon_of_coefficient_three_balanced
     P hepsilon hepsilon_one hbalance (hK P hheight)
 
-/-- Exact eventual balance frontier supplied by a uniform coefficient-three
-sublinear-error theorem.  Choosing `eta=epsilon^2` leaves the endpoint exponent
-`3/(1+epsilon)-2+epsilon^2 = 1-3epsilon+O(epsilon^2)`. -/
+/-- Exact eventual balance frontier, taking `eta=epsilon^2`. -/
 theorem eventual_criticalBalanced_abc_of_uniformCoefficientThreeSublinearProduct
     (hproduct : UniformCoefficientThreeSublinearProduct) :
     ∀ epsilon : ℝ, 0 < epsilon →
