@@ -90,12 +90,20 @@ theorem exists_prime_pow_succ_dvd_of_not
       ¬ ∀ p : ℕ, p.Prime → n.factorization p ≤ k := by
     intro hall
     exact hnot ⟨hn, hall⟩
-  push_neg at hnotall
+  push Not at hnotall
   obtain ⟨p, hp, hgt⟩ := hnotall
   refine ⟨p, hp, (hp.pow_dvd_iff_le_factorization hn).2 ?_⟩
   omega
 
 end IsExponentAtMost
+
+end
+end LargeEndpointPowerFreeClosure
+
+open LargeEndpointPowerFreeClosure
+open UniqueFactorizationMonoid
+
+noncomputable section
 
 namespace ABCPoint
 
@@ -109,10 +117,8 @@ def largeEndpoint (P : ABCPoint) : ℕ := max P.a P.b
 /-- The sum is at most twice its larger summand. -/
 theorem c_le_two_mul_largeEndpoint (P : ABCPoint) :
     P.c ≤ 2 * P.largeEndpoint := by
-  have ha : P.a ≤ P.largeEndpoint := by
-    exact le_max_left _ _
-  have hb : P.b ≤ P.largeEndpoint := by
-    exact le_max_right _ _
+  have ha : P.a ≤ P.largeEndpoint := le_max_left _ _
+  have hb : P.b ≤ P.largeEndpoint := le_max_right _ _
   rw [← P.sum_eq]
   omega
 
@@ -231,6 +237,8 @@ theorem exists_prime_cube_dvd_largeProduct_of_strong_violation
 
 end ABCPoint
 
+namespace LargeEndpointPowerFreeClosure
+
 #print axioms IsExponentAtMost.dvd_radical_pow
 #print axioms IsExponentAtMost.le_radical_pow
 #print axioms IsExponentAtMost.exists_prime_pow_succ_dvd_of_not
@@ -239,6 +247,6 @@ end ABCPoint
 #print axioms ABCPoint.height_le_conductor_add_log_two_div_two_of_cubeFreeLargeProduct
 #print axioms ABCPoint.exists_prime_cube_dvd_largeProduct_of_strong_violation
 
-end
 end LargeEndpointPowerFreeClosure
+end
 end IUTThreeClosures
