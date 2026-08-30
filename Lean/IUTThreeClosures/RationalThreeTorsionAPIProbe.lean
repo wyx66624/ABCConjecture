@@ -1,0 +1,22 @@
+import Mathlib
+
+#check Nat.dvd_add_iff_left
+#check Nat.dvd_add_iff_right
+#check dvd_mul_of_dvd_right
+#check dvd_mul_of_dvd_left
+#check gcd_mul_dvd_mul_gcd
+#check gcd_pow_left_dvd_pow_gcd
+#check gcd_pow_right_dvd_pow_gcd
+#check Nat.Coprime.dvd_mul_right
+#check Nat.Coprime.dvd_mul_left
+#check Nat.Coprime.of_dvd_right
+#check Nat.Coprime.of_dvd_left
+#check Nat.eq_one_of_dvd_coprimes
+#check Nat.dist_eq_sub_of_le
+#check Nat.dist_eq_sub_of_le_right
+#check Nat.gcd_dvd_left
+#check Nat.gcd_dvd_right
+#check Nat.coprime_iff_gcd_eq_one
+#check Nat.gcd_pos_of_pos_right
+#check Nat.div_mul_cancel
+#check Nat.le_of_dvd
