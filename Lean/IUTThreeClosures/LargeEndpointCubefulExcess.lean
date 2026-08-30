@@ -50,14 +50,14 @@ theorem le_radical_sq_mul_cubefulExcess (n : ℕ) :
       (gcd_mul_cubefulExcess_eq n).symm
     _ ≤ abcRadical n ^ 2 * cubefulExcess n :=
       Nat.mul_le_mul_right _
-        (Nat.gcd_le_right n (abcRadical n ^ 2))
+        (Nat.gcd_le_right n (abcRadical n ^ 2) (by positivity))
 
 /-- Cubeful excess is positive on positive inputs. -/
 theorem cubefulExcess_pos {n : ℕ} (hn : 0 < n) :
     0 < cubefulExcess n := by
   unfold cubefulExcess
   apply Nat.div_pos
-  · exact Nat.gcd_le_left _ _
+  · exact Nat.gcd_le_left _ _ hn
   · exact Nat.gcd_pos_of_pos_left _ hn
 
 end
@@ -136,7 +136,8 @@ theorem two_mul_height_le_log_two_add_two_mul_conductor_add_log_cubefulExcess
       Real.log_pow] at hlog
   rw [P.height_eq_log_c]
   unfold ABCPoint.conductor
-  linarith
+  ring_nf at hlog ⊢
+  exact hlog
 
 /-- A relative bound for the cubeful excess gives the standard abc slope. -/
 theorem height_le_of_cubefulExcess_bound
