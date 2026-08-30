@@ -50,7 +50,7 @@ theorem le_radical_sq_mul_cubefulExcess (n : ℕ) :
       (gcd_mul_cubefulExcess_eq n).symm
     _ ≤ abcRadical n ^ 2 * cubefulExcess n :=
       Nat.mul_le_mul_right _
-        (Nat.gcd_le_right n (by positivity))
+        (Nat.gcd_le_right n (pow_pos (abcRadical_pos n) 2))
 
 /-- Cubeful excess is positive on positive inputs. -/
 theorem cubefulExcess_pos {n : ℕ} (hn : 0 < n) :
