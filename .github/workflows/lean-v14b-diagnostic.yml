@@ -1,0 +1,70 @@
+name: Lean v14b multiplicity diagnostics
+
+on:
+  push:
+    branches:
+      - "formalize/large-endpoint-cubeful-excess-v14b"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Compile new modules and preserve every diagnostic
+        working-directory: Lean
+        shell: bash
+        run: |
+          set +e
+          modules=(
+            IUTThreeClosures.LargeEndpointCubefulExcess
+            IUTThreeClosures.EndpointCubefulSynthesis
+            IUTThreeClosures.LargeEndpointSignedMultiplicityExcess
+            IUTThreeClosures.EndpointSignedExcessSynthesis
+            IUTThreeClosures.CubefulExponentOneLayer
+            IUTThreeClosures.LargeEndpointNetExcessEquivalence
+            IUTThreeClosures.GlobalMultiplicityExcessObstruction
+            IUTThreeClosures.SignedMultiplicityExponentLayerDichotomy
+          )
+          : > ../v14b-summary.tsv
+          overall=0
+          for module in "${modules[@]}"; do
+            safe=${module//./_}
+            lake build "$module" > "../${safe}.log" 2>&1
+            rc=$?
+            printf '%s\t%s\n' "$module" "$rc" >> ../v14b-summary.tsv
+            if [ "$rc" -ne 0 ]; then
+              overall=1
+            fi
+          done
+          echo "$overall" > ../v14b-overall.exit
+          exit 0
+
+      - name: Upload diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: v14b-multiplicity-diagnostics
+          path: |
+            v14b-summary.tsv
+            v14b-overall.exit
+            IUTThreeClosures_*.log
+          if-no-files-found: error
