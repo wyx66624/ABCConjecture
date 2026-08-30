@@ -1,0 +1,49 @@
+name: Lean v16 diagnostic
+
+on:
+  push:
+    branches:
+      - "formalize/iterated-radical-excess-split-v16"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Compile target and preserve diagnostics
+        working-directory: Lean
+        shell: bash
+        run: |
+          set +e
+          lake build IUTThreeClosures.IteratedRadicalExcessSplit > ../v16-diagnostic.log 2>&1
+          echo "$?" > ../v16-diagnostic.exit
+          exit 0
+
+      - name: Upload diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: v16-lean-diagnostic
+          path: |
+            v16-diagnostic.log
+            v16-diagnostic.exit
+          if-no-files-found: error
