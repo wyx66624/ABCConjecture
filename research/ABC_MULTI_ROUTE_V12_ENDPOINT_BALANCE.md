@@ -6,16 +6,16 @@
 
 ## Status
 
-This note proves an unconditional transfer theorem that connects the current
+This note proves an unconditional transfer theorem connecting the current
 coefficient-three symmetric-product route to the endpoint/smooth-neighbour
 route. It does **not** assert a parameter-free proof or disproof of the abc
-conjecture. The new theorem removes the previously stated coefficient-two
+conjecture. The theorem removes the previously stated coefficient-two
 requirement on every quantitatively balanced abc triple and proves that any
 remaining obstruction must be endpoint-degenerate.
 
-The accompanying Lean module formalizes the elementary arithmetic and all
-coefficient calculations. It introduces no arithmetic-existence axiom and no
-field whose conclusion is `ABCConjecture`.
+The accompanying Lean module formalizes the elementary arithmetic and every
+coefficient calculation. It introduces no arithmetic-existence axiom and no
+structure field whose conclusion is `ABCConjecture`.
 
 ## 1. Setup
 
@@ -34,7 +34,7 @@ S=\log(abc), \qquad
 R=\log\operatorname{rad}(abc).
 \]
 
-The previous v11 audit used only the universal lower bound
+The v11 audit used only the universal lower bound
 
 \[
 2h-\log 2\le S.
@@ -144,9 +144,9 @@ The denominator is positive by hypothesis, so division proves the theorem.
 This is an exact scalar formula: no asymptotic notation and no hidden
 constant are used.
 
-## 4. Coefficient three closes the balanced region
+## 4. Coefficient three closes a balanced region
 
-### Theorem 4.1
+### Theorem 4.1: convenient specialization
 
 Fix `0 < epsilon <= 1`. Assume
 
@@ -211,31 +211,120 @@ because this is equivalent to
 The conductor logarithm `R` is nonnegative, so the coefficient can be enlarged
 to `1+epsilon`, proving the result. ∎
 
-### Corollary 4.2: endpoint localization
+### Corollary 4.2: convenient endpoint localization
 
 Under the same coefficient-three product estimate, any point violating the
 conclusion of Theorem 4.1 must satisfy
 
 \[
-\boxed{
 \log\min(a,b)
 <
 \left(1-\frac{\epsilon}{2}\right)
 \log c.
+\]
+
+## 5. The exact critical balance exponent
+
+The preceding specialization is simple but is not coefficient-optimal. The
+general transfer formula identifies the exact frontier.
+
+### Definition 5.1
+
+For target abc coefficient `1+epsilon` and relative product error `eta`, put
+
+\[
+\boxed{
+\tau_*(\epsilon,\eta)
+=
+\frac{3}{1+\epsilon}-2+\eta.
 }
 \]
 
-Equivalently,
+### Theorem 5.2: exact critical transfer
+
+Let `epsilon>0`. Assume
 
 \[
-\min(a,b)<c^{1-\epsilon/2}.
+\tau_*(\epsilon,\eta)h\le\log m
 \]
 
-Thus the coefficient-three route and the endpoint route are complementary:
-coefficient three already handles the balanced locus; only a quantitatively
-short additive endpoint remains.
+and
 
-## 5. Uniform sublinear-error form
+\[
+S\le3R+\eta h+K.
+\]
+
+Then
+
+\[
+\boxed{
+h
+\le
+(1+\epsilon)R+
+\frac{(1+\epsilon)(K+\log2)}{3}.
+}
+\]
+
+### Proof
+
+Apply Theorem 3.1 with
+
+\[
+\tau=\tau_*(\epsilon,\eta),
+\qquad
+\lambda=3.
+\]
+
+By definition,
+
+\[
+2+\tau_*(\epsilon,\eta)-\eta
+=
+\frac{3}{1+\epsilon}.
+\]
+
+Therefore
+
+\[
+h
+\le
+\frac{3R+K+\log2}{3/(1+\epsilon)}
+=
+(1+\epsilon)R+
+\frac{(1+\epsilon)(K+\log2)}3.
+\]
+
+No coefficient enlargement is used, so this frontier is exact for the scalar
+transfer argument. ∎
+
+### Corollary 5.3: sharp endpoint localization
+
+Under the coefficient-three estimate above, every violation of the resulting
+`1+epsilon` abc bound must satisfy
+
+\[
+\boxed{
+\log\min(a,b)
+<
+\left(
+\frac3{1+\epsilon}-2+\eta
+\right)
+\log c.
+}
+\]
+
+For `eta=o(1)`, the exponent is
+
+\[
+\frac3{1+\epsilon}-2+o(1)
+=
+1-3\epsilon+O(\epsilon^2)+o(1).
+\]
+
+Thus coefficient three closes substantially more than the convenient
+`1-epsilon/2` region.
+
+## 6. Uniform sublinear-error form
 
 Define the concrete statement:
 
@@ -245,17 +334,28 @@ Define the concrete statement:
 > S\le3R+\eta h+K_\eta.
 > \]
 
-No abc conclusion occurs in this definition. Theorem 4.1 immediately implies
-that, for every `0<epsilon<=1`, one uniform constant controls every sufficiently
-large point in the balanced region
+No abc conclusion occurs in this definition.
+
+Choosing `eta=epsilon^2`, Theorem 5.2 gives one uniform constant on the eventual
+region
 
 \[
-\log m
-\ge
-\left(1-\frac{\epsilon}{2}\right)h.
+\boxed{
+\left(
+\frac3{1+\epsilon}-2+\epsilon^2
+\right)h
+\le
+\log\min(a,b).
+}
 \]
 
-This implication is formalized as
+The corresponding Lean theorem is
+
+```lean
+eventual_criticalBalanced_abc_of_uniformCoefficientThreeSublinearProduct
+```
+
+The simpler but weaker specialization is retained as
 
 ```lean
 eventual_balanced_abc_of_uniformCoefficientThreeSublinearProduct
@@ -263,9 +363,9 @@ eventual_balanced_abc_of_uniformCoefficientThreeSublinearProduct
 
 in `EndpointBalanceCoefficientTransfer.lean`.
 
-## 6. Relation to the announced IUT coefficient-three estimate
+## 7. Relation to the announced IUT coefficient-three estimate
 
-ArXiv:2503.14510 states the explicit inequality
+ArXiv:2503.14510 announces the explicit inequality
 
 \[
 S\le3R+8\sqrt{S\log S}
@@ -290,35 +390,36 @@ Therefore
 
 Consequently, **if** the announced coefficient-three inequality is valid with
 the displayed quantifiers, then it supplies the uniform sublinear product
-statement above, and Theorem 4.1 proves standard abc on every eventual balanced
-locus. The unresolved part is forced into the endpoint region
+statement above. Theorem 5.2 would then prove standard abc on every eventual
+balanced locus, and the unresolved part would be forced into
 
 \[
-\min(a,b)<c^{1-\delta}
+\log\min(a,b)
+<
+\left(
+\frac3{1+\epsilon}-2+o(1)
+\right)
+\log c.
 \]
 
-for a fixed positive `delta` depending on the target epsilon.
+This sharpens the v11 verdict that coefficient three “only gives 3/2”: that
+verdict is sharp without balance information, but the smaller endpoint
+supplies the missing third height unit on balanced triples.
 
-This is stronger than the v11 verdict that coefficient three “only gives
-3/2”: that verdict is sharp without balance information, but the smaller
-endpoint supplies exactly the missing third height unit on balanced triples.
+## 8. Updated multi-route frontier
 
-## 7. Updated multi-route frontier
-
-The four routes now interact as follows.
-
-| Route | Remaining theorem after the endpoint-balance transfer |
+| Route | Remaining theorem after the exact endpoint-balance transfer |
 |---|---|
-| IUT / coefficient-three product | Verify or independently prove a uniform coefficient-three estimate with `o(h)` error. This would close every eventual balanced triple. |
-| Endpoint / smooth-neighbour | Treat only triples with `min(a,b)<c^{1-delta}`. The small summand is now an explicit power-saving short gap rather than an arbitrary abc point. |
-| Frey--modified-Szpiro | A source-uniform slope-six estimate still closes all points directly; alternatively it may be targeted only at the endpoint locus left by the product estimate. |
-| S-unit / Arakelov | The uniform height problem may now be restricted to the endpoint-degenerate locus if the coefficient-three product theorem is established. |
+| IUT / coefficient-three product | Verify or independently prove a uniform coefficient-three estimate with `o(h)` error. This closes every eventual point outside the sharp endpoint region above. |
+| Endpoint / smooth-neighbour | Treat only triples whose smaller summand has exponent below `3/(1+epsilon)-2+o(1)`. The remaining problem is now a power-saving additive-endpoint problem. |
+| Frey--modified-Szpiro | A source-uniform slope-six estimate still closes all points directly; alternatively it may be targeted only at the sharp endpoint locus. |
+| S-unit / Arakelov | A uniform height theorem may likewise be restricted to the endpoint-degenerate locus once the coefficient-three product estimate is established. |
 
-## 8. What remains open
+## 9. What remains open
 
-The new theorem is a genuine unconditional mathematical advance in the
-reduction architecture, but it is not a complete abc proof. A parameter-free
-closure still requires at least one of:
+The new theorem is a genuine unconditional advance in the reduction
+architecture, but it is not a complete abc proof. A parameter-free closure
+still requires at least one of:
 
 1. an independently verified coefficient-three product estimate with uniform
    sublinear error, together with an endpoint theorem;
@@ -326,6 +427,10 @@ closure still requires at least one of:
 3. a direct coefficient-one S-unit/Arakelov height estimate;
 4. an unbounded low-radical endpoint family disproving abc.
 
-The important reduction is that a coefficient-three product estimate no longer
-needs to be improved to coefficient two everywhere: its remaining failure set
-is now rigorously localized to a power-saving endpoint region.
+The central reduction is now sharper: a coefficient-three product estimate
+need not be improved to coefficient two everywhere. Its remaining failure set
+is rigorously localized to the exact endpoint exponent
+
+\[
+\frac3{1+\epsilon}-2+o(1).
+\]
