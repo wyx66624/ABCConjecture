@@ -35,7 +35,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          lake env lean IUTThreeClosures/LargeEndpointPowerFreeClosure.lean > ../v13-diagnostic.log 2>&1
+          lake build IUTThreeClosures.LargeEndpointPowerFreeClosure > ../v13-diagnostic.log 2>&1
           echo "$?" > ../v13-diagnostic.exit
           exit 0
 
