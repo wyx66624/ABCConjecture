@@ -1,0 +1,79 @@
+name: v16b verified merge gate
+
+on:
+  push:
+    branches:
+      - "formalize/signed-endpoint-defect-v16b"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  verify-and-merge:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Kernel-check every project module
+        working-directory: Lean
+        shell: bash
+        run: lake build
+
+      - name: Verify every source produced an olean
+        working-directory: Lean
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          sources = [Path("IUTThreeClosures.lean")]
+          sources.extend(sorted(Path("IUTThreeClosures").rglob("*.lean")))
+          root = Path(".lake/build/lib/lean")
+          missing = [str(root / p.with_suffix(".olean")) for p in sources
+                     if not (root / p.with_suffix(".olean")).is_file()]
+          print(f"Audited {len(sources)} project modules")
+          if missing:
+              print("\n".join(missing))
+              raise SystemExit(1)
+          PY
+
+      - name: Remove temporary merge gate from the verified branch
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git rm .github/workflows/v16b-verified-merge.yml
+          git commit -m "Remove temporary v16b verified merge gate"
+          git push origin HEAD:formalize/signed-endpoint-defect-v16b
+
+      - name: Merge the verified pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          pr=$(gh pr list \
+            --repo "${GITHUB_REPOSITORY}" \
+            --head "formalize/signed-endpoint-defect-v16b" \
+            --base main \
+            --state open \
+            --json number \
+            --jq '.[0].number')
+          test -n "$pr"
+          gh pr merge "$pr" --repo "${GITHUB_REPOSITORY}" --merge --admin
