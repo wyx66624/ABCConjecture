@@ -29,6 +29,8 @@ jobs:
           lake update >/dev/null 2>&1
           lake exe cache get >/dev/null 2>&1
 
-      - name: Compile v27 target
+      - name: Compile v27 targets
         working-directory: Lean
-        run: lake build IUTThreeClosures.CoprimeModuliResidualProductCore
+        run: |
+          lake build IUTThreeClosures.CoprimeModuliResidualProductCore
+          lake build IUTThreeClosures.SquareCubeResidualSixthPower
