@@ -1,0 +1,44 @@
+name: Irreducible symmetric theta orthogonality
+
+on:
+  push:
+    branches:
+      - "research/abc-irreducible-symmetric-theta-average-v12"
+  pull_request:
+    paths:
+      - "Lean/IUTThreeClosures/IrreducibleSymmetricThetaOrthogonality.lean"
+      - "Lean/IUTThreeClosures/CenteredThetaWeight.lean"
+      - "Lean/IUTThreeClosures.lean"
+      - ".github/workflows/irreducible-symmetric-theta.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Compile the modules
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake env lean IUTThreeClosures/IrreducibleSymmetricThetaOrthogonality.lean
+          lake env lean IUTThreeClosures/CenteredThetaWeight.lean
