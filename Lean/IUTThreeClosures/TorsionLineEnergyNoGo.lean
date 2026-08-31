@@ -3,6 +3,8 @@ Copyright (c) 2026 ChatGPT. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: ChatGPT
 -/
+import IUTThreeClosures.ABCDisproofCriterion
+import IUTThreeClosures.PowerResidueEncodingCore
 import Mathlib
 
 /-!
