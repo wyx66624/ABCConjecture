@@ -21,42 +21,38 @@ jobs:
         shell: bash
         run: |
           python3 - <<'PY'
+          import re
           from pathlib import Path
 
           path = Path('Lean/IUTThreeClosures/SquareCubeResidualSixthPower.lean')
           text = path.read_text()
 
-          replacements = [
-          ('''      exact weighted_div_two_add_div_three_le_sixth_budget
-                (exponent i) (weight i) (hweight i hi)''', '''      simpa [add_assoc] using
-                weighted_div_two_add_div_three_le_sixth_budget
-                  (exponent i) (weight i) (hweight i hi)'''),
-          ('''      rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
-                ← Finset.mul_sum, ← Finset.mul_sum, ← Finset.mul_sum]
+          def sub_once(pattern: str, replacement: str, source: str) -> str:
+              result, count = re.subn(pattern, replacement, source, count=1,
+                                      flags=re.MULTILINE)
+              if count != 1:
+                  raise SystemExit(f'expected exactly one regex match, got {count}: {pattern}')
+              return result
 
-          /-- Sharp finite-profile ledger''', '''      rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
-                ← Finset.mul_sum, ← Finset.mul_sum, ← Finset.mul_sum]
-              ring
+          text = sub_once(
+              r'^(?P<i>[ \t]*)exact weighted_div_two_add_div_three_le_sixth_budget\n[ \t]*\(exponent i\) \(weight i\) \(hweight i hi\)$',
+              r'\g<i>simpa [add_assoc] using\n\g<i>  weighted_div_two_add_div_three_le_sixth_budget\n\g<i>    (exponent i) (weight i) (hweight i hi)',
+              text)
 
-          /-- Sharp finite-profile ledger'''),
-          ('''      exact weighted_signed_surplus_le_sixth_budget
-                (exponent i) (weight i) (hweight i hi)''', '''      simpa [add_assoc] using
-                weighted_signed_surplus_le_sixth_budget
-                  (exponent i) (weight i) (hweight i hi)'''),
-          ('''      rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
-                ← Finset.mul_sum, ← Finset.mul_sum]
+          text = sub_once(
+              r'^(?P<i>[ \t]*)rw \[Finset\.sum_add_distrib, Finset\.sum_add_distrib,\n[ \t]*← Finset\.mul_sum, ← Finset\.mul_sum, ← Finset\.mul_sum\]\n\n(?=/-- Sharp finite-profile ledger)',
+              r'\g<i>rw [Finset.sum_add_distrib, Finset.sum_add_distrib,\n\g<i>  ← Finset.mul_sum, ← Finset.mul_sum, ← Finset.mul_sum]\n\g<i>ring\n\n',
+              text)
 
-          /-- Flexible trichotomy''', '''      rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
-                ← Finset.mul_sum, ← Finset.mul_sum]
-              ring
+          text = sub_once(
+              r'^(?P<i>[ \t]*)exact weighted_signed_surplus_le_sixth_budget\n[ \t]*\(exponent i\) \(weight i\) \(hweight i hi\)$',
+              r'\g<i>simpa [add_assoc] using\n\g<i>  weighted_signed_surplus_le_sixth_budget\n\g<i>    (exponent i) (weight i) (hweight i hi)',
+              text)
 
-          /-- Flexible trichotomy'''),
-          ]
-
-          for old, new in replacements:
-              if old not in text:
-                  raise SystemExit(f'expected patch fragment not found:\n{old}')
-              text = text.replace(old, new, 1)
+          text = sub_once(
+              r'^(?P<i>[ \t]*)rw \[Finset\.sum_add_distrib, Finset\.sum_add_distrib,\n[ \t]*← Finset\.mul_sum, ← Finset\.mul_sum\]\n\n(?=/-- Flexible trichotomy)',
+              r'\g<i>rw [Finset.sum_add_distrib, Finset.sum_add_distrib,\n\g<i>  ← Finset.mul_sum, ← Finset.mul_sum]\n\g<i>ring\n\n',
+              text)
 
           path.write_text(text)
           Path('.github/workflows/v27-associativity-autofix.yml').unlink()
