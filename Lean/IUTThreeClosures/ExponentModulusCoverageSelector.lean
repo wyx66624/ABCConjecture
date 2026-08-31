@@ -36,7 +36,7 @@ variable {ι : Type*}
 /-- Weight of coordinates whose exponent is divisible by `n`. -/
 def exponentDivisibleWeight
     (n : ℕ) (s : Finset ι) (weight : ι → ℝ) (exponent : ι → ℕ) : ℝ :=
-  ∑ i in s, if n ∣ exponent i then weight i else 0
+  ∑ i ∈ s, if n ∣ exponent i then weight i else 0
 
 /-- Divisible-exponent weights are nonnegative when all coordinate weights are
 nonnegative. -/
@@ -80,7 +80,7 @@ theorem coordinate_weight_le_modulus_cover
     (hthree : 3 ≤ exponent i)
     (hcap : exponent i ≤ K) :
     weight i ≤
-      ∑ n in Finset.Icc 3 K,
+      ∑ n ∈ Finset.Icc 3 K,
         if n ∣ exponent i then weight i else 0 := by
   classical
   have hmem : exponent i ∈ Finset.Icc 3 K := by
@@ -94,7 +94,7 @@ theorem coordinate_weight_le_modulus_cover
     · simp [hdiv]
   have hsingle :
       (if exponent i ∣ exponent i then weight i else 0) ≤
-        ∑ n in Finset.Icc 3 K,
+        ∑ n ∈ Finset.Icc 3 K,
           if n ∣ exponent i then weight i else 0 := by
     exact Finset.single_le_sum hnonneg hmem
   simpa using hsingle
@@ -107,14 +107,14 @@ theorem atLeastThreeWeight_le_sum_divisibleWeight_Icc
     (hweight : ∀ i ∈ s, 0 ≤ weight i)
     (hcap : ∀ i ∈ s, exponent i ≤ K) :
     exponentAtLeastThreeWeight s weight exponent ≤
-      ∑ n in Finset.Icc 3 K,
+      ∑ n ∈ Finset.Icc 3 K,
         exponentDivisibleWeight n s weight exponent := by
   classical
   unfold exponentAtLeastThreeWeight exponentDivisibleWeight
   calc
     (∑ i ∈ s, if 3 ≤ exponent i then weight i else 0) ≤
         ∑ i ∈ s,
-          ∑ n in Finset.Icc 3 K,
+          ∑ n ∈ Finset.Icc 3 K,
             if n ∣ exponent i then weight i else 0 := by
       apply Finset.sum_le_sum
       intro i hi
@@ -127,7 +127,7 @@ theorem atLeastThreeWeight_le_sum_divisibleWeight_Icc
           by_cases hdiv : n ∣ exponent i
           · simpa [hdiv] using hweight i hi
           · simp [hdiv]
-    _ = ∑ n in Finset.Icc 3 K,
+    _ = ∑ n ∈ Finset.Icc 3 K,
           ∑ i ∈ s, if n ∣ exponent i then weight i else 0 := by
       rw [Finset.sum_comm]
 
@@ -145,13 +145,13 @@ theorem atLeastThreeWeight_le_card_mul_of_each_le
   have hcover := atLeastThreeWeight_le_sum_divisibleWeight_Icc
     s weight exponent hweight hcap
   have hsum :
-      (∑ n in Finset.Icc 3 K,
+      (∑ n ∈ Finset.Icc 3 K,
         exponentDivisibleWeight n s weight exponent) ≤
           ((Finset.Icc 3 K).card : ℝ) * B := by
     calc
-      (∑ n in Finset.Icc 3 K,
+      (∑ n ∈ Finset.Icc 3 K,
         exponentDivisibleWeight n s weight exponent) ≤
-          ∑ _n in Finset.Icc 3 K, B := by
+          ∑ _n ∈ Finset.Icc 3 K, B := by
         exact Finset.sum_le_sum fun n hn => heach n hn
       _ = ((Finset.Icc 3 K).card : ℝ) * B := by simp
   exact hcover.trans hsum
