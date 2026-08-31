@@ -81,9 +81,10 @@ theorem isNegativeSquareMod_of_mul_square_add_square
   have hunit :
       a * (z * r) ^ 2 + (t * r) ^ 2 ≡
         a + (t * r) ^ 2 [MOD p] := by
-    exact
+    have hs :=
       ((Nat.ModEq.refl a).mul (hzr.pow 2)).add
         (Nat.ModEq.refl ((t * r) ^ 2))
+    simpa using hs
   exact ⟨t * r, hunit.symm.trans hscaled⟩
 
 /-- Removing a summand divisible by the modulus preserves the other side of
