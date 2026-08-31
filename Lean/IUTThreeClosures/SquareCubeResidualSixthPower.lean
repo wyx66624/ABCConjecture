@@ -236,14 +236,16 @@ theorem squareRoot_add_cubeRoot_le_five_sixthRoot_add_residuals
             3 * (if ¬ 3 ∣ exponent i then weight i else 0))) := by
       apply Finset.sum_le_sum
       intro i hi
-      exact weighted_div_two_add_div_three_le_sixth_budget
-        (exponent i) (weight i) (hweight i hi)
+      simpa [add_assoc] using
+        weighted_div_two_add_div_three_le_sixth_budget
+          (exponent i) (weight i) (hweight i hi)
     _ = 5 * (∑ i ∈ s, ((exponent i / 6 : ℕ) : ℝ) * weight i) +
         2 * (∑ i ∈ s, if ¬ 2 ∣ exponent i then weight i else 0) +
           3 * (∑ i ∈ s, if ¬ 3 ∣ exponent i then weight i else 0) := by
       simp only [mul_assoc]
       rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
         ← Finset.mul_sum, ← Finset.mul_sum, ← Finset.mul_sum]
+      ring
 
 /-- Sharp finite-profile ledger for the signed exponent-two surplus. -/
 theorem signedTwoSurplus_le_sixthRoot_add_residuals
@@ -269,14 +271,16 @@ theorem signedTwoSurplus_le_sixthRoot_add_residuals
             2 * (if ¬ 3 ∣ exponent i then weight i else 0))) := by
       apply Finset.sum_le_sum
       intro i hi
-      exact weighted_signed_surplus_le_sixth_budget
-        (exponent i) (weight i) (hweight i hi)
+      simpa [add_assoc] using
+        weighted_signed_surplus_le_sixth_budget
+          (exponent i) (weight i) (hweight i hi)
     _ = 6 * (∑ i ∈ s, ((exponent i / 6 : ℕ) : ℝ) * weight i) +
         (∑ i ∈ s, if ¬ 2 ∣ exponent i then weight i else 0) +
           2 * (∑ i ∈ s, if ¬ 3 ∣ exponent i then weight i else 0) := by
       simp only [mul_assoc]
       rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
         ← Finset.mul_sum, ← Finset.mul_sum]
+      ring
 
 /-- Flexible trichotomy: a surplus above the displayed combined budget forces
 one of the three constituent quantities above its proposed threshold. -/
