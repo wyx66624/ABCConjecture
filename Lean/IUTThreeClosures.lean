@@ -267,6 +267,7 @@ import IUTThreeClosures.GlobalABCPTAlmostAllAmplificationAudit
 import IUTThreeClosures.EtaOrbitMinimalGap
 import IUTThreeClosures.JoshiArithmeticTeichmullerAudit
 import IUTThreeClosures.TorsionLineEnergyNoGo
+import IUTThreeClosures.AlgebraicNormSelectionCore
 
 -- Verified cloud branches that were previously absent from the default target.
 import IUTThreeClosures.LegendreSimultaneousSelector
