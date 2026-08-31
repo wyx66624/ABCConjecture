@@ -1,0 +1,49 @@
+name: Wronskian quantization diagnostic
+
+on:
+  push:
+    branches:
+      - "formalize/wronskian-quantization-sharpness-v23"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Compile target and preserve full diagnostics
+        working-directory: Lean
+        shell: bash
+        run: |
+          set +e
+          lake build IUTThreeClosures.ArithmeticWronskianQuantization > ../wronskian-quantization-diagnostic.log 2>&1
+          echo "$?" > ../wronskian-quantization-diagnostic.exit
+          exit 0
+
+      - name: Upload diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: wronskian-quantization-diagnostic
+          path: |
+            wronskian-quantization-diagnostic.log
+            wronskian-quantization-diagnostic.exit
+          if-no-files-found: error
