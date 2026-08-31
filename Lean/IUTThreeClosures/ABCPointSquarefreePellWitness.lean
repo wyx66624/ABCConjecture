@@ -116,7 +116,7 @@ theorem exists_squarefreePellWitness (P : ABCPoint) :
 
   have hpell :
       (v * y) ^ 2 = (u * v) * x ^ 2 + v * (w * z ^ 2) :=
-    square_gap_to_pell_norm_equation hconic
+    PowerSquareGapPellBridge.square_gap_to_pell_norm_equation hconic
 
   have hsmallDiv : w * z ∣ P.endpointMin := by
     refine ⟨z, ?_⟩
