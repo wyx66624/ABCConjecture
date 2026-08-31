@@ -5,6 +5,7 @@ Authors: ChatGPT
 -/
 import IUTThreeClosures.ExponentResidueRadicalDrop
 import IUTThreeClosures.ExponentLayerCakeSelector
+import IUTThreeClosures.PrimeExponentModulusSelector
 import Mathlib.Tactic
 
 /-!
@@ -72,7 +73,6 @@ theorem exists_prime_with_explicit_detected_fraction
     rw [hcard]
     dsimp [B, d]
     field_simp [show (((K - 2 : ℕ) : ℝ)) ≠ 0 by exact_mod_cast hdNat.ne']
-    ring
   have hthreshold :
       ((K - 2 : ℕ) : ℝ) *
           ((Finset.Icc 3 K).card : ℝ) * B < A := by
@@ -117,7 +117,7 @@ theorem exists_prime_with_explicit_residue_budget
   refine ⟨ell, hellPrime, hellK, ?_⟩
   dsimp
   refine ⟨hdetected, ?_⟩
-  exact residueWeight_le_pred_mul_radical_sub_detected
+  exact residueWeight_le_pred_mul_radical_sub_threshold
     hellPrime.pos s weight exponent hweight hdetected.le
 
 #print axioms exists_prime_with_explicit_detected_fraction
