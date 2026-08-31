@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: ChatGPT
 -/
 import IUTThreeClosures.ABCCounterexampleExcessMassGate
+import IUTThreeClosures.ABCPointLegendreCurve
 import Mathlib.Tactic
 
 /-!
@@ -13,9 +14,9 @@ For every natural `X>=2`,
 
 `1 + X*(X-2) = (X-1)^2`.
 
-Taking `X=x^k` gives a primitive adjacent abc triple in which the `b`
-coordinate is divisible by the arbitrarily high power `x^k`, while `c` is an
-exact square.  Thus no route can close abc from the bare assertion
+Taking `X=x^k>=3` gives a positive primitive adjacent abc triple in which the
+`b` coordinate is divisible by the prescribed perfect power `x^k`, while `c`
+is an exact square.  Thus no route can close abc from the bare assertion
 
 *one large endpoint has a large `k`-th-power divisor and the other has a large
 square divisor*.
@@ -52,7 +53,9 @@ theorem one_add_adjacentPowerPart_eq_adjacentSquare
     _ = ((X - 2) + 1) ^ 2 := by ring
     _ = (X - 1) ^ 2 := by rw [← hXm1]
 
-/-- The identity gives a primitive adjacent abc triple. -/
+/-- The identity gives a primitive adjacent gcd pattern.  Positivity of the
+lower endpoint is imposed separately at `X>=3` when constructing an
+`ABCPoint`. -/
 theorem pairwiseCoprimeABC_one_adjacentPowerPart_adjacentSquare
     {X : ℕ} (hX : 2 ≤ X) :
     PairwiseCoprimeABC 1 (adjacentPowerPart X) (adjacentSquare X) := by
@@ -75,41 +78,34 @@ theorem adjacentSquare_power_eq
     (x k : ℕ) :
     adjacentSquare (x ^ k) = ((x ^ k) - 1) ^ 2 := rfl
 
-/-- For every admissible power `x^k`, there is a positive primitive abc point
-with that power dividing one large endpoint and an exact square as the other. -/
+/-- For every power `x^k>=3`, there is a positive primitive abc point with
+that power dividing one large endpoint and an exact square as the other. -/
 def powerSquareABCPoint
-    (x k : ℕ) (hX : 2 ≤ x ^ k) : ABCPoint :=
+    (x k : ℕ) (hX : 3 ≤ x ^ k) : ABCPoint :=
   { a := 1
     b := adjacentPowerPart (x ^ k)
     c := adjacentSquare (x ^ k)
     a_pos := by norm_num
     b_pos := by
       unfold adjacentPowerPart
-      have hsub : 0 < x ^ k - 2 := by
-        have : 2 < x ^ k := by
-          by_cases heq : x ^ k = 2
-          · subst heq
-            norm_num
-          · omega
-        omega
-      exact mul_pos (lt_of_lt_of_le (by norm_num) hX) hsub
+      exact mul_pos (by omega) (by omega)
     c_pos := by
       unfold adjacentSquare
       have hsub : 0 < x ^ k - 1 := by omega
       positivity
-    sum_eq := one_add_adjacentPowerPart_eq_adjacentSquare hX
+    sum_eq := one_add_adjacentPowerPart_eq_adjacentSquare (by omega)
     pairwise_coprime :=
-      pairwiseCoprimeABC_one_adjacentPowerPart_adjacentSquare hX }
+      pairwiseCoprimeABC_one_adjacentPowerPart_adjacentSquare (by omega) }
 
 /-- The constructed point retains the prescribed perfect-power divisor. -/
 theorem power_dvd_powerSquareABCPoint_b
-    (x k : ℕ) (hX : 2 ≤ x ^ k) :
+    (x k : ℕ) (hX : 3 ≤ x ^ k) :
     x ^ k ∣ (powerSquareABCPoint x k hX).b := by
   exact power_dvd_adjacentPowerPart x k
 
 /-- The constructed point has an exact square as its `c` coordinate. -/
 theorem powerSquareABCPoint_c_eq_square
-    (x k : ℕ) (hX : 2 ≤ x ^ k) :
+    (x k : ℕ) (hX : 3 ≤ x ^ k) :
     (powerSquareABCPoint x k hX).c = ((x ^ k) - 1) ^ 2 := rfl
 
 #print axioms one_add_adjacentPowerPart_eq_adjacentSquare
