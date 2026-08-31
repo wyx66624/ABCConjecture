@@ -76,7 +76,11 @@ theorem det_selected_columns_scaled
         Phi.submatrix row column *
           Matrix.diagonal (fun j => a (column j)) := by
     ext i j
-    simp [Matrix.mul_apply]
+    change
+      (fun k => Phi (row i) (column k)) ⬝ᵥ
+          (fun k => Matrix.diagonal (fun t => a (column t)) k j) =
+        Phi (row i) (column j) * a (column j)
+    rw [dotProduct_diagonal']
   rw [hmatrix, Matrix.det_mul, Matrix.det_diagonal]
 
 /-- Scalar model for the order of a full frame determinant or a fixed-column
