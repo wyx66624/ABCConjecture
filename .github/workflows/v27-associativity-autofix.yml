@@ -28,11 +28,9 @@ jobs:
 
           replacements = [
           ('''      exact weighted_div_two_add_div_three_le_sixth_budget
-                (exponent i) (weight i) (hweight i hi)
-          ''', '''      simpa [add_assoc] using
+                (exponent i) (weight i) (hweight i hi)''', '''      simpa [add_assoc] using
                 weighted_div_two_add_div_three_le_sixth_budget
-                  (exponent i) (weight i) (hweight i hi)
-          '''),
+                  (exponent i) (weight i) (hweight i hi)'''),
           ('''      rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
                 ← Finset.mul_sum, ← Finset.mul_sum, ← Finset.mul_sum]
 
@@ -42,11 +40,9 @@ jobs:
 
           /-- Sharp finite-profile ledger'''),
           ('''      exact weighted_signed_surplus_le_sixth_budget
-                (exponent i) (weight i) (hweight i hi)
-          ''', '''      simpa [add_assoc] using
+                (exponent i) (weight i) (hweight i hi)''', '''      simpa [add_assoc] using
                 weighted_signed_surplus_le_sixth_budget
-                  (exponent i) (weight i) (hweight i hi)
-          '''),
+                  (exponent i) (weight i) (hweight i hi)'''),
           ('''      rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
                 ← Finset.mul_sum, ← Finset.mul_sum]
 
