@@ -27,13 +27,13 @@ variable {ι : Type*}
 /-- Product of the bases lying in the exponent-at-least-`j` layer. -/
 def exponentAtLeastLayerProduct
     (j : ℕ) (s : Finset ι) (base exponent : ι → ℕ) : ℕ :=
-  ∏ i in s, if j ≤ exponent i then base i else 1
+  ∏ i ∈ s, if j ≤ exponent i then base i else 1
 
 /-- Explicit quotient left after extracting the `j`-th power of the layer
 product. -/
 def exponentLayerQuotient
     (j : ℕ) (s : Finset ι) (base exponent : ι → ℕ) : ℕ :=
-  ∏ i in s,
+  ∏ i ∈ s,
     if j ≤ exponent i then base i ^ (exponent i - j)
     else base i ^ exponent i
 
