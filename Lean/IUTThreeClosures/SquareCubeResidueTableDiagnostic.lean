@@ -20,16 +20,18 @@ theorem mod_six_le_square_cube_residual_budget (e : ℕ) :
     · have h6 : 6 ∣ e :=
         (by norm_num : Nat.Coprime 2 3).mul_dvd_of_dvd_of_dvd h2 h3
       simp [h2, h3, Nat.mod_eq_zero_of_dvd h6]
-    · have hsplit := Nat.mod_add_div e 6
-      have hlt := Nat.mod_lt e (by norm_num : 0 < 6)
+    · have h2copy := h2
       obtain ⟨k, hk⟩ := h2
-      simp [h2, h3]
+      have hsplit := Nat.mod_add_div e 6
+      have hlt := Nat.mod_lt e (by norm_num : 0 < 6)
+      simp [h2copy, h3]
       omega
   · by_cases h3 : 3 ∣ e
-    · have hsplit := Nat.mod_add_div e 6
-      have hlt := Nat.mod_lt e (by norm_num : 0 < 6)
+    · have h3copy := h3
       obtain ⟨k, hk⟩ := h3
-      simp [h2, h3]
+      have hsplit := Nat.mod_add_div e 6
+      have hlt := Nat.mod_lt e (by norm_num : 0 < 6)
+      simp [h2, h3copy]
       omega
     · have hlt := Nat.mod_lt e (by norm_num : 0 < 6)
       simp [h2, h3]
@@ -80,12 +82,14 @@ theorem sub_two_le_sixth_signed_budget (e : ℕ) :
       have hmod6 : e % 6 = 0 := Nat.mod_eq_zero_of_dvd h6
       simp [h2, h3]
       omega
-    · obtain ⟨k, hk⟩ := h2
-      simp [h2, h3]
+    · have h2copy := h2
+      obtain ⟨k, hk⟩ := h2
+      simp [h2copy, h3]
       omega
   · by_cases h3 : 3 ∣ e
-    · obtain ⟨k, hk⟩ := h3
-      simp [h2, h3]
+    · have h3copy := h3
+      obtain ⟨k, hk⟩ := h3
+      simp [h2, h3copy]
       omega
     · simp [h2, h3]
       omega
@@ -144,7 +148,10 @@ theorem weighted_signed_surplus_le_sixth_budget
     by_cases h2 : 2 ∣ e <;> by_cases h3 : 3 ∣ e <;>
       simp [h2, h3] at hmul ⊢ <;> nlinarith
   · have he_cases : e = 0 ∨ e = 1 := by omega
-    rcases he_cases with rfl | rfl <;> norm_num [hw]
+    rcases he_cases with rfl | rfl
+    · norm_num [hw]
+    · norm_num
+      nlinarith
 
 #print axioms mod_six_le_square_cube_residual_budget
 #print axioms div_two_add_div_three_le_sixth_budget
