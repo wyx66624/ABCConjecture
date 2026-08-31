@@ -105,7 +105,7 @@ theorem SquarefreePellWitness.endpoint_ratio_eq_scaled_square_error
         ((W.v : ℚ) / (W.u : ℚ) -
           ((W.x : ℚ) / (W.y : ℚ)) ^ 2) := by
   rw [W.small_eq, W.c_eq]
-  exact W.relative_gap_identity
+  exact SquarefreePellWitness.relative_gap_identity W
 
 end ABCPoint
 
