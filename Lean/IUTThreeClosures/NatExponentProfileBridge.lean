@@ -57,25 +57,29 @@ theorem exponentTotalWeight_primeFactorization_eq_log
   rw [← hprodReal]
   unfold exponentTotalWeight
   rw [Real.log_prod]
-  apply Finset.sum_congr rfl
-  intro p hp
-  rw [Real.log_pow]
-  ring
+  · apply Finset.sum_congr rfl
+    intro p hp
+    rw [Real.log_pow]
+  · intro p hp
+    exact pow_ne_zero _ (by
+      exact_mod_cast (Nat.prime_of_mem_primeFactors hp).ne_zero)
 
 /-- The radical-weight profile is the logarithm of the natural radical. -/
 theorem exponentRadicalWeight_primeFactorization_eq_log_radical
     (n : ℕ) :
     exponentRadicalWeight n.primeFactors
         (fun p => Real.log (p : ℝ)) =
-      Real.log (radical n : ℝ) := by
+      Real.log (((radical n : ℕ) : ℝ)) := by
   have hprodNat := Nat.radical_eq_prod_primeFactors (n := n)
   have hprodReal :
       (∏ p ∈ n.primeFactors, (p : ℝ)) =
-        (radical n : ℝ) := by
+        ((radical n : ℕ) : ℝ) := by
     exact_mod_cast hprodNat.symm
   rw [← hprodReal]
   unfold exponentRadicalWeight
   rw [Real.log_prod]
+  intro p hp
+  exact_mod_cast (Nat.prime_of_mem_primeFactors hp).ne_zero
 
 /-- Prime logarithms are nonnegative on the actual support. -/
 theorem primeLog_nonneg_on_primeFactors (n : ℕ) :
