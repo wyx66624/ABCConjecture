@@ -66,13 +66,11 @@ theorem signedTwoSurplus_eq_aboveTwo_sub_one
   rw [← Finset.sum_sub_distrib]
   apply Finset.sum_congr rfl
   intro i hi
+  have hei : 0 < exponent i := hpos i hi
   by_cases hone : exponent i = 1
-  · simp [hone]
-  · have htwo : 2 ≤ exponent i := by
-      have hpositive := hpos i hi
-      omega
-    rw [Nat.cast_sub htwo]
-    simp [hone]
+  · simp [hone] <;> ring
+  · have htwo : 2 ≤ exponent i := by omega
+    rw [if_neg hone, Nat.cast_sub htwo]
     ring
 
 /-- The exponent-one layer has nonnegative weight. -/
