@@ -33,13 +33,13 @@ variable {ι : Type*}
 /-- Radical weight of coordinates with exponent between three and `K`. -/
 def exponentThreeToCutoffWeight
     (K : ℕ) (s : Finset ι) (weight : ι → ℝ) (exponent : ι → ℕ) : ℝ :=
-  ∑ i in s,
+  ∑ i ∈ s,
     if 3 ≤ exponent i ∧ exponent i ≤ K then weight i else 0
 
 /-- Positive exponent surplus carried by coordinates above cutoff `K`. -/
 def exponentAboveCutoffSurplus
     (K : ℕ) (s : Finset ι) (weight : ι → ℝ) (exponent : ι → ℕ) : ℝ :=
-  ∑ i in s,
+  ∑ i ∈ s,
     if K < exponent i then
       ((exponent i - 2 : ℕ) : ℝ) * weight i
     else 0
