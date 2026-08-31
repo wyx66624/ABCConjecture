@@ -66,7 +66,7 @@ theorem endpoint_pair_bezout
           leftEndpoint R m S x t +
         (alpha + beta * R * x) *
           rightEndpoint S m R y t = 1 := by
-  have hleft := gap_leftEndpoint_bezout hcoprime
+  have hleft := gap_leftEndpoint_bezout (x := x) hcoprime
   have hgap := endpoint_gap_identity hbezout m t
   calc
     (beta - (alpha + beta * R * x)) *
@@ -93,8 +93,8 @@ theorem primitive_endpoint_bezout_certificates
             leftEndpoint R m S x t +
           (alpha + beta * R * x) *
             rightEndpoint S m R y t = 1) := by
-  exact ⟨gap_leftEndpoint_bezout hcoprime,
-    gap_rightEndpoint_bezout hcoprime,
+  exact ⟨gap_leftEndpoint_bezout (x := x) hcoprime,
+    gap_rightEndpoint_bezout (y := y) hcoprime,
     endpoint_pair_bezout hbezout hcoprime⟩
 
 /-- A certificate for `m` and `R*S` lifts to every parameter
@@ -158,6 +158,7 @@ theorem one_mod_gap_parameter_injective
     {m : ℤ} (hm : m ≠ 0) :
     Function.Injective (fun k : ℤ => 1 + k * m) := by
   intro k l hkl
+  change 1 + k * m = 1 + l * m at hkl
   have hmul : (k - l) * m = 0 := by
     calc
       (k - l) * m = (1 + k * m) - (1 + l * m) := by ring
