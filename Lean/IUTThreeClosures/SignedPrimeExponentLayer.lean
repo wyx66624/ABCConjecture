@@ -69,7 +69,7 @@ theorem total_sub_two_radical_eq_aboveTwo_sub_one
   have hei : 0 < exponent i := hpos i hi
   by_cases hone : exponent i = 1
   · rw [hone]
-    norm_num
+    ring
   · have htwo : 2 ≤ exponent i := by omega
     rw [if_neg hone, Nat.cast_sub htwo]
     ring
