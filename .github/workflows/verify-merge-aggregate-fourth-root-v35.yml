@@ -1,0 +1,91 @@
+name: Verify and merge aggregate fourth-root v35
+
+on:
+  push:
+    branches:
+      - "automation/verify-merge-aggregate-fourth-root-v35"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
+jobs:
+  verify-and-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve the exact open PR head
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          data="$(gh api "repos/${REPO}/pulls?state=open&head=wyx66624:formalize/aggregate-fourth-root-v35")"
+          number="$(jq -r '.[0].number // empty' <<<"$data")"
+          sha="$(jq -r '.[0].head.sha // empty' <<<"$data")"
+          test -n "$number"
+          test -n "$sha"
+          echo "number=$number" >> "$GITHUB_OUTPUT"
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout the immutable candidate SHA
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ steps.pr.outputs.sha }}
+          fetch-depth: 1
+
+      - name: Install pinned Lean toolchain
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake update
+          lake exe cache get
+
+      - name: Reject unfinished proof placeholders
+        shell: bash
+        run: |
+          set -euo pipefail
+          file="Lean/IUTThreeClosures/ThreeEndpointAggregateFourthRoot.lean"
+          test -f "$file"
+          if grep -nE '(^|[^[:alnum:]_])(axiom|sorry|admit)([^[:alnum:]_]|$)' "$file"; then
+            echo "Forbidden unfinished declaration found in $file" >&2
+            exit 1
+          fi
+
+      - name: Full Lean kernel build
+        working-directory: Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake build
+          lake build IUTThreeClosures.ThreeEndpointAggregateFourthRoot
+
+      - name: Verify PR head is unchanged and merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          VERIFIED_SHA: ${{ steps.pr.outputs.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          current_sha="$(gh api "repos/${REPO}/pulls/${PR_NUMBER}" --jq '.head.sha')"
+          test "$current_sha" = "$VERIFIED_SHA"
+          gh pr merge "$PR_NUMBER" \
+            --repo "$REPO" \
+            --merge \
+            --match-head-commit "$VERIFIED_SHA" \
+            --subject "Merge aggregate fourth-root gain across all abc endpoints" \
+            --body "Merge the exact three-endpoint aggregate fourth-root budget after an immutable-SHA full Lean kernel build."
