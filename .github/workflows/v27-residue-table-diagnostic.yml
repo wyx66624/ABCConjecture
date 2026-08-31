@@ -1,0 +1,31 @@
+name: Lean v27 residue table diagnostic
+
+on:
+  push:
+    branches:
+      - "diagnostic/square-cube-residue-table-v27"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  target:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+      - name: Compile residue table diagnostic
+        working-directory: Lean
+        run: lake build IUTThreeClosures.SquareCubeResidueTableDiagnostic
