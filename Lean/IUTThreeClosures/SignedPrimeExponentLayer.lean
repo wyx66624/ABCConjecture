@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: ChatGPT
 -/
 import IUTThreeClosures.SignedEndpointSquareRadicalDefect
+import IUTThreeClosures.EndpointBalanceCoefficientTransfer
 import IUTThreeClosures.LargeEndpointPrimePowerLocalization
 import IUTThreeClosures.GeneralizedFermatExponentLayers
 import Mathlib.RingTheory.Radical.NatInt
@@ -69,7 +70,7 @@ theorem total_sub_two_radical_eq_aboveTwo_sub_one
   by_cases hone : exponent i = 1
   · simp [hone]
   · have htwo : 2 ≤ exponent i := by omega
-    simp [hone, Nat.cast_sub htwo]
+    rw [if_neg hone, Nat.cast_sub htwo]
     ring
 
 end SignedPrimeExponentLayer
