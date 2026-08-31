@@ -1,0 +1,103 @@
+name: Verify and merge corrected aggregate quartic v35c
+
+on:
+  push:
+    branches:
+      - "automation/verify-merge-aggregate-fourth-root-v35c"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
+jobs:
+  verify-and-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve exact open PR head
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          data="$(gh api "repos/${REPO}/pulls?state=open&head=wyx66624:formalize/aggregate-fourth-root-v35c")"
+          number="$(jq -r '.[0].number // empty' <<<"$data")"
+          sha="$(jq -r '.[0].head.sha // empty' <<<"$data")"
+          test -n "$number"
+          test -n "$sha"
+          echo "number=$number" >> "$GITHUB_OUTPUT"
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout immutable candidate SHA
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ steps.pr.outputs.sha }}
+          fetch-depth: 1
+
+      - name: Install pinned Lean toolchain
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve dependencies
+        working-directory: Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake update
+          lake exe cache get
+
+      - name: Reject unfinished declarations
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            Lean/IUTThreeClosures/ThreeEndpointAggregateKthRoot.lean
+            Lean/IUTThreeClosures/ThreeEndpointAggregateFourthRoot.lean
+            Lean/IUTThreeClosures/FourthPowerCoefficientSaving.lean
+            Lean/IUTThreeClosures/FifthRootAggregateSharpness.lean
+            Lean/IUTThreeClosures/SplitSquareEndpointDescent.lean
+          )
+          for file in "${files[@]}"; do
+            test -f "$file"
+            if grep -nE '(^|[^[:alnum:]_])(axiom|sorry|admit)([^[:alnum:]_]|$)' "$file"; then
+              echo "Forbidden unfinished declaration found in $file" >&2
+              exit 1
+            fi
+          done
+
+      - name: Full Lean kernel build
+        working-directory: Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake build
+          lake build IUTThreeClosures.ThreeEndpointAggregateKthRoot
+          lake build IUTThreeClosures.ThreeEndpointAggregateFourthRoot
+          lake build IUTThreeClosures.FourthPowerCoefficientSaving
+          lake build IUTThreeClosures.FifthRootAggregateSharpness
+          lake build IUTThreeClosures.SplitSquareEndpointDescent
+
+      - name: Verify head and merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          VERIFIED_SHA: ${{ steps.pr.outputs.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          current_sha="$(gh api "repos/${REPO}/pulls/${PR_NUMBER}" --jq '.head.sha')"
+          test "$current_sha" = "$VERIFIED_SHA"
+          gh pr merge "$PR_NUMBER" \
+            --repo "$REPO" \
+            --merge \
+            --match-head-commit "$VERIFIED_SHA" \
+            --subject "Merge corrected aggregate k-th-root and quartic frontier" \
+            --body "Merge the v35c reductions after an immutable-head full Lean kernel build."
