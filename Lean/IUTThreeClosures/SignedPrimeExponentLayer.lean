@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: ChatGPT
 -/
 import IUTThreeClosures.SignedEndpointSquareRadicalDefect
+import IUTThreeClosures.EndpointBalanceCoefficientTransfer
 import IUTThreeClosures.LargeEndpointPrimePowerLocalization
 import IUTThreeClosures.GeneralizedFermatExponentLayers
 import Mathlib.RingTheory.Radical.NatInt
@@ -67,9 +68,9 @@ theorem total_sub_two_radical_eq_aboveTwo_sub_one
   intro i hi
   have hei : 0 < exponent i := hpos i hi
   by_cases hone : exponent i = 1
-  · simp [hone]
+  · simp [hone] <;> ring
   · have htwo : 2 ≤ exponent i := by omega
-    simp [hone, Nat.cast_sub htwo]
+    rw [if_neg hone, Nat.cast_sub htwo]
     ring
 
 end SignedPrimeExponentLayer
@@ -169,10 +170,10 @@ theorem signedEndpointSquareRadicalDefect_eq_endpoint_sum
       singleEndpointSquareRadicalDefect P.largeEndpoint +
         singleEndpointSquareRadicalDefect P.c -
           2 * Real.log (abcRadical P.endpointMin : ℝ) := by
-  rw [P.largeEndpointProductLog_eq_signedLayer_add,
-    P.conductor_eq_signedLayer_threeRadicalLogs]
   unfold signedEndpointSquareRadicalDefect
     singleEndpointSquareRadicalDefect
+  rw [P.largeEndpointProductLog_eq_signedLayer_add,
+    P.conductor_eq_signedLayer_threeRadicalLogs]
   ring
 
 /-- Every abc violation forces a large signed defect on at least one of the two
