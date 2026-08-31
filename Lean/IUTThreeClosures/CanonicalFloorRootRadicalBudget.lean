@@ -65,6 +65,7 @@ theorem factorization_canonicalPowerKernel
     Nat.factorization_pow, Nat.factorization_floorRoot]
   change n.factorization p - k * (n.factorization p / k) =
     n.factorization p % k
+  have hsplit := Nat.mod_add_div (n.factorization p) k
   omega
 
 /-- The canonical residue has every prime exponent at most `k-1`. -/
@@ -81,7 +82,7 @@ theorem canonicalPowerKernel_isExponentAtMost
 theorem canonicalPowerKernel_dvd
     (k n : ℕ) : canonicalPowerKernel k n ∣ n := by
   refine ⟨Nat.floorRoot k n ^ k, ?_⟩
-  exact canonicalPowerKernel_mul_floorRoot_pow_eq k n
+  exact (canonicalPowerKernel_mul_floorRoot_pow_eq k n).symm
 
 /-- Radical monotonicity for the canonical residue. -/
 theorem radical_canonicalPowerKernel_le
