@@ -1,0 +1,41 @@
+name: Signed layer v22 diagnostic
+
+on:
+  push:
+    branches:
+      - "formalize/signed-layer-clean-build-fix-v22"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Restore pinned Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Compile repaired module and preserve diagnostics
+        working-directory: Lean
+        shell: bash
+        run: |
+          set +e
+          lake build IUTThreeClosures.SignedPrimeExponentLayer > ../signed-layer-v22.log 2>&1
+          rc=$?
+          cat ../signed-layer-v22.log
+          exit "$rc"
