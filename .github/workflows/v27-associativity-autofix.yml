@@ -1,0 +1,77 @@
+name: v27 associativity autofix
+
+on:
+  push:
+    branches:
+      - "formalize/coprime-residue-product-core-v27"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: formalize/coprime-residue-product-core-v27
+
+      - name: Apply exact Lean associativity repairs
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('Lean/IUTThreeClosures/SquareCubeResidualSixthPower.lean')
+          text = path.read_text()
+
+          replacements = [
+          ('''      exact weighted_div_two_add_div_three_le_sixth_budget
+                (exponent i) (weight i) (hweight i hi)
+          ''', '''      simpa [add_assoc] using
+                weighted_div_two_add_div_three_le_sixth_budget
+                  (exponent i) (weight i) (hweight i hi)
+          '''),
+          ('''      rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
+                ← Finset.mul_sum, ← Finset.mul_sum, ← Finset.mul_sum]
+
+          /-- Sharp finite-profile ledger''', '''      rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
+                ← Finset.mul_sum, ← Finset.mul_sum, ← Finset.mul_sum]
+              ring
+
+          /-- Sharp finite-profile ledger'''),
+          ('''      exact weighted_signed_surplus_le_sixth_budget
+                (exponent i) (weight i) (hweight i hi)
+          ''', '''      simpa [add_assoc] using
+                weighted_signed_surplus_le_sixth_budget
+                  (exponent i) (weight i) (hweight i hi)
+          '''),
+          ('''      rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
+                ← Finset.mul_sum, ← Finset.mul_sum]
+
+          /-- Flexible trichotomy''', '''      rw [Finset.sum_add_distrib, Finset.sum_add_distrib,
+                ← Finset.mul_sum, ← Finset.mul_sum]
+              ring
+
+          /-- Flexible trichotomy'''),
+          ]
+
+          for old, new in replacements:
+              if old not in text:
+                  raise SystemExit(f'expected patch fragment not found:\n{old}')
+              text = text.replace(old, new, 1)
+
+          path.write_text(text)
+          Path('.github/workflows/v27-associativity-autofix.yml').unlink()
+          PY
+
+      - name: Commit repaired module and remove this workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Lean/IUTThreeClosures/SquareCubeResidualSixthPower.lean \
+            .github/workflows/v27-associativity-autofix.yml
+          git commit -m "Repair sharp square-cube summation associativity"
+          git push origin HEAD:formalize/coprime-residue-product-core-v27
