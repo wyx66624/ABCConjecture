@@ -64,7 +64,8 @@ theorem totalWeight_le_radical_add_two_mul_squareRootWeight
     parityResidueWeight_le_radicalWeight s weight exponent hweight
   unfold squareRootWeight
   rw [hdecomp]
-  nlinarith
+  exact add_le_add_right hres
+    (2 * exponentQuotientWeight 2 s weight exponent)
 
 /-- Multiplicity excess is bounded by twice the square-root weight. -/
 theorem multiplicityExcessWeight_le_two_mul_squareRootWeight
