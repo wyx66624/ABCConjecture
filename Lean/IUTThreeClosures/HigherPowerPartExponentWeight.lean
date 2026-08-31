@@ -53,7 +53,8 @@ theorem totalWeight_le_radicalLayers_add_k_mul_kthRootWeight
       hk s weight exponent hweight
   unfold kthRootWeight
   rw [hdecomp]
-  linarith
+  exact add_le_add_right hres
+    ((k : ℝ) * exponentQuotientWeight k s weight exponent)
 
 /-- Exponent mass above `k-1` radical layers is bounded by the extracted
 `k`-th-root weight. -/
