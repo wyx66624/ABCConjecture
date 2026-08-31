@@ -1,0 +1,112 @@
+name: Verify merged integration and merge endpoint second layer v23e2
+
+on:
+  push:
+    branches:
+      - "automation/verify-merge-second-layer-v23e2"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
+jobs:
+  verify-and-merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      TARGET_BRANCH: formalize/both-endpoint-second-layer-v23e
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+          fetch-depth: 0
+
+      - name: Freeze target SHA and test current-main integration
+        id: freeze
+        shell: bash
+        run: |
+          set -euo pipefail
+          head_sha=$(git rev-parse HEAD)
+          echo "sha=$head_sha" >> "$GITHUB_OUTPUT"
+          git fetch origin main
+          git -c user.name='abc-ci' -c user.email='abc-ci@example.invalid' \
+            merge --no-edit --no-ff origin/main
+
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Restore pinned dependencies
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Reject unfinished declarations
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            Lean/IUTThreeClosures/SignedPrimeExponentLayer.lean
+            Lean/IUTThreeClosures/SquarePartExponentWeight.lean
+            Lean/IUTThreeClosures/HigherPowerPartExponentWeight.lean
+            Lean/IUTThreeClosures/BothLargeEndpointMultiplicityExcess.lean
+            Lean/IUTThreeClosures/BothEndpointFirstLayerExcessQuotient.lean
+            Lean/IUTThreeClosures/FirstLayerGCDRefinement.lean
+          )
+          for f in "${files[@]}"; do
+            test -f "$f"
+            if grep -nE '(^|[[:space:]])(sorry|admit)([[:space:]]|$)|^[[:space:]]*axiom[[:space:]]' "$f"; then
+              exit 1
+            fi
+          done
+
+      - name: Compile target chain in the prospective merge tree
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake build IUTThreeClosures.BothLargeEndpointMultiplicityExcess
+          lake build IUTThreeClosures.BothEndpointFirstLayerExcessQuotient
+          lake build IUTThreeClosures.FirstLayerGCDRefinement
+
+      - name: Full prospective-merge Lean build
+        working-directory: Lean
+        shell: bash
+        run: lake build
+
+      - name: Verify PR still points to compiled target SHA
+        id: pr
+        shell: bash
+        env:
+          VERIFIED_SHA: ${{ steps.freeze.outputs.sha }}
+        run: |
+          set -euo pipefail
+          pr_json=$(gh pr list --repo "$GITHUB_REPOSITORY" \
+            --head "$TARGET_BRANCH" --base main --state open \
+            --json number,headRefOid --limit 1)
+          pr_number=$(jq -r '.[0].number // empty' <<<"$pr_json")
+          pr_sha=$(jq -r '.[0].headRefOid // empty' <<<"$pr_json")
+          test -n "$pr_number"
+          test "$pr_sha" = "$VERIFIED_SHA"
+          echo "number=$pr_number" >> "$GITHUB_OUTPUT"
+
+      - name: Merge only the integrated and verified head
+        shell: bash
+        env:
+          VERIFIED_SHA: ${{ steps.freeze.outputs.sha }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+        run: |
+          set -euo pipefail
+          response=$(gh api --method PUT -H "Accept: application/vnd.github+json" \
+            "/repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/merge" \
+            -f merge_method=merge -f sha="$VERIFIED_SHA" \
+            -f commit_title='Merge simultaneous endpoint second-layer extraction' \
+            -f commit_message='Merge the current-main integrated, exact-head kernel-built simultaneous multiplicity, first quotient, and repeated-support/deeper-excess theorems.')
+          jq -e '.merged == true' <<<"$response"
