@@ -30,12 +30,12 @@ jobs:
           lake update >/dev/null 2>&1
           lake exe cache get >/dev/null 2>&1
 
-      - name: Compile target and preserve full diagnostics
+      - name: Compile targets and preserve full diagnostics
         working-directory: Lean
         shell: bash
         run: |
           set +e
-          lake build IUTThreeClosures.ArithmeticWronskianQuantization > ../wronskian-quantization-diagnostic.log 2>&1
+          lake build IUTThreeClosures.ArithmeticWronskianQuantization IUTThreeClosures.ArithmeticWronskianSaturation > ../wronskian-quantization-diagnostic.log 2>&1
           echo "$?" > ../wronskian-quantization-diagnostic.exit
           exit 0
 
