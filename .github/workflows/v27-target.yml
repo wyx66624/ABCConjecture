@@ -34,3 +34,5 @@ jobs:
         run: |
           lake build IUTThreeClosures.CoprimeModuliResidualProductCore
           lake build IUTThreeClosures.SquareCubeResidualSixthPower
+
+# This branch-only workflow is removed after the exact final target build passes.
