@@ -82,6 +82,7 @@ theorem coordinate_aboveTwo_eq_layer_sum
     have hsub : e - 2 = 0 := Nat.sub_eq_zero_of_le hle
     rw [hsub]
     simp only [Nat.cast_zero, zero_mul]
+    symm
     apply Finset.sum_eq_zero
     intro j hj
     have hj3 : 3 ≤ j := (Finset.mem_Icc.mp hj).1
