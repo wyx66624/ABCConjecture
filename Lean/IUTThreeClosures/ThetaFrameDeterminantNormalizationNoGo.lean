@@ -7,10 +7,10 @@ import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.Tactic
 
 /-!
-# Full theta-frame determinants do not create a normalized q-slope
+# Theta-frame determinants do not create a normalized q-slope
 
 Suppose a square theta-frame matrix is obtained from a phase/change-of-basis
-matrix `Phi` by multiplying every source theta coordinate by its common local
+matrix `Phi` by multiplying every source theta coordinate by its local
 coefficient.  In matrix form this is
 
 `Phi * diagonal a`.
@@ -19,17 +19,18 @@ The determinant factors exactly as
 
 `det (Phi * diagonal a) = det Phi * product_i a_i`.
 
-The second factor is already the determinant of the source coefficient
-lattice.  Consequently, after normalizing by that source determinant, the
-entire coefficient/tropical order cancels and only the phase determinant
-remains.  In particular, if the phase determinant has scale-independent
-order, a full square frame determinant cannot supply a positive linear lower
-slope in the Tate q-order.
+The same statement holds for any fixed square row/column minor: scaling the
+selected source columns contributes exactly the product of those selected
+coefficients.  Consequently, after normalizing by the matching source
+determinant or Pluecker coordinate, the entire coefficient/tropical order
+cancels and only the phase minor remains.  If that phase contribution has
+scale-independent order, neither a complete determinant nor a fixed-column
+minor can supply a positive linear lower slope in the Tate q-order.
 
 This is an algebraic normalization obstruction only.  It does not rule out a
-proper subdeterminant, a Harder--Narasimhan slope argument, or a nonlinear
-adelic section whose source and target determinant lines have genuinely
-different boundary weights.
+comparison with a genuinely different source subspace, a Harder--Narasimhan
+slope imbalance, or a nonlinear adelic section whose source and target lines
+have different boundary weights.
 -/
 
 namespace IUTThreeClosures
@@ -40,7 +41,7 @@ noncomputable section
 
 namespace ThetaFrameDeterminantNormalizationNoGo
 
-universe u v
+universe u v w
 
 variable {ι : Type u} [Fintype ι] [DecidableEq ι]
 variable {R : Type v} [CommRing R]
@@ -61,38 +62,55 @@ theorem det_diagonal_mul_phase
       (∏ i, a i) * Matrix.det Phi := by
   rw [Matrix.det_mul, Matrix.det_diagonal]
 
-/-- Scalar model for the order of a full frame determinant: source baseline
-order plus phase-determinant order. -/
-def rawFullFrameOrder (baselineOrder phaseOrder : ℝ) : ℝ :=
+/-- Any fixed square row/column minor has the same exact normalization
+factorization: the selected source-column coefficients occur once each. -/
+theorem det_selected_columns_scaled
+    {κ : Type w} [Fintype κ] [DecidableEq κ]
+    (Phi : Matrix ι ι R) (row column : κ → ι) (a : ι → R) :
+    Matrix.det (fun i j =>
+        Phi (row i) (column j) * a (column j)) =
+      Matrix.det (Phi.submatrix row column) *
+        ∏ j, a (column j) := by
+  have hmatrix :
+      (fun i j => Phi (row i) (column j) * a (column j)) =
+        Phi.submatrix row column *
+          Matrix.diagonal (fun j => a (column j)) := by
+    ext i j
+    simp [Matrix.mul_apply]
+  rw [hmatrix, Matrix.det_mul, Matrix.det_diagonal]
+
+/-- Scalar model for the order of a full frame determinant or a fixed-column
+minor: matching source baseline order plus phase-minor order. -/
+def rawFrameOrder (baselineOrder phaseOrder : ℝ) : ℝ :=
   baselineOrder + phaseOrder
 
-/-- Normalizing a full frame determinant by the complete source determinant
-cancels the whole baseline order exactly. -/
+/-- Normalizing by the matching source determinant/Pluecker coordinate cancels
+the whole baseline order exactly. -/
 @[simp]
-theorem normalizedFullFrameOrder_eq_phase
+theorem normalizedFrameOrder_eq_phase
     (baselineOrder phaseOrder : ℝ) :
-    rawFullFrameOrder baselineOrder phaseOrder - baselineOrder =
+    rawFrameOrder baselineOrder phaseOrder - baselineOrder =
       phaseOrder := by
-  unfold rawFullFrameOrder
+  unfold rawFrameOrder
   ring
 
-/-- The normalized full-frame order is independent of the common coefficient
+/-- The normalized frame order is independent of the common coefficient
 baseline. -/
-theorem normalizedFullFrameOrder_independent_of_baseline
+theorem normalizedFrameOrder_independent_of_baseline
     (baselineOrder₁ baselineOrder₂ phaseOrder : ℝ) :
-    rawFullFrameOrder baselineOrder₁ phaseOrder - baselineOrder₁ =
-      rawFullFrameOrder baselineOrder₂ phaseOrder - baselineOrder₂ := by
+    rawFrameOrder baselineOrder₁ phaseOrder - baselineOrder₁ =
+      rawFrameOrder baselineOrder₂ phaseOrder - baselineOrder₂ := by
   simp
 
 /-- If the phase contribution is independent of a nonnegative scale `q`, then
-no positive linear lower slope in `q` can hold uniformly after source
+no positive linear lower slope in `q` can hold uniformly after matching source
 normalization. -/
-theorem no_uniform_positive_slope_after_full_determinant_normalization
+theorem no_uniform_positive_slope_after_matching_normalization
     (baselineOrder : ℝ → ℝ) {phaseOrder alpha C : ℝ}
     (halpha : 0 < alpha) :
     ¬ ∀ q : ℝ, 0 ≤ q →
         alpha * q + C ≤
-          rawFullFrameOrder (baselineOrder q) phaseOrder -
+          rawFrameOrder (baselineOrder q) phaseOrder -
             baselineOrder q := by
   intro h
   let q : ℝ := (|phaseOrder - C| + 1) / alpha
@@ -112,9 +130,10 @@ theorem no_uniform_positive_slope_after_full_determinant_normalization
 
 #print axioms det_phase_mul_diagonal
 #print axioms det_diagonal_mul_phase
-#print axioms normalizedFullFrameOrder_eq_phase
-#print axioms normalizedFullFrameOrder_independent_of_baseline
-#print axioms no_uniform_positive_slope_after_full_determinant_normalization
+#print axioms det_selected_columns_scaled
+#print axioms normalizedFrameOrder_eq_phase
+#print axioms normalizedFrameOrder_independent_of_baseline
+#print axioms no_uniform_positive_slope_after_matching_normalization
 
 end ThetaFrameDeterminantNormalizationNoGo
 end
