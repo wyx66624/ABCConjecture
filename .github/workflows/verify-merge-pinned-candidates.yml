@@ -1,0 +1,253 @@
+name: Verify pinned research heads and merge
+
+on:
+  push:
+    branches:
+      - "automation/verify-merge-aggregate-surplus-20260830"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: verify-merge-aggregate-surplus-20260830
+  cancel-in-progress: true
+
+jobs:
+  verify-v15-pinned:
+    name: Pin, verify, and merge PR 373
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - name: Reopen PR and pin its exact head
+        id: pin
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          state=$(gh pr view 373 --repo wyx66624/ABCConjecture --json state --jq .state)
+          if [ "$state" = "CLOSED" ]; then
+            gh pr reopen 373 --repo wyx66624/ABCConjecture
+          elif [ "$state" != "OPEN" ] && [ "$state" != "MERGED" ]; then
+            echo "Unexpected PR state: $state" >&2
+            exit 1
+          fi
+          if [ "$state" = "MERGED" ]; then
+            echo "already_merged=true" >> "$GITHUB_OUTPUT"
+            echo "sha=" >> "$GITHUB_OUTPUT"
+          else
+            sha=$(gh pr view 373 --repo wyx66624/ABCConjecture --json headRefOid --jq .headRefOid)
+            echo "already_merged=false" >> "$GITHUB_OUTPUT"
+            echo "sha=$sha" >> "$GITHUB_OUTPUT"
+            echo "Pinned PR 373 at $sha"
+          fi
+
+      - uses: actions/checkout@v5
+        if: steps.pin.outputs.already_merged != 'true'
+        with:
+          ref: ${{ steps.pin.outputs.sha }}
+          fetch-depth: 0
+
+      - name: Install Lean
+        if: steps.pin.outputs.already_merged != 'true'
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        if: steps.pin.outputs.already_merged != 'true'
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Reject unfinished proof commands in v15 modules
+        if: steps.pin.outputs.already_merged != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            Lean/IUTThreeClosures/LargeEndpointAggregateSurplus.lean
+            Lean/IUTThreeClosures/LargeEndpointSurplusHeightScale.lean
+            Lean/IUTThreeClosures/LargeEndpointAggregatePartialABC.lean
+            Lean/IUTThreeClosures/LargePairAverageMultiplicity.lean
+          )
+          for f in "${files[@]}"; do
+            test -f "$f"
+            if grep -nE '^[[:space:]]*(axiom|sorry|admit)\b|:=\s*by\s+sorry\b' "$f"; then
+              echo "Unfinished proof command found in $f" >&2
+              exit 1
+            fi
+          done
+
+      - name: Kernel-check the whole project
+        if: steps.pin.outputs.already_merged != 'true'
+        working-directory: Lean
+        shell: bash
+        run: lake build
+
+      - name: Verify v15 olean outputs
+        if: steps.pin.outputs.already_merged != 'true'
+        working-directory: Lean
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          files = [
+              Path("IUTThreeClosures/LargeEndpointAggregateSurplus.lean"),
+              Path("IUTThreeClosures/LargeEndpointSurplusHeightScale.lean"),
+              Path("IUTThreeClosures/LargeEndpointAggregatePartialABC.lean"),
+              Path("IUTThreeClosures/LargePairAverageMultiplicity.lean"),
+          ]
+          root = Path(".lake/build/lib/lean")
+          missing = [str(root / f.with_suffix(".olean")) for f in files
+                     if not (root / f.with_suffix(".olean")).is_file()]
+          if missing:
+              raise SystemExit("Missing compiled modules:\n" + "\n".join(missing))
+          print("Verified", len(files), "v15 oleans")
+          PY
+
+      - name: Re-check head and merge exact verified commit
+        if: steps.pin.outputs.already_merged != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PINNED_SHA: ${{ steps.pin.outputs.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          current=$(gh pr view 373 --repo wyx66624/ABCConjecture --json headRefOid --jq .headRefOid)
+          test "$current" = "$PINNED_SHA"
+          gh pr merge 373 --repo wyx66624/ABCConjecture --merge \
+            --match-head-commit "$PINNED_SHA" \
+            --subject "Merge signed large-endpoint aggregate-surplus ledgers" \
+            --body "Merged only after a full Lean kernel build, unfinished-proof scan, olean verification, and an exact head-SHA recheck."
+
+  verify-v16b-pinned:
+    name: Pin, verify, and merge PR 375
+    needs: verify-v15-pinned
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - name: Reopen PR and pin its exact head
+        id: pin
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          state=$(gh pr view 375 --repo wyx66624/ABCConjecture --json state --jq .state)
+          if [ "$state" = "CLOSED" ]; then
+            gh pr reopen 375 --repo wyx66624/ABCConjecture
+          elif [ "$state" != "OPEN" ] && [ "$state" != "MERGED" ]; then
+            echo "Unexpected PR state: $state" >&2
+            exit 1
+          fi
+          if [ "$state" = "MERGED" ]; then
+            echo "already_merged=true" >> "$GITHUB_OUTPUT"
+            echo "sha=" >> "$GITHUB_OUTPUT"
+          else
+            sha=$(gh pr view 375 --repo wyx66624/ABCConjecture --json headRefOid --jq .headRefOid)
+            echo "already_merged=false" >> "$GITHUB_OUTPUT"
+            echo "sha=$sha" >> "$GITHUB_OUTPUT"
+            echo "Pinned PR 375 at $sha"
+          fi
+
+      - uses: actions/checkout@v5
+        if: steps.pin.outputs.already_merged != 'true'
+        with:
+          ref: ${{ steps.pin.outputs.sha }}
+          fetch-depth: 0
+
+      - name: Install Lean
+        if: steps.pin.outputs.already_merged != 'true'
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        if: steps.pin.outputs.already_merged != 'true'
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Reject unfinished proof commands in exponent-structure modules
+        if: steps.pin.outputs.already_merged != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            Lean/IUTThreeClosures/ExponentTwoSurplusDichotomy.lean
+            Lean/IUTThreeClosures/ExponentModulusCoverageSelector.lean
+            Lean/IUTThreeClosures/PrimeExponentModulusSelector.lean
+            Lean/IUTThreeClosures/ExponentResidueRadicalDrop.lean
+            Lean/IUTThreeClosures/ExplicitPrimeResidueSaving.lean
+            Lean/IUTThreeClosures/ExponentLayerCakeSelector.lean
+            Lean/IUTThreeClosures/PowerLayerDivisorExtraction.lean
+            Lean/IUTThreeClosures/PowerDivisorCountingExponentBarrier.lean
+            Lean/IUTThreeClosures/QuantitativeHighExponentEnergyDichotomy.lean
+          )
+          for f in "${files[@]}"; do
+            test -f "$f"
+            if grep -nE '^[[:space:]]*(axiom|sorry|admit)\b|:=\s*by\s+sorry\b' "$f"; then
+              echo "Unfinished proof command found in $f" >&2
+              exit 1
+            fi
+          done
+
+      - name: Kernel-check the whole project
+        if: steps.pin.outputs.already_merged != 'true'
+        working-directory: Lean
+        shell: bash
+        run: lake build
+
+      - name: Verify exponent-structure olean outputs
+        if: steps.pin.outputs.already_merged != 'true'
+        working-directory: Lean
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          files = [
+              Path("IUTThreeClosures/ExponentTwoSurplusDichotomy.lean"),
+              Path("IUTThreeClosures/ExponentModulusCoverageSelector.lean"),
+              Path("IUTThreeClosures/PrimeExponentModulusSelector.lean"),
+              Path("IUTThreeClosures/ExponentResidueRadicalDrop.lean"),
+              Path("IUTThreeClosures/ExplicitPrimeResidueSaving.lean"),
+              Path("IUTThreeClosures/ExponentLayerCakeSelector.lean"),
+              Path("IUTThreeClosures/PowerLayerDivisorExtraction.lean"),
+              Path("IUTThreeClosures/PowerDivisorCountingExponentBarrier.lean"),
+              Path("IUTThreeClosures/QuantitativeHighExponentEnergyDichotomy.lean"),
+          ]
+          root = Path(".lake/build/lib/lean")
+          missing = [str(root / f.with_suffix(".olean")) for f in files
+                     if not (root / f.with_suffix(".olean")).is_file()]
+          if missing:
+              raise SystemExit("Missing compiled modules:\n" + "\n".join(missing))
+          print("Verified", len(files), "exponent-structure oleans")
+          PY
+
+      - name: Re-check head and merge exact verified commit
+        if: steps.pin.outputs.already_merged != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PINNED_SHA: ${{ steps.pin.outputs.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          current=$(gh pr view 375 --repo wyx66624/ABCConjecture --json headRefOid --jq .headRefOid)
+          test "$current" = "$PINNED_SHA"
+          gh pr merge 375 --repo wyx66624/ABCConjecture --merge \
+            --match-head-commit "$PINNED_SHA" \
+            --subject "Merge exponent-surplus dichotomies and deterministic selectors" \
+            --body "Merged only after a full Lean kernel build, unfinished-proof scan, olean verification, and an exact head-SHA recheck."
