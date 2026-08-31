@@ -3,28 +3,30 @@ Copyright (c) 2026 ChatGPT. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: ChatGPT
 -/
+import IUTThreeClosures.CubePartSignedDefect
 import IUTThreeClosures.SquareCubeResidualSixthPower
 import IUTThreeClosures.SignedPrimeExponentLayer
 import Mathlib.RingTheory.Radical.NatInt
 import Mathlib.Tactic
 
 /-!
-# Natural-number exponent profiles and the endpoint square--cube--sixth split
+# Natural-number exponent profiles and endpoint power extraction
 
-The square--cube residual theorems are formulated for arbitrary finite
-weighted exponent profiles.  This file identifies the profile attached to an
-actual positive integer:
+The finite-profile power-extraction theorems are identified here with the
+actual prime factorization of a positive integer:
 
-* the total exponent weight is `log n`;
-* the radical weight is `log (rad n)`;
+* total exponent weight is `log n`;
+* radical weight is `log (rad n)`;
 * prime logarithms are nonnegative on the factorization support.
 
-It then applies the sharp modulo-six ledger to the one-endpoint signed defect
-localized from a hypothetical abc violation.  Every such violation forces,
-on one of the two large coprime endpoints, either a large canonical sixth-power
-root, a large parity-residual radical, or a large cubic-residual radical.
+The main endpoint consequence is especially simple.  A positive signed
+square-radical defect is always captured by the canonical cube root.  Hence
+every hypothetical abc-height violation forces a quantitatively large cube
+root on one of the two large coprime endpoints.  A sharper auxiliary
+square--cube--sixth residual split is retained for analysing the coefficient
+left after that cube extraction.
 
-No estimate excluding those three alternatives is assumed.
+No estimate excluding the extracted cube branch is assumed.
 -/
 
 namespace IUTThreeClosures
@@ -33,6 +35,7 @@ namespace NatExponentProfileBridge
 open scoped BigOperators
 open UniqueFactorizationMonoid
 open CoprimeModuliResidualProductCore
+open CubePartSignedDefect
 open SquareCubeResidualSixthPower
 
 noncomputable section
@@ -88,6 +91,11 @@ theorem primeLog_nonneg_on_primeFactors (n : ℕ) :
   apply Real.log_nonneg
   exact_mod_cast (Nat.prime_of_mem_primeFactors hp).one_le
 
+/-- Canonical logarithmic cube-root weight of a positive integer. -/
+def naturalCubeRootWeight (n : ℕ) : ℝ :=
+  cubeRootWeight n.primeFactors
+    (fun p => Real.log (p : ℝ)) n.factorization
+
 /-- Canonical logarithmic sixth-root weight of a positive integer. -/
 def naturalSixthRootWeight (n : ℕ) : ℝ :=
   exponentQuotientWeight 6 n.primeFactors
@@ -112,6 +120,23 @@ theorem singleEndpointSquareRadicalDefect_eq_profile
     exponentTotalWeight_primeFactorization_eq_log n hn,
     exponentRadicalWeight_primeFactorization_eq_log_radical n]
 
+/-- Actual-integer form of the canonical cube-root extraction theorem. -/
+theorem natural_signed_defect_forces_cubeRoot
+    (n : ℕ) (hn : 0 < n) {L : ℝ}
+    (hlarge : L < ABCPoint.singleEndpointSquareRadicalDefect n) :
+    L / 3 < naturalCubeRootWeight n := by
+  have hprofile :
+      L < exponentTotalWeight n.primeFactors
+          (fun p => Real.log (p : ℝ)) n.factorization -
+        2 * exponentRadicalWeight n.primeFactors
+          (fun p => Real.log (p : ℝ)) := by
+    rw [← singleEndpointSquareRadicalDefect_eq_profile n hn]
+    exact hlarge
+  simpa [naturalCubeRootWeight] using
+    cubeRootWeight_large_of_signedTwoSurplus_large
+      n.primeFactors (fun p => Real.log (p : ℝ)) n.factorization
+      (primeLog_nonneg_on_primeFactors n) hprofile
+
 /-- Actual-integer form of the sharp square--cube--sixth-power trichotomy. -/
 theorem natural_signed_defect_forces_square_cube_sixth_split
     (n : ℕ) (hn : 0 < n) {L : ℝ}
@@ -135,8 +160,30 @@ end NatExponentProfileBridge
 
 namespace ABCPoint
 
-/-- Every abc-height violation forces the explicit square--cube--sixth split
-on one of the two large coprime endpoints. -/
+/-- Every abc-height violation forces a quantitatively large canonical cube
+root on one of the two large coprime endpoints. -/
+theorem endpoint_cubeRoot_large_of_height_violation
+    (P : ABCPoint) {epsilon C : ℝ}
+    (hviolation :
+      (1 + epsilon) * P.conductor + C < P.height) :
+    let T :=
+      Real.log (abcRadical P.endpointMin : ℝ) +
+        epsilon * P.conductor + C - Real.log 2 / 2
+    T / 3 < NatExponentProfileBridge.naturalCubeRootWeight P.largeEndpoint ∨
+      T / 3 < NatExponentProfileBridge.naturalCubeRootWeight P.c := by
+  dsimp
+  have hlocalized :=
+    P.endpoint_signed_defect_large_of_height_violation hviolation
+  rcases hlocalized with hlarge | hc
+  · exact Or.inl
+      (NatExponentProfileBridge.natural_signed_defect_forces_cubeRoot
+        P.largeEndpoint P.largeEndpoint_pos hlarge)
+  · exact Or.inr
+      (NatExponentProfileBridge.natural_signed_defect_forces_cubeRoot
+        P.c P.c_pos hc)
+
+/-- Every abc-height violation also forces the explicit auxiliary
+square--cube--sixth residual split on one of the two large endpoints. -/
 theorem endpoint_square_cube_sixth_split_of_height_violation
     (P : ABCPoint) {epsilon C : ℝ}
     (hviolation :
@@ -172,7 +219,9 @@ namespace NatExponentProfileBridge
 #print axioms exponentTotalWeight_primeFactorization_eq_log
 #print axioms exponentRadicalWeight_primeFactorization_eq_log_radical
 #print axioms singleEndpointSquareRadicalDefect_eq_profile
+#print axioms natural_signed_defect_forces_cubeRoot
 #print axioms natural_signed_defect_forces_square_cube_sixth_split
+#print axioms ABCPoint.endpoint_cubeRoot_large_of_height_violation
 #print axioms ABCPoint.endpoint_square_cube_sixth_split_of_height_violation
 
 end NatExponentProfileBridge
