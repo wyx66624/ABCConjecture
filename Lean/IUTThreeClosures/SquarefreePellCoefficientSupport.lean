@@ -59,26 +59,27 @@ theorem SquarefreePellWitness.u_coprime_v
 theorem SquarefreePellWitness.u_mul_v_squarefree
     {P : ABCPoint} (W : P.SquarefreePellWitness) :
     Squarefree (W.u * W.v) := by
-  rw [squarefree_mul_iff]
-  exact ⟨Nat.coprime_iff_isRelPrime.mp W.u_coprime_v,
-    W.u_squarefree, W.v_squarefree⟩
+  rw [Nat.squarefree_mul_iff]
+  exact ⟨W.u_coprime_v, W.u_squarefree, W.v_squarefree⟩
 
 /-- The product of all three coefficient kernels is squarefree. -/
 theorem SquarefreePellWitness.w_mul_u_mul_v_squarefree
     {P : ABCPoint} (W : P.SquarefreePellWitness) :
     Squarefree (W.w * (W.u * W.v)) := by
-  rw [squarefree_mul_iff]
-  refine ⟨?_, W.w_squarefree, W.u_mul_v_squarefree⟩
-  exact Nat.coprime_iff_isRelPrime.mp
-    (W.w_coprime_u.mul_right W.w_coprime_v)
+  rw [Nat.squarefree_mul_iff]
+  refine ⟨W.w_coprime_u.mul_right W.w_coprime_v,
+    W.w_squarefree, W.u_mul_v_squarefree⟩
 
 /-- The small coefficient is supported on the radical of the small endpoint. -/
 theorem SquarefreePellWitness.w_dvd_smallRadical
     {P : ABCPoint} (W : P.SquarefreePellWitness) :
     W.w ∣ abcRadical P.endpointMin := by
   rw [abcRadical_eq_natRadical]
+  have hwRadical : IsRadical W.w :=
+    (UniqueFactorizationMonoid.isRadical_iff_squarefree_of_ne_zero
+      W.w_pos.ne').2 W.w_squarefree
   apply (UniqueFactorizationMonoid.dvd_radical_iff
-    W.w_squarefree.isRadical P.endpointMin_pos.ne').2
+    hwRadical P.endpointMin_pos.ne').2
   exact ⟨W.z ^ 2, W.small_eq⟩
 
 /-- The large-summand coefficient is supported on its endpoint radical. -/
@@ -86,8 +87,11 @@ theorem SquarefreePellWitness.u_dvd_largeRadical
     {P : ABCPoint} (W : P.SquarefreePellWitness) :
     W.u ∣ abcRadical P.largeEndpoint := by
   rw [abcRadical_eq_natRadical]
+  have huRadical : IsRadical W.u :=
+    (UniqueFactorizationMonoid.isRadical_iff_squarefree_of_ne_zero
+      W.u_pos.ne').2 W.u_squarefree
   apply (UniqueFactorizationMonoid.dvd_radical_iff
-    W.u_squarefree.isRadical P.largeEndpoint_pos.ne').2
+    huRadical P.largeEndpoint_pos.ne').2
   exact ⟨W.x ^ 2, W.large_eq⟩
 
 /-- The output coefficient is supported on the radical of `c`. -/
@@ -95,8 +99,11 @@ theorem SquarefreePellWitness.v_dvd_cRadical
     {P : ABCPoint} (W : P.SquarefreePellWitness) :
     W.v ∣ abcRadical P.c := by
   rw [abcRadical_eq_natRadical]
+  have hvRadical : IsRadical W.v :=
+    (UniqueFactorizationMonoid.isRadical_iff_squarefree_of_ne_zero
+      W.v_pos.ne').2 W.v_squarefree
   apply (UniqueFactorizationMonoid.dvd_radical_iff
-    W.v_squarefree.isRadical P.c_pos.ne').2
+    hvRadical P.c_pos.ne').2
   exact ⟨W.y ^ 2, W.c_eq⟩
 
 /-- All moving-Pell coefficient support lies in the original abc radical. -/
@@ -117,8 +124,8 @@ radical. -/
 theorem SquarefreePellWitness.discriminantCoefficient_dvd_abcRadical
     {P : ABCPoint} (W : P.SquarefreePellWitness) :
     W.u * W.v ∣ abcRadical (P.a * P.b * P.c) := by
-  exact dvd_trans (dvd_mul_left (W.u * W.v) W.w)
-    (by simpa [mul_assoc] using W.coefficientProduct_dvd_abcRadical)
+  apply dvd_trans (dvd_mul_left (W.u * W.v) W.w)
+  simpa [mul_assoc] using W.coefficientProduct_dvd_abcRadical
 
 #print axioms SquarefreePellWitness.w_coprime_u
 #print axioms SquarefreePellWitness.w_coprime_v
