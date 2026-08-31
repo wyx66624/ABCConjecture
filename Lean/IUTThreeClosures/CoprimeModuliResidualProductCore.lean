@@ -28,6 +28,8 @@ that survive in the canonical `n`-th-power residue coefficient.  We prove:
 At `(m,n)=(2,3)`, simultaneous control of the parity and cubic residual
 supports therefore produces a sixth-power decomposition whose coefficient
 weight is at most five times the sum of the two residual radical weights.
+Conversely, unless the sixth-power root is large, at least one of those two
+residual radical weights must itself be quantitatively large.
 
 No abc estimate, generalized-Fermat theorem, or height bound is assumed.
 -/
@@ -184,12 +186,63 @@ theorem sixthPowerRootWeight_lower_bound
   norm_num at h ⊢
   exact h
 
+/-- Quantitative square--cube trichotomy: either one residual coefficient has
+large radical support, or the canonical sixth-power root is large. -/
+theorem squareResidualLarge_or_cubeResidualLarge_or_sixthRootLarge
+    (s : Finset ι) (weight : ι → ℝ) (exponent : ι → ℕ)
+    (hweight : ∀ i ∈ s, 0 ≤ weight i)
+    (A B : ℝ) :
+    A < residualRadicalWeight 2 s weight exponent ∨
+      B < residualRadicalWeight 3 s weight exponent ∨
+        (exponentTotalWeight s weight exponent - 5 * (A + B)) / 6 ≤
+          exponentQuotientWeight 6 s weight exponent := by
+  by_cases htwo : A < residualRadicalWeight 2 s weight exponent
+  · exact Or.inl htwo
+  · right
+    by_cases hthree : B < residualRadicalWeight 3 s weight exponent
+    · exact Or.inl hthree
+    · right
+      have htwoLe := le_of_not_gt htwo
+      have hthreeLe := le_of_not_gt hthree
+      have hroot := sixthPowerRootWeight_lower_bound
+        s weight exponent hweight
+      nlinarith
+
+/-- Contrapositive form: if the sixth-power root is below a proposed scale,
+then one of the square or cube residual radical weights must carry at least
+half of the resulting deficit. -/
+theorem squareResidualLarge_or_cubeResidualLarge_of_sixthRootSmall
+    (s : Finset ι) (weight : ι → ℝ) (exponent : ι → ℕ)
+    (hweight : ∀ i ∈ s, 0 ≤ weight i)
+    {Q : ℝ}
+    (hrootSmall : exponentQuotientWeight 6 s weight exponent < Q) :
+    (exponentTotalWeight s weight exponent - 6 * Q) / 10 <
+        residualRadicalWeight 2 s weight exponent ∨
+      (exponentTotalWeight s weight exponent - 6 * Q) / 10 <
+        residualRadicalWeight 3 s weight exponent := by
+  have hroot := sixthPowerRootWeight_lower_bound
+    s weight exponent hweight
+  have hsum :
+      (exponentTotalWeight s weight exponent - 6 * Q) / 5 <
+        residualRadicalWeight 2 s weight exponent +
+          residualRadicalWeight 3 s weight exponent := by
+    nlinarith
+  by_cases htwo :
+      (exponentTotalWeight s weight exponent - 6 * Q) / 10 <
+        residualRadicalWeight 2 s weight exponent
+  · exact Or.inl htwo
+  · right
+    have htwoLe := le_of_not_gt htwo
+    nlinarith
+
 #print axioms residueWeight_le_modulusMinusOne_mul_residualRadicalWeight
 #print axioms productResidualRadicalWeight_le_add
 #print axioms productModulusResidueWeight_le
 #print axioms productPowerRootWeight_lower_bound
 #print axioms sixthPowerResidueWeight_le_five_mul_squareCubeResidualSum
 #print axioms sixthPowerRootWeight_lower_bound
+#print axioms squareResidualLarge_or_cubeResidualLarge_or_sixthRootLarge
+#print axioms squareResidualLarge_or_cubeResidualLarge_of_sixthRootSmall
 
 end
 end CoprimeModuliResidualProductCore
