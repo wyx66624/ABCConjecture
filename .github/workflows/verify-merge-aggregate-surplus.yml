@@ -1,0 +1,199 @@
+name: Verify and merge aggregate-surplus research candidates
+
+on:
+  push:
+    branches:
+      - "automation/verify-merge-aggregate-surplus-20260830"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: verify-merge-aggregate-surplus-20260830
+  cancel-in-progress: false
+
+jobs:
+  verify-v15:
+    name: Verify v15 aggregate-surplus branch and merge PR 373
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: formalize/large-endpoint-aggregate-surplus-v15
+          fetch-depth: 0
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Reject unfinished proof commands in v15 modules
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            Lean/IUTThreeClosures/LargeEndpointAggregateSurplus.lean
+            Lean/IUTThreeClosures/LargeEndpointSurplusHeightScale.lean
+            Lean/IUTThreeClosures/LargeEndpointAggregatePartialABC.lean
+            Lean/IUTThreeClosures/LargePairAverageMultiplicity.lean
+          )
+          for f in "${files[@]}"; do
+            test -f "$f"
+            if grep -nE '^[[:space:]]*(axiom|sorry|admit)\b|:=\s*by\s+sorry\b' "$f"; then
+              echo "Unfinished proof command found in $f" >&2
+              exit 1
+            fi
+          done
+
+      - name: Kernel-check the whole project
+        working-directory: Lean
+        shell: bash
+        run: lake build
+
+      - name: Verify all v15 modules produced oleans
+        working-directory: Lean
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          files = [
+              Path("IUTThreeClosures/LargeEndpointAggregateSurplus.lean"),
+              Path("IUTThreeClosures/LargeEndpointSurplusHeightScale.lean"),
+              Path("IUTThreeClosures/LargeEndpointAggregatePartialABC.lean"),
+              Path("IUTThreeClosures/LargePairAverageMultiplicity.lean"),
+          ]
+          root = Path(".lake/build/lib/lean")
+          missing = [str(root / f.with_suffix(".olean")) for f in files
+                     if not (root / f.with_suffix(".olean")).is_file()]
+          if missing:
+              raise SystemExit("Missing compiled modules:\n" + "\n".join(missing))
+          print("Verified", len(files), "v15 oleans")
+          PY
+
+      - name: Merge PR 373 only after verification
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          state=$(gh pr view 373 --repo wyx66624/ABCConjecture --json state --jq .state)
+          if [ "$state" = "OPEN" ]; then
+            gh pr merge 373 --repo wyx66624/ABCConjecture --merge \
+              --subject "Merge signed large-endpoint aggregate-surplus ledgers" \
+              --body "Automatically merged only after a full Lean kernel build, explicit unfinished-proof scan, and olean verification on the candidate branch."
+          elif [ "$state" = "MERGED" ]; then
+            echo "PR 373 is already merged."
+          else
+            echo "PR 373 is not open or merged: $state" >&2
+            exit 1
+          fi
+
+  verify-v16b:
+    name: Verify v16b-v29 exponent-structure branch and merge PR 375
+    needs: verify-v15
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: formalize/exponent-two-surplus-dichotomy-v16b
+          fetch-depth: 0
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update
+          lake exe cache get
+
+      - name: Reject unfinished proof commands in exponent-structure modules
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            Lean/IUTThreeClosures/ExponentTwoSurplusDichotomy.lean
+            Lean/IUTThreeClosures/ExponentModulusCoverageSelector.lean
+            Lean/IUTThreeClosures/PrimeExponentModulusSelector.lean
+            Lean/IUTThreeClosures/ExponentResidueRadicalDrop.lean
+            Lean/IUTThreeClosures/ExplicitPrimeResidueSaving.lean
+            Lean/IUTThreeClosures/ExponentLayerCakeSelector.lean
+            Lean/IUTThreeClosures/PowerLayerDivisorExtraction.lean
+            Lean/IUTThreeClosures/PowerDivisorCountingExponentBarrier.lean
+            Lean/IUTThreeClosures/QuantitativeHighExponentEnergyDichotomy.lean
+          )
+          for f in "${files[@]}"; do
+            test -f "$f"
+            if grep -nE '^[[:space:]]*(axiom|sorry|admit)\b|:=\s*by\s+sorry\b' "$f"; then
+              echo "Unfinished proof command found in $f" >&2
+              exit 1
+            fi
+          done
+
+      - name: Kernel-check the whole project
+        working-directory: Lean
+        shell: bash
+        run: lake build
+
+      - name: Verify all exponent-structure modules produced oleans
+        working-directory: Lean
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          files = [
+              Path("IUTThreeClosures/ExponentTwoSurplusDichotomy.lean"),
+              Path("IUTThreeClosures/ExponentModulusCoverageSelector.lean"),
+              Path("IUTThreeClosures/PrimeExponentModulusSelector.lean"),
+              Path("IUTThreeClosures/ExponentResidueRadicalDrop.lean"),
+              Path("IUTThreeClosures/ExplicitPrimeResidueSaving.lean"),
+              Path("IUTThreeClosures/ExponentLayerCakeSelector.lean"),
+              Path("IUTThreeClosures/PowerLayerDivisorExtraction.lean"),
+              Path("IUTThreeClosures/PowerDivisorCountingExponentBarrier.lean"),
+              Path("IUTThreeClosures/QuantitativeHighExponentEnergyDichotomy.lean"),
+          ]
+          root = Path(".lake/build/lib/lean")
+          missing = [str(root / f.with_suffix(".olean")) for f in files
+                     if not (root / f.with_suffix(".olean")).is_file()]
+          if missing:
+              raise SystemExit("Missing compiled modules:\n" + "\n".join(missing))
+          print("Verified", len(files), "exponent-structure oleans")
+          PY
+
+      - name: Merge PR 375 only after verification
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          state=$(gh pr view 375 --repo wyx66624/ABCConjecture --json state --jq .state)
+          if [ "$state" = "OPEN" ]; then
+            gh pr merge 375 --repo wyx66624/ABCConjecture --merge \
+              --subject "Merge exponent-surplus dichotomies and deterministic selectors" \
+              --body "Automatically merged only after a full Lean kernel build, explicit unfinished-proof scan, and olean verification on the candidate branch."
+          elif [ "$state" = "MERGED" ]; then
+            echo "PR 375 is already merged."
+          else
+            echo "PR 375 is not open or merged: $state" >&2
+            exit 1
+          fi
