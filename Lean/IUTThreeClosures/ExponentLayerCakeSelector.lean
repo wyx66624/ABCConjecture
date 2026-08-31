@@ -32,7 +32,7 @@ variable {ι : Type*}
 /-- Radical weight of coordinates whose exponent is at least `j`. -/
 def exponentAtLeastLayerWeight
     (j : ℕ) (s : Finset ι) (weight : ι → ℝ) (exponent : ι → ℕ) : ℝ :=
-  ∑ i in s, if j ≤ exponent i then weight i else 0
+  ∑ i ∈ s, if j ≤ exponent i then weight i else 0
 
 /-- Each nested exponent layer has nonnegative weight. -/
 theorem exponentAtLeastLayerWeight_nonneg
@@ -58,7 +58,7 @@ theorem coordinate_aboveTwo_eq_layer_sum
     {K e : ℕ} (w : ℝ)
     (hcap : e ≤ K) :
     ((e - 2 : ℕ) : ℝ) * w =
-      ∑ j in Finset.Icc 3 K, if j ≤ e then w else 0 := by
+      ∑ j ∈ Finset.Icc 3 K, if j ≤ e then w else 0 := by
   classical
   by_cases hthree : 3 ≤ e
   · have hfilter :
@@ -72,8 +72,8 @@ theorem coordinate_aboveTwo_eq_layer_sum
       · rintro ⟨hj3, hje⟩
         exact ⟨⟨hj3, hje.trans hcap⟩, hje⟩
     have hsum_filter :
-        (∑ j in (Finset.Icc 3 K).filter (fun j => j ≤ e), w) =
-          ∑ j in Finset.Icc 3 K, if j ≤ e then w else 0 := by
+        (∑ j ∈ (Finset.Icc 3 K).filter (fun j => j ≤ e), w) =
+          ∑ j ∈ Finset.Icc 3 K, if j ≤ e then w else 0 := by
       rw [Finset.sum_filter]
     rw [← hsum_filter, hfilter]
     have hcard := card_Icc_three hthree
@@ -94,20 +94,20 @@ theorem aboveTwoWeight_eq_sum_layers
     (s : Finset ι) (weight : ι → ℝ) (exponent : ι → ℕ)
     (hcap : ∀ i ∈ s, exponent i ≤ K) :
     exponentAboveTwoWeight s weight exponent =
-      ∑ j in Finset.Icc 3 K,
+      ∑ j ∈ Finset.Icc 3 K,
         exponentAtLeastLayerWeight j s weight exponent := by
   classical
   unfold exponentAboveTwoWeight exponentAtLeastLayerWeight
   calc
     (∑ i ∈ s, ((exponent i - 2 : ℕ) : ℝ) * weight i) =
         ∑ i ∈ s,
-          ∑ j in Finset.Icc 3 K,
+          ∑ j ∈ Finset.Icc 3 K,
             if j ≤ exponent i then weight i else 0 := by
       apply Finset.sum_congr rfl
       intro i hi
       exact coordinate_aboveTwo_eq_layer_sum
         (weight i) (hcap i hi)
-    _ = ∑ j in Finset.Icc 3 K,
+    _ = ∑ j ∈ Finset.Icc 3 K,
           ∑ i ∈ s,
             if j ≤ exponent i then weight i else 0 := by
       rw [Finset.sum_comm]
@@ -121,7 +121,7 @@ theorem signedSurplus_add_one_eq_sum_layers
     (hcap : ∀ i ∈ s, exponent i ≤ K) :
     exponentSignedTwoSurplus s weight exponent +
         exponentOneLayerWeight s weight exponent =
-      ∑ j in Finset.Icc 3 K,
+      ∑ j ∈ Finset.Icc 3 K,
         exponentAtLeastLayerWeight j s weight exponent := by
   have hdecomp :=
     signedTwoSurplus_eq_aboveTwo_sub_one s weight exponent hpos
@@ -141,9 +141,9 @@ theorem aboveTwoWeight_le_card_mul_of_each_layer_le
       ((Finset.Icc 3 K).card : ℝ) * B := by
   rw [aboveTwoWeight_eq_sum_layers s weight exponent hcap]
   calc
-    (∑ j in Finset.Icc 3 K,
+    (∑ j ∈ Finset.Icc 3 K,
       exponentAtLeastLayerWeight j s weight exponent) ≤
-        ∑ _j in Finset.Icc 3 K, B := by
+        ∑ _j ∈ Finset.Icc 3 K, B := by
       exact Finset.sum_le_sum fun j hj => heach j hj
     _ = ((Finset.Icc 3 K).card : ℝ) * B := by simp
 
@@ -168,13 +168,13 @@ theorem exists_power_layer_of_signedSurplus
   have hsum := signedSurplus_add_one_eq_sum_layers
     s weight exponent hpos hcap
   have hupper :
-      (∑ j in Finset.Icc 3 K,
+      (∑ j ∈ Finset.Icc 3 K,
         exponentAtLeastLayerWeight j s weight exponent) ≤
           ((Finset.Icc 3 K).card : ℝ) * B := by
     calc
-      (∑ j in Finset.Icc 3 K,
+      (∑ j ∈ Finset.Icc 3 K,
         exponentAtLeastLayerWeight j s weight exponent) ≤
-          ∑ _j in Finset.Icc 3 K, B := by
+          ∑ _j ∈ Finset.Icc 3 K, B := by
         exact Finset.sum_le_sum fun j hj => hnot j hj
       _ = ((Finset.Icc 3 K).card : ℝ) * B := by simp
   linarith
