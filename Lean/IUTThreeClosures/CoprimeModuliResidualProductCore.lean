@@ -94,7 +94,8 @@ theorem productResidualRadicalWeight_le_add
   intro i hi
   by_cases hm : m ∣ exponent i
   · by_cases hn : n ∣ exponent i
-    · have hmn : m * n ∣ exponent i := hcoprime.mul_dvd hm hn
+    · have hmn : m * n ∣ exponent i :=
+        hcoprime.mul_dvd_of_dvd_of_dvd hm hn
       simp [hm, hn, hmn]
     · have hmn : ¬ m * n ∣ exponent i := by
         intro hprod
