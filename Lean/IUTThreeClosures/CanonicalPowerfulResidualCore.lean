@@ -115,16 +115,18 @@ theorem canonical_residual_gap_nat (P : ABCPoint) :
 parametrization. -/
 theorem canonical_residual_gap_int (P : ABCPoint) :
     (P.canonicalSumPowerfulModulus : ℤ) *
-          P.canonicalSumRadicalResidual -
+          (P.canonicalSumRadicalResidual : ℤ) -
         (P.canonicalLargePowerfulModulus : ℤ) *
-          P.canonicalLargeRadicalResidual =
+          (P.canonicalLargeRadicalResidual : ℤ) =
       (P.endpointMin : ℤ) := by
-  have h := P.canonical_residual_gap_nat
-  exact_mod_cast (show
-    P.canonicalSumPowerfulModulus * P.canonicalSumRadicalResidual =
-      P.endpointMin +
-        P.canonicalLargePowerfulModulus *
-          P.canonicalLargeRadicalResidual by omega)
+  have h :
+      (P.endpointMin : ℤ) +
+          (P.canonicalLargePowerfulModulus : ℤ) *
+            (P.canonicalLargeRadicalResidual : ℤ) =
+        (P.canonicalSumPowerfulModulus : ℤ) *
+          (P.canonicalSumRadicalResidual : ℤ) := by
+    exact_mod_cast P.canonical_residual_gap_nat
+  linarith
 
 /-- The radical always divides the original integer. -/
 theorem abcRadical_dvd_self (n : ℕ) : abcRadical n ∣ n := by
@@ -191,34 +193,46 @@ theorem endpointMin_coprime_canonicalSumResidual (P : ABCPoint) :
 /-- The large residual is squarefree. -/
 theorem canonicalLargeResidual_squarefree (P : ABCPoint) :
     Squarefree P.canonicalLargeRadicalResidual := by
-  unfold canonicalLargeRadicalResidual abcRadical
-  exact UniqueFactorizationMonoid.squarefree_radical
+  unfold canonicalLargeRadicalResidual
+  rw [abcRadical_eq_natRadical]
+  exact
+    (UniqueFactorizationMonoid.squarefree_radical
+      (a := P.largeEndpoint) : Squarefree (radical P.largeEndpoint))
 
 /-- The sum residual is squarefree. -/
 theorem canonicalSumResidual_squarefree (P : ABCPoint) :
     Squarefree P.canonicalSumRadicalResidual := by
-  unfold canonicalSumRadicalResidual abcRadical
-  exact UniqueFactorizationMonoid.squarefree_radical
+  unfold canonicalSumRadicalResidual
+  rw [abcRadical_eq_natRadical]
+  exact
+    (UniqueFactorizationMonoid.squarefree_radical
+      (a := P.c) : Squarefree (radical P.c))
 
 /-- The prime support of the large powerful modulus is contained in the large
 radical residual. -/
 theorem radical_canonicalLargeModulus_dvd_residual (P : ABCPoint) :
     abcRadical P.canonicalLargePowerfulModulus ∣
       P.canonicalLargeRadicalResidual := by
-  rw [abcRadical_eq_natRadical, abcRadical_eq_natRadical]
-  exact radical_dvd_radical
-    (abcPowerfulPart_dvd_self P.largeEndpoint)
-    P.largeEndpoint_pos.ne'
+  simpa [canonicalLargePowerfulModulus, canonicalLargeRadicalResidual,
+      abcRadical_eq_natRadical] using
+    (UniqueFactorizationMonoid.radical_dvd_radical
+      (a := abcPowerfulPart P.largeEndpoint)
+      (b := P.largeEndpoint)
+      (abcPowerfulPart_dvd_self P.largeEndpoint)
+      P.largeEndpoint_pos.ne')
 
 /-- The prime support of the sum powerful modulus is contained in the sum
 radical residual. -/
 theorem radical_canonicalSumModulus_dvd_residual (P : ABCPoint) :
     abcRadical P.canonicalSumPowerfulModulus ∣
       P.canonicalSumRadicalResidual := by
-  rw [abcRadical_eq_natRadical, abcRadical_eq_natRadical]
-  exact radical_dvd_radical
-    (abcPowerfulPart_dvd_self P.c)
-    P.c_pos.ne'
+  simpa [canonicalSumPowerfulModulus, canonicalSumRadicalResidual,
+      abcRadical_eq_natRadical] using
+    (UniqueFactorizationMonoid.radical_dvd_radical
+      (a := abcPowerfulPart P.c)
+      (b := P.c)
+      (abcPowerfulPart_dvd_self P.c)
+      P.c_pos.ne')
 
 end ABCPoint
 
