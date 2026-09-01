@@ -23,8 +23,6 @@ it must additionally control the common value at essentially the abc scale.
 namespace IUTThreeClosures
 namespace UnitGapArithmeticDerivativeBarrier
 
-open ArithmeticLeibnizWronskian
-
 /-- Equal derivative values on the two coprime large endpoints are divisible
 by the product of their powerful parts. -/
 theorem powerfulParts_mul_dvd_commonDerivative

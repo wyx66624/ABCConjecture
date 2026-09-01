@@ -50,7 +50,7 @@ theorem right_support_le_two_left_residual
       _ ≤ S * B := hmul
       _ ≤ 2 * (R * A) := hlarge
       _ = R * (2 * A) := by ring
-  exact (mul_le_mul_left hR).mp hcancel
+  nlinarith [hcancel]
 
 /-- If the shared support is a positive integer-sized quantity, the full right
 modulus is at most twice the opposite residual. -/

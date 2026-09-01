@@ -53,9 +53,9 @@ theorem signedTwoSurplus_le_three_mul_cubeRootWeight
     exponentResidueWeight_le_radical_budget
       (n := 3) (by norm_num) s weight exponent hweight
   unfold cubeRootWeight
-  norm_num at hresidue
+  norm_num at hdecomp hresidue
   rw [hdecomp]
-  nlinarith
+  linarith
 
 /-- Any lower bound for the signed defect transfers with the exact factor
 one third to the canonical cube root. -/

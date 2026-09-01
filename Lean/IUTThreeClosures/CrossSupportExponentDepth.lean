@@ -69,9 +69,15 @@ theorem exponentProfileProduct_eq_firstLayer_mul_excessProduct
         ∏ i ∈ s, base i * base i ^ (exponent i - 1) := by
       apply Finset.prod_congr rfl
       intro i hi
+      have hiPos : 0 < exponent i := hpos i hi
       have he : exponent i = (exponent i - 1) + 1 := by
         omega
-      rw [he, pow_succ, mul_comm]
+      calc
+        base i ^ exponent i =
+            base i ^ ((exponent i - 1) + 1) :=
+          congrArg (fun e : ℕ => base i ^ e) he
+        _ = base i ^ (exponent i - 1) * base i := by rw [pow_succ]
+        _ = base i * base i ^ (exponent i - 1) := by rw [mul_comm]
     _ = (∏ i ∈ s, base i) *
         ∏ i ∈ s, base i ^ (exponent i - 1) := by
       exact Finset.prod_mul_distrib
@@ -89,9 +95,10 @@ theorem exponentTotalWeight_eq_radical_add_excessWeight
   calc
     (∑ i ∈ s, (exponent i : ℝ) * weight i) =
         ∑ i ∈ s,
-          weight i + ((exponent i - 1 : ℕ) : ℝ) * weight i := by
+          (weight i + ((exponent i - 1 : ℕ) : ℝ) * weight i) := by
       apply Finset.sum_congr rfl
       intro i hi
+      have hiPos : 0 < exponent i := hpos i hi
       have heNat : exponent i = 1 + (exponent i - 1) := by
         omega
       have he : (exponent i : ℝ) =
@@ -208,13 +215,13 @@ theorem exists_twoSupport_excessDepth_gt
       ∃ i ∈ s₂, D < e₂ i - 1 := by
   classical
   by_contra hnone
-  push_neg at hnone
+  push Not at hnone
   have hdepth₁ : ∀ i ∈ s₁, e₁ i - 1 ≤ D := by
     intro i hi
-    exact Nat.le_of_not_gt (hnone.1 i hi)
+    exact hnone.1 i hi
   have hdepth₂ : ∀ i ∈ s₂, e₂ i - 1 ≤ D := by
     intro i hi
-    exact Nat.le_of_not_gt (hnone.2 i hi)
+    exact hnone.2 i hi
   have hbound := twoSupport_excessWeight_le_depth_mul_radicalWeight
     s₁ s₂ weight e₁ e₂ hweight₁ hweight₂ hdepth₁ hdepth₂
   linarith
@@ -279,7 +286,7 @@ theorem twoVectorExcessFailure_forces_oneSide
     (1 + 2 * ε) * rA + (1 + ε) * rC + K / 2 < eR ∨
       (1 + 2 * ε) * rB + (1 + ε) * rC + K / 2 < eS := by
   by_contra hnone
-  push_neg at hnone
+  push Not at hnone
   nlinarith
 
 #print axioms exponentProfileProduct_eq_firstLayer_mul_excessProduct

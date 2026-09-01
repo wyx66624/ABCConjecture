@@ -39,8 +39,9 @@ theorem factorization_mul_squarefree_eq_add_one
     (hpA : p ∣ A) :
     (U * A).factorization p = U.factorization p + 1 := by
   rw [Nat.factorization_mul hU hA]
+  change U.factorization p + A.factorization p =
+    U.factorization p + 1
   rw [Nat.factorization_eq_one_of_squarefree hAsq hp hpA]
-  rfl
 
 /-- Exact left cross-contact depth. -/
 theorem left_cross_contact_depth

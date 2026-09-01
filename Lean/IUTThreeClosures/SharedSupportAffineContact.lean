@@ -32,7 +32,7 @@ theorem left_contact_identity
     t - m * x * y =
       y * residualA m S x t + (t * x) * R := by
   unfold residualA
-  linear_combination t * hbezout
+  linear_combination -t * hbezout
 
 /-- The right shared-support contact identity. -/
 theorem right_contact_identity
@@ -41,7 +41,7 @@ theorem right_contact_identity
     t + m * x * y =
       x * residualB m R y t + (t * y) * S := by
   unfold residualB
-  linear_combination t * hbezout
+  linear_combination -t * hbezout
 
 /-- A divisor shared by the left modulus and residual divides the left contact
 factor. -/
@@ -119,7 +119,9 @@ theorem left_contact_ne_zero_of_positive
     rw [ht]
     linear_combination m * x * hbezout
   rw [hcollapse] at hA
-  nlinarith [sq_nonneg x]
+  have hnonneg : 0 ≤ m * R * x ^ 2 :=
+    mul_nonneg (mul_nonneg hm.le hR.le) (sq_nonneg x)
+  nlinarith
 
 /-- Vanishing of the right contact factor gives an explicit square-bearing
 collapse. -/
@@ -131,7 +133,37 @@ theorem right_residual_eq_of_right_contact_zero
   have ht : t = -m * x * y := by linarith
   unfold residualB
   rw [ht]
-  linear_combination m * y * hbezout
+  linear_combination -m * y * hbezout
+
+/-- Outside the explicit right-collapse branch, positive canonical data give a
+nonzero quadratic contact divisible by the full shared-support product. -/
+theorem positive_shared_support_contact_dichotomy
+    {R S m x y t r s : ℤ}
+    (hbezout : R * x + S * y = 1)
+    (hm : 0 < m)
+    (hR : 0 < R)
+    (hApos : 0 < residualA m S x t)
+    (hrR : r ∣ R)
+    (hrA : r ∣ residualA m S x t)
+    (hsS : s ∣ S)
+    (hsB : s ∣ residualB m R y t) :
+    residualB m R y t = m * S * y ^ 2 ∨
+      (r * s ∣ t ^ 2 - (m * x * y) ^ 2 ∧
+        t ^ 2 - (m * x * y) ^ 2 ≠ 0) := by
+  by_cases hright : t + m * x * y = 0
+  · left
+    exact right_residual_eq_of_right_contact_zero hbezout hright
+  · right
+    refine ⟨shared_support_product_dvd_quadratic_contact
+      hbezout hrR hrA hsS hsB, ?_⟩
+    intro hquad
+    have hfactor :
+        (t - m * x * y) * (t + m * x * y) = 0 := by
+      nlinarith
+    rcases mul_eq_zero.mp hfactor with hleft | hrightZero
+    · exact left_contact_ne_zero_of_positive
+        hbezout hm hR hApos hleft
+    · exact hright hrightZero
 
 #print axioms left_contact_identity
 #print axioms right_contact_identity
@@ -141,6 +173,7 @@ theorem right_residual_eq_of_right_contact_zero
 #print axioms shared_support_product_natAbs_le_quadratic_contact_natAbs
 #print axioms left_contact_ne_zero_of_positive
 #print axioms right_residual_eq_of_right_contact_zero
+#print axioms positive_shared_support_contact_dichotomy
 
 end SharedSupportAffineContact
 end IUTThreeClosures
