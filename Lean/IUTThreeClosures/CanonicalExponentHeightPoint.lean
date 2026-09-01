@@ -68,8 +68,7 @@ theorem abcRadical_eq_gap_mul_canonicalResiduals (P : ABCPoint) :
       canonicalSumRadicalResidual, hab]
   · have hba : P.b ≤ P.a := Nat.le_of_not_ge hab
     simp [endpointMin, largeEndpoint, canonicalLargeRadicalResidual,
-      canonicalSumRadicalResidual, hab, hba, Nat.mul_comm,
-      Nat.mul_left_comm, Nat.mul_assoc]
+      canonicalSumRadicalResidual, hba, Nat.mul_comm, Nat.mul_assoc]
 
 theorem height_eq_sumModulusLog_add_sumResidualLog (P : ABCPoint) :
     P.height = P.canonicalSumModulusLog + P.canonicalSumResidualLog := by
@@ -111,9 +110,9 @@ theorem height_sub_log_two_le_largeModulusLog_add_largeResidualLog
       (P.canonicalLargePowerfulModulus : ℝ) *
         (P.canonicalLargeRadicalResidual : ℝ) := by
     exact_mod_cast P.canonicalLarge_factorization.symm
+  rw [hfactor, Real.log_mul hR.ne' hA.ne'] at hlog
   rw [P.height_eq_log_c]
   unfold canonicalLargeModulusLog canonicalLargeResidualLog
-  rw [hfactor, Real.log_mul hR.ne' hA.ne']
   linarith
 
 theorem conductor_eq_gap_add_residualLogs (P : ABCPoint) :
@@ -143,17 +142,23 @@ theorem log_natCast_nonneg {n : ℕ} (hn : 0 < n) :
 theorem largeResidualLog_le_conductor (P : ABCPoint) :
     P.canonicalLargeResidualLog ≤ P.conductor := by
   rw [P.conductor_eq_gap_add_residualLogs]
-  have hgap := log_natCast_nonneg (abcRadical_pos P.endpointMin)
-  have hB := log_natCast_nonneg P.canonicalSumRadicalResidual_pos
-  unfold canonicalGapRadicalLog canonicalSumResidualLog at hgap hB
+  have hgap : 0 ≤ P.canonicalGapRadicalLog := by
+    unfold canonicalGapRadicalLog
+    exact log_natCast_nonneg (abcRadical_pos P.endpointMin)
+  have hB : 0 ≤ P.canonicalSumResidualLog := by
+    unfold canonicalSumResidualLog
+    exact log_natCast_nonneg P.canonicalSumRadicalResidual_pos
   linarith
 
 theorem sumResidualLog_le_conductor (P : ABCPoint) :
     P.canonicalSumResidualLog ≤ P.conductor := by
   rw [P.conductor_eq_gap_add_residualLogs]
-  have hgap := log_natCast_nonneg (abcRadical_pos P.endpointMin)
-  have hA := log_natCast_nonneg P.canonicalLargeRadicalResidual_pos
-  unfold canonicalGapRadicalLog canonicalLargeResidualLog at hgap hA
+  have hgap : 0 ≤ P.canonicalGapRadicalLog := by
+    unfold canonicalGapRadicalLog
+    exact log_natCast_nonneg (abcRadical_pos P.endpointMin)
+  have hA : 0 ≤ P.canonicalLargeResidualLog := by
+    unfold canonicalLargeResidualLog
+    exact log_natCast_nonneg P.canonicalLargeRadicalResidual_pos
   linarith
 
 theorem bothCanonicalModuli_heightScale_of_violation
