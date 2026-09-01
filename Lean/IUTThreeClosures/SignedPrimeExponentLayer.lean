@@ -71,7 +71,7 @@ theorem total_sub_two_radical_eq_aboveTwo_sub_one
   · simp [hone]
     ring
   · have htwo : 2 ≤ exponent i := by omega
-    simp [hone, Nat.cast_sub htwo]
+    rw [if_neg hone, Nat.cast_sub htwo]
     ring
 
 end SignedPrimeExponentLayer
