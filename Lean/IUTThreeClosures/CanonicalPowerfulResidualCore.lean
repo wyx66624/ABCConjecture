@@ -29,7 +29,6 @@ point.  It does not assume a radical estimate or the abc conjecture.
 -/
 
 namespace IUTThreeClosures
-namespace CanonicalPowerfulResidualCore
 
 open UniqueFactorizationMonoid
 
@@ -130,12 +129,13 @@ theorem canonical_residual_gap_int (P : ABCPoint) :
 /-- The radical always divides the original integer. -/
 theorem abcRadical_dvd_self (n : ℕ) : abcRadical n ∣ n := by
   refine ⟨abcPowerfulPart n, ?_⟩
-  exact abcRadical_mul_abcPowerfulPart n
+  exact (abcRadical_mul_abcPowerfulPart n).symm
 
 /-- The powerful part always divides the original integer. -/
 theorem abcPowerfulPart_dvd_self (n : ℕ) : abcPowerfulPart n ∣ n := by
   refine ⟨abcRadical n, ?_⟩
-  simpa [Nat.mul_comm] using abcRadical_mul_abcPowerfulPart n
+  rw [Nat.mul_comm]
+  exact (abcRadical_mul_abcPowerfulPart n).symm
 
 /-- The two canonical powerful moduli are coprime. -/
 theorem canonicalPowerfulModuli_coprime (P : ABCPoint) :
@@ -235,5 +235,4 @@ end ABCPoint
 #print axioms ABCPoint.radical_canonicalSumModulus_dvd_residual
 
 end
-end CanonicalPowerfulResidualCore
 end IUTThreeClosures
