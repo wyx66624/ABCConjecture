@@ -171,3 +171,24 @@ Frey 族与全部原始初始 theta 数据保留在
 首轮研究记录保留在
 [`ABC_SESSION_2026_08_30.md`](research/ABC_SESSION_2026_08_30.md)，
 其十页论文快照位于 `Lean/verification/2026_08_30/paper_snapshot/`。
+
+## 2026-09-01 本地与云端分支整合
+
+本轮把本地续研成果、最新 `origin/main`，以及五条仍有独立数学内容的云端
+路线合并到同一条可构建历史中：v27 的互素 residual-product/cube-divisor
+路线、v29 的 exponent-height ledger、cross-support exponent-depth、
+shared-support affine contact，以及包含 v29b--v29i 的 cross-endpoint
+contact-depth/no-go 链。仅用于临时定向构建或成功标记的工作流没有进入最终
+树；诊断分支和已被后续分支覆盖的旧版本仍保留在远端供审计。
+
+统一入口现显式导入这些模块，并复用了仓库已有的 `endpointMin` 与
+`largeEndpoint` 定义。针对 Lean 4.32 的命名空间闭合、有限乘积类型转换、
+接触恒等式符号、乘法结合形式和正性前提均已修复。默认 `lake build`
+成功完成 **9189 jobs**。同时保留了闭射线逼近桥：它形式化了原文
+source-defined ordered hull 条件及何种定量逼近足以推出 IUT III
+Corollary 3.12 中的实数闭射线成员关系，也给出固定误差和纯定性链接不足的
+反例；它没有假设尚缺失的同一 pilot 全局 hull 类型对应。
+
+完整分支、修复和验证清单见
+[`2026-09-01 云端整合验收记录`](Lean/verification/2026_09_01_cloud_integration/VALIDATION.md)。
+一般 abc 猜想在本轮之后仍未被证明或证伪。

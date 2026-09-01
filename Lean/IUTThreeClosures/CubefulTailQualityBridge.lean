@@ -65,14 +65,27 @@ theorem qualitySquare_tailSandwich
         c ^ 2 * A₀ * B₀ * C ^ 2 ∧
       c ^ 2 * A₀ * B₀ * C ^ 2 ≤
         2 * (A * B * C) ^ 2 * U * V := by
-  have hid := endpointProduct_tailIdentity hM hc hA hR hB hS
+  have hid := endpointProduct_tailIdentity (C := C) hM hc hA hR hB hS
   have hMc : M * c ≤ c * c :=
     mul_le_mul_of_nonneg_right hM_le_c hc_nonneg
   have hcc : c * c ≤ (2 * M) * c :=
     mul_le_mul_of_nonneg_right hc_le_twoM hc_nonneg
   have hMcCore := mul_le_mul_of_nonneg_right hMc hcore_nonneg
   have hccCore := mul_le_mul_of_nonneg_right hcc hcore_nonneg
-  constructor <;> nlinarith
+  constructor
+  · calc
+      (A * B * C) ^ 2 * U * V =
+          M * c * A₀ * B₀ * C ^ 2 := hid.symm
+      _ = (M * c) * (A₀ * B₀ * C ^ 2) := by ring
+      _ ≤ (c * c) * (A₀ * B₀ * C ^ 2) := hMcCore
+      _ = c ^ 2 * A₀ * B₀ * C ^ 2 := by ring
+  · calc
+      c ^ 2 * A₀ * B₀ * C ^ 2 =
+          (c * c) * (A₀ * B₀ * C ^ 2) := by ring
+      _ ≤ ((2 * M) * c) * (A₀ * B₀ * C ^ 2) := hccCore
+      _ = 2 * (M * c * A₀ * B₀ * C ^ 2) := by ring
+      _ = 2 * ((A * B * C) ^ 2 * U * V) := by rw [hid]
+      _ = 2 * (A * B * C) ^ 2 * U * V := by ring
 
 /-- A bound for the cubeful tail gives the corresponding squared abc-quality
 bound, with only the endpoint-balance factor `2`. -/
@@ -98,11 +111,12 @@ theorem tailBound_implies_qualitySquareBound
           (A₀ * B₀ * C ^ 2) := by
     calc
       c ^ 2 * (A₀ * B₀ * C ^ 2) ≤
-          2 * (A * B * C) ^ 2 * U * V := hsandwich.2
+          2 * (A * B * C) ^ 2 * U * V := by
+            simpa [mul_assoc] using hsandwich.2
       _ ≤ (2 * H * (A * B * C) ^ 2) *
           (A₀ * B₀ * C ^ 2) := by
         nlinarith
-  exact (mul_le_mul_right hcore_pos).mp (by simpa [mul_assoc] using hmul)
+  nlinarith [hmul]
 
 /-- Conversely, a squared abc-quality bound controls the cubeful tail with no
 factor loss. -/
@@ -117,11 +131,12 @@ theorem qualitySquareBound_implies_tailBound
     (hM_le_c : M ≤ c)
     (hc_le_twoM : c ≤ 2 * M)
     (hc_nonneg : 0 ≤ c)
+    (hcore_nonneg : 0 ≤ A₀ * B₀ * C ^ 2)
     (hrad_pos : 0 < (A * B * C) ^ 2)
     (hquality : c ^ 2 ≤ H * (A * B * C) ^ 2) :
     U * V ≤ H * (A₀ * B₀ * C ^ 2) := by
   have hsandwich := qualitySquare_tailSandwich
-    hM hc hA hR hB hS hM_le_c hc_le_twoM hc_nonneg (by positivity)
+    hM hc hA hR hB hS hM_le_c hc_le_twoM hc_nonneg hcore_nonneg
   have hmul :
       (A * B * C) ^ 2 * (U * V) ≤
         (A * B * C) ^ 2 *
@@ -129,11 +144,12 @@ theorem qualitySquareBound_implies_tailBound
     calc
       (A * B * C) ^ 2 * (U * V) =
           (A * B * C) ^ 2 * U * V := by ring
-      _ ≤ c ^ 2 * A₀ * B₀ * C ^ 2 := hsandwich.1
+      _ ≤ c ^ 2 * A₀ * B₀ * C ^ 2 := by
+        simpa [mul_assoc] using hsandwich.1
       _ ≤ (A * B * C) ^ 2 *
           (H * (A₀ * B₀ * C ^ 2)) := by
         nlinarith
-  exact (mul_le_mul_left hrad_pos).mp hmul
+  nlinarith [hmul]
 
 /-- In particular, the critical tail inequality `U*V ≤ A₀*B₀*C^2` yields a
 uniform quality bound with constant `sqrt 2` after taking square roots.  The

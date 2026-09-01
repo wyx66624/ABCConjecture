@@ -77,7 +77,11 @@ theorem exponentRadicalWeight_primeFactorization_eq_log_radical
   have hprodReal :
       (∏ p ∈ n.primeFactors, (p : ℝ)) =
         ((radical n : ℕ) : ℝ) := by
-    exact_mod_cast hprodNat.symm
+    calc
+      (∏ p ∈ n.primeFactors, (p : ℝ)) =
+          ((∏ p ∈ n.primeFactors, p : ℕ) : ℝ) := by simp
+      _ = ((radical n : ℕ) : ℝ) :=
+        congrArg (fun k : ℕ => (k : ℝ)) hprodNat.symm
   rw [← hprodReal]
   unfold exponentRadicalWeight
   rw [Real.log_prod]
@@ -156,6 +160,7 @@ theorem natural_signed_defect_forces_square_cube_sixth_split
       n.primeFactors (fun p => Real.log (p : ℝ)) n.factorization
       (primeLog_nonneg_on_primeFactors n) hprofile
 
+end
 end NatExponentProfileBridge
 
 namespace ABCPoint

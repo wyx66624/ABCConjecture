@@ -476,3 +476,27 @@ or an eliminated formulation, the verified result is ported onto a fresh branch
 based on current `main`; the old branch is retained unchanged for auditability.
 
 No entry in this registry asserts a parameter-free proof of `ABCConjecture`.
+
+## 2026-09-01 integrated cloud continuations
+
+The current integrated line retains the following distinct verified advances:
+
+- the v27 natural exponent-profile bridge, canonical cube-divisor extraction,
+  and coprime residual-product core;
+- the v29 canonical exponent-height and support-congruence ledgers;
+- the symmetric cross-support depth and cubeful-tail reformulation;
+- the v29b--v29i shared-support contact identities, coefficient ledgers,
+  positive-contact closure, square-collapse descent, and two precise unit-gap
+  no-go results;
+- the source-defined ordered-hull and closed-real-ray approximation criteria
+  for the scalar step isolated from IUT III, Corollary 3.12.
+
+The first four items reduce a hypothetical height violation to sharper
+exponent, support, contact, or cube-divisor obligations.  They do not supply
+the uniform high-depth estimate needed to close abc.  The final item proves
+the scalar implication of a correctly typed hull approximant and exactly what
+a vanishing numerical approximation would imply, while leaving the same-pilot
+global hull identification open.  Temporary
+branch-specific CI marker workflows, diagnostic-only branches, and versions
+strictly superseded by these continuations were not copied into the integrated
+tree; their remote histories remain available for audit.

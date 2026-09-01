@@ -421,3 +421,51 @@ import IUTThreeClosures.AffineShearAmplification20260831
 -- excluded, and the geometric-mean reduction is checked over the naturals.
 -- The external de Bruijn counting estimate is not added as an axiom.
 import IUTThreeClosures.AffineExcessUpperBound20260831
+
+-- Exact scalar content of the "perhaps only up to approximation" sentence in
+-- IUT III, Corollary 3.12: arbitrary or vanishing one-sided approximation in
+-- the printed closed ray suffices, while fixed tolerance and an uncalibrated
+-- qualitative link have explicit countermodels.  The source-level
+-- approximation/membership premise itself remains open.
+import IUTThreeClosures.IUTClosedRayApproximationBridge20260901
+
+-- Integrated cloud arithmetic core, v26--v29.  These modules retain the
+-- square/cube and affine-residual reductions from current main, then add the
+-- repaired exponent-height, shared-support, and contact-depth continuations.
+import IUTThreeClosures.SquarePartExponentWeight
+import IUTThreeClosures.CubePartExponentWeight
+import IUTThreeClosures.HeightViolationSquareRootScale
+import IUTThreeClosures.SmallGapOrThreeSquareParts
+import IUTThreeClosures.PowerSquareGapPellBridge
+import IUTThreeClosures.ABCPointSquarefreePellWitness
+import IUTThreeClosures.MovingPellApproximationIdentity
+import IUTThreeClosures.SquarefreePellCoefficientSupport
+import IUTThreeClosures.MovingPellLocalResidue
+import IUTThreeClosures.SquareCubeMordellBridge
+import IUTThreeClosures.SquareCubeMordellTransfer
+import IUTThreeClosures.CoprimeModuliAdjacentNoGo
+import IUTThreeClosures.AffineResidualParametrization
+import IUTThreeClosures.AffinePrimitiveEndpointFamily
+import IUTThreeClosures.AffineResidualDiscriminant
+import IUTThreeClosures.AffineResidualTrivialSlice
+import IUTThreeClosures.CanonicalPowerfulResidualCore
+import IUTThreeClosures.LargeEndpointCubeRootSelector
+import IUTThreeClosures.CoprimeModuliResidualProductCore
+import IUTThreeClosures.NatExponentProfileBridge
+import IUTThreeClosures.SquareCubeResidualSixthPower
+import IUTThreeClosures.CubePartSignedDefect
+import IUTThreeClosures.CanonicalCubeEndpointNormalForm
+import IUTThreeClosures.CrossSupportExponentDepth
+import IUTThreeClosures.CubefulTailQualityBridge
+import IUTThreeClosures.CanonicalExponentHeightLedger
+import IUTThreeClosures.CanonicalAffineSupportCongruence
+import IUTThreeClosures.CanonicalExponentHeightPoint
+import IUTThreeClosures.SharedSupportAffineContact
+import IUTThreeClosures.SharedSupportScaledContact
+import IUTThreeClosures.SharedSupportContactQuadratics
+import IUTThreeClosures.CanonicalEndpointContactDepth
+import IUTThreeClosures.OneSidedContactCoefficientLedger
+import IUTThreeClosures.PositiveRightContactClosure
+import IUTThreeClosures.SquareCollapseDescentLedger
+import IUTThreeClosures.UnitGapContactDegeneracy
+import IUTThreeClosures.UnitGapArithmeticDerivativeBarrier

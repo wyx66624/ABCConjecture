@@ -80,7 +80,7 @@ theorem naturalCubeRoot_pos
 /-- The logarithm of the integral canonical cube root is exactly the finite
 prime-exponent cube-root weight. -/
 theorem log_naturalCubeRoot_eq_weight
-    (n : ℕ) (hn : 0 < n) :
+    (n : ℕ) (_hn : 0 < n) :
     Real.log (naturalCubeRoot n : ℝ) =
       NatExponentProfileBridge.naturalCubeRootWeight n := by
   unfold naturalCubeRoot
@@ -107,6 +107,7 @@ theorem log_naturalCubeRoot_cube_eq_three_weight
   rw [Real.log_pow, log_naturalCubeRoot_eq_weight n hn]
   norm_num
 
+end
 end CanonicalCubeEndpointNormalForm
 
 namespace ABCPoint

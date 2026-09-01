@@ -41,7 +41,7 @@ theorem left_contact_quadratic_identity
         2 * R * residualA m S x t * t +
           residualA m S x t * residualB m R y t := by
   unfold residualA residualB
-  linear_combination m * t * hbezout
+  linear_combination -m * t * hbezout
 
 /-- Right contact after eliminating both Bezout coefficients. -/
 theorem right_contact_quadratic_identity
@@ -52,7 +52,7 @@ theorem right_contact_quadratic_identity
         2 * S * residualB m R y t * t -
           residualA m S x t * residualB m R y t := by
   unfold residualA residualB
-  linear_combination m * t * hbezout
+  linear_combination -m * t * hbezout
 
 /-- The left contact quadratic has negative discriminant on positive
 canonical data. -/

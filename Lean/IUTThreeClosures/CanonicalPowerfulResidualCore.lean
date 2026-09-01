@@ -5,6 +5,8 @@ Authors: ChatGPT
 -/
 import IUTThreeClosures.AffineResidualTrivialSlice
 import IUTThreeClosures.ArithmeticLeibnizWronskian
+import IUTThreeClosures.EndpointBalanceCoefficientTransfer
+import IUTThreeClosures.LargeEndpointPrimePowerLocalization
 import Mathlib.Data.Nat.Squarefree
 import Mathlib.Tactic
 
@@ -36,26 +38,6 @@ noncomputable section
 
 namespace ABCPoint
 
-/-- The smaller of the two summands. -/
-def endpointMin (P : ABCPoint) : ℕ := min P.a P.b
-
-/-- The larger of the two summands. -/
-def largeEndpoint (P : ABCPoint) : ℕ := max P.a P.b
-
-/-- The smaller summand is positive. -/
-theorem endpointMin_pos (P : ABCPoint) : 0 < P.endpointMin := by
-  by_cases hab : P.a ≤ P.b
-  · simpa [endpointMin, hab] using P.a_pos
-  · have hba : P.b ≤ P.a := Nat.le_of_not_ge hab
-    simpa [endpointMin, hab, hba] using P.b_pos
-
-/-- The larger summand is positive. -/
-theorem largeEndpoint_pos (P : ABCPoint) : 0 < P.largeEndpoint := by
-  by_cases hab : P.a ≤ P.b
-  · simpa [largeEndpoint, hab] using P.b_pos
-  · have hba : P.b ≤ P.a := Nat.le_of_not_ge hab
-    simpa [largeEndpoint, hab, hba] using P.a_pos
-
 /-- The small and large summands recover the sum. -/
 theorem endpointMin_add_largeEndpoint_eq_c (P : ABCPoint) :
     P.endpointMin + P.largeEndpoint = P.c := by
@@ -63,14 +45,6 @@ theorem endpointMin_add_largeEndpoint_eq_c (P : ABCPoint) :
   · simpa [endpointMin, largeEndpoint, hab] using P.sum_eq
   · have hba : P.b ≤ P.a := Nat.le_of_not_ge hab
     simpa [endpointMin, largeEndpoint, hab, hba, Nat.add_comm] using P.sum_eq
-
-/-- The larger summand is coprime to the sum. -/
-theorem largeEndpoint_coprime_c (P : ABCPoint) :
-    Nat.Coprime P.largeEndpoint P.c := by
-  by_cases hab : P.a ≤ P.b
-  · simpa [largeEndpoint, hab] using P.pairwise_coprime.2.1
-  · have hba : P.b ≤ P.a := Nat.le_of_not_ge hab
-    simpa [largeEndpoint, hab, hba] using P.pairwise_coprime.2.2.symm
 
 /-- Canonical powerful modulus on the larger summand. -/
 def canonicalLargePowerfulModulus (P : ABCPoint) : ℕ :=

@@ -2619,3 +2619,35 @@ These are mathematical construction theorems, not missing record syntax.
 to abc may not be used to mark them complete.  A transparent interface to a
 precisely cited theorem already accepted in the literature is allowed under the
 trust policy at the top of this file.
+
+## 2026-09-01 cloud-integration checkpoint
+
+The verified local continuation was rebased through remote `main` and merged
+with the non-superseded arithmetic content of five cloud lines:
+
+- `formalize/canonical-exponent-height-ledger-v29`;
+- `formalize/cross-support-exponent-depth-v29`;
+- `formalize/shared-support-affine-contact-v29`;
+- `formalize/cross-endpoint-contact-depth-v29b`, including its v29b--v29i
+  continuation history;
+- `formalize/coprime-residue-product-core-v27`.
+
+The combined modules now share the pre-existing `ABCPoint.endpointMin` and
+`ABCPoint.largeEndpoint` definitions instead of redeclaring them.  Lean 4.32
+compatibility repairs close anonymous sections correctly, make the natural to
+real finite-product cast explicit, correct three contact-identity signs, expose
+the nonnegativity premise needed by the reverse cubeful-tail comparison, and
+replace brittle cancellation and normalization steps by checked arguments.
+The default library build completes successfully with 9189 jobs.  The repaired
+theorems' axiom audits contain no `sorryAx`.
+
+The local closed-ray approximation bridge dated 2026-09-01 is also retained.
+It proves that a correctly typed source-defined ordered hull approximant gives
+the required scalar inequality, proves the elementary equivalence between
+arbitrarily accurate approximation inside a real closed lower ray and
+membership in that ray, and records exact counterexamples to fixed-tolerance
+and uncalibrated qualitative-link variants.  It does not identify the global
+Step (xi-f) hull with an approximant of the same input pilot.  The exponent-tail,
+shared-support, contact-depth, and IUT source-level uniform estimates remain
+open; no parameter-free abc theorem or abc counterexample is claimed.  See
+`verification/2026_09_01_cloud_integration/VALIDATION.md`.

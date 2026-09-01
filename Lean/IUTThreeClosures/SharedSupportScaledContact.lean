@@ -32,7 +32,7 @@ theorem scaled_left_contact_identity
     S * (t - m * x * y) =
       residualA m S x t + m * R * x ^ 2 := by
   unfold residualA
-  linear_combination m * x * hbezout
+  linear_combination -m * x * hbezout
 
 /-- Exact scaled right contact identity. -/
 theorem scaled_right_contact_identity
