@@ -72,6 +72,7 @@ positive fraction of the total height.  This formulation uses only that its
 squarefree residual is part of the full conductor. -/
 theorem rightModulus_heightScale
     {epsilon C conductor b v h : ℝ}
+    (hepsilon : 0 < epsilon)
     (hresidual : b ≤ conductor)
     (hheight : h = v + b)
     (hviolation : (1 + epsilon) * conductor + C < h) :
@@ -82,6 +83,7 @@ theorem rightModulus_heightScale
 explicit endpoint loss `L`. -/
 theorem leftModulus_heightScale
     {epsilon C conductor a u h L : ℝ}
+    (hepsilon : 0 < epsilon)
     (hresidual : a ≤ conductor)
     (hleftEndpoint : h - L ≤ u + a)
     (hviolation : (1 + epsilon) * conductor + C < h) :
@@ -93,6 +95,7 @@ theorem leftModulus_heightScale
 putative abc violation. -/
 theorem bothModuli_heightScale
     {epsilon C conductor a b u v h L : ℝ}
+    (hepsilon : 0 < epsilon)
     (ha : a ≤ conductor)
     (hb : b ≤ conductor)
     (hheight : h = v + b)
@@ -101,13 +104,14 @@ theorem bothModuli_heightScale
     (epsilon * h + C < (1 + epsilon) * v) ∧
       (epsilon * h + C - (1 + epsilon) * L <
         (1 + epsilon) * u) := by
-  exact ⟨rightModulus_heightScale hb hheight hviolation,
-    leftModulus_heightScale ha hleftEndpoint hviolation⟩
+  exact ⟨rightModulus_heightScale hepsilon hb hheight hviolation,
+    leftModulus_heightScale hepsilon ha hleftEndpoint hviolation⟩
 
 /-- Contrapositive closure on the sum side: if the exponent height `v` does
 not reach the forced threshold, the abc violation is impossible. -/
 theorem height_le_of_rightModulus_not_heightScale
     {epsilon C conductor b v h : ℝ}
+    (hepsilon : 0 < epsilon)
     (hresidual : b ≤ conductor)
     (hheight : h = v + b)
     (hmodulus : (1 + epsilon) * v ≤ epsilon * h + C) :
@@ -117,6 +121,7 @@ theorem height_le_of_rightModulus_not_heightScale
 /-- Contrapositive closure on the opposite large endpoint. -/
 theorem height_le_of_leftModulus_not_heightScale
     {epsilon C conductor a u h L : ℝ}
+    (hepsilon : 0 < epsilon)
     (hresidual : a ≤ conductor)
     (hleftEndpoint : h - L ≤ u + a)
     (hmodulus :
