@@ -1,0 +1,61 @@
+name: v29b verified marker
+
+on:
+  push:
+    branches:
+      - "formalize/cross-endpoint-contact-depth-v29b"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify-and-mark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: formalize/cross-endpoint-contact-depth-v29b
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+      - name: Compile all v29b modules
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake build \
+            IUTThreeClosures.SharedSupportAffineContact \
+            IUTThreeClosures.SharedSupportScaledContact \
+            IUTThreeClosures.SharedSupportContactQuadratics \
+            IUTThreeClosures.CanonicalEndpointContactDepth \
+            IUTThreeClosures.OneSidedContactCoefficientLedger \
+            IUTThreeClosures.PositiveRightContactClosure
+      - name: Record verified source head
+        shell: bash
+        run: |
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          mkdir -p research/ci
+          cat > research/ci/V29B_TARGETED_VERIFIED.md <<EOF
+          # v29b targeted Lean verification
+
+          The complete v29b module set compiled successfully with Lean 4.32.0.
+
+          Verified source head: \`${SOURCE_SHA}\`
+          EOF
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/ci/V29B_TARGETED_VERIFIED.md
+          if ! git diff --cached --quiet; then
+            git commit -m "Record successful targeted v29b Lean verification"
+            git push origin HEAD:formalize/cross-endpoint-contact-depth-v29b
+          fi
