@@ -1,0 +1,1841 @@
+{
+  "schema": "abc-determinant-totient-refined-signature-inventory-v1",
+  "modules": [
+    {
+      "module": "AffineDeterminantLayerEntropy20260901",
+      "path": "Lean/IUTThreeClosures/AffineDeterminantLayerEntropy20260901.lean",
+      "bytes": 29973,
+      "sha256": "aebc0da1d341603444bed4affd418c0d2d630b6b008d9cc1947446782e246ed9",
+      "counts": {
+        "theorem": 30,
+        "lemma": 0,
+        "def": 1,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 31,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "threeForm_modulusProduct_dvd_det",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.threeForm_modulusProduct_dvd_det",
+          "private": false,
+          "protected": false,
+          "line": 32,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.threeForm_modulusProduct_dvd_det",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "eq_zero_of_modulus_dvd_and_natAbs_lt",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.eq_zero_of_modulus_dvd_and_natAbs_lt",
+          "private": false,
+          "protected": false,
+          "line": 86,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.eq_zero_of_modulus_dvd_and_natAbs_lt",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "signedPairDet_eq_zero_of_template_and_bound",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.signedPairDet_eq_zero_of_template_and_bound",
+          "private": false,
+          "protected": false,
+          "line": 99,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.signedPairDet_eq_zero_of_template_and_bound",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fractionalTemplateCover_card_le",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.fractionalTemplateCover_card_le",
+          "private": false,
+          "protected": false,
+          "line": 121,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.fractionalTemplateCover_card_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "signedPairDet_eq_zero_of_dvd_of_coordinateBounds",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.signedPairDet_eq_zero_of_dvd_of_coordinateBounds",
+          "private": false,
+          "protected": false,
+          "line": 163,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.signedPairDet_eq_zero_of_dvd_of_coordinateBounds",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "threeForm_signedPairDet_eq_zero_of_large_modulusProduct",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.threeForm_signedPairDet_eq_zero_of_large_modulusProduct",
+          "private": false,
+          "protected": false,
+          "line": 188,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.threeForm_signedPairDet_eq_zero_of_large_modulusProduct",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "oneDimSeparated_card_le",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.oneDimSeparated_card_le",
+          "private": false,
+          "protected": false,
+          "line": 210,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.oneDimSeparated_card_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "dominantFirstCoordinate_card_le",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.dominantFirstCoordinate_card_le",
+          "private": false,
+          "protected": false,
+          "line": 236,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.dominantFirstCoordinate_card_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_30",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_30",
+          "private": true,
+          "protected": false,
+          "line": 262,
+          "reportedConstant": "_private.verification.«2026_09_01_determinant_totient_refined_signature».«axiom-audit».0.IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_30",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_42",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_42",
+          "private": true,
+          "protected": false,
+          "line": 278,
+          "reportedConstant": "_private.verification.«2026_09_01_determinant_totient_refined_signature».«axiom-audit».0.IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_42",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_56",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_56",
+          "private": true,
+          "protected": false,
+          "line": 291,
+          "reportedConstant": "_private.verification.«2026_09_01_determinant_totient_refined_signature».«axiom-audit».0.IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_56",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_70",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_70",
+          "private": true,
+          "protected": false,
+          "line": 300,
+          "reportedConstant": "_private.verification.«2026_09_01_determinant_totient_refined_signature».«axiom-audit».0.IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_70",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_84",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_84",
+          "private": true,
+          "protected": false,
+          "line": 313,
+          "reportedConstant": "_private.verification.«2026_09_01_determinant_totient_refined_signature».«axiom-audit».0.IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_84",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_120",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_120",
+          "private": true,
+          "protected": false,
+          "line": 326,
+          "reportedConstant": "_private.verification.«2026_09_01_determinant_totient_refined_signature».«axiom-audit».0.IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_120",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primitive_subcritical_c_ge_nine",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.primitive_subcritical_c_ge_nine",
+          "private": false,
+          "protected": false,
+          "line": 339,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.primitive_subcritical_c_ge_nine",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "canonical_cubicThreshold_scale12",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_cubicThreshold_scale12",
+          "private": false,
+          "protected": false,
+          "line": 363,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_cubicThreshold_scale12",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "canonical_longCapThreshold_scale12",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_longCapThreshold_scale12",
+          "private": false,
+          "protected": false,
+          "line": 405,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_longCapThreshold_scale12",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "canonical_cubicThreshold_scale22",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_cubicThreshold_scale22",
+          "private": false,
+          "protected": false,
+          "line": 435,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_cubicThreshold_scale22",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "canonical_longCapThreshold_scale22",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_longCapThreshold_scale22",
+          "private": false,
+          "protected": false,
+          "line": 478,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_longCapThreshold_scale22",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "canonical_threshold_forces_twice_boxSq",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_threshold_forces_twice_boxSq",
+          "private": false,
+          "protected": false,
+          "line": 517,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_threshold_forces_twice_boxSq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_49",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_49",
+          "private": true,
+          "protected": false,
+          "line": 554,
+          "reportedConstant": "_private.verification.«2026_09_01_determinant_totient_refined_signature».«axiom-audit».0.IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_49",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_121",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_121",
+          "private": true,
+          "protected": false,
+          "line": 562,
+          "reportedConstant": "_private.verification.«2026_09_01_determinant_totient_refined_signature».«axiom-audit».0.IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_121",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_169",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_169",
+          "private": true,
+          "protected": false,
+          "line": 568,
+          "reportedConstant": "_private.verification.«2026_09_01_determinant_totient_refined_signature».«axiom-audit».0.IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_169",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_289",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_289",
+          "private": true,
+          "protected": false,
+          "line": 574,
+          "reportedConstant": "_private.verification.«2026_09_01_determinant_totient_refined_signature».«axiom-audit».0.IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_289",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_361",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_361",
+          "private": true,
+          "protected": false,
+          "line": 580,
+          "reportedConstant": "_private.verification.«2026_09_01_determinant_totient_refined_signature».«axiom-audit».0.IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_361",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_529",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_529",
+          "private": true,
+          "protected": false,
+          "line": 586,
+          "reportedConstant": "_private.verification.«2026_09_01_determinant_totient_refined_signature».«axiom-audit».0.IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_529",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_841",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_841",
+          "private": true,
+          "protected": false,
+          "line": 592,
+          "reportedConstant": "_private.verification.«2026_09_01_determinant_totient_refined_signature».«axiom-audit».0.IUTThreeClosures.AffineDeterminantLayerEntropy20260901.radical_841",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "areaOnlyTemplateBound_counterexample",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.areaOnlyTemplateBound_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 598,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.areaOnlyTemplateBound_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "adaptiveTemplateUnion_not_separated_counterexample",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.adaptiveTemplateUnion_not_separated_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 636,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.adaptiveTemplateUnion_not_separated_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "zeroDensityStrictEntropy_counterexample",
+          "name": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.zeroDensityStrictEntropy_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 704,
+          "reportedConstant": "IUTThreeClosures.AffineDeterminantLayerEntropy20260901.zeroDensityStrictEntropy_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersenneTotientDivisorConcentration20260901",
+      "path": "Lean/IUTThreeClosures/MersenneTotientDivisorConcentration20260901.lean",
+      "bytes": 93668,
+      "sha256": "25dd09eb80495a54811d18465dbaaa2f25d3fbe0b6f2175c4c9cb427df9fe2b5",
+      "counts": {
+        "theorem": 68,
+        "lemma": 20,
+        "def": 17,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 105,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "threshold_mul_totientExceptionalDivisorMass_le",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.threshold_mul_totientExceptionalDivisorMass_le",
+          "private": false,
+          "protected": false,
+          "line": 40,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.threshold_mul_totientExceptionalDivisorMass_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "divisorOrderBlockMassSum_le_threshold_add_exceptional",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_le_threshold_add_exceptional",
+          "private": false,
+          "protected": false,
+          "line": 72,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_le_threshold_add_exceptional",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientExceptionalDivisorMass_nonneg",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientExceptionalDivisorMass_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 139,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientExceptionalDivisorMass_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "divisorOrderBlockMassSum_nonneg",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 149,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientExceptionalDivisorMass_isLittleO_of_divisorMass",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientExceptionalDivisorMass_isLittleO_of_divisorMass",
+          "private": false,
+          "protected": false,
+          "line": 159,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientExceptionalDivisorMass_isLittleO_of_divisorMass",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "divisorOrderBlockMassSum_isLittleO_of_exceptionalTotientMass",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_isLittleO_of_exceptionalTotientMass",
+          "private": false,
+          "protected": false,
+          "line": 190,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_isLittleO_of_exceptionalTotientMass",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "divisorOrderBlockMassSum_isLittleO_iff_exceptionalTotientMass",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_isLittleO_iff_exceptionalTotientMass",
+          "private": false,
+          "protected": false,
+          "line": 255,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_isLittleO_iff_exceptionalTotientMass",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "restrictedDivisorMass_le_cap_totient",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedDivisorMass_le_cap_totient",
+          "private": false,
+          "protected": false,
+          "line": 303,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedDivisorMass_le_cap_totient",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "isLittleO_natCast_of_nonneg_le",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.isLittleO_natCast_of_nonneg_le",
+          "private": false,
+          "protected": false,
+          "line": 324,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.isLittleO_natCast_of_nonneg_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "restrictedDivisorMass_isLittleO_of_totient",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedDivisorMass_isLittleO_of_totient",
+          "private": false,
+          "protected": false,
+          "line": 344,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedDivisorMass_isLittleO_of_totient",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientExceptionalDivisorMass_eq_restricted_add_complement",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientExceptionalDivisorMass_eq_restricted_add_complement",
+          "private": false,
+          "protected": false,
+          "line": 374,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientExceptionalDivisorMass_eq_restricted_add_complement",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "restrictedExceptionalTotientDivisorMass_le_restrictedTotient",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedExceptionalTotientDivisorMass_le_restrictedTotient",
+          "private": false,
+          "protected": false,
+          "line": 397,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedExceptionalTotientDivisorMass_le_restrictedTotient",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "restrictedExceptionalTotientDivisorMass_le_total",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedExceptionalTotientDivisorMass_le_total",
+          "private": false,
+          "protected": false,
+          "line": 416,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedExceptionalTotientDivisorMass_le_total",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "divisorOrderBlockMassSum_isLittleO_of_localizedExceptional",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_isLittleO_of_localizedExceptional",
+          "private": false,
+          "protected": false,
+          "line": 435,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_isLittleO_of_localizedExceptional",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "divisorOrderBlockMassSum_isLittleO_iff_localizedExceptional",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_isLittleO_iff_localizedExceptional",
+          "private": false,
+          "protected": false,
+          "line": 484,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_isLittleO_iff_localizedExceptional",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cyclotomic_eval_two_int_pos",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.cyclotomic_eval_two_int_pos",
+          "private": false,
+          "protected": false,
+          "line": 535,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.cyclotomic_eval_two_int_pos",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "coe_mersenneCyclotomicValue_eq_eval_real",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.coe_mersenneCyclotomicValue_eq_eval_real",
+          "private": false,
+          "protected": false,
+          "line": 540,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.coe_mersenneCyclotomicValue_eq_eval_real",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mersenneCyclotomicValue_pos",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCyclotomicValue_pos",
+          "private": false,
+          "protected": false,
+          "line": 563,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCyclotomicValue_pos",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "isRoot_cyclotomic_two_of_prime_dvd_value",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.isRoot_cyclotomic_two_of_prime_dvd_value",
+          "private": false,
+          "protected": false,
+          "line": 571,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.isRoot_cyclotomic_two_of_prime_dvd_value",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mersenneExactOrder_eq_of_prime_dvd_cyclotomicValue",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneExactOrder_eq_of_prime_dvd_cyclotomicValue",
+          "private": false,
+          "protected": false,
+          "line": 590,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneExactOrder_eq_of_prime_dvd_cyclotomicValue",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "prod_mersenneCyclotomicValue_divisors_eq",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.prod_mersenneCyclotomicValue_divisors_eq",
+          "private": false,
+          "protected": false,
+          "line": 606,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.prod_mersenneCyclotomicValue_divisors_eq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "exactOrder_prime_fullPower_dvd_cyclotomicValue",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.exactOrder_prime_fullPower_dvd_cyclotomicValue",
+          "private": false,
+          "protected": false,
+          "line": 631,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.exactOrder_prime_fullPower_dvd_cyclotomicValue",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mersenneCanonicalOrderBlock_dvd_cyclotomicValue",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCanonicalOrderBlock_dvd_cyclotomicValue",
+          "private": false,
+          "protected": false,
+          "line": 687,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCanonicalOrderBlock_dvd_cyclotomicValue",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mersenneCyclotomicValue_le_three_pow_totient",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCyclotomicValue_le_three_pow_totient",
+          "private": false,
+          "protected": false,
+          "line": 711,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCyclotomicValue_le_three_pow_totient",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "log_le_log_three_mul_totient_of_dvd_cyclotomicValue",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_le_log_three_mul_totient_of_dvd_cyclotomicValue",
+          "private": false,
+          "protected": false,
+          "line": 720,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_le_log_three_mul_totient_of_dvd_cyclotomicValue",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mersenneCanonicalOrderBlockLogMass_le_of_dvd_cyclotomicValue",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCanonicalOrderBlockLogMass_le_of_dvd_cyclotomicValue",
+          "private": false,
+          "protected": false,
+          "line": 740,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCanonicalOrderBlockLogMass_le_of_dvd_cyclotomicValue",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mersenneCanonicalOrderBlockLogMass_le_cyclotomicCap",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCanonicalOrderBlockLogMass_le_cyclotomicCap",
+          "private": false,
+          "protected": false,
+          "line": 749,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCanonicalOrderBlockLogMass_le_cyclotomicCap",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "log_mersennePowerLoss_isLittleO_of_localizedExceptional",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_mersennePowerLoss_isLittleO_of_localizedExceptional",
+          "private": false,
+          "protected": false,
+          "line": 773,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_mersennePowerLoss_isLittleO_of_localizedExceptional",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "log_mersennePowerLoss_isLittleO_iff_localizedExceptional",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_mersennePowerLoss_isLittleO_iff_localizedExceptional",
+          "private": false,
+          "protected": false,
+          "line": 802,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_mersennePowerLoss_isLittleO_iff_localizedExceptional",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientLogDeficitSum_nonneg",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientLogDeficitSum_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 832,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientLogDeficitSum_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "barrier_mul_restrictedTotient_le_logDeficit",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.barrier_mul_restrictedTotient_le_logDeficit",
+          "private": false,
+          "protected": false,
+          "line": 850,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.barrier_mul_restrictedTotient_le_logDeficit",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "restrictedTotient_isLittleO_of_logDeficitMoment",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedTotient_isLittleO_of_logDeficitMoment",
+          "private": false,
+          "protected": false,
+          "line": 898,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedTotient_isLittleO_of_logDeficitMoment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "sum_totient_prime_power_coordinates",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.sum_totient_prime_power_coordinates",
+          "private": false,
+          "protected": false,
+          "line": 940,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.sum_totient_prime_power_coordinates",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primePowerDeficitMoment_eq_geomSum",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primePowerDeficitMoment_eq_geomSum",
+          "private": false,
+          "protected": false,
+          "line": 949,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primePowerDeficitMoment_eq_geomSum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primePowerDeficitMoment_real_eq_geomSum",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primePowerDeficitMoment_real_eq_geomSum",
+          "private": false,
+          "protected": false,
+          "line": 977,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primePowerDeficitMoment_real_eq_geomSum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primePowerDeficitExpectation_exact",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primePowerDeficitExpectation_exact",
+          "private": false,
+          "protected": false,
+          "line": 984,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primePowerDeficitExpectation_exact",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primePowerLogDeficitExpectation_exact",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primePowerLogDeficitExpectation_exact",
+          "private": false,
+          "protected": false,
+          "line": 1001,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primePowerLogDeficitExpectation_exact",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "totientArithmeticFunction_apply",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientArithmeticFunction_apply",
+          "private": false,
+          "protected": false,
+          "line": 1025,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientArithmeticFunction_apply",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "identityArithmeticFunction_apply",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.identityArithmeticFunction_apply",
+          "private": false,
+          "protected": false,
+          "line": 1028,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.identityArithmeticFunction_apply",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientArithmeticFunction_mul_zeta",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientArithmeticFunction_mul_zeta",
+          "private": false,
+          "protected": false,
+          "line": 1031,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientArithmeticFunction_mul_zeta",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientArithmeticFunction_mul_log",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientArithmeticFunction_mul_log",
+          "private": false,
+          "protected": false,
+          "line": 1043,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientArithmeticFunction_mul_log",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientLogDeficitMoment_eq_vonMangoldtDivisorSum",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientLogDeficitMoment_eq_vonMangoldtDivisorSum",
+          "private": false,
+          "protected": false,
+          "line": 1059,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientLogDeficitMoment_eq_vonMangoldtDivisorSum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "normalizedTotientLogDeficitMoment_eq_vonMangoldtDivisorSum",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.normalizedTotientLogDeficitMoment_eq_vonMangoldtDivisorSum",
+          "private": false,
+          "protected": false,
+          "line": 1090,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.normalizedTotientLogDeficitMoment_eq_vonMangoldtDivisorSum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "vonMangoldtDivisorRatioSum_eq_filter_isPrimePow",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.vonMangoldtDivisorRatioSum_eq_filter_isPrimePow",
+          "private": false,
+          "protected": false,
+          "line": 1129,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.vonMangoldtDivisorRatioSum_eq_filter_isPrimePow",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "vonMangoldtDivisorRatioSum_coprime_add",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.vonMangoldtDivisorRatioSum_coprime_add",
+          "private": false,
+          "protected": false,
+          "line": 1142,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.vonMangoldtDivisorRatioSum_coprime_add",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "sum_reciprocal_prime_powers_exact",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.sum_reciprocal_prime_powers_exact",
+          "private": false,
+          "protected": false,
+          "line": 1153,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.sum_reciprocal_prime_powers_exact",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "vonMangoldtDivisorRatioSum_primePower",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.vonMangoldtDivisorRatioSum_primePower",
+          "private": false,
+          "protected": false,
+          "line": 1166,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.vonMangoldtDivisorRatioSum_primePower",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "primeFactorDeficitMoment_coprime_add",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorDeficitMoment_coprime_add",
+          "private": false,
+          "protected": false,
+          "line": 1188,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorDeficitMoment_coprime_add",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "vonMangoldtDivisorRatioSum_eq_primeFactorDeficitMoment",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.vonMangoldtDivisorRatioSum_eq_primeFactorDeficitMoment",
+          "private": false,
+          "protected": false,
+          "line": 1205,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.vonMangoldtDivisorRatioSum_eq_primeFactorDeficitMoment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "normalizedTotientLogDeficitMoment_exact",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.normalizedTotientLogDeficitMoment_exact",
+          "private": false,
+          "protected": false,
+          "line": 1222,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.normalizedTotientLogDeficitMoment_exact",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "prime_log_div_sub_one_nonneg",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.prime_log_div_sub_one_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 1241,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.prime_log_div_sub_one_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primeFactorDeficitMoment_le_harmonicLogSum",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorDeficitMoment_le_harmonicLogSum",
+          "private": false,
+          "protected": false,
+          "line": 1248,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorDeficitMoment_le_harmonicLogSum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "sum_log_primeFactors_le_log",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.sum_log_primeFactors_le_log",
+          "private": false,
+          "protected": false,
+          "line": 1268,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.sum_log_primeFactors_le_log",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primeFactorHarmonicLogSum_le_cutoff",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_le_cutoff",
+          "private": false,
+          "protected": false,
+          "line": 1288,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_le_cutoff",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primeHarmonicLogCutoff_two_pow_le",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeHarmonicLogCutoff_two_pow_le",
+          "private": false,
+          "protected": false,
+          "line": 1360,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeHarmonicLogCutoff_two_pow_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primeFactorHarmonicLogSum_le_dyadic",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_le_dyadic",
+          "private": false,
+          "protected": false,
+          "line": 1449,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_le_dyadic",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "log_three_mul_nat_gt_one",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.log_three_mul_nat_gt_one",
+          "private": false,
+          "protected": false,
+          "line": 1463,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.log_three_mul_nat_gt_one",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "dyadicLogScale_tail_le_two",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.dyadicLogScale_tail_le_two",
+          "private": false,
+          "protected": false,
+          "line": 1472,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.dyadicLogScale_tail_le_two",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "dyadicLogScale_le_one_add_loglog_div_log_two",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.dyadicLogScale_le_one_add_loglog_div_log_two",
+          "private": false,
+          "protected": false,
+          "line": 1521,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.dyadicLogScale_le_one_add_loglog_div_log_two",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primeFactorHarmonicLogSum_le_loglog_explicit",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_le_loglog_explicit",
+          "private": false,
+          "protected": false,
+          "line": 1566,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_le_loglog_explicit",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primeFactorHarmonicLogSum_isBigO_loglog",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_isBigO_loglog",
+          "private": false,
+          "protected": false,
+          "line": 1581,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_isBigO_loglog",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "primeFactorHarmonicLogSum_nonneg",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 1630,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "primeHarmonicLogCutoff_nonneg",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeHarmonicLogCutoff_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 1637,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeHarmonicLogCutoff_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primeFactorHarmonicLogSum_isLittleO_log",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_isLittleO_log",
+          "private": false,
+          "protected": false,
+          "line": 1644,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_isLittleO_log",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "primeFactorDeficitMoment_nonneg",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorDeficitMoment_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 1688,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorDeficitMoment_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primeFactorDeficitMoment_isBigO_loglog",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorDeficitMoment_isBigO_loglog",
+          "private": false,
+          "protected": false,
+          "line": 1696,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorDeficitMoment_isBigO_loglog",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primeFactorDeficitMoment_isLittleO_log",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorDeficitMoment_isLittleO_log",
+          "private": false,
+          "protected": false,
+          "line": 1713,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorDeficitMoment_isLittleO_log",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "threshold_mul_weightedEvent_le_moment",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.threshold_mul_weightedEvent_le_moment",
+          "private": false,
+          "protected": false,
+          "line": 1732,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.threshold_mul_weightedEvent_le_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "threshold_mul_weightedTail_le_moment",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.threshold_mul_weightedTail_le_moment",
+          "private": false,
+          "protected": false,
+          "line": 1762,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.threshold_mul_weightedTail_le_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "threshold_mul_totientDivisorEvent_le_logDeficitMoment",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.threshold_mul_totientDivisorEvent_le_logDeficitMoment",
+          "private": false,
+          "protected": false,
+          "line": 1773,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.threshold_mul_totientDivisorEvent_le_logDeficitMoment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "totientLogDeficitTailWeight_nonneg",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientLogDeficitTailWeight_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 1811,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientLogDeficitTailWeight_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "delta_log_mul_totientLogDeficitTailWeight_le",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.delta_log_mul_totientLogDeficitTailWeight_le",
+          "private": false,
+          "protected": false,
+          "line": 1816,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.delta_log_mul_totientLogDeficitTailWeight_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "totientLogDeficitMoment_eq_mul_primeFactorDeficitMoment",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientLogDeficitMoment_eq_mul_primeFactorDeficitMoment",
+          "private": false,
+          "protected": false,
+          "line": 1826,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientLogDeficitMoment_eq_mul_primeFactorDeficitMoment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientLogDeficitTailWeight_isLittleO",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientLogDeficitTailWeight_isLittleO",
+          "private": false,
+          "protected": false,
+          "line": 1844,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientLogDeficitTailWeight_isLittleO",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "totientPowerSmallDivisorWeight_nonneg",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientPowerSmallDivisorWeight_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 1891,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientPowerSmallDivisorWeight_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientPowerSmallDivisorWeight_le_logTail",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientPowerSmallDivisorWeight_le_logTail",
+          "private": false,
+          "protected": false,
+          "line": 1896,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientPowerSmallDivisorWeight_le_logTail",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientPowerSmallDivisorWeight_isLittleO",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientPowerSmallDivisorWeight_isLittleO",
+          "private": false,
+          "protected": false,
+          "line": 1937,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientPowerSmallDivisorWeight_isLittleO",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientMovingLogDeficitTailWeight_eq_restrictedTotientDivisorMass",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientMovingLogDeficitTailWeight_eq_restrictedTotientDivisorMass",
+          "private": false,
+          "protected": false,
+          "line": 1965,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientMovingLogDeficitTailWeight_eq_restrictedTotientDivisorMass",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "totientMovingLogDeficitTailWeight_nonneg",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientMovingLogDeficitTailWeight_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 1975,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientMovingLogDeficitTailWeight_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "movingThreshold_mul_totientMovingLogDeficitTailWeight_le",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.movingThreshold_mul_totientMovingLogDeficitTailWeight_le",
+          "private": false,
+          "protected": false,
+          "line": 1981,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.movingThreshold_mul_totientMovingLogDeficitTailWeight_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientMovingLogDeficitTailWeight_isLittleO",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientMovingLogDeficitTailWeight_isLittleO",
+          "private": false,
+          "protected": false,
+          "line": 1992,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientMovingLogDeficitTailWeight_isLittleO",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientMovingLogDeficitTailWeight_loglog_sq_isLittleO",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientMovingLogDeficitTailWeight_loglog_sq_isLittleO",
+          "private": false,
+          "protected": false,
+          "line": 2065,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientMovingLogDeficitTailWeight_loglog_sq_isLittleO",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "log_mersennePowerLoss_isLittleO_iff_movingLogDeficitExceptional",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_mersennePowerLoss_isLittleO_iff_movingLogDeficitExceptional",
+          "private": false,
+          "protected": false,
+          "line": 2116,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_mersennePowerLoss_isLittleO_iff_movingLogDeficitExceptional",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "log_mersennePowerLoss_isLittleO_iff_loglogSquaredExceptional",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_mersennePowerLoss_isLittleO_iff_loglogSquaredExceptional",
+          "private": false,
+          "protected": false,
+          "line": 2146,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_mersennePowerLoss_isLittleO_iff_loglogSquaredExceptional",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientLogDeficitSum_eq_exactMoment",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientLogDeficitSum_eq_exactMoment",
+          "private": false,
+          "protected": false,
+          "line": 2169,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientLogDeficitSum_eq_exactMoment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientLogDeficitSum_eq_mul_primeFactorDeficitMoment",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientLogDeficitSum_eq_mul_primeFactorDeficitMoment",
+          "private": false,
+          "protected": false,
+          "line": 2189,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientLogDeficitSum_eq_mul_primeFactorDeficitMoment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "card_divisors_two_pow",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.card_divisors_two_pow",
+          "private": false,
+          "protected": false,
+          "line": 2200,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.card_divisors_two_pow",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totient_two_pow_succ_ratio",
+          "name": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totient_two_pow_succ_ratio",
+          "private": false,
+          "protected": false,
+          "line": 2210,
+          "reportedConstant": "IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totient_two_pow_succ_ratio",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "IUTRefinedFactorZeroAwareSignature20260901",
+      "path": "Lean/IUTThreeClosures/IUTRefinedFactorZeroAwareSignature20260901.lean",
+      "bytes": 9826,
+      "sha256": "635c67f7d7db6c243ce4cfda1ac21925ba19347b606517013c3c3b431e3b8b6b",
+      "counts": {
+        "theorem": 7,
+        "lemma": 0,
+        "def": 8,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 15,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "reconstruct_zeroAwareScaleCoordinate",
+          "name": "IUTThreeClosures.reconstruct_zeroAwareScaleCoordinate",
+          "private": false,
+          "protected": false,
+          "line": 53,
+          "reportedConstant": "IUTThreeClosures.reconstruct_zeroAwareScaleCoordinate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "zeroAwareScaleCoordinate_injective",
+          "name": "IUTThreeClosures.zeroAwareScaleCoordinate_injective",
+          "private": false,
+          "protected": false,
+          "line": 68,
+          "reportedConstant": "IUTThreeClosures.zeroAwareScaleCoordinate_injective",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "zeroAwareScaleCoordinate_covariant",
+          "name": "IUTThreeClosures.zeroAwareScaleCoordinate_covariant",
+          "private": false,
+          "protected": false,
+          "line": 98,
+          "reportedConstant": "IUTThreeClosures.zeroAwareScaleCoordinate_covariant",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "refinedPrimeUnitSignature_injective",
+          "name": "IUTThreeClosures.refinedPrimeUnitSignature_injective",
+          "private": false,
+          "protected": false,
+          "line": 145,
+          "reportedConstant": "IUTThreeClosures.refinedPrimeUnitSignature_injective",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "refinedPrimeUnitSignature_covariant",
+          "name": "IUTThreeClosures.refinedPrimeUnitSignature_covariant",
+          "private": false,
+          "protected": false,
+          "line": 156,
+          "reportedConstant": "IUTThreeClosures.refinedPrimeUnitSignature_covariant",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "packetRefinedPrimeUnitSignature_injective",
+          "name": "IUTThreeClosures.TupleFiniteEtalePacket.packetRefinedPrimeUnitSignature_injective",
+          "private": false,
+          "protected": false,
+          "line": 204,
+          "reportedConstant": "IUTThreeClosures.TupleFiniteEtalePacket.packetRefinedPrimeUnitSignature_injective",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "allTuplePrimeUnitSignature_injective",
+          "name": "IUTThreeClosures.TupleFiniteEtalePacket.allTuplePrimeUnitSignature_injective",
+          "private": false,
+          "protected": false,
+          "line": 227,
+          "reportedConstant": "IUTThreeClosures.TupleFiniteEtalePacket.allTuplePrimeUnitSignature_injective",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "totals": {
+    "theorem": 105,
+    "lemma": 20,
+    "def": 26,
+    "abbrev": 0,
+    "structure": 0,
+    "class": 0,
+    "inductive": 0,
+    "instance": 0,
+    "countedDeclarations": 151,
+    "proofDeclarations": 125,
+    "privateProofDeclarations": 13,
+    "axiomReports": 125
+  },
+  "axiomUnion": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ]
+}

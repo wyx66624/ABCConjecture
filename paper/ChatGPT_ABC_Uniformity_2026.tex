@@ -55,7 +55,7 @@ premises remain open.  A two-parameter primitive affine shear gives large
 fibres and sharp exceptional-set upper bounds, but still lacks a matching
 lower theorem for simultaneous powerful values.
 
-The latest continuation advances four independent interfaces.  A
+One preceding continuation advances four independent interfaces.  A
 primorial-multiple family refutes the global high-$\omega$ hypothesis printed
 in a 2026 proposed disproof, while retaining the broader sufficient target
 $\rad(c)\le X^{\sigma+o(1)}$ with
@@ -96,9 +96,22 @@ tail, yielding a still weaker divisor-average sufficient gate.  The prime
 $3511$ has odd exact order $1755$ and canonical depth two; it refutes only the
 auxiliary assertion that every base-two Wieferich prime has even exact order.
 
+The current checkpoint adds three further reductions.  A zero-aware
+prime/unit signature refines each generic finite-stage packet into every
+primitive field factor and is covariant under explicit factor equivalences;
+constructing the actual all-place IUT instance remains open.  Three affine
+congruences force their product modulus to divide every determinant, so the
+canonical range is collinear and a matching exceptional lower bound requires
+on the order of $\rad(abc)^{2/3}c^{2+\eta}$ distinct repeated-kernel triples.
+At the Mersenne endpoint, the exact totient-weighted logarithmic deficit is
+$O(\log\log(3m))$, the actual block satisfies
+$E_d\mid\Phi_d(2)\le3^{\varphi(d)}$, and the unresolved average is confined
+to $d>m\exp(-\{\log\log(3m)\}^2)$.  No corresponding near-diagonal
+exceptional-mass estimate or full-premise counterexample is known.
+
 Lean verifies the elementary algebra, finite arithmetic, reconstruction
 bridges, complete counterexamples, the corrected Mersenne order-block
-decomposition, and its conditional asymptotic passage without assuming
+decomposition, the cyclotomic cap, and moving-window concentration without assuming
 $abc$, IUT, or the open arithmetic families.  Published analytic and
 Diophantine inputs and the surviving global hypotheses are stated outside the
 kernel.  Every broad route without a full-premise counterexample remains
@@ -186,6 +199,9 @@ prime-power radical-neighbour target.
 Section~\ref{sec:iut-prime-unit-label-vector} lifts the same-pilot comparison
 to a faithful labelled prime/unit signature before taking volume, and gives
 complete counterexamples to three weaker coordinate interfaces.
+Section~\ref{sec:iut-refined-factor-signature} splits a generic fixed-stage
+packet into primitive field factors, restores zero to the signature, and
+states the exact source-level covariance still needed for IUT.
 Section~\ref{sec:affine-two-arm-crt} constructs a simultaneous two-arm CRT
 packet and tests the two necessary marginal excess gates against a complete
 canonical counterexample.
@@ -193,6 +209,10 @@ Section~\ref{sec:affine-template-entropy} proves cubic-product separation
 for a full fixed three-arm certificate, closes its large-modulus boundary,
 and derives the quantitative certificate-entropy obstruction while retaining
 all adaptive and correlated affine routes.
+Section~\ref{sec:affine-determinant-layer-entropy} combines all three affine
+congruences in the determinant, forces canonical collinearity, and derives
+the stronger repeated-kernel entropy requirement with its exact boundary
+counterexamples.
 Section~\ref{sec:mersenne-prime-layer} separates base order blocks from the
 LTE lifting remainder and proves unconditional radical bounds at prime
 Mersenne layers.
@@ -202,6 +222,9 @@ do not control the moving weighted fibre.  Sections~\ref{sec:layer-cake}--
 \ref{sec:3511} resolve the super-Wieferich contribution into finite depth
 layers, give pointwise and divisor-average sufficient gates, and certify the
 odd-order counterexample at $3511$ without closing the surviving route.
+Section~\ref{sec:mersenne-totient-concentration} proves the exact divisor
+moment, its $O(\log\log(3m))$ moving localization, the actual cyclotomic cap,
+and the resulting near-diagonal exceptional-mass equivalence.
 No priority over existing literature is
 claimed for consequences of the cited classical theorems.
 
@@ -944,13 +967,19 @@ logarithmic-form methods to a different family.
 
 \input{iut_prime_unit_label_vector_2026}
 
+\input{iut_refined_factor_signature_2026}
+
 \input{affine_two_arm_crt_2026}
 
 \input{affine_template_entropy_2026}
 
+\input{affine_determinant_layer_entropy_2026}
+
 \input{mersenne_prime_layer_radical_2026}
 
 \input{mersenne_weighted_order_tail_2026}
+
+\input{mersenne_totient_divisor_concentration_2026}
 
 \input{mersenne_super_wieferich_depth_section_2026}
 
@@ -1159,6 +1188,20 @@ collision.\\
 actual $p$-adic, and arbitrary-field scale reconstruction; faithful labelled
 signature-image transfer, vector holonomy, and three exact counterexamples to
 weakened coordinate interfaces.\\[3pt]
+\texttt{IUTRefinedFactorZeroAware\allowbreak Signature20260901} &
+Zero-aware reconstruction on each primitive field factor, faithful dependent
+products, generic fixed-stage finite-etale packet composition once its
+instances are supplied, and covariance under explicit refined field
+transport.\\[3pt]
+\texttt{AffineDeterminantLayer\allowbreak Entropy20260901} & Product-modulus
+determinant divisibility, forced collinearity, one-dimensional capacity
+interfaces, canonical scale constants, fractional covers, and two exact
+arithmetic counterexamples plus the zero-density logical counterexample.\\[3pt]
+\texttt{MersenneTotientDivisor\allowbreak Concentration20260901} & Exact
+exceptional-totient criteria, logarithmic-deficit factorization,
+$O(\log\log(3m))$ moment and moving-window concentration, unconditional
+cyclotomic cap for the actual blocks, the resulting near-diagonal Mersenne
+equivalence, and the finite power-of-two weight witness.\\[3pt]
 \bottomrule
 \end{longtable}
 
@@ -1261,7 +1304,9 @@ the limiting implication from the canonical block hypothesis, the
 nontrivial canonical block $1093\mid E_{364}$, the finite powerful-part
 comparison, the three-arm mass dichotomy, and the transition-support
 cardinality, realized-support, and ambient square-budget ratio implications.
-The cyclotomic classification,
+ The stronger complete identity
+$E_d=\Phi_d(2)/\operatorname{rad}(\Phi_d(2))$ and the analytic
+cyclotomic distribution estimates,
 Brun--Titchmarsh and totient estimates, the Erd\H{o}s--Murty order theorem,
 the Erd\H{o}s--Shorey theorem, and the hypothesis
 $\log E_d=o(\varphi(d))$ retain the external/open boundary stated in
@@ -1274,7 +1319,7 @@ for $220$ top-level declarations.  Their $177$ embedded
 \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.  All
 eight direct compilations and the aggregate $9206$-job target succeed.
 
-The present affine-entropy and Mersenne-depth checkpoint adds three modules
+The preceding affine-entropy and Mersenne-depth checkpoint adds three modules
 with $74$ theorem declarations and $21$ definitions, for $95$ further
 top-level declarations.  Every theorem has an embedded
 \texttt{\#print axioms} query.  Lean checks the complete finite separation
@@ -1289,6 +1334,17 @@ structures, for $315$ counted top-level declarations and $251$ embedded
 dependency reports.  The direct module checks and the aggregate $9209$-job
 target succeed; the dependency union remains exactly \texttt{propext},
 \texttt{Classical.choice}, and \texttt{Quot.sound}.
+
+The current determinant, totient-concentration, and refined-factor checkpoint
+adds three modules with $105$ theorem declarations, $20$ lemma declarations,
+and $26$ definitions, for $151$ counted declarations.  A generated
+same-scope audit covers all $125$ proofs one for one, including the $13$
+private affine proofs that cannot be named after import.  Its dependency union
+is again exactly \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}.  All three direct compilations and the generated audit
+are warning-free, and the aggregate $9212$-job target succeeds.  The sealed
+replay freezes $469$ local Lean and Lake inputs and explicitly records that
+these checks do not close the standard $abc$ conjecture.
 
 The formal scope is deliberately narrower than the full paper.
 Theorem~\ref{thm:tail} and Corollary~\ref{cor:carella} use Younis and classical
@@ -1517,6 +1573,24 @@ primes,
 \emph{J. Number Theory} \textbf{201} (2019), 1--22.
 \href{https://doi.org/10.1016/j.jnt.2019.02.016}%
 {doi:10.1016/j.jnt.2019.02.016}.
+
+\bibitem{Mertens1874}
+F.~Mertens,
+Ein Beitrag zur analytischen Zahlentheorie,
+\emph{J. Reine Angew. Math.} \textbf{78} (1874), 46--62.
+\href{https://doi.org/10.1515/crll.1874.78.46}%
+{doi:10.1515/crll.1874.78.46}.
+
+\bibitem{GranvillePrimitive2012}
+A.~Granville,
+Primitive prime factors in second-order linear recurrence sequences,
+\href{https://arxiv.org/abs/1212.6306}{arXiv:1212.6306}, 2012.
+
+\bibitem{FalkHarringtonJones2026}
+A.~Falk, J.~Harrington and L.~Jones,
+Generalized Wieferich primes and monogenic trinomials,
+\href{https://arxiv.org/abs/2607.29329v1}{arXiv:2607.29329v1},
+July 31, 2026.
 
 \bibitem{DarmonGranville1995}
 H.~Darmon and A.~Granville,

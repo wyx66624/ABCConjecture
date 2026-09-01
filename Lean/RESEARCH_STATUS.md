@@ -10,6 +10,88 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
+## September 1, 2026 determinant, totient-concentration, and refined-factor checkpoint
+
+The standard unconditional `ABCConjecture` remains unproved and
+undisproved.  The three continuations below sharpen positive proof targets
+while retaining counterexample searches.  A difficult or presently
+unformalized estimate leaves its route active; only the precise strengthened
+claims met by the recorded full-premise counterexamples are retired.
+
+- **Mersenne totient-divisor route.**  The probability
+  `mu_m(d)=phi(d)/m` on divisors turns the exact endpoint into a bounded-
+  convergence statement.  For every nonnegative mass bounded by
+  `C*phi(d)`, its divisor sum is `o(m)` exactly when every fixed normalized-
+  excess set has totient weight `o(m)`.  The logarithmic divisor deficit has
+  exact expectation
+  `sum_(p^a || m) (1-p^(-a))/(p-1)*log p`, which is
+  `O(log log(3m))`; Lean's finite Markov theorem therefore discards all
+  `d <= m*exp(-(log log(3m))^2)`.  The actual Mersenne target is reduced to
+  exceptional totient mass on the remaining `m^(1-o(1))` near-diagonal
+  divisors.  The exact-order cyclotomic seam is also closed in Lean:
+  `E_d | Phi_d(2) <= 3^phi(d)`, so the required actual-block cap is
+  unconditional.  Primorials give a full counterexample only to replacing the
+  moving deficit by one fixed multiple of `log log m` for arbitrary bounded
+  masses.  They do not model the Mersenne blocks.  The existing `3511` and
+  `1093` witnesses retire only universal finite linear-cap shortcuts.
+- **Affine determinant-layer route.**  The product of the three pairwise
+  coprime affine moduli divides every determinant of two fixed-template
+  difference vectors.  At the canonical parameters it exceeds twice the
+  square of the box side, forcing each template into one line.  Separation
+  at scales `floor(c^4/12)` and `floor(s*c^4/22)`, `s^3 <= R`, gives
+  capacities below `31*c^2/(10*R)` and `57*c^2/(10*R*s)`.  Partitioning by
+  the unique minimal repeated kernel forces, for `kappa,eta>0`, more than
+  `(5*kappa/57)*R^(2/3)*c^(2+eta)` realized exact-lossless triples under the
+  matching lower bound.  One exact point refutes an area-only estimate and
+  two adjacent points refute automatic separation of an unrestricted
+  point-adaptive union; the empty packet at `kappa=0` refutes only the
+  positivity-omitted strict entropy statement.  None refutes the corrected
+  positive-density canonical correlated-kernel route.
+- **IUT refined-factor route.**  In the generic fixed-stage finite-etale
+  interface, once its finite/etale instances are supplied, a place tuple is
+  refined by every primitive field factor of its tensor algebra, and zero
+  is retained by an explicit tag.  On each factor, an exponent together with
+  the complete complementary field element reconstructs the original
+  element; dependent products and the existing semisimple equivalence give
+  a faithful all-tuple signature.  Componentwise covariance is proved under
+  explicit field-equivalence, scale, and exponent-covariance hypotheses.
+  Source volume compatibility, a raw label permutation, or a bare Ind3
+  inclusion does not imply those hypotheses; exact algebraic examples mark
+  each boundary without refuting IUT.  The module does not construct an
+  instance for the complete actual IUT packet.  The active gate is still a
+  source-level refined multiplicative/valuation transport or signature-image
+  containment through the horizontal link and all required indeterminacies.
+
+The mathematical proofs are in
+`../research/ABC_MERSENNE_TOTIENT_DIVISOR_CONCENTRATION_2026_09_01.md`,
+`../research/ABC_AFFINE_DETERMINANT_LAYER_ENTROPY_2026_09_01.md`, and
+`../research/IUT_REFINED_FACTOR_ZERO_AWARE_SIGNATURE_2026_09_01.md`.
+Their companion modules are
+`IUTThreeClosures/MersenneTotientDivisorConcentration20260901.lean`,
+`IUTThreeClosures/AffineDeterminantLayerEntropy20260901.lean`, and
+`IUTThreeClosures/IUTRefinedFactorZeroAwareSignature20260901.lean`.
+They contain no unconditional terminal term of `ABCConjecture` or its
+negation and do not hide any remaining arithmetic or IUT bridge as an axiom.
+
+The permanent replay package is
+`verification/2026_09_01_determinant_totient_refined_signature/`.  It freezes
+469 local Lean and Lake inputs and records 105 theorems, 20 lemmas, and 26
+definitions, for 151 counted declarations.  Its generated same-scope audit
+covers all 125 proofs one for one, including 13 private proofs; the axiom union
+is exactly `Classical.choice`, `Quot.sound`, and `propext`.  The three direct
+compilations and generated audit are warning-free, the aggregate build passes
+with exactly 9212 jobs, and the 20-file package and its post-seal replay both
+verify.  This certifies the stated formal reductions, not `ABCConjecture` or
+its negation.
+
+The integrated English manuscript by ChatGPT is the 152-page A4 artifact
+`../output/pdf/ChatGPT_ABC_Determinant_Totient_Refined_Factor_2026_09_01.pdf`
+with SHA-256
+`8a793426c185bc343bb6b5204297ad66a45cb7b0fcfb197479db5321554dedf2`.
+All-page contact sheets, 36 retained high-resolution renders, compilation
+logs, PDF checks, and recursive TeX audits are in the adjacent `_QA`
+directory.
+
 ## September 1, 2026 affine entropy and Mersenne divisor-average depth
 
 The standard unconditional `ABCConjecture` remains unproved and

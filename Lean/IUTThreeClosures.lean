@@ -487,6 +487,13 @@ import IUTThreeClosures.IUTCorrectedVolumeHolonomy20260901
 -- unordered aggregate-holonomy weakenings.
 import IUTThreeClosures.IUTPrimeUnitLabelVectorBridge20260901
 
+-- Corrected generic refinement of the packet signature once finite/etale
+-- instances are supplied: all primitive field factors and zero tags are
+-- retained.  Reconstruction and componentwise covariance are kernel checked;
+-- an actual all-place IUT instance and transport through every indeterminacy
+-- remain explicit open bridges.
+import IUTThreeClosures.IUTRefinedFactorZeroAwareSignature20260901
+
 -- Literal audit of Carella v2, Theorem 5.1(iii): every positive multiple of
 -- a high-omega support kernel remains high-omega, giving the exact finite
 -- lower bound N/Q.  The broader positive route is retained through the
@@ -504,6 +511,14 @@ import IUTThreeClosures.AffineTwoArmCRTPacket20260901
 -- arithmetic gives the strict bound |S| R^2 < 12 c^4, while the exact
 -- dU=31 example closes only the version that omits an individual cap.
 import IUTThreeClosures.AffineTemplateEntropy20260901
+
+-- Determinant-layer continuation for complete fixed templates.  The product
+-- modulus divides every two-vector determinant; canonical parameters force
+-- the zero layer, after which Lean checks one-dimensional packing and the
+-- finite fractional-cover interface.  Repeated-kernel minimality and the
+-- final entropy composition remain paper mathematics.  Exact witnesses
+-- reject area-only and unrestricted adaptive strengthenings only.
+import IUTThreeClosures.AffineDeterminantLayerEntropy20260901
 
 -- Prime-index Mersenne layers have an unconditional square radical carrier;
 -- the global exact-order ledger requires a separate index-lifting factor,
@@ -548,6 +563,13 @@ import IUTThreeClosures.MersenneSuperWieferichDepth20260901
 -- strictly weaker input than pointwise o(phi(d)); all analytic distribution
 -- assertions remain outside the kernel.
 import IUTThreeClosures.MersenneWeightedOrderTail20260901
+
+-- Totient-weighted divisor probability at the exact Mersenne endpoint:
+-- bounded convergence is equivalent to negligible exceptional totient mass,
+-- an O(log log(3m)) moment controls the squared-loglog moving window, and
+-- exact-order cyclotomic divisibility gives the actual uniform cap.  The
+-- residual near-diagonal exceptional estimate remains the active gate.
+import IUTThreeClosures.MersenneTotientDivisorConcentration20260901
 
 -- Integrated cloud arithmetic core, v26--v29.  These modules retain the
 -- square/cube and affine-residual reductions from current main, then add the

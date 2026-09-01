@@ -1,0 +1,159 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean IUTThreeClosures/MersenneTotientDivisorConcentration20260901.lean
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.threshold_mul_totientExceptionalDivisorMass_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_le_threshold_add_exceptional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientExceptionalDivisorMass_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientExceptionalDivisorMass_isLittleO_of_divisorMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_isLittleO_of_exceptionalTotientMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_isLittleO_iff_exceptionalTotientMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedDivisorMass_le_cap_totient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.isLittleO_natCast_of_nonneg_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedDivisorMass_isLittleO_of_totient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientExceptionalDivisorMass_eq_restricted_add_complement' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedExceptionalTotientDivisorMass_le_restrictedTotient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedExceptionalTotientDivisorMass_le_total' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_isLittleO_of_localizedExceptional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.divisorOrderBlockMassSum_isLittleO_iff_localizedExceptional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.cyclotomic_eval_two_int_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.coe_mersenneCyclotomicValue_eq_eval_real' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCyclotomicValue_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.isRoot_cyclotomic_two_of_prime_dvd_value' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneExactOrder_eq_of_prime_dvd_cyclotomicValue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.prod_mersenneCyclotomicValue_divisors_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.exactOrder_prime_fullPower_dvd_cyclotomicValue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCanonicalOrderBlock_dvd_cyclotomicValue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCyclotomicValue_le_three_pow_totient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_le_log_three_mul_totient_of_dvd_cyclotomicValue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCanonicalOrderBlockLogMass_le_of_dvd_cyclotomicValue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.mersenneCanonicalOrderBlockLogMass_le_cyclotomicCap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_mersennePowerLoss_isLittleO_of_localizedExceptional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_mersennePowerLoss_isLittleO_iff_localizedExceptional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientLogDeficitSum_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.barrier_mul_restrictedTotient_le_logDeficit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.restrictedTotient_isLittleO_of_logDeficitMoment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientMovingLogDeficitTailWeight_eq_restrictedTotientDivisorMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientMovingLogDeficitTailWeight_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.movingThreshold_mul_totientMovingLogDeficitTailWeight_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientMovingLogDeficitTailWeight_isLittleO' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientMovingLogDeficitTailWeight_loglog_sq_isLittleO' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primePowerDeficitMoment_eq_geomSum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.normalizedTotientLogDeficitMoment_exact' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_isBigO_loglog' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorHarmonicLogSum_isLittleO_log' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorDeficitMoment_isBigO_loglog' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.primeFactorDeficitMoment_isLittleO_log' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.threshold_mul_weightedEvent_le_moment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientLogDeficitTailWeight_isLittleO' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.ExactMoment.totientPowerSmallDivisorWeight_isLittleO' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_mersennePowerLoss_isLittleO_iff_movingLogDeficitExceptional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.log_mersennePowerLoss_isLittleO_iff_loglogSquaredExceptional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientLogDeficitSum_eq_exactMoment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totientLogDeficitSum_eq_mul_primeFactorDeficitMoment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.card_divisors_two_pow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneTotientDivisorConcentration20260901.totient_two_pow_succ_ratio' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

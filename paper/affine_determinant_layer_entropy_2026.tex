@@ -1,0 +1,179 @@
+\section{Determinant layers and canonical-kernel entropy}
+\label{sec:affine-determinant-layer-entropy}
+
+We refine the fixed-template estimate of
+Section~\ref{sec:affine-template-entropy} by using all three affine
+congruences simultaneously.  Let $S\subseteq[1,M]^2$, put $N=M-1$, and
+suppose every difference vector $(x,y)$ in one fixed template satisfies
+\[
+ d_U\mid x,\qquad d_V\mid x+Cy,\qquad d_W\mid x+By,
+\]
+where $d_U,d_V,d_W$ are pairwise coprime.  Set $D=d_Ud_Vd_W$.
+
+\begin{proposition}[Three-form determinant divisor]
+\label{prop:three-form-determinant-divisor}
+For any two template difference vectors $v=(x,y)$ and $w=(x',y')$,
+\[
+                         D\mid\det(v,w).
+\]
+\end{proposition}
+
+\begin{proof}
+The modulus $d_U$ divides $xy'-yx'$.  The identities
+\[
+ \det(v,w)=(x+Cy)y'-y(x'+Cy')
+           =(x+By)y'-y(x'+By')
+\]
+give divisibility by $d_V$ and $d_W$.  Pairwise coprimality multiplies the
+three divisibilities.
+\end{proof}
+
+Choose a shortest nonzero difference vector $v$ and put
+$\delta=\lVert v\rVert_\infty$.  The determinant map
+$p\mapsto\det(v,p-p_0)$ has values in $D\mathbb Z$, range length at most
+$N(|v_1|+|v_2|)$, and level sets parallel to $v$.  Projection to a dominant
+coordinate gives the following capacity.
+
+\begin{theorem}[Determinant-layer capacity]
+\label{thm:determinant-layer-capacity}
+If $|S|\ge2$, then
+\[
+ |S|\le
+ \left(\left\lfloor\frac N\delta\right\rfloor+1\right)
+ \left(\left\lfloor
+   \frac{N(|v_1|+|v_2|)}D\right\rfloor+1\right)
+ \le\frac{4N^2}{D}+\frac N\delta+1.
+\]
+If $D>2N^2$, all points of $S$ are collinear.  If the complete three-form
+separation theorem also yields $\delta>L$, then
+\[
+ |S|\le\left\lfloor\frac{M-1}{L+1}\right\rfloor+1.
+\]
+\end{theorem}
+
+\begin{proof}
+An interval of the displayed determinant range contains at most the second
+number of multiples of $D$; a level contains at most the first number of
+points.  Expanding and using $\delta\le N$ gives the coarse inequality.
+When $D>2N^2$, every determinant has absolute value below $D$ and hence is
+zero.  The final estimate is one-dimensional interval packing.
+\end{proof}
+
+Return to a positive primitive seed $a+b=c$, oriented by $b\ge c/2$, with
+$R=\operatorname{rad}(abc)<c$ and
+\[
+ M=\left\lfloor\frac{c^6}{4R}\right\rfloor,
+ \qquad T_0=\frac{Rc^{14}}{8192}.
+\]
+The cases $c=6,7,8$ are incompatible with $R<c$, so $c\ge9$; also $R\ge6$.
+Consequently $T_0>2(M-1)^2$.  Every complete certificate with repeated-loss
+product above $T_0$ is therefore in the zero determinant layer.
+
+\begin{theorem}[Canonical one-dimensional capacities]
+\label{thm:canonical-one-dimensional-capacities}
+At the fixed scale $L_{12}=\lfloor c^4/12\rfloor$ every canonical template
+satisfies
+\[
+                         |S|<\frac{31c^2}{10R}.
+\]
+More generally, if $s\ge1$ and $s^3\le R$, then at
+$L_s=\lfloor sc^4/22\rfloor$ one has
+\[
+                         |S|<\frac{57c^2}{10Rs}.
+\]
+\end{theorem}
+
+\begin{proof}
+The cubic separation inequality at scale $12$ follows from
+\[
+ 8192\cdot100<81\cdot12^3\cdot6,
+\]
+and the weakest long-arm cap from $8192<12\cdot6\cdot9^3$.
+At scale $s/22$, use $s^3\le R$ and
+$8192\cdot100<81\cdot22^3$, together with
+$8192<22\cdot9^3$.  One-dimensional packing gives respectively
+$|S|<3c^2/R+1$ and $|S|<11c^2/(2Rs)+1$; the inequalities
+$10R<c^2$ and $5Rs<c^2$ absorb the final terms.
+\end{proof}
+
+For $n>0$ define its repeated kernel by
+\[
+ K(n)=\prod_{p^e\parallel n,\ e\ge2}p^e.
+\]
+Primewise comparison proves
+\[
+ K(n)\mid n,\qquad
+ \frac{K(n)}{\operatorname{rad}K(n)}=
+ \frac n{\operatorname{rad}n},
+\]
+and $K(n)$ divides every divisor of $n$ preserving this exact loss.  Thus
+partitioning exceptional affine points by
+$(K(U),K(V),K(W))$ is the unique coarsest exact-lossless template partition.
+
+\begin{corollary}[Forced canonical-kernel entropy]
+\label{cor:forced-canonical-kernel-entropy}
+Let $\kappa,\eta>0$.  If the exceptional packet has size at least
+$\kappa R^{-2/3}c^{4+\eta}$ and $N_{\rm ker}$ canonical-kernel triples are
+realized, then, for any integer $s\ge1$ with $s^3\le R$,
+\[
+ N_{\rm ker}>
+ \max\left\{\frac{10\kappa}{31}R^{1/3}c^{2+\eta},
+             \frac{10\kappa}{57}sR^{1/3}c^{2+\eta}\right\}.
+\]
+Taking $s=\lfloor R^{1/3}\rfloor$ yields
+\[
+ N_{\rm ker}>\frac{5\kappa}{57}R^{2/3}c^{2+\eta}.
+\]
+Every realized triple additionally satisfies
+\[
+ \operatorname{rad}\bigl(K(U)K(V)K(W)\bigr)
+ <\frac{8192c^6}{R}.
+\]
+\end{corollary}
+
+\begin{proof}
+The canonical-kernel triples partition the exceptional packet into disjoint
+fixed-template classes.  Each class retains the complete loss threshold
+$\Delta>T_0$, so Theorem~\ref{thm:canonical-one-dimensional-capacities}
+applies to it at both scales.  Summing the two strict class bounds gives
+\[
+ |\mathcal E|<N_{\rm ker}\frac{31c^2}{10R},
+ \qquad
+ |\mathcal E|<N_{\rm ker}\frac{57c^2}{10Rs}.
+\]
+Combining these inequalities with the assumed lower bound and dividing by
+the positive capacities gives the displayed maximum.
+
+For $s=\lfloor R^{1/3}\rfloor$, the standing bound $R\ge6$ implies
+$s\ge1$, $s^3\le R$, and $s\ge R^{1/3}/2$.  Substitution in the second
+term of the maximum yields
+$N_{\rm ker}>(5\kappa/57)R^{2/3}c^{2+\eta}$.
+
+Finally put $P=K(U)K(V)K(W)$.  The repeated-kernel identities, together
+with the pairwise coprimality of the primitive arms, give
+$P/\operatorname{rad}P=\Delta>T_0$.  Also $K(n)\mid n$ and the canonical
+arm bounds give $P\le UVW<c^{20}$.  Hence
+\[
+ \operatorname{rad}P=\frac{P}{P/\operatorname{rad}P}
+ <\frac{c^{20}}{T_0}=\frac{8192c^6}{R},
+\]
+as required.
+\end{proof}
+
+The positivity of $\kappa$ is essential to this exact formulation.  If it is
+omitted, $\kappa=0$, an empty exceptional packet, and $N_{\rm ker}=0$ satisfy
+the remaining premises but contradict the strict conclusion.  This
+full-premise counterexample retires only the zero-density strengthening.
+
+For a fractional cover in which each template meets $\mathcal E$ in at most
+$K_s$ points and each point receives total nonnegative weight at least one,
+the finite inequality $|\mathcal E|\le K_s\sum_\tau w_\tau$ handles
+correlated overlaps exactly.
+It does not produce the required adaptive weight bound.  Two complete
+integer witnesses mark precise boundaries: one certified template has
+$4M^2<D$, disproving an area-only estimate, while two adjacent points carry
+different complete certificates, disproving the assertion that a union of
+pointwise selected templates inherits fixed-template separation.  The latter
+witness lies outside the canonical box.  Neither counterexample removes the
+canonical adaptive-kernel route; the unresolved task is to produce or exclude
+the required $R^{2/3}c^{2+\eta}$ family under the actual exception inequality.

@@ -1,0 +1,10 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean IUTThreeClosures/IUTRefinedFactorZeroAwareSignature20260901.lean
+'IUTThreeClosures.zeroAwareScaleCoordinate_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.zeroAwareScaleCoordinate_covariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.refinedPrimeUnitSignature_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.refinedPrimeUnitSignature_covariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.TupleFiniteEtalePacket.allTuplePrimeUnitSignature_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

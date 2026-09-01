@@ -1,0 +1,259 @@
+{
+  "schema": "abc-determinant-totient-refined-signature-validation-v1",
+  "status": "PASS",
+  "completedUtc": "2026-09-01T23:01:52.095558+00:00",
+  "gitHeadBeforeCheckpointCommit": "d39589774fc2c07eb713256ee6d3f3bf6129e6c2",
+  "toolVersions": {
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "lake": "Lake version 5.0.0-src+8c9756b (Lean version 4.32.0)",
+    "lean": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)"
+  },
+  "validationDrivers": [
+    {
+      "path": "validate.py",
+      "bytes": 36240,
+      "sha256": "324627016b317415d0f66d988507073930d2adbac402544e0dd9b966f10fc82d"
+    },
+    {
+      "path": "validate.ps1",
+      "bytes": 1527,
+      "sha256": "0e1f687e6b186b7073669d05d9f0926259f989558b5b0749feba4280b9be114d"
+    }
+  ],
+  "frozenInputs": {
+    "path": "Lean/verification/2026_09_01_determinant_totient_refined_signature/input-manifest.json",
+    "entries": 469,
+    "sha256": "6fe8b2aeaf2b8f1454880397953f221df4d1bf0be9882d87e31a4b5cdd9f605d"
+  },
+  "lakeDependencies": {
+    "manifestPath": "Lean/lake-manifest.json",
+    "manifestSha256": "9c9ac0744b4579d6e2afa37150fc27263ff84e43753e5a6bdfc04f44ac96c8a8",
+    "packages": [
+      {
+        "name": "heights",
+        "directory": "heights",
+        "revision": "3539e2a12dd3470c057a4eb531dc3fd627d4c97b",
+        "url": "https://github.com/lana-agents/heights.git"
+      },
+      {
+        "name": "genl",
+        "directory": "genl",
+        "revision": "6e9a6543b46a2a02fd7fe7ec8ab203d878f32859",
+        "url": "https://github.com/LANA-Project/genl.git"
+      },
+      {
+        "name": "iut",
+        "directory": "iut",
+        "revision": "ddaddc274281adb5674d647e24fa478745ac6d40",
+        "url": "https://github.com/lana-agents/iut.git"
+      },
+      {
+        "name": "mathlib",
+        "directory": "mathlib",
+        "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+        "url": "https://github.com/leanprover-community/mathlib4"
+      },
+      {
+        "name": "«tate-curves-theta»",
+        "directory": "tate-curves-theta",
+        "revision": "90d7fac0e4ef2d6bf2a619326c30adb862d1b3de",
+        "url": "https://github.com/lana-agents/tate-curves-theta"
+      },
+      {
+        "name": "plausible",
+        "directory": "plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "url": "https://github.com/leanprover-community/plausible"
+      },
+      {
+        "name": "LeanSearchClient",
+        "directory": "LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "url": "https://github.com/leanprover-community/LeanSearchClient"
+      },
+      {
+        "name": "importGraph",
+        "directory": "importGraph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "url": "https://github.com/leanprover-community/import-graph"
+      },
+      {
+        "name": "proofwidgets",
+        "directory": "proofwidgets",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "url": "https://github.com/leanprover-community/ProofWidgets4"
+      },
+      {
+        "name": "aesop",
+        "directory": "aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "url": "https://github.com/leanprover-community/aesop"
+      },
+      {
+        "name": "Qq",
+        "directory": "Qq",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "url": "https://github.com/leanprover-community/quote4"
+      },
+      {
+        "name": "batteries",
+        "directory": "batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "url": "https://github.com/leanprover-community/batteries"
+      },
+      {
+        "name": "«formal-schemes»",
+        "directory": "formal-schemes",
+        "revision": "51aa935079537bf4dc580751a6e70727fb23ca93",
+        "url": "https://github.com/lana-agents/formal-schemes"
+      },
+      {
+        "name": "Cli",
+        "directory": "Cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "url": "https://github.com/leanprover/lean4-cli"
+      }
+    ]
+  },
+  "generatedAudit": {
+    "path": "Lean/verification/2026_09_01_determinant_totient_refined_signature/axiom-audit.lean",
+    "bytes": 144390,
+    "sha256": "4b85bba7b0294f5c20a13aab58c12e0645645853106f18f75957dd0d81f1c1c8"
+  },
+  "inventory": {
+    "path": "Lean/verification/2026_09_01_determinant_totient_refined_signature/declaration-inventory.json",
+    "sha256": "8aafd3d9fb4e9b0bd90ef77b61010460c2e0ff65661632027dd08d980412044f"
+  },
+  "modules": [
+    {
+      "module": "AffineDeterminantLayerEntropy20260901",
+      "path": "Lean/IUTThreeClosures/AffineDeterminantLayerEntropy20260901.lean",
+      "bytes": 29973,
+      "sha256": "aebc0da1d341603444bed4affd418c0d2d630b6b008d9cc1947446782e246ed9",
+      "counts": {
+        "theorem": 30,
+        "lemma": 0,
+        "def": 1,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 30,
+      "privateProofDeclarations": 13,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersenneTotientDivisorConcentration20260901",
+      "path": "Lean/IUTThreeClosures/MersenneTotientDivisorConcentration20260901.lean",
+      "bytes": 93668,
+      "sha256": "25dd09eb80495a54811d18465dbaaa2f25d3fbe0b6f2175c4c9cb427df9fe2b5",
+      "counts": {
+        "theorem": 68,
+        "lemma": 20,
+        "def": 17,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 88,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "IUTRefinedFactorZeroAwareSignature20260901",
+      "path": "Lean/IUTThreeClosures/IUTRefinedFactorZeroAwareSignature20260901.lean",
+      "bytes": 9826,
+      "sha256": "635c67f7d7db6c243ce4cfda1ac21925ba19347b606517013c3c3b431e3b8b6b",
+      "counts": {
+        "theorem": 7,
+        "lemma": 0,
+        "def": 8,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 7,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "totals": {
+    "theorem": 105,
+    "lemma": 20,
+    "def": 26,
+    "abbrev": 0,
+    "structure": 0,
+    "class": 0,
+    "inductive": 0,
+    "instance": 0,
+    "countedDeclarations": 151,
+    "proofDeclarations": 125,
+    "privateProofDeclarations": 13,
+    "axiomReports": 125
+  },
+  "axiomUnion": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "directRuns": [
+    {
+      "name": "AffineDeterminantLayerEntropy20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_determinant_totient_refined_signature/logs/AffineDeterminantLayerEntropy20260901-direct.log",
+      "logSha256": "9efb9b1cd21325a004d97d7b13e9214ab9c1f28086b694f5061b0d2da724ab7d",
+      "warnings": 0
+    },
+    {
+      "name": "MersenneTotientDivisorConcentration20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_determinant_totient_refined_signature/logs/MersenneTotientDivisorConcentration20260901-direct.log",
+      "logSha256": "3b61cd84df6a45963cbbe4a3d7a102c4391d60e08960b396589ba0d90b7b639b",
+      "warnings": 0
+    },
+    {
+      "name": "IUTRefinedFactorZeroAwareSignature20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_determinant_totient_refined_signature/logs/IUTRefinedFactorZeroAwareSignature20260901-direct.log",
+      "logSha256": "b8c021f89dc06bfcb1514b7ebfb52d46576c5709208b1ceddce6ecb25ecdfc04",
+      "warnings": 0
+    }
+  ],
+  "axiomAuditRun": {
+    "name": "axiom-audit",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_01_determinant_totient_refined_signature/logs/axiom-audit.log",
+    "logSha256": "3716ff6780e70e691731a1c04a7e6508802dce96a7f7956e8b1268211ae43d38",
+    "warnings": 0
+  },
+  "aggregateBuild": {
+    "name": "aggregate-lake-build",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_01_determinant_totient_refined_signature/logs/aggregate-lake-build.log",
+    "logSha256": "8dc66a22db79da435d1d2393b35ea29a194814a4eeaf3129e805a49805155c7c",
+    "jobs": 9212,
+    "warnings": 300
+  },
+  "scope": {
+    "provesOrDisprovesStandardABC": false,
+    "finiteOrConditionalClaimsUpgraded": false
+  }
+}

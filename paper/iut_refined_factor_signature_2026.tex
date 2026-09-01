@@ -1,0 +1,141 @@
+\section{Refined-factor zero-aware packet signatures}
+\label{sec:iut-refined-factor-signature}
+
+The prime-unit signature of Section~\ref{sec:iut-prime-unit-label-vector}
+must be corrected at two source-level seams.  A place-tuple tensor algebra
+need not be a field: IUT~III, Proposition~3.1, splits it into a direct sum of
+field factors \cite{IUT3}.  Moreover its integral packet includes zero, so a
+coordinate defined only on the multiplicative group is not a faithful
+coordinate on the source carrier.
+
+Let $K$ be a field, choose $\pi\in K^\times$, and allow an arbitrary map
+$e:K^\times\to\mathbb Z$.  Define
+\[
+ \mathcal C_{\pi,e}(x)=
+ \begin{cases}
+  \mathsf{none},&x=0,\\
+  \mathsf{some}\left(e(x),x/\pi^{e(x)}\right),&x\ne0.
+ \end{cases}
+\]
+
+\begin{theorem}[Zero-aware reconstruction]
+\label{thm:zero-aware-reconstruction}
+The map $\mathcal C_{\pi,e}$ is injective.  Its reconstruction map is
+\[
+ \mathsf{none}\longmapsto0,\qquad
+ \mathsf{some}(n,u)\longmapsto\pi^nu.
+\]
+No valuation property of $e$ is needed for injectivity.
+\end{theorem}
+
+\begin{proof}
+The zero tag separates zero from every nonzero input.  For $x\ne0$,
+$\pi^{e(x)}(x/\pi^{e(x)})=x$.  Applying reconstruction to equal coordinates
+therefore recovers equal inputs.
+\end{proof}
+
+If $e$ is a normalized discrete valuation and $\pi$ a uniformizer, the
+second component is the complete unit part.  The signature is functorial only
+after the necessary multiplicative data have been supplied.
+
+\begin{theorem}[Factorwise covariance]
+\label{thm:refined-factorwise-covariance}
+Let $\phi:K\simeq K'$ be a field equivalence.  Suppose the target scale is
+$\phi(\pi)$ and
+\[
+                   e'(\phi(x))=e(x)\qquad(x\ne0).
+\]
+Then
+\[
+ \mathcal C_{\phi(\pi),e'}(\phi(x))
+ =\widehat\phi\bigl(\mathcal C_{\pi,e}(x)\bigr),
+\]
+where $\widehat\phi$ fixes the exponent and applies $\phi$ to the second
+coordinate.
+\end{theorem}
+
+\begin{proof}
+The zero case is immediate.  For $x\ne0$, preservation of division and
+integer powers gives
+\[
+ \frac{\phi(x)}{\phi(\pi)^{e(x)}}
+ =\phi\left(\frac{x}{\pi^{e(x)}}\right).
+\]
+\end{proof}
+
+Fix one finite-dimensional stage of the source inductive system.  Let $C$ be
+its place-tuple index and let $A_c$ be the associated finite \'{e}tale algebra.
+The correct refined index at this stage is
+\[
+ D=\coprod_{c\in C}\operatorname{MaxSpec}(A_c),
+ \qquad L_{(c,\mathfrak m)}=A_c/\mathfrak m.
+\]
+The semisimple decomposition gives an algebra equivalence
+\[
+ \Psi:\prod_{c\in C}A_c\simeq\prod_{d\in D}L_d.
+\]
+Choose nonzero scales and exponent maps on every $L_d$.
+
+\begin{corollary}[Faithful refined packet signature]
+\label{cor:faithful-refined-packet-signature}
+The map
+\[
+ x\longmapsto
+ \left(\mathcal C_{\pi_d,e_d}(\Psi(x)_d)\right)_{d\in D}
+\]
+is injective.  It is covariant under a reindexing $D\simeq D'$ and a family
+of field equivalences satisfying the scale and exponent hypotheses of
+Theorem~\ref{thm:refined-factorwise-covariance}.
+\end{corollary}
+
+\begin{proof}
+Each factor coordinate is injective by
+Theorem~\ref{thm:zero-aware-reconstruction}; equality in the dependent
+product is componentwise.  Compose with the injective algebra equivalence
+$\Psi$.  Covariance is the factorwise theorem after reindexing.
+\end{proof}
+
+If the target uniformizer is chosen independently, a unit twist must be
+recorded.  With
+$\eta_d=\phi_d(\pi_d)/\pi'_{\sigma(d)}$, the unit coordinate transforms as
+\[
+ u'_{\sigma(d)}(\phi_d(x))
+ =\phi_d(u_d(x))\eta_d^{e_d(x)}.
+\]
+Raw equality of units is therefore too strong unless $\eta_d=1$.
+
+The source currently transports less information.  IUT~III,
+Theorem~3.11(ii)(a), supplies chosen-branch poly-isomorphisms and compatible
+log-volumes; Proposition~3.9 supplies the relevant permutation invariance.
+The indeterminacy (Ind3) is described by inclusions or surjections, so its
+faithful abstraction is a reachability relation followed by image
+containment.  These statements do not by themselves produce the
+componentwise field equivalences and valuation covariance required above.
+The zero-labelled singleton core from IUT~I, Corollary~6.10(iii), survives as
+an object-level remnant \cite{IUT1}, but it does not select a complete unit
+coordinate.
+
+At the integral level, let $R$ be a discrete valuation ring with fraction
+field $F$, let each $K_i/F$ be finite separable, and set
+$T=\bigotimes_R\mathcal O_{K_i}$ and
+$B=\prod_m\mathcal O_{L_m}$ inside
+$\bigotimes_F K_i\simeq\prod_mL_m$, then
+\[
+                         T\subseteq B,
+ \qquad B/T\text{ is finitely generated torsion over }R,
+\]
+Equality can fail in a ramified quadratic example; the resulting
+Fitting ideal records an index correction.  Relating that ideal to a
+different or conductor requires an additional theorem.
+
+The counterexample audit fixes the scope of the route.  The decomposition
+$E\otimes_FE\simeq E\times E$ refutes one-field-per-tuple indexing.  A
+determinant-one shear preserves a lattice and Haar volume while changing a
+component valuation, so volume compatibility alone does not imply signature
+covariance.  Equal determinants do not reconstruct rank-two lattices, and a
+proper sublattice with surjective coordinate projections need not be a
+product of independent exponent enlargements.  These examples reject only
+the weakened interfaces just named.  The current LANA strand remains a
+specification rather than a construction of the multiradial output
+\cite{LANA,LANAlean}; no full-premise counterexample to the source-level
+refined covariance target is known, so the IUT route remains active.

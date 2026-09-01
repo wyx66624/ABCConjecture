@@ -18,6 +18,78 @@ A research branch may be deleted only after one of the following has been record
 Build failures, API drift, lack of a current inhabitant, or lack of community
 acceptance are not counterexamples and are not grounds for deleting a route.
 
+## September 1, 2026 determinant, totient-concentration, and refined-factor checkpoint
+
+Standard `ABCConjecture` remains open in both directions.  All three broad
+routes in this checkpoint remain active.  The new counterexamples delete only
+the exact stronger statements whose complete hypotheses they satisfy.
+
+- **Mersenne totient-divisor concentration:** active.  The exact divisor
+  average is equivalent, under the proved cyclotomic-scale cap, to negligible
+  totient weight for every fixed normalized-excess set.  The exact
+  logarithmic-deficit moment, its elementary `O(log log(3m))` estimate, and
+  the moving Markov theorem now give an unconditional Lean theorem confining
+  the open gate to `d > m*exp(-(log log(3m))^2)`.  Lean also proves
+  `E_d | Phi_d(2) <= 3^phi(d)`, closing the actual uniform-cap seam.
+  Primorial divisor measures delete
+  only the proposed replacement by `d > m/(log m)^C` for all bounded masses;
+  they are not actual Mersenne block data.  The active arithmetic target is
+  the exceptional totient weight in the remaining near-diagonal range.
+  Ledger and Lean core:
+  `../research/ABC_MERSENNE_TOTIENT_DIVISOR_CONCENTRATION_2026_09_01.md` and
+  `IUTThreeClosures/MersenneTotientDivisorConcentration20260901.lean`.
+- **Affine determinant layers and canonical kernels:** active.  The three
+  fixed-template congruences force their product modulus to divide every
+  two-vector determinant.  Canonical thresholds force collinearity, and the
+  scale-12/scale-22 capacities give, for `kappa,eta>0`, the necessary
+  canonical-kernel entropy
+  `(5*kappa/57)*R^(2/3)*c^(2+eta)`.  The exact area witness deletes only a
+  pure `M^2/D` capacity with no boundary correction.  The adjacent two-point
+  witness deletes only automatic separation of an unrestricted union of
+  pointwise selected templates; it lies outside the canonical box.  The
+  empty packet at `kappa=0` deletes only the positivity-omitted strict entropy
+  statement.  The corrected positive-density correlated canonical-kernel
+  construction/obstruction remains open.
+  Ledger and Lean core:
+  `../research/ABC_AFFINE_DETERMINANT_LAYER_ENTROPY_2026_09_01.md` and
+  `IUTThreeClosures/AffineDeterminantLayerEntropy20260901.lean`.
+- **IUT refined-factor zero-aware signature:** active.  In the generic fixed
+  finite-stage interface, once the finite/etale instances are supplied, a
+  tuple tensor algebra is split into all primitive field factors and
+  zero receives an explicit tag.  The complete factor signature and its
+  composition with the semisimple packet equivalence are injective; transport
+  is covariant under explicit refined field equivalences, scale transport,
+  and exponent covariance.  Quadratic tensor splitting deletes one-field-
+  per-tuple indexing, a ramified tensor order deletes equality with the
+  product of maximal orders, and the shear/lattice/inclusion examples delete
+  volume-only or bare-inclusion reconstruction.  None deletes an actual
+  source theorem that supplies the stronger refined covariance.  Compatibility
+  through the inductive system, horizontal link, and Ind3 remains the live
+  source-level gate.  No complete actual IUT packet instance is claimed.
+  Ledger and Lean core:
+  `../research/IUT_REFINED_FACTOR_ZERO_AWARE_SIGNATURE_2026_09_01.md` and
+  `IUTThreeClosures/IUTRefinedFactorZeroAwareSignature20260901.lean`.
+
+The modules record only proved finite, algebraic, and asymptotic statements.
+They do not postulate the residual Mersenne distribution, the adaptive affine
+kernel family, any disputed IUT comparison, abc, or the negation of abc.
+
+The sealed replay at
+`verification/2026_09_01_determinant_totient_refined_signature/` freezes 469
+inputs and audits 105 theorems plus 20 lemmas one for one, including 13 private
+proofs.  Together with 26 definitions there are 151 counted declarations.
+The three direct compiles and the independent same-scope audit are
+warning-free, the dependency union is exactly `Classical.choice`,
+`Quot.sound`, and `propext`, and the 9212-job aggregate build passes.  This
+validation closes no broad route and makes no terminal abc claim.
+
+The integrated ChatGPT manuscript is the 152-page A4 artifact
+`../output/pdf/ChatGPT_ABC_Determinant_Totient_Refined_Factor_2026_09_01.pdf`
+(SHA-256
+`8a793426c185bc343bb6b5204297ad66a45cb7b0fcfb197479db5321554dedf2`).
+The adjacent `_QA` directory records final-log, cross-reference, metadata,
+all-page contact-sheet, and selected high-resolution visual checks.
+
 ## September 1, 2026 affine-entropy and Mersenne-depth checkpoint
 
 Standard `ABCConjecture` remains open in both directions.  This checkpoint

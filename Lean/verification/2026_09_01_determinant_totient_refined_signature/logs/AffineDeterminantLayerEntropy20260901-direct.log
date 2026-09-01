@@ -1,0 +1,49 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean IUTThreeClosures/AffineDeterminantLayerEntropy20260901.lean
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.threeForm_modulusProduct_dvd_det' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.eq_zero_of_modulus_dvd_and_natAbs_lt' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.signedPairDet_eq_zero_of_template_and_bound' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.fractionalTemplateCover_card_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.signedPairDet_eq_zero_of_dvd_of_coordinateBounds' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.threeForm_signedPairDet_eq_zero_of_large_modulusProduct' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.oneDimSeparated_card_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.dominantFirstCoordinate_card_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.primitive_subcritical_c_ge_nine' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_cubicThreshold_scale12' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_longCapThreshold_scale12' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_cubicThreshold_scale22' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_longCapThreshold_scale22' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.canonical_threshold_forces_twice_boxSq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.areaOnlyTemplateBound_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.adaptiveTemplateUnion_not_separated_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDeterminantLayerEntropy20260901.zeroDensityStrictEntropy_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

@@ -1,0 +1,170 @@
+\section{Totient-weighted concentration at the Mersenne endpoint}
+\label{sec:mersenne-totient-concentration}
+
+The exact order-block identity of
+Theorem~\ref{thm:mersenne-divisor-average-equivalence} changes the remaining
+Mersenne problem from a pointwise estimate into a divisor-average problem.
+This section identifies the natural probability measure on that divisor
+lattice and localizes the unresolved arithmetic mass to divisors extremely
+close to the ambient index.
+
+For an integer $m\ge1$ and a nonnegative sequence $a_d$ put
+\[
+ A(m)=\sum_{d\mid m}a_d,
+ \qquad
+ \mu_m(d)=\frac{\varphi(d)}m\quad(d\mid m).
+\]
+The identity $\sum_{d\mid m}\varphi(d)=m$ makes $\mu_m$ a probability
+measure.  Assume throughout the boundedness condition
+\begin{equation}\label{eq:totient-uniform-cap}
+             0\le a_d\le C\varphi(d)
+\end{equation}
+with one constant $C\ge0$, and define
+\[
+ B_\epsilon(m)=
+ \sum_{\substack{d\mid m\\a_d>\epsilon\varphi(d)}}\varphi(d).
+\]
+
+\begin{theorem}[Exact totient exceptional-mass criterion]
+\label{thm:totient-exceptional-mass-criterion}
+Under \eqref{eq:totient-uniform-cap},
+\[
+ A(m)=o(m)
+ \quad\Longleftrightarrow\quad
+ B_\epsilon(m)=o(m)\quad\hbox{for every fixed }\epsilon>0.
+\]
+\end{theorem}
+
+\begin{proof}
+For every positive $\epsilon$ one has the finite inequalities
+\[
+ \epsilon B_\epsilon(m)\le A(m)
+ \le \epsilon m+C B_\epsilon(m).
+\]
+The first implication follows from the lower inequality.  For the reverse
+implication, given $\eta>0$, apply the hypothesis with
+$\epsilon=\eta/2$ and require
+$B_\epsilon(m)\le\eta m/(2(C+1))$.
+\end{proof}
+
+The divisor probability has an exact logarithmic moment.  If
+$m=\prod_{p^a\parallel m}p^a$ and $D$ is distributed according to $\mu_m$,
+then
+\begin{equation}\label{eq:totient-log-deficit-moment}
+ \mathbb E_{\mu_m}\log\frac mD
+ =\sum_{p^a\parallel m}
+   \frac{1-p^{-a}}{p-1}\log p.
+\end{equation}
+Indeed, the exponent $J_p=v_p(D)$ has probability
+$\varphi(p^j)/p^a$, and the tail-sum identity gives
+$\mathbb E(a-J_p)=\sum_{r=1}^ap^{-r}$.
+
+\begin{theorem}[Moving near-diagonal concentration]
+\label{thm:totient-moving-concentration}
+There is an absolute $C_0$ such that
+\[
+ \mathbb E_{\mu_m}\log\frac mD
+ \le C_0\log\log(3m).
+\]
+Consequently, if $H(m)>0$ eventually and
+$H(m)/\log\log(3m)\to\infty$, then
+\[
+ \frac1m\sum_{\substack{d\mid m\\
+        d\le m\exp(-H(m))}}\varphi(d)\longrightarrow0.
+\]
+\end{theorem}
+
+\begin{proof}
+Bound \eqref{eq:totient-log-deficit-moment} by
+$\sum_{p\mid m}\log p/(p-1)$.  Enlarge the absolute constant to absorb the
+finitely many small $m$, and assume $z=\log m>1$.  Split at $z$.
+Chebyshev's estimate $\vartheta(x)=O(x)$ bounds every dyadic shell below
+$z$ by an absolute constant, giving $O(\log z)$ in total.  Above $z$ the
+sum is at most $\log\operatorname{rad}(m)/(z-1)=O(1)$.  Markov's inequality
+at height $H(m)$ proves the assertion.
+\end{proof}
+
+The growth condition on $H$ cannot uniformly be replaced by
+$H=C\log\log m$ with fixed $C$.  For the primorial
+$m_y=\prod_{p\le y}p$, the complementary divisor $m_y/D$ contains each
+$p\le y$ independently with probability $1/p$.  Choose an integer $r>C+1$
+and disjoint intervals
+$0<u_1<v_1<\cdots<u_r<v_r<1$ with $\sum_i u_i>C+1$.
+For each $i$, let $A_i(y)$ be the event that $m_y/D$ contains a prime in
+$(y^{u_i},y^{v_i}]$.  Mertens's prime-product theorem \cite{Mertens1874}
+gives
+\[
+ \Pr(A_i(y)^c)=
+ \prod_{y^{u_i}<p\le y^{v_i}}(1-1/p)\longrightarrow u_i/v_i.
+\]
+The events are independent because their intervals are disjoint, hence
+$\liminf_y\Pr(\bigcap_iA_i(y))=\prod_i(1-u_i/v_i)>0$.
+On this intersection $m_y/D>y^{C+1}$; Chebyshev's two-sided bounds for
+$\vartheta(y)=\log m_y$ imply
+$y^{C+1}>(\log m_y)^C$ eventually.  Therefore, for every fixed $C>0$,
+\[
+ \liminf_{y\to\infty}\mu_{m_y}
+ \left\{D\le\frac{m_y}{(\log m_y)^C}\right\}>0.
+\]
+This is a full-premise counterexample to the proposed uniform strengthening
+for arbitrary bounded masses (take $a_d=\varphi(d)$).  It is not a
+counterexample to the actual Mersenne blocks.
+
+For those blocks let $a_d=\log E_d$.  If a prime $p$ occurs in $E_d$, then
+$\operatorname{ord}_p(2)=d$, so $d\mid p-1$ and $p\nmid d$.  In the identity
+$\prod_{e\mid d}\Phi_e(2)=2^d-1$, a divisibility
+$p\mid\Phi_e(2)$ with $e\mid d$ would, since $p\nmid e$, make the reduction
+of $2$ a primitive $e$th root; hence $e=d$.  Thus the full $p$-adic
+multiplicity of $2^d-1$ is carried by $\Phi_d(2)$.  The exponent used in
+$E_d$ is one smaller, and the distinct prime-power factors are pairwise
+coprime, proving $E_d\mid\Phi_d(2)$.  The root product then gives
+\begin{equation}\label{eq:mersenne-cyclotomic-uniform-cap}
+       0\le\log E_d\le\varphi(d)\log3.
+\end{equation}
+The relevant valuation identities and current distribution results are
+consistent with \cite{MurtySeguin2019,PomeranceCyclotomic2025,
+FelliniMurty2026}; none supplies the following exceptional-weight estimate.
+The primitive-divisor refinement \cite{GranvillePrimitive2012} and the
+recent generalized-Wieferich congruence criteria
+\cite{FalkHarringtonJones2026} likewise control local phenomena rather than
+the required moving totient mass.
+
+\begin{corollary}[Localized exact Mersenne gate]
+\label{cor:localized-exact-mersenne-gate}
+Fix $\delta>0$.  Then
+\[
+ \log W_m=o(m)
+ \quad\Longleftrightarrow\quad
+ \sum_{\substack{d\mid m\\d>m^{1-\delta}\\
+       \log E_d>\epsilon\varphi(d)}}\varphi(d)=o(m)
+ \quad\text{for every }\epsilon>0.
+\]
+The same statement remains valid when the near-top range is narrowed to
+\[
+ d>m\exp\bigl(-\{\log\log(3m)\}^2\bigr)=m^{1-o(1)}.
+\]
+\end{corollary}
+
+\begin{proof}
+Apply Theorem~\ref{thm:totient-exceptional-mass-criterion} using
+\eqref{eq:mersenne-cyclotomic-uniform-cap}.  Theorem
+\ref{thm:totient-moving-concentration} makes the complementary divisor
+range negligible.  Finally use the exact equivalence
+$\log W_m=o(m)\Longleftrightarrow\sum_{d\mid m}\log E_d=o(m)$.
+\end{proof}
+
+The endpoint still forces $a_m=o(m)$, so pointwise control remains necessary
+on primes and fixed prime powers.  What is gained is permission for large
+normalized blocks on orders with small $\varphi(d)/d$, provided their
+near-diagonal totient mass is negligible.  No checked source, including the
+recent powerful-number count \cite{BrowningVerzobio2026}, proves this final
+gate, and no full-premise counterexample to it is known.
+
+The Lean companion checks the exact moment, its dyadic
+$O(\log\log(3m))$ estimate, the general moving-threshold Markov theorem and
+its squared-loglog specialization.  It also proves the exact-order
+prime-power divisibility in $\Phi_d(2)$ and hence
+\eqref{eq:mersenne-cyclotomic-uniform-cap}.  Combining these results gives a
+kernel-checked equivalence between the Mersenne endpoint and the remaining
+near-diagonal exceptional-totient estimate; that estimate itself is neither
+assumed nor proved.
