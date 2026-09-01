@@ -1,0 +1,42 @@
+name: v29 cross-support exponent-depth targeted diagnostic
+
+on:
+  push:
+    branches:
+      - "diagnostic/v29-cross-support-exponent-depth"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  targeted:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+
+      - name: Resolve dependencies
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+
+      - name: Compile v29 module
+        working-directory: Lean
+        shell: bash
+        run: |
+          set +e
+          lake build IUTThreeClosures.CrossSupportExponentDepth \
+            > ../v29-targeted.log 2>&1
+          rc=$?
+          cat ../v29-targeted.log
+          exit "$rc"
