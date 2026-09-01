@@ -37,13 +37,41 @@ noncomputable section
 
 namespace ABCPoint
 
+/-- The smaller of the two summands. -/
+def endpointMin (P : ABCPoint) : ℕ := min P.a P.b
+
+/-- The larger of the two summands. -/
+def largeEndpoint (P : ABCPoint) : ℕ := max P.a P.b
+
+/-- The smaller summand is positive. -/
+theorem endpointMin_pos (P : ABCPoint) : 0 < P.endpointMin := by
+  by_cases hab : P.a ≤ P.b
+  · simpa [endpointMin, hab] using P.a_pos
+  · have hba : P.b ≤ P.a := Nat.le_of_not_ge hab
+    simpa [endpointMin, hab, hba] using P.b_pos
+
+/-- The larger summand is positive. -/
+theorem largeEndpoint_pos (P : ABCPoint) : 0 < P.largeEndpoint := by
+  by_cases hab : P.a ≤ P.b
+  · simpa [largeEndpoint, hab] using P.b_pos
+  · have hba : P.b ≤ P.a := Nat.le_of_not_ge hab
+    simpa [largeEndpoint, hab, hba] using P.a_pos
+
 /-- The small and large summands recover the sum. -/
 theorem endpointMin_add_largeEndpoint_eq_c (P : ABCPoint) :
     P.endpointMin + P.largeEndpoint = P.c := by
   by_cases hab : P.a ≤ P.b
   · simpa [endpointMin, largeEndpoint, hab] using P.sum_eq
-  · have hba : P.b ≤ P.a := by omega
+  · have hba : P.b ≤ P.a := Nat.le_of_not_ge hab
     simpa [endpointMin, largeEndpoint, hab, hba, Nat.add_comm] using P.sum_eq
+
+/-- The larger summand is coprime to the sum. -/
+theorem largeEndpoint_coprime_c (P : ABCPoint) :
+    Nat.Coprime P.largeEndpoint P.c := by
+  by_cases hab : P.a ≤ P.b
+  · simpa [largeEndpoint, hab] using P.pairwise_coprime.2.1
+  · have hba : P.b ≤ P.a := Nat.le_of_not_ge hab
+    simpa [largeEndpoint, hab, hba] using P.pairwise_coprime.2.2.symm
 
 /-- Canonical powerful modulus on the larger summand. -/
 def canonicalLargePowerfulModulus (P : ABCPoint) : ℕ :=
@@ -113,24 +141,26 @@ theorem abcPowerfulPart_dvd_self (n : ℕ) : abcPowerfulPart n ∣ n := by
 theorem canonicalPowerfulModuli_coprime (P : ABCPoint) :
     Nat.Coprime P.canonicalLargePowerfulModulus
       P.canonicalSumPowerfulModulus := by
-  apply P.largeEndpoint_coprime_c.of_dvd
-  · exact abcPowerfulPart_dvd_self P.largeEndpoint
-  · exact abcPowerfulPart_dvd_self P.c
+  exact Nat.Coprime.of_dvd
+    (abcPowerfulPart_dvd_self P.largeEndpoint)
+    (abcPowerfulPart_dvd_self P.c)
+    P.largeEndpoint_coprime_c
 
 /-- The two canonical radical residuals are coprime. -/
 theorem canonicalRadicalResiduals_coprime (P : ABCPoint) :
     Nat.Coprime P.canonicalLargeRadicalResidual
       P.canonicalSumRadicalResidual := by
-  apply P.largeEndpoint_coprime_c.of_dvd
-  · exact abcRadical_dvd_self P.largeEndpoint
-  · exact abcRadical_dvd_self P.c
+  exact Nat.Coprime.of_dvd
+    (abcRadical_dvd_self P.largeEndpoint)
+    (abcRadical_dvd_self P.c)
+    P.largeEndpoint_coprime_c
 
 /-- The small summand is coprime to the larger summand. -/
 theorem endpointMin_coprime_largeEndpoint (P : ABCPoint) :
     Nat.Coprime P.endpointMin P.largeEndpoint := by
   by_cases hab : P.a ≤ P.b
   · simpa [endpointMin, largeEndpoint, hab] using P.pairwise_coprime.1
-  · have hba : P.b ≤ P.a := by omega
+  · have hba : P.b ≤ P.a := Nat.le_of_not_ge hab
     simpa [endpointMin, largeEndpoint, hab, hba] using
       P.pairwise_coprime.1.symm
 
@@ -139,22 +169,24 @@ theorem endpointMin_coprime_c (P : ABCPoint) :
     Nat.Coprime P.endpointMin P.c := by
   by_cases hab : P.a ≤ P.b
   · simpa [endpointMin, hab] using P.pairwise_coprime.2.2.symm
-  · have hba : P.b ≤ P.a := by omega
+  · have hba : P.b ≤ P.a := Nat.le_of_not_ge hab
     simpa [endpointMin, hab, hba] using P.pairwise_coprime.2.1
 
 /-- The gap is coprime to the large radical residual. -/
 theorem endpointMin_coprime_canonicalLargeResidual (P : ABCPoint) :
     Nat.Coprime P.endpointMin P.canonicalLargeRadicalResidual := by
-  apply P.endpointMin_coprime_largeEndpoint.of_dvd
-  · exact dvd_refl P.endpointMin
-  · exact abcRadical_dvd_self P.largeEndpoint
+  exact Nat.Coprime.of_dvd
+    (dvd_refl P.endpointMin)
+    (abcRadical_dvd_self P.largeEndpoint)
+    P.endpointMin_coprime_largeEndpoint
 
 /-- The gap is coprime to the sum radical residual. -/
 theorem endpointMin_coprime_canonicalSumResidual (P : ABCPoint) :
     Nat.Coprime P.endpointMin P.canonicalSumRadicalResidual := by
-  apply P.endpointMin_coprime_c.of_dvd
-  · exact dvd_refl P.endpointMin
-  · exact abcRadical_dvd_self P.c
+  exact Nat.Coprime.of_dvd
+    (dvd_refl P.endpointMin)
+    (abcRadical_dvd_self P.c)
+    P.endpointMin_coprime_c
 
 /-- The large residual is squarefree. -/
 theorem canonicalLargeResidual_squarefree (P : ABCPoint) :
