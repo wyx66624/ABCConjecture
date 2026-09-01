@@ -1,0 +1,1845 @@
+N. Bragman, E. Rowland Res. Number Theory (2025) 11:88
+https://doi.org/10.1007/s40993-025-00667-1
+RESEARCH
+Limiting density of the Fibonacci sequence
+modulo powers of a prime
+NicholasBragman andEricRowland
+*Correspondence:
+Eric.rowland@hofstra.edu
+DepartmentofMathematics,
+HofstraUniversity,Hempstead,
+NY,USA
+Abstract
+Foragivenprime p,wedeterminethelimit,as λ→∞ ,ofthedensityofresidues
+modulo pλattainedbytheFibonaccisequence.Inparticular,weshowthatthislimiting
+densityisrelatedtozerosinthesequenceofLucasnumbersmodulo p.Theproofuses
+apiecewiseinterpolationoftheFibonaccisequencetothe p-adicnumbersanda
+characterizationofWall–Sun–Sunprimes pintermsofthe p-adicabsolutevalueofa
+numberrelatedtothe p-adicgoldenratio.
+1 Introduction
+TheFibonaccisequence F(n)n≥0 isdeﬁnedbytheinitialconditions F(0) = 0and F(1) = 1
+andtherecurrence
+F(n +2) = F(n +1) + F(n)( 1 )
+for n ≥ 0.Itiswellknownthat F(n)n≥0 isperiodicmodulo m.Forexample,theFibonacci
+sequencemodulo7is
+0,1,1,2,3,5,1,6,0,6,6,5,4,2,6,1,0,1,1,2,3,5,1,6,...
+withperiodlength16.
+Noteveryresiduemodulo misattainedby F(n)n≥0.Forexample,noFibonaccinumber
+iscongruentto4 modulo11.Thissuggeststhefollowingquestion.Whatisthedensity
+|{F(n) modm : n ≥ 0}|
+m
+of residues that the Fibonacci sequence attains modulom?B u r r[3] completed the char-
+acterizationofintegers m ≥ 2forwhichthisdensityis1(thatis,everyresidueisattained):
+The sequence (F(n) modm)n≥0 contains all residues modulom if and only ifm = 5k m′
+for somek ≥ 0 and somem′ ∈{ 2,4,6,7,14}∪{ 3j : j ≥ 0}. More recently, Dubickas and
+Novikas[4]showedthatforevery k ≥ 1thereexistsamodulus mandasequencesatisfy-
+ingtheFibonaccirecurrencethatattainsexactly k residuesmodulo m.Sanna[ 10]studied
+123 ©The Author(s) 2025. This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use,
+sharing,adaptation,distributionandreproductioninanymediumorformat,aslongasyougiveappropriatecredittotheoriginal
+author(s)andthesource,providealinktotheCreativeCommonslicence,andindicateifchangesweremade.Theimagesorother
+thirdpartymaterialinthisarticleareincludedinthearticle’sCreativeCommonslicence,unlessindicatedotherwiseinacreditline
+to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by
+statutoryregulationorexceedsthepermitteduse,youwillneedtoobtainpermissiondirectlyfromthecopyrightholder.Toview
+acopyofthislicence,visit http://creativecommons.org/licenses/by/4.0/.
+0123456789().,–: volV
+
+88 Page 2 of 21 N. Bragman, E. Rowland Res. Number Theory (2025) 11:88
+this question for other second-order recurrences. For a constant-recursive sequence sat-
+isfyingageneralsecond-orderrecurrence,Bumby[ 2]characterizedthemoduliforwhich
+theresiduesareuniformlydistributed.
+InthisarticlewestudythedensityofresiduesattainedbytheFibonaccisequencemodulo
+primepowers.Speciﬁcally,weareinterestedinthefollowing.
+Deﬁnition Let p be a prime. Thelimiting density of the Fibonacci sequence modulo
+powersof pis
+dens(p) := lim
+λ→∞
+|{F(n) modpλ : n ≥ 0}|
+pλ .
+This limit exists since the density of residues attained modulopλ is bounded above
+by the density of residues attained modulopλ−1. For example, the fact that no Fibonacci
+numberiscongruentto4modulo11impliesthatnoFibonaccinumberiscongruenttoany
+of4 ,15,26,... ,114modulo11 2.ByBurr’scharacterization,dens(3) = 1anddens(5) = 1.
+Rowland and Yassawi [9] provided a frameworkfor determiningdens(p) using a piece-
+wise interpolation ofF(n)t oZp and proved that dens(11)= 145
+264. In this article we gen-
+eralize this result to give an algorithm for computing dens(p), given a primep.O u rm a i n
+resultisTheorem 1below.Beforestatingit,weneedsomedeﬁnitionsandnotation.
+Deﬁnition The period length of the Fibonacci sequence modulop, denotedπ(p), is the
+smallest integerm ≥ 1 such thatF(n + m) ≡ F(n) mod p for alln ≥ 0. Therestricted
+period length of the Fibonacci sequence modulop, denotedα(p), is the smallest integer
+m ≥ 1suchthat F(m) ≡ 0 mod p.
+Let L(n)n≥0 be the sequence of Lucas numbers, deﬁned byL(0) = 2, L(1) = 1, and
+L(n +2) = L(n +1) + L(n)for n ≥ 0.
+Deﬁnition Let p be a prime. We say thati ∈{ 0,1,... ,π(p) − 1} is a Lucas zero (with
+respectto p)if L(i) ≡ 0 mod panda Lucas non-zero if L(i)/nequivalence0 mod p.
+Forexample,let p = 7.Wehave π(7) = 16and α(7) = 8.Moreover,theLucaszerosare
+i = 4a n di = 12; indeed,L(4) = 7a n dL(12) = 322. In Sect.2 we will explicitly identify
+theLucaszeroswithrespectto p.Inparticular,wewillshowthatthereareatmost2.
+Let νp(n)d e n o t et h ep-adic valuation ofn;t h a ti s ,νp(n) is the exponent of the highest
+powerof pdividing n.Let
+ϵ =
+⎧
+⎪⎪⎨
+⎪⎪⎩
+1i f p ≡ 1,4 mod 5
+−1i f p ≡ 2,3 mod 5
+0i f p = 5.
+Theorem 1 s h o w st h a td e n s (p) depends on the integere = νp(F(p − ϵ)). One can show
+that α(p)divides p − ϵ,so e ≥ 1.AswediscussinSect. 3,therearenoknownexamplesof
+primesforwhich e ≥ 2.
+Theorem 1 Let p ̸= 2 be a prime, and deﬁne e = νp(F(p − ϵ)).L e t
+N(p) =
+⏐⏐{
+F(i) modpe : i is a Lucas non-zero
+}⏐⏐ ,
+
+N. Bragman, E. Rowland Res. Number Theory (2025) 11:88 Page 3 of 21 88
+and let Z (p) be the number of Lucas zeros i such that F (i)/nequivalenceF(j) mod pe for all Lucas
+non-zeros j. Then
+dens(p) = N(p)
+pe + Z(p)
+2p2e−1(p +1) .
+In particular, dens(p) ∈ Q and dens(p) ̸= 0. In the case that there are no Lucas zeros
+withrespectto p,wehave
+dens(p) = N(p)
+pe = |{F(i) modpe :0 ≤ i ≤ π(p) − 1}|
+pe .
+Werefertotheexpressionfordens( p)inTheorem 1asanalgorithmratherthanaformula
+because we do not have a way to computeN(p)a n dZ(p) without essentially computing
+F(i) modpe foreach i ∈{0,1,... ,π(p) − 1}.
+Nextwegiveseveralexamplestoshowthevarietyofbehaviorthatoccurs.
+Example 2 Let p = 13. The period length isπ(13) = 28, and the restricted period
+length is α(13) = 7. There are no Lucas zeros. The set{F(0),... ,F (27)} mod 13 is
+{0,1,2,3,5,8,10,11,12}. Therefore N(13) = 9, and dens(13) = 9
+13.I nf a c t ,9
+13 is the
+densityofresiduesattainedbytheFibonaccisequencemodulo13 λ forevery λ≥ 1.
+Example 3 Let p = 19,forwhich π(19) = 18 = α(19).TheonlyLucaszerois9.Theset
+{F(i) mod 19 : 0≤ i ≤ 17and i ̸= 9}={ 0,1,2,3,5,8,11,13,16,17,18}
+has size N(19) = 11 and does not contain (F(9) mod 19)= 15. Therefore Z(19) = 1,
+and dens(19) = 11
+19 + 1
+760 = 441
+760. This density is the limit of the decreasing sequence
+1, 12
+19 , 210
+361 , 3981
+6859 , 75621
+130321 ,... ofdensitiesofresiduesattainedmodulo19 λ for λ≥ 0.
+Example 4 Let p = 31, for whichπ(31) = 30 = α(31). The only Lucas zero is 15, but
+F(15) ≡ 21 = F(8) mod 31.Therefore Z(31) = 0anddens(31) = N(31)
+31 = 19
+31.
+Example 5 Let p = 7, for whichπ(7) = 16 andα(7) = 8. The Lucas zeros are 4 and 12.
+Theset
+{F(i) mod 7 : 0≤ i ≤ 15and i ̸= 4,12}={ 0,1,2,5,6}
+hassize N(7) = 5anddoesnotcontain( F(4) mod 7)= 3or( F(12) mod 7)= 4.Therefore
+Z(7) = 2 and dens(7)= 5
+7 + 2
+112 = 41
+56.F i g u r e1 encodes the residues attained by the
+Fibonacci sequence modulo 7λ for 0 ≤ λ ≤ 6. Levelλin the tree contains the residues
+modulo 7λ. Dotted edges from a residue classm on levelλindicate an omitted full 7-ary
+tree rooted at that vertex; that is, for everyγ ≥ λand for every integerk ≡ m mod 7λ
+there exists n ≥ 0 such that F(n) ≡ k mod 7γ. On levelλ = 1 the residue classes
+0,1,2,5,6 modulo 7 are roots of full 7-ary trees; these trees contribute5
+7 to the measure
+of F(N).WedescribehowtobuildadditionallevelsofthetreequicklyinSect. 5.
+For p = 2,wehavethefollowinganalogueofTheorem 1.
+Theorem 6 The limiting density of the residues attained by the Fibonacci sequence modulo
+powers of 2 isdens(2) = 21
+32 .
+
+88 Page 4 of 21 N. Bragman, E. Rowland Res. Number Theory (2025) 11:88
+0 1 2 3 4 5 6
+0
+0 3 4 5
+4
+0 3 4 5
+6
+1 4 5 6
+1
+0 2 5 6
+6
+6
+1 2 3 6
+2
+1 2 3 6
+0
+0 1 2 5
+5
+0 1 4 6
+0
+0
+0 1 2 3 4 5 6
+3
+3 150 199 248
+1522
+1522 8725 11 126 13 527
+109 567
+227 216 580 163 697 812 815 461
+1 403 706
+1 403 706 12 933 308 30 227 711 35 992 512
+272 349 353
+46
+95 144 193 340
+879
+3280 5681 8082 15 285
+8082
+8082 125 731 243 380 596 327
+4 361 095
+4 361 095 10 125 896 27 420 299 38 949 901
+10 125 896
+Fig. 1 ThetreeofresiduesattainedbytheFibonaccisequencemodulosmallpowersof7.Theedgesare
+labeledwithbase-7digits.Full7-arysubtreesarenotshownbutareindicatedbydottededges
+Thevaluesofdens( p)forseveralprimesaregiveninthefollowingtable.
+p 2 3 5 7 11 13 17 19 23 29 31 37 41 43
+dens(p) 21
+32 11 41
+56
+145
+264
+9
+13
+13
+17
+441
+760
+409
+552
+541
+1740
+19
+31
+29
+37
+715
+1722
+33
+43
+AdditionalvaluescanbefoundintheOEIS[ 12,A350999andA351000].Amongtheﬁrst
+2000 primes, the smallest density that occurs is dens(9349)= 504901
+174826300 ≈ .002888. This
+lowdensitycanbepartlyexplainedbythefactthat F(38) ≡ 0 mod 9349.Anevensmaller
+density occurs for the primeF(29) = 514229; here dens(514229)= 53
+514229 ≈ .000103.
+A natural question, which we do not address here, is whether there exist primesp with
+
+N. Bragman, E. Rowland Res. Number Theory (2025) 11:88 Page 5 of 21 88
+arbitrarily small dens(p). More generally, what are the limit points of the set{dens(p):
+pisprime }?
+TheproofsofTheorems 1and6makeuseof p-adicanalyticfunctions;seeforexample
+Gouvêa’s text [5] for the relevant background. In Sect.2we identify the Lucas zeros with
+respectto p.InSect. 3wegiveamoreconvenientcharacterizationoftheexponent ethat
+appears in Theorem1; this allows us to account for the possible existence of Wall–Sun–
+Sunprimes.Wealsogiveanadditionalcharacterizationof eas νp(L(i))where iisaLucas
+zero. In Sect.4 we interpolate the Fibonacci sequence to the ﬁeld ofp-adic numbers for
+p ̸= 2.InSect. 5weproveTheorem 1,andinSection 6wetreatthecase p = 2.
+2 Lucas zeros
+In this section we identify the Lucas zeros for the Fibonacci sequence with respect top,
+in terms ofα(p). First we recall the following special case of a theorem of Vinson [13,
+Theorem2],whichrelatestheperiodlengthtotherestrictedperiodlength.
+Theorem 7 Let p ̸= 2 be a prime. Then
+π(p)
+α(p) =
+⎧
+⎪⎪
+⎨
+⎪⎪⎩
+4 if α(p) is odd
+1 if α(p) is even but not divisible by 4
+2 if α(p) is divisible by 4.
+(For p = 2wehave π(2) = 3 = α(2).)
+Remark 8 Theprimesforwhich
+π(p)
+α(p) = 4a r e
+5,13,17,37,53,61,73,89,97,109,113,137,149,... [12,A053028].
+Excluding2,theprimesforwhich π(p)
+α(p) = 1are
+11,19,29,31,59,71,79,101,131,139,... [12,A053032].
+Theprimesforwhich π(p)
+α(p) = 2are
+3,7,23,41,43,47,67,83,103,107,127,... [12,A053027].
+This“trichotomy”wasdescribedbyBallotandElia[ 1].
+ThenumberofLucaszerosdependsonthe2-adicvaluationof α(p)andcorrespondsto
+thethreecasesofTheorem 7.
+Proposition 9 Let p ̸= 2 be a prime. The set of Lucas zeros with respect to p is
+⎧
+⎪⎪⎨
+⎪⎪⎩
+{} if α(p) is odd
+{α(p)
+2 } if α(p) is even but not divisible by 4
+{α(p)
+2 , 3α(p)
+2 } if α(p) is divisible by 4.
+Moreover, if α(p) is divisible by 4 then F(α(p)
+2 )/nequivalenceF(3α(p)
+2 ) mod p.
+
+88 Page 6 of 21 N. Bragman, E. Rowland Res. Number Theory (2025) 11:88
+Throughout the article we denoteφ = 1+
+√
+5
+2 and ¯φ = 1−
+√
+5
+2 =− 1
+φ. Recall Binet’s
+formula
+F(n) = φn − ¯φn
+√
+5
+(2)
+and the analogous formulaL(n) = φn + ¯φn. Together these imply 2φn = L(n) +
+√
+5F(n)
+and2 ¯φn = L(n)−
+√
+5F(n)aswellasthefundamentalidentity L(n)2 −5F(n)2 = (−1)n4.In
+Section 3 we will assumep ̸= 5 and interpret
+√
+5a sa p-adic number orp-adic algebraic
+number,dependingwhether Zp containsasquarerootof5.FortheproofofProposition 9,
+itsuﬃcestoworkmodulo p,soweworkintheresidueﬁeld
+⎧
+⎨
+⎩
+Z/(pZ)i f x2 ≡ 5 mod phasanintegersolution
+Z[
+√
+5]/(pZ[
+√
+5]) otherwise .
+Proof of Proposition 9 Thestatementholdsfor p = 5,since α(5) = 5andnoLucasnumber
+isdivisibleby5.Assume p ̸= 5.
+By Binet’s formula,F(n) ≡ 0 mod p if and only ifφn − ¯φn ≡ 0 mod p, which can be
+rewritten (−φ2)n ≡ 1 mod p since φ¯φ =− 1. SinceF(α(p)) ≡ 0 mod p by deﬁnition,
+we have (−φ2)α(p) ≡ 1 mod p. Moreover,α(p) is the smallest positive integer with this
+property.Inotherwords, α(p)istheorderof −φ2 modulo p.
+Similarly, L(i) = φi + ¯φi = φ2i+(−1)i
+φi ,s o i i saL u c a sz e r oi fa n do n l yi f(−φ2)i ≡− 1
+mod p. Therefore the Lucas zeros are precisely the values ofi ∈{ 0,... ,π(p) − 1} for
+whichtheorderof( −φ2)i is2.If α(p)isodd,thentherearenone.If α(p)iseven,thenthe
+Lucas zeros are the solutions toi ≡ α(p)
+2 mod α(p). Ifα(p) is even but not divisible by 4,
+then π(p) = α(p)b yT h e o r e m7, so the only solution isi = α(p)
+2 .I fα(p) is divisible by 4,
+then π(p) = 2α(p),sothesolutionsare i = α(p)
+2 and i = α(p)
+2 + α(p).
+Itremainstoshowthat F(α(p)
+2 )/nequivalenceF(3α(p)
+2 ) mod pwhenα(p)isdivisibleby4.Vinson[ 13,
+Lemma 1] established that the order ofF(α(p) − 1) modulopis π(p)
+α(p).S i n c eπ(p)
+α(p) = 2, this
+implies that F(α(p) − 1) ≡− 1 mod p.W eh a v eF(α(p)) ≡ 0 =− F(0) mod p,s oi t
+followsfrom F(α(p) +1) = F(α(p)) + F(α(p) − 1)that
+F(α(p) +1) ≡ F(α(p) − 1) ≡− 1 =− F(1) mod p.
+Now the Fibonacci recurrence (1) inductively impliesF(α(p) + n) ≡− F(n) mod p for
+all n ≥ 0. In particular,F(3α(p)
+2 ) ≡− F(α(p)
+2 ) mod p. By the minimality ofα(p), we have
+F(α(p)
+2 )/nequivalence0 mod p,so F(3α(p)
+2 )/nequivalenceF(α(p)
+2 ) mod p.
+3 The Wall exponent
+In this section we give two additional characterizations of the exponente = νp(F(p −
+ϵ)) that appears in Theorem1. We will need these characterizations for the proof of
+Theorem 1 in Section5, since we will want to expresse in terms of thep-adic absolute
+value of a certainp-adic number involvingφ. First we introduce some notation. As in
+Section1,for p ̸= 5,let
+ϵ =
+⎧
+⎨
+⎩
+1i f p ≡ 1,4 mod 5
+−1i f p ≡ 2,3 mod 5.
+
+N. Bragman, E. Rowland Res. Number Theory (2025) 11:88 Page 7 of 21 88
+Equivalently,wecanwrite ϵ = ( p
+5)usingtheLegendresymbol.
+For primesp ≡ 1,4 mod 5, the set ofp-adic integersZp contains a square root of 5;
+this can be shown using quadratic reciprocity and Hensel’s lemma. For other primes,Zp
+does not contain a square root of 5, so we consider the extensionQp(
+√
+5). Throughout
+thearticle,wedenote
+K = Qp(
+√
+5) =
+⎧
+⎪⎪⎨
+⎪⎪⎩
+Qp if p ≡ 1,4 mod 5
+Qp(
+√
+5) if p ≡ 2,3 mod 5
+Q5(
+√
+5) if p = 5.
+The p-adicabsolutevalueof x ∈ K isdenoted |x|p;itextendsthe p-adicabsolutevalueon
+Q[5,Deﬁnition2.1.4andTheorem5.3.5].The p-adicvaluation νp(x)of x ∈ Qp isrelated
+toits p-adicabsolutevalueby |x|p = p−νp(x).Theringofintegersof K is
+OK ={ x ∈ K : |x|p ≤ 1}=
+⎧
+⎪⎪
+⎪⎪⎪
+⎨
+⎪⎪⎪
+⎪⎪⎩
+Z
+p if p ≡ 1,4 mod 5
+Zp[
+√
+5] if p ≡ 2,3 mod 5and p ̸= 2
+Z2[φ]i f p = 2
+Z5[
+√
+5] if p = 5.
+Wenowconsider φand ¯φaselementsof OK.
+Let d be the degree of the extensionK of Qp,a n dl e tpf be the size of the residue ﬁeld
+OK /{x ∈ K : |x|p < 1}.Namely,
+d =
+⎧
+⎪⎪⎨
+⎪⎪
+⎩
+1i f p ≡ 1,4 mod 5
+2i f p ≡ 2,3 mod 5
+2i f p = 5
+and f =
+⎧
+⎪⎪⎨
+⎪⎪
+⎩
+1i f p ≡ 1,4 mod 5
+2i f p ≡ 2,3 mod 5
+1i f p = 5.
+Thequotient d/f isthe ramiﬁcation index oftheextension.
+To obtain another description ofe = ν
+p(F(p − ϵ)), we will use the fact that the ring
+of integersOK contains the cyclic group of (pf − 1)th roots of unity [5, Corollary 5.4.9].
+Moreover, for eachx ∈ K such that|x|p = 1, there is a unique (pf − 1)th root of unity
+congruent tox modulo p (or, in the casep = 5, modulo a uniformizer). This is because
+there are preciselypf residue classes modulop (or modulo the uniformizer) and each
+(pf − 1)throotofunitybelongstoadistinctresidueclass.
+Notation If |x|p = 1a n dp ̸= 5, deﬁneω(x) to be the (pf − 1)th root of unity satisfying
+ω(x) ≡ x mod p. In particular, x
+ω(x) ≡ 1 mod p.F o rp = 5, we use the uniformizer
+√
+5
+anddeﬁne ω(x)tobethe4throotofunitysatisfying ω(x) ≡ x mod
+√
+5.
+TheﬁrstmainresultofthissectionisthattheWallexponent e = νp(F(p − ϵ))canalso
+bedeﬁnedby
+⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p = 1
+pe .
+Theorem 10 Let p be a prime such that p ̸= 2 and p ̸= 5.T h e n|F(p− ϵ)|p =
+⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p.
+The primep is aWall–Sun–Sun prime if νp(F(p − ϵ)) ≥ 2. Wall–Sun–Sun primes are
+also known asFibonacci–Wieferich primes.W a l l[14] veriﬁed that there are none< 104.
+No Wall–Sun–Sun primes are known, although a heuristic argument suggests there are
+
+88 Page 8 of 21 N. Bragman, E. Rowland Res. Number Theory (2025) 11:88
+inﬁnitelymany[ 8,Section4].For p /∈{2,5},Theorem 10impliesthat pisaWall–Sun–Sun
+primeifandonlyif
+⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p ≤ 1
+p2 .
+We split the proof of Theorem10 into the following two propositions. The ﬁrst is a
+straightforward generalization of the statement thatp is a Wall–Sun–Sun prime if and
+onlyif L(p− ϵ) ≡ 2ϵ mod p4,whichisoneofseveralcharacterizationsofWall–Sun–Sun
+primesgivenbyMcIntoshandRoettger[ 8,Theorem1](inamoregeneralform).
+Proposition 11 Let p be a prime such that p ̸= 2 and p ̸= 5.T h e n |F(p − ϵ)|p =√
+|L(p − ϵ) − 2ϵ|p.
+Proof We use the identity 5F(n)2 = L(n)2 − (−1)n4. Note that p − ϵ is even and
+(−1)(p−ϵ)/2 = ϵ.Therefore
+5F(p − ϵ)2 = (L(p − ϵ) +2ϵ)( L(p − ϵ) − 2ϵ) .
+McIntoshandRoettger[ 8,Equation(5)]showthat L(p−ϵ)−2ϵ ≡ 0 mod p2.Since4 ϵ/nequivalence0
+mod p,thisimplies L(p− ϵ)+2ϵ/nequivalence0 mod p.Itfollowsthat |F(p− ϵ)|2
+p =| L(p− ϵ)−2ϵ|p
+asdesired.
+Toprovethesecondproposition,weusethefollowinglemma.
+Lemma 12 Let p be a prime, and let x∈ Ks u c h t h a t|x|p = 1.T h e n|xpf
+− x|p =| x−ω(x)|p.
+Proof Weuse thefactorization xpf
+− x = x ∏
+r(x − r)i nOK[x], wherer ranges over the
+(pf − 1)th roots of unity. Since|x|p = 1, there is precisely one root of unityr such that
+|x − r|p ̸= 1,namely r = ω(x).Therefore |xpf
+− x|p =| x − ω(x)|p.
+Proposition 13 Let p be a prime such that p ̸= 2 and p ̸= 5.T h e n
+√
+|L(p − ϵ) − 2ϵ|p =⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p.
+Proof Firstwenotethat
+⏐⏐¯φp−ϵ − ϵ
+⏐⏐
+p =
+⏐⏐φp−ϵ − ϵ
+⏐⏐
+p,since
+⏐⏐¯φp−ϵ − ϵ
+⏐⏐
+p =
+⏐⏐⏐⏐
+(
+− 1
+φ
+) p−ϵ
+− ϵ
+⏐⏐⏐⏐
+p
+=
+⏐⏐(−1)p−ϵ − ϵφp−ϵ⏐⏐
+p =
+⏐⏐1 − ϵφp−ϵ⏐⏐
+p =
+⏐⏐φp−ϵ − ϵ
+⏐⏐
+p
+(usingthefactthat p − ϵ iseven).Since L(n) = φn + ¯φn,wehave
+−ϵ(φp−ϵ − ϵ)(¯φp−ϵ − ϵ) =− ϵ(−1)p−ϵ + φp−ϵ + ¯φp−ϵ − ϵ
+= L(p − ϵ) − 2ϵ.
+Taking the p-adic absolute value of both sides gives
+⏐⏐φp−ϵ − ϵ
+⏐⏐2
+p =
+⏐⏐L(p − ϵ) − 2ϵ
+⏐⏐
+p.
+Thereforeitsuﬃcestoshowthat
+⏐⏐φp−ϵ − ϵ
+⏐⏐
+p =
+⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p.
+If p ≡ 1,4 mod 5,then ϵ = 1and f = 1.ItfollowsfromLemma 12that |φp−1 − 1|p =
+|φp − φ|p =| φ − ω(φ)|p =
+⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p.
+If p ≡ 2,3 mod 5,then ϵ =− 1and f = 2.Thegeometricseriesformulagives
+φp2−1 − 1
+φp+1 +1 =
+p−2∑
+j=0
+(−1)j+1φ(p+1)j ≡
+p−2∑
+j=0
+(−1)j+1(−1)j ≡ 1 mod p.
+
+N. Bragman, E. Rowland Res. Number Theory (2025) 11:88 Page 9 of 21 88
+It follows that|φp+1 + 1|p =| φp2−1 − 1|p =| φp2
+− φ|p. By Lemma12, |φp+1 + 1|p =
+|φ − ω(φ)|p =
+⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p.
+ThisconcludestheproofofTheorem 10.
+The second main result of this section is that the Wall exponent is also thep-adic
+valuationofcertainLucasnumbers.
+Theorem 14 Let p be a prime such that p ̸= 2,p ̸= 3,a n dp ̸= 5. If i is a Lucas zero with
+respect to p, then |L(i)|p =| F(p − ϵ)|p.
+For p = 3, the Lucas zeros are 2 and 6. The Lucas zero 2 does satisfy the conclusion,
+since L(2) = 3 = F(4).However,6doesnot,since |L(6)|3 =| 18|3 = 1
+9 < 1
+3 =| F(4)|3.
+Proof of Theorem 14 We show that|L(i)|p =| F(α(p))|p. The result will then follow from
+|F(α(p))|p =| F(p − ϵ)|p.
+Since i isaLucaszero,Proposition 9impliesthat α(p)iseven.Therefore
+|F(α(p))|p =
+⏐⏐⏐⏐
+⏐
+φ
+α(p) − (−φ−1)α(p)
+√
+5
+⏐⏐⏐⏐
+⏐
+p
+=
+⏐⏐⏐⏐
+⏐
+φ
+α(p) − φ−α(p)
+√
+5
+⏐⏐⏐⏐
+⏐
+p
+=
+⏐⏐φ2α(p) − 1
+⏐⏐
+p.
+Weconsidertwocases.
+If α(p)isnotdivisibleby4,then i = α(p)
+2 isodd.Therefore
+|L(i)|p =
+⏐⏐⏐φi +(−φ−1)i
+⏐⏐⏐
+p
+=
+⏐⏐⏐φi − φ− i
+⏐⏐⏐
+p
+=
+⏐⏐φα(p) − 1
+⏐⏐
+p =
+⏐⏐⏐φ2α(p) − 1
+⏐⏐⏐
+p⏐⏐φα(p) +1
+⏐⏐
+p
+.
+Since i is a Lucas zero, we haveφα(p) ≡ 1/nequivalence−1 mod p, which implies
+⏐⏐
+⏐φ
+α(p) +1
+⏐⏐
+⏐
+p
+= 1.
+Itfollowsthat |L(i)|p =| F(α(p))|p.
+If α(p)isdivisibleby4,then i ∈{ α(p)
+2 , 3α(p)
+2 },so iiseven.Therefore
+|L(i)|p =
+⏐⏐⏐φi +(−φ−1)i
+⏐⏐⏐
+p
+=
+⏐⏐⏐φi + φ− i
+⏐⏐⏐
+p
+=
+⏐⏐⏐φ2i +1
+⏐⏐⏐
+p
+.
+If i = α(p)
+2 ,then
+|L(i)|p =
+⏐⏐φα(p) +1
+⏐⏐
+p =
+⏐⏐⏐φ2α(p) − 1
+⏐⏐⏐
+p⏐⏐φα(p) − 1
+⏐⏐
+p
+=| F(α(p))|p
+since |L(i)|p < 1implies
+⏐⏐⏐φα(p) − 1
+⏐⏐⏐
+p
+= 1.Ontheotherhand,if i = 3α(p)
+2 ,then
+|L(i)|p =
+⏐⏐φ3α(p) +1
+⏐⏐
+p =
+⏐⏐φα(p) +1
+⏐⏐
+p
+⏐
+⏐φ
+2α(p) − φα(p) +1
+⏐⏐
+p.
+Since φα(p) ≡− 1 mod p,w eh a v eφ2α(p) − φα(p) + 1 ≡ 3/nequivalence0 mod p since p ̸= 3. It
+followsthat |L(i)|p =| F(α(p))|p.
+
+88 Page 10 of 21 N. Bragman, E. Rowland Res. Number Theory (2025) 11:88
+4 Piecewise interpolation to the p-adic numbers
+In this section we interpolateF(n)t oZp so that we can work with continuous functions
+inSection 5.ThissameapproachwasusedtoprovethecelebratedSkolem–Mahler–Lech
+theoremconcerningthesetofzerosofaconstant-recursivesequence[ 6,7,11].
+The Fibonacci sequence cannot be interpolated toZp by a single continuous function,
+butthereexistsaﬁnitesetofcontinuousfunctionsthatcompriseapiecewiseinterpolation
+to Z
+p.ThesefunctionscomefromBinet’sformula ( 2)interpretedin Qp(
+√
+5).Forthis,we
+need the p-adic logarithm and exponential functions, which are deﬁned by their usual
+powerseries
+logp(1 + x) :=
+∑
+m≥1
+(−1)m+1 xm
+m and exp p x :=
+∑
+m≥0
+xm
+m! .
+The series logp(1 + x) converges if|x|p < 1, and expp x converges if|x|p < p−1/(p−1).
+Moreover,log p isanisomorphismfromthemultiplicativegroup {x : |x−1|p < p−1/(p−1)}
+totheadditivegroup {x : |x|p < p−1/(p−1)},anditsinversemapisexp p [5,Proposition4.5.9
+andSection6.1].Inparticular,if |x − 1|p < p−1/(p−1),then x = expp logp x.
+Tointerpolate F(n),weusethislastidentitytorewrite φn and ¯φn.Thereareseveralways
+todothis.Weuseanapproachthatdirectlyinvolvestherootofunity ω(φ),whichplaysa
+majorroleinthestructureoftheset F(Zp).Since e ≥ 1and p ̸= 2,wehave
+⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p <
+p−1/(p−1); this also follows from a more general result [9, Lemma 6]. Therefore, for all
+n ≥ 0,wehave
+( φ
+ω(φ)
+)n = expp logp
+(( φ
+ω(φ)
+)n)
+= expp
+(
+nlogp
+φ
+ω(φ)
+)
+.
+Theorem 15 (Rowland–Yassawi[ 9,Theorem15]) Let p ̸= 2 be a prime, and let pf be the
+size of the residue ﬁeld OK /{x ∈ K : |x|p < 1}. For each i ∈{ 0,1,... ,p f − 2}, deﬁne the
+function Fi: Zp → Kb y
+Fi(x) =
+ω(φ)i expp
+(
+xlogp
+φ
+ω(φ)
+)
+− ω(¯φ)i expp
+(
+− xlogp
+φ
+ω(φ)
+)
+√
+5
+.
+Then Fi(Zp) ⊆ Zp,a n dF(n) = Fn mod (pf −1)(n) for all n ≥ 0.
+To see thatFi(x) ∈ Zp if x ∈ Zp, take a sequence of integers (xm)m≥0 that converges to
+x such thatxm ≡ i mod pf − 1 for eachm ≥ 0; sinceFi(xm) = F(xm) ∈ Z, it follows by
+continuitythat Fi(x) ∈ Zp.
+Note we have not deﬁnedFi for p = 2; the deﬁnition requires modiﬁcation and will be
+discussedinSection 6.
+Recall the observation in the proof of Proposition9 that α(p) is the order of−φ2
+modulo p.AlongwithTheorem 7,thisimpliesthat ω(φ)π(p) = 1and ω(¯φ)π(p) = 1;Ballot
+andEliagiveanalternateproofofthisfact[ 1,Proposition1.2].Therefore Fi+π(p)(x) = Fi(x)
+for allx ∈ Zp, so we can reduce the number of functions in the piecewise interpolation.
+Namely,thefunctions Fi(x)for i ∈{0,1,... ,π(p) − 1}compriseaninterpolation.
+InSection 5,wewilluseProposition 18below,whichreﬁnestheisomorphismlog p.To
+proveit,weneedtwolemmas,whoseproofsweincludeforcompleteness.Theﬁrstisthe
+lifting-the-exponentlemma.
+Lemma 16 Let e ≥ 0 be an integer. If a, b ∈
+OK such that |a − b|p < p−1/(p−1),t h e n⏐⏐ape
+− bpe ⏐⏐
+p < p− e−1/(p−1).
+
+N. Bragman, E. Rowland Res. Number Theory (2025) 11:88 Page 11 of 21 88
+Proof. Assume i ≥ 0a n d|a − b|p < p− i−1/(p−1); we show that this implies|ap − bp|p <
+p−(i+1)−1/(p−1).Thestatementwillthenfollowinductively.Write a = b+ O(pi).Wehave
+ap − bp
+a − b =
+p−1∑
+j=0
+ap−1− j bj =
+p−1∑
+j=0
+(
+b + O(pi)
+) p−1− j
+bj
+=
+p−1∑
+j=0
+(
+bp−1 + O(pi)
+)
+= pbp−1 + O(pi).
+Therefore
+⏐⏐ap − bp⏐⏐
+p =| a − b|p ·
+⏐⏐⏐pbp−1 + O(pi)
+⏐⏐⏐
+p
+< p− i−1/(p−1) · p−1.
+Thesecondisaspecialcaseoftheisometrypropertyofthe p-adiclogarithm.
+Lemma 17 If x ∈ OK and |x|p < p−1/(p−1),t h e n
+⏐⏐⏐logp(1 + x)
+⏐⏐⏐
+p
+= |x|p.
+Proof Thepowerseriesforlog p gives
+⏐⏐⏐logp(1 + x)
+⏐⏐⏐
+p
+=| x|p ·
+⏐⏐⏐⏐
+⏐⏐
+1 +
+∑
+m≥2
+(−1)m+1 xm−1
+m
+⏐⏐⏐⏐
+⏐⏐
+p
+.
+Since |m|p ≥ p− m−1
+p−1 for each m ≥ 1, for m ≥ 2w eh a v e
+⏐⏐⏐ xm−1
+m
+⏐⏐⏐
+p
+< 1
+|m|p p− m−1
+p−1 ≤ 1.
+Therefore
+⏐⏐⏐
+⏐⏐⏐
+1 +
+∑
+m≥2
+(−1)m+1 xm−1
+m
+⏐⏐⏐
+⏐⏐⏐
+p
+= 1
+bytheultrametricinequality.
+Proposition 18 For each integer e ≥ 0, expp is a group isomorphism from {x : |x|p <
+p− e−1/(p−1)} to {x : |x − 1|p < p− e−1/(p−1)}.
+Proof Since expp is a group isomorphism from{x : |x|p < p−1/(p−1)} to {x : |x − 1|p <
+p−1/(p−1)},toprovethepropositionitsuﬃcestoshowthat
+{
+expp(x): |x|p < p− e−1/(p−1)
+}
+=
+{
+x : |x − 1|p < p− e−1/(p−1)
+}
+.
+To show⊆,l e tx ∈ OK such that|x|p < p− e−1/(p−1); then| x
+pe |p < p−1/(p−1),s o x
+pe is in
+thedomainofexp p.Wehave
+expp(x) = expp( x
+pe + x
+pe +···+ x
+pe
+  
+pe
+) =
+(
+expp( x
+pe )
+) pe
+.
+Since |expp( x
+pe ) − 1|p < p−1/(p−1),Lemma 16implies
+⏐⏐(expp( x
+pe ))pe
+− 1
+⏐⏐
+p < p− e−1/(p−1).
+To show⊇,l e ty ∈ OK such that|y − 1|p < p− e−1/(p−1).L e tx = logp y. By Lemma17,
+|x|p < p− e−1/(p−1),and x satisﬁesexp p(x) = y.
+
+88 Page 12 of 21 N. Bragman, E. Rowland Res. Number Theory (2025) 11:88
+5 Proof of the main result
+InthissectionweproveTheorem 1,whichestablishesthevalueofdens( p)for p ̸= 2.This
+densityisequaltothemeasureoftheclosureofthesetofFibonaccinumbersinthe p-adic
+integers Zp. That is, letμ be the Haar measure onZp deﬁned byμ(m + pλZp) = p−λ;
+thendens( p) = μ(F(N)).
+As an illustrative warm-up example, we determine the limiting density of residues
+attained by the set of squares modulo powers ofp for p ̸= 2. Let z ∈ Zp, and deﬁne
+λ∈ Zby |z|p = 1
+pλ.If λisodd,then z doesnothaveasquare rootin Zp.If λiseven,then
+z hasasquarerootin Zp (moreprecisely,in pλ/2Zp)ifandonlyif z
+pλ mod pisaquadratic
+residue, by Hensel’s lemma. Since there arep−1
+2 nonzero quadratic residues modulop,
+theimageof Zp under x ↦→ x2 hasmeasure
+∑
+λ≥0
+λeven
+p − 1
+2 · 1
+pλ+1 = p
+2(p +1) .
+Theterm Z(p)
+2p2e−1(p+1) inTheorem 1willariseinasimilarway,sincetheFibonaccisequence
+satisﬁesasecond-orderrecurrence.
+Notation For p ̸= 2, we write the functionFi(x)i nT h e o r e m15 as the composition
+Fi(x) = gi(hi(x)) where gi(y) = y−(−1)i y−1
+√
+5 and hi(x) = ω(φ)i expp
+(
+xlogp
+φ
+ω(φ)
+)
+.W eu s e
+thisnotationthroughoutthissection.Thefunction gi iscloseenoughtoapolynomialthat
+wewillbeabletoapplyHensel’slemma.
+ToproveTheorem 1,wedescribetheset Fi(Zp).InProposition 23weshowthatthisset
+is contained inF(i) + peZp, wheree is deﬁned by| φ
+ω(φ) − 1|p = 1
+pe . For Lucas non-zeros
+i,P r o p o s i t i o n24 s h o w st h a ti nf a c tFi(Zp) = F(i) + peZp. It follows that the Lucas non-
+zeroscontributemeasure N(p)
+pe inTheorem 1.Moreover,theyaccountforthefullsubtrees
+rootedatlevel1inFigure 1andanalogoustreesforotherprimes.
+When i is a Lucas zero, the description of the setFi(Zp) is more complicated, since it
+is not a cylinder set. We will show that partial branching of the kind pictured in Figure1
+occurs through the tree along edges corresponding to thep-adic digits ofω(φ)i 2√
+5.F o r
+p = 7,therearetwosuchpaths,forthe7-adicnumbers
+ω(φ)4 2√
+5 = 3 + 0
+7−1 + 3
+7−2 + 4
+7−3 + 3
+7−4 + 6
+7−5 + 4
+7−6 + 1
+7−7 +···
+ω(φ)12 2√
+5 = 4 + 6
+7−1 + 3
+7−2 + 2
+7−3 + 3
+7−4 + 0
+7−5 + 2
+7−6 + 5
+7−7 +···
+(whereweplaceeachpowerof7inthedenominatortomakethedigitseasiertoread).This
+partialbranchingisduetoadoublerootof y2 −
+√
+5zy−(−1)i = 0(equivalently, gi(y) = z)
+when z = ω(φ)i 2√
+5. By computing digits ofω(φ)i 2√
+5, we can use the set of quadratic
+residues modulop to quickly construct levelsλ ≥ 2 of the tree of attained residues. The
+constructionfollowsfromLemma 26,andProposition 27establishes μ(Fi(Zp))forLucas
+zeros i.
+We begin the proof of Theorem1 with a lemma allowing us to conclude that certain
+numbersbelongtoexp p(p
+√
+5Zp).Asbefore,let ¯φ = 1−
+√
+5
+2 .Inthecase p ≡ 2,3 mod 5,we
+generalizethisnotationasfollows.If x = a+ b
+√
+5forsome a, b ∈ Qp,deﬁne¯x = a− b
+√
+5.
+
+N. Bragman, E. Rowland Res. Number Theory (2025) 11:88 Page 13 of 21 88
+Lemma 19 Let p ≡ 2,3 mod 5.I fx ∈ OK such that x¯x = 1 and |x − 1|p < p−1/(p−1),
+thenlogp x ∈ p
+√
+5Zp.
+Proof In addition to|x − 1|p < p−1/(p−1),w eh a v e|¯x − 1|p =
+⏐⏐1
+x − 1
+⏐⏐
+p =| 1 − x|p <
+p−1/(p−1).Sincelog p isagroupisomorphismfrom {x : |x − 1|p < p−1/(p−1)}to {x : |x|p <
+p−1/(p−1)},itfollowsthatlog p x+logp ¯x = logp(x¯x) = logp 1 = 0.Writelog p x = a+ b
+√
+5
+where a, b ∈ Zp.Then
+a − b
+√
+5 = a + b
+√
+5 = logp ¯x =− logp x =− a − b
+√
+5,
+so a = 0. Finally,b ≡ 0 mod p because
+⏐⏐⏐logp x
+⏐⏐⏐
+p
+=| x − 1|p < p−1/(p−1) by Lemma17.
+NextweuseLemma 19todescribetheimageof Zp under hi.
+Lemma 20 Let p be a prime such that p ̸= 2 and p ̸= 5, and deﬁne e ≥ 1 by
+⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p =
+1
+pe .I fi ∈{0,1,... ,π(p) − 1},t h e nhi(Zp) = ω(φ)i expp(pe√
+5Zp).
+Proof. ItfollowsfromLemma 17that
+⏐⏐⏐logp
+φ
+ω(φ)
+⏐⏐⏐
+p
+= 1
+pe .Inparticular, xlogp
+φ
+ω(φ) isinthe
+domainofexp p forall x ∈ Zp.If p ≡ 1,4 mod 5,then
+hi(Zp) = ω(φ)i expp
+(
+Zp logp
+φ
+ω(φ)
+)
+= ω(φ)i expp(peZp)
+= ω(φ)i expp(pe√
+5Zp)
+since |
+√
+5|p = 1. If p ≡ 2,3 mod 5, then logp
+φ
+ω(φ) ∈ pe√
+5Zp by Lemma 19,s i n c e
+φ
+ω(φ) ·
+¯φ
+ω(¯φ) = −1
+−1 = 1.Therefore
+hi(Zp) = ω(φ)i expp
+(
+Zp logp
+φ
+ω(φ)
+)
+= ω(φ)i expp(pe√
+5Zp).
+We will not describe the sethi(Zp) = ω(φ)i expp(pe√
+5Zp) more explicitly. Instead, the
+nextlemmagivesconditionsunderwhich gi(y) = zhasasolution y ∈ hi(Zp)when p ≡ 2,3
+mod 5.WewillapplyitforLucasnon-zeros iaswellasLucaszeros.
+Lemma 21 Let p ≡ 2,3 mod 5.I fp ̸= 2, deﬁne e ≥ 1 by
+⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p = 1
+pe ;i fp = 2, let
+e = 2.L e tz ,w ∈ Zp and y0 ∈ OK \{0} such that w2 = 5z2 +4y0y0 and
+⏐⏐ w+
+√
+5z
+2 − y0
+⏐⏐
+p ≤ 1
+pe .
+Then w+
+√
+5z
+2 ∈ y0 expp(pe√
+5Zp).
+Proof Wehave
+w+
+√
+5z
+2
+y0
+·
+w−
+√
+5z
+2
+y0
+= 1.
+Since
+⏐⏐ w+
+√
+5z
+2 − y0
+⏐⏐
+p ≤ p− e < p−1/(p−1),Lemma 19implieslog p
+w+
+√
+5z
+2y0 ∈ p
+√
+5Zp.More-
+over, Lemma17 implies
+⏐⏐logp
+w+
+√
+5z
+2y0
+⏐⏐
+p =
+⏐⏐ w+
+√
+5z
+2 − y0
+⏐⏐
+p ≤ 1
+pe ,s oi nf a c tl o gp
+w+
+√
+5z
+2y0 ∈
+pe√
+5Zp,andthisimplies w+
+√
+5z
+2 ∈ y0 expp(pe√
+5Zp).
+
+88 Page 14 of 21 N. Bragman, E. Rowland Res. Number Theory (2025) 11:88
+Now we begin to considerFi(Zp). We will use the following as a partial converse of
+Lemma21toprovePropositions 23and27concerning Fi(Zp).
+Lemma 22 Let p be a prime such that p ̸= 2 and p ̸= 5, and deﬁne e ≥ 1 by
+⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p =
+1
+pe .L e ti ∈{0,1,... ,π(p) − 1}.I fy ∈ hi(Zp),t h e n|y − ω(φ)i|p ≤ 1
+pe .
+Proof Since Fi(x) = gi(hi(x)), it suﬃces to showgi(y) ∈ F(i) + peZp. By Lemma20,
+y = ω(φ)i expp(pe√
+5t)forsome t ∈ Zp.Since p ̸= 2,wehave1 > 1
+p−1 and
+⏐⏐pe√
+5t
+⏐⏐
+p ≤ p− e < p− e+1−1/(p−1).
+ByProposition 18,thisimplies
+⏐⏐⏐y − ω(φ)i
+⏐⏐⏐
+p
+=
+⏐⏐⏐expp(pe√
+5t) − 1
+⏐⏐⏐
+p
+< p− e+1−1/(p−1).
+Since p ̸= 5, we have|y − ω(φ)i|p ∈ pZ (because the ramiﬁcation index is 1); therefore
+|y − ω(φ)i|p ≤ p− e.
+Proposition 23 Let p be a prime such that p ̸= 2 and p ̸= 5, and deﬁne e ≥ 1 by⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p = 1
+pe .I fi ∈{0,1,... ,π(p) − 1},t h e nFi(Zp) ⊆ F(i) + peZp.
+Proof Let y ∈ hi(Zp).ByLemma 22, |y− ω(φ)i|p ≤ p− e.Wealsohave |φi − ω(φ)i|p ≤ p− e
+since
+⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p = p− e.Therefore
+⏐⏐gi(y) − F(i)
+⏐⏐
+p =
+⏐⏐
+⏐⏐
+y − (−1)
+iy−1
+√
+5
+− φi − (−1)iφ− i
+√
+5
+⏐⏐
+⏐⏐
+p
+=
+⏐⏐
+⏐
+(
+y − φ
+i
+)
+− (−1)i
+(
+y−1 − φ− i
+) ⏐⏐
+⏐
+p
+≤ max
+( ⏐⏐⏐y − φi
+⏐⏐⏐
+p
+,
+⏐⏐⏐y−1 − φ− i
+⏐⏐⏐
+p
+)
+=
+⏐⏐⏐y − φi
+⏐⏐⏐
+p
+≤ max
+( ⏐⏐
+⏐y − ω(φ)
+i
+⏐⏐
+⏐
+p
+,
+⏐⏐
+⏐ω(φ)
+i − φi
+⏐⏐
+⏐
+p
+)
+≤ p− e
+aftertwoapplicationsoftheultrametricinequality.Itfollowsthat gi(y) ∈ F(i) + peOK.By
+Theorem15, gi(y) ∈ Fi(Zp) ⊆ Zp,so gi(y) ∈ F(i) + peZp.
+If i is a Lucas non-zero, the⊆ in Proposition23 can be strengthened to= as follows;
+thisestablishesthat μ(Fi(Zp)) = 1
+pe .
+Proposition 24 Let p be a prime such that p ̸= 2 and p ̸= 5, and deﬁne e ≥ 1 by⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p = 1
+pe . If i is a Lucas non-zero, then F i(Zp) = F(i) + peZp.
+Proof AsaresultofProposition 23,itsuﬃcestoshow
+gi
+(
+ω(φ)i expp(pe√
+5Zp)
+)
+⊇ F(i) + peZp.
+
+N. Bragman, E. Rowland Res. Number Theory (2025) 11:88 Page 15 of 21 88
+Let z ∈ F(i) + peZp.Weﬁrstshowthatthereexists y ∈ ω(φ)i + peOK suchthat gi(y) = z,
+andthenweshow y ∈ ω(φ)i expp(pe√
+5Zp).
+The equation gi(y) = z is equivalent to y2 −
+√
+5zy − (−1)i = 0. Let y0 = ω(φ)i.
+Binet’s formula (2) shows that y0−(−1)i y−1
+0√
+5 ≡ φi−(−1)iφ− i
+√
+5 = F(i) ≡ z mod pe,s o y2
+0 −
+√
+5zy0 − (−1)i ≡ 0 mod pe. The discriminant ofy2 −
+√
+5zy − (−1)i is 5z2 +(−1)i4 ≡
+5F(i)2 +(−1)i4 = L(i)2 mod pe.Therefore(5 z2 +(−1)i4) modpisaquadraticresidue.
+Since iisaLucasnon-zero,wehave5 z2 +(−1)i4/nequivalence0 mod p,so Zp containstwodistinct
+squarerootsof5 z2 +(−1)i4.Thetwosolutionsto y2 −
+√
+5zy−(−1)i = 0are y = ±w+
+√
+5z
+2 ,
+where w ∈ Zp isasquarerootof5 z2 +(−1)i4.Choose wsuchthat w+
+√
+5z
+2 ∈ ω(φ)i +peOK.
+Itremainstoshowthat w+
+√
+5z
+2 ∈ ω(φ)i expp(pe√
+5Zp).
+If p ≡ 1,4 mod 5, then
+√
+5 ∈ Zp and Proposition18 implies that expp is an isomor-
+phismfrom peZp to1 + peZp,so
+ω(φ)i expp(pe√
+5Zp) = ω(φ)i(1 + peZp) = ω(φ)i + peZp.
+Therefore w+
+√
+5z
+2 ∈ ω(φ)i expp(pe√
+5Zp).
+Let p ≡ 2,3 mod 5. We havey0y0 = ω(φ)iω(¯φ)i = (−1)i,s o w2 = 5z2 + 4y0y0.B y
+Lemma21, w+
+√
+5z
+2 ∈ ω(φ)i expp(pe√
+5Zp).
+The last major step in the proof of Theorem1 is to establish the measure ofFi(Zp) for
+Lucaszeros i.WedothisinProposition 27,usingthefollowingtwolemmas.
+Lemma 25 Let p be a prime such that p ̸= 2 and p ̸= 5. Let i be a Lucas zero, and deﬁne
+ζ = ω(φ)i.T h e nζ ∈
+√
+5Zp.
+Proof Since i is a Lucas zero andL(i) = φ2i+(−1)i
+φi ,w eh a v eζ2 = ω(φ2i) =− (−1)i.( I n
+particular, ζ4 = 1.)
+If p ≡ 1,4 mod 5, then
+√
+5 ∈ Zp, so it follows thatζ ∈
+√
+5Zp as desired. Ifp ≡ 2,3
+mod 5, writeζ = a + b
+√
+5 wherea, b ∈ Zp.S i n c ea2 + 2ab
+√
+5 + 5b2 = ζ2 ∈ Zp, this
+implies a = 0o rb = 0, soζ ∈ Zp or ζ ∈
+√
+5Zp.V i n s o n[13, Theorem 4] showed that
+π(p)
+α(p) = 2if p ≡ 3,7 mod 20and π(p)
+α(p) = 4if p ≡ 13,17 mod 20.Thesetwocasesinclude
+all primesp ≡ 2,3 mod 5 such thatp ̸= 2, so Theorem7 and Proposition9 imply that
+i is even. Thereforeζ2 =− (−1)i =− 1. Ifp ≡ 3 mod 4, then one of the supplements
+to quadratic reciprocity impliesζ/∈ Zp,s oζ ∈
+√
+5Zp.I fp ≡ 1 mod 4, thenp ≡ 13,17
+mod 20,so π(p)
+α(p) = 4andtherearenoLucaszeros,sothestatementisvacuouslytrue.
+Since ζ ∈
+√
+5Zp by Lemma25, for a givenj ∈ Zp the residueζ
+√
+5j mod p is either a
+quadraticresidueoraquadraticnon-residue.Thisallowsus,foragiven z,tocharacterize
+theLucaszeros i forwhich y2 −
+√
+5zy − (−1)i = 0hasasolution y ∈ Zp.
+Lemma 26 Let p be a prime such that p ̸= 2 and p ̸= 5. Let i be a Lucas zero, and deﬁne
+ζ = ω(φ)i.L e tz ∈ Zp. Deﬁne λ ∈ Z by
+⏐⏐z − ζ 2√
+5
+⏐⏐
+p = 1
+pλ , and deﬁne j ∈{ 1,2,... ,p − 1}
+by z ≡ ζ 2√
+5 + jpλ mod pλ+1.
+(1) The equation y 2 −
+√
+5zy− (−1)i = 0 has a solution y ∈ Zp if and only if λis even and
+ζ
+√
+5j mod p is a quadratic residue.
+(2) If y 2 −
+√
+5zy − (−1)i = 0 has a solution y ∈ Zp,t h e n|y − ζ|p = 1
+pλ/2 .
+
+88 Page 16 of 21 N. Bragman, E. Rowland Res. Number Theory (2025) 11:88
+ToproveLemma 26,weusethefollowingversionofHensel’slemmain OK.
+Hensel’s lemma Let f (x) ∈ OK[x]. If there exists y 0 ∈ OK such that |f(y0)|p < |f ′(y0)|2
+p,
+then there is a unique y ∈ OK satisfying |y − y0|p < |f ′(y0)|p such that f (y) = 0.
+Proof of Lemma 26 Let fz(y) := y2 −
+√
+5zy − (−1)i. As in the proof of Lemma25, ζ2 =
+ω(φ2i) =− (−1)i.Thereforewecanwrite fz(y) = y2 −
+√
+5zy + ζ2.
+To prove Assertion(1), ﬁrst assumeλis even andζ
+√
+5j mod p is a quadratic residue.
+Let a ∈{ 1,... ,p − 1}such thata2 ≡ ζ
+√
+5j mod p. We now check thaty0 := ζ+ pλ/2a
+satisﬁestheconditionofHensel’slemma.Using
+√
+5z ≡ 2ζ+
+√
+5jpλ mod pλ+1,wehave
+fz(y0) = y2
+0 −
+√
+5zy0 + ζ2
+≡
+(
+ζ+ pλ/2a
+)2
+−
+(
+2ζ+
+√
+5jpλ
+) (
+ζ+ pλ/2a
+)
++ ζ2 mod pλ+1
+≡
+(
+a2 − ζ
+√
+5j
+)
+pλ mod pλ+1
+≡ 0 mod pλ+1.
+Therefore |fz(y0)|p ≤ 1
+pλ+1 . It remains to bound|f ′
+z(y0)|2
+p.S i n c ez ≡ ζ 2√
+5 mod pλ/2,w e
+have f ′
+z(y0) ≡ 2y0 − 2ζ ≡ 0 mod pλ/2,b u tf ′
+z(y0)/nequivalence0 mod pλ/2+1 since a/nequivalence0 mod p.
+Therefore
+|fz(y0)|p ≤ p−λ−1 < p−λ =| f ′
+z(y0)|2
+p,
+soHensel’slemmaimpliesthat fz(y)hasauniqueroot y ∈ Zp satisfying |y−(ζ+pλ/2a)|p <
+1
+pλ/2 . It follows that|y − ζ|p = 1
+pλ/2 . This proves one direction of Assertion(1) and also
+Assertion(2).
+Conversely,assume y2 −
+√
+5zy + ζ2 = 0a ndy ∈ Zp.Since z ≡ ζ 2√
+5 mod pλ,wehave
+0 = y2 −
+√
+5zy + ζ2
+≡ y2 − 2ζy + ζ2 mod pλ
+= (y − ζ)2.
+Therearetwocases.
+If λis even, this impliesy ≡ ζ mod pλ/2.W r i t ey = ζ + pλ/2a for some a ∈ Zp.
+Expanding fz(y)a sa b o v es h o w st h a t0= fz(y) ≡
+(
+a2 − ζ
+√
+5j
+)
+pλ mod pλ+1. Therefore
+ζ
+√
+5j mod pisaquadraticresidue.
+If λis odd, then 0≡ (y − ζ)2 mod pλ implies y ≡ ζ mod p(λ+1)/2.W r i t ey = ζ +
+p(λ+1)/2aforsome a ∈ Zp.Then
+0 = y2 −
+√
+5zy + ζ2
+≡
+(
+ζ+ p(λ+1)/2a
+)2
+−
+(
+2ζ+
+√
+5jpλ
+)(
+ζ+ p(λ+1)/2a
+)
++ ζ2 mod pλ+1
+≡− ζ
+√
+5jpλ mod pλ+1,
+which contradictsj ∈{ 1,2,... ,p − 1}. Therefore there is no solutiony ∈ Zp when λis
+odd.
+
+N. Bragman, E. Rowland Res. Number Theory (2025) 11:88 Page 17 of 21 88
+Proposition 27 Let p be a prime such that p ̸= 2 and p ̸= 5, and deﬁne e ≥ 1 by⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p = 1
+pe . If i is a Lucas zero, then μ(Fi(Zp)) = 1
+2p2e−1(p+1) .
+Proof Let i beaLucaszero.Wewouldliketodeterminethemeasureoftheset
+Fi(Zp) ={ z ∈ Zp : gi(y) = z forsome y ∈ hi(Zp)}.
+Let z ∈ Zp.AsintheproofofProposition 24, gi(y) = zifandonlyif y2 −
+√
+5zy−(−1)i = 0.
+Let ζ = ω(φ)i. Deﬁne λ ∈ Z by
+⏐⏐z − ζ 2√
+5
+⏐⏐
+p = 1
+pλ, and deﬁnej ∈{ 1,2,... ,p − 1} by
+z ≡ ζ 2√
+5 + jpλ mod pλ+1.ByLemma 26,if λisoddthen gi(y) = zhasnosolution y ∈ Zp.
+Furthermore, ifλis even thengi(y) = z has a unique solutiony ∈ Zp if ζ
+√
+5j mod p is a
+quadratic residue and no solution otherwise. In the case that there is a unique solution,
+we will show thaty ∈ h
+i(Zp)i fa n do n l yi fλ ≥ 2e. Since there arep−1
+2 nonzero quadratic
+residues modulop and the setζ 2√
+5 + jpλ + pλ+1Zp has measure 1
+pλ+1 , it will then follow
+that
+μ(Fi(Zp)) =
+∑
+λ≥2e
+λeven
+p − 1
+2 · 1
+pλ+1 = 1
+2p2e−1(p +1) .
+To that end, assume thatλis even andζ
+√
+5j mod p is a quadratic residue. Lety ∈ Zp
+be the unique solution ofgi(y) = z, which is guaranteed by Lemma26. In particular,
+|y − ω(φ)i|p = 1
+pλ/2 .
+If λ< 2e,then |y − ω(φ)i|p = 1
+pλ/2 > p− e.ByLemma 22, y /∈ hi(Zp).
+Fortheotherdirection,assume λ≥ 2e.Then |y − ω(φ)i|p = 1
+pλ/2 ≤ p− e.Weshowthat
+y ∈ hi(Zp).Therearetwocases.
+If p ≡ 1,4 mod 5, thenhi(Zp) = ω(φ)i + peZp (again by Lemma20 and the proof of
+Proposition24),so y ∈ hi(Zp).
+Let p ≡ 2,3 mod 5. Let y0 = ω(φ)i.S i n c ei is a Lucas zero, we have ω(φ)i +
+(−1)iω(φ)− i ≡ 0 mod p. In fact, we can strengthen this congruence to ω(φ)i +
+(−1)iω(φ)− i ≡ 0 mod pe by Theorem14 (along with the fact thate = 1 for p = 3).
+Therefore y0−(−1)i y−1
+0√
+5 = ω(φ)i−(−1)iω(φ)− i
+√
+5 ≡ ζ 2√
+5 ≡ z mod pe,so y2
+0 −
+√
+5zy0 − (−1)i ≡ 0
+mod pe.Thediscriminantof y2 −
+√
+5zy − (−1)i is
+5z2 +(−1)i4 ≡ 5
+(
+ζ 2√
+5 + jpλ
+)2
++(−1)i4 mod pλ+1
+≡ 4ζ
+√
+5jpλ mod pλ+1,
+so 1
+pλ(5z2 + (−1)i4) ≡ 22 · ζ
+√
+5j mod p is a quadratic residue. Letw ∈ pλ/2Zp be the
+square root of 5z2 + (−1)i4 satisfying w+
+√
+5z
+2 ∈ ω(φ)i + peOK. The two solutions to
+y2 −
+√
+5zy − (−1)i = 0a r ey = ±w+
+√
+5z
+2 . By Lemma21, w+
+√
+5z
+2 ∈ ω(φ)i expp(pe√
+5Zp).
+Therefore w+
+√
+5z
+2 ∈ hi(Zp).
+Putting together the previous results now allows us to prove the main result of the
+article.
+Proof of Theorem 1 As mentioned in Section1, forp = 5 it follows from Burr’s charac-
+terization [3]t h a td e n s ( 5 )= 1. We computeN(5) = 5a n dZ(5) = 0, so dens(5)= 1 =
+N(5)
+5 + Z(5)
+10·(5+1) asdesired.
+
+88 Page 18 of 21 N. Bragman, E. Rowland Res. Number Theory (2025) 11:88
+Let p be a prime such thatp ̸= 2a n dp ̸= 5. Let e = νp(F(p − ϵ)). By Theorem10,⏐⏐ φ
+ω(φ) − 1
+⏐⏐
+p = 1
+pe .
+ByTheorem 15andthediscussionfollowingit,
+dens(p) = μ
+⎛
+⎝
+pf −2⋃
+i=0
+Fi(Zp)
+⎞
+⎠ = μ
+⎛
+⎝
+π(p)−1⋃
+i=0
+Fi(Zp)
+⎞
+⎠ .
+By Proposition24,i f i is a Lucas non-zero, thenFi(Zp) = F(i) + peZp. The number of
+distinctimagesis N(p),sotogethertheLucasnon-zeroscontributemeasure N(p)
+pe .
+Let i be a Lucas zero. By Proposition23, Fi(Zp) ⊆ F(i) + peZp.I fF(i) ≡ F(j) mod pe
+for some Lucas non-zeroj, thenFi(Zp) ⊆ F(j) + peZp = Fj(Zp), soμ(Fi(Zp) ∪ Fj(Zp)) =
+μ(Fj(Zp)) and Fi(Zp) makes no additional contribution to dens(p). Otherwise, Fi(Zp)i s
+disjointfrom Fj(Zp)forallLucasnon-zeros j,so μ(Fi(Zp)∪Fj(Zp)) = μ(Fi(Zp))+μ(Fj(Zp)).
+There areZ(p) Lucas zerosi such thatF(i)/nequivalenceF(j) mod pe for all Lucas non-zerosj.I f
+Z(p) ≥ 2 then Proposition9 implies that Z(p) = 2 and that the two imagesFi(Zp)a r e
+disjoint.ThereforetheLucaszeroscontributemeasure Z(p)
+2p2e−1(p+1) byProposition 27.
+6T h e p r i m ep = 2
+In this section we prove Theorem6, which states that dens(2)= 21
+32. For the prime
+p = 2, the period length isπ(2) = 3 = α(2). There is one Lucas zero, namelyi = 0.
+It is convenient to write elements ofQ2(
+√
+5) as elements of Q2(φ) instead since the
+denominator of1+
+√
+5
+2 obscures the fact thatφis a 2-adic algebraic integer. Recall that if
+|x|2 = 1 thenω(x) is the 3rd root of unity satisfyingω(x) ≡ x mod 2. The roots of unity
+congruentmodulo2to φand ¯φare
+ω(φ) =
+(
+0 + 1
+2−1 + 0
+2−2 + 0
+2−3 +···
+)
++
+(
+1 + 1
+2−1 + 0
+2−2 + 1
+2−3 +···
+)
+φ
+ω(¯φ) =
+(
+1 + 0
+2−1 + 1
+2−2 + 1
+2−3 +···
+)
++
+(
+1 + 0
+2−1 + 1
+2−2 + 0
+2−3 +···
+)
+φ.
+Their product isω(φ)ω(¯φ) = 1( s i n c eρ = ω(φ)ω(¯φ) is a root of unity satisfyingρ3 = 1
+and ρ ≡ φ¯φ =− 1 mod 2).
+TheoutlineoftheproofofTheorem 6isthesameasforotherprimes,butseveraldetails
+are diﬀerent. First we need a version of Theorem15. We compute| φ
+ω(φ) − 1|2 = 1
+2 and
+|log2
+φ
+ω(φ)|2 = 1
+2 = p−1/(p−1).Thepowerseriesforexp 2 doesnotconvergewhenevaluated
+at log2
+φ
+ω(φ); in particular, we cannot replaceφ
+ω(φ) with exp2 log2
+φ
+ω(φ). Consequently the
+interpolationiscomprisedof6functionsratherthan3.
+Theorem 28 For each i ∈{0,1,2} and each r ∈{0,1}, deﬁne the function Fi,r : r +2Z2 →
+Q2(
+√
+5) by
+Fi,r(r +2x) =
+ω(φ)i− rφr exp2
+(
+xlog2(( φ
+ω(φ))2)
+)
+− ω(¯φ)i− r ¯φr exp2
+(
+− xlog2(( φ
+ω(φ))2)
+)
+√
+5
+.
+Then Fi,r(r +2Z2) ⊆ Z2,a n dF(n) = F(n mod 3),(n mod 2)(n) for all n ≥ 0.
+
+N. Bragman, E. Rowland Res. Number Theory (2025) 11:88 Page 19 of 21 88
+Proof Let p = 2.Werewrite φn and ¯φn inBinet’sformula( 2)asfunctionsthataredeﬁned
+on Z2.Wehave |( φ
+ω(φ))2−1|2 = 1
+4 < p−1/(p−1) bydirectcomputation(orby[ 9,Lemma6]).
+Therefore( φ
+ω(φ))2 = exp2 log2(( φ
+ω(φ))2).For m ≥ 0and r ∈{0,1},write
+φr+2m = ω(φ)2mφr( φ
+ω(φ))2m
+= ω(φ)2mφr exp2 log2(( φ
+ω(φ))2m)
+= ω(φ)2mφr exp2
+(
+mlog2(( φ
+ω(φ))2)
+)
+,
+andsimilarlyfor ¯φ.Forall x ∈ Z2,deﬁne
+Fi,r(r +2x) :=
+ω(φ)i− rφr exp2
+(
+xlog2(( φ
+ω(φ))2)
+)
+− ω(¯φ)i− r ¯φr exp2
+(
+xlog2((
+¯φ
+ω(¯φ))2)
+)
+√
+5
+.
+Then Fi,r is an analytic function onr + 2Z2 that agrees with F on Ai,r :={ n ≥ 0:
+n ≡ i mod 3and n ≡ r mod 2}.Finally,since φ¯φ =− 1,
+log2(( φ
+ω(φ))2) +log2((
+¯φ
+ω(¯φ))2) = log2(( φ
+ω(φ))2 ·(
+¯φ
+ω(¯φ))2)
+= log2 1
+= 0,
+so log2((
+¯φ
+ω(¯φ))2) =− log2(( φ
+ω(φ))2). This gives the expression forFi,r(r +2x) stated in the
+theorem.Byconstruction, F(n) = F(n mod 3),(n mod 2)(n)forall n ≥ 0.
+Toseethat Fi,r(r+2x) ∈ Z2 if x ∈ Z2,takeasequenceofintegers( xm)m≥0 thatconverges
+to xsuchthat r +2xm ≡ i mod 3foreach m ≥ 0;since Fi,r(r +2xm) = F(r +2xm) ∈ Z,
+itfollowsbycontinuitythat Fi,r(r +2x) ∈ Zp.
+AsintheproofofTheorem 28,let
+Ai,r ={ n ≥ 0: n ≡ i mod 3and n ≡ r mod 2}.
+BytheChineseremaindertheorem, Ai,r isdensein r +2Z2.Theorem 28implies
+dens(2) = μ
+( 2⋃
+i=0
+(
+Fi,0(2Z2) ∪ Fi,1(1 +2Z2)
+)
+)
+.
+Anupperboundondens(2)canbeobtainedeasily.Namely,thesetofresiduesmodulo32
+attainedbytheFibonaccisequenceis
+{0,1,2,3,5,7,8,9,11,13,15,16,17,19,21,23,24,25,27,29,31}.
+This set has size 21, so dens(2)≤ 21
+32.P r o p o s i t i o n30below implies that21
+32 is also a lower
+boundondens(2).
+Write Fi,r(r +2x) = gr(hi,r(x))where gr(y) = y−(−1)r y−1
+√
+5 and
+hi,r(x) = ω(φ)i− rφr exp2
+(
+xlog2(( φ
+ω(φ))2)
+)
+.
+Wenextdetermine hi,r(Z2);thisisanalogoustoLemma 20.
+
+88 Page 20 of 21 N. Bragman, E. Rowland Res. Number Theory (2025) 11:88
+Lemma 29 For all i ∈{0,1,2} and r ∈{0,1},w eh a v ehi,r(Z2) = ω(φ)i− rφr exp2(4
+√
+5Z2).
+Proof. It follows from|log2(( φ
+ω(φ))2)|2 = 1
+4 that xlog2(( φ
+ω(φ))2) is in the domain of exp2
+for allx ∈ Z2.S i n c e(φ
+ω(φ))2 ·(
+¯φ
+ω(¯φ))2 = (−1)2 = 1, Lemma19implies that log2(( φ
+ω(φ))2) ∈
+4
+√
+5Z2.Therefore
+hi,r(Z2) = ω(φ)i− rφr exp2
+(
+Z2 log2(( φ
+ω(φ))2)
+)
+= ω(φ)i− rφr exp2(4
+√
+5Z2).
+The following proposition is analogous to Propositions24 and 27. For the Lucas zero
+i = 0 thereisnopartialbranching,buttheimageshavesmallermeasure thantheimages
+fortheLucasnon-zeros.
+Proposition 30 Let i ∈{0,1,2} and r ∈{0,1}.T h ei m a g eo fr+2Z2 under Fi,r satisﬁes
+F1,0(0 +2Z2) ⊇ 3 +4Z2
+Fi,r(r +2Z2) ⊇ 1 +4Z2 for all (i, r) ∈{(1,1),(2,0),(2,1)}
+F0,0(0 +2Z2) ⊇ 8Z2
+F0,1(1 +2Z2) ⊇ 2 +32Z2.
+Proof There are six cases. Letz ∈ 3 + 4Z2 if (i, r) = (1,0) and z ∈ 1 + 4Z2 if (i, r) ∈
+{(1,1),(2,0),(2,1)}. In these four cases,z2 ≡ 1 mod 8, so 5z2 + (−1)r4 ≡ 1 mod 8;
+therefore Z2 containssquarerootsof5 z2 +(−1)r4.Similarly,if( i, r) = (0,0)and z ∈8Z2,
+then 2Z2 contains square roots of 5z2 +(−1)r4 = 5z2 +4 ≡ 4 mod 64. If (i, r) = (0,1)
+and z ∈ 2 + 32Z2,t h e n4Z2 contains square roots of 5z2 + (−1)r4 = 5z2 − 4 ≡ 16
+mod 128.
+As in the proof of Proposition24, gr(y) = z is equivalent toy2 −
+√
+5zy − (−1)r = 0,
+the solutions of which arey = ±w+
+√
+5z
+2 , wherew ∈ Z2 is a square root of 5z2 +(−1)r4.
+Let y0 = ω(φ)i− rφr; then y0 = ω(¯φ)i− r ¯φr and y0y0 = (−1)r. One checks that in all six
+cases gr(y0) ≡ z mod 4.Choose wsuchthat w+
+√
+5z
+2 ≡ y0 mod 4.Thentheconditionsof
+Lemma 21 are satisﬁed, sow+
+√
+5z
+2 ∈ ω(φ)i− rφr exp2(4
+√
+5Z2). By Lemma29,t h e r ee x i s t s
+x ∈ Z2 suchthat Fi,r(r +2x) = z.
+Proposition 30 implies that dens(2)≥ 1
+4 + 1
+4 + 1
+8 + 1
+32 = 21
+32.T h e o r e m6 now follows.
+In particular, the superset relations forF1,0(0 +2Z2), F0,0(0 +2Z2), andF0,1(1 +2Z2)i n
+Proposition30areequalities.
+Acknowledgements
+WethankGenevieveMaaloufforproductivediscussions.
+Data Availibility Statement DatageneratedduringthisstudycanbefoundintheOEIS[ 12,
+A350999andA351000].
+Received: 9 June 2025 Accepted: 17 August 2025 Published online: 10 September 2025
+References
+1. Ballot, C., Elia, M.: Rank and period of primes in the Fibonacci sequence: a trichotomy. Fibonacci Quart.45, 56–63
+(2007)
+
+N. Bragman, E. Rowland Res. Number Theory (2025) 11:88 Page 21 of 21 88
+2. Bumby, R.T.: A distribution property for linear recurrence of the second order. Proceedings of the American Mathe-
+maticalSociety 50,101–106(1975)
+3. Burr, S.A.: On moduli for which the Fibonacci sequence contains a complete system of residues. Fibonacci Quart.9,
+497–504(1971)
+4. Dubickas, A., Novikas, A.: Recurrence with prescribed number of residues. Journal of Number Theory215, 120–137
+(2020)
+5. Gouvêa,F.Q.: p-adicNumbers:AnIntroduction,2ndedn.Universitext,Springer-Verlag,Berlin(1997)
+6. Lech,C.:Anoteonrecurringseries.Ark.Mat. 2,417–421(1953)
+7. Mahler, K.: Eine arithmetische Eigenschaft der Taylor-koeﬃzienten rationaler Funktionen. Koninklijke Nederlandse
+AkademievanWetenschappenProceedings 38,50–60(1935)
+8. McIntosh, R.J., Roettger, E.L.: A search for Fibonacci-Wieferich and Wolstenholme primes. Math. Comput.76, 2087–
+2094(2007)
+9. Rowland, E., Yassawi, R.: p-adic asymptotic properties of constant-recursive sequences. Indag. Math.28, 205–220
+(2017)
+10. Sanna,C.:Onthenumberofresiduesoflinearrecurrences.ResearchinNumberTheory 8,7(2022)
+11. Skolem, T.: Ein Verfahren zur Behandlung gewisser exponentialer Gleichungen und diophantischer Gleichungen,
+ComptesrendusduhuitièmeCongrèsdesMathématiciensScandinaves163–188,(1934)
+12. Sloane,N.,etal.:TheOn-LineEncyclopediaofIntegerSequences, http://oeis.org
+13. Vinson, J.: The relation of the period modulo to the rank of apparition ofm in the Fibonacci sequence. Fibonacci
+Quart. 1(2),37–45(1963)
+14. Wall,D.D.:Fibonacciseriesmodulo m.Am.Math.Mon. 67,525–532(1960)
+Publisher’s Note
+SpringerNatureremainsneutralwithregardtojurisdictionalclaimsinpublishedmapsandinstitutionalaﬃliations.

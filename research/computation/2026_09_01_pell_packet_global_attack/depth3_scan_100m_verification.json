@@ -1,0 +1,44 @@
+{
+  "algorithm": "independent Python big-integer fast doubling and regenerated Eratosthenes sieve",
+  "csv_sha256": "f9845505638883ee92027b778f7de4b39582736a3f9ba931756eb3e55b765c95",
+  "depth3_hits": 0,
+  "limit": 100000000,
+  "odd_primes_tested": 5761454,
+  "rows": [
+    {
+      "canonical_index": "14",
+      "channel": "B",
+      "legendre_2": "-1",
+      "q": "13",
+      "rank": "7",
+      "rank_is_prime": "true",
+      "status": "valuation_exactly_2",
+      "u_mod_q3": "507",
+      "u_over_q2_mod_q": "3"
+    },
+    {
+      "canonical_index": "30",
+      "channel": "A",
+      "legendre_2": "1",
+      "q": "31",
+      "rank": "15",
+      "rank_is_prime": "false",
+      "status": "valuation_exactly_2",
+      "u_mod_q3": "1922",
+      "u_over_q2_mod_q": "2"
+    },
+    {
+      "canonical_index": "1546462",
+      "channel": "A",
+      "legendre_2": "1",
+      "q": "1546463",
+      "rank": "773231",
+      "rank_is_prime": "true",
+      "status": "valuation_exactly_2",
+      "u_mod_q3": "1164272437426319532",
+      "u_over_q2_mod_q": "486828"
+    }
+  ],
+  "verification": "PASS",
+  "wieferich_hits": 3
+}

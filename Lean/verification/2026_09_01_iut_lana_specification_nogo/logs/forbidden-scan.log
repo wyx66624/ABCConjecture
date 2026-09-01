@@ -1,0 +1,4 @@
+COMMAND: rg -n --pcre2 '(?<![A-Za-z0-9_])(sorry|admit|native_decide|axiom|opaque|unsafe)(?![A-Za-z0-9_])' <pinned upstream audit and live main module>
+RESULT: no forbidden declarations or proof placeholders found
+COMMAND: rg -n -S sorryAx <audit build/direct-Lean logs>
+RESULT: no sorryAx appears in audit build/direct-Lean logs

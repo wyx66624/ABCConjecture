@@ -1,0 +1,1468 @@
+arXiv:1006.0824v1  [math.NT]  4 Jun 2010
+THE FIBONACCI SEQUENCE MODULO p2 –
+AN INVESTIGATION BY COMPUTER FOR p < 1014
+ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+Abstract. We show that for primes p < 1014 the period length κ(p2) of the
+Fibonacci sequence modulo p2 is never equal to its period length modulo p.
+The investigation involves an extensive search by computer. As an a pplication,
+we establish the general formula κ(pn) = κ(p) ·pn−1 for all primes less than 10 14.
+1. Introduction
+1.1. The Fibonacci sequence {Fk}k≥ 0 is deﬁned recursively by F0 = 0, F1 = 1,
+and Fk = Fk− 1 + Fk− 2 for k ≥ 2. Modulo some integer l ≥ 2, it must ultimately
+become periodic as there are only l2 diﬀerent pairs of residues modulo l. There is no
+pre-period since the recursion may be reversed to Fk− 2 = Fk − Fk− 1. The minimal
+period κ(l) of the Fibonacci sequence modulo l is often called the Wall number as
+its main properties were discovered by D. D. Wall [Wa].
+Wall’s results may be summarized by the theorem below. It shows, in pa rticular,
+that κ(l) is in general a lot smaller than l2. In fact, one always has κ(l) ≤ 6l
+whereas equality holds if and only if l = 2 ·5n for some n ≥ 1.
+Theorem 1.2 (Wall). a) If gcd(l1, l2) = 1 then κ(l1l2) = lcm( κ(l1), κ(l2)).
+In particular, if l = ∏N
+i=1 pni
+i where the pi are pairwise diﬀerent prime numbers
+then κ(l) = lcm( κ(pn1
+1 ), . . . , κ(pnN
+N )).
+It is therefore suﬃcient to understand κ on prime powers.
+b) κ(2) = 3 and κ(5) = 20 . Otherwise,
+• if p is a prime such that p ≡ ± 1 (mod 5) then κ(p)|(p − 1).
+• If p is a prime such that p ≡ ± 2 (mod 5) then κ(p)|(2p + 2) but κ(p)∤(p + 1).
+2000 Mathematics Subject Classiﬁcation. Primary 11-04, 11B39. Secondary 11Y55, 11A41.
+Key words and phrases. Fibonacci sequence. Wall number. Period length. Prime power. Mon t-
+gomery representation. Wieferich problem.
+While this work was done the ﬁrst author was supported in part by a D octoral Fellowship of
+the Deutsche Forschungsgemeinschaft (DFG).
+The computer part of this work was executed on the Linux PCs of th e Gauß Laboratory for
+Scientiﬁc Computing at the G¨ ottingen Mathematical Institute. Bo th authors are grateful to
+Prof. Y. Tschinkel for the permission to use these machines as well as to the system adminis-
+trators for their support.
+
+2 ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+c) If l ≥ 3 then κ(l) is even.
+d) If p is prime, e ≥ 1, and pe|Fκ(p) but pe+1∤Fκ(p) then
+(1) κ(pn) =
+{ κ(p) for n ≤ e,
+κ(p)·pn− e for n > e.
+2. The Open Problems
+2.1. The Period Length Modulo a Prime.
+2.1.1. It is quite surprising that the Fibonacci sequence still keeps secre ts. But there
+are at least two of them.
+Problem 2.1.2. The ﬁrst open problem is “What is the exact value of κ(p)?”.
+Equivalently, one should understand precisely the behaviour of the quotient Q
+given by Q(p) := p− 1
+κ(p) for p ≡ ± 1 (mod 5) and Q(p) := 2(p+1)
+κ(p) for p ≡ ± 2 (mod 5).
+One might hope for a formula expressing Q(p) in terms of p but, may be, that is
+too optimistic.
+2.1.3. It is known that Q is unbounded. This is an elementary result due to D. Jar-
+den [Ja, Theorem 3].
+On the other hand, Q does not at all tend to inﬁnity. If fact, in his unpublished
+Ph.D. thesis [G¨ o], G. G¨ ottsch computes a certain average value of 1
+Q . To be more
+precise, under the assumption of the Generalized Riemann Hypothe sis, he proves
+∑
+p≡± 1 (mod 5)
+p≤ x, p prime
+1
+Q(p) = C1
+x
+log x + O
+( x log log x
+log2 x
+)
+where C1 = 342
+595
+∏
+p prime(1 − p
+p3− 1) ≈ 0.331 055 98. The proof shows as well that the
+density of {p prime | Q(p) = 1 , p ≡ ± 1 (mod 5) } within the set of all primes is
+equal to C2 = 27
+38
+∏
+p prime(1 − 1
+p(p− 1)) ≈ 0.265 705 45.
+Not assuming any hypothesis, it is still possible to verify that the righ t hand
+side constitutes an upper bound. For that, the error term needs to be weakened
+to O( x log log log x
+log x log log x ).
+For the case p ≡ ± 2 (mod 5), G. G¨ ottsch’s results are less strong. Under the
+assumption of the Generalized Riemann Hypothesis, he establishes t he estimate
+∑
+p≡± 2 (mod 5)
+p≡ 3 (mod 4)
+p≤ x, p prime
+1
+Q(p) ≤ C2
+x
+log x + O
+( x log log log x
+log x ·log log x
+)
+where C3 = 1
+4
+∏
+p prime,p̸=2,5(1 − p
+p3− 1) ≈ 0.210 055 99. The density of the set
+{p prime | Q(p) = 1 , p ≡ ± 2 (mod 5) , p ≡ 3 (mod 4) } within the set of all primes
+is at most C4 = 1
+4
+∏
+p prime,p̸=2,5(1 − 1
+p(p− 1)) ≈ 0.196 818 85.
+
+THE FIBONACCI SEQUENCE MODULO p2 3
+2.1.4. It seems, however, that the inequalities could well be equalities. In a ddition,
+the restriction to primes satisfying p ≡ 3 (mod 4) might be irrelevant.
+In fact, we performed a count for small primes p < 2 ·107 by computer. Up to
+that bound, there are 317 687 prime numbers such that p ≡ ± 2 (mod 5) and
+p ≡ 3 (mod 4). At them, we ﬁnd Q(p) = 1 exactly 250 246 times which is a relative
+frequency of 0 .787 712 434 . . . = 4 ·0.196 928 108 . . . .
+On the other hand, there are 317 747 primes p satisfying p ≡ ± 2 (mod 5) and
+p ≡ 1 (mod 4). Among them, Q(p) = 1 occurs 250 353 times which is basically the
+same frequency as in the case p ≡ 3 (mod 4).
+2.2. The Period Length Modulo a Prime Power.
+Problem 2.2.1. There is another open problem. In fact, there is one question
+which was left open in the formulation of Theorem 1.2: What is the exac t value
+of e in dependence of p? Experiments for small p show that e = 1. Is this always
+the case? In other words, does one always have
+(2) κ(pn) = κ(p) ·pn− 1
+similarly to the famous formula for Euler’s ϕ function?
+This is the most perplexing point in D. D. Wall’s whole study of the Fibonac ci
+sequence modulo m. For p < 104, it was investigated by help of an electronic
+computer by Wall in 1960, already.
+2.2.2. We continued Wall’s investigation concerning Problem 2.2.1 on today’s ma -
+chines. Our main result is Theorem 4.4 below. The purpose of the pres ent article is
+to give a description of our approach, particularly of the various alg orithms devel-
+oped and optimizations used.
+Deﬁnition 2.2.3. We call a prime number p exceptional if equation (2) is wrong
+for some n ≥ 2.
+Fundamental Lemma 2.2.4. Assume p ̸= 2 and l to be a multiple of κ(p).
+Then, pe|Fl is suﬃcient for l being a period of {Fk mod pe}k≥ 0, i.e. for κ(pe)|l.
+Proof. The claim is that, in our situation, Fl+1 ≡ 1 (mod pe) is automatic.
+For that, we note that there is the standard formula Fl+1Fl− 1 − F 2
+l = ( − 1)l = 1
+which we explain in (5) below. Here, by assumption, Fl ≡ 0 (mod pe) and, by virtue
+of the recursion, Fl− 1 ≡ Fl+1 (mod pe). Therefore, F 2
+l+1 ≡ 1 (mod pe).
+On the other hand, the condition κ(p)|l implies that Fl+1 ≡ 1 (mod p).
+As p ̸= 2, Hensel’s lemma says that the lift is unique. This shows Fl+1 ≡ 1 (mod pe)
+which is our claim. □
+Proposition 2.2.5. Let p be a prime number. Then, the following assertions
+are equivalent.
+
+4 ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+i) p is exceptional,
+ii) Fκ(p) is divisible by p2.
+Proof. “ i) =⇒ ii)” Assume, to the contrary, that p2∤Fκ(p). By deﬁnition of κ(p),
+we know for sure that nevertheless p|Fκ(p). Together, these statements mean, The-
+orem 1.2.d) may be applied for e = 1 showing κ(pn) = κ(p) ·pn− 1 for every n ∈ /C6 .
+This contradicts i).
+“ ii) =⇒ i)” We choose the maximal e ∈
+/C6 such that pe|Fκ(p). By assumption, e ≥ 2.
+Then, Theorem 1.2.d) implies κ(p2) = κ(p) which shows equation (2) to be wrong
+for n = 2. p is exceptional. □
+Proposition 2.2.6. Let p ̸= 2, 5 be a prime number.
+I. If p ≡ ± 1 (mod 5) then the following assertions are equivalent.
+i) p is exceptional,
+ii) Fp− 1 is divisible by p2,
+iii) For r = 1+
+√
+5
+2 ∈ /CI /p2
+/CI one has rp− 1 = 1.
+II. If p ≡ ± 2 (mod 5) then the following assertions are equivalent.
+i) p is exceptional,
+ii) F2p+2 is divisible by p2,
+iii) Fp+1 is divisible by p2.
+iv) In Rp := /CI /p2
+/CI [r]/(r2 − r − 1) one has rp+1 = − 1.
+Proof. I. “ i) = ⇒ iii)” We put s = 1−
+√
+5
+2 and use formula (3) below. By Proposi-
+tion 2.2.5, Fκ(p) is divisible by p2. Therefore, rκ(p) = sκ(p) = ( rκ(p))− 1 ∈ ( /CI /p2
+/CI )∗,
+i.e. ( rκ(p))2 = 1. Since κ(p)|(p − 1), we may conclude ( rp− 1)2 = 1 from this.
+On the other hand, we know rp− 1 ≡ 1 (mod p) by Fermat’s Theorem. Unique-
+ness of Hensel’s lift implies rp− 1 = 1.
+“ iii) =⇒ ii)” We have rp− 1sp− 1 = ( − 1)p− 1 = 1. Thus, rp− 1 = 1 implies sp− 1 = 1.
+Consequently, (Fp− 1 mod p2) = rp−1− sp−1
+√
+5 = 0 and Fp− 1 is divisible by p2.
+“ ii) =⇒ i)” As ( p − 1) is a multiple of κ(p), Lemma 2.2.4 may be applied. It shows
+κ(p2)|(p − 1). This contradicts equation (2) for n = 2. p is exceptional.
+II. “ i) = ⇒ ii)” By Proposition 2.2.5, Fκ(p) is divisible by p2. In that situation,
+Lemma 2.2.4 implies that κ(p) is actually a period of {Fk mod p2}k≥ 0. By conse-
+quence, (2 p + 2) is a period of {Fk mod p2}k≥ 0, too. This shows p2|F2p+2.
+“ ii) =⇒ iii)” Since F2p+2 = Fp+1Vp+1, all we need is p ∤Vp+1. This, however, is clear
+as Vp+1 = rp+1 + rp+1 ≡ − 2 (mod p).
+“ iii) =⇒ iv)” The assumption implies rp+1 = rp+1, i.e. rp+1 ∈ /CI /p2
+/CI . As rr = − 1,
+we may conclude ( rp+1)2 = rp+1rp+1 = ( − 1)p+1 = 1 from this. Hensel’s lemma
+implies rp+1 = − 1 since rp+1 ≡ − 1 (mod p) is known.
+
+THE FIBONACCI SEQUENCE MODULO p2 5
+“ iv) = ⇒ i)” rp+1 = − 1 makes sure that ( F2p+2 mod p2) = (rp+1)2− (rp+1)2
+√
+5 = 0.
+As (2p+2) is a multiple of κ(p), Lemma 2.2.4 may be applied. It shows κ(p2)|(2p+2).
+This contradicts equation (2) for n = 2. p is exceptional. □
+Remark 2.2.7. By Proposition 2.2.6, the problem of ﬁnding exceptional primes is
+in perfect analogy to the problem of ﬁnding Wieferich primes .
+In the Wieferich case, one knows 2 p− 1 ≡ 1 (mod p) and would like to understand
+the set of all primes for which even 2 p− 1 ≡ 1 (mod p2) is valid. Here, we know
+Fκ(p) ≡ 0 (mod p) and look for the primes which fulﬁll Fκ(p) ≡ 0 (mod p2).
+At least in the case p ≡ ± 1 (mod 5), there is, in fact, more than just an anal-
+ogy. We consider a particular case of the generalized Wieferich prob lem where 2 is
+replaced by r.
+Remark 2.2.8. One might want to put the concept of an exceptional prime into
+the wider context of algebraic number theory. We work in the numbe r ﬁeld /C9
+( √
+5
+)
+in which r = 1+
+√
+5
+2 is a fundamental unit.
+By analogy, we could say that an odd prime number p is exceptional for the real qua-
+dratic number ﬁeld K = /C9
+( √
+d
+)
+if, for ε a fundamental unit in K, εp− 1 ≡ 1 (mod p2)
+when
+( d
+p
+)
+= 1, ε2p+2 ≡ 1 (mod p2) when
+( d
+p
+)
+= − 1, or εp(p− 1) ≡ 1 (mod p2) in the
+ramiﬁed case d|p. A congruence modulo p2 is, of course, supposed to mean equality
+in OK/(p2) which, as p ̸= 2, is isomorphic to /CI [
+√
+d]/(p2) = /CI /p2
+/CI [X]/(X 2 − d).
+Note that there is no ambiguity coming from the choice of ε since all exponents
+are even.
+For many real quadratic number ﬁelds it does not require sophistica ted program-
+ming to ﬁnd a few exceptional primes. Below, we give the complete list o f all ex-
+ceptional primes p < 109 for the ﬁelds
+/C9
+( √
+d
+)
+where d is square-free and up to 101.
+Thereby, primes put in parentheses are those such that /C9
+( √
+d
+)
+is ramiﬁed at p.
+d exceptional primes p d exceptional primes p d exceptional primes p
+2 13, 31, 1 546 463 17 34 37, 547, 4 733
+3 103 19 79, 1 271 731, 13 599 893, 31 352 389 35 23, 577, 1 325 663
+5 21 46 179 311 37 7, 89, 257, 631
+6 (3), 7, 523 22 43, 73, 409, 28 477 38 5
+7 23 7, 733 39 5, 7, 37, 163 409, 795 490 667
+10 191, 643, 134 339, 25 233 137 26 2 683, 3 967, 18 587 41 29, 53, 7 211
+11 29 3, 11 42 (3), 5, 43, 71
+13 241 30 43 3, 479
+14 6 707 879, 93 140 353 31 157, 261 687 119 46 (23)
+15 (3), 181, 1 039, 2 917, 2 401 457 33 (3), 29, 37, 6 713 797 47 5 762 437
+d exceptional primes p d exceptional primes p d exceptional primes p
+51 (3), 5, 37, 4 831 67 3, 11, 953, 57 301 83 3, 19 699, 2 417 377
+53 5 69 (3), 5, 17, 52 469 057 85 3, 204 520 559
+55 571 70 (5), 59, 20 411 86 1 231, 5 779
+57 59, 28 927, 1 726 079, 7 480 159 71 67, 2 953, 8 863, 522 647 821 87 (3), 17, 757, 1 123
+58 3, 23, 4 639, 172 721, 16 557 419 73 5, 7, 41, 3 947, 6 079 89 5, 7, 13, 59
+59 1 559, 17 385 737 74 3, 7, 1 171 91 (13), 1 218 691
+61 77 3, 418 270 987 93 (3), 13
+62 3, 5, 263, 388 897 78 (3), 19, 62 591 94 73
+65 1 327, 8 831, 569 831 79 3, 113, 4 049, 6 199 95 6 257, 10 937
+66 21 023, 106 107 779 82 3, 5, 11, 769, 3 256 531, 624 451 181 97 17, 3 331
+101 7, 19 301
+
+6 ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+Among these 158 exceptional primes, there are exactly nine for wh ich even the
+stronger congruence modulo p3 is true. These are p = 3 for d = 29, 42, 67, and 74,
+p = 5 for d = 62, 73, and 89, p = 17 for d = 69, and p = 29 for d = 41. We do not
+observe a congruence of the type above modulo p4.
+3. Background
+3.1. Part a) of Wall’s theorem is trivial.
+For the proof of b), Binet’s formula
+(3) Fk = rk − sk
+√
+5
+,
+where r = 1+
+√
+5
+2 and s = 1−
+√
+5
+2 , is of fundamental importance. It is easily established
+by induction. If p ≡ ± 1 (mod 5) then 5 is a quadratic residue modulo p and,
+therefore, 1±
+√
+5
+2 ∈ /BY
+p. Fermat states their order is a divisor of p − 1.
+Otherwise, 1±
+√
+5
+2 ∈ /BY
+p2 are elements of norm ( − 1). As the norm map N : /BY
+∗
+p2 →
+/BY
+∗
+p
+is surjective, its kernel is a group of order p2− 1
+p− 1 = p+1 and # N − 1({ 1, − 1 }) = 2 p+2.
+As /BY
+∗
+p2 is cyclic, we see that N − 1({ 1, − 1 }) is even a cyclic group of order 2 p + 2.
+N(r) = N(s) = − 1 implies that both r and s are not contained in its subgroup of
+index two. Therefore,
+(4) rp+1 ≡ sp+1 ≡ − 1 (mod p).
+From this, we ﬁnd Fp+2 ≡ rp+2− sp+2
+√
+5 ≡ − r+s√
+5 ≡ − F1 ≡ − 1 (mod p) which shows p + 1
+is not a period of {Fk}k≥ 0 modulo p.
+c) In the case p ≡ ± 2 (mod 5) this follows from b). It is, however, true in general.
+Indeed, for every k ∈ /C6 , one has
+Fk+1Fk− 1 − F 2
+k = r2k + s2k − rk+1sk− 1 − rk− 1sk+1
+5 − r2k + s2k − 2rksk
+5
+= − (− 1)k− 1(r2 + s2) + 2(− 1)k
+5(5)
+= ( − 1)k
+as rs = − 1 and r2 + s2 = 3. On the other hand,
+Fκ(l)+1Fκ(l)− 1 − F 2
+κ(l) ≡ 1 ·1 − 02 ≡ 1 (mod l).
+As l ≥ 3 this implies κ(l) is even.
+For d), it is best to establish the following p-uplication formula ﬁrst.
+
+THE FIBONACCI SEQUENCE MODULO p2 7
+Lemma 3.2 (Wall). One has
+(6) Fpk = 1
+2p− 1
+p∑
+j=1
+j odd
+( p
+j
+)
+5
+j−1
+2 F j
+k V p− j
+k .
+Here, {Vk}k≥ 0 is the Lucas sequence given by V0 = 2, V1 = 1, and Vk = Vk− 1 + Vk− 2
+for k ≥ 2.
+Proof. Induction shows Vk = rk + sk. Having that in mind, it is easy to calculate
+as follows.
+Fpk = (rk)p − (sk)p
+√
+5 = ( Vk+
+√
+5Fk
+2 )p − ( Vk−
+√
+5Fk
+2 )p
+√
+5 .
+The assertion follows from the Binomial Theorem. □
+3.3. The fundamental Lemma 2.2.4 allows us to prove d) for p ̸= 2 in a somewhat
+simpler manner than D. D. Wall did it in [Wa].
+First, we note that for n ≤ e, 2.2.4 implies κ(pn)|κ(p). However, divisibility the
+other way round is obvious.
+For n ≥ e, by Lemma 2.2.4, it is suﬃcient to prove νp(Fκ(p)·pn−e) = n, i.e. that
+pn|Fκ(p)·pn−e but pn+1∤Fκ(p)·pn−e. Indeed, the ﬁrst divisibility implies κ(pn)|κ(p) ·pn− e
+while the second, applied for n − 1 instead of n, yields κ(pn)∤κ(p) ·pn− e− 1. The result
+follows as κ(p)|κ(pn).
+For νp(Fκ(p)·pn−e) = n, we proceed by induction, the case n = e being known by
+assumption. One has
+Fκ(p)·pn−e+1 = 1
+2p−1 pFκ(p)·pn−eV p− 1
+κ(p)·pn−e + 1
+2p−1
+p∑
+j=3
+j odd
+( p
+j
+)
+5
+j−1
+2 F j
+κ(p)·pn−eV p− j
+κ(p)·pn−e.
+In the second term, every summand is divisible by F 3
+κ(p)·pn−e, i.e. by p3n. The claim
+would follow if we knew p ∤Vκ(p)·pn−e. This, however, is easy as there is the formula
+(7) Vl = Fl− 1 + Fl+1
+which implies Vl ≡ 2 (mod p) for l any multiple of κ(p).
+3.4. For p = 2, as always, things are a bit more complicated. We still have
+κ(2n) = 3 ·2n− 1. However, for n ≥ 2, one has 2 n+1|F3·2n−1 for which there is no
+analogue in the p ̸= 2 case. On the other hand, ν2(F3·2n−1+1 − 1) = n which is
+suﬃcient for our assertion.
+The duplication formula provided by Lemma 3.2 is
+(8) F2k = FkVk = Fk(Fk− 1 + Fk+1) = F 2
+k + 2FkFk− 1.
+As F6 = 8, a repeated application of this formula shows 2 n+1|F3·2n−1 for every n ≥ 2.
+
+8 ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+We further claim F2k+1 = F 2
+k + F 2
+k+1. Indeed, this is true for k = 0 as 1 = 0 2 + 12
+and we proceed by induction as follows:
+F2k+3 = F2k+1 + F2k+2 = F 2
+k + F 2
+k+1 + F 2
+k+1 + 2F k+1Fk =
+= F 2
+k+1 + (Fk + Fk+1)2 = F 2
+k+1 + F 2
+k+2.(9)
+The assertion ν2(F3·2n−1+1 − 1) = n is now easily established by induction. We note
+that F7 = 13 ≡ 1 (mod 4) but the same is no longer true modulo 8. Furthermore,
+F3·2n+1 = F 2
+3·2n−1 + F 2
+3·2n−1+1 where the ﬁrst summand is even divisible by 2 2n+2.
+The second one is congruent to 1 modulo 2 n+1, but not modulo 2 n+2, by consequence
+of the induction hypothesis.
+4. A heuristic argument
+4.1. We expect that there are inﬁnitely many exceptional primes for
+/C9
+( √
+5
+)
+.
+Our reasoning for this is as follows. p|Fκ(p) is known by deﬁnition of κ(p). Thus,
+for any individual prime p, ( Fκ(p) mod p2) is one residue out of p possibilities. If we
+were allowed to assume equidistribution then we could conclude that p2|Fκ(p) should
+occur with a “probability” of 1
+p. Further, by [RS, Theorem 5],
+log log N + A − 1
+2 log2 N ≤
+∑
+p prime
+p≤ N
+1
+p ≤ log log N + A + 1
+2 log2 N ,
+at least for N ≥ 286. Here, A ∈ /CA is Mertens’ constant which is given by
+A = γ +
+∑
+p prime
+[1
+p + log
+(
+1 − 1
+p
+) ]
+= 0.261 497 212 847 642 783 755 . . .
+whereas γ denotes the Euler-Mascheroni constant.
+This means that one should expect around log log N + A exceptional primes less
+than N.
+4.2. On the other hand, p3|Fκ(p) should occur only a few times or even not at all.
+Indeed, if we assume equidistribution again, then for any individual p rime p, p3|Fκ(p)
+should happen with a “probability” of 1
+p2 . However,
+∞∑
+p=2
+p prime
+1
+p2 = 0.452 247 420 041 065 498 506 . . . .
+is a convergent series.
+Remark 4.3. It is, may be, of interest that, for any exponent n ≥ 2, one has the
+equality ∑
+p prime
+1
+pn = ∑∞
+k=1
+µ(k)
+k log ζ(nk) where the right hand converges a lot faster
+and may be used for evaluation. This equation results from the Moeb ius inversion
+formula and Euler’s formula log ζ(nk) = ∑
+p prime
+− log(1 − 1
+pnk ) = ∑∞
+j=1
+1
+j
+∑
+p prime
+1
+pjnk .
+
+THE FIBONACCI SEQUENCE MODULO p2 9
+4.4. We carried out an extensive search for exceptional primes but, un fortunately,
+we had no success and our result is negative.
+Theorem. There are no exceptional primes p < 1014.
+Down the earth, this means that one has κ(pn) = κ(p) ·pn− 1 for every n ∈
+/C6 and
+all primes p < 1014.
+5. Algorithms
+5.0.1. We worked with two principally diﬀerent types of algorithms. First, in t he
+p ≡ ± 1 (mod 5) case, it is possible to compute ( rp− 1 mod p2). A second and more
+complete approach is to compute ( Fp− 1 mod p2) in the p ≡ ± 1 (mod 5) case and
+(F2p+2 mod p2) or ( Fp+1 mod p2) in the case p ≡ ± 2 (mod 5).
+Remark 5.0.2. In the case p ≡ ± 2 (mod 5), p ̸= 2, exceptionality is equiva-
+lent to r2p+2 ≡ 1 (mod p2). Unfortunately, an approach based on that observation
+turns out to be impractical as it involves the calculation of a modular p ower in
+Rp = /CI /p2
+/CI
+[√
+5
+]
+= /CI
+[√
+5
+]
+/(p2) in a situation where
+√
+5 ̸∈ /CI /p2
+/CI . In comparison
+with /CI /p2
+/CI , multiplication in Rp is a lot slower, at least in our (naive) implemen-
+tations. This puts a modular powering operation in Rp out of competition with a
+direct approach to compute F2p+2 (or Fp+1) modulo p2.
+5.1. Algorithms based on the computation of
+√
+5.
+5.1.1. If p ≡ ± 1 (mod 5) then one may routinely compute ( rp− 1 mod p2). The
+algorithm should consist of four steps.
+i) Compute the square root of 5 in
+/CI /p /CI .
+ii) Take the Hensel’s lift of this root to /CI /p2
+/CI .
+iii) Calculate the golden ratio r := 1+
+√
+5
+2 ∈ /CI /p2
+/CI .
+iv) Use a modular powering operation to ﬁnd ( rp− 1 mod p2).
+We call algorithms which follow this strategy algorithms powering the golden ratio.
+Here, the ﬁnal steps iii) and iv) are not critical at all. For iii), it is obviou s that
+this is a simple calculation while for iv), carefully optimized modular power ing
+operations are available. Further, ii) can be eﬀectively done as r2 ≡ 5 (mod p)
+implies w := r − r2− 5
+p ·( 1
+2r mod p) ·p is a square root of 5 modulo p2. Thus, the
+most expensive operation should be a run of Euclid’s extended algorit hm in order
+to ﬁnd ( 1
+2r mod p).
+In fact, there is a way to avoid even this. We ﬁrst calculate 1
+5 ∈ /BY
+p. This is
+easier than an arbitrary division in residues modulo p. We may put 1
+5 := 4p+1
+5
+if p ≡ 1 (mod 5) and 1
+5 := p+1
+5 if p ≡ − 1 (mod 5). Then, a representative v
+of ( 1
+r mod p) can be computed as v = r · 1
+5. We get away with one integer division
+and one multiplication.
+
+10 ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+5.1.2. Thus, the most interesting point is i), the computation of
+√
+5 ∈ /BY
+p. In gen-
+eral, there is a beautiful algorithm to ﬁnd square roots modulo a prim e number due
+to Shanks [Co, Algorithm 1.5.1]. We implemented this algorithm but let it ﬁn ally
+run only in the p ≡ 1 (mod 8) case. If p ̸≡ 1 (mod 8) then there are direct formulae
+to compute the square root of 5 which turn out to work faster.
+If p ≡ 3 (mod 4) then one may simply put w := (5
+p+1
+4 mod p) to ﬁnd a square root
+of 5 by one modular powering operation.
+If p ≡ 5 (mod 8) then one may put
+(10) w := (5
+p+3
+8 mod p)
+as long as 5
+p−1
+4 ≡ 1 (mod p) and
+(11) w := (10 ·20
+p−5
+8 mod p)
+if 5
+p−1
+4 ≡ − 1 (mod p). Note that 5 is a quadratic residue modulo p. Hence, we
+always have 5
+p−1
+4 ≡ ± 1 (mod p).
+For sure, (5
+p−1
+4 mod p) can be computed using a modular powering operation.
+In fact, we implemented an algorithm doing that and let it run through the in-
+terval [10 12, 5 ·1012].
+However, (5
+p−1
+4 mod p) is nothing but a quartic residue symbol. For that reason,
+there is an actually faster algorithm which we obtained by an approac h using the
+law of biquadratic reciprocity.
+Proposition 5.1.3. Let p be a prime number such that p ≡ 5 (mod 8) and
+p ≡ ± 1 (mod 5) and let p = a2 + b2 be its (essentially unique) decomposition into
+a sum of two squares.
+a) Then, a and b may be normalized such that a ≡ 3 (mod 4) and b is even.
+b) Assume a and b are normalized as described in a). Then, there are only the
+following eight possibilities.
+i) a ≡ 3, 7, 11, or 19 (mod 20) and b ≡ 10 (mod 20) .
+In this case, 5
+p−1
+4 ≡ 1 (mod p), i.e. 5 is a quartic residue modulo p.
+ii) a ≡ 15 (mod 20) and b ≡ 2, 6, 14, or 18 (mod 20) .
+Here, 5
+p−1
+4 ≡ − 1 (mod p), i.e. 5 is a quadratic but not a quartic residue modulo p.
+Proof. a) As p is odd, among the integers a and b there must be an even and an
+odd one. We choose b to be even and force a ≡ 3 (mod 4) by replacing a by ( − a),
+if necessary.
+b) We ﬁrst observe that a2 ≡ 1 (mod 8) forces b2 ≡ 4 (mod 8) and b ≡ 2 (mod 4).
+Then, we realize that one of the two numbers a and b must be divisible by 5. Indeed,
+otherwise we had a2, b2 ≡ ± 1 (mod 5) which does not allow a2 + b2 ≡ ± 1 (mod 5).
+Clearly, a and b cannot be both divisible by 5.
+
+THE FIBONACCI SEQUENCE MODULO p2 11
+If a is divisible by 5 then a ≡ 3 (mod 4) implies a ≡ 15 (mod 20). b ≡ 2 (mod 4)
+and b not divisible by 5 yield the four possibilities stated. On the other hand, if b is
+divisible by 5 then b ≡ 2 (mod 4) implies b ≡ 10 (mod 20). a ≡ 3 (mod 4) and
+a not divisible by 5 show there are precisely the four possibilities listed.
+For the remaining assertions, we ﬁrst note that (5
+p−1
+4 mod p) tests whether
+x4 ≡ 5 (mod p) has a solution x ∈ /CI , i.e. whether 5 is a quartic residue modulo p.
+By [IR, Lemma 9.10.1], we know
+(5
+p−1
+4 mod p) = χa+bi(5)
+where χ denotes the quartic residue symbol. The law of biquadratic reciproc ity
+[IR, Theorem 9.2] asserts
+χa+bi(5) = χ5(a + bi).
+For that, we note explicitly that a + bi ≡ 3 + 2 i (mod 4), 5 ≡ 1 (mod 4), and
+N (5)− 1
+4 = 6 is even. Let us now compute χ5(a + bi):
+χ5(a + bi) = χ− 1+2i(a + bi) ·χ− 1− 2i(a + bi)
+= χ− 1− 2i(a − bi) ·χ− 1− 2i(a + bi)
+=
+( a + b
+2
+5
+)
+·χ− 1− 2i(a − bi) ·χ− 1− 2i(a + bi)
+=
+( a + b
+2
+5
+)
+·χ− 1− 2i(p).
+Here, the ﬁrst equation is the deﬁnition of the quartic residue symb ol for composite
+elements while the second is [IR, Proposition 9.8.3.c)].
+For the third equation, we observe that χ− 1− 2i(a − bi) is either ± 1 or ± i. By sim-
+ply omitting the complex conjugation, we would make a sign error if and only
+if χ− 1− 2i(a − bi) = ± i. By [IR, Lemma 9.10.1], this means exactly that a − bi
+deﬁnes, under the identiﬁcation 2 i = − 1, not even a quadratic residue modulo 5.
+Therefore, the correction factor is (
+a+ b
+2
+5 ). The ﬁnal equation follows from [IR, Propo-
+sition 9.8.3.b)].
+We note that, by virtue of [IR, Lemma 9.10.1], χ− 1− 2i(p) tests whether p is a quartic
+residue modulo 5 or not. As p is for sure a quadratic residue, we may write
+χ− 1− 2i(p) =
+{ 1 if p ≡ 1 (mod 5) ,
+− 1 if p ≡ − 1 (mod 5)
+or, if we want, χ− 1− 2i(p) = ( p mod 5).
+The eight possibilities could now be inspected one after the other. A m ore conceptual
+argument works as follows. In case i), we have
+( a + b
+2
+5
+)
+=
+( a
+5
+)
+= (a2 mod 5) = ( a2 + b2 mod 5) = ( p mod 5) .
+
+12 ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+Therefore, (5
+p−1
+4 mod p) = 1. On the other hand, in case ii),
+( a + b
+2
+5
+)
+=
+( b
+2
+5
+)
+=
+( b2
+4 mod 5
+)
+= (− b2 mod 5) = ( − a2 − b2 mod 5) =
+= − (p mod 5) .
+Hence, (5
+p−1
+4 mod p) = − 1. □
+5.1.4. Although we are not going to make use of it, let us state the compleme ntary
+result for p ≡ 1 (mod 8).
+Proposition. Let p be a prime such that p ≡ 1 (mod 8) and p ≡ ± 1 (mod 5) and
+let p = a2 + b2 be its (essentially unique) decomposition into a sum of two s quares.
+a) Then, a and b may be normalized such that a ≡ 1 (mod 4) and b is even.
+b) Assume a and b are normalized as described in a). Then, there are only the
+following eight possibilities.
+i) a ≡ 1, 9, 13, or 17 (mod 20) and b ≡ 0 (mod 20) .
+In this case, 5
+p−1
+4 ≡ 1 (mod p), i.e. 5 is a quartic residue modulo p.
+ii) a ≡ 5 (mod 20) and b ≡ 4, 8, 12, or 16 (mod 20) .
+Here, 5
+p−1
+4 ≡ − 1 (mod p), i.e. 5 is a quadratic but not a quartic residue modulo p.
+Proof. a) As p is odd, among the integers a and b there must be an even and an
+odd one. We choose b to be even and force a ≡ 1 (mod 4) by replacing a by ( − a),
+if necessary.
+b) We ﬁrst observe that a2 ≡ 1 (mod 8) forces b2 ≡ 0 (mod 8) and 4 |b. Then, we
+realize that one of the two numbers a and b must be divisible by 5. Indeed, otherwise
+we had a2, b2 ≡ ± 1 (mod 5) which does not allow a2 + b2 ≡ ± 1 (mod 5). Clearly, a
+and b cannot be both divisible by 5.
+If a is divisible by 5 then a ≡ 1 (mod 4) implies a ≡ 5 (mod 20). 4 |b and b not
+divisible by 5 yield the four possibilities stated. On the other hand, if b is divisible
+by 5 then 4 |b implies b ≡ 0 (mod 20). a ≡ 1 (mod 4) and a not divisible by 5 show
+there are precisely the four possibilities listed.
+The proof of the remaining assertions works exactly in the same way as the proof
+of Proposition 5.1.3 above. We note explicitly that a + bi ≡ 1 (mod 4) makes sure
+that the law of biquadratic reciprocity may be applied. □
+5.1.5. As the transformation a ↦→ − a does not aﬀect any of the three statements
+below, we may formulate the following theorem. Actually, this is the re sult we need
+for the application.
+
+THE FIBONACCI SEQUENCE MODULO p2 13
+Theorem. Let p be a prime number such that p ≡ 1 (mod 4) and p ≡ ± 1 (mod 5)
+and let p = a2 + b2 be its decomposition into a sum of two squares. We normalize
+a and b such that a is odd and b is even. Then, the following three statements
+are equivalent.
+i) 5 is a quartic residue modulo p.
+ii) b is divisible by 5.
+iii) a is not divisible by 5.
+Remark 5.1.6. We note that the restrictions on p exclude only trivial cases.
+If p ̸≡ ± 1 (mod 5) then 5 is not even a quadratic residue modulo p. If p ≡ 3 (mod 4)
+then every quadratic residue is automatically a quartic residue.
+Algorithm 5.1.7. The square sum sieve algorithm for prime numbers p such that
+p ≡ 21, 29 (mod 40) runs as follows.
+We investigate a rectangle [ N1, N2] × [M1, M2] of numbers. We will go through the
+rectangle row-by-row in the same way as the electron beam goes th rough a screen.
+a) We add 0, 1, 2, or 3 to M1 to make sure M1 ≡ 2 (mod 4). Then, we let b go from
+M1 to M2 in steps of length four.
+b) For a ﬁxed b we sieve the odd numbers in the interval [ N1, N2].
+Except for the odd case that l|a, b which we decided to ignore as the density of these
+pairs is not too high, l|a2 + b2 implies that ( − 1) is a quadratic residue modulo l,
+i.e. we need to sieve only by the primes l ≡ 1 (mod 4).
+For each such l which is below a certain limit we cross out all those a such that
+a ≡ ± vlb (mod l). Here, vl is a square root of ( − 1) modulo l, i.e. v2
+l ≡ − 1 (mod l).
+For practical application, this requires that the square roots of ( − 1) modulo the
+relevant primes have to be pre-computed and stored in an array on ce and for all.
+c) For the remaining pairs ( a, b), we compute p = a2 + b2 and do steps i) through iv)
+from 5.1.1. In step i), if b is divisible by 5 then we use formula (10) to compute the
+square root of 5 modulo p. Otherwise, we use formula (11).
+5.1.8. In practice, we ran the square sum sieve algorithm on the rectangle s
+[0, 4 000 000] × [1 580 000, 4 000 000] and [1 580 000, 4 000 000] × [0, 1 580 000], thereby
+capturing every prime p ∈ [5 ·1012, 1.6 ·1013] such that p ≡ 21, 29 (mod 40) plus
+several others.
+In fact, on the second rectangle we ran a modiﬁed version, the inverted square sum
+sieve, where the two outer loops are reversed. That means, we let a go through the
+odd numbers in [ N1, N2] in the very outer loop. This has some advantage in speed
+as longer intervals are sieved at once. In other words, we go throu gh the rectangle
+column-by-column.
+We implemented the square sum sieve algorithms in C using the mpz func tions of
+GNU’s GMP package for arithmetic on long integers. On a single 1211 MH z Athlon
+
+14 ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+processor, the computations for the ﬁrst rectangle took aroun d 22 days of CPU time.
+The computations for the smaller second rectangle were ﬁnished af ter nine days.
+5.1.9. For primes p such that p ≡ 3 (mod 4) and p ≡ ± 1 (mod 5), the formula
+w := (5
+p+1
+4 mod p) for the square root of 5 makes things a lot easier. Instead of
+the square sum sieve we implemented the sieve of Eratosthenes. Ca used by the
+limitations of main memory in today’s PCs, we could actually sieve interva ls of only
+about 250 000 000 numbers at once. For each such interval the re mainders of its
+starting point have to be computed (painfully) by explicit divisions.
+Algorithm 5.1.10. More precisely, the algorithm powering the golden ratio for
+primes p ≡ 11, 19 (mod 20) runs as follows.
+We investigate an interval [ N1, N2]. We assume that N2 − N1 is divisible by 5 ·109
+and that N1 is divisible by 20.
+a) We let an integer variable i count from 0 to N2− N1
+5·109 − 1.
+b) For ﬁxed i we work on the interval I = [ N1 + 5 ·109 ·i, N1 + 5 ·109 ·(i + 1)].
+For each prime l which is below a certain limit, we compute ( N1 + 5 ·109 ·i mod l).
+Then, we cross out all p ∈ I, p ≡ 11 (or 19) mod 20 which are divisible by l.
+c) For the remaining p ∈ I, p ≡ 11 (or 19) mod 20 we do steps i) through iv)
+from 5.1.1. In step i), we use the formula w := (5
+p+1
+4 mod p) to compute the square
+root of 5 modulo p.
+5.1.11. In practice, we ran this algorithm in order to test all prime numbers
+p ∈ [1012, 4 ·1013] such that p ≡ 11 (mod 20) or p ≡ 19 (mod 20). It was im-
+plemented in C using the mpz functions of the GMP package.
+Later, when testing primes above 10 13, we used the low level mpn functions for
+long natural numbers. In particular, we implemented a modular powe ring function
+which is hand-tailored for numbers of the considered size. It uses t he left-right
+base 2 3 powering algorithm [Co, Algorithm 1.2.3] and the sliding window improve-
+ment from mpz
+powm.
+Having done all these optimizations, work on the test interval [4 ·1013, 4·1013 +5 ·109]
+of 250 000 000 numbers p such that p ≡ 11 (mod 20), among them 19 955 067 primes,
+lasted 7:50 Minutes CPU time on a 1211 MHz Athlon processor.
+5.1.12. Similarly, for prime numbers p satisfying the simultaneous congruences
+p ≡ 1 (mod 8) and p ≡ ± 1 (mod 5), we implemented Shanks’ algorithm [Co, Algo-
+rithm 1.5.1] to compute the square root of 5 modulo p.
+
+THE FIBONACCI SEQUENCE MODULO p2 15
+Algorithm 5.1.13. More precisely, the algorithm powering the golden ratio for
+primes p ≡ 1, 9 (mod 40) runs as follows.
+We investigate an interval [ N1, N2]. We assume that N2 − N1 is divisible by 10 10
+and that N1 is divisible by 40.
+a) We let an integer variable i count from 0 to N2− N1
+1010 − 1.
+b) For ﬁxed i we work on the interval I = [N1 + 1010 ·i, N1 + 1010 ·(i + 1)]. For each
+prime l which is below a certain limit, we compute (( N1 + 1010 ·i) mod l). Then,
+we cross out all p ∈ I, p ≡ 1 (or 9) (mod 40) which are divisible by l.
+c) For the remaining p ∈ I, p ≡ 1 (or 9) (mod 40) we do steps i) through iv)
+from 5.1.1. In step i), we use Shanks’ algorithm to compute the squa re root of 5
+modulo p.
+5.1.14. We ran this algorithm on the interval [10 12, 4 ·1013]. After all optimiza-
+tions, the test interval [4 ·1013, 4 ·1013 + 1010] of 250 000 000 numbers p such that
+p ≡ 1 (mod 40), among them 19 954 152 primes, could be searched throu gh on a
+1211 MHz Athlon processor in 10:30 Minutes CPU time.
+This is quite a lot more in comparison with the algorithm for p ≡ 11 (mod 20)
+or p ≡ 19 (mod 20). The diﬀerence comes entirely from the more complicate d
+procedure to compute
+√
+5 ∈ /BY
+p.
+Remark 5.1.15. At a certain moment, such a running time was no longer found rea-
+sonable. A direct computation of the Fibonacci numbers could be do ne as well. After
+several optimizations of the code of the direct methods, it turned out that only the
+3 mod 4 case could still compete with them. We discuss the direct meth ods in the
+subsection below.
+5.2. Algorithms for a direct computation of Fibonacci numbers.
+Algorithm 5.2.1. A nice algorithm for the fast computation of a Fibonacci number
+is presented in O. Forster’s book [Fo]. It is based on the formulae
+F2k− 1 = F 2
+k + F 2
+k− 1,
+F2k = F 2
+k + 2FkFk− 1.(12)
+and works in the spirit of the left-right binary powering algorithm usin g bits.
+Our adaption uses modular operations modulo p2 instead of integer operations.
+An implementation in O. Forster’s Pascal-style multi precision interpr eter language
+ARIBAS looks like this.
+
+16 ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+(*------------------------------------------------- -----------------*)
+(*
+** Schnelle Berechnung der Fibonacci-Zahlen mittels der Fo rmeln
+** fib(2*k-1) = fib(k)**2 + fib(k-1)**2
+** fib(2*k) = fib(k)**2 + 2*fib(k)*fib(k-1)
+**
+** Dabei werden alle Berechnungen mod m durchgef¨ uhrt
+*)
+function fib(k,m : integer): integer;
+var
+b, x, y, xx, temp: integer;
+begin
+if k <= 1 then return k end;
+x := 1; y := 0;
+for b := bit_length(k)-2 to 0 by -1 do
+xx := x*x mod m;
+x := (xx + 2*x*y) mod m;
+y := (xx + y*y) mod m;
+if bit_test(k,b) then
+temp := x;
+x := (x + y) mod m;
+y := temp;
+end;
+end;
+return x;
+end.
+(** ein systematischer Versuch**)
+function test() : integer
+var
+p,r,r1 : integer;
+ptest : boolean;
+begin
+for p := 90000000001 to 95000000001 by 2 do
+if (p mod 10000) = 1 then
+writeln("getestete Zahl: ", p);
+end;
+ptest := rab_primetest(p);
+if (ptest = true) then
+if ((p mod 5 = 2) or (p mod 5 = 3)) then
+r := fib(2*p+2,p*p);
+else
+r := fib(p-1,p*p);
+end;
+if (r <= 30000000000000000) then
+r1 := r div p;
+writeln(p," ist eine interessante Primzahl. Quotient ", r1 );
+end;
+end;
+end;
+return(0);
+end.
+A call to fib(k,m) computes ( Fk mod m). test is the main function. test()
+executes an outer loop which contains a Rabin-Miller composedness t est. For a
+pseudo prime p, it uses the function ﬁb to compute ( Fp− 1 mod p2) or (F2p+2 mod p2).
+As these are divisible by p we output the quotient instead. Note that in order to limit
+the output size we actually write an output only when the quotient is r ather small.
+5.2.2. ARIBAS is fast enough to ensure that this algorithm could be run fro m p = 7
+up to 10 11. We worked on ten PCs in parallel for ﬁve days. That was our ﬁrst big ger
+computing project concerning this problem. It showed that no exc eptional primes
+p < 1011 do exist, thereby a establishing a lightweight version of Theorem 4.4.
+
+THE FIBONACCI SEQUENCE MODULO p2 17
+5.2.3. The running time made it clear that we had approached to the limits of a n
+interpreter language. For a systematic test of larger prime numbe rs, the algorithm
+was ported to C. For the arithmetic on long integers we used the mpz functions
+of GMP. After only one further optimization, the integration of a ve rsion of the
+sieve of Eratosthenes, the interval [10 11, 1012] could be attacked. A test interval
+of 250 000 000 numbers was dealt with on a 1211 MHz Athlon processo r in around
+40 Minutes CPU time. Again, we did parallel computing on ten PCs. The s earch
+through [10 11, 1012] was ﬁnished in less than ﬁve days.
+5.2.4. For the interval [10 12, 1013], the methods which compute
+√
+5 ∈ /BY
+p and square
+the golden ratio were introduced as they were faster than our imple mentation of
+O. Forster’s algorithm at that time. For this reason, only the case p ≡ ± 2 (mod 5)
+was done by Forster’s algorithm. It took us around 20 days on ten P Cs.
+6. Optimizations
+6.1. Sieving.
+6.1.1. Near 10 14, one of about 32 numbers is prime. We work in a ﬁxed prime
+residue class modulo 10, 20, or 40 but still, only one of about 13 numbe rs is prime.
+We feel that the computations of ( Fp± 1 mod p2) should take the main part of the
+running time of our programs. Our goal is, therefore, to rapidly ex clude (most of)
+the non-primes from the list and then to spend most of the time on th e remain-
+ing numbers.
+There are various methods to generate the list of all primes within an interval. Un-
+fortunately, this section of our code is not as harmless as one could hope for. In fact,
+for an individual number p, one might have the idea to decide whether it is prob-
+ably prime by computing ( Fp± 1 mod p). That is the Fibonacci composedness test.
+It would, unfortunately, not reduce our computational load a lot a s it is almost
+as complex as the main computation. This clearly indicates the problem that the
+standard “pseudo primality tests” which are designed to test individ ual numbers
+are not well suited for our purposes. In this subsection, we will exp lain what we did
+instead in order to speed up this part of the program.
+6.1.2. Our ﬁrst programs in ARIBAS in fact used the internal primality test to
+check each number in the interval individually. At the ARIBAS level, th is is optimal
+because it involves only one instruction for the interpreter.
+When we migrated our programs to C, using the GMP library, we ﬁrst t ried the same.
+We used the function mpz
+probab prime with one repetition for every number to
+be tested. It turned out that this program was enormously ineﬃcie nt. It took
+about 50 per cent of the running time for primality testing and 50 per cent for the
+computation of Fibonacci numbers. However, it could easily be tune d by a naive
+implementation of the sieve of Eratosthenes in intervals of length 1 0 00 000.
+
+18 ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+We ﬁrst combined sieving by small primes and the mpz probab prime function
+because sieving by huge primes is slow. This made sure that the compu ta-
+tion of Fibonacci numbers took the major part of the running time. However,
+mpz probab prime is not at all intended to be combined with a sieve. In fact, it
+checks divisibility by small primes once more. Thus, an optimization of t he code for
+the Fibonacci numbers reversed the relation again. It became nec essary to carry out
+a further optimization of the generation of the list of primes. We dec ided to aban-
+don all pseudo primality tests. Further, we enlarged the length of t he array of up to
+250 000 000 numbers to minimize the number of initializations.
+In principle, the sieve works as follows. Recall that we used diﬀerent algorithms
+for the computation of the Fibonacci numbers, depending on the r esidue class of p
+modulo 10, 20, or 40. This leads to a sieve in which the number
+S(i) := starting point + residue + modulus ·i
+is represented by array position i. Since all our moduli are divisible by 2 and 5 we
+do no longer sieve by these two numbers.
+Such a sieve is still easy to use. Given a prime p ̸= 2 , 5, one has to compute the
+array index i0 of the ﬁrst number which is divisible by p. Then, one can cross out
+the numbers at the indices i0, i0 + p, i0 + 2p, . . . until the end of the sieve is reached.
+6.1.3. Optimization for the Cache Memory. An array of the size above ﬁts
+into the memory of today’s PCs but it does not ﬁt into the cache. Thu s, the speed-
+limiting part is the transfer between CPU and memory. Sieving by big pr imes is like
+a random access to single bytes. The memory manager has to trans fer one block to
+the cache memory, change one byte, and then transfer the whole block back to the
+memory. This is the limiting bottleneck.
+To avoid this problem as far as possible, we built a two stage sieve.
+In the ﬁrst stage, we sieve by the ﬁrst 25 000, the “small”, primes. For that, we divide
+the sieve further into segments of length 30 000. These two const ants were found to
+be optimal in practical tests. They are heavily machine dependent.
+The ﬁrst stage is now easily explained. In a ﬁrst step, we sieve the ﬁr st segment by all
+small primes. Then, we sieve the second segment by all small primes. We continue
+in that way until the end of the sieve is reached.
+In the second stage, we work with all relevant “big” primes on the co mplete sieve,
+as usual.
+The result of this strategy is a sieve whose segments ﬁt into the mac hine’s cache.
+Thus, the speed of the ﬁrst sieve stage is the speed of the cache, not the speed of
+the memory. The speed of the second stage is limited by the initializatio n.
+On our machines the two stage sieve is twice as fast as the ordinary s ieve.
+
+THE FIBONACCI SEQUENCE MODULO p2 19
+6.1.4. The choice of the prime limit for sieving is a point of interest, too. As we
+search for one very particular example, it would do no harm if, from t o time, we
+test a composite number p for p2|Fp± 1. When the computer would tell us p2 divides
+Fp± 1 which, in fact, it never did then it would be easy to do a reliable primality t est.
+As long as we sieve by small primes, it is clear that lots of numbers will be crossed
+out in a short time and this will reduce the running time as it reduces th e number
+of times the actual computation of ( Fp± 1 mod p2) is called. Afterwards, when we
+sieve by larger primes, the situation is no longer that clear. We will oft en cross
+out a number repeatedly which was crossed out already before. Th is means, it can
+happen that further sieving costs actually more time than it saves.
+Our tests show nevertheless that it is best to sieve almost till to the square root
+of the numbers to be tested. We introduced an automatic choice of the variable
+prime
+limit as
+√ p
+log √ p which means we sieve by the ﬁrst [
+√ p
+log √ p ] primes. Here, p means
+the ﬁrst prime of the interval we want to go through.
+6.1.5. Another optimization was done by looking at the prime three. Every t hird
+number is crossed out when sieving by this prime and, when sieving by a big-
+ger prime, every third step hits a number which is divisible by three and already
+crossed out.
+Thus, we can work more eﬃciently as follows. Let p be a prime bigger than three and
+coprime to the modulus. We compute i0, the ﬁrst index of a number divisible by p.
+Then, we calculate the remainder of the corresponding number mod ulo three. If it
+is zero then we skip i0 and continue with i0 := i0 +p. Now, i0 corresponds to the ﬁrst
+number in the sieve which is divisible by p but not by three. Thus, we must cross out
+i0, i0 + p, i0 + 3p, i0 + 4p, i0 + 6p, . . . or i0, i0 + 2p, i0 + 3p, i0 + 5p, i0 + 6p, . . .
+depending on whether i0 + 2p corresponds to a number which is divisible by three
+or not.
+6.2. The Montgomery Representation.
+6.2.1. The algorithms for the computation of Fibonacci numbers modulo m ex-
+plained so far spend the lion’s share of their running time on the division s by m which
+occur as the ﬁnal steps of modular operations such as x := (xx + 2*x*y) mod m .
+Unfortunately, on today’s PC processors, divisions are by far slow er than multipli-
+cations or even additions.
+An ingenious method to avoid most of the divisions in a modular powering operation
+is due to P. L. Montgomery [Mo]. We use an adaption of Montgomery’s m ethod to
+O. Forster’s algorithm which works as follows.
+Let R be the smallest positive integer which does not ﬁt into one machine wor d.
+That will normally be a power of two. On our machines, R = 2 32. Recall that all op-
+erations on unsigned integers in C are automatically modular operatio ns modulo R.
+
+20 ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+We choose some exponent n such that the modulus m = p2 fulﬁlls m ≤ Rn
+5 . In our
+situation p < 1014, therefore m = p2 < 1028 < 296
+5 , such that n = 3 will be suﬃcient.
+Instead of the variables x, y, . . . ∈ /CI /m/CI , we work with their Montgomery rep-
+resentations xM , yM , . . . ∈ /CI . These numbers are not entirely unique but bound
+to be integers from the interval [0 , Rn
+5 ) fulﬁlling xM ≡ Rnx (mod m). This means
+that modular divisions still have to be done in some initialization step, on e for each
+variable that is initially there, but these turn out to be the only division s we are
+going to execute!
+A modular operation, for example x := (( x2 + 2xy) mod m), is translated into its
+Montgomery counterpart. In the example this is
+xM :=
+( x2
+M + 2xM yM
+Rn mod m
+)
+.
+We see here that xM , yM < Rn
+5 implies x2
+M + 2xM yM < 3 · R2n
+25 . An inspection of
+O. Forster’s algorithm shows that we always have to compute ( A
+Rn mod m) for
+some A < 5 · R2n
+25 = R2n
+5 .
+A ↦→
+( A
+Rn mod m
+)
+is Montgomery’s REDC function. It occurs everywhere in the algorit hm where
+normally a reduction modulo m, i.e. A ↦→ (A mod m), would be done.
+This looks as if we had not won anything. But, in fact, we won a lot as fo r computer
+hardware it is much easier to compute ( A
+Rn mod m), which is a “reduction from
+below”, than ( A mod m) which is a “reduction from above” and usually involves
+trial divisions.
+Indeed, A ﬁts into 2 n machine words. It has 2 n so-called limbs. The rightmost,
+i.e. the least signiﬁcant, n of those have to be transformed into zero by adding some
+suitable multiple of m. Then, these n limbs may simply be omitted.
+Which multiple of m is the suitable one that erases the rightmost limb A0 of A?
+Well, q · m for q := ( − A0 · m− 1 mod R) will do. This operation is in fact an
+ordinary multiplication of unsigned integers in C as ( − A0) on unsigned integers
+means (R− A0) and multiplication is automatically modulo R. We add q·m to A and
+remove the last limb. This procedure of transforming the rightmost machine word
+of A into zero and removing it has to be repeated n times.
+Still, m needs to be inverted modulo R = 2 32. The naive approach for this would be
+to use Euclid’s extended algorithm which, unfortunately, involves qu ite a number
+of divisions. At least, we observe that it is necessary to do this only o nce, not
+n times although there are n iterations. However, for the purpose of inverting an
+odd number modulo 2 32, there exists a very elegant and highly eﬃcient C macro
+in GMP, named modlimb
+invert. It uses a table of the modular inverses of all odd
+integers modulo 2 8 and then executes two Hensel’s lifts in a row. Note that, if
+
+THE FIBONACCI SEQUENCE MODULO p2 21
+i ·n ≡ 1 (mod N) then (2 i − i2 ·n) ·n ≡ 1 (mod N 2). We observe that, in this
+particular case, we need no division for the Hensel’s lift.
+What is the size of the representative of ( A
+Rn mod m) found? We have A < R2n
+5 .
+We add to that less than Rnm and divide by Rn. Thus, the representative is less than
+R2n
+5 + Rnm
+Rn = Rn
+5 + m.
+We want REDC( A) < Rn
+5 , the same inequality we have for all variables in Mont-
+gomery representation. To reach that, we may now simply subtrac t m in the case
+we found an outcome ≥ Rn
+5 . (This is the point where we use m ≤ Rn
+5 .)
+Our version of REDC looks as follows. In order to optimize for speed, we designed
+it as a C macro, not as a function.
+#define REDC(mp, n, Nprim, tp) \
+do { \
+mp_limb_t cy; \
+mp_limb_t qu; \
+mp_size_t j; \
+\
+for (j = 0; j < n; j++) { \
+qu = tp[0] * Nprim; \
+/* q = tp[0]*invm mod 2^32. Reduktion mod 2^32 von selber! */ \
+cy = mpn_addmul_1 (tp, mp, n, qu); \
+mpn_incr_u (tp + n, cy); \
+tp++; \
+} \
+\
+if (tp[n - 1] >= 0x33333333) /* 2^32 / 5. */ \
+mpn_sub_n (tp, tp, mp, n); \
+} while(0);
+It is typically invoked as REDC (m, REDC
+BREITE, invm, ?); , with various vari-
+ables in the place of the ?, after invm is set by modlimb invert (invm, m[0]);
+and invm = -invm; . Up to now, we always had REDC BREITE = 3.
+At the very end of our algorithm we ﬁnd ( Fk)M , the desired Fibonacci number in its
+Montgomery representation. To convert back, we just need one more call to REDC.
+Indeed,
+(Fk mod m) =
+( FkRn
+Rn mod m
+)
+=
+( (Fk)M
+Rn mod m
+)
+= REDC((Fk)M ).
+Further, (Fk)M < Rn
+5 implies
+REDC((Fk)M ) <
+Rn
+5 + Rn ·m
+Rn = 1
+5 + m,
+i.e. REDC(( Fk)M ) ≤ m.
+We note explicitly that there is quite a dangerous trap at this point. T he residue 0,
+the one we are in fact looking for, will not be reported as 0 but as m. We work
+around this by outputting residues of small absolute value. If ( r mod m) is found
+and r is not below a certain output limit then m − r is computed and compared
+with that limit.
+
+22 ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+Remark 6.2.2. The integration of the Montgomery representation into our algo-
+rithm allowed us to avoid practically all the divisions. This caused a stun ning
+reduction of the running time to about one third of its original value.
+6.3. Other Optimizations.
+6.3.1. We introduced several other optimizations. One, which is worth a me ntion,
+is the integration of a pre-computation for the ﬁrst seven binary d igits of p. Note, if
+we let p go linearly through a large interval then its ﬁrst seven digits will chan ge very
+slowly. This means, as a study of our algorithm for the computation o f (Fp mod p2)
+shows, that the same ﬁrst seven steps will be done again and again. We avoid this
+and do these steps once, as a pre-computation. As 10 14 consists of 47 binary digits
+this saves about 14 per cent of the running time.
+Of course, p is not a constant for the outer loop of our program and its ﬁrst sev en
+binary digits are only almost constant. One needs to watch out for t he moment
+when the seventh digit of p changes.
+6.3.2. Another improvement by a few per cent was obtained through the s witch
+to a diﬀerent algorithm for the computation of the Fibonacci numbe rs. Our hand-
+tailored approach computes the k-th Fibonacci number Fk simultaneously with the
+k-th Lucas number Vk. It is based on the formulae
+F2k = FkVk,
+V2k = V 2
+k + 2(− 1)k+1,
+F2k+1 = FkVk + V 2
+k
+2 + (− 1)k+1,
+V2k+1 = F2k+1 + 2FkVk.
+(13)
+This is faster than the algorithm explained above as it involves only one multipli-
+cation and one squaring operation instead of one multiplication and tw o squaring
+operations. It seems here that the number of multiplications and th e number of
+squaring operations determine the running time. Multiplications by tw o are not
+counted as multiplications as they are simple bit shifts. Bit shifts and a dditions are
+a lot faster than multiplications while a squaring operation costs abou t two thirds
+of what a multiplication costs.
+From that point of view there should exist an even better algorithm. One can make
+use of the formulae
+F2k+1 = 4F 2
+k − F 2
+k− 1 + 2(− 1)k,
+F2k− 1 = F 2
+k + F 2
+k− 1,
+F2k = F2k+1 − F2k− 1
+(14)
+which we found in the GMP source code. If we meet a bit which is set the n we
+continue with F2k+1 and F2k. Otherwise, with F2k and F2k− 1.
+
+THE FIBONACCI SEQUENCE MODULO p2 23
+Here, there are only two squaring operations involved and no multiplic ations, at all.
+This should be very hard to beat. Our tests, however, unearthed that the program
+made from (14) ran approximately ten per cent slower than the pro gram made
+from (13). For that reason, we worked ﬁnally with (13). Neverthe less, we expect
+that for larger numbers p, in a situation where additions and bit shifts contribute
+even less proportion to the running time, an algorithm using (14) sho uld actually
+run faster. It is possible that this is the case from the moment on th at p2 > 296 does
+no longer ﬁt into three limbs but occupies four.
+6.3.3. Some other optimizations are of a more practical nature. For exam ple, in-
+stead of GMP’s mpz functions we used the low level mpn functions for long natural
+numbers. Further, we employed some internal GMP low level functio ns although
+this is not recommended by the GMP documentation.
+The point is that the size of the numbers appearing in our calculations is a-priori
+known to us and basically always the same. When, for example, we mult iply two
+numbers, then it does not make sense always to check whether the base case multi-
+plication, the Karatsuba scheme, or the FFT algorithm will be fastes t. In our case,
+mpn
+mul basecase is always the fastest of the three, therefore we call it d irectly.
+6.4. The Performance Finally Achieved.
+6.4.1. As a consequence of all the optimizations described, the CPU time it t ook our
+program to test the interval [4 ·1013, 4 ·1013 + 2.5 ·109] of 250 000 000 numbers p such
+that p ≡ 3 (mod 10), among them 19 955 355 primes, was reduced to 8:08 Minut es.
+Sieving is done in the ﬁrst 24 seconds.
+The tests were made on a 1211 MHz Athlon processor. For comparis on, on
+a 1673 MHz Athlon processor we test the same interval in around 6:3 0 Minutes
+and on a 3 GHz Pentium 4 processor in around 5:30 Minutes. (This relat ively poor
+running time might partially be due to the fact that we carried out our trial runs
+on Athlon processors.)
+6.4.2. The Main Computational Undertaking. In a project of somewhat larger
+scale, we ran the optimized algorithm on all primes p in the interval [10 13, 1014] such
+that p ≡ ± 2 (mod 5). Further, as the methods which start with the computat ion
+of
+√
+5 ∈ /BY
+p are no longer faster, we ran it, too, on all prime numbers p ∈ [4·1013, 1014]
+such that p ≡ ± 1 (mod 5) and on all primes p ∈ [1.6 ·1013, 4 ·1013] such that
+p ≡ 5 (mod 8) and p ≡ ± 1 (mod 5).
+Altogether, this means that we fully tested the whole interval [10 13, 1014]. To do
+this took us around 820 days of CPU time. The computational work w as done in
+parallel on up to 14 PCs from July till October 2004.
+
+24 ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+7. Output Data
+7.1. Computer Proof. Neither our earlier computations for p < 1013 nor the
+more recent ones for the interval [10 13, 1014] detected any exceptional primes. As
+we covered the intervals systematically and tested each individual p rime, this estab-
+lishes the fact that for all prime numbers p < 1014 one has p2∤Fκ(p). There are no
+exceptional primes below that limit. Theorem 4.4 is veriﬁed.
+7.2. Statistical Observations. We do never ﬁnd ( Fp± 1 mod p2) = 0. Does that
+mean, we have found some evidence that our assumption, the resid ues (Fp± 1 mod p2)
+should be equidistributed in { 0, p, 2p, . . . , p 2 − p }, is wrong? Actually, it does not.
+Besides the fact that the value zero does not occur, all other rea sonable statistical
+quantities seem to be well within the expected range.
+Indeed, a typical piece of our output data looks as follows.
+Durchsuche Fenster mit Nummer 34304.
+Beginne sieben.
+Restklassen berechnet.
+Beginne sieben mit kleinen Primzahlen.
+Sieben mit kleinen Primzahlen fertig.
+Fertig mit sieben.
+Initialisiere
+x mit 110560307156090817237632754212345,
+y mit 247220362414275519277277821571239
+und vorz mit 1.
+10786 Quotient 1912354 mit p := 85760594147971.
+10787 Quotient 1072750 mit p := 85760627258851.
+10788 Quotient -1617348 mit p := 85760847493241.
+10789 Quotient -3142103 mit p := 85761104075891.
+Initialisiere
+x mit 178890334785183168257455287891792,
+y mit 400010949097364802732720796316482
+und vorz mit -1.
+10790 Quotient -9341211 mit p := 85761921174961.
+Fertig mit Fenster mit Nummer 34304.
+Durchsuche Fenster mit Nummer 34305.
+Beginne sieben.
+Restklassen berechnet.
+Beginne sieben mit kleinen Primzahlen.
+Sieben mit kleinen Primzahlen fertig.
+Fertig mit sieben.
+Initialisiere
+x mit 178890334785183168257455287891792,
+y mit 400010949097364802732720796316482
+und vorz mit -1.
+10791 Quotient 3971074 mit p := 85763512710481.
+10792 Quotient 2441663 mit p := 85764391244491.
+Fertig mit Fenster mit Nummer 34305.
+To make the output easier to understand we do not print ( Fp± 1 mod p2) which is
+automatically divisible by p but R(p) := ( Fp± 1 mod p2)/p ∈
+/CI /p /CI . Such a quotient
+may be as large as p. We output only those which fall into ( − 107, 107) which is very
+small in comparison to p.
+The data above were generated by a process which had started at 8·1013 and worked
+on the primes p ≡ 1 (mod 10). Till 8 .5765 ·1013, it found 10 792 primes p such that
+R(p) = ( Fp− 1 mod p2)/p ∈ (− 107, 107).
+
+THE FIBONACCI SEQUENCE MODULO p2 25
+On the other hand, assuming equidistribution we would have predicte d to ﬁnd such
+a particularly small quotient for around
+8.5765·1013
+∑
+p=8·1013
+p≡ 1 (mod 10)
+p prime
+2·107 − 1
+p ≈ (2·107 − 1)· 1
+ϕ(10) ·(log(log(8.5765·1013)) − log(log(8·1013)))
+= 2·107 − 1
+4 ·(log(log(8.5765 ·1013)) − log(log(8 ·1013)))
+≈ 10 856.330
+primes which is astonishingly close to the reality.
+Among the 10 792 small quotients found within this interval, the abso lutely smallest
+one is R(82 789 107 950 701) = − 42. We ﬁnd 1 074 quotients of absolute value less
+than 1 000 000, 98 quotients of absolute value less than 100 000, an d 10 of absolute
+value less than 10 000. These are, besides the one above,
+R(80 114 543 961 461) = − 2437,
+R(80 607 583 847 341) = − 6949,
+R(80 870 523 194 401) = − 5751,
+R(81 232 564 906 631) = 3579 ,
+R(81 916 669 933 751) = − 2397,
+R(83 575 544 636 251) = − 1884,
+R(84 688 857 018 011) = − 1183,
+R(84 771 692 838 421) = 2281 ,
+R(85 325 902 236 661) = − 4473.
+There have been 5 235 positive and 5 557 negative quotients detect ed.
+Remarks 7.3. a) We note explicitly that this is not at all a constructed example.
+One may basically consider every interval which is not too small and will observe
+the same phenomena.
+b) Being very sceptical one might raise the objection that the comp utations done
+in our program do not really prove that the 10 792 numbers p which appear in the
+data are indeed prime.
+It is, however, very unlikely that one of them is composite as they all passed two tests.
+First, they passed the sieve which in this case makes sure they have no prime divi-
+sor ≤ 8 302 871. This means, if one is composite then it decomposes into the product
+of two almost equally large primes. Furthermore, they were all foun d probably prime
+by the Fibonacci composedness test p|Fp− 1.
+It is easy to check primality for all of them by a separate program.
+
+26 ANDREAS-STEPHAN ELSENHANS AND J ¨ORG JAHNEL
+7.4. Statistical Observations. A more spectacular interval is [0 , 1012]. One may
+expect a lot more small quotients as all small prime numbers are take n into consid-
+eration.
+Here, we may do some statistical analysis on the small positive values of the quo-
+tient R′ which is given by R′(p) := ( Fp− 1 mod p2)/p for p ≡ ± 1 (mod 5) and by
+R′(p) := ( F2p+2 mod p2)/p for p ≡ ± 2 (mod 5).
+Our computations show that there exist 96 909 quotients less than 100 000,
+12 162 quotients less than 10 000, 1 580 quotients less than 1 000, 2 16 quotients
+less than 100, and 30 quotients less than 10. The latter ones are
+3 ist eine interessante Primzahl. Quotient 1
+7 ist eine interessante Primzahl. Quotient 1
+11 ist eine interessante Primzahl. Quotient 5
+13 ist eine interessante Primzahl. Quotient 7
+17 ist eine interessante Primzahl. Quotient 2
+19 ist eine interessante Primzahl. Quotient 3
+43 ist eine interessante Primzahl. Quotient 8
+89 ist eine interessante Primzahl. Quotient 5
+163 ist eine interessante Primzahl. Quotient 6
+199 ist eine interessante Primzahl. Quotient 5
+239 ist eine interessante Primzahl. Quotient 5
+701 ist eine interessante Primzahl. Quotient 5
+941 ist eine interessante Primzahl. Quotient 6
+997 ist eine interessante Primzahl. Quotient 3
+1063 ist eine interessante Primzahl. Quotient 2
+1621 ist eine interessante Primzahl. Quotient 2
+2003 ist eine interessante Primzahl. Quotient 1
+27191 ist eine interessante Primzahl. Quotient 8
+86813 ist eine interessante Primzahl. Quotient 6
+123863 ist eine interessante Primzahl. Quotient 2
+199457 ist eine interessante Primzahl. Quotient 7
+508771 ist eine interessante Primzahl. Quotient 2
+956569 ist eine interessante Primzahl. Quotient 4
+1395263 ist eine interessante Primzahl. Quotient 3
+1677209 ist eine interessante Primzahl. Quotient 1
+3194629 ist eine interessante Primzahl. Quotient 5
+11634179 ist eine interessante Primzahl. Quotient 2
+467335159 ist eine interessante Primzahl. Quotient 4
+1041968177 ist eine interessante Primzahl. Quotient 6
+6_71661_90593 ist eine interessante Primzahl. Quotient 1
+Except for 0 and 9, all one-digit numbers do appear.
+Further, the counts are again well within the expected range. For example, con-
+sider one-digit numbers. R(3) and R(7) are automatically one-digit. Therefore, the
+expected count is
+2 +
+1012
+∑
+p=10
+p prime
+10
+p ≈ 2 + 10 ·(log(log 1012) − log(log 10)) ≈ 26.849 066
+which is surprisingly close the 30 one-digit quotients which were actua lly found.
+We note that already for two-digit quotients, it is no longer true tha t they ap-
+pear only within the subinterval [0 , 1011]. In fact, there are twelve prime num-
+bers p ∈ [1011, 1012] such that R′(p) < 100. These are the following.
+
+THE FIBONACCI SEQUENCE MODULO p2 27
+101876918491 liefert 87
+115301883659 liefert 60
+129316722167 liefert 44
+147486235177 liefert 59
+170273590301 liefert 78
+233642484991 liefert 89
+261836442223 liefert 45
+277764184829 liefert 64
+283750593739 liefert 37
+305128713503 liefert 93
+334015396151 liefert 79
+442650398821 liefert 74
+Once again, we may compare this to the expected count which is here
+1012
+∑
+p=1011
+p prime
+100
+p ≈ 100 ·(log(log 1012) − log(log 1011)) ≈ 8.701 137 73.
+References
+[Co] Cohen, H.: A course in computational algebraic number theory, Springer, Graduate Texts
+Math. 138, Berlin 1993
+[Fo] Forster, O.: Algorithmische Zahlentheorie (Algorithmic number t heory), Vieweg, Braun-
+schweig 1996
+[G¨ o] G¨ ottsch, G.:¨Uber die mittlere Periodenl¨ ange der Fibonacci-Folgen modulop (On the average
+period length of the Fibonacci sequences modulo p), Dissertation, Fakult¨ at f¨ ur Math. und
+Nat.-Wiss., Hannover 1982
+[IR] Ireland, K., Rosen, M.: A classical introduction to modern numbe r theory, Second edition,
+Springer, Graduate Texts Math. 84, New York 1990
+[Ja] Jarden, D.: Two theorems on Fibonacci’s sequence, Amer. Math. Monthly 53(1946)425–427
+[Mo] Montgomery, P. L.: Modular multiplication without trial division, Math. Comp. 44(1985)
+519–521
+[RS] Rosser, J. B., Schoenfeld, L.: Approximate formulas for some f unctions of prime numbers,
+Illinois J. Math. 6(1962)64–94
+[Wa] Wall, D. D.: Fibonacci series modulo m, Amer. Math. Monthly 67(1960)525–532
+version of Decembre 1, 2004

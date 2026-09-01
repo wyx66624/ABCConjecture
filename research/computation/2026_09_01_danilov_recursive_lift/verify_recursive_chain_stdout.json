@@ -1,0 +1,180 @@
+{
+  "canonical_file_sha256": {
+    "search_stage0_1m.json": "9cb14e115bd84b47184b4d50dcf338b43f6644249fa65d7dfbd1ac11fba6a856",
+    "search_stage10_50m.json": "8f71a739b87f7e41d8ab7302463e6203f043099ec53dd912da7508598579124b",
+    "search_stage11_50m.json": "ed771dd7032cfdbfa8e52f43eb051ecae7379624983f7879dec4deb958dc1e0b",
+    "search_stage12_100m.json": "0ca5610da8901f002dc15b09e328c2652051ea88b67b7f6d9ab54e4eafbaa704",
+    "search_stage13_100m.json": "2b87f6fd5be958ec9477ecf4c8f70e821e0cbf1990f811cd8645ae0b662859c7",
+    "search_stage1_1m.json": "6de52f60b6b7a8458d8414d343cb1128684eb6f7c851c9a13a759ba77f284c06",
+    "search_stage2_1m.json": "2edbdbdc4d4e627f779ea13ab5587dba9085a3c38bea6e7a668701c66a5af334",
+    "search_stage3_1m.json": "63f0470936ed0bdb7f8d5eaaa281351275ac294adbf63de8972121c2a76fc1f2",
+    "search_stage4_1m.json": "441f841f4dbbd82a20d326eeaabd004f8e65b6755179c0bc8d6a88011b7cef7c",
+    "search_stage5_1m.json": "7aa179c7547bd37ea8cbb7c899ec9524ec1d5439a45ea5f5ba17136a18bd1bd9",
+    "search_stage6_1m.json": "ef3446f8289ac554c50dcf34e91d0f9ae4fbae8ccc56b0f27ef5ce624240b681",
+    "search_stage7_10m.json": "7be22d282e0945b3b3488d233d999256a382dfb1d7525e72a3c94cad28eee3d8",
+    "search_stage8_10m.json": "97be76054490e0c6ded7a6e93e6d09bfb32d89d8a0df687120b4c29f9ae32ee8",
+    "search_stage9_10m.json": "d707694336b7d599a42aae84147c8328b70e167989d2371f067a352a5d82c798"
+  },
+  "canonical_stage_files": [
+    "search_stage0_1m.json",
+    "search_stage1_1m.json",
+    "search_stage2_1m.json",
+    "search_stage3_1m.json",
+    "search_stage4_1m.json",
+    "search_stage5_1m.json",
+    "search_stage6_1m.json",
+    "search_stage7_10m.json",
+    "search_stage8_10m.json",
+    "search_stage9_10m.json",
+    "search_stage10_50m.json",
+    "search_stage11_50m.json",
+    "search_stage12_100m.json",
+    "search_stage13_100m.json"
+  ],
+  "final_Q_digits": 4398,
+  "final_Q_distinct_prime_factors": 638,
+  "final_T_digits": 4398,
+  "final_exact_valuation_one_divisor_primes": [
+    13,
+    11621,
+    141961,
+    178093,
+    3561881,
+    10685641,
+    59127209
+  ],
+  "final_h": 1,
+  "final_lift_packets_below_saved_endpoint": 0,
+  "final_search_limit": 100000000,
+  "initial_Q_distinct_prime_factors": 12,
+  "new_distinct_lift_primes": 626,
+  "scope": "exact audit of saved rows and transitions; exhaustive endpoints require generator replay",
+  "stage_summary": [
+    {
+      "Q_digits": 42,
+      "divisor_rows": 57,
+      "file": "search_stage0_1m.json",
+      "h": 2,
+      "lift_packets": 36,
+      "limit": 1000000,
+      "stage": 0
+    },
+    {
+      "Q_digits": 217,
+      "divisor_rows": 63,
+      "file": "search_stage1_1m.json",
+      "h": 2,
+      "lift_packets": 28,
+      "limit": 1000000,
+      "stage": 1
+    },
+    {
+      "Q_digits": 361,
+      "divisor_rows": 51,
+      "file": "search_stage2_1m.json",
+      "h": 2,
+      "lift_packets": 10,
+      "limit": 1000000,
+      "stage": 2
+    },
+    {
+      "Q_digits": 413,
+      "divisor_rows": 7,
+      "file": "search_stage3_1m.json",
+      "h": 1,
+      "lift_packets": 7,
+      "limit": 1000000,
+      "stage": 3
+    },
+    {
+      "Q_digits": 449,
+      "divisor_rows": 10,
+      "file": "search_stage4_1m.json",
+      "h": 1,
+      "lift_packets": 6,
+      "limit": 1000000,
+      "stage": 4
+    },
+    {
+      "Q_digits": 481,
+      "divisor_rows": 8,
+      "file": "search_stage5_1m.json",
+      "h": 1,
+      "lift_packets": 2,
+      "limit": 1000000,
+      "stage": 5
+    },
+    {
+      "Q_digits": 492,
+      "divisor_rows": 1,
+      "file": "search_stage6_1m.json",
+      "h": 1,
+      "lift_packets": 1,
+      "limit": 1000000,
+      "stage": 6
+    },
+    {
+      "Q_digits": 498,
+      "divisor_rows": 225,
+      "file": "search_stage7_10m.json",
+      "h": 2,
+      "lift_packets": 145,
+      "limit": 10000000,
+      "stage": 7
+    },
+    {
+      "Q_digits": 1451,
+      "divisor_rows": 20,
+      "file": "search_stage8_10m.json",
+      "h": 1,
+      "lift_packets": 14,
+      "limit": 10000000,
+      "stage": 8
+    },
+    {
+      "Q_digits": 1543,
+      "divisor_rows": 3,
+      "file": "search_stage9_10m.json",
+      "h": 1,
+      "lift_packets": 1,
+      "limit": 10000000,
+      "stage": 9
+    },
+    {
+      "Q_digits": 1550,
+      "divisor_rows": 221,
+      "file": "search_stage10_50m.json",
+      "h": 1,
+      "lift_packets": 215,
+      "limit": 50000000,
+      "stage": 10
+    },
+    {
+      "Q_digits": 3136,
+      "divisor_rows": 178,
+      "file": "search_stage11_50m.json",
+      "h": 2,
+      "lift_packets": 9,
+      "limit": 50000000,
+      "stage": 11
+    },
+    {
+      "Q_digits": 3204,
+      "divisor_rows": 349,
+      "file": "search_stage12_100m.json",
+      "h": 2,
+      "lift_packets": 152,
+      "limit": 100000000,
+      "stage": 12
+    },
+    {
+      "Q_digits": 4398,
+      "divisor_rows": 7,
+      "file": "search_stage13_100m.json",
+      "h": 1,
+      "lift_packets": 0,
+      "limit": 100000000,
+      "stage": 13
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+WORKDIR: E:\AImath\abc猜想\Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.exe env lean IUTThreeClosures/PellPrimeRankCounterexamples20260901.lean
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.sqrtTwoOrbit_seven_B_eq_thirteen_sq : (sqrtTwoOrbit 7).2 = 13 ^ 2
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.thirteen_sq_dvd_pellOrbit_seven : 13 ^ 2 ∣ (pellOrbit 7).2
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.thirteen_cube_not_dvd_pellOrbit_seven : ¬13 ^ 3 ∣ (pellOrbit 7).2
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.seven_prime : Nat.Prime 7
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.thirteen_prime : Nat.Prime 13
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.thirteen_eq_two_mul_seven_sub_one : 13 = 2 * 7 - 1
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.primeRankSevenPolynomial_eval_six :
+  eval 6 primeRankSevenPolynomial = 40391
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.primeRankSevenPolynomial_derivative_eval_six :
+  eval 6 (derivative primeRankSevenPolynomial) = 42408
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.primeRankSevenPolynomial_derivative_eval_six_mod_thirteen :
+  eval 6 (derivative primeRankSevenPolynomial) % 13 = 2
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.exists_prime_repeated_value_with_nonsingular_derivative :
+  ∃ F q x, Nat.Prime q ∧ ↑q ∣ eval x F ∧ ¬↑q ∣ eval x (derivative F) ∧ ↑q ^ 2 ∣ eval x F
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.not_derivative_nonzero_forces_prime_square_not_dvd :
+  ¬∀ (F : ℤ[X]) (q : ℕ) (x : ℤ), Nat.Prime q → ↑q ∣ eval x F → ¬↑q ∣ eval x (derivative F) → ¬↑q ^ 2 ∣ eval x F
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.printed_cyclotomic_quotient_counterexample_values :
+  2 ^ 2 - 2 + 1 = 3 ∧ (2 ^ 6 - 1) / (2 ^ 2 - 1) = 21
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.not_printed_cyclotomic_quotient_identity :
+  ¬2 ^ 2 - 2 + 1 = (2 ^ 6 - 1) / (2 ^ 2 - 1)
+IUTThreeClosures.PellPrimeRankCounterexamples20260901.prime_index_order_one_exception_values :
+  4 ^ 2 + 4 + 1 = 21 ∧ 3 ∣ 21 ∧ 4 % 3 = 1
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.sqrtTwoOrbit_seven_B_eq_thirteen_sq' depends on axioms: [propext]
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.thirteen_sq_dvd_pellOrbit_seven' depends on axioms: [propext]
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.thirteen_cube_not_dvd_pellOrbit_seven' depends on axioms: [propext]
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.seven_prime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.thirteen_prime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.thirteen_eq_two_mul_seven_sub_one' depends on axioms: [propext]
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.primeRankSevenPolynomial_eval_six' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.primeRankSevenPolynomial_derivative_eval_six' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.primeRankSevenPolynomial_derivative_eval_six_mod_thirteen' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.exists_prime_repeated_value_with_nonsingular_derivative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.not_derivative_nonzero_forces_prime_square_not_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.printed_cyclotomic_quotient_counterexample_values' depends on axioms: [propext]
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.not_printed_cyclotomic_quotient_identity' depends on axioms: [propext]
+'IUTThreeClosures.PellPrimeRankCounterexamples20260901.prime_index_order_one_exception_values' depends on axioms: [propext]
+EXIT_CODE: 0

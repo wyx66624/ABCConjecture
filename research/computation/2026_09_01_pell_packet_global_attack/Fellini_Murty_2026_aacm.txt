@@ -1,0 +1,1034 @@
+Journal of Number Theory 285 (2026) 209– 229
+Contents lists available at ScienceDirect
+Journal of Number Theory  
+journal homepage: www.elsevier.com/locate/jnt
+General Section
+Wieferich primes in number ﬁ elds and the 
+conjectures of Ankeny–Artin– Chowla and Mordell
+Nic Fellini ∗, M. Ram Murty
+Department of Mathematics and Statistics, Queen ’s University, Kingston, Ontario, 
+K7L 3N6, Canada
+a r t i c l e i n f o a b s t r a c t 
+Article history:
+Received 14 August 2025
+Accepted 30 January 2026
+A vailable online 5 February 2026
+Communicated by L. Smajlovic
+MSC:
+11R04
+11N69
+11G05
+Keywords:
+Ankeny–Artin– Chowla conjecture
+Mordell conjecture
+Siegel’s theorem
+Wieferich primes
+abc-conjecture for number ﬁ elds
+For a prime p ≡ 1(m o d4 ), let
+ε = 1
+2 (t + u√ p)
+be the fundamental unit of the real quadratic ﬁ eld Q(√ p). In 
+1951, N. Ankeny, E. Artin, and S. Chowla asked whether p
+can divide u. They suggested that this can never happen and 
+this has since been called the Ankeny–Artin – Chowla (AAC) 
+conjecture. We show that if 𝔭 is the prime above p in Q(√ p), 
+then the AAC conjecture is false if and only if
+εp−1 ≡ 1
+(︁
+mod 𝔭2)︁
+.
+Thus, the AAC conjecture is related to the existence of 
+number ﬁ eld analogues of Wieferich primes. Therefore, in 
+the second part of this paper, we investigate the inﬁ nitude 
+of Wieferich primes in number ﬁ elds. Subject to Masser’s 
+abc-conjecture for number ﬁ elds, we prove that for any ﬁ xed 
+α ∈𝒪 K \{ 0} that is not a root of unity, there are inﬁ nitely 
+many primes ideals 𝔭 ⊆𝒪 K for which
+αN (𝔭)−1 ̸≡ 1
+(︁
+mod 𝔭2)︁
+.
+* Corresponding author.
+E-mail addresses: n.fellini@queensu.ca (N. Fellini), murty@queensu.ca (M.R. Murty).
+https://doi.org/10.1016/j.jnt.2026.01.002
+0022-314X/© 2026 The Author(s). Published by Elsevier Inc. This is an open access article under the CC 
+BY license (http://creativecommons.org/licenses/by/4.0/).
+
+210 N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 
+Additionally, we show under the weaker assumption that there 
+are ﬁ nitely many base-α super-Wieferich primes, and that 
+there are inﬁ nitely many base-α non-Wieferich primes. In both 
+cases, we obtain the lower bound
+#
+{︂
+prime ideals 𝔭 : N(𝔭) ≤ x and αN (𝔭)−1 ̸≡ 1
+(︁
+mod 𝔭2)︁}︂
+≫ K,α,ϵ
+log x 
+log logx
+as x →∞ .
+© 2026 The Author(s). Published by Elsevier Inc. This is an 
+open access article under the CC BY license (http://
+creativecommons.org/licenses/by/4.0/).
+1. Introduction
+Given a ﬁ xed non-zero integer a ̸= ±1, a base-a Wieferich prime is a prime number p
+(not dividing a) such that
+ap− 1 ≡ 1
+(︁
+mod p2)︁
+.
+When a =2 , these numbers were classically studied by A. Wieferich in 1909 in connection 
+with Fermat’s Last Theorem [42]. Despite this classical connection, Wieferich primes 
+still remain a mystery. Part of the diﬃculty  in understanding base-a Wieferich primes 
+is their sparsity. Assuming that the quotient ap− 1− 1
+p behaves like a random integer, the 
+“probability ”  it is divisible by p, is 1/p. Therefore, the number of primes less than x
+that are base-a Wieferich primes is expected to be at most O(log logx). In particular, 
+for a ﬁ xed integral base, we would expect the density of base-a Wieferich primes to have 
+a natural density zero among the set of all primes. We refer the interested reader to 
+[7,15– 17,23] for further discussions on probabilistic models concerning Wieferich primes 
+and other algebraic quantities.
+A base-a non-Wieferich prime p is a prime for which ap− 1 ̸≡ 1
+(︁
+mod p2)︁
+. Given the 
+above heuristic, we would expect that for any ﬁ xed base a, almost all primes are base-a
+non-Wieferich primes. There is currently no unconditional result in this direction. The 
+approach that has received the most attention to date is J. Silverman’s use of the abc-
+conjecture to prove that there are inﬁ nitely many base-a non-Wieferich primes in a 
+quantitative form by obtaining a lower bound of log x for the number of primes less than 
+x that are base-a non-Wieferich primes [35]. There have been several works that obtain 
+the inﬁ nitude of non-Wieferich primes under weaker hypotheses than the abc-conjecture 
+(see for example [14,30,34]).
+Using a variation of Silverman’s argument, H. Graves and M.R. Murty [18] proved 
+an analogous conditional result with a weaker lower bound for base-a Wieferich primes 
+lying in certain arithmetic progressions. Recently, Y. Ding in [8] has improved upon the 
+result of Graves and Murty to obtain a lower bound of log x.
+
+N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 211
+Let K/Q be a ﬁ nite algebraic number ﬁ eld and 𝒪 K denote its ring of integers. For 
+x ∈𝒪 K , denote by N(x)= |NK/Q(x)| the absolute value of the norm of x. We will call 
+an element α ∈𝒪 K an admissible Wieferich base if it is non-zero and not a root of unity. 
+In analogy with the integer case, a non-zero prime ideal 𝔭 ⊆𝒪 K is a base-α Wieferich 
+prime if
+αN (𝔭)− 1 ≡ 1
+(︁
+mod 𝔭2)︁
+.
+As with the integer case, we would expect the number of base-α Wieferich primes to be 
+sparse. Indeed, by Lagrange’s theorem, N(αN (𝔭)− 1 − 1)/N(𝔭) is an integer. If we assume 
+that these quotients are randomly distributed among the residue classes (mod N(𝔭)), 
+then the probability that it is the zero class is 1/N(𝔭). By Merten’s theorem for number 
+ﬁelds  we deduce that
+#{prime ideals 𝔭 ⊂𝒪 K : N(𝔭) ≤ x and αN (𝔭)− 1 ≡ 1
+(︁
+mod 𝔭2)︁
+}
+≈
+∑︂
+N (𝔭)≤ x
+1 
+N(𝔭) = O(log logx)
+as x →∞ .
+2. Statement of results
+In contrast to the integer case which was motivated by investigations into Fermat’s 
+last theorem, the study of Wieferich primes in number ﬁ elds has historically been driven 
+by their connection to Euclidean algorithms [5,6,20,31]. The present work was motivated 
+by the following observation about the fundamental units of real quadratic ﬁ elds (cf. 
+Proposition 3.2 of [4]).
+Theorem 2.1. Let d> 2 be a square-free positive integer, K = Q(
+√
+d) be the real quadratic 
+ﬁeld  of discriminant δ2d with δ =1 if d ≡ 1(m o d4 )and δ =2 if d =2 , 3(m o d4 ), and
+ε = δ
+2
+(︂
+t + u
+√
+d
+)︂
+be the fundamental unit of K. Then d ∤ u if and only if for some odd prime divisor p of 
+d,
+εp− 1 ̸≡ 1
+(︁
+mod 𝔭2)︁
+where 𝔭 ∩ Z = p is the prime lying above p in 𝒪 K . In particular, 𝔭 is a base-ε non-
+Wieferich prime.
+
+212 N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 
+When d = p is an odd rational prime, N. Ankeny, E. Artin, and S. Chowla [1,2] (when 
+p ≡ 1(m o d4 )) and independently L. J. Mordell [27] (when p ≡ 3(m o d4 )) conjectured 
+that p ∤ u. Recently, A. Reinhart [32,33] has found primes that violate both of these 
+conjectures. Counterexamples for square-free composite numbers are well-known [26]. 
+For a discussion on the results of Ankeny, Artin, and Chowla, as well as interpretations 
+of the known counterexamples, we refer the reader to [12].
+If we denote the fundamental unit of Q(√ p) by εp and assume that the quotients 
+N(εp− 1 − 1)/p are randomly distributed (mod p), then as above we would expect that
+#{p ≤ x : 𝔭 is ramiﬁ ed and a base-εp Wieferich prime in Q(√ p)}
+≈
+∑︂
+p≤ x
+1 
+p = O(log logx)
+as x →∞ . Theorem 2.1 then implies that this also estimates the number of counterex-
+amples to the Ankeny–Artin – Chowla and Mordell conjectures. Moreover, this estimate 
+agrees with the heuristic argument of L. Washington [41].
+Given the expected similarities between the rational and number ﬁ eld settings it seems 
+fruitful to formulate and prove inﬁ nitude results in the spirit of the results mentioned 
+in the introduction. Our ﬁ rst result is a direct qualitative generalization of Silverman’s 
+result.
+Theorem 2.2. Let K be an algebraic number ﬁ eld and α ∈𝒪 K be an admissible Wieferich 
+base. Assuming Masser’s abc-conjecture for number ﬁ elds, there are inﬁ nitely many prime 
+ideals 𝔭 ⊂𝒪 K such that
+αN (𝔭)− 1 ̸≡ 1
+(︁
+mod 𝔭2)︁
+.
+In the proof of Theorem 2.2, we will see that it is essential that N(αn − 1) →∞ as 
+n →∞ . In the classical setting, verifying this is a routine calculus exercise. For a general 
+number ﬁ eld, this norm condition is comparatively subtle. In Section 5, we will prove, 
+using Siegel’s theorem on integral points, that any admissible Wieferich base satisﬁ es 
+this norm condition.
+There are several known cases of Theorem 2.2 in the literature [19,22,37]. In the case 
+of [22], it is clear that the author had such a norm condition in mind, but the given expla-
+nation overlooks the delicate nature of the quantities involved. Indeed, their inequality 
+(2) is far from obvious and seems to presuppose that there are only ﬁ nitely many so-
+lutions to the equation u + v =1 in 𝒪 ×
+K , a fact that is a straightforward consequence 
+of Siegel’s theorem. In [37], the authors impose Galois theoretic conditions (as well as 
+a class number one assumption) on the bases considered to bypass the norm condition. 
+These restrictions allow only speciﬁ c units to be considered.
+While preparing this manuscript, we were made aware of a preprint by H. Graves 
+and B. Weiss [19]. In this paper, the norm condition is bypassed using Galois theoretic 
+
+N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 213
+hypotheses and additional bounds for the norm under these conditions. Similar to [37], 
+these hypotheses restrict the bases that can be considered. Notably, the Theorem 1 of 
+[19] contains a gap when the bases considered are units. Indeed, their Lemma 6 gives, in 
+essence, a trivial lower bound which doesn’t force any growth for the norms of the ideals 
+considered. The growth of these norms is essential for proving inﬁ nitude.
+We will call a prime ideal 𝔭 a base-α super-Wieferich prime if
+αN (𝔭)− 1 ≡ 1
+(︁
+mod 𝔭3)︁
+.
+Following the heuristic in the beginning of the introduction, the number of base-α super-
+Wieferich primes is expected to be bounded. Following the work of M.R. Murty and F. 
+Séguin [30], we obtain the following.
+Theorem 2.3. Let K be an algebraic number ﬁ eld and α ∈𝒪 K be an admissible Wieferich 
+base. If there are ﬁ nitely many base-α super-Wieferich primes, then there are inﬁ nitely 
+many base-α non-Wieferich primes.
+The interested reader should consult J. Voloch’s article [39] for a complementary 
+result.
+In both settings of Theorem 2.2 and Theorem 2.3, we can obtain the following lower 
+bound.
+Theorem 2.4. Let K be an algebraic number ﬁ eld and α ∈𝒪 K be an admissible Wieferich 
+base. If the abc-conjecture is true or there are ﬁ nitely many base-α super-Wieferich 
+primes then
+#{𝔭 ∈ OK : N(𝔭) ≤ x and αN (𝔭)− 1 ̸≡ 1
+(︁
+mod 𝔭2)︁
+}≫ log x 
+log logx
+as x →∞ . Here, the implied constant can depend on the ﬁ eld K, the base α, and in the 
+case of the abc-conjecture, ϵ.
+3. Connection with the Ankeny–Artin– Chowla and Mordell conjectures
+In this section, d> 2 will denote a square-free integer, Q(
+√
+d) is the real quadratic 
+ﬁeld  of discriminant δ2d with δ =1 if d ≡ 1(m o d4 )and δ =2 if d ≡ 2, 3(m o d4 ), p will 
+denote any odd prime divisor of d, and 𝔭 will denote the prime above p in 𝒪 K . Thus, 
+𝔭2 = p𝒪 K . We will write
+ε = δ
+2
+(︂
+t + u
+√
+d
+)︂
+for the fundamental unit of Q(
+√
+d). Here t and u are integer solutions to the equation 
+t2 − du2 = ±4 chosen so that t+u
+√
+d> 1 is minimal among all solutions when considered 
+as a real number.
+
+214 N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 
+Proof of Theorem 2.1. Suppose p is an odd prime divisor of d. Write εn = tn +
+√
+dun. 
+It will suﬃce  to show that un ≡ 0(m o dp) if and only if p | u or n ≡ 0(m o dp). Indeed, 
+for any positive integer n, we have that
+tn +
+√
+dun = εn = δn
+2n (t + u
+√
+d)n =
+(︃δ
+2
+)︃n n ∑︂
+j=0 
+(︃n
+j
+)︃
+tn− j(u
+√
+d)j.
+Splitting the sum into even and odd indices, we obtain
+εn =
+(︃δ
+2
+)︃n
+⎛
+⎝
+⌊n
+2 ⌋ ∑︂
+j=0 
+(︃n 
+2j
+)︃
+tn− 2jdju2j +
+√
+d
+⌊n
+2 ⌋ ∑︂
+j=0 
+(︃ n 
+2j +1
+)︃
+tn− 2j− 1dju2j+1
+⎞
+⎠ .
+Hence,
+tn =
+(︃δ
+2
+)︃n
+⎛
+⎝
+⌊n
+2 ⌋ ∑︂
+j=0 
+(︃n 
+2j
+)︃
+tn− 2jdju2j
+⎞
+⎠ ≡
+(︃δt
+2 
+)︃n
+(mod p)
+and
+un =
+(︃δ
+2
+)︃n
+⎛
+⎝
+⌊n
+2 ⌋ ∑︂
+j=0 
+(︃ n 
+2j +1
+)︃
+tn− 2j+1dju2j+1
+⎞
+⎠ ≡ n
+(︃δt
+2 
+)︃n u
+t (mod p) .
+We see at once, that as gcd(t, p)=1 , un ≡ 0(m o dp) if and only if p | u or n ≡ 0(m o dp). 
+In particular, for n = p − 1 we see that tp− 1 ≡ 1(m o dp) and up− 1 ≡− u
+t (mod p). Hence 
+up− 1 ≡ 0(m o dp) if and only if p | u. Recalling that 𝔭2 =( p), we have
+εp− 1 ≡ 1
+(︁
+mod 𝔭2)︁
+if and only if p | u. □
+4. Heights and the 𝒂𝒃𝒄-conjecture in number ﬁ elds
+Let K be an algebraic number ﬁ eld. We will say that two absolute values v1 and 
+v2 on K are equivalent if and only if they generate the same topology on K. A place 
+v of K is an equivalence class of absolute values under this relation. A ﬁ nite place, 
+or non-Archimedean place, arises from the valuation associated to each prime ideal of 
+𝒪 K . An inﬁ nite place, or Archimedean place, arises from embeddings of K into the 
+complex numbers. If σ is a real embedding, we call it a real inﬁ nite place. Each complex 
+conjugate pair of embeddings {σ, σ} determine a complex inﬁ nite place. If K/Q has r1
+real embeddings and 2r2 complex embeddings, there are r1 + r2 inﬁ nite places of K. We 
+denote the set of all ﬁ nite places of K by M 0
+K and the set of inﬁ nite places by M∞
+K so 
+that the set of all places of K, MK , is MK = M 0
+K ∪ M∞
+K .
+
+N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 215
+We will denote by N(a): = |NK/Q(a)| the absolute value of the norm of a ∈ K. For 
+each (ﬁ nite and inﬁ nite) place v of K, we normalize the corresponding valuations so that 
+for every x ∈ K× the product formula
+∏︂
+v∈ MK
+||x||v =1
+holds. Precisely, for each ﬁ nite place v of K and corresponding prime ideal 𝔭v, we set 
+||x||v = N(𝔭v)− ord𝔭v (x) where ord𝔭v (x) is the exponent of the ideal 𝔭v in the prime ideal 
+factorization of principal ideal generated by x. For the inﬁ nite places, we normalize so 
+that ||x||v = |x|dv
+v where dv =1 or 2 according to whether v is real or complex.
+Unlike the abc-conjecture for Q, there have been several proposed generalizations for 
+number ﬁ elds, notably, by P. Vojta [38], N. Elkies [9], G. Frey [13], and D. Masser [25]. 
+We will use the version proposed by Masser as it exhibits a nice functorial property 
+under ﬁ eld extensions. We formulate Masser’s abc-conjecture for number ﬁ elds now.
+Suppose that K/Q is an algebraic number ﬁ eld and that a, b, c∈ K×. The height of 
+the tuple (a, b, c) is the product
+HK (a, b, c)=
+∏︂
+v∈ MK
+max(||a||v, ||b||v, ||c||v).
+The ramiﬁ ed support of the tuple (a, b, c) ∈ (K×)3 is deﬁ ned as
+𝒬 K (a, b, c)=
+∏︂
+𝔭∈𝒪 K
+N(𝔭)e(𝔭|p)
+where the product is over those prime ideals 𝔭 for which ||a||𝔭, ||b||𝔭, and ||c||𝔭 are all 
+distinct and e(𝔭|p)=o r d 𝔭(p) is the ramiﬁ cation index of 𝔭 over p. The empty product 
+will be interpreted simply as being 1. Similarly, the ramiﬁ ed support of an ideal I ⊆𝒪 K
+is
+𝒬 K (I): =
+∏︂
+𝔭|I 
+N(𝔭)e(𝔭|p).
+If a, b, c∈ Q, then it is well known that HK (a, b, c)= HQ(a, b, c)[K:Q]. The beneﬁ t of 
+the ramiﬁ ed support is that it shares this property. Indeed, it is a straightforward calcu-
+lation (which can be found in [25]) that if a, b, c∈ Q then 𝒬 K(a, b, c)= 𝒬 Q(a, b, c)[K:Q]. 
+For both the height and support, similar identities hold for any ﬁ nite extension of 
+number ﬁ elds L/K [25]. This is the functorial property we alluded to above. Masser’s 
+abc-conjecture for number ﬁ elds asserts:
+Conjecture (abc-conjecture for number ﬁ elds). Let K/Q be a number ﬁ eld with discrim-
+inant Δ K and ϵ> 0. Suppose a + b = c for a, b, c∈ K×. Then there is a constant Cϵ > 0
+such that
+
+216 N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 
+HK (a, b, c) ≤ Cϵ(Δ K 𝒬 K (a, b, c))1+ϵ.
+We note that both Elkies’ and Frey’s version of the abc-conjecture use what we would 
+call the divisor support which is deﬁ ned by a similar product as the ramiﬁ ed support 
+[9,29]. For our results, Elkies’ version of the abc-conjecture gives a slightly simpliﬁ ed 
+proof as the divisor support can be bounded in a straightforward way.
+We will require the following lower bound for the height function.
+Lemma 4.1. Suppose a, b, c∈𝒪 ×
+K , that a, b, and c are pairwise coprime, and a + b = c. 
+Then
+max(N(a),N (b),N (c)) ≤ HK (a, b, c).
+Proof. Since a, b, c are pairwise coprime, for each ﬁ nite place v, at least one of 
+||a||v, ||b||v, ||c||v is equal to 1. Therefore,
+HK (a, b, c) ≥
+∏︂
+v∈ M∞
+K
+max(||a||v, ||b||v, ||c||v).
+By the product formula, the absolute norm of a non-zero element a ∈𝒪 K is given by
+N(a)=
+∏︂
+v∈ M∞
+K
+||a||v.
+Therefore,
+HK (a, b, c) ≥ N(a) ·
+∏︂
+v∈ M∞
+K
+max(1, ||b/a||v, ||c/a||v) ≥ N(a).
+Interchanging the role of a, b and c, we deduce the result. □
+Just as we deﬁ ned the height of a tuple (a, b, c) ∈ (K×)3, we can deﬁ ne the absolute 
+multiplicative height of α ∈ K× by
+h(α)=
+∏︂
+v∈ MK
+max(1, ||α||v)1/[K:Q].
+This height function and its logarithm have many nice properties and interesting appli-
+cations. We refer the interested reader to the books [40] and [11] for more on heights and 
+their uses. In particular, we have the useful upper bound (which should be compared 
+with the hypothesis of Lemma 4 of [19]).
+Lemma 4.2. Suppose α ∈ K× and that α is not a root of unity. Then
+N(αn − 1) ≤ 2h(α)n.
+
+N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 217
+Proof. This follows immediately from inequality (1.9.2) and Lemma 1.9.2 of [11] upon 
+taking S = M∞
+K . □
+5. An application of Siegel’s theorem
+For a number ﬁ eld K with ring of integers 𝒪 K, we will call a set S of elements in 𝒪 K
+multiplicatively closed if: 1 is in S and if x, y ∈ S, then xy ∈ S. We will make the further 
+assumption that 0 is not in S. Then we deﬁ ne the localization S− 1𝒪 K to be the set
+S− 1𝒪 K :=
+{︂a
+s : a ∈𝒪 K ,s ∈ S
+}︂
+⊂ K
+under the equivalence a 
+s1
+∼ b 
+s2
+if and only if
+as2 − bs1 =0 .
+We will write 𝒪 K,S := S− 1𝒪 K . The ring 𝒪 K has a canonical inclusion in 𝒪 K,S and we 
+call 𝒪 K,S the ring of S-integers. We can alternatively deﬁ ne the ring of S-integers using 
+a set of places. Indeed, if S ⊂ MK is a ﬁ nite set of places of K, then
+𝒪 K,S = {a ∈ K : ||a||v ≤ 1f o r all v/  ∈ S}.
+Proposition 5.1 ([24, Proposition 16]). Let S be a multiplicative set of 𝒪 K , then 𝒪 K,S is 
+a Dedekind domain. The map
+𝔞 ↦→ S− 1𝔞
+is a surjective group homomorphism from the group of fractional ideals of 𝒪 K onto the 
+group of fractional ideals of 𝒪 K,S . Moreover, the kernel of this map is precisely the 
+fractional ideals 𝔞 ⊂𝒪 K such that 𝔞 ∩ S ̸=0 .
+The prime ideals of 𝒪 S are ideals of the form S− 1𝔭 where 𝔭 is a prime ideal of 𝒪 K
+which do not intersect S. If S− 1𝔭 is a prime ideal in 𝒪 S, then its preimage under the 
+map from the proposition is the ideal 𝔭.
+A celebrated theorem of Hecke (see for example page 149 of [28]) that every ideal class 
+contains inﬁ nitely many prime ideals. Since the class number is ﬁ nite, we may choose a 
+prime ideal from each ideal class to comprise a ﬁ nite set S. This observation enables us 
+to state the following useful theorem.
+Proposition 5.2 ([24, Proposition 17]). There is a ﬁ nite multiplicative set S of 𝒪 K such 
+that 𝒪 K,S has class number 1.
+We recall Siegel’s theorem in the form of Corollary IX.3.2.1 from [36].
+
+218 N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 
+Theorem 5.3 (Siegel, 1929). Let E/K be an elliptic curve with Weierstrass coordinates x
+and y, S ⊂ MK a ﬁ nite set of places including all of the inﬁ nite places of K, and 𝒪 K,S
+the ring of S-integers of K. Then
+{P ∈ E(K): x(P) ∈𝒪 K,S}
+is a ﬁ nite set. That is, E has only ﬁ nitely many points with x-coordinates in 𝒪 K,S .
+One can ﬁ nd more about Siegel’s theorem, its applications, and generalizations in [21].
+Proposition 5.4. Let K/Q be a number ﬁ eld and α ∈𝒪 K be an admissible Wieferich 
+base. For any M> 0, there are only ﬁ nitely many positive integers n such that
+N(αn − 1) ≤ M.
+Proof. Towards a contradiction, suppose there exists some M> 0 such that there are 
+inﬁ nitely many n for which
+N(αn − 1) ≤ M.
+From Proposition 5.2, there is a multiplicative set S such that 𝒪 K,S is a PID. In 
+particular, we can take S to be the multiplicative set of all ﬁ nite places associated to the 
+prime ideal factors of each integral ideal representative of the diﬀerent ideal classes of 
+Cl(K) along with all of the inﬁ nite places of K. By Proposition 5.1, 𝒪 K,S is a Dedekind 
+domain. Thus there are only ﬁ nitely many prime ideals of bounded norm and hence 
+ﬁnitely  many prime elements with norm less than M. We enumerate these prime elements 
+as π1,...,π r.
+For each n for which
+N(αn − 1) ≤ M,
+we write
+αn − 1= ηπc1
+1 ··· πcr
+r
+where η ∈𝒪 ×
+K,S, πi ∈𝒪 K,S are prime elements, and ci are non-negative integers. By 
+Dirichlet’s unit theorem for S-integers (Corollary 1.8.2 of [10]), we can write
+η = ζεb1
+1 ··· εbs− 1
+s− 1
+where ζ is a root of unity in K, {εi}s− 1
+i=1 are a fundamental system of units of 𝒪 ×
+K,S, and 
+bi are non-negative integers. Then we write, using the division algorithm,
+bi =3 xi + βi and ci =3 yi + γi
+
+N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 219
+where βi,γi ∈{ 0, 1, 2}. Similarly, for each value of n we will write
+n =2 zn + θn,
+where θn ∈{ 0, 1}. Since N(αn − 1) ≤ M, there are only ﬁ nitely many choices for the ci. 
+Then we consider the family of curves given by
+Ay2 = BX 3 +1
+where
+A = αθn
+and
+B = ζεβ1
+1 ··· εβs− 1
+s− 1 πγ1
+1 ··· πγr
+r .
+There are at most #WK · 2 · r3 · (s − 1)3 curves in this family, where s is the unit 
+rank of 𝒪 K,S, and WK is the set of roots of unity in K. By Siegel’s theorem, each of 
+these curves has only ﬁ nitely many S-integer points. However, by construction, each n
+for which N(αn − 1) ≤ M produces a distinct 𝒪 K,S point on one of the ﬁ nitely many 
+elliptic curves above. This contradicts the ﬁ niteness from Siegel’s theorem and hence 
+there must be only ﬁ nitely many n for which N(αn − 1) ≤ M. □
+As an immediate consequence, we obtain the following norm condition for admissible 
+Wieferich bases.
+Corollary 5.5. If α ∈𝒪 K is an admissible Wieferich base, then N(αn − 1) →∞ as 
+n →∞ .
+6. The factorization of cyclotomic ideals
+Fix an algebraic number ﬁ eld K/Q and a non-zero non-root of unity α ∈𝒪 K . Let 
+Φ n(x) denote the n-th cyclotomic polynomial. Then it is well known that for any algebraic 
+number α,
+αn − 1=
+∏︂
+d|n 
+Φ n(α). (1)
+In this section we study the prime ideal factorization of An(α)=( αn − 1). We will call 
+an ideal a cyclotomic ideal if it is a principal ideal generated by the value of a cyclotomic 
+polynomial. We denote the n-th cyclotomic ideal generated by Φ n(α) by Cn(α). To ease 
+notation we will simply use An and Cn when the base being used is clear. We begin with 
+the following elementary lemma.
+
+220 N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 
+Lemma 6.1. Suppose R is a commutative ring with multiplicative identity 1. If a, b ∈ R, 
+then (a)(b)=( ab). That is, the product of two principal ideals is the ideal generated by 
+the product of the two generators.
+Proof. Since 1 ∈ R, we have that ab ∈ (a)(b) and hence (ab) ⊆ (a)(b). On the other 
+hand,
+(a)(b)=
+{︂
+ab
+∑︂
+xiyi : xi,y i ∈ R
+}︂
+from which we deduce that (a)(b) ⊆ (ab) since we may take xi = yi =1 . □
+Applying the lemma to the factorization in equation (1) we immediately obtain:
+Corollary 6.2. If α ∈𝒪 K , then
+An =
+∏︂
+d|n 
+Cd.
+As in Section 4, for a non-zero prime ideal 𝔭 ⊂𝒪 K and any ideal I of 𝒪 K , we deﬁ ne 
+ord𝔭(I) to be the largest power of 𝔭 occurring in the prime ideal factorization of I. If 
+I is the zero ideal, we set ord𝔭(I)= ∞ . Similarly, for any rational prime p and integer 
+n, we deﬁ ne ordp(n) to be the highest power of p dividing the integer n. We write 𝔭|p
+to denote that the prime 𝔭 lies above the rational prime p and e(𝔭|p)=o r d𝔭(p) for the 
+ramiﬁ cation index of 𝔭|p.
+Suppose 𝔭 is a non-zero prime ideal and that α/  ∈ 𝔭. The order of α (mod 𝔭) is the 
+smallest positive integer fα (𝔭) for which
+αfα (𝔭) ≡ 1(m o d𝔭) .
+By Lagrange’s theorem, fα (𝔭) is bounded by N(𝔭) − 1. Furthermore, let δα (𝔭) denote 
+the exact power of 𝔭 dividing Afα (𝔭), i.e., δα (𝔭)=o r d𝔭(Afα (𝔭)).
+Lemma 6.3. Suppose α ̸∈ 𝔭. Then ord𝔭(Cfα (𝔭))= δα (𝔭).
+Proof. By deﬁnition,  𝔭δα (𝔭) exactly divides Afα (𝔭). By Corollary 6.2, 𝔭δα (𝔭) exactly di-
+vides
+∏︂
+d|fα (𝔭)
+Cd
+and hence 𝔭 must divide Cd for at least one divisor d of fα (𝔭). If 𝔭 | Cd for any proper 
+divisor d of f𝔭, then 𝔭 divides
+
+N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 221
+Cd
+∏︂
+e|d
+e̸=d
+Ce = Ad.
+Since d<f α (𝔭), this contradicts the minimality of fα (𝔭). Hence, ord𝔭(Cfα (𝔭))=  δα (𝔭). □
+This determines the power of 𝔭 that occurs in the factorization of Cn when n = fα (𝔭). 
+We follow an argument of E. Artin [3] to classify the powers of 𝔭 that can divide the 
+cyclotomic ideals when n ̸= fα (𝔭).
+Lemma 6.4. Let K/Q be an algebraic number ﬁ eld, α ∈𝒪 K be non-zero and not a root 
+of unity, and p an odd unramiﬁ ed rational prime. If 𝔭|p is a prime ideal, then
+ord𝔭(Cn)=
+⎧
+⎪⎪
+⎨
+⎪⎪⎩
+δ
+α (𝔭) if n = fα (𝔭),
+1 if n = pifα (𝔭) for any i ≥ 1, and
+0 otherwise.
+Proof. The ﬁ rst case is handled by the previous lemma. We will dispense of the third 
+case next. Fix a rational prime p. Suppose n = pifα (𝔭)m for some i ≥ 0 and integer 
+m> 1 coprime to p. Set r = pifα (𝔭). Then,
+αn − 1
+αr − 1 =
+m− 1∑︂
+k=0 
+αrk.
+Since αfα (𝔭) ≡ 1(m o d𝔭) and gcd(p, m)=1 we deduce that
+αn − 1
+αr − 1 ≡ m ̸≡ 0(m o d𝔭) .
+Since Φ n(α) divides α n− 1
+α r− 1 , we deduce that ord𝔭(Cn)=0 .
+In the second case, we set n = pifα (𝔭) and r = pi− 1fα (𝔭) for some i ≥ 1. Then,
+Φ n(α)= αn − 1
+αr − 1 =
+p ∑︂
+k=1
+(︃p 
+k
+)︃
+(αr − 1)k− 1.
+For 2 ≤ k ≤ p, we have that
+ord𝔭
+(︃(︃p 
+k
+)︃
+(αr − 1)k− 1
+)︃
+≥ e(𝔭|p)+( k − 1)δα (𝔭) ≥ 2
+since e(𝔭|p)=1 and (k − 1)δα (𝔭) ≥ 1. Therefore,
+Φ n(α) ≡ p ̸≡ 0
+(︁
+mod 𝔭2)︁
+as p is unramiﬁ ed. □
+
+222 N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 
+We remark that the ﬁ rst and third parts of the lemma remain unchanged if we consider 
+odd ramiﬁ ed primes or primes above 2. In the odd ramiﬁ ed case, it is evident from the 
+above calculation that ord𝔭(Cpifα (𝔭)) ≥ 2. For 𝔭|2, we have that ord𝔭(C2ifα (𝔭)) > 0.
+The previous lemma allows us to quickly determine the following:
+Lemma 6.5. Suppose gcd(m, n)=1 . Then gcd(Am,A n)=( α − 1)𝒪 K .
+Proof. If m = n =1 , then the result is trivially true. Suppose now gcd(m, n)=1 and 
+that at least one of m or n is greater than 1. Without loss of generality assume m> 1. 
+Using the factorizations
+Am =
+∏︂
+d|m
+Cm and An =
+∏︂
+e|n 
+Cn.
+it is clear that C1 = A1 divides both Am and An. Suppose d and e are non-trivial divisors 
+of m and n respectively. If 𝔭 | Cd the previous lemma implies that d = fα (𝔭)pi for some 
+i ≥ 0. Since d and e are coprime we deduce that ord𝔭(Ce)=0 . Therefore, the cyclotomic 
+ideals are coprime for coprime indices and hence,
+gcd(Am,A n)= A1
+as desired. □
+We will call a non-zero ideal I square-free if ord𝔭(I) ≤ 1 for all prime ideals 𝔭. We 
+will say I is powerful if ord𝔭(I) ≥ 2 for all prime ideal divisors 𝔭 of I.
+Lemma 6.6. Suppose An = UnVn where Un is square-free and Vn is powerful. If 𝔭 | Un, 
+then
+αN (𝔭)− 1 ̸≡ 1
+(︁
+mod 𝔭2)︁
+.
+Proof. Let fα (𝔭) denote the order of α (mod 𝔭) and write
+An =
+∏︂
+d|n 
+Cn.
+Since 𝔭 | Un we have that
+ord𝔭(An)=
+∑︂
+d|n 
+ord𝔭(Cd)=1 .
+Lemma 6.4 implies that n = mfα (𝔭) for some positive integer m coprime to the rational 
+prime p below 𝔭. Thus, ord𝔭(Cfα (𝔭))=1= δ𝔭 by Lemma 6.3. Moreover,
+
+N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 223
+AN (𝔭)− 1 = Cf𝔭(α )
+∏︂
+d|(N (𝔭)− 1)
+d̸=fα (𝔭)
+Cd.
+Since N(𝔭) − 1 is coprime to the rational prime p, Lemma 6.4 implies that ord𝔭(Cd)=0
+for each Cd in the product. Hence, ord𝔭(AN (𝔭)− 1)=o r d𝔭(Cfα (𝔭))=1 . □
+7. Proof of Theorem 2.2
+We will require a couple of elementary lemmas before proving Theorem 2.2.
+Lemma 7.1. Suppose {𝔟n}n≥ 1 is a sequence of square-free ideals of 𝒪 K . If N(𝔟n) →∞
+as n →∞ , then
+{𝔭 ∈𝒪 K : 𝔭 is a prime ideal and 𝔭 | 𝔟n for some n}
+is unbounded.
+Proof. Towards a contradiction, suppose there are only ﬁ nitely many primes in the above 
+set, say 𝔭1,..., 𝔭r. Then for any n ≥ 1,
+N(𝔟n) ≤
+r∏︂
+i=1
+N(𝔭i),
+since 𝔟n is square-free. The product on the right is bounded and independent of n. This 
+implies that limn→∞ N(𝔟n) <B< ∞ , a contradiction. □
+Lemma 7.2. Let K/Q be an algebraic number ﬁ eld and α ∈ OK be an admissible 
+Wieferich base. As above, let (αn − 1) = An = UnVn. Then
+𝒬 K (Un) ≤ N(Un)[K:Q]
+and
+𝒬 K (Vn) ≪ K
+√︁
+N(Vn).
+Proof. The ﬁ rst inequality is trivial upon noting that the ramiﬁ cation index of any prime 
+ideal 𝔭 is bounded by the degree of the extension [K : Q] and that ord𝔭(Un)=1 for all 
+prime ideal divisors 𝔭 of Un. By deﬁnition  we have that ord𝔭(Vn) ≥ 2 for all 𝔭 | Vn. If 
+𝔭 | Vn and e(𝔭|p)=1 we have that
+∏︂
+𝔭|Vn
+e(𝔭|p)=1
+N(𝔭)2e(𝔭|p) ≤
+∏︂
+𝔭|Vn
+e(𝔭|p)=1
+N(𝔭)ord𝔭(Vn).
+
+224 N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 
+If 𝔭 | Vn and e(𝔭|p) ≥ 2 we have that
+∏︂
+𝔭|Vn
+e(𝔭|p)≥ 2
+N(𝔭)2e(𝔭|p) ≤
+∏︂
+𝔭|Vn
+e(𝔭|p)≥ 2
+N(𝔭)2[K:Q]+ord𝔭(Vn) ≤ A2 ∏︂
+𝔭|Vn
+e(𝔭|p)≥ 2
+N(𝔭)ordp(Vn),
+where
+A =
+∏︂
+𝔭⊂𝒪 K
+e(𝔭|p)≥ 2
+N(𝔭)[K:Q].
+We note that A< ∞ as there are only ﬁ nitely many ramiﬁ ed primes in 𝒪 K. In all, we 
+deduce that
+𝒬 K (Vn)2 =
+∏︂
+𝔭|Vn
+N(𝔭)2e(𝔭|p) ≤ A2 ∏︂
+𝔭|Vn
+e(𝔭|p)=1
+N(𝔭)ord𝔭(Vn) ∏︂
+𝔭|Vn
+e(𝔭|p)≥ 2
+N(𝔭)ordp(Vn) = A2N(Vn).
+Hence, 𝒬 K (Vn) ≪ K
+√︁
+N(Vn). □
+Proof of Theorem 2.2. Let α be an admissible Wieferich base for the ﬁ eld K. As in 
+Lemma 6.6 we will write An =( αn − 1) = UnVn for Un square-free and Vn powerful. 
+Towards a contradiction, suppose that N(Un) is bounded as n →∞ . We will show that 
+this implies that n must be bounded.
+Fix ϵ∈ (0, 1). Applying the abc-conjecture to the (tautological) equation
+1+( αn − 1) = αn
+we obtain the inequality
+H(1,α n,α n − 1) ≪ K,ϵ,α (𝒬 (1,α n,α n − 1))1+ϵ .
+It is clear that 1,α n − 1, and αn are pairwise coprime. Therefore,
+𝒬 (1,α n,α n − 1) = 𝒬 (α)𝒬 (αn − 1).
+By Lemma 7.2, we deduce that
+𝒬 (αn − 1) =
+∏︂
+𝔭|An
+N(𝔭) ≪ K N(Un)[K:Q]N(Vn)1/2.
+Inputting these bounds into the abc-conjecture and using Lemma 4.1 we ﬁ nd
+N(Vn)
+1− ϵ
+2 ≪ K,α,ϵ 𝒬 (α)1+ϵN(Un)(1+ϵ)[K:Q]− 1.
+
+N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 225
+Since α is ﬁ xed, 𝒬 (α) is a ﬁ xed and by assumption, limn→∞ N(Un) <B for some 
+ﬁnite  constant B. Therefore, N(Vn) must also be bounded as n →∞ . This contradicts 
+Corollary 5.5. Hence, {Un}n≥ 1 is a sequence of square-free ideals with norm going to 
+inﬁ nity. By Lemma 6.6 we conclude that there must be inﬁ nitely many base-α non-
+Wieferich primes. □
+8. Proof of Theorem 2.3
+We will call a prime ideal 𝔭 a base-α super-Wieferich prime if
+αN (𝔭)− 1 ≡ 1
+(︁
+mod 𝔭3)︁
+.
+Theorem 8.1. Suppose α is an admissible Wieferich base. If there are ﬁ nitely many base-α
+super-Wieferich primes, then there are inﬁ nitely many base-α non-Wieferich primes.
+Proof. Suppose there are ﬁ nitely many base-α super-Wieferich primes. We will consider 
+a set T of odd rational primes whose members satisfy all of the following conditions:
+(i) q ∈ T if any prime 𝔮 above q is not a base-α super-Wieferich prime.
+(ii) q ∈ T if for any base-α super-Wieferich prime 𝔭, fα (𝔭) ̸= q.
+(iii) q ∈ T if no prime 𝔮 above q divides A1 =( α − 1)𝒪 K .
+We note that as there are only ﬁ nitely many base-α super-Wieferich primes and ﬁ nitely 
+many prime ideals dividing A1, conditions (i)– (iii) remove only ﬁ nitely many rational 
+primes from consideration. Therefore, T contains inﬁ nitely many rational primes.
+Condition (iii) ensures no prime 𝔮|q divides Cq. Indeed, suppose that 𝔮 | Cq. Then,
+αq ≡ 1(m o d𝔮) .
+Since f𝔮 is the order of α (mod 𝔮), we must have that f𝔮 | q. As q is a rational prime, 
+this implies that fα (𝔮)= q or fα (𝔮)=1 . By Lagrange’s theorem, the ﬁ rst case cannot 
+happen as N(𝔮)− 1 and q are coprime. In the second case, we deduce that α ≡ 1(m o d𝔮).
+Suppose 𝔭|p divides Cq for some q ∈ T. Then Lemma 6.4 implies that q = pifα (𝔭)
+for some i ≥ 0. We note that we cannot have that fα (𝔭)=1 and q = p as it violates 
+condition (iii). Hence, for every q ∈ T if 𝔭 is a prime ideal dividing Cq we must have that 
+q = fα (𝔭) and that v𝔭(Cq)= δα (𝔭).
+We can now state precisely which primes can divide Cq and to which power.
+• Non-Wieferich prime factors. Suppose that 𝔭 is a base-α non-Wieferich prime, i.e., 
+δα (𝔭)=1 . If 𝔭 | Cq for some q ∈ T, then v𝔭(Cq)=1 .
+• Super-Wieferich prime factors. If 𝔭 is a super-Wieferich prime factor of Cq for some 
+q ∈ T, then fα (𝔭)= q. This violates condition (ii) for membership in T. Therefore, 
+no super-Wieferich prime can divide Cq.
+
+226 N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 
+• Wieferich prime factors. Suppose 𝔭 is a Wieferich prime but not a super-Wieferich 
+prime, i.e., δα (𝔭)=2 . If 𝔭 | Cq for some q ∈ T, then v𝔭(Cq)=2 .
+We now proceed by contradiction. Suppose there are ﬁ nitely many non-Wieferich 
+primes in T, say 𝔭1,..., 𝔭r. For each prime q ∈ T we will consider the factorization of 
+Cq. From the above, for each q ∈ T we obtain a factorization of the form
+Cq = 𝔭ϵ1
+1 ··· 𝔭ϵr
+r w2
+where ϵi ∈{ 0, 1} and w is a product of distinct base-α Wieferich primes.
+Let S be a multiplicative set so that 𝒪 K,S has class number one. The prime ideals of 
+𝒪 K,S are of the form S− 1𝔭 for prime ideals 𝔭 ∈𝒪 K that do not meet S, i.e., 𝔭 ∩ S = ∅. 
+If 𝔭 ∩ S, then 𝔭 becomes the unit ideal in 𝒪 K,S. We will denote by s, the unit rank of 
+𝒪 K,S. Localizing the ideal Cq at S gives:
+S− 1Cq =( S− 1𝔭1)ϵ1 ··· (S− 1𝔭r)ϵr (S− 1w)2.
+By assumption there are ﬁ nitely many non-Wieferich primes and hence there are in-
+ﬁnitely  many non-Wieferich primes. As such, there are only ﬁ nitely many primes q for 
+which S− 1Cq is the unit ideal in 𝒪 K,S. If 𝔭i is a non-Wieferich prime that does not meet 
+S, then S− 1𝔭i is a prime ideal in 𝒪 K,S, and hence principal. Write πi for the prime 
+element that generates each S− 1𝔭i. Without loss of generality, we assume that there are 
+0 ≤ m ≤ r such πi. Assume that N is positive integer such that if q ∈ T and q ≥ N
+then S− 1Cq is not the unit ideal. Then for each q ≥ N we have the following equation 
+in 𝒪 K,S:
+αq − 1=( α − 1)ηπϵ1
+1 ··· πϵm
+m w′ 2
+where w′ is a product of distinct localized Wieferich primes and η is a unit of 𝒪 K,S. 
+We can write η = ζεt1
+1 ··· εts− 1
+s− 1 where ζ is a root of unity of 𝒪 K and {εi}s− 1
+i=1 is a 
+fundamental system of S-units. For each prime q we write q =3 qi + βi and for each ti
+we write ti =2 ℓi + γi where βi ∈{ 0, 1, 2} and γi ∈{ 0, 1}. We consider the ﬁ nite family 
+of elliptic curves deﬁ ned over K by
+(α − 1)AY 2 = BX 3 − 1
+where
+A = ζεγi
+1 ··· εγi
+s− 1πϵ1
+1 ··· πϵm
+m and B = αβi .
+Denoting by WK the set of the roots of unity in 𝒪 K, there are at most #WK ·2m+s− 1·3
+many curves in this family. By construction each prime q ∈ T produces a unique 𝒪 K,S
+solution to one of these curves. However, this contradicts Siegel’s theorem which implies 
+
+N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 227
+that each of these curves has only ﬁ nitely many solutions in 𝒪 K,S and hence the entire 
+family of curves has only ﬁ nitely many 𝒪 K,S solutions. Therefore, there must be inﬁ nitely 
+many non-Wieferich primes. □
+9. Proof of Theorem 2.4
+Proof of Theorem 2.4. We deﬁ ne two sets
+S1(x) = {prime ideals 𝔭 ⊆𝒪 K : N(𝔭) ≤ x and α N (𝔭)− 1 ̸≡ 1
+(︁
+mod 𝔭2)︁
+}
+S2(x) = {prime ideals 𝔭 ⊆𝒪 K : 𝔭 | Un for some n and N(Un) ≤ x}.
+By Lemma 6.6, it is clear that S2(x) ⊆ S1(x) so we will ﬁ nd a lower bound for S2(x). 
+Theorem 2.2 and Theorem 2.3 imply that N(Un) →∞ . As such, there is a positive 
+integer M (depending on K, ϵ, and possibly α) such that N(Un) ≥ N(α − 1) for all 
+n ≥ M.
+By Lemma 4.2 we see that N(αn − 1) ≤ x if
+n ≤ log(x
+2 ) 
+log h(α).
+Noting that log(x/2) ≥ 1
+2 log(x) for all x ≥ 4, any positive integer n ≤ log x 
+2l o gh(α ) will 
+satisfy N(αn − 1) ≤ x. Since N(Un) >N (U1) for all n ≥ M, there must be some prime 
+ideal divisor of Un that does not divide (α − 1)𝒪 K . This observation combined with 
+Lemma 6.5 implies that for each rational prime q in the range
+M ≤ q ≤ log x 
+log h(α)
+there is some prime ideal 𝔭 such that 𝔭 | Uq and 𝔭 ∤ Uℓ for any other rational prime ℓ̸= q. 
+Hence,
+S2(x) ⊇
+{︃
+rational primes p : M ≤ p ≤ log x 
+2l o gh(α)
+}︃
+where π(x) is the prime counting function. We deduce
+|S1(x)|≥| S2(x)|≥ π
+(︃ log x 
+2l o gh(α)
+)︃
+− π(M).
+Using any sort of Chebyshev-like lower bound for the prime counting function, π(x), and 
+noting that π(M)= O(1), we conclude
+|S1(x)|≫ K,α,ϵ
+log x 
+log logx
+as x →∞ . □
+
+228 N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 
+Acknowledgments
+The research of the ﬁ rst author was partially supported by an Ontario Graduate Schol-
+arship. Research of the second author was partially supported by an NSERC Discovery 
+grant. We thank the anonymous referee for their helpful comments.
+Data availability
+No data was used for the research described in the article.
+References
+[1] N.C. Ankeny, E. Artin, S. Chowla, The class-number of real quadratic ﬁ elds, Proc. Natl. Acad. Sci. 
+USA 37 (1951) 524– 525, https://doi.org/10.1073/pnas.37.8.524.
+[2] N.C. Ankeny, E. Artin, S. Chowla, The class-number of real quadratic number ﬁ elds, Ann. Math. 
+(2) 56 (1952) 479– 493, https://doi.org/10.2307/1969656.
+[3] E. Artin, The orders of the linear groups, Commun. Pure Appl. Math. 8 (1955) 355– 365, https://
+doi.org/10.1002/cpa.3160080302.
+[4] Z. Bouazzaoui, Fibonacci numbers and real quadratic p-rational ﬁ elds, Period. Math. Hung. 81 
+(2020) 123– 133, https://doi.org/10.1007/s10998-020-00320-7.
+[5] D.A. Clark, The Euclidean algorithm for Galois extensions of the rational numbers, Thesis 
+(Ph.D.)– McGill University (Canada), ProQuest LLC, Ann Arbor, MI, 1992.
+[6] D.A. Clark, M.R. Murty, The Euclidean algorithm for Galois extensions of Q, J. Reine Angew. 
+Math. 459 (1995) 151– 162.
+[7] R. Crandall, K. Dilcher, C. Pomerance, A search for Wieferich and Wilson primes, Math. Comput. 
+66 (1997) 433– 449, https://doi.org/10.1090/S0025-5718-97-00791-6.
+[8] Y. Ding, Non-Wieferich primes under the abc conjecture, C. R. Math. Acad. Sci. Paris 357 (2019) 
+483– 486, https://doi.org/10.1016/j.crma.2019.05.007.
+[9] N.D. Elkies, ABC implies Mordell, Int. Math. Res. Not. (1991) 99– 109, https://doi.org/10.1155/
+S1073792891000144.
+[10] J.H. Evertse, On equations in S-units and the Thue-Mahler equation, Invent. Math. 75 (1984) 
+561– 584, https://doi.org/10.1007/BF01388644.
+[11] J.H. Evertse, K. Győry, Unit Equations in Diophantine Number Theory, Cambridge Studies in 
+Advanced Mathematics, vol. 146, Cambridge University Press, Cambridge, 2015, https://doi.org/
+10.1017/CBO9781316160749.
+[12] N. Fellini, Congruence relations of Ankeny–Artin – Chowla type for real quadratic ﬁ elds, Int. J. 
+Number Theory 21 (2025) 1317– 1335, https://doi.org/10.1142/S179304212550068X.
+[13] G. Frey, On ternary equations of Fermat type and relations with elliptic curves, in: Modular Forms 
+and Fermat’s Last Theorem, Boston, MA, 1995, Springer, New York, 1997, pp. 527– 548.
+[14] A. Granville, Powerful numbers and Fermat’s last theorem, C. R. Math. Rep. Acad. Sci. Can. 8 
+(1986) 215– 218.
+[15] G. Gras, Étude probabiliste des quotients de Fermat, Funct. Approx. Comment. Math. 54 (2016) 
+115– 140, https://doi.org/10.7169/facm/2016.54.1.9.
+[16] G. Gras, Les θ-régulateurs locaux d’un nombre algébrique: conjectures p-adiques, Can. J. Math. 68 
+(2016) 571– 624, https://doi.org/10.4153/CJM-2015-026-3.
+[17] G. Gras, On the order modulo p of an algebraic number, J. Théor. Nr. Bordx. 30 (2018) 307– 329, 
+https://doi.org/10.5802/jtnb.1027.
+[18] H. Graves, M.R. Murty, The abc conjecture and non-Wieferich primes in arithmetic progressions, 
+J. Number Theory 133 (2013) 1809– 1813, https://doi.org/10.1016/j.jnt.2012.10.012.
+[19] H. Graves, B. Weiss, The abc conjecture implies inﬁ nitely many non-Wieferich places for ﬁ xed bases 
+in number ﬁ elds, https://doi.org/10.48550/arXiv.2503.19144, arXiv:2503.19144 [math], 2025.
+[20] M. Harper, M.R. Murty, Euclidean rings of algebraic integers, Can. J. Math. 56 (2004) 71– 76, 
+https://doi.org/10.4153/CJM-2004-004-5.
+[21] M. Hindry, J.H. Silverman, Diophantine Geometry, Graduate Texts in Mathematics, vol. 201, 
+Springer-Verlag, New York, 2000, https://doi.org/10.1007/978-1-4612-1210-2, An introduction.
+
+N. Fellini,  M.R. Murty  / Journal of Number Theory 285 (2026) 209– 229 229
+[22] H. Ichimura, A note on Greenberg’s conjecture and the abc conjecture, Proc. Am. Math. Soc. 126 
+(1998) 1315– 1320, https://doi.org/10.1090/S0002-9939-98-04196-3.
+[23] N.M. Katz, Wieferich past and future, in: Topics in Finite Fields, in: Contemp. Math., vol. 632, 
+Amer. Math. Soc., Providence, RI, 2015, pp. 253– 270, https://doi.org/10.1090/conm/632/12632.
+[24] S. Lang, Algebraic Number Theory, second ed., Graduate Texts in Mathematics, vol. 110, Springer-
+Verlag, New York, 1994, https://doi.org/10.1007/978-1-4612-0853-2.
+[25] D.W. Masser, On abc and discriminants, Proc. Am. Math. Soc. 130 (2002) 3141– 3150, https://
+doi.org/10.1090/S0002-9939-02-06589-9.
+[26] R.A. Mollin, P.G. Walsh, A note on powerful numbers, quadratic ﬁ elds and the Pellian, C. R. Math. 
+Rep. Acad. Sci. Can. 8 (1986) 109– 114.
+[27] L.J. Mordell, On a Pellian equation conjecture. II, J. Lond. Math. Soc. 36 (1961) 282– 288.
+[28] M.R. Murty, J. Esmonde, Problems in Algebraic Number Theory, second ed., Graduate Texts in 
+Mathematics, vol. 190, Springer-Verlag, New York, 2005.
+[29] M.R. Murty, V.K. Murty, A variant of the Lang-Trotter conjecture, in: Number Theory, Analysis and 
+Geometry, Springer, New York, 2012, pp. 461– 474, https://doi.org/10.1007/978-1-4614-1260-1_21.
+[30] M.R. Murty, F.C. Séguin, Prime divisors of sparse values of cyclotomic polynomials and Wieferich 
+primes, J. Number Theory 201 (2019) 1– 22, https://doi.org/10.1016/j.jnt.2019.02.016.
+[31] M.R. Murty, K. Srinivas, M. Subramani, Admissible primes and Euclidean quadratic ﬁ elds, J. Ra-
+manujan Math. Soc. 33 (2018) 135– 147.
+[32] A. Reinhart, A counterexample to the conjecture of Ankeny, Artin and Chowla, http://arxiv.org/
+abs/2410.21864, arXiv:2410.21864 [math], 2024.
+[33] A. Reinhart, A counterexample to the Pellian equation conjecture of Mordell, Acta Arith. 215 (2024) 
+85– 95, https://doi.org/10.4064/aa240214-3-4.
+[34] A. Schinzel, R. Tijdeman, On the equation ym = P (x), Acta Arith. 31 (1976) 199– 204, https://
+doi.org/10.4064/aa-31-2-199-204.
+[35] J.H. Silverman, Wieferich’s criterion and the abc-conjecture, J. Number Theory 30 (1988) 226– 237, 
+https://doi.org/10.1016/0022-314X(88)90019-4.
+[36] J.H. Silverman, The Arithmetic of Elliptic Curves, second ed., Graduate Texts in Mathematics, 
+vol. 106, Springer, Dordrecht, 2009, https://doi.org/10.1007/978-0-387-09494-6.
+[37] K. Srinivas, M. Subramani, Non-Wieferich primes in number ﬁ elds and abc-conjecture, Czechoslov. 
+Math. J. 68 (143) (2018) 445– 453, https://doi.org/10.21136/CMJ.2018.0485-16.
+[38] P. Vojta, Diophantine Approximations and Value Distribution Theory, Lecture Notes in Mathemat-
+ics, vol. 1239, Springer-Verlag, Berlin, 1987, https://doi.org/10.1007/BFb0072989.
+[39] J.F. Voloch, Elliptic Wieferich primes, J. Number Theory 81 (2000) 205– 209, https://doi.org/10.
+1006/jnth.1999.2471.
+[40] M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups, Grundlehren der math-
+ematischen Wissenschaften [Fundamental Principles of Mathematical Sciences], vol. 326, Springer-
+Verlag, Berlin, 2000, https://doi.org/10.1007/978-3-662-11569-5, Transcendence properties of the 
+exponential function in several variables.
+[41] L.C. Washington, Introduction to Cyclotomic Fields, Graduate Texts in Mathematics, vol. 83, 
+Springer-Verlag, New York, 1982, https://doi.org/10.1007/978-1-4684-0133-2.
+[42] A. Wieferich, Zum letzten Fermatschen Theorem, J. Reine Angew. Math. 136 (1909) 293– 302, 
+https://doi.org/10.1515/crll.1909.136.293.

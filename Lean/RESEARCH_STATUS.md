@@ -10,10 +10,112 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
-## September 1, 2026 balanced-persistence continuation: global arithmetic filters
+## September 1, 2026 five-route continuation: packet attacks, recursive lifts, and the pinned LANA audit
+
+The standard unconditional `ABCConjecture` remains unproved and undisproved.
+The work below advances positive deductions and counterexample searches in
+parallel.  A bounded search with no hit is never promoted to an infinite
+theorem, and a counterexample closes only the exact statement whose complete
+hypotheses it satisfies.  The unified mathematical ledger is
+`../research/ABC_MULTI_ROUTE_GLOBAL_PACKET_CONTINUATION_2026_09_01.md`.
+
+- **Affine radical-step route.**  The generalized shear works for every
+  `Q` containing the prime support of the seed, in particular for the minimal
+  step `Q=rad(abc)`.  It preserves primitivity and all three pair-projection
+  injections while improving the raw supply from the `abc`-step exponent to
+  the radical-step exponent.  Multiples of the minimal step give nested
+  subfamilies rather than independent amplification.  Given the established
+  exceptional upper bound, the eventual matching lower bound is logically
+  equivalent to boundedness of the subcritical seed locus; its reverse
+  implication is vacuous above a height threshold.  The fixed-CRT-template
+  main term is too small, but large-period boundary terms, unions of templates,
+  and accidental solutions remain open.  The exact `(1,8,9)` search over
+  447,120,793 admissible points has no exception, and the certified all-square
+  rows are nonexceptional.  These are finite no-go results, not a refutation of
+  the eventual lower gate.  See
+  `../research/ABC_AFFINE_MATCHING_LOWER_GATE_2026_09_01.md` and
+  `IUTThreeClosures/AffineRadicalStep20260901.lean`.
+- **Balancing-Pell global packet route.**  The exact prime-power rank formula
+  and two-channel quotient coupling are now proved.  The global alternative
+  extracted from Fellini--Murty Section 8 was obtained only after auditing and
+  repairing the printed proof architecture; it is not an unchanged invocation
+  of the published argument or the literal wording of its Theorem 2.3.  The
+  exhaustive scan of all 5,761,454 odd primes through `10^8` finds exactly
+  `13,31,1546463`, all at depth two, and no depth-three prime.  Exact examples
+  at `13` and `1546463` refute the proposed channel, prime-rank, and boundary-
+  equality shortcuts to valuation one.  They do not refute the required
+  four-prime, two-depth-three packet exclusion, which remains active.  See
+  `../research/ABC_PELL_GLOBAL_PACKET_ATTACK_2026_09_01.md` and
+  `IUTThreeClosures/PellPrimeRankCounterexamples20260901.lean`.
+- **Danilov recursive-lift route.**  The orbit has an exact Fibonacci-index
+  identity.  A simple primitive divisor at every adaptive index supplies a
+  fresh nondegenerate prime-square lift; iteration would then contradict the
+  finite prime support of one fixed nonzero integer.  The exact computation
+  constructs 626 packets and a 4,398-digit modulus with exactly 638 prime
+  factors.  Failure to find a next packet with `p<=10^8` is only a finite
+  endpoint.  The explicit mod-49 countermodel refutes automatic infinite
+  continuation from a one-step abstract slope, while leaving the actual
+  Fibonacci/Danilov route open.  See
+  `../research/ABC_DANILOV_RECURSIVE_LIFT_2026_09_01.md` and
+  `IUTThreeClosures/DanilovRecursiveLift20260901.lean`.
+- **Fibonacci simple-primitive-divisor route.**  The mathematical audit shows
+  that a primitive divisor at an index `n>5`, `5|n`, is split and satisfies
+  `p ≡ 1 (mod n)`; repeatedness is exactly the relevant Fibonacci-Wieferich
+  condition.  At the current Danilov endpoint, failure of simplicity would
+  force a powerful primitive cyclotomic factor supported on Wall--Sun--Sun
+  primes, including one at least `41*n+1`.  This is a necessary condition,
+  not a contradiction.  The real nondegenerate coprime-parameter Lucas
+  sequence `P=2,Q=-3` has unique primitive prime `11` at index ten with
+  `11^2 || U_10`.  Lean therefore closes the exact sequence-uniform claim
+  that standard real Lucas hypotheses force a simple primitive divisor at
+  every `10*q`.  The example is not Fibonacci and does not close the Danilov
+  SPD route.  The further exact example `n=15,p=61` closes the parity-free
+  half-Lucas sign lemma omitted from an earlier draft; all actual indices
+  `10Q` are even, so the corrected auxiliary statement remains applicable.
+  A bounded search certifies 207 of 252 eligible `Q<=1000`; the
+  remaining 45 are unresolved, and the absence of a found counterexample is
+  not a proof.  See
+  `../research/ABC_DANILOV_SIMPLE_PRIMITIVE_DIVISOR_2026_09_01.md` and
+  `IUTThreeClosures/DanilovSimplePrimitiveNoGo20260901.lean`.
+- **Pinned LANA and same-pilot route.**  At Project LANA commit `ddaddc2`,
+  the actual `RHSData D` signature is uninhabited: weight normalization gives
+  a component, while the real-valued prime-preimage shift asserted for every
+  set gives `log 2=0` when applied to the empty set.  Thus the assembled
+  variant-data type is empty and its universal target is vacuous.  This rules
+  out only that pinned low-resolution signature as a satisfiable specification;
+  it proves neither the intended Corollary 3.12 nor a failure of IUT or abc.
+  A corrected nonempty/finite-volume interface and the object-level pointed
+  same-pilot certificate remain positive open routes.  See
+  `../research/ABC_IUT_LANA_SAME_PILOT_AUDIT_2026_09_01.md` and
+  `IUTThreeClosures/IUTLanaSpecificationNoGo20260901.lean`.
+
+The five new Lean modules formalize only their proved elementary and exact
+counterexample cores.  In particular, no unformalized Fibonacci valuation,
+primitive-divisor, or large-prime literature theorem is inserted as a Lean
+axiom.  There is still no terminal Lean term of `ABCConjecture` or its
+negation.
+
+The frozen global replay package is
+`verification/2026_09_01_global_packet_continuation/README.md`.  It counts
+122 theorem/lemma declarations, 37 definitions or abbreviations, and five
+structures/classes/inductives, for 164 top-level declarations.  All 83
+declaration-level `#print axioms` commands report only `Classical.choice`,
+`propext`, and `Quot.sound` in union.  The five direct compilations have zero
+warnings; `lake build IUTThreeClosures` completes 9194 jobs, and all four
+computation manifests plus the pinned IUT snapshot and its dedicated replay
+pass.  The package `SHA256SUMS` hash is
+`da4e28c8e80c0439bb8a9954bbe76cbc853bbeda1a04c735721890b766f17e8f`.
+The corresponding ChatGPT-authored 119-page paper is
+`../output/pdf/ChatGPT_ABC_Global_Packet_Continuation_2026_09_01.pdf`; its
+SHA256 is
+`6d3e1faed22053e973f8d87fd669423d7c02a8bed6cc557435a9458b3d8b237e`,
+with QA at
+`../output/pdf/ChatGPT_ABC_Global_Packet_Continuation_2026_09_01_QA/QA.md`.
+
+## September 1, 2026 earlier balanced-persistence checkpoint: global arithmetic filters
 
 The standard unconditional `ABCConjecture` remains unproved and
-undisproved.  The current synthesis is
+undisproved.  This checkpoint's synthesis is
 `../research/ABC_BALANCED_PERSISTENCE_CONTINUATION_2026_09_01.md`.
 
 - **Affine shear.**  For inherited seed radical `R`, target cap `X`, and
@@ -49,7 +151,7 @@ dependency output is contained in `propext`, `Classical.choice`, and
 `Quot.sound`.  Reproduction and hashes are in
 `verification/2026_09_01_balanced_persistence_continuation/VALIDATION.md`.
 
-The current ChatGPT paper is
+That checkpoint's ChatGPT paper is
 `../output/pdf/ChatGPT_ABC_Balanced_Persistence_2026_09_01.pdf`: 111 A4 pages,
 844,056 bytes, SHA256
 `609962b0bf64daf51e5822410c1dbcdff4f55ae452c70d2da6db9fc3e9f87bbc`.

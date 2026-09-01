@@ -18,9 +18,73 @@ A research branch may be deleted only after one of the following has been record
 Build failures, API drift, lack of a current inhabitant, or lack of community
 acceptance are not counterexamples and are not grounds for deleting a route.
 
-## September 1, 2026 global-filter checkpoint
+## September 1, 2026 five-route continuation
 
-No broad route has been deleted.  The latest mathematical ledger is
+Standard `ABCConjecture` remains open in both directions.  No broad route is
+deleted by this checkpoint, and bounded searches without a hit are recorded
+only as finite certificates.  The cross-route proof and counterexample ledger
+is `../research/ABC_MULTI_ROUTE_GLOBAL_PACKET_CONTINUATION_2026_09_01.md`.
+
+- **Affine radical-step:** active.  Replacing the shear step by
+  `rad(abc)` preserves the primitive injective construction and enlarges the
+  raw fibre.  The matching-lower statement remains open.  The fixed-template
+  CRT main term, the no-threshold lower claim on `(1,8,9)`, and the inference
+  from an all-square cofactor row are closed only in their exact forms; none
+  eliminates boundary effects, unions of templates, accidental solutions, or
+  the eventual affine route.  Ledger:
+  `../research/ABC_AFFINE_MATCHING_LOWER_GATE_2026_09_01.md`.
+- **Balancing Pell global packet:** active.  The order-stagnation and channel-
+  coupling theorems survive.  The Section 8 Fellini--Murty architecture used
+  here was audited and repaired before the global alternative was reproved;
+  the repository does not treat the printed proof unchanged as the needed
+  result.  The depth scan through `10^8` is finite.  The examples `13` and
+  `1546463` delete only three precise valuation-one shortcuts, not the
+  four-prime/two-depth-three target.  Ledger:
+  `../research/ABC_PELL_GLOBAL_PACKET_ATTACK_2026_09_01.md`.
+- **Danilov recursive lift:** active at the Fibonacci simple-primitive-divisor
+  gate.  Conditional iteration from a simple primitive divisor at each
+  adaptive index would exhaust finite fixed support.  The 626-packet chain,
+  4,398-digit modulus, and endpoint search through `10^8` are finite evidence.
+  The abstract mod-49 countermodel deletes only automatic continuation from a
+  one-step local slope.  Ledger:
+  `../research/ABC_DANILOV_RECURSIVE_LIFT_2026_09_01.md`.
+- **Fibonacci/Danilov SPD:** active.  Total failure would require a powerful
+  Wall--Sun--Sun primitive cyclotomic packet with a very large split prime.
+  The standard real Lucas example `P=2,Q=-3`, `n=10`, has unique primitive
+  divisor `11` with exponent two.  This is a full counterexample only to the
+  sequence-uniform real-Lucas shortcut; it is not a Fibonacci counterexample.
+  At `n=15,p=61`, the half-Lucas residue squares to `-1`, closing only the
+  parity-free version of that auxiliary sign lemma; every Danilov index `10Q`
+  is even.
+  Likewise, 207 bounded positive certificates and 45 unresolved small cases
+  neither prove nor disprove the adaptive Fibonacci claim.  Ledger:
+  `../research/ABC_DANILOV_SIMPLE_PRIMITIVE_DIVISOR_2026_09_01.md`.
+- **Pinned LANA / same-pilot:** the `ddaddc2` low-resolution `RHSData`
+  specification is closed as uninhabitable, because its all-set real-volume
+  shift contradicts the empty set.  This is a specification no-go, not a
+  counterexample to IUT, Corollary 3.12, or abc.  Corrected log-volume data and
+  the positive pointed same-pilot interface remain active.  Ledger:
+  `../research/ABC_IUT_LANA_SAME_PILOT_AUDIT_2026_09_01.md`.
+
+The associated Lean cores are
+`AffineRadicalStep20260901`, `PellPrimeRankCounterexamples20260901`,
+`DanilovRecursiveLift20260901`, `DanilovSimplePrimitiveNoGo20260901`, and
+`IUTLanaSpecificationNoGo20260901`.  They do not import the unformalized
+high-level literature results as axioms.
+
+The frozen replay at
+`verification/2026_09_01_global_packet_continuation/README.md` checks 122
+theorem/lemma declarations, 37 definitions or abbreviations, five
+structures/classes/inductives, and 83 declaration-level axiom reports.  All
+five direct compilations and the 9194-job aggregate target pass; the axiom
+union is only `Classical.choice`, `propext`, and `Quot.sound`.  Its
+`SHA256SUMS` hash is
+`da4e28c8e80c0439bb8a9954bbe76cbc853bbeda1a04c735721890b766f17e8f`.
+No broad route is closed by this validation result.
+
+## September 1, 2026 earlier global-filter checkpoint
+
+No broad route has been deleted.  This checkpoint's mathematical ledger is
 `../research/ABC_BALANCED_PERSISTENCE_CONTINUATION_2026_09_01.md`; standard
 `ABCConjecture` remains open in both directions.
 

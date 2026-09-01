@@ -1,0 +1,53 @@
+{
+  "certificates": [
+    {
+      "A_mod_q3": 239,
+      "B_mod_q3": 169,
+      "channel": "B",
+      "derivative_F_ell_at_6_mod_q": 2,
+      "e_q": 2,
+      "ell": 7,
+      "ell_prime_by_exhaustive_trial_division": true,
+      "minimal_channel_bound_equality": "q=2*ell-1",
+      "q": 13,
+      "q_prime_by_exhaustive_trial_division": true,
+      "u_ell_mod_q3": 845,
+      "u_ell_over_q2_mod_q": 5,
+      "valuation_checks": {
+        "q2_divides_u_ell": true,
+        "q3_does_not_divide_u_ell": true
+      },
+      "z_q": 7,
+      "z_q_reason": "q divides u_ell; ell is prime; u_1=1; strong divisibility gives z(q)|ell"
+    },
+    {
+      "A_mod_q3": 2609128438608561251,
+      "B_mod_q3": 3338742483946386997,
+      "channel": "A",
+      "derivative_F_ell_at_6_mod_q": 1498136,
+      "e_q": 2,
+      "ell": 773231,
+      "ell_prime_by_exhaustive_trial_division": true,
+      "minimal_channel_bound_equality": "q=2*ell+1",
+      "q": 1546463,
+      "q_prime_by_exhaustive_trial_division": true,
+      "u_ell_mod_q3": 582136218713159766,
+      "u_ell_over_q2_mod_q": 243414,
+      "valuation_checks": {
+        "q2_divides_u_ell": true,
+        "q3_does_not_divide_u_ell": true
+      },
+      "z_q": 773231,
+      "z_q_reason": "q divides u_ell; ell is prime; u_1=1; strong divisibility gives z(q)|ell"
+    }
+  ],
+  "explicit_derivative_counterexample": {
+    "F_7_6": 40391,
+    "F_7_6_factorization": "13^2 * 239",
+    "F_7_X": "X^6 - 5 X^4 + 6 X^2 - 1",
+    "F_7_prime_6": 42408,
+    "F_7_prime_6_mod_13": 2,
+    "refuted_implication": "q|F_ell(6) and F'_ell(6) nonzero mod q imply q^2 does not divide F_ell(6)"
+  },
+  "verification": "PASS"
+}

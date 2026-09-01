@@ -19,3 +19,18 @@
 *.gz binary
 *.png binary
 *.pdf binary
+
+# Cryptographic evidence bundles hash exact bytes.  Preserve their captured
+# payloads and logs verbatim across platforms instead of applying EOL filters.
+Lean/verification/2026_09_01_global_packet_continuation/** -text -eol -whitespace
+Lean/verification/2026_09_01_iut_lana_specification_nogo/** -text -eol -whitespace
+research/computation/2026_09_01_affine_matching_lower_gate/** -text -eol -whitespace
+research/computation/2026_09_01_pell_packet_global_attack/** -text -eol -whitespace
+research/computation/2026_09_01_danilov_recursive_lift/** -text -eol -whitespace
+research/computation/2026_09_01_danilov_simple_primitive_divisor/** -text -eol -whitespace
+research/sources/iut_lana_2026_09_01/** -text -eol -whitespace
+research/sources/pell_packet_global_attack_2026_09_01/** -text -eol -whitespace
+output/pdf/ChatGPT_ABC_Global_Packet_Continuation_2026_09_01_QA/** -text -eol -whitespace
+research/ABC_PELL_GLOBAL_PACKET_ATTACK_2026_09_01.md -text -eol -whitespace
+research/ABC_*_2026_09_01.md -whitespace
+Lean/lean-toolchain text eol=lf

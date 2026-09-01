@@ -1,0 +1,51 @@
+WORKDIR: E:\AImath\abc猜想\Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.exe env lean IUTThreeClosures/DanilovSimplePrimitiveNoGo20260901.lean
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.counterLucas_values_through_ten' depends on axioms: [propext]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.counterLucas_ten_factorization' depends on axioms: [propext]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.counter_homogeneousCyclotomic_ten' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.eleven_exact_square_at_ten' depends on axioms: [propext]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.eleven_isPrimitive_at_ten' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.primitivePrimeDivisor_at_ten_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.not_sequenceUniformSimplePrimitiveAtTenMultiples' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.fibonacciU_fifteen' depends on axioms: [propext]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.fibonacciU_fifteen_factorization' depends on axioms: [propext]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.fibonacciL_fifteen' depends on axioms: [propext]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.sixtyOne_prime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.sixtyOne_isPrimitive_at_fifteen' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.halfLucasResidue_fifteen_sixtyOne_eq_eleven' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.halfLucasResidue_fifteen_sixtyOne_sq_eq_neg_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.halfLucasResidue_fifteen_sixtyOne_ne_sign' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.not_halfLucasSignWithoutEvenness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.fifteen_not_DanilovIndex' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.danilovIndex_even' depends on axioms: [propext]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.primitivePart_twoFull_of_all_primitive_repeated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.exponentOneSupport_subset_finiteCorrection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.exponentOneSupport_subset_correction_of_all_primitive_repeated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901.fortyOne_mul_add_one_le_of_split_and_avoid' depends on axioms: [propext,
+ Quot.sound]
+EXIT_CODE: 0

@@ -1,0 +1,45 @@
+COMMAND
+C:\Users\Admin\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe verify.py
+
+OUTPUT
+AFFINE_MATCHING_LOWER_GATE_EXACT_REPLAY
+generalized_shear_checked_admissible_points=18761
+seed=(1,8,9) P=72 radical=6
+K8_side_minimal=22143 K8_side_old=1845
+elementary_raw_lower_minimal=61289056 elementary_raw_lower_old=425503
+seed_satisfies_radical_lt_c_pow_9_over_10=true
+source_prime_avoidance_checked_for_p=2,3
+p=5 admissible=600 square_counts=[20, 20, 20] pair_intersections=0
+p=7 admissible=2352 square_counts=[42, 42, 42] pair_intersections=0
+p=11 admissible=14520 square_counts=[110, 110, 110] pair_intersections=0
+template_moduli=(25, 49, 121) local_counts=[25, 49, 121]
+CRT_period=148225 CRT_solutions=148225 density=1/148225 certified_excess=385 density_cost_over_excess=385
+gate_comparison_eta=1/4 upper_epsilon=1/8 residual_gap=1/8
+positive_contact_lambda=9/10_implies_c<1024
+square_cofactor_row=(6,840,60) U=5041 V=8281 W=7921 H=71289 radical=3450174 exceptional=false
+square_cofactor_row=(72,70,5) U=5041 V=8281 W=7921 H=71289 radical=3450174 exceptional=false
+square_cofactor_row=(72,1160,798) U=83521 V=600625 W=543169 H=4888521 radical=11651970 exceptional=false
+ALL_CHECKS_PASSED
+
+COMMAND
+g++ -O3 -std=c++20 full_minimal_search.cpp -o full_minimal_search.exe
+
+OUTPUT
+(no compiler diagnostics; exit code 0)
+
+COMMAND
+full_minimal_search.exe
+
+OUTPUT
+M=22143 maxn=1328581 raw_pairs=490312449 admissible=447120793 necessary_radprod_cutoff=88573 necessary=46 admissible_necessary=32 exceptional=0
+sample=(h=104,k=292,U=625,V=16393,W=14641,H=131769,radical=416130)
+sample_H3=2287914286629609 sample_radical4=29985832161454493610000
+
+COMMAND
+g++ --version
+
+OUTPUT
+g++.exe (x86_64-win32-seh-rev0, Built by MinGW-Builds project) 15.1.0
+Copyright (C) 2025 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions. There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.

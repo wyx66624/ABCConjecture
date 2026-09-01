@@ -1,0 +1,500 @@
+\section{Radical-step fibres, global prime packets, and the same-pilot type boundary}
+\label{sec:global-packets-same-pilot}
+
+This section continues the positive and negative searches simultaneously.
+Failure of a finite search, absence of a known theorem, and present technical
+difficulty do not retire a route.  A counterexample below is used only against
+the fully quantified statement that it satisfies; the surrounding route is
+kept whenever a stronger or differently typed mechanism survives.
+
+\subsection{Replacing the product step by the seed radical}
+
+Let $a+b=c$ be primitive, put $P=abc$ and $R=\rad(P)$, and let $Q$ be any
+positive multiple of $R$.  For $h,k\geq1$ define
+\begin{equation}\label{eq:gpsp-radical-shear}
+ U=1+Qh,\qquad V=1+Q(h+ck),\qquad W=1+Q(h+bk).
+\end{equation}
+
+\begin{theorem}[Radical-step primitive shear]
+\label{thm:gpsp-radical-shear}
+If $\gcd(U,k)=1$, then $(aU,bV,cW)$ is a primitive $abc$ triple.  Each of
+the three pair projections $(U,V)$, $(U,W)$, and $(V,W)$ determines $(h,k)$.
+If $K\geq2$ and
+\[
+ M_Q=\left\lfloor\frac{c^{K-2}}{4Q}\right\rfloor,
+\]
+then every parameter pair $1\leq h,k\leq M_Q$ has height below $c^K$.
+For sufficiently large $M_Q$, at least $M_Q^2/8$ of these pairs are
+admissible.
+\end{theorem}
+
+\begin{proof}
+Every prime dividing a seed coordinate divides $Q$, while all three
+cofactors are congruent to one modulo $Q$.  Thus every cofactor avoids the
+entire seed support.  The identities
+\[
+ V-U=cQk,\qquad W-U=bQk,\qquad V-W=aQk
+\]
+show that a common divisor of $U$ and $V$, or of $U$ and $W$, must divide
+$k$ after the factors $Q$ and the appropriate seed coordinate have been
+removed.  The hypothesis $\gcd(U,k)=1$ excludes both possibilities.  A
+common divisor of $V$ and $W$ divides $aQk$; it avoids $aQ$, and
+$V\equiv U\pmod{k}$, so it also avoids $k$.  Hence $U,V,W$ are pairwise
+coprime.  Combining this with support avoidance and the pairwise
+coprimality of $a,b,c$ proves primitivity.  The identity
+$aU+bV=cW$ follows by expansion.
+
+Any one of the three displayed differences recovers $k$ from the indicated
+pair.  If the pair contains $U$, then $U=1+Qh$ recovers $h$; from $(V,W)$ one
+instead uses $h=(V-1)/Q-ck$.  This proves the three injectivity statements.
+Since $b+1\leq c$,
+\[
+ W\leq1+QcM_Q\leq1+\frac{c^{K-1}}4,
+\]
+and therefore $cW<c^K$ for $c\geq2$ and $K\geq2$.  Finally, the elementary
+sieve used in Lemma~\ref{lem:bp-admissible-count} applies verbatim with $Q$
+in place of $P$: the bad pairs are covered by primes dividing both $k$ and
+$1+Qh$.  It leaves at least $M_Q^2/8$ pairs once $M_Q$ is sufficiently
+large.
+\end{proof}
+
+The minimal step $Q=R$ is therefore optimal among these multiples for the
+raw box.  At $K=8$ its elementary lower count has scale
+\begin{equation}\label{eq:gpsp-raw-rad-step}
+                    \frac{c^{12}}{R^2},
+\end{equation}
+instead of $c^{12}/P^2$.  This is a genuine improvement when the seed has
+large prime powers.  It does not itself count low-radical outputs.  Indeed,
+the pair-projection upper argument is intrinsic to the output factors and
+remains
+\begin{equation}\label{eq:gpsp-exception-upper}
+ \#\mathcal E_Q(c^8)\ll_{\varepsilon}R^{-2/3}c^{4+\varepsilon}
+\end{equation}
+on the $\mu=3/4$ locus.
+
+There is no gain from averaging the same construction over multiples of
+$R$.  If $Q=sR$, then the $Q$-point at $(h,k)$ is exactly the $R$-point at
+$(sh,sk)$.  Moreover $1+Qh\equiv1\pmod{s}$, so admissibility at $(h,k)$
+implies admissibility at $(sh,sk)$.  Thus the larger-step fibres are
+subfibres of the minimal one after rescaling their boxes.
+
+The often stated ``matching lower bound'' should also be interpreted with
+care.  Assume the uniform upper estimate \eqref{eq:gpsp-exception-upper}.
+For fixed $\lambda<1$ and $\eta>0$, the assertion that there are constants
+$A>0,c_0$ such that every seed with $R<c^\lambda$ and $c\geq c_0$ satisfies
+\begin{equation}\label{eq:gpsp-eventual-lower}
+ \#\mathcal E_R(c^8)\geq A R^{-2/3}c^{4+\eta}
+\end{equation}
+is equivalent to boundedness of the heights of the seeds in that
+subcritical locus.  The forward implication compares
+\eqref{eq:gpsp-eventual-lower} with \eqref{eq:gpsp-exception-upper} at
+$\varepsilon=\eta/2$.  Conversely, after a height bound has already been
+proved, one may choose $c_0$ above it and the lower assertion is vacuous.
+Consequently \eqref{eq:gpsp-eventual-lower} is an exact closing gate, but it
+is not by itself an explanatory distribution theorem.
+
+A fixed congruence template cannot provide that explanation.  Suppose
+$d_1,d_2,d_3$ are pairwise coprime, $D=d_1d_2d_3$, and
+$\gcd(D,Qabc)=1$.  The conditions
+\[
+                   d_1\mid U,\qquad d_2\mid V,
+                   \qquad d_3\mid W
+\]
+have exactly $D$ solutions $(h,k)$ modulo $D$, hence density $D^{-1}$.
+The deterministic lower certificate for repeated-prime excess supplied
+solely by these divisibilities is
+\begin{equation}\label{eq:gpsp-crt-excess}
+             \Delta=\prod_{i=1}^3\frac{d_i}{\rad(d_i)}\leq D.
+\end{equation}
+On the upper half of the $K=8$ radical-step box, forcing the target radical
+inequality requires $\Delta\gg Rc^{14}$.  It therefore also requires
+$D\gg Rc^{14}$, while the periodic main term is at most
+\[
+       \frac{M_R^2}{D}\ll \frac{c^{12}/R^2}{Rc^{14}}
+        =\frac1{c^2R^3}.
+\]
+This rules out obtaining the matching lower bound from the periodic main term
+of a single template alone.  It leaves
+large unions of templates, boundary terms, and accidental high valuations
+open.
+
+There are also exact finite warnings against replacing excess by a visual
+``square cofactor'' condition.  For the subcritical seed $(1,8,9)$, $R=6$,
+the choices
+\[
+ (Q,h,k)=(6,840,60)\quad\hbox{and}\quad(72,70,5)
+\]
+both give
+\[
+ (U,V,W)=(5041,8281,7921)=(71^2,91^2,89^2).
+\]
+Nevertheless the output height is $71289$, its radical is $3450174$, and
+the desired fourth-power versus third-power radical inequality fails.  A
+second example is
+\[
+ (Q,h,k)=(72,1160,798),\qquad
+ (U,V,W)=(289^2,775^2,737^2),
+\]
+and it fails the same target.  These are counterexamples to the assertion
+that three square cofactors automatically give an exceptional output.  They
+do not refute the eventual arithmetic lower gate.
+
+\subsection{Exact order stagnation in the balancing orbit}
+
+Let
+\[
+ u_0=0,\quad u_1=1,\quad u_{n+2}=6u_{n+1}-u_n,
+\]
+and put $\alpha=3+2\sqrt2$ and $\gamma=\alpha^2=17+12\sqrt2$.  Then
+\begin{equation}\label{eq:gpsp-geometric-pell}
+ u_n=\alpha^{1-n}\frac{\gamma^n-1}{\gamma-1}.
+\end{equation}
+For an odd rational prime $q$, let $z(q)$ be its rank of apparition and put
+$e(q)=v_q(u_{z(q)})$.
+
+\begin{theorem}[Order-stagnation tower]
+\label{thm:gpsp-order-stagnation}
+For every odd prime $q$ and $k\geq1$,
+\begin{equation}\label{eq:gpsp-order-stagnation}
+ z(q^k)=z(q)q^{\max(0,k-e(q))}.
+\end{equation}
+In particular, depth two is exactly one failure of order growth and depth
+three is exactly two consecutive failures.
+\end{theorem}
+
+\begin{proof}
+In $K=\mathbb Q(\sqrt2)$, every odd $q$ is unramified and
+$N(\gamma-1)=-32$.  At every prime ideal $\mathfrak q\mid q$,
+\eqref{eq:gpsp-geometric-pell} identifies $z(q)$ with the residual order of
+$\gamma$ and $e(q)$ with
+$v_{\mathfrak q}(\gamma^{z(q)}-1)$.  If $y$ is a local unit with
+$v(y-1)=e\geq1$, the odd-prime binomial expansion gives
+\[
+                         v(y^m-1)=e+v_q(m).
+\]
+Thus the least multiplier needed to raise the congruence from level one to
+level $k$ is $q^{\max(0,k-e)}$.  Substitution gives
+\eqref{eq:gpsp-order-stagnation}.
+\end{proof}
+
+At an odd prime index $\ell$, write
+$(1+\sqrt2)^\ell=A_\ell+B_\ell\sqrt2$.  The previous packet theorem says
+that a squarefull $u_\ell=A_\ell B_\ell$ forces four distinct rank-$\ell$
+repeated primes, two in each coprime channel, with a depth-three prime in
+each channel.  There is also a first-order relation among all packet primes.
+If
+\[
+ A_\ell=1+2\ell a,\qquad
+ \left(\frac2\ell\right)B_\ell=1+2\ell b,
+\]
+then the Pell norm gives the exact identity
+\begin{equation}\label{eq:gpsp-channel-ledger}
+                    a-2b+\ell(a^2-2b^2)=0.
+\end{equation}
+Expanding the prime factorizations modulo $4\ell^2$ turns its reduction
+modulo $\ell$ into a coupled congruence between the quotient coordinates in
+the two channels.  This is stronger than independent residue conditions,
+although the free quotient variables prevent a contradiction at present.
+
+The latest number-field input yields a useful global alternative.  Fellini
+and Murty state that finiteness of base-$x$ super-Wieferich prime ideals
+forces infinitely many non-Wieferich prime ideals~\cite{FelliniMurty2026}.
+An adversarial audit of their Section~8 architecture gives a sharper
+prime-order consequence, but it also requires two local proof repairs and one
+textual correction.  At a selected prime index $\ell$, a prime ideal
+$\mathfrak p\mid\Phi_\ell(x)$ has residual order dividing $\ell$.  Order one
+would imply both $x\equiv1$ and $\ell\equiv0$ modulo $\mathfrak p$; the
+defining exclusion of primes above $\ell$ which divide $(x-1)$ rules this
+out.  Thus every such factor has order exactly $\ell$, and its exponent in
+$\Phi_\ell(x)$ is its first-occurrence valuation.  Excluding the finitely
+many super-Wieferich orders leaves exponents one or two.  If only finitely
+many prime-order exponent-one ideals existed, the Section~8 localization,
+finite square-class decomposition, and Siegel argument would again place
+infinitely many distinct points on a finite family of genus-one curves.
+
+This streamlined prime-index proof deliberately avoids the printed second
+case of Lemma~6.4.  The displayed equality there is generally false: with
+$x=2,p=3,f=2,i=1$, it identifies $\Phi_6(2)=3$ with
+$(2^6-1)/(2^2-1)=21$.  Its binomial proof also treats
+$\binom pp=1$ as if it were divisible by $p$; separating the last term
+repairs the valuation estimate.  A contradictory sentence on printed
+p.~226 is avoided by allowing the localized square generator to be a unit.
+These counterexamples invalidate intermediate printed steps.  They do not
+invalidate the repaired valuation conclusion or the resulting Siegel
+argument.
+
+Specializing this proof extraction to $x=\gamma$ and descending prime ideals
+to rational primes gives the unconditional alternative.  After discarding
+the finitely many prime ideals above $2$, the local dictionary applies to odd
+rational primes:
+\begin{equation}\label{eq:gpsp-global-alternative}
+\begin{split}
+&\text{either infinitely many odd primes $q$ satisfy $e(q)\geq3$,}\cr
+&\text{or infinitely many odd prime indices $\ell$ admit
+  $q\parallel u_\ell$ with $z(q)=\ell$.}
+\end{split}
+\end{equation}
+This is a repaired refinement of the cited proof architecture, not a
+quotation of its theorem statement.  In the first branch it gives neither a common rank nor opposite
+channels; in the second it gives infinitely many nonsquarefull prime-index
+terms but not all prime indices.  It therefore does not settle the forced
+four-prime packet.
+
+Three natural shortcuts have exact counterexamples.  At index seven,
+\[
+ B_7=13^2,\qquad 13^2\parallel u_7,\qquad z(13)=7,
+ \qquad13=2\cdot7-1.
+\]
+Moreover
+\[
+ F_7(X)=X^6-5X^4+6X^2-1,\quad
+ F_7(6)=40391=13^2\cdot239,\quad F_7'(6)\equiv2\pmod{13}.
+\]
+Thus a primitive divisor need not be simple, equality in the minimal channel
+bound does not force simplicity, and a nonsingular polynomial root modulo
+$q$ does not force the fixed integer value to avoid $q^2$.  The opposite
+channel has the further exact example
+\[
+ 1546463=2\cdot773231+1,\quad z(1546463)=773231,\quad
+ 1546463^2\parallel A_{773231},
+\]
+with both displayed rank parameters prime.  These examples close only the
+three stated implications.
+
+Two independent exact programs exhaust all $5{,}761{,}454$ odd primes
+$q\leq10^8$.  The only repeated primes are $13,31,1546463$, all of exact
+depth two; there is no depth-three hit.  Hence both depth-three primes in a
+hypothetical squarefull prime-index packet exceed $10^8$.  This is a finite
+certificate and is never used as an infinitude conclusion.
+
+\subsection{Recursive prime-square lifts on the Danilov progression}
+
+On the surviving Danilov progression, write $t=T+Qr$ and maintain
+\begin{equation}\label{eq:gpsp-dan-state}
+                         3T+1=hQ,\qquad h\in\{1,2\}.
+\end{equation}
+The quadratic-unit orbit gives the exact Fibonacci factorization
+\begin{equation}\label{eq:gpsp-dan-fib}
+                         L_T=5F_{10hQ}F_{10hQ-5}.
+\end{equation}
+If $p\parallel F_{10Q}$, $p\nmid3375Q$, then the packet modulo $p^2$ is
+nondegenerate.  Squarefullness forces the unique residue
+\begin{equation}\label{eq:gpsp-dan-root}
+                         h+3r\equiv0\pmod p.
+\end{equation}
+For its representative $0\leq\rho<p$, divisibility and the inequalities
+$0<h+3\rho<3p$ give a unique $h'\in\{1,2\}$ with
+$h+3\rho=h'p$.  The update
+\[
+                 T'=T+Q\rho,\qquad Q'=Qp
+\]
+then preserves $3T'+1=h'Q'$.
+
+Carmichael's theorem in Yabuta's form supplies a primitive divisor of
+$F_{10Q}$ outside its explicit small exceptions~\cite{Yabuta2001}.  Rank of
+apparition makes such a divisor fresh relative to $Q$.  The theorem does not
+control its first valuation.  This distinction yields the exact conditional
+closure.
+
+\begin{theorem}[Conditional simple-primitive closure]
+\label{thm:gpsp-dan-conditional}
+Assume that at every adaptively generated state, $F_{10Q}$ has a primitive
+prime divisor $p$ with $p\parallel F_{10Q}$.  Then no index in the initial
+Danilov survivor progression has squarefull remainder.
+\end{theorem}
+
+\begin{proof}
+The simple divisor supplies a nondegenerate fresh packet and
+\eqref{eq:gpsp-dan-root} nests the next progression while preserving
+\eqref{eq:gpsp-dan-state}.  Repetition constructs arbitrarily many distinct
+fresh primes.  If one fixed index $t$ survived as squarefull, every chosen
+prime would divide the one fixed nonzero integer $L_t$.  A finite integer has
+only finitely many distinct prime divisors, a contradiction.
+\end{proof}
+
+The valuation-one hypothesis is essential to this proof and is not a
+consequence of the cited primitive-divisor theorem.  Nor does one abstract
+packet automatically generate another.  In $\mathbb Z[\sqrt5]$, take
+\[
+ \eta=(9+4\sqrt5)^8,\qquad \alpha_0=19+\sqrt5,\qquad
+ L_r=K_r=2\operatorname{Re}(\alpha_0\eta^r)+11.
+\]
+Modulo $49$, $\eta=1+35\sqrt5$ and
+\begin{equation}\label{eq:gpsp-dan-countermodel}
+                              L_r\equiv7r\pmod{49}.
+\end{equation}
+At $(T,Q,p)=(0,1,7)$ the slope is nonzero, the forced root is $r=0$, and
+$K_0=49$ is squarefull.  The updated modulus is $7$, while every prime
+divisor of $L_0=49$ already divides it.  Hence no fresh successor exists.
+This satisfies the full abstract local-packet mechanism, but its initial norm
+is not the Danilov norm.  It refutes automatic abstract continuation and does
+not refute the Danilov-specific simple-primitive route.
+
+An exact adaptive computation constructs $626$ distinct packets.  They occur
+in thirteen nonempty batches.  The final state has a $4398$-digit modulus and
+exactly $638$ distinct prime factors; no next eligible packet occurs below
+$10^8$.  Every selected prime has exact valuation one, and every CRT update
+is independently replayed.  This certifies the finite recursion, while the
+endpoint remains open above its bound.
+
+\subsection{The simple-primitive gate and Wall--Sun--Sun support}
+
+The missing valuation-one premise can be characterized exactly for the
+Fibonacci indices arising above.  If $n>5$, $5\mid n$, and $p$ is a primitive
+divisor of $F_n$, then the rank of apparition satisfies
+\[
+ z(p)=n\mid p-\left(\frac5p\right).
+\]
+Reduction modulo five and quadratic reciprocity exclude the inert sign, so
+\begin{equation}\label{eq:gpsp-split-primitive}
+                         p\equiv1\pmod n.
+\end{equation}
+Sanna's exact valuation formula then gives
+\begin{equation}\label{eq:gpsp-wss-transfer}
+                  v_p(F_n)=v_p(F_{p-1}).
+\end{equation}
+Thus a primitive divisor is repeated precisely when it is a
+Fibonacci--Wieferich, or Wall--Sun--Sun, prime~\cite{Sanna2016,BragmanRowland2025}.
+No such prime is presently known; that empirical fact is not used as a
+nonexistence theorem.
+
+Let $Q_*$ be the final $4398$-digit squarefree modulus in the certified
+recursive chain and put $n_*=10Q_*$.  Its complete factorization consists of
+exactly $638$ primes, each below $10^8$, and $\gcd(Q_*,30)=1$.  Let $C_n$
+denote the Fibonacci cyclotomic factor.  For $n>2$ divisible by $10$,
+Yabuta's correction analysis says that $C_n$ has at most one nonprimitive
+prime factor; if present, it is the greatest prime factor of $n$ and occurs
+once.  At $n_*$ this correction cannot occur.  Indeed,
+squarefreeness would give $n_*=qz(q)$, whence
+$n_*\le q(q+1)\le10^8(10^8+1)$, contrary to the number of digits.
+
+\begin{theorem}[Exact surviving simple-primitive failure]
+\label{thm:gpsp-wss-packet}
+If $F_{n_*}$ has no simple primitive divisor, then $C_{n_*}$ is powerful and
+every prime $p\mid C_{n_*}$ is Wall--Sun--Sun and satisfies
+$p\equiv1\pmod {n_*}$.  At least one such prime satisfies
+\[
+                              p\ge41n_*+1.
+\]
+\end{theorem}
+
+\begin{proof}
+The correction just excluded shows that every factor of $C_{n_*}$ is
+primitive with its full $F_{n_*}$ multiplicity.  Equations
+\eqref{eq:gpsp-split-primitive} and \eqref{eq:gpsp-wss-transfer} therefore
+give the powerful and Wall--Sun--Sun assertions.  Hong's explicit large
+primitive-divisor theorem with $\kappa=40$ applies because
+$\log n_*>4398\log10>10036$~\cite{Hong2025}.  It produces a primitive prime
+outside $jn_*\pm1$ for $1\le j\le40$.  The split congruence leaves only the
+plus sign, so its coefficient is at least $41$.
+\end{proof}
+
+This theorem sharply locates the surviving bad case but does not contradict
+it.  A broad real-Lucas shortcut is false under its full standard
+hypotheses: for
+\[
+ U_{m+2}=2U_{m+1}+3U_m,
+ \qquad U_{10}=14762=2\cdot11^2\cdot61,
+\]
+the prime $11$ is the unique primitive divisor at index ten and occurs
+exactly twice.  The roots are $3,-1$, so the sequence is real,
+nondegenerate and has coprime parameters.  This counterexample closes only
+the sequence-uniform transfer; it does not satisfy the Fibonacci-specific
+hypothesis.  An exact search over the $252$ squarefree $Q\le1000$ with
+$\gcd(Q,30)=1$ finds simple primitive certificates for $207$ cases below
+$5\cdot10^7$.  The remaining $45$ cases are unresolved by that finite bound,
+not counterexamples.
+
+\subsection{The current LANA specification and the pointed same-pilot gate}
+
+The public Project LANA Lean repository was audited at the pinned commit
+\texttt{ddaddc2}~\cite{LANAlean}.
+Its declared Corollary~3.12 variant shares initial theta data between a
+$q$-pilot scalar and an independently supplied right-hand-side container.
+At that commit the right-hand-side record has a prior consistency defect.
+
+\begin{theorem}[Empty-set obstruction in the pinned low-resolution signature]
+\label{thm:gpsp-lana-empty}
+For every initial theta datum $D$, the pinned type \texttt{RHSData D} is
+uninhabited.
+\end{theorem}
+
+\begin{proof}
+The admissible prime satisfies $\ell\geq5$, and the required standard
+procession therefore has positive length.  Choose one capsule index and the
+rational prime $p=2$.  The record asserts that the finite sum of the weights
+over the $p$-fibre is one, so that fibre cannot be empty.  A constant function
+from the capsule labels to a point of the fibre supplies a component $c$.
+
+For this component the record further asserts, for every set $U$, that
+\begin{equation}\label{eq:gpsp-lana-scaling}
+ \operatorname{vol}((x\mapsto px)^{-1}U)
+   =\operatorname{vol}(U)+\log p.
+\end{equation}
+Take $U=\varnothing$.  Its inverse image is empty, so cancellation in
+\eqref{eq:gpsp-lana-scaling} gives $\log2=0$, contrary to $\log2>0$.
+\end{proof}
+
+Thus the assembled variant-data type, which contains an \texttt{RHSData}
+field, is also empty.  A universal theorem over that type would be vacuous,
+and there can be no counterexample satisfying all its fields.  This result
+rules out the pinned low-resolution signature as a satisfiable specification.
+It says nothing against a corrected Haar-volume interface, the published IUT
+argument, or $abc$.  A direct repair restricts
+\eqref{eq:gpsp-lana-scaling} to nonempty measurable regions of finite nonzero
+volume and proves stability of that domain under preimages; alternatively one
+may use an extended-real logarithmic codomain with explicit zero-volume
+semantics.
+
+After this repair, the main typing gap remains.  The two sides currently
+share the initial datum but have no field realizing the $q$-pilot as a region
+in the right-hand container, no identity for that region's volume, no bridge
+between the two weight systems, no multiradial output map, no IPL/SHE/APT or
+Ind3 data, no determinant normalization, and no volume monotonicity theorem.
+Sharing a parameter supplies no order relation between two independently
+chosen real outputs.
+
+The July 2026 LANA report isolates a stronger target: for a suitable output
+choice $S$, prove equality of maps
+\[
+        \eta^q=\eta_S^{\mathrm{anab}}:
+        \mathbb R^{\mathrm{val}}\longrightarrow\mathbb R^{\mathrm{ss}}.
+\]
+The report states that this equality is not currently proved and does not
+declare it manifestly false~\cite{LANA}.  The numerical conclusion needs
+less.
+
+\begin{proposition}[Minimal pointed same-pilot certificate]
+\label{prop:gpsp-pointed-hit}
+Let $p_q$ be the canonical $q$-pilot point, let $\nu$ be the correctly
+normalized volume coordinate, and put
+$q_*=-|\log q|$, $T=-|\log\Theta|$.  Suppose a globally synchronized,
+source-permitted output $S$ satisfies
+\[
+ \nu(\eta^q(p_q))=q_*,\qquad
+ \eta^q(p_q)=\eta_S^{\mathrm{anab}}(p_q),\qquad
+ \nu(\eta_S^{\mathrm{anab}}(p_q))\leq T.
+\]
+Then $q_*\leq T$.
+\end{proposition}
+
+\begin{proof}
+Apply $\nu$ to the pointed equality and substitute the two inequalities.
+\end{proof}
+
+The proposition is elementary after its hypotheses are available.  Its
+content is the construction of the middle equality before taking the volume
+quotient: the diagram must start with the fixed $q$-pilot arithmetic line,
+follow the theta link, IPL/SHE/APT construction, the required
+indeterminacies, log-Kummer correction and determinant normalization, and
+return to the same right-hand arithmetic holomorphic structure with compatible
+local and global metrics.  Defining the quotient equality by equality of the
+desired scalar values would be circular.  A source-defined witness in
+$\Phi(P_q)$ also suffices, but membership in that class already contains the
+lower volume inequality and must be constructed independently.
+
+The pinned specification failure is therefore a narrow no-go theorem, while
+the pointed same-pilot construction remains an active positive route.  The
+public report's full map equality is a stronger active target.  None of these
+results yields an unconditional term of type \texttt{ABCConjecture} or its
+negation.

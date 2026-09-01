@@ -1,0 +1,10 @@
+WORKDIR: E:\AImath\abc猜想\tmp\lana_iut_2026_09_01
+COMMAND: lake build Iut.Cor312.SpecificationNoGoAudit
+ℹ [8738/8738] Replayed Iut.Cor312.SpecificationNoGoAudit
+info: Iut/Cor312/SpecificationNoGoAudit.lean:80:0: 'Iut.rhsData_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Iut/Cor312/SpecificationNoGoAudit.lean:81:0: 'Iut.rhsData_isEmpty' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Iut/Cor312/SpecificationNoGoAudit.lean:82:0: 'Iut.corollary312VariantData_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Iut/Cor312/SpecificationNoGoAudit.lean:83:0: 'Iut.corollary312VariantData_isEmpty' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Iut/Cor312/SpecificationNoGoAudit.lean:84:0: 'Iut.corollary312Variant_universal_vacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8738 jobs).
+EXIT_CODE: 0

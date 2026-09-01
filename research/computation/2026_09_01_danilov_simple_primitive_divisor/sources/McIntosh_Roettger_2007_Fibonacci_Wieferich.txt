@@ -1,0 +1,544 @@
+MA THEMA TICS OF COMPUT A TION
+V olume 76, Number 260, October 2007, Pages 2087–2094
+S 0025-5718(07)01955-2
+Article electronically published on April 17, 2007A SEARCH FOR FIBONACCI-WIEFERICH
+AND WOLSTENHOLME PRIMES
+RICHARD J. MCINTOSH AND ERIC L. ROETTGER
+Abstract. Ap r i m ep is called a Fibonacci-Wieferich prime if Fp−( p
+5 ) ≡ 0
+(mod p2), where Fn is the nth Fibonacci number. W e report that there exist
+no such primes p< 2 × 1014.A p r i m e p is called a Wolstenholme prime
+if
+(2p−1
+p−1
+)
+≡ 1( m o d p4). To date the only known Wolstenholme primes are
+16843 and 2124679. We report that there exist no new Wolstenholme primes
+p< 109. Wolstenholme, in 1862, proved that
+(2p−1
+p−1
+)
+≡ 1( m o d p3)f o ra l l
+primes p ≥ 5. It is estimated by a heuristic a rgument that the “probability”
+that p is Fibonacci-Wieferich (independently: that p is Wolstenholme) is about
+1/p. We provide some statistical data relevant to occurrences of small values
+of the Fibonacci-Wieferich quotient Fp−( p
+5 )/p modulo p.
+1. Introduction
+Let P and Q be nonzero integers. The Lucas sequences {Un} = {Un(P,Q )} and
+{Vn} = {Vn(P,Q )} associated to the pair (P,Q ) are deﬁned by
+U0 =0 ,U 1 =1 ,U n+1 = PUn − QUn−1 for n ≥ 1 ,
+and
+V0 =2 ,V 1 = P, V n+1 = PVn − QVn−1 for n ≥ 1 .
+The discriminant of the characteristic polynomial of these sequences is given by
+D = P 2 − 4Q. We will assume that D ̸= 0. The special case P = −Q = 1 deﬁnes
+the well-known Fibonacci sequence, which we will denote by {Fn} = {Un(1, −1)},
+and the Lucas numbers usually denoted by {Ln} = {Vn(1, −1)}.
+It is well-known (see [5, pp. 393–395]) that Fp−( p
+5 ) is divisible by p,w h e r ep is
+prime and ( p
+5 ) denotes the Legendre symbol. If Fp−( p
+5 ) is divisible by p2,t h e nw e
+call p a Fibonacci-Wieferich prime (these primes are sometimes called Wall-Sun-
+Sun primes [3, pp. 110–112]). A Wieferich prime is a prime p satisfying 2p−1 ≡ 1
+(mod p2).
+According to the most recent search [9] the only Wieferich primesp< 1.25×1015
+are 1093 and 3511. Williams [19] found no Fibonacci-Wieferich primes below 10 9
+and Montgomery [11] extended this to 2 32. Our computer search found no such
+primes below 2 × 1014. Of historical interest is the connection between Fibonacci-
+Wieferich primes and Fermat’s Last Theorem. Sun and Sun [17] proved that if
+Received by the editor June 14, 2005 and, in revised form, May 19, 2006.
+2000 Mathematics Subject Classiﬁcation. Primary 11A07, 11A41, 11B39, 11Y99.
+Key words and phrases. Fibonacci number, Wieferich prime, Wall-Sun-Sun prime, Wolsten-
+holme prime.
+c⃝2007 American Mathematical Society
+Reverts to public domain 28 years from publication
+2087
+
+2088 RICHARD J. MCINTOSH AND ERIC L. ROETTGER
+the ﬁrst case of Fermat’s Last Theorem fails for the exponent p,t h e np must be a
+Fibonacci-Wieferich prime.
+2. Lucas-Wieferich primes
+Returning to the general Lucas Sequences {Un(P,Q )} and {Vn(P,Q )},w eh a v e
+Up−( D
+p ) divisible by p whenever p is a prime not dividing 2 Q.L e t ϵ denote the
+Legendre symbol (D
+p ), where D = P 2 − 4Q. The modulo p residues of Up−ϵ, Vp−ϵ,
+Up and Vp are given by the following congruences, valid for primes p not dividing
+2QD:
+Up−ϵ ≡ 0( m o d p),(1)
+Vp−ϵ ≡ 2Q(1−ϵ)/2 (mod p),(2)
+Up ≡ ϵ (mod p),(3)
+Vp ≡ P (mod p).(4)
+For a detailed discussion of these and many other congruences for Lucas sequences
+we refer the reader to Ribenboim [14] and Riesel [15].
+Congruence (2) enjoys the following (mod p2)e x t e n s i o n .
+Lemma. If the prime p does not divide 2QD,t h e n
+(5) Vp−ϵ ≡ Q(1−ϵ)/2(Qp−1 +1 ) ( m o dp2) .
+Proof. We begin with equations (IV.4) with n = m and (IV.5) in [14, p. 57]:
+(6) 2 V2m = V 2
+m + DU 2
+m
+and
+(7) V2m = V 2
+m − 2Qm .
+Subtracting (7) from (6) yields
+(8) V2m = DU 2
+m +2 Qm .
+Let 2m = p − ϵ and µ =( Q
+p ) denote the Legendre symbol. By [14, p. 63], statement
+(IV.23), we have p|Um if µ =1a n d p|Vm if µ = −1. Therefore, it follows from (8)
+if µ = 1 and from (7) if µ = −1t h a t
+(9) Vp−ϵ = V2m ≡ 2µQm =2 µQ(p−ϵ)/2 =2 µQ(p−1)/2Q(1−ϵ)/2 (mod p2) .
+Since Q(p−1)/2 ≡ µ (mod p) by Euler’s criterion, we have Q(p−1)/2 ≡ µ(1 + ap)
+(mod p2) for some integer a. Hence Qp−1 ≡ 1+2 ap (mod p2), and therefore
+2µQ(p−1)/2 ≡ 2+2 ap ≡ Qp−1 +1( m o dp2). Finally, by (9) we obtain Vp−ϵ ≡
+(Qp−1 +1 )Q(1−ϵ)/2 (mod p2), which completes the proof of (5).
+Sometimes Up−ϵ is divisible by p2. We call these primes Lucas-Wieferich primes
+associated to the pair ( P,Q ). Every Wieferich prime is a Lucas-Wieferich prime
+associated to the pair (3 , 2). Equivalent congruences for Lucas-Wieferich primes
+are given in Theorem 1.
+Theorem 1. If the prime p does not divide 2PQD , then the following are equiva-
+lent:
+(i) Up−ϵ ≡ 0( m o dp2) ,
+(ii) Vp−ϵ ≡ 2µQ(p−ϵ)/2 (mod p4) ,
+
+SEARCH FOR FIBONACCI-WIEFERICH AND WOLSTENHOLME PRIMES 2089
+(iii) Vp−ϵ ≡ 2µQ(p−ϵ)/2 (mod p3) ,
+(iv) Up ≡ ϵ(Qp−1 +1 )/2( m o dp2) ,
+(v) Vp ≡ P(Qp−1 +1 )/2( m o dp2) .
+Proof. We will ﬁrst show that (i)⇒ (ii) ⇒ (iii) ⇒ (i).
+(i) ⇒ (ii). Suppose that Up−ϵ ≡ 0( m o dp2). By [14, p. 56], equation (IV.1),
+we have V 2
+p−ϵ − 4Qp−ϵ = DU 2
+p−ϵ. Hence (Vp−ϵ − 2µQ(p−ϵ)/2)( Vp−ϵ +2 µQ(p−ϵ)/2)=
+V 2
+p−ϵ − 4Qp−ϵ = DU 2
+p−ϵ ≡ 0( m o dp4), where µ =( Q
+p ) denotes the Legendre
+symbol. By (9) we have Vp−ϵ − 2µQ(p−ϵ)/2 ≡ 0( m o dp), which implies that
+Vp−ϵ +2 µQ(p−ϵ)/2 ̸≡ 0( m o dp)s i n c ep does not divide 2 Q. Therefore Vp−ϵ −
+2µQ(p−ϵ)/2 ≡ 0( m o dp4), and so Vp−ϵ ≡ 2µQ(p−ϵ)/2 (mod p4).
+(ii) ⇒ (iii) is trivial.
+(iii) ⇒ (i). Suppose that Vp−ϵ ≡ 2µQ(p−ϵ)/2 (mod p3). Then V 2
+p−ϵ − 4Qp−ϵ =
+(Vp−ϵ−2µQ(p−ϵ)/2)( Vp−ϵ+2µQ(p−ϵ)/2) ≡ 0( m o dp3) and so by [14, p. 56], equation
+(IV.1), it follows thatDU 2
+p−ϵ = V 2
+p−ϵ −4Qp−ϵ ≡ 0( m o dp3). Since p does not divide
+D we obtain (i).
+Next, we will prove that (i) and (iv) are equivalent. By [14, p. 56], equation
+(IV.2), we have Vn = Un+1 − QUn−1. Using the recurrence Un+1 = PUn − QUn−1
+we obtain
+(10) Vn =2 Un+1 − PUn
+and
+(11) Vn = PUn − 2QUn−1 .
+Setting n = p − 1 in (10) and n = p + 1 in (11) we get
+(12) Vp−1 =2 Up − PUp−1
+and
+(13) Vp+1 = PUp+1 − 2QUp .
+Using (12) when ϵ = 1 and (13) when ϵ = −1w eo b t a i n
+Vp−ϵ = −ϵPUp−ϵ +2 ϵQ(1−ϵ)/2Up .
+By (5) we have Vp−ϵ ≡ Q(1−ϵ)/2(Qp−1 +1 ) ( m o dp2). Therefore
+2Q(1−ϵ)/2Up − PUp−ϵ ≡ ϵQ(1−ϵ)/2(Qp−1 +1 ) ( m o dp2) .
+Since p does not divide 2PQ the equivalence of (i) and (iv) follows from the above
+congruence.
+Finally, we will prove that (i) and (v) are equivalent. By [14, p. 56], equation
+(IV.2), we have DUn = Vn+1 − QVn−1. Using the recurrence Vn+1 = PVn − QVn−1
+we obtain
+(14) DUn =2 Vn+1 − PVn
+and
+(15) DUn = PVn − 2QVn−1 .
+Setting n = p − 1 in (14) and n = p + 1 in (15) we get
+(16) DUp−1 =2 Vp − PVp−1
+
+2090 RICHARD J. MCINTOSH AND ERIC L. ROETTGER
+and
+(17) DUp+1 = PVp+1 − 2QVp .
+Using (16) when ϵ = 1 and (17) when ϵ = −1w eo b t a i n
+DUp−ϵ = −ϵPVp−ϵ +2 ϵQ(1−ϵ)/2Vp .
+By (5) we have Vp−ϵ ≡ Q(1−ϵ)/2(Qp−1 +1 ) ( m o dp2). Therefore
+2Q(1−ϵ)/2Vp − ϵDUp−ϵ ≡ PQ (1−ϵ)/2(Qp−1 +1 ) ( m o dp2) .
+Since p does not divide 2QD the equivalence of (i) and (v) follows from the above
+congruence. The proof of Theorem 1 is now complete. □
+Sun [16] showed that p is a Fibonacci-Wieferich prime if and only if Lp−ϵ ≡ 2ϵ
+(mod p4), which proves that (i) and (ii) are equivalent whenP = −Q =1 .
+3. Algorithm for the Fibonacci-Wieferich prime search
+In general there is no known way to resolveFp−( p
+5 ) (mod p2), other than through
+explicit computations. From the recurrence Fn+1 = Fn + Fn−1 we obtain
+(Fn+1
+Fn
+)
+=
+(11
+10
+)( Fn
+Fn−1
+)
+=
+(11
+10
+)n (F1
+F0
+)
+=
+(11
+10
+)n (1
+0
+)
+.
+Powers of the above matrix are computed (mod p2) by a standard binary power
+ladder. Since our 64-bit processors cannot handle products of magnitude p4,w e
+invoked base p representations and thereby “split” the multiplication of two num-
+bers (mod p2). Every x = a + bp (mod p2) is represented by {a, b},w i t hb o t ha, b
+always reduced (mod p). To avoid repeated use of long division by p we computed
+a n ds t o r e dt h ev a l u eo f1/p in double precision ﬂoating-point. The quotient k/p is
+given by ⌊0.5+ k(1/p)⌋ and the remainder is given by k −⌊ 0.5+ k(1/p)⌋.I f t h e
+remainder is negative, then p is added to the remainder and 1 is subtracted from
+the quotient. Crandall [3, pp. 9–10] calls this “steady-state division”. Overﬂow
+errors do not occur when p< 4 × 1014 and k<p 2. The ﬁnal value of Fp−( p
+5 ) ≡
+B +Ap (mod p2) is represented by {B,A },w h e r e0≤ B<p and −p/2 <A<p / 2.
+If B ̸= 0, our program exits with fatal error. Instances of|A|≤ 100 are recorded (see
+Table 1 below) for testing purposes and statistical analysis. The valueA =0w o u l d
+signify a Fibonacci-Wieferich prime. Extremely close calls ( A = ±1) occur when
+p = 2, 3, 5, 17, 251, 733, 1063, 123863 and 1677209.
+We were interested in applying the above test only to actual primesp. Due to the
+nature of binary power ladder we found it wasteful to employ the Fermat test, that
+is, whether 2p−1 ≡ 1( m o dp), for selecting primes. Instead we used an incremental
+sieve designed by Crandall [3, p. 100] which sieves the integers in blocks of a million
+at a time.
+Most of the computation was performed on an SGI Onyx/2 server with 24 R12000
+processors and 12 GB of RAM, running IRIX 6.5. Near the end of the search range
+each processor was capable of processing an interval of 45×10
+9 integers per day or
+about 16000 primes per second. About 10% of the total running time was used for
+sieving the primes. Taking advantage of 64-bit processors our program was about 7
+times faster than the program used in [9] which was designed for 32-bit processors.
+
+SEARCH FOR FIBONACCI-WIEFERICH AND WOLSTENHOLME PRIMES 2091
+Table 1. Instances of Fp−( p
+5 ) ≡ Ap (mod p2)w i t h|A|≤ 100 and
+232 <p< 2 × 1014
+p
+ A
+6627557731
+ −43
+6741860329
+ 80
+6859114489
+ 55
+8352762221
+ 94
+9760159421
+ −30
+10115341939
+ 70
+10536116749
+ 66
+10612008943
+ −69
+11002117921
+ 95
+11025166637
+ 23
+12216759923
+ −33
+12387724249
+ 39
+13585864301
+ 57
+13699540891
+ 73
+13941800291
+ 15
+16368086681
+ 50
+16548311011
+ 92
+17370126353
+ −70
+18526398173
+ −29
+20488487861
+ −92
+24178397183
+ 3
+25049632411
+ 51
+31811337589
+ −89
+37883499127
+ −10
+50261755937
+ −73
+65543096747
+ −36
+74176637257
+ −70
+82202291813
+ −11
+87918267869
+ 78
+p
+ A
+89845144679
+ 51
+94903475011
+ −15
+101876918491
+ 87
+110717352637
+ −77
+111646394549
+ −86
+115301883659
+ 60
+115364673283
+ 62
+129316722167
+ −22
+134431860461
+ −30
+166466703223
+ 64
+170273590301
+ 78
+233642484991
+ 89
+277764184829
+ 64
+283750593739
+ 37
+300258464153
+ 70
+334015396151
+ 79
+442650398821
+ 74
+458432241569
+ −61
+621291852133
+ 96
+762383958397
+ −86
+766193665711
+ −8
+800537116979
+ −20
+1082150673011
+ −57
+1171853196853
+ −30
+1551559563569
+ 4
+1786416720937
+ −82
+1996100161327
+ 98
+2669682790919
+ −10
+3311519272973
+ −47
+p
+ A
+3814438808399
+ −56
+3858738583171
+ 44
+5457214172491
+ 76
+8030311150847
+ −12
+10591568377751
+ 33
+11406840440243
+ 26
+11456600879363
+ −41
+12801531958729
+ 17
+13860200708287
+ −5
+18801391545961
+ 33
+21960966892313
+ 54
+22548139284371
+ −16
+25186595067349
+ −59
+26861987497291
+ −28
+28263796914043
+ −88
+39568597208207
+ 53
+46006966741789
+ −59
+64241561031937
+ −44
+67721845179979
+ −52
+75320741942123
+ 71
+82789107950701
+ −42
+85136199318719
+ −92
+86040142362653
+ 19
+88536418898561
+ 99
+90299689540433
+ 56
+91486955300761
+ −71
+106692167197171
+ −85
+155979357644989
+ 27
+4. Statistical considerations
+Are there any Fibonacci-Wieferich primes? Since A = A(p) is an integer in the
+interval (−p/2,p /2), one might assume that the “probability” of A taking on any
+particular value, say the value 0, is equal to 1 /p. One might view the Fibonacci-
+Wieferich test for diﬀerent primes as “independent” events. Therefore, by this
+heuristic argument the number of Fibonacci-Wieferich primes in an interval [ x, y]
+is expected to be
+∑
+x≤p≤y
+1
+p ≈
+y∑
+n=x
+1
+n lnn ≈
+∫ y
+x
+dt
+t lnt =l n ( l ny) − ln(lnx),
+since it follows from the Prime Number Theorem that the “probability” that an
+integer p is prime is about 1 / lnp. If this is the case, then the expected number
+of Fibonacci-Wieferich primes in the interval [232, 2 × 1014] is approximately 0.395,
+
+2092 RICHARD J. MCINTOSH AND ERIC L. ROETTGER
+and so there was indeed a fairly good chance to ﬁnd a Fibonacci-Wieferich prime,
+which justiﬁes the eﬀort in undertaking this search.
+If we take into account “near” Fibonacci-Wieferich primes, that is, primes p
+with |A|≤ 100, then the expected number of “close calls” in the above interval is
+approximately 201×0.395 ≈ 79.4. From Table 1 we see that the actual count is 86.
+5. Wolstenholme primes
+In 1862 Wolstenholme [20] (also see [5, p. 271] and [14, p. 29]) proved that(2n−1
+n−1
+)
+≡ 1( m o dn3) for all primes n ≥ 5. McIntosh [10] found no composite
+solutions n< 109, and it is conjectured that there are none [7, problem B31].
+Unlike that of Wilson’s Theorem the converse of Wolstenholme’s Theorem is a very
+diﬃcult problem.
+The term Wolstenholme prime has been introduced in [10] for primesp satisfying
+the congruence
+(2p−1
+p−1
+)
+≡ 1( m o dp4). In [10, p. 386] the following theorem was
+proved, where Bn denotes the nth Bernoulli number.
+Theorem 2. For al l primes p ≥ 11 the following are equivalent :
+(i) p is a Wolstenholme prime,
+(ii) p divides the numerator of Bp−3,
+(iii) ∑
+p/6<k<p/4
+1
+k3 ≡ 0( m o dp) .
+Statement (ii) appears in a criterion concerning Fermat’s Last Theorem. A
+prime p is regular if and only if p does not divide the numerators of the Bernoulli
+numbers B2,B 4,...,B p−3. For all such primes the algebraic proof of Fermat’s Last
+Theorem is valid (see [6, p. 244] and [13, p. 10]). This was one of the main reasons
+for the search of irregular primes. Buhler, Crandall, Ernvall, and Mets¨ ankyl¨a[ 1 ]
+calculated all irregular primes up to 4 × 10
+6 by evaluating sums of like powers of
+numbers in arithmetic progression, and these calculations were extended in [2] by
+use of diﬀerent methods to 12 × 106.
+The Wolstenholme primes are those irregular primes wherep divides the numer-
+ator of Bp−3. The only known Wolstenholme primes are 16843 and 2124679. The
+ﬁrst was found (though not explicitly reported) by Selfridge and Pollak (Notices
+AMS 11 (1964), 97), and later conﬁrmed by W. Johnson [8] and S.S. Wagstaﬀ
+(Notices AMS 23 (1976), A-53). The second was found by J. Buhler, R. Crandall,
+R. Ernvall, and T. Mets¨ankyl¨a [1], and later, independently, by McIntosh [10, p.
+387] in his search up to 2×108. Using (iii) we extended the search to 109 and found
+no new Wolstenholme primes, and thus no new primes p divide the numerator of
+Bp−3.
+Our program, written by Montgomery [12], evaluates the least two signiﬁcant
+coeﬃcients c0 and c1 (mod p) in the polynomial
+f(x)=
+∏
+p/6<k<p/4
+(x + k3)
+by the use of a polynomial scheme similar to the one developed in [4, p. 441].
+The sum (mod p) of the reciprocals of the roots of f(x)i sg i v e nb y−c1/c0.T h e
+value c1 = 0 would signify a Wolstenholme prime. The fast Fourier transform
+(FFT) and the Nussbaumer convolution were not used. Most of the computation
+was performed on an SGI Onyx/2 server with 24 R12000 processors and 12 GB
+
+SEARCH FOR FIBONACCI-WIEFERICH AND WOLSTENHOLME PRIMES 2093
+of RAM, running IRIX 6.5. Near the end of the search range each processor was
+capable of processing an interval of 412000 integers per day or about 4.3 seconds per
+prime. The Fermat test, that is, whether 2p−1 ≡ 1( m o dp), was used for selecting
+primes. Due to the relatively long time required to process each prime the use of
+a sieve for selecting primes would not oﬀer a signiﬁcant reduction in total running
+time.
+Acknowledgments
+The authors are grateful to Richard Crandall, Joshua Knauer and Peter Mont-
+gomery for their help in the search for Fibonacci-Wieferich and Wolstenholme
+primes. Support by the Natural Sciences and Engineering Research Council of
+Canada is gratefully acknowledged.
+References
+[1] J. Buhler, R. Crandall, R. Ernvall, and T. Mets¨ ankyl¨a, Irregular primes and cyclotomic
+invariants to four million, Math. Comp 61 (1993) 151–153. MR1197511 (93k:11014)
+[2] J. Buhler, R. Crandall, R. Ernvall, T. Mets¨ ankyl¨a, and M.A. Shokrollahi, Irregular primes
+and cyclotomic invariants to 12 million, J. Symbolic Comput 31 (2001) 89–96. MR1806208
+(2001m:11220)
+[3] R.E. Crandall, Topics in Advanced Scientiﬁc Computation , TELOS/Springer-Verlag, Santa
+Clara, CA, 1996. MR1392472 (97g:65005)
+[4] R.E. Crandall, K. Dilcher, and C. Pomerance , A search for Wieferich and Wilson primes,
+Math. Comp 66 (1997) 433–449. MR1372002 (97c:11004)
+[5] L.E. Dickson, The History of the Theory of Numbers , vol. 1, Reprinted: Chelsea Publishing
+Company , New York, 1966.
+[6] H.M. Edwards, Fermat’s Last Theorem , Springer-Verlag, New York, 1977. MR616635
+(83b:12001a)
+[7] R.K. Guy, Unsolved Problems in Number Theory , Third ed., Springer-Verlag, New York,
+2004. MR2076335 (2005h:11003)
+[8] W. Johnson, Irregular primes and cyclotomic invariants, Math. Comp 29 (1975) 113–120.
+MR0376606 (51:12781)
+[9] J. Knauer and J. Richstein, The continuing search for Wieferich primes, Math. Comp 74
+(2005) 1559–1563. MR2137018 (2006a:11006)
+[10] R.J. McIntosh, On the converse of Wolstenholme’s Theorem, Acta Arith 71 (1995) 381–389.
+MR1339137 (96h:11002)
+[11] P. Montgomery , New solutions of ap−1 ≡ 1( m o d p2), Math. Comp 61 (1991) 361–363.
+MR1182246 (94d:11003)
+[12]
+ , private communication, 1993.
+[13] P. Ribenboim, 13 Lectures on Fermat’s Last Theorem , Springer-Verlag, New York, 1979.
+MR551363 (81f:10023)
+[14]
+ , The New Book of Prime Number Records , Third ed., Springer-Verlag, New York,
+1996. MR1377060 (96k:11112)
+[15] H. Riesel, Prime Numbers and Computer Methods for Factorization ,B i r k h ¨auser Publishers,
+Boston, 1985. MR897531 (88k:11002)
+[16] Z.-H. Sun, private communication, 2005.
+[17] Z.-H. Sun and Z.-W. Sun, Fibonacci numbers and Fermat’s last theorem, Acta Arith 60
+(1992) 371–388. MR1159353 (93e:11025)
+[18] D.D. Wall, Fibonacci series modulo m, Amer. Math. Monthly 67 (1960) 525–532. MR0120188
+(22:10945)
+[19] H.C. Williams, The inﬂuence of computers in the development of number theory, Comput.
+Math. Appl 8 (1982) 75–93. MR649653 (83c:10002)
+[20] J. Wolstenholme, On certain properties of prime numbers, Quart. J. Math 5 (1862) 35–39.
+
+2094 RICHARD J. MCINTOSH AND ERIC L. ROETTGER
+Department of Mathematics and Statistics, University of Regina, Regina, Saskatche-
+wan, Canada S4S 0A2
+E-mail address : mcintosh@math.uregina.ca
+Department of Mathematics and Statistics, University of Calgary, Calgary, Al-
+berta, Canada T2N 1N4
+E-mail address : roettgee@math.ucalgary.ca

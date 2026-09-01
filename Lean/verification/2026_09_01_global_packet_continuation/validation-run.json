@@ -1,0 +1,229 @@
+{
+  "generatedAt": "2026-09-01T04:45:06.2367926-07:00",
+  "status": "PASS",
+  "repositoryHead": "cc1e9ba899ed6b1bb268d4647a3dd4f71f901f57",
+  "tools": {
+    "lake": "Lake version 5.0.0-src+8c9756b (Lean version 4.32.0)",
+    "lean": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)"
+  },
+  "modules": [
+    "AffineRadicalStep20260901",
+    "DanilovRecursiveLift20260901",
+    "DanilovSimplePrimitiveNoGo20260901",
+    "IUTLanaSpecificationNoGo20260901",
+    "PellPrimeRankCounterexamples20260901"
+  ],
+  "directRuns": [
+    {
+      "name": "AffineRadicalStep20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_global_packet_continuation/logs/AffineRadicalStep20260901-direct.log",
+      "logSha256": "bb809240ae22cf30dce8cf32be64f98fde96cf37074cb9ecf5a728ecc7606daa"
+    },
+    {
+      "name": "DanilovRecursiveLift20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_global_packet_continuation/logs/DanilovRecursiveLift20260901-direct.log",
+      "logSha256": "bd13493d9feed5bb9324b2bdadc305e8810beda997bc3eb6a14a26a0d5af65ca"
+    },
+    {
+      "name": "DanilovSimplePrimitiveNoGo20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_global_packet_continuation/logs/DanilovSimplePrimitiveNoGo20260901-direct.log",
+      "logSha256": "836b8ac0e31b57d1e28372c462626244e19f8eae3719e5218c8d37d19b5cb4ef"
+    },
+    {
+      "name": "IUTLanaSpecificationNoGo20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_global_packet_continuation/logs/IUTLanaSpecificationNoGo20260901-direct.log",
+      "logSha256": "c6fb5337418bd1a4ba99f50f6cf5316c1d466028a8267588390fb6d79fafbaab"
+    },
+    {
+      "name": "PellPrimeRankCounterexamples20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_global_packet_continuation/logs/PellPrimeRankCounterexamples20260901-direct.log",
+      "logSha256": "602cc4b11c89a953201935b5954f3c0efddd29b68e6a13a48686c864eaf10525"
+    }
+  ],
+  "aggregateBuild": {
+    "exitCode": 0,
+    "jobs": 9194,
+    "warnings": 299,
+    "log": "Lean/verification/2026_09_01_global_packet_continuation/logs/aggregate-lake-build.log",
+    "logSha256": "19f72fe64ba803b5c0c78e896cb8cd1219ec3eb49387fdd47474d5a0d6d01bd1"
+  },
+  "sourceScan": {
+    "forbiddenMatches": [],
+    "printAxiomsCommands": 83,
+    "observedAxioms": [
+      "Classical.choice",
+      "propext",
+      "Quot.sound"
+    ],
+    "allowedAxioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "unexpectedAxioms": [],
+    "forbiddenKernelNames": []
+  },
+  "declarations": {
+    "files": [
+      {
+        "file": "Lean/IUTThreeClosures/AffineRadicalStep20260901.lean",
+        "theorems": 41,
+        "lemmas": 0,
+        "definitions": 14,
+        "abbreviations": 1,
+        "structures": 2,
+        "classes": 0,
+        "inductives": 0,
+        "instances": 0,
+        "printAxiomsCommands": 21,
+        "countedTopLevelDeclarations": 58
+      },
+      {
+        "file": "Lean/IUTThreeClosures/DanilovRecursiveLift20260901.lean",
+        "theorems": 23,
+        "lemmas": 0,
+        "definitions": 9,
+        "abbreviations": 0,
+        "structures": 0,
+        "classes": 0,
+        "inductives": 0,
+        "instances": 0,
+        "printAxiomsCommands": 15,
+        "countedTopLevelDeclarations": 32
+      },
+      {
+        "file": "Lean/IUTThreeClosures/DanilovSimplePrimitiveNoGo20260901.lean",
+        "theorems": 28,
+        "lemmas": 0,
+        "definitions": 12,
+        "abbreviations": 0,
+        "structures": 1,
+        "classes": 0,
+        "inductives": 0,
+        "instances": 0,
+        "printAxiomsCommands": 22,
+        "countedTopLevelDeclarations": 41
+      },
+      {
+        "file": "Lean/IUTThreeClosures/IUTLanaSpecificationNoGo20260901.lean",
+        "theorems": 11,
+        "lemmas": 0,
+        "definitions": 0,
+        "abbreviations": 0,
+        "structures": 2,
+        "classes": 0,
+        "inductives": 0,
+        "instances": 0,
+        "printAxiomsCommands": 11,
+        "countedTopLevelDeclarations": 13
+      },
+      {
+        "file": "Lean/IUTThreeClosures/PellPrimeRankCounterexamples20260901.lean",
+        "theorems": 19,
+        "lemmas": 0,
+        "definitions": 1,
+        "abbreviations": 0,
+        "structures": 0,
+        "classes": 0,
+        "inductives": 0,
+        "instances": 0,
+        "printAxiomsCommands": 14,
+        "countedTopLevelDeclarations": 20
+      }
+    ],
+    "expectedTotals": {
+      "theoremsOrLemmas": 122,
+      "definitionsOrAbbreviations": 37,
+      "structuresClassesOrInductives": 5,
+      "instances": 0,
+      "countedTopLevelDeclarations": 164,
+      "printAxiomsCommands": 83
+    },
+    "totals": {
+      "theoremsOrLemmas": 122,
+      "definitionsOrAbbreviations": 37,
+      "structuresClassesOrInductives": 5,
+      "instances": 0,
+      "countedTopLevelDeclarations": 164
+    }
+  },
+  "computationBundles": [
+    {
+      "name": "affine_matching_lower_gate",
+      "jsonManifest": null,
+      "checksumManifest": {
+        "path": "research/computation/2026_09_01_affine_matching_lower_gate/SHA256SUMS",
+        "entries": 6,
+        "sha256": "086a8ae6bdeb3c09ea1073a2d6a712284375bc84a8e1f74219a16eea9fc606bc"
+      }
+    },
+    {
+      "name": "danilov_recursive_lift",
+      "jsonManifest": {
+        "path": "research/computation/2026_09_01_danilov_recursive_lift/FILE_MANIFEST.json",
+        "entries": 39,
+        "sha256": "a7c929b840a2f93c5610b184f57ec11683a529a45a78d339407e5274de6a5a06"
+      },
+      "checksumManifest": {
+        "path": "research/computation/2026_09_01_danilov_recursive_lift/SHA256SUMS",
+        "entries": 40,
+        "sha256": "a224a51fbe28aa93d67af7830df846cc156c210c2d2ab7ca47abbf89d3422f46"
+      }
+    },
+    {
+      "name": "danilov_simple_primitive_divisor",
+      "jsonManifest": {
+        "path": "research/computation/2026_09_01_danilov_simple_primitive_divisor/FILE_MANIFEST.json",
+        "entries": 30,
+        "sha256": "1d125c14f04c5fd0198d1de5981d7b5c414fbbb72685a5faad1a3e289b82bcd0"
+      },
+      "checksumManifest": {
+        "path": "research/computation/2026_09_01_danilov_simple_primitive_divisor/SHA256SUMS",
+        "entries": 31,
+        "sha256": "8a9198414dca46e95fb1aef174f61849d0d1480665e7414dec7658fa7df38a3b"
+      }
+    },
+    {
+      "name": "pell_packet_global_attack",
+      "jsonManifest": {
+        "path": "research/computation/2026_09_01_pell_packet_global_attack/FILE_MANIFEST.json",
+        "entries": 22,
+        "sha256": "57003f6e064f0daf17165bedf031668c914475715b009a8afdc01376a4bd123e"
+      },
+      "checksumManifest": null
+    }
+  ],
+  "iutSnapshot": {
+    "pinnedCommit": "ddaddc274281adb5674d647e24fa478745ac6d40",
+    "sourceMetadata": {
+      "path": "research/sources/iut_lana_2026_09_01/source-metadata.json",
+      "sha256": "b80ed88f5f037c817ee9e19387935f86df29764d6f24e5e59ab6257107dba6fd"
+    },
+    "sourceSnapshot": {
+      "path": "research/sources/iut_lana_2026_09_01/lana_ddaddc2_audit_sources/SHA256SUMS",
+      "entries": 12,
+      "sha256": "83af1ee89d8edfe5a2a614595883484354627e25e6fcdc852d904745f42aceac"
+    },
+    "priorAuditReplaySnapshot": {
+      "path": "Lean/verification/2026_09_01_iut_lana_specification_nogo/SHA256SUMS",
+      "entries": 16,
+      "sha256": "d994c78c0644b922108e5076bba4a36b5d02d087f9aa32a809784518fbdda55f"
+    },
+    "specializedReplay": {
+      "name": "iut-specialized-replay",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_global_packet_continuation/logs/iut-specialized-replay.log",
+      "logSha256": "5a73d5c0f888bea63a056e7c9ef83940206c20a0a11be31ee75b4cca1ede86a0"
+    }
+  },
+  "frozenInputManifest": {
+    "path": "Lean/verification/2026_09_01_global_packet_continuation/input-manifest.json",
+    "entries": 18,
+    "sha256": "4767897b11d199ca1d7a3b8110dbc7c9896270c081e01f1b53f0bb708711f9f2"
+  }
+}

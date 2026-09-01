@@ -1,0 +1,850 @@
+arXiv:2312.04354v2  [math.NT]  9 Dec 2023
+On big primitive divisors of Fibonacci numbers
+Haojie Hong
+Version of December 12, 2023
+Abstract
+In this note, we prove that for any given positive integer κ, when n
+is bigger than a constant explicitly depending on κ, the n-th Fibonacci
+number has a primitive divisor not less than ( κ + 1)n − 1.
+Contents
+1 Introduction 1
+2 Notation and preliminaries 3
+3 The Theorem of Y u 4
+4 Primes split in K 6
+5 Cyclotomic polynomial and primitive divisors 8
+6 Stewart’s argument 9
+7 Proof of Theorem 1.1 10
+8 Proof of Theorem 1.3 12
+1 Introduction
+Let α and β be complex numbers such that α + β and αβ are non-zero coprime
+integers and α/β is not a root of unity. For every n ∈ N, let
+un = αn − βn
+α − β .
+One can verify that all un are integers and they are called Lucas numbers. In
+particular, if we set α = (1 +
+√
+5)/2 and β = (1 −
+√
+5)/2, the Lucas numbers
+(un)n≥ 0 are just Fibonacci numbers
+1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233 · · ·,
+which we denote by Fn in the rest of this note.
+A prime number p is called a primitive divisor of a Lucas number un if
+p | un but p ∤ (α − β)2u1 · · ·un− 1. Note that a primitive divisor p of a Lucas
+number un satisﬁes p ≡ ± 1 (mod n). In 1892 Zsigmondy [ 10] proved that un
+has a primitive divisor for n > 6 when α, β ∈ Z. Later in 1913 Carmichael [ 4]
+proved that un has a primitive divisor for n > 12 if α, β ∈ R. According to
+1
+
+Carmichael’s result, it is clear that Fn has a primitive divisor for n ≥ 7 and
+n ̸= 12.
+In this note, we prove that when n is big enough, Fn always has a primitive
+divisor diﬀerent from n ± 1, 2n ± 1, · · ·, κn ± 1 for ﬁxed κ. The proofs use an
+adaptation of Stewart’s argument [ 2, 7], which use Yu’s estimates [ 9] for p-adic
+logarithmic forms.
+Our main results are Theorem 1.1 and Theorem 1.3.
+Theorem 1.1. Let κ be a ﬁxed positive integer and assume κ ≤ 106. There
+exists a positive integer n0 depending on κ, which can be explicitly computed,
+such that for any positive integer n ≥ exp(n0), the Fibonacci number Fn has a
+primitive divisor distinct from each of the 2κ numbers
+n ± 1, 2n ± 1, · · ·, κn ± 1.
+In particular, Fn has a prime divisor greater than or equal to (κ + 1)n − 1, when
+n ≥ exp(n0).
+Actually, Stewart’s work [ 7, Lemma 4.3] holds particularly for primitive di-
+visors of Fibonacci numbers. This combined with estimate of the lowe r bound
+implies the existence of n0 in the above theorem. However, Stewart does not
+give an explicit expression for n0. Bilu et al. [ 2, Theorem 1.3] gives an explicit
+expression for such n0, but it is huge numerically. This note is aimed to obtain
+an explicit and numerically sharp expression for n0.
+Suitable values of n0 for certain κ can be found in the following Tables 1
+and 2. In fact, a SageMath script (see Appendix A1) was made so th at we are
+able to compute value of n0 for any given 1 ≤ κ ≤ 106.
+κ 1 2 3 4 5 6 7 8 9 10
+n0 7607 8006 8257 8443 8588 8710 8815 8904 8984 9057
+Table 1: optimal values of n0 for κ = 1, 2, . . . ,10
+κ 20 30 40 50 100 1000 10000 105 106
+n0 9544 9831 10036 10196 10701 12405 14121 15841 17575
+Table 2: optimal values of n0 for some other κ
+Remark 1.2. For larger κ, say 106 < κ < exp(250000), although the computa-
+tion of the lower bound of n may be very slow, it is still possible. In fact, one can
+just choose k to be small in inequality (7.2) to get an estimate for arbitrary κ,
+even though it may not be optimal. The next theorem character izes the situation
+when κ is particularly large.
+Theorem 1.3. Let κ be a positive integer and assume that log κ ≥ 250000.
+Then for any positive integer
+n ≥ exp(143 log κ log log κ),
+2
+
+the Fibonacci number Fn has a primitive divisor distinct from each of the fol-
+lowing 2κ numbers
+n ± 1, 2n ± 1, · · ·, κn ± 1.
+In particular, Fn has a prime divisor greater than or equal to (κ + 1)n − 1, when
+n ≥ exp(143 log κ log log κ).
+2 Notation and preliminaries
+Let K be the ﬁled Q(
+√
+5). We denote by σ the non-trivial automorphism of K
+and by N the K/Q-norm.
+We denote
+η := 1 +
+√
+5
+2 , γ := η
+ησ = − η2.
+Then
+Fn = ηn − (ησ)n
+√
+5 = (ησ)n
+√
+5 (γn − 1).
+Note that η is the fundamental unit of K.
+Let p ̸= 5 be a prime number, and p be a prime of K above p. We denote
+by f = fp the residual degree of p (it depends only on p, not on p). Note that p
+splits in K if p ≡ ± 1 (mod 5) and is inert if p ≡ ± 2 (mod 5). Hence
+fp =
+{
+1, if p ≡ ± 1 (mod 5) ,
+2, if p ≡ ± 2 (mod 5) . (2.1)
+We denote by h( x) the usual absolute logarithmic height of x ∈ K:
+h(x) = [ K : Q]− 1 ∑
+v∈ MK
+[Kv : Qv] log+ |x|v,
+where log +(x) := max {log(x), 0}. We have
+h(γ) = log η. (2.2)
+Note also the lower bound
+h(α) ≥ 1
+2 log η (α ∈ K × ∖ {1, − 1}). (2.3)
+Indeed, if α is not a Dirichlet unit, then for some prime number p we have
+h(α) ≥ (1/2) log p, even better than ( 2.3). And if α is a unit, then ( 2.3) clearly
+holds, because η is the fundamental unit.
+We also need the following elementary lemma.
+Lemma 2.1. Let ε, A be real numbers satisfying 0 < ε ≤ 1 and A ≥ e2εε− ε. Let
+x > 0 satisfy x ≤ A(log x)ε. Then
+x < A (2 log A)ε (2.4)
+3
+
+Proof. Assume that ε = 1. Then we have A ≥ e2 and x ≤ A log x. For A ≥ e2 we
+have 2A log A < A 2. Hence, assuming that x ≥ 2A log A we obtain x/ log x > A ,
+a contradiction. This proves the result for ε = 1. The general case reduces to
+the case just proved: rewriting the hypothesis as x1/ε ≤ A1/εε log(x1/ε) and
+noting that A1/εε ≥ e2, we obtain
+x1/ε ≤ 2A1/εε log(A1/εε) = 2 A1/ε(log A + ε log ε) ≤ 2A1/ε log A,
+which is ( 2.4).
+3 The Theorem of Yu
+The following is an adaptation of (a special case of) the Main Theorem from [
+9].
+Theorem 3.1. Let k ≥ 8 be an integer and p a prime of K with underlying
+rational prime p satisfying
+p ≥ e3kk3. (3.1)
+Let α1, . . . , αk ∈ K × be multiplicatively independent p-adic units, satisfying the
+Kummer condition [
+K(√ α1, . . . ,√ αk) : K
+]
+= 2 k. (3.2)
+Assume also that they are all of norm 1:
+N αj = 1 ( j = 1, . . . , k). (3.3)
+The for b1, . . . , bk ∈ Z ∖ {0} we have
+νp
+(
+αb1
+1 · · ·αbk
+k − 1
+)
+≤ C0 max{log B, (k + 1)fp log p}h(α1) · · ·h(αk), (3.4)
+where
+C0 := 3588.1 (14k)k(k + 1)k+1
+k!
+p
+(fp log p)k+1 ,
+B := max{|b1|, . . . ,|bk|}.
+Proof. We use the Main Theorem from [ 9] with n replaced by k. In our special
+case we have d = 2 and
+q = 2, e p = 1,
+because p ≥ 7. Furthermore, in our case we have
+ω(d) = 1
+2(log 6)3 , q u = 2,
+where ω(d) is deﬁned in [ 9, equation (1.15)], and qu is deﬁned therein in the
+paragraph between the displayed equations 1.3) and (1.4).
+4
+
+In our case, parameters a(1), c(1), a(1)
+0 , a(1)
+1 , a(1)
+2 , deﬁned in Section 1.3 of [
+9],
+have the following values:
+a(1) = 7 p − 1
+p − 2 , c (1) = 1794 , a (1)
+0 = 2 + log 7 ,
+a(1)
+1 = 4.71, a (1)
+2 = 4.71 + log 2.
+Substituting all this to the deﬁnition of C1 and h(1) in [
+9, equations (1.9) and
+(1.13)], we obtain
+C1 = 1794
+(
+7 p − 1
+p − 2
+) k kk(k + 1)k+12k+2
+k! ·2fp log p
+× max
+{ pfp
+δ(fp log p)k+1 , ek
+kk
+}
+max{log(2e4(k + 1)), fp log p}, (3.5)
+h(1) = max
+{
+log B′
+2(log 6)3 , log B◦ , (k + 1)(k′ + log k′), (k + 1)fp log p
+}
+, (3.6)
+where
+B′ := max
+1≤ j≤ n
+{ bn
+h(αj) + bj
+h(αn)
+}
+, B ◦ := min{|b1|, . . . ,|bn|},
+k′ := (2 + log 7) k + 4.71 + log 2,
+and δ is deﬁned in equation (1.8) of [ 9] (here we use the fact the the Kummer
+condition ( 3.2) is satisﬁed). Note that
+δ ≥
+{
+1 in any case
+p − 1, if fp = 2, (3.7)
+as follows from our assumption (
+3.3).
+We may assume, by renumbering, that
+νp(bk) ≤ νp(bi) ( i = 1, . . . , k− 1).
+Then the Main Theorem of [ 9] implies that
+νp
+(
+αb1
+1 · · ·αbk
+k − 1
+)
+≤ C1h(1)h(α1) · · ·h(αk).
+To deduce ( 3.4), we only have to prove that
+C1 ≤ C0, h (1) ≤ max{log B, (k + 1)fp log p}.
+Condition ( 3.1) implies that that second max in ( 3.5) is fp log p. Hence
+C1 = 3588
+(
+14 p − 1
+p − 2
+) k kk(k + 1)k+1
+k! max
+{ pfp
+δ(fp log p)k+1 , ek
+kk
+}
+. (3.8)
+5
+
+Using ( 3.1) and the assumption k ≥ 8, we ﬁnd that
+(p − 1
+p − 2
+) k
+≤
+(
+1 + 1
+e3kk3 − 2
+) k
+< e 1/(64e24− 1/4).
+Next, using ( 3.1) and ( 3.7), we obtain
+pfp
+δ ≤ p
+p − 1 p ≤ 512e24
+512e24 − 1 p.
+Finally, let us show that
+p
+(fp log p)k+1 > ek
+kk . (3.9)
+The function x ↦→ x/(log x)k+1 is increasing for x ≥ ek+1. Hence ( 3.1) implies
+that
+p
+(fp log p)k+1
+/ ek
+kk ≥ e3kk3
+(6k + 6 log k)k+1
+/ ek
+kk
+=
+(e2
+6
+) k (
+1 + log k
+k
+) − k k3
+6(k + log k)
+≥
+(e2
+6
+) k
+k2
+6(k + log k) > 1,
+because k2 > 6(k + log k) when k ≥ 8.
+Since
+3588 ·e1/(64e24− 1/2) ·512e24
+512e24 − 1 < 3588.1,
+we have C1 < C 0.
+Next, it follows from ( 2.3) that B′ ≤ 4B/ log η, which implies that
+B′
+2(log 6)3 < B.
+We also have trivially B◦ ≤ B. Hence the ﬁrst two terms in the max deﬁn-
+ing h(1) do not exceed log B. Finally, using ( 3.1), it is easy to prove that
+fp log p > k ′ + log k′. Hence h(1) ≤ max{log B, (k + 1)fp log p}. The theorem is
+proved.
+4 Primes split in K
+A prime number q splits in K if and only if q ≡ ± 1 (mod 5). We denote by
+q2, q3, q4, . . . the sequence of prime numbers split in K (it will be convenient to
+start the numbering from 2):
+q2 = 11, q 3 = 19, q 4 = 29, q 5 = 31, . . . .
+6
+
+Since qk splits in K, it factorizes in K as qk = qkqσ
+k . Since the ﬁeld K is of class
+number 1, the fractional ideal q/qσ is principal. Let θk ∈ K × be its generator.
+Then N (θk) = ± 1. Replacing, if necessary, θk by θkη, we may assume that
+N (θk) = 1 . (4.1)
+Replacing θk by θkη2m with a suitable integer m, we may assume that
+η− 1 ≤ | θk|, |θσ
+k | ≤ η.
+It follows that
+h(θk) ≤ 1
+2 log(qkη) ( k = 2, 3, . . .). (4.2)
+We also have the “Kummer property”:
+[K(√ γ,
+√
+θ2, . . . ,
+√
+θk) : K] = 2 k (k = 2, 3, . . .). (4.3)
+Indeed, we have clearly [ K(√ γ) : K] = 2. Next, for every k, the prime qk ram-
+iﬁes in the ﬁeld K(√ θk), but not in K(√ γ) and K(
+√
+θj) for j ̸= k. Hence√ θk /∈ K(√ γ, √ θ2, . . . ,
+√
+θk− 1), and ( 4.3) follows by induction in k.
+The following lemma will be used in the proof of theorem 1.3.
+Lemma 4.1. For k ≥ 500000, ηqk < k 1.3.
+Proof. Assume ﬁrst that k > 80802434. Then qk > 3375517771 = q80802434. By
+Theorem 1.4 of [ 1], we have
+π(qk; 5, a) > qk
+4 log qk
+(a = 1, 2, 3, 4),
+where π(x; m, a) counts primes p ≤ x satisfying p ≡ a (mod m). Hence
+k − 1 = π(qk; 5, 1) + π(qk; 5, 4) > qk
+2 log qk
+.
+Since the function x ↦→ x0.3 − η(2 log x)1.3 is increasing when x > 76, this implies
+that
+k1.3 >
+( qk
+2 log qk
+) 1.3
+> ηq k.
+It remains to verify the statement for
+500000 ≤ k ≤ 80802434.
+This can be done by computer algebra system, for example, SageMa th [ 8]. For
+the script used, see Appendix A2.
+7
+
+5 Cyclotomic polynomial and primitive divisors
+Let Φ n(X) denote the nth cyclotomic polynomial. To start with, let us show
+that for z ∈ C and r > 0 satisfying |z| ≤ r < 1 we have
+⏐
+⏐log |Φn(z)|
+⏐
+⏐ ≤ |log(1 − r)|
+1 − r
+|z|
+r . (5.1)
+Indeed, for |z| ≤ r < 1 the Schwarz Lemma implies that
+⏐
+⏐log |1 + z|
+⏐
+⏐ ≤ | log(1 + z)| ≤ |log(1 − r)|
+r |z|.
+Hence
+⏐
+⏐log |Φn(z)|
+⏐
+⏐ =
+⏐
+⏐
+⏐
+⏐
+⏐
+⏐
+∑
+m|n
+µ
+(n
+m
+)
+log |1 − zm|
+⏐
+⏐
+⏐
+⏐
+⏐
+⏐
+≤ |log(1 − r)|
+r
+∞∑
+m=1
+|z|m = |log(1 − r)|
+1 − |z|
+|z|
+r ,
+which proves ( 5.1).
+Applying ( 5.1) with z = r = γ− 1, we obtain
+⏐
+⏐log Φn(γ− 1)
+⏐
+⏐ ≤ |log(1 − γ− 1)|
+1 − γ− 1 < 0.24.
+Next, if β ∈ K × then
+∑
+p
+νp(β) log N p = log |β|+ log |βσ|,
+the sum being over the primes of K. Applying the above identity with β = Φ n(γ),
+and noting that γσ = γ− 1, we obtain
+∑
+p
+νp(Φn(γ)) log N p = log |Φn(γ)|+ log |Φn(γ− 1)| (5.2)
+= ϕ(n) log |γ|+ 2 log |Φn(γ− 1)|
+= ϕ(n) log |γ|+ O1(0.48),
+where O1(·) is the quantitative version of the familiar O(·) notation: A = O1(B)
+means that |A| ≤ B.
+Call a K-prime p primitive divisor of γn − 1 if
+p ∤5, ν p(γn − 1) ≥ 1, ν p(γm − 1) = 0 ( m = 1, . . . , n− 1).
+Clearly, p is a primitive divisor of γn − 1 if and only if the underlying rational
+prime p is a primitive divisor of Fn.
+8
+
+Let p be not a primitive divisor of γn − 1. A famous result of Schinzel [ 6,
+Lemma 4] (see also [ 3, Lemma 4.5]) implies that νp(Φn(γ)) ≤ νp(n) when n ̸= 6.
+Restricting the sum in ( 5.2) to primitive divisors of γn − 1, we obtain
+∑
+p primitive
+νp(Φn(γ)) log N p ≥ ϕ(n) log |γ| − 2 log n − 0.48 ( n ̸= 6).
+We want to make this more convenient to use. Theorem 15 of [ 5] implies that,
+for n ≥ e100, we have
+ϕ(n) ≥ 0.526 n
+log log n .
+Hence ∑
+p primitive
+νp(Φn(γ)) log N p ≥ 0.5 n
+log log n (n ≥ e100).
+Now let us express this in terms of the primitive divisors of Fn rather than
+γn − 1. For any prime p of K we have νp(Fn) = νp(γn − 1). Hence
+∑
+p primitive
+νp(Fn) log p = 1
+2
+∑
+p primitive
+νp(Fn) log N p
+= 1
+2
+∑
+p primitive
+νp(γn − 1) log N p
+≥ 1
+2
+∑
+p primitive
+νp(Φn(γ)) log N p,
+which implies that
+∑
+p primitive
+νp(Fn) log p ≥ 0.25 n
+log log n (n ≥ e100). (5.3)
+6 Stewart’s argument
+Stewart’s argument gives a non-trivial lower estimate for νp(γn − 1). Let k ≥ 2
+be an integer, and q2, . . . , qk the ﬁrst k − 1 primes split in K, see Section
+4.
+Deﬁne
+Θk :=
+(
+(k + 1) log η + log(q2 · · ·qk)
+) k∏
+j=2
+log(ηqj). (6.1)
+Proposition 6.1. Let n be a positive integer and p is a primitive divisor of Fn.
+Let k ≥ 8 be an integer such that
+p ≥ e3kk3. (6.2)
+Then
+νp(Fn) ≤ 3588.1(7k)k (k + 1)k+2
+k!
+p
+(fp log p)k Θk.
+9
+
+Proof. Let q2, . . . , qk and θ2, . . . , θk as in Section 4. We deﬁne
+θ1 := γ
+θ2 · · ·θk
+.
+We deduce from ( 2.2) and ( 4.2) that
+h(θ1) ≤ h(γ) + h(θ2) + · · ·+ h(θk) ≤ 1
+2
+(
+(k + 1) log η + log(q2 · · ·qk)
+)
+.
+Hence
+h(θ1) · · ·h(θk) ≤ Θk
+2k .
+Let p be a prime of K dividing p. Then νp(Fn) = νp(γn − 1). We have
+γn − 1 = θn
+1 θn
+2 · · ·θn
+k − 1. We want to apply Theorem 3.1 with αj = θj and with
+b1 = · · ·bk = n. The Kummer condition ( 4.3) and the norm 1 condition ( 3.3)
+are satisﬁed by ( 4.3) and ( 4.1); also, ( 3.1) is satisﬁed by ( 6.2).
+In ( 3.4) we may replace the maximum by ( k + 1)fp log p; indeed, we have
+p ≥ n − 1 because p is a primitive divisor, and
+(k + 1)fp log p > log n = log B.
+We obtain
+νp(Fn) = νp(γn − 1)
+= νp(θn
+1 θn
+2 · · ·θn
+k − 1)
+≤ 3588.1 (14k)k(k + 1)k+1
+k!
+p
+(fp log p)k+1 (k + 1)fp log p ·h(θ1) · · ·h(θk)
+≤ 3588.1(7k)k (k + 1)k+2
+k!
+p
+(fp log p)k Θk,
+as wanted.
+7 Proof of Theorem 1.1
+Let κ and k be positive integers, k ≥ 8.
+In this section we will assume that Fn has no primitive prime divisor distinct
+from one of the numbers
+jn ± 1 ( j = 1, . . . , κ),
+and that n satisﬁes
+n > max{e3kk3 + 1, e100}, (7.1)
+We are going to show that, under these assumptions, the upper es timate
+log n < Λ(k, κ)(2 log Λ(k, κ))1/(k− 1) (7.2)
+10
+
+holds, where
+Λ(k, κ) := 7 k(k + 1)
+((
+1 +
+(1
+2
+) k)
+50233.5 (k + 1)3
+(k − 1)! κ(κ + 1)Θk
+) 1/(k− 1)
+.
+and Θ k is deﬁned in ( 6.1).
+In particular, specifying κ = 1 and k = 22, this would imply that, when all
+primitive divisors of n are among n + 1 and n − 1, we have either
+n ≤ max
+{
+10648e66 + 1, e100}
+= e 100,
+or
+log n < 7606.3.
+Since n > e 100 by ( 7.1), we may use estimate ( 5.3):
+∑
+p primitive
+νp(Fn) log p ≥ 0.25 n
+log log n . (7.3)
+Now let us bound the sum on the left from above.
+As noted in the introduction, a primitive divisor p of Fn satisﬁes the con-
+gruence p ≡ ± 1 (mod n). More precisely, a primitive divisor p satisﬁes
+p ≡
+{
+1 (mod n) if p splits in K,
+− 1 (mod n) if p is inert in K.
+According to this, we split the sum in ( 7.3) into two parts, one collecting the
+terms with p ≡ 1 (mod n) and the other those with p ≡ − 1 (mod n); in sym-
+bols:
+∑
+p primitive
+νp(Fn) log p = Σ + + Σ− ,
+Σ+ :=
+∑
+p primitive
+p≡1 (mod n)
+νp(Fn) log p,
+Σ− :=
+∑
+p primitive
+p≡−1 (mod n)
+νp(Fn) log p.
+Now let p be a primitive divisor of Fn. Since p ≥ n − 1 ≥ e3kk3 by ( 7.1), we
+may apply Proposition 6.1. We obtain
+νp(Fn) log p ≤ 3588.1
+( 1
+fp
+) k
+(7k)k (k + 1)k+2
+k!
+p
+(log p)k− 1 Θk.
+If p = jn + 1 then, using n ≥ e100, we obtain
+p
+(log p)k− 1 ≤ j n + 1/j
+(log n)k− 1 ≤
+(
+1 + 1
+e100
+)
+j n
+(log n)k− 1 .
+11
+
+Since fp = 1 for p = jn + 1, this gives the following estimate for Σ +:
+Σ+ ≤
+
+
+κ∑
+j=1
+j
+
+
+(
+1 + 1
+e100
+)
+3588.1 ·(7k)k− 1 7(k + 1)k+2
+(k − 1)!
+n
+(log n)k− 1 Θk
+≤ 12558.35(7k)k− 1 (k + 1)k+2
+(k − 1)! κ(κ + 1) n
+(log n)k− 1 Θk. (7.4)
+Similarly, if p = jn − 1 then
+p
+(log p)k− 1 ≤ j n − 1/j
+(log(n − 1/j))k− 1 ≤ j n
+(log n)k− 1 ,
+because the function x ↦→ x/(log x)k− 1 is increasing for x ≥ ek− 1. Since fp = 2
+for p = jn − 1, we estimate Σ − as
+Σ− ≤
+(1
+2
+) k
+12558.35(7k)k− 1 (k + 1)k+2
+(k − 1)! κ(κ + 1) n
+(log n)k− 1 Θk. (7.5)
+Combing estimates ( 7.3), ( 7.4) and ( 7.5), we obtain
+log n ≤ Λ(k, κ)(log log n)1/(k− 1).
+Applying to this Lemma 2.1, we deduce ( 7.2).
+8 Proof of Theorem 1.3
+Let κ and k be positive integers, κ ≥ exp(250000), k ≥ 500000.
+We assume that Fn has no primitive prime divisor distinct from one of the
+numbers
+jn ± 1 ( j = 1, . . . , κ),
+and that n satisﬁes
+n > max{e3kk3 + 1, e100}. (8.1)
+As in the proof of theorem 1.1, the upper estimate
+log n ≤ Λ(k, κ)(2 log Λ(k, κ))1/(k− 1) (8.2)
+holds, where
+Λ(k, κ) = 7 k(k + 1)
+((
+1 +
+(1
+2
+) k)
+50233.5 (k + 1)3
+(k − 1)! κ(κ + 1)Θk
+) 1/(k− 1)
+.
+and Θ k is deﬁned in ( 6.1).
+12
+
+By lemma 4.1, we estimate Θ k as
+Θk =
+(
+2 log η +
+k∑
+i=2
+log(ηqi)
+) k∏
+i=2
+log(ηqi)
+< (2 log η + 1.3(k − 1) log k) (1.3 log k)k− 1.
+Hence
+Λ(k, κ) = 7 k(k + 1)
+((
+1 +
+(1
+2
+) k)
+50233.5 (k + 1)3
+(k − 1)! κ(κ + 1)Θk
+) 1/(k− 1)
+< 9.1k log k ·C(k) ·M 1/(k− 1),
+where
+C(k) :=
+((
+1 +
+(1
+2
+) k)
+50233.5 (k + 1)k+2
+(k − 1)! (2 log η + 1.3(k − 1) log k)
+) 1/(k− 1)
+,
+M := κ(κ + 1).
+Note that when k ≥ 500000, C(k) ≤ C(500000) < 2.72. So
+Λ(k, κ) < 24.8k log kM 1/(k− 1). (8.3)
+Since ( 8.2) holds for any k ≥ 500000, we may take
+k = ⌊log(M )⌋. (8.4)
+Then
+log Λ(k, κ) < log(24.8) + log k + log log k + 1
+k − 1 log M < 1.52 log k. (8.5)
+Combining ( 8.2)(8.3)(8.4)(8.5), we obtain
+log n ≤ Λ(k, κ)(2 log Λ(k, κ))1/(k− 1)
+< 24.8k log kM 1/(k− 1)(3.04 log k)1/(k− 1)
+< 67.42 log M log log M.
+(8.6)
+Indeed,
+M 1/(k− 1) = e log M/(k− 1) ≤ e1+2/(log M− 2) ≤ e1+2/(500000− 2)
+and
+(3.04 log k)1/(k− 1) = exp
+(log(3.04 log log M )
+log M − 2
+)
+≤ exp
+(log(3.04 log 500000)
+500000 − 2
+)
+.
+Moreover, we can also estimate log M and log log M as
+log M = log κ + log(κ + 1) ≤ 2.0001 log κ
+13
+
+and
+log log M ≤ 1.056 log log κ.
+Thus ( 8.6) reduces to
+log n < 143 log κ log log κ.
+This completes the proof.
+Acknowledgments The author is very grateful to Yuri Bilu, for his many
+substantial revisions of this paper and for very helpful discussion s. The author
+also acknowledges support of China Scholarship Council Grant CSC2 02008310189.
+References
+[1] Michael A. Bennett, Greg Martin, Kevin O’Bryant, and And rew Rechnitzer, Explicit
+bounds for primes in arithmetic progressions , Illinois J. Math. 62 (2018), 427–532. MR
+3922423
+[2] Yuri Bilu, Sanoli Gun, and Haojie Hong, Uniform explicit Stewart theorem on prime
+factors of linear recurrences , Acta Arith. 206 (2022), no. 3, 223–243. MR 4522848
+[3] Yuri Bilu and Florian Luca, Binary polynomial power sums vanishing at roots of unity ,
+Acta Arith. 198 (2021), 195–217. MR 4228301
+[4] R. D. Carmichael, On the numerical factors of the arithmetic forms αn ± βn, Ann. of
+Math. (2) 15 (1913), no. 1-4, 30–70.
+[5] J. Barkley Rosser and Lowell Schoenfeld, Approximate formulas for some functions of
+prime numbers , Illinois J. Math. 6 (1962), 64–94. MR 137689
+[6] A. Schinzel, Primitive divisors of the expression An − Bn in algebraic number ﬁelds , J.
+Reine Angew. Math. 268(269) (1974), 27–33. MR 344221
+[7] Cameron L. Stewart, On divisors of Lucas and Lehmer numbers , Acta Math. 211 (2013),
+291–314. MR 3143892
+[8] The Sage Developers, Sagemath, the Sage Mathematics Software System (Version 9. 5),
+2022, https://www.sagemath.org.
+[9] Kunrui Yu, p-adic logarithmic forms and a problem of Erd˝ os , Acta Math. 211 (2013),
+no. 2, 315–382. MR 3143893
+[10] K. Zsigmondy, Zur Theorie der Potenzreste , Monatsh. Math. Phys. 3 (1892), no. 1,
+265–284. MR 1546236
+Haojie Hong
+Institut de Math´ ematiques de Bordeaux, Universit´ e de Bordeaux & CNRS, Talence, France
+Address: A33, 351, cours de la Lib´ eration, 33405, Talence, France
+E-mail address: haojie.hong@math.u-bordeaux.fr
+14
+
+Appendix: SageMath scripts
+A1. For computing n0 for 1 ≤ κ ≤ 106
+def calculate_alpha():
+alpha = (1 + sqrt(5)) / 2
+return alpha.n()
+def find_primes(X):
+l = []
+p = next_prime(X)
+while p > 3:
+p = previous_prime(p)
+l.append(p)
+return l
+def filter_primes(l):
+o = []
+for i in l:
+if mod(i, 5) == 1 or mod(i, 5) == -1:
+o.append(i)
+return o
+def calculate_thetak(o, alpha):
+odelmax = o[1:]
+logsum = 0
+logprod = 1
+for p in odelmax:
+logsum += log(alpha)+ log(p)
+logprod *= log(alpha * p)
+thetak = (2 * log(alpha) + logsum) * logprod
+return thetak
+def calculate_Lambdak(k, ka, thetak):
+Lambdak = 7 * k *((1 + 0.5^k) * 50233.5 * (k+1)^(k+2)
+* ka * (ka+1) * thetak/ factorial(k-1))^(1/(k-1))
+return Lambdak
+def calculate_dsn(Lambdak, k):
+dsn = Lambdak * (2 * log(Lambdak))^(1/(k-1))
+return dsn.n()
+def calculate_all_Lambdak(val):
+results = []
+for X in range(100, 1000):
+alpha = calculate_alpha()
+primes = find_primes(X)
+filtered_primes = filter_primes(primes)
+k = len(filtered_primes)
+ka = val
+thetak = calculate_thetak(filtered_primes, alpha)
+Lambdak = calculate_Lambdak(k, ka, thetak)
+dsn = calculate_dsn(Lambdak, k)
+results.append((dsn, k, Lambdak))
+min_dsn, min_k, min_Lambdak = min(results, key=lambda x: x [0])
+print(f"For k={min_k},min_logn={min_dsn}")
+15
+
+calculate_all_Lambdak(1) # change the values of $\kappa$ h ere
+A2. For lemma 4.1
+def splitq(k): # calculates q_k
+n = 1
+for q in Primes():
+if q % 5 == 1 or q % 5 == 4:
+n += 1
+if n == k:
+return q
+def piksplit(x): # calculates the biggest k such that q_k<=x
+k = 1
+for q in Primes():
+if q > x:
+break
+if q % 5 == 1 or q % 5 == 4:
+k += 1
+return k
+def pikest(x, y, a): # verifies eta q_k <= k^a for all k
+satisfying y<=q_k<=x
+k = 1
+eta = (1 + sqrt(5)) / 2
+for q in Primes():
+if q < y:
+continue
+if q > x:
+break
+if q % 5 == 1 or q % 5 == 4:
+k += 1
+est = k**a / eta
+if q > est:
+print(k)
+print(q)
+return
+print("confirmed")
+pikest(500000, 80802434, 1.3)
+16

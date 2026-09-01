@@ -399,6 +399,7 @@ import IUTThreeClosures.PellSquareRootDescent20260831
 -- Literature-level perfect-power and valuation inputs remain explicit paper
 -- dependencies rather than project axioms.
 import IUTThreeClosures.PellPrimeIndexDichotomy20260831
+import IUTThreeClosures.PellPrimeRankCounterexamples20260901
 
 -- An independent Hall-family gate: primitive `X^3 + K = Y^2` data with
 -- squarefull `K` and `K^2 <= X` have exact radical slope below `11/12`.
@@ -411,6 +412,18 @@ import IUTThreeClosures.HallSquarefullCounterexample20260831
 -- The surviving residue class remains an active arithmetic target.
 import IUTThreeClosures.DanilovGlobalIndexSieve20260831
 
+-- September 1 continuation of the Danilov route: the elementary recursive
+-- state invariant, finite fixed-index prime-support obstruction, and an
+-- explicit one-step countermodel.  Carmichael and the unresolved
+-- simple-primitive-divisor hypothesis remain paper inputs, not axioms.
+import IUTThreeClosures.DanilovRecursiveLift20260901
+
+-- The simple-primitive-divisor bottleneck is sharpened to a
+-- Wall--Sun--Sun-supported cyclotomic alternative on paper.  Lean checks the
+-- exact general-real-Lucas counterexample and the elementary powerful-part,
+-- finite-correction, and 41*n+1 consequences without importing open inputs.
+import IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901
+
 -- Deterministic core of the positive affine-shear route: every admissible
 -- pair gives a distinct primitive abc output.  The unresolved analytic
 -- repeated-prime lower bound remains a paper-level open gate, not an axiom.
@@ -422,12 +435,25 @@ import IUTThreeClosures.AffineShearAmplification20260831
 -- The external de Bruijn counting estimate is not added as an axiom.
 import IUTThreeClosures.AffineExcessUpperBound20260831
 
+-- Radical-step continuation of the affine route: every modulus containing
+-- the seed prime support preserves primitivity and all three projections;
+-- multiples embed into the minimal radical-step fibre.  The exact
+-- matching-lower quantifier gate and square-row nonexamples are also checked.
+import IUTThreeClosures.AffineRadicalStep20260901
+
 -- Exact scalar content of the "perhaps only up to approximation" sentence in
 -- IUT III, Corollary 3.12: arbitrary or vanishing one-sided approximation in
 -- the printed closed ray suffices, while fixed tolerance and an uncalibrated
 -- qualitative link have explicit countermodels.  The source-level
 -- approximation/membership premise itself remains open.
 import IUTThreeClosures.IUTClosedRayApproximationBridge20260901
+
+-- Exact and abstract cores of the September 1 LANA interface audit: the
+-- literal pinned RHS record is empty because its unrestricted real-valued
+-- shift law contradicts the empty set, while a one-point same-pilot hit would
+-- suffice after correcting the interface.  This is a specification result,
+-- not an IUT or abc conclusion.
+import IUTThreeClosures.IUTLanaSpecificationNoGo20260901
 
 -- Integrated cloud arithmetic core, v26--v29.  These modules retain the
 -- square/cube and affine-residual reductions from current main, then add the

@@ -1,0 +1,34 @@
+WORKDIR: E:\AImath\abc猜想\Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.exe env lean IUTThreeClosures/DanilovRecursiveLift20260901.lean
+'IUTThreeClosures.DanilovRecursiveLift20260901.existsUnique_nextMultiplier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovRecursiveLift20260901.stateInvariant_update' depends on axioms: [propext]
+'IUTThreeClosures.DanilovRecursiveLift20260901.existsUnique_nextStateMultiplier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovRecursiveLift20260901.primeFinset_product_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovRecursiveLift20260901.fixedIndex_freshPrime_card_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovRecursiveLift20260901.not_fixedIndex_more_freshPrimes_than_support' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovRecursiveLift20260901.counterEta_eq_unit_pow' depends on axioms: [propext]
+'IUTThreeClosures.DanilovRecursiveLift20260901.counterEta_norm_one' depends on axioms: [propext]
+'IUTThreeClosures.DanilovRecursiveLift20260901.counterEta_mod49' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.DanilovRecursiveLift20260901.counterL_cast49' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.DanilovRecursiveLift20260901.counterL_zero' depends on axioms: [propext]
+'IUTThreeClosures.DanilovRecursiveLift20260901.counterSlope_mod7_ne_zero' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.DanilovRecursiveLift20260901.counterParameter_mod7_of_twoFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovRecursiveLift20260901.counterK_zero_twoFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovRecursiveLift20260901.not_exists_fresh_prime_divisor_counterUpdated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

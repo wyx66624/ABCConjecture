@@ -7,10 +7,84 @@ Arakelov--Vojta、Frey--Szpiro、S-unit 与算术微分等路线中的真实组�
 严格反例及剩余核心缺口均在
 [`Lean/RESEARCH_STATUS.md`](Lean/RESEARCH_STATUS.md) 中逐项区分。
 
-## 2026-09-01 最新续研：仿射上界、Pell 稀有包与 Danilov 全局指标筛
+## 2026-09-01 最新五路线续研：全局包、递归提升与同一 pilot 规格审计
+
+标准、无条件的 `ABCConjecture` 仍未被证明或证伪。以下成果同时推进正向
+证明与反例搜索；有限范围内没有找到反例绝不构成一般证明，局部反例也只
+关闭其完整假设所覆盖的精确命题。五路线的统一证明、反例与开放门槛账本见
+[`全局包续研综合报告`](research/ABC_MULTI_ROUTE_GLOBAL_PACKET_CONTINUATION_2026_09_01.md)。
+
+- **仿射 radical-step 路线。** 将 shear 步长从 `abc` 降到
+  `Q=rad(abc)` 仍保留本原性和三种成对投影的单射性，并且不缩小原始纤维。
+  `rad(abc)=abc` 时纤维不变；含有重复素因子时才严格增大。
+  在已有异常集上界下，所需 matching lower bound 与次临界 seed 高度有界性
+  逻辑等价；固定 CRT 模板的密度主项不足以给出该下界，但大模边界、模板
+  并集与偶然高重因子仍开放。对 seed `(1,8,9)` 的 447,120,793 个合格点
+  未发现异常，以及显式全平方但非异常的例子，都只是有限 no-go，不能关闭
+  eventual matching-lower 路线。见
+  [`仿射 matching-lower 报告`](research/ABC_AFFINE_MATCHING_LOWER_GATE_2026_09_01.md)。
+- **balancing-Pell 全局包路线。** 已证明 prime-power rank 的精确
+  order-stagnation 公式与两通道耦合，并对 Fellini--Murty 第 8 节证明架构
+  进行审计、修补后重新证明所用全局二择一；这里不是把印刷论证原样当作
+  输入。对全部奇素数 `q≤10^8` 的精确扫描只得到三个 depth-two 素数，
+  没有 depth-three 命中。`13` 与 `1546463` 给出精确反例，关闭“通道、
+  prime-rank 或边界等号自动推出 valuation one”等加强命题；四素数、两
+  depth-three 包的原路线仍开放。见
+  [`Pell 全局包报告`](research/ABC_PELL_GLOBAL_PACKET_ATTACK_2026_09_01.md)。
+- **Danilov 递归提升路线。** Danilov 轨道被化为 Fibonacci 指标恒等式；
+  若每个自适应指标都有 simple primitive divisor，则可不断加入新素数并
+  与固定非零整数的有限素因子支持矛盾。计算构造了 626 个非退化提升包和
+  一个 4398 位模数；末端 `p≤10^8` 无新包只是有限结论。一个完整抽象
+  countermodel 只否定“单次非零局部斜率自动保证无限递归”，不否定实际
+  Danilov/Fibonacci 路线。见
+  [`递归提升报告`](research/ABC_DANILOV_RECURSIVE_LIFT_2026_09_01.md)。
+- **Fibonacci simple-primitive-divisor 路线。** 纸面结果把失败情形压缩为
+  强约束的 Wall--Sun--Sun powerful cyclotomic 包。标准实 Lucas 序列
+  `P=2,Q=-3` 在指标 10 只有 primitive prime `11`，且
+  `11^2∥U_10`；这完整关闭的只有“所有标准实 Lucas 序列在每个 `10Q`
+  指标都有 simple primitive divisor”这一普适捷径。它不是 Fibonacci
+  反例，Danilov 所需 SPD 命题继续开放。另一个精确例子 `n=15,p=61`
+  关闭了漏写偶性时的 half-Lucas `s=±1` 辅助命题；实际指标 `10Q` 均为
+  偶数。对 252 个小 `Q` 的有界搜索给出
+  207 个证书和 45 个未决项，未发现反例也不构成证明。见
+  [`SPD 报告`](research/ABC_DANILOV_SIMPLE_PRIMITIVE_DIVISOR_2026_09_01.md)。
+- **IUT/LANA same-pilot 路线。** 对固定提交 `ddaddc2` 的实际类型证明了：
+  当前低分辨率 `RHSData` 把非零加性缩放律量化到所有集合，空集立即产生
+  矛盾，因而该记录不可居住且其 universal target 只能真空成立。这只否证
+  pinned LANA 规格作为可满足接口，不否证修正后的 log-volume、IUT 或
+  abc。对象级 pointed same-pilot 正向充分接口已经保留，真正的同一 pilot
+  构造与输出界仍是开放任务。见
+  [`LANA same-pilot 审计`](research/ABC_IUT_LANA_SAME_PILOT_AUDIT_2026_09_01.md)。
+
+上述纸面证明之后已加入五个对应 Lean 核心模块：
+[`AffineRadicalStep20260901`](Lean/IUTThreeClosures/AffineRadicalStep20260901.lean)、
+[`PellPrimeRankCounterexamples20260901`](Lean/IUTThreeClosures/PellPrimeRankCounterexamples20260901.lean)、
+[`DanilovRecursiveLift20260901`](Lean/IUTThreeClosures/DanilovRecursiveLift20260901.lean)、
+[`DanilovSimplePrimitiveNoGo20260901`](Lean/IUTThreeClosures/DanilovSimplePrimitiveNoGo20260901.lean)
+与
+[`IUTLanaSpecificationNoGo20260901`](Lean/IUTThreeClosures/IUTLanaSpecificationNoGo20260901.lean)。
+这些模块不把尚未形式化的高层文献定理伪装成 Lean 公理。
+
+最终冻结的
+[`全局验证包`](Lean/verification/2026_09_01_global_packet_continuation/README.md)
+逐项重放五个模块和四个计算包：`122` 条 theorem/lemma、`37` 个
+def/abbrev、`5` 个 structure/class/inductive，共 `164` 个顶层声明；`83`
+个 `#print axioms` 的依赖并集仅为 `Classical.choice`、`propext` 与
+`Quot.sound`。五个直接编译均为零警告，`lake build IUTThreeClosures`
+完成 `9194` jobs；冻结包 `SHA256SUMS` 的 SHA256 是
+`da4e28c8e80c0439bb8a9954bbe76cbc853bbeda1a04c735721890b766f17e8f`。
+
+作者为 **ChatGPT** 的英文期刊稿已更新为
+[`119 页 PDF`](output/pdf/ChatGPT_ABC_Global_Packet_Continuation_2026_09_01.pdf)，
+SHA256 为
+`6d3e1faed22053e973f8d87fd669423d7c02a8bed6cc557435a9458b3d8b237e`。
+全部 119 页均已渲染检查；机械与视觉记录见
+[`PDF QA`](output/pdf/ChatGPT_ABC_Global_Packet_Continuation_2026_09_01_QA/QA.md)。
+
+## 2026-09-01 早期续研检查点：仿射上界、Pell 稀有包与 Danilov 全局指标筛
 
 标准、无条件的 `ABCConjecture` 仍未被证明或证伪；这不是一个声称解决
-abc 的发布。最新综合报告是
+abc 的发布。该检查点的综合报告是
 [`2026-09-01 平衡持续性续研`](research/ABC_BALANCED_PERSISTENCE_CONTINUATION_2026_09_01.md)，
 并继续同时推进正向证明和反例构造。
 

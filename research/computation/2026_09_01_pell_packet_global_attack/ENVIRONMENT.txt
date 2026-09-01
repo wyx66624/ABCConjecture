@@ -1,0 +1,17 @@
+Created: 2026-09-01
+Host OS: Microsoft Windows 10.0.22631
+PowerShell: 7.6.4 Core
+C++ compiler: g++.exe 15.1.0 (MinGW-Builds, x86_64-win32-seh)
+Python: 3.12.13, bundled Codex primary runtime
+Python executable: C:\Users\Admin\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe
+
+C++ flags:
+  -O3 -std=c++17 -Wall -Wextra -pedantic
+
+Arithmetic boundary:
+  q <= 100,000,000, so q^2 <= 10^16 fits uint64.
+  First-stage modular products use unsigned __int128.
+  Modulo-q^3 replay is invoked only at q^2 hits and uses overflow-free
+  double-and-add multiplication in unsigned __int128.
+  The independent Python verifier uses arbitrary-precision integers.
+

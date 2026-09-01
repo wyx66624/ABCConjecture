@@ -1,0 +1,372 @@
+{
+  "certificate": "E:\\AImath\\abc\u731c\u60f3\\tmp\\danilov_hall_valuation_2026_08_31\\danilov_global_index_sieve_certificate.json",
+  "forced_r": "124756848858595532142808426058059599119",
+  "forced_r_modulus": "187135273287893298214212639087089398679",
+  "forced_t": "122136955032565025967809449110840347537827",
+  "forced_t_modulus": "183205432548847538951714173666260521306741",
+  "global_conclusion": "If K_t is squarefull, then t is congruent to forced_t modulo forced_t_modulus. In particular no K_t with 0 <= t < forced_t is squarefull. This does not exclude the residue class itself.",
+  "orbit": {
+    "K_t": "27*L_t/125",
+    "L_t": "2*z_t+11",
+    "alpha_0": [
+      682,
+      305
+    ],
+    "eta": [
+      1730726404001,
+      774004377960
+    ],
+    "norm_alpha_0": -1,
+    "norm_eta": 1
+  },
+  "sha256": "be46476e42272f80948a2c6d23d53ae665cd2105a0c1769f01c6f6717fa07ece",
+  "stage_11": {
+    "formula": "L_t == 11*(t+4) (mod 11^2)",
+    "squarefull_forces": "t == 7 (mod 11)"
+  },
+  "stage_89": {
+    "formula": "L_t == 89*(1+46*s) (mod 89^2)",
+    "parameterization": "t=7+11*s",
+    "squarefull_forces": "s == 29 (mod 89), hence t=326+979*r"
+  },
+  "stage_primes": [
+    {
+      "L_326_over_p_mod_p_c": 106,
+      "all_r_mod_p_formula_checked": true,
+      "alpha_326_mod_p2": [
+        25502,
+        14412
+      ],
+      "eta_pow_979_mod_p2": [
+        1,
+        12530
+      ],
+      "eta_sqrt_coefficient_over_p_mod_p_d": 70,
+      "forced_r_mod_p": 119,
+      "linear_coefficient_a": 139,
+      "p": 179,
+      "pocklington_certificate": {
+        "F": 178,
+        "F_gt_sqrt_p": true,
+        "p_minus_one_factorization": {
+          "2": 1,
+          "89": 1
+        },
+        "pocklington_witness_by_prime_divisor": {
+          "2": 2,
+          "89": 2
+        }
+      },
+      "prime_verified_by_deterministic_u64_Miller_Rabin": true,
+      "w_326_mod_p": 92
+    },
+    {
+      "L_326_over_p_mod_p_c": 100,
+      "all_r_mod_p_formula_checked": true,
+      "alpha_326_mod_p2": [
+        29745,
+        15425
+      ],
+      "eta_pow_979_mod_p2": [
+        1,
+        2388
+      ],
+      "eta_sqrt_coefficient_over_p_mod_p_d": 12,
+      "forced_r_mod_p": 66,
+      "linear_coefficient_a": 101,
+      "p": 199,
+      "pocklington_certificate": {
+        "F": 198,
+        "F_gt_sqrt_p": true,
+        "p_minus_one_factorization": {
+          "11": 1,
+          "2": 1,
+          "3": 2
+        },
+        "pocklington_witness_by_prime_divisor": {
+          "11": 2,
+          "2": 3,
+          "3": 2
+        }
+      },
+      "prime_verified_by_deterministic_u64_Miller_Rabin": true,
+      "w_326_mod_p": 102
+    },
+    {
+      "L_326_over_p_mod_p_c": 262,
+      "all_r_mod_p_formula_checked": true,
+      "alpha_326_mod_p2": [
+        98136,
+        83911
+      ],
+      "eta_pow_979_mod_p2": [
+        1,
+        93673
+      ],
+      "eta_sqrt_coefficient_over_p_mod_p_d": 283,
+      "forced_r_mod_p": 110,
+      "linear_coefficient_a": 124,
+      "p": 331,
+      "pocklington_certificate": {
+        "F": 330,
+        "F_gt_sqrt_p": true,
+        "p_minus_one_factorization": {
+          "11": 1,
+          "2": 1,
+          "3": 1,
+          "5": 1
+        },
+        "pocklington_witness_by_prime_divisor": {
+          "11": 3,
+          "2": 2,
+          "3": 2,
+          "5": 2
+        }
+      },
+      "prime_verified_by_deterministic_u64_Miller_Rabin": true,
+      "w_326_mod_p": 168
+    },
+    {
+      "L_326_over_p_mod_p_c": 604,
+      "all_r_mod_p_formula_checked": true,
+      "alpha_326_mod_p2": [
+        418077,
+        165583
+      ],
+      "eta_pow_979_mod_p2": [
+        1,
+        187724
+      ],
+      "eta_sqrt_coefficient_over_p_mod_p_d": 284,
+      "forced_r_mod_p": 220,
+      "linear_coefficient_a": 490,
+      "p": 661,
+      "pocklington_certificate": {
+        "F": 660,
+        "F_gt_sqrt_p": true,
+        "p_minus_one_factorization": {
+          "11": 1,
+          "2": 2,
+          "3": 1,
+          "5": 1
+        },
+        "pocklington_witness_by_prime_divisor": {
+          "11": 2,
+          "2": 2,
+          "3": 2,
+          "5": 2
+        }
+      },
+      "prime_verified_by_deterministic_u64_Miller_Rabin": true,
+      "w_326_mod_p": 333
+    },
+    {
+      "L_326_over_p_mod_p_c": 1003,
+      "all_r_mod_p_formula_checked": true,
+      "alpha_326_mod_p2": [
+        536098,
+        495484
+      ],
+      "eta_pow_979_mod_p2": [
+        1,
+        768611
+      ],
+      "eta_sqrt_coefficient_over_p_mod_p_d": 719,
+      "forced_r_mod_p": 356,
+      "linear_coefficient_a": 871,
+      "p": 1069,
+      "pocklington_certificate": {
+        "F": 1068,
+        "F_gt_sqrt_p": true,
+        "p_minus_one_factorization": {
+          "2": 2,
+          "3": 1,
+          "89": 1
+        },
+        "pocklington_witness_by_prime_divisor": {
+          "2": 2,
+          "3": 3,
+          "89": 2
+        }
+      },
+      "prime_verified_by_deterministic_u64_Miller_Rabin": true,
+      "w_326_mod_p": 537
+    },
+    {
+      "L_326_over_p_mod_p_c": 6956,
+      "all_r_mod_p_formula_checked": true,
+      "alpha_326_mod_p2": [
+        81984933,
+        82797594
+      ],
+      "eta_pow_979_mod_p2": [
+        1,
+        15841838
+      ],
+      "eta_sqrt_coefficient_over_p_mod_p_d": 1618,
+      "forced_r_mod_p": 6527,
+      "linear_coefficient_a": 1286,
+      "p": 9791,
+      "pocklington_certificate": {
+        "F": 9790,
+        "F_gt_sqrt_p": true,
+        "p_minus_one_factorization": {
+          "11": 1,
+          "2": 1,
+          "5": 1,
+          "89": 1
+        },
+        "pocklington_witness_by_prime_divisor": {
+          "11": 2,
+          "2": 11,
+          "5": 2,
+          "89": 2
+        }
+      },
+      "prime_verified_by_deterministic_u64_Miller_Rabin": true,
+      "w_326_mod_p": 4898
+    },
+    {
+      "L_326_over_p_mod_p_c": 32496,
+      "all_r_mod_p_formula_checked": true,
+      "alpha_326_mod_p2": [
+        1403079883,
+        364138561
+      ],
+      "eta_pow_979_mod_p2": [
+        1,
+        1195546169
+      ],
+      "eta_sqrt_coefficient_over_p_mod_p_d": 30529,
+      "forced_r_mod_p": 26107,
+      "linear_coefficient_a": 19166,
+      "p": 39161,
+      "pocklington_certificate": {
+        "F": 39160,
+        "F_gt_sqrt_p": true,
+        "p_minus_one_factorization": {
+          "11": 1,
+          "2": 3,
+          "5": 1,
+          "89": 1
+        },
+        "pocklington_witness_by_prime_divisor": {
+          "11": 2,
+          "2": 3,
+          "5": 3,
+          "89": 2
+        }
+      },
+      "prime_verified_by_deterministic_u64_Miller_Rabin": true,
+      "w_326_mod_p": 19583
+    },
+    {
+      "L_326_over_p_mod_p_c": 54535,
+      "all_r_mod_p_formula_checked": true,
+      "alpha_326_mod_p2": [
+        1868669037,
+        117085216
+      ],
+      "eta_pow_979_mod_p2": [
+        1,
+        4205678939
+      ],
+      "eta_sqrt_coefficient_over_p_mod_p_d": 61369,
+      "forced_r_mod_p": 45687,
+      "linear_coefficient_a": 26543,
+      "p": 68531,
+      "pocklington_certificate": {
+        "F": 68530,
+        "F_gt_sqrt_p": true,
+        "p_minus_one_factorization": {
+          "11": 1,
+          "2": 1,
+          "5": 1,
+          "7": 1,
+          "89": 1
+        },
+        "pocklington_witness_by_prime_divisor": {
+          "11": 2,
+          "2": 2,
+          "5": 2,
+          "7": 3,
+          "89": 2
+        }
+      },
+      "prime_verified_by_deterministic_u64_Miller_Rabin": true,
+      "w_326_mod_p": 34268
+    },
+    {
+      "L_326_over_p_mod_p_c": 253560,
+      "all_r_mod_p_formula_checked": true,
+      "alpha_326_mod_p2": [
+        172756888315,
+        131160996968
+      ],
+      "eta_pow_979_mod_p2": [
+        1,
+        194590282460
+      ],
+      "eta_sqrt_coefficient_over_p_mod_p_d": 410060,
+      "forced_r_mod_p": 158180,
+      "linear_coefficient_a": 286139,
+      "p": 474541,
+      "pocklington_certificate": {
+        "F": 474540,
+        "F_gt_sqrt_p": true,
+        "p_minus_one_factorization": {
+          "11": 1,
+          "2": 2,
+          "3": 1,
+          "5": 1,
+          "719": 1
+        },
+        "pocklington_witness_by_prime_divisor": {
+          "11": 2,
+          "2": 2,
+          "3": 7,
+          "5": 2,
+          "719": 2
+        }
+      },
+      "prime_verified_by_deterministic_u64_Miller_Rabin": true,
+      "w_326_mod_p": 237273
+    },
+    {
+      "L_326_over_p_mod_p_c": 1433006,
+      "all_r_mod_p_formula_checked": true,
+      "alpha_326_mod_p2": [
+        2913131286738,
+        1443939453785
+      ],
+      "eta_pow_979_mod_p2": [
+        1,
+        1867316031654
+      ],
+      "eta_sqrt_coefficient_over_p_mod_p_d": 1036614,
+      "forced_r_mod_p": 1200907,
+      "linear_coefficient_a": 696296,
+      "p": 1801361,
+      "pocklington_certificate": {
+        "F": 1801360,
+        "F_gt_sqrt_p": true,
+        "p_minus_one_factorization": {
+          "11": 1,
+          "2": 4,
+          "23": 1,
+          "5": 1,
+          "89": 1
+        },
+        "pocklington_witness_by_prime_divisor": {
+          "11": 2,
+          "2": 3,
+          "23": 2,
+          "5": 2,
+          "89": 2
+        }
+      },
+      "prime_verified_by_deterministic_u64_Miller_Rabin": true,
+      "w_326_mod_p": 900683
+    }
+  ]
+}

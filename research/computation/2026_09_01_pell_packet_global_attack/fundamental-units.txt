@@ -1,0 +1,570 @@
+November 7, 2016 10:0 WSPC/S1793-0421 203-IJNT 1750014
+International Journal of Number Theory
+Vol. 13, No. 1 (2017) 243– 252
+c⃝ World Scientiﬁc Publishing Company
+DOI: 10.1142/S1793042117500142
+F undamental units and consecutive squarefull numbers
+Kevser Akta¸s∗ and M. Ram Murty †
+Department of Mathematics and Statistics
+Queen ’s University
+Kingston, Ontario K7L 3N6, Canada
+∗kevser@mast.queensu.ca
+†murty@mast.queensu.ca
+Received 2 December 2015
+Accepted 17 February 2016
+Published 20 April 2016
+We connect several seemingly unrelated conjectures of Ankeny, Artin, Chowla and
+Mordell to a conjecture of Erd¨ os on consecutive squarefull numbers. We then study
+the Erd¨os conjecture and relate it to the abc conjecture. We also derive by elementary
+methods several unconditional results pertaining to the Erd¨ os conjecture.
+Keywords: Fundamental units; consecutive squarefull numbers; Diophantine equations;
+Erd¨os conjecture; abc conjecture.
+Mathematics Subject Classiﬁcation 2010: 11A25, 11D09
+1. Introduction
+If p is a prime ≡ 1 (mod 4), the fundamental unit of Q(√
+p) can be written as
+ε= t + u√
+p
+2 > 1,
+with t2 − pu2 = −4. In 1952, Ankeny, Artin and Chowla [1] showed that if h is the
+class number of the ring of integers of Q(√
+p), then
+uh
+t ≡ B(p−1)/2 (mod p),
+where Bk denotes the kth Bernoulli number (see [15, p. 56]) deﬁned by the gener-
+ating function
+t
+et − 1 =1 − t
+2 +
+∞∑
+k=2
+Bktk
+k! .
+243
+
+November 7, 2016 10:0 WSPC/S1793-0421 203-IJNT 1750014
+244 K. Akta¸s&M .R a mM u r t y
+Now Bk =0f o ra l lo d dk (see [16, Problem 2.1.8]). Fork ≥ 2 even, we have Euler’s
+celebrated formula
+∞∑
+k=1
+1
+nk = Bk(2πi)k
+2k! .
+Ankeny, Artin and Chowla further conjectured that u ̸≡ 0( m o dp). From their
+result, and the fact that h(p)= O(p1/2 log p), we see that for p suﬃciently large,
+u ̸≡ 0( m o dp) if and only if B(p−1)/2 ̸≡ 0( m o dp).
+In a similar vein, if p ≡ 3 (mod 4) is prime, Mordell [15, pp. 56–57] conjectured
+that the fundamental unit t + u√
+p of the ring of integers of Q(√
+p)s a t i s ﬁ e su ̸≡ 0
+(mod p). He also showed that this happens if and only if
+E(p−3)/2 ̸≡ 0( m o d p),
+where Ek denotes the Euler number given by the power series for the secant function:
+sec x =
+∞∑
+k=0
+Ekxk
+k! .
+Both of these conjectures are still open (see also [ 14]). It is not even known if the
+conjectures are true for inﬁnitely many primes. They have been checked numerically
+for all primes p< 10
+7 and the reader can ﬁnd further details and exposition in [5].
+In this paper, we relate these con jectures to a conjecture of Erd¨ os (see [ 19,
+p. 234]) on consecutive squarefull numbers (or nearly consecutive squarefull num-
+bers) and then apply the abc conjecture to move toward these conjectures. We also
+formulate what we call a strong Erd¨os conjecture which then implies that both the
+Ankeny–Artin–Chowla conjecture and the Mordell conjecture are true for almost
+all primes p (in the sense of density). More precisely, we show that the set of primes
+p ≤ x for which the conjecture is false is O(x
+θ)f o rs o m eθ< 1.
+Our methods are elementary and do not use anything deeper than the theory of
+the Brahmagupta–Pell (BP) equation. We also obtain some unconditional results
+in this context.
+The study of consecutive squarefull numbers has also been undertaken (indepen-
+dently) by Chan [6] as well as Blomer and Sch¨obel [3]. Our work has some overlap
+with these works. In this context, we highlight our new contributions.
+An integer r is called squarefull (or powerful) if, for all primes p dividing r,
+we have p
+2 divides r. In 1970, Golomb [ 10] proved an estimate for the number of
+squarefull numbers. More precisely, ifk(x) denotes the number of squarefull numbers
+≤ x,t h e nk(x) ∼ c√
+x with the constant c = ζ(3/2)/ζ(3) as x →∞ where ζ(s)i s
+the Riemann zeta function. Already in 1935, Erd¨os and Szekeres [8] gave the ﬁrst
+result about k(x):
+k(x)=
+ζ
+( 3
+2
+)
+ζ(3) x1/2 + O(x1/3)
+
+November 7, 2016 10:0 WSPC/S1793-0421 203-IJNT 1750014
+Fundamental units and consecutive squarefull numbers 245
+as x →∞ ;s e ea l s o[2]. Golomb seemed to be unaware of this when he wrote his
+paper. (Here and elsewhere, unless otherwise speciﬁed, all constants implied by the
+big “O” symbol are absolute.)
+It is easy to see that there are inﬁnitely many consecutive squarefull numbers.
+Indeed 8 and 9 are both squarefull, and if n, n+ 1 are both squarefull, then so are
+the consecutive numbers 4n(n+1)and4 n(n+1)+1=(2 n+1) 2. But it is expected
+that there are not too many ofthem. More precisely, Erd¨os [7] conjectured (see also
+[19, p. 234]) that there is a constant A> 0 such that
+S(N)=# {n ⩽ N | n and n + 1 are squarefull} < (log N)A.
+More generally, for any ﬁxedd,w ee x p e c tt h ef o l l o w i n gStrong Erd¨os Conjecture:
+Sd(N)=# {n ⩽ N | n and n + d are squarefull} < (log N)A.
+There is a heuristic argument to support these conjectures. By the Erd¨os–Szekeres
+theorem, the probability that a random number n is squarefull is approximately
+1/√
+n,s ot h en u m b e ro fn ≤ N such that n and n + d are both squarefull is
+approximately
+∑
+n≤N
+( 1
+√
+n
+) 2
+=
+∑
+n≤N
+1
+n ≈ log N.
+Motivated by this reasoning, we formulate a strong Erd¨ os conjecture: for some
+A< 2,
+Sd(N): =# {n ⩽ N | n and n + d are squarefull} < (log N)A.
+It is not diﬃcult to see that
+S1(N) ≫ log N.
+Indeed, from our above example, we may consider the real quadratic ﬁeldQ(
+√
+2) in
+which N(3 + 2
+√
+2) = 1. If we write
+Un + Vn
+√
+2: =( 3+2
+√
+2)n,n =1 ,...
+with Un,Vn integers, then it is clear that U 2
+n − 2V 2
+n = 1. Moreover, it is also clear
+that 2|Vn for otherwise, bothUn and Vn would be odd and hence≡ 1( m o d4 )w h i c h
+means 1 ≡ U 2
+n − 2V 2
+n ≡− 1 (mod 4), a contradiction. Therefore both U 2
+n and 2V 2
+n
+are powerful and consecutive. The number of such numbers≤ N is clearly ≫ log N.
+Our ﬁrst theorem is the following.
+Theorem 1.1. The strong Erd¨os conjecture implies that the Ankeny–Artin–Chowla
+conjecture and the Mordell conjecture are true for all but O(xθ) primes p ≤ x, for
+some θ< 1.
+It therefore seems reasonable to ask if one can prove the Erd¨os conjecture. In
+this direction, there is an assortment of results. First, we show the following.
+
+November 7, 2016 10:0 WSPC/S1793-0421 203-IJNT 1750014
+246 K. Akta¸s&M .R a mM u r t y
+Theorem 1.2. The abc conjecture impliesSd(N)= O(Nϵ) for any ϵ> 0.
+This theorem was also proved by Chan [ 6] who relied on a non-trivial result
+of Estermann [9]. Our proof of the above theorem is slightly simpler and will be
+of independent interest. Unconditionally, we also prove the following independent
+from d.
+Theorem 1.3.
+S(N)= O(N
+2/5).
+Chan [6] obtained a slightly weaker version, namely an estimate of
+O(τ3(d)N 2/5 log2 N),
+where τ3(d) is the number of ways of writingd as a product of three positive integers.
+If the explicit dependence on d is dropped, he obtains an improved estimate of
+O(N 7/19 log N).
+All of Chan’s results rely on non-trivial results of Bombieri and Schmidt [4]a sw e l l
+as Evertse on estimates for the number of solutions of the Thue equation. These
+results comprise a deep chapter in transcendental number theory. By contrast, our
+approach is elementary. We will prove the above theorems using only rudimentary
+facts of the BP equation. Recently, Reuss [18] established a better error term in the
+case d =1 .H es h o w e dS
+1(N)= O(N 29/100+ϵ), for any ϵ> 0. This result uses more
+sophisticated methods and relies on earlier deep work of Heath-Brown [11]. Earlier,
+Blomer and Sch¨obel [3] obtained the exponent of 61/180.
+It has also been asked by Erd¨os whether consecutive squarefull numbers may
+be obtained other than as solutions of appropriate equations of the form mX2 −
+nY 2 = 1. We will show this is not the case (see Lemma2.4).
+Generalizations of these problems to consecutivek-full numbers have been stud-
+ied by Blomer and Sch¨obel [3].
+2. Preliminaries
+Golomb [10] discussed consecutive integer pairs of squarefull numbers which fall
+into one or the other of two types. Type I consists of pairs of consecutive squarefull
+numbers one of which is a perfect square; and Type II consists of pairs of consecutive
+squarefull numbers neither of which is a perfect square. He showed that there are
+inﬁnite families of examples where two consecutive integers are squarefull which
+correspond to the solutions through the theory of Pell’s equation which give the
+solutions for Type I.
+It may be enlightening to make some his torical remarks here. The equation
+x
+2 − dy2 = 1 whose solutions give the pairs of squarefull numbers of Type I was
+labeled as Pell’s equation by Euler. However, this is one instance (among many
+in mathematics) where a name has been atta c h e di ne r r o ra n dt h es a m ew a ss o
+
+November 7, 2016 10:0 WSPC/S1793-0421 203-IJNT 1750014
+Fundamental units and consecutive squarefull numbers 247
+commonly accepted in the liter ature that it stuck. Actually, Pell had little to do
+with Pell’s equation. The ﬁrst mention of the equation seems to date back to ancient
+India, starting with Brahmagupta, who developed the chakravala method to solve
+the equation in his Brahma Sphuta Siddhanta in 628 C.E., about a thousand years
+before Pell’s time. The word “chakra” in Sanskrit means “wheel” and it is quite clear
+that Brahmagupta and his successors like Jayadeva and Bhaskaracharya (see [22])
+were aware of the “cyclic” nature of all solutions. In modern language, we know
+these solutions really correspond to the cyclic group of units of a real quadratic
+ﬁeld. The reader can ﬁnd further information and the fascinating history about the
+method in Weil’s book [22]. That is the reason why due to the long journey of this
+type of equation, we will call the equation
+mX
+2 − nY 2 = ±1( 1 )
+as the generalized BP equation.
+This Eq. (1) was studied by Walker [20] in 1967. He showed how the elementary
+theory of the BP equation can be used to derive the following. We record below his
+main result. To this end, we say x√
+m + y√
+n is solution of (1), if X = x, Y = y
+is a solution of ( 1). It is called a positive solution if both x and y are positive.
+Walker [20] has shown that among all solutions (x, y)w i t hx, y >0, there is (x0,y 0)
+(say) in which both x and y have their least values. For such a solution, we call
+x0
+√
+m + y0
+√
+n the smallest solution of (1).
+Theorem 2.1. If (1) is solvable for both of m, n >1 and has x0
+√
+m + y0
+√
+n as its
+smallest solution; and if i is a nonnegative integer, then the formula
+xi
+√
+m + yi
+√
+n =( x0
+√
+m + y0
+√
+n)2i+1
+gives all positive solutions of (1).
+Let us note that
+(x0
+√
+m + y0
+√
+n)2i+1 =
+2i+1∑
+i=j
+( 2i +1
+j
+)
+(x0
+√
+m)j(y0
+√
+n)2i+1−j.
+Thus, in each summand, either j is even or 2 i +1 − j is even so that ( x0
+√
+m +
+y0
+√
+n)2i+1 has the form xi
+√
+m + yi
+√
+n.
+Conjecture 2.2. Let us recall the abc conjecture of Oesterl´ea n dM a s s e r(1985).
+Fix ϵ> 0.T h e n, there exists a constant κ(ϵ) such that whenever a + b = c, where
+a, b and c are positive integers and (a, b)=( b, c)=( a, c)=1 , then
+c ⩽ κ(ϵ)
+
+ ∏
+p|abc
+p
+
+
+1+ϵ
+.
+
+November 7, 2016 10:0 WSPC/S1793-0421 203-IJNT 1750014
+248 K. Akta¸s&M .R a mM u r t y
+We apply theabc conjecture to study certain special solutions of the generalized
+BP equation (1)w h e r em and n are positive integers and neither is a perfect square.
+We refer the reader to [20] for a general exposition of this equation.
+Lemma 2.3. Any squarefull number can be written as a2b3 with b squarefree.
+Proof. Every squarefull number n c a nb ew r i t t e ni nt h ef o r mp1α1 p2α2 ··· pkαk
+where p1 <p 2 < ··· <p k are distinct primes and each exponent αi ≥ 2w h e r e
+i = {1, 2,...,k }.S ol e tpα be one of these prime powers dividing n,w h e r eα ≥ 2.
+Writing α =2 k + δ with δ= 0 or 1, we see that in the latter case, we may write
+α =2 (k − 1) + 3 ask ≥ 1. In either case, this shows that each prime power can be
+written in the desired form. Hence the result.
+Lemma 2.4. If n and n +1 are consecutive squarefull numbers, then there are b
+and d both squarefree such that we have a solution of the generalized BP equation
+dx2 − by2 =1 , (2)
+where b | y and d | x.
+Proof. If n and n + 1 are consecutive squarefull numbers, by Lemma 2.3,w ec a n
+write n = a2b3 and n +1= c2d3 where b and d are squarefree. So, we have
+c2d3 − a2b3 =1 .
+Thus we get a solution of the generalized BP equation
+dx2 − by2 =1 ,
+with x = cd, y = ab. Clearly, d | x and b | y.
+This lemma answers the question of Erds regarding consecutive squarefull num-
+bers. They all arise from solutions of equations of Type II (see [19, p. 234]).
+Proposition 2.5. Suppose n, n +1 are consecutive squarefull numbers with n =
+a2b3,n +1 = c2d3 with b, d squarefree and n ≤ N. The abc conjecture implies
+|d|, |b| ⩽ κ(ϵ)Nϵ, for any ϵ> 0.
+Proof. From Lemma 2.4,w eh a v e
+dx2 − by2 =1
+with x = cd, y = ab.N o t i n gt h a t|x|, |y|≤ N, we apply the abc conjecture to the
+above equation. We also see that d | x and b | y and b, d are both squarefree. Thus,
+we have
+dx2 ≤ κ(ϵ)
+(
+d · x
+d · b · y
+b
+) 1+ϵ
+.
+Thus
+dx2 ≤ κ(ϵ)(xy)1+ϵ.
+
+November 7, 2016 10:0 WSPC/S1793-0421 203-IJNT 1750014
+Fundamental units and consecutive squarefull numbers 249
+Hence
+d ≤ κ(ϵ)
+( y
+x
+)
+N 2ϵ.
+Since Eq. (2) implies
+( y
+x
+)
+≍
+√
+d
+b
+we get
+√
+bd ≤ κ(ϵ)N 2ϵ ⇒ bd ≤ κ1(ϵ)N 4ϵ,
+bd ≪ N 4ϵ
+from which our results follows.
+3 . P r o o fo fT h e o r e m1.1
+The strong Erd¨os conjecture predicts thatSd(N)= O(logA N)w i t hA< 2. We now
+show that the Ankeny–Artin–Chowla conjecture holds for almost all primesp.T h e
+latter conjecture [1] is the assertion that the fundamental unitε= T +U√
+p
+2 of Q(√
+p)
+satisﬁes p ∤ U.I f p | U,t h e nf r o mT 2 − pU 2 = ±4, we have two squarefull numbers
+n and n ± 4w i t hn = pU 2, n ± 4= T 2. By the analytic class number formula (see,
+for example, [17, Exercise 10.5.12]), we have
+h(p)l o gϵ
+√
+p = O(log p),
+where h(p)i st h ec l a s sn u m b e ro fQ(√
+p). Using h(p) ≥ 1, we have
+ε≤ exp(B√
+plog p)
+for some constant B.T h e nw es e et h a tT +U√
+p
+2 ≤ exp(B√
+p log p) and so in partic-
+ular, T,U ≤ 2e x p (B√
+p log p). To count the primes p ≤ N for which the Ankeny–
+Artin–Chowla conjecture is false, we are led to count
+#{n ≤ 2e x p (c
+√
+N log N): n, n± 4 are squarefull}.
+By the strong Erd¨os conjecture with A< 2, we see the number ≪ (
+√
+N log N)A ≪
+Nθ,f o rs o m eθ< 1. This means that if there are counterexamples to the Ankeny–
+Artin–Chowla conjecture, they are extremely rare. A similar estimate and proof
+holds for the Mordell conjecture also.
+4 . P r o o fo fT h e o r e m1.2
+By Proposition 2.5 and assuming abc conjecture, any squarefull numbers n, n +1
+c a nb ew r i t t e na sn = a2b3, n +1 = c2d3, n, n+1 ≤ N with b, d squarefree
+and |b|, |d|≤ Nϵ.W eﬁ x b, d. We count the number of solutions of Eq. ( 2)u s i n g
+
+November 7, 2016 10:0 WSPC/S1793-0421 203-IJNT 1750014
+250 K. Akta¸s&M .R a mM u r t y
+Lemma 2.4. By the theory of the generalized BP equation, all solutions of Eq. (2)
+are generated by fundamental solutions [20]: We have
+(
+√
+dx0 +
+√
+by0)2i+1 =
+√
+dxi +
+√
+byi.
+In our case, |xi|≤ N, |yi|≤ N imply
+(2i + 1) log(
+√
+bx0 +
+√
+dy0) ≤ 2l o gN ⇒ (2i +1 ) ≪ (log N),
+S(N)=# {n ≤ N : n, n+1s q u a r e f u l ln u m b e r s}≤
+∑
+b,d≤Nϵ
+(log N) ≪ Nϵ.
+Finally, we vary over |b|, |d|≤ Nϵ to get a total contribution of N 4ϵ. □
+5. Proof of Theorem 1.3
+Theorem 5.1. Let S(N) be the number of integers n ≤ N such that both n and
+n +1 are squarefull. Then we have for all ϵ> 0 and suﬃciently large N that
+S(N)= O(N 2/5).
+Proof. We have
+d(cd)2 − b(ab)2 =1
+such that n = a2b3 and n +1= c2d3 from Lemma 2.4 where both b and d are
+squarefree. We already know from Golomb’s paper that the number of squarefull
+integers ≪ N is k(N) ∼ c
+√
+N.L e tZ be a parameter to be chosen later. First we
+count our squarefull numbers n with n +1s q u a r e f u l la n dn = a2b3 with b>Z .
+Thus we have
+#{n ≤ N : ∃a, ∃b>Z , n = a2b3}≤
+∑
+b>Z
+√
+N
+b3/2 .
+Finally we get the number of squarefull integers ≪
+√
+N
+√
+Z . Similarly, we count our
+n +1= c2d3 squarefull with d>Z :
+#{n ≤ N : ∃c, ∃d>Z , n +1= c2d3}≤
+∑
+d>Z
+√
+N
+d3/2 ≪
+√
+N
+√
+Z
+.
+We may now suppose that both b, d ≤ Z. Let us ﬁx b, d.T h u s ,w eh a v e
+dx2 − by2 =1 ,
+which is a BP equation by Theorem2.1. This gives that the number of consecutive
+squarefull integer pairs is
+≪
+∑
+b,d≤Z
+(log N) ≪ Z2(log N).
+
+November 7, 2016 10:0 WSPC/S1793-0421 203-IJNT 1750014
+Fundamental units and consecutive squarefull numbers 251
+Thus we have a total estimate of Z2(log N)+ O
+( √
+N
+√
+Z
+)
+for any Z.W ec h o o s eZ =
+N 1/5
+(log N )2/5 to get a ﬁnal estimate for S(N)= N 2/5(log N)1/5. T h i sc a nb er e ﬁ n e dt o
+deduce the result stated as follows. We note that
+(2i + 1) log(x0
+√
+d + y0
+√
+b) ≤ 2l o gN
+so that, in fact,
+(2i +1 )1
+2(log b) ≤ 2l o gN.
+Our sum above becomes
+∑
+b,d≤Z
+log N
+log b = O
+( Z2 log N
+log Z
+)
+which gives
+S(N)= O(N 2/5).
+This theorem gives a non-trivial result using more elementary results than Reuss
+[18] used in his paper to estimate the error term.
+As a result of the question of ﬁnding consecutive squarefull pairs, one example
+has been found where neither is a perfect square as d =2 3 3 =1 2,167 and b =
+2332132 =1 2,168 for the ﬁrst time by Golomb [10]. This was the ﬁrst example of
+Type II pairs. Another example was given by Walker [21].
+6. Concluding Remarks
+Our heuristic also predicts that the number of three consecutive squarefull numbers
+is bounded. It is well known that the abc conjecture implies this (see, for example,
+[17, Exercise 1.3.6]). It would be interesting to explore if this fact can be deduced
+without the abc conjecture. On the other hand, with recent announcements from
+Mochizuki [12] that he has a proof of the abc conjecture, there is hope that we are
+moving toward the conjectures of Ankeny, Artin, Chowla and Mordell.
+Mollin, Walsh and Erd¨os [13] have conjectured that for a positive squarefree
+composite integer d ≡ 7 (mod 8), the fundamental unit t + u
+√
+d of the ring of
+integers of Q(
+√
+d)s a t i s ﬁ e su ≡ 0( m o dd)w i t ht powerful. As an example of the
+fundamental unit, ϵ =2 4,335 + 3,588
+√
+46 of the ring of integers of Q
+√
+46 satisﬁes
+3,588 ≡ 0 (mod 46) for a composited = 46. Our arguments above on primes extend
+mutatis mutandis to this conjecture too. We leave the details to the reader.
+Acknowledgments
+We thank Hector Pasten for helpful comments that improved the readability of this
+paper. We would also like to thank Prof. Valentin Blomer, Prof. Kenneth S. Williams
+and Gary Walsh for suggesting some changes that improved some of the results. We
+also thank the referee for several helpful comments.
+
+November 7, 2016 10:0 WSPC/S1793-0421 203-IJNT 1750014
+252 K. Akta¸s&M .R a mM u r t y
+Research of the second author was partially supported by an NSERC Discovery
+grant.
+References
+[1] N. C. Ankeny, E. Artin and S. Chowla, The class number of real quadratic ﬁelds,
+Ann. of Math. 56(2) (1952) 479–493.
+[2] P. T. Bateman, Square-full integers (solution to problem 4459), Amer. Math. Monthly
+61 (1954) 477–479.
+[3] V. Blomer and A. Sch¨ obel, Twins of powerful numbers, Funct. Comment. Math.
+Approx. 49 (2013) 349–356.
+[4] E. Bombieri and W. Schmidt, On Thue’s equation, Invent. Math. 88 (1987) 69–81.
+[5] D. Byeon and S. Lee, A note on units of real quadratic ﬁelds, Bull. Korean Math.
+Soc. 49 (2012) 767–774.
+[6] T. H. Chan, Twin squarefull numbers, J. Aust. Math. Soc. 93 (2012) 43–51.
+[7] P. Erd¨ os, Problems and results on consecutive integers, Publ. Math. Debrecen 23
+(1976) 272–282.
+[8] P. Erd¨ os and G. Szekeres, ¨Uber die Anhazle der Abel-schen Gruppen gegebner
+Ordnung und ¨ uber ein verwandtes Zahlentheortisches, Acta Sci. Math. Szeged 7
+(1935) 95–102.
+[9] T. Estermann, Einige S¨ atze ¨uber quadratfreie zahlen, Math. Ann. 105 (1931) 653–
+662.
+[10] S. W. Golomb, Powerful numbers, Amer. Math. Monthly 77(8) (1970) 848–852.
+[11] D. R. Heath-Brown, The density of rational points on curves and surfaces, Ann. of
+Math. 155 (2002) 553–595.
+[12] S. Mochizuki, Inter-universal Teichm¨ uller theory I–IV (2015); http:/ /www.kurims.
+kyoto-u.ac.jp/motizuki/papers-english.html.
+[13] R. A. Mollin and P. G. Walsh, A note on powerful numbers, quadratic ﬁelds and the
+Pellian, C. R. Math. Rep. Acad. Sci. Canada 8 (1986) 109–114.
+[14]
+ , On a Pellian equation conjecture, Acta Arith. 6 (1960) 137–144.
+[15] L. J. Mordell, Diophantine Equations (Academic Press, 1969).
+[16] M. Ram Murty, Problems in Analytic Number Theory , Graduate Texts in Mathemat-
+ics, Vol. 206 (Springer-Verlag, 2008).
+[17] M. Ram Murty and J. Esmonde, Problems in Algebraic Number Theory , 2nd edn.
+(Springer, 2005).
+[18] T. Reuss, Pairs of k-free numbers, consecutive square-full numbers, preprint (2012);
+arXiv:1212.3150v2[math.NT].
+[19] P. Ribenboim, My Numbers, My Friends: Popular Lectures in Number Theory
+(Springer, 2006).
+[20] D. T. Walker, On the Diophantine equation mX2 − nY 2 = ±1, Amer. Math. Monthly
+74(5) (1967) 504–513.
+[21]
+ , Consecutive integer pairs of powerful numbers and related Diophantine equa-
+tions, Fibonacci Quart. 14 (1976) 111–116.
+[22] A. Weil, Number Theory: An Approach Through History from Hammurapi to Legendre
+(Birkh¨auser, 1984).
