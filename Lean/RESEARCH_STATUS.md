@@ -10,6 +10,58 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
+## September 1, 2026 affine entropy and Mersenne divisor-average depth
+
+The standard unconditional `ABCConjecture` remains unproved and
+undisproved.  Proof and counterexample searches continue in parallel.  Only a
+counterexample satisfying every hypothesis closes the exact statement it
+contradicts; difficulty, an unavailable estimate, and a finite no-hit do not
+retire a route.  The combined proof ledger is
+`../research/ABC_AFFINE_ENTROPY_MERSENNE_DEPTH_AVERAGE_2026_09_01.md`.
+
+- **Affine certificate route.**  A complete cubic-product separation argument
+  now includes all three zero-factor branches and their necessary individual
+  modulus caps.  With `M=floor(c^6/(4R))` and
+  `L=floor(c^4/13)`, the exact constant calculation gives fewer than
+  `12*c^4/R^2` parameters in one full-strength template.  Therefore an
+  exceptional family of size at least `kappa*R^(-2/3)*c^(4+eta)` requires
+  more than `(kappa/12)*R^(4/3)*c^eta` templates.  The `d_U=31` two-point
+  example refutes only the cap-omitted strengthening.  Adaptive and
+  correlated templates, large unions, algebraic parametrizations, and
+  accidental residual excess remain active.
+- **Mersenne order/depth route.**  The exact power-loss endpoint is equivalent
+  to the divisor average `sum_(d|m) log E_d=o(m)`, a strictly weaker target
+  than the earlier pointwise `log E_d=o(phi(d))`.  The super-Wieferich factor
+  has an exact finite layer-cake expansion.  A moving threshold splits it
+  into one-copy support and high-depth tail, producing pointwise and still
+  weaker divisor-average sufficient gates.  No cited fixed-base theorem
+  supplies the open weighted gate.  The full certificate
+  `ord_3511(2)=1755`, `v_3511(2^1755-1)=2` refutes only the assertion that
+  every base-two Wieferich exact order is even.  Its depth is two, so it does
+  not refute the super-Wieferich route.  The complete prime scan through
+  `10^7` is finite evidence and closes no eventual assertion.
+
+The mathematical proofs precede
+`IUTThreeClosures/AffineTemplateEntropy20260901.lean`,
+`IUTThreeClosures/MersenneWeightedOrderTail20260901.lean`, and
+`IUTThreeClosures/MersenneSuperWieferichDepth20260901.lean`.  These modules
+check the finite separation and packing algebra, divisor-average endpoint,
+depth layer cake, moving-threshold implications, and exact narrow
+counterexamples.  They do not install the open analytic gates as axioms, and
+there is no terminal Lean term of `ABCConjecture` or its negation.
+
+The permanent validation package is
+`verification/2026_09_01_affine_entropy_mersenne_depth_average/`.  Its three
+direct module compilations are warning-free; all 74 theorem declarations have
+exact compiler dependency reports, and the 21 definitions bring the counted
+total to 95 declarations.  The allowed dependency union is exactly
+`Classical.choice`, `propext`, and `Quot.sound`.  The two deterministic
+computation replays and the 9209-job aggregate build pass.
+The integrated English journal manuscript by ChatGPT is retained as the
+145-page A4 artifact
+`../output/pdf/ChatGPT_ABC_Affine_Entropy_Mersenne_Depth_Average_2026_09_01.pdf`,
+with page renders and structural checks in the adjacent `_QA` directory.
+
 ## September 1, 2026 four-route checkpoint: global omega, prime/unit/label, two-arm CRT, and Mersenne order blocks
 
 The standard unconditional `ABCConjecture` remains unproved and

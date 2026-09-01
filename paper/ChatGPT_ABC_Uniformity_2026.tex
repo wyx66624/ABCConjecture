@@ -32,6 +32,7 @@
 \newcommand{\loglog}{\log\log}
 \newcommand{\height}{\mathrm h}
 \newcommand{\pospart}[1]{\left(#1\right)_+}
+\DeclareMathOperator{\ord}{ord}
 
 \title[Uniformity and prime support in $abc$ research]{Uniformity, Prime Support, and Reachable Lattices\\
 in Approaches to the $abc$ Conjecture}
@@ -67,7 +68,13 @@ the minimal affine shear, a diagonal CRT theorem prescribes independent
 square divisors in the two long arms.  An exact canonical packet contains
 $318322715$ points satisfying both necessary marginal gates, while its first
 point is a complete counterexample to the claim that those gates are
-sufficient for a three-quarter exception.  Finally, every composite
+sufficient for a three-quarter exception.  For the remaining full-strength
+affine certificates, a cubic-product lattice argument removes the previously
+uncontrolled large-modulus boundary: one fixed template contains fewer than
+$12c^4/\rad(abc)^2$ canonical parameters.  A matching lower bound therefore
+forces at least a constant multiple of
+$\rad(abc)^{4/3}c^\eta$ distinct templates.  An exact example refutes only
+the strengthening that discards the individual modulus caps.  Finally, every composite
 odd-prime Mersenne layer has a quadratic radical carrier, strengthened to a
 polynomial saving by the Erd\H{o}s--Shorey largest-factor theorem.  The global
 order-block product requires an LTE lifting factor dividing the index; the
@@ -82,6 +89,12 @@ $\varphi(d)^2/\log\log(3d)$; any failure of the
 surviving little-oh target must therefore come from deep lifts, a
 positive-proportion cluster in the near-quadratic support budget, or a
 weighted sequence of exceptional small-order primes.
+The exact endpoint is weaker than this pointwise target: it is equivalent to
+$\sum_{d\mid m}\log E_d=o(m)$.  A finite layer-cake identity separates the
+super-Wieferich contribution into one-copy support and a moving high-depth
+tail, yielding a still weaker divisor-average sufficient gate.  The prime
+$3511$ has odd exact order $1755$ and canonical depth two; it refutes only the
+auxiliary assertion that every base-two Wieferich prime has even exact order.
 
 Lean verifies the elementary algebra, finite arithmetic, reconstruction
 bridges, complete counterexamples, the corrected Mersenne order-block
@@ -176,9 +189,19 @@ complete counterexamples to three weaker coordinate interfaces.
 Section~\ref{sec:affine-two-arm-crt} constructs a simultaneous two-arm CRT
 packet and tests the two necessary marginal excess gates against a complete
 canonical counterexample.
+Section~\ref{sec:affine-template-entropy} proves cubic-product separation
+for a full fixed three-arm certificate, closes its large-modulus boundary,
+and derives the quantitative certificate-entropy obstruction while retaining
+all adaptive and correlated affine routes.
 Section~\ref{sec:mersenne-prime-layer} separates base order blocks from the
 LTE lifting remainder and proves unconditional radical bounds at prime
 Mersenne layers.
+Section~\ref{sec:mersenne-weighted-order-tail} identifies the exact
+divisor-average endpoint and proves why the available coarse order estimates
+do not control the moving weighted fibre.  Sections~\ref{sec:layer-cake}--
+\ref{sec:3511} resolve the super-Wieferich contribution into finite depth
+layers, give pointwise and divisor-average sufficient gates, and certify the
+odd-order counterexample at $3511$ without closing the surviving route.
 No priority over existing literature is
 claimed for consequences of the cited classical theorems.
 
@@ -923,7 +946,13 @@ logarithmic-form methods to a different family.
 
 \input{affine_two_arm_crt_2026}
 
+\input{affine_template_entropy_2026}
+
 \input{mersenne_prime_layer_radical_2026}
+
+\input{mersenne_weighted_order_tail_2026}
+
+\input{mersenne_super_wieferich_depth_section_2026}
 
 \raggedbottom
 \section{Formal verification and remaining obligations}\label{sec:formal}
@@ -1101,6 +1130,19 @@ canonical block equals one.\\[3pt]
 powerful-part comparison, the deep/transition/extreme mass trichotomy, and
 the transition-support and square-budget cardinality bounds, with all
 analytic inputs kept as explicit premises.\\[3pt]
+\texttt{AffineTemplate\allowbreak Entropy20260901} & Three-form
+cubic-product separation including every zero branch, affine membership
+cancellation, the canonical separated-set bound $|S|R^2<12c^4$ under explicit
+box and separation hypotheses, a generic finite-union inequality, and the
+complete counterexample to deleting an individual modulus cap.\\[3pt]
+\texttt{MersenneWeightedOrder\allowbreak Tail20260901} & Summable-profile
+localization, heavy-or-diffuse mass alternatives, divisor-mass little-oh
+transfer, and the exact equivalence between Mersenne power loss and the
+$o(m)$ divisor-average block endpoint.\\[3pt]
+\texttt{MersenneSuperWieferich\allowbreak Depth20260901} & Exact finite
+depth layer cake, moving-threshold support/tail bounds, the pointwise
+sufficient implication, and the certified odd-order depth-two witness at
+$3511$.\\[3pt]
 \texttt{PellFourPrime\allowbreak Coupling20260901} & Arbitrary finite-product
 quadratic truncation, quotient cancellation, the exact Pell coordinate
 identity, second-order channel transfer modulo $4\ell^2$, and the index-seven
@@ -1231,6 +1273,22 @@ for $220$ top-level declarations.  Their $177$ embedded
 \texttt{\#print axioms} queries have dependency union exactly
 \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.  All
 eight direct compilations and the aggregate $9206$-job target succeed.
+
+The present affine-entropy and Mersenne-depth checkpoint adds three modules
+with $74$ theorem declarations and $21$ definitions, for $95$ further
+top-level declarations.  Every theorem has an embedded
+\texttt{\#print axioms} query.  Lean checks the complete finite separation
+algebra and canonical packing constant, the exact divisor-average endpoint,
+the finite depth layer cake and threshold bounds, and all premises of the two
+narrow auxiliary counterexamples.  The analytic fixed-base distribution
+estimates and the final affine exceptional-template lower bound remain paper
+obligations rather than Lean axioms.
+Together with the preceding eight-module checkpoint, these eleven modules
+contain $250$ theorems, $58$ definitions, three abbreviations, and four
+structures, for $315$ counted top-level declarations and $251$ embedded
+dependency reports.  The direct module checks and the aggregate $9209$-job
+target succeed; the dependency union remains exactly \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}.
 
 The formal scope is deliberately narrower than the full paper.
 Theorem~\ref{thm:tail} and Corollary~\ref{cor:carella} use Younis and classical

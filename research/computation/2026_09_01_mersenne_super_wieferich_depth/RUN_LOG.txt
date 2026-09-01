@@ -1,0 +1,35 @@
+2026-09-01 finite base-two super-Wieferich depth audit
+
+Generator:
+  python -B scan_super_wieferich.py --limit 10000000 --output scan_10m.json
+  exit code: 0
+  elapsed wall time: 1.21 seconds
+
+Independent verifier:
+  python -B verify_super_wieferich.py --input scan_10m.json --output verification.json
+  exit code: 0
+  elapsed wall time: 1.12 seconds
+
+Verified finite result:
+  primes scanned: 664579
+  odd primes scanned: 664578
+  base-two Wieferich hits: 1093, 3511
+  canonical depths: 2, 2
+  odd exact-order hits: 3511, with order 1755
+  super-Wieferich hits: none
+
+Scope warning:
+  This is a finite computation.  The absence of a super-Wieferich hit below
+  ten million is not used as an asymptotic estimate or as a reason to close
+  the Mersenne/cyclotomic route.
+
+Lean verification:
+  lake env lean IUTThreeClosures/MersenneSuperWieferichDepth20260901.lean
+  exit code: 0
+  aggregate: lake build IUTThreeClosures
+  aggregate exit code: 0 (9209 jobs)
+  theorem declarations: 36
+  definitions: 12
+  print-axioms commands: 36
+  axiom union: Classical.choice, propext, Quot.sound
+  standard abc closed: false

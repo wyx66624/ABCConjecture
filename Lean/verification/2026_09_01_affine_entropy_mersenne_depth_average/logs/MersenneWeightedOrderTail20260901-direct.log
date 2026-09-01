@@ -1,0 +1,36 @@
+WORKDIR: E:\AImath\abc猜想\Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean IUTThreeClosures/MersenneWeightedOrderTail20260901.lean
+'IUTThreeClosures.MersenneWeightedOrderTail20260901.exists_shell_profile_overload' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneWeightedOrderTail20260901.totalMass_le_of_profile_shell_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneWeightedOrderTail20260901.heavyMass_or_manyLight_of_total' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneWeightedOrderTail20260901.heavyCard_le_budget_div_threshold' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneWeightedOrderTail20260901.squareBudget_singleton_saturation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneWeightedOrderTail20260901.divisorOrderBlockMassSum_isLittleO_of_totient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneWeightedOrderTail20260901.log_mersenneLiftingFactor_isLittleO' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneWeightedOrderTail20260901.log_mersennePowerLoss_isLittleO_iff_divisorAverage' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneWeightedOrderTail20260901.divisorOrderBlockMassSum_split' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneWeightedOrderTail20260901.divisorAverage_isLittleO_of_smallBlocks_and_remainder' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneWeightedOrderTail20260901.log_mersennePowerLoss_isLittleO_of_smallBlocks_and_remainder' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

@@ -1,0 +1,442 @@
+% Integrated section adapted from the independently compiled ChatGPT-authored note.
+% The standalone source remains paper/mersenne_super_wieferich_depth_2026.tex.
+
+\section{Exact-order blocks}
+\label{sec:blocks}
+
+Let
+\[
+  M_m=2^m-1,
+  \qquad
+  W_m=\frac{M_m}{\rad(M_m)}.
+\]
+For an odd prime $q$, put
+\begin{equation}
+  d_q=\ord_q(2),
+  \qquad
+  w_q=v_q(2^{d_q}-1).
+  \label{eq:canonical-data}
+\end{equation}
+Since $d_q\mid q-1$ and $q\nmid(q-1)/d_q$, the odd-prime lifting-the-
+exponent formula gives
+\begin{equation}
+  v_q(2^{q-1}-1)=w_q.
+  \label{eq:fermat-depth}
+\end{equation}
+Thus $w_q\ge2$ is precisely the base-two Wieferich condition, while
+$w_q\ge3$ is the base-two super-Wieferich condition.
+
+For each $d\ge1$, define the canonical exact-order block and its two depth
+components by
+\begin{align}
+ E_d&=\prod_{d_q=d}q^{w_q-1},
+ &T_d&=\prod_{\substack{d_q=d\\w_q\ge2}}q,
+ \label{eq:E-T}\\
+ S_d^{(3)}&=\prod_{\substack{d_q=d\\w_q\ge3}}q,
+ &D_d&=\prod_{\substack{d_q=d\\w_q\ge3}}q^{w_q-2}.
+ \label{eq:S-D}
+\end{align}
+All these products are finite: every prime in the order-$d$ fibre divides
+$2^d-1$.  Comparing the exponent of each prime gives the exact identity
+\begin{equation}
+                         E_d=T_dD_d.
+  \label{eq:E-split}
+\end{equation}
+The factor $T_d$ records one copy of every repeated exact-order prime;
+$D_d$ records only the multiplicity beyond the second copy.
+
+For completeness, the order blocks recover the whole Mersenne power loss
+after an elementary lifting factor is retained.  Set
+\begin{equation}
+  L_m=\prod_{q\mid M_m}q^{v_q(m/d_q)}.
+  \label{eq:lifting-factor}
+\end{equation}
+Here $d_q\mid m$ whenever $q\mid M_m$.
+
+\begin{proposition}[Exact Mersenne ledger]
+\label{prop:ledger}
+For every $m\ge1$,
+\begin{equation}
+  W_m=L_m\prod_{d\mid m}E_d,
+  \qquad L_m\mid m.
+  \label{eq:exact-ledger}
+\end{equation}
+Consequently $0\le\log L_m\le\log m=o(m)$.
+\end{proposition}
+
+\begin{proof}
+If $q\mid M_m$, then $d_q\mid m$, and odd-prime LTE gives
+\[
+ v_q(M_m)=w_q+v_q(m/d_q).
+\]
+After the radical removes one copy of $q$, the first term contributes
+$q^{w_q-1}$ to the unique block $E_{d_q}$, and the second contributes its
+factor to $L_m$.  Multiplication over the prime support proves the first
+identity in \eqref{eq:exact-ledger}.  Moreover, $d_q\mid q-1$ implies
+$q\nmid d_q$, hence $v_q(m/d_q)=v_q(m)$.  The product $L_m$ therefore takes
+the full $q$-primary component of $m$ for only a subset of the prime
+divisors of $m$, and so $L_m\mid m$.
+\end{proof}
+
+The lemmas of Murty and S\'eguin classify prime powers in cyclotomic values
+\cite[Lemmas~4.2--4.3]{MurtySeguin2019}.  At the unique exact-order index
+they correspond to Wieferich and super-Wieferich primes.  Their results do not give a
+weighted upper bound within a moving exact-order fibre.  Fellini and Murty
+obtain quantitative lower bounds for non-Wieferich prime ideals under a
+number-field $abc$ conjecture or under finiteness of the relevant
+super-Wieferich primes \cite[Theorems~1.2--1.4]{FelliniMurty2026}.  Neither
+hypothesis supplies an unconditional estimate for the fixed-base depth
+masses studied below.
+
+\section{The exact depth layer cake}
+\label{sec:layer-cake}
+
+For $j\ge3$, define the logarithmic depth layer
+\begin{equation}
+  \Theta_{d,j}
+   =\sum_{\substack{d_q=d\\w_q\ge j}}\log q.
+  \label{eq:depth-layer}
+\end{equation}
+
+\begin{proposition}[Finite layer-cake identity]
+\label{prop:layer-cake}
+For every $d$,
+\begin{equation}
+                    \log D_d=\sum_{j\ge3}\Theta_{d,j}.
+  \label{eq:layer-cake}
+\end{equation}
+The sum is finite.  More precisely, if $M\ge w_q$ for every prime in the
+order-$d$ super-Wieferich support, then the right-hand side may be
+truncated at $j=M$.
+\end{proposition}
+
+\begin{proof}
+A fixed prime $q$ contributes $(w_q-2)\log q$ to $\log D_d$.  It occurs
+once in every layer with $3\le j\le w_q$, and therefore contributes
+\[
+              \sum_{j=3}^{w_q}\log q=(w_q-2)\log q.
+\]
+The prime support is finite, and every valuation is finite.  Interchanging
+the resulting two finite sums and then summing the displayed identity over
+$q$ proves \eqref{eq:layer-cake}.  The same calculation proves the stated
+finite truncation.
+\end{proof}
+
+The identity distinguishes the first super-Wieferich layer
+$\Theta_{d,3}=\log S_d^{(3)}$ from the accumulated mass at higher depths.
+A small first layer alone does not control the full sum unless the
+high-depth layers are controlled as well.
+
+\section{Moving-depth truncation}
+\label{sec:truncation}
+
+For an integer $K\ge3$, put
+\begin{equation}
+ R_d(K)=\sum_{\substack{d_q=d\\w_q\ge3}}
+             (w_q-K)_+\log q,
+ \qquad (x)_+=\max\{x,0\}.
+ \label{eq:tail-definition}
+\end{equation}
+
+\begin{proposition}[Exact truncation and support bound]
+\label{prop:truncation}
+For every $K\ge3$,
+\begin{align}
+ \log D_d
+ &=\sum_{\substack{d_q=d\\w_q\ge3}}
+      \min\{w_q-2,K-2\}\log q+R_d(K),
+ \label{eq:exact-truncation}\\
+ \log D_d
+ &\le (K-2)\log S_d^{(3)}+R_d(K).
+ \label{eq:threshold-bound}
+\end{align}
+Moreover,
+\begin{equation}
+                    R_d(K)=\sum_{j\ge K+1}\Theta_{d,j}.
+ \label{eq:tail-layers}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For integers $w\ge0$ and $K\ge2$, truncated subtraction gives
+\begin{equation}
+ w-2=\min\{w-2,K-2\}+(w-K)_+
+ \label{eq:integer-split}
+\end{equation}
+whenever $w\ge2$.  Multiplying \eqref{eq:integer-split} by the nonnegative
+number $\log q$ and summing over the super-Wieferich support proves
+\eqref{eq:exact-truncation}.  The first coefficient is at most $K-2$;
+summing that pointwise inequality yields \eqref{eq:threshold-bound}.
+Finally, $w-K$ is the number of integers $j$ with $K+1\le j\le w$.
+The finite sum interchange used in Proposition~\ref{prop:layer-cake}
+therefore proves \eqref{eq:tail-layers}.
+\end{proof}
+
+\begin{corollary}[Frequency--depth dichotomy]
+\label{cor:dichotomy}
+If $K>2$ and $\log D_d\ge A$, then
+\begin{equation}
+ \frac{A}{2(K-2)}\le\log S_d^{(3)}
+ \qquad\text{or}\qquad
+ \frac A2\le R_d(K).
+ \label{eq:dichotomy}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+If the first alternative fails, then
+$(K-2)\log S_d^{(3)}<A/2$.  Combining this strict inequality with
+\eqref{eq:threshold-bound} and $\log D_d\ge A$ forces
+$R_d(K)>A/2$.
+\end{proof}
+
+Thus a large deep factor cannot be explained merely by the existence of
+some super-Wieferich primes.  At every chosen threshold it forces either
+large one-copy support mass or large mass above that threshold.
+
+\section{Sufficient asymptotic gates}
+\label{sec:gates}
+
+All little-oh statements in this section are taken along positive integers
+tending to infinity.
+
+\begin{theorem}[Moving-threshold gate]
+\label{thm:moving-threshold}
+Let $K_d\ge3$ be an integer-valued threshold.  If
+\begin{align}
+ (K_d-2)\log S_d^{(3)}&=o(\varphi(d)),
+ \label{eq:support-gate}\\
+ R_d(K_d)&=o(\varphi(d)),
+ \label{eq:tail-gate}
+\end{align}
+then
+\begin{equation}
+                         \log D_d=o(\varphi(d)).
+ \label{eq:deep-conclusion}
+\end{equation}
+If, in addition, $\log T_d=o(\varphi(d))$, then
+\begin{equation}
+ \log\frac{2^m-1}{\rad(2^m-1)}=o(m).
+ \label{eq:mersenne-endpoint}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Apply \eqref{eq:threshold-bound} with $K=K_d$.  Its two nonnegative
+right-hand terms are little-oh of $\varphi(d)$ by
+\eqref{eq:support-gate}--\eqref{eq:tail-gate}, proving
+\eqref{eq:deep-conclusion}.  The exact identity \eqref{eq:E-split} then
+gives $\log E_d=o(\varphi(d))$ under the additional hypothesis.
+
+For clarity, the last implication uses only the standard divisor identity
+\[
+                         \sum_{d\mid m}\varphi(d)=m.
+\]
+Given $\eps>0$, choose $D$ so that
+$\log E_d\le\eps\varphi(d)$ for $d\ge D$, and put
+$C_D=\sum_{d<D}\log E_d$.  Then
+\[
+ \sum_{d\mid m}\log E_d\le C_D+\eps m.
+\]
+Proposition~\ref{prop:ledger} and $\log L_m=o(m)$ now imply
+\eqref{eq:mersenne-endpoint}.
+\end{proof}
+
+The two hypotheses in Theorem~\ref{thm:moving-threshold} are sufficient,
+not necessary.  In particular, a uniform depth bound makes
+\eqref{eq:tail-gate} vanish for a fixed sufficiently large threshold but
+does not by itself prove the support estimate \eqref{eq:support-gate}.
+Conversely, sparsity of $S_d^{(3)}$ does not control an unbounded high-depth
+tail.
+
+The actual Mersenne endpoint admits a weaker divisor-average interface.
+
+\begin{proposition}[Exact divisor-average endpoint]
+\label{prop:divisor-endpoint}
+One has
+\begin{equation}
+ \log W_m=o(m)
+ \quad\Longleftrightarrow\quad
+ \sum_{d\mid m}\log E_d=o(m).
+ \label{eq:divisor-equivalence}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Taking logarithms in \eqref{eq:exact-ledger} gives
+\[
+ \log W_m=\log L_m+\sum_{d\mid m}\log E_d.
+\]
+All terms are nonnegative and $\log L_m=o(m)$.  Adding or subtracting this
+negligible lifting term proves the two implications in
+\eqref{eq:divisor-equivalence}.
+\end{proof}
+
+Let $s_d$ be a controlled part of the one-copy repeated support and let
+$U_d$ be the remaining part, so that
+\begin{equation}
+                  \log T_d=s_d+U_d,
+  \qquad s_d,U_d\ge0.
+ \label{eq:small-tail-split}
+\end{equation}
+In the Mersenne order-block route, $s_d$ is the Brun--Titchmarsh small arm
+and $U_d$ collects the surviving one-copy support tails.
+
+\begin{theorem}[Divisor-average threshold gate]
+\label{thm:divisor-gate}
+Assume
+\begin{equation}
+                  \sum_{d\mid m}s_d=o(m).
+ \label{eq:small-divisor-average}
+\end{equation}
+Let $K_d\ge3$.  If
+\begin{equation}
+ \sum_{d\mid m}\left(
+   U_d+(K_d-2)\log S_d^{(3)}+R_d(K_d)
+ \right)=o(m),
+ \label{eq:divisor-gate}
+\end{equation}
+then \eqref{eq:mersenne-endpoint} holds.
+\end{theorem}
+
+\begin{proof}
+Equations \eqref{eq:E-split} and \eqref{eq:small-tail-split}, together
+with \eqref{eq:threshold-bound}, give the termwise nonnegative bound
+\[
+ \log E_d
+ \le s_d+U_d+(K_d-2)\log S_d^{(3)}+R_d(K_d).
+\]
+Sum over $d\mid m$ and apply
+\eqref{eq:small-divisor-average}--\eqref{eq:divisor-gate}.  The right-hand
+side is $o(m)$, so Proposition~\ref{prop:divisor-endpoint} yields
+\eqref{eq:mersenne-endpoint}.
+\end{proof}
+
+If $s_d=o(\varphi(d))$, then \eqref{eq:small-divisor-average} follows from
+$\sum_{d\mid m}\varphi(d)=m$.  Likewise, separate pointwise
+$o(\varphi(d))$ estimates for the three terms in
+\eqref{eq:divisor-gate} imply that divisor-average condition.  No converse
+is asserted: a divisor average can tolerate large values at sparse orders.
+Theorem~\ref{thm:divisor-gate} is therefore the weaker interface and is
+often the more appropriate target.
+
+\section{An exact odd-order counterexample}
+\label{sec:3511}
+
+Factorizations involving $2^{d/2}\pm1$ may suggest restricting repeated
+exact-order primes to even $d$.  The second classical base-two Wieferich
+prime rules out that restriction.
+
+\begin{proposition}[The prime $3511$]
+\label{prop:3511}
+The integer $3511$ is prime and
+\begin{equation}
+   \ord_{3511}(2)=1755,
+   \qquad
+   v_{3511}(2^{1755}-1)=2.
+ \label{eq:3511-conclusion}
+\end{equation}
+In particular, the exact order is odd.
+\end{proposition}
+
+\begin{proof}
+First, $3511-1=3510=2\cdot3^3\cdot5\cdot13$.  The congruences
+\[
+ 7^{3510}\equiv1\pmod{3511}
+\]
+and
+\[
+\begin{array}{c|cccc}
+ r&2&3&5&13\\ \midrule
+ 7^{3510/r}\bmod3511&3510&2754&1800&494\\
+ \gcd(7^{3510/r}-1,3511)&1&1&1&1
+\end{array}
+\]
+give a Pocklington certificate for the primality of $3511$: the known
+factor is $F=3510>\sqrt{3511}$.
+
+Direct modular exponentiation gives
+\begin{align}
+ 2^{1755}&\equiv1\pmod {3511^2},
+ \label{eq:3511-square}\\
+ 2^{1755}&\equiv21954602502\not\equiv1\pmod {3511^3},
+ \label{eq:3511-cube}\\
+ 2^{585}&\equiv756\pmod {3511},\\
+ 2^{351}&\equiv1578\pmod {3511},\\
+ 2^{135}&\equiv88\pmod {3511}.
+ \label{eq:3511-order-checks}
+\end{align}
+The first congruence shows that the order divides
+$1755=3^3\cdot5\cdot13$.  The last three congruences exclude division of
+the order by each prime divisor $3$, $5$, and $13$; hence the order is
+exactly $1755$.  Finally,
+\eqref{eq:3511-square}--\eqref{eq:3511-cube} show that its canonical
+valuation is exactly two.
+\end{proof}
+
+Proposition~\ref{prop:3511} refutes the precise universal statement
+\begin{equation}
+ q^2\mid2^{\ord_q(2)}-1
+ \quad\Longrightarrow\quad
+ 2\mid\ord_q(2).
+ \label{eq:false-parity-claim}
+\end{equation}
+The scope is narrow.  Since the valuation at $3511$ is two, this prime is
+absent from $S_{1755}^{(3)}$ and contributes nothing to $D_{1755}$.  It is
+not a super-Wieferich counterexample and does not contradict any condition
+in Theorem~\ref{thm:moving-threshold} or
+Theorem~\ref{thm:divisor-gate}.
+
+\section{Finite computational audit}
+\label{sec:scan}
+
+A finite scan enumerated every prime at most $10^7$, tested
+$2^{q-1}\equiv1\pmod{q^2}$, computed the exact order for every hit, and
+then increased the prime-power modulus until the congruence first failed.
+The generator used a full Eratosthenes sieve.  An independent verifier used
+a segmented sieve and recomputed every Fermat congruence, order certificate,
+and depth certificate.
+
+The two enumerations agree on all $664{,}579$ primes in the interval.  Their
+complete list of base-two Wieferich hits is
+\begin{center}
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+$q$ & $\ord_q(2)$ & $w_q$ & order parity\\
+\midrule
+1093 & 364  & 2 & even\\
+3511 & 1755 & 2 & odd\\
+\bottomrule
+\end{tabular}
+\end{center}
+Thus the interval contains no base-two super-Wieferich hit.
+
+This is strictly a finite audit.  The absence of a depth-three hit below
+$10^7$ proves neither finiteness nor density zero and supplies no
+asymptotic estimate for $S_d^{(3)}$, $R_d(K)$, or $D_d$.  It is used only
+to check the explicit certificate in Section~\ref{sec:3511} and the
+implementation of the depth definitions.
+
+\section{Remaining analytic gate}
+\label{sec:open}
+
+The exact identities reduce the deep obstruction without estimating it.
+A weaker decomposed sufficient target is to choose moving thresholds
+$K_d\ge3$ and prove
+\begin{equation}
+ \sum_{d\mid m}\left(
+   U_d+(K_d-2)\log S_d^{(3)}+R_d(K_d)
+ \right)=o(m),
+ \label{eq:open-gate}
+\end{equation}
+while retaining the already controlled divisor-average small arm.  A
+stronger pointwise route would instead establish
+\[
+ \log T_d=o(\varphi(d)),\qquad
+ (K_d-2)\log S_d^{(3)}=o(\varphi(d)),\qquad
+ R_d(K_d)=o(\varphi(d)).
+\]
+Neither Murty--S\'eguin nor Fellini--Murty supplies these fixed-base,
+weighted exact-order estimates unconditionally.  The truncation bound is a
+one-way sufficient mechanism, and no necessity claim is made.  The
+super-Wieferich depth route therefore remains open.

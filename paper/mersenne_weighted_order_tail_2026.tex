@@ -1,0 +1,318 @@
+\section{The weighted small-order tail}
+\label{sec:mersenne-weighted-order-tail}
+
+This section sharpens the third alternative in
+Proposition~\ref{prop:mersenne-near-quadratic-tail}.  It also records a
+logical limitation of the almost-all order theorem: density in the
+prime-size variable does not control logarithmic mass in a moving
+exact-order fibre.  None of the results in this section closes the
+Mersenne route unconditionally.
+
+For an odd prime $p$, write
+\[
+ f(p)=\ord_p(2),\qquad
+ \alpha_p=v_p(2^{f(p)}-1).
+\]
+The valuation formula of Murty--S\'eguin and the intrinsic-prime
+classification give, for $d>1$,
+\begin{equation}\label{eq:weighted-tail-exact-ledger}
+ \log E_d
+ =\sum_{f(p)=d}(\alpha_p-1)\log p
+ =\log T_d+\log D_d.
+\end{equation}
+Here $T_d$ contains one copy of every $p$ with $f(p)=d$ and
+$\alpha_p\ge2$, while $D_d$ contains the remaining depth.  In particular,
+\begin{equation}\label{eq:weighted-tail-square-budget}
+ T_d^2\mid\Phi_d(2),\qquad
+ \log T_d<\frac{\varphi(d)+1}{2}\log2.
+\end{equation}
+
+\begin{proposition}[Global order-index budget]
+\label{prop:global-order-index-budget}
+For $Y\ge2$,
+\[
+ \sum_{\substack{p\ \text{odd prime}\\f(p)\le Y}}
+       \alpha_p\log p
+ \le \sum_{d\le Y}\log\Phi_d(2)=O(Y^2).
+\]
+Consequently
+\[
+ \#\{p\text{ odd prime}:f(p)\le Y\}=O(Y^2/\log Y).
+\]
+\end{proposition}
+
+\begin{proof}
+If $f(p)=d$, the full power $p^{\alpha_p}$ belongs to the exact-order
+part of $\Phi_d(2)$.  The order is unique, so contributions belonging to
+different $d$ do not overlap.  Sum the logarithms and use
+$\Phi_d(2)<2^{\varphi(d)+1}$ from
+\cite{PomeranceCyclotomic2025}.  For the counting assertion, split the
+primes at $Y^2$; every prime above the split contributes at least
+$2\log Y$.
+\end{proof}
+
+This is a quadratic cumulative estimate.  Restricting it to a single
+order cannot produce the required $o(\varphi(d))$ bound.
+
+\begin{proposition}[Weighted consequence of the almost-all order theorem]
+\label{prop:erdos-murty-weighted-consequence}
+Fix $\delta>0$ and set
+\[
+ \mathcal B_\delta
+ =\{p:f(p)\le p^{1/(2+\delta)}\}.
+\]
+Then
+\[
+ \#\{p\le x:p\in\mathcal B_\delta\}=o(x/\log x),
+ \qquad
+ \sum_{\substack{p\le x\\p\in\mathcal B_\delta}}\log p=o(x).
+\]
+\end{proposition}
+
+\begin{proof}
+Erd\H{o}s--Murty prove that, for every positive $\eta(p)\to0$, outside
+$o(\pi(x))$ primes one has
+$f(p)>p^{1/(2+\eta(p))}$ \cite{ErdosMurty1999}.  Take
+$\eta(p)<\delta$ eventually.  If $A_\delta(x)$ denotes the exceptional
+count, Abel summation gives
+\[
+ \sum_{\substack{p\le x\\p\in\mathcal B_\delta}}\log p
+ =A_\delta(x)\log x-
+   \int_2^x\frac{A_\delta(t)}t\,dt=o(x).
+\]
+\end{proof}
+
+At the beginning of the extreme arm, $x=d^{2+\delta}$, the last estimate
+need not be $o(\varphi(d))$.  The weighted Brun--Titchmarsh theorem
+\cite[Theorem~2.4]{MurtySeguin2019} gives a little-oh precisely in the
+range
+\[
+ x=o(\varphi(d)^2),\qquad d<x^\theta,\qquad
+ \frac{\log x}{\log(x/d)}=O(1)
+\]
+for a fixed $\theta<1$.  It gives only the natural $O(\varphi(d))$
+scale when $x\asymp\varphi(d)^2$.  Thus neither result covers the
+extreme range.
+
+In a dyadic shell $(X,2X]$, the available inputs reduce to
+\begin{equation}\label{eq:three-coarse-shell-bounds}
+ \sum_{\substack{p\in\mathcal W_d\\X<p\le2X}}\log p
+ \le\min\left\{
+ o(X),
+ O\left(\frac{X\log X}{\varphi(d)\log(X/d)}\right),
+ O(\varphi(d))
+ \right\}.
+\end{equation}
+The final term is \eqref{eq:weighted-tail-square-budget}; at every
+relevant scale it is the only generally effective one, and it has no
+strict saving.  Across larger $X$, the available theorems furnish no
+uniform $o(\varphi(d))$ saving, so the known shell estimates do not create
+the missing little-oh when summed.
+
+\begin{proposition}[Coarse information does not imply a fibrewise bound]
+\label{prop:weighted-tail-coarse-nogo}
+There exist primes $p_j$ and integers $d_j\to\infty$ such that
+\[
+ p_j\equiv1\pmod {d_j},\qquad
+ d_j<p_j^{1/(2+\delta)},\qquad
+ \#\{j:p_j\le x\}=O(\log\log x),
+\]
+for every fixed $\delta>0$, while positive numbers $\phi_j$ satisfy
+\[
+ \log p_j\asymp\phi_j,\qquad
+ 2\log p_j<(\phi_j+1)\log2.
+\]
+Hence global zero density, the congruence forced by exact order, the
+small-order scale, and the numerical square budget do not by themselves
+imply $o(\phi_j)$ mass in a moving labelled fibre.
+\end{proposition}
+
+\begin{proof}
+Take $d_j=2^j$, $\phi_j=\varphi(d_j)=2^{j-1}$, fix
+$0<c<\log2/2$, and put $X_j=\exp(c\phi_j)$.  Since
+$d_j=O(\log X_j)$, the classical Siegel--Walfisz theorem supplies, for
+large $j$, a prime
+\[
+ p_j\in[X_j,2X_j],\qquad p_j\equiv1\pmod {d_j}.
+\]
+The logarithms grow geometrically, proving the count.  Moreover,
+\[
+ \sum_{p_j\le x}\log p_j
+   =O(\log x\log\log x)=o(x),
+\]
+so even the global logarithmic mass is sparse.  Exponential growth gives
+the small-order inequality, and $\log p_j=c\phi_j+O(1)$ gives the stated
+linear fibre mass.  Finally,
+$\Phi_{2^j}(2)=2^{\phi_j}+1$, and eventually
+\[
+ 2\log p_j<\phi_j\log2<\log\Phi_{d_j}(2),
+\]
+which proves the asserted numerical square budget.
+\end{proof}
+
+In Proposition~\ref{prop:weighted-tail-coarse-nogo}, assigning abstract
+labels $\widetilde f(p_j)=d_j$ and
+$\widetilde\alpha_{p_j}=2$ makes every fibre a singleton of linear
+logarithmic mass.  These labels are not asserted to equal the actual
+multiplicative order and valuation.  The proposition therefore refutes
+only an inference from the four coarse estimates; it is not an
+arithmetic counterexample to the tail and does not close the route.
+
+\begin{proposition}[Summable-profile shell localization]
+\label{prop:weighted-tail-profile-localization}
+Suppose a finite nonnegative mass satisfies
+$H\le M\le\sum_{k\in I}M_k$, where $H>0$.  If
+$a_k\ge0$ and $\sum_{k\in I}a_k\le1$, then some $k\in I$ satisfies
+\[
+                              M_k\ge Ha_k.
+\]
+\end{proposition}
+
+\begin{proof}
+Otherwise $\sum_kM_k<H\sum_ka_k\le H$, a contradiction.
+\end{proof}
+
+For
+\[
+ L_d=(2+\delta)\log d,
+ \qquad
+ \mathcal S_{d,k}
+ =\{p\in\mathcal W_d:2^kL_d<\log p\le2^{k+1}L_d\},
+\]
+take $a_k=6/(\pi^2(k+1)^2)$.  An extreme mass at least
+$\epsilon\varphi(d)/4$ forces, for some $k$,
+\[
+ \sum_{p\in\mathcal S_{d,k}}\log p
+ \ge\frac{3\epsilon}{2\pi^2(k+1)^2}\varphi(d)
+\]
+and consequently
+\begin{equation}\label{eq:weighted-tail-shell-cardinality}
+ |\mathcal S_{d,k}|
+ \ge
+ \frac{3\epsilon\varphi(d)}
+ {2\pi^2(k+1)^2\,2^{k+1}(2+\delta)\log d}.
+\end{equation}
+A summable-envelope upper bound of the reverse form, with a common
+coefficient tending to zero, would close the extreme arm.
+
+There is also a useful concentration split.  At any logarithmic height
+$h>0$, a mass at least $H$ either has mass at least $H/2$ above $h$, or
+contains at least $H/(2h)$ points below $h$.  The square budget bounds the
+number of points above $h$ by $O(\varphi(d)/h)$.  Thus a failed tail has
+either a macroscopic component of rank $O(\varphi(d)/h)$ or an increasingly
+diffuse submacroscopic component.  The first rank is bounded when $h$ is
+chosen comparable to $\varphi(d)$.
+
+The pointwise block estimate is stronger than the endpoint actually
+requires.  Put
+\[
+ B_m=\prod_{d\mid m}E_d,
+ \qquad
+ A(m)=\log B_m=\sum_{d\mid m}\log E_d.
+\]
+The exact lifting identity and $1\le L_m\le m$ give
+\[
+ W_m=L_mB_m,
+ \qquad
+ \log W_m=A(m)+\log L_m,
+ \qquad \log L_m=o(m).
+\]
+
+\begin{theorem}[Exact divisor-average endpoint]
+\label{thm:mersenne-divisor-average-equivalence}
+One has
+\[
+ \log W_m=o(m)\quad\Longleftrightarrow\quad
+ \sum_{d\mid m}\log E_d=o(m).
+\]
+\end{theorem}
+
+\begin{proof}
+From left to right, subtract the actual LTE term
+$\log L_m=o(m)$ from $\log W_m=\log B_m+\log L_m$.  From right to left,
+add that same term.  Both steps use the exact product identity.
+\end{proof}
+
+The quantifier in both little-oh statements is
+$\forall\epsilon>0\,\exists M\,\forall m\ge M$.  The identity holds for
+every positive $m$, and $L_m\mid m$ is the LTE lifting input that proves
+$0\le\log L_m\le\log m=o(m)$.  Thus both directions include the complete
+lifting remainder.  In particular, the reverse implication is not inferred
+from a product inequality: it uses $W_m=L_mB_m$ and the negligible lifting
+factor.
+
+Let $s_d$ be the support mass below
+$Y_d=\varphi(d)^2/\log\log(3d)$, and write
+\[
+ \log E_d=s_d+r_d,
+\]
+where
+\begin{equation}\label{eq:weighted-tail-remainder}
+ r_d=
+ \sum_{\substack{f(p)=d,\ \alpha_p\ge2\\p>Y_d}}\log p
+ +\sum_{f(p)=d}(\alpha_p-2)_+\log p.
+\end{equation}
+The proved small-arm estimate is $s_d=o(\varphi(d))$.
+
+\begin{corollary}[Divisor-average remainder criterion]
+\label{cor:mersenne-divisor-average-remainder}
+The Mersenne endpoint follows from
+\[
+ \forall\epsilon>0\ \exists M\ \forall m\ge M,
+ \qquad \sum_{d\mid m}r_d\le\epsilon m.
+\]
+\end{corollary}
+
+\begin{proof}
+The identity
+\[
+ \sum_{d\mid m}\varphi(d)=m
+\]
+converts the small-arm little-oh into
+\[
+ \sum_{d\mid m}s_d=o(m).
+\]
+Adding the displayed hypothesis and applying
+Theorem~\ref{thm:mersenne-divisor-average-equivalence} completes the proof.
+\end{proof}
+
+This criterion is strictly weaker than $r_d=o(\varphi(d))$.  To see
+strictness, select a rapidly increasing divisibility chain of squarefree
+primorials $n_1\mid n_2\mid\cdots$ such that
+\[
+ \sum_{i<k}n_i=o(n_k),\qquad
+ \varphi(n_k)/n_k\longrightarrow0,
+\]
+and define $r_{n_k}=\varphi(n_k)$ and $r_d=0$ otherwise.  Pointwise
+$o(\varphi(d))$ fails along $n_k$.  If $n_k$ is the largest selected
+primorial dividing $m$, then
+\[
+ \frac1m\sum_{d\mid m}r_d
+ \le
+ \frac{\varphi(n_k)+\sum_{i<k}n_i}{n_k}=o(1).
+\]
+When the largest such $k$ remains bounded, the numerator is fixed and the
+ratio again tends to zero.  The example is abstract and asserts nothing
+about the actual Mersenne remainders.  The divisor-average criterion opens
+a second analytic attack on the tail, through divisor lattices rather than
+uniform control of every fibre.
+
+For a fixed $\delta>0$, a pointwise proof still reduces to the three
+nonnegative gates
+\[
+ \sum_{f(p)=d}(\alpha_p-2)_+\log p=o(\varphi(d)),
+\]
+\[
+ \#\{p\in\mathcal W_d:Y_d<p\le d^{2+\delta}\}
+       =o(\varphi(d)/\log d),
+\]
+and
+\[
+ \sum_{\substack{p\in\mathcal W_d\\p>d^{2+\delta}}}\log p
+       =o(\varphi(d)).
+\]
+The current literature supplies none of these three estimates in the
+required uniform form.  The exact divisor-average criterion and the
+summable-profile localization are formalized in
+\texttt{MersenneWeightedOrderTail20260901}; all analytic inputs remain
+external to the Lean kernel.

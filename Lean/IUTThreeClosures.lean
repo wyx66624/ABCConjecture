@@ -499,6 +499,12 @@ import IUTThreeClosures.CarellaGlobalOmegaHypothesis20260901
 -- marginal excess gates are not sufficient for a three-quarter exception.
 import IUTThreeClosures.AffineTwoArmCRTPacket20260901
 
+-- Full-strength fixed affine templates are separated by a cubic-product
+-- lattice bound, including all zero-factor branches.  Canonical floor
+-- arithmetic gives the strict bound |S| R^2 < 12 c^4, while the exact
+-- dU=31 example closes only the version that omits an individual cap.
+import IUTThreeClosures.AffineTemplateEntropy20260901
+
 -- Prime-index Mersenne layers have an unconditional square radical carrier;
 -- the global exact-order ledger requires a separate index-lifting factor,
 -- exposed by the complete m=6 counterexample.  The corrected abstract
@@ -528,6 +534,20 @@ import IUTThreeClosures.MersenneCanonicalBlockWitness20260901
 -- transition-support cardinality lower bound.  Brun--Titchmarsh, totient
 -- bounds, and order-distribution inputs remain explicit paper inputs.
 import IUTThreeClosures.MersenneWieferichTailReduction20260901
+
+-- The super-Wieferich arm is resolved into exact depth layers.  A moving
+-- threshold gives a sufficient support-plus-tail criterion for
+-- log E_d=o(phi(d)); the second classical Wieferich prime supplies the
+-- complete odd-order counterexample ord_3511(2)=1755 at exact depth two.
+import IUTThreeClosures.MersenneSuperWieferichDepth20260901
+
+-- Weighted small-order continuation: summable logarithmic-shell overloads,
+-- an exact square-budget saturation witness, and the theorem that the actual
+-- Mersenne endpoint is equivalent to an o(m) divisor-average block bound.
+-- The remaining tail can therefore be controlled in divisor average, a
+-- strictly weaker input than pointwise o(phi(d)); all analytic distribution
+-- assertions remain outside the kernel.
+import IUTThreeClosures.MersenneWeightedOrderTail20260901
 
 -- Integrated cloud arithmetic core, v26--v29.  These modules retain the
 -- square/cube and affine-residual reductions from current main, then add the

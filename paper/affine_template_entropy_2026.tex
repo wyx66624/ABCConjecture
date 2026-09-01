@@ -1,0 +1,247 @@
+\section{Large-modulus separation and affine certificate entropy}
+\label{sec:affine-template-entropy}
+
+The periodic estimate for a fixed divisibility template in the minimal
+affine shear has an error term too large at the modulus forced by the full
+three-arm excess condition.  This section removes that boundary error by a
+separation argument.  The result controls one prescribed certificate, and
+then quantifies how many such certificates a matching lower bound would
+need.  It does not bound a pointwise adaptive or otherwise correlated
+family of certificates.
+
+\subsection{A three-form separation lemma}
+
+Let $0<B<C$ and let $d_U,d_V,d_W,L,X_U,X_V,X_W$ be positive
+integers.  Put $D=d_Ud_Vd_W$, and assume that the three $d$'s are pairwise
+coprime.  For two pairs $(h,k),(h',k')\in\Z^2$, set
+\[
+ x=h-h',\qquad y=k-k',\qquad H=\max\{|x|,|y|\}.
+\]
+Suppose
+\begin{equation}\label{eq:ate-three-divisibilities}
+ d_U\mid x,\qquad d_V\mid x+Cy,\qquad d_W\mid x+By,
+\end{equation}
+and impose the six cancellation conditions
+\begin{equation}\label{eq:ate-cancellation}
+\begin{gathered}
+ (d_V,C)=(d_W,B)=1,\qquad
+ (d_U,C)=(d_W,C-B)=1,\\
+ (d_U,B)=(d_V,C-B)=1.
+\end{gathered}
+\end{equation}
+
+\begin{theorem}[Cubic-product separation]
+\label{thm:ate-separation}
+Let $T>0$.  In addition to
+\eqref{eq:ate-three-divisibilities}--\eqref{eq:ate-cancellation}, assume
+\begin{equation}\label{eq:ate-caps-gates}
+\begin{gathered}
+ d_U\le X_U,\qquad d_V\le X_V,\qquad d_W\le X_W,\\
+ D>T>(C+1)^2L^3,\qquad
+ LX_U<T,\quad LX_V<T,\quad LX_W<T.
+\end{gathered}
+\end{equation}
+If $(h,k)\ne(h',k')$, then $H>L$.
+\end{theorem}
+
+\begin{proof}
+Suppose first that $x$, $x+Cy$, and $x+By$ are all nonzero.  Pairwise
+coprimality and \eqref{eq:ate-three-divisibilities} give
+\[
+ D\mid x(x+Cy)(x+By).
+\]
+Since $B<C$, a nonzero multiple of $D$ therefore satisfies
+\begin{equation}\label{eq:ate-cubic-bound}
+ D\le |x|\,|x+Cy|\,|x+By|
+   \le (C+1)^2H^3.
+\end{equation}
+The assumption $H\le L$ would contradict the middle inequality in
+\eqref{eq:ate-caps-gates}.
+
+The zero factors require the individual modulus caps.  If $x=0$, then
+\eqref{eq:ate-cancellation} permits cancellation of $C$ and $B$ from the
+last two divisibilities.  Pairwise coprimality gives $d_Vd_W\mid y$.
+Distinctness gives $y\ne0$, so $d_Vd_W\le |y|\le H$.  Under $H\le L$ this
+would imply
+\[
+ D=d_Ud_Vd_W\le X_UL<T,
+\]
+contrary to $D>T$.  If $x+Cy=0$, cancellation from
+$d_U\mid Cy$ and $d_W\mid(C-B)y$ gives $d_Ud_W\mid y$; hence $H\le L$
+would give $D\le X_VL<T$.  If $x+By=0$, the same argument gives
+$d_Ud_V\mid y$ and then $D\le X_WL<T$.  These four cases exhaust the
+possibilities.
+\end{proof}
+
+\begin{proposition}[Product-cell packing]
+\label{prop:ate-packing}
+Let $S\subseteq\{1,\ldots,M\}^2$ and suppose distinct members of $S$ have
+sup distance greater than $L$.  Then
+\begin{equation}\label{eq:ate-packing}
+ |S|\le \left\lceil\frac{M}{L+1}\right\rceil^2
+ \le \left(\frac{M}{L+1}+1\right)^2.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Divide each coordinate interval into consecutive cells of length $L+1$.
+Two points in one product cell have both coordinate differences at most
+$L$, so every product cell contains at most one member of $S$.
+\end{proof}
+
+\subsection{The canonical affine box}
+
+Let $a+b=c$ be a positive primitive seed, orient it so that $b\ge c/2$, and
+write $\mathcal R=\rad(abc)$.  With the radical step, the three cofactor
+forms are
+\begin{equation}\label{eq:ate-affine-forms}
+ U=1+\mathcal Rh,\qquad
+ V=1+\mathcal R(h+ck),\qquad
+ W=1+\mathcal R(h+bk).
+\end{equation}
+Take
+\begin{equation}\label{eq:ate-M-L}
+ M=\left\lfloor\frac{c^6}{4\mathcal R}\right\rfloor,
+ \qquad L=\left\lfloor\frac{c^4}{13}\right\rfloor.
+\end{equation}
+Assume $c\ge6$ and $\mathcal R<c$.  For $1\le h,k\le M$ one has
+\begin{equation}\label{eq:ate-size-caps}
+ U<c^6,\qquad V<c^7,\qquad W<c^7.
+\end{equation}
+Indeed $\mathcal RM\le c^6/4$, and
+$\mathcal R(1+c)M\le(1+c)c^6/4$; the claimed strict inequalities follow
+for $c\ge6$, while $b<c$ makes the $W$ estimate no larger.
+
+The seed conditions also imply $\mathcal R\ge6$.  If $c$ is odd, then
+$c\ge7$, the product $abc$ is even, and an odd prime divides $c$.  If $c$
+is even, coprimality makes $a,b$ odd, and $c\ge6$ makes one of them at least
+three.  In both cases distinct primes $2$ and $q\ge3$ divide $abc$, whence
+$\mathcal R\ge2q\ge6$.
+
+For a positive integer $n$, write $E(n)=n/\rad(n)$.  If $d\mid n$, then
+$d/\rad(d)\le E(n)$, as follows prime by prime from
+$v_p(d)-1\le v_p(n)-1$ on the support of $d$.  Fix positive moduli
+$d_U,d_V,d_W$, and let $S$ be the parameter pairs in the box satisfying
+$\gcd(U,k)=1$, $d_U\mid U$, $d_V\mid V$, and $d_W\mid W$.  Put
+\begin{equation}\label{eq:ate-delta}
+ \Delta=\prod_{Z\in\{U,V,W\}}\frac{d_Z}{\rad(d_Z)}.
+\end{equation}
+Thus $\Delta>\mathcal Rc^{14}/8192$ is a sufficient fixed certificate for
+the full necessary excess inequality
+\begin{equation}\label{eq:ate-full-excess}
+ E(U)E(V)E(W)>\frac{\mathcal Rc^{14}}{8192}
+\end{equation}
+from the upper-half three-quarter analysis.
+
+For every point of $S$, the identities
+\[
+ V-U=\mathcal Rck,\qquad W-U=\mathcal Rbk,
+ \qquad V-W=\mathcal Rak
+\]
+and $\rad(abc)=\mathcal R$ show that $U,V,W$ are pairwise coprime and each
+is coprime to $\mathcal Rabc$.  If $S$ is nonempty, one point of $S$ then
+shows that the fixed divisors are
+pairwise coprime and satisfy every cancellation condition in
+\eqref{eq:ate-cancellation} with $(B,C)=(b,c)$.
+For two points of $S$, subtracting the corresponding template
+divisibilities gives divisibility of $\mathcal Rx$,
+$\mathcal R(x+cy)$, and $\mathcal R(x+by)$.  Each $d_Z$ is coprime to
+$\mathcal R$, so cancellation gives \eqref{eq:ate-three-divisibilities}.
+
+\begin{theorem}[One full-strength affine template]
+\label{thm:ate-one-template}
+If $S$ is nonempty and $\Delta>\mathcal Rc^{14}/8192$, then
+\begin{equation}\label{eq:ate-template-card}
+ |S|<\frac{12c^4}{\mathcal R^2}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Set $T=\mathcal Rc^{14}/8192$.  Since $D=d_Ud_Vd_W\ge\Delta>T$ and
+$6(c+1)\le7c$, equations \eqref{eq:ate-M-L} and
+\eqref{eq:ate-size-caps} give
+\[
+ (c+1)^2L^3\le\frac{49c^{14}}{36\cdot13^3}<T.
+\]
+Here the strict comparison is
+$49\cdot8192=401408<474552=36\cdot6\cdot13^3
+\le36\mathcal R13^3$.
+They also give $Ld_U<T$ and $Ld_V,Ld_W<T$.  The weakest of these
+comparisons is
+\[
+ \frac{c^4}{13}c^7<\frac{\mathcal Rc^{14}}{8192},
+\]
+which reduces to $8192<13\mathcal Rc^3$ and holds already at the
+conservative endpoint $\mathcal R=c=6$, where the right side is $16848$.
+Theorem~\ref{thm:ate-separation} now applies to every two points of $S$.
+
+Because $L+1>c^4/13$ and $M\le c^6/(4\mathcal R)$,
+\[
+ \frac{M}{L+1}<\frac{13c^2}{4\mathcal R}.
+\]
+The last quantity exceeds one when $\mathcal R<c$.  Also
+$\mathcal R\le c-1$, and the elementary factorization of
+$5c^2-36c+36$ at its roots $6/5$ and $6$ gives
+\[
+ \frac{\mathcal R}{c^2}\le\frac{c-1}{c^2}\le\frac5{36},
+ \qquad
+ \left(\frac{13}{4}+\frac5{36}\right)^2
+ =\left(\frac{61}{18}\right)^2
+ =\frac{3721}{324}<12.
+\]
+Proposition \ref{prop:ate-packing} therefore gives
+\[
+ |S|<\left(\frac{13c^2}{4\mathcal R}+1\right)^2
+ <\frac{12c^4}{\mathcal R^2}.
+\]
+\end{proof}
+
+\begin{corollary}[Certificate entropy]
+\label{cor:ate-entropy}
+Let $\kappa,\eta>0$.  Suppose a union of $N$ fixed templates satisfying
+Theorem~\ref{thm:ate-one-template} contains at least
+$\kappa\mathcal R^{-2/3}c^{4+\eta}$ parameter pairs.  Then
+\begin{equation}\label{eq:ate-entropy}
+ N>\frac{\kappa}{12}\mathcal R^{4/3}c^\eta.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The union bound and \eqref{eq:ate-template-card} give
+$|\bigcup_{i=1}^N S_i|<N(12c^4/\mathcal R^2)$.  Comparing this with the
+assumed lower bound and cancelling positive factors proves
+\eqref{eq:ate-entropy}.
+\end{proof}
+
+The corollary closes the large-modulus boundary for a single full-strength
+template and rules out every fixed finite list as a source of the matching
+lower bound.  It leaves active an unbounded correlated family, pointwise
+certificate selection, an algebraic parametrization, and excess contributed
+by unprescribed residual factors.
+
+\subsection{Why the individual caps cannot be removed}
+
+The determinant inequality alone does not imply separation.  Take
+\[
+ B=1,\quad C=2,\quad L=1,\quad T=10,\quad
+ d_U=31,\quad d_V=d_W=1,\quad X_U=X_V=X_W=1
+\]
+and the two points $(30,1)$ and $(30,2)$.  The moduli are pairwise coprime,
+all six conditions in \eqref{eq:ate-cancellation} hold, and the three
+divisibilities \eqref{eq:ate-three-divisibilities} hold because $x=0$.
+Moreover
+\[
+ D=31>T=10>(C+1)^2L^3=9,
+ \qquad LX_U=LX_V=LX_W=1<T,
+\]
+but the sup distance is $1=L$.  Both points have $U=1+h=31$ when the step
+is one.  This is a complete counterexample to the strengthening obtained by
+deleting $d_Z\le X_Z$: it fails exactly $d_U\le X_U$.  It does not refute
+Theorem~\ref{thm:ate-separation} or any broader affine route.
+
+The exact constants and this counterexample are independently replayed in
+the companion affine template-entropy computation directory.  That finite
+replay also stress-tests $6244$ bounded abstract parameter cases and
+$494515$ canonical pairs $(c,\mathcal R)$.  These no-hit checks are
+diagnostic; the general conclusions above come from the proofs, and no
+route is retired by finite computation.

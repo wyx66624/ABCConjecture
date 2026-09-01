@@ -1,0 +1,543 @@
+{
+  "schema": "abc-affine-entropy-mersenne-depth-average-validation-v1",
+  "status": "PASS",
+  "completedUtc": "2026-09-01T20:33:37.912135+00:00",
+  "repository": "E:\\AImath\\abc猜想",
+  "gitHeadBeforeCheckpointCommit": "e32738989181eddd82131eb8ecc8aa11571c16e6",
+  "toolVersions": {
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "lake": "Lake version 5.0.0-src+8c9756b (Lean version 4.32.0)",
+    "lean": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)"
+  },
+  "validationDrivers": [
+    {
+      "path": "validate.py",
+      "bytes": 41017,
+      "sha256": "72b5bf98beae7a3c1e146aed3397849d5739a55f8cdb4499b03452e52fd6c32d"
+    },
+    {
+      "path": "validate.ps1",
+      "bytes": 1187,
+      "sha256": "b0da8b6163dc4a8c50ead82c61f4dcb1ded76311fe3d2aa259610455d2357772"
+    }
+  ],
+  "lakeDependencies": {
+    "manifestPath": "Lean/lake-manifest.json",
+    "manifestSha256": "9c9ac0744b4579d6e2afa37150fc27263ff84e43753e5a6bdfc04f44ac96c8a8",
+    "packages": [
+      {
+        "name": "heights",
+        "directory": "heights",
+        "revision": "3539e2a12dd3470c057a4eb531dc3fd627d4c97b",
+        "url": "https://github.com/lana-agents/heights.git"
+      },
+      {
+        "name": "genl",
+        "directory": "genl",
+        "revision": "6e9a6543b46a2a02fd7fe7ec8ab203d878f32859",
+        "url": "https://github.com/LANA-Project/genl.git"
+      },
+      {
+        "name": "iut",
+        "directory": "iut",
+        "revision": "ddaddc274281adb5674d647e24fa478745ac6d40",
+        "url": "https://github.com/lana-agents/iut.git"
+      },
+      {
+        "name": "mathlib",
+        "directory": "mathlib",
+        "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+        "url": "https://github.com/leanprover-community/mathlib4"
+      },
+      {
+        "name": "«tate-curves-theta»",
+        "directory": "tate-curves-theta",
+        "revision": "90d7fac0e4ef2d6bf2a619326c30adb862d1b3de",
+        "url": "https://github.com/lana-agents/tate-curves-theta"
+      },
+      {
+        "name": "plausible",
+        "directory": "plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "url": "https://github.com/leanprover-community/plausible"
+      },
+      {
+        "name": "LeanSearchClient",
+        "directory": "LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "url": "https://github.com/leanprover-community/LeanSearchClient"
+      },
+      {
+        "name": "importGraph",
+        "directory": "importGraph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "url": "https://github.com/leanprover-community/import-graph"
+      },
+      {
+        "name": "proofwidgets",
+        "directory": "proofwidgets",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "url": "https://github.com/leanprover-community/ProofWidgets4"
+      },
+      {
+        "name": "aesop",
+        "directory": "aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "url": "https://github.com/leanprover-community/aesop"
+      },
+      {
+        "name": "Qq",
+        "directory": "Qq",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "url": "https://github.com/leanprover-community/quote4"
+      },
+      {
+        "name": "batteries",
+        "directory": "batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "url": "https://github.com/leanprover-community/batteries"
+      },
+      {
+        "name": "«formal-schemes»",
+        "directory": "formal-schemes",
+        "revision": "51aa935079537bf4dc580751a6e70727fb23ca93",
+        "url": "https://github.com/lana-agents/formal-schemes"
+      },
+      {
+        "name": "Cli",
+        "directory": "Cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "url": "https://github.com/leanprover/lean4-cli"
+      }
+    ]
+  },
+  "frozenInputs": {
+    "path": "Lean/verification/2026_09_01_affine_entropy_mersenne_depth_average/input-manifest.json",
+    "entries": 479,
+    "sha256": "4578df3882e06102a3e08d6853724fc7a5682f6ceef1e26ae201e33c3c2a2f05"
+  },
+  "modules": [
+    {
+      "module": "AffineTemplateEntropy20260901",
+      "sha256": "55ffc70b2f48e23083738385391ce70bd3e9e91ef8e96399a24b4ea64d630047",
+      "counts": {
+        "theorem": 27,
+        "lemma": 0,
+        "def": 9,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedTopLevelDeclarations": 36,
+      "printAxiomsCommands": 27,
+      "namedDeclarations": [
+        "IUTThreeClosures.AffineTemplateEntropy20260901.nat_dvd_natAbs_of_intCast_dvd",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.zeroFirstFactor_cancellation",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.zeroSecondFactor_cancellation",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.zeroThirdFactor_cancellation",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.signedSupNorm",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.secondForm_natAbs_le",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.thirdForm_natAbs_le",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.modulusProduct_dvd_affineDifferenceProduct",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.nonzero_cubicProduct_bound",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.threeForm_separated_of_direct_bounds",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.threeForm_separated",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.pairSupDist",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.supCell",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.dist_le_of_same_cell",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.pairSupDist_le_of_same_cell",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.supCell_injectiveOn_of_separated",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.supSeparated_card_le",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.finiteTemplateUnion_card_le",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.finiteTemplateUnion_entropy",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.radical_ratio_bound",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_cubicThreshold_scale13",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_longCapThreshold_scale13",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_cellConstant_twelve",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_templateCard_mul_radicalSq_lt",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonicalBoxM",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonicalSeparationL",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonicalCellCount",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonicalCellCount_scaled_lt",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_supSeparated_card_mul_radicalSq_lt",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.affineU",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.affineV",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.affineW",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.cancel_coprime_affineStep",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.affineTemplate_membership_gives_differenceDivisibilities",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.determinantOnlySeparation_counterexample",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.omitting_Ucap_breaks_threeForm_separation"
+      ],
+      "proofDeclarations": [
+        "IUTThreeClosures.AffineTemplateEntropy20260901.nat_dvd_natAbs_of_intCast_dvd",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.zeroFirstFactor_cancellation",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.zeroSecondFactor_cancellation",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.zeroThirdFactor_cancellation",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.secondForm_natAbs_le",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.thirdForm_natAbs_le",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.modulusProduct_dvd_affineDifferenceProduct",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.nonzero_cubicProduct_bound",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.threeForm_separated_of_direct_bounds",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.threeForm_separated",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.dist_le_of_same_cell",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.pairSupDist_le_of_same_cell",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.supCell_injectiveOn_of_separated",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.supSeparated_card_le",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.finiteTemplateUnion_card_le",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.finiteTemplateUnion_entropy",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.radical_ratio_bound",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_cubicThreshold_scale13",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_longCapThreshold_scale13",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_cellConstant_twelve",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_templateCard_mul_radicalSq_lt",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonicalCellCount_scaled_lt",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_supSeparated_card_mul_radicalSq_lt",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.cancel_coprime_affineStep",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.affineTemplate_membership_gives_differenceDivisibilities",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.determinantOnlySeparation_counterexample",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.omitting_Ucap_breaks_threeForm_separation"
+      ],
+      "printAxiomsTargets": [
+        "IUTThreeClosures.AffineTemplateEntropy20260901.zeroFirstFactor_cancellation",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.zeroSecondFactor_cancellation",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.zeroThirdFactor_cancellation",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.nat_dvd_natAbs_of_intCast_dvd",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.modulusProduct_dvd_affineDifferenceProduct",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.nonzero_cubicProduct_bound",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.secondForm_natAbs_le",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.thirdForm_natAbs_le",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.threeForm_separated_of_direct_bounds",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.threeForm_separated",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.dist_le_of_same_cell",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.pairSupDist_le_of_same_cell",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.supCell_injectiveOn_of_separated",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.supSeparated_card_le",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.finiteTemplateUnion_entropy",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.finiteTemplateUnion_card_le",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.radical_ratio_bound",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_cubicThreshold_scale13",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_longCapThreshold_scale13",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_cellConstant_twelve",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_templateCard_mul_radicalSq_lt",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonicalCellCount_scaled_lt",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.canonical_supSeparated_card_mul_radicalSq_lt",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.cancel_coprime_affineStep",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.affineTemplate_membership_gives_differenceDivisibilities",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.determinantOnlySeparation_counterexample",
+        "IUTThreeClosures.AffineTemplateEntropy20260901.omitting_Ucap_breaks_threeForm_separation"
+      ],
+      "extraPrintedDefinitions": [],
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersenneWeightedOrderTail20260901",
+      "sha256": "8f2e7a4ccbd998bb07f3b1be4ed4c77ae3f73f3fa9ba266e33aa2e0e625e9ab5",
+      "counts": {
+        "theorem": 11,
+        "lemma": 0,
+        "def": 0,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedTopLevelDeclarations": 11,
+      "printAxiomsCommands": 11,
+      "namedDeclarations": [
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.exists_shell_profile_overload",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.totalMass_le_of_profile_shell_bounds",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.heavyMass_or_manyLight_of_total",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.heavyCard_le_budget_div_threshold",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.squareBudget_singleton_saturation",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.divisorOrderBlockMassSum_isLittleO_of_totient",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.log_mersenneLiftingFactor_isLittleO",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.log_mersennePowerLoss_isLittleO_iff_divisorAverage",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.divisorOrderBlockMassSum_split",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.divisorAverage_isLittleO_of_smallBlocks_and_remainder",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.log_mersennePowerLoss_isLittleO_of_smallBlocks_and_remainder"
+      ],
+      "proofDeclarations": [
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.exists_shell_profile_overload",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.totalMass_le_of_profile_shell_bounds",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.heavyMass_or_manyLight_of_total",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.heavyCard_le_budget_div_threshold",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.squareBudget_singleton_saturation",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.divisorOrderBlockMassSum_isLittleO_of_totient",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.log_mersenneLiftingFactor_isLittleO",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.log_mersennePowerLoss_isLittleO_iff_divisorAverage",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.divisorOrderBlockMassSum_split",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.divisorAverage_isLittleO_of_smallBlocks_and_remainder",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.log_mersennePowerLoss_isLittleO_of_smallBlocks_and_remainder"
+      ],
+      "printAxiomsTargets": [
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.exists_shell_profile_overload",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.totalMass_le_of_profile_shell_bounds",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.heavyMass_or_manyLight_of_total",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.heavyCard_le_budget_div_threshold",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.squareBudget_singleton_saturation",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.divisorOrderBlockMassSum_isLittleO_of_totient",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.log_mersenneLiftingFactor_isLittleO",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.log_mersennePowerLoss_isLittleO_iff_divisorAverage",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.divisorOrderBlockMassSum_split",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.divisorAverage_isLittleO_of_smallBlocks_and_remainder",
+        "IUTThreeClosures.MersenneWeightedOrderTail20260901.log_mersennePowerLoss_isLittleO_of_smallBlocks_and_remainder"
+      ],
+      "extraPrintedDefinitions": [],
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersenneSuperWieferichDepth20260901",
+      "sha256": "23aa0ae269e01ee2a1d96fb69f023c9dd112fea0a6f9fa344db52cac2e7706bc",
+      "counts": {
+        "theorem": 36,
+        "lemma": 0,
+        "def": 12,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedTopLevelDeclarations": 48,
+      "printAxiomsCommands": 36,
+      "namedDeclarations": [
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthTruncatedMass",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthTailMass",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthSupportMass",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthLayerMass",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.nat_depthExcess_split",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_eq_truncated_add_tail",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthTruncatedMass_le_cap_mul_support",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_le_cap_mul_support_add_tail",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthTailMass_eq_zero_of_depth_le",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_le_cap_mul_support_of_depth_le",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depth_support_or_tail_of_large_excess",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depth_support_or_tail_of_large_excess_div",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthLayer_count",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.weighted_depthLayer_sum",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_eq_sum_layers",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthTailMass_eq_sum_layersAbove",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.isLittleO_of_nonnegative_domination",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_isLittleO_of_threshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.totalExcessMass_isLittleO_of_support_and_deepThreshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneExactOrderSupport",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneRepeatedPrimeSupport",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneSuperWieferichSupport",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneRepeatedSupportFactor",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneSuperSupportFactor",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneCanonicalDeepFactor",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneDeepTailLogMass",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneCanonicalDeepFactor_pos",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneRepeatedSupportFactor_pos",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.canonicalExponent_split",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneCanonicalDeepFactor_eq_fullSupportProduct",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneRepeatedSupportFactor_eq_fullSupportProduct",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneCanonicalOrderBlock_eq_repeated_mul_deep",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneCanonicalOrderBlock_eq_repeated_add_deep",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneCanonicalDeepFactor_eq_depthExcessMass",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneSuperSupportFactor_eq_depthSupportMass",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneCanonicalDeepFactor_le_threshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneCanonicalDeepFactor_isLittleO_of_threshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneCanonicalOrderBlockLogMass_isLittleO_of_superDepthThreshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersennePowerLoss_isLittleO_of_superDepthThreshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.prime_3511",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.wieferich_3511_sq_dvd_two_pow_1755_sub_one",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.wieferich_3511_cube_not_dvd_two_pow_1755_sub_one",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.wieferich_3511_order_checks",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneExactOrder_3511",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.factorization_mersenne_1755_at_3511",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.not_all_orderLevelWieferich_exactOrder_even",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.prime_3511_dvd_mersenneCanonicalOrderBlock_1755"
+      ],
+      "proofDeclarations": [
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.nat_depthExcess_split",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_eq_truncated_add_tail",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthTruncatedMass_le_cap_mul_support",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_le_cap_mul_support_add_tail",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthTailMass_eq_zero_of_depth_le",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_le_cap_mul_support_of_depth_le",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depth_support_or_tail_of_large_excess",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depth_support_or_tail_of_large_excess_div",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthLayer_count",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.weighted_depthLayer_sum",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_eq_sum_layers",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthTailMass_eq_sum_layersAbove",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.isLittleO_of_nonnegative_domination",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_isLittleO_of_threshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.totalExcessMass_isLittleO_of_support_and_deepThreshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneCanonicalDeepFactor_pos",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneRepeatedSupportFactor_pos",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.canonicalExponent_split",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneCanonicalDeepFactor_eq_fullSupportProduct",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneRepeatedSupportFactor_eq_fullSupportProduct",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneCanonicalOrderBlock_eq_repeated_mul_deep",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneCanonicalOrderBlock_eq_repeated_add_deep",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneCanonicalDeepFactor_eq_depthExcessMass",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneSuperSupportFactor_eq_depthSupportMass",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneCanonicalDeepFactor_le_threshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneCanonicalDeepFactor_isLittleO_of_threshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneCanonicalOrderBlockLogMass_isLittleO_of_superDepthThreshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersennePowerLoss_isLittleO_of_superDepthThreshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.prime_3511",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.wieferich_3511_sq_dvd_two_pow_1755_sub_one",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.wieferich_3511_cube_not_dvd_two_pow_1755_sub_one",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.wieferich_3511_order_checks",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneExactOrder_3511",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.factorization_mersenne_1755_at_3511",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.not_all_orderLevelWieferich_exactOrder_even",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.prime_3511_dvd_mersenneCanonicalOrderBlock_1755"
+      ],
+      "printAxiomsTargets": [
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.nat_depthExcess_split",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_eq_truncated_add_tail",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthTruncatedMass_le_cap_mul_support",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_le_cap_mul_support_add_tail",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthTailMass_eq_zero_of_depth_le",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_le_cap_mul_support_of_depth_le",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depth_support_or_tail_of_large_excess",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depth_support_or_tail_of_large_excess_div",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthLayer_count",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.weighted_depthLayer_sum",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_eq_sum_layers",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthTailMass_eq_sum_layersAbove",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.isLittleO_of_nonnegative_domination",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.depthExcessMass_isLittleO_of_threshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.totalExcessMass_isLittleO_of_support_and_deepThreshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneCanonicalDeepFactor_pos",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneRepeatedSupportFactor_pos",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.canonicalExponent_split",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneCanonicalDeepFactor_eq_fullSupportProduct",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneRepeatedSupportFactor_eq_fullSupportProduct",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneCanonicalOrderBlock_eq_repeated_mul_deep",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneCanonicalOrderBlock_eq_repeated_add_deep",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneCanonicalDeepFactor_eq_depthExcessMass",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneSuperSupportFactor_eq_depthSupportMass",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneCanonicalDeepFactor_le_threshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersenneCanonicalDeepFactor_isLittleO_of_threshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneCanonicalOrderBlockLogMass_isLittleO_of_superDepthThreshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.log_mersennePowerLoss_isLittleO_of_superDepthThreshold",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.prime_3511",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.wieferich_3511_sq_dvd_two_pow_1755_sub_one",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.wieferich_3511_cube_not_dvd_two_pow_1755_sub_one",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.wieferich_3511_order_checks",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.mersenneExactOrder_3511",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.factorization_mersenne_1755_at_3511",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.not_all_orderLevelWieferich_exactOrder_even",
+        "IUTThreeClosures.MersenneSuperWieferichDepth20260901.prime_3511_dvd_mersenneCanonicalOrderBlock_1755"
+      ],
+      "extraPrintedDefinitions": [],
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "totals": {
+    "theorem": 74,
+    "lemma": 0,
+    "def": 21,
+    "abbrev": 0,
+    "structure": 0,
+    "class": 0,
+    "inductive": 0,
+    "instance": 0,
+    "countedTopLevelDeclarations": 95,
+    "printAxiomsCommands": 74
+  },
+  "axiomUnion": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "directRuns": [
+    {
+      "name": "AffineTemplateEntropy20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_affine_entropy_mersenne_depth_average/logs/AffineTemplateEntropy20260901-direct.log",
+      "logSha256": "3398cbf37fbd62f6377fb5a4a77101196104a535997ce69517a49023e2c3cffb",
+      "warnings": 0
+    },
+    {
+      "name": "MersenneWeightedOrderTail20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_affine_entropy_mersenne_depth_average/logs/MersenneWeightedOrderTail20260901-direct.log",
+      "logSha256": "fbaf54455cd5f6d30bdac776b3d0e0b172dfeaed5fbc6dd0de2818b3e81d2a88",
+      "warnings": 0
+    },
+    {
+      "name": "MersenneSuperWieferichDepth20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_affine_entropy_mersenne_depth_average/logs/MersenneSuperWieferichDepth20260901-direct.log",
+      "logSha256": "26e7c92b565738c01d7ef17e1e64d297044452a746b09bd9d41cd19231e9d920",
+      "warnings": 0
+    }
+  ],
+  "aggregateBuild": {
+    "name": "aggregate-lake-build",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_01_affine_entropy_mersenne_depth_average/logs/aggregate-lake-build.log",
+    "logSha256": "94149f997d82f272ee7ea342c49ccce6f10a5e158a73bf6360b0f57212d8b2bf",
+    "jobs": 9209,
+    "warnings": 300
+  },
+  "aggregateDirect": {
+    "name": "aggregate-direct",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_01_affine_entropy_mersenne_depth_average/logs/aggregate-direct.log",
+    "logSha256": "a1e2d5aa495f49a25b9521812435ecce0b5ef451b71aa431a72a503f396e41df"
+  },
+  "manifests": [
+    {
+      "directory": "research/computation/2026_09_01_affine_template_entropy",
+      "entries": 4,
+      "strict": true,
+      "allowedUnhashed": [],
+      "manifestSha256": "27b019447f0ec937fb55baf3be83f59f49e9b6b4e0b88225173860006631f13f"
+    },
+    {
+      "directory": "research/computation/2026_09_01_mersenne_super_wieferich_depth",
+      "entries": 12,
+      "strict": true,
+      "allowedUnhashed": [],
+      "manifestSha256": "5372ea1c912bcba17bcb228800d5acb49c699c14a53bebee3cf34f5ad545660d"
+    }
+  ],
+  "crossReferences": [],
+  "replays": [
+    {
+      "name": "affine-template-entropy-replay",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_affine_entropy_mersenne_depth_average/logs/affine-template-entropy-replay.log",
+      "logSha256": "b327469bc8b88746a070d2fb3b9db03aafed1705a6718fad1ada3e0f0f7a37d0"
+    },
+    {
+      "name": "mersenne-super-wieferich-scan",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_affine_entropy_mersenne_depth_average/logs/mersenne-super-wieferich-scan.log",
+      "logSha256": "6241445cf12bb5f36af3b9ba5088b765e770d2e901cf87c4f00e6a17d4b8b615"
+    },
+    {
+      "name": "mersenne-super-wieferich-verify",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_affine_entropy_mersenne_depth_average/logs/mersenne-super-wieferich-verify.log",
+      "logSha256": "2da4d6583ebd79b3db21a3123a6f05cf5be7a18d626ad4d720883d7586e98246"
+    }
+  ],
+  "scope": {
+    "finiteNoHitIsAsymptoticEvidence": false,
+    "provesOrDisprovesStandardABC": false
+  }
+}

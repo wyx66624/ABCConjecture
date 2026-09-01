@@ -1,0 +1,69 @@
+{
+  "hits": [
+    {
+      "canonical_depth": 2,
+      "exact_order": 364,
+      "first_failure_modulus": 1305751357,
+      "first_failure_residue": 1064432260,
+      "is_super_wieferich": false,
+      "order_is_odd": false,
+      "order_prime_factors": [
+        2,
+        7,
+        13
+      ],
+      "pow_at_depth_modulus": 1,
+      "prime": 1093,
+      "proper_order_quotient_residues": {
+        "13": 121,
+        "2": 1092,
+        "7": 27
+      }
+    },
+    {
+      "canonical_depth": 2,
+      "exact_order": 1755,
+      "first_failure_modulus": 43280521831,
+      "first_failure_residue": 21954602502,
+      "is_super_wieferich": false,
+      "order_is_odd": true,
+      "order_prime_factors": [
+        3,
+        5,
+        13
+      ],
+      "pow_at_depth_modulus": 1,
+      "prime": 3511,
+      "proper_order_quotient_residues": {
+        "13": 88,
+        "3": 756,
+        "5": 1578
+      }
+    }
+  ],
+  "method": {
+    "depth": "increase k until pow(2,ord_p(2),p^k)!=1",
+    "order": "factor p-1 and divide by prime factors while possible",
+    "prime_enumeration": "Eratosthenes bytearray sieve",
+    "wieferich_test": "pow(2,p-1,p^2)==1"
+  },
+  "odd_prime_count": 664578,
+  "prime_count": 664579,
+  "schema": "base-two-super-wieferich-depth-scan-v1",
+  "scope": {
+    "no_asymptotic_inference": true,
+    "no_claim_beyond_bound": true,
+    "prime_upper_bound_inclusive": 10000000,
+    "strictly_finite_exploratory_scan": true
+  },
+  "summary": {
+    "odd_exact_order_hits": [
+      3511
+    ],
+    "super_wieferich_primes": [],
+    "wieferich_primes": [
+      1093,
+      3511
+    ]
+  }
+}

@@ -18,6 +18,60 @@ A research branch may be deleted only after one of the following has been record
 Build failures, API drift, lack of a current inhabitant, or lack of community
 acceptance are not counterexamples and are not grounds for deleting a route.
 
+## September 1, 2026 affine-entropy and Mersenne-depth checkpoint
+
+Standard `ABCConjecture` remains open in both directions.  This checkpoint
+continues proof and counterexample searches together.  Difficulty, missing
+literature uniformity, and a bounded no-hit do not delete a route.  The
+combined mathematical ledger is
+`../research/ABC_AFFINE_ENTROPY_MERSENNE_DEPTH_AVERAGE_2026_09_01.md`.
+
+- **Minimal affine shear / certificate entropy:** active.  The complete
+  three-form separation theorem treats the nonzero cubic-product case and all
+  three zero-factor cancellation branches.  At the canonical scale, every
+  fixed full-strength template contains fewer than `12*c^4/R^2` parameters.
+  A matching exceptional lower family would therefore require more than
+  `(kappa/12)*R^(4/3)*c^eta` distinct templates.  The two points `(30,1)` and
+  `(30,2)` with `d_U=31`, `d_V=d_W=1` are a full counterexample only to
+  deleting the individual `d_U` cap: every remaining premise holds.  They do
+  not refute the corrected theorem, adaptive or correlated certificates,
+  unbounded template unions, algebraic parametrizations, residual excess, or
+  the broad affine route.  See
+  `../research/ABC_AFFINE_TEMPLATE_ENTROPY_2026_09_01.md` and
+  `IUTThreeClosures/AffineTemplateEntropy20260901.lean`.
+- **Mersenne order blocks / super-Wieferich depth:** active.  The exact
+  endpoint is now
+  `log W_m=o(m) <-> sum_(d|m) log E_d=o(m)`, because
+  `W_m=L_m*prod_(d|m)E_d`, `L_m|m`, and `log L_m=o(m)`.  This divisor-average
+  requirement is strictly weaker than pointwise `log E_d=o(phi(d))`.  The
+  exact finite layer cake and moving-threshold truncation reduce the remaining
+  deep mass to one-copy super-Wieferich support plus a high-depth tail; a
+  weaker decomposed sufficient condition is their divisor average together
+  with the uncontrolled one-copy order tail.  The prime `3511` has
+  `ord_3511(2)=1755` and exact depth two.  It deletes only the auxiliary claim
+  that all base-two Wieferich exact orders are even; it does not delete the
+  super-depth criterion.  Two independent scans through `10^7` have no
+  depth-three hit, but that finite result deletes no asymptotic claim.  See
+  `../research/ABC_MERSENNE_WEIGHTED_ORDER_TAIL_2026_09_01.md`,
+  `../research/ABC_MERSENNE_SUPER_WIEFERICH_DEPTH_2026_09_01.md`,
+  `IUTThreeClosures/MersenneWeightedOrderTail20260901.lean`, and
+  `IUTThreeClosures/MersenneSuperWieferichDepth20260901.lean`.
+
+The three new modules formalize only proved finite, algebraic, asymptotic-
+interface, and exact-counterexample content.  They do not assume the missing
+affine lower family, fixed-base order distribution, super-Wieferich sparsity,
+abc, or its negation.
+
+The dedicated replay record is
+`verification/2026_09_01_affine_entropy_mersenne_depth_average/`: three
+modules, 74 theorems, 21 definitions, 95 counted declarations, and 74 exact
+dependency reports.  All direct checks, both computation replays, and the
+9209-job aggregate target pass.  The dependency union is exactly
+`Classical.choice`, `propext`, and `Quot.sound`.
+The integrated English journal manuscript by ChatGPT is the 145-page A4 file
+`../output/pdf/ChatGPT_ABC_Affine_Entropy_Mersenne_Depth_Average_2026_09_01.pdf`;
+its retained renders and structural checks are in the adjacent `_QA` directory.
+
 ## September 1, 2026 four-route prime-unit and order-layer checkpoint
 
 Standard `ABCConjecture` remains open in both directions.  No broad route is
