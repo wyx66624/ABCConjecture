@@ -1,0 +1,37 @@
+name: v29 canonical exponent targeted diagnostic 5
+
+on:
+  push:
+    branches:
+      - "diagnostic/v29-exponent-height-support-5"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  targeted:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+      - name: Compile v29 modules
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake build \
+            IUTThreeClosures.CanonicalExponentHeightLedger \
+            IUTThreeClosures.CanonicalAffineSupportCongruence \
+            IUTThreeClosures.CanonicalExponentHeightPoint
