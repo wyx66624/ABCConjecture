@@ -1,0 +1,168 @@
+\section{A faithful prime-unit-label vector bridge}
+\label{sec:iut-prime-unit-label-vector}
+
+The scalar holonomy ledger in Section~\ref{sec:holonomy-density-depth}
+cannot reconstruct a pilot: two different positive normalized labelled
+packets may have the same one-dimensional weighted value.  We therefore
+retain the rational prime, complete unit part, and fixed label until after
+the object comparison.  IUT~III \cite{IUT3} distinguishes unit/coric data and
+mono-analytic log-shells before the final log-volume operation.  The pinned
+Project LANA container \cite{LANA,LANAlean} likewise retains the rational
+place fibre and procession labels in a packet component.  These sources
+motivate the coordinate type; they do not prove that the actual multiradial
+transport preserves the coordinates below.
+
+Fix a rational prime $p$.  For $x\in\Q^\times$, put
+\begin{equation}\label{eq:pul-coordinate}
+ e_p(x)=v_p(x),\qquad
+ u_p(x)=\frac{x}{p^{e_p(x)}},\qquad
+ C_p(x)=(e_p(x),u_p(x)).
+\end{equation}
+Negative powers have their ordinary field meaning.
+
+\begin{theorem}[Exact prime-unit reconstruction]
+\label{thm:pul-local-reconstruction}
+For every $x\in\Q^\times$,
+\begin{equation}\label{eq:pul-reconstruct}
+ v_p(u_p(x))=0,\qquad p^{e_p(x)}u_p(x)=x.
+\end{equation}
+Consequently $C_p$ is injective.  The identical assertions hold on the
+actual complete local field $\mathbb Q_p^\times$ with its normalized
+additive valuation.
+\end{theorem}
+
+\begin{proof}
+Valuation additivity and $v_p(p)=1$ give
+\[
+ v_p(u_p(x))=v_p(x)-e_p(x)v_p(p)=0.
+\]
+The second equality in \eqref{eq:pul-reconstruct} is cancellation of the
+same nonzero field power used in the definition.  Equal coordinate pairs
+therefore have equal reconstruction expressions.  This proves injectivity.
+The proof uses only the corresponding field and valuation identities in
+$\mathbb Q_p$ and is unchanged there.
+\end{proof}
+
+There is also a valuation-free field-summand template.  If $K$ is any field,
+$\pi\in K^\times$, and $e:K^\times\to\Z$ is any function, then
+\begin{equation}\label{eq:pul-field-scale}
+ u_{\pi,e}(x)=\frac{x}{\pi^{e(x)}}\ne0,\qquad
+ \pi^{e(x)}u_{\pi,e}(x)=x.
+\end{equation}
+Thus $x\mapsto(e(x),u_{\pi,e}(x))$ is injective.  When $e$ is a normalized
+discrete valuation and $\pi$ a uniformizer, the first calculation in
+Theorem~\ref{thm:pul-local-reconstruction} additionally proves that the
+second coordinate is a genuine unit.  Hence the reconstruction mechanism
+applies separately to every actual field summand once that summand and its
+transport have been constructed.
+
+Let $L$ be a label set and let a packet be a map
+$P:L\to\Q^\times$.  Define its complete labelled signature by
+\begin{equation}\label{eq:pul-labelled-signature}
+             \Sigma_p(P)=\bigl(C_p(P(i))\bigr)_{i\in L}.
+\end{equation}
+
+\begin{theorem}[Labelled and region reconstruction]
+\label{thm:pul-labelled-region}
+The map $\Sigma_p$ is injective.  More generally, let $X$ be a carrier with
+a family of exponent and unit coordinates whose joint value is faithful at
+each point, and let $\Sigma$ be the corresponding labelled signature.
+For packet regions $A,B\subseteq(L\to X)$,
+\begin{equation}\label{eq:pul-image-bridge}
+                  \Sigma(A)\subseteq\Sigma(B)
+                  \quad\Longrightarrow\quad A\subseteq B.
+\end{equation}
+If $\mu$ is a monotone finite real-valued region functional, then
+$\mu(B)\le T$ and \eqref{eq:pul-image-bridge} imply $\mu(A)\le T$.
+\end{theorem}
+
+\begin{proof}
+Equality of two signatures gives equality of both local coordinates at every
+fixed label.  Theorem~\ref{thm:pul-local-reconstruction}, or the assumed
+pointwise faithfulness, gives equality of the packet entries and then of the
+packets.
+
+For the region statement, take $P\in A$.  Image containment supplies
+$Q\in B$ with $\Sigma(Q)=\Sigma(P)$.  Injectivity gives $Q=P$, hence
+$P\in B$.  Monotonicity of $\mu$ and transitivity of the real order give the
+last assertion.
+\end{proof}
+
+This is a non-circular route from vector data to a scalar bound.  It does not
+assume equality of the regions or equality of their volumes.  It requires an
+independently proved containment of complete signature images, followed by a
+monotonicity theorem on the correct finite-positive-volume domain.
+
+The unit coordinate also completes the holonomy ledger.  Suppose a labelled
+transport $P\to Q$ has exponent shifts $\delta_i\in\Z$ and unit twists
+$\tau_i\in\Q$ satisfying
+\begin{equation}\label{eq:pul-vector-transport}
+ e_p(Q(i))=e_p(P(i))+\delta_i,\qquad
+ u_p(Q(i))=u_p(P(i))\tau_i.
+\end{equation}
+
+\begin{proposition}[Pointed vector holonomy]
+\label{prop:pul-vector-holonomy}
+Every twist in \eqref{eq:pul-vector-transport} is nonzero and has
+$p$-adic valuation zero.  Transports compose labelwise by
+\[
+       (\delta,\tau)\circ(\epsilon,\upsilon)
+       =(\delta+\epsilon,\tau\upsilon).
+\]
+If the labelled transport is a pointed loop, $Q=P$, then
+$\delta_i=0$ and $\tau_i=1$ for every fixed label $i$.
+\end{proposition}
+
+\begin{proof}
+Both unit parts in the second equation of
+\eqref{eq:pul-vector-transport} are nonzero, so $\tau_i\ne0$.  Applying
+$v_p$ and Theorem~\ref{thm:pul-local-reconstruction} gives
+$0=0+v_p(\tau_i)$.  Substitution of two consecutive transport equations
+gives the composition law.  If $Q=P$, cancellation in the exponent equation
+gives $\delta_i=0$, and cancellation of the nonzero unit part gives
+$\tau_i=1$.
+\end{proof}
+
+Each of the three retained layers is necessary for this particular
+reconstruction theorem.
+
+\begin{proposition}[Complete counterexamples to three weakened interfaces]
+\label{prop:pul-three-counterexamples}
+The following data satisfy all the indicated weakened hypotheses.
+\begin{enumerate}
+\item At $p=5$, the one-label packets $P=1$, $Q=2$, with weight one,
+have the same exponent zero, the same fixed label, and the same positive
+normalized weight, but are unequal.
+\item At $p=5$, the one-label packets $P=1$, $Q=6$, with weight one,
+have equal exponent zero and equal first unit residue modulo $5$, but are
+unequal.
+\item At $p=5$, take $P=(1,2)$, $Q=(2,1)$ and weights $(1/2,1/2)$.
+Their multisets of complete coordinates agree after transposition.  At the
+fixed labels the exponent shifts vanish and the unit twists are $(2,1/2)$,
+whose product is one, but the labelled packets differ and neither twist is
+one.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The integers $1,2,6$ are $5$-adic units, and $1\equiv6\pmod5$.
+The stated weights are positive and sum to one.  In the two-label example,
+transposition exchanges the two complete coordinates, while at fixed labels
+the quotient unit twists are $2/1$ and $1/2$.  Their product is one and each
+is nontrivial.  Every asserted inequality is immediate.
+\end{proof}
+
+The first example closes only exponent-only reconstruction; the second closes
+only first-residue truncation; the third closes only unordered reconstruction
+and aggregate unit-holonomy closure.  The third example does not refute a
+transport that records and returns an explicit label permutation.
+
+The active IUT target is therefore a source-level theorem on the actual common
+carrier: through the theta link, log-Kummer correction, determinant
+normalization, and every required Ind1--Ind3 branch, the globally synchronized
+output must preserve the faithful prime-unit coordinate at every required
+place and every fixed label, or at least contain the input signature image.
+Theorem~\ref{thm:pul-labelled-region} would then transfer the output bound
+back to the native pilot before taking scalar log-volume.  No such global
+preservation theorem is proved here, and none of the finite counterexamples
+disproves it.  The IUT route remains active.

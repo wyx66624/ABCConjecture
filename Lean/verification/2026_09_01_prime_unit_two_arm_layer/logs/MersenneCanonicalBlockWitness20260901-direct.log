@@ -1,0 +1,18 @@
+WORKDIR: E:\AImath\abc猜想\Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean IUTThreeClosures/MersenneCanonicalBlockWitness20260901.lean
+'IUTThreeClosures.MersenneCanonicalBlockWitness20260901.mersenneExactOrder_1093' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCanonicalBlockWitness20260901.factorization_mersenne_364_at_1093' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCanonicalBlockWitness20260901.prime_1093_dvd_mersenneCanonicalOrderBlock_364' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCanonicalBlockWitness20260901.one_lt_mersenneCanonicalOrderBlock_364' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCanonicalBlockWitness20260901.not_all_mersenneCanonicalOrderBlock_eq_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

@@ -1,0 +1,628 @@
+{
+  "factorization_method": "fixed-schedule Pollard rho plus recursive MR",
+  "primality_method": {
+    "bases": [
+      2,
+      325,
+      9375,
+      28178,
+      450775,
+      9780504,
+      1795265022
+    ],
+    "name": "deterministic Miller-Rabin for unsigned 64-bit integers"
+  },
+  "rows": [
+    {
+      "composite_square_bound_verified": null,
+      "composite_square_lower_bound": null,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 7,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 7
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 3,
+      "max_prime_factor": 7,
+      "mersenne": 7,
+      "power_loss": 1,
+      "radical": 7,
+      "status": "prime",
+      "support_count": 1
+    },
+    {
+      "composite_square_bound_verified": null,
+      "composite_square_lower_bound": null,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 31,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 31
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 5,
+      "max_prime_factor": 31,
+      "mersenne": 31,
+      "power_loss": 1,
+      "radical": 31,
+      "status": "prime",
+      "support_count": 1
+    },
+    {
+      "composite_square_bound_verified": null,
+      "composite_square_lower_bound": null,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 127,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 127
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 7,
+      "max_prime_factor": 127,
+      "mersenne": 127,
+      "power_loss": 1,
+      "radical": 127,
+      "status": "prime",
+      "support_count": 1
+    },
+    {
+      "composite_square_bound_verified": true,
+      "composite_square_lower_bound": 529,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 23,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        },
+        {
+          "exact_order_ell": true,
+          "prime": 89,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 23
+        },
+        {
+          "exponent": 1,
+          "prime": 89
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 11,
+      "max_prime_factor": 89,
+      "mersenne": 2047,
+      "power_loss": 1,
+      "radical": 2047,
+      "status": "composite",
+      "support_count": 2
+    },
+    {
+      "composite_square_bound_verified": null,
+      "composite_square_lower_bound": null,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 8191,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 8191
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 13,
+      "max_prime_factor": 8191,
+      "mersenne": 8191,
+      "power_loss": 1,
+      "radical": 8191,
+      "status": "prime",
+      "support_count": 1
+    },
+    {
+      "composite_square_bound_verified": null,
+      "composite_square_lower_bound": null,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 131071,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 131071
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 17,
+      "max_prime_factor": 131071,
+      "mersenne": 131071,
+      "power_loss": 1,
+      "radical": 131071,
+      "status": "prime",
+      "support_count": 1
+    },
+    {
+      "composite_square_bound_verified": null,
+      "composite_square_lower_bound": null,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 524287,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 524287
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 19,
+      "max_prime_factor": 524287,
+      "mersenne": 524287,
+      "power_loss": 1,
+      "radical": 524287,
+      "status": "prime",
+      "support_count": 1
+    },
+    {
+      "composite_square_bound_verified": true,
+      "composite_square_lower_bound": 2209,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 47,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        },
+        {
+          "exact_order_ell": true,
+          "prime": 178481,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 47
+        },
+        {
+          "exponent": 1,
+          "prime": 178481
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 23,
+      "max_prime_factor": 178481,
+      "mersenne": 8388607,
+      "power_loss": 1,
+      "radical": 8388607,
+      "status": "composite",
+      "support_count": 2
+    },
+    {
+      "composite_square_bound_verified": true,
+      "composite_square_lower_bound": 3481,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 233,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        },
+        {
+          "exact_order_ell": true,
+          "prime": 1103,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        },
+        {
+          "exact_order_ell": true,
+          "prime": 2089,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 233
+        },
+        {
+          "exponent": 1,
+          "prime": 1103
+        },
+        {
+          "exponent": 1,
+          "prime": 2089
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 29,
+      "max_prime_factor": 2089,
+      "mersenne": 536870911,
+      "power_loss": 1,
+      "radical": 536870911,
+      "status": "composite",
+      "support_count": 3
+    },
+    {
+      "composite_square_bound_verified": null,
+      "composite_square_lower_bound": null,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 2147483647,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 2147483647
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 31,
+      "max_prime_factor": 2147483647,
+      "mersenne": 2147483647,
+      "power_loss": 1,
+      "radical": 2147483647,
+      "status": "prime",
+      "support_count": 1
+    },
+    {
+      "composite_square_bound_verified": true,
+      "composite_square_lower_bound": 5625,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 223,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        },
+        {
+          "exact_order_ell": true,
+          "prime": 616318177,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 223
+        },
+        {
+          "exponent": 1,
+          "prime": 616318177
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 37,
+      "max_prime_factor": 616318177,
+      "mersenne": 137438953471,
+      "power_loss": 1,
+      "radical": 137438953471,
+      "status": "composite",
+      "support_count": 2
+    },
+    {
+      "composite_square_bound_verified": true,
+      "composite_square_lower_bound": 6889,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 13367,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        },
+        {
+          "exact_order_ell": true,
+          "prime": 164511353,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 13367
+        },
+        {
+          "exponent": 1,
+          "prime": 164511353
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 41,
+      "max_prime_factor": 164511353,
+      "mersenne": 2199023255551,
+      "power_loss": 1,
+      "radical": 2199023255551,
+      "status": "composite",
+      "support_count": 2
+    },
+    {
+      "composite_square_bound_verified": true,
+      "composite_square_lower_bound": 7569,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 431,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        },
+        {
+          "exact_order_ell": true,
+          "prime": 9719,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        },
+        {
+          "exact_order_ell": true,
+          "prime": 2099863,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 431
+        },
+        {
+          "exponent": 1,
+          "prime": 9719
+        },
+        {
+          "exponent": 1,
+          "prime": 2099863
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 43,
+      "max_prime_factor": 2099863,
+      "mersenne": 8796093022207,
+      "power_loss": 1,
+      "radical": 8796093022207,
+      "status": "composite",
+      "support_count": 3
+    },
+    {
+      "composite_square_bound_verified": true,
+      "composite_square_lower_bound": 9025,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 2351,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        },
+        {
+          "exact_order_ell": true,
+          "prime": 4513,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        },
+        {
+          "exact_order_ell": true,
+          "prime": 13264529,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 2351
+        },
+        {
+          "exponent": 1,
+          "prime": 4513
+        },
+        {
+          "exponent": 1,
+          "prime": 13264529
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 47,
+      "max_prime_factor": 13264529,
+      "mersenne": 140737488355327,
+      "power_loss": 1,
+      "radical": 140737488355327,
+      "status": "composite",
+      "support_count": 3
+    },
+    {
+      "composite_square_bound_verified": true,
+      "composite_square_lower_bound": 11449,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 6361,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        },
+        {
+          "exact_order_ell": true,
+          "prime": 69431,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        },
+        {
+          "exact_order_ell": true,
+          "prime": 20394401,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 6361
+        },
+        {
+          "exponent": 1,
+          "prime": 69431
+        },
+        {
+          "exponent": 1,
+          "prime": 20394401
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 53,
+      "max_prime_factor": 20394401,
+      "mersenne": 9007199254740991,
+      "power_loss": 1,
+      "radical": 9007199254740991,
+      "status": "composite",
+      "support_count": 3
+    },
+    {
+      "composite_square_bound_verified": true,
+      "composite_square_lower_bound": 14161,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 179951,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        },
+        {
+          "exact_order_ell": true,
+          "prime": 3203431780337,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 179951
+        },
+        {
+          "exponent": 1,
+          "prime": 3203431780337
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 59,
+      "max_prime_factor": 3203431780337,
+      "mersenne": 576460752303423487,
+      "power_loss": 1,
+      "radical": 576460752303423487,
+      "status": "composite",
+      "support_count": 2
+    },
+    {
+      "composite_square_bound_verified": null,
+      "composite_square_lower_bound": null,
+      "factor_checks": [
+        {
+          "exact_order_ell": true,
+          "prime": 2305843009213693951,
+          "q_mod_2ell": 1,
+          "two_pow_ell_mod_q": 1
+        }
+      ],
+      "factorization": [
+        {
+          "exponent": 1,
+          "prime": 2305843009213693951
+        }
+      ],
+      "factorization_product_verified": true,
+      "index": 61,
+      "max_prime_factor": 2305843009213693951,
+      "mersenne": 2305843009213693951,
+      "power_loss": 1,
+      "radical": 2305843009213693951,
+      "status": "prime",
+      "support_count": 1
+    }
+  ],
+  "schema": "mersenne-prime-layer-radical-v1",
+  "scope": {
+    "minimum_index": 3,
+    "no_asymptotic_inference": true,
+    "prime_indices_at_most": 61,
+    "strictly_finite_exploratory_scan": true
+  },
+  "summary": {
+    "composite_indices": [
+      11,
+      23,
+      29,
+      37,
+      41,
+      43,
+      47,
+      53,
+      59
+    ],
+    "exactly_two_support_indices": [
+      11,
+      23,
+      37,
+      41,
+      59
+    ],
+    "indices_scanned": 17,
+    "prime_mersenne_indices": [
+      3,
+      5,
+      7,
+      13,
+      17,
+      19,
+      31,
+      61
+    ],
+    "repeated_prime_factor_indices": []
+  }
+}

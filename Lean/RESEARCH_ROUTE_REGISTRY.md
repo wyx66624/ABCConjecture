@@ -18,6 +18,81 @@ A research branch may be deleted only after one of the following has been record
 Build failures, API drift, lack of a current inhabitant, or lack of community
 acceptance are not counterexamples and are not grounds for deleting a route.
 
+## September 1, 2026 four-route prime-unit and order-layer checkpoint
+
+Standard `ABCConjecture` remains open in both directions.  No broad route is
+deleted here.  The exact counterexamples below retire only the propositions
+whose full hypotheses they meet; a finite search without a hit retires
+nothing.  The combined ledger is
+`../research/ABC_MULTI_ROUTE_PRIME_UNIT_TWO_ARM_LAYER_2026_09_01.md`.
+
+- **Carella global omega / prime-power neighbours:** active.  The primorial-
+  multiple counterfamily deletes Carella v2's displayed global estimate
+  `#{n <= x : omega(n) > w(x)} = o(x^(3/5))` under the printed threshold
+  `w(x) <= 2 log log x`, and therefore its unconditional invocation.  It does
+  not delete the sparse-neighbour route.  The open gate is an unbounded
+  subsequence with neighbour-radical exponent
+  `sigma < 2/5 - 1/k`.  Ledger and Lean core:
+  `../research/ABC_CARELLA_GLOBAL_OMEGA_HYPOTHESIS_2026_09_01.md` and
+  `IUTThreeClosures/CarellaGlobalOmegaHypothesis20260901.lean`.
+- **IUT prime/unit/label:** active.  Faithful prime/unit coordinates and fixed
+  labels reconstruct points, packets, and region containment.  The examples
+  `1` versus `2`, `1` versus `6` at `p=5`, and labelled packets `(1,2)` versus
+  `(2,1)` delete only exponent-only, one-residue, and unordered aggregate
+  interfaces.  They do not delete IUT or an explicitly permuted labelled
+  interface.  The open gate is preservation or image containment for the
+  complete signature on the actual all-place/all-label IUT carrier.  Ledger
+  and Lean core:
+  `../research/ABC_IUT_PRIME_UNIT_LABEL_VECTOR_BRIDGE_2026_09_01.md` and
+  `IUTThreeClosures/IUTPrimeUnitLabelVectorBridge20260901.lean`.
+- **Affine two-arm CRT:** active.  The explicit first point in the
+  `318322715`-member seed `(1,242,243)` CRT packet satisfies every hypothesis
+  of both marginal long-arm gates but has `rad(ABC)^4 > C^3`.  It deletes only
+  the claim that those two necessary gates are jointly sufficient.  The open
+  gate remains the full coupled three-arm excess inequality at a matching
+  lower bound of `kappa R^(-2/3)c^(4+eta)` parameters.  Ledger and Lean core:
+  `../research/ABC_AFFINE_TWO_ARM_CRT_PACKET_2026_09_01.md` and
+  `IUTThreeClosures/AffineTwoArmCRTPacket20260901.lean`.
+- **Mersenne prime layers / order blocks:** active.  The `m=6` calculation
+  deletes only the false product identity that omits the LTE lifting factor;
+  `ell=37` deletes only the proposed uniform three-support claim, and
+  `ell=11` deletes only the proposed uniform cubic radical bound.  The scan
+  through prime index `61` has no repeated factor, but that bounded no-hit
+  deletes no eventual statement.  The corrected paper route has `L_m | m`
+  and remains open at `log E_d = o(phi(d))`, or a comparable base-mass bound.
+  Ledger and validated Lean core:
+  `../research/ABC_MERSENNE_PRIME_LAYER_RADICAL_2026_09_01.md` and
+  `IUTThreeClosures/MersennePrimeLayerRadical20260901.lean`.  The directly
+  compiling `IUTThreeClosures/MersenneOrderBlockDecomposition20260901.lean`
+  also registers local LTE, `L_m | m`, `W_m = L_m * B_m`, and the local base-
+  quotient exponents, then proves the explicit finite product
+  `B_m = prod_(d|m) E_d`.  The companion
+  `IUTThreeClosures/MersenneOrderBlockAsymptotic20260901.lean` proves canonical
+  block agreement, the exact logarithmic divisor sum, and the conditional
+  passage `log E_d = o(phi(d)) -> log W_m = o(m)`.  It leaves that antecedent
+  as the active arithmetic gate.  The exact witness module
+  `IUTThreeClosures/MersenneCanonicalBlockWitness20260901.lean` additionally
+  proves `1093 | E_364`, deleting only the stronger assertion that all
+  canonical blocks equal one.  The source audit identifies
+  `E_d=Phi_d(2)/rad(Phi_d(2))` and removes the repeated-prime mass below
+  `phi(d)^2/log log(3d)` by Brun--Titchmarsh.  Failure of the open gate is
+  reduced to deep lifts, a near-quadratic same-order cluster, or a weighted
+  exceptional small-order tail.  The finite reduction and the exact ambient
+  square-budget ratio used in (6.15) are formalized in
+  `IUTThreeClosures/MersenneWieferichTailReduction20260901.lean`; the cited
+  analytic and order-distribution inputs remain explicit paper theorems.
+
+The eight modules supporting these four routes formalize only the proved elementary,
+algebraic, and exact-counterexample content.  They do not assume the open
+bridges, and this registry records no Lean closure of `ABCConjecture` or its
+negation.
+
+The immutable replay record is
+`verification/2026_09_01_prime_unit_two_arm_layer/`: 8 modules, 14 runs,
+176 theorems, 220 counted declarations, 177 dependency reports, and a
+9206-job aggregate build all pass.  Its sealed `SHA256SUMS` file has SHA-256
+`36cb329de8038b6bbb96a4a14760d4bb8211b00a34581a99769c28faa8e80bff`.
+
 ## September 1, 2026 five-route continuation
 
 Standard `ABCConjecture` remains open in both directions.  No broad route is

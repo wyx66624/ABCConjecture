@@ -1,0 +1,551 @@
+===== PAGE 1 =====
+CYCLOTOMIC PRIMES
+CARL POMERANCE
+Abstract. Mersenne primes and Fermat primes may be thought
+of as primes of the form Φm(2), where Φm(x) is the mth cyclotomic
+polynomial. This paper discusses the more general problem of
+primes and composites of this form.
+1. Introduction
+Studied since antiquity, we have the Mersenne primes. These are
+prime numbers 1 less than a power of 2, so of the form 2 n− 1. To
+be prime it is necessary that n = p is prime, but this is not suﬃcient,
+e.g., p = 11. The ﬁrst 4 of these primes were known to Euclid and
+they played a key role in his work on perfect numbers. We now know
+more than 50 Mersenne primes, the largest at present being 2p−1 with
+p = 136,279,841, see [11]. Evidently it takes some doing to check the
+primality of numbers this large!
+It is widely believed that there are inﬁnitely many Mersenne primes,
+and also inﬁnitely many primes p with 2p− 1 composite. Though both
+assertions are still unsolved, there is a conditional proof of the second
+one based on the prime k-tuples hypothesis: If p≡ 3 (mod 4) is prime
+with p > 3 and q = 2p + 1 is prime, then 2p− 1 is composite. Indeed,
+the conditions imply that q ≡ 7 (mod 8) so that (2 /q) = 1. This
+implies that q| 2(q−1)/2− 1 = 2p− 1, and the condition p > 3 implies
+that q < 2p− 1. Thus q is a proper divisor of 2 p− 1 implying the
+latter is composite. For example, 23 | 211− 1. It remains to note that
+the prime k-tuples hypothesis implies there are inﬁnitely many primes
+p≡ 3 (mod 4) with 2 p + 1 prime.
+Also studied for centuries are the Fermat primes. These are primes
+that are 1 more than a power of 2, so of the form 2 n + 1. To be prime
+(and > 2) it is necessary that n itself is a power of 2. Again, this is not
+suﬃcient. Fermat knew that 2 2k
++ 1 is prime for k = 0 , 1, 2, 3, 4 and
+Mathematics Department, Dartmouth College, Hanover, NH 03755, USA. email:
+carlp@math.dartmouth.edu
+Date: February 3, 2025.
+2010 Mathematics Subject Classiﬁcation. 11N32, 11N25.
+Key words and phrases. Mersenne prime, Fermat prime, cyclotomic polynomial,
+abc conjecture.
+1
+
+===== PAGE 2 =====
+2 CARL POMERANCE
+he conjectured that it is always prime. However, Euler showed that
+641| 225
++ 1. It is now known that 2 2k
++ 1 is composite for all larger
+values of k up to 32, and also some sporadic larger values as well. It is
+conjectured that all but ﬁnitely many are composite and that perhaps
+224
++ 1 is the largest Fermat prime. Nothing has been proved here,
+even conditionally.
+What Mersenne primes and Fermat primes have in common is that
+they are cyclotomic primes. These are primes of the form Φm(2), where
+Φm is the mth cyclotomic polynomial. This is the minimal polynomial
+in Q[x] for e2πi/m and it has degree ϕ(m), Euler’s function. We have
+the twin identities:
+xm− 1 =
+∏
+d|m
+Φd(x), Φm(x) =
+∏
+d|m
+(xd− 1)µ(m/d).
+Note that if p is prime, then Φp(x) = (xp− 1)/(x− 1), so that Φp(2) =
+2p− 1. Further Φ 2k+1(x) = ( x2k+1
+− 1)/(x2k
+− 1) = x2k
++ 1, so that
+Φ2k+1(2) = 22k
++ 1. We also have the Wagstaﬀ primes, see [19], which
+are primes of the form Φ 2p(2) = (2p + 1)/3, where p is an odd prime.
+So, a cyclotomic prime is a prime of the form Φ m(2). We can ask if
+there are inﬁnitely many of them and also if there are inﬁnitely many
+numbers of this form that are composite. It turns out that there are
+inﬁnitely many composites for fairly trivial reasons. The substance of
+this paper is to show that there are inﬁnitely many nontrivial compos-
+ites. We make this precise in the next section.
+2. Basics and statement of results
+Let
+φm := Φm(2).
+We say a prime factor p of φm is primitive if it does not divide any φk
+for k < m . Otherwise we say p is intrinsic. For an odd prime p let ℓ(p)
+denote the mutlplicative order of 2 in ( Z/pZ)×. We have that p is a
+primitive prime factor of φm if and only if ℓ(p) = m. Further, φm has
+an intrinsic prime factor p if and only if m = pjℓ(p) for some positive
+integer j, in which case p is the largest prime factor of m and p∥ φm.
+If m is of this form, let δm = p, and otherwise let δm = 1. Thus, every
+prime factor of
+ψm := φm/δm
+is primitive.
+We know that for each m /∈{ 1, 6}, there is at least one primitive
+prime factor of φm; this is Bang’s theorem, see [3]. The numbers ψm
+
+===== PAGE 3 =====
+CYCLOTOMIC PRIMES 3
+are pairwise coprime and except for m = 1 or 6, they are all > 1 (cf.
+[22]).
+Due to the factorization
+4x4 + 1 = (2x2 + 2x + 1)(2x2− 2x + 1),
+there is a further generic factorization of φm beyond δmψm when m≡ 4
+(mod 8). Note that
+24k+2 + 1 = 4(2k)4 + 1 = (22k+1 + 2k+1 + 1)(22k+1− 2k+1 + 1),
+which leads to the factorization
+φ8k+4 = gcd(φ8k+4, 22k+1 + 2k+1 + 1) gcd(φ8k+4, 22k+1− 2k+1 + 1) (1)
+=: φ+
+8k+4φ−
+8k+4.
+By dividing out an intrinsic prime factor if it exists, we have
+ψ8k+4 =: ψ+
+8k+4ψ−
+8k+4.
+Further, this factorization is nontrivial for k ≥ 3, a result due to
+Schinzel [23]. The factorization (1) is known under the name Au-
+rifeuille, see [5].
+Note that
+(2) φm∈ [2ϕ(m)−1, 2ϕ(m)+1),
+see [12, Theorem 3.6], [22, Theorem 4.3]. Also, using [5, eqs. (13), (14)]
+it is not hard to show that
+(3) φ+
+8k+4, φ−
+8k+4≍ 2ϕ(8k+4)/2,
+where the notation indicates the 2 items on the left side are of the same
+magnitude as the item on the right side.
+To state our results, consider the sets
+C1 ={ψm : m̸≡ 4 (mod 8)}, C 2 ={ψm : m≡ 4 (mod 8)}.
+Theorem 1. For suﬃciently large values of x, the set C1 contains more
+than x3/5 composite numbers ψm with m≤ x, and the set C2 contains
+more than x3/5 numbers ψm with m≤ x that are not the product of two
+primes.
+The exponent 3 /5 in the theorem is not optimal, this is discussed
+below. The proof uses the deep result that for some θ with 1/2 < θ < 1,
+there are inﬁnitely many primes p such that p− 1 has a large prime
+factor q > p θ. We can also prove a slightly stronger result conditional
+on the abc conjecture.
+
+===== PAGE 4 =====
+4 CARL POMERANCE
+Theorem 2. Assume the abc conjecture and that x is suﬃciently large.
+The set C1 contains≥ x3/5 numbers ψm divisible by at least 2 distinct
+primes with m≤ x, and the set C2 contains≥ x3/5numbers numbers
+ψm divisible by at least 3 distinct primes with m≤ x.
+We remark that the abc conjecture has been used for similar purposes
+in [24] and [4, Theorem 3]. We also remark that this theorem gives
+an abc-conjecture-conditional solution of a problem of Schinzel [23, p.
+561].
+Throughout the letters p, q will always denote prime numbers. We
+also let P +(n) denote the largest prime factor of n > 1, and we let
+P +(1) = 1.
+3. An elementary approach
+Here we prove a somewhat weaker version of Theorem 1 where the
+exponent 3/5 is replaced with 1 /2. Let x be large and consider primes
+p≤ x. It follows from Erd˝ os–Murty [8, Theorem 1] that the number of
+such primes p with ℓ(p) > 5x1/2(log x)2 is∼ x/ log x. For any positive
+integer d let Ld(x) denote the set of primes p∈ (x/2, x] with
+p≡ 3 (mod 4) ,
+ℓ(p) = (p− 1)/d,
+ℓ(p) > 5x1/2(log x)2.
+It follows that
+(4)
+∑
+d≤ 1
+5x1/2/(logx)2
+#Ld(x)∼ x
+4 logx .
+Thus, for large x there is some number d0≤ 1
+5 x1/2/(log x)2 with
+#Ld0(x) > x 1/2.
+Consider now the values of m = ℓ(p) = (p−1)/d0 for p∈ Ld0(x). They
+are all distinct, bounded by x, and ̸≡ 4 (mod 8). For large x, ψm is
+easily seen to be > x (using m > x 1/2 and (2)) and p| ψm. It follows
+that ψm is composite. Thus, C1 contains more than x1/2 composite
+numbers ψm with m≤ x.
+By changing 3 (mod 4) above to 5 (mod 8) and using (3), the anal-
+ogous argument shows that at least one of ψ+
+m, ψ−
+m is composite, so C2
+contains more than x1/2 numbers ψm with m≤ x which are not the
+product of two primes.
+
+===== PAGE 5 =====
+CYCLOTOMIC PRIMES 5
+4. Proof of Theorem 1
+Denote by π(x; d, a) the number of primesp≤ x with p≡ a (mod d).
+Our principal tool is the following theorem. Let θ = 3/5.
+Proposition 1. We have
+∑
+q>xθ
+π(x; 4q, 2q + 1) logq≫ x and
+∑
+q>xθ
+π(x; 8q, 4q + 1) logq≫ x.
+The analogous result for π(x; q, 1) is well known with varying values
+of “θ” in the literature. The current champions are Baker and Harman
+[2], who essentially have θ = 0 .677, though they do not state their
+result in the same way. Probably the techniques of their paper would
+allow the same value of θ in Proposition 1, but we do not pursue the
+optimal value at this point. Other results in their paper have been
+recently strengthened (see [15]); conjecturally any value of θ < 1 may
+be used.
+We now sketch a proof of Proposition 1. With Λ the von Mangoldt
+function, we have
+∑
+d≤x
+π(x; 4d, 2d + 1)Λ(d) =
+∑
+p≡ 3 (mod 4)
+p≤x
+∑
+d| (p−1)/2
+Λ(d) + O(x/ log x)
+=
+∑
+p≡ 3 (mod 4)
+p≤x
+log(p− 1) + O(x/ log x)
+= 1
+2 x + O(x/ log x).
+Further, by the Bombieri–Vinogradov theorem plus a small additional
+argument using the Brun–Titchmarsh inequality (see [17]) to clean up
+the boundary cases, we have
+∑
+d≤x1/2
+π(x; 4d, 2d + 1)Λ(d)∼ 1
+4 x, x →∞ .
+Thus,
+∑
+d>x1/2
+π(x; 4d, 2d + 1)Λ(d)∼ 1
+4 x, x →∞ .
+The contribution to this last sum when d is composite is o(x), so we
+have ∑
+q>x1/2
+π(x; 4q, 2q + 1) logq∼ 1
+4 x, x →∞ .
+
+===== PAGE 6 =====
+6 CARL POMERANCE
+By the Brun–Titchmarsh inequality,
+∑
+x1/2<q≤xθ
+π(x; 4q, 2q + 1) logq≤
+∑
+x1/2<q≤xθ
+2x log q
+ϕ(4q) log(x/4q)
+∼ x log(5/4) < 0.23x.
+Thus, with the prior display, we have
+(5)
+∑
+q>xθ
+π(x; 4q, 2q + 1) logq≥ 0.02x
+for all large x, which shows the ﬁrst assertion in Proposition 1. The
+second assertion follows in a similar manner.
+To achieve a cosmetically more appealing version of our results, note
+that since ∑
+xθ<q≤xθ(logx)2
+1
+q≪ log logx
+log x = o(1),
+the Brun–Titchmarsh theorem implies that in both parts of Proposi-
+tion 1 we may replace q > xθ with q > xθ(log x)2.
+Since no prime p≤ x has p−1 divisible by 2 diﬀerent primes q > xθ,
+we have the following result.
+Corollary 1. We have
+∑
+p≡ 3 (mod 4)
+P +(p−1)>xθ(logx)2
+p≤x
+1≫ x/ log x and
+∑
+p≡ 5 (mod 8)
+P +(p−1)>xθ(logx)2
+p≤x
+1≫ x/ log x.
+An elementary argument shows that the number of primes p with
+ℓ(p) = k is≪ k/ log k, so it follows that the number of primes p≤ x
+with ℓ(p)≤ x1−θ/(log x)2 is≪ x2(1−θ) = o(π(x)). (Note that there is a
+similar argument in [10]. Also here one could appeal to [8, Theorem 1].)
+However, a prime p counted in either part of Corollary 1 either has
+ℓ(p)≤ x1−θ/(log x)2 or ℓ(p) > xθ(log x)2. Hence we have
+(6)
+∑
+p≡ 3 (mod 4)
+ℓ(p)>xθ(logx)2
+p≤x
+1≫ x/ log x and
+∑
+p≡ 5 (mod 8)
+ℓ(p)>xθ(logx)2
+p≤x
+1≫ x/ log x.
+Thus, using the notation of the previous section we have the improve-
+ment on (4): ∑
+d≤x1−θ/(logx)2
+#Ld(x)≫ x
+log x ,
+and an analogous result holds for primes p≡ 5 (mod 8). Thus, by the
+same argument as in the previous section, we have Theorem 1.
+
+===== PAGE 7 =====
+CYCLOTOMIC PRIMES 7
+5. Conditional results
+For a positive integer n let rad(n) denote the largest squarefree di-
+visor of n. The abc conjecture asserts that for each ﬁxed ϵ > 0, there
+are at most ﬁnitely many coprime positive integer triples a, b, c with
+a + b = c and rad(abc) < c 1−ϵ. In this section we will prove Theorem 2,
+which is conditional on the abc conjecture, and also discuss some other
+conditional results.
+Proof of Theorem 2. We follow the proof of Theorem 1 showing that
+most of the composites generated are not prime powers. First note
+that using that ϕ(p− 1)/(p− 1) has a continuous, strictly increasing
+distribution function on [0, 1/2] (see for example K´ atai [14], Elliott [7],
+and Hildebrand [13]) there is a positive number ϵ such that if we add
+the condition ϕ(p− 1)/(p− 1)≥ ϵ under each of the sums in (6), we
+obtain the same inequalities, albeit with possibly smaller constants.
+First suppose that m̸≡ 4 (mod 8). As in the proof of Theorem 1
+there is a value ofd≤ x1−θ/(log x)2 with≫ x/d log x primes p≤ x with
+p≡ 3 (mod 4), ℓ(p) > xθ(log x)2 and ϕ(p−1)/(p−1)≥ ϵ. Further, for
+each such m = (p− 1)/d we have that ψm is composite. We now show
+assuming the abc conjecture that for all suﬃciently large x, ψm cannot
+be a prime power. Suppose it is a prime power, namely ψm = pi with
+i≥ 2. Consider the abc equation 1+(2 m−1) = 2m. Since ψm≥ φm/p,
+we have
+rad(abc) = 2p rad((2m− 1)/ψm)≤ 2pq(2m− 1)/φm.
+Assuming the abc conjecture this would be impossible for large q if
+there is some ﬁxed δ > 0 such that φm > 2δm (since 2 pq = O(x2) =
+2o(m)). Using (2) this follows since ϕ(m)/m≥ ϕ(p− 1)/(p− 1)≥ ϵ.
+Thus, we have our claim.
+The situation for m≡ 4 (mod 8) is completely analogous; we sup-
+press the details. □
+We remark that a variant of our proof can show that for asymptot-
+ically all m, ψm is not square-full, and the same goes for ψ+
+8k+4 and
+ψ−
+8k+4.
+We mentioned in the introduction that the primek-tuples conjecture
+can be used to show that there are inﬁnitely many primes p with ψp =
+2p− 1 composite. We add here a couple of thoughts. First, since we
+know that 8 and 9 form the only pair of consecutive numbers which
+are nontrivial powers (a result of Mih˘ ailescu [16]), it follows that 2p−1
+cannot be a nontrivial power, so in this case, the abc conjecture is not
+necessary. Second, using the Hardy–Littlewood version of the k-tuples
+
+===== PAGE 8 =====
+8 CARL POMERANCE
+conjecture, we have the number of primes p≤ x with 2p− 1 divisible
+by at least 2 diﬀerent primes is ≫ x/(log x)2.
+We can prove there are more cyclotomic composites assuming Artin’s
+primitive root conjecture. If 2 is a primitive root for p, we have p a
+prime factor of ψp−1 and so ψp−1 is composite for p large. By Hoo-
+ley’s GRH conditional proof of Artin’s conjecture, we have ≫ x/ log x
+primes p≤ x which have 2 as a primitive root. Further, the proof
+is amenable to insisting that p≡ 3 (mod 4) and also the same holds
+when p≡ 5 (mod 8). So the GRH implies there are quite a few cy-
+clotomic composites. And as above, the abc conjecture can be used to
+show these composites are usually not prime powers. This result can be
+improved a little by considering primes p≤ kx with ℓ(p) = ( p− 1)/k
+for various small values of k and using sieve methods to show that
+(p− 1)/k = (p′− 1)/k′ has few solutions when k̸= k′ are small. Thus,
+with a little work it may be possible to show, assuming the GRH, that
+there are≫ x log logx/ log x integers l≤ x of the form ℓ(p) for some
+prime p≪ x log x.
+6. Statistics and surmises
+Concerning Table 1, Gallot [9] previously enumerated the cases where
+φm is prime for m≤ 6500 and Noe [18] extended this to 10 5. Our cal-
+culations agree with theirs. In our work we used Mathematica and
+in particular their PrimeQ function. This function is discussed in [1],
+where it is said to be based on the Baillie–PSW primality test. This
+is not a rigorous primality test, though no counterexamples are known
+(and there is a reward for the ﬁrst one to be identiﬁed). In fact, I have
+a heuristic argument that there are indeed inﬁnitely many counterex-
+amples, see [21]. So, it is possible that some of the prime declarations
+made are false, but this seems unlikely, given that there are not very
+many of them. One of the larger primes unearthed here is φ60,287 which
+has 17,090 decimal digits. Note that when PrimeQ declares a number
+is not prime, this conclusion is not in doubt. Since PrimeQ is no-
+tably slower than checking if the Fermat congruence 3 n≡ 3 (mod n)
+holds, we ﬁrst used that and conﬁrmed the few primality assertions
+with PrimeQ. (We used the base 3 since every ψm is either a prime or
+a base 2 pseudoprime. See [20] where these thoughts are developed.)
+Many of the large primes uncovered here have indeed been certiﬁed
+(including φ60,287) in the ongoing project factordb.com. (Thanks are
+due to Yves Gallot for informing me about this.)
+Heuristically there are at most ﬁnitely many examples where ψpiℓ(p),
+with i≥ 1, is prime. Is ψ127·7 the largest such example? It is a prime
+
+===== PAGE 9 =====
+CYCLOTOMIC PRIMES 9
+Table 1. Counts for m≤ 2k with φm prime, ψm prime,
+ψ+
+m prime, ψ−
+m prime
+k #m with φm prime ψm prime ψ+
+m prime ψ−
+m prime
+1 1 1 0 0
+2 3 3 1 0
+3 7 6 1 0
+4 14 13 2 0
+5 23 25 4 1
+6 33 36 7 5
+7 49 52 13 8
+8 64 68 20 16
+9 81 86 24 25
+10 99 106 30 33
+11 122 129 34 43
+12 140 147 44 54
+13 167 174 50 59
+14 195 202 61 64
+15 221 228 72 74
+16 255 262 85 83
+17 289 296 96 94
+of 226 decimal digits. There are several examples where both ψ+
+m and
+ψ−
+m are prime. The largest that we found in our calculations to 2 17 is
+m = 1132, where the two primes each have 85 decimal digits. Probably
+there are at most ﬁnitely many of these “twin cyclotomic primes”.
+The counts in Table 1 look to be proportional to k2, and this is
+supported heuristically as well. Indeed, one can model ψm as a random
+number near 2ϕ(m) which has all prime factors larger than m. So the
+“probability” that it is prime (given that m̸≡ 4 (mod 8)) is about
+eγ log m/ϕ(m) log 2. The sum of these quantities up to 2 15 is about
+223.4, up to 2 16 is about 254.4, and up to 2 17 is about 287.4, which are
+not bad matches with the table. It would seem that the counts in the
+ﬁrst column are asymptotically equal to k2, but this is likely not true.
+One can sum eγ log m/ϕ(m) log 2 for m≤ 2k with m̸≡ 4 (mod 8),
+ﬁnding it to be ∼ ck2, where
+c = 5
+12 eγζ(2)ζ(3)ζ(6)−1 log 2 = 0.999774 . . . .
+So, close to 1, but not 1.
+One can enlarge further the realm of cyclotomic primes to look at
+the primitive parts of an− 1, where a > 2. Also one can look at the
+Fibonacci sequence, as well as other Lucas sequences, for example see
+Drobot [6]. We suspect our methods carry over, but we leave this topic
+for another day, and perhaps another person.
+
+===== PAGE 10 =====
+10 CARL POMERANCE
+Acknowledgments
+I thank Max Alexeev, Michael Filaseta, Yves Gallot, Florian Luca,
+Mits Kobayashi, Pieter Moree, Paul Pollack, Sam Wagstaﬀ, and the
+referee for their valuable comments and interest.
+References
+[1] R. Baillie, A. Fiori, and S. S. Wagstaﬀ, Jr., Strengthening the Baillie–PSW
+primality test, Math. Comp. 90 (2021), 1931–1955.
+[2] R. C. Baker and G. Harman, Shifted primes without large prime factors, Acta
+Arith. 83 (1998), 331–361.
+[3] A. S. Bang, Talstheoritiske undersøgelser, Tidsskrift Math. 5, IV (1886), 70–80.
+[4] J. Browkin, M. Filaseta, G. Greaves, A. Schinzel, Squarefree values of poly-
+nomials and the abc-conjecture, (Cardiﬀ, 1995), 65–85. London Math. Soc.
+Lecture Note Ser. 237, Cambridge U. Press, Cambridge, 1997.
+[5] J. Brillhart, D. H. Lehmer, J. L. Selfridge, B. Tuckerman, and S. S. Wagstaﬀ,
+Jr., Factorizations of Bn± 1, B = 2, 3, 4, 5, 6, 7, 10, 11, 12, up to high powers,
+Contemporary Mathematics 22, Amer. Math. Soc. 1989.
+[6] V. Drobot, On primes in the Fibonacci sequence, Fibonacci Quart. 38 (2000),
+71–72.
+[7] P. D. T. A. Elliott, On the limiting distribution of f(p + 1) for non-negative
+additive functions, Acta Arith. 25 (1974), 259–264.
+[8] P. Erd˝ os and M. R. Murty, On the order of a (mod p), CRM Proc. Lecture
+Notes 19 (1999), 87–97.
+[9] Y. Gallot, Cyclotomic polynomials and prime numbers, citeseerx.ist.psu.edu/
+document?doi=36d4b33472e836538b728ecad04545da318c0094 .
+[10] M. Goldfeld, On the number of primes p for which p + a has a large prime
+factor, Mathematika 16 (1969), 23–27.
+[11] Great Internet Mersenne Prime Search, mersenne.org.
+[12] C. Hering, Transitive linear groups and linear groups which contain irreducible
+subgroups of prime order, Geom. Dedicata 2 (1974), 425–460.
+[13] A. Hildebrand, Additive and multiplicative functions on shifted primes, Proc.
+London Math. Soc. s3-59 (1989), 209–232.
+[14] I. K´ atai, On distribution of arithmetical functions on the set prime plus one,
+Compos. Math. 19 (1968), 278–289.
+[15] J. D. Lichtman, Primes in arithmetic progressions to large moduli, and shifted
+primes without large prime factors, arXiv:2211.09641 [math.NT].
+[16] P. Mih˘ ailescu, Primary cyclotomic units and a proof of Catalan’s conjecture,
+J. Reine Angew. Math. 572 (2004), 167–195,
+[17] H. L. Montgormery and R. C. Vaughan, The large sieve, Mathematika 20
+(1973), 119–134.
+[18] T. D. Noe, https://oeis.org/A072226/b072226.txt .
+[19] OEIS, https://oeis.org/A000978.
+[20] C. Pomerance, A new lower bound for the pseudoprime counting function,
+Illinois J. Math. 26 (1982), 4–9.
+
+===== PAGE 11 =====
+CYCLOTOMIC PRIMES 11
+[21] C. Pomerance, Are there counterexamples to the Baillie–PSW primality
+test? In H. W. Lenstra, Jr., J. K. Lenstra, and P. Van Emde Boas, edi-
+tors, Dopo le parole angeboden aan Dr. A. K. Lenstra. Amsterdam, 1984.
+https://www.math.dartmouth.edu/∼carlp/dopo.pdf
+[22] C. Pomerance and S. Rubinstein-Salzedo, Cyclotomic coincidences, Exp. Math.
+31 (2022), 596–605.
+[23] A. Schinzel, On primitive prime factors of an− bn, Math. Proc. Cambridge
+Phil. Soc. 58 (1962), 556–562.
+[24] J. H. Silverman, Wieferich’s condition and the abc conjecture, J. Number The-
+ory 30 (1988), 226–237.
+Appendix
+Here we list the values of m corresponding to the counts in Table 1.
+Values of m with φm prime:
+2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 19, 22, 24, 26, 27, 30, 31,
+32, 33, 34, 38, 40, 42, 46, 49, 56, 61, 62, 65, 69, 77, 78, 80, 85, 86, 89,
+90, 93, 98, 107, 120, 122, 126, 127, 129, 133, 145, 150, 158, 165, 170,
+174, 184, 192, 195, 202, 208, 234, 254, 261, 280, 296, 312, 322, 334, 345,
+366, 374, 382, 398, 410, 414, 425, 447, 471, 507, 521, 550, 567, 579, 590,
+600, 607, 626, 690, 694, 712, 745, 795, 816, 897, 909, 954, 990, 1106,
+1192, 1224, 1230, 1279, 1384, 1386, 1402, 1464, 1512, 1554, 1562, 1600,
+1670, 1683, 1727, 1781, 1834, 1904, 1990, 1992, 2008, 2037, 2203, 2281,
+2298, 2353, 2406, 2456, 2499, 2536, 2838, 3006, 3074, 3217, 3415, 3418,
+3481, 3766, 3817, 3927, 4167, 4253, 4423, 4480, 5053, 5064, 5217, 5234,
+5238, 5250, 5325, 5382, 5403, 5421, 6120, 6925, 7078, 7254, 7503, 7539,
+7592, 7617, 7648, 7802, 7888, 7918, 8033, 8370, 9583, 9689, 9822, 9941,
+10192, 10967, 11080, 11213, 11226, 11581, 11614, 11682, 11742, 11766,
+12231, 12365, 12450, 12561, 13045, 13489, 14166, 14263, 14952, 14971,
+15400, 15782, 15998, 16941, 17088, 17917, 18046, 19600, 19937, 20214,
+20678, 21002, 21382, 21701, 22245, 22327, 22558, 23209, 23318, 23605,
+23770, 24222, 24782, 27797, 28958, 28973, 29256, 31656, 31923, 33816,
+34585, 35565, 35737, 36960, 39710, 40411, 40520, 42679, 42991, 43830,
+43848, 44497, 45882, 46203, 47435, 48387, 48617, 49312, 49962, 49986,
+50414, 51603, 51945, 53977, 55495, 56166, 56898, 56955, 57177, 58315,
+58534, 58882, 60287, 67235, 67854, 69933, 70129, 70617, 75302, 76912,
+78077, 78426, 80160, 81165, 81432, 82569, 82730, 84897, 85474, 85881,
+86243, 87005, 94914, 95349, 99992, 100917, 104550, 108535, 109965,
+110503, 110845, 111065, 116629, 118080, 119210, 121806, 130002
+Values of m with ψm < φm and ψm prime:
+18, 20, 21, 54, 147, 342, 602, 889
+
+===== PAGE 12 =====
+12 CARL POMERANCE
+Values of m with ψ+
+m prime:
+4, 12, 20, 28, 36, 44, 60, 68, 76, 84, 100, 108, 116, 132, 140, 180, 204,
+220, 228, 252, 276, 340, 356, 484, 588, 628, 652, 700, 756, 924, 1132,
+1292, 1452, 1516, 2300, 2484, 2604, 2964, 3116, 3276, 3420, 3540, 3940,
+3988, 4892, 5100, 5268, 5908, 6620, 7812, 8964, 9084, 9324, 9468, 10308,
+11980, 12188, 12204, 13724, 13860, 15252, 17052, 18476, 20676, 21916,
+24252, 25004, 25508, 28692, 29460, 29492, 31692, 34236, 34380, 35700,
+38428, 40564, 41316, 45028, 46076, 50332, 51148, 51204, 56588, 58796,
+73668, 81900, 84020, 86508, 87420, 92324, 96204, 97524, 97620, 104620,
+118748
+Values of m with ψ−
+m prime:
+28, 36, 44, 52, 60, 84, 108, 116, 132, 140, 172, 188, 196, 212, 220, 252,
+260, 276, 292, 316, 348, 372, 420, 444, 452, 516, 604, 668, 812, 868, 924,
+956, 964, 1044, 1132, 1204, 1276, 1412, 1468, 1500, 1540, 1564, 1828,
+2124, 2172, 2228, 2252, 2452, 2532, 2716, 2764, 2868, 3484, 3852, 4844,
+5316, 5468, 6164, 7828, 9516, 9684, 10924, 12164, 15860, 19516, 20588,
+21292, 24180, 25100, 25212, 28612, 30988, 31460, 32340, 34404, 38132,
+42660, 43084, 46292, 46980, 52740, 56668, 60676, 68748, 69828, 72948,
+74220, 75484, 84900, 87940, 106412, 110116, 115292, 129836
+Mathematics Department, Dartmouth College, Hanover, NH 03755,
+USA
+E-mail address : carlp@math.dartmouth.edu

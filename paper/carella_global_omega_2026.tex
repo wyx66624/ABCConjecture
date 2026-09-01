@@ -1,0 +1,137 @@
+\section{A literal distinct-prime-factor countermodel and the retained radical target}
+\label{sec:carella-global-omega}
+
+Carella's current preprint \cite{Carella}, Theorem~5.1(iii), p.~12,
+prints the hypothesis
+\begin{equation}\label{eq:carella-global-omega}
+ \#\{n\le x:\omega(n)>w\}=o(x^{3/5}),
+ \qquad w\le2\loglog x.
+\end{equation}
+The prose following the display refers instead to smooth integers in the
+short interval $[x,x+x^{3/5}]$.  The two sets are different.  We first audit
+the displayed global statement literally.
+
+Let $p_1=2<p_2<\cdots$ be the primes and put
+$Q_r=\prod_{j=1}^r p_j$.
+
+\begin{theorem}[Primorial-multiple counterfamily]
+\label{thm:carella-primorial-multiples}
+For a real number $w\ge0$, let $r=\lfloor w\rfloor+1$.  Then, for
+$x\ge Q_r$,
+\begin{equation}\label{eq:primorial-multiple-count}
+ \#\{n\le x:\omega(n)>w\}\ge
+       \left\lfloor\frac{x}{Q_r}\right\rfloor.
+\end{equation}
+If $w=w(x)\le2\loglog x$ for all sufficiently large $x$, then the
+left side is $x^{1-o(1)}$ and is therefore not $o(x^{3/5})$.
+\end{theorem}
+
+\begin{proof}
+For every $1\le m\le\lfloor x/Q_r\rfloor$, the integer $mQ_r$ is at most
+$x$ and is divisible by the $r$ distinct primes $p_1,\ldots,p_r$.  Thus
+$\omega(mQ_r)\ge r>w$, and multiplication by the positive integer $Q_r$
+is injective.  This proves \eqref{eq:primorial-multiple-count}.
+
+Bertrand's postulate gives $p_{j+1}<2p_j$, hence $p_j\le2^j$ and
+\[
+ \log Q_r\le \frac{r(r+1)}{2}\log2.
+\]
+Under $w(x)\le2\loglog x$, this is $O((\loglog x)^2)=o(\log x)$.
+Consequently $Q_r=x^{o(1)}$, and the lower bound in
+\eqref{eq:primorial-multiple-count} is $x^{1-o(1)}$.  Dividing it by
+$x^{3/5}$ gives $x^{2/5-o(1)}\to\infty$.
+\end{proof}
+
+Thus \eqref{eq:carella-global-omega} is false with all of its displayed
+conditions.  Moreover, Theorem~5.1 is conditional on that statement, while
+the subsequent proof of the preprint's Theorem~1.1 treats the conditional
+result as available for every large $x$.  The claimed unconditional
+conclusion does not follow.
+
+This literal counterfamily is separate from the earlier local audit in
+Section~\ref{sec:smooth}.  If the display is repaired by restricting to
+$B$-smooth integers in $[x,x+x^{3/5}]$, the theorem above no longer applies
+literally.  Theorem~\ref{thm:tail} then shows that almost every smooth
+integer in the relevant Younis regime has much more than $2\loglog x$
+distinct prime divisors, contradicting the proposed majority and moment
+mechanism.  Neither result excludes one exceptionally sparse low-radical
+neighbour in infinitely many prime-power-centred intervals.
+
+The final radical calculation of the proposed construction is in fact valid
+under such an existence premise.  The following formulation keeps the larger
+route without requiring smoothness or a bound on $\omega$.
+
+\begin{theorem}[Three-fifths radical-neighbour gate]
+\label{thm:three-fifths-radical-neighbour}
+Fix $k\ge1$, $\sigma\ge0$, and suppose
+\begin{equation}\label{eq:three-fifths-radical-target}
+                       \sigma<\frac25-\frac1k.
+\end{equation}
+If there are infinitely many primes $p$ and integers $c$, at unbounded
+$X=p^k$, for which
+\begin{equation}\label{eq:three-fifths-neighbours}
+ X<c\le X+X^{3/5},\qquad p\nmid c,\qquad
+ \rad(c)\le X^{\sigma+o(1)},
+\end{equation}
+then the standard $abc$ conjecture is false.
+\end{theorem}
+
+\begin{proof}
+Set $a=c-p^k$ and $b=p^k$.  Since $p\nmid c$, the three entries are
+pairwise coprime.  Radical submultiplicativity gives
+\[
+ \rad(abc)\le a\,p\,\rad(c)
+       \le X^{3/5+1/k+\sigma+o(1)}.
+\]
+Condition \eqref{eq:three-fifths-radical-target} makes the fixed exponent
+$q=3/5+1/k+\sigma$ strictly smaller than one.  Choose $\eps>0$ with
+$(1+\eps)q<1$.  After absorbing the $o(1)$ term into half of the positive
+gap,
+\[
+ \frac{c}{\rad(abc)^{1+\eps}}
+       \ge X^{(1-(1+\eps)q)/2}\longrightarrow\infty.
+\]
+This contradicts the existence of the uniform $abc$ constant for that
+fixed $\eps$.
+\end{proof}
+
+The conclusion shows that the condition $\rad(c)=X^{o(1)}$ is stronger than
+needed.  At $k=4$, for example, every fixed $\sigma<3/20$ suffices; the
+allowed upper exponent tends to $2/5$ as $k$ grows.
+
+There is an exact extra restriction if $k\ge3$ and one asks for candidates
+at a positive proportion of prime centres.  The Rankin radical count proved in the
+underlying research report gives
+\[
+ \#\{n\le X:\rad(n)\le X^\sigma\}\ll_\eta X^{\sigma+\eta}.
+\]
+Disjointness of the $X^{3/5}$ intervals and the prime number theorem then
+force $\sigma\ge1/k$.
+
+\begin{proposition}[Exact density-compatible exponent window]
+\label{prop:three-fifths-density-window}
+There exists a real $\sigma$ such that
+\begin{equation}\label{eq:density-window}
+ \frac1k\le\sigma<\frac25-\frac1k
+\end{equation}
+if and only if $k>5$.  For every integer $k\ge6$, the uniform choice
+$\sigma=1/5$ is feasible and gives
+\[
+ \frac35+\frac1k+\frac15\le \frac{29}{30}<1.
+\]
+\end{proposition}
+
+\begin{proof}
+The interval in \eqref{eq:density-window} is nonempty precisely when
+$1/k<2/5-1/k$, equivalently $2/k<2/5$, or $k>5$.  If $k\ge6$, then
+$1/k\le1/6<1/5$ and the displayed total-slope bound follows.
+\end{proof}
+
+For $k=1,2$, the target \eqref{eq:three-fifths-radical-target} is already
+empty because $\sigma\ge0$.  The positive-density versions with
+$3\le k\le5$ are rejected by the counting contradiction.  A zero-density
+unbounded subsequence is not rejected for $3\le k\le5$.  For $k\ge6$,
+Proposition~\ref{prop:three-fifths-density-window}
+provides a concrete positive target that current density estimates do not
+forbid.  What remains is an arithmetic theorem producing the neighbours,
+not another manipulation of the final radical budget.

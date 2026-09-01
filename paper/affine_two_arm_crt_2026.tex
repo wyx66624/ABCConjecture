@@ -1,0 +1,135 @@
+\section{A two-arm CRT packet for the minimal affine shear}
+\label{sec:affine-two-arm-crt}
+
+Let $a+b=c$ be primitive, put $R=\rad(abc)$, and consider the minimal-step
+affine shear
+\begin{equation}\label{eq:two-arm-shear}
+ U=1+Rh,\qquad V=1+R(h+ck),\qquad W=1+R(h+bk).
+\end{equation}
+Write $E(n)=n/\rad(n)$.  The density analysis in
+Section~\ref{sec:holonomy-density-depth} shows that every three-quarter
+exception in the upper-half canonical box must satisfy
+\begin{equation}\label{eq:two-arm-marginal-gates}
+ Rc<8192E(V),\qquad Rc<8192E(W).
+\end{equation}
+The two inequalities carry more joint information than two unrelated
+numerical lower bounds.
+
+\begin{theorem}[Coprime joint carrier]\label{thm:two-arm-joint-carrier}
+If $V,W,T,K$ are positive integers, $(V,W)=1$, and
+$T<KE(V)$ and $T<KE(W)$, then
+\[
+ (E(V),E(W))=1,\qquad E(V)E(W)\mid VW,
+ \qquad T^2<K^2E(V)E(W).
+\]
+\end{theorem}
+
+\begin{proof}
+Each powerful part divides its parent integer.  Divisor monotonicity of
+coprimality gives $(E(V),E(W))=1$, and multiplication gives the divisibility.
+Multiplying the two strict positive inequalities proves the last assertion.
+For \eqref{eq:two-arm-marginal-gates}, take $T=Rc$ and $K=8192$.
+\end{proof}
+
+The diagonal $h=k$ is automatically admissible because
+$(1+Rk,k)=1$, and its long arms are
+\[
+             V=1+R(c+1)k,\qquad W=1+R(b+1)k.
+\]
+
+\begin{theorem}[Diagonal two-arm CRT packet]
+\label{thm:two-arm-crt-packet}
+Let $D,F$ be positive coprime squarefree integers such that
+\[
+ (D,R(c+1))=1,\qquad(F,R(b+1))=1.
+\]
+There is a unique residue class $k_0\pmod {D^2F^2}$ such that
+\[
+ k\equiv k_0\pmod {D^2F^2}
+ \quad\Longleftrightarrow\quad D^2\mid V\ \hbox{ and }\ F^2\mid W.
+\]
+Every member is admissible and satisfies $D\mid E(V)$ and $F\mid E(W)$.
+\end{theorem}
+
+\begin{proof}
+The two coefficients $R(c+1)$ and $R(b+1)$ are units modulo $D^2$ and
+$F^2$, respectively.  Each affine congruence therefore has one root, and
+the Chinese remainder theorem combines them into one class modulo $D^2F^2$.
+If a squarefree $D$ satisfies $D^2\mid n$, then each prime of $D$ occurs in
+$n$ with valuation at least two and hence occurs in $E(n)$; thus $D\mid E(n)$.
+Apply this observation to both arms.  Admissibility was noted above.
+\end{proof}
+
+The theorem supplies simultaneous repeated-prime mass, but the following
+exact calculation shows that the two marginal gates do not contain enough
+information to force exceptionality.
+
+\begin{proposition}[A counted packet and a complete insufficiency witness]
+\label{prop:two-arm-counterexample}
+For the seed $(a,b,c)=(1,242,243)$ one has $R=66$ and canonical scale
+\[
+ M=\left\lfloor\frac{243^6}{4\cdot66}\right\rfloor=779890651873.
+\]
+The diagonal progression
+\[
+                   h=k=356+1225t
+\]
+has exactly $318322715$ distinct points with $M/2<k\le M$.  Every point
+satisfies $5\mid E(V)$, $7\mid E(W)$, and both inequalities in
+\eqref{eq:two-arm-marginal-gates}.  At its first point,
+\[
+ h=k=389945326231,\qquad (E(U),E(V),E(W))=(1,5,7),
+\]
+the primitive output is
+\[
+ (A,B,C)=(25736391531247,
+ 1519682447137014050,1519708183528545297),\qquad A+B=C,
+\]
+but $\rad(ABC)^4>C^3$.  Hence the point is not a three-quarter exception.
+\end{proposition}
+
+\begin{proof}
+On the progression,
+\[
+ V=25(229321+789096t),\qquad
+ W=49(116521+400950t).
+\]
+The canonical inequalities are equivalent to
+$318322715\le t\le636645429$, an interval of exactly $318322715$ integers;
+the affine function of $t$ is injective.  The square divisibilities and the
+squarefree-carrier lemma give the two excess divisibilities, while
+$66\cdot243<8192\cdot5$ and $66\cdot243<8192\cdot7$ give the gates.
+
+For the first point, exact factorization gives
+\[
+\begin{aligned}
+ U&=17\cdot1513905384191,\\
+ V&=5^2\cdot23\cdot37\cdot139267\cdot2119433,\\
+ W&=7^2\cdot17431\cdot7322098141.
+\end{aligned}
+\]
+All residual factors displayed here are prime.  A shorter certificate for
+nonexceptionality is the squarefree divisor
+\[
+ d=139267\cdot2119433\cdot17431=5145057294975341
+\]
+of $ABC$: it divides $\rad(ABC)$ and direct integer comparison gives
+$d^4>C^3$.
+\end{proof}
+
+Proposition~\ref{prop:two-arm-counterexample} refutes only the assertion that
+the two necessary long-arm gates are sufficient.  It does not refute their
+necessity or the affine route.  The remaining positive theorem must produce,
+uniformly over every fixed subcritical seed range $R<c^\lambda$, enough
+canonical admissible parameters satisfying the full pointwise inequality
+\begin{equation}\label{eq:two-arm-full-gate}
+ E(U)E(V)E(W)>
+ \frac{RUVW}{(cW)^{3/4}}
+ =\frac Rc\,UV(cW)^{1/4}.
+\end{equation}
+Within the present density architecture, one seeks constants
+$\eta,\kappa>0$ and at least
+$\kappa R^{-2/3}c^{4+\eta}$ such parameters for every sufficiently large
+seed.  Growing squarefree carriers and a correlated powerful-value theorem
+for all three arms remain distinct active ways to reach
+\eqref{eq:two-arm-full-gate}.

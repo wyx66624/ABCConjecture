@@ -1,0 +1,39 @@
+{
+  "schema": "mersenne-prime-layer-delivery-v1",
+  "date": "2026-09-01",
+  "report": {
+    "path": "research/ABC_MERSENNE_PRIME_LAYER_RADICAL_2026_09_01.md",
+    "sha256": "c80737d5b11f17e8a7d03a1c597df24408d9bbf158f7ec9e84133de59d7c3394"
+  },
+  "lean_module": {
+    "path": "Lean/IUTThreeClosures/MersennePrimeLayerRadical20260901.lean",
+    "sha256": "fd8acc1ae2f423f4657aa3e89978ba521a7c49fec331b914c6100f56d805a907",
+    "theorem_declarations": 33,
+    "print_axioms_commands": 33,
+    "compile_exit_code": 0,
+    "sorryAx": false,
+    "native_decide_axiom": false
+  },
+  "source_ledger": {
+    "path": "research/sources/mersenne_prime_layer_radical_2026_09_01/SHA256SUMS",
+    "sha256": "8618e345f3f2e6f3d5e8a2a37846c6e7fdd313350fd894a9f9e279a1be7881f4"
+  },
+  "computation_scope": {
+    "prime_indices": "3..61",
+    "finite_no_hit_only": true,
+    "rows_verified": 17,
+    "verification_passed": true
+  },
+  "route_ledger": {
+    "lifting_omission_identity_refuted": true,
+    "three_support_from_37_refuted": true,
+    "universal_cubic_radical_refuted": true,
+    "canonical_blocks_all_one_refuted": true,
+    "corrected_order_block_identity_kernel_checked": true,
+    "conditional_asymptotic_passage_kernel_checked": true,
+    "wieferich_tail_finite_core_kernel_checked": true,
+    "near_quadratic_small_support_paper_proved": true,
+    "corrected_order_block_route_open": true,
+    "minimal_open_bridge": "log E_d = o(phi(d))"
+  }
+}

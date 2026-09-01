@@ -1,0 +1,22 @@
+{
+  "schema": "mersenne-prime-layer-lean-audit-v1",
+  "module": "Lean/IUTThreeClosures/MersennePrimeLayerRadical20260901.lean",
+  "module_sha256": "fd8acc1ae2f423f4657aa3e89978ba521a7c49fec331b914c6100f56d805a907",
+  "line_count": 538,
+  "theorem_declarations": 33,
+  "explicit_print_axioms_commands": 33,
+  "source_sorry_or_axiom_markers": 0,
+  "compile_command": "Set-Location Lean; lake env lean IUTThreeClosures/MersennePrimeLayerRadical20260901.lean",
+  "compile_exit_code": 0,
+  "printed_axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "sorryAx_in_build_log": false,
+  "native_decide_axiom_in_build_log": false,
+  "build_log": "lean_build.log",
+  "arithmetic_global_lifting_product_formalized": false,
+  "abstract_total_mass_bridge": "totalMass_le_prefix_add_totient_tail_add_log",
+  "lifting_omission_counterexample": "mersenne_six_powerLoss"
+}

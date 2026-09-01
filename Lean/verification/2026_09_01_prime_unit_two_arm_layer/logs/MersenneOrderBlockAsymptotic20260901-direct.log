@@ -1,0 +1,36 @@
+WORKDIR: E:\AImath\abc猜想\Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean IUTThreeClosures/MersenneOrderBlockAsymptotic20260901.lean
+'IUTThreeClosures.MersenneOrderBlockAsymptotic20260901.divisorOrderBlockMassSum_le_prefix_add_totientTail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockAsymptotic20260901.totalMass_isLittleO_of_orderBlock_totient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockAsymptotic20260901.mersenneCanonicalOrderBlock_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockAsymptotic20260901.mersenneOrderBlock_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockAsymptotic20260901.mersenneOrderBlock_eq_canonical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockAsymptotic20260901.log_mersenneOrderBlockProduct_eq_divisorMassSum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockAsymptotic20260901.log_mersennePowerLoss_eq_divisorMassSum_add_lifting' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockAsymptotic20260901.log_mersenneLiftingFactor_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockAsymptotic20260901.log_mersenneLiftingFactor_le_log_index' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockAsymptotic20260901.mersenneCanonicalOrderBlockLogMass_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockAsymptotic20260901.log_mersennePowerLoss_isLittleO_of_orderBlocks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

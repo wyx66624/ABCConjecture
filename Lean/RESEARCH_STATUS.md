@@ -10,6 +10,105 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
+## September 1, 2026 four-route checkpoint: global omega, prime/unit/label, two-arm CRT, and Mersenne order blocks
+
+The standard unconditional `ABCConjecture` remains unproved and
+undisproved.  Positive deductions and counterexample searches continue in
+parallel.  Only a counterexample meeting every hypothesis closes the exact
+statement it contradicts; difficulty and a bounded no-hit do not retire a
+route.  All four broad routes below remain active.  Their common ledger is
+`../research/ABC_MULTI_ROUTE_PRIME_UNIT_TWO_ARM_LAYER_2026_09_01.md`.
+
+- **Carella global-omega / prime-power-neighbour route.**  Primorial
+  multiples prove that whenever `w(x) <= 2 log log x`, the printed global set
+  `{n <= x : omega(n) > w(x)}` has cardinality `x^(1-o(1))`, rather than
+  `o(x^(3/5))`.  This is a full asymptotic counterfamily to Carella v2's
+  displayed global hypothesis and its claimed unconditional invocation.  It
+  does not refute an unbounded sparse subsequence of low-radical neighbours.
+  The minimal positive gate is to produce, for some fixed `k`, infinitely many
+  unbounded `p^k < c <= p^k + (p^k)^(3/5)` with `p` not dividing `c` and
+  `rad(c) <= (p^k)^(sigma+o(1))`, where `sigma < 2/5 - 1/k`.  See
+  `../research/ABC_CARELLA_GLOBAL_OMEGA_HYPOTHESIS_2026_09_01.md` and
+  `IUTThreeClosures/CarellaGlobalOmegaHypothesis20260901.lean`.
+- **IUT prime/unit/label route.**  Complete prime exponent and unit
+  coordinates reconstruct rational and actual `Q_p` points; preserving them
+  at fixed labels reconstructs packets and turns signature-image containment
+  into region containment.  Exact examples at `p=5` close only exponent-only
+  reconstruction, exponent plus one residue reconstruction, and unordered
+  aggregate-holonomy reconstruction.  They do not refute the actual IUT
+  construction or an interface that returns an explicit label permutation.
+  The live gate is source-level all-place/all-label preservation or image
+  containment through the actual theta link, log-Kummer correction,
+  determinant normalization, and required Ind1--Ind3 branches.  See
+  `../research/ABC_IUT_PRIME_UNIT_LABEL_VECTOR_BRIDGE_2026_09_01.md` and
+  `IUTThreeClosures/IUTPrimeUnitLabelVectorBridge20260901.lean`.
+- **Minimal affine two-arm CRT route.**  For seed `(1,242,243)`, an exact CRT
+  class supplies `318322715` canonical parameters satisfying both necessary
+  long-arm excess gates.  Its first point meets every seed, box,
+  admissibility, cap, primitive-output, and marginal-gate hypothesis, but has
+  `rad(ABC)^4 > C^3`.  This full-premise example closes only the assertion
+  that the two marginal gates suffice for a three-quarter exception.  The
+  affine route remains open at the full three-arm excess inequality and a
+  lower bound of at least `kappa R^(-2/3)c^(4+eta)` canonical parameters on
+  each fixed subcritical seed range.  See
+  `../research/ABC_AFFINE_TWO_ARM_CRT_PACKET_2026_09_01.md` and
+  `IUTThreeClosures/AffineTwoArmCRTPacket20260901.lean`.
+- **Mersenne prime-layer / order-block route.**  Composite odd-prime layers
+  have the proved quadratic radical carrier, and the largest-prime-factor
+  input asymptotically yields `E_ell/Phi_ell(2) << 1/(ell^2 log ell)`.  This polynomial
+  estimate does not imply the required `log E_d = o(phi(d))`.  The corrected
+  paper ledger is `W_m = L_m * prod_(d|m) E_d`, with `L_m | m`.  The complete
+  example `m=6` closes only the identity that omits `L_m`; the exact layers
+  `ell=37` and `ell=11` close only the universal three-support and cubic
+  radical strengthenings, respectively.  The no-repeated-factor scan through
+  prime index `61` is finite and closes no eventual claim.  The completed
+  `IUTThreeClosures/MersennePrimeLayerRadical20260901.lean` checks the
+  prime-layer arithmetic, finite base-mass estimate, and an abstract bridge
+  under explicit hypotheses.  The directly compiling
+  `IUTThreeClosures/MersenneOrderBlockDecomposition20260901.lean` additionally
+  checks exact-order local LTE, `L_m | m`, the supported-prime exponents of
+  `B_m`, and the exact finite product `W_m = L_m * prod_(d|m) E_d`.  The
+  companion `IUTThreeClosures/MersenneOrderBlockAsymptotic20260901.lean`
+  identifies relative blocks with canonical, index-independent `E_d`, proves
+  the logarithmic divisor-sum identity, and kernel-checks the conditional
+  passage `log E_d = o(phi(d)) -> log W_m = o(m)`.  The antecedent is still
+  open and appears as an explicit theorem premise.  Finally,
+  `IUTThreeClosures/MersenneCanonicalBlockWitness20260901.lean` checks
+  `ord_1093(2)=364`, exact valuation two, and `1093 | E_364`; this closes only
+  the strengthening that every canonical block is one.  The original-source
+  audit now identifies `E_d=Phi_d(2)/rad(Phi_d(2))` and proves that repeated
+  exact-order support below `phi(d)^2/log log(3d)` has logarithmic mass
+  `o(phi(d))`.  Any failure must persist through deep super-Wieferich lifts,
+  an `Omega(phi(d)/log d)` same-order transition cluster, or a weighted tail
+  of exceptional small-order primes.  The finite powerful-part comparison,
+  mass trichotomy, transition-cardinality core, and the exact ambient
+  square-budget ratio from (6.15) compile in
+  `IUTThreeClosures/MersenneWieferichTailReduction20260901.lean`; the cited
+  cyclotomic, Brun--Titchmarsh, totient, and order-distribution inputs remain
+  outside Lean.  See
+  `../research/ABC_MERSENNE_PRIME_LAYER_RADICAL_2026_09_01.md`.
+
+The paper arguments precede their corresponding Lean cores.  No missing
+infinite family, actual IUT multiradial transport, literature asymptotic, or
+abc statement is introduced as an axiom.  There is no terminal Lean term of
+unconditional `ABCConjecture` or of its rigorous negation.
+
+The sealed validation bundle is
+`verification/2026_09_01_prime_unit_two_arm_layer/`.  It records 176 theorem
+declarations, 37 definitions, three abbreviations, and four structures, for
+220 counted top-level declarations, with 177 complete `#print axioms` reports.
+The dependency union is exactly `Classical.choice`, `propext`, and
+`Quot.sound`; all eight direct compilations, four deterministic replays, and
+the 9206-job aggregate target pass.  The 482-entry Git-index frozen-input
+manifest has SHA-256
+`e4c91809276e2890008e5ca1689a59d85e938620938ab87fedcc8756a8b31462`,
+and the sealed package ledger has SHA-256
+`36cb329de8038b6bbb96a4a14760d4bb8211b00a34581a99769c28faa8e80bff`.
+The 134-page, ChatGPT-authored journal manuscript is
+`../output/pdf/ChatGPT_ABC_Prime_Unit_Two_Arm_Layer_Continuation_2026_09_01.pdf`,
+SHA-256 `594ef475fd66d43f4e2fc8bae355bde9af1fde21f66a64a3e67e8a370846ddad`;
+its complete render and metadata audit is in the adjacent `_QA` directory.
+
 ## September 1, 2026 holonomy, density, and deep-prime continuation
 
 The standard unconditional `ABCConjecture` remains unproved and
@@ -2202,21 +2301,24 @@ an open-ended search over successive primes.
   vanish.  Lean proves the finite-coordinate theorem internally, not merely
   a block-constant specialization
 - the exact radical-power-loss reduction for the same Mersenne endpoint.
-  Writing `Q_m=(2^m-1)/rad(2^m-1)`, the paper-level order decomposition gives
+  Writing `Q_m=(2^m-1)/rad(2^m-1)`, the order decomposition gives
   `Q_m=W_m*I_m` with `I_m|m`, where `W_m` is the product of the base-2
   Wieferich excesses at primes dividing `2^m-1`.  Hence endpoint abc is
-  equivalent to `log W_m=o(m)`.  Lean verifies the finite radical identity,
-  the required LTE/factorization lemmas, and the square-divisibility transfer
+  equivalent to `log W_m=o(m)`.  In the newer total-loss notation recorded at
+  the top of this status file, Lean now verifies the finite radical identity,
+  the required LTE/factorization lemmas, the lifting divisor, the exact finite
+  order-block product, and the square-divisibility transfer
 - an explicit order-level obstruction at `p=1093`: Lean proves
   `1093^2 | 2^364-1`, `1093^3` does not divide it, `1093` does not divide
   `364`, and the three maximal-proper-exponent residue checks.  The elementary
   combination `ord_1093(2)=364` remains stated and proved on paper
 - the exact first-order-block formulation
-  `W_m=prod_{d|m} E_d` on paper, with two honest sufficient targets:
+  `W_m=prod_{d|m} E_d`, with two honest sufficient targets:
   cumulative first-occurrence mass `sum_{d<=X} log E_d=o(X)`, or a uniform
-  block saving `log E_d=O(d^(1-delta))` for some `0<delta<=1`.  Lean proves
-  the finite divisor-cardinality certificate behind the latter implication,
-  without assuming either asymptotic estimate
+  block saving `log E_d=O(d^(1-delta))` for some `0<delta<=1`.  The newer Lean
+  modules prove the exact finite product and the more flexible conditional
+  passage `log E_d=o(phi(d)) -> log W_m=o(m)`, without assuming any of these
+  asymptotic estimates
 - arbitrary prime-power persistence under an index multiplier coprime to the
   prime, the literal p-adic size budget, and an explicit simple-root/square-
   lift certificate at `1093`.  Lean also constructs divisibility-monotone

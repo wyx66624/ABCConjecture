@@ -1,0 +1,104 @@
+WORKDIR: E:\AImath\abc猜想\Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean IUTThreeClosures/MersenneOrderBlockDecomposition20260901.lean
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneLiftingFactor_dvd_index' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneLiftingFactor_dvd_mersenne' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenne_sub_one_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.prime_ne_two_of_dvd_mersenne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.zmod_two_pow_eq_one_of_prime_dvd_mersenne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneExactOrder_dvd_index' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneExactOrder_dvd_prime_sub_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.prime_not_dvd_mersenneExactOrder' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.prime_dvd_exactOrder_mersenne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.factorization_mersenne_eq_exactOrder_add_index' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.factorization_index_lt_mersenne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.factorization_liftingFactor_eq_index' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.factorization_powerfulPart_add_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersennePowerLoss_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneLiftingFactor_dvd_powerLoss' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersennePowerLoss_eq_lifting_mul_base' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneBaseQuotient_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneBaseQuotient_dvd_powerLoss' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.factorization_baseQuotient_add_one_eq_exactOrder' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneBaseQuotient_eq_primeProduct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneOrderBlock_eq_orderExponent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneExactOrder_mem_divisors' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneOrderBlockProduct_eq_primeProduct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneBaseQuotient_eq_orderBlockProduct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersennePowerLoss_eq_lifting_mul_orderBlockProduct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneLiftingFactor_eq_gcd_index_powerLoss' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneLiftingFactor_six' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenne_six_factorization_local' depends on axioms: [propext]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenne_six_support_local' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenne_six_radical_local' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersennePowerLoss_six' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneBaseQuotient_six' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersenneOrderBlockProduct_six' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersennePowerLoss_six_decomposition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneOrderBlockDecomposition20260901.mersennePowerLoss_six_orderBlockDecomposition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

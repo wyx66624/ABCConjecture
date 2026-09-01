@@ -1,0 +1,488 @@
+arXiv:1606.08690v5  [math.NT]  27 Apr 2021
+On prime factors of Mersenne numbers
+Ady Cambraia Jr ∗
+, Michael P. Knapp †
+, Ab ´ ılio Lemos∗,
+B. K. Moriya ∗ and Paulo H. A. Rodrigues ‡
+ady.cambraia@ufv.br
+mpknapp@loyola.edu
+abiliolemos@ufv.br
+bhavinkumar@ufv.br
+paulo
+rodrigues@ufg.br
+April 29, 2021
+Abstract
+Let ( Mn)n≥ 0 be the Mersenne sequence deﬁned by Mn = 2 n − 1. Let ω (n) be the
+number of distinct prime divisors of n. In this short note, we present a description of
+the Mersenne numbers satisfying ω (Mn) ≤ 3. Moreover, we prove that the inequality,
+given ǫ > 0, ω (Mn) > 2(1− ǫ) log log n − 3 holds for almost all positive integers n. Besides,
+we present the integer solutions ( m, n, a ) of the equation Mm+Mn = 2pa with m, n ≥ 2,
+p an odd prime number and a a positive integer.
+2010 Mathematics Subject Classiﬁcation : 11A99, 11K65, 11A41.
+Keywords: Mersenne numbers, arithmetic functions, prime divisors.
+1 Introduction
+Let ( Mn)n≥ 0 be the Mersenne sequence deﬁned by Mn = 2 n − 1, for n ≥ 0. A simple
+argument shows that if Mn is a prime number, then n is a prime number. When Mn is a
+prime number, it is called a Mersenne prime. Throughout history, man y researchers sought
+to ﬁnd Mersenne primes. Some tools are very important for the sea rch for Mersenne primes,
+mainly the Lucas-Lehmer test. There are papers (see for example [
+1, 5, 21]) that seek to
+describe the prime factors of Mn, where Mn is a composite number and n is a prime number.
+∗Departamento de Matem´ atica, Universidade Federal de Vi¸ cosa,Vi¸ cosa-MG 36570-900, Brazil
+†Department of Mathematics and Statistics, Loyola University Mary land, 4501 North Charles Street,
+Baltimore MD 21210-2699, USA
+‡Instituto de Matem´ atica e Estat ´ ıstica, Campus Samambaia, CP 131, CEP 74001-970, Goiˆ ania, Brazil
+1
+
+Additionally, some papers seek to describe prime divisors of the Mers enne number Mn,
+where n is a composite number (see for example [ 7, 16, 18, 19, 20]). In this paper, we propose
+to investigate the function ω (n), which refers to the number of distinct prime divisors of n,
+applied to Mn. We prove that if n ̸= 2, 6 and pα 1
+1 · · ·pα s
+s |n, where the α ′
+is are positive integers,
+p1, . . . , p s are distinct prime numbers and ∑s
+i=1 α i = t, then ω (Mn) ≥ t if s = 1, and
+ω (Mn) ≥ t +
+s∑
+i=2
+(s
+i
+)
+, if s > 1.
+This lower bound is sharp for some cases. For example, ω (M4) = ω (M9) = ω (M49) = 2 and
+ω (M8) = ω (M27) = ω (M10) = ω (M14) = ω (M15) = ω (M21) = 3.
+The equations Fn = yq and Ln = yq, where q is a prime number, Fn is a Fibonacci
+number and Ln is a Lucas number, have been studied by several authors. One may see,
+for example, [
+4, 9, 10, 11, 12, 13, 17]. The complete solution for this problem was obtained
+by Bugeaud, Mignotte, and Siksek [ 2]), by combining the classical approach to exponential
+Diophantine equations (linear forms in logarithms, Thue equations, e tc.) with a modular
+approach based on some of the ideas of the proof of Fermat’s Last Theorem. When we
+consider Mn = yq, we see that this is equivalent to the equation 2 n − yq = 1. The solution in
+this case is much simpler, since the Catalan Conjecture (proved by M ihˇ ailescu [15] in 2002)
+tells us that the only solution of the equation xm − yn = 1, with m, n > 1 and x, y > 0 is
+x = 3 , m = 2 , y = 2 , n = 3. This motivates us to raise the next question in the ﬂavour of
+these studies. We believe that the next step is to study equations o f the form Mm+Mn = 2yq.
+Here we consider the equation Mm + Mn = 2 pa, where p is an odd prime and a ∈ N. To
+the best of our knowledge, this equation has not been studied anyw here in the literature. If
+p ≡ 1 (mod 4), we prove that the only solutions of the underlined equatio n are of the form
+(m, n, a ) = (2 , 2b + 1, 1), where p = 2 2b
++ 1. If p ≡ 3 (mod 4), there is more than one possible
+form of the solution. Among others, one possible case could be ( m, n, a ) = ( k + 1, n, a ) if
+pa + 1 > 2k.
+2 Preliminary results
+We investigate ω (Mn), the number of distinct prime divisors of Mn. We start by stating
+some well-known facts and results. The ﬁrst result is the well-known Theorem XXIII of [
+3],
+obtained by Carmichael.
+Theorem 1. If n ̸= 1, 2, 6, then Mn has a prime divisor which does not divide any Mm for
+0 < m < n . Such a prime is called a primitive divisor of Mn.
+We also need the following results:
+d = gcd(m, n ) ⇒ gcd(Mm, M n) = Md (1)
+Proposition 2. If 1 < m < n , gcd(m, n ) = 1 and mn ̸= 6, then ω (Mmn) > ω (Mm)+ ω (Mn).
+2
+
+Proof. As gcd( m, n ) = 1, it follows that gcd( Mm, M n) = 1 by ( 1). Now, according to
+Theorem 1, we have a prime number p such that p divides Mmn and p does not divide
+MmMn. Therefore, the proof of proposition is completed.
+Mihˇ ailescu [15] in his proof of the famous Catalan Conjecture proved the following .
+Theorem 3. The only solution of the equation xm − yn = 1, with m, n > 1 and x, y > 0 is
+x = 3, m = 2, y = 2, n = 3.
+For x = 2, Theorem 3 ensures that there is no m > 1, such that 2 m − 1 = yn with n > 1.
+Lemma 4. Let p, q be prime numbers. Then,
+(i) Mp ∤(Mpq/M p), if 2p − 1 ∤q;
+(ii) Mp ∤(Mp3/M p).
+Proof. (i) We note that Mpq = (2 p − 1)(∑q− 1
+k=0 2kp). Thus, if (2 p − 1)|(∑q− 1
+k=0 2kp), then
+(2p − 1)
+⏐
+⏐
+⏐
+( q− 1∑
+k=0
+2kp + 2p − 1
+)
+= 2 p+1 (
+2pq− 2p− 1 + · · ·+ 2p− 1 + 1
+)
+.
+Since 2pq− 2p− 1+· · ·+2p− 1+1 ≡ (q− 2)2p− 1+1 (mod 2 p− 1), we have (2p− 1)|((q − 2)2p− 1 + 1).
+Therefore,
+(2p − 1)|
+(
+(q − 2)2p− 1 + 1 + (2 p − 1)
+)
+= 2 p− 1q,
+i.e., 2 p − 1|q. Therefore, the proof of ( i) is completed.
+The proof of ( ii) is analogous to the proof of ( i).
+Remark 5. It is known that all divisors of Mp have the form q = 2lp + 1, where p is an odd
+prime number and l ≡ 0 or − p (mod 4).
+The ﬁrst part of Remark 5 was ﬁrst obtained by Euler (see Theorema 9 and Corollarium
+5 in [ 6]). Euler does not actually write the coeﬃcient 2, but clearly as the ex pression must
+be odd we may do so without loss of generality.
+The modern proof of this result is as follows. Let q1 be a prime divisor of q. By Fermat’s
+little theorem, q1 is a factor of 2 q1− 1 − 1. Since q1 is a factor of 2 p − 1, and p is prime, it
+follows that p is a factor of q1 − 1 so q1 ≡ 1 (mod p). Furthermore, since q1 is a factor of
+2p − 1, which is odd, we know that q1 is odd. Therefore, q1 ≡ 1 (mod 2 p). But, since this
+result is true for all prime divisors of q, i.e., for q1 = 2l1p + 1 and q2 = 2l2p + 1 prime divisors
+of q not necessarily distinct, we have q1q2 = 2l12p + 1, where l12 = 2l1l2p + l1 + l2. Applying
+recursively for all prime divisors of q, we get q = 2pl + 1, for some l ∈ N.
+Now, the second statement is a consequence of the fact that all p rime divisors of q are
+congruent to ± 1 (mod 8) . Let us prove it here. We have 2 p+1 ≡ 2 (mod q1), where q1 is a
+prime divisor of q. Thus, 2
+1
+2 (p+1) is a square root of 2 modulo q1. By the theory of quadratic
+residues, we have q1 ≡ ± 1 (mod 8) . Since this result is true for all prime divisors of q, we
+have q = 2lp + 1 ≡ ± 1 (mod 8) , for some l ∈ N. Now, if 2 lp + 1 ≡ ± 1 (mod 8) , then lp ≡ 0
+(mod 4) or lp ≡ 3 (mod 4) . The ﬁrst case implies l ≡ 0 (mod 4) , since p is odd. The second
+case implies l ≡ − p (mod 4) , since − p2 ≡ 3 (mod 4) .
+3
+
+3 Mersenne numbers rarely have few prime factors.
+We present below a result which is a consequence of Manea’s Theorem , which we shall state
+next. We shall get the multiplicity vq(Mn) for a given odd prime q and a positive integer n.
+Deﬁnition 6. Let n be a positive integer. The q-adic order of n, denoted by vq(n), is deﬁned
+to be the natural number l such that ql ||n, i.e., n = qlm with gcd( q, m ) = 1 .
+Lemma 7 (Theorem 1 [
+14]). Let a and b be two distinct integers, p be a prime number that
+does not divide ab, and n be a positive integer. Then
+1. if p ̸= 2 and p|a − b, then
+vp(an − bn) = vp(n) + vp(a − b);
+2. if n is odd, a + b ̸= 0 and p|a + b, then
+vp(an + bn) = vp(n) + vp(a + b).
+Deﬁnition 8. For a given prime number q and an integer a ∈ { 1, . . . , q − 1} the number
+ordq(a) is deﬁned to be the smallest positive integer t such that at ≡ 1 (mod q).
+Proposition 9. Let q ̸= 2 be a prime number. Deﬁne m = ordq(2) and w = vq(2m − 1). Let
+n ∈ N, and write n = qln0, with gcd(q, n 0) = 1 . Then
+vq(Mn) = vq(2n − 1) =
+{
+0 if m ∤n
+l + w if m|n.
+Proof. By elementary number theory, we know that 2 n ≡ 1 (mod q) if and only if ord q(2)|n.
+This proves the ﬁrst line of the formula.
+Now, suppose that m|n and write n = mt. Then we have
+Mn = (2 m)t − 1t.
+By Theorem 7 (with a = 2 m and b = 1), we have
+vq(Mn) = vq(t) + vq(2m − 1)
+= l + w.
+This completes the proof.
+We will prove the following result for a lower bound of ω (Mn).
+4
+
+Theorem 10. Let ǫ be a positive number. The inequality
+ω (Mn) > 2(1− ǫ) log log n − 3
+holds for almost all positive integer n.
+Theorem 11 (Theorem 432, [ 8]). Let d(n) be the total number of divisors of n. If ǫ is a
+positive number, then
+2(1− ǫ) log log n < d(n) < 2(1+ǫ) log log n
+for almost all positive integer n.
+Proof. (Proof of Theorem 10). According to Theorem 1, we know that if h|n and h ̸= 1, 2, 6,
+then Mh has a prime primitive factor. This implies that
+ω (Mn) ≥ d(n) − 3
+Consequently, by Theorem 11, we have
+ω (Mn) > 2(1− ǫ) log log n − 3
+for almost all positive integer n.
+4 Mersenne numbers with ω (Mn) ≤ 3
+In this section, we will characterize n for ω (Mn) = 1 , 2, 3.
+Theorem 12. The only solutions of the equation
+ω (Mn) = 1
+are given by n, where either n = 2 or n is an odd prime for which Mn is a prime number of
+the form 2ln + 1, where l ≡ 0 or − n (mod 4) .
+Proof. The case n = 2 is obvious. For n odd, the equation implied is Mn = qm, with m ≥ 1.
+However, according to Theorem 3, Mn ̸= qm, with m ≥ 2. Thus, if there is a unique prime
+number q that divides Mn, then Mn = q, and q = 2 ln + 1, where l ≡ 0 or − n (mod 4),
+according to Remark 5.
+Proposition 13. Let p1, p 2, . . . , p s be distinct prime numbers and n a positive integer such
+that n ̸= 2, 6. If pα 1
+1 · · ·pα s
+s |n, where the α ′
+is are positive integers and ∑s
+i=1 α i = t, then
+ω (Mn) ≥
+
+
+
+
+
+t, if s = 1
+t +
+s∑
+i=2
+(s
+i
+)
+, if s > 1 .
+5
+
+Proof. According to Theorem 1, we have
+ω
+(
+Mpαi
+i
+)
+> w
+(
+Mpαi−1
+i
+)
+> · · ·> ω (Mpi) ≥ 1,
+for each i ∈ { 1, . . . , s }. Therefore, ω (Mpαi
+i
+) ≥ α i and this proves the case s = 1. Now, we
+observe that gcd
+(∏
+i∈ I pi, ∏
+j∈ J pj
+)
+= 1, for each pair ∅ ̸= I, J ⊂ { 1, . . . , s } with I ∩ J = ∅.
+Then it follows from Theorem 1 and Proposition 2 that
+ω (Mn) ≥
+s∑
+i=2
+(s
+i
+)
++ t, if s > 1.
+Theorem 14. The only solutions of the equation
+ω (Mn) = 2
+are given by n = 4, 6 or n = p1 or n = p2
+1, for some odd prime number p1. Furthermore,
+(i) if n = p2
+1, then Mn = Mp1qt, t ∈ N.
+(ii) if n = p1, then Mn = psqt, where p, q are distinct odd prime numbers and s, t ∈ N with
+gcd(s, t ) = 1 . Moreover, p, q satisfy p = 2l1p1 + 1, q = 2l2p1 + 1, where l1, l 2 are distinct
+positive integers and li ≡ 0 or − p1 (mod 4) .
+Proof. This ﬁrst part is an immediate consequence of Proposition
+13.
+(i) If ω (Mn) = 2, with n = p2
+1, then on one hand Mn = psqt, with t, s ∈ N. On the other
+hand, by Theorem
+1 ω (Mp2
+1
+) > ω (Mp1) ≥ 1, i.e., Mp1 = p, by Theorem
+3. Thus, according
+to Lemma 4, Mn = Mp1qt = pqt, with t ∈ N.
+(ii) If ω (Mn) = 2, with n = p1, then Mn = psqt, with t, s ∈ N. However, according to
+Theorem 3, we have gcd( s, t ) = 1. The remainder of the conclusion is a direct consequence
+of Remark 5.
+Theorem 15. The only solutions of the equation
+ω (Mn) = 3
+are given by n = 8 or n = p1 or n = 2p1 or n = p1p2 or n = p2
+1 or n = p3
+1, for some distinct
+odd prime numbers p1 < p 2. Furthermore,
+(i) if n = 2p1 and p1 ̸= 3, then Mn = 3Mp1kr = 3qk r, r ∈ N and q, k are prime numbers.
+(ii) if n = p1p2, then Mn = ( Mp1)sMp2kr = psqk r, with s, r ∈ N and p, q, k are prime
+numbers.
+6
+
+(iii) if n = p2
+1, then Mn = Mp1qtkr or Mn = psqtkr, with Mp1 = psqt and (s, t ) = 1 , and
+p, q, k are prime numbers.
+(iv) if n = p3
+1, then Mn = Mp1qtkr = pqtkr, with t, r ∈ N and p, q, k are prime numbers.
+(v) if n = p1, then Mn = psqtkr and p = 2 l1p1 + 1, q = 2 l2p1 + 1, k = 2 l3p1 + 1, where
+l1, l 2, l 3 are distinct positive integers and li ≡ 0 or − p1 (mod 4) , and gcd(s, t, r ) = 1 ,
+with s, t, r ∈ N.
+Proof. This ﬁrst part is an immediate consequence of the Proposition
+13.
+(i) If ω (Mn) = 3, with n = 2p1, then on one hand Mn = psqtkr, with t, s, r ∈ N. On the
+other hand, according to Proposition 2, ω (M2p1) > ω (Mp1) +ω (M2), i.e., Mp1 = q, according
+to Theorem 3. We noted that M2p1 = (2 p1 − 1)(2p1 + 1) and q does not divide 2 p1 + 1,
+because if q|(2p1 + 1), then q|2p1 + 1 − (2p1 − 1) = 2. This is a contradiction, since q is an
+odd prime. Thus, Mn = ( M2)sMp1wr = 3 sqk r. Moreover, according to Lemma 4, we have
+s = 1 if p1 ̸= 2 2 − 1 = 3. Therefore, Mn = M2Mp1wr = 3qk r.
+(ii) If ω (Mn) = 3, with n = p1p2, then on one hand Mn = psqtkr, with t, s, r ∈ N. On
+the other hand, according to Proposition 2, ω (Mp1p2) > ω (Mp1) + ω (Mp2), i.e., Mp1 = p and
+Mp2 = q, according to Theorem 3. Thus, Mn = (Mp1)s(Mp2)tkr = psqtkr and gcd( s, t, r ) = 1
+if s, t, r > 1, according to Theorem 3. However, 2 p2 − 1 ∤p1, because p1 < p 2. According to
+Lemma 4, we have t = 1. Thus, Mn = M s
+p1Mp2kr = psqk r.
+(iii) If ω (Mn) = 3, with n = p2
+1, then on one hand Mn = psqtwr, with t, s, r ∈ N. On the
+other hand, according to Lemma
+4, we have Mp1 = psqt, with ( s, t ) = 1 or Mp1 = p.
+(iv) If ω (Mn) = 3, with n = p3
+1, then on one hand Mn = psqtwr, with t, s, r ∈ N. On
+the other hand, according to Theorem
+1, ω (Mp3
+1
+) > ω (Mp2
+1
+) > ω (Mp1) ≥ 1, i.e., Mp1 = ps.
+According to Theorem
+3, we have s = 1. Thus, Mn = Mp1qtkr = pqtkr.
+(v) If n = p1, then Mn = psqtkr, with t, s, r ∈ N. However, according to Theorem 3,
+gcd(s, t, r ) = 1. The form of p, q and k is given by Remark 5.
+We present some examples of solutions for Theorems 12, 14 and 15.
+(i) ω (Mn) = 1, where n is a prime number: M2 = 3, M 3 = 7, M 5 = 31, M 7 = 127, . . .
+(ii) ω (Mn) = 2, where n is a prime number: M11 = 2047 = 23 × 89, M 23 = 8388607 =
+47 × 178481, . . . ; with n = p2, where p is a prime number: M4 = 15 = M2 × 5, M 9 =
+511 = M3 × 73, M 49 = M7 × 4432676798593, . . . .
+(iii) ω (Mn) = 3, where n is a prime number: M29 = 536870911 = 233 × 1103 × 2089, M 43 =
+8796093022207 = 431 × 9719 × 2099863, . . . ; with n = 2p, where p is a prime number:
+M10 = M2 × M5 × 11, M 14 = M2 × M7 × 43, . . . ; with n = p3, p is a prime number:
+M8 = 255 = M2 × 5 × 17, M 27 = M3 × 73 × 262657, . . . ; with n = p1p2, where p1 and p2
+are distinct odd prime numbers: M15 = M3 × M5 × 151, M 21 = (M3)2 × M7 × 337, . . . ;
+with n = p2, where p is a prime number: M25 = M5 × 601 × 1801, . . . .
+7
+
+5 Study of the Equation Mm + Mn = 2pa
+We consider the equation Mm + Mn = 2 pa with m, n ≥ 2, p an odd prime number and a a
+positive integer. We present two results on the solutions to this equ ation.
+Lemma 16. For every p ≡ 1 (mod 4) , we have pa + 1 = 2 k, where k is an odd integer.
+Proof. We have
+p ≡ 1 (mod 4) ⇒ pa ≡ 1 (mod 4)
+⇒ pa + 1 ≡ 2 (mod 4)
+⇒ pa + 1 = 4 a + 2, for some a ∈ Z
+⇒ pa + 1 = 2 k; gcd( k, 2) = 1 .
+Theorem 17. Let p be a prime number with p ≡ 1 (mod 4) . Then
+Mm + Mn = 2pa, with m ≤ n, (2)
+has an integer solution only if p = 2 2b
++ 1. Moreover, given such a prime, the solutions are
+given by (m, n, a ) = (2 , 2b + 1, 1).
+Proof. Suppose that ( 2) has a solution, say ( m, n, a ), with m ≤ n. Notice that
+2m + 2n = 2pa + 2 = 4 k,
+by Lemma 16.
+Since k is odd, it follows that m = 2 or n = 2.
+Case 1. If n = 2 then m ∈ { 1, 2}. Hence we get 4 + 2 = 4 k or 4 + 4 = 4 k. Since 6 is not a
+multiple of 4, we are left with the later case, which implies k = 2. Therefore, 2 k = 4 = pa +1,
+which is absurd, since pa + 1 ≥ 5.
+Case 2. m = 2 and n > 2. From the deﬁnition of Mersenne numbers it follows that
+4(1 + 2n− 2) = 2 pa + 2 = 4 k
+2(1 + 2n− 2) = pa + 1 = 2 k
+pa + 1 = 2 n− 1 + 2.
+Case 2.1. a = 1. So we have, p = 2 n− 1 + 1. We know that if 2 N + 1 is a prime number then
+N is a power of 2. Hence there exists b such that n − 1 = 2 b, i. e., 2 + 2 2b
+= 2 k. Hence, if
+(m, n, 1) is a solution of ( 2) then m = 2 and n = 2 b + 1 such that 2 2b
++ 1 is a prime number.
+Case 2.2. a ≥ 2. Suppose that there exists a ≥ 2 satisfying the equation ( 2). This implies
+that pa = 2 n− 1 + 1. Let us study when a is even and odd separately:
+Case 2.2.1. a is even. The equation pa = 2 n− 1 + 1 implies
+8
+
+(
+p
+a
+2 − 1
+) (
+p
+a
+2 + 1
+)
+= 2 n− 1. (3)
+Let x and y be positive integers such that p
+a
+2 − 1 = 2 x and p
+p
+2 + 1 = 2 y, then y > x and
+x + y = n − 1. Thus 2 y − 2x = 2 x(2y− x − 1) = 2 which implies x = 1, y = 2, and consequently
+n = 4. Therefore pa = 9, i.e., p = 3 and a = 2, which is absurd, because 3 ̸≡ 1 (mod 4) .
+Case 2.2.2. a is odd. There exists a natural number l such that a = 2l + 1. Thus
+pa = 2 n− 1 + 1 ⇒ pa − 1 = 2 n− 1 ⇒ (p − 1)
+(
+1 + p + p2 + · · ·p2l− 1 + p2l)
+= 2 n− 1.
+Thus, there exist positive integers x and y such that p − 1 = 2 x and 1 +p + p2 + · · ·p2l− 1 +
+p2l = 2 y. Clearly y > x and x + y = n − 1. Notice that 2 y − 2x = 2 + p2 + · · ·+ p2l− 1 + p2l = k,
+where k is odd, since p ≡ 1 (mod 4) . This only occurs when x = 0, that is a contradiction.
+Observation 18. Since we know that Fermat primes are very rare, from Theorem 17 we
+can conclude that solutions are also very rare.
+Theorem 17 explores the solution in the case p ≡ 1 (mod 4). The next theorem will
+explore the solutions in the case p ≡ 3 (mod 4).
+Theorem 19. Let p be a prime number with p ≡ 3 (mod 4) . Then
+Mm + Mn = 2pa, with m ≤ n, (4)
+has an integer solution only if pa = 2 k(1 + 2 n− (k+1)) − 1 with 2k ||(pa + 1). More precisely,
+such solutions are given by
+(i) (m, n, a ) = (2 , 4, 2);
+(ii) (m, n, a ) = ( k, k, 1) if 2k = pa + 1. In that case Mk = p is a Mersenne prime;
+(iii) (m, n, a ) = ( k + 1, n, a ) if pa + 1 > 2k.
+Proof. Since p ≡ 3 (mod 4), there exists k ∈ N, k ≥ 2 such that 2 k ||(pa + 1). Note that,
+if a is even, then k = 1. If a is odd, then k ≥ 2, since 4 | (pa + 1). Suppose ( m, n, a ) is a
+solution of ( 4). Without loss of generality we can assume m ≤ n
+Case 1. a is even.
+As mentioned earlier, we can write pa + 1 = 2 b, where b is an odd integer. Since p ≥ 3,
+we have b ≥ 5. Observe that,
+Mm + Mn = 2 pa
+2m + 2n = 2( pa + 1)
+2m + 2n = 2 2b.
+9
+
+Hence, m = 2, which together with the fact that b ≥ 5, implies n ≥ 3. Therefore, we
+have
+4(1 + 2n− 2) = 2 2b
+1 + 2n− 2 = b.
+Therefore, we can conclude that, b = 1 + 2n− 2, which in turn implies pa + 1 = 2(1 + 2 n− 2) iﬀ
+(m, n, a ) = (2 , n, a ) is the only solution of the equation ( 4). But, pa + 1 = 2(1 + 2 n− 2), then
+pa − 2n− 1 = 1. According to Theorem 3, the only solution, with a an even number is n = 4
+and a = 2. Hence p = 3.
+Case 2. a is odd. As mentioned earlier, we can write pa + 1 = 2 kb; where b is an odd
+integer and k ≥ 2. Observe that,
+Mm + Mn = 2 pa
+2m + 2n = 2( pa + 1)
+2m + 2n = 2 k+1b.
+Note that, b = 1 iﬀ m = n = k. Therefore, pa + 1 = 2 k iﬀ ( m, n, a ) = ( k, k, a ) is the only
+solution. But, if pa + 1 = 2 k, then 2 k − pa = 1. By Theorem 3, a = 1. Thus the only solution
+is ( m, n, a ) = ( k, k, 1), where Mk = p is a Mersenne prime.
+From here on let us assume b ≥ 3. Since 2 m + 2n = 2 k+1b, b ≥ 3 we get m = k + 1. Since
+b is odd n ≥ k + 2. Therefore,
+2k+1(1 + 2n− (k+1)) = 2 k+1b
+1 + 2n− (k+1) = b
+Therefore, we conclude that, b = 1 + 2 n− (k+1), which in turn implies pa + 1 = 2 k(1 +
+2n− (k+1)) iﬀ ( m, n, a ) = ( k + 1, n, a ).
+Acknowledgement
+We would like to thank the referees for all their suggestions, which im proved the presentation
+of the paper.
+References
+[1] J. Brillhart, On the factors of certain Mersenne numbers. II, Math. Comp. 18 (1964), no.
+87–92.
+[2] Y. Bugeaud, M. Mignotte, S. Siksek. Classical and modular appro aches to exponential
+Diophantine equations I. Fibonacci and Lucas perfect powers. Ann. of Math. , (2006),
+969–1018.
+10
+
+[3] R. D. Carmichael, On the numerical factors of arithmetic forms α n ± β n, Ann. of Math.
+15 (1/4) (1913), 49–70.
+[4] J. H. E. Cohn. Lucas and Fibonacci numbers and some Diophantin e equations, Proc.
+Glasgow Math. Assoc. 7 (1965), 24–28.
+[5] J. R. Ehrman, The number of prime divisors of certain Mersenne n umbers, Math. Comp.
+21 (1967), no. 700–704.
+[6] L. Euler, “Theoremata circa divisores numerorum,” Novi Commen tarii Academiæ
+Scientiarum Petropolitanæ 1 (for 1747–48; published 1750): 20–48 . Available online at
+https://scholarlycommons.paciﬁc.edu/cgi/viewcontent.cgi?article=1133&context=euler-works.
+[7] K. Ford, F. Luca, I. E. Shparlinski, On the largest prime factor o f the Mersenne numbers,
+Bull. Austr. Math. Soc. 79 (3) (2009), 455–463.
+[8] G. H. Hardy and E. M. Wright, Editors (D. R. Heath-Brown, Jose ph H. Silverman). An
+Introduction to the Theory of Numbers, Sixth Edition, Oxford University Press (2008).
+[9] W. Ljunggren. ¨Uber die unbestimmte Gleichung Ax2 − By 4 = C, Arch. f. Mat. og
+Naturvid. 41 (1938), No. 10, 18 pp.
+[10] W. Ljunggren. On the diophantine equation x2 + 4 = Ay2, Norske Vid. Selsk. Forh.,
+Trondheim. 24 (1951), 82–84.
+[11] On the diophantine equation Ax4 − By 2 = C(C = 1 , 4), Math. Scand. 21 (1967), 149–
+158.
+[12] W. Ljunggren, Collected Papers of Wilhelm Ljunggren, Vol . 1, 2 (Paulo Ribenboim,
+ed.), Queen ’s Papers in Pure and Applied Math. 115, Queen’s University, Kingston, ON,
+2003.
+[13] H. London and R. Finkelstein, On Fibonacci and Lucas numbers w hich are perfect
+powers, Fibonacci Quart. 5 (1969), 476–481.
+[14] M. Manea, Some an ± bn problems in number theory. Mathematics Magazine 79, no. 2
+(2006), 140–145.
+[15] P. Mihˇ ailescu, Primary Cyclotomic Units and a Proof of Catalan’s C onjecture. J. Reine
+Angew. Math. 572 (2004), 167–195.
+[16] L. Murata, C. Pomerance, On the largest prime factor of a Mer senne number, in Number
+Theory, CNTA Proceedings, Montreal, 2002, CRM Proc. Lecture N otes, 36, Amer. Math.
+Soc., Providence, RI, 2004, pp. 209–218.
+[17] A. Peth¨ o. Diophantine properties of linear recursive sequenc es. II, Acta Math. Paeda-
+gogicae Ny ´ ıregyh´ aziensis17 (2001), 81–96.
+11
+
+[18] C. Pomerance, On primitive dvivisors of Mersenne numbers, Acta Arith. 46 (1986),
+355–367.
+[19] A. Schinzel, On primitive prime factors of an − bn, Proc. Cambridge Philos. Soc. 58
+(1962), 555–562.
+[20] C. L. Stewart, The greatest prime factor of an − bn, Acta Arith. 26 (1974/75), 427–433.
+[21] S. S. Wagstaﬀ, Jr., Divisors of Mersenne numbers. Math. Comp. 40 (1983), 385–397.
+12

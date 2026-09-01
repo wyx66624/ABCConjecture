@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "prime index by deterministic 64-bit Miller-Rabin",
+    "Mersenne value identity",
+    "prime factor certificates and exact product",
+    "radical and power-loss identities",
+    "q congruent to 1 modulo 2*index",
+    "exact multiplicative order at prime index",
+    "square radical lower bound on every composite row"
+  ],
+  "failures": [],
+  "input": "prime_layers_3_61.json",
+  "input_sha256": "d0dffd34f4d7afc11542cb3d1edf9c73a0993faab7a9a2151ccf03145788c8af",
+  "rows_verified": 17,
+  "schema": "mersenne-prime-layer-radical-verification-v1",
+  "verified": true
+}

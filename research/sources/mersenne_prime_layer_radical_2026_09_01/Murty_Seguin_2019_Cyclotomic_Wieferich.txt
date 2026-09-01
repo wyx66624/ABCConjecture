@@ -1,0 +1,1098 @@
+===== PAGE 1 =====
+Journal of Number Theory 201 (2019) 1–22
+Contents lists available at ScienceDirect
+Journal of Number Theory
+www.elsevier.com/locate/jnt
+General Section
+Prime divisors of sparse values of cyclotomic 
+polynomials and Wieferich primes ✩
+M. Ram Murty ∗, François Séguin
+Department of Mathematics, Queen ’s University, Kingston, Ontario K7L 3N6, 
+Canada
+a r t i c l e i n f o a b s t r a c t
+Article history:
+Received 17 September 2018
+Received in revised form 31 
+December 2018
+Accepted 25 February 2019
+Available online 20 March 2019
+Communicated by F. Pellarin
+MSC:
+11B39
+11N69
+11D45
+11A41
+Keywords:
+Lucas
+ sequences
+Wieferich primes
+Bang (1886), Zsigmondy (1892) and Birkhoﬀ and Vandiver 
+(1904) initiated the study of the largest prime divisors of 
+sequences of the form an − bn, denoted P (an − bn), by 
+essentially proving that for integers a >b  > 0, P (an − bn) ≥
+n +1 f o r every n > 2. Since then, the problem of ﬁnding  
+bounds on the largest prime factor of Lehmer sequences, Lucas 
+sequences or special cases thereof has been studied by many, 
+most notably by Schinzel (1962), and Stewart (1975, 2013). 
+In 2002, Murty and Wong proved, conditionally upon the abc
+conjecture, that P (an − bn) ≫ n2− ϵ for any ϵ > 0. In this 
+article, we improve this result for the speciﬁc  case where b =1 . 
+Speciﬁcally,  we obtain a more precise result, and one that is 
+dependent on a condition we believe to be weaker than the 
+abc conjecture. Our result actually concerns the largest prime 
+factor of the nth cyclotomic polynomial evaluated at a ﬁxed  
+integer a, P (Φ n(a)), as we let n grow. We additionally prove 
+some results related to the prime factorization of Φ n(a). We 
+also present a connection to Wieferich primes, as well as show 
+that the ﬁniteness  of a particular subset of Wieferich primes 
+is a suﬃcient  condition for the inﬁnitude  of non-Wieferich 
+primes. Finally, we use the technique used in the proof of the 
+✩ Research of the ﬁrst  author partially supported by an NSERC Discovery grant. Research of the second 
+author partially supported by a FRQNT B2 Research Scholarship.
+* Corresponding author.
+E-mail addresses: murty@mast.queensu.ca (M.R. Murty), francois.seguin@queensu.ca (F. Séguin).
+https://doi.org/10.1016/j.jnt.2019.02.016
+0022-314X/©
+ 2019 Elsevier Inc. All rights reserved.
+
+===== PAGE 2 =====
+2 M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22
+aforementioned results to show an improvement on average of 
+estimates due to Erdős for certain sums.
+© 2019 Elsevier Inc. All rights reserved.
+1. Introduction
+In 1965, Erdős [2] conjectured that
+P(2n − 1)
+n →∞ as n →∞ ,
+where P(m) denotes  the largest prime factor of m. This prompted the study of this 
+special case of Lucas numbers. In 1975, Stewart showed [13]t h a t given 0 <λ  < 1/ log 2,
+P(an − bn)
+n →∞
+as n goes to inﬁnity, provided that n only runs through integers with at most λ log logn
+prime factors. By a famous theorem of Hardy and Ramanujan [4], “almost all” numbers 
+(in the sense of natural density) satisfy this condition. His approach relies heavily on 
+Baker’s theory of linear forms in logarithms.
+In 2002, Ram Murty and Wong [9] proved, conditionally to the abc conjecture, that 
+for any ϵ > 0a n d a >b  > 0 integers, then
+P(an − bn) >n 2− ϵ (1.1)
+for n large enough, which in particular gives a conditional proof of Erdős’s conjecture. 
+As remarked above, Theorem 1.1 gives an improvement on this result in the speciﬁc case 
+of b =1 , mostly by weakening the hypothesis.
+In 2004, Murata and Pomerance [5] proved conditionally to the generalized Riemann 
+hypothesis that
+P(2n − 1) > n4/3
+log logn
+for a set of positive integers n of asymptotic density 1.
+Finally, in 2013, Stewart [12] proved Erdős’s conjecture unconditionally, speciﬁcally 
+by showing that for suitable α and β (for which the corresponding Lucas sequence is 
+non-degenerate),
+P(Φ n(α, β)) >n exp
+( log n
+104 log logn
+)
+
+===== PAGE 3 =====
+M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22 3
+for n large enough, where, Φ n(α, β) denotes  the homogeneous cyclotomic polynomial. 
+For α =2 , β =1 , this proves Erdős’s conjecture (see Remark 1 below).
+These last two results use heavily the method of linear forms in logarithms and meth-
+ods of transcendental number theory.
+Here, we give an improvement on the result of Murty and Wong in the speciﬁc case 
+where b =1 . Speciﬁcally, we give an alternative hypothesis which we believe to be weaker 
+than the abc conjecture, and obtain a more precise formulation of the lower bound.
+Theorem 1.1. Let P(m) denote the largest prime divisor of m. Let a > 1 be an integer, 
+and fa(p) be the multiplicative order of a modulo p. Suppose that there exists a constant 
+κ for which ordp(afa(p) − 1) ≤ κ for all primes p. Then, there exists a positive constant 
+C (depending on a and κ) such that
+P (Φ n(a)) >C φ(n)2
+for all n.
+This is related to the study of P(an − 1) as explained in Remark 1.
+This result is in line with a conjecture that Stewart formulated in [14], stating that 
+for α and β real numbers, it should be the case that
+P (Φ n(α, β)) >C φ(n)2
+for any n > 2a n d where C is a positive constant. Stewart also states that the conjecture 
+is true when Φ n(α, β)i s square free, and hints at part of the argument we use in the 
+proof of Theorem 1.1.
+We call the primes p such that ap− 1 ≡ 1 mod p2 Wieferich primes (for a). Classically, 
+Wieferich primes usually refer to the speciﬁc case where a =2 . However, every argument 
+goes through for arbitrary a ≥ 2. We expect them to be sparse in all the primes. The 
+only Wieferich primes p ≤ 4 × 1017 for a =2a r e 1093 and 3511, and those are the only 
+two we know of at the moment. Heuristically, if we think of (ap− 1 − 1)/p as a random 
+integer, the probability that p divides it is approximately 1/p. As such, according to 
+these heuristics, we could expect around
+∑
+p≤ x
+1
+p ≪ log logx
+Wieferich primes up to x (see [1]f o r more details). As they are expected to be sparse, it 
+is diﬃcult  to determine whether there are ﬁnitely many or inﬁnitely many of them.
+We can then restrict our attention to the set of super-Wieferich primes (for a) which 
+are the primes p such that ap− 1 ≡ 1 mod p3. Obviously, they form a subset of the 
+Wieferich primes. However, the same heuristics suggest that the number of such primes 
+is
+
+===== PAGE 4 =====
+4 M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22
+∑
+p
+1
+p2 ≤ c′,
+that is, there are only ﬁnitely many of them. In turn, this suggests that there should be 
+an integer k, independent of p, for which ap− 1 ̸≡ 1 mod pk for any prime p. Notice that 
+this is an even weaker assumption to make than the ﬁniteness of super-Wieferich primes.
+The hypothesis appearing in the statement of Theorem 1.1 is even weaker. Let pγp
+be the largest power of p dividing ap− 1 − 1, and pα p be the largest power p dividing 
+af(p) − 1. Instead of looking at the γp, our hypothesis will concern αp. Since f(p)|p − 1, 
+we can write f(p)r = p − 1s o that
+ap− 1 = af(p)r ≡ 1r ≡ 1m o dpα p
+and so
+αp ≤ γp (1.2)
+for all p. We will be assuming in Theorem 1.1 that αp is bounded. Again, this would 
+follow from the ﬁniteness of super-Wieferich primes.
+Remark 1. Recall that
+∏
+d|n
+Φ d(a)=a n − 1, (1.3)
+and therefore, Φ n(a) divides an − 1. As such, the above Theorem 1.1 implies that P(an −
+1) >C φ(n)2 for n large enough granted that αp is bounded. Additionally, recall that we 
+have the bound φ(n) ≫ n
+log log n due to Ramanujan. As such, we get as a corollary that 
+under the same hypothesis on αp,
+P(an − 1) >C ′ n2
+(log logn)2 .
+For any integer n > 4, n ̸=6 , 12, we will see from Lemma 2.3 that there is at most 
+one prime dividing both n and Φ n(a), which we will call Pn. We deﬁne δn as the largest 
+power of Pn dividing Φ n(a), i.e.
+pδp ||Φ n(a).
+Actually, in Lemma 2.3 below, we will see that δn is always 0o r 1.
+We will be proving the following theorem about δn.
+Theorem 1.2. For some θ< 1,
+∑
+n≤ x
+δn log Pn = O(xθ).
+
+===== PAGE 5 =====
+M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22 5
+This also gives the following obvious corollary.
+Corollary 1.3. For some θ< 1,
+∑
+n≤ x
+δn = O(xθ).
+In particular, this shows that δn is zero “most of the time” .
+Using our analysis of Wieferich primes used to prove Theorem 1.1, we are also able 
+to prove the following result.
+Theorem 1.4. Suppose that there are only ﬁnitely many super-Wieferich primes. Then, 
+there are inﬁnitely many non-Wieferich primes.
+Finally, applying the technique developed in Section 3 to diﬀerent arithmetic func-
+tions, we are able to prove the following result
+Theorem 1.5.
+∑
+n≤ x
+∑
+d|an− 1
+1
+d = Rx + o(x)
+where R is the “Romanoﬀ” constant
+R :=
+∑
+d≥ 1
+(d,a)=1
+1
+df a(d).
+In particular, this gives an improvement on average to a result of Erdős [3]( s e e (5.1)
+below).
+2. Proof of Theorem 1.1
+Let fa(p)b e the order of a in the group (Z/pZ)×. For the sake of readability, we will 
+write f(p)i n s t e a d of fa(p)w h e n a is clear from context. We start by stating a few facts 
+about the cyclotomic polynomials Φ n(x).
+Proposition 2.1. For any prime p not dividing m or a,
+fa(p)=m if and only if p|Φ m(a).
+Proof. This is exercise 1.5.25 in [6]. 2
+
+===== PAGE 6 =====
+6 M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22
+Proposition 2.2.
+Φ n(a) ≥ 1
+2aφ(n).
+See [15]f o r the proof.
+We also need the following description of the primes dividing Φ n(a), which is [14, 
+Lemma 6].
+Lemma 2.3. If n > 4 and n ̸=6 , 12, then P(n/(3, n)) divides Φ n(a) to at most the ﬁrst 
+power. All other primes factors of Φ n(a) are congruent to 1( m o dn).
+Finally, we will need to use the Brun-Titchmarsh Theorem, which we recall here.
+Theorem 2.4 (Brun-Titchmarsh). Let θ< 1 and d <x θ. For x suﬃciently  large,
+∑
+p≤ x
+p≡ 1m o d d
+log p ≤ 2x log x
+φ(d)l o g (x/d)
+where φ(d) is Euler’s totient function.
+Recall that we deﬁne the integer αp as ordp
+(
+af(p) − 1
+)
+, i.e.
+pα p ||af(p) − 1.
+Clearly, αp ≥ 1f o r every prime p.
+Proposition 2.5. For every prime p coprime to a, ordp
+(
+Φ f(p)(a)
+)
+= αp.
+Proof. Let p be any prime coprime to a. We can factor af(p) − 1a b o v e to get that
+pα p ||
+∏
+d|f(p)
+Φ d(a).
+We claim that actually, p cannot divide any factor Φ d(a)o t h e r than Φ f(p)(a). Indeed, 
+suppose that p divides Φ d(a)f o r some d strictly dividing f(p). Clearly, p does not divide 
+d as d divides f(p)w h i c h divides p − 1. Therefore, by Proposition 2.1, f(p) = d which is 
+a contradiction. We conclude that
+pα p ||Φ f(p)(a). 2
+Note that we essentially have the prime factorization for Φ n(a). If we take any n, 
+then every prime factor p of Φ n(a)o t h e r than those dividing n are such that f(p) = n
+by Proposition 2.1. Therefore, by the above, for those primes, pα p ||Φ n(a). The only 
+
+===== PAGE 7 =====
+M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22 7
+prime factors of Φ n(a)f o r which we don’t know the order are those also dividing n. By 
+Lemma 2.3, there is at most one such prime, namely Pn = P(n/(3, n)) (when n > 4a n d 
+not 6 or 12). Additionally, Lemma 2.3 tells us that
+Pδn
+n ||Φ n(a)
+where δn is either 0 or 1. We just proved the following.
+Proposition 2.6. For n > 4, n ̸=6 , 12,
+Φ n(a)=P δn
+n
+∏
+p|Φ n(a)
+p̸=Pn
+pα p .
+With this description in hand, let us now prove Theorem 1.1.
+Proof of Theorem 1.1. We will argue by contradiction. Suppose that P(Φ n(a)) ≤
+Cφ(n)2. Then,
+Φ n(a) ≤ Pδn
+n
+∏
+p≤ Cφ (n)2
+p̸=Pn
+pα p
+and by the second part of Lemma 2.3,
+≤ Pδn
+n
+∏
+p≤ Cφ (n)2
+p≡ 1m o d n
+pα p .
+By taking the logarithm,
+log Φn(a) ≤ log Pδn
+n +
+∑
+p≤ Cφ (n)2
+p≡ 1m o d n
+αp log p.
+Since we assume that αp ≤ κ for all p, we have
+≤ log Pδn
+n + κ
+∑
+p≤ Cφ (n)2
+p≡ 1m o d n
+log p
+and by Theorem 2.4
+≪ δn log Pn + κ
+( 2Cφ(n)2
+φ(n)
+)
+(2.1)
+for n large enough.
+
+===== PAGE 8 =====
+8 M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22
+On the other hand, by Proposition 2.2 we have
+Φ n(a) ≥ 1
+2aφ(n)
+and so
+log Φn(a) ≥ φ(n)l o ga − log 2. (2.2)
+Putting (2.1)a n d (2.2) together, we get that
+φ(n)l o ga − log 2 ≪ 2κCφ(n)+ δn log Pn.
+Note that log Pn ≤ log n. Therefore, if C is suﬃciently  small, we obtain a contradiction 
+for n large enough. 2
+As we pointed out, this result is close to (1.1)w h i c h Murty and Wong obtained 
+assuming the abc conjecture. We remark here that assuming a weaker hypothesis, to 
+which we will refer as the quasi-abc, we easily get a lower bound on P(an − b)f o r any 
+a, b ∈ Z with a ≥ 2.
+Conjecture 2.7 (The quasi-abc conjecture). There exists a constant k such that for any 
+mutually coprime integers a, b and c such that a + b = c,
+max (|a| , |b| , |c|) ≤ (rad(abc))k .
+Proposition 2.8. Let a, b be integers, a ≥ 2. Assuming the quasi-abc conjecture, there 
+exists an eﬀectively computable constant C depending on a and b such that
+P(an − b) ≥ Cn.
+Proof. We write an − b + b = an and apply the quasi-abc conjecture. There exists a 
+constant k such that
+an ≤
+⎛
+⎝ab
+∏
+p|an− b
+p
+⎞
+⎠
+k
+and so
+n log a ≤ k
+∑
+p≤ P (an− b)
+log p + C′.
+We know that (see [6, 3.1.2])
+∑
+p≤ x
+log p ≪ x,
+
+===== PAGE 9 =====
+M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22 9
+by Chebycheﬀ. Therefore, we conclude that
+P(an − b) ≥ Cn
+as required. 2
+3. Proof of Theorem 1.2
+We ﬁrst need the following simple formula for the p-adic valuation of certain binomial 
+coeﬃcients.
+Lemma 3.1. For any prime p and any integer 1 ≤ k ≤ pn,
+ordp
+(( pn
+k
+))
+= n − ordp(k).
+Proof. For k = pn, this is clear. For any m in the range 1 ≤ m <p n, by the ultrametric 
+inequality, we have that ordp(pn − m) =o r dp(m). By deﬁnition,
+k!
+( pn
+k
+)
+= pn(pn − 1) ··· (pn − (k − 1)),
+and by taking the valuation on both sides
+ordp(k!) + ordp
+(( pn
+k
+))
+= n +o r dp((k − 1)!),
+from which the result follows directly. 2
+Next, we give a description of the multiplicative order of the element a modulo powers 
+of the prime p. Here, we extend the deﬁnition of fa(p)t o powers of p in the obvious way, 
+by deﬁning f(pn)t o be the multiplicative order of a in the group (Z/pnZ)×.
+Proposition 3.2. Let p be any prime, a any non-zero integer and deﬁne αp as ordp(af(p) −
+1). Then, for any r ≥ 0,
+f
+(
+pα p+r )
+= prf(p).
+Proof. In this proof we ﬁx p and write α = αp for simplicity of notation. To begin, notice 
+the following three facts that are true for any r.
+(1) f(pα+r ) divides prf(pα ).
+Indeed,
+aprf(pα ) =( 1+ mpα )pr
+
+===== PAGE 10 =====
+10 M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22
+for some integer m, and so by the binomial theorem
+aprf(pα ) =
+pr
+∑
+k=0
+(pr
+k
+)
+mkpkα .
+We note in passing that for any integer k> 0,
+k ≥ pordp(k) ≥ 2ordp(k) ≥ ordp(k)+1 .
+For k> 0, the kth term in the sum is given by
+Tk :=
+(pr
+k
+)
+mkpkα
+and so
+ordp(Tk) ≥ r − ordp(k)+ kα,
+and by Lemma 3.1,
+≥ r − (k − 1) + kα
+≥ r + α +( α − 1)(k − 1)
+≥ r + α,
+where the last inequality follows from α ≥ 1. Therefore, we conclude that
+aprf(pα ) ≡ 1m o dpα+r ,
+meaning that f(pα+r ) divides prf(pα ).
+(2) For any m, f(pm) divides f(pm+1).
+This is because
+af(pm+1) ≡ 1m o dpm+1
+and so
+af(pm+1) ≡ 1m o dpm.
+Note that this fact actually implies the following
+(3) f(p) = f(p2) = ... = f(pα ).
+Indeed, for any 1 ≤ m ≤ α, f(p)|f(pm)b y the above. On the other hand, af(p) − 1 ≡
+0 mod pm, meaning that f(pm)|f(p).
+
+===== PAGE 11 =====
+M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22 11
+Now, to show the statement of Proposition 3.2, we proceed by induction on r. From (3) 
+above, we can instead show that f (pα p+r)= prf(pα ).
+When r =1 , we have from (1) above that f(pα+1 )|pf(pα ). However, f(pα+1 )m u s t be 
+a multiple of p, as otherwise
+f(pα+1 )|f(pα )= f(p)
+meaning that
+af(p) − 1 ≡ 0m o dpα+1
+which contradicts the deﬁnition of α.
+On the other hand, by (2) above, f(pα+1 )m u s t be a multiple of f(pα ). We conclude 
+that f(pα+1 ) = pf(pα )w h i c h is the base case.
+Using induction, we show that f(pα+r ) = prf(pα ).
+As before, using (1) we get
+f(pα+r )|prf(pα ).
+On the other hand, by the induction hypothesis and (2),
+pr− 1f(pα )=f (pα+r − 1)|f(pα+r ).
+We get from the above that f(pα+r ) = pqf(p) where q is either r or r − 1. We are 
+only left to show that q cannot be r − 1. Suppose it is. Then, on one hand, by deﬁnition,
+af(pα +r) ≡ 1m o dpα+r .
+On the other hand, write af(p) =1  + kpα . Then,
+af(pα +r) = af(p)pr−1
+=( 1+ kpα )pr−1
+≡ 1+ kpα+r − 1 mod pα+r .
+We can conclude that k must be divisible by p, meaning that af(p) =1  + k′pα+1 , which 
+is a contradiction to the deﬁnition of α. 2
+Now consider the Dirichlet series
+F(s)=
+∞∑
+n=1
+log (an − 1)
+ns .
+We need the following lemma about F(s).
+
+===== PAGE 12 =====
+12 M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22
+Lemma 3.3. We can write the Dirichlet series F(s) as
+F(s)= ζ(s)
+( ∑
+p
+αp log p
+f(p)s + D(s)
+)
+where D(s) is a Dirichlet series absolutely convergent for ℜ(s) >θ for some θ< 1.
+To prove this lemma, we will need the following two results which can be found in [7].
+Theorem 3.4. For any ϵ > 0,
+∑
+m≥ 1
+1
+mfa(m)ϵ ≤ eγ log loga +2 eγ ϵ− 1 + C
+for some constant C.
+In the above theorem, the deﬁnition of fa(p)i s extended to any integer m as
+fa(m)=i n f {r ∈ Z : r ≥ 1a n dar ≡ 1m o dm} .
+Theorem 3.5. For any ϵ > 0,
+∑
+p
+log p
+pfa(p)ϵ ≤ log loga +2 ϵ− 1 + C
+for some constant C.
+We use this to prove Lemma 3.3.
+Proof. First, notice that we can write log m = ∑
+d|m Λ(d) where  Λi s  the von Mangoldt 
+function. Therefore, we have the alternative expression for F(s):
+F(s)=
+∞∑
+n=1
+1
+ns
+∑
+d|an− 1
+Λ(d)
+=
+∞∑
+d=1
+Λ(d)
+∑
+n : d|an− 1
+1
+ns .
+We know that d|an − 1i f and only if an ≡ 1 mod d if and only if f(d)|n. Thus,
+F(s)=
+∞∑
+d=1
+(d,a)=1
+Λ(d)
+∑
+n : f(d)|n
+1
+ns
+
+===== PAGE 13 =====
+M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22 13
+=
+∞∑
+d=1
+(d,a)=1
+Λ(d)
+∞∑
+m=1
+1
+(mf(d))s
+=
+∞∑
+d=1
+(d,a)=1
+Λ(d)
+f(d)s ζ(s). (3.1)
+Now we show that
+∞∑
+d=1
+(d,a)=1
+Λ(d)
+f(d)s =
+∑
+p
+αp log p
+f(p)s + D(s)
+with D(s)a s in the statement of the lemma.
+We ﬁrst notice that the summand on the left-hand side is non-zero only when d is a 
+prime power. As such, we have
+∞∑
+d=1
+(d,a)=1
+Λ(d)
+f(d)s =
+∑
+p prime
+(p,a)=1
+∞∑
+r=1
+Λ(pr)
+f(pr)s .
+Note that for a ﬁxed prime p, the summand for r between 1a n d αp will be the same, 
+namely log p
+f(p)s . For r = αp + q, by Proposition 3.2, it will be log p
+pqsf(p)s . We get
+∞∑
+d=1
+(d,a)=1
+Λ(d)
+f(d)s =
+∑
+p prime
+(p,a)=1
+(
+αp log p
+f(p)s +
+∞∑
+q=1
+log p
+pqsf(p)s
+)
+=
+∑
+p prime
+(p,a)=1
+αp log p
+f(p)s +
+∑
+p prime
+(p,a)=1
+log p
+f(p)s
+∞∑
+q=1
+1
+pqs
+=
+∑
+p prime
+(p,a)=1
+αp log p
+f(p)s +
+∑
+p prime
+(p,a)=1
+log p
+f(p)s
+(
+1
+1 − 1
+ps
+− 1
+)
+=
+∑
+p prime
+(p,a)=1
+αp log p
+f(p)s +
+∑
+p prime
+(p,a)=1
+log p
+f(p)s(ps − 1).
+Consider the series
+D(s)=
+∑
+p:(p,a)=1
+log p
+f(p)s(ps − 1).
+Trying to evaluate the series at s =1 , we obtain
+
+===== PAGE 14 =====
+14 M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22
+D(1) =
+∑
+p:(p,a)=1
+log p
+(p − 1)f(p) ≤ C′ ∑
+p
+log p
+pf(p) ≤ C′′
+for some constants C′ and C′′, where the last inequality is obtained from Theorem 3.5. 
+Therefore D(s)i s an absolutely convergent series for s =1 . However, Landau’s Theorem 
+(see [6, 2.5.14]) tells us that a Dirichlet series with non-negative terms must have a 
+singularity at s = σ0, where σ0 is its abscissa of convergence. Since our series D(s)
+converges at s =1 , we conclude that 1 cannot be its abscissa of convergence, and so that 
+D(s)m u s t converge strictly to the left of 1.
+Therefore, we have
+F(s)= ζ(s)
+( ∑
+p
+αp log p
+f(p)s + D(s)
+)
+with D(s)a s required. 2
+We use this lemma to prove Theorem 1.2.
+Proof. Fr om  Lemma 3.3,
+1
+ζ(s)
+∞∑
+n=1
+log (an − 1)
+ns =
+∑
+p
+αp log p
+f(p)s + D(s).
+On one hand,
+1
+ζ(s)
+∞∑
+n=1
+log (an − 1)
+ns =
+( ∞∑
+n=1
+μ(n)
+ns
+)( ∞∑
+n=1
+log (an − 1)
+ns
+)
+=
+∞∑
+n=1
+1
+ns
+⎛
+⎝∑
+d|n
+μ(d)l o g (an/d − 1)
+⎞
+⎠
+=
+∞∑
+n=1
+1
+ns
+⎛
+⎝log
+∏
+d|n
+(an/d − 1)μ(d)
+⎞
+⎠
+=
+∞∑
+n=1
+log Φn(a)
+ns .
+On the other hand, we can write
+∑
+p
+αp log p
+f(p)s =
+∞∑
+n=1
+an
+ns
+as a Dirichlet series where
+
+===== PAGE 15 =====
+M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22 15
+an =
+∑
+p:f(p)=n
+αp log p.
+However, by Proposition 2.1, this is
+=
+∑
+p|Φ n(a)
+p̸=Pn
+αp log p
+=l o g
+∏
+p|Φ n(a)
+pα p − δn log Pn
+=l o gΦn(a) − δn log Pn.
+Putting the two above statements together, we obtain the following expression for 
+D(s).
+D(s)=
+∞∑
+n=1
+δn log Pn
+ns .
+Call bn = δn log Pn and notice that bn are all non-negative. Recall that D(s)c o n v e r g e s 
+absolutely strictly to the left of 1. Therefore, for some θ< 1, we have
+∑
+n≤ x
+bn ≤
+∑
+n≤ x
+bn
+(x
+n
+)θ
+≤ xθ
+∞∑
+n=1
+bn
+nθ = Cxθ
+and we conclude that
+∑
+n≤ x
+δn log Pn = O
+(
+xθ)
+. 2
+Corollary 1.3 follows since log Pn ≥ log 2.
+4. Connection to Wieferich primes
+Here, we take a closer look at what it means to be a Wieferich prime in light of 
+Proposition 2.5, and in doing so we prove the following result.
+Theorem 4.1. Suppose that there are only ﬁnitely many super-Wieferich primes. Then, 
+there are inﬁnitely many non-Wieferich primes.
+We start by proving the following lemma about the characterization of Wieferich 
+primes.
+
+===== PAGE 16 =====
+16 M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22
+Lemma 4.2. The prime p is a Wieferich prime (for a) if and only if
+p2 | Φ n(a)
+for some n.
+Moreover, if p2 divides Φ n(a) for some n, then n = f(p).
+Finally, p does not divide Φ n(a) for n other than f(p) and multiples of p.
+Proof. We start by proving the last two statements. Suppose that p divides Φ n(a)f o r 
+some n. Then, by Proposition 2.1, either n = f(p)o r p divides n.
+Now suppose that p2 divides Φ n(a)f o r some n. Since the only prime dividing both n
+and Φ n(a)d o e s so with order at most one, we know that p does not divide n. Therefore, 
+by Proposition 2.1, n = f(p).
+For the ﬁrst part of the lemma, suppose ﬁrst that p2 divides Φ n(a)f o r some n. By the 
+above, n = f(p). By (1.3), p2 also divides af(p) − 1. Finally, by (1.2), p2 divides ap− 1 − 1.
+To show the other implication, suppose that p is a Wieferich prime. Then, p2 divides 
+ap− 1 − 1a n d by (1.3),
+p2 |
+∏
+d|p− 1
+Φ d(a).
+Following exactly the proof of Proposition 2.5, we obtain that p2 divides Φ f(p)(a). 2
+Remark 2. Call a prime p a k-super-Wieferich prime if ap− 1 ≡ 1 mod pk. The same proof 
+can be used to show the following more general lemma.
+Lemma 4.3. The prime p is a k-super-Wieferich prime (k ≥ 2) if and only if
+pk | Φ n(a)
+for some n.
+Also, if pk divides Φ n(a) for some n, then n = f(p).
+Moreover, p does not divide Φ n(a) for n other than f(p) and multiples of p.
+We now prove Theorem 4.1.
+Proof. We start by assuming that there are ﬁnitely many super-Wieferich primes. Sup-
+pose that p is a super-Wieferich prime. Clearly p is also a Wieferich prime. From 
+Lemma 4.2, p only divides Φ n(a)f o r n = f(p)o r when n is a multiple of p. Consider the 
+set
+W :=
+{
+q prime : q is not a super-Wieferich prime, and
+f(p) ̸= q for any super-Wieferich prime p
+}
+.
+
+===== PAGE 17 =====
+M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22 17
+Then, for every q ∈W , Φ q(a)i s not divisible by any super-Wieferich prime. Also, since 
+we assume that there are only ﬁnitely many super-Wieferich primes, we only remove a 
+ﬁnite number of primes from the set of all primes, and so the set W is inﬁnite.
+Let q be any prime number. Then,
+q|Φ q(a) ⇒ q|aq − 1
+⇒ aq − 1 ≡ 0m o dq
+⇒ a − 1 ≡ 0m o dq
+since aq ≡ a mod q by Fermat’s little Theorem. Therefore, the only primes q for which 
+q can divide Φ q(a)a r e the divisors of a − 1.
+Now consider the set
+P = W∩{ p prime : p does not divide a − 1} .
+For this set, we also have that q does not divide Φ q(a)f o r all q ∈P . Since we again only 
+remove ﬁnitely many primes from W, we still have that P is inﬁnite.
+We prove the statement of the theorem by the method of contradiction. In particular, 
+we suppose that there are only ﬁnitely many non-Wieferich primes. Suppose that there 
+are N of them, and call them p1, ...,  pN . Let q ∈P , and consider Φ q(a). We ask which 
+primes can divide Φ q(a), and with what power.
+Of course, any non-Wieferich primes can potentially divide Φ q(a), but they must do so 
+to at most the ﬁrst power, as otherwise they would be Wieferich primes by Lemma 4.2. 
+Also, as we remarked above, since q ∈P , no super-Wieferich prime can divide Φ q(a). As 
+for the Wieferich primes, they can certainly divide Φ q(a), but if they do, they must do 
+so with order exactly 2. Indeed, if p is such a Wieferich prime dividing Φ q(a), then p3
+dividing Φ q(a)w o u l d imply that p is a super-Wieferich prime. Also, if p were to divide 
+Φ q(a)w i t h order 1, by Lemma 4.2, q would be a multiple of p, that is p = q. However, 
+since q ∈P , this cannot happen.
+We therefore have the general form of Φ q(a)a s
+Φ q(a)=p ϵ1
+1 ··· pϵN
+N W2
+where each ϵi is either 0 or 1, and W is a product of distinct Wieferich primes. Since q
+is prime, we can write
+Φ q(a)= aq − 1
+a − 1
+and so
+aq − 1=( a − 1)pϵ1
+1 ··· pϵN
+N W2.
+
+===== PAGE 18 =====
+18 M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22
+Writing q as 3j + δ for some integer j and δ ∈{ 0, 1, 2}, we get
+aδ (
+aj )3
+− 1=( a − 1)pϵ1
+1 ··· pϵN
+N W2.
+The curves
+aδX3 − 1=( a − 1)pϵ1
+1 ··· pϵN
+N Y 2
+are elliptic curves. Moreover, there are 3 × 2N of them. By Siegel’s Theorem [10, IX.3], 
+there is a ﬁnite number of integral points (X, Y )o n each of them. However, the above 
+construction gives a distinct integral point on one of the curves for every q ∈P . This 
+gives a contradiction, and we conclude that there are inﬁnitely many non-Wieferich 
+primes. 2
+Remark 3. It is not known unconditionally at the moment whether there are inﬁnitely 
+many non-Wieferich primes. From the heuristics presented in Section 1, along with nu-
+merical computations, we suspect that this is the case. In particular, we believe it is 
+possible to get a quantitative lower bound on the number of non-Wieferich primes using 
+this method. Following the argument presented in [8, Sec. 9] mutatis  mutandis, it is 
+possible to get a lower bound of log logx non-Wieferich primes up to x. This should be 
+compared with [11], where Silverman shows that the abc-conjecture implies that there 
+are at least ≫ log x non-Wieferich primes up to x. The bound we obtain is more modest 
+but depends on an assumption much weaker than the abc-conjecture.
+5. Generalizations
+In [3], Erdős proved estimates of the form
+∑
+d|an− 1
+1
+d ≤ C(a)l o gl o gn. (5.1)
+In Section 3, we were considering a very similar sum, namely
+∑
+d|an− 1
+Λ(d).
+It would be interesting to see the extent with which we can generalize the above discussion 
+and if we can obtain a result similar to that of Erdős. We exploited the fact that we 
+can write log n as a sum of Λ(d) where  d ranges over divisors of n. This is also true for 
+σ(n)/n because
+σ(n)
+n =
+∑
+d|n
+1
+d.
+
+===== PAGE 19 =====
+M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22 19
+In general, let G(n)b e an arithmetic function, and F(n)b e deﬁned as
+F(n)=
+∑
+d|n
+G(d).
+Then, consider the Dirichlet series given by
+∞∑
+n=1
+F(an − 1)
+ns =
+∞∑
+n=1
+1
+ns
+∑
+d|an− 1
+G(d).
+Under suitable convergence conditions, we can interchange the order of summation to 
+get
+=
+∞∑
+d=1
+(d,a)=1
+G(d)
+∑
+n:d|an− 1
+1
+ns .
+Notice once again that the integers n for which d divides an − 1a r e speciﬁcally the 
+multiples of fa(d). We get
+=
+∞∑
+d=1
+(d,a)=1
+G(d)
+∞∑
+r=1
+1
+(rf(d))s
+= ζ(s)
+∞∑
+d=1
+(d,a)=1
+G(d)
+f(d)s .
+In Section 3, we used Theorem 3.5 to show the convergence of the series on the right. 
+Suppose that the Dirichlet series
+∞∑
+d=1
+(d,a)=1
+G(d)
+f(d)s
+converges absolutely for ℜ(s) ≥ 1a n d the function F(an − 1) ≥ 0f o r every n. Then, 
+we could apply the Tauberian Theorem, which we recall here. See [6, Thm 3.3.1] for the 
+proof.
+Theorem 5.1. Let H(s) = ∑∞
+n=1 bn/ns be a Dirichlet series with non-negative coeﬃcients  
+and absolutely convergent for ℜ(s) > 1. Suppose that H(s) can be extended to a mero-
+morphic function in the region ℜ(s) ≥ 1 having no poles except for a simple pole at s =1
+with residue r ≥ 0. Then,
+∑
+n≤ x
+bn = Rx + o(x)
+
+===== PAGE 20 =====
+20 M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22
+as x →∞ .
+We therefore have
+∑
+n≤ x
+F(an − 1) =
+∑
+n≤ x
+∑
+d|an− 1
+G(d)= Cx + o(x)
+where
+C =
+∞∑
+d=1
+G(d)
+f(d) .
+The above discussion essentially proves the following theorem:
+Theorem 5.2. Let G(n) be an arithmetic function, and F(n) be deﬁned as
+F(n)=
+∑
+d|n
+G(d).
+Suppose that F(an − 1) ≥ 0 for every n,
+∞∑
+n=1
+F(an − 1)
+ns
+converges for ℜ(s) > 1, and
+∞∑
+d=1
+(d,a)=1
+G(d)
+f(d)s
+converges absolutely for ℜ(s) ≥ 1, then
+∑
+n≤ x
+∑
+d|an− 1
+G(d)= Cx + o(x)
+where
+C =
+∞∑
+d=1
+G(d)
+f(d) .
+Applying this to F(n) = σ(n)/n and G(d) =1 /d, we get that
+∞∑
+n=1
+σ(an − 1)
+(an − 1)ns = ζ(s)
+∑
+d=1
+(d,a)=1
+1
+df (d)s .
+
+===== PAGE 21 =====
+M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22 21
+From Theorem 3.4, we know that the series
+∑
+d=1
+(d,a)=1
+1
+df (d)s
+converges absolutely everywhere to the right of 0 (that is for every s with ℜ(s) > 0). 
+Therefore, Theorem 5.2 above can be applied to obtain the following result.
+Corollary 5.3.
+∑
+n≤ x
+∑
+d|an− 1
+1
+d = Rx + o(x)
+where R is the “Romanoﬀ” constant
+R :=
+∑
+d≥ 1
+(d,a)=1
+1
+df a(d).
+It is interesting to see that Corollary 5.3 actually gives an improvement of (5.1)o n 
+average.
+6. Concluding remarks
+As noted earlier, the hypothesis of Theorem 1.1 is satisﬁed if there are only ﬁnitely 
+many primes p such that
+ap− 1 ≡ 1( m o d p3).
+This is substantially weaker than the abc conjecture and may be amenable to resolution. 
+We can of course also replace p3 by pd for any ﬁxed d ≥ 3.
+Acknowledgments
+We would like to thank Professors Cameron Stewart and Francesco Pappalardi, as 
+well as the referee for helpful comments on a previous version of this paper.
+References
+[1] Richard Crandall, Karl Dilcher, Carl Pomerance, A search for Wieferich and Wilson primes, Math. 
+Comp. 66 (217) (1997) 433–449.
+[2] Pa ul  Erdős, Some recent advances and current problems in number theory, in: Lectures on Modern 
+Mathematics, vol. III, Wiley, New York, 1965, pp. 196–244.
+[3] Pa ul  Erdős, On the sum ∑
+d|2n − 1 d− 1, Israel J. Math. 9 (1971) 43–48.
+
+===== PAGE 22 =====
+22 M.R. Murty, F. Séguin / Journal of Number Theory 201 (2019) 1–22
+[4] G.H. Hardy, S. Ramanujan, The normal number of prime factors of a number n [Quart. J. Math. 48 
+(1917) 76–92],  in: Collected Papers of Srinivasa Ramanujan, AMS Chelsea Publ., Providence, RI, 
+2000, pp. 262–275.
+[5] Leo Murata, Carl Pomerance, On the largest prime factor of a Mersenne number, in: Number Theory, 
+in: CRM Proc. Lecture Notes, vol. 36, Amer. Math. Soc., Providence, RI, 2004, pp. 209–218.
+[6] M. Ram Murty, Problems in Analytic Number Theory, second edition, Springer, 2008.
+[7] M. Ram Murty, Michael Rosen, Joseph H. Silverman, Variations on a theme of Romanoﬀ, Internat. 
+J. Math. 7( 3 ) (1996) 373–391.
+[8] Ram Murty, François Séguin, Cameron L. Stewart, A lower bound for the two-variable Artin con-
+jecture and prime divisors of recurrence sequences, J. Number Theory 194 (2019) 8–29.
+[9] Ram Murty, Siman Wong, The ABC conjecture and prime divisors of the Lucas and Lehmer se-
+quences, in: Number Theory for the Millennium, III, Urbana, IL, 2000, A K Peters, Natick, MA, 
+2002, pp. 43–54.
+[10] J.H. Silverman, The Arithmetic of Elliptic Curves, 2nd ed., Springer-Verlag, New York, 1986.
+[11] J.H. Silverman, Wieferich’s criterion and the abc-conjecture, J. Number Theory 30 (1988) 226–237.
+[12] Cameron L. Stewart, On divisors of Lucas and Lehmer numbers, Acta Math. 211 (2) (2013) 291–314.
+[13] C.L. Stewart, The greatest prime factor of an − bn, Acta Arith. 26 (1975) 427–433.
+[14] C.L. Stewart, On divisors of Fermat, Fibonacci, Lucas and Lehmer numbers, Proc. London Math. 
+Soc. 35 (1977) 425–447.
+[15] R. Thangadurai, A. Vatwani, The least prime congruent of one modulo n, Amer. Math. Monthly 
+118 (8) (2011) 737–742.

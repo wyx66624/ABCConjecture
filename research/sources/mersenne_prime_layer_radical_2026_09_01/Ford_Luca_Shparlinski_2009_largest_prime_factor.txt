@@ -1,0 +1,448 @@
+On the largest prime factor of the Mersenne
+numbers
+Kevin Ford
+Department of Mathematics
+The University of Illinois at Urbana-Champaign Urbana
+Champaign, IL 61801, USA
+ford@math.uiuc.edu
+Florian Luca
+Instituto de Matem´ aticas
+Universidad Nacional Autonoma de M´ exico
+C.P. 58089, Morelia, Michoac´ an, M´ exico
+ﬂuca@matmor.unam.mx
+Igor E. Shparlinski
+Department of Computing
+Macquarie University
+Sydney, NSW 2109, Australia
+igor@ics.mq.edu.au
+Abstract
+Let P(k) be the largest prime factor of the positive integer k. In
+this paper, we prove that the series
+∑
+n≥1
+(logn)α
+P(2n− 1)
+is convergent for each constant α <1/2, which gives a more precise
+form of a result of C. L. Stewart of 1977.
+1
+
+1 Main Result
+Let P (k) be the largest prime factor of the positive integer k. The quantity
+P (2n− 1) has been investigated by many authors (see [1, 3, 4, 10, 11, 12, 14,
+15, 16]). For example, the best known lower bound
+P (2n− 1)≥ 2n + 1, for n≥ 13
+is due to Schinzel [14]. No better bound is known even for all suﬃciently
+large values of n.
+C. L. Stewart [15, 16] gave better bounds provided thatn satisﬁes certain
+arithmetic or combinatorial properties. For example, he showed in [16], and
+this was also proved independently by Erd˝ os and Shorey in [4], that
+P (2p− 1)>cp logp
+holds for all suﬃciently large prime numbers p, where c >0 is an absolute
+constant and log is the natural logarithm. This was an improvement upon a
+previous result of his from [15] with (log p)1/4 instead of logp. Several more
+results along these lines are presented in Section 3.
+Here, we continue to study P (2n− 1) from a point of view familiar to
+number theory which has not yet been applied to P (2n− 1). More precisely,
+we study the convergence of the series
+σα =
+∑
+n≥1
+(logn)α
+P (2n− 1) (1)
+for some real parameter α.
+Our result is:
+Theorem 1. The series σα is convergent for all α< 1/2.
+The rest of the paper is organized as follows. We introduce some notation
+in Section 2. In Section 3, we comment on why Theorem 1 is interesting and
+does not immediately follow from already known results. In Section 4, we
+present a result C. L. Stewart [16] which plays a crucial role in our argument.
+Finally, in Section 5, we give a proof of Theorem 1.
+2
+
+2 Notation
+In what follows, for a positive integern we useω(n) for the number of distinct
+prime factors ofn,τ(n) for the number of divisors ofn andϕ(n) for the Euler
+function ofn. We use the Vinogradov symbols≫,≪ and≍ and the Landau
+symbols O and o with their usual meaning. The constants implied by them
+might depend on α. We use the letters p and q to denote prime numbers.
+Finally, for a subset A of positive integers and a positive real number x we
+writeA(x) for the setA∩ [1,x ].
+3 Motivation
+In [16], C. L. Stewart proved the following two statements:
+A. Iff(n) is any positive real valued function which is increasing andf(n)→
+∞ as n→∞ , then the inequality
+P (2n− 1)> n(logn)2
+f(n) log logn
+holds for all positive integers n except for those in a set of asymptotic
+density zero.
+B. Let κ< 1/ log 2 be ﬁxed. Then the inequality
+P (2n− 1)≥C(κ)ϕ(n) logn
+2ω(n)
+holds for all positive integersn withω(n)<κ log logn, whereC(κ)> 0
+depends on κ.
+Since for every ﬁxed ε> 0 we have
+∑
+n≥2
+log logn
+n(logn)1+ε <∞,
+the assertion A above, taken with f(n) = (logn)ε for ﬁxed some small posi-
+tiveε< 1−α, motivates our Theorem 1. However, since C. L. Stewart [16]
+gives no analysis of the exceptional set in the assertion A (that is, of the size
+3
+
+of the set of numbers n≤x such that the corresponding estimate fails for a
+particular choice of f(n)), this alone does not lead to a proof of Theorem 1.
+In this respect, given that the distribution of positive integers n having a
+ﬁxed number of prime factorsK <κ log logn is very well-understood starting
+with the work of Landau and continuing with the work of Hardy and Ramanu-
+jan [6], it may seem that the assertion B is more suitable for our purpose.
+However, this is not quite so either since mostn haveω(n)> (1−ε) log logn
+and for such numbers the lower bound on P (2n− 1) given by B is only
+of the shape ϕ(n)(logn)1−(1−ε) log 2 and this is not enough to guarantee the
+convergence of series (1) even with α = 0.
+Conditionally, Murty and Wang [11] have shown the ABC-conjecture
+implies that P (2n− 1) > n2−ε for all ε >0 once n is suﬃciently large with
+respect to ε. This certainly implies the conditional convergence of series (1)
+for all ﬁxed α > 0. Murata and Pomerance [10] have proved, under the
+Generalized Riemann Hypothesis for various Kummerian ﬁelds, that the in-
+equalityP (2n− 1)> n4/3/ log logn holds for almost all n, but they did not
+give explicit upper bounds on the size of the exceptional set either.
+4 Main Tools
+As we have mentioned in Section 3, neither assertion A nor B of Section 3
+are directly suitable for our purpose. However, another criterion, implicit in
+the work of C. L. Stewart [16] and which we present as Lemma 2 below (see
+also Lemma 3 in [10]), plays an important role in our proof.
+Lemma 2. Let n≥ 2, and let d1 <··· < dℓ be all ℓ = 2ω(n) divisors of n
+such that n/di is square-free. Then for all n> 6,
+#{p|2n− 1 : p≡ 1 (mod n)}≫
+log
+(
+2 + ∆(n)
+τ(n)
+)
+log logP (2n− 1),
+where
+∆(n) = max
+i=1,...,ℓ−1
+di+1/di.
+The proof of C. L. Stewart [16] of Lemma 2 uses the original lower bounds
+for linear forms in logarithms of algebraic numbers due to Baker. It is
+4
+
+interesting to notice that following [16] (see also [10, Lemma 3]) but us-
+ing instead the sharper lower bounds for linear forms in logarithms due to
+E. M. Matveev [9], does not seem to lead to any improvement of Lemma 2.
+Let 1 = d1 < d2 <··· < dτ(n) = n be all the divisors of n arranged in
+increasing order and let
+∆0(n) = max
+i≤τ(n)−1
+di+1/di.
+Note that ∆ 0(n)≤ ∆(n).
+We need the following result of E. Saias [13] on the distribution of positive
+integersn with “dense divisors”. Let
+G(x,z ) ={n≤x : ∆ 0(n)≤z}.
+Lemma 3. The bound
+#G(x,z )≍xlogz
+logx
+holds uniformly for x≥z≥ 2.
+Next we address the structure of integer with ∆0(n)≤z. In what follows,
+as usual, an empty product is, by convention, equal to 1.
+Lemma 4. Letn =pe1
+1 ··· pek
+k be the prime number factorization of a positive
+integer n, such that p1 <··· < pk. Then ∆0(n)≤ z if and only if for each
+i≤k, the inequality
+pi≤z
+∏
+j<i
+p
+ej
+j
+holds.
+Proof. The necessity is clear since otherwise the ratio of the two consecutive
+divisors ∏
+j<i
+p
+ej
+j and pi
+is larger than z.
+The suﬃciency can be proved by induction on k. Indeed for k = 1 it
+is trivial. By the induction assumption, we also have ∆( m) ≤ z, where
+m =n/pe1
+1 . Remarking that p1≤z, we also conclude that ∆(n)≤z.
+5
+
+5 Proof of Theorem 1
+We putE ={n : τ(n)≥ (logn)3}. To bound # E(x), let x be large and
+n≤ x. We may assume that n > x/(logx)2 since there are only at most
+x/(logx)2 positive integers n≤ x/(logx)2. Since n∈E (x), we have that
+τ(n)> (log(x/ logx))3 > 0.5(logx)3 for all x suﬃciently large. Since
+∑
+n≤x
+τ(n) =O(x logx)
+(see [7, Theorem 320]), we get that
+#E(x)≪ x
+(logx)2.
+By the Primitive Divisor Theorem (see [1], for example), there exists a prime
+factor p≡ 1 (mod n) of 2n− 1 for all n> 6. Then, by partial summation,
+∑
+n∈E(x)
+(logn)α
+P (2n− 1) ≤
+∑
+n∈E(x)
+(logn)α
+n ≤ 1 +
+∫ x
+2
+(logt)α
+t d#E(t)
+≤ 1 + #E(x)
+x +
+∫ x
+2
+#E(t)(logt)α
+t2 dt
+≪ 1 +
+∫ x
+2
+dt
+t(logt)2−α≪ 1.
+Hence, ∑
+n∈E
+(logn)α
+P (2n− 1) <∞. (2)
+We now letF ={n :P (2n− 1)>n (logn)1+α(log logn)2}. Clearly,
+∑
+n∈F
+(logn)α
+P (2n− 1)≤
+∑
+n≥1
+1
+n logn(log logn)2 <∞. (3)
+From now on, we assume that n̸∈E∪F . For a given n, we let
+D(n) ={d :dn + 1 is a prime factor of 2 n− 1},
+and
+D+(n) = max{d∈D (n)}.
+6
+
+Since P (2n− 1)≥d(n)n + 1, we have
+D+(n)≤ (logn)1+α (log logn)2. (4)
+Further, we let xL = eL. Assume that L is large enough. Clearly, for
+n∈ [xL−1,xL] we have D+(n)≤ L1+α(logL)2. We let Hd,L be the set of
+n∈ [xL−1,xL] such thatD+(n) =d. We then note that by partial summation
+SL =
+∑
+xL−1≤n≤xL
+n̸∈E∪F
+(logn)α
+P (2n− 1)≤Lα
+∑
+d≤L1+α(logL)2
+∑
+n∈Hd,L
+1
+nd + 1
+< Lα
+xL−1
+∑
+d≤L1+α(logL)2
+#Hd,L
+d ≪ Lα
+xL
+∑
+d≤L1+α(logL)2
+#Hd,L
+d .
+(5)
+We now estimate #Hd,L. We let ε > 0 to be a small positive number
+depending on α which is to be speciﬁed later. We split Hd,L in two subsets
+as follows:
+LetId,L be the set of n∈H d,L such that
+#D(n)> 1
+M (logn)α+ε (log logn)2 > 1
+MLα+ε(logL)2,
+where M =M(ε) is some positive integer depending on ε to be determined
+later. Since D+(n)≤ L1+α(logL)2, there exists an interval of length L1−ε
+which contains at least M elements ofD(n). Let them be d0 < d1 <··· <
+dM−1. Write ki =di−d0 fori = 1,...,M − 1. For ﬁxed d0,k 1,...,k M−1, by
+the Brun sieve (see, for example, Theorem 2.3 in [5]),
+#{n∈[xL−1,xL] : din + 1 is a prime for all i = 1,...,M }
+≪ xL
+(log(xL))M
+∏
+p|d1···dM
+(
+1− 1
+p
+)−M
+≪ xL
+LM
+
+
+∏M
+i=1di
+ϕ
+(∏M
+i=1di
+)
+
+
+M
+≪ xL(log logL)M
+LM ,
+(6)
+where we have used that ϕ(m)/m≫ 1/ log logy in the interval [1,y ] with
+y =yL =L1+α(logL)2 (see [7, Theorem 328]). Summing up the inequality (6)
+for alld0≤L1+α(logL)2 and allk1,...,k M−1≤L1−ε, we get that the number
+of n∈I d,L is at most
+#Id,L≪ xL(logL)M+2L1+αL(M−1)(1−ε)
+LM = xL(logL)M+2
+L(M−1)ε−α . (7)
+7
+
+We now choose M to be the least integer such that ( M− 1)ε >2 +α, and
+with this choice of M we get that
+#Id,L≪ xL
+L2. (8)
+We now deal with the set Jd,L consisting of the numbers n∈ Hd,L with
+#D(n)≤ M−1 (logn)α+ε (log logn)2. To these, we apply Lemma 2. Since
+τ(n)< (logn)3 and P (2n− 1)<n 2 for n∈H d,L, Lemma 2 yields
+log ∆(n)/ log logn≪ #D(n)≪ (logn)α+ε (log logn)2.
+Thus,
+log ∆(n) ≪ (logn)α+ε (log logn)3
+≪ (logxL)α+ε (log logxL)3≪Lα+ε(logL)3.
+Therefore
+∆0(n)≤ ∆(n)≤zL,
+where
+zL = exp(cLα+ε(logL)3)
+and c> 0 is some absolute constant.
+We now further split Jd,L into two subsets. Let Sd,L be the subset of
+n∈ Jd,L such that P (n) < x1/ logL
+L . From known results concerning the
+distribution of smooth numbers (see the corollary to Theorem 3.1 of [2],
+or [8], [17], for example),
+#Sd,L≤ xL
+L(1+o(1)) log logL≪ xL
+L2. (9)
+LetTd,L =Jd,L\Sd,L. For n∈T d,L, we have n =qm, where q > x1/ logL
+L is a
+prime. Fix m. Then q <xL/m is a prime such that qdm + 1 is also a prime.
+By the Brun sieve again,
+#{q≤xL/m : q,qdm + 1 are primes}
+≪ xL
+m(log(xL/m))2
+( md
+ϕ(md)
+)
+≪ xL(logL)3
+L2m , (10)
+where in the above inequality we used the minimal order of the Euler function
+in the interval [1,xLL1+α(logL)2] together with the fact that
+log(xL/m)≥ logxL
+logL = L
+logL.
+8
+
+We now sum up estimate (10) over all the allowable values for m.
+An immediate consequence of Lemma 4 is that since ∆ 0(n)≤zL, we also
+have ∆0(m)≤ zL for m = n/P (n). Thus, m∈G (xL,zL). Using Lemma 3
+and partial summation, we immediately get
+∑
+m∈G(xL,zL)
+1
+m≤
+∫ xL
+2
+d(#G(t,zL))
+t ≤ #G(xL,zL)
+xL
++
+∫ xL
+2
+#G(t,zL)
+t2 dt
+≪ logzL
+L + logzL
+∫ xL
+2
+dt
+t logt
+≪ logzL log logxL≪Lα+ε(logL)4,
+as L→∞ . Thus,
+#Td,L≪ xL(logL)3
+L2
+∑
+m∈Md,L
+1
+m≪ xL(logL)7Lα+ε
+L2 < xL
+L2−α−2ε, (11)
+when L is suﬃciently large. Combining estimates (8), (9) and (11), we get
+that
+#Hd,L≤ #Jd,L + #Sd,L + #Td,L≪ xL
+L2−α−2ε. (12)
+Thus, returning to series (5), we get that
+SL≤
+∑
+d≤L1+α(logL)2
+1
+L2−2α−2ε≪ logL
+L2−2α−2ε.
+Since α< 1/2, we can choose ε> 0 such that 2− 2α− 2ε> 1 and then the
+above arguments show that
+∑
+n≥1
+(logn)α
+P (2n− 1)≪ 1 +
+∑
+L
+logL
+L2−2α−ε <∞,
+which is the desired result.
+References
+[1] G. D. Birkhoﬀ and H. S. Vandiver, ‘On the integral divisors ofan−bn’,
+Ann. of Math. (2) 5 (1904), 173–180.
+9
+
+[2] E. R. Canﬁeld, P. Erd˝ os and C. Pomerance, ‘On a problem of Oppen-
+heim concerning “factorisatio numerorum”’, J. Number Theory 17
+(1983), 1–28.
+[3] P. Erd˝ os, P. Kiss and C. Pomerance, ‘On prime divisors of Mersenne
+numbers’, Acta Arith. 57 (1991), 267–281.
+[4] P. Erd˝ os and T. N. Shorey, ‘On the greatest prime factor of 2p− 1 for
+a prime p and other expressions’, Acta Arith. 30 (1976), 257–265.
+[5] H. Halberstam and H.-E. Richert, Sieve methods , Academic Press,
+London, 1974.
+[6] G. H. Hardy and S. Ramanujan, ‘The normal number of prime factors
+of an integer, Quart. Journ. Math. (Oxford) 48 (1917), 76-92.
+[7] G. H. Hardy and E. M. Wright, An Introduction to the Theory of
+Numbers, 5th ed., Oxford, 1979.
+[8] A. Hildebrand and G. Tenenbaum, ‘Integers without large prime fac-
+tors’, J. de Th´ eorie des Nombres de Bordeaux, 5 (1993), 411–484.
+[9] E. M. Matveev, ‘An explicit lower bound for a homogeneous rational
+linear form in logarithms of algebraic numbers II’, Izv. Ross. Akad.
+Nauk. Ser. Math. 64 (2000), 125–180; English translation Izv. Math.
+64 (2000), 1217–1269.
+[10] L. Murata and C. Pomerance, ‘On the largest prime factor of a
+Mersenne number’, Number theory CRM Proc. Lecture Notes vol.36 ,
+Amer. Math. Soc., Providence, RI, 2004, 209–218,.
+[11] R. Murty and S. Wong, ‘The ABC conjecture and prime divisors of
+the Lucas and Lehmer sequences’, Number theory for the millennium,
+III (Urbana, IL, 2000) , A K Peters, Natick, MA, 2002, 43–54.
+[12] C. Pomerance, ‘On primitive divisors of Mersenne numbers’, Acta
+Arith. 46 (1986), no. 4, 355–367.
+[13] E. Saias, ‘Entiers ` a diviseurs denses 1’,J. Number Theory 62 (1997),
+163–191.
+10
+
+[14] A. Schinzel, ‘On primitive prime factors of an−bn’, Proc. Cambridge
+Philos. Soc. 58 (1962), 555–562.
+[15] C. L. Stewart, ‘The greatest prime factor of an−bn’, Acta Arith. 26
+(1974/75), no. 4, 427–433.
+[16] C. L. Stewart, ‘On divisors of Fermat, Fibonacci, Lucas and Lehmer
+numbers’, Proc. London Math. Soc. (3) 35 (1977), 425–447.
+[17] G. Tenenbaum, Introduction to analytic and probabilistic number the-
+ory, Cambridge Univ. Press, 1995.
+11

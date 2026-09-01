@@ -7,6 +7,90 @@ Arakelov--Vojta、Frey--Szpiro、S-unit 与算术微分等路线中的真实组�
 严格反例及剩余核心缺口均在
 [`Lean/RESEARCH_STATUS.md`](Lean/RESEARCH_STATUS.md) 中逐项区分。
 
+## 2026-09-01 最新四路线检查点：全局 omega、prime/unit/label、双臂 CRT 与 Mersenne order block
+
+标准、无条件的 `ABCConjecture` 仍未被证明或证伪。本检查点同时推进正向
+证明和反例搜索；只有满足一个命题全部假设的反例才关闭该精确命题，路线
+困难或有限扫描无命中都不构成淘汰理由。四条广义路线均继续保留。统一账本见
+[`四路线综合报告`](research/ABC_MULTI_ROUTE_PRIME_UNIT_TWO_ARM_LAYER_2026_09_01.md)。
+
+- **Carella 全局 omega / 素数幂邻点路线。** primorial multiples 给出满足
+  `w(x)≤2 log log x` 时
+  `#{n≤x: omega(n)>w(x)}=x^(1-o(1))`，从而完整否定 Carella v2 所印的
+  全局 `o(x^(3/5))` 假设及其无条件调用；它不否定稀疏的低 radical 邻点。
+  正向门已放宽为：对某个固定 `k`，构造无界的
+  `p^k<c≤p^k+(p^k)^(3/5)`、`p∤c` 且
+  `rad(c)≤(p^k)^(sigma+o(1))` 的子序列，其中
+  `sigma<2/5-1/k`。见
+  [`全局 omega 报告`](research/ABC_CARELLA_GLOBAL_OMEGA_HYPOTHESIS_2026_09_01.md)与
+  [`CarellaGlobalOmegaHypothesis20260901`](Lean/IUTThreeClosures/CarellaGlobalOmegaHypothesis20260901.lean)。
+- **IUT prime/unit/label 路线。** 完整的素数指数、unit 部分与固定 label
+  可以重构有理数、实际 `Q_p` 点、带标签 packet 及其区域包含关系。三个
+  全前提反例分别关闭 exponent-only、只保留第一 residue、以及丢弃标签后
+  用 aggregate holonomy 重构的弱接口；它们不否定实际 IUT 构造或显式返回
+  permutation 的接口。最小开放门是在真实 theta link、log-Kummer 修正、
+  determinant normalization 与 Ind1--Ind3 分支上证明 all-place/all-label
+  signature preservation 或 image containment。见
+  [`prime-unit-label 报告`](research/ABC_IUT_PRIME_UNIT_LABEL_VECTOR_BRIDGE_2026_09_01.md)与
+  [`IUTPrimeUnitLabelVectorBridge20260901`](Lean/IUTThreeClosures/IUTPrimeUnitLabelVectorBridge20260901.lean)。
+- **最小仿射 shear 双臂 CRT 路线。** 对 seed `(1,242,243)` 构造了
+  `318322715` 个同时满足两条 long-arm 必要门的精确 CRT 参数；其中首点
+  满足全部 seed、box、互素、cap 与双臂假设，却有
+  `rad(ABC)^4>C^3`。这个完整反例只关闭“两条 marginal long-arm 门足以
+  推出三分之四异常”的命题。正向路线仍需以至少
+  `kappa R^(-2/3)c^(4+eta)` 的匹配密度强迫完整三臂 excess 乘积不等式。见
+  [`双臂 CRT 报告`](research/ABC_AFFINE_TWO_ARM_CRT_PACKET_2026_09_01.md)与
+  [`AffineTwoArmCRTPacket20260901`](Lean/IUTThreeClosures/AffineTwoArmCRTPacket20260901.lean)。
+- **Mersenne prime-layer / order-block 路线。** 对 composite odd-prime
+  layer 已证平方级 radical 下界，并由最大素因子结果渐近得到
+  `E_ell/Phi_ell(2) << 1/(ell^2 log ell)`；这还远弱于所需的
+  `log E_d=o(phi(d))`。正确总账
+  `W_m=L_m*prod_(d|m) E_d` 且 `L_m|m`。`m=6` 完整否定省略 lifting
+  factor 的恒等式；`ell=37` 和 `ell=11` 分别只否定统一三因子加强与统一
+  立方 radical 加强。prime index 到 `61` 未发现重复因子只是有限 no-hit。
+  已完成的
+  [`MersennePrimeLayerRadical20260901`](Lean/IUTThreeClosures/MersennePrimeLayerRadical20260901.lean)
+  核验 prime-layer、有限 base-mass 与显式前提下的抽象 bridge；
+  [`MersenneOrderBlockDecomposition20260901`](Lean/IUTThreeClosures/MersenneOrderBlockDecomposition20260901.lean)
+  进一步核验 exact-order 局部 LTE、`L_m|m`、逐素数 base exponent 及
+  `W_m=L_m*prod_(d|m)E_d` 的显式有限乘积；
+  [`MersenneOrderBlockAsymptotic20260901`](Lean/IUTThreeClosures/MersenneOrderBlockAsymptotic20260901.lean)
+  核验 canonical `E_d` 与 relative block 的一致性、对数 divisor-sum 恒等式，
+  以及以开放前提 `log E_d=o(phi(d))` 推出 `log W_m=o(m)`。尚未证明的是该
+  前提本身与外部 Erdős--Shorey 输入，而不是分解或条件渐近 passage。
+  [`MersenneCanonicalBlockWitness20260901`](Lean/IUTThreeClosures/MersenneCanonicalBlockWitness20260901.lean)
+  又核验 `ord_1093(2)=364`、该处 valuation 恰为 2 及 `1093|E_364`，从而只
+  关闭“所有 canonical block 都等于 1”的加强命题。最新 cyclotomic 文献
+  审计进一步给出 `E_d=Phi_d(2)/rad(Phi_d(2))`，而 Brun--Titchmarsh 无条件
+  控制 `q≤phi(d)^2/log log(3d)` 的 repeated-prime 小臂。若开放 little-oh
+  失败，质量必须落入 super-Wieferich 深提升、近二次区间内
+  `Omega(phi(d)/log d)` 个同阶 Wieferich 素数聚簇，或零密度 exceptional
+  small-order 大素数的加权尾。
+  [`MersenneWieferichTailReduction20260901`](Lean/IUTThreeClosures/MersenneWieferichTailReduction20260901.lean)
+  核验这套 powerful-part 比较、有限质量三分核心及论文 (6.15) 的显式
+  ambient square-budget 比率；外部 cyclotomic、
+  Brun--Titchmarsh、totient 与 order-distribution 定理仍明确留在 Lean 外。见
+  [`Mersenne 报告`](research/ABC_MERSENNE_PRIME_LAYER_RADICAL_2026_09_01.md)。
+
+相应纸面证明均先于 Lean 核心；任何未证明的无限族、IUT 全局运输、文献
+渐近输入或 abc 本身都没有被伪装成 Lean 公理。当前没有无条件
+`ABCConjecture` 的 Lean 闭项，也没有其严格否定项。
+
+本检查点的[封存验证包](Lean/verification/2026_09_01_prime_unit_two_arm_layer/)
+逐项重放 8 个模块与 14 个编译/计算任务：176 条定理、37 个定义、3 个
+abbreviation、4 个 structure，共 220 个顶层声明；177 次 `#print axioms`
+的依赖并集恰为 `Classical.choice`、`propext` 与 `Quot.sound`，聚合目标完成
+9206 jobs。482 项 Git 索引输入清单 SHA-256 为
+`e4c91809276e2890008e5ca1689a59d85e938620938ab87fedcc8756a8b31462`，
+封存账本 SHA-256 为
+`36cb329de8038b6bbb96a4a14760d4bb8211b00a34581a99769c28faa8e80bff`。
+
+作者为 ChatGPT 的[134 页英文论文](output/pdf/ChatGPT_ABC_Prime_Unit_Two_Arm_Layer_Continuation_2026_09_01.pdf)
+SHA-256 为
+`594ef475fd66d43f4e2fc8bae355bde9af1fde21f66a64a3e67e8a370846ddad`；
+[PDF QA](output/pdf/ChatGPT_ABC_Prime_Unit_Two_Arm_Layer_Continuation_2026_09_01_QA/QA.md)
+记录了全页渲染、文本与元数据检查。
+
 ## 2026-09-01 最新四路线续研：holonomy、仿射密度与深素数逃逸
 
 标准、无条件的 `ABCConjecture` 仍未被证明或证伪。本检查点继续同时进行

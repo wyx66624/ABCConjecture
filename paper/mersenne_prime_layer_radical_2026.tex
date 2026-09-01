@@ -1,0 +1,365 @@
+\section{Prime-layer radical bounds and the corrected Mersenne order ledger}
+\label{sec:mersenne-prime-layer}
+
+Put $M_m=2^m-1$ and
+\[
+                 W_m=\frac{M_m}{\rad(M_m)}.
+\]
+For every odd prime $q$, let $d_q=\operatorname{ord}_q(2)$ and
+$w_q=v_q(2^{d_q}-1)$.  Define the base excess of the exact-order block $d$ by
+\[
+                E_d=\prod_{\substack{q\ {\mathrm{prime}}\\d_q=d}}
+                         q^{w_q-1}.
+\]
+The index-lifting contribution must be kept separate:
+\[
+ B_m=\prod_{d\mid m}E_d,\qquad
+ L_m=\prod_{\substack{q\ {\mathrm{prime}}\\q\mid M_m}}
+                         q^{v_q(m/d_q)}.
+\]
+
+\begin{theorem}[Correct exact-order decomposition]
+\label{thm:mersenne-order-decomposition}
+For every $m\ge1$,
+\begin{equation}\label{eq:mersenne-order-decomposition}
+                       W_m=L_mB_m=L_m\prod_{d\mid m}E_d.
+\end{equation}
+Moreover $L_m\mid m$, so $\log L_m\le\log m=o(m)$.
+\end{theorem}
+
+\begin{proof}
+If $q\mid M_m$, then $d_q\mid m$, and odd-prime LTE gives
+\[
+ v_q(M_m)=w_q+v_q(m/d_q).
+\]
+After one copy of $q$ is removed into the radical, the first summand supplies
+$q^{w_q-1}$ in the unique block $E_{d_q}$ and the second supplies its factor
+in $L_m$.  Multiplying over the prime support proves
+\eqref{eq:mersenne-order-decomposition}.  Since $d_q\mid q-1$, one has
+$q\nmid d_q$ and therefore $v_q(m/d_q)=v_q(m)$.  Thus $L_m$ takes from $m$
+only the full powers of a subset of its prime divisors, proving $L_m\mid m$.
+\end{proof}
+
+The factor $L_m$ cannot be deleted.  At $m=6$,
+\[
+ M_6=63=3^2\cdot7,\qquad \rad(M_6)=21,\qquad W_6=3.
+\]
+Here $d_3=2$, $w_3=1$, $d_7=3$, and $w_7=1$, so the base product is one,
+whereas $L_6=3$.  This is a complete counterexample to the formula
+$W_m=\prod_{d\mid m}E_d$ without an index-lifting term.  It supports the
+corrected decomposition rather than refuting the order-block route.
+
+At a prime index the lifting factor disappears, and the radical admits an
+elementary uniform lower bound.
+
+\begin{theorem}[Composite prime-layer square carrier]
+\label{thm:mersenne-prime-square-carrier}
+Let $\ell$ be an odd prime.  If $M_\ell$ is composite, then it has at least
+two distinct prime divisors, every prime divisor $q$ satisfies
+\[
+ \operatorname{ord}_q(2)=\ell,\qquad
+ 2\ell\mid q-1,\qquad q\ge2\ell+1,
+\]
+and consequently
+\begin{equation}\label{eq:mersenne-square-carrier}
+ (2\ell+1)^2\le\rad(M_\ell),\qquad
+ (2\ell+1)^2E_\ell\le\Phi_\ell(2).
+\end{equation}
+If one prime factor is at least $H$, the square in
+\eqref{eq:mersenne-square-carrier} may be replaced by
+$H\,(2\ell+1)$.
+\end{theorem}
+
+\begin{proof}
+First, $2^\ell-1$ is not a nontrivial prime power.  Indeed, if
+$2^\ell-1=q^v$, then an even $v$ contradicts reduction modulo eight.  If
+$v\ge3$ is odd, the factorization
+\[
+ q^v+1=(q+1)(q^{v-1}-q^{v-2}+\cdots-q+1)
+\]
+has an odd second factor strictly greater than one, impossible for a power of
+two.  Hence a composite value has two distinct prime factors.
+
+For a prime divisor $q$, its order divides the prime $\ell$ and is not one,
+so it equals $\ell$.  Lagrange's theorem and oddness of $q$ give
+$2\ell\mid q-1$.  Two distinct factors therefore contribute at least
+$(2\ell+1)^2$ to the radical.  Since $L_\ell=1$ and
+$\rad(M_\ell)E_\ell=M_\ell=\Phi_\ell(2)$, the excess form follows.  If one
+factor is at least $H$, combine it with the distinct factor at least
+$2\ell+1$.
+\end{proof}
+
+Writing $P(N)$ for the greatest prime factor of $N$, Erd\H{o}s and Shorey prove
+$P(2^\ell-1)\gg\ell\log\ell$ for prime $\ell$
+\cite{ErdosShorey1976}; the later account of Ford, Luca, and Shparlinski
+records the same uniform input \cite{FordLucaShparlinski2009}.  The asymmetric
+part of Theorem~\ref{thm:mersenne-prime-square-carrier} therefore yields
+\begin{equation}\label{eq:mersenne-literature-saving}
+ \frac{E_\ell}{\Phi_\ell(2)}
+       \ll\frac1{\ell^2\log\ell}
+\end{equation}
+for every sufficiently large prime $\ell$, including the prime
+$M_\ell$ case trivially.  This is only a polynomial saving.  It leaves
+\[
+ \log E_\ell\le \ell\log2-2\log\ell-\log\log\ell+O(1),
+\]
+whereas the Mersenne endpoint needs $\log E_\ell=o(\ell)$.
+
+The corrected global ledger identifies a clean sufficient target.
+
+\begin{proposition}[Base-block totient criterion]
+\label{prop:mersenne-totient-criterion}
+If
+\[
+                         \log E_d=o(\varphi(d)),
+\]
+then $\log W_m=o(m)$ as $m\to\infty$.
+\end{proposition}
+
+\begin{proof}
+Put $e_d=\log E_d\ge0$.  Given $\eps>0$, choose $D$ so that
+$e_d\le\eps\varphi(d)$ for $d\ge D$, and put
+$C_D=\sum_{d<D}e_d$.  The divisor identity
+$\sum_{d\mid m}\varphi(d)=m$ gives
+\[
+ \log B_m=\sum_{d\mid m}e_d\le C_D+\eps m.
+\]
+Theorem~\ref{thm:mersenne-order-decomposition} now gives
+$\log W_m\le\log m+C_D+\eps m$.  Divide by $m$, let $m$ tend to infinity,
+and then let $\eps$ tend to zero.
+\end{proof}
+
+\begin{proposition}[Cyclotomic reformulation]
+\label{prop:mersenne-cyclotomic-reformulation}
+For every $d>1$,
+\begin{equation}\label{eq:mersenne-cyclotomic-excess}
+ E_d=\frac{\Phi_d(2)}{\rad(\Phi_d(2))},\qquad
+ \log\Phi_d(2)=\varphi(d)\log2+O(1),
+\end{equation}
+where the absolute value of the $O(1)$ term is at most two.  If $V_d$ is
+the powerful part of $\Phi_d(2)$, then
+\[
+                         E_d\le V_d\le E_d^2.
+\]
+Hence the hypothesis of
+Proposition~\ref{prop:mersenne-totient-criterion} is equivalent both to
+\[
+ \log\rad(\Phi_d(2))=\varphi(d)\log2+o(\varphi(d))
+\]
+and to $\log V_d=o(\varphi(d))$.
+\end{proposition}
+
+\begin{proof}
+Murty and Wong record the unconditional cyclotomic classification that a
+prime divisor of $\Phi_d(a,b)$ is $1\pmod d$, except possibly for the largest
+prime factor of $d$, and that the exceptional divisor occurs to at most the
+first power \cite{MurtyWong2002}.  Pomerance gives the same classification
+directly for $\Phi_d(2)$ and records the sharper bounds
+$2^{\varphi(d)-1}\le\Phi_d(2)<2^{\varphi(d)+1}$
+\cite{PomeranceCyclotomic2025}.  For $(a,b)=(2,1)$ the first class consists
+of exact-order-$d$ primes; the exceptional class disappears on division by
+the radical.  This proves the first identity in
+\eqref{eq:mersenne-cyclotomic-excess}.  The cyclotomic product formula gives
+\[
+ \log\Phi_d(2)=\varphi(d)\log2+
+   \sum_{e\mid d}\mu(d/e)\log(1-2^{-e}).
+\]
+Since $-\log(1-x)\le2x$ for $0\le x\le1/2$, the last sum has absolute value
+at most $\sum_{e\ge1}2^{1-e}=2$.  A prime power $q^a$, $a\ge2$, contributes
+$q^{a-1}$ to $E_d$ and $q^a$ to $V_d$; now
+$a-1\le a\le2(a-1)$.  Taking logarithms proves the equivalences.
+\end{proof}
+
+The reformulation permits an unconditional removal of all sufficiently
+small repeated-prime support.  Put
+\[
+ \mathcal W_d=\{q:\operatorname{ord}_q(2)=d,
+                    \ v_q(2^d-1)\ge2\},
+\]
+\[
+ T_d=\prod_{q\in\mathcal W_d}q,\qquad
+ D_d=\prod_{\substack{\operatorname{ord}_q(2)=d\\v_q(2^d-1)\ge3}}
+              q^{v_q(2^d-1)-2}.
+\]
+Thus $E_d=T_dD_d$.
+
+\begin{proposition}[Near-quadratic tail reduction]
+\label{prop:mersenne-near-quadratic-tail}
+Set
+\[
+ Y_d=\frac{\varphi(d)^2}{\log\log(3d)},\qquad
+ T_d^{\le Y}=\prod_{\substack{q\in\mathcal W_d\\q\le Y_d}}q.
+\]
+Then
+\begin{equation}\label{eq:mersenne-small-wieferich-mass}
+                   \log T_d^{\le Y}=o(\varphi(d)).
+\end{equation}
+If $\log E_d=o(\varphi(d))$ fails, then there are some $\epsilon>0$ and a
+sequence $d_j\to\infty$ such that, for each fixed $\delta>0$, there is a
+subsequence on which at least one of the following persists:
+\begin{enumerate}
+\item $\log D_{d_j}\ge\epsilon\varphi(d_j)/4$;
+\item the interval $Y_{d_j}<q\le d_j^{2+\delta}$ contains at least
+\[
+ \frac{\epsilon\varphi(d_j)}{4(2+\delta)\log d_j}
+\]
+distinct base-two Wieferich primes, all of exact order $d_j$;
+\item
+\[
+ \sum_{\substack{\operatorname{ord}_q(2)=d_j,
+                  \ v_q(2^{d_j}-1)\ge2\\q>d_j^{2+\delta}}}
+       \log q\ge\epsilon\varphi(d_j)/4.
+\]
+Every prime in the third arm has
+$\operatorname{ord}_q(2)<q^{1/(2+\delta)}$ and hence belongs to the
+zero-density exceptional set in the Erd\H{o}s--Murty almost-all order
+theorem \cite{ErdosMurty1999}.  That density theorem does not control the
+weighted mass on a sparse sequence.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Exact order $d$ implies $q\equiv1\pmod d$.  Fix
+$\theta\in(1/2,1)$.  The uniform bound
+$\varphi(d)\gg d/\log\log(3d)$ gives $d<Y_d^\theta$ for all sufficiently
+large $d$.  The weighted Brun--Titchmarsh inequality of Murty--S\'eguin
+\cite[Theorem~2.4]{MurtySeguin2019} then gives
+\[
+ \log T_d^{\le Y}
+ \le\sum_{\substack{q\le Y_d\\q\equiv1\pmod d}}\log q
+ \le\frac{2Y_d\log Y_d}
+          {\varphi(d)\log(Y_d/d)}
+ =o(\varphi(d)),
+\]
+which proves \eqref{eq:mersenne-small-wieferich-mass}.  If the target fails,
+choose $d_j$ with
+$\log E_{d_j}\ge\epsilon\varphi(d_j)$.  Split
+$E_d=T_dD_d$ into the small factor, the two displayed support ranges, and
+$D_d$.  For large $j$ the small logarithm is at most
+$\epsilon\varphi(d_j)/4$; one of the other three nonnegative logarithms is
+therefore at least $\epsilon\varphi(d_j)/4$.  Infinite pigeonhole fixes an
+arm.  In the transition range every summand is at most
+$(2+\delta)\log d_j$, giving the asserted cardinality.  In the extreme range
+$q>d_j^{2+\delta}$ and exact order give
+$d_j<q^{1/(2+\delta)}$.  The final literature comparison follows from the
+almost-all lower order bound of Erd\H{o}s and Murty.
+\end{proof}
+
+\begin{corollary}[A fixed fraction of the square budget]
+\label{cor:mersenne-transition-square-budget}
+Let $s_d=|\mathcal W_d|$ and put
+\[
+ B_d=\frac{(\varphi(d)+1)\log2}{2\log(d+1)}.
+\]
+Then $s_d\le B_d$.  On the transition alternative of
+Proposition~\ref{prop:mersenne-near-quadratic-tail},
+\[
+ \frac{|\{q\in\mathcal W_d:Y_d<q\le d^{2+\delta}\}|}{B_d}
+ \ge
+ \frac{\epsilon}{2(2+\delta)\log2}
+ \frac{\varphi(d)}{\varphi(d)+1}
+ \frac{\log(d+1)}{\log d}.
+\]
+Thus that alternative consumes a fixed positive proportion of the maximum
+support allowed by square divisibility alone.
+\end{corollary}
+
+\begin{proof}
+Every $q\in\mathcal W_d$ is at least $d+1$, while
+$T_d^2\mid\Phi_d(2)$.  Pomerance's bound
+$\Phi_d(2)<2^{\varphi(d)+1}$ \cite{PomeranceCyclotomic2025} therefore gives
+\[
+ s_d\log(d+1)\le\log T_d
+ \le\tfrac12\log\Phi_d(2)
+ <\tfrac12(\varphi(d)+1)\log2.
+\]
+Divide the transition-cardinality bound in the preceding proposition by
+$B_d$.
+\end{proof}
+
+This is a necessary structure, not a contradiction.  One very deep lift can
+still carry the first arm, and no unconditional theorem excludes the
+fixed-proportion cluster in the second arm.
+
+Because $q\nmid(q-1)/d_q$, LTE also gives
+\[
+ v_q(2^{q-1}-1)=v_q(2^{d_q}-1)=w_q.
+\]
+Thus $T_d$ is exactly the same-order Wieferich support and $D_d$ is its
+super-Wieferich excess.  A prime enters only one canonical block.  Finiteness
+of base-two super-Wieferich primes would remove the first arm eventually but
+would leave the two support tails.  Current fixed-base results, including
+Fellini--Murty's finite-super implication, do not provide a weighted estimate
+inside one exact-order block \cite{FelliniMurty2026}.  Under uniformly bounded
+canonical valuations---in particular, under finiteness of base-two
+super-Wieferich primes---Murty--S\'eguin's bound for the largest prime is only
+at a polynomial scale
+\cite{MurtySeguin2019}.  Pomerance's
+unconditional results establish many composite primitive parts; his stronger
+distinct-factor theorem is
+abc-conditional \cite{PomeranceCyclotomic2025}.  Neither conclusion yields
+exponential radical saturation on the $\varphi(d)$ scale.
+
+\begin{proposition}[A nontrivial canonical block]
+\label{prop:mersenne-1093-block}
+The canonical exact-order block at $d=364$ is nontrivial; more precisely,
+\[
+                         1093\mid E_{364}.
+\]
+\end{proposition}
+
+\begin{proof}
+Direct integer arithmetic gives
+\[
+ 1093^2\mid2^{364}-1,\qquad 1093^3\nmid2^{364}-1,
+\]
+and
+\[
+ 2^{182}\equiv1092,\qquad 2^{52}\equiv27,\qquad
+ 2^{28}\equiv121\pmod {1093}.
+\]
+The number $1093$ is prime and $364=2^2\cdot7\cdot13$.  The prime-divisor
+criterion for multiplicative order therefore gives
+$\operatorname{ord}_{1093}(2)=364$: exponent $364$ kills $2$, while division
+by any prime divisor of $364$ does not.  The first two divisibilities show
+that the valuation at $1093$ is exactly two.  Thus the defining product for
+$E_{364}$ contains $1093^{2-1}$.
+\end{proof}
+
+Proposition~\ref{prop:mersenne-1093-block} is a complete counterexample to
+the strengthening $E_d=1$ for every $d$.  It does not contradict
+$\log E_d=o(\varphi(d))$, because a single fixed block has no effect on the
+limit at infinity.
+
+Two further exact witnesses delimit tempting universal strengthenings:
+\[
+ 2^{37}-1=223\cdot616318177
+\]
+has exactly two prime factors, refuting the claim that every composite prime
+layer with $\ell\ge37$ has at least three; and
+\[
+ 2^{11}-1=23\cdot89,\qquad
+ \rad(M_{11})=2047<(2\cdot11+1)^3
+\]
+refutes a cubic radical replacement valid at every composite odd-prime
+layer.  These witnesses do not refute an eventual three-factor estimate, a
+weighted base-block theorem, or Proposition~\ref{prop:mersenne-totient-criterion}.
+A deterministic scan of all prime indices $3\le\ell\le61$ found no repeated
+factor; that is recorded only as a finite no-hit.
+
+Lean verifies the elementary prime-layer theorems, the three prime-layer
+witnesses, and the finite totient-tail inequality.  Companion modules additionally
+verify exact-order LTE, $L_m\mid m$, the finite product
+$W_m=L_m\prod_{d\mid m}E_d$, equality of relative and canonical blocks on
+divisors, the exact logarithmic divisor-sum identity, and the conditional
+asymptotic conclusion of Proposition~\ref{prop:mersenne-totient-criterion},
+as well as the nontrivial canonical-block witness $1093\mid E_{364}$.
+The finite core of the powerful-part comparison, the deep/transition/extreme
+mass trichotomy, and both the realized-support and exact ambient square-budget
+ratio implications is checked in a
+fifth module.  That module takes the cyclotomic identification, the
+Brun--Titchmarsh small-arm estimate, and the prime-order distribution theorem
+as explicit paper inputs; it does not assert them as Lean theorems.
+The cited largest-prime-factor theorem remains an external published input,
+and $\log E_d=o(\varphi(d))$ remains an open hypothesis.  The lifting
+remainder and the passage from that hypothesis are now kernel-checked.

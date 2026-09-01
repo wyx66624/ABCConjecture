@@ -480,6 +480,55 @@ import IUTThreeClosures.IUTLanaSpecificationNoGo20260901
 -- not an object-level IUT construction or an abc conclusion.
 import IUTThreeClosures.IUTCorrectedVolumeHolonomy20260901
 
+-- Vector-level continuation of the same-pilot route: complete prime/unit
+-- coordinates reconstruct rational and actual p-adic packet entries, while
+-- fixed labels make the full signature faithful.  Three complete
+-- counterexamples close only exponent-only, residue-truncated, and
+-- unordered aggregate-holonomy weakenings.
+import IUTThreeClosures.IUTPrimeUnitLabelVectorBridge20260901
+
+-- Literal audit of Carella v2, Theorem 5.1(iii): every positive multiple of
+-- a high-omega support kernel remains high-omega, giving the exact finite
+-- lower bound N/Q.  The broader positive route is retained through the
+-- sufficient radical-neighbour target sigma < 2/5 - kappa.
+import IUTThreeClosures.CarellaGlobalOmegaHypothesis20260901
+
+-- The diagonal minimal-step affine shear admits a unique CRT class forcing
+-- independent square divisors in its two long arms.  A counted canonical
+-- packet and one complete primitive point show that the two necessary
+-- marginal excess gates are not sufficient for a three-quarter exception.
+import IUTThreeClosures.AffineTwoArmCRTPacket20260901
+
+-- Prime-index Mersenne layers have an unconditional square radical carrier;
+-- the global exact-order ledger requires a separate index-lifting factor,
+-- exposed by the complete m=6 counterexample.  The corrected abstract
+-- totient-tail bridge keeps the order-block route open without hiding LTE.
+import IUTThreeClosures.MersennePrimeLayerRadical20260901
+
+-- Actual arithmetic continuation of the corrected order ledger.  The
+-- lifting factor is gcd(m, 2^m-1), divides both the index and the Mersenne
+-- power loss, and splits that loss into a lifting factor and a base quotient;
+-- supported-prime exponents of the quotient are computed by exact-order LTE.
+import IUTThreeClosures.MersenneOrderBlockDecomposition20260901
+
+-- Canonical, index-independent exact-order blocks agree with the relative
+-- blocks on every divisor of m.  Their logarithms give the exact divisor-sum
+-- formula for the Mersenne power loss, and the still-open hypothesis
+-- log E_d = o(phi(d)) is carried rigorously to log W_m = o(m).
+import IUTThreeClosures.MersenneOrderBlockAsymptotic20260901
+
+-- A complete base-mass witness at the first classical base-two Wieferich
+-- prime: ord_1093(2)=364, the local depth is exactly two, and hence the
+-- canonical block E_364 contains 1093.  This closes only the strengthening
+-- that every canonical block is one, not the little-o route.
+import IUTThreeClosures.MersenneCanonicalBlockWitness20260901
+
+-- Finite ordered-ring core of the exact Wieferich block split E_d=T_d*D_d:
+-- powerful-part comparison, controlled-small-arm mass dichotomies, and the
+-- transition-support cardinality lower bound.  Brun--Titchmarsh, totient
+-- bounds, and order-distribution inputs remain explicit paper inputs.
+import IUTThreeClosures.MersenneWieferichTailReduction20260901
+
 -- Integrated cloud arithmetic core, v26--v29.  These modules retain the
 -- square/cube and affine-residual reductions from current main, then add the
 -- repaired exponent-height, shared-support, and contact-depth continuations.

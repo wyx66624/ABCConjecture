@@ -1,0 +1,32 @@
+Commands were run from E:\AImath\abc猜想 on 2026-09-01.
+
+SCAN
+C:\Users\Admin\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe research/computation/2026_09_01_mersenne_prime_layer_radical/scan_prime_layers.py --max-index 61 --output research/computation/2026_09_01_mersenne_prime_layer_radical/prime_layers_3_61.json
+Exit code: 0
+
+VERIFY
+C:\Users\Admin\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe research/computation/2026_09_01_mersenne_prime_layer_radical/verify_prime_layers.py research/computation/2026_09_01_mersenne_prime_layer_radical/prime_layers_3_61.json --output research/computation/2026_09_01_mersenne_prime_layer_radical/verification.json
+Exit code: 0
+Rows verified: 17
+Verified: true
+Failures: []
+
+FINITE RESULT
+Composite prime indices: 11, 23, 29, 37, 41, 43, 47, 53, 59
+Composite indices with exactly two distinct factors: 11, 23, 37, 41, 59
+Repeated-prime-factor indices: none in the scanned range
+
+The last line is a finite no-hit only and carries no extrapolation.
+
+LEAN
+Run from E:\AImath\abc猜想\Lean:
+lake env lean IUTThreeClosures/MersennePrimeLayerRadical20260901.lean
+Exit code: 0
+Theorem declarations: 33
+Explicit #print axioms commands: 33
+Source sorry/axiom markers: 0
+Printed axiom union: propext, Classical.choice, Quot.sound
+sorryAx in build log: false
+native_decide/Lean.ofReduceBool axiom in build log: false
+Abstract total-mass bridge: totalMass_le_prefix_add_totient_tail_add_log
+Arithmetic global lifting-product identity formalized here: false

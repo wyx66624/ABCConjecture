@@ -1,0 +1,54 @@
+WORKDIR: E:\AImath\abc猜想\Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean IUTThreeClosures/MersennePrimeLayerRadical20260901.lean
+'IUTThreeClosures.mersenne_not_primePow_of_composite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_composite_two_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.prime_index_mersenne_factor_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.prime_index_mersenne_factor_two_mul_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.prime_index_mersenne_factor_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.two_distinct_prime_factors_radical_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.composite_prime_index_mersenne_radical_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.two_distinct_prime_factors_radical_asymmetric' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.composite_prime_index_radical_of_large_factor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.composite_prime_index_powerLoss_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.composite_prime_index_powerLoss_of_large_factor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.orderBlockMassSum_le_smallDivisors_add_totient_tail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.orderBlockMassSum_le_prefix_add_totient_tail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.totalMass_le_prefix_add_totient_tail_add_log' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.mersenne_six_factorization' depends on axioms: [propext]
+'IUTThreeClosures.mersenne_six_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_six_radical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_six_three_order_and_baseValuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_six_seven_order_and_baseValuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_six_powerLoss' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_37_semiprime' depends on axioms: [propext]
+'IUTThreeClosures.mersenne_prime_223' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_prime_616318177' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_37_support_exactly_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_37_support_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_11_semiprime' depends on axioms: [propext]
+'IUTThreeClosures.mersenne_prime_23' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_prime_89' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_11_support_exactly_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_11_radical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.mersenne_11_refutes_cubic_radical_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IUTThreeClosures.not_all_composite_prime_index_mersenne_three_support' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.not_all_composite_prime_index_mersenne_cubic_radical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

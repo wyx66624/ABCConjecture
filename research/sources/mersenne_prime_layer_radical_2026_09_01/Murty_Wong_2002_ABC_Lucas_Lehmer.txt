@@ -1,0 +1,542 @@
+===== PAGE 1 =====
+THE ABC CONJECTURE AND PRIME DIVISORS OF
+THE LUCAS AND LEHMER SEQUENCES
+RAM MURTY AND SIMAN WONG
+1. Introduction
+A straightforward consequence of Thue’s pioneering work on Dio-
+phantine approximation [24] is: Let m be a non-zero integer and let
+f ∈ Z[x,y ] be a binary form. Then the equation f (x,y ) = m has
+ﬁnitely many integer solutions, unless f is the multiple of either a
+power of a linear form, or a power of a binary quadratic form with pos-
+itive nonsquare discriminant. Thue’s techniques were reﬁned by P´ olya
+[15] and Siegel [18] to show that if f ∈ Z[x] has at least two distinct
+roots, then
+(1) P (f (x))→∞
+as |x|→∞, where P (a) denotes the largest prime divisor of a non-zero
+integera. Using the Gelfond-Baker method, Shorey, van der Poorten,
+Tijdeman and Schinzel [17] showed that if f ∈ Z[x,y ] is a binary form
+with at least three distinct linear factors (over C), then for any positive
+integerd and all pairs of integersx,y with (x,y ) = d and max(|x|, |y|)>
+e,
+(2) P (f (x,y )) ≫ f,d log log max(|x|, |y|).
+with an eﬀective constant. Using the so-called sharpening of Baker [2],
+in the case of binomials, Stewart [20] improved this to
+P (axn −byn) ≫ a,b
+√
+n/ logn.
+Furthermore, if we let n run through the set Sκ of integers n with at
+mostκlog logn distinct prime divisors (0 <κ< 1/ log 2 ﬁxed), Stewart
+([21], [22]) showed that there exists an eﬀective constant C(κ,a,b )> 0
+such that
+(3) P (an −bn)
+n >C (κ,a,b ) log1−κ log 2n
+log log logn.
+Ram Murty’s research was supported in part by a Killam Research Fellowship
+and Bankers Trust Company Foundation by a grant to the Institute for Advanced
+Study. The ﬁrst author also thanks Brown University where this work was initiated
+and the Institute for Advanced Study where it was completed.
+1
+
+===== PAGE 2 =====
+2 RAM MURTY AND SIMAN WONG
+(note that the set Sκ has density 1). There are also similar results
+when n is restricted to the set of primes. In 1962, Erd¨ os [3, p. 218]
+conjectured that
+(4) lim
+n→∞
+P (2n − 1)
+n = ∞.
+While heuristic arguments (see section 4 below) suggest the stronger
+result
+(5) P (an − 1)
+?
+≫ an1− ϵ
+,
+currently we do not even know that P (an −bn) > C(a,b )nθ for some
+θ >1. For more information on the history of these problems, see [3]
+and the introduction in Shorey et.al.[17].
+Let Q(n) denote the largest prime power divisor of n. Clearly,
+Q(n) ≥ P (n) and so a consequence of the conjecture of Erd¨ os is that
+Q(2n − 1)/n → ∞ asn → ∞ . In this paper, we prove this. In fact, we
+can prove a more general result:
+Theorem 1. For any ϵ >0 and any integers a > b >0, we have
+Q(an −bn) ≫ n2−ϵ, where the implied constant depends on a,b and ϵ.
+One can sharpen the theorem so that
+Q(an −bn) ≫ n2−c/ log log n
+for a suitable constant c> 0. Most likely, Q(2n − 1) = P (2n − 1) but we
+are unable to prove this. If we write 2 n − 1 = unvn withun squarefree,
+vn squarefull and (un,v n) = 1, then a result of Silverman [S] states that
+un is “large” under the ABC conjecture. We therefore apply the ABC
+conjecture (see section 2) to resolve Erd¨ os conjecture (4), in this way.
+More precisely, we prove assuming ABC that for any ϵ>0,
+P (2n − 1) ≫ n2−ϵ,
+forn suﬃciently large. Under the same hypothesis, we deduce sharper
+forms of (1) and (2) above. A key role is played by the Brun-Titchmarsh
+theorem on primes in arithmetic progressions which is a familiar theo-
+rem in sieve theory. More generally, we prove:
+Theorem 2. Assume the ABC conjecture. For any ϵ >0 and any
+integersa>b> 0, we have
+P (an −bn) ≫ n2−ϵ,
+(where the implied constant depends on a,b and ϵ).
+
+===== PAGE 3 =====
+THE ABC CONJECTURE AND PRIME DIVISORS 3
+Recall that if α,βare algebraic integers such that α+βandαβare
+coprime, non-zero rational integers and that α/βis not a root of unity,
+then the n-th Lucas number with respect to α,βis deﬁned to be
+tn = (αn −βn)/ (α−β)
+Now, if α,βare algebraic integers subjected to the weaker conditions
+that (α+β)2 and αβare coprime, non-zero rational integers and that
+α/βis not a root of unity, then the n-th Lehmer number with respect
+to α,βis deﬁned to be
+un = (αn −βn)/ (αδn −βδn),
+where δn = 1 if n is odd, and δn = 2 if n is even. These sequences
+arise naturally in the study of primality testing [25]. Using the same
+techniques as in ([21], [22]), Stewart proved that for almost all integers
+n and κas in (3),
+(6) P (un),P (tn) ≫ α,β,κ C log1−κ log 2n
+log log lognn.
+Using Frey’s reﬁned ABC conjecture for number ﬁelds (cf. section 2)
+and the Brun-Titchmarsh theorem for number ﬁelds [9], the same ar-
+gument for Theorem 2 yields a corresponding improvement of (6) (we
+will omit the proof).
+Theorem 3. Letα,βbe non-zero algebraic integers in a number ﬁeld
+K such that α/βis not a root of unity. Fix an integer δ >0. Under
+Frey’s reﬁned ABC conjecture, for any ϵ >0, if n is suﬃciently large
+(depending on α,βand δ), then
+P
+(
+NormK/ Q
+( αn −βn
+αδ −βδ
+))
+>n 2−ϵ.
+□
+Remark 1. As the referee points out, Theorem 1 can be readily gen-
+eralized to more general sequences such as those given in Theorem 3.
+Cf. also the recent results of Ribenboim and Walsh [16] along these
+lines.
+For prime divisors of polynomial values we have the following strength-
+ening of (1).
+Theorem 4. Assume the ABC conjecture. Let f (x) ∈ Z[x] be a non-
+constant polynomial with no repeated roots. Then for any ϵ >0 and
+n ≫ ϵ,f 1, we have the lower bound
+P (f (n))> (deg(f ) − 1 −ϵ) logn.
+
+===== PAGE 4 =====
+4 RAM MURTY AND SIMAN WONG
+Erd¨ os [3, p. 218] also raised the question of studying P (n! + 1). The
+best results to date [4] are that P (n! + 1)>n (1 +o(1)) log n
+log log n, and that
+lim supn→∞ P (n! + 1)/n> 2 +δfor some δ >0. The ABC conjecture
+yields the following improvement.
+Theorem 5. Under the ABC conjecture, for every ϵ >0 there exists
+a constant c(ϵ)> 0 such that
+P (n! + 1) >
+(
+n + 1
+2
+)
+logn − (2 +ϵ)n +c(ϵ).
+In the same paper, Erd¨ os asked if numbers of the form 2n±1 represent
+inﬁnitely many k-th power-free integers. In the case of 2 n − 1 there is
+a curious relation with Artin’s conjecture on primitive roots. More
+generally, for any integer d, the Artin’s conjecture with index d states
+that for any positive square-free integer a ̸= 1, there exists inﬁnitely
+many primes p such that a (mod p) generates a subgroup of index d
+in ( Z/p Z)×. The argument in [11] readily shows that this generalized
+Artin conjecture follows from the generalized Riemann hypothesis. We
+have the following curious theorem which is suggested by the previous
+discussion and is of independent interest. It can be viewed as a variation
+on the work of Murty and Srinivasan [12].
+Theorem 6. Either Artin ’s conjecture on primitive roots with index 2
+holds for a = 2, or there exist inﬁnitely many primes p such that 2p − 1
+is composite.
+Remark 2. Most likely, both possibilities of the Theorem are true. How-
+ever, at present, neither assertion has been established unconditionally
+so the Theorem is of some interest.
+2. Statements of the ABC conjectures
+We begin by stating the usual ABC conjecture [14]. See [13] for a
+survey of its many conjectural applications.
+Conjecture 1 (The ABC conjecture) . For every ϵ >0 there exists a
+constantc(ϵ)> 0, such that for any triple of nonzero, pairwise coprime
+integersA,B,C with A +B +C = 0, we have
+max(|A|, |B|, |C|)<c (ϵ)
+∏
+p|ABC
+p1+ϵ,
+where the product is taken over the distinct prime divisors of ABC .
+Now, let K/ Q be a number ﬁeld with discriminant ∆ K. Denote by
+OK the ring of integers of K. For any x ∈K ×, denote by hK(x) the
+
+===== PAGE 5 =====
+THE ABC CONJECTURE AND PRIME DIVISORS 5
+exponential height of x overK. Frey [5] proposed the following reﬁned
+version of the ABC conjecture:
+Conjecture 2 (Frey). For any ϵ >0 and any ideal a ⊂ O K there
+exists a constant c(ϵ,∆ K, a) which depends linearly on log |∆ K|and
+log Norm a but otherwise not depending on K, such that for any pair
+of elements A,B ∈ OK which generate the ideal a, we have the upper
+bound
+max
+(
+hK(A),h K(B),h K(A −B)
+)
+≤ (1 +ϵ)
+( ∏
+p|AB(A−B)
+Norm(p)
+)
++c(ϵ,∆ K, a).
+Remark 3. It is a standard fact from commutative algebra that every
+non-zero ideal in a Dedekind domain can be generated by two elements.
+(cf. [1, exer. 7]).
+3. Proof of Theorem 1
+Denote by Φ d(x,y ) the homogenized d-th cyclotomic polynomial, so
+an −bn =
+∏
+d|n
+Φ d(a,b ).
+Fix ϵ >0. Recall the fact from elementary number theory that the
+number of divisors of n, denoted d(n), satisﬁes the estimate d(n) =
+O(nϵ). Thus, for any z ≥ 1 and a>b> 0,
+an −bn =
+∏
+d|n
+d≤ z
+Φ d(a,b ) ·
+∏
+d|n
+d>z
+Φ d(a,b )
+≤ aznϵ
+·
+∏
+d|n
+d>z
+Φ d(a,b ).
+Let p be a prime not dividing ab. It is an easy exercise to show that
+p|Φ d(a,b ) implies p ≡ 1 (mod d) or p = P (d) and this occurs to at
+most the ﬁrst power. Let Q =Q(an −bn). As usual, write
+ψ(x,d, 1) =
+∑
+n≤ x
+n≡ 1 (mod d)
+Λ(n)
+
+===== PAGE 6 =====
+6 RAM MURTY AND SIMAN WONG
+where Λ( n) is the von Mangoldt function. Then, for z = n1−2ϵ, we
+obtain
+log(an −bn) ≪ n1−ϵ +
+∑
+d|n
+d>z
+log Φ d(a,b )
+≪ n1−ϵ +O(nϵ) +
+∑
+d|n
+d>z
+ψ(Q,d, 1),
+where the implied constants depend only on a,b and ϵ. The last sum
+is
+≤
+∑
+d|n
+d>z
+logQQ
+d ≪ Q
+zd(n) logQ ≪ Q(logQ)n−1+3ϵ
+so that Q ≫ n2−3ϵ. □
+4. Prime divisors of binomials
+For any integern> 1, deﬁne the powerful part of n to be the product
+κ(n) := ∏
+p:p2|npordp(n). The quotient n/κ(n) is called the powerfree
+part of n.
+Denote by Φ d(x,y ) the homogenizedd-th cyclotomic polynomial. For
+any integers a>b> 0, write Φ d(a,b ) = Ud(a,b )Vd(a,b ), where Ud(a,b )
+(resp. Vd(a,b )) is the power-free part of Φ d(a,b ) (resp. powerful part),
+so (Ud(a,b ),V d(a,b )) = 1.
+Lemma 1. Under the ABC conjecture, for every ϵ>0 there exists an
+absolute constant c1(ϵ)> 0 such that, for any integers a>b> 0,
+∏
+d|n
+Vd(a,b )<c 1(ϵ)(ab)1+ϵaϵn.
+Proof. This is essentially Lemma 7 in [19]. For the sake of complete-
+nesss, we shall brieﬂy review the proof.
+Apply the ABC conjecture and we get, for every ϵ >0 there exists
+an absolute constant c0(ϵ)> 0 such that
+an = max(an,b n,a n −bn)<c 0(ϵ)
+( ∏
+p|ab(an−bn)
+p
+) 1+ϵ
+.
+Since the square-free part of Vd(a,b ) is ≤
+√
+Vd(a,b ), this becomes
+an < c 0(ϵ)(ab)1+ϵ
+( ∏
+d|n
+Ud(a,b )
+√
+Vd(a,b )
+) 1+ϵ
+< c 0(ϵ)(ab)1+ϵan(1+ϵ)
+( ∏
+d|n
+Vd(a,b )
+) −(1+ϵ)/ 2
+.
+
+===== PAGE 7 =====
+THE ABC CONJECTURE AND PRIME DIVISORS 7
+Rearrange the terms and we are done. □
+Proof of Theorem 2. Lemma 1 shows that, under the ABC conjecture,
+∏
+d|n
+Ud(a,b ) = an −bn
+∏
+d|nVd(a,b ) ≫ ϵ (an −bn)a−nϵ>a n−1−nϵ =an(1−ϵ)−1.
+For any d, we have the trivial estimate Ud(a,b ) < Φ d(a,b ) < ad. For
+anyz ≥ 1, we have
+an(1−ϵ) ≪ ϵ,a
+∏
+d|n
+d≤z
+Ud(a,b )
+∏
+d|n
+d>z
+Ud(a,b ) ≪ ϵ,a
+∏
+d|n
+d≤z
+ad
+∏
+d|n
+d>z
+Ud(a,b ).
+Since ∑
+d|n 1 ≪ ϵnϵ, upon letting z =n1−2ϵ,
+an(1−ϵ) ≪ ϵ,a nϵan1− ϵ ∏
+d|n
+d>z
+Ud(a,b ),
+whence
+(7) an(1−2ϵ) ≪ ϵ,a
+∏
+d|n
+d>z
+Ud(a,b ).
+Now, Ud is the square-free part of the value of the homogeneous d-
+th cyclotomic polynomial, so that if p ̸ |ab divides Ud(a,b ) then p ≡
+1 (mod d). Now, suppose that P (an − bn) ≤ N := n2−5ϵ. Then for
+d>z , the Brun-Titchmarsh theorem [23, p. 73] gives
+Ud(a,b ) ≪ a,b
+∏
+p≤N
+p≡1(d)
+p ≪ a,b,ϵ exp(2N/ϕ(d)) ≪ exp(2N log logd/d )
+≤ exp(n1−3ϵlog logn),
+upon using ϕ(d) ≫ d/ log logd. Combine this with (7), we get
+an(1−ϵ) ≪ ϵ,a,b
+∏
+d|n
+d>z
+exp(n1−3ϵlog logn).
+Taking logs on both sides and we get
+n(1 −ϵ) ≪ ϵ,a,b
+∑
+d|n
+d>z
+n1−3ϵlog logn ≪ ϵ,a,b n1−2ϵ,
+a contradiction if n ≫ ϵ,a,b 1. □
+
+===== PAGE 8 =====
+8 RAM MURTY AND SIMAN WONG
+Proof of Theorem 5. The ABC conjecture gives
+n! ≪ ϵ
+( ∏
+p|(n!)(n!+1)
+p
+) 1+ϵ
+≪ ϵ
+(
+en
+∏
+p|(n!+1)
+p>n
+p
+) 1+ϵ
+.
+Taking logs and applying the Stirling approximation, we get
+(n + 1/ 2) logn −n ≤ (1 +ϵ)
+(
+n +
+∑
+p|(n!+1)
+p>n
+logp
+)
+,
+and the theorem follows. □
+5. Heuristics for Erd ¨os’ conjecture
+For any primep and any integer a not divisible by p, denote by fa(p)
+the order of a (mod p). Deﬁne
+Px = max
+n≤x
+P (an − 1).
+Under the ABC conjecture, the argument for Lemma 1 shows that
+an − 1 = unvn with un square-free and vn ≪ a,ϵ aϵn. Thus
+∑
+p≤Px
+fa(p)≤x
+[x/f a(p)] logp ∼ 1
+2x2 loga,
+whence
+(logPx)
+∑
+p:fp(a)<x
+[x/f p(a)] ≥ 1
+2x2 loga.
+On the other hand,
+(8)
+∑
+p≤Px
+fa(p)≤x
+[x/f p(a)] =
+∑
+n≤x
+v(an − 1),
+where v(m) denotes the number of distinct prime divisors of m. A
+classical result of Hardy and Ramanujan [8] says that the average order
+ofv(m) is log logm. If we assume that v(an − 1) behaves like this, then
+it follows that an − 1 usually has O(logn) prime divisors, in which case
+the sum on the right side of (8) behaves like x logx. This gives a more
+precise form of (5):
+Px ≥ ax/ 2 log x.
+In fact, we can do even better. The Hardy-Ramanujan result is based
+on the heuristic that the probability a prime divides n is 1/p . Thus the
+
+===== PAGE 9 =====
+THE ABC CONJECTURE AND PRIME DIVISORS 9
+number of prime divisors of n should be roughly
+∑
+p≤n
+1
+p ∼ log logn.
+In our case, an − 1 = ∏
+d|nφd(a), so we should really be looking at
+prime divisors of φd(a). But then all prime divisors are ≡ 1 (mod d),
+so the average number of prime divisors of φd(a) should be
+∑
+p≤ad
+p≡1 ( mod d)
+1
+p ∼ logd
+φ(d).
+This slightly improves the heuristic above to
+Px ≥ acx
+for some constant c> 0.
+6. Prime divisors of polynomials
+The following result was noted independently by Langevin [10] and
+Granville [6].
+Theorem 7. Assume the ABC conjecture. Suppose that g ∈ Z[x] has
+distinct roots. Then for any ϵ >0 there exists a constant c(ϵ,g) > 0
+such that for any integer m,
+∏
+p|g(m)
+p ≤ c(ϵ,g)|m|deg g−1−ϵ.
+□
+Proof of Theorem 4. Suppose that P (f (n)) ≪ ϵ,f (deg(f ) − 1 −ϵ) logn
+for n ≫ ϵ,f 1. Then under the ABC conjecture, Theorem 7 gives
+(
+deg(f ) − 1 − ϵ
+2
+)
+logn ≪ ϵ,f
+∑
+p|f (n)
+logp ≪
+∑
+p<(deg f −1−ϵ) log n
+logp
+≪ (degf − 1 −ϵ) logn
+for n suﬃciently large, a contradiction. □
+7. Compositeness of 2q − 1
+Denote, by fa(p) the order of a (mod p), as before.
+
+===== PAGE 10 =====
+10 RAM MURTY AND SIMAN WONG
+Proof of Theorem 6. Deﬁne a set of primes (with η >0)
+S = {p ≤ x :p − 1 = 2l1or 2l1l2,l 2 >x 1/ 2−η>l 1 >x 1/ 4−η},
+where 2 is a quadratic residue mod p. If the set of primes p ∈S with
+p − 1 = 2l1 is inﬁnite, then Artin’s conjecture holds for index 2. So now
+suppose that all the primes p ∈ S are of the form 2 l1l2 with l1,l 2 as
+indicated inS. Then, the order of 2 mod p forp ∈S is eitherl1 orl2. In
+either case, 2 l1 − 1 or 2 l2 − 1 is divisible by p and hence composite since
+each of these numbers is larger than p. This completes the proof. □
+A similar argument can be applied to show that if it is not the case
+that 2 is a primitive root for inﬁnitely many primes p then (2 p + 1)/ 3
+is composite for inﬁnitely many primes p. We leave the details to the
+interested reader.
+References
+[1] M. F. Atiyah and I. G. MacDonald, Introduction to commutative algebra .
+Addison-Wesley, 1969.
+[2] A. Baker, A sharpening of the bounds for linear forms in logarithms I, II, III.
+Acta Arith. 21 (1972) 117-129; 24 (1973) 33-36; 27 (1975) 247-252.
+[3] P. Erd¨ os, Some recent advances and current problems in number theory. In:
+Lectures on modern mathematics, III (edited by T. L. Saaty), 196-244. John
+Wiley & Sons, 1965.
+[4] P. Erd¨ os and C. L. Stewart, On the greatest and least prime factors of n! + 1.
+J. London Math. Soc. (2) 13 (1976) no. 3, 513-519.
+[5] G. Frey, On ternary equations of Fermat type and relations with elliptic curves,
+in: Modular forms and Fermat’s last theorem , 527-548. Springer-Verlag, 1997.
+[6] A. Granville, ABC allows us to count squarefrees. Inter. Math. Research No-
+tices (1998) 991-1009.
+[7] R. Gupta and R. Murty, A remark on Artin’s conjecture. Invent. Math. 78
+(1984) 127-130.
+[8] G. H. Hardy and S. Ramanujan, The normal number of prime factors of a
+number n. Quarterly J. Math. 48 (1920) 76-92.
+[9] Hinz, J¨ urgen and M. Lodemann, On Siegel zeros of Hecke-Landau zeta-
+functions. Monatsh. Math. 118 (1994) 231-248.
+[10] M. Langevin, Cas d’egalit´ e pour le th´ eor` eme de Mason et applications de la
+conjecture (abc). C. R. Acad. Sci. Paris Ser. I Math 317 (1993) 441-444.
+[11] R. Murty, On Artin’s conjecture. J. Number Theory 16 (1983) 147-168.
+[12] R. Murty and S. Srinivasan, Some remarks on Artin’s conjecture, Canad. Math.
+Bulletin 30 (1987) no. 1, 80-85.
+[13] A. Nitaj, La conjecture abc. Enseign. Math. (2) 42 (1996) 1-24.
+[14] J. Oesterl´ e, Nouvelles approches du th´ eor` eme de Fermat, in:S´ eminaire Bour-
+baki expos´ e 694, 1987-88.
+[15] G. P´ olya, Zur arithmetischen Untersuchung der Polynome. Math. Zeitschrift
+1 (1918) 143-148.
+[16] P. Ribenboim and G. Walsh, The ABC conjecture and the powerful part of
+terms in binary recurring sequences. J. Number Theory 74 (1999) 134-147.
+
+===== PAGE 11 =====
+THE ABC CONJECTURE AND PRIME DIVISORS 11
+[17] T. N. Shorey, A. J. van der Poorten, R. Tijdeman and A. Schinzel, Applications
+of the Gelfond-Baker method to Diophantine equations. In: Transcendence
+theory: advances and applications. (edited by A. Baker and D. W. Masser),
+59-77. Academic Press, 1977.
+[18] C. L. Siegel, Approximation algebraischer Zahlen, Math. Z. 10 (1921) 173-213.
+[19] J. Silverman, Wieferich’s criterion and the abc-conjecture. J. Number Theory
+30 (1988) 226-237.
+[20] C. L. Stewart, Divisor properties of arithmetic sequences , Ph. D. thesis, Uni-
+versity of Cambridge, 1976.
+[21] C. L. Stewart, On divisors of Fermat, Fibonacci, Lucas, and Lehmer numbers.
+Proc. London Math. Soc. (3) 35 (1977) 425-477.
+[22] C. L. Stewart, Primitive divisors of Lucas and Lehmer numbers. In: Tran-
+scendence theory: advances and applications (edited by A. Baker and
+D. W. Masser), 79-92. Academic Press, 1977.
+[23] G. Tenenbaum, Introduction to analytic and probabilistic number theory . Cam-
+bridge Univ. Press, 1995.
+[24] A. Thue, ¨Uber Ann¨ aherungswerte algebraischer Zahlen,J. reine angew. Math.
+135 (1909) 284-305.
+[25] H. C. Williams, Edouard Lucas and primality testing . Wiley, 1998.
+Department of Mathematics, Queen’s University. Kingston, On-
+tario K7L 3N6. Canada
+Department of Mathematics, University of Massachusetts. Amherst,
+MA 01003. USA
+E-mail address : murty@mast.queensu.ca, siman@math.umass.edu

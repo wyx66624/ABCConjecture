@@ -1,0 +1,32 @@
+WORKDIR: E:\AImath\abc猜想\research\computation\2026_09_01_affine_two_arm_crt_packet
+COMMAND: D:\anaconda3\python.exe -B verify_two_arm_packet.py
+scope=exact_finite_certificate_not_asymptotic
+seed=(1,242,243)
+R=66
+M=779890651873
+I_M=[389945325937,779890651873]
+local_residues=k_mod_25:6,k_mod_49:13
+crt_residue=356
+crt_modulus=1225
+packet_t_range=[318322715,636645429]
+packet_k_range=[389945326231,779890650881]
+packet_count=318322715
+packet_identity_V=25*(229321+789096*t)
+packet_identity_W=49*(116521+400950*t)
+first_hk=(389945326231,389945326231)
+first_UVW=(25736391531247,6279679533624025,6253943142092779)
+first_factor_U=17*1513905384191
+first_factor_V=5^2*23*37*139267*2119433
+first_factor_W=7^2*17431*7322098141
+all_displayed_factors_prime=true
+first_excess=(1,5,7)
+two_arm_gate=Rc:16038<8192E(V):40960,8192E(W):57344
+first_ABC=(25736391531247,1519682447137014050,1519708183528545297)
+primitive_abc_identity=true
+canonical_caps=true
+output_radical=1905965152082355653156023025952426333444740670
+short_squarefree_carrier=5145057294975341
+three_quarter_exception=false
+full_product_threshold=false
+captured_output_match=true
+EXIT_CODE: 0
