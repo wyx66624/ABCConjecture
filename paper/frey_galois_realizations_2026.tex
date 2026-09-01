@@ -1,0 +1,283 @@
+\section{Explicit Frey curves realizing the local fields}
+\label{sec:frey-realizations}
+
+The local calculations above use actual finite extensions of $\Q_p$.
+We now realize their ramification by torsion fields of explicit rational
+elliptic curves. This separates a local model from a claim that every
+condition on global initial data has already been supplied. The latter
+construction is given separately in Section~\ref{sec:initial-theta-data}.
+
+For positive coprime $a,b$, put $c=a+b$ and
+\[
+ D_{a,b}:\quad y^2=x(x-a)(x+b),\qquad S=a^2+ab+b^2.
+\]
+Direct calculation from the Weierstrass coefficients gives
+\begin{equation}\label{eq:fr-invariants}
+ \Delta(D_{a,b})=16(abc)^2,\qquad c_4(D_{a,b})=16S,
+ \qquad j(D_{a,b})=\frac{256S^3}{(abc)^2}.
+\end{equation}
+Reducing $S$ modulo $a,b,c$ gives $b^2,a^2,a^2$, respectively;
+thus $\gcd(S,abc)=1$. At an odd prime $r\mid abc$, the displayed
+equation is minimal and multiplicative, and its Tate order is
+$2v_r(abc)$ after a splitting extension. Indeed $c_4$ is a unit,
+which both proves minimality and gives the reduction criterion
+\cite[VII.5.1]{Silverman}.
+
+\begin{lemma}[Two transvections and passage to a torsion field]
+\label{lem:fr-sl2}
+Let $\ell$ be a prime and let $G\subseteq\GL_2(\mathbf F_\ell)$
+be a subgroup.
+If $G$ contains a nonidentity transvection and an element preserving
+no $\mathbf F_\ell$-line, then $G$ contains
+$\operatorname{SL}_2(\mathbf F_\ell)$.
+If $H\triangleleft G$ has finite index prime to $\ell$, then $H$
+also contains this special linear group.
+\end{lemma}
+\begin{proof}
+Let $T$ be the transvection, with fixed line $L$, and let $g$ be the
+second element. The lines $L$ and $gL$ differ. In a basis along them,
+$T$ and $gTg^{-1}$ have matrices
+\[
+ U(s)=\begin{pmatrix}1&s\\0&1\end{pmatrix},\qquad
+ V(t)=\begin{pmatrix}1&0\\t&1\end{pmatrix},\qquad st\ne0.
+\]
+Their integer powers give $U(x)$ and $V(y)$ for every
+$x,y\in\mathbf F_\ell$, since the field is prime. Elementary
+row reduction shows that these two root groups generate
+$\operatorname{SL}_2(\mathbf F_\ell)$: for a matrix with nonzero
+upper-left entry, a lower row operation first clears the lower-left
+entry, and an upper operation clears the upper-right entry; diagonal
+matrices are products of elementary matrices. Explicitly,
+$W(t)=U(t)V(-t^{-1})U(t)$ has entries
+$\left(\begin{smallmatrix}0&t\\-t^{-1}&0\end{smallmatrix}\right)$,
+so $W(t)W(-1)=\operatorname{diag}(t,t^{-1})$.
+If the upper-left
+entry is zero, a preliminary upper operation makes it nonzero.
+For the last assertion, the image of $T$ in $G/H$ has order dividing
+both $\ell$ and $[G:H]$, hence is trivial. Normality retains
+$gTg^{-1}$, so the same argument applies inside $H$.
+\end{proof}
+
+Here and below the arithmetic use of this lemma invokes two classical
+facts. Good-reduction Frobenius has characteristic polynomial
+$T^2-a_rT+r$, with $a_r=r+1-\#D(\mathbf F_r)$
+\cite[V.2; VII.4]{Silverman}. At a split multiplicative prime
+$p\ne\ell$ with $\ell\nmid v_p(q)$, the Tate description
+$\overline{\Q}_p^\times/q^\Z$ supplies a nontrivial inertia
+transvection on $D[\ell]$: adjoining $q^{1/\ell}$ has ramification
+index $\ell$, while $\mu_\ell$ is unramified. See
+\cite[Theorems 1--2 and Proposition 3]{KedlayaTate}.
+These statements about arithmetic representations are not consequences
+of the formal elementary-matrix lemma alone.
+
+\begin{proposition}[Degree 210 at the prime 139]
+\label{prop:fr-139}
+Each of the curves
+\[
+ D_{139,279},\qquad D_{1,2362}
+\]
+has split multiplicative reduction at $139$ with native Tate order
+two. For either curve $D$, the mod-$7$ image over
+$F=\Q(i,D[30])$ contains $\operatorname{SL}_2(\mathbf F_7)$.
+The completion at $139$ of $\Q(i,D[210])$ is
+\begin{equation}\label{eq:fr-210-field}
+ E=\Q_{139}(\mu_{210},\pi),\qquad
+ \pi^{105}=b_0,\qquad b_0^2=q,\quad v_{139}(b_0)=1.
+\end{equation}
+It has ramification index $105$, residue degree two, and degree $210$.
+The second curve is already a rational Legendre curve, with
+parameter $-2362$.
+\end{proposition}
+\begin{proof}
+The factorizations are
+\[
+ 279=3^2\cdot31,\quad 418=2\cdot11\cdot19,
+ \qquad2362=2\cdot1181,\quad2363=17\cdot139.
+\]
+All displayed factors other than $3^2$ are prime.
+For the first curve, reduction at $139$ gives $y^2=x^2(x+1)$;
+for the second it gives $y^2=x(x-1)^2$. The respective nodes have
+two distinct rational tangent directions, of slopes $\pm1$.
+Equation~\eqref{eq:fr-invariants} gives $v_{139}(\Delta)=2$
+and unit $c_4$ in both cases.
+
+Counting the actual points modulo five, including infinity, gives
+$8$ and $4$, respectively. The two Frobenius polynomials are
+$T^2+2T+5$ and $T^2-2T+5$; both have discriminant $-16$, a
+nonsquare modulo seven. The transvection at $139$ and
+Lemma~\ref{lem:fr-sl2} therefore give the special linear subgroup
+over $\Q$. The field $F$ is Galois and
+\begin{equation}\label{eq:fr-level-degree}
+ [F:\Q]\mid2\,|\GL_2(\Z/30\Z)|
+       =2\cdot6\cdot48\cdot480=276480=2^{11}3^3\cdot5.
+\end{equation}
+Its degree is prime to seven, so the normal-subgroup part of the
+lemma applies over $F$.
+
+Full rational two-torsion makes a square root $b_0$ of $q$ rational
+over $\Q_{139}$. In fact its Tate class is rational, so for every
+Galois element $\sigma$ the quotient $\sigma(b_0)/b_0$ belongs
+to both $\{\pm1\}$ and $q^\Z$. Its valuation is zero, forcing
+that quotient to be one. The order of $139$ modulo $210$ is two,
+so the cyclotomic field in \eqref{eq:fr-210-field} is unramified
+quadratic. The polynomial $T^{105}-b_0$ is Eisenstein there.
+The Tate torsion classes give
+$\Q_{139}(D[210])=\Q_{139}(\mu_{210},q^{1/210})=E$;
+fixing their classes forces the root-of-unity multipliers to be
+one. The unramified quadratic field also contains $i$. Finally
+$D_{1,2362}$ is $y^2=x(x-1)(x+2362)$, as asserted.
+No equality $q=139^2$ has been assumed.
+\end{proof}
+
+These small examples require care if used with the particular
+finite-exception construction of \cite[\S5.8]{JoshiIV}. Write
+\[
+ N_1=8105229=139\cdot279\cdot418/2,
+ \qquad N_2=2790703=2362\cdot2363/2.
+\]
+In both cases the normalized Tate quantity is $Q_D=2\log N_i$.
+At two, $v_2(j)=6$; adjoining the full three-torsion gives good
+reduction there, by the finite-torsion argument below. Summing the
+odd pole orders of $j$ gives the asserted normalized value.
+The exact inequalities
+\[
+ 3^{25}<N_i^2<2^{49},\qquad i=1,2,
+\]
+and $2<\exp(1)<3$ imply $25<Q_D<49$. But the prime threshold
+in that existence proof must exceed ten, since
+$\theta(10)=\log210<6<20/3$. Thus candidates with
+$\sqrt{Q_D}\le7$ belong to its proof-constructed small-height
+exceptional set when they lie in the chosen bounding domain.
+This observation uses the normalized definition of $Q_D$ in
+Definition~5.4.1 and Theorem~5.7.1 of that source. The opening
+display of its Section~5.8 omits the degree divisor; a literal
+unnormalized reading must not reuse the preceding normalized values.
+This is a limitation of invoking that sufficient existence proof,
+not a failure of the local calculations or of a direct initial-data
+construction.
+
+\begin{theorem}[An exact balanced example at level 43]
+\label{thm:fr-balanced}
+Put
+\[
+ p=1289,\quad\ell=43,\quad A=p(p^{16}+428),\qquad
+ (a,b,c)=(A^2,A^2+1,2A^2+1),\quad D=D_{a,b}.
+\]
+This is a primitive abc triple, and $D$ is rationally isomorphic
+to the Legendre curve of parameter $\lambda=-1-A^{-2}$.
+For $F=\Q(i,D[30])$, the following assertions hold:
+\begin{enumerate}
+\item $D$ is good above two and at $43$, and split multiplicative
+at every odd prime dividing $abc$.
+\item The mod-$43$ image over both $\Q$ and $F$ contains
+$\operatorname{SL}_2(\mathbf F_{43})$.
+\item Every nonzero integral Tate order over $F$ is prime to $43$.
+\item The normalized Tate quantity satisfies the exact bounds
+\begin{equation}\label{eq:fr-balanced-height}
+ Q_D=2\log\left(\frac{abc}{2}\right),
+       \qquad 1224<Q_D<1648<43^2.
+\end{equation}
+\item At $p$, the completion of $K=\Q(i,D[1290])$ has degree
+$1290$, ramification index $645$, and residue degree two.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+The three endpoints are pairwise coprime, and $a+b=c$.
+The rational substitution $x=A^2X$, $y=A^3Y$ gives
+\[
+ Y^2=X(X-1)(X+1+A^{-2}),
+\]
+so no quadratic twist is introduced. The exact residues are
+$A\equiv5\pmod8$ and $A\equiv1\pmod{5\cdot43}$.
+At an odd prime dividing $a$ or $b$, the reduced equation is
+$y^2=x^2(x+1)$, with tangent slopes $\pm1$.
+At a prime dividing $c$, translation of its node gives
+$y^2=X^2(X+A^2)$, with slopes $\pm A$.
+All these slopes are nonzero. The endpoints are $(1,2,3)$
+modulo $43$, so the discriminant is a unit there.
+
+At two, $v_2(abc)=1$ and $3A^4+3A^2+1$ is odd, whence
+$v_2(j)=6$. Here is a direct reason that the particular field
+$F$ gives good reduction. At any completion $F_w$ above two,
+the group $D[3]\simeq(\Z/3\Z)^2$ is rational.
+If reduction were additive, both the formal subgroup $D_1(F_w)$
+and the quotient $D_0(F_w)/D_1(F_w)$ would have no three-torsion.
+Thus $D[3]$ would inject into $D(F_w)/D_0(F_w)$, whose order
+is at most four in the additive case, a contradiction.
+These are \cite[VII.2.1, VII.3.1, VII.5.1(c), VII.6.1]{Silverman},
+valid over finite extensions of $\Q_2$ as well.
+Multiplicative reduction would require negative $j$-valuation.
+The only remaining possibility is good reduction.
+
+At five the reduced model has four points and Frobenius trace two.
+The discriminant $-16$ of $T^2-2T+5$ is a nonsquare modulo $43$.
+Also $v_p(A)=1$, giving native Tate order four at $p$.
+Lemma~\ref{lem:fr-sl2}, followed by
+\eqref{eq:fr-level-degree}, proves the image assertion.
+
+For clarity, the assertion about all prime exponents does not use
+a factorization of the large endpoints. Let
+$P=\prod_{r\le511,\ r\text{ prime}}r$ be the actual primorial.
+The exact integer calculations give
+\[
+ a,b,c<2^{377},\qquad
+ \gcd(a,P)=3,\quad\gcd(b,P)=2,\quad\gcd(c,P)=17,
+\]
+and $v_3(a)=2$, $v_2(b)=1$, $v_{17}(c)=1$.
+These identities can be verified by integer Euclidean division;
+the companion Lean proof also checks the primorial defined as the
+product over all primes in the indicated range.
+Every prime $r\ge512$ has $r^{43}\ge2^{387}>a,b,c$.
+Since the endpoints are pairwise coprime, it follows that
+\begin{equation}\label{eq:fr-all-primes}
+ v_r(abc)<43\qquad\hbox{for every prime }r.
+\end{equation}
+At a place $w\mid r$ of $F$, the nonzero integral Tate order is
+$2e(w/r)v_r(abc)$. The ramification index divides the Galois
+degree in \eqref{eq:fr-level-degree}, which is prime to $43$;
+equation~\eqref{eq:fr-all-primes} proves the claim.
+
+The normalized sum over $F$ is the sum of the rational odd
+pole orders, because
+\[
+ \sum_{w\mid r}e(w/r)f(w/r)=[F:\Q].
+\]
+This proves the identity in \eqref{eq:fr-balanced-height}.
+For its strict bounds, put $N=abc/2$. We have
+$p^{17}<A<2p^{17}$ and $A^6<N<3A^6$.
+The integer inequalities $3^6<p<(8/3)^8$ give
+\[
+ 3^{1224}<N^2
+       <9\cdot2^{12}(8/3)^{1632}<(8/3)^{1648}.
+\]
+For the last step use
+$9\cdot2^{12}<3^{12}<(8/3)^{16}$.
+Together with $8/3<\exp(1)<3$, these imply
+\eqref{eq:fr-balanced-height} without a floating point approximation.
+
+Finally full rational two-torsion gives $b_0=\sqrt q\in\Q_p$
+with $v_p(b_0)=2$, by the proof of Proposition~\ref{prop:fr-139}.
+Put $K_0=\Q_p(\mu_{1290})$ and choose $\pi^{645}=b_0$.
+The field $K_0$ is unramified quadratic, since $p\equiv-1\pmod{1290}$.
+Writing $\eta=p^2/b_0\in\Z_p^\times$, the genuine uniformizer is
+\begin{equation}\label{eq:fr-uniformizer}
+ \beta=\pi^{323}/p,\qquad
+ \beta^{645}=p\eta^{-323},\qquad\pi=\eta\beta^2.
+\end{equation}
+The first polynomial in $\beta$ is Eisenstein. Tate torsion
+identifies $K_v=K_0(\pi)=K_0(\beta)$, and $K_0$ contains $i$.
+The claimed degrees follow. In particular the native root
+$q^{1/86}=\pi^{15}$ has valuation $2/43$, not $1/43$.
+\end{proof}
+
+The numerical upper bound on the level in
+\cite[Theorem~5.7.1]{JoshiIV} is also satisfied here: with
+$\delta=2^{12}3^3\cdot5$ and $d_{\rm mod}=1$,
+\[
+ \sqrt{Q_D}<43
+       <10\delta\sqrt{Q_D}\log(2\delta\log Q_D).
+\]
+This directly verifies a window for the specified prime. It does
+not identify that prime with an unspecified existential choice in
+another theorem. The next sections construct the additional data
+and an unbounded family independently of that identification.

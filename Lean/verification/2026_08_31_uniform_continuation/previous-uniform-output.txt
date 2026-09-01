@@ -1,0 +1,460 @@
+def IUTThreeClosures.ABCConjecture : Prop :=
+∀ (ε : ℝ),
+  0 < ε →
+    ∃ C,
+      ∀ (a b c : ℕ),
+        0 < a →
+          0 < b →
+            0 < c →
+              a + b = c →
+                IUTThreeClosures.PairwiseCoprimeABC a b c →
+                  Real.log ↑(max a (max b c)) ≤ (1 + ε) * Real.log ↑(IUTThreeClosures.abcRadical (a * b * c)) + C
+newPrimeRadical_pos : ∀ (P n : ℕ), 0 < newPrimeRadical P n
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.newPrimeRadical_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+newPrimeRadical_dvd : ∀ (P n : ℕ), newPrimeRadical P n ∣ n
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.newPrimeRadical_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+newPrimeRadical_coprime : ∀ (P n : ℕ), (UniqueFactorizationMonoid.radical P).Coprime (newPrimeRadical P n)
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.newPrimeRadical_coprime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@radical_mul_eq_newPrimeRadical : ∀ {P n : ℕ},
+  P ≠ 0 → n ≠ 0 → UniqueFactorizationMonoid.radical (P * n) = UniqueFactorizationMonoid.radical P * newPrimeRadical P n
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.radical_mul_eq_newPrimeRadical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@radical_mul_sq_eq_newPrimeRadical : ∀ {P n : ℕ},
+  P ≠ 0 →
+    n ≠ 0 → UniqueFactorizationMonoid.radical (P * n ^ 2) = UniqueFactorizationMonoid.radical P * newPrimeRadical P n
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.radical_mul_sq_eq_newPrimeRadical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+newPrimeRadical_mul_primeExcess : ∀ (P n : ℕ), newPrimeRadical P n * primeExcess P n = n
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.newPrimeRadical_mul_primeExcess' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@primeExcess_pos : ∀ {P n : ℕ}, 0 < n → 0 < primeExcess P n
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.primeExcess_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@square_completion_radical_eq_newPrimeRadical : ∀ {a b c x y z : ℕ},
+  0 < a →
+    0 < b →
+      0 < c →
+        0 < x →
+          0 < y →
+            0 < z →
+              UniqueFactorizationMonoid.radical (a * x ^ 2 * (b * y ^ 2) * (c * z ^ 2)) =
+                UniqueFactorizationMonoid.radical (a * b * c) * newPrimeRadical (a * b * c) (x * y * z)
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.square_completion_radical_eq_newPrimeRadical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@square_completion_retains_seed_radical : ∀ {a b c x y z : ℕ},
+  0 < a →
+    0 < b →
+      0 < c →
+        0 < x →
+          0 < y →
+            0 < z →
+              UniqueFactorizationMonoid.radical (a * b * c) ∣
+                UniqueFactorizationMonoid.radical (a * x ^ 2 * (b * y ^ 2) * (c * z ^ 2))
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.square_completion_retains_seed_radical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@square_completion_radical_mul_excess : ∀ {a b c x y z : ℕ},
+  0 < a →
+    0 < b →
+      0 < c →
+        0 < x →
+          0 < y →
+            0 < z →
+              UniqueFactorizationMonoid.radical (a * x ^ 2 * (b * y ^ 2) * (c * z ^ 2)) *
+                  primeExcess (a * b * c) (x * y * z) =
+                UniqueFactorizationMonoid.radical (a * b * c) * (x * y * z)
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.square_completion_radical_mul_excess' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@square_completion_actual_excess_budget : ∀ {a b c x y z : ℕ} {μ : ℝ},
+  0 < a →
+    0 < b →
+      0 < x →
+        0 < y →
+          0 < z →
+            a + b = c →
+              a * x ^ 2 + b * y ^ 2 = c * z ^ 2 →
+                ↑(UniqueFactorizationMonoid.radical (a * x ^ 2 * (b * y ^ 2) * (c * z ^ 2))) ≤ ↑(c * z ^ 2) ^ μ →
+                  ↑(UniqueFactorizationMonoid.radical (a * b * c)) * ↑(c * z ^ 2) ≤
+                    ↑c * ↑(primeExcess (a * b * c) (x * y * z)) * ↑(c * z ^ 2) ^ μ
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.square_completion_actual_excess_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@bbltExponent_pos : ∀ {μ : ℝ}, 0 < μ → 0 < bbltExponent μ
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.bbltExponent_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@bbltExponent_ge_half : ∀ {μ : ℝ}, 3 / 4 ≤ μ → 1 / 2 ≤ bbltExponent μ
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.bbltExponent_ge_half' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@bbltExponent_eq_two_thirds : ∀ {μ : ℝ}, μ ≤ 3 / 4 → bbltExponent μ = 2 * μ / 3
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.bbltExponent_eq_two_thirds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@actual_conic_exponent_window : ∀ {K ρ σ μ : ℝ},
+  0 < K →
+    0 < ρ →
+      0 < μ →
+        K * bbltExponent μ < max 0 ((K - ρ) / 2) →
+          K * bbltExponent μ < K * μ - σ → ρ + 4 * σ < K ∧ 3 * σ / K < μ ∧ μ < 3 / 4 * (1 - ρ / K) ∧ μ < 3 / 4
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.actual_conic_exponent_window' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@actual_conic_min_exponent_le : ∀ {K ρ σ μ : ℝ},
+  0 < K → 0 < ρ → 0 < μ → K ≤ ρ + 4 * σ → min (max 0 ((K - ρ) / 2)) (K * μ - σ) ≤ K * bbltExponent μ
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.actual_conic_min_exponent_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+rational_completion_support_loss_coordinates : 49 * (3 / 7) ^ 2 = 9 ∧
+  576 * (1 / 6) ^ 2 = 16 ∧
+    625 * (1 / 5) ^ 2 = 25 ∧
+      49 + 576 = 625 ∧ 9 + 16 = 25 ∧ Nat.Coprime 49 576 ∧ Nat.Coprime 9 16 ∧ 7 ∣ 49 * 576 * 625 ∧ ¬7 ∣ 9 * 16 * 25
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.rational_completion_support_loss_coordinates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+quadratic_quality_separator_powers : 2 ^ 38 < 3 ^ 24 ∧ 17 ^ 24 < 6 ^ 38
+'IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.quadratic_quality_separator_powers' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@cubeBase_pos : ∀ {n : ℕ}, 0 < n → 0 < cubeBase n
+'IUTThreeClosures.GeometryGlobalUniformGate.cubeBase_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+cubeBase_cube_dvd : ∀ (n : ℕ), cubeBase n ^ 3 ∣ n
+'IUTThreeClosures.GeometryGlobalUniformGate.cubeBase_cube_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cube_decomposition : ∀ (n : ℕ), cubeCoefficient n * cubeBase n ^ 3 = n
+'IUTThreeClosures.GeometryGlobalUniformGate.cube_decomposition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@cubeCoefficient_pos : ∀ {n : ℕ}, 0 < n → 0 < cubeCoefficient n
+'IUTThreeClosures.GeometryGlobalUniformGate.cubeCoefficient_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cubeBase_dvd : ∀ (n : ℕ), cubeBase n ∣ n
+'IUTThreeClosures.GeometryGlobalUniformGate.cubeBase_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+cubeCoefficient_dvd : ∀ (n : ℕ), cubeCoefficient n ∣ n
+'IUTThreeClosures.GeometryGlobalUniformGate.cubeCoefficient_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cubeCoefficient_factorization : ∀ (n p : ℕ), (cubeCoefficient n).factorization p = n.factorization p % 3
+'IUTThreeClosures.GeometryGlobalUniformGate.cubeCoefficient_factorization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+pair_decomposition : ∀ (m n : ℕ), m * n = pairBase m n ^ 3 * pairCoefficient m n
+'IUTThreeClosures.GeometryGlobalUniformGate.pair_decomposition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@pairCoefficient_pos : ∀ {m n : ℕ}, 0 < m → 0 < n → 0 < pairCoefficient m n
+'IUTThreeClosures.GeometryGlobalUniformGate.pairCoefficient_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+pairX_cube : ∀ (m n : ℕ), pairX m n ^ 3 = 64 * ↑m * ↑n * ↑(pairCoefficient m n) ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.pairX_cube' depends on axioms: [propext, Classical.choice, Quot.sound]
+@pairX_pos : ∀ {m n : ℕ}, 0 < m → 0 < n → 0 < pairX m n
+'IUTThreeClosures.GeometryGlobalUniformGate.pairX_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+pair_mordell_difference : ∀ (m n : ℕ), pairYPlus m n ^ 2 = pairX m n ^ 3 + 16 * ((↑n - ↑m) * ↑(pairCoefficient m n)) ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.pair_mordell_difference' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+pair_mordell_sum : ∀ (m n : ℕ), pairYMinus m n ^ 2 = (-pairX m n) ^ 3 + 16 * ((↑m + ↑n) * ↑(pairCoefficient m n)) ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.pair_mordell_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+mordell_omit_a : ∀ (P : IUTThreeClosures.ABCPoint),
+  pairYPlus P.b P.c ^ 2 = pairX P.b P.c ^ 3 + 16 * (↑P.a * ↑(pairCoefficient P.b P.c)) ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.mordell_omit_a' depends on axioms: [propext, Classical.choice, Quot.sound]
+mordell_omit_b : ∀ (P : IUTThreeClosures.ABCPoint),
+  pairYPlus P.a P.c ^ 2 = pairX P.a P.c ^ 3 + 16 * (↑P.b * ↑(pairCoefficient P.a P.c)) ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.mordell_omit_b' depends on axioms: [propext, Classical.choice, Quot.sound]
+mordell_omit_c : ∀ (P : IUTThreeClosures.ABCPoint),
+  pairYMinus P.a P.b ^ 2 = (-pairX P.a P.b) ^ 3 + 16 * (↑P.c * ↑(pairCoefficient P.a P.b)) ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.mordell_omit_c' depends on axioms: [propext, Classical.choice, Quot.sound]
+@selected_pair_height : ∀ {m n c : ℕ}, 0 < m → 0 < n → c ≤ 2 * (m * n) → 32 * ↑c ≤ |pairX m n| ^ 3
+'IUTThreeClosures.GeometryGlobalUniformGate.selected_pair_height' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+all_three_points_retain_height : ∀ (P : IUTThreeClosures.ABCPoint),
+  32 * ↑P.c ≤ |pairX P.b P.c| ^ 3 ∧ 32 * ↑P.c ≤ |pairX P.a P.c| ^ 3 ∧ 32 * ↑P.c ≤ |(-pairX P.a P.b)| ^ 3
+'IUTThreeClosures.GeometryGlobalUniformGate.all_three_points_retain_height' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+trace_matrix_determinant : ∀ (r : ℤ), !![3, 0, 0; 0, 0, 3 * r; 0, 3 * r, 0].det = -27 * r ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.trace_matrix_determinant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+plus_order_matrix_determinant : ∀ (E F h j : ℤ),
+  !![1, 0, 8 * h * j * (E * F); 0, -2 * h, 4 * F * j ^ 2; 0, -2 * j, 4 * E * h ^ 2].det = 8 * (F * j ^ 3 - E * h ^ 3)
+'IUTThreeClosures.GeometryGlobalUniformGate.plus_order_matrix_determinant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+minus_order_matrix_determinant : ∀ (E F h j : ℤ),
+  !![1, 0, -8 * h * j * (E * F); 0, -2 * h, 4 * F * j ^ 2; 0, 2 * j, 4 * E * h ^ 2].det = -8 * (E * h ^ 3 + F * j ^ 3)
+'IUTThreeClosures.GeometryGlobalUniformGate.minus_order_matrix_determinant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@radical_factorization : ∀ {n p : ℕ},
+  n ≠ 0 → Nat.Prime p → (UniqueFactorizationMonoid.radical n).factorization p = if p ∣ n then 1 else 0
+'IUTThreeClosures.GeometryGlobalUniformGate.radical_factorization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@radical_mul_cube : ∀ {k n : ℕ},
+  k ≠ 0 → n ≠ 0 → UniqueFactorizationMonoid.radical (k * n ^ 3) = UniqueFactorizationMonoid.radical (k * n)
+'IUTThreeClosures.GeometryGlobalUniformGate.radical_mul_cube' depends on axioms: [propext, Classical.choice, Quot.sound]
+@three_cost_radical_product : ∀ {k a b c : ℕ},
+  k ≠ 0 →
+    a ≠ 0 →
+      b ≠ 0 →
+        c ≠ 0 →
+          a.Coprime b →
+            b.Coprime c →
+              c.Coprime a →
+                UniqueFactorizationMonoid.radical (k * a) * UniqueFactorizationMonoid.radical (k * b) *
+                    UniqueFactorizationMonoid.radical (k * c) =
+                  UniqueFactorizationMonoid.radical k ^ 2 * UniqueFactorizationMonoid.radical (k * (a * b * c))
+'IUTThreeClosures.GeometryGlobalUniformGate.three_cost_radical_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+coefficientProduct_pos : ∀ (P : IUTThreeClosures.ABCPoint), 0 < coefficientProduct P
+'IUTThreeClosures.GeometryGlobalUniformGate.coefficientProduct_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+baseProduct_pos : ∀ (P : IUTThreeClosures.ABCPoint), 0 < baseProduct P
+'IUTThreeClosures.GeometryGlobalUniformGate.baseProduct_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+abc_cube_decomposition : ∀ (P : IUTThreeClosures.ABCPoint), P.a * P.b * P.c = coefficientProduct P * baseProduct P ^ 3
+'IUTThreeClosures.GeometryGlobalUniformGate.abc_cube_decomposition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+costA_eq : ∀ (P : IUTThreeClosures.ABCPoint),
+  costA P = UniqueFactorizationMonoid.radical (2 * coefficientProduct P * cubeBase P.a)
+'IUTThreeClosures.GeometryGlobalUniformGate.costA_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+costB_eq : ∀ (P : IUTThreeClosures.ABCPoint),
+  costB P = UniqueFactorizationMonoid.radical (2 * coefficientProduct P * cubeBase P.b)
+'IUTThreeClosures.GeometryGlobalUniformGate.costB_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+costC_eq : ∀ (P : IUTThreeClosures.ABCPoint),
+  costC P = UniqueFactorizationMonoid.radical (2 * coefficientProduct P * cubeBase P.c)
+'IUTThreeClosures.GeometryGlobalUniformGate.costC_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+actual_three_cost_product : ∀ (P : IUTThreeClosures.ABCPoint),
+  costA P * costB P * costC P =
+    UniqueFactorizationMonoid.radical (2 * coefficientProduct P) ^ 2 *
+      UniqueFactorizationMonoid.radical (2 * (P.a * P.b * P.c))
+'IUTThreeClosures.GeometryGlobalUniformGate.actual_three_cost_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@truncatedTwo_factorization : ∀ {n p : ℕ},
+  n ≠ 0 → Nat.Prime p → (truncatedTwo n).factorization p = min 2 (n.factorization p)
+'IUTThreeClosures.GeometryGlobalUniformGate.truncatedTwo_factorization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@radical_mul_square : ∀ {k n : ℕ},
+  k ≠ 0 → n ≠ 0 → UniqueFactorizationMonoid.radical (k * n ^ 2) = UniqueFactorizationMonoid.radical (k * n)
+'IUTThreeClosures.GeometryGlobalUniformGate.radical_mul_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@truncated_mordell_parameter : ∀ {s : ℕ},
+  s ≠ 0 → truncatedTwo (16 * s ^ 2) = UniqueFactorizationMonoid.radical (2 * s) ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.truncated_mordell_parameter' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@cubic_root_cubes : ∀ {R : Type u_1} [inst : CommRing R] (E F α β : R),
+  α ^ 2 = E * β → β ^ 2 = F * α → α * β = E * F → α ^ 3 = E ^ 2 * F ∧ β ^ 3 = E * F ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.cubic_root_cubes' depends on axioms: [propext]
+@cubic_plus_root : ∀ {R : Type u_1} [inst : CommRing R] (E F h j α β : R),
+  α ^ 2 = E * β →
+    β ^ 2 = F * α →
+      α * β = E * F →
+        (-2 * (h * α + j * β)) ^ 3 - 12 * h * j * (E * F) * (-2 * (h * α + j * β)) +
+            8 * (E * F) * (E * h ^ 3 + F * j ^ 3) =
+          0
+'IUTThreeClosures.GeometryGlobalUniformGate.cubic_plus_root' depends on axioms: [propext, Quot.sound]
+@cubic_minus_root : ∀ {R : Type u_1} [inst : CommRing R] (E F h j α β : R),
+  α ^ 2 = E * β →
+    β ^ 2 = F * α →
+      α * β = E * F →
+        (-2 * (h * α - j * β)) ^ 3 + 12 * h * j * (E * F) * (-2 * (h * α - j * β)) +
+            8 * (E * F) * (E * h ^ 3 - F * j ^ 3) =
+          0
+'IUTThreeClosures.GeometryGlobalUniformGate.cubic_minus_root' depends on axioms: [propext, Quot.sound]
+@cubic_plus_square_coordinates : ∀ {R : Type u_1} [inst : CommRing R] (E F h j α β : R),
+  α ^ 2 = E * β →
+    β ^ 2 = F * α →
+      α * β = E * F → (-2 * (h * α + j * β)) ^ 2 = 8 * h * j * (E * F) + 4 * F * j ^ 2 * α + 4 * E * h ^ 2 * β
+'IUTThreeClosures.GeometryGlobalUniformGate.cubic_plus_square_coordinates' depends on axioms: [propext, Quot.sound]
+@cubic_minus_square_coordinates : ∀ {R : Type u_1} [inst : CommRing R] (E F h j α β : R),
+  α ^ 2 = E * β →
+    β ^ 2 = F * α →
+      α * β = E * F → (-2 * (h * α - j * β)) ^ 2 = -8 * h * j * (E * F) + 4 * F * j ^ 2 * α + 4 * E * h ^ 2 * β
+'IUTThreeClosures.GeometryGlobalUniformGate.cubic_minus_square_coordinates' depends on axioms: [propext, Quot.sound]
+scale_mordell : ∀ (x y N t : ℚ),
+  t ≠ 0 → y ^ 2 = x ^ 3 + 16 * (N * t ^ 3) ^ 2 → (y / t ^ 3) ^ 2 = (x / t ^ 2) ^ 3 + 16 * N ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.scale_mordell' depends on axioms: [propext, Classical.choice, Quot.sound]
+parameterA_identity : ∀ (P : IUTThreeClosures.ABCPoint),
+  P.a * pairCoefficient P.b P.c = coefficientProduct P * cubeBase P.a ^ 3
+'IUTThreeClosures.GeometryGlobalUniformGate.parameterA_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+parameterB_identity : ∀ (P : IUTThreeClosures.ABCPoint),
+  P.b * pairCoefficient P.a P.c = coefficientProduct P * cubeBase P.b ^ 3
+'IUTThreeClosures.GeometryGlobalUniformGate.parameterB_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+parameterC_identity : ∀ (P : IUTThreeClosures.ABCPoint),
+  P.c * pairCoefficient P.a P.b = coefficientProduct P * cubeBase P.c ^ 3
+'IUTThreeClosures.GeometryGlobalUniformGate.parameterC_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+common_curve_omit_a : ∀ (P : IUTThreeClosures.ABCPoint),
+  (↑(pairYPlus P.b P.c) / ↑(cubeBase P.a) ^ 3) ^ 2 =
+    (↑(pairX P.b P.c) / ↑(cubeBase P.a) ^ 2) ^ 3 + 16 * ↑(coefficientProduct P) ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.common_curve_omit_a' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+common_curve_omit_b : ∀ (P : IUTThreeClosures.ABCPoint),
+  (↑(pairYPlus P.a P.c) / ↑(cubeBase P.b) ^ 3) ^ 2 =
+    (↑(pairX P.a P.c) / ↑(cubeBase P.b) ^ 2) ^ 3 + 16 * ↑(coefficientProduct P) ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.common_curve_omit_b' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+common_curve_omit_c : ∀ (P : IUTThreeClosures.ABCPoint),
+  (↑(pairYMinus P.a P.b) / ↑(cubeBase P.c) ^ 3) ^ 2 =
+    (-↑(pairX P.a P.b) / ↑(cubeBase P.c) ^ 2) ^ 3 + 16 * ↑(coefficientProduct P) ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.common_curve_omit_c' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@cubeCoefficient_mul : ∀ {a b : ℕ},
+  0 < a → 0 < b → a.Coprime b → cubeCoefficient (a * b) = cubeCoefficient a * cubeCoefficient b
+'IUTThreeClosures.GeometryGlobalUniformGate.cubeCoefficient_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+coefficientProduct_eq_cubeCoefficient : ∀ (P : IUTThreeClosures.ABCPoint),
+  coefficientProduct P = cubeCoefficient (P.a * P.b * P.c)
+'IUTThreeClosures.GeometryGlobalUniformGate.coefficientProduct_eq_cubeCoefficient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@prime_dvd_residualSupport_iff : ∀ {n p : ℕ}, 0 < n → Nat.Prime p → (p ∣ residualSupport n ↔ ¬3 ∣ n.factorization p)
+'IUTThreeClosures.GeometryGlobalUniformGate.prime_dvd_residualSupport_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@cubeCoefficient_dvd_residualSupport_sq : ∀ {n : ℕ}, 0 < n → cubeCoefficient n ∣ residualSupport n ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.cubeCoefficient_dvd_residualSupport_sq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+coefficientProduct_le_residualSupport_sq : ∀ (P : IUTThreeClosures.ABCPoint),
+  coefficientProduct P ≤ residualSupport (P.a * P.b * P.c) ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.coefficientProduct_le_residualSupport_sq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+auxiliary_isogeny_polynomial : ∀ (z k : ℚ), (z + k) * (z - 8 * k) ^ 2 - (z + 4 * k) ^ 3 = -27 * k * z ^ 2
+'IUTThreeClosures.GeometryGlobalUniformGate.auxiliary_isogeny_polynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+auxiliary_isogeny_equation : ∀ (x y k : ℚ),
+  x ≠ 0 → y ^ 2 = x ^ 3 + k → (y * (x ^ 3 - 8 * k) / x ^ 3) ^ 2 = ((x ^ 3 + 4 * k) / x ^ 2) ^ 3 - 27 * k
+'IUTThreeClosures.GeometryGlobalUniformGate.auxiliary_isogeny_equation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@trace_zero_iff : ∀ {K : Type u_1} [inst : Field K] {M : Type u_2} [inst_1 : AddCommGroup M] [inst_2 : Module K M]
+  {N : Type u_3} [inst_3 : AddCommGroup N] [inst_4 : Module K N] (f : M →ₗ[K] N) (tM : M →ₗ[K] K) (tN : N →ₗ[K] K)
+  (c : Kˣ), (∀ (x : M), tN (f x) = ↑c * tM x) → ∀ (x : M), tN (f x) = 0 ↔ tM x = 0
+'IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.trace_zero_iff' depends on axioms: [propext, Quot.sound]
+@trace_kernel_comap : ∀ {K : Type u_1} [inst : Field K] {M : Type u_2} [inst_1 : AddCommGroup M] [inst_2 : Module K M]
+  {N : Type u_3} [inst_3 : AddCommGroup N] [inst_4 : Module K N] (f : M →ₗ[K] N) (tM : M →ₗ[K] K) (tN : N →ₗ[K] K)
+  (c : Kˣ), (∀ (x : M), tN (f x) = ↑c * tM x) → Submodule.comap f tN.ker = tM.ker
+'IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.trace_kernel_comap' depends on axioms: [propext, Quot.sound]
+@trace_transport_comp : ∀ {K : Type u_1} [inst : Field K] {M : Type u_2} [inst_1 : AddCommGroup M] [inst_2 : Module K M]
+  {N : Type u_3} [inst_3 : AddCommGroup N] [inst_4 : Module K N] {P : Type u_4} [inst_5 : AddCommGroup P]
+  [inst_6 : Module K P] (f : M →ₗ[K] N) (g : N →ₗ[K] P) (tM : M →ₗ[K] K) (tN : N →ₗ[K] K) (tP : P →ₗ[K] K) (c d : Kˣ),
+  (∀ (x : M), tN (f x) = ↑c * tM x) → (∀ (y : N), tP (g y) = ↑d * tN y) → ∀ (x : M), tP ((g ∘ₗ f) x) = ↑(d * c) * tM x
+'IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.trace_transport_comp' depends on axioms: [propext, Quot.sound]
+@trace_addValuation : ∀ {K : Type u_1} [inst : Field K] {M : Type u_2} [inst_1 : AddCommGroup M] [inst_2 : Module K M]
+  {N : Type u_3} [inst_3 : AddCommGroup N] [inst_4 : Module K N] {V : Type u_4}
+  [inst_5 : LinearOrderedAddCommMonoidWithTop V] (v : AddValuation K V) (f : M →ₗ[K] N) (tM : M →ₗ[K] K)
+  (tN : N →ₗ[K] K) (c : Kˣ), v ↑c = 0 → (∀ (x : M), tN (f x) = ↑c * tM x) → ∀ (x : M), v (tN (f x)) = v (tM x)
+'IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.trace_addValuation' depends on axioms: [propext, Quot.sound]
+@not_maps_of_trace_addValuation_ne : ∀ {K : Type u_1} [inst : Field K] {M : Type u_2} [inst_1 : AddCommGroup M]
+  [inst_2 : Module K M] {N : Type u_3} [inst_3 : AddCommGroup N] [inst_4 : Module K N] {V : Type u_4}
+  [inst_5 : LinearOrderedAddCommMonoidWithTop V] (v : AddValuation K V) (f : M →ₗ[K] N) (tM : M →ₗ[K] K)
+  (tN : N →ₗ[K] K) (c : Kˣ),
+  v ↑c = 0 → (∀ (x : M), tN (f x) = ↑c * tM x) → ∀ (x : M) (y : N), v (tM x) ≠ v (tN y) → f x ≠ y
+'IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.not_maps_of_trace_addValuation_ne' depends on axioms: [propext,
+ Quot.sound]
+affine_traceDepth_injective : ∀ (offset slope : ℤ), slope ≠ 0 → Function.Injective fun label => offset + label * slope
+'IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.affine_traceDepth_injective' depends on axioms: [propext]
+@no_transport_between_affine_trace_depths : ∀ {K : Type u_1} [inst : Field K] {M : Type u_2} [inst_1 : AddCommGroup M]
+  [inst_2 : Module K M] {N : Type u_3} [inst_3 : AddCommGroup N] [inst_4 : Module K N] (v : AddValuation K (WithTop ℤ))
+  (f : M →ₗ[K] N) (tM : M →ₗ[K] K) (tN : N →ₗ[K] K) (c : Kˣ),
+  v ↑c = 0 →
+    (∀ (x : M), tN (f x) = ↑c * tM x) →
+      ∀ (offset slope s t : ℤ),
+        slope ≠ 0 →
+          s ≠ t → ∀ (x : M) (y : N), v (tM x) = ↑(offset + s * slope) → v (tN y) = ↑(offset + t * slope) → f x ≠ y
+'IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.no_transport_between_affine_trace_depths' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@span_unitScalarOrbit : ∀ {R : Type u_1} [inst : Semiring R] {W : Type u_2} [inst_1 : AddCommMonoid W]
+  [inst_2 : Module R W] {G : Type u_3} (c : G → Rˣ),
+  (∃ g, c g = 1) → ∀ (S : Set W), Submodule.span R (unitScalarOrbit c S) = Submodule.span R S
+'IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.span_unitScalarOrbit' depends on axioms: [propext, Quot.sound]
+@exists_dual_nonzero_pair : ∀ {K : Type u_1} {V : Type u_2} [inst : Field K] [inst_1 : AddCommGroup V]
+  [inst_2 : Module K V] (x y : V), x ≠ 0 → y ≠ 0 → ∃ f, f x ≠ 0 ∧ f y ≠ 0
+'IUTThreeClosures.IUTTracePreservingTransvection20260830.exists_dual_nonzero_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@exists_dual_nonzero_when_nonzero : ∀ {K : Type u_1} {V : Type u_2} [inst : Field K] [inst_1 : AddCommGroup V]
+  [inst_2 : Module K V] (x y : V), ∃ f, (x ≠ 0 → f x ≠ 0) ∧ (y ≠ 0 → f y ≠ 0)
+'IUTThreeClosures.IUTTracePreservingTransvection20260830.exists_dual_nonzero_when_nonzero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@exists_scalar_avoiding_two_affine : ∀ {K : Type u_1} [inst : Field K],
+  2 ≠ 0 → ∀ (a b c d : K), a ≠ 0 ∨ b ≠ 0 → c ≠ 0 ∨ d ≠ 0 → ∃ z, a + z * b ≠ 0 ∧ c + z * d ≠ 0
+'IUTThreeClosures.IUTTracePreservingTransvection20260830.exists_scalar_avoiding_two_affine' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@exists_trace_preserving_common_avoidance : ∀ {K : Type u_1} {V : Type u_2} [inst : Field K] [inst_1 : AddCommGroup V]
+  [inst_2 : Module K V],
+  2 ≠ 0 →
+    ∀ (t l : Module.Dual K V) (w x y : V),
+      t w = 0 → l w = 1 → x ≠ 0 → y ≠ 0 → ∃ F, (∀ (v : V), t (F v) = t v) ∧ l (F x) ≠ 0 ∧ l (F y) ≠ 0
+'IUTThreeClosures.IUTTracePreservingTransvection20260830.exists_trace_preserving_common_avoidance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@off_diagonal_eq_zero : ∀ {R : Type u_1} [inst : CommRing R] {ι : Type u_2} [inst_1 : DecidableEq ι] {π : R},
+  (∀ (z : R), (∀ (n : ℕ), π ^ n ∣ z) → z = 0) →
+    ∀ {F : (ι → R) →ₗ[R] ι → R}, RespectsLineNeighborhoods π F → ∀ {i j : ι}, i ≠ j → F (Pi.single i 1) j = 0
+'IUTThreeClosures.IUTAllOpenLatticeRigidity20260830.off_diagonal_eq_zero' depends on axioms: [propext, Quot.sound]
+@diagonal_eq : ∀ {R : Type u_1} [inst : CommRing R] {ι : Type u_2} [inst_1 : DecidableEq ι] {π : R},
+  (∀ (z : R), (∀ (n : ℕ), π ^ n ∣ z) → z = 0) →
+    ∀ {F : (ι → R) →ₗ[R] ι → R}, RespectsLineNeighborhoods π F → ∀ (i j : ι), F (Pi.single i 1) i = F (Pi.single j 1) j
+'IUTThreeClosures.IUTAllOpenLatticeRigidity20260830.diagonal_eq' depends on axioms: [propext, Quot.sound]
+@exists_scalar_of_line_neighborhoods : ∀ {R : Type u_1} [inst : CommRing R] {ι : Type u_2} [Finite ι] [Nonempty ι]
+  {π : R},
+  (∀ (z : R), (∀ (n : ℕ), π ^ n ∣ z) → z = 0) →
+    ∀ {F : (ι → R) →ₗ[R] ι → R}, RespectsLineNeighborhoods π F → ∃ a, F = a • LinearMap.id
+'IUTThreeClosures.IUTAllOpenLatticeRigidity20260830.exists_scalar_of_line_neighborhoods' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@exists_unit_scalar_of_line_neighborhoods : ∀ {R : Type u_1} [inst : CommRing R] {ι : Type u_2} [Finite ι] [Nonempty ι]
+  {π : R},
+  (∀ (z : R), (∀ (n : ℕ), π ^ n ∣ z) → z = 0) →
+    ∀ (F : (ι → R) ≃ₗ[R] ι → R), RespectsLineNeighborhoods π ↑F → ∃ a, ↑F = ↑a • LinearMap.id
+'IUTThreeClosures.IUTAllOpenLatticeRigidity20260830.exists_unit_scalar_of_line_neighborhoods' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+padic_eq_zero_of_all_power_dvd : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (z : ℤ_[p]), (∀ (n : ℕ), ↑p ^ n ∣ z) → z = 0
+'IUTThreeClosures.IUTAllOpenLatticeRigidity20260830.padic_eq_zero_of_all_power_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@padic_exists_unit_scalar : ∀ {ι : Type u_1} [Finite ι] [Nonempty ι] (p : ℕ) [inst : Fact (Nat.Prime p)]
+  (F : (ι → ℤ_[p]) ≃ₗ[ℤ_[p]] ι → ℤ_[p]), RespectsLineNeighborhoods ↑p ↑F → ∃ a, ↑F = ↑a • LinearMap.id
+'IUTThreeClosures.IUTAllOpenLatticeRigidity20260830.padic_exists_unit_scalar' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

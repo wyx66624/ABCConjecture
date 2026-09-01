@@ -1,0 +1,385 @@
+\section{Three auxiliary points and the remaining endpoint cost}
+\label{sec:global-cubic}
+
+The constructions here apply to every positive primitive abc triple.
+Write its canonical cube decompositions as
+\begin{equation}\label{eq:canonical-cubes}
+ a=Au^3,\qquad b=Bv^3,\qquad c=Cw^3,
+\end{equation}
+where $A,B,C$ are positive cube-free integers. These coefficients, and
+the three original endpoints, are pairwise coprime within their respective
+triples. Put
+\[
+ R_0=\rad(ABC),\qquad
+ R_3=\prod_{\substack{p\mid abc\\3\mid v_p(abc)}}p,
+ \qquad H=\log c.
+\]
+Thus $\rad(abc)=R_0R_3$ and $\gcd(R_0,R_3)=1$. The subscript on
+$R_0$ denotes the support left after removing cubes, not the primes
+whose exponents are divisible by three.
+
+\subsection{Actual integral points and their prime costs}
+
+For each omitted endpoint $n_i$, define the following integers:
+\[
+\begin{array}{c|ccc|cc}
+ i&n_i&d_i&r_i&x_i&y_i\\ \hline
+ a&a&vw&BC&4vwBC&4BC(a+2b)\\
+ b&b&uw&AC&4uwAC&4AC(2a+b)\\
+ c&c&uv&AB&-4uvAB&4AB(a-b).
+\end{array}
+\]
+Set $k_i=16(n_i r_i)^2$.
+\begin{proposition}\label{prop:three-integral-points}
+Every row gives an integral point $y_i^2=x_i^3+k_i$ with
+$|x_i|^3\ge32c$. If $\rho_i=\rad(2n_i r_i)$, then
+\begin{equation}\label{eq:three-prime-costs}
+ \rho_a\rho_b\rho_c
+   =4^{\mathbf1_{3\mid v_2(abc)}}R_0^3R_3,
+ \qquad
+ \min_i\rho_i\le2^{2/3}R_0R_3^{1/3}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+For the first row use $(a+2b)^2-a^2=4bc$ and $bc=(vw)^3BC$;
+the second is the same identity with $a,b$ interchanged. For the last,
+$(a-b)^2-c^2=-4ab$ gives the negative sign of $x_c$.
+The three values of $|x_i|^3$ are respectively
+$64bc(BC)^2$, $64ac(AC)^2$, and $64ab(AB)^2$.
+The first two exceed $32c$, and the last is at least $32c$ because
+$ab\ge c-1\ge c/2$.
+
+An odd prime in $R_0$ occurs in all three $n_i r_i$: once in the
+omitted endpoint and twice in the coefficient products. A prime in
+$R_3$ occurs only in its own omitted endpoint. The prime $2$ divides
+every $\rho_i$, and exactly one endpoint is even. If its exponent is
+divisible by three this adds a factor $4$ to the preceding product;
+otherwise no correction is needed. This proves the exact identity;
+the minimum is at most the geometric mean.
+\end{proof}
+
+These are auxiliary curves of $j$-invariant zero. Their standard
+$3$-isogeny is
+\begin{equation}\label{eq:auxiliary-three-isogeny}
+ (x,y)\longmapsto
+ \left(\frac{x^3+4k}{x^2},\frac{y(x^3-8k)}{x^3}\right),
+ \qquad E_k\longrightarrow E_{-27k}.
+\end{equation}
+On the unextracted omit-$b$ point with $k=16(abc)^2$, it gives
+$(4Q,4T)$, where
+\[
+ Q=a^2+ab+b^2,\qquad T=(a-b)(2a+b)(a+2b).
+\]
+These are $(c_4/4,c_6/8)$ for the original Frey curve.
+The assertion is an identity involving its invariants; the Frey curve
+itself has not become isogenous to a $j=0$ curve. After cube extraction,
+the same image is generally rational rather than integral.
+
+\subsection{A small field discriminant with an exact growing order index}
+
+Form the monic cubic
+\begin{equation}\label{eq:auxiliary-cubic}
+ G_i(Z)=Z^3-3x_iZ+2y_i,
+ \qquad \operatorname{disc}G_i=-108k_i=-1728(n_i r_i)^2.
+\end{equation}
+For the omit-$b$ row, put
+$\alpha=\sqrt[3]{A^2C}$ and $\beta=\sqrt[3]{AC^2}=\alpha^2/A$.
+Then $\tau_b=-2(u\alpha+w\beta)$ is a root. The omit-$a$ row uses
+$(B,C,v,w)$ instead, while the omit-$c$ row has root
+$\tau_c=-2(u\sqrt[3]{A^2B}-v\sqrt[3]{AB^2})$.
+
+If the selected product $r_i$ exceeds one, its pure cubic is
+irreducible. At a prime of either cube-free coefficient, the valuation
+of the radicand is not divisible by three. Independence of
+$1,\alpha,\alpha^2$ then makes $\tau_i$ nonrational, so it generates
+the same degree-three field $K_i$. In particular the root fields are
+\[
+ K_a=\Q(\sqrt[3]{B^2C}),\qquad
+ K_b=\Q(\sqrt[3]{A^2C}),\qquad
+ K_c=\Q(\sqrt[3]{A^2B}),
+\]
+with signature $(1,1)$. Reducible rows are exactly those with $r_i=1$.
+
+\begin{proposition}\label{prop:exact-cubic-order-index}
+In an irreducible row, put $S_i=\rad(r_i)$. There is an order
+$\mathcal O_i\subset K_i$ with
+\begin{equation}\label{eq:order-index}
+ [\mathcal O_i:\Z[\tau_i]]=8n_i,
+ \qquad |\Delta_{K_i}|\mid27S_i^2.
+\end{equation}
+More precisely, there is a larger order $\mathcal O'_i$ such that
+\begin{equation}\label{eq:full-order-index}
+ [\OO_{K_i}:\Z[\tau_i]]
+   =8n_i(r_i/S_i)[\OO_{K_i}:\mathcal O'_i].
+\end{equation}
+\end{proposition}
+\begin{proof}
+Write the two selected coefficients as $E,F$, their cube bases as
+$h,j$, and $r=EF$. The lattice
+$\mathcal O=\Z\{1,\alpha,\beta\}$ is an integral order, because
+\[
+ \alpha^2=E\beta,\quad \beta^2=F\alpha,\quad \alpha\beta=r.
+\]
+Its trace matrix is
+$\left(\begin{smallmatrix}3&0&0\\0&0&3r\\0&3r&0\end{smallmatrix}\right)$,
+and hence its discriminant is $-27r^2$.
+The coordinate matrices of $1,\tau,\tau^2$ in this basis are
+\[
+ M_+=\begin{pmatrix}1&0&8hjr\\0&-2h&4Fj^2\\0&-2j&4Eh^2\end{pmatrix},
+ \qquad
+ M_-=\begin{pmatrix}1&0&-8hjr\\0&-2h&4Fj^2\\0&2j&4Eh^2\end{pmatrix}.
+\]
+Their determinants are $8(Fj^3-Eh^3)$ and $-8(Eh^3+Fj^3)$,
+respectively. The absolute value is $8n_i$ in the corresponding row.
+Since $\tau$ is an integral generator of a cubic field, this gives
+the first equality of \eqref{eq:order-index}.
+
+Write $E=E_1E_2^2$, $F=F_1F_2^2$ with the four factors squarefree
+and pairwise coprime. Put $s=E_2F_1$, $t=E_1F_2$,
+$\theta=\sqrt[3]{st^2}$, and $\eta=\theta^2/t$.
+The lattice $\mathcal O'=\Z\{1,\theta,\eta\}$ is an order by
+$\theta^2=t\eta$, $\eta^2=s\theta$, $\theta\eta=st$.
+Its discriminant is $-27(st)^2=-27S_i^2$. Furthermore
+$\alpha=E_2\theta$, $\beta=F_2\eta$, so
+$[\mathcal O':\mathcal O]=E_2F_2=r_i/S_i$.
+The discriminant-index formula and multiplication of indices prove
+the remaining claims.
+\end{proof}
+
+Thus the small discriminant concerns the field, while the original
+monogenic order has an index containing the unbounded endpoint $n_i$.
+Replacing its polynomial discriminant by the field discriminant in a
+point-height argument would discard this factor.
+
+\subsection{A full-family relative height estimate}
+
+\begin{theorem}\label{thm:relative-cubic-height}
+There is an effective absolute constant $C_0>0$ such that every positive
+primitive abc triple, and each of its three rows, satisfies
+\begin{equation}\label{eq:relative-cubic-height}
+ H\le C_0 S_i[\log(2S_i)]^2 L_i\log(3S_iL_i),
+ \qquad L_i=\log(2n_i r_i),\quad S_i=\rad(r_i).
+\end{equation}
+\end{theorem}
+\begin{proof}
+We use the stated unconditional Theorem~1.7 and the reduction in
+Section~4 of Pasten's 2026 preprint \cite{PastenNew}, together with
+its classical degree-three regulator bound. We keep the actual pure
+cubic root field, rather than bounding its regulator using
+$\operatorname{disc}G_i$.
+
+First suppose $r_i>1$ and put $D=1728(n_i r_i)^2$.
+The reduction in that section supplies $\gamma\in\GL_2(\Z)$ such
+that the binary cubic $F=G_i\circ\gamma$ has coefficient height at
+most $\sqrt D$. For $(u_0,v_0)=\gamma^{-1}(1,0)$ one has
+$F(u_0,v_0)=1$ and $\gcd(u_0,v_0)=1$. The fractional linear change
+of root leaves the cubic field $K_i$ unchanged. Theorem~1.7, applied
+with empty prime list, unit right side, and just the two archimedean
+places of $K_i$, gives, for $X=\max(3,|u_0|,|v_0|)$,
+\begin{equation}\label{eq:relative-thue-input}
+ \log X\ll \log(2D)+\mathcal R_i\log(2D)
+          \log(2+2\mathcal R_i\log(2D)),
+\end{equation}
+where $\mathcal R_i$ is the ordinary regulator. The degrees and the
+place count are fixed, so the implied constant is absolute and
+effective. Hessian and Jacobian recovery in the same section gives
+\[
+ \log\max(2,|x_i|,|y_i|)\ll\log|k_i|+\log X.
+\]
+These covariants recover the point, not just the auxiliary curve.
+Proposition~\ref{prop:three-integral-points}, together with
+$\log(2D)\le12L_i$ and $\log|k_i|\le4L_i$, therefore yields
+\[
+ H\ll \mathcal R_i^*L_i\log(3\mathcal R_i^*L_i),
+ \qquad \mathcal R_i^*=\max(1,\mathcal R_i).
+\]
+Here all logarithm arguments are bounded away from one because
+$L_i\ge\log2$.
+
+The degree-three Landau bound, with class number at least one, and
+Proposition~\ref{prop:exact-cubic-order-index} imply
+\[
+ \mathcal R_i^*\ll S_i[\log(2S_i)]^2.
+\]
+Substitution loses no further logarithmic power. Indeed, for
+$B=\log(2S_i)$ and $z=S_iL_i\ge\log2$, one has $B\le2S_i$ and
+$L_i\ge1/2$, hence $S_iB^2L_i\le16z^3$.
+Thus $\log(3C S_iB^2L_i)\ll_C\log(3S_iL_i)$ for any fixed positive
+$C$. This proves \eqref{eq:relative-cubic-height} in the irreducible case.
+
+If $r_i=1$, the selected endpoints are cubes. In a plus row their
+difference is $n_i=w^3-h^3$ with $w>h\ge1$. Thus $n_i\ge w^2$ and
+$H=3\log w\le3L_i/2$. In the minus row $n_i=c$, so $H\le L_i$.
+As $S_i=1$ and $L_i\ge\log2$, enlarging one absolute constant proves
+the same bound in all reducible cases.
+\end{proof}
+
+Cube-freeness gives $r_i\le S_i^2$, so $L_i$ may be replaced on the
+right by $\log(2n_i)+2\log S_i$. Also
+\begin{equation}\label{eq:residual-support-product}
+ S_aS_bS_c=R_0^2,\qquad \min_i S_i\le R_0^{2/3}.
+\end{equation}
+Choosing the omitted endpoint $m=\min(a,b)$ instead gives
+\begin{equation}\label{eq:min-endpoint-height}
+ H\ll R_0[\log(2R_0)]^2 M\log(3R_0M),
+ \qquad M=\log(2m)+2\log R_0.
+\end{equation}
+It is not legitimate to cancel an unknown height from the right:
+$L_i$ may be comparable to $H$. For fixed bounded $R_0$,
+\eqref{eq:min-endpoint-height} does imply
+$\log m\gg_{R_0}H/\log H$ along an unbounded sequence. A stronger
+fixed-support statement follows next, with an ineffective threshold.
+
+\subsection{One common curve and its three torsion translates}
+
+Put $N=ABC$ and $t_a=u,t_b=v,t_c=w$. Since $n_i r_i=Nt_i^3$,
+the points
+\[
+ Q_i=(X_i,Y_i)=(x_i/t_i^2,y_i/t_i^3)
+\]
+all lie on the same nonsingular curve
+\begin{equation}\label{eq:common-mordell-curve}
+ E_N:\quad Y^2=X^3+16N^2.
+\end{equation}
+Primitivity gives $\gcd(t_i,d_i r_i)=1$, so their reduced
+$X$-denominators are exactly
+\begin{equation}\label{eq:common-point-denominator}
+ \den(X_i)=\left(t_i/\gcd(t_i,2)\right)^2.
+\end{equation}
+Indeed the numerator is $\pm4d_i r_i$, and the only cancellation
+with $t_i^2$ is $\gcd(t_i^2,4)=\gcd(t_i,2)^2$.
+
+\begin{proposition}\label{prop:torsion-orbit}
+The point $T_0=(0,4N)$ has order three on $E_N$, and
+\[
+ Q_b+T_0=Q_c,\qquad Q_b-T_0=-Q_a.
+\]
+\end{proposition}
+\begin{proof}
+The horizontal tangent at $T_0$ gives $2T_0=-T_0$.
+The slopes from $T_0$ and $-T_0$ to $Q_b$ are respectively
+\[
+ \frac{2Au^2}{vw},\qquad \frac{2Cw^2}{uv}.
+\]
+Squaring the first and subtracting $X_b$ gives
+$-4ABuv/w^2=X_c$; the ordinate from the line through $T_0$ is
+$4AB(a-b)/w^3=Y_c$. The second gives
+$4BCvw/u^2=X_a$ and ordinate $-4BC(a+2b)/u^3=-Y_a$.
+These computations use only $Au^3+Bv^3=Cw^3$ and positive denominators.
+\end{proof}
+
+Writing $V=uvw$, the three points $Q_b,Q_c,-Q_a$ have the same image
+$(4Q/V^2,4T/V^3)$ under \eqref{eq:auxiliary-three-isogeny}.
+Their changing denominators describe three translates of one rational
+point; an integral-point bound for a fixed curve does not bound them.
+
+\begin{theorem}[Asymptotic balance for bounded residual support]
+\label{thm:fixed-cubic-balance}
+Fix $R_*\ge1$. For every $\eps>0$, all sufficiently large positive
+primitive abc triples with $R_0\le R_*$ satisfy
+\[
+ \min(a,b)\ge c^{1-\eps}.
+\]
+Equivalently, along any such sequence with $c\to\infty$,
+$\log\min(a,b)/\log c\to1$. The threshold may depend on $R_*,\eps$;
+the proof does not make it effective.
+\end{theorem}
+\begin{proof}
+For a fixed elliptic curve over $\Q$, Siegel's local approximation
+theorem, with the even function $x$, the point at infinity, and the
+real place, states that
+\begin{equation}\label{eq:siegel-local-ratio}
+ \frac{\log\max(1,|x(P)|)}{h_x(P)}\longrightarrow0
+ \quad\text{as }h_x(P)\longrightarrow\infty,
+ \quad P\in E(\Q).
+\end{equation}
+Here $h_x(P)=\log\max(|A_x|,B_x)$ for $x(P)=A_x/B_x$ in lowest
+terms, $B_x>0$. This is \cite[Theorem~IX.3.1 and Example~IX.3.3]{Silverman},
+not just finiteness of integral points.
+Since $N=ABC\le R_0^2\le R_*^2$, only finitely many curves
+\eqref{eq:common-mordell-curve} occur. Formula
+\eqref{eq:siegel-local-ratio} is uniform over this finite list.
+
+By symmetry suppose $a=m\le b$, and set $g=\gcd(u,2)\in\{1,2\}$.
+Equation~\eqref{eq:common-point-denominator} gives
+\[
+ X_a=A_x/B_x,
+ \qquad A_x=4vwBC/g^2,\quad B_x=u^2/g^2.
+\]
+Moreover $X_a^3=64N^2bc/a^2\ge64$, so $X_a\ge4$ and
+$h_x(Q_a)=\log A_x$. Direct substitution yields
+\begin{align*}
+ \log A_x&=\tfrac13(\log b+\log c)+\tfrac23\log(BC)
+                 +\log4-2\log g,\\
+ \log B_x&=\tfrac23\log a-\tfrac23\log A-2\log g.
+\end{align*}
+As $c/2\le b<c$, these imply
+\begin{align}
+ \tfrac23H-\tfrac13\log2
+ &\le h_x(Q_a)\le\tfrac23H+\log4+\tfrac23\log N,
+ \label{eq:siegel-height-bridge}\\
+ 0\le H-\log a
+ &\le\tfrac32\log X_a+\tfrac12\log2.
+ \label{eq:siegel-endpoint-bridge}
+\end{align}
+Thus $h_x(Q_a)\to\infty$ and is comparable to $H$, uniformly for
+bounded $N$. Equation~\eqref{eq:siegel-local-ratio} makes the right
+side of \eqref{eq:siegel-endpoint-bridge} equal to $o(H)$.
+This proves the stated ratio and hence the power inequality. If
+$b<a$, use $Q_b$ instead. An infinite countersequence to the eventual
+assertion would contradict the same finite-list application of Siegel,
+so the quantifier is over all triples with $R_0\le R_*$.
+\end{proof}
+
+\subsection{An infinite fixed-support family and the exact limitation}
+
+Bounded $R_0$ alone does not imply bounded height.
+\begin{proposition}\label{prop:fixed-cubic-support-infinite}
+There are infinitely many positive primitive abc triples of unbounded
+height with $R_0=3$.
+\end{proposition}
+\begin{proof}
+On $Y^2=X^3-34992$, let $P=(36,-108)$. Doubling gives
+\[
+ 2P=(252,3996),\qquad
+ X(4P)=\left(\frac{882}{37}\right)^2-504=\frac{87948}{1369}.
+\]
+The final numerator has remainder $36$ modulo $37$, so $4P$ is not
+integral. The Nagell--Lutz integrality theorem on this integral
+nonsingular short Weierstrass model implies that $P$ has infinite
+order; see \cite[Theorem~24.21]{Sutherland}.
+The mutually inverse formulas
+\[
+ u=\frac{324+Y}{6X},\quad v=\frac{324-Y}{6X},\qquad
+ X=\frac{108}{u+v},\quad Y=\frac{324(u-v)}{u+v}
+\]
+identify its rational affine points with $u^3+v^3=9$.
+No affine rational point has $X=0$, and $u+v=0$ is impossible.
+Nonzero multiples of $P$ therefore supply infinitely many rational
+solutions. Clear denominators to obtain
+\[
+ x^3+y^3=9z^3,\qquad z>0,\quad\gcd(x,y,z)=1.
+\]
+Neither $x$ nor $y$ is zero, since $9$ is not a rational cube.
+If $3\mid x$, reduction modulo three forces $3\mid y$, and then
+$27\mid9z^3$ forces $3\mid z$, a contradiction. The same holds for
+$y$. A different prime dividing two coordinates divides the third,
+so $x,y,z$ are pairwise coprime.
+
+If $x,y>0$, take $(a,b,c)=(x^3,y^3,9z^3)$. If one is negative,
+move that term to the other side; for example $x<0$ gives
+$((-x)^3,9z^3,y^3)$. Each resulting triple is positive and primitive.
+Every prime other than three has exponent divisible by three in its
+product, while the exponent at three is $2+3v_3(z)$. Thus $R_0=3$.
+Only finitely many choices of signs and order give the same positive
+triple, so infinitely many distinct triples occur. Their heights are
+unbounded because a bounded height admits only finitely many triples.
+\end{proof}
+
+This family is consistent with Theorem~\ref{thm:fixed-cubic-balance}.
+It refutes only a bound depending on the cubic residual support alone:
+the growing primes of cube-divisible exponent still contribute to
+$\rad(abc)$. For moving $R_0$, neither the finite-list threshold in
+Siegel's theorem nor the field discriminant estimate removes the
+growing point, denominator, or order-index cost. Controlling that cost
+uniformly remains a global abc problem.

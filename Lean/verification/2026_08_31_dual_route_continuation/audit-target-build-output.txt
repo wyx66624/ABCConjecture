@@ -1,0 +1,981 @@
+ℹ [8713/8777] Replayed IUTThreeClosures.IUTFiniteProductProjectionSpan20260831
+info: IUTThreeClosures/IUTFiniteProductProjectionSpan20260831.lean:153:0: 'IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.mem_productSpan_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/IUTFiniteProductProjectionSpan20260831.lean:154:0: 'IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.mem_productSpan_of_mem_coordinateProduct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/IUTFiniteProductProjectionSpan20260831.lean:155:0: 'IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.finite_weighted_sum_mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8714/8777] Replayed IUTThreeClosures.ABCThreePrimeSignatures20260831
+info: IUTThreeClosures/ABCThreePrimeSignatures20260831.lean:274:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.left_eq_one_of_mul_eq_prime_sq_of_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCThreePrimeSignatures20260831.lean:275:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.no_prime_signature_233' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCThreePrimeSignatures20260831.lean:276:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.no_prime_signature_236_output_sixth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCThreePrimeSignatures20260831.lean:277:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.no_prime_signature_236_output_cube' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCThreePrimeSignatures20260831.lean:278:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.no_prime_signature_236_output_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8746/8777] Replayed IUTThreeClosures.ABCStatement
+warning: IUTThreeClosures/ABCStatement.lean:35:20: '' starts on column 20, but all commands should start at the beginning of the line.
+
+Note: This linter can be disabled with `set_option linter.style.whitespace false`
+⚠ [8751/8777] Replayed IUTThreeClosures.ABCPointLegendreCurve
+warning: IUTThreeClosures/ABCPointLegendreCurve.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+warning: IUTThreeClosures/ABCPointLegendreCurve.lean:130:20: '' starts on column 20, but all commands should start at the beginning of the line.
+
+Note: This linter can be disabled with `set_option linter.style.whitespace false`
+⚠ [8752/8777] Replayed IUTThreeClosures.LegendreArithmetic
+warning: IUTThreeClosures/LegendreArithmetic.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+⚠ [8753/8777] Replayed IUTThreeClosures.ABCFreyCurve
+warning: IUTThreeClosures/ABCFreyCurve.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:45:48: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:45:48: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:49:44: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:57:44: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:78:47: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:78:47: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:82:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:90:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8754/8777] Replayed IUTThreeClosures.FreyDiscriminantConductor
+warning: IUTThreeClosures/FreyDiscriminantConductor.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+⚠ [8755/8777] Replayed IUTThreeClosures.PrimePowerSmoothNeighbour
+warning: IUTThreeClosures/PrimePowerSmoothNeighbour.lean:96:4: This simp argument is unused:
+  max_eq_right (Nat.sub_le D.c (D.p ^ D.k))
+
+Hint: Omit it from the simp argument list.
+  simp [point, ABCPoint.height, a, b, max_eq_right D̵.̵p̵o̵w̵e̵r̵_̵l̵t̵_̵c̵.̵l̵e̵,̵
+  ̵ ̵ ̵ ̵ ̵m̵a̵x̵_̵e̵q̵_̵r̵i̵g̵h̵t̵ ̵(̵N̵a̵t̵.̵s̵u̵b̵_̵l̵e̵ ̵D̵.̵c̵ ̵(̵D̵.̵p̵ ̵^̵ ̵D̵.̵k̵)̵)̵]̵D̲.̲p̲o̲w̲e̲r̲_̲l̲t̲_̲c̲.̲l̲e̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: IUTThreeClosures/PrimePowerSmoothNeighbour.lean:234:0: Definition `toLogRadicalGapCertificate` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+⚠ [8756/8777] Replayed IUTThreeClosures.LowRadicalNeighbourTransfer
+warning: IUTThreeClosures/LowRadicalNeighbourTransfer.lean:87:4: This simp argument is unused:
+  max_eq_right (Nat.sub_le D.c D.b)
+
+Hint: Omit it from the simp argument list.
+  simp [point, ABCPoint.height, a, max_eq_right D̵.̵b̵_̵l̵t̵_̵c̵.̵l̵e̵,̵
+  ̵ ̵ ̵ ̵ ̵m̵a̵x̵_̵e̵q̵_̵r̵i̵g̵h̵t̵ ̵(̵N̵a̵t̵.̵s̵u̵b̵_̵l̵e̵ ̵D̵.̵c̵ ̵D̵.̵b̵)̵]̵D̲.̲b̲_̲l̲t̲_̲c̲.̲l̲e̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: IUTThreeClosures/LowRadicalNeighbourTransfer.lean:186:0: Definition `toLogRadicalGapCertificate` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+ℹ [8759/8777] Replayed IUTThreeClosures.SubcriticalRadicalSlopeDisproofGate
+info: IUTThreeClosures/SubcriticalRadicalSlopeDisproofGate.lean:113:0: 'IUTThreeClosures.not_abcConjecture_of_subcritical_radical_slope' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SubcriticalRadicalSlopeDisproofGate.lean:114:0: 'IUTThreeClosures.not_abcConjecture_of_nearPrimePower_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8760/8777] Replayed IUTThreeClosures.SquareRootSmoothNeighbourThreshold
+warning: IUTThreeClosures/SquareRootSmoothNeighbourThreshold.lean:53:5: Variable name `hs` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: IUTThreeClosures/SquareRootSmoothNeighbourThreshold.lean:185:0: 'IUTThreeClosures.SquareRootSmoothNeighbourThreshold.subunit_slope_of_subcritical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SquareRootSmoothNeighbourThreshold.lean:186:0: 'IUTThreeClosures.SquareRootSmoothNeighbourThreshold.exists_positive_epsilon_of_subunit_slope' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SquareRootSmoothNeighbourThreshold.lean:187:0: 'IUTThreeClosures.SquareRootSmoothNeighbourThreshold.smoothLoss_lt_half_sub_primeSlope_of_subcritical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SquareRootSmoothNeighbourThreshold.lean:188:0: 'IUTThreeClosures.SquareRootSmoothNeighbourThreshold.exists_positive_epsilon_for_squareRoot_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SquareRootSmoothNeighbourThreshold.lean:189:0: 'IUTThreeClosures.SquareRootSmoothNeighbourThreshold.squareRoot_gap_and_squareRoot_radical_not_subcritical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SquareRootSmoothNeighbourThreshold.lean:190:0: 'IUTThreeClosures.SquareRootSmoothNeighbourThreshold.smoothLoss_threshold_for_primePowerExponent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SquareRootSmoothNeighbourThreshold.lean:191:0: 'IUTThreeClosures.SquareRootSmoothNeighbourThreshold.square_primePower_center_cannot_be_subcritical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SquareRootSmoothNeighbourThreshold.lean:192:0: 'IUTThreeClosures.SquareRootSmoothNeighbourThreshold.not_abcConjecture_of_squareRoot_nearPrimePower_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8761/8777] Replayed IUTThreeClosures.ABCMixedFullCampana20260831
+info: IUTThreeClosures/ABCMixedFullCampana20260831.lean:247:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.radical_pow_pqr_le_c_pow_pairSum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCMixedFullCampana20260831.lean:248:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope_eq_pairSum_div_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCMixedFullCampana20260831.lean:249:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope_lt_one_iff_pairSum_lt_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCMixedFullCampana20260831.lean:250:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.conductor_le_mixedFullSlope_mul_height' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCMixedFullCampana20260831.lean:251:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.exists_positive_epsilon_of_mixedFullSlope_lt_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCMixedFullCampana20260831.lean:252:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.abcConjecture_implies_mixedFull_height_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCMixedFullCampana20260831.lean:253:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.not_abcConjecture_of_unbounded_mixedFull_family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [8764/8777] Replayed IUTThreeClosures.TripodWeilHeight
+warning: IUTThreeClosures/TripodWeilHeight.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+warning: IUTThreeClosures/TripodWeilHeight.lean:94:20: '' starts on column 20, but all commands should start at the beginning of the line.
+
+Note: This linter can be disabled with `set_option linter.style.whitespace false`
+⚠ [8765/8777] Replayed IUTThreeClosures.LegendreHeightCorridor
+warning: IUTThreeClosures/LegendreHeightCorridor.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+⚠ [8766/8777] Replayed IUTThreeClosures.FreyJReducedData
+warning: IUTThreeClosures/FreyJReducedData.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+⚠ [8767/8777] Replayed IUTThreeClosures.FreyJHeightCorridor
+warning: IUTThreeClosures/FreyJHeightCorridor.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+ℹ [8768/8777] Replayed IUTThreeClosures.FreyModifiedSzpiroRoute
+info: IUTThreeClosures/FreyModifiedSzpiroRoute.lean:51:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [8770/8777] Replayed IUTThreeClosures.FreyEntireIsogenyArithmetic20260831
+info: IUTThreeClosures/FreyEntireIsogenyArithmetic20260831.lean:332:0: 'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_eq_canonical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyEntireIsogenyArithmetic20260831.lean:333:0: 'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_point_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyEntireIsogenyArithmetic20260831.lean:334:0: 'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.degree_three_polynomial_no_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyEntireIsogenyArithmetic20260831.lean:335:0: 'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_discriminant_upper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyEntireIsogenyArithmetic20260831.lean:336:0: 'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_j_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyEntireIsogenyArithmetic20260831.lean:337:0: 'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.zeroKernel_j_upper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8771/8777] Replayed IUTThreeClosures.FreyIsogenyWeilHeight20260831
+info: IUTThreeClosures/FreyIsogenyWeilHeight20260831.lean:386:0: 'IUTThreeClosures.FreyIsogenyWeilHeight20260831.familyCurve_j_num' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyIsogenyWeilHeight20260831.lean:387:0: 'IUTThreeClosures.FreyIsogenyWeilHeight20260831.familyCurve_j_den' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyIsogenyWeilHeight20260831.lean:388:0: 'IUTThreeClosures.FreyIsogenyWeilHeight20260831.familyCurve_mulHeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyIsogenyWeilHeight20260831.lean:389:0: 'IUTThreeClosures.FreyIsogenyWeilHeight20260831.familyCurve_logHeight_eq_min_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyIsogenyWeilHeight20260831.lean:390:0: 'IUTThreeClosures.FreyIsogenyWeilHeight20260831.familyCurve_normalizedLogHeight_isLeast' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyIsogenyWeilHeight20260831.lean:391:0: 'IUTThreeClosures.FreyIsogenyWeilHeight20260831.zeroKernel_logHeight_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8772/8777] Replayed IUTThreeClosures.FreyIsogenyConductorSharpness20260831
+info: IUTThreeClosures/FreyIsogenyConductorSharpness20260831.lean:298:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.endpoint_radical_eq_two_actual_j_den_radical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyIsogenyConductorSharpness20260831.lean:299:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.endpointC_powerIndex' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyIsogenyConductorSharpness20260831.lean:300:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerEndpoint_radical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyIsogenyConductorSharpness20260831.lean:301:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.power_conductorProxy_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyIsogenyConductorSharpness20260831.lean:302:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerFamily_subcritical_gap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/FreyIsogenyConductorSharpness20260831.lean:303:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.exists_powerFamily_gap_gt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8773/8777] Replayed IUTThreeClosures.SymmetricProductCoefficientBarrier
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:203:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.ABCPoint.c_sq_le_two_abc' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:204:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.ABCPoint.two_height_sub_log_two_le_symmetricProductLog' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:205:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.ABCPoint.height_le_of_symmetricProduct_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:206:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.ABCPoint.height_le_three_halves_of_coefficient_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:207:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.ABCPoint.height_le_one_of_coefficient_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:208:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.ABCPoint.height_le_of_relative_symmetricProduct_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:209:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.abc_of_uniformSymmetricProductBound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:210:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.coefficient_three_product_model_does_not_force_slope_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8774/8777] Replayed IUTThreeClosures.EndpointBalanceCoefficientTransfer
+info: IUTThreeClosures/EndpointBalanceCoefficientTransfer.lean:290:0: 'IUTThreeClosures.ABCPoint.endpointMin_mul_c_sq_le_two_abc' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: IUTThreeClosures/EndpointBalanceCoefficientTransfer.lean:291:0: 'IUTThreeClosures.ABCPoint.two_height_add_endpointMinLog_sub_log_two_le_symmetricProductLog' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/EndpointBalanceCoefficientTransfer.lean:292:0: 'IUTThreeClosures.ABCPoint.conductor_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: IUTThreeClosures/EndpointBalanceCoefficientTransfer.lean:293:0: 'IUTThreeClosures.ABCPoint.height_le_of_balanced_symmetricProduct_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/EndpointBalanceCoefficientTransfer.lean:294:0: 'IUTThreeClosures.ABCPoint.height_le_one_add_epsilon_of_coefficient_three_balanced' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/EndpointBalanceCoefficientTransfer.lean:295:0: 'IUTThreeClosures.ABCPoint.endpoint_unbalanced_of_coefficient_three_violation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/EndpointBalanceCoefficientTransfer.lean:296:0: 'IUTThreeClosures.EndpointBalanceCoefficientTransfer.height_le_one_add_epsilon_of_coefficient_three_criticalBalance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/EndpointBalanceCoefficientTransfer.lean:297:0: 'IUTThreeClosures.EndpointBalanceCoefficientTransfer.eventual_balanced_abc_of_uniformCoefficientThreeSublinearProduct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/EndpointBalanceCoefficientTransfer.lean:298:0: 'IUTThreeClosures.EndpointBalanceCoefficientTransfer.eventual_criticalBalanced_abc_of_uniformCoefficientThreeSublinearProduct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8775/8777] Replayed IUTThreeClosures.ABCSubcriticalLocusUniformity20260831
+info: IUTThreeClosures/ABCSubcriticalLocusUniformity20260831.lean:299:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.subcriticalLociHaveBoundedHeight_of_abcConjecture' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCSubcriticalLocusUniformity20260831.lean:300:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.abcConjecture_of_subcriticalLociHaveBoundedHeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCSubcriticalLocusUniformity20260831.lean:301:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.abcConjecture_iff_subcriticalLociHaveBoundedHeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCSubcriticalLocusUniformity20260831.lean:302:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.finset_eq_empty_of_card_cast_lt_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCSubcriticalLocusUniformity20260831.lean:303:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.sources_eq_empty_of_pointwise_oversized_fiber' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCSubcriticalLocusUniformity20260831.lean:304:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.height_le_of_amplification_log_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCSubcriticalLocusUniformity20260831.lean:305:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseHeight_succ' depends on axioms: [propext]
+info: IUTThreeClosures/ABCSubcriticalLocusUniformity20260831.lean:306:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.mem_superSparseIndicesUpTo' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCSubcriticalLocusUniformity20260831.lean:307:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseIndicesUpTo_card_le_log_log' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCSubcriticalLocusUniformity20260831.lean:308:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseIndicesUpTo_card_sq_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCSubcriticalLocusUniformity20260831.lean:309:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparsePrefix_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ABCSubcriticalLocusUniformity20260831.lean:310:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparsePrefix_card_unbounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8776/8777] Replayed IUTThreeClosures.PellCampanaCounterexample20260831
+info: IUTThreeClosures/PellCampanaCounterexample20260831.lean:245:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_norm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellCampanaCounterexample20260831.lean:246:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_index_le_snd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellCampanaCounterexample20260831.lean:247:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_fst_unbounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellCampanaCounterexample20260831.lean:248:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.eight_mul_sq_isTwoFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellCampanaCounterexample20260831.lean:249:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.eight_mul_sq_isThreeFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellCampanaCounterexample20260831.lean:250:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.Datum.point_mixedFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellCampanaCounterexample20260831.lean:251:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.not_abcConjecture_of_unbounded_squarefullPell_family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8777/8777] Replayed IUTThreeClosures.ResearchDualRouteContinuation20260831Audit
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:18:0: def IUTThreeClosures.ABCConjecture : Prop :=
+∀ (ε : ℝ),
+  0 < ε →
+    ∃ C,
+      ∀ (a b c : ℕ),
+        0 < a →
+          0 < b →
+            0 < c →
+              a + b = c →
+                IUTThreeClosures.PairwiseCoprimeABC a b c →
+                  Real.log ↑(max a (max b c)) ≤ (1 + ε) * Real.log ↑(IUTThreeClosures.abcRadical (a * b * c)) + C
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:21:0: IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope_nonneg (p q r : ℕ) :
+  0 ≤ IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope p q r
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:22:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:23:0: IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope_eq_pairSum_div_product {p q r : ℕ} (hp : 0 < p) (hq : 0 < q)
+  (hr : 0 < r) :
+  IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope p q r = ↑(q * r + p * r + p * q) / ↑(p * q * r)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:24:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope_eq_pairSum_div_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:25:0: IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope_lt_one_iff_pairSum_lt_product {p q r : ℕ} (hp : 0 < p)
+  (hq : 0 < q) (hr : 0 < r) :
+  IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope p q r < 1 ↔ q * r + p * r + p * q < p * q * r
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:26:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope_lt_one_iff_pairSum_lt_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:27:0: IUTThreeClosures.ABCMixedFullCampana20260831.radical_pow_pqr_le_c_pow_pairSum (P : IUTThreeClosures.ABCPoint)
+  {p q r : ℕ} (hfull : IUTThreeClosures.ABCMixedFullCampana20260831.MixedFull P p q r) :
+  IUTThreeClosures.abcRadical (P.a * P.b * P.c) ^ (p * q * r) ≤ P.c ^ (q * r + p * r + p * q)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:28:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.radical_pow_pqr_le_c_pow_pairSum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:29:0: IUTThreeClosures.ABCMixedFullCampana20260831.conductor_le_mixedFullSlope_mul_height (P : IUTThreeClosures.ABCPoint)
+  {p q r : ℕ} (hp : 0 < p) (hq : 0 < q) (hr : 0 < r)
+  (hfull : IUTThreeClosures.ABCMixedFullCampana20260831.MixedFull P p q r) :
+  P.conductor ≤ IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope p q r * P.height
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:30:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.conductor_le_mixedFullSlope_mul_height' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:31:0: IUTThreeClosures.ABCMixedFullCampana20260831.exists_positive_epsilon_of_mixedFullSlope_lt_one {p q r : ℕ}
+  (hsubunit : IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope p q r < 1) :
+  ∃ ε, 0 < ε ∧ (1 + ε) * IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope p q r < 1
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:32:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.exists_positive_epsilon_of_mixedFullSlope_lt_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:33:0: IUTThreeClosures.ABCMixedFullCampana20260831.abcConjecture_implies_mixedFull_height_bound
+  (habc : IUTThreeClosures.ABCConjecture) {p q r : ℕ} (hp : 0 < p) (hq : 0 < q) (hr : 0 < r)
+  (hsubunit : IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope p q r < 1) :
+  ∃ H, ∀ (P : IUTThreeClosures.ABCPoint), IUTThreeClosures.ABCMixedFullCampana20260831.MixedFull P p q r → P.height ≤ H
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:34:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.abcConjecture_implies_mixedFull_height_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:35:0: IUTThreeClosures.ABCMixedFullCampana20260831.not_abcConjecture_of_unbounded_mixedFull_family
+  (P : ℕ → IUTThreeClosures.ABCPoint) {p q r : ℕ} (hp : 0 < p) (hq : 0 < q) (hr : 0 < r)
+  (hsubunit : IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope p q r < 1)
+  (hfull : ∀ (n : ℕ), IUTThreeClosures.ABCMixedFullCampana20260831.MixedFull (P n) p q r)
+  (hunbounded : ∀ (B : ℝ), ∃ n, B < (P n).height) : ¬IUTThreeClosures.ABCConjecture
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:36:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.not_abcConjecture_of_unbounded_mixedFull_family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:37:0: IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope (p q r : ℕ) : ℝ
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:38:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:39:0: IUTThreeClosures.ABCMixedFullCampana20260831.MixedFull (P : IUTThreeClosures.ABCPoint) (p q r : ℕ) : Prop
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:40:0: 'IUTThreeClosures.ABCMixedFullCampana20260831.MixedFull' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:43:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.endpointC_eq_two_halfEndpointNat (n : ℕ) :
+  IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC n =
+    2 * IUTThreeClosures.FreyIsogenyConductorSharpness20260831.halfEndpointNat n
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:44:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.endpointC_eq_two_halfEndpointNat' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:45:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint_eq_two_half_sub_one (n : ℕ) :
+  IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint n =
+    2 * IUTThreeClosures.FreyIsogenyConductorSharpness20260831.halfEndpointNat n - 1
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:46:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint_eq_two_half_sub_one' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:47:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.endpointC_sub_one_eq_oddEndpoint (n : ℕ) :
+  IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC n - 1 =
+    IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint n
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:48:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.endpointC_sub_one_eq_oddEndpoint' depends on axioms: [propext]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:49:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.halfEndpointNat_pos (n : ℕ) :
+  0 < IUTThreeClosures.FreyIsogenyConductorSharpness20260831.halfEndpointNat n
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:50:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.halfEndpointNat_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:51:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint_pos (n : ℕ) :
+  0 < IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint n
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:52:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:53:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.two_coprime_halfEndpointNat (n : ℕ) :
+  Nat.Coprime 2 (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.halfEndpointNat n)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:54:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.two_coprime_halfEndpointNat' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:55:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.two_half_coprime_oddEndpoint (n : ℕ) :
+  (2 * IUTThreeClosures.FreyIsogenyConductorSharpness20260831.halfEndpointNat n).Coprime
+    (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint n)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:56:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.two_half_coprime_oddEndpoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:57:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.half_coprime_oddEndpoint (n : ℕ) :
+  (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.halfEndpointNat n).Coprime
+    (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint n)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:58:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.half_coprime_oddEndpoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:59:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint_coprime_half (n : ℕ) :
+  (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint n).Coprime
+    (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.halfEndpointNat n)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:60:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint_coprime_half' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:61:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.radical_two : UniqueFactorizationMonoid.radical 2 = 2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:62:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.radical_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:63:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.minimumJDenominator_radical (n : ℕ) :
+  UniqueFactorizationMonoid.radical (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.minimumJDenominator n) =
+    UniqueFactorizationMonoid.radical (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint n) *
+      UniqueFactorizationMonoid.radical (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.halfEndpointNat n)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:64:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.minimumJDenominator_radical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:65:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.endpoint_radical_eq_two_minimum_denominator_radical (n : ℕ) :
+  UniqueFactorizationMonoid.radical
+      (IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC n *
+        IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint n) =
+    2 * UniqueFactorizationMonoid.radical (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.minimumJDenominator n)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:66:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.endpoint_radical_eq_two_minimum_denominator_radical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:67:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.reducedDenominator_zeroKernel_eq_minimumJDenominator (n : ℕ) :
+  IUTThreeClosures.FreyIsogenyWeilHeight20260831.reducedDenominator n
+      IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.ModelLabel.zeroKernel =
+    ↑(IUTThreeClosures.FreyIsogenyConductorSharpness20260831.minimumJDenominator n)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:68:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.reducedDenominator_zeroKernel_eq_minimumJDenominator' depends on axioms: [propext]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:69:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.familyCurve_zeroKernel_den (n : ℕ) :
+  (IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve n
+          IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.ModelLabel.zeroKernel).j.den =
+    IUTThreeClosures.FreyIsogenyConductorSharpness20260831.minimumJDenominator n
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:70:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.familyCurve_zeroKernel_den' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:71:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.endpoint_radical_eq_two_actual_j_den_radical (n : ℕ) :
+  UniqueFactorizationMonoid.radical
+      (IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC n *
+        IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint n) =
+    2 *
+      UniqueFactorizationMonoid.radical
+        (IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve n
+              IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.ModelLabel.zeroKernel).j.den
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:72:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.endpoint_radical_eq_two_actual_j_den_radical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:73:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex_mul_896 (k : ℕ) :
+  IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k * 896 = 897 ^ k - 1
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:74:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex_mul_896' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:75:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.endpointC_powerIndex (k : ℕ) :
+  IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC
+      (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k) =
+    2 * 897 ^ k
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:76:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.endpointC_powerIndex' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:77:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex_pos {k : ℕ} (hk : 1 ≤ k) :
+  0 < IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:78:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:79:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.radical_897 : UniqueFactorizationMonoid.radical 897 = 897
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:80:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.radical_897' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:81:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.radical_897_pow {k : ℕ} (hk : k ≠ 0) :
+  UniqueFactorizationMonoid.radical (897 ^ k) = 897
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:82:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.radical_897_pow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:83:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerEndpoint_coprime_odd (k : ℕ) :
+  (2 * 897 ^ k).Coprime (2 * 897 ^ k - 1)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:84:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerEndpoint_coprime_odd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:85:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.two_coprime_897_pow (k : ℕ) : Nat.Coprime 2 (897 ^ k)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:86:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.two_coprime_897_pow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:87:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerEndpoint_radical {k : ℕ} (hk : k ≠ 0) :
+  UniqueFactorizationMonoid.radical
+      (IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC
+          (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k) *
+        IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint
+          (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k)) =
+    1794 *
+      UniqueFactorizationMonoid.radical
+        (IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC
+            (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k) -
+          1)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:88:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerEndpoint_radical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:89:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.power_conductorProxy {k : ℕ} (hk : k ≠ 0) :
+  IUTThreeClosures.FreyIsogenyConductorSharpness20260831.conductorProxy
+      (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k) =
+    28704 *
+      UniqueFactorizationMonoid.radical
+        (IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC
+            (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k) -
+          1)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:90:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.power_conductorProxy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:91:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.power_conductorProxy_lt {k : ℕ} (hk : k ≠ 0) :
+  IUTThreeClosures.FreyIsogenyConductorSharpness20260831.conductorProxy
+      (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k) <
+    28704 *
+      IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC
+        (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:92:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.power_conductorProxy_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:93:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerEndpoint_log (k : ℕ) :
+  Real.log
+      ↑(IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC
+          (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k)) =
+    Real.log 2 + ↑k * Real.log 897
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:94:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerEndpoint_log' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:95:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerFamily_subcritical_gap {k : ℕ} (hk : 1 ≤ k) {θ : ℝ}
+  (hθ0 : 0 ≤ θ) (i : IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.ModelLabel) :
+  (6 - θ) *
+          Real.log
+            ↑(IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC
+                (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k)) -
+        3 * Real.log 2 -
+      θ * Real.log 28704 <
+    Height.logHeight₁
+        (IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve
+            (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k) i).j -
+      θ *
+        Real.log
+          ↑(IUTThreeClosures.FreyIsogenyConductorSharpness20260831.conductorProxy
+              (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k))
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:96:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerFamily_subcritical_gap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:97:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.exists_powerFamily_gap_gt {θ C : ℝ} (hθ0 : 0 ≤ θ) (hθ6 : θ < 6) :
+  ∃ k,
+    1 ≤ k ∧
+      ∀ (i : IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.ModelLabel),
+        C <
+          Height.logHeight₁
+              (IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve
+                  (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k) i).j -
+            θ *
+              Real.log
+                ↑(IUTThreeClosures.FreyIsogenyConductorSharpness20260831.conductorProxy
+                    (IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex k))
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:98:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.exists_powerFamily_gap_gt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:99:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.halfEndpointNat (n : ℕ) : ℕ
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:100:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.halfEndpointNat' does not depend on any axioms
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:101:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint (n : ℕ) : ℕ
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:102:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.oddEndpoint' does not depend on any axioms
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:103:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.minimumJDenominator (n : ℕ) : ℕ
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:104:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.minimumJDenominator' depends on axioms: [propext]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:105:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.conductorProxy (n : ℕ) : ℕ
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:106:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.conductorProxy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:107:0: IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex (k : ℕ) : ℕ
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:108:0: 'IUTThreeClosures.FreyIsogenyConductorSharpness20260831.powerIndex' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:111:0: IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.mem_coordinateSpan_of_mem_productSpan.{u_1, u_2} {ι : Type u_1}
+  {R : ι → Type u_2} [(i : ι) → CommRing (R i)] {S : Set ((i : ι) → R i)} {x : (i : ι) → R i}
+  (hx : x ∈ Submodule.span ((i : ι) → R i) S) (i : ι) :
+  x i ∈ IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.coordinateSpan S i
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:112:0: 'IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.mem_coordinateSpan_of_mem_productSpan' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:113:0: IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.mem_productSpan_of_forall_mem_coordinateSpan.{u_1, u_2}
+  {ι : Type u_1} {R : ι → Type u_2} [(i : ι) → CommRing (R i)] [Finite ι] {S : Set ((i : ι) → R i)} {x : (i : ι) → R i}
+  (hx : ∀ (i : ι), x i ∈ IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.coordinateSpan S i) :
+  x ∈ Submodule.span ((i : ι) → R i) S
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:114:0: 'IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.mem_productSpan_of_forall_mem_coordinateSpan' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:115:0: IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.mem_productSpan_iff.{u_1, u_2} {ι : Type u_1} {R : ι → Type u_2}
+  [(i : ι) → CommRing (R i)] [Finite ι] {S : Set ((i : ι) → R i)} {x : (i : ι) → R i} :
+  x ∈ Submodule.span ((i : ι) → R i) S ↔
+    ∀ (i : ι), x i ∈ IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.coordinateSpan S i
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:116:0: 'IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.mem_productSpan_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:117:0: IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.mem_productSpan_of_mem_coordinateProduct.{u_1, u_2}
+  {ι : Type u_1} {R : ι → Type u_2} [(i : ι) → CommRing (R i)] [Finite ι] (S : Set ((i : ι) → R i))
+  (P : (i : ι) → Submodule (R i) (R i))
+  (hP : ∀ (i : ι), P i ≤ IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.coordinateSpan S i) {x : (i : ι) → R i}
+  (hx : ∀ (i : ι), x i ∈ P i) : x ∈ Submodule.span ((i : ι) → R i) S
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:118:0: 'IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.mem_productSpan_of_mem_coordinateProduct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:119:0: IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.finite_weighted_sum_mono.{u_3, u_4} {κ : Type u_3}
+  {K : Type u_4} [Fintype κ] [Ring K] [LinearOrder K] [IsStrictOrderedRing K] (weight lower upper : κ → K)
+  (hweight : ∀ (k : κ), 0 ≤ weight k) (hlocal : ∀ (k : κ), lower k ≤ upper k) :
+  ∑ k, weight k * lower k ≤ ∑ k, weight k * upper k
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:120:0: 'IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.finite_weighted_sum_mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:121:0: IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.coordinateSpan.{u_1, u_2} {ι : Type u_1} {R : ι → Type u_2}
+  [(i : ι) → CommRing (R i)] (S : Set ((i : ι) → R i)) (i : ι) : Submodule (R i) (R i)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:122:0: 'IUTThreeClosures.IUTFiniteProductProjectionSpan20260831.coordinateSpan' depends on axioms: [propext, Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:125:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.left_eq_one_of_mul_eq_prime_sq_of_lt {x y p : ℕ} (hp : Nat.Prime p)
+  (hxy : x < y) (hmul : x * y = p ^ 2) : x = 1
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:126:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.left_eq_one_of_mul_eq_prime_sq_of_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:127:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.factors_eq_of_mul_eq_prime_sq {x y p : ℕ} (hp : Nat.Prime p)
+  (hx : 1 < x) (hy : 1 < y) (hmul : x * y = p ^ 2) : x = y
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:128:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.factors_eq_of_mul_eq_prime_sq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:129:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.prime_not_square {x p : ℕ} (hp : Nat.Prime p) : x ^ 2 ≠ p
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:130:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.prime_not_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:131:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.consecutive_primes {q r : ℕ} (hq : Nat.Prime q) (hr : Nat.Prime r)
+  (h : q + 1 = r) : q = 2 ∧ r = 3
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:132:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.consecutive_primes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:133:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.prime_sq_eq_prime_add_one {q r : ℕ} (hq : Nat.Prime q)
+  (hr : Nat.Prime r) (h : q + 1 = r ^ 2) : q = 3 ∧ r = 2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:134:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.prime_sq_eq_prime_add_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:135:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.prime_sq_add_one_eq_prime {q r : ℕ} (hq : Nat.Prime q)
+  (hr : Nat.Prime r) (h : q ^ 2 + 1 = r) : q = 2 ∧ r = 5
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:136:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.prime_sq_add_one_eq_prime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:137:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.square_add_cube_ne_cube {P Q R : ℕ} (hP : Nat.Prime P)
+  (hQ : Nat.Prime Q) (hR : Nat.Prime R) : P ^ 2 + Q ^ 3 ≠ R ^ 3
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:138:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.square_add_cube_ne_cube' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:139:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.cube_add_cube_ne_prime_square_of_gt_one {P Q R : ℕ} (hP : 1 < P)
+  (hQ : 1 < Q) (hR : Nat.Prime R) (hPQ : P ≠ Q) : P ^ 3 + Q ^ 3 ≠ R ^ 2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:140:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.cube_add_cube_ne_prime_square_of_gt_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:141:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.cube_add_cube_ne_square {P Q R : ℕ} (hP : Nat.Prime P)
+  (hQ : Nat.Prime Q) (hR : Nat.Prime R) (hPQ : P ≠ Q) : P ^ 3 + Q ^ 3 ≠ R ^ 2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:142:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.cube_add_cube_ne_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:143:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.square_add_cube_ne_sixth {P Q R : ℕ} (hP : Nat.Prime P)
+  (hQ : Nat.Prime Q) (hR : Nat.Prime R) : P ^ 2 + Q ^ 3 ≠ R ^ 6
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:144:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.square_add_cube_ne_sixth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:145:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.square_add_sixth_ne_cube {P Q R : ℕ} (hP : Nat.Prime P)
+  (hQ : Nat.Prime Q) (hR : Nat.Prime R) : P ^ 2 + Q ^ 6 ≠ R ^ 3
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:146:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.square_add_sixth_ne_cube' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:147:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.cube_add_sixth_ne_square {P Q R : ℕ} (hP : Nat.Prime P)
+  (hQ : Nat.Prime Q) (hR : Nat.Prime R) : P ^ 3 + Q ^ 6 ≠ R ^ 2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:148:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.cube_add_sixth_ne_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:149:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.no_prime_signature_233 {P Q R : ℕ} (hP : Nat.Prime P)
+  (hQ : Nat.Prime Q) (hR : Nat.Prime R) (hPQ : P ≠ Q) :
+  P ^ 2 + Q ^ 3 ≠ R ^ 3 ∧ P ^ 3 + Q ^ 2 ≠ R ^ 3 ∧ P ^ 3 + Q ^ 3 ≠ R ^ 2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:150:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.no_prime_signature_233' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:151:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.no_prime_signature_236_output_sixth {P Q R : ℕ} (hP : Nat.Prime P)
+  (hQ : Nat.Prime Q) (hR : Nat.Prime R) : P ^ 2 + Q ^ 3 ≠ R ^ 6 ∧ P ^ 3 + Q ^ 2 ≠ R ^ 6
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:152:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.no_prime_signature_236_output_sixth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:153:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.no_prime_signature_236_output_cube {P Q R : ℕ} (hP : Nat.Prime P)
+  (hQ : Nat.Prime Q) (hR : Nat.Prime R) : P ^ 2 + Q ^ 6 ≠ R ^ 3 ∧ P ^ 6 + Q ^ 2 ≠ R ^ 3
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:154:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.no_prime_signature_236_output_cube' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:155:0: IUTThreeClosures.ABCThreePrimeSignatures20260831.no_prime_signature_236_output_square {P Q R : ℕ} (hP : Nat.Prime P)
+  (hQ : Nat.Prime Q) (hR : Nat.Prime R) : P ^ 3 + Q ^ 6 ≠ R ^ 2 ∧ P ^ 6 + Q ^ 3 ≠ R ^ 2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:156:0: 'IUTThreeClosures.ABCThreePrimeSignatures20260831.no_prime_signature_236_output_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:159:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.subcriticalLociHaveBoundedHeight_of_abcConjecture
+  (habc : IUTThreeClosures.ABCConjecture) :
+  IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.SubcriticalLociHaveBoundedHeight
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:160:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.subcriticalLociHaveBoundedHeight_of_abcConjecture' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:161:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.abcConjecture_of_subcriticalLociHaveBoundedHeight
+  (hsub : IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.SubcriticalLociHaveBoundedHeight) :
+  IUTThreeClosures.ABCConjecture
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:162:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.abcConjecture_of_subcriticalLociHaveBoundedHeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:163:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.abcConjecture_iff_subcriticalLociHaveBoundedHeight :
+  IUTThreeClosures.ABCConjecture ↔
+    IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.SubcriticalLociHaveBoundedHeight
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:164:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.abcConjecture_iff_subcriticalLociHaveBoundedHeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:165:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.finset_eq_empty_of_card_cast_lt_one.{u_1} {α : Type u_1}
+  (s : Finset α) (hsmall : ↑s.card < 1) : s = ∅
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:166:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.finset_eq_empty_of_card_cast_lt_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:167:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.pointwise_fiber_card_le_target.{u_1} {α : Type u_1}
+  (fiber target : Finset α) (hsubset : fiber ⊆ target) : fiber.card ≤ target.card
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:168:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.pointwise_fiber_card_le_target' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:169:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.sources_eq_empty_of_pointwise_oversized_fiber.{u_1, u_2}
+  {Source : Type u_1} {Target : Type u_2} (sources : Finset Source) (targets : Finset Target)
+  (fiber : Source → Finset Target) (hsubset : ∀ s ∈ sources, fiber s ⊆ targets)
+  (hoversized : ∀ s ∈ sources, targets.card < (fiber s).card) : sources = ∅
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:170:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.sources_eq_empty_of_pointwise_oversized_fiber' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:171:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.height_le_of_amplification_log_count
+  {height logConstant β κ θ : ℝ} (hgap : κ * θ < β) (hcount : β * height ≤ logConstant + κ * θ * height) :
+  height ≤ logConstant / (β - κ * θ)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:172:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.height_le_of_amplification_log_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:173:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseHeight_succ (n : ℕ) :
+  IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseHeight (n + 1) =
+    IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseHeight n ^ 2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:174:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseHeight_succ' depends on axioms: [propext]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:175:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseHeight_strictMono :
+  StrictMono IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseHeight
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:176:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseHeight_strictMono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:177:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.mem_superSparseIndicesUpTo {X n : ℕ} :
+  n ∈ IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseIndicesUpTo X ↔
+    IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseHeight n ≤ X
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:178:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.mem_superSparseIndicesUpTo' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:179:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseIndicesUpTo_card_le_log_log (X : ℕ) :
+  (IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseIndicesUpTo X).card ≤ Nat.log 2 (Nat.log 2 X) + 1
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:180:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseIndicesUpTo_card_le_log_log' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:181:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.index_succ_sq_le_superSparseHeight (N : ℕ) :
+  (N + 1) ^ 2 ≤ IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseHeight N
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:182:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.index_succ_sq_le_superSparseHeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:183:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseIndicesUpTo_card_sq_le (X : ℕ) (hX : 2 ≤ X) :
+  (IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseIndicesUpTo X).card ^ 2 ≤ X
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:184:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseIndicesUpTo_card_sq_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:185:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparsePrefix_card (N : ℕ) :
+  (IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparsePrefix N).card = N + 1
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:186:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparsePrefix_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:187:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparsePrefix_le_final {N x : ℕ}
+  (hx : x ∈ IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparsePrefix N) :
+  x ≤ IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseHeight N
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:188:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparsePrefix_le_final' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:189:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparsePrefix_card_unbounded (M : ℕ) :
+  ∃ N, M < (IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparsePrefix N).card
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:190:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparsePrefix_card_unbounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:191:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.SubcriticalLociHaveBoundedHeight : Prop
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:192:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.SubcriticalLociHaveBoundedHeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:193:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseHeight (n : ℕ) : ℕ
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:194:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseHeight' depends on axioms: [propext]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:195:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseIndicesUpTo (X : ℕ) : Finset ℕ
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:196:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparseIndicesUpTo' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:197:0: IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparsePrefix (N : ℕ) : Finset ℕ
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:198:0: 'IUTThreeClosures.ABCSubcriticalLocusUniformity20260831.superSparsePrefix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:201:0: IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_zero :
+  IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit 0 = (1, 0)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:202:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_zero' does not depend on any axioms
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:203:0: IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_succ (n : ℕ) :
+  IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit (n + 1) =
+    (3 * (IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit n).1 +
+        8 * (IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit n).2,
+      (IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit n).1 +
+        3 * (IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit n).2)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:204:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_succ' does not depend on any axioms
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:205:0: IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_norm (n : ℕ) :
+  1 + 8 * (IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit n).2 ^ 2 =
+    (IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit n).1 ^ 2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:206:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_norm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:207:0: IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_fst_pos (n : ℕ) :
+  0 < (IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit n).1
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:208:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_fst_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:209:0: IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_snd_lt_snd_succ (n : ℕ) :
+  (IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit n).2 <
+    (IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit (n + 1)).2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:210:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_snd_lt_snd_succ' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:211:0: IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_index_le_snd (n : ℕ) :
+  n ≤ (IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit n).2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:212:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_index_le_snd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:213:0: IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_snd_lt_fst_succ (n : ℕ) :
+  (IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit (n + 1)).2 <
+    (IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit (n + 1)).1
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:214:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_snd_lt_fst_succ' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:215:0: IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_fst_unbounded (B : ℕ) :
+  ∃ n, B < (IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit n).1
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:216:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit_fst_unbounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:217:0: IUTThreeClosures.PellCampanaCounterexample20260831.one_isKFull (k : ℕ) :
+  IUTThreeClosures.KFullRadicalCompression.IsKFull k 1
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:218:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.one_isKFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:219:0: IUTThreeClosures.PellCampanaCounterexample20260831.power_isKFull {x k : ℕ} (hx : x ≠ 0) :
+  IUTThreeClosures.KFullRadicalCompression.IsKFull k (x ^ k)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:220:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.power_isKFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:221:0: IUTThreeClosures.PellCampanaCounterexample20260831.eight_mul_sq_isTwoFull {y : ℕ} (hy : y ≠ 0) :
+  IUTThreeClosures.KFullRadicalCompression.IsKFull 2 (8 * y ^ 2)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:222:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.eight_mul_sq_isTwoFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:223:0: IUTThreeClosures.PellCampanaCounterexample20260831.eight_mul_sq_isThreeFull {y : ℕ}
+  (hy : IUTThreeClosures.KFullRadicalCompression.IsKFull 2 y) :
+  IUTThreeClosures.KFullRadicalCompression.IsKFull 3 (8 * y ^ 2)
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:224:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.eight_mul_sq_isThreeFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:225:0: IUTThreeClosures.PellCampanaCounterexample20260831.Datum.point_a
+  (D : IUTThreeClosures.PellCampanaCounterexample20260831.Datum) : D.point.a = 1
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:226:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.Datum.point_a' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:227:0: IUTThreeClosures.PellCampanaCounterexample20260831.Datum.point_b
+  (D : IUTThreeClosures.PellCampanaCounterexample20260831.Datum) : D.point.b = 8 * D.y ^ 2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:228:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.Datum.point_b' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:229:0: IUTThreeClosures.PellCampanaCounterexample20260831.Datum.point_c
+  (D : IUTThreeClosures.PellCampanaCounterexample20260831.Datum) : D.point.c = D.x ^ 2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:230:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.Datum.point_c' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:231:0: IUTThreeClosures.PellCampanaCounterexample20260831.Datum.a_sevenFull
+  (D : IUTThreeClosures.PellCampanaCounterexample20260831.Datum) :
+  IUTThreeClosures.KFullRadicalCompression.IsKFull 7 D.point.a
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:232:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.Datum.a_sevenFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:233:0: IUTThreeClosures.PellCampanaCounterexample20260831.Datum.b_threeFull
+  (D : IUTThreeClosures.PellCampanaCounterexample20260831.Datum) :
+  IUTThreeClosures.KFullRadicalCompression.IsKFull 3 D.point.b
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:234:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.Datum.b_threeFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:235:0: IUTThreeClosures.PellCampanaCounterexample20260831.Datum.c_twoFull
+  (D : IUTThreeClosures.PellCampanaCounterexample20260831.Datum) :
+  IUTThreeClosures.KFullRadicalCompression.IsKFull 2 D.point.c
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:236:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.Datum.c_twoFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:237:0: IUTThreeClosures.PellCampanaCounterexample20260831.Datum.point_mixedFull
+  (D : IUTThreeClosures.PellCampanaCounterexample20260831.Datum) :
+  IUTThreeClosures.ABCMixedFullCampana20260831.MixedFull D.point 7 3 2
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:238:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.Datum.point_mixedFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:239:0: IUTThreeClosures.PellCampanaCounterexample20260831.signature_732_subcritical :
+  IUTThreeClosures.ABCMixedFullCampana20260831.mixedFullSlope 7 3 2 < 1
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:240:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.signature_732_subcritical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:241:0: IUTThreeClosures.PellCampanaCounterexample20260831.not_abcConjecture_of_unbounded_squarefullPell_family
+  (D : ℕ → IUTThreeClosures.PellCampanaCounterexample20260831.Datum)
+  (hunbounded : ∀ (B : ℝ), ∃ n, B < (D n).point.height) : ¬IUTThreeClosures.ABCConjecture
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:242:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.not_abcConjecture_of_unbounded_squarefullPell_family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:243:0: IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit : ℕ → ℕ × ℕ
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:244:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.pellOrbit' does not depend on any axioms
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:245:0: IUTThreeClosures.PellCampanaCounterexample20260831.Datum : Type
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:246:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.Datum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:247:0: IUTThreeClosures.PellCampanaCounterexample20260831.Datum.point
+  (D : IUTThreeClosures.PellCampanaCounterexample20260831.Datum) : IUTThreeClosures.ABCPoint
+info: IUTThreeClosures/ResearchDualRouteContinuation20260831Audit.lean:248:0: 'IUTThreeClosures.PellCampanaCounterexample20260831.Datum.point' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Build completed successfully (8777 jobs).

@@ -1,0 +1,257 @@
+\section{Subcritical uniformity and a Pell counterexample gate}
+\label{sec:dual-subcritical-pell}
+
+This section runs the positive and counterexample programs against the same
+unchanged target.  The positive result identifies the exact pointwise
+uniformity statement equivalent to $abc$.  The counterexample analysis shows
+why fixed residual coefficients and polynomial identities cannot supply an
+unbounded strict mixed-full family, while retaining one explicit conditional
+Pell route.  No condition introduced below is asserted to hold without proof.
+
+\subsection{The exact positive gate}
+
+For an $abc$ point $P$, retain
+\[
+             H(P)=\log c,\qquad R(P)=\log\rad(abc).
+\]
+Consider the pointwise uniformity statement
+\begin{equation}\label{eq:subcritical-locus-property}
+ \forall\mu\in[0,1)\quad\exists B_\mu\in\R\quad\forall P,
+ \qquad R(P)\leq\mu H(P)\Longrightarrow H(P)\leq B_\mu.
+\end{equation}
+
+\begin{theorem}[Subcritical-locus equivalence]
+\label{thm:subcritical-locus-equivalence}
+The standard logarithmic $abc$ conjecture is equivalent to
+\eqref{eq:subcritical-locus-property}.
+\end{theorem}
+
+\begin{proof}
+Assume $abc$, fix $0\leq\mu<1$, and set
+$\eta=(1-\mu)/2$.  Then
+\[
+ d=1-(1+\eta)\mu=\frac{(1-\mu)(2-\mu)}2>0.
+\]
+If $C_\eta$ is the $abc$ constant and $R(P)\leq\mu H(P)$, then
+\[
+ dH(P)\leq C_\eta,
+\]
+so $B_\mu=C_\eta/d$ works.
+
+Conversely, assume \eqref{eq:subcritical-locus-property}.  Given
+$\eps>0$, put $\mu=(1+\eps)^{-1}$ and let $B_\mu$ be its bound.  If
+$R(P)\leq\mu H(P)$, then
+\[
+ H(P)\leq B_\mu\leq(1+\eps)R(P)+\max\{B_\mu,0\}.
+\]
+If the displayed premise fails, then
+$H(P)<(1+\eps)R(P)$.  Thus the single constant
+$C_\eps=\max\{B_\mu,0\}$ works for every $P$.
+\end{proof}
+
+This is a proved equivalence, rather than a replacement definition.  It
+shows that density zero, an exceptional-set estimate, or a positive power
+saving cannot by itself prove $abc$: every point on every fixed
+subcritical slope must be bounded.
+
+\subsection{What counting would have to accomplish}
+
+The logical gap persists even under very rapid separation.  Put
+\[
+                         X_n=2^{2^n}.
+\]
+Then $X_{n+1}=X_n^2$, but the sequence is infinite.  If
+$A(X)=\#\{n:X_n\leq X\}$, then for every integer $X\geq2$,
+\begin{equation}\label{eq:sparse-square-count}
+                              A(X)^2\leq X.
+\end{equation}
+Indeed, two base-two logarithms give
+$A(X)\leq 1+\lfloor\log_2\log_2X\rfloor$.  The elementary induction
+$(N+1)^2\leq2^{2^N}$ completes \eqref{eq:sparse-square-count}.  Thus an
+actual exponent-$1/2$ count and an exact square-gap law are compatible with
+infinitely many objects.  This is a counterexample to that proposed counting
+inference, not to $abc$.
+
+Two upgrades do reach pointwise boundedness.  If the number of objects in
+the $k$-th shell is at most $C2^{-\delta k}$ with $\delta>0$, then the
+integer shell cardinality is eventually strictly below one and hence zero.
+There is also a useful amplification criterion.
+
+\begin{proposition}[Single-source amplification]
+\label{prop:single-source-amplification}
+Suppose $C>0$, $\theta,\kappa,\beta\geq0$, and a target class satisfies
+$|T(Y)|\leq CY^\theta$ for $Y\geq1$.  If every bad source of height
+$X\geq1$ produces a set of distinct targets $F_X$ with
+\[
+ F_X\subseteq T(X^\kappa),\qquad |F_X|\geq X^\beta,
+ \qquad \beta>\kappa\theta,
+\]
+then every such source satisfies
+\[
+                  X\leq C^{1/(\beta-\kappa\theta)}.
+\]
+\end{proposition}
+
+\begin{proof}
+For each individual source,
+\[
+ X^\beta\leq|F_X|\leq|T(X^\kappa)|
+       \leq CX^{\kappa\theta}.
+\]
+Division and the positive exponent $\beta-\kappa\theta$ give the result.
+No overlap estimate between fibres of different sources is used.
+\end{proof}
+
+For the Browning--Verzobio bound in
+Section~\ref{sec:three-prime-campana}, the resulting design inequality is
+\[
+ \beta>\kappa\left(\frac1p+\frac1q-\eta_{u,v}(r)+\eps\right).
+\]
+Their present positive exponent reaches neither an empty-shell bound nor
+this amplification inequality without a new source-to-target construction.
+
+\subsection{Residual-kernel escape and polynomial rigidity}
+
+For $m\geq1$ and $n>0$, define
+\[
+ \kappa_m(n)=\prod_{\ell\mid n}\ell^{v_\ell(n)\bmod m},
+ \qquad
+ \rho_m(n)=\prod_{\ell\mid n}
+       \ell^{\lfloor v_\ell(n)/m\rfloor}.
+\]
+Primewise Euclidean division gives the unique decomposition
+\begin{equation}\label{eq:residual-kernel-decomposition}
+                         n=\kappa_m(n)\rho_m(n)^m,
+\end{equation}
+with $\kappa_m(n)$ $m$-th-power-free.
+
+\begin{proposition}[Kernel escape]
+\label{prop:kernel-escape}
+Fix $p,q,r\geq2$ with $1/p+1/q+1/r<1$.  In every infinite family of
+distinct primitive points whose coordinates are respectively
+$p$-, $q$-, and $r$-full, the triples
+\[
+       \bigl(\kappa_p(a),\kappa_q(b),\kappa_r(c)\bigr)
+\]
+take infinitely many values.
+\end{proposition}
+
+\begin{proof}
+For a fixed residual triple $(A,B,C)$,
+\eqref{eq:residual-kernel-decomposition} converts $a+b=c$ into
+\[
+                         Ax^p+By^q=Cz^r.
+\]
+Primitivity of $(a,b,c)$ implies $\gcd(x,y,z)=1$.  Darmon and
+Granville~\cite[Theorem~2]{DarmonGranville1995} prove that this fixed
+equation has only finitely many proper integer solutions in the strict
+reciprocal range.  A finite residual packet would therefore give a finite
+union of finite sets.
+\end{proof}
+
+The proposition rules out a finite list of fixed generalized-Fermat
+coefficient triples.  It does not rule out a fixed Pell or elliptic source
+curve whose coordinate values induce infinitely many residual kernels; the
+Pell gate below has exactly this form.
+
+There is a separate obstruction to putting all multiplicities into one
+polynomial identity.
+
+\begin{proposition}[Mason--Stothers obstruction]
+\label{prop:polynomial-full-obstruction}
+Let nonzero, pairwise coprime polynomials $A,B,C$ over a
+characteristic-zero field satisfy $A+B=C$.  If they are respectively
+polynomial-$p$-, $q$-, and $r$-full and at least one is nonconstant, then
+\[
+                         \frac1p+\frac1q+\frac1r>1.
+\]
+\end{proposition}
+
+\begin{proof}
+Put $D=\max\{\deg A,\deg B,\deg C\}>0$.  The polynomial $abc$ theorem of
+Stothers~\cite{Stothers1981} gives
+\[
+ D+1\leq\deg\rad(ABC).
+\]
+Fullness and pairwise coprimality give
+\[
+ \deg\rad(ABC)
+ \leq\frac{\deg A}{p}+\frac{\deg B}{q}+\frac{\deg C}{r}
+ \leq D\left(\frac1p+\frac1q+\frac1r\right).
+\]
+The reciprocal sum cannot be at most one.
+\end{proof}
+
+This excludes polynomial-full identities.  It does not exclude a sparse set
+of specializations at which polynomials with simple algebraic factors take
+full integer values.
+
+\subsection{A strict conditional Pell route}
+
+The classical consecutive-powerful-number Pell orbit studied by
+Walker~\cite{Walker1976}
+\[
+ x_0=1,\quad y_0=0,\qquad
+ x_{n+1}=3x_n+8y_n,\quad y_{n+1}=x_n+3y_n
+\]
+satisfies
+\begin{equation}\label{eq:pell-eight}
+                     1+8y_n^2=x_n^2.
+\end{equation}
+Its positive coordinates are strictly increasing.  Hence it gives an
+unbounded primitive family $(1,8y_n^2,x_n^2)$ in which both nonunit
+coordinates are always squarefull.
+
+If $y$ is itself squarefull, then $8y^2$ is cubefull: the prime $2$ occurs
+to exponent at least three, and every odd prime occurs in $y^2$ to exponent
+at least four.  The unit is $7$-full and $x^2$ is $2$-full, so
+\[
+                         (1,8y^2,x^2)
+\]
+has the strict signature $(7,3,2)$, with
+\[
+                       \frac17+\frac13+\frac12=\frac{41}{42}<1.
+\]
+
+\begin{theorem}[Pell-squarefull disproof gate]
+\label{thm:pell-squarefull-disproof}
+If an unbounded subsequence of the positive Pell roots $y_n$ is squarefull,
+then the standard $abc$ conjecture is false.
+\end{theorem}
+
+\begin{proof}
+The corresponding points from \eqref{eq:pell-eight} are positive and
+primitive, have the fixed strict mixed-full signature $(7,3,2)$, and have
+unbounded height.  The strict mixed-full disproof gate from
+Section~\ref{sec:three-prime-campana} applies to the unchanged standard
+target.
+\end{proof}
+
+The actual radical slope is stronger than $41/42$.  Squarefullness gives
+$\rad(y)^2\leq y$; also $\rad(x)\leq x$ and $y<x$.  Therefore
+\[
+ \rad(8y^2x^2)^2
+ \leq4\rad(y)^2\rad(x)^2
+ \leq4yx^2<4x^3.
+\]
+With $H=\log(x^2)$ and $R=\log\rad(8y^2x^2)$ this yields
+\begin{equation}\label{eq:pell-three-quarter-slope}
+                         R\leq\frac34H+\log2.
+\end{equation}
+The unresolved premise is squarefullness of infinitely many $y_n$.
+Here $\alpha=3+\sqrt8$ and $\beta=3-\sqrt8$ are algebraic integers with
+$\alpha+\beta=6$, $\alpha\beta=1$, and coprime nonzero integral sum and
+product; moreover $\alpha/\beta=\alpha^2>1$ is not a root of unity and
+$y_n=(\alpha^n-\beta^n)/(\alpha-\beta)$.  Thus this is a nondegenerate Lucas
+pair in the sense required by Bilu--Hanrot--Voutier.  Their Theorem~1.4 says
+that every Lucas or Lehmer term of index greater than $30$ has a primitive
+divisor~\cite{BHV2001}.  Their theorem does not assert that this divisor has
+valuation one, so it alone does not negate the premise.  The first
+twelve terms were factored only to check the recurrence and formulas; only
+$y_1=1$ is squarefull among them, and no asymptotic conclusion is drawn.
+
+The Lean companion proves the Pell norm recurrence and unboundedness, the
+squarefull-to-cubefull transfer, the exact $(7,3,2)$ slope, and the conditional
+implication to the original \texttt{ABCConjecture}.  It does not assume or prove an
+unbounded squarefull subsequence.  The Darmon--Granville, Mason--Stothers,
+three-quarter radical, and Lucas--Wieferich arguments remain paper proofs.

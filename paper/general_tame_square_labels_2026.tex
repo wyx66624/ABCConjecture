@@ -1,0 +1,374 @@
+\section{All square labels in a tame valuation-four Tate field}
+\label{sec:general-tame-square-labels}
+
+The preceding constructions extend to every square label for an
+arbitrary prime level. The new step is one inertia choice for both
+the point and whole-product inputs. We retain the actual full-Galois
+lifts of Section~\ref{sec:full-galois-lifts} and the distinct source
+types of Section~\ref{sec:native-pilot-dictionary}.
+
+Let $\ell\ge7$ and $p$ be primes such that
+\[
+ p\equiv-1\pmod{30\ell},\qquad
+ e=15\ell,\quad d=2e,\quad h=(\ell-1)/2.
+\]
+No condition $\ell\equiv3\pmod4$ is needed for this local result.
+Choose $b_0\in\Q_p$ with $v_p(b_0)=2$, and set
+\begin{equation}\label{eq:gs-field-data}
+ \begin{gathered}
+ q=b_0^2,\qquad K_0=\Q_p(\mu_{2e}),\qquad
+ \pi^e=b_0,\qquad E=K_0(\pi),\\
+ \beta=\pi^{(e+1)/2}/p,\qquad
+ r=\pi^{15}=q^{1/(2\ell)},\qquad
+ \kappa=1-1/e.
+ \end{gathered}
+\end{equation}
+All roots are chosen once, before the common arrow below is selected.
+
+\begin{lemma}[The genuine uniformizer]\label{lem:gs-field}
+The extension $E/\Q_p$ is Galois with ramification index $e$, residue
+degree two, and degree $d$. The element $\beta$ is a uniformizer;
+$\pi$ has valuation $2/e$ and is not one. Writing
+$\eta=p^2/b_0\in\Z_p^\times$, one has
+\begin{equation}\label{eq:gs-uniformizer}
+ \beta^e=p\eta^{-(e+1)/2},\qquad
+ \pi=\eta\beta^2,\qquad r=\eta^{15}\beta^{30},\qquad r^\ell=b_0.
+\end{equation}
+Moreover
+\begin{equation}\label{eq:gs-log-lattice}
+ I=p^{-1}\log\OO_E^\times=\beta^{1-e}\OO_E,
+ \qquad \operatorname{Tr}I=\operatorname{Tr}(\beta I)=\Z_p.
+\end{equation}
+The trace kernel surjects onto $I/\beta I$.
+\end{lemma}
+\begin{proof}
+The order of $p$ modulo $2e$ is two, so $K_0/\Q_p$ is unramified
+quadratic. Since $e$ is odd, the exponent $(e+1)/2$ is an integer,
+and direct calculation gives \eqref{eq:gs-uniformizer}. Its first
+equation is Eisenstein over $K_0$, and its second gives
+$K_0(\beta)=K_0(\pi)$. The roots of unity in $K_0$ make $E$ a
+splitting field. These observations prove the field assertions.
+
+One has $p\ge2e-1$, hence $e\le p-2$. Logarithm and exponential
+are inverse isometries on $1+\beta\OO_E$ and $\beta\OO_E$.
+Dividing the logarithmic image by $p$ proves the lattice identity;
+the unit in \eqref{eq:gs-uniformizer} is not discarded as an element.
+Tameness gives $I=\mathfrak D_{E/\Q_p}^{-1}$, so its trace is
+integral. Also $p\nmid d$ and $\operatorname{Tr}(1/d)=1$, with
+$1/d\in\OO_E\subset\beta I$. This proves the trace identities.
+For $x\in I$, subtracting $\operatorname{Tr}(x)/d\in\OO_E$
+kills its trace without changing its class modulo $\beta I$.
+\end{proof}
+
+This field is the full local $30\ell$-torsion field of the split
+Tate curve with parameter $q$. Conversely, a split elliptic curve
+over $\Q_p$ with full rational $2$-torsion and Tate valuation four
+supplies a $b_0$ as above. Indeed, the rationality of the Tate class
+of $\sqrt q$ makes its Galois ratio a power of $q$; valuation zero
+forces that power to be zero. Applying the same argument to both
+Tate torsion generators proves equality with
+$\Q_p(\mu_{30\ell},q^{1/(30\ell)})$, not merely containment.
+Here we use the Galois-equivariant Tate uniformization theorem
+\cite[Theorem~C.14.1]{Silverman}.
+
+For $1\le j\le h$, put $s=j^2$ and define
+\begin{equation}\label{eq:gs-inputs}
+ \begin{gathered}
+ z_j=r^{j^2},\qquad
+ n_j=\left\lfloor\frac{2j^2}{\ell}\right\rfloor,\qquad
+ k_j=n_j+1=\left\lceil\frac{2j^2}{\ell}\right\rceil,\\
+ u=p^{-1}\log(1+p),\qquad
+ \tau_j=p^{-1}\log(1+pz_j),\qquad
+ t_j=p^{-k_j}\tau_j,\qquad
+ x_j=p^{-n_j}z_j\beta^{1-e}.
+ \end{gathered}
+\end{equation}
+The ratio $2j^2/\ell$ is nonintegral in this range, and
+$k_j=\lfloor2j^2/\ell+\kappa\rfloor$.
+
+\begin{lemma}[Contents and trace depths]\label{lem:gs-inputs}
+The elements $t_j,x_j$ lie in $\beta I\setminus pI$, while
+$u\in\beta I$ and $\operatorname{Tr}u$ is a unit. For every label,
+\begin{equation}\label{eq:gs-traces}
+ \begin{aligned}
+ \operatorname{Tr}(t_j)
+   &=\frac{30}{p^{k_j+1}}\log(1+p^\ell b_0^{j^2}),\\
+ v_p(\operatorname{Tr}(t_j))
+   &=\ell-1+2j^2-k_j\ge\ell,\qquad
+ \operatorname{Tr}(x_j)=0.
+ \end{aligned}
+\end{equation}
+Modulo $pI$, $t_j$ has the pure leading term $z_j/p^{k_j}$.
+\end{lemma}
+\begin{proof}
+Write $2j^2=\ell n_j+a_j$, with $1\le a_j\le\ell-1$. Then
+\[
+ e\,v_p(t_j)=15a_j-e,\qquad
+ e\,v_p(x_j)=15a_j-e+1.
+\]
+Both exponents are strictly greater than $2-e$ and less than $1$,
+which proves the lattice assertions. Also
+$\operatorname{Tr}u=du\in\Z_p^\times$.
+
+For $R=v_p(z_j)=2j^2/\ell$, the logarithmic tail has valuation
+at least $1+2R$. Dividing by $p^{k_j}$ leaves valuation at least
+$1+R-\kappa\ge1/e$, so the remainder belongs to $pI$.
+The relation $r^\ell=b_0$ and $\gcd(j^2,\ell)=1$ give
+\[
+ \operatorname{N}_{E/K_0}(1+pr^{j^2})
+       =(1+p^\ell b_0^{j^2})^{15}.
+\]
+Taking logarithms and then the degree-two trace proves the first
+formula in \eqref{eq:gs-traces}. Its valuation follows from
+$v_p(b_0)=2$, $p\nmid30$, and $k_j\le j^2$.
+Finally $x_j$ is a rational unit times
+$\beta^{30j^2+1-e}/p^{n_j}$. Its exponent is $1$ modulo $15$,
+so summing its $e$ conjugates over $K_0$ gives zero. The geometric
+sum applies also to a negative exponent.
+\end{proof}
+
+Use the integral JW basis of Lemma~\ref{lem:gl-integral-basis},
+writing it as $a,b,W$, with $W$ of rank $d-2$. Let $B$ be the
+$b$-coordinate. Lemma~\ref{lem:gs-field} gives
+$B(v)=\operatorname{Tr}(v)/\operatorname{Tr}(b)$ with unit denominator.
+Set
+\[
+ V=I/pI,\qquad V_0=\beta I/pI.
+\]
+The quotient $V/V_0$ has dimension two, and $\ker B\to V/V_0$
+is onto. Lemma~\ref{lem:gs-inputs} places the $2h$ nonzero inputs
+in $V_0\cap\ker B$, while $B(u)\ne0$.
+
+\begin{lemma}[One inertia exponent for both families]\label{lem:gs-inertia}
+There is one $\sigma^\nu\in\operatorname{Gal}(E/K_0)$ that puts
+all $t_j,x_j$ off the line $\mathbf F_pa$ in $V$, without changing
+$u$, trace, or membership in $V_0$. At most
+\begin{equation}\label{eq:gs-bad-budget}
+ 15h+(h-1+\ell)=9\ell-9<15\ell=e
+\end{equation}
+of the exponents $0\le\nu<e$ are forbidden.
+\end{lemma}
+\begin{proof}
+Choose $\sigma(\beta)=\zeta_e\beta$. Since
+$\gcd(e,p-1)=\gcd(e,2)=1$, the roots $\mu_e$ have trivial
+intersection with $\mathbf F_p^\times$ after reduction.
+For a character of order $o\mid e$, its leading projective
+coefficients therefore run through $o$ distinct $\mathbf F_p$-lines.
+A fixed line is hit at most $e/o$ times as $0\le\nu<e$ varies.
+If the valuation of the target vector differs, there is no hit.
+In every case equality of full vector lines in $V$ requires this
+leading-line equality, which is all that the following count uses.
+
+The leading character of $t_j$ is $\zeta_e^{30j^2}$, of order
+$\ell$, because $\gcd(e,30j^2)=15$. Thus each of the $h$ point
+inputs forbids at most $15$ exponents.
+
+For $x_j$ the exponent modulo $e$ is $30j^2+1$. It is $1$
+modulo $15$, so its gcd with $e$ is either $1$ or $\ell$.
+The second possibility requires
+\[
+                       30j^2+1\equiv0\pmod\ell.
+\]
+There is at most one such $j$ in $1,\ldots,h$: the two possible
+roots modulo the prime $\ell$ are a nonzero pair $j,-j$, with
+exactly one member in this half range. A nonexceptional character
+has order $e$ and forbids at most one exponent. The possible
+exceptional character has order $15$ and forbids at most $\ell$.
+Thus these inputs forbid at most $h-1+\ell$ exponents, also a
+valid bound when no exception occurs. Adding the two bounds gives
+\eqref{eq:gs-bad-budget}, leaving a common choice of $\nu$.
+Field inertia preserves valuation and trace and fixes the rational
+element $u$, as required.
+\end{proof}
+
+\begin{theorem}[A common arrow for every square label]
+\label{thm:gs-one-arrow}
+There is one actual integral Kummer arrow $F\in\Gamma_E$ with
+\begin{equation}\label{eq:gs-common-minimum}
+ v_p(Fu)=v_p(Ft_j)=v_p(Fx_j)=-\kappa
+                  \qquad(1\le j\le h).
+\end{equation}
+The chosen arrow may depend on the field and the chosen roots;
+within these choices it is the same for all labels and both families.
+\end{theorem}
+\begin{proof}
+Apply Lemma~\ref{lem:gs-inertia}. Every resulting input has a
+nonzero $W$-component, because it lies in $\ker B$ but off
+$\mathbf F_pa$. The other hypotheses of
+Lemma~\ref{lem:gl-finite-family} were verified above. Its required
+inequality is
+\[
+                       2h+1=\ell<p.
+\]
+It therefore gives one parabolic composition moving all inputs
+and $u$ outside $V_0$. The required residue vectors have integer
+coordinate lifts; Lemma~\ref{lem:gl-central} and the full-presentation
+handle construction realize this composition by one actual
+Galois-group automorphism. Compose it with the chosen field inertia.
+Being outside $V_0$ means valuation $-\kappa$.
+Finally Proposition~\ref{prop:gl-variance} converts the covariant
+canonical action to the Kummer action of the inverse automorphism,
+up to a common $\Z_p^\times$-factor. That factor changes none of
+the valuations in \eqref{eq:gs-common-minimum}.
+\end{proof}
+
+For $m=j+1$, use the native algebra $T_m$ and maximal order $B_m$
+of Section~\ref{sec:native-pilot-dictionary}, and define
+\[
+ \begin{aligned}
+ P_j^\rho&=\mathcal H_{\Gamma_E}
+                   (\{(\tau_j,u,\ldots,u)\}),\\
+ S_j^\rho&=\mathcal H_{\Gamma_E}(z_jI\times I^{m-1}).
+ \end{aligned}
+\]
+\begin{corollary}[Two attained endpoint hulls]\label{cor:gs-hulls}
+For every $1\le j\le h$,
+\begin{equation}\label{eq:gs-hulls}
+ \begin{aligned}
+ P_j^\rho&=\beta^{e k_j-(e-1)m}B_m,\\
+ S_j^\rho&=\beta^{e n_j-(e-1)m}B_m=p^{-1}P_j^\rho.
+ \end{aligned}
+\end{equation}
+The same arrow witnesses every equality, and the spans are closed.
+\end{corollary}
+\begin{proof}
+For the point hull, apply Proposition~\ref{prop:gl-block-hull} to
+$\tau_j=p^{k_j}t_j$ and \eqref{eq:gs-common-minimum}.
+For the whole product, $z_jI\subset p^{n_j}I$ bounds each component
+valuation below by $n_j-m\kappa$. The first input
+$z_j\beta^{1-e}=p^{n_j}x_j$ and the repeated remaining input $u$
+attain that bound under the same arrow. The attaining tensor is a
+unit times the asserted power of $\beta$ in every field component,
+so its principal $B_m$-span is the entire product ideal. Closedness
+follows from that fractional-lattice description. Since
+$k_j=n_j+1$ and $p$ is a unit times $\beta^e$, the ratio is $p^{-1}$.
+\end{proof}
+
+The full principal-unit families in Proposition~\ref{prop:np-saturated}
+realize $z_jI\times I^{m-1}$ cohomologically. Selecting those families
+is an explicit enlargement of the single-class input; it is not
+entailed by matching the coefficient norm of one point.
+
+\begin{proposition}[A trace-dual upper bound for the pre-transport ideal]
+\label{prop:gs-dual-pilot-upper}
+Let $A_m=\OO_E^{\otimes_{\Z_p}m}\subset T_m$, and take trace duals
+using the absolute algebra trace on $T_m$. For any family of
+$\Q_p$-linear maps $\Phi:T_m\to T_m$ satisfying
+$\Phi(A_m^\vee)\subseteq A_m^\vee$, one has
+\begin{equation}\label{eq:gs-dual-pilot-upper}
+ \overline{\operatorname{Span}_{B_m}
+       \{\Phi(x):x\in(z_j\otimes1\otimes\cdots\otimes1)B_m\}}
+ \subseteq\beta^{e k_j-(e-1)m}B_m ,
+\end{equation}
+where the span includes every map in the specified family.
+No $B_m$-linearity or trace preservation of the maps is required.
+\end{proposition}
+\begin{proof}
+Put $Z_j=z_j\otimes1\otimes\cdots\otimes1$. The product decomposition
+$T_m\simeq\prod_{d^{m-1}}E$ identifies its absolute algebra trace
+with the sum of the component field traces. Testing against the
+individual idempotents in $B_m$ gives
+\[
+ B_m^\vee=\prod_{d^{m-1}}I
+       \subseteq A_m^\vee=I^{\otimes_{\Z_p}m}.
+\]
+The inclusion reverses $A_m\subseteq B_m$; the last equality follows
+by tensoring an integral basis and its trace-dual basis. There is no
+factor equal to the number of product components.
+
+Every component of $Z_j$ has valuation $R_j=2j^2/\ell$.
+Since $k_j=\lfloor R_j+\kappa\rfloor$, one has
+\[
+ p^{-k_j}Z_jB_m\subseteq B_m^\vee\subseteq A_m^\vee.
+\]
+Thus $Z_jB_m\subseteq p^{k_j}A_m^\vee$. Applying any allowed $\Phi$
+preserves this containing lattice by $\Q_p$-linearity. Its $B_m$-span
+is contained in
+\[
+ p^{k_j}\operatorname{Span}_{B_m}(I^{\otimes_{\Z_p}m})
+       =\beta^{e k_j-(e-1)m}B_m.
+\]
+The last equality follows from factor valuations at least $-\kappa$,
+attained by $\beta^{1-e}\otimes\cdots\otimes\beta^{1-e}$ in every
+component. This product ideal is closed, completing the proof.
+\end{proof}
+
+\begin{corollary}[The exact pre-transport pilot and the two scales]
+\label{cor:gs-pilot-scale}
+For the pre-transport ideal hull of \eqref{eq:np-preideal},
+\begin{equation}\label{eq:gs-sandwich}
+ \mathcal M_{\Gamma_E}(z_j)=P_j^\rho
+           \subsetneq S_j^\rho=p^{-1}P_j^\rho.
+\end{equation}
+The equality still holds upon enlarging the allowed tensor arrows
+to any family of $\Q_p$-linear maps preserving $A_m^\vee$ and
+containing the already constructed attaining diagonal arrow.
+Every exponent in \eqref{eq:gs-hulls} is strictly negative.
+Consistently multiplying all $m$ coordinates and the corresponding
+source by $p$ gives
+\begin{equation}\label{eq:gs-standard}
+ P_j^{\rm std}=\beta^{e k_j+m}B_m,\qquad
+ S_j^{\rm std}=\beta^{e n_j+m}B_m,
+\end{equation}
+whose valuation exponents are strictly positive, and
+$p^m\mathcal M_{\Gamma_E}(z_j)=P_j^{\rm std}$.
+\end{corollary}
+\begin{proof}
+Proposition~\ref{prop:np-point-bridge} identifies the point orbit
+hull with that of $(z_j,1,\ldots,1)$, separately after every
+integral arrow. Since $Z_j\in Z_jB_m$, the attaining diagonal
+arrow supplies $P_j^\rho\subseteq\mathcal M_{\Gamma_E}(z_j)$.
+Each integral tensor arrow preserves $A_m^\vee=I^{\otimes_{\Z_p}m}$,
+so Proposition~\ref{prop:gs-dual-pilot-upper} proves the opposite
+inclusion. The same proof works for the larger stated map families.
+This strengthens Proposition~\ref{prop:np-sandwich} for the same
+pre-transport input; it never moves the $B_m$-span through a
+merely $\Q_p$-linear map. The whole-product hull is strictly larger
+because $p^{-1}P_j^\rho\ne P_j^\rho$.
+
+For $j\le h$, one has $2j^2/\ell<j$, hence $k_j\le j$. Thus
+\[
+ e k_j-(e-1)(j+1)\le j-(e-1)<0.
+\]
+The whole exponent is smaller by $e$. The scale rule
+\eqref{eq:np-standard-scale} adds $em$ to each exponent, giving
+$e k_j+m>0$ and $e n_j+m>0$ and proving \eqref{eq:gs-standard}.
+\end{proof}
+
+For additive Haar measure on the entire $T_m$, normalized by
+$\mu_B(B_m)=1$, put $V_B(H)=d^{-m}\log\mu_B(H)$. Then
+\begin{equation}\label{eq:gs-pilot-volume}
+ \begin{aligned}
+ V_B(\mathcal M_{\Gamma_E}(z_j))
+    &=V_B(P_j^\rho)=(m\kappa-k_j)\log p>0,\\
+ V_B(S_j^\rho)&=V_B(P_j^\rho)+\log p.
+ \end{aligned}
+\end{equation}
+The remaining $\log p$ difference belongs to the larger whole
+source. After consistent standard scaling, the exact volumes of
+the pre-transport pilot and the whole source are respectively
+$-(k_j+m/e)\log p$ and $-(n_j+m/e)\log p$, both strictly negative.
+Thus the signs of valuation exponents and logarithmic Haar volumes
+are opposite. This Haar measure is not a probability measure
+restricted to $B_m$.
+
+The equality in \eqref{eq:gs-sandwich} identifies two native hulls,
+not their source objects, and it leaves a strict distinction from
+the whole-product source. This result does not supply
+global initial data, a compact bounding domain, escape from a
+finite exceptional set, the additional Ind3 unions, or the
+cross-Frobenius comparison. The
+specified native square powers and coordinate scale remain part
+of its statement.
+
+The finite arithmetic of the half-range exception, the budget
+$9\ell-9$, the strict floor/ceiling bracket, and the exponent
+identities is kernel-checked in the companion module
+\texttt{IUTGeneralTame\allowbreak SquareLabels20260830}. The local-field,
+logarithmic, full-Galois-lift and pilot arguments above remain
+paper proofs using the stated mathematical inputs; the companion
+does not introduce them as Lean axioms.
+The algebraic trace-dual and transported-span steps are separately
+checked in \texttt{TraceDualPreideal\allowbreak Hull20260831} using
+the actual algebra trace; this does not formalize the local inverse
+different, tensor-basis identification, or attaining Galois arrow.

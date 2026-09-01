@@ -1,0 +1,290 @@
+\section{Exact Weil heights within the rational isogeny class}
+\label{sec:uniform-weil-height}
+
+The complex absolute value in
+Theorem~\ref{thm:entire-class-bounds} is a single local quantity.
+We now determine the absolute Weil height of the same four
+$j$-invariants, including every cancellation in their rational
+coordinates. The minimum over the entire rational isogeny class is
+$3\log(c^2-16c+16)$. In particular its leading term remains
+$6\log c$, although the logarithm of the minimum complex absolute
+value has leading term $\log c$.
+
+\subsection{Reduced rational coordinates}
+
+Throughout this section put
+\begin{equation}\label{eq:wh-parameters}
+ n\in\Z_{\ge1},\qquad c=1792n+2,\qquad u=c/2=896n+1.
+\end{equation}
+Thus $c\ge1794>32$, and $u,c-1$ are positive odd integers.
+Let $E_c,E_0,E_a,E_b$ be the four actual curves of
+Theorem~\ref{thm:entire-four-models}, and write
+\begin{equation}\label{eq:wh-polynomials}
+ \begin{aligned}
+ P&=c^2-c+1,& Q&=c^2-16c+16,\\
+ R&=c^2+14c+1,& S&=16c^2-16c+1.
+ \end{aligned}
+\end{equation}
+For a rational number $z=N/D$ in lowest terms, with $D>0$, we use
+the absolute logarithmic and multiplicative Weil heights
+\begin{equation}\label{eq:wh-rational-height}
+ \height(z)=\log\max\{|N|,D\},\qquad
+ \mathrm H(z)=\max\{|N|,D\}.
+\end{equation}
+Over $\Q$ the relative and absolute normalizations agree.
+
+\begin{proposition}\label{prop:wh-reduced-fractions}
+The following are the signed reduced rational coordinates of the
+actual $j$-invariants. Every denominator is positive.
+\[
+\begin{array}{c|r|l}
+ \text{curve}&\text{numerator }N&\text{denominator }D\\ \hline
+ E_c&64P^3&u^2(c-1)^2\\
+ E_0&-Q^3&(c-1)u^4\\
+ E_a&8R^3&u(c-1)^4\\
+ E_b&8S^3&u(c-1)
+\end{array}
+\]
+\end{proposition}
+
+\begin{proof}
+The previously computed invariants give
+\[
+ \begin{aligned}
+ j(E_c)&=\frac{256P^3}{c^2(c-1)^2},&
+ j(E_0)&=-\frac{16Q^3}{(c-1)c^4},\\
+ j(E_a)&=\frac{16R^3}{c(c-1)^4},&
+ j(E_b)&=\frac{16S^3}{c(c-1)}.
+ \end{aligned}
+\]
+Substitution of $c=2u$ gives the displayed coordinates.
+The sign of $j(E_0)$ follows from its negative displayed
+discriminant. This computation uses $j=c_4^3/\Delta$ and does not
+require the displayed models to be minimal at $2$.
+
+For coprimality, the exact residue identities give the table
+\[
+\begin{array}{c|cc}
+ &\bmod u&\bmod(c-1)\\ \hline
+ P&1&1\\
+ Q&16&1\\
+ R&1&16\\
+ S&1&1
+\end{array}
+\]
+For example,
+$Q=16+u(4u-32)=1+(c-1)(c-15)$ and
+$R=1+u(4u+28)=16+(c-1)(c+15)$.
+Because $u,c-1$ are odd, $16$ is coprime to either modulus.
+Consequently each polynomial is coprime to both factors of every
+denominator. Taking powers and multiplying numerator factors
+$64$ or $8$ preserves this coprimality.
+
+For completeness the exact $2$-parts are also visible directly:
+$P,R,S$ are odd, whereas
+\[
+ Q=4(u^2-8u+4),\qquad v_2(Q)=2.
+\]
+The $2$-adic valuations of the four absolute numerators are
+respectively $6,6,3,3$, and every denominator is odd.
+Thus no odd prime or power of $2$ can cancel in any of the
+four displayed fractions.
+\end{proof}
+
+\subsection{The two exact minima}
+
+Let $\mathcal I_c$ denote the rational isogeny class of $E_c$,
+modulo rational isomorphism, and define
+\[
+ \height_{\min}(c)=\min_{F\in\mathcal I_c}\height(j(F)),\qquad
+ J_{\min,\infty}(c)=\min_{F\in\mathcal I_c}|j(F)|_\infty.
+\]
+Theorem~\ref{thm:entire-four-models} supplies the entire-class
+identification used in these minima; the following arithmetic
+calculations do not provide a replacement proof of that
+classification.
+
+\begin{lemma}\label{lem:wh-complex-minimum}
+The unique minimizing rational isomorphism class for the complex
+absolute value is represented by $E_0$, and
+\begin{equation}\label{eq:wh-complex-minimum}
+ J_{\min,\infty}(c)
+   =\frac{Q^3}{(c-1)u^4}
+   =\frac{16Q^3}{(c-1)c^4}>2c>1.
+\end{equation}
+In particular all four absolute numerators in
+Proposition~\ref{prop:wh-reduced-fractions} exceed their denominators.
+\end{lemma}
+
+\begin{proof}
+For $c\ge32$ one has
+\begin{equation}\label{eq:wh-polynomial-inequalities}
+ \begin{aligned}
+ Q-\frac{c^2}{2}&=\frac{c(c-32)}2+16>0,& Q&<c^2,\\
+ P-Q&=15(c-1)>0,\\
+ R-Q&=15(2c-1)>0,\\
+ S-Q&=15(c^2-1)>0.
+ \end{aligned}
+\end{equation}
+Thus all four polynomials are positive.
+Since $Q>c^2/2$ and $c-1<c$, the absolute value of $j(E_0)$
+is greater than $2c$. The exact ratios of the other three
+absolute values to this one are
+\begin{equation}\label{eq:wh-three-ratios}
+ \begin{aligned}
+ \frac{|j(E_c)|}{|j(E_0)|}
+   &=\frac{16c^2}{c-1}\left(\frac P Q\right)^3>1,\\
+ \frac{|j(E_a)|}{|j(E_0)|}
+   &=\left(\frac{cR}{(c-1)Q}\right)^3>1,\\
+ \frac{|j(E_b)|}{|j(E_0)|}
+   &=\left(\frac{cS}{Q}\right)^3>1.
+ \end{aligned}
+\end{equation}
+These inequalities follow from
+\eqref{eq:wh-polynomial-inequalities} and $c>1$.
+The entire-class theorem now gives the assertion, including
+uniqueness. Strictness separates $E_0$ from all other displayed
+models, regardless of any possible coincidence among those others.
+\end{proof}
+
+\begin{theorem}\label{thm:wh-exact-minimum}
+The absolute logarithmic Weil heights of the actual four
+$j$-invariants are
+\begin{equation}\label{eq:wh-height-table}
+ \begin{aligned}
+ \height(j(E_c))&=\log64+3\log P,\\
+ \height(j(E_0))&=3\log Q,\\
+ \height(j(E_a))&=\log8+3\log R,\\
+ \height(j(E_b))&=\log8+3\log S.
+ \end{aligned}
+\end{equation}
+The unique minimizer in the entire rational isogeny class is
+represented by $E_0$, with
+\begin{equation}\label{eq:wh-exact-minimum}
+ \height_{\min}(c)=3\log(c^2-16c+16),\qquad
+ \min_{F\in\mathcal I_c}\mathrm H(j(F))=Q^3.
+\end{equation}
+Moreover,
+\begin{equation}\label{eq:wh-height-bounds}
+ \begin{aligned}
+ 6\log c-3\log2&<\height_{\min}(c)<6\log c,\\
+ c^6/8&<\min_{F\in\mathcal I_c}\mathrm H(j(F))<c^6.
+ \end{aligned}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The fractions in Proposition~\ref{prop:wh-reduced-fractions} are
+reduced, and Lemma~\ref{lem:wh-complex-minimum} shows that their
+absolute numerators exceed their denominators. Therefore
+\eqref{eq:wh-rational-height} gives exactly
+\eqref{eq:wh-height-table}.
+The inequalities $P,R,S>Q>0$, together with $64,8>1$, show that
+each height other than that of $E_0$ is strictly greater than
+$3\log Q$. The entire-class theorem extends this minimum and
+uniqueness to every rationally isogenous curve.
+Finally $c^2/2<Q<c^2$ gives \eqref{eq:wh-height-bounds}, first
+by cubing and then by taking logarithms.
+\end{proof}
+
+\subsection{Finite-place contribution and the bounded gain}
+
+The minimizers above are the same, but the two minimum values
+measure different quantities. If $N/D$ is reduced, each prime
+dividing $D$ contributes exactly $v_q(D)\log q$ to the finite-place
+sum in the logarithmic Weil height; primes not dividing $D$
+contribute zero. The entire finite-place contribution is therefore
+$\log D$. For $E_0$, whose complex absolute value exceeds one,
+this proves the exact identity
+\begin{equation}\label{eq:wh-finite-place-gap}
+ \begin{aligned}
+ \height_{\min}(c)-\log J_{\min,\infty}(c)
+    &=\log((c-1)u^4)\\
+    &=5\log c-\log16+\log(1-1/c).
+ \end{aligned}
+\end{equation}
+Equivalently, the exact formulas yield
+\begin{equation}\label{eq:wh-limits}
+ \begin{aligned}
+ \height_{\min}(c)-6\log c
+    &=3\log(1-16/c+16/c^2)\longrightarrow0,\\
+ \frac{J_{\min,\infty}(c)}c
+    &=16\,\frac{(1-16/c+16/c^2)^3}{1-1/c}
+       \longrightarrow16.
+ \end{aligned}
+\end{equation}
+All limits here and below are along the unbounded sequence
+\eqref{eq:wh-parameters}. Continuity of $\log$ at positive arguments
+proves these limits. In particular
+\[
+ \frac{\height_{\min}(c)}{\log c}\longrightarrow6,\qquad
+ \frac{\log J_{\min,\infty}(c)}{\log c}\longrightarrow1.
+\]
+The denominator accounts for the missing term of size $5\log c$;
+it cannot be discarded when using the absolute Weil height.
+
+The gain achieved by choosing the best representative in the
+entire class is also exact:
+\begin{equation}\label{eq:wh-bounded-gain}
+ \height(j(E_c))-\height_{\min}(c)
+   =\log64+3\log(P/Q)\in(6\log2,9\log2).
+\end{equation}
+Indeed $P>Q$ by \eqref{eq:wh-polynomial-inequalities}, while
+$P<c^2$ and $Q>c^2/2$ imply $P/Q<2$. These strict inequalities
+prove the stated interval, using $\log64=6\log2$.
+Since $P/Q\to1$, the gain tends to $6\log2$.
+Thus optimization over the entire class saves only a bounded
+additive amount in this family.
+
+\begin{corollary}\label{cor:wh-no-leading-exponent-saving}
+For every $\delta>0$ and $C\in\R$, there exists an $n\ge1$ such
+that every elliptic curve $F/\Q$ rationally isogenous to $E_{c_n}$
+satisfies
+\[
+ \height(j(F))>(6-\delta)\log c_n+C.
+\]
+Equivalently, for every $\theta<6$ and $C_0>0$, some $n\ge1$
+satisfies
+\[
+ \mathrm H(j(F))>C_0c_n^\theta
+ \qquad\text{for every }F\in\mathcal I_{c_n}.
+\]
+\end{corollary}
+
+\begin{proof}
+Choose $n$ with $\delta\log c_n>C+3\log2$ and apply the lower
+bound in \eqref{eq:wh-height-bounds}. Such $n$ exist because
+$c_n\to\infty$. For the multiplicative formulation, choose
+$c_n^{6-\theta}>8C_0$ and use the corresponding lower bound.
+\end{proof}
+
+This corollary excludes the specific proposed step of lowering the
+leading sixth-power $j$-height size by selecting a different rationally
+isogenous representative. It is not a counterexample to a
+conductor--height estimate, modified Szpiro, or abc. No upper bound
+for the radicals of these triples is asserted, and their unresolved
+height--radical comparison is unaffected by this calculation.
+
+\subsection{Formalization boundary}
+
+The Lean height companion reuses the four actual Weierstrass curves
+from the preceding section.
+It proves the signed rational equalities, integer coprimality, and
+equality with the canonical \texttt{Rat.num} and \texttt{Rat.den}
+coordinates. It then uses the actual multiplicative and logarithmic
+height functions in mathlib and proves compatibility with the existing
+normalized-height interface over $\Q$. This gives the exact height
+tables, attained minima over the actual model enumeration,
+uniqueness, and the logarithmic bounds
+\eqref{eq:wh-height-bounds}. No artificially defined height is
+substituted for the library functions.
+
+The enumeration is not asserted in Lean to exhaust a rational
+isogeny class. That passage uses the separately proved
+Theorem~\ref{thm:entire-four-models}, including its stated external
+isogeny and Frobenius inputs. The strict comparison of the complex
+minimum, the explicit finite-place identity, the asymptotic limits,
+the bounded-gain formula, and
+Corollary~\ref{cor:wh-no-leading-exponent-saving} are paper proofs
+in this section; they are not added to the companion's formal
+claims. The module adds no axioms or conjectural hypotheses.

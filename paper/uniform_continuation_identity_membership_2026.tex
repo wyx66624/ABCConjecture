@@ -1,0 +1,987 @@
+% Mathematical source: IUT_IDENTITY_LOG_LINK_LOCAL_MEMBERSHIP_2026_08_31.md
+% Accepted report SHA256:
+% 6ca3f92988be870df06b3536d9f1f6b598e9ed1f87cbd2feef5d8785e3f6d3d9
+% This input does not add a Lean formalization of source reconstruction.
+\section{A synchronized base branch of the theta-pilot images}
+\label{sec:uniform-identity-membership}
+
+We now place the local points of
+Section~\ref{sec:uniform-theta-points} in a specified base branch
+of the possible-image construction in
+\cite[Corollary~3.12]{IUT3}. The construction uses one concrete
+global theta-pilot, two tagged copies of its Hodge theater,
+and the log-link representative induced by their single global
+copy-identity. The resulting local inclusion concerns the raw
+union of possible images in one vertically coric column.
+It does not identify the complete global family with the
+one-prime arithmetic bundles of
+Section~\ref{sec:uniform-arithmetic-bundles}.
+
+We use the reconstruction results of the cited sources, with
+their original objects and variance conventions. We do not
+reprove all those results, or assume the global multiradial
+and horizontal compatibility assertions of
+\cite[Theorem~3.11]{IUT3} in order to establish the inclusion
+below. References to \cite{IUT1,IUT3}, \cite{IUT2}, and
+\cite{MochizukiAbsTopIII2015} use respectively the archived
+May 2020, December 2020, and November 2015 author versions.
+
+\subsection{Fixed initial data and the standard log-field}
+
+Fix a member of Corollary~\ref{cor:itd-powerfree-family}.
+Its global initial theta data, including its core, auxiliary
+cover, distinguished quotient element and place section, have
+already been constructed. At its distinguished rational
+prime \(p\), retain \eqref{eq:utp-field}: in particular,
+\[
+ e=15\ell,\qquad d=2e,\qquad h=(\ell-1)/2,\qquad
+ I=p^{-1}\log\OO_E^\times=\beta^{1-e}\OO_E,\qquad
+ r_0^{2\ell}=q=b_0^2.
+\]
+Here \(v_p(b_0)=2\), \(E/\Q_p\) is Galois with residue
+degree two, \(e\le p-2\), and
+\(\mu_{2\ell}\subset K_0=\Q_p(\mu_{30\ell})\).
+For \(1\le j\le h\), put
+\begin{equation}\label{eq:uim-point-data}
+ \begin{gathered}
+ m_j=j+1,\qquad a_j=r_0^{j^2},\qquad
+ x_j=\zeta_j a_j,\quad \zeta_j\in\mu_{2\ell},\\
+ \mathcal T_{m_j}=E^{\otimes_{\Q_p}m_j},\qquad
+ Z_{j,\zeta_j}=1^{\otimes j}\otimes x_j .
+ \end{gathered}
+\end{equation}
+The distinguished last slot is the label-\(j\) slot in the
+source procession; it is not an extra factor.
+
+The field of moduli is \(F_{\rm mod}=\Q\).
+The source's selected place set \(V\) maps bijectively to
+the places of \(F_{\rm mod}\), so it has exactly one
+selected \(v\) above \(p\). This is not a claim that the
+global torsion field has only one prime above \(p\).
+It means that the finite local packet at this rational
+prime has no other selected direct summands:
+its marked carrier is \(\mathcal T_{m_j}\).
+
+Let \(E^-\) denote the original predecessor field.
+Definition~1.1(i) of \cite[pp.~23--25]{IUT3} equips the
+perfection of its multiplicative unit group with a
+\emph{new field structure}, denoted here by \(L^-\).
+In the concrete model, standard logarithm gives a
+unital field isomorphism
+\begin{equation}\label{eq:uim-log-field}
+                 \mathcal L:L^-\xrightarrow{\sim}E.
+\end{equation}
+It transports both field operations from \(E\);
+the new multiplication is not the predecessor's
+old multiplication of units.
+
+For \(x\in E\), choose \(N\) sufficiently large and write
+\begin{equation}\label{eq:uim-perfect-unit}
+       y(x)=p^{-N}[\exp(p^Nx)]\in L^- .
+\end{equation}
+The bracket is written additively in the old unit
+perfection. The equality
+\(\exp(p^{N+1}x)=\exp(p^Nx)^p\) proves independence of
+sufficiently large \(N\), and
+\(\mathcal L(y(x))=x\).
+For \(x\in I\), one may take \(N=1\), since
+\(pI=\mathfrak m_E\) and \(1/e>1/(p-1)\).
+
+In the chart \eqref{eq:uim-log-field}, the pre-log-shell
+has coordinates \(\log\OO_E^\times\); the canonical
+shell is its multiple \(p^{-1}\log\OO_E^\times=I\).
+This division by \(p\) does not change the field
+multiplication or its unit. The new field unit is
+\(y(1)\), of coordinate \(1\), whereas the old
+multiplicative unit \(1\in(E^-)^\times\) has coordinate
+zero after logarithm. Thus the background entries of
+\eqref{eq:uim-point-data} are the new field units.
+
+For comparison, changing the \emph{entire field chart}
+to \(u=x/p\) would instead give
+\begin{equation}\label{eq:uim-rescaled-field}
+ \begin{gathered}
+ u\star v=p\,uv,\qquad 1_\rho=1/p,\qquad
+ \Q_p\ni t\longmapsto t/p,\\
+ v_\rho(u)=v_E(pu),\qquad
+ \OO_\rho=\OO_E/p,\qquad I_\rho=I/p .
+ \end{gathered}
+\end{equation}
+The equation \(a^n=b\) would become
+\(p^{n-1}a_\rho^n=b_\rho\). In an \(m\)-fold packet,
+both the tensor coordinates and the reference integer
+module would be transported by \(p^{-m}\).
+This is different from changing only the outputs of a
+fixed unit-cohomology source from
+\(\rho=p^{-1}\log_{\rm BK}^{\rm std}\) to
+\(\log_{\rm BK}^{\rm std}\), which gives the factor
+\(p^m\) in \eqref{eq:utp-standard-scale}.
+Neither rescaling is made in \eqref{eq:uim-log-field}.
+
+\subsection{A global identity and three distinct cyclotomes}
+
+Take distinct tagged copies
+\(\mathcal H_{n,r}\), \(n,r\in\Z\), of the fixed
+concrete Hodge theater. Retain the full vertical and
+horizontal poly-arrows required by
+\cite[Definition~3.8(iii), pp.~113--114]{IUT3}.
+Inside the vertical arrow
+\(\mathcal H_{0,-1}\to\mathcal H_{0,0}\), select the
+representative induced by the global copy-identity
+\begin{equation}\label{eq:uim-global-identity}
+ \Xi:\mathcal H^D_{0,-1}\xrightarrow{\sim}
+                         \mathcal H^D_{0,0}.
+\end{equation}
+Selecting a representative does not replace a full
+poly-arrow by a singleton.
+
+\begin{proposition}[Synchronized standard-log representatives]
+\label{prop:uim-synchronized}
+The single isomorphism \eqref{eq:uim-global-identity}
+gives, at every finite place and every labeled
+prime-strip occurrence, the log-field map
+\begin{equation}\label{eq:uim-local-identity}
+       \lambda_v=\operatorname{copy}_v\circ\mathcal L_v:
+           L_{0,-1,v}\xrightarrow{\sim}E_{0,0,v}.
+\end{equation}
+These are simultaneously allowed representatives
+of the theater log-link. At the distinguished place,
+the pullbacks of \(x_j\) and of each background field
+unit have standard-log coordinates \(x_j\) and \(1\).
+\end{proposition}
+\begin{proof}
+Definition~1.1(i) of \cite{IUT3} constructs the natural
+isomorphism from the tautological log-Frobenioid to
+the original Frobenioid. The group acts compatibly
+on all the monoids in that construction.
+Remark~1.1.2(i), pp.~29--30, identifies its underlying
+local fundamental groups by the tautological identity.
+Composing this natural isomorphism with the copy map
+therefore covers the D-prime-strip isomorphism
+induced by \(\Xi\).
+
+The map from F-prime-strip isomorphisms to their
+D-prime-strip isomorphisms is bijective by
+\cite[Corollary~5.3(ii), p.~144]{IUT1}.
+Consequently the displayed local map is the unique
+lift used in
+\cite[Proposition~1.3(i), p.~42]{IUT3}.
+That proposition applies these lifts to the one
+\(\Xi\) across every prime-strip of both bridges;
+Remark~1.3.1, p.~43, makes the synchronization
+requirement explicit. The construction at the
+archimedean constituents uses the corresponding
+standard tautological isomorphism.
+
+The concrete marked theater has the synchronized
+constant-monoid identifications of
+\cite[Corollary~4.6(iii), p.~138]{IUT2}.
+Its copy-identity neither permutes the labels nor
+changes these identifications. In those fixed
+coordinates \eqref{eq:uim-local-identity} is the
+identity field map. The asserted pullbacks follow.
+\end{proof}
+
+The proposition is about this \(\Xi\), not every
+theater isomorphism. An arbitrary such isomorphism
+may change label markings. A unital local field
+isomorphism fixing \(q\in\Q_p\) preserves the coset
+defined by \(X^{2\ell}=q^{j^2}\), but that observation
+alone does not provide a synchronized global
+representative.
+
+It is essential to distinguish the three coefficient
+objects
+\[
+ \mu_{\rm prev},\qquad \mu_{\log},\qquad
+ \mu_{\rm current},
+\]
+arising respectively from multiplication in the
+old field \(E^-\), the new log-field \(L^-\), and
+the current field \(E^+\).
+The old \emph{linear unit-Kummer coordinate} is
+\begin{equation}\label{eq:uim-linear-kummer}
+ \kappa^-_{\rm lin}(x)
+   =p^{-N}\operatorname{Kum}_{\mu_{\rm prev}}
+                   (\exp(p^Nx))
+       \in H^1_f(G_E,\Q_p(1)_{\rm prev}).
+\end{equation}
+It is the inverse standard Bloch--Kato logarithm
+on the unit subspace. On \(I\) it takes values in
+\(p^{-1}H^1_f(G_E,\Z_p(1)_{\rm prev})\).
+
+There is separately the new multiplicative Kummer map
+\[
+ (L^-)^{\times,\log}\longrightarrow
+       H^1(G_{L^-},\Q_p(1)_{\log}).
+\]
+The field isomorphism \(\lambda\) of
+\eqref{eq:uim-local-identity} gives the usual
+field-theoretic Kummer comparison
+\begin{equation}\label{eq:uim-new-kummer}
+ \operatorname{Kum}_{\mu_{\log}}(y(x))
+       \longmapsto
+ \operatorname{Kum}_{\mu_{\rm current}}(\lambda(y(x))).
+\end{equation}
+Its group and coefficient maps are those induced by
+that field isomorphism. The operation
+\(y\mapsto\operatorname{Kum}_{\mu_{\log}}(y)\)
+is not linear in the old unit-H1 coordinate
+\eqref{eq:uim-linear-kummer}.
+The new multiplication used here is already part
+of \cite[Definition~1.1(i), p.~24]{IUT3}, and its
+monoid, units and action are used explicitly in
+\cite[Proposition~3.4(i), p.~102]{IUT3}.
+
+Indeed, a same-group integral-coefficient H1 arrow
+cannot identify the two Kummer maps just displayed.
+If \(v_E(x)>0\), the raw class
+\(\operatorname{Kum}_{\mu_{\rm current}}(x)\) has
+nonzero valuation component, while
+\(\kappa^-_{\rm lin}(x)\) has valuation component
+zero. The unit subspace is the annihilator of
+unramified characters under local Tate duality,
+so a Galois-induced isomorphism with compatible
+integral Tate coefficients preserves it.
+The comparison \eqref{eq:uim-new-kummer} concerns
+the new multiplicative structure and does not
+assert this impossible old-H1 identification.
+
+No global exponential is being used. The element
+\(\exp(p^Nx)\) in \eqref{eq:uim-perfect-unit}
+need only belong to the completion \(E\).
+It is not a global rational-function torsor
+generator. The source global localization is
+pulled back along the globally synchronized
+local isomorphisms
+\cite[Proposition~3.3]{IUT3}.
+The same distinction is explicit in
+\cite[Definition~5.4(ii), pp.~125--126]{MochizukiAbsTopIII2015}:
+the global log construction re-embeds the
+global object through its natural local
+isomorphisms and keeps the underlying global
+Galois theater. Its Remark~5.4.1, p.~129,
+warns that the local logarithm diagrams
+do not extend as a logarithm on the global
+number field.
+
+\subsection{The canonical core coordinate and the preceding layer}
+
+Let \(\mathcal C_E\) denote the finite
+Galois-invariant part of the canonical module
+\(k^\sim(G_E)\) in
+\cite[Proposition~5.8(ii), p.~139]{MochizukiAbsTopIII2015}.
+Use the local reciprocity convention of that
+unit reconstruction,
+\(\operatorname{rec}_E:E^\times\to G_E^{\rm ab}\).
+The concrete model of \(\mathcal C_E\) is the
+rationalized old unit group with its finite
+torsion removed.
+
+\begin{proposition}[The specified unit comparison]
+\label{prop:uim-core-coordinate}
+There is a standard comparison
+\begin{equation}\label{eq:uim-sigma}
+ \sigma_E:E\xrightarrow{\sim}\mathcal C_E,\qquad
+ \sigma_E(x)
+     =p^{-N}[\operatorname{rec}_E(\exp(p^Nx))],
+\end{equation}
+and the source shell is \(\sigma_E(I)\).
+For the unit Kummer comparison
+\begin{equation}\label{eq:uim-eta}
+ \eta_E:H^1_f(G_E,\Q_p(1)_{\rm prev})
+          \xrightarrow{\sim}\mathcal C_E,\qquad
+ \eta_E(\operatorname{Kum}(u))
+          =[\operatorname{rec}_E(u)],
+\end{equation}
+one has
+\begin{equation}\label{eq:uim-sigma-kappa}
+                    \sigma_E=\eta_E\kappa^-_{\rm lin}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The brackets in \eqref{eq:uim-sigma} refer to
+the unit-perfection module. Independence of
+sufficiently large \(N\) follows from the
+exponential identity used for
+\eqref{eq:uim-perfect-unit}. Standard logarithm
+on a sufficiently small unit subgroup proves
+additivity, \(\Q_p\)-linearity and bijectivity.
+The actual unit image is the pre-log-shell,
+and its multiple \(p^{-1}\) is the shell.
+This gives \(\sigma_E(I)\), with no further
+factor \(p^{-1}\) in \eqref{eq:uim-sigma}.
+
+The Kummer sequence and Hilbert 90 identify
+the rationalized torsion-free unit group
+with \(H^1_f\), so \eqref{eq:uim-eta} is
+well defined. Evaluating it on
+\(p^{-N}\operatorname{Kum}(\exp(p^Nx))\)
+proves \eqref{eq:uim-sigma-kappa}.
+
+This is the particular comparison specified
+by the reconstruction source.
+Parts~(c) and~(d) of
+\cite[Corollary~5.10(iv), p.~148]{MochizukiAbsTopIII2015}
+give the natural
+comparison from the field-theoretic shell
+to the canonical mono-analytic shell,
+compatible with the shells and volumes.
+Its proof on p.~149 compares the base field
+inside abelianizations with its Kummer
+reconstruction by the fundamental-class
+and cyclotomic isomorphisms of
+Corollary~1.10(a),(c). The proof identifies
+the result as the reciprocity map of
+local class field theory. On a concrete
+unit \(u\), this is
+\eqref{eq:uim-eta}. Thus the comparison
+used here is not an arbitrary linear
+isomorphism chosen after the point.
+\end{proof}
+
+Write \(k_-^\times,k_+^\times\) for the
+original constant-monoid reconstruction
+maps of
+\cite[Corollary~4.6(iii)]{IUT2}, from the
+two copied theaters to the common core.
+In the fixed concrete model they reconstruct
+the same labeled field. Before forgetting
+multiplication, the relevant diagram is
+\begin{equation}\label{eq:uim-field-square}
+ \begin{array}{ccc}
+ L^-&\xrightarrow{\lambda}&E^+\\
+ {\scriptstyle\log(k_-^\times)}\downarrow
+       &&\downarrow{\scriptstyle k_+^\times}\\
+ L^{\rm c}&\xrightarrow{\lambda_{\rm c}}&E^{\rm c}.
+ \end{array}
+\end{equation}
+The lower map is the corresponding tautological
+standard-log representative.
+Both paths send \(y(x)\) to the constant-field
+element of coordinate \(x\). To check this directly,
+first take a sufficiently small old unit:
+its constant-monoid reconstruction is its
+actual reconstructed constant, and standard
+logarithm commutes term by term with this
+copy-identity field reconstruction.
+Division by \(p^N\) extends the equality to
+every \(y(x)\). The left arrow is formed from
+the old-unit map and then the new log-field
+structure; its value in the core additive
+carrier is \(\sigma_E(x)\).
+The right arrow is a current multiplicative
+constant-monoid map. These are not two
+versions of the same H1 arrow.
+
+Let
+\[
+ \mathcal C_{j,p}
+   =I^\Q(S^\pm_{j+1};{}^{0,\circ}D^\perp_p),
+ \qquad
+ \iota_j=\sigma_E^{\otimes m_j}:
+           \mathcal T_{m_j}\xrightarrow{\sim}\mathcal C_{j,p}.
+\]
+The superscript \(\perp\) here denotes the
+source's mono-analytic prime-strip, not an
+orthogonal complement. Its identification with
+the tensor of \(\mathcal C_E\) is the natural
+one in \cite[Proposition~3.2(i),(ii), pp.~97--99]{IUT3}.
+Denote the label-\(j\) components of the
+split LGP monoids at level \(0\) and at the
+core by \(\mathcal S_j^+\) and
+\(\mathcal S_j^{\rm c}\). Applying the
+distinguished-slot recipe to
+\eqref{eq:uim-field-square} gives
+\begin{equation}\label{eq:uim-packet-square}
+ \begin{array}{ccc}
+ \mathcal S_j^+&\lhook\joinrel\longrightarrow&
+                                    \mathcal T_{m_j}\\
+ {\scriptstyle k_{{\rm LGP},0}}\downarrow
+       &&\downarrow{\scriptstyle\iota_j}\\
+ \mathcal S_j^{\rm c}&\lhook\joinrel\longrightarrow&
+                                    \mathcal C_{j,p}.
+ \end{array}
+\end{equation}
+The upper right is written in the standard-log
+coordinates of the \emph{preceding} field \(L^-\).
+Before choosing coordinates the right-hand map
+is \(\iota_j\mathcal L^{\otimes m_j}\).
+
+Here the upper inclusion is
+\cite[Proposition~3.4(ii), pp.~102--103]{IUT3}:
+pull the current Gaussian monoid back to the
+preceding log-field, then tensor with the
+new units in the other slots.
+The lower inclusion is the same recipe on
+the reconstructed constant monoids.
+Proposition~3.5(i), pp.~103--104, explicitly
+uses the comparisons at \emph{both}
+indices \(r'=r,r-1\).
+The commutativity of
+\eqref{eq:uim-field-square}, followed by
+this tensor operation, verifies
+\eqref{eq:uim-packet-square} in the selected
+concrete base representative.
+It is not obtained by replacing the
+preceding carrier with the current H1 space.
+
+The same diagram at all places and the
+copy-identity of the global field give
+the corresponding base fractional-ideal
+comparison. Both recipes use the same
+local ideals and the same global
+rational-function monoid acting on them.
+This is the construction recorded in
+\cite[Proposition~3.10(i), pp.~147--148]{IUT3},
+again with both adjacent indices.
+We use this fixed representative, not the
+later assertion of compatibility for every
+vertical iterate.
+
+\begin{proposition}[The variance of the actual core action]
+\label{prop:uim-transfer}
+For a continuous automorphism \(\alpha\) of \(G_E\),
+let \(M_\alpha\) be its action on the unit
+abelianization, expressed in logarithmic coordinates:
+\begin{equation}\label{eq:uim-canonical-matrix}
+ M_\alpha(\log u)
+   =\log\!\left(\operatorname{rec}_E^{-1}
+       \alpha^{\rm ab}(\operatorname{rec}_E(u))\right).
+\end{equation}
+Extend this map \(\Q_p\)-linearly to \(E\).
+The actual canonical core map \(\Phi_\alpha\)
+satisfies
+\begin{equation}\label{eq:uim-transfer}
+       \Phi_\alpha\sigma_E=\sigma_E M_\alpha^{-1},
+       \qquad
+       \Phi_\alpha(\sigma_E(I))=\sigma_E(I).
+\end{equation}
+\end{proposition}
+\begin{proof}
+The unit image in the abelianization is preserved
+by the reconstruction algorithm.
+Proposition~5.8(i) of
+\cite[p.~139]{MochizukiAbsTopIII2015}
+specifies its \emph{contravariant} functoriality
+by transfer. For a group isomorphism this
+transfer is the inverse of the induced
+abelianization map; there is no index factor.
+Thus
+\[
+ \Phi_\alpha(\sigma_E(x))
+  =p^{-N}[\alpha^{-1,{\rm ab}}
+       (\operatorname{rec}_E(\exp(p^Nx)))]
+  =\sigma_E(M_\alpha^{-1}x).
+\]
+The unit image and its perfection are preserved.
+Dividing the unit image by \(p\) proves the
+shell assertion.
+\end{proof}
+
+For comparison, a Kummer action with a
+chosen compatible integral Tate-module
+isomorphism \(\delta\) is
+\[
+ F_{\alpha,\delta}=c_{\alpha,\delta}M_\alpha^{-1},
+                 \qquad c_{\alpha,\delta}\in\Z_p^\times,
+\]
+by Proposition~\ref{prop:gl-variance}.
+We do not silently identify this with
+\eqref{eq:uim-transfer}. All pointwise
+statements below use the actual canonical
+core operator \(F=M_\alpha^{-1}\).
+In particular, if a full Galois lift
+\(\alpha_0\) has canonical matrix \(M\),
+then \(\alpha_0^{-1}\) gives core matrix
+\(M_{\alpha_0^{-1}}^{-1}=M\).
+No additional scalar choice is required.
+
+\subsection{Local ideal elements of one global pilot}
+
+\begin{lemma}[Points belonging to one pilot object]
+\label{lem:uim-pilot-points}
+In the synchronized representative above,
+there is one global theta-pilot
+\(\mathcal P\), in the local fractional-ideal
+realization of
+\cite[Definition~3.8(i)]{IUT3}, whose
+label-\(j\) ideal at the distinguished
+place contains \(Z_{j,\zeta_j}\) for
+every \(\zeta_j\in\mu_{2\ell}\).
+\end{lemma}
+\begin{proof}
+Choose one standard normalized theta-evaluation
+representative. Its label-\(j\) value is a
+\(\mu_{2\ell}\)-multiple of \(a_j\), by
+Lemma~\ref{lem:utp-evaluation} and
+\cite[Remark~2.5.1(i), p.~72]{IUT2}.
+The Gaussian splitting monoid is generated,
+up to torsion, by this value-profile
+\cite[Corollary~3.6(ii),(iii), pp.~99--100]{IUT2};
+Corollary~4.6(iv), pp.~138--139, supplies
+it in the chosen theater.
+
+Proposition~\ref{prop:uim-synchronized} and
+\cite[Proposition~3.4(ii)]{IUT3} pull that
+generator to the preceding log-field with
+the same standard coordinate.
+The single-slot insertion of
+\cite[Proposition~3.1(ii), p.~93]{IUT3}
+tensors it with the new field units.
+The local fractional ideal generated by
+this element contains its generator
+times the unit. Multiplication by a
+root of unity does not change that
+ideal, since these are units of the
+new log-field. This proves the local
+claim for every \(\zeta_j\).
+
+At the other bad places choose the
+prescribed splitting generators of the
+same theater, and use its standard
+good-place constituents. The finite
+collection of bad-place local ideals
+defines a global object by
+\cite[Proposition~3.7(v), pp.~111--112]{IUT3}.
+Definition~3.8(i), p.~112, is precisely
+the theta-pilot designation for that
+object. Thus all the local ideal
+elements in the statement belong
+to one \(\mathcal P\).
+The construction does not require
+the local generators to be a
+single element of the global
+number field.
+\end{proof}
+
+The lemma uses elements of the actual local
+ideals. It need not assert that every
+independent tuple \((\zeta_j)\) arises
+from one strictly chosen global
+theta-evaluation representative.
+The ideals, and hence the global
+pilot object, are unchanged by
+those torsion choices.
+
+We also record exactly which local
+Galois operations are permitted.
+The Ind1 object in
+\cite[Theorem~3.11(i), pp.~153--154]{IUT3}
+is the output mono-analytic procession
+of \cite[Proposition~6.9(ii)]{IUT1}.
+At the selected nonarchimedean place,
+its constituent category is the
+category of finite transitive
+continuous \(G_E\)-sets.
+Pullback along any continuous
+\(\alpha\in\operatorname{Aut}(G_E)\)
+is a self-equivalence, with inverse
+the pullback along \(\alpha^{-1}\).
+Use this equivalence at every
+repeated occurrence above \(p\)
+and the identity elsewhere,
+keeping the place and capsule
+indices fixed.
+
+Definition~4.1(iii),(iv), p.~96,
+of \cite{IUT1} makes this a
+constituent prime-strip isomorphism.
+Its Section~0's capsule-full
+poly-isomorphisms contain the
+chosen collection with the identity
+index map. Definition~4.10,
+pp.~119--120, makes these precisely
+the representative data permitted
+at the stages of the procession.
+The same choice at repeated
+occurrences is allowed, and
+conjugation leaves the full
+connecting collections unchanged.
+Thus the collection occurs inside
+an allowed procession
+poly-automorphism, as in the
+representative argument of
+Section~\ref{sec:admissible-arrows}.
+No extension of \(\alpha\) to the
+earlier curve covering category
+or global Hodge theater is imposed
+by this output object.
+
+\begin{theorem}[Membership in a specified base branch]
+\label{thm:uim-base-membership}
+Let \(\mathcal P\) be the fixed global
+pilot of Lemma~\ref{lem:uim-pilot-points},
+and let \({}^{0,\circ}U^{\rm raw}_{j,p}\)
+denote the raw possible-image union
+defined in \cite[Corollary~3.12,
+p.~174]{IUT3}, before its holomorphic
+hull is taken. For every continuous
+\(\alpha\in\operatorname{Aut}(G_E)\),
+put \(F=M_\alpha^{-1}\).
+Then, simultaneously for all labels,
+\begin{equation}\label{eq:uim-membership}
+ \iota_j\!\left(F^{\otimes m_j}Z_{j,\zeta_j}\right)
+       \in{}^{0,\circ}U^{\rm raw}_{j,p}
+                     \qquad(1\le j\le h).
+\end{equation}
+These images use the fixed adjacent-layer
+branch \eqref{eq:uim-packet-square},
+the same local Ind1 representative
+at every occurrence above \(p\),
+the identity elsewhere, and identity
+Ind2. The assertion is membership
+for this branch, not compatibility
+of all branches.
+\end{theorem}
+\begin{proof}
+Lemma~\ref{lem:uim-pilot-points} puts
+\(Z_{j,\zeta_j}\) in the local ideal
+of \(\mathcal P\).
+The concrete base construction
+\eqref{eq:uim-packet-square},
+including its fractional-ideal
+realization, therefore places
+\(\iota_j Z_{j,\zeta_j}\) in the
+core realization of that same
+pilot. The permitted representative
+described above acts on this
+local packet by
+\(\Phi_\alpha^{\otimes m_j}\).
+Proposition~\ref{prop:uim-transfer}
+gives
+\[
+ \Phi_\alpha^{\otimes m_j}
+       (\iota_jZ_{j,\zeta_j})
+       =\iota_j F^{\otimes m_j}Z_{j,\zeta_j}.
+\]
+This is thus an element of the
+image of an actual local ideal
+of the pilot under an allowed
+representative.
+
+The raw set on p.~174 is the union
+of such possible images.
+The basic Kummer image is the
+branch specified in
+\cite[Proposition~3.5(ii)(a)(1),
+pp.~104--105]{IUT3}; here it has
+not been precomposed with a
+positive log-iterate. Including
+the further vertical branches
+in that union does not remove
+the chosen image.
+This proves \eqref{eq:uim-membership}.
+In particular, we have not
+treated Ind3 as a group with
+an identity element or used
+a claimed commutativity of
+every vertical Kummer map.
+\end{proof}
+
+\begin{remark}[Transport of an ideal and its test module]
+\label{rem:uim-operator}
+The source gives the splitting monoid
+both as a subset of the packet
+and as a multiplicative action
+\cite[Theorem~3.11(i)(b),
+pp.~153--154]{IUT3}.
+If its local ideal is presented
+as \(J=m_z(R)\), with \(1\in R\),
+then any additive carrier
+isomorphism \(\Phi\) satisfies
+\begin{equation}\label{eq:uim-operator}
+ \begin{gathered}
+ \Phi J=(\Phi m_z\Phi^{-1})(\Phi R),\\
+       (\Phi m_z\Phi^{-1})(\Phi1)=\Phi z .
+ \end{gathered}
+\end{equation}
+Both identities follow by applying
+the maps to an element of \(R\).
+They require no multiplicativity
+of \(\Phi\).
+Using the conjugated operator
+on a fixed native \(1\) or a
+fixed native integer module
+would be a different operation.
+The proof of
+Theorem~\ref{thm:uim-base-membership}
+uses \(\Phi J\), with the test
+module and vector transported
+as in \eqref{eq:uim-operator}.
+Its embedded global field is
+also transported; it is not
+required to be stabilized in
+its old native coordinates.
+\end{remark}
+
+For general initial data with more
+than one selected place above \(p\),
+the ambient carrier is
+\(\bigotimes_{\rm slots}
+(\bigoplus_{v\mid p}E_v)\).
+The point \(1^{\otimes j}\otimes x_j\)
+in a specified all-\(v\) block
+is then the projection of the
+source's actual single-slot
+point. The corresponding
+statement is membership in
+the projection of the full
+possible-image set, with the
+same global pilot image as
+preimage. Zero extension of
+that block does not follow.
+The condition \(F_{\rm mod}=\Q\)
+above is what permits the
+literal membership
+\eqref{eq:uim-membership}
+in the whole local packet.
+
+\subsection{An attained local lower inclusion and its boundary}
+
+Let
+\[
+ \Gamma_E^{\rm can}
+   =\{M_\alpha^{-1}:
+          \alpha\in\operatorname{Aut}_{\rm cont}(G_E)\}.
+\]
+These are the canonical core
+operators, expressed in the
+fixed standard-log chart.
+Retain \(k_j=\lfloor2j^2/\ell\rfloor+1\),
+\(\kappa=1-1/e\), and the
+normalized tensor integer ring
+\(B_{m_j}\) of
+Section~\ref{sec:uniform-theta-points}.
+
+\begin{corollary}[An attained lower ideal in the possible images]
+\label{cor:uim-canonical-hull}
+For every tuple
+\((\zeta_1,\ldots,\zeta_h)\in\mu_{2\ell}^h\),
+there is one \(F\in\Gamma_E^{\rm can}\) such that
+\begin{equation}\label{eq:uim-common-minimum}
+ \begin{gathered}
+ v_E(F(1))=-\kappa,\\
+ v_E(F(x_j))=k_j-\kappa\qquad(1\le j\le h).
+ \end{gathered}
+\end{equation}
+For every label and fixed torsion representative,
+\begin{equation}\label{eq:uim-canonical-hull}
+ \begin{split}
+ \overline{\Span_{B_{m_j}}
+    \{F^{\otimes m_j}Z_{j,\zeta_j}:
+                                F\in\Gamma_E^{\rm can}\}}
+      &=P_j,\\
+ P_j&=\beta^{\,e k_j-(e-1)m_j}B_{m_j}.
+ \end{split}
+\end{equation}
+Consequently, in this fixed local chart,
+\begin{equation}\label{eq:uim-lower-inclusion}
+ P_j\subseteq
+ \overline{\Span_{B_{m_j}}
+       \bigl(\iota_j^{-1}({}^{0,\circ}U^{\rm raw}_{j,p})\bigr)}.
+\end{equation}
+\end{corollary}
+\begin{proof}
+The proof of
+Theorem~\ref{thm:utp-common-arrow}
+first constructs a canonical
+matrix \(M\) from a genuine
+full-Galois lift, by tame
+inertia and the explicit
+parabolic operations.
+Before making the final
+Tate-coefficient comparison,
+this \(M\) already sends
+\(1\) and every \(x_j/p^{k_j}\)
+to \(I\setminus\beta I\).
+If its lift is \(\alpha_0\),
+Proposition~\ref{prop:uim-transfer}
+shows that \(\alpha_0^{-1}\)
+has canonical core action \(M\).
+This proves
+\eqref{eq:uim-common-minimum}
+without a coefficient rescaling.
+
+Every canonical core operator
+preserves \(I\), hence each
+\(p^kI\). Since \(1\in I\)
+and \(x_j\in p^{k_j}I\),
+each field component of its
+tensor image has valuation
+at least \(k_j-m_j\kappa\).
+The component embeddings
+preserve the native valuation,
+so every such image belongs
+to \(P_j\). The common
+operator just constructed
+gives this exact valuation
+in every component. Its
+tensor is therefore a
+generator of \(P_j\) times
+a unit of \(B_{m_j}\).
+This gives the reverse
+inclusion before closure;
+the fractional ideal is closed.
+Finally
+Theorem~\ref{thm:uim-base-membership}
+places all these orbit points
+in the inverse image of the
+raw union, proving
+\eqref{eq:uim-lower-inclusion}.
+\end{proof}
+
+The quantifier order remains
+\(\forall(\zeta_j)\,\exists F\,\forall j\).
+Nothing requires one operator
+to work for all torsion tuples.
+Equation~\eqref{eq:uim-lower-inclusion}
+does not identify the whole
+possible-image hull with \(P_j\).
+Other allowed representatives
+and vertical branches may
+enlarge it.
+
+The difference between the
+pure log-field point and a
+one-plus-unit Kummer input
+can also be detected exactly.
+
+\begin{lemma}[Trace distinguishes two points with the same ideal behavior]
+\label{lem:uim-trace-separation}
+For \(s=j^2\), \(\zeta\in\mu_{2\ell}\), put
+\[
+ a=r_0^s,\quad
+ k=\lfloor2s/\ell+\kappa\rfloor,\quad
+ t=p^{-1}\log(1+p\zeta a),\quad
+ \varepsilon=\zeta^\ell\in\{1,-1\}.
+\]
+Then
+\begin{equation}\label{eq:uim-traces}
+ \begin{aligned}
+ \operatorname{Tr}_{E/\Q_p}(\zeta a/p^k)&=0,\\
+ \operatorname{Tr}_{E/\Q_p}(t/p^k)
+     &=\frac{30}{p^{k+1}}
+             \log(1+\varepsilon p^\ell b_0^s)\ne0.
+ \end{aligned}
+\end{equation}
+The valuation of the second line is
+\(\ell-1+2s-k\ge\ell\).
+\end{lemma}
+\begin{proof}
+The tame character of \(r_0^s\)
+has order \(\ell\), because
+\(\ell\nmid j^2\).
+Its \(\ell\) conjugates sum
+to zero, each occurring
+fifteen times in \(E/K_0\);
+\(\zeta\) is fixed by this
+inertia. This proves the
+first trace equality.
+Multiplication of the same
+conjugates gives
+\[
+ N_{E/K_0}(1+p\zeta r_0^s)
+          =(1+\zeta^\ell p^\ell b_0^s)^{15}.
+\]
+The sign is positive because
+\(\ell\) is odd. The right
+side lies in \(\Q_p\),
+so its norm from \(K_0\)
+squares it. Taking logarithms
+on principal units and
+dividing by \(p^{k+1}\)
+proves the second line of
+\eqref{eq:uim-traces}.
+Since \(p\nmid30\), its
+first nonzero logarithmic
+term gives valuation
+\(\ell+2s-k-1\).
+Finally \(k=\lfloor2s/\ell\rfloor+1\le s\)
+for \(s\ge1\) and \(\ell\ge7\).
+The lower bound follows.
+\end{proof}
+
+Allowed integral-coefficient
+Galois/Kummer maps preserve
+the trace-zero kernel by
+Proposition~\ref{prop:trace-transport}.
+Canonical core maps differ
+from such maps by a unit
+normalization, so they
+preserve it as well.
+The two points in
+\eqref{eq:uim-traces} cannot
+literally lie in the same
+such orbit. This is consistent
+with the per-operator
+principal-ideal equality of
+Proposition~\ref{prop:utp-logarithmic-bridge}.
+The membership theorem used
+the pure points from the
+actual log-field pullback,
+not a substitution of the
+one-plus-log points for them.
+
+The remaining boundary is global.
+The initial curve, prime
+\(\ell\), places and \(q\)
+were fixed at the start.
+Before Ind1, the copy-identity
+preserves the root equation
+and its marked value-group
+generator. After Ind1, however,
+one cannot conclude that
+\(F\) fixes the native scalar
+\(q\), the native ring unit
+or the old global field
+embedding. The transported
+multiplicative data retain
+their abstract value-group
+generator; its valuation in
+the old native chart is a
+different datum.
+
+The q-pilot in
+\cite[Corollary~3.12, p.~174]{IUT3}
+is explicitly left outside
+Ind1, Ind2 and Ind3.
+Keeping that original object
+in the notation is not a
+proof of the full horizontal
+compatibility assertion.
+Theorem~\ref{thm:uim-base-membership}
+concerns a fixed base branch
+in one column, not a transport
+of that possible-image set
+through a horizontal
+theta-link.
+
+One still has to match the
+complete globally synchronized
+pilot family, including the
+other places and all required
+vertical branches, with the
+precise holomorphic reference,
+global weights and region
+used in the subsequent upper
+bound. The local inclusion
+does not identify the
+one-prime bundle of
+Theorem~\ref{thm:ub-realization}
+with that full pilot.
+Nor does it establish the
+restriction to prime-strip-interpretable
+regions made later in the
+proof on p.~175 of
+\cite{IUT3}.
+The reconstruction comparisons,
+actual full-Galois action
+and source membership in
+this section are mathematical
+arguments using the specified
+external reconstruction
+results; they are not new
+Lean formalizations.
+No global \(abc\) conclusion
+is inferred.

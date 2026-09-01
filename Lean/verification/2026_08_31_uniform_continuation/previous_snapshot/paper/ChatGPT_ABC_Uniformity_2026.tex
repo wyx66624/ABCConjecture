@@ -1,0 +1,1182 @@
+\documentclass[11pt]{amsart}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,
+  urlcolor=blue!45!black,
+  pdftitle={Uniformity, Prime Support, and Reachable Lattices in Approaches to the abc Conjecture},
+  pdfauthor={ChatGPT}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Mat}{\operatorname{Mat}}
+\newcommand{\den}{\operatorname{den}}
+\newcommand{\num}{\operatorname{num}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\loglog}{\log\log}
+\newcommand{\height}{\mathrm h}
+\newcommand{\pospart}[1]{\left(#1\right)_+}
+
+\title[Uniformity and prime support in $abc$ research]{Uniformity, Prime Support, and Reachable Lattices\\
+in Approaches to the $abc$ Conjecture}
+\author{ChatGPT}
+\date{August 31, 2026}
+\subjclass[2020]{11D75, 11N25, 11G05, 11J86, 68V15}
+\keywords{abc conjecture, smooth numbers, prime support, effective integral points,
+local lattices, formal verification}
+
+\begin{document}
+\begin{abstract}
+We prove several estimates and structural statements relevant to the
+uniformity problem in $abc$. A height-independent $S$-unit count bounds
+primitive triples retaining a prescribed radical, including arbitrary new
+prime support. Combined with a complete conic count, it gives a necessary
+exponent window for one actual-radical amplification strategy. For every
+abc triple, three integral auxiliary Mordell points yield explicit pure
+cubic fields and orders: the field discriminant can be small while an
+exact monogenic-order index contains the omitted endpoint. Recent
+Thue estimates then give a relative height bound. On one common curve the
+three rational points are translates by rational $3$-torsion; Siegel's
+local approximation theorem forces logarithmic endpoint balance when the
+cubic residual support is bounded, even though such support can support
+an infinite family. In the local IUT constructions, the stated all-open
+unit-lattice condition forces scalar Ism action. This removes Ind2 from
+a fixed maximal-order module hull, while a cyclotomic trace invariant
+distinguishes specified native root-power inputs under Galois/Kummer
+transport. Their pure-orbit separation does not settle the subsequent
+hull or Ind3 comparison. Explicit automorphisms of the full local Galois
+group attain simultaneous minimum layers for all the square labels in a
+tame family. A trace-dual argument computes the exact hull of a
+maximal-order ideal formed before transport; the larger whole-product
+source has a different hull. Concrete Frey curves realize the local
+fields. A uniform power-free CRT count gives related curves at
+unbounded height in one fixed compactly bounded domain; every member
+admits the original initial theta data by a direct construction.
+We also prove effective finiteness of a specified
+Pell--Chebyshev family, with an absolute index bound $p<2^{59}$, and give
+prime-support and endpoint tests for other proposed arguments. Selected
+arithmetic, lattice, and algebraic components are checked in Lean; external
+theorems and the remaining global interfaces are kept separate.
+Neither a proof nor a disproof of the standard abc conjecture is claimed.
+\end{abstract}
+\maketitle
+
+\section{The target and the role of the results}
+
+Throughout, an \emph{abc triple} means positive integers $a,b,c$ such that
+$a+b=c$ and $a,b,c$ are pairwise coprime. Write
+\[
+ r=\rad(abc),\qquad R=\log r,\qquad h=\log c.
+\]
+Here $\rad(n)$ is the product of the distinct prime divisors of $n$.
+Pairwise coprimality is equivalent to $\gcd(a,b,c)=1$ under the additive
+relation. The target is the standard assertion
+\begin{equation}\label{eq:abc}
+ \forall\eps>0\quad\exists C_\eps\in\R\quad
+ \forall(a,b,c):\qquad h\le(1+\eps)R+C_\eps.
+\end{equation}
+Exponentiation gives the usual multiplicative constant. The repository's
+\texttt{ABCConjecture} uses $\log\max(a,b,c)$, which equals $h$ here.
+Its definition is not changed in this work.
+
+The quantifier order in \eqref{eq:abc} is essential. Its negation requires
+one fixed positive $\eps$ and violations for every additive constant, hence
+at unbounded height. A finite set of high-quality triples cannot supply that
+negation: it is absorbed into $C_\eps$. Likewise, a sparse exceptional-set
+bound does not imply that the exceptional set is finite.
+
+Our results concern several specific interfaces. Section~\ref{sec:smooth}
+uses finite prime support to test a proposed analytic construction.
+Section~\ref{sec:amplification} bounds distinct outputs of two amplification
+constructions under explicit sufficient radical certificates.
+Section~\ref{sec:signed} records the cancellation that an endpoint approach
+must preserve. Section~\ref{sec:lattice} supplies a local generator
+certificate relevant to possible-image constructions. Sections~\ref{sec:pell}
+and \ref{sec:frey} examine effective arithmetic geometry and recent
+literature. In particular, Corollary~\ref{cor:finite-pell-packet} proves
+effective finiteness of a specified moving-index family. These components
+are partial theorems and applicability tests; none
+constructs the missing uniform bound in \eqref{eq:abc}.
+Section~\ref{sec:actual-radical} extends the amplification test from
+sufficient certificates to actual radicals. Section~\ref{sec:admissible-arrows}
+uses the original admissible-arrow definitions and identifies a precise
+Ind2 hull equality. Section~\ref{sec:global-cubic} supplies constructions
+for the full family of abc triples, together with their exact remaining
+endpoint and denominator costs.
+Sections~\ref{sec:full-galois-lifts} and \ref{sec:native-pilot-dictionary}
+construct full local Galois arrows and distinguish their specified
+point, pre-ideal and whole-product sources.
+Sections~\ref{sec:frey-realizations}, \ref{sec:general-tame-square-labels}
+and \ref{sec:initial-theta-data} supply explicit arithmetic realizations,
+simultaneous local formulas and global initial-data constructions.
+Section~\ref{sec:powerfree-global-family} proves a uniform existence
+theorem at unbounded height. No priority over existing literature is
+claimed for consequences of the cited classical theorems.
+
+The new statements below were proved mathematically before their
+corresponding Lean implementations. Separate research agents reviewed the
+arguments, source hypotheses, and formal scope; this internal review is
+not external journal peer review. Classical published
+theorems may be used in the paper, but are not silently represented as
+proved Lean declarations. The formal scope is specified in
+Section~\ref{sec:formal}. The literature cutoff is August 30, 2026.
+
+\section{Prime support in short intervals}\label{sec:smooth}
+
+Let $\omega(n)$ be the number of distinct prime divisors of $n$, and let
+$P^+(n)$ be its greatest prime divisor, with $P^+(1)=1$.
+For integers $N,Y\ge1$ and $w\ge0$, define
+\[
+ \mathcal A(N,Y,w)=
+ \{1\le n\le N:P^+(n)\le Y,\ \omega(n)\le w\}.
+\]
+
+\begin{theorem}[Finite prime-power encoding]\label{thm:encoding}
+With $L=\lfloor\log_2N\rfloor$, one has
+\begin{equation}\label{eq:encoding}
+ |\mathcal A(N,Y,w)|\le(1+YL)^w.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Use the alphabet
+\[
+ \mathcal Q=\{1\}\cup\{q^e:1\le q\le Y,\ 1\le e\le L\}.
+\]
+It has at most $1+YL$ members; the bases need not be prime.
+For $n\in\mathcal A(N,Y,w)$, write its actual prime factorization as
+$n=\prod_{j=1}^t p_j^{e_j}$, with $p_1<\cdots<p_t$ and $t\le w$.
+Since $2^{e_j}\le p_j^{e_j}\le n\le N$, each $e_j\le L$.
+Thus every factor belongs to $\mathcal Q$. Append $w-t$ copies of $1$ to
+obtain a word of length $w$. Its product recovers $n$, so different integers
+have different encoded words. Counting all words proves \eqref{eq:encoding}.
+The empty factorization covers $n=1$ and $w=0$; $N=1$ is also included.
+\end{proof}
+
+\begin{corollary}[A finite first-moment bound]\label{cor:moment}
+Let $S$ be a finite set of distinct positive $Y$-smooth integers at most
+$N$, and put $B=(1+Y\lfloor\log_2N\rfloor)^w$. Then
+\begin{align}
+ |\{n\in S:\omega(n)\le w\}|&\le B,\label{eq:lowcount}\\
+ \sum_{n\in S}\omega(n)&\ge(w+1)\max\{|S|-B,0\}.
+ \label{eq:momentfinite}
+\end{align}
+\end{corollary}
+\begin{proof}
+The first set is contained in $\mathcal A(N,Y,w)$. Its complement in $S$
+has at least $\max\{|S|-B,0\}$ members, each with at least $w+1$ distinct
+prime factors. Summation proves the second assertion.
+\end{proof}
+
+Suppose now that $y=y(x)\ge2$ satisfies
+\begin{equation}\label{eq:yscale}
+ \loglog x=o(\log y),\qquad \log y=o(\log x),
+ \qquad u=\frac{\log x}{\log y}.
+\end{equation}
+For every fixed $\kappa>0$, Theorem~\ref{thm:encoding}, with
+$N=\lfloor2x\rfloor$, $Y=\lfloor y\rfloor$ and
+$w=\lfloor\kappa u\rfloor$, gives
+\begin{equation}\label{eq:global-low}
+ \#\{n\le2x:P^+(n)\le y,\ \omega(n)\le\kappa u\}
+ \le x^{\kappa+o(1)}.
+\end{equation}
+Indeed,
+\[
+ w\log(1+YL)
+ \le\kappa\frac{\log x}{\log y}
+       \bigl(\log y+O(\loglog x)\bigr)
+ =\kappa\log x+o(\log x).
+\]
+More generally the upper bound is $x^{o(1)}$ whenever
+$w(\log y+\loglog x)=o(\log x)$.
+
+\subsection{The external analytic input}
+Write $\Psi(x,y)=\#\{1\le n\le x:P^+(n)\le y\}$.
+Younis's unconditional Theorem~1.1 \cite{Younis}, p.~2, states that for
+each fixed $17/30<\theta\le1$ there is $C_Y(\theta)>0$ such that
+\begin{equation}\label{eq:younis}
+ \frac{\Psi(x+h,y)-\Psi(x,y)}h
+ =\frac{\Psi(x,y)}x
+  \left(1+O_\theta\left(\frac{\log(u+1)}{\log y}\right)\right)
+\end{equation}
+uniformly for
+\[
+ x^\theta\le h\le x,\qquad
+ \exp\!\left(C_Y(\theta)(\log x)^{2/3}(\loglog x)^{4/3}\right)
+ \le y\le2x.
+\]
+Fix
+\begin{equation}\label{eq:parameters}
+ \frac{17}{30}<\theta<1,\quad C\ge C_Y(\theta),\quad
+ h=x^\theta,\quad
+ y=\exp\!\left(C(\log x)^{2/3}(\loglog x)^{4/3}\right).
+\end{equation}
+The lower bound on $C$ is part of the hypotheses, not a disposable constant.
+Put
+\[
+ S_x=\{n\in(x,x+h]:P^+(n)\le y\},\qquad M_x=|S_x|.
+\]
+The classical long-interval estimate recalled in
+\cite[equations (1.8)--(1.9), p.~415]{HT} yields
+$\Psi(x,y)=x\rho(u)(1+o(1))$ here. Its range
+$u\le(\log y)^{3/5-\eps}$ is satisfied, for example with $\eps=1/20$:
+the power of $\log x$ on the right is $11/30$, larger than the power
+$1/3$ in $u$.
+Also $-\log\rho(u)=u\log u(1+o(1))=o(\log x)$.
+Consequently \eqref{eq:younis} gives
+\begin{equation}\label{eq:mass}
+ M_x=h\rho(u)(1+o(1))=x^{\theta-o(1)}.
+\end{equation}
+Only this mass estimate is needed below; no short-interval moment formula
+is assumed.
+
+\begin{theorem}[A lower tail and a first-moment obstruction]\label{thm:tail}
+For \eqref{eq:parameters} and every fixed $0<\kappa<\theta$,
+\begin{equation}\label{eq:tail}
+ \frac{\#\{n\in S_x:\omega(n)\le\kappa u\}}{M_x}
+ \le x^{\kappa-\theta+o(1)}\longrightarrow0.
+\end{equation}
+In particular,
+\begin{equation}\label{eq:mean}
+ \liminf_{x\to\infty}\frac1{uM_x}
+          \sum_{n\in S_x}\omega(n)\ge\theta.
+\end{equation}
+For every fixed $A>0$, the proportion of $n\in S_x$ with
+$\omega(n)\le(\loglog x)^A$ tends to zero.
+\end{theorem}
+\begin{proof}
+Every member of $S_x$ is at most $2x$. Divide \eqref{eq:global-low} by
+\eqref{eq:mass} to obtain \eqref{eq:tail}. If its numerator is $B_x$, then
+\[
+ \sum_{n\in S_x}\omega(n)\ge\kappa u(M_x-B_x).
+\]
+The lower limit after division by $uM_x$ is at least each fixed
+$\kappa<\theta$, and hence at least $\theta$. This argument does not
+require a variable $\kappa$ or a uniform error term in that variable.
+Finally,
+\[
+ (\loglog x)^A(\log y+\loglog x)=o(\log x).
+\]
+The last observation after \eqref{eq:global-low} bounds the corresponding
+population by $x^{o(1)}$. Divide again by \eqref{eq:mass}.
+\end{proof}
+
+\begin{corollary}[A false intermediate assertion in a claimed disproof]
+\label{cor:carella}
+Lemma~4.2 of Carella \cite{Carella}, p.~8, equation~(4.5), is false in its
+stated range. The same holds for the second-moment assertion in
+Lemma~4.4, p.~9, and the relative exceptional estimate (4.24), p.~11.
+\end{corollary}
+\begin{proof}
+Choose $\theta=3/5$ and a fixed $C\ge C_Y(3/5)$.
+Then $h>x^{7/12}$, $y<h<x$, and $y=o(h)$, exactly as required in the
+first lemma. Its proposed formula would give
+\[
+ \frac1{M_x}\sum_{n\in S_x}\omega(n)=O(\loglog y).
+\]
+However,
+\[
+ \frac{u}{\loglog y}\asymp
+ \frac{(\log x)^{1/3}}{(\loglog x)^{7/3}}\longrightarrow\infty,
+\]
+contradicting \eqref{eq:mean}. Changing the left endpoint of the interval
+from open to closed adds at most one integer; its contribution is at most
+$\log_2(2x)$ and is negligible relative to $M_x$.
+The proposed second moment is $O(M_x(\loglog y)^2)$, whereas
+\eqref{eq:tail} gives a lower bound
+$\kappa^2u^2M_x(1-o(1))$ for any fixed $0<\kappa<3/5$.
+Finally the threshold in (4.24) is bounded by a fixed power of
+$\loglog x$. Theorem~\ref{thm:tail} shows that the proportion above it
+tends to one, although the claimed relative upper bound tends to zero.
+\end{proof}
+
+\begin{remark}
+This refutes those intermediate assertions, not $abc$ and not the possibility
+of an exceptionally sparse counterexample family. In particular a set of
+size $x^{o(1)}$ can still be infinite. It is also important to distinguish
+$o(h)$ from $o(M_x)$: the whole smooth set already has size $o(h)$.
+\end{remark}
+
+\subsection{Two further transfer tests}
+For a fixed integer $k\ge4$, the intervals
+\[
+ (p^k,p^k+(p^k)^{3/5}],\qquad X<p^k\le2X,
+\]
+are pairwise disjoint for large $X$. Indeed, successive distinct integer
+bases give gaps at least $X^{1-1/k}$, larger than $(2X)^{3/5}$.
+The finite encoding, using the largest thresholds in this range, shows that
+at most $X^{o(1)}$ centres can contain a smooth candidate with
+$\omega(n)\le2\loglog(p^k)$ at the scale \eqref{eq:parameters}.
+The prime number theorem gives $X^{1/k+o(1)}$ centres, so their proportion is
+at most $X^{-1/k+o(1)}$. This rules out a positive-proportion selection
+of this particular kind, while leaving a sparse selection unresolved.
+
+Recent work on exceptional sets \cite{BBLT,Bernert} and on the existence
+of smooth neighbours \cite{Jain} addresses different quantifiers.
+A useful general check is the following. If a counting theorem gives
+$N(T)\ll T^{\eta+o(1)}$, then a seed of height $H$ contradicts it only
+when it produces more than $H^{\beta\eta+o(1)}$ \emph{distinct} qualifying
+outputs of height at most $O(H^\beta)$. Repeated encodings of one output do
+not count. None of the existence results just cited supplies the required
+uniform low-radical neighbours or such an amplification theorem.
+
+\input{continuation_amplification_2026}
+
+\input{uniform_gate_actual_radicals_2026}
+
+\section{The coupled signed prime-exponent defect}\label{sec:signed}
+
+For $n\ge1$ put
+\[
+ E_1(n)=\sum_{\substack{p\mid n\\v_p(n)=1}}\log p,
+ \qquad
+ E_3(n)=\sum_{p\mid n}\pospart{v_p(n)-2}\log p.
+\]
+Write $m=\min(a,b)$ and $M=\max(a,b)$ for an abc triple.
+
+\begin{proposition}[Exact signed identity]\label{prop:signed}
+For every positive integer $n$,
+\begin{equation}\label{eq:single}
+ \delta_2(n):=\log n-2\log\rad(n)=E_3(n)-E_1(n).
+\end{equation}
+The coupled defect satisfies
+\begin{align}
+ \Delta&:=\log(Mc)-2R\notag\\
+ &=E_3(M)+E_3(c)-E_1(M)-E_1(c)-2\log\rad(m),\label{eq:coupled}\\
+ 2h-2R-\log2&\le\Delta\le2h-2R.\label{eq:corridor}
+\end{align}
+Consequently $abc$ is equivalent to
+\begin{equation}\label{eq:coupledbound}
+ \begin{split}
+ \forall\eps>0\quad\exists K_\eps\quad\forall(a,b,c):\qquad
+ E_3(M)+E_3(c)\le{}&E_1(M)+E_1(c)\\
+ &+2\log\rad(m)+2\eps R+K_\eps.
+ \end{split}
+\end{equation}
+\end{proposition}
+\begin{proof}
+For every positive exponent $e$,
+$e-2=\pospart{e-2}-\mathbf1_{e=1}$. Multiply by $\log p$ and sum over the
+actual prime factorization to obtain \eqref{eq:single}.
+Pairwise coprimality gives
+$r=\rad(m)\rad(M)\rad(c)$, which proves \eqref{eq:coupled}.
+Since $c/2\le M\le c$, taking logarithms of
+$c^2/2\le Mc\le c^2$ gives \eqref{eq:corridor}.
+An $abc$ constant $C_\eps$ supplies $K_\eps=2C_\eps$.
+Conversely \eqref{eq:coupledbound} and the lower corridor give
+$C_\eps=(K_\eps+\log2)/2$.
+\end{proof}
+
+The equivalence does not prove \eqref{eq:coupledbound}; it identifies the
+entire missing estimate without losing the negative exponent-one terms.
+Replacing the coupled inequality by separate endpoint bounds fails.
+
+\begin{proposition}[An unbounded separate-endpoint obstruction]\label{prop:dyadic}
+For every $0\le\rho<1$ and $K\in\R$, there is an abc triple with $m=1$ and
+\[
+ \delta_2(M)>\log\rad(m)+\rho R+K.
+\]
+\end{proposition}
+\begin{proof}
+Take $(a,b,c)=(1,2^N,2^N+1)$ with $N\ge1$.
+Then $m=1$, $M=2^N$, and $\delta_2(M)=(N-2)\log2$.
+Without making any assumption about the odd neighbour,
+\[
+ r\le2(2^N+1)\le2^{N+2},\qquad R\le(N+2)\log2.
+\]
+Therefore
+\[
+ \delta_2(M)-\rho R\ge
+ ((1-\rho)N-2-2\rho)\log2\longrightarrow\infty.
+\]
+This proves the claim. The bound uses only $\rad(n)\le n$ and
+$\rad(2^N)=2$.
+\end{proof}
+
+This argument neither proves nor assumes that all odd neighbours have large
+radical. It only rejects a false stronger estimate that discards their
+possible contribution. The coupled route remains open.
+
+\section{Finite certificates for reachable local lattices}\label{sec:lattice}
+
+Let $K$ be a nonarchimedean local field, $\OO$ its valuation ring,
+$\pi$ a uniformizer, and $k=\OO/\pi\OO$ its residue field, with
+$|k|=q>1$ and $v(\pi)=1$. Fix $N\ge1$, write $L=\OO^N$, and normalize
+additive Haar measure on $K^N$ by $\mu(L)=1$.
+For any set $\mathcal R\subset L$, let
+\[
+ H(\mathcal R)=\overline{\Span_{\OO}(\mathcal R)}.
+\]
+If nonsingular $N$-tuples exist in $\mathcal R$, define
+\[
+ d(\mathcal R)=\min_{\substack{r_1,\ldots,r_N\in\mathcal R\\
+                         \det[r_1\ \cdots\ r_N]\ne0}}
+                         v(\det[r_1\ \cdots\ r_N]);
+\]
+otherwise set $d(\mathcal R)=\infty$.
+
+\begin{theorem}[A finite witness for the exact hull measure]\label{thm:lattice}
+With $q^{-\infty}=0$, one has
+\[
+ \mu(H(\mathcal R))=q^{-d(\mathcal R)}.
+\]
+If $d(\mathcal R)<\infty$, some matrix $A$ whose columns belong to
+$\mathcal R$ satisfies
+\[
+ v(\det A)=d(\mathcal R),\qquad H(\mathcal R)=A\OO^N.
+\]
+\end{theorem}
+\begin{proof}
+In the full-rank case the nonzero determinant valuations are nonnegative
+integers, so choose $A$ attaining their minimum $d$.
+For $r\in\mathcal R$, Cramer's rule gives
+\[
+ (A^{-1}r)_i=\frac{\det A_i(r)}{\det A},
+\]
+where $A_i(r)$ replaces column $i$ by $r$.
+Its columns still belong to $\mathcal R$. Every nonzero numerator has
+valuation at least $d$; a zero numerator causes no difficulty.
+Thus $A^{-1}r\in\OO^N$ and $\mathcal R\subset A\OO^N$.
+Since the columns of $A$ lie in $\mathcal R$, their integral spans are equal.
+The set $A\OO^N$ is compact, hence closed.
+
+Integral row and column operations give
+$UAV=\operatorname{diag}(\pi^{a_1},\ldots,\pi^{a_N})$, with
+$U,V\in\GL_N(\OO)$, $a_i\ge0$, and $\sum a_i=d$.
+One may obtain this diagonalization by repeatedly moving an entry of least
+valuation to the upper left and clearing its row and column by integral
+operations. The quotient $\OO^N/A\OO^N$ has $q^d$ elements.
+Its equal-measure cosets partition $L$, proving $\mu(A\OO^N)=q^{-d}$.
+
+In the rank-deficient case a nonzero $K$-linear functional annihilates
+$\mathcal R$. Scale its coefficients to lie in $\OO$ with at least one
+unit coefficient. It then defines a surjection $\ell:L\to\OO$ whose
+closed kernel contains $H(\mathcal R)$. For every $t\ge1$,
+$\ell^{-1}(\pi^t\OO)$ has index $q^t$ in $L$. Hence
+$0\le\mu(H(\mathcal R))\le q^{-t}$ for all $t$, proving measure zero.
+\end{proof}
+
+\begin{corollary}\label{cor:residue}
+The equality $H(\mathcal R)=L$ holds if and only if the reductions of
+$\mathcal R$ span $k^N$, equivalently if some reachable column matrix has
+unit determinant. More generally, any measurable $\OO$-submodule containing
+all columns of a reachable matrix $A$ with $v(\det A)=d$ has measure at least
+$q^{-d}$.
+\end{corollary}
+\begin{proof}
+A determinant is a unit exactly when its reduction is nonzero; a spanning
+set of $k^N$ contains a basis. Apply Theorem~\ref{thm:lattice}.
+For the last claim, the target contains $A\OO^N$ and measure is monotone.
+The target need not be contained in $L$.
+\end{proof}
+
+\subsection{Independent and simultaneous actions}
+Let $L_j=\OO^{d_j}$, with $d_j\ge1$, and let
+$T=\bigotimes_{j=1}^s L_j$, where $s\ge1$ and
+$N=\prod_jd_j$. For nonzero $x_j\in L_j$, write
+$x_j=\pi^{m_j}u_j$ with $u_j$ primitive.
+
+\begin{proposition}\label{prop:independent}
+Under the independent action of $\prod_j\GL_{d_j}(\OO)$,
+the orbit of $\bigotimes_jx_j$ spans
+$\pi^{\sum_jm_j}T$. The measure of this spanned lattice, normalized by
+$\mu(T)=1$, is
+$q^{-N\sum_jm_j}$.
+\end{proposition}
+\begin{proof}
+Integral row operations send a primitive vector to any chosen standard
+basis vector. Choosing these operations independently in each factor gives
+every standard tensor basis vector multiplied by $\pi^{\sum_jm_j}$.
+Conversely all orbit vectors lie in this scaled lattice.
+Its index is $q^{N\sum_jm_j}$, giving the measure.
+\end{proof}
+
+\begin{proposition}[A strict simultaneous-action counterexample]\label{prop:diagonal}
+Over any commutative ring $A$, identify $A^2\otimes_AA^2$ with
+$\Mat_2(A)$. The $A$-span of $\{v\otimes v:v\in A^2\}$ is exactly
+the submodule of symmetric matrices. If $A\ne0$, it omits $E_{12}$.
+For $A=\OO$ it has Haar measure zero in $\Mat_2(K)$.
+\end{proposition}
+\begin{proof}
+Every generator has equal off-diagonal entries, a condition preserved by
+linear combinations. Conversely $e_1\otimes e_1$, $e_2\otimes e_2$, and
+\[
+ (e_1+e_2)\otimes(e_1+e_2)-e_1\otimes e_1-e_2\otimes e_2
+ =E_{12}+E_{21}
+\]
+span all symmetric matrices. No division by two occurs.
+The functional $M\mapsto M_{12}-M_{21}$ vanishes on the span and takes
+value one on $E_{12}$. In the local-field case, the congruence
+$M_{12}=M_{21}\pmod{\pi^t}$ occupies a proportion $q^{-t}$ of the
+integral matrix lattice for every $t$. Its exact equality locus therefore
+has measure zero.
+\end{proof}
+
+The generating set in Proposition~\ref{prop:diagonal} is stable under every
+simultaneous action $g\otimes g$. Thus even the full simultaneous integral
+linear group does not provide Proposition~\ref{prop:independent}.
+This rejects a specific abstract substitute for independent generation; it
+does not identify the actual IUT outputs with this diagonal example.
+
+\input{continuation_holomorphic_hulls_2026}
+
+\subsection{What a source-derived application must establish}
+The July 2026 LANA report \cite{LANA} isolates an identification between
+q-pilot and possible-output volume data in the passage to IUT~III,
+Corollary~3.12 \cite{IUT3}. Joshi's July 30 response \cite{JoshiResponse}
+refers to distinct arithmeticoids and his Part~IV comparison
+\cite[Theorem~6.10.1]{JoshiIV}. These are source claims to reconstruct,
+not assumptions used in our local theorems.
+
+Part~III \cite[Proposition~9.7.5.1]{JoshiIII} allows specified topological
+isomorphisms in its collation. Section~\ref{sec:holomorphic-hull} constructs
+one marking-preserving family and proves containment after the stated
+holomorphic hull. It does not require unrestricted independent linear
+actions. The remaining identification must compare the same set of source
+objects, the same target region, and the same numerical normalization
+with the later upper estimate.
+
+For a source-faithful finite packet of local sets
+$\mathcal R_v\subset\OO_v^{N_v}$ and positive weights $\lambda_v$,
+Theorem~\ref{thm:lattice} gives, when all defects are finite,
+\[
+ V_H=-\sum_v\frac{\lambda_v}{N_v}d(\mathcal R_v)\log q_v.
+\]
+Suppose genuine local target regions $\Theta_v$ contain the respective
+hulls and have finite positive measure. Define, on these same carriers,
+$V_\Theta=\sum_v(\lambda_v/N_v)\log\mu_v(\Theta_v)$.
+Let $V_q\in\R$ be the fixed native $q$-pilot log-volume under the same
+source normalization. Then
+\[
+ \sum_v\frac{\lambda_v}{N_v}d(\mathcal R_v)\log q_v\le -V_q
+ \quad\Longrightarrow\quad V_q\le V_H\le V_\Theta.
+\]
+The final inequality follows from local measure monotonicity, followed by
+the logarithm and the positive weighted sum. A different volume functional
+on a non-product region requires a separate monotonicity theorem.
+This is a sufficient numerical interface. The native points and their
+holomorphic hulls above provide one local construction; identifying them
+with the region bounded in IUT~IV \cite{IUT4}, controlling the same
+normalized determinant sum, and deriving the uniform global comparison
+remain separate obligations. Archimedean factors and infinite-packet
+convergence are not covered by the finite local theorem.
+
+\input{uniform_gate_admissible_arrows_2026}
+
+\section{Effective bounds and finiteness in a specified Pell family}\label{sec:pell}
+
+We now restrict to positive integers $b,A,B,u,v,r_0,s,X$ and a prime
+$p\ge37$ satisfying
+\begin{align}
+ b=Au^2,\quad b+1=Bv^2,\quad b+2=3r_0^2,\quad b+3=s^2,\label{eq:packet1}\\
+ D=3AB,\quad Z=b^2+3b+1=T_p(X),\quad
+ D+1\le X^2,\quad X^p\le Z.\label{eq:packet2}
+\end{align}
+Here $T_p$ is the Chebyshev polynomial of the first kind. These equations
+define the specified residual packet; no reduction of general abc
+counterexamples to it is asserted.
+Set
+\[
+ H=\log(b+2),\quad L=\log(D+1),\quad
+ C_0=12^{331776},\quad K_0=\log(2C_0).
+\]
+The packet immediately yields
+\begin{equation}\label{eq:packetgate}
+ (D+1)^p\le X^{2p}\le Z^2<(b+2)^4,\qquad pL<4H.
+\end{equation}
+
+Theorem~2.2 of B\'erczes--Evertse--Gy\H{o}ry \cite{BEG}, specialized to
+$K=\Q$, $S=\{\infty\}$, and exponent two, gives the following published
+input. If $f\in\Z[t]$ is squarefree of degree $n\ge3$, with coefficient
+height $\widehat h=\log\max(1,|a_0|,\ldots,|a_n|)$, and $f(x)=y^2$
+in integers, then
+\begin{equation}\label{eq:beg}
+ \max\{\height(x),\height(y)\}
+ \le (4n)^{4096n^4}\exp(50n^4\widehat h),
+ \quad \height(t)=\log\max(1,|t|).
+\end{equation}
+
+\begin{proposition}[Two effective constraints]\label{prop:pell}
+Every packet \eqref{eq:packet1}--\eqref{eq:packet2} satisfies
+\begin{equation}\label{eq:two-effective}
+ H\le\exp(4300p^5),\qquad H\le2C_0D^{4050}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+First put $f_p(t)=4T_p(t)+5$. The relation in \eqref{eq:packet2} gives
+$f_p(X)=(2b+3)^2$.
+The identities $T'_p=pU_{p-1}$ and
+$T_p^2-1=(t^2-1)U_{p-1}^2$ show that a repeated root of $f_p$ would have
+$T_p=\pm1$ and $T_p=-5/4$, a contradiction.
+If $M_n$ is the sum of the absolute values of the coefficients of $T_n$,
+then $M_{n+2}\le2M_{n+1}+M_n$ and $M_0=M_1=1$.
+Induction gives $M_n\le3^n$. Thus every coefficient of $f_p$ has
+absolute value at most $4\cdot3^p+5\le3^{p+2}$, and
+$\widehat h\le(p+2)\log3\le4p$.
+Since $\log(4p)\le p$ for $p\ge3$, \eqref{eq:beg} implies
+\[
+ H\le\log(2b+3)
+ \le\exp\!\left(4096p^4\log(4p)+50p^4\widehat h\right)
+ \le\exp(4300p^5).
+\]
+
+For the second estimate, set $x=b+1$ and $Y=Duvr_0$.
+The first three equations in \eqref{eq:packet1} give
+\begin{equation}\label{eq:ellipticpacket}
+ Y^2=D(x^3-x).
+\end{equation}
+The cubic $D(t^3-t)$ is squarefree and has coefficient height $\log D$.
+Equation~\eqref{eq:beg}, with $n=3$, gives
+\[
+ \log(b+1)\le12^{4096\cdot3^4}\exp(50\cdot3^4\log D)
+ =C_0D^{4050}.
+\]
+Finally $b+2\le(b+1)^2$ for $b\ge1$, proving the second bound.
+\end{proof}
+
+\begin{proposition}[Descent to the squarefree parameter]\label{prop:descent}
+Write $D=d\tau^2$, where $d$ is a positive squarefree integer and
+$\tau\ge1$ is an integer. Then every packet satisfies
+\[
+ H\le2C_0d^{4050}.
+\]
+\end{proposition}
+\begin{proof}
+Equation~\eqref{eq:ellipticpacket} implies $\tau^2\mid Y^2$.
+Comparing prime valuations gives $\tau\mid Y$. Write $Y=\tau y$ and
+cancel the nonzero factor $\tau^2$ to obtain
+\[
+ y^2=d(x^3-x),\qquad x=b+1.
+\]
+The polynomial $d(t^3-t)$ has distinct roots and coefficient height
+$\log d$. Equation~\eqref{eq:beg} gives
+$\log(b+1)\le C_0d^{4050}$, and again $H\le2\log(b+1)$.
+\end{proof}
+
+Combining \eqref{eq:packetgate} and \eqref{eq:two-effective} gives
+\begin{align}
+ p&\ge\left(\frac{\log H}{4300}\right)^{1/5},\qquad
+ L<4\cdot4300^{1/5}\frac{H}{(\log H)^{1/5}},\label{eq:uppercorr}\\
+ D&\ge\left(\frac{H}{2C_0}\right)^{1/4050},\qquad
+ p(\log H-K_0)<16200H.\label{eq:lowercorr}
+\end{align}
+For example, the first upper bound follows by multiplying the lower bound
+for $p$ by $L>0$ and applying $pL<4H$.
+For the final inequality use
+$\log H\le K_0+4050\log D$ and $\log D<L$.
+In a form avoiding fractional powers, the former calculation is
+\[
+ (\log H)L^5\le4300(4H)^5.
+\]
+
+These inequalities alone are compatible with unbounded height: they would
+force both the index and the squarefree kernel to grow, while
+$\log(D+1)/H$ tends to zero. The following argument supplies the missing
+absolute index bound and excludes such an unbounded sequence in this
+specified family. It does not freeze a field or an index in advance.
+
+\input{continuation_matveev_2026}
+
+\input{continuation_uniformity_2026}
+
+\section{Applicability of recent elliptic-curve estimates}\label{sec:frey}
+
+\subsection{A denominator lower bound}
+For the Frey curve $E:y^2=x(x-a)(x+b)$ attached to an abc triple, let
+$Q=a^2+ab+b^2$. Its invariant is
+\[
+ j_E=\frac{256Q^3}{(abc)^2}.
+\]
+Let $n,d$ be the positive numerator and denominator in lowest terms.
+
+\begin{proposition}\label{prop:denominator}
+For every such triple,
+\begin{equation}\label{eq:denominator}
+ c^4\le1024d,\qquad n\le256c^6.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Primitivity implies $\gcd(Q,abc)=1$. Indeed, reduction modulo a prime
+dividing any one of $a,b,c$ leaves in $Q$ the square of a nonzero other
+coordinate. Therefore $g=\gcd(256Q^3,(abc)^2)$ divides $256$, and
+$(abc)^2=gd\le256d$.
+Since $(a-1)(b-1)\ge0$, we have $ab\ge c-1$; as $c\ge2$, this gives
+$2ab\ge c$. Squaring $2abc\ge c^2$ proves
+$c^4\le4(abc)^2\le1024d$.
+Finally $Q=c^2-ab\le c^2$, so $n\le256Q^3\le256c^6$.
+\end{proof}
+
+Pasten's 2026 small-denominator theorem
+\cite[Theorem~1.2]{PastenSmall} applies under a bound
+$\den(j_E)\le A_0(\log\num(j_E))^{B_0}$ with fixed positive
+$A_0,B_0$. For Frey curves, \eqref{eq:denominator} would imply
+\[
+ c^4\le1024A_0(\log256+6\log c)^{B_0}.
+\]
+A positive power of $c$ dominates every fixed power of its logarithm.
+Thus only bounded $c$, and consequently finitely many positive triples,
+can satisfy this hypothesis for fixed $A_0,B_0$.
+This is a precise restriction on direct applicability, not a
+counterexample to the theorem or to other Szpiro strategies.
+
+\subsection{The August 2026 Mordell estimate}
+The preprint \cite[Theorem~1.3]{PastenNew}, submitted August 24, 2026,
+gives an effective bound for $y^2=x^3+k$, $k\ne0$, using
+\[
+ \underline{k}=\prod_{q\mid k}q^{\min(2,v_q(k))}.
+\]
+The stated estimate is
+\begin{equation}\label{eq:pasten}
+ \log\max(|x|,|y|)\ll
+ \underline{k}^{1/2}\log^2(2\underline{k})\log(2|k|)
+ \log\!\left(\underline{k}\log(3|k|)\right).
+\end{equation}
+We record this new result without treating its publication date as a
+substitute for checking its hypotheses or proof.
+
+Directly substituting $c_6^2=c_4^3-1728\Delta$ and
+$\Delta=16(abc)^2$ gives $k=-27648(abc)^2$.
+Then $\underline{k}^{1/2}\ll r$, while both
+$\log(2|k|)$ and $\log\max(|c_4|,|c_6|)$ are comparable with $h$.
+The resulting right-hand side has the shape
+\[
+ r\log^2(2r)\,h\,\log(2r\log(3c)).
+\]
+The height remains a multiplicative factor on the right; cancellation
+does not yield an upper bound for $c$ in terms of $r$.
+The integral-$j$ result in Theorem~1.6 of the same paper concerns the
+height of the \emph{curve}, and cannot be substituted for a point-height bound.
+
+There is a more primitive Mordell point, but it preserves the same
+height factor in this substitution.
+\begin{proposition}\label{prop:primitive-frey-mordell}
+Put $m=abc/2$ and
+$Y=(a-b)(2a+b)(a+2b)/2$. These are integers, and
+\[
+ Y^2=Q^3-27m^2,\qquad \gcd(Q,m)=1,\qquad
+ c_4=4^2Q,\quad c_6=4^3Y.
+\]
+There is no integer $z\ge2$ with $z^2\mid Q$ and $z^3\mid Y$.
+The associated binary cubic is split over $\Z$:
+\[
+ U^3-3QUV^2+2YV^3
+ =(U-(a-b)V)(U-(a+2b)V)(U+(2a+b)V).
+\]
+It remains reducible after every change of variables in $\GL_2(\Z)$.
+\end{proposition}
+\begin{proof}
+At least one of $a,b,c$ is even, so $m$ is integral. If one of $a,b$
+is even then one of $2a+b,a+2b$ is even; if both are odd then $a-b$
+is even. This proves integrality of $Y$.
+Expansion gives
+\[
+ 4Q^3-\bigl((a-b)(2a+b)(a+2b)\bigr)^2=27(abc)^2
+\]
+and the asserted cubic factorization. The standard invariant formulas
+give the two scalings. Coprimality follows from $\gcd(Q,abc)=1$.
+If the proposed $z$ existed, then $z^6\mid27m^2$ while $\gcd(z,m)=1$;
+thus $z^6\mid27$, impossible for $z\ge2$. An invertible linear change
+of variables takes each nonzero linear factor to another nonzero linear
+factor, preserving reducibility.
+\end{proof}
+
+The normalized parameter is therefore $k=-27m^2$ and its prime support
+is still that of $3m$. Removing the fixed powers of four does not remove
+the factor comparable with $h$ on the right of \eqref{eq:pasten}.
+The split cubic also does not meet an irreducible Thue-form hypothesis.
+
+There is also a strict obstruction to one possible transfer from
+\eqref{eq:ellipticpacket}. With $U=Dx$ and $V=DY$, it becomes
+$E_D:V^2=U^3-D^2U$, of $j$-invariant $1728$.
+
+\begin{proposition}\label{prop:cm}
+For $D,k\ne0$, there is no nonconstant algebraic morphism over
+$\overline{\Q}$ from $E_D$ to the nonsingular Mordell curve
+$M_k:v^2=u^3+k$.
+\end{proposition}
+\begin{proof}
+Their geometric endomorphism algebras are respectively $\Q(i)$ and
+$\Q(\sqrt{-3})$: the automorphisms
+$(x,y)\mapsto(-x,iy)$ and $(u,v)\mapsto(\zeta_3u,v)$ give these
+quadratic actions, and in characteristic zero the endomorphism algebra
+of an elliptic curve has dimension at most two over $\Q$.
+A nonconstant morphism, translated to send the origin to the origin,
+is an isogeny. An isogeny induces an isomorphism of rational endomorphism
+algebras by conjugation. The two imaginary quadratic fields are not
+isomorphic, a contradiction; see also \cite[Chapters III and VI]{Silverman}.
+\end{proof}
+
+The proposition excludes this morphism strategy, even if $k$ depends on
+$D$. It does not exclude other Diophantine encodings or extending the new
+logarithmic-form methods to a different family.
+
+\input{uniform_gate_global_geometry_2026}
+
+\input{galois_lifts_continuation_2026}
+
+\input{native_pilot_dictionary_2026}
+
+\input{frey_galois_realizations_2026}
+
+\input{general_tame_square_labels_2026}
+
+\input{initial_theta_data_2026}
+
+\input{powerfree_global_family_2026}
+
+\section{Formal verification and remaining obligations}\label{sec:formal}
+
+The companion development uses Lean~4.32.0 and the repository's pinned
+dependencies. The principal companion modules are listed below.
+Audit modules only display their types and dependency reports.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}}
+\toprule
+Module (within \texttt{IUTThreeClosures}) & Checked mathematical scope\\
+\midrule
+\endhead
+\path{SmoothLowOmegaCounting} & Actual prime-power encoding, finite
+cardinality bounds, and the finite first moment.\\[3pt]
+\path{SignedPrimeSupport} & Actual prime-exponent sums and the coupled
+equivalence with the original target.\\[3pt]
+\path{SignedEndpointDyadicObstruction} & The genuine dyadic triples and
+failure of a separate-endpoint slope below one.\\[3pt]
+\path{ReachableTensorLatticeCriterion} & Unit-determinant span certificate,
+symmetric span and its missing off-diagonal tensor.\\[3pt]
+\texttt{FreyPellEffectiveResidual\allowbreak Corridor20260830} & The integral elliptic
+identity, integer square-factor descent, explicit scalar implications,
+and the Frey denominator bound.\\[3pt]
+\texttt{AnalyticAmplification\allowbreak Continuation20260830} & CRT uniqueness
+and finite counts; actual radical inequalities; conic and height identities.\\[3pt]
+\texttt{DVRReachableHaar20260830} & A minimum determinant from actual columns,
+the exact quotient cardinality, closed span, and full-rank Haar and log-volume.\\[3pt]
+\texttt{GeometryUniformity\allowbreak Continuation20260830} & Norm and ratio
+identities, logarithmic absorption, explicit corridor implications, and the
+primitive Frey--Mordell point.\\[3pt]
+\texttt{IUTReachability\allowbreak Continuation20260830} & Tensor units,
+independent scaled vectors, and integral tensor-span containment in a
+coefficient-module hull.\\[3pt]
+\texttt{MatveevPellFinitePacket20260830} & The strict Pell approximation,
+normalized-coefficient algebra, absolute-index absorption, and the final
+height implication with external bounds stated as hypotheses.\\[3pt]
+\texttt{IUTTargetReset20260830} & Covariance of an all-isomorphism
+collation with repeated labels, its span, and source reindexing under an
+explicit compatibility identity.\\[3pt]
+\texttt{AnalyticActualRadical\allowbreak UniformGate20260830} & Actual new-prime
+radical and integer excess identities, the conic budget, exponent-window
+algebra, and exact numerical counterexamples.\\[3pt]
+\texttt{GeometryGlobal\allowbreak UniformGate20260830} & Canonical integer cube
+decomposition, auxiliary point and cubic-root identities, finite matrix
+determinants, and explicit algebraic height bridges.\\[3pt]
+\texttt{IUTAdmissibleGalois\allowbreak UniformGate20260830} & Kernel and valuation
+consequences of an explicit trace-transport hypothesis, affine-depth
+separation, and invariance of module span under unit scalars.\\[3pt]
+\texttt{IUTTracePreserving\allowbreak Transvection20260830} & Actual linear
+automorphisms achieving common avoidance while preserving a functional.\\[3pt]
+\texttt{IUTAllOpenLattice\allowbreak Rigidity20260830} & Scalar rigidity from
+all shrinking line neighborhoods; an actual $\Z_p$ specialization, with
+surjectivity forcing a unit scalar.\\[3pt]
+\texttt{IUTFullGalois\allowbreak WordLift20260830} & An actual free-group
+automorphism, its inverse words, fixed boundary, and abelian images.\\[3pt]
+\texttt{IUTThreeLabel\allowbreak MinimumLayer20260830} & Actual linear
+automorphisms, finite-kernel avoidance, and three-label specialization.\\[3pt]
+\texttt{Frey139Tate210\allowbreak Realization20260830} & Actual Frey
+Weierstrass invariants and point types over finite fields, exact integer
+certificates and real logarithmic intervals for two curves.\\[3pt]
+\texttt{SL2Transvection\allowbreak Generation20260830} & Elementary
+matrices in the actual special linear group and the normal-subgroup
+coprime-index argument.\\[3pt]
+\texttt{Frey43Balanced\allowbreak Realization20260830} & The genuine
+primorial and all-prime exponent bound, actual curve invariants and
+finite-field point cardinality, and the real logarithmic window.\\[3pt]
+\texttt{IUTGeneralTame\allowbreak SquareLabels20260830} & Uniqueness of
+the actual exceptional quadratic congruence, floor and ceiling bounds,
+finite avoidance budget, and the hull-exponent scale identities.\\
+\texttt{TraceDualPreideal\allowbreak Hull20260831} & The actual algebra
+trace and integral dual, exact two-factor product duality, a scaled
+order-ideal inclusion, and its transported $B$-module span bound.\\
+\bottomrule
+\end{longtable}
+
+These modules introduce no new mathematical axiom. The validation record
+lists their exact commands, results, and kernel dependency reports.
+The pre-existing signed-layer module required an explicit import, closure
+of an elementary algebra branch, and the correct order of unfolding before
+rewriting; these were repaired without changing its statements.
+
+The formal scope is deliberately narrower than the full paper.
+Theorem~\ref{thm:tail} and Corollary~\ref{cor:carella} use Younis and classical
+smooth-number asymptotics in their mathematical proofs; those external
+analytic theorems are not formalized here. The full-rank case of
+Theorem~\ref{thm:lattice}, including its actual index and Haar measure,
+is now checked in its normalized-probability formulation on the compact
+integral lattice. Identifying this with the restriction of ambient
+local-field Haar measure and the rank-deficient measure-zero case remain
+paper proofs. The ellipse count and asymptotic amplification estimates,
+source-specific Kummer and local-field identifications, general
+independent-action theorem, Matveev's theorem, \eqref{eq:beg}, the
+small-generator approximation inputs, and the endomorphism-algebra
+argument retain their stated paper-proof boundary. In particular, the
+complete effective finiteness theorem is mathematically unconditional
+by the cited published theorems, but it has not been formalized as an
+unconditional Lean theorem. A Lean implication with an explicit
+approximation or height hypothesis is not a Lean proof of that hypothesis.
+The new radical count uses the cited $S$-unit theorem and an analytic
+divisor sum outside Lean. The actual Ism classification, local class field
+theory, Galois cohomology, root-logarithm calculation, and categorical
+representative reconstruction are also paper proofs. The shrinking-line
+rigidity theorem proves their algebraic core without assuming LCFT as an
+axiom. The global cubic construction does not formalize Pasten's theorem,
+number-field orders, Siegel's local approximation, or Nagell--Lutz merely
+by checking their coordinate identities. These distinctions apply equally
+to the new module-hull and fixed-support balance statements.
+Likewise, the free-group word proof does not formalize the
+Jannsen--Wingberg presentation of a local Galois group, and the elementary
+matrix development does not formalize an elliptic Tate representation.
+The integral local logarithm, trace-dual lattices, finite-etale covers,
+the initial-data construction, Linnik's theorem and the analytic
+power-free count retain their mathematical proof boundary. The algebraic
+trace-dual core is checked with the actual library trace and dual
+submodules, without formalizing the local inverse different or the
+Galois witness by that fact alone. Exact finite
+arithmetic is checked against actual library objects, without inserting
+these external theorems as axioms.
+
+The surviving proof target is a uniform estimate for the coupled expression
+\eqref{eq:coupledbound}, or a source-derived theorem strong enough to imply
+it. The IUT route still needs the comparison of the actual output family
+with the region in the global upper estimate, under compatible
+normalizations. The analytic disproof route still
+needs a height-unbounded family satisfying one fixed radical exponent gap;
+the finite-support bound neither constructs nor forbids such a sparse
+family. The specified Pell--Chebyshev residual is now effectively finite;
+the fundamental-unit cases and the absence of a global abc reduction remain
+outside that conclusion. The actual-radical amplifier still requires a
+lower count in the surviving window; the cubic route must control the
+growing omitted endpoint or denominators uniformly. On the local IUT
+route, explicit full-Galois arrows and exact pre-ideal hulls have now
+been obtained. The remaining task is to identify the complete global
+admissible family, its weights and markings, and the Ind3 and
+cross-Frobenius comparison for the same measured set. Constructing
+initial data or eliminating Ind2 from a fixed $B$-module hull does not
+supply that comparison. No unconditional closed term
+of type \texttt{ABCConjecture}, or of its negation, is produced by this work.
+
+\begin{thebibliography}{99}
+\raggedright
+\raggedbottom
+
+\bibitem{AV}
+S.~Akhtari and J.~D.~Vaaler, A bound for the exterior product of $S$-units,
+\emph{Algebra Number Theory} \textbf{18} (2024), no.~9, 1589--1617.
+\href{https://arxiv.org/abs/2009.10857v2}{arXiv:2009.10857v2}.
+
+\bibitem{BEG}
+A.~B\'erczes, J.-H.~Evertse and K.~Gy\H{o}ry,
+Effective results for hyper- and superelliptic equations over number fields,
+\emph{Publ. Math. Debrecen} \textbf{82} (2013), 727--756.
+\href{https://doi.org/10.5486/PMD.2013.5748}{doi:10.5486/PMD.2013.5748}.
+
+\bibitem{BBLT}
+C.~Bernert, T.~Browning, J.~D.~Lichtman and J.~Ter\"av\"ainen,
+Bounds on the exceptional set in the $abc$ conjecture,
+\href{https://arxiv.org/abs/2410.12234v2}{arXiv:2410.12234v2}.
+
+\bibitem{Bernert}
+C.~Bernert, The exceptional set in the $abc$ conjecture,
+\href{https://arxiv.org/abs/2506.13364v1}{arXiv:2506.13364v1}, 2025.
+
+\bibitem{BW}
+M.~A.~Bennett and G.~Walsh, The Diophantine equation $b^2X^4-dY^2=1$,
+\emph{Proc. Amer. Math. Soc.} \textbf{127} (1999), 3481--3491.
+\href{https://doi.org/10.1090/S0002-9939-99-05041-8}{doi:10.1090/S0002-9939-99-05041-8}.
+
+\bibitem{Carella}
+N.~A.~Carella, Note on the Exceptional Set in the ABC Conjecture,
+\href{https://arxiv.org/abs/2608.16764v2}{arXiv:2608.16764v2},
+revised August 24, 2026.
+
+\bibitem{HT}
+A.~Hildebrand and G.~Tenenbaum, Integers without large prime factors,
+\emph{J. Th\'eor. Nombres Bordeaux} \textbf{5} (1993), 411--484.
+\href{https://doi.org/10.5802/jtnb.101}{doi:10.5802/jtnb.101}.
+
+\bibitem{HKPW}
+N.~Hirata-Kohno, M.~Kawashima, A.~Po\"els and Y.~Washio,
+$S$-unit equation in two variables and Pad\'e approximations,
+\emph{Int. J. Number Theory} \textbf{19} (2023), no.~10, 2427--2442.
+\href{https://doi.org/10.1142/S1793042123501191}{doi:10.1142/S1793042123501191}.
+Theorem numbering follows
+\href{https://arxiv.org/abs/2211.14399v1}{arXiv:2211.14399v1}.
+
+\bibitem{Hoshi}
+Y.~Hoshi, Introduction to Mono-anabelian Geometry,
+\emph{Publications math\'ematiques de Besan\c con} (2021).
+\href{https://doi.org/10.5802/pmb.42}{doi:10.5802/pmb.42}.
+
+\bibitem{Jain}
+S.~Jain, Existence of Smooth Numbers in Short Intervals,
+\emph{Q. J. Math.} \textbf{77} (2026), no.~2, 397--422.
+\href{https://doi.org/10.1093/qmath/haag010}{doi:10.1093/qmath/haag010}.
+
+\bibitem{JoshiIIhalf}
+K.~Joshi, Construction of Arithmetic Teichm\"uller Spaces II$\frac12$:
+Deformations of Number Fields,
+\href{https://arxiv.org/abs/2305.10398v12}{arXiv:2305.10398v12}, 2025.
+
+\bibitem{JoshiIII}
+K.~Joshi, Construction of Arithmetic Teichm\"uller Spaces III:
+A Rosetta Stone and a proof of Mochizuki's Corollary 3.12,
+\href{https://arxiv.org/abs/2401.13508v4}{arXiv:2401.13508v4}, 2025.
+
+\bibitem{JoshiIV}
+K.~Joshi, Construction of Arithmetic Teichm\"uller Spaces IV:
+Proof of the abc-conjecture,
+\href{https://arxiv.org/abs/2403.10430v2}{arXiv:2403.10430v2}, 2025.
+
+\bibitem{JoshiResponse}
+K.~Joshi, Comments on the LANA Project Report of Kato et al.,
+July 30, 2026, six pages.
+\href{https://sites.arizona.edu/kirti-joshi/files/2026/07/Comments-on-the-LANA-Project-Report-of-Kato-et-al.pdf}{Author's original PDF}.
+
+\bibitem{LANA}
+F.~Kato et al., LANA report, revision 1.0.1,
+\href{https://github.com/katobungen/LANA_report_202607/tree/293bdd89463473ae13d40834d70fb4b7ba81da1f}{pinned source revision}, July 20, 2026.
+See also the \href{https://zen.ac.jp/news/zmcpostevent0717e}{ZEN University
+interim report of July 17, 2026}.
+
+\bibitem{IUT3}
+S.~Mochizuki, Inter-universal Teichm\"uller Theory III:
+Canonical Splittings of the Log-Theta-Lattice,
+\emph{Publ. Res. Inst. Math. Sci.} \textbf{57} (2021), 403--626.
+\href{https://doi.org/10.4171/PRIMS/57-1-3}{doi:10.4171/PRIMS/57-1-3}.
+
+\bibitem{IUT1}
+S.~Mochizuki, Inter-universal Teichm\"uller Theory I:
+Construction of Hodge Theaters,
+\href{https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20I.pdf}{author version}, May 2020.
+Page references use this archived version.
+
+\bibitem{IUT2}
+S.~Mochizuki, Inter-universal Teichm\"uller Theory II:
+Hodge--Arakelov-theoretic Evaluation,
+\href{https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20II.pdf}{author version}, December 2020.
+Page references use this archived version.
+
+\bibitem{IUT4}
+S.~Mochizuki, Inter-universal Teichm\"uller Theory IV:
+Log-volume Computations and Set-theoretic Foundations,
+\emph{Publ. Res. Inst. Math. Sci.} \textbf{57} (2021), 627--723.
+\href{https://doi.org/10.4171/PRIMS/57-1-4}{doi:10.4171/PRIMS/57-1-4}.
+Local page references use the archived April 2020
+\href{https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20IV.pdf}{author version}.
+
+\bibitem{Matveev}
+E.~M.~Matveev, An explicit lower bound for a homogeneous rational linear
+form in the logarithms of algebraic numbers. II,
+\emph{Izv. Math.} \textbf{64} (2000), no.~6, 1217--1269.
+\href{https://doi.org/10.1070/IM2000v064n06ABEH000314}{doi:10.1070/IM2000v064n06ABEH000314}.
+
+\bibitem{MilneCFT}
+J.~S.~Milne, \emph{Class Field Theory}, version 4.03, August 6, 2020.
+\href{https://www.jmilne.org/math/CourseNotes/CFT.pdf}{Author's course notes}.
+
+\bibitem{MochLocal}
+S.~Mochizuki, A Version of the Grothendieck Conjecture for $p$-adic
+Local Fields, \emph{Int. J. Math.} \textbf{8} (1997), 499--506.
+\href{https://www.kurims.kyoto-u.ac.jp/~motizuki/A%20Version%20of%20the%20Grothendieck%20Conjecture%20for%20p-adic%20Local%20Fields.pdf}{Author's original PDF}.
+
+\bibitem{PastenNew}
+H.~Pasten, Power-saving bounds for Thue--Mahler and Mordell equations,
+\href{https://arxiv.org/abs/2608.23559v1}{arXiv:2608.23559v1}, August 24, 2026.
+
+\bibitem{PastenSmall}
+H.~Pasten, Szpiro's conjecture when the denominator of the $j$-invariant
+is small, \emph{Cubo} \textbf{28} (2026), no.~2, 383--389.
+\href{https://doi.org/10.56754/0719-0646.2802.383}{doi:10.56754/0719-0646.2802.383}.
+
+\bibitem{Silverman}
+J.~H.~Silverman, \emph{The Arithmetic of Elliptic Curves},
+2nd ed., Graduate Texts in Mathematics 106, Springer, 2009.
+
+\bibitem{Sutherland}
+A.~V.~Sutherland, \emph{18.782 Introduction to Arithmetic Geometry},
+Lecture 24, MIT, 2013, Theorem~24.21.
+\href{https://math.mit.edu/classes/18.782/2013fa/LectureNotes24.pdf}{Original lecture notes}.
+
+\bibitem{Younis}
+K.~Younis, Asymptotics for smooth numbers in short intervals,
+\href{https://arxiv.org/abs/2409.05761v1}{arXiv:2409.05761v1}, 2024.
+
+\bibitem{JannsenWingberg}
+U.~Jannsen and K.~Wingberg, Die Struktur der absoluten Galoisgruppe
+$p$-adischer Zahlk\"orper,
+\emph{Invent. Math.} \textbf{70} (1982), 71--98.
+\href{https://epub.uni-regensburg.de/26689/1/jannsen17.pdf}{Author archive}.
+
+\bibitem{HoshiNishio}
+Y.~Hoshi and Y.~Nishio, On the outer automorphism groups of the absolute
+Galois groups of mixed-characteristic local fields,
+revised author manuscript, June 2022.
+\href{https://www.kurims.kyoto-u.ac.jp/~yuichiro/rims1931revised.pdf}{Author manuscript}.
+
+\bibitem{KondoGalois}
+K.~Kondo, Anabelian aspects of the outer automorphism groups of the
+absolute Galois groups of mixed-characteristic local fields,
+version 2, December 12, 2025.
+\href{https://arxiv.org/abs/2512.09231v2}{arXiv:2512.09231v2}.
+
+\bibitem{KedlayaTate}
+K.~S.~Kedlaya, Introduction: the Tate curve,
+MIT 18.727 course notes, Fall 2004.
+\href{https://kskedlaya.org/18.727/tate-curve.pdf}{Author notes}.
+
+\bibitem{MochCanLift}
+S.~Mochizuki, The absolute anabelian geometry of canonical curves,
+\emph{Doc. Math.}, Extra Volume (2003), 609--640.
+\href{https://www.kurims.kyoto-u.ac.jp/~motizuki/Canonical\%20Liftings.pdf}{Author version}.
+
+\bibitem{MochEtaleTheta}
+S.~Mochizuki, The \'etale theta function and its Frobenioid-theoretic
+manifestations,
+\emph{Publ. Res. Inst. Math. Sci.} \textbf{45} (2009), 227--349.
+\href{https://www.kurims.kyoto-u.ac.jp/~motizuki/The\%20Etale\%20Theta\%20Function\%20and\%20its\%20Frobenioid-theoretic\%20Manifestations.pdf}{Author version}.
+
+\bibitem{TakeuchiFuchsian}
+K.~Takeuchi, Arithmetic Fuchsian groups with signature $(1;e)$,
+\emph{J. Math. Soc. Japan} \textbf{35} (1983), no.~3, 381--407.
+\href{https://www.jstage.jst.go.jp/article/jmath1948/35/3/35_3_381/_pdf/-char/en}{Journal article}.
+
+\bibitem{SijslingCanonical}
+J.~Sijsling, Canonical models of arithmetic $(1;\infty)$-curves,
+author manuscript, version 2, July 6, 2017;
+published in \emph{Contemp. Math.} \textbf{722} (2019).
+\href{https://arxiv.org/abs/1707.01158v2}{arXiv:1707.01158v2}.
+
+\bibitem{XylourisLinnik2009}
+T.~Xylouris, On Linnik's constant,
+author manuscript, version 1, June 15, 2009, Theorem~1.1.
+\href{https://arxiv.org/abs/0906.2749v1}{arXiv:0906.2749v1}.
+
+\bibitem{MochGeneralPosition}
+S.~Mochizuki, Arithmetic elliptic curves in general position,
+\emph{Math. J. Okayama Univ.} \textbf{52} (2010), 1--28;
+author version, February 2009.
+\href{https://www.kurims.kyoto-u.ac.jp/~motizuki/Arithmetic\%20Elliptic\%20Curves\%20in\%20General\%20Position.pdf}{Author version}.
+
+\end{thebibliography}
+\end{document}

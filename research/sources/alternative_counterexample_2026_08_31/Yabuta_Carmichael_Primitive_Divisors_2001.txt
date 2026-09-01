@@ -1,0 +1,224 @@
+A SIMPLE PROOF OF CARMICHAELfS THEOREM 
+ON PRIMITIVE DIVISORS 
+Minora Yabuta 
+46-35 Senriokanaka Suita-sl, Osaka 565-0812, Japan 
+(Submitted September 1999-Final Revision March 2000) 
+1. INTRODUCTION 
+For arbitrary positive integer «, numbers of the form Dn = {an-pn)l{a-fJ) 
+are called the 
+Lucas numbers, where a and fi are distinct roots of the polynomial f(z) = z2 -Lz + M, and L 
+and Mare integers that are nonzero. The Lucas sequence (D): Dh D2, D3,... is called real when 
+a and ft are real. Throughout this paper, we assume that L and M are coprime. Each Dn is an 
+integer. A prime p is called a primitive divisor of Dn ifp divides Dn but does not divide Dm for 
+0<m<n. 
+Carmichael [2] calls it a characteristic factor and Ward [9] an intrinsic divisor. As 
+Durst [4] observed, in the study of primitive divisors, it suffices to take L>0. 
+Therefore, we 
+assume L > 0 in this paper. 
+In 1913, Carmichael [2] established the following. 
+Theorem 1 (Carmichael): If a and /} are real and n & 1,2,6, then Dn contains at least one primi-
+tive divisor except when « = 12, L = \ M = -l, 
+In 1974, Schinzel [6] proved that if the roots off are complex and their quotient is not a root 
+of unity and if n is sufficiently large then the w* term in the associated Lucas sequence has a 
+primitive divisor. In 1976, Stewart [7] proved that if n - 5 or n > 6 there are only finitely many 
+Lucas sequences that do not have a primitive divisor, and they may be determined. In 1995, 
+Voutier [8] determined all the exceptional Lucas sequences with n at most 30. Finally, Bilu, 
+Hanrot, and Voutier [1] have recently shown that there are no other exceptional sequences that 
+do not have a primitive divisor for the w* term with n larger than 30. 
+The aim of this paper is to give an elementary and simple proof of Theorem 1. To prove that 
+Theorem 1 is true for all real Lucas sequences, it is sufficient to discuss the two special sequences, 
+namely, the Fibonacci sequence and the so-called Fermat sequence. 
+2* A SUFFICIENT CONDITION THAT Dn HAS A PRIMITIVE DIVISOR 
+Let n > 1 be an integer. Following Ward [9], we call the numbers 
+\<>r<>n 
+(r,n)=l 
+the cyclotomic numbers associated with the Lucas sequence, where a, fi are the roots of the 
+polynomial f(z) = z2-Lz + M and the product is extended over all positive integers less than n 
+and prime to n. Each Qn is an integer, and Dn = Hd\n Qm where the product is extended over all 
+divisors d of n. Hence, p is a primitive divisor of Dn if and only lip is a primitive divisor of Qn. 
+Lemma 1 below was shown by several authors (Carmichael, Durst, Ward, and others). 
+2001] 
+439 
+
+A SIMPLE PROOF OF CARMICHAEL'S THEOREM ON PRIMITIVE DIVISORS 
+Lemma 1: Let/? be prime and let k be the least positive value of the index i such that/? divides 
+Dr If n ^ 1,2,6 and if/? divides Qn and some Qm with 0<m<n, then /?2 does not divide gw and 
+n~prk 
+with r >1. 
+Now suppose that n has a prime-power factorization n = p*lp2
+2..*Pil, where Pi,p2,---,Pi 
+a r e 
+distinct primes and £1? e2,...,el are positive integers. Lemma 1 leads us to the following lemma 
+(cf. Halton [5], Ward [9]). 
+Lemma 2: Let n & 1,2,6. A sufficient condition that Dn contains at least one primitive divisor is 
+that \Qn\>plp2--Pi-
+Proof: We prove the contraposition. Suppose that Dn has no primitive divisors. lip is an 
+arbitrary prime factor of Qn, thenp divides some Qm with 0<m<n. 
+Therefore, p divides n and 
+p2 does not divide Q,. Hence, Qn divides PiP2...ph so \Qn\ < p\P2—Pi- • 
+Our proof of CarmichaePs theorem is based on the following. 
+Theorem 2: If n * 1,2,6 and if both the rfi1 cyclotornic number associated with z2 - z -1 and that 
+associated with z2-3z + 2 are greater than the product of all prime factors of n, then, for every 
+real Lucas sequence, Dn contains at least one primitive divisor. 
+Now assume that n is an integer greater than 2 and that a and fi are real, that is, I? - AM is 
+positive. As Ward observed, 
+Q,(a,fi) =X\(a-?P){a-CrP) 
+(1) 
+= U((cc+fi)2-am 
++ Cr + C% 
+(2) 
+where C,-e2mln and the products are extended over all posjtive integers less than nil and prime 
+ton. Since a -\-p~L and aj3 = M, by putting 0r = 2 + gr + £~r, we have 
+Qn = Qn(a^) = Il(L2-M0ry 
+(3) 
+Fix an arbitrary n > 2. Then Qn can be considered as the function of variables L and M. We shall 
+discuss for what values ofZ and M the 71th cyclotornic number Qn has its least value. 
+Lemma 3: Let /1 > 2 be an arbitrary fixed integer. If a and J3 are real, then gw has its least value 
+either when L = 1 and M = -1 or when Z = 3 and M = 2. 
+Proof: Take an arbitrary #r and fix it. Since n > 2, we have 0 < 0r < 4. Thus, if M < 0, we 
+have L2 - M0r >l + 0r, with equality holding only in the case L = 1, M = - 1 . When M > 0, con-
+sider the cases M = 1, M > 1. In the first case we have L > 3, so that 
+Z 2-M0 r>9-0 r>9-2l9 r. 
+Now assume M > 1. Then, since L2 > 4M+1, we have 
+Z 2-M^ r>4M+l-Mi9 r = 9-2^ r + ( M - 2 ) ( 4 - ^ r ) > 9 - 2 ^ r 
+with equality holding only in the case M = 2, L.= 3. Hence, by formula (3), we have completed 
+the proof. D 
+Combining Lemma 2 with Lemma 3, we complete the proof of Theorem 2. 
+440 
+[NOV. 
+
+A SIMPLE PROOF OF CARMICHAEL'S THEOREM ON PRIMITIVE DIVISORS 
+3, CAMMICHAELfS THEOREM 
+We call the Lucas sequence generated by z2~z-l 
+the Fibonacci sequence and that gener-
+ated by z 2-3z + 2 the Fermat sequence.- Theorem 2 implies that to prove Carmichael's theorem 
+it is sufficient to discuss the Fibonacci sequence and the Fermat sequence. 
+Now we suppose that n has a prime-power factorization n = p*lp*2 ...p?, and let <b„(x) 
+denote the /2th cyclotomic polynomial 
+Lemma 4: Ifn>2 and if a is real with \a\ < 1/2, then ®„(a) > 1 - \a\ - \a\2. 
+Proof: We have 
+d\n 
+where ju denotes the Mobius function and the product is extended over all divisors d ofn. Since 
+\a\ < 1/2 and Q.-aM)*d> > 1- \a\"/d, 
+0„(a)>n(l-|a|')>(l-|a|)(l-|a| 2-|a| 3-|a| 4—•) 
+1=1 
+UI2 
+\ 
+= (l-|a|) 1 l - | a | = l - | a | - | a |2 
+Here we have used the fact that if 0< x< 1 and 0<y < 1 then (1 -x)(l-y) > 1 - x - y . We have 
+thus proved the lemma. D 
+Theorem 3: If n & 1,2,6,12, then the /1
+th term of the Fibonacci sequence contains at least one 
+primitive divisor. 
+Proof: Assume n>2. We shall determine for what n the inequality \Qn\>P\P2.../*/ is satis-
+fied, where Qn is the n^ cyclotomic number associated with the Fibonacci sequence. The roots of 
+the polynomial z2-z-l 
+are a = (1 +V5)/2 and fl = (1-S)I2. Since \fi/a\ = ( 3 - S ) I 2 < 1/2, 
+Lemma 4 gives 
+®n{f}la)>l-\pia\-\pia\2^2S-4>2l5. 
+In addition, since a > 3 /2, we have 
+Qn(a, ft) = a^®n(J$la) 
+> (2 /5)(3 /2)*">, 
+where ^(/i) denotes the Euler function: ^(fi) = ri-=i P?~l{Pi ~ 1). Thus, |g„ | > /y?2.../?/ is true for 
+n satisfying 
+(2/5)(3/2)^>Plp2...Pl. 
+(4) 
+We first suppose px > 7 without loss of generality. Then (2/5)(3/2)^(/?l) > 2px is true, and conse-
+quently (2 /5)(312)^n) > PiP2-Pi' Here we have used the fact that if x, y are real with x > y > 3 
+and if m is integral with m> 2 then x^"1 > my. We next suppose p*1 = 24
+? 33
+? 52, or 72 without 
+loss of generality. Therefore, (2/5)(3/2)*rf> >2px is true, and consequently (2/5)(3/2)^(w) > 
+PiPi-' Pi - Hence, inequality (4) is true unless n is of the form 
+n = 2a3b5c7d, 
+(5) 
+2001] 
+441 
+
+A SIMPLE PROOF OF CARMICHAEL'S THEOREM ON PRIMITIVE DIVISORS 
+where 0 < a < 3, 0<b<2, 0 < c < 1, and 0 < <i < 1. By substituting (5) into (4), we verify that 
+inequality (4) is true for w * 1,2,3,4,5,6,7,8,9,10,12,14,15,18,30. However, by direct compu-
+tation, we have 
+a=i, 
+a=2, 
+a=3, 
+a=* 
+&=<*, 
+a=13, a=7, 
+a=17, a0=n, a2=6, 
+fi4 = 29, a3 = 61, ft8 = 19, fto = 31. 
+Hence, \Qn\> P\P2 -Pi holds for n * 1,2,3,5,6,12. It follows from Lemma 2 that if n ^ 1,2,3,5, 
+6,12 then the /1
+th Fibonacci number i^ contains at least one primitive divisor. In addition, since 
+Fx-\9 F2 = l, F3 = 2, F4 = 3, F5 = 5, F6 = 23, Fl2 = 24-32, the numbers F3 and F5 have a primi-
+tive divisor, and Ft,F2,F6, and Fl2 do not. D 
+Theorem 4: If/i * 1,2,6, then the «* term of the Fermat sequence contains at least one primitive 
+divisor. 
+Proof: The roots of the polynomial z2-3z + 2 are a = 2 and /? = 1. By Lemma 4, 
+Qn(fi/a) > 1- |£/a| - \ft/a\2= 1/4. 
+Therefore, 
+a(a,)8) = a«»Qn(fi/a) 
+> (1/4) -2*">. 
+Now the inequality (l/4)-2<*(w) >(2/5)(3/2)^} is true for all n>2. As shown in the proof of 
+Theorem3, the inequality (2/S)(3/2)^n) >plp2...pi 
+is true for n* 1,2,3,4,5,6,7,8,9,10,12,14, 
+15,18,30. Moreover, by direct computation, we observe that (l/4)-2^n) > PiP2-Pi is true for 
+n - 7? 8,9,14,15,18,30, and furthermore, we have 
+•a=7, a=s, a=3i, a=3, ao=n,a2=i3.. 
+Hence, \Qn\> P\P2-Pi holds for n ^ 1,2,6. It follows from Lemma 2 that if n * 1,2,6 then the 
+72th term of the Fermat sequence contains at least one primitive divisor. • 
+Now we are ready to prove Carmichael's theorem. 
+Proof of CarmichaeVs Theorem: As observed previously, for n ^ 1,2,3,5,6,12, both the 
+72th cyclotomic number associated with the Fibonacci sequence and that associated with the 
+Fermat sequence are greater than pj)2 ...pt. It follows from Theorem 2 that if n ^ 1,2, 3,5,6,12 
+then Dn contains at least one primitive divisor. In addition, Q3 = L-M> 
+3 except when 
+L-1, 
+M = - 1 . Moreover, since Q5 = 5 and Ql2 = 6 when L = 1, M = - 1 , and Q5 = 31 and (212 - 13 
+when Z = 3, M = 2, Lemma 3 gives Q5 > 5 and g12 > 6 except for the Fibonacci sequence. 
+Therefore, by Lemma 2, if n * 1,2,6 then DM contains at least one primitive divisor except 
+when L = 1, M - - 1 . Combining with Theorem 3, we complete the proof D 
+4. APPENDIX 
+In 1955, Ward [9] proved the theorem below for the Lehmer numbers defined by 
+pUan-ni(a-P\ 
+n odd, 
+" \{an-pn)l{a2-l32\ 
+weven, 
+442 
+[NOV. 
+
+A SIMPLE PROOF OF CARMICHAEL'S THEOREM ON PRIMITIVE DIVISORS 
+where a and 0 are distinct roots of the polynomial z2 - 4hz + M, and L and M are coprime inte-
+gers with L positive and M nonzero. Here a sufficient condition n * 6 was pointed out by Durst 
+[3]. 
+Theorem 5 (Ward): If a and fi are real and n * 1,2,6, then Pn contains at least one primitive 
+divisor except when n = 12, L = 1, M = -1 and when n = 12, L = 5, M = 1. 
+We can also give an elementary proof of this theorem. It parallels the proof of Carmichaefs 
+theorem. The essential observation is that if n * 1,2,6 and if both the /1
+th cyclotomic number 
+associated with z2 - z -1 and that associated with z2 - 4Sz +1 are greater than the product of all 
+prime factors of n then, for all real Lehmer sequences, Pn contains at least one primitive divisor. 
+ACKNOWLEDGMENTS 
+I am grateful to Mr. Hajime Kajioka for his valuable advice regarding the proof of Lemma 4. 
+In addition, I thank the anonymous referees for their useful suggestions. 
+REFERENCES 
+1. Yu Bilu, G. Hanrot, & P. M. Voutier. "Existence of Primitive divisors of Lucas and Lehmer 
+Numbers." J. Reine Angew. Math (to appear). 
+2. R. D. Carmichael. "On the Numerical Factors of the Arithmetic Forms an±pnn 
+Ann. of 
+Math 15 (1913):30-70. 
+3. L. K. Durst. "Exceptional Real Lehmer Sequences." Pacific J. Math 9 (1959):437-41. 
+4. L. K. Durst. "Exceptional Real Lucas Sequences." Pacific J. Math 11 (1961):489-94. 
+5. J. H. Halton. "On the Divisibility Properties of Fibonacci Numbers." The Fibonacci Quar-
+terly 4.3 (1966):217'-40. 
+6. A. Schinzel. "Primitive Divisors of the Expression An - Bn in Algebraic Number Fields." J. 
+Reine Angew. Math 268/269 (1974):27-33. 
+7. C. L. Stewart. "Primitive Divisors of Lucas and Lehmer Sequences." In Transcendence 
+Theory: Advances and Applications, pp. 79-92. Ed. A. Baker & W. Masser. New York: 
+Academic Press, 1977. 
+8. P. M. Voutier. "Primitive Divisors of Lucas and Lehmer Sequences." Math. Comp. 64 
+(1995):869-88. 
+9. M. Ward. "The Intrinsic Divisors of Lehmer Numbers." Ann. of Math 62 (1955):230-36. 
+AMS Classification Numbers: 11A41, 11B39 
+2001] 
+443 

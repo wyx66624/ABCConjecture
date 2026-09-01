@@ -1,0 +1,512 @@
+\section{Arithmetic bundles for the specified native hulls}
+\label{sec:uniform-arithmetic-bundles}
+
+The local equalities already proved in
+Section~\ref{sec:general-tame-square-labels} admit an explicit realization
+by arithmetic vector bundles on the actual level field. We construct
+these bundles, compute their normalized degrees, and descend a
+sufficiently powered weighted determinant to the field of moduli
+$\Q$. This realizes ordinary arithmetic objects with the required
+numerical normalization. It does not establish their membership in
+the full possible-output family of IUT III, Corollary~3.12.
+
+The relevant source conventions are the relative weighted determinant
+and sufficiently divisible positive tensor powers in
+\cite[Remark~3.9.5(vii)(Ob3)]{IUT3}, the label average in
+\cite[Proposition~3.9(i)--(iii)]{IUT3}, and the normalized local
+weights in \cite[Proposition~1.4(i), Remark~1.7.1]{IUT4}.
+The additional Ind3 comparisons and the particular global
+prime-strip identification in
+\cite[Theorem~3.11(ii), Corollary~3.12]{IUT3} are separate requirements;
+none is assumed in the arithmetic arguments below.
+
+\subsection{The fixed native input and its reference}
+
+Fix a member of the family in
+Theorem~\ref{thm:powerfree-global-family}, with primes
+$\ell\equiv43\pmod{60}$ and $p\equiv-1\pmod{30\ell}$, and write
+\[
+ D_A:\ y^2=x(x-A^2)(x+A^2+1),\qquad
+ K=\Q(i,D_A[30\ell]).
+\]
+The field $K$ is Galois over $\Q$. At the specified place over $p$,
+its completion is the field of \eqref{eq:gs-field-data}:
+\[
+ E=\Q_p(\mu_{30\ell},\varpi),\qquad
+ \varpi^{15\ell}=b_0,\qquad
+ b_0\in\Q_p,\qquad v_p(b_0)=2.
+\]
+Put
+\begin{equation}\label{eq:ub-parameters}
+ \begin{gathered}
+ e=15\ell,\quad f=2,\quad d=ef,\quad
+ h=(\ell-1)/2,\quad \kappa=(e-1)/e,\\
+ \beta=\varpi^{(e+1)/2}/p,\qquad r_0=\varpi^{15},\\
+ m_j=j+1,\quad N_j=d^{m_j-1},\quad D_j=d^{m_j},\\
+ a_j=r_0^{j^2},\qquad
+ k_j=\left\lfloor\frac{2j^2}{\ell}\right\rfloor+1,\\
+ \eta_j=e k_j-(e-1)m_j\quad(1\le j\le h).
+ \end{gathered}
+\end{equation}
+The element $\beta$ is a uniformizer by Lemma~\ref{lem:gs-field};
+$\varpi$ has valuation $2/e$ and is not one. All roots are fixed
+before the permitted arrows are chosen.
+
+For each label define
+\[
+ \begin{gathered}
+ T_j=E^{\otimes_{\Q_p}m_j},\qquad
+ A_j=\OO_E^{\otimes_{\Z_p}m_j},\\
+ B_j=\prod_{\operatorname{Gal}(E/\Q_p)^{m_j-1}}\OO_E
+       \subset T_j.
+ \end{gathered}
+\]
+The product decomposition uses the first factor as coefficient
+field and has $N_j$ copies of $E$. In general $A_j\ne B_j$.
+The native lattice is
+$I=p^{-1}\log\OO_E^\times=\beta^{1-e}\OO_E$.
+Let $\Gamma_E$ be the already constructed family of actual native
+integral Kummer arrows on $I$, using the same arrow in repeated slots.
+We retain precisely the marked point inputs
+\begin{equation}\label{eq:ub-native-points}
+ \begin{gathered}
+ \rho=p^{-1}\log_{\rm BK}^{\rm std},\\
+ u=\rho({\rm Kum}(1+p))=p^{-1}\log(1+p),\\
+ \tau_j=\rho({\rm Kum}(1+pa_j))=p^{-1}\log(1+pa_j).
+ \end{gathered}
+\end{equation}
+Their closed $B_j$-span after the permitted arrows is
+\[
+ P_j^\rho=
+ \overline{\Span_{B_j}
+   \{F(\tau_j)\otimes(Fu)^{\otimes j}:F\in\Gamma_E\}}.
+\]
+Corollaries~\ref{cor:gs-hulls} and~\ref{cor:gs-pilot-scale}, with the
+per-arrow bridge of Proposition~\ref{prop:np-point-bridge}, give
+\begin{equation}\label{eq:ub-local-hull}
+ M_j^\rho:=\mathcal M_{\Gamma_E}(a_j)
+       =P_j^\rho=\beta^{\eta_j}B_j.
+\end{equation}
+The first term is the pre-transport principal-ideal hull already
+defined in \eqref{eq:np-preideal}. Equality here identifies these
+specified native hulls, not their input points or the full published
+theta-pilot family. No additional choice of a torsion representative,
+vertical level, or Ind3 enlargement is included in
+\eqref{eq:ub-native-points}--\eqref{eq:ub-local-hull}.
+
+Let $\mu_{B_j}$ be ordinary additive Haar measure on $T_j$ with
+$\mu_{B_j}(B_j)=1$, and write
+\begin{equation}\label{eq:ub-local-volume}
+ V_j^B(H)=D_j^{-1}\log\mu_{B_j}(H).
+\end{equation}
+The positive root $\mu_{B_j}^{1/D_j}$ is not another additive Haar
+measure. For a general field of moduli $F_0$, the normalized weight
+of an ordered word $(v_0,\ldots,v_j)$ over a rational prime is
+\[
+ \frac{\prod_{i=0}^j[(F_0)_{v_i}:\Q_p]}
+      {[F_0:\Q]^{m_j}}.
+\]
+Indeed the sum of the numerator over all words is the $m_j$-th power
+of $\sum_{v\mid p}[(F_0)_v:\Q_p]=[F_0:\Q]$. In the rational branch
+there is one selected-place word and this weight is 1. The remaining
+procession normalization is $h^{-1}\sum_{j=1}^h$, with no further
+division by $m_j$.
+
+\subsection{Actual fractional ideals and normalized degree}
+
+At a finite place $w$ of $K$, put $q_w=\#k(w)$ and
+$|x|_w=q_w^{-\operatorname{ord}_w(x)}$. This is the local norm
+absolute value. At an infinite place $\sigma$, use ordinary real
+or complex modulus and multiplicity $n_\sigma=1$ or $2$,
+respectively. For a metrized line $\overline L$, declare its finite
+local lattices to be the unit balls. For a nonzero rational section
+$s\in L\otimes_{\OO_K}K$, define
+\begin{equation}\label{eq:ub-degree}
+ \widehat{\deg}_K(\overline L)
+ =-\frac1{[K:\Q]}
+   \left(\sum_{w\ {\rm finite}}\log\|s\|_w+
+         \sum_{\sigma\mid\infty}n_\sigma\log\|s\|_\sigma\right).
+\end{equation}
+For a fractional ideal with the metrics below, the finite sum is
+finite. Replacing $s$ by $xs$ adds zero: the finite norm sum for
+$x\in K^\times$ is $-\log|N_{K/\Q}(x)|$, whereas the infinite
+sum is $\log|N_{K/\Q}(x)|$. This proves independence of the rational
+section with the indicated multiplicities.
+
+For a fractional ideal $\mathfrak a\subset K$ with standard ambient
+infinite metric $\|x\|_\sigma=|\sigma(x)|$, the section 1 gives
+\begin{equation}\label{eq:ub-ideal-degree}
+ \widehat{\deg}_K(\overline{\mathfrak a})
+          =-[K:\Q]^{-1}\log N(\mathfrak a).
+\end{equation}
+In fact if $\mathfrak a_w=\pi_w^b\OO_{K_w}$, then
+$\|1\|_w=q_w^b$. Thus a positive finite ideal exponent has negative
+degree in this lattice convention. Degree of a vector bundle means
+degree of its determinant, with the induced determinant metric.
+
+\begin{theorem}[Arithmetic realization of the native hulls]
+\label{thm:ub-realization}
+Set
+\begin{equation}\label{eq:ub-bundles}
+ \mathfrak a_j=\prod_{w\mid p}\mathfrak p_w^{\eta_j},\qquad
+ \mathcal E_j=\mathfrak a_j^{\oplus N_j}\subset K^{N_j},
+\end{equation}
+and give $\mathcal E_j$ the standard ambient Hermitian metric at
+every infinite place. These are projective $\OO_K$-modules of rank
+$N_j$. At each $w\mid p$ their local lattices identify with the
+conjugate of $M_j^\rho$ over its first coefficient field. At all
+other finite places they are the standard lattices. Moreover
+\begin{equation}\label{eq:ub-degree-volume}
+ \frac{\widehat{\deg}_K(\overline{\mathcal E_j})}{N_j}
+       =-\frac{\eta_j}{e}\log p
+       =V_j^B(M_j^\rho).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+A fractional ideal of the Dedekind domain $\OO_K$ is invertible,
+hence projective of rank one. This applies also to negative $\eta_j$.
+Since $K/\Q$ is Galois, all completions above $p$ have the same
+ramification index $e$, residue degree $f$, and local degree $d$.
+The product coordinates of $T_j$ identify its first-factor lattice
+with $N_j$ copies of $\OO_{K_w}$. The depth $\eta_j$ of
+\eqref{eq:ub-local-hull} in every component is precisely the depth
+specified by \eqref{eq:ub-bundles}. Uniformizer units do not change
+the lattice. Assigning the same exponent to every place over $p$
+also makes $\mathfrak a_j$ Galois-stable.
+
+If $g$ places lie above $p$, then $[K:\Q]=gef$ and
+$N(\mathfrak p_w)=p^f$. Since
+$\det\mathcal E_j=\mathfrak a_j^{N_j}$,
+\eqref{eq:ub-ideal-degree} gives
+\[
+ \widehat{\deg}_K(\overline{\mathcal E_j})
+ =-\frac{gfN_j\eta_j}{gef}\log p
+ =-\frac{N_j\eta_j}{e}\log p.
+\]
+The rational section used here is the standard coordinate wedge,
+of norm 1 at each infinite place. Thus the infinite terms are
+exactly zero for the stated metrics, not omitted terms.
+
+The local index calculation, valid for either sign of $\eta_j$,
+gives $\mu_{B_j}(M_j^\rho)=p^{-fN_j\eta_j}$. Dividing its logarithm
+by $D_j=efN_j$ proves \eqref{eq:ub-degree-volume}.
+\end{proof}
+
+Equivalently the contribution per rank is
+\[
+ \sum_{w\mid p}\frac{[K_w:\Q_p]}{[K:\Q]}
+       \left(-\frac{\eta_j}{e}\log p\right)
+       =-\frac{\eta_j}{e}\log p.
+\]
+Thus passing from one selected completion to all conjugate places
+introduces no further degree or tensor-length factor.
+
+\subsection{Weighted determinants, common twists, and descent}
+
+\begin{proposition}\label{prop:ub-weighted-determinant}
+Let $C$ be any positive integer divisible by every $hN_j$. The
+metrized line
+\begin{equation}\label{eq:ub-weighted-line}
+ \overline{\mathcal L}
+ =\bigotimes_{j=1}^h
+       (\det\overline{\mathcal E_j})^{\otimes C/(hN_j)}
+\end{equation}
+is defined using positive integral tensor powers and satisfies
+\begin{equation}\label{eq:ub-weighted-degree}
+ \frac{\widehat{\deg}_K(\overline{\mathcal L})}{C}
+       =\frac1h\sum_{j=1}^h V_j^B(M_j^\rho).
+\end{equation}
+Replacing every $\overline{\mathcal E_j}$ by
+$\overline{\mathcal E_j}\otimes\overline Q$, for one metrized line
+$\overline Q$, tensors \eqref{eq:ub-weighted-line} by
+$\overline Q^{\otimes C}$.
+\end{proposition}
+
+\begin{proof}
+The divisibility hypothesis makes all powers integral and positive.
+Additivity of degree and \eqref{eq:ub-degree-volume} prove
+\eqref{eq:ub-weighted-degree}. The canonical determinant isometry
+\[
+ \det(\overline{\mathcal E_j}\otimes\overline Q)
+       =\det\overline{\mathcal E_j}\otimes\overline Q^{\otimes N_j}
+\]
+shows that the total exponent of $\overline Q$ is
+$\sum_jN_jC/(hN_j)=C$.
+\end{proof}
+
+The reference determinant is present in this computation:
+$\det\OO_K^{N_j}$ has the same standard metric and degree zero.
+Each determinant in \eqref{eq:ub-weighted-line} can equivalently be
+replaced by
+$\det\mathcal E_j\otimes(\det\OO_K^{N_j})^{-1}$.
+If covolumes are instead computed after restriction of scalars to
+$\Q$, the field-discriminant and reference covolume factors appear
+in both equal-rank terms and cancel in this relative determinant.
+
+\begin{corollary}[Descent to the field of moduli]
+\label{cor:ub-descent}
+If $C$ is divisible by every $ehN_j$, put
+\begin{equation}\label{eq:ub-descent-exponent}
+ t=\frac{C}{eh}\sum_{j=1}^h\eta_j\in\Z.
+\end{equation}
+Then $\overline{\mathcal L}$ is the isometric pullback from $\Q$ of
+the actual metrized line $p^t\Z\subset\Q$ with its ordinary ambient
+absolute-value metric. In rational tensor powers,
+$\overline{\mathfrak a_j}$ is the pullback of the arithmetic line
+with finite exponent $\eta_j/e$ at $p$ and the standard infinite
+metric.
+\end{corollary}
+
+\begin{proof}
+Unique ideal factorization and the common ramification index give
+\begin{equation}\label{eq:ub-descent-ideal}
+ p\OO_K=\prod_{w\mid p}\mathfrak p_w^e,\qquad
+ \mathfrak a_j^e=p^{\eta_j}\OO_K.
+\end{equation}
+Multiplication identifies the tensor metric on the left of the
+second equality with the ambient metric on the right, since
+absolute values multiply at every embedding. This proves the
+rational-tensor-power statement.
+
+In \eqref{eq:ub-weighted-line}, the exponent at each $w\mid p$ is
+\[
+ \sum_{j=1}^h\eta_jN_j\,\frac{C}{hN_j}
+      =\frac Ch\sum_{j=1}^h\eta_j=et.
+\]
+There is no finite support elsewhere. Hence the actual lattice is
+$p^t\OO_K$, and the multiplication identification preserves its
+standard infinite metric. This is the stated pullback. In
+particular its normalized degree is $-t\log p$.
+\end{proof}
+
+An explicit simultaneous choice is $C=ehd^h$, since $N_j=d^j$ and
+$C/(hN_j)=e\,d^{h-j}\in\Z_{>0}$. Thus the descent concerns an actual
+powered determinant object, not merely an equality of degrees.
+Galois stability by itself would not have supplied unpowered
+integral descent; \eqref{eq:ub-descent-ideal} is the additional step.
+
+\subsection{The exact procession average}
+
+\begin{proposition}\label{prop:ub-exact-average}
+Let
+\[
+ R_\ell=\sum_{j=1}^h (2j^2\bmod\ell),
+\]
+where residues are taken in $\{1,\ldots,\ell-1\}$. Then
+\begin{equation}\label{eq:ub-exact-average}
+ \frac{\widehat{\deg}_K(\overline{\mathcal L})}{C\log p}
+ =\frac{\ell+1}{12}-\frac{\ell+5}{60\ell}
+        +\frac{2R_\ell}{\ell(\ell-1)}.
+\end{equation}
+Each summand $V_j^B(M_j^\rho)$ in
+\eqref{eq:ub-weighted-degree} is strictly positive.
+\end{proposition}
+
+\begin{proof}
+Since $\ell$ is odd prime and $1\le j\le h<\ell$, the indicated
+residue is nonzero. The fractional part of $2j^2/\ell$ is therefore
+at least $1/\ell>1/e$, which also verifies
+$k_j=\lfloor2j^2/\ell+\kappa\rfloor$.
+Elementary summation gives
+\[
+ \sum_{j=1}^h m_j=\frac{h(\ell+5)}4,\qquad
+ \sum_{j=1}^h\left\lfloor\frac{2j^2}{\ell}\right\rfloor
+       =\frac{\ell^2-1}{12}-\frac{R_\ell}{\ell}.
+\]
+For the second identity, sum $2j^2/\ell$ and subtract the
+fractional parts. Substitution into the average
+\[
+ h^{-1}\sum_j(\kappa m_j-k_j)
+\]
+gives \eqref{eq:ub-exact-average}. Moreover $2j^2/\ell<j$, so $k_j\le j$
+and
+\[
+ \kappa m_j-k_j\ge1-\frac{j+1}{e}>0.
+\]
+\end{proof}
+
+As a numerical check at $\ell=43$, direct integer summation gives
+$R_{43}=473$, $\sum_jk_j=164$, and $\sum_j\eta_j=-56508$.
+The right side of \eqref{eq:ub-weighted-degree} evaluates to
+$18836\log p/4515$. No distributional assertion about quadratic
+residues is used here. In particular this positive degree is a
+property of \eqref{eq:ub-bundles}, not a sign assertion about the
+complete theta-pilot quantity in the source.
+
+\subsection{The tensor-order correction}
+
+\begin{proposition}\label{prop:ub-order-correction}
+Let $\mu_{A_j}$ be additive Haar measure with $\mu_{A_j}(A_j)=1$.
+For every measurable region $H\subset T_j$ of finite positive
+volume,
+\begin{equation}\label{eq:ub-order-correction}
+ D_j^{-1}\log\mu_{A_j}(H)
+   =D_j^{-1}\log\mu_{B_j}(H)
+           +\frac{(m_j-1)\kappa}{2}\log p.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Tameness gives the discriminant exponent $f(e-1)$ for
+$\OO_E/\Z_p$. On a tensor integral basis of $A_j$, the Gram matrix
+of the absolute algebra trace is the Kronecker product of the
+factor trace Gram matrices. Its determinant therefore has
+valuation
+\[
+ v_p\operatorname{disc}(A_j)=m_jd^{m_j-1}f(e-1).
+\]
+The product order $B_j$ has $N_j=d^{m_j-1}$ copies of $\OO_E$, so
+\[
+ v_p\operatorname{disc}(B_j)=d^{m_j-1}f(e-1).
+\]
+Under a finite-index change of lattice, the trace determinant
+changes by the square of the index. Consequently
+\[
+ \log[B_j:A_j]
+   =\frac{m_j-1}{2}d^{m_j-1}f(e-1)\log p.
+\]
+Finally $\mu_{A_j}=[B_j:A_j]\mu_{B_j}$. Dividing by
+$D_j=efd^{m_j-1}$ proves the formula.
+\end{proof}
+
+The factor-weight prescription in
+\cite[(9.10.3.1), (9.10.5.1)]{JoshiIII}, for this rational branch,
+uses exponent $1/d$ on each factor. On tensor lattices this agrees
+with $\mu_{A_j}^{1/D_j}$, since tensoring a lattice change in one
+factor raises its determinant to the power $D_j/d$.
+It therefore has the correction
+\eqref{eq:ub-order-correction} relative to the maximal-order
+reference. Agreeing on the factor weights alone does not remove
+the $A_j/B_j$ index.
+
+\subsection{All-slot scaling and transport of the infinite metrics}
+
+\begin{proposition}\label{prop:ub-standard-scale}
+Write $\mathcal E_j^\rho=\mathcal E_j$ for the realization
+\eqref{eq:ub-bundles}. Replace all $m_j$ entries of the tuple
+$(\tau_j,u,\ldots,u)$ specified in \eqref{eq:ub-native-points} by their
+standard Bloch--Kato logarithms, retaining the same cohomology
+classes, arrows, and ambient reference $B_j$. Then
+\begin{equation}\label{eq:ub-standard-scale}
+ \begin{aligned}
+ M_j^{\rm std}&=p^{m_j}M_j^\rho
+       =\beta^{\eta_j+em_j}B_j=\beta^{e k_j+m_j}B_j,\\
+ V_j^B(M_j^{\rm std})&=V_j^B(M_j^\rho)-m_j\log p.
+ \end{aligned}
+\end{equation}
+For the global realization, making this change only at the
+specified rational prime $p$, while keeping the ambient infinite
+metrics fixed, gives
+\begin{equation}\label{eq:ub-standard-degree}
+ \begin{gathered}
+ \mathcal E_j^{\rm std}=p^{m_j}\mathcal E_j^\rho,\\
+ \frac{\widehat{\deg}_K(\overline{\mathcal E_j^{\rm std}})
+       -\widehat{\deg}_K(\overline{\mathcal E_j^\rho})}{N_j}
+       =-m_j\log p.
+ \end{gathered}
+\end{equation}
+The label-averaged change is $-(\ell+5)\log p/4$.
+If instead the infinite metrics are transported along
+multiplication by $p^{m_j}$, the map is an isometry of metrized
+bundles and their degrees are equal.
+\end{proposition}
+
+\begin{proof}
+The two coordinates differ by the rational scalar $p$ at every
+entry, including all backgrounds. The permitted arrows are
+$\Q_p$-linear, and the tensor map is multilinear. Thus every image
+tensor is multiplied by $p^{m_j}$. Closure and $B_j$-span commute
+with this invertible scalar. Its determinant on the
+$D_j$-dimensional space has absolute value $p^{-m_jD_j}$,
+which proves \eqref{eq:ub-standard-scale}.
+
+At finite places away from $p$ the scalar is a unit, and at every
+place above $p$ its uniformizer exponent is $em_j$. The degree
+calculation in Theorem~\ref{thm:ub-realization} proves
+\eqref{eq:ub-standard-degree}. The average of $m_j=j+1$ is
+$(\ell+5)/4$.
+
+For the transported metric, the new infinite norm on a vector $y$
+is $p^{-m_j}\|y\|_\sigma$. The determinant norm is therefore
+multiplied by $p^{-m_jN_j}$. Since
+$\sum_{\sigma\mid\infty}n_\sigma=[K:\Q]$, its normalized infinite
+degree contribution increases by $m_jN_j\log p$, cancelling the
+finite change. This also follows from the resulting isometry.
+\end{proof}
+
+Thus scaling a finite coordinate with fixed references differs
+from transporting a whole metrized global object. Neither
+operation allows the active root alone to change scale while
+the other source entries are silently left unchanged.
+
+\subsection{An almost-everywhere reference test}
+
+\begin{proposition}\label{prop:ub-ae-reference}
+Fix one global member and one label $j$. Outside a finite set of
+rational primes $p'$, take the declared background class
+$\mathrm{Kum}(1+p')$ at the selected completion, its $m_j$-fold tuple,
+and the native integral Kummer arrows. Relative to the maximal
+order $B_{j,p'}$, its native hull is $B_{j,p'}$, whereas its
+standard-coordinate hull is $(p')^{m_j}B_{j,p'}$.
+With the reference unchanged, the sum of standard-coordinate
+normalized local log-volumes is $-\infty$, and the volume product
+is zero. This is not a finite-support fractional-ideal modification
+of a fixed arithmetic bundle.
+\end{proposition}
+
+\begin{proof}
+Exclude 2, the primes ramified in $K$, the bad primes of the curve,
+and the other finitely many distinguished primes. The remaining
+completion $E_{p'}/\Q_{p'}$ is unramified. The logarithm and
+exponential on principal units give
+\[
+ \log\OO_{E_{p'}}^\times=p'\OO_{E_{p'}},\qquad
+ I_{p'}=\OO_{E_{p'}},\qquad
+ u_{p'}=(p')^{-1}\log(1+p')\in\Z_{p'}^\times.
+\]
+The residue-root-of-unity part has logarithm zero. The tensor
+product of the unramified integral orders is finite etale over
+$\Z_{p'}$ and is already its maximal product order.
+
+Every integral automorphism of $I_{p'}$ preserves nonzero classes
+modulo $p'I_{p'}$. Since the field is unramified, this is precisely
+the unit condition. Each permitted image of $u_{p'}$ is therefore
+a unit, and its repeated tensor has unit value in every field
+component. The identity arrow is present. The $B_{j,p'}$-span of
+the native images is consequently exactly $B_{j,p'}$.
+The all-slot argument of Proposition~\ref{prop:ub-standard-scale}
+gives the standard hull $(p')^{m_j}B_{j,p'}$, with normalized
+log-volume $-m_j\log p'$, independently of the local degree.
+
+Infinitely many rational primes remain, and
+$\sum_{p'}m_j\log p'=+\infty$, since every summand is at least
+$m_j\log2>0$. This proves the assertions about the sum and product.
+A lattice in a fixed finite-dimensional $K$-space agrees with a
+fixed integral reference at all but finitely many places. Nonzero
+depth $m_j$ at infinitely many distinct rational primes violates
+this condition. A finite contribution from fixed metrics at infinity
+cannot cancel the divergence.
+\end{proof}
+
+Equivalently, the local scalars $(p')_{p'}$ do not form an idele:
+their inverses are nonintegral at infinitely many primes. One
+can replace the reference by $(p')^{m_j}B_{j,p'}$ at the same time,
+obtaining local volume 1 again, but that specifies a different
+restricted product and requires an explicit comparison with the
+old reference.
+
+\begin{remark}[The remaining identification]
+The almost-everywhere test concerns the declared native branch,
+not the complete Ind3 family. Likewise, the lattices assigned
+away from $p$ in \eqref{eq:ub-bundles} and their standard infinite
+metrics are part of our construction. They have not been identified
+with the other components of the full theta-pilot output.
+Theorems about these actual arithmetic bundles therefore supply
+neither the particular membership in IUT III, Corollary~3.12,
+nor the required comparison across Ind3. Establishing that
+membership must retain the source classes, allowed arrows,
+reference structures, weights, and the link to the same global
+q-pilot. Equality of degrees of separately constructed objects
+does not provide it.
+\end{remark}

@@ -1,0 +1,578 @@
+% Author: ChatGPT. Mathematical construction before formalization.
+% Input for ChatGPT_ABC_Uniformity_2026.tex; no standalone preamble.
+% New bibliography keys: MochCanLift, MochEtaleTheta,
+% TakeuchiFuchsian, SijslingCanonical.
+\section{Constructing the global initial theta data}
+\label{sec:initial-theta-data}
+
+The local fields of Section~\ref{sec:frey-realizations} arise from a
+specific rational elliptic curve. We first construct its additional
+global covering, cusp, and section of places required by the original
+definition of initial theta data, then extend the construction to
+every member of Theorem~\ref{thm:powerfree-global-family}.
+The construction uses
+\cite[Definition~3.1(a)--(f)]{IUT1} directly. It does not invoke an
+existence theorem outside a finite exceptional set, and it keeps the
+chosen prime and the global base field fixed.
+
+For the first construction put
+\begin{equation}\label{eq:itd-curve}
+ \begin{gathered}
+  \ell=43,\qquad p=1289,\qquad A=p(p^{16}+428),\\
+  a=A^2,\qquad b=A^2+1,\qquad c=2A^2+1,\\
+  D:\ y^2=x(x-a)(x+b).
+ \end{gathered}
+\end{equation}
+The rational change $x=A^2X$, $y=A^3Y$ identifies $D$ with the
+Legendre curve of parameter $-1-A^{-2}$. Define
+\begin{equation}\label{eq:itd-fields}
+ \begin{gathered}
+  F=\Q(i,D[30]),\qquad K=F(D[43])=\Q(i,D[1290]),\\
+  X_F=D_F\setminus\{O\},\qquad
+  C_F=[X_F/\{\pm1\}],\qquad C_K=C_F\times_FK,\\
+  S=\{r:r\text{ is an odd prime and }r\mid abc\}.
+ \end{gathered}
+\end{equation}
+Fix an algebraic closure $\overline F$ containing these fields.
+Quotients by inversion are stack quotients; in particular, their
+finite etale covering maps are not claims about unramified maps of
+coarse curves. The set $S$ is finite and contains 1289.
+
+We first make explicit the two conditions that cannot be replaced by
+genericity assertions: stable reduction above 2 and the required core.
+
+\begin{lemma}[The place above 2]\label{lem:itd-two}
+Let $k$ be a finite extension of $\Q_2$ and let $E/k$ be an elliptic
+curve with rational full $3$-torsion and integral $j$-invariant. Then
+$E$ has good reduction over $k$. In particular, $D$ has good reduction
+at every place of $F$ above 2.
+\end{lemma}
+
+\begin{proof}
+Use a minimal Weierstrass equation over the complete valuation ring
+of $k$ to define $E_0(k)$ and $E_1(k)$. Its residue field is finite
+and perfect, as required in Chapter~VII of \cite{Silverman}.
+Suppose that reduction is additive. The group $E_1(k)$ has no
+nonzero $3$-torsion, by \cite[VII.3.1(a)]{Silverman}; the quotient
+$E_0(k)/E_1(k)$ is the additive group of the residue field, by
+\cite[VII.2.1 and VII.5.1(c)]{Silverman}, and also has no
+$3$-torsion. Hence $E_0(k)[3]=0$. The rational group
+$E[3]\cong(\Z/3\Z)^2$ would inject into $E(k)/E_0(k)$.
+The latter group has order at most four in the additive case, by
+the Kodaira--Neron bound \cite[VII.6.1]{Silverman}. This is a
+contradiction. The cited bound applies in residue characteristic two
+and over each finite extension $k$; no unramifiedness assumption is
+being made. Finally, multiplicative reduction would force
+$v_k(j(E))<0$, whereas the $j$-invariant was assumed integral.
+Only good reduction remains.
+
+For \eqref{eq:itd-curve}, $A$ is odd, so $A^2\equiv1\pmod8$.
+Writing $S_D=3A^4+3A^2+1$, one has
+\[
+ j(D)=\frac{256S_D^3}{(abc)^2},\qquad
+ v_2(b)=1,\qquad v_2(S_D)=0.
+\]
+Thus $v_2(j(D))=6$. Every completion of $F$ contains $D[3]$, and
+the first assertion applies. Notice that the minimal equation over
+the completion need not be the rational equation in
+\eqref{eq:itd-curve}.
+\end{proof}
+
+The references in this argument have a useful precise location in
+the archived second edition of \cite{Silverman}: the Chapter~VII
+local-field hypotheses are on printed page~185, and VII.2.1,
+VII.3.1(a), VII.5.1(c), and VII.6.1 are on printed pages
+188, 192, 196, and 200, respectively. In the archived PDF these are
+pages 201, 204, 208, 212, and 216, respectively.
+
+\begin{proposition}[The required core]\label{prop:itd-core}
+The hyperbolic orbicurve $C_K$ in \eqref{eq:itd-fields} is a
+$K$-core in the sense of \cite[Remark~2.1.1]{MochCanLift}.
+The same assertion holds after replacing $K$ by any of its
+completions.
+\end{proposition}
+
+\begin{proof}
+Takeuchi's classification gives exactly four geometric arithmetic
+once-punctured elliptic curves
+\cite[Theorem~4.1(i)]{TakeuchiFuchsian}. Their $j$-invariants, as
+computed in \cite[Section~3.1, Table~4]{SijslingCanonical}, are
+\begin{equation}\label{eq:itd-four}
+ \frac{2^{14}31^3}{5^3},\qquad
+ \frac{2^2 73^3}{3^4},\qquad1728,\qquad0.
+\end{equation}
+All four are integral at 1289. The curve $D$ satisfies
+$v_{1289}(j(D))=-4$, by the split multiplicative calculation in
+Section~\ref{sec:frey-realizations}. Thus its once-punctured curve
+is not among the four arithmetic curves. Arithmeticity is
+unchanged under finite etale coverings, so the hemi-elliptic
+quotient is also nonarithmetic over an algebraic closure.
+
+By \cite[Proposition~2.7]{MochCanLift}, a nonarithmetic punctured
+hemi-elliptic orbicurve over an algebraically closed field of
+characteristic zero is its own core.
+Proposition~2.3(i)--(ii) of the same paper gives invariance under
+algebraically closed base extension and descent from a separable
+closure. Apply these results first over $K$ and then over each
+completion. They give the asserted cores.
+\end{proof}
+
+The source locations for this step are author-PDF pages 9--10 and
+14--15 of \cite{MochCanLift}, published page 392 (PDF12) of
+\cite{TakeuchiFuchsian}, and PDF11 of the pinned arXiv version of
+\cite{SijslingCanonical}. In particular, the argument does not
+replace the four exclusions by a non-CM hypothesis.
+
+\begin{lemma}[Decorated quotient transitivity]\label{lem:itd-decorated}
+Let $V$ be a two-dimensional vector space over a field, equipped
+with a nondegenerate alternating form. The group
+$\operatorname{SL}(V)$ acts transitively on pairs $(H,\bar v)$
+consisting of a line $H\subset V$ and a nonzero vector
+$\bar v\in V/H$.
+\end{lemma}
+
+\begin{proof}
+Choose a lift $v$ of $\bar v$. There is a unique $h\in H$ with
+$\omega(h,v)=1$. The pair $(h,v)$ is a symplectic basis. Given a
+second decorated pair, construct $(h',v')$ in the same way. The
+linear map $h\mapsto h'$, $v\mapsto v'$ preserves the alternating
+form, has determinant one, and carries the first decorated quotient
+to the second.
+\end{proof}
+
+\begin{theorem}[Explicit initial theta data]\label{thm:itd-data}
+For every nonempty subset $S_0\subseteq S$, there exist a
+hyperbolic orbicurve $\underline C_K$, a cusp $\epsilon$ of it,
+and a subset $\mathbb V\subseteq V(K)$ mapping bijectively to
+$V(\Q)$, such that
+\begin{equation}\label{eq:itd-tuple}
+ (\overline F/F,X_F,43,\underline C_K,
+        \mathbb V,S_0,\epsilon)
+\end{equation}
+satisfies all of \cite[Definition~3.1(a)--(f)]{IUT1}.
+More precisely, one may fix any line $H\subset D[43](K)$ and any
+nonzero $\bar v\in D[43](K)/H$ in advance, construct a single
+global cover and cusp from them, and then choose $\mathbb V$ with
+the required local properties. The fields $F$ and $K$ remain
+exactly those in \eqref{eq:itd-fields}.
+\end{theorem}
+
+\begin{proof}
+We follow the letters of the source definition, whose full statement
+is on author-PDF pages 61--63 of \cite{IUT1}.
+
+\smallskip\noindent
+\emph{The arithmetic requirements (a)--(c).}
+The field $F$ contains $i$ and all $6$-torsion, and is Galois over
+$\Q$. Section~\ref{sec:frey-realizations} gives
+\begin{equation}\label{eq:itd-degree}
+ [F:\Q]\mid
+ 2|\GL_2(\Z/30\Z)|=276480,
+ \qquad 43\nmid[F:\Q],
+\end{equation}
+and proves that the image of $G_F$ on $D[43]$ contains
+$\operatorname{SL}_2(\mathbb F_{43})$. Its kernel cuts out $K$.
+Since the pointed curve has a model over $\Q$, every automorphism
+of $\overline\Q/\Q$ fixes its geometric isomorphism class.
+Consequently its field of moduli is exactly $F_{\rm mod}=\Q$.
+
+Every odd bad prime of $D$ belongs to $S$ and is already split
+multiplicative over $\Q$. All other finite primes except possibly
+2 are good. Lemma~\ref{lem:itd-two} treats 2. These properties
+persist after the extension to $F$. The zero section makes the
+smooth genus-one model stable as a one-pointed curve. At a
+multiplicative place it gives a stable nodal model, either directly
+from the minimal cubic or by contracting the unmarked two-valent
+components of the semistable polygon. Thus $X_F$ has stable
+reduction at every finite place, in the pointed-curve sense needed
+in the definition.
+
+For each $r\in S$, Section~\ref{sec:frey-realizations} proves
+\[
+ 1\le v_r(abc)<43,
+ \qquad \operatorname{ord}_w(q_w)=2e(w/r)v_r(abc)
+       \quad(w\mid r\text{ in }F).
+\]
+The ramification index divides \eqref{eq:itd-degree}, so 43 is
+prime to all of these positive Tate orders. It is also different
+from every $r\in S$, since $(a,b,c)\equiv(1,2,3)\pmod{43}$.
+This verifies all the required order and residue-characteristic
+conditions for $S_0$, including the choice $S_0=S$. There is no
+need to know the complete factorization of the large endpoints:
+the finite divisibility certificate and size bound in
+Section~\ref{sec:frey-realizations} prove the displayed inequalities.
+
+\smallskip\noindent
+\emph{The global covering in (d).}
+Put $V=D[43](K)$ and fix $(H,\bar v)$ as in the statement. Take
+the quotient isogeny and its dual
+\[
+ \phi:D_K\longrightarrow D_K/H,
+ \qquad \psi:D_K/H\longrightarrow D_K,
+ \qquad \psi\phi=[43].
+\]
+Both are defined over $K$, since $V$ is rational over $K$. Their
+kernels give the exact sequence of constant finite groups
+\begin{equation}\label{eq:itd-quotient}
+ 0\longrightarrow H\longrightarrow V
+   \xrightarrow{\phi} Q:=\ker\psi\longrightarrow0.
+\end{equation}
+In particular, $Q\cong V/H$ is cyclic of order 43. Set
+\begin{equation}\label{eq:itd-cover}
+ \underline X_K=(D_K/H)\setminus Q,
+ \qquad \underline C_K=[\underline X_K/\{\pm1\}].
+\end{equation}
+The restriction of $\psi$ is a degree-43 finite etale cyclic
+cover $\underline X_K\to X_K$ with group $Q$. Its cusps are all
+$K$-rational. Since the cover extends etale across the origin of
+the completed elliptic curve, inertia at that cusp acts trivially
+on its fiber. The residue-field part of the cusp decomposition
+group also acts trivially, because every point of $Q$ is rational.
+The quotient of the fundamental group is therefore trivial on
+the full cusp decomposition group and surjective on geometric
+monodromy. As an isogeny cover, it factors through the elliptic
+abelian quotient. This is precisely the cyclic quotient used in
+\cite[Definition~2.1 and its preceding construction]{MochEtaleTheta}.
+
+Inversion yields the cartesian diagram
+\begin{equation}\label{eq:itd-square}
+ \begin{matrix}
+  \underline X_K&\longrightarrow&X_K\\
+  \downarrow&&\downarrow\\
+  \underline C_K&\longrightarrow&C_K.
+ \end{matrix}
+\end{equation}
+The lower arrow is finite etale by descent along $X_K\to C_K$.
+Thus $\underline C_K$ has type $(1,43\text{-tors})^\pm$ in the
+source terminology. It is not necessary, and generally not true,
+that this lower cover is Galois. By
+Proposition~\ref{prop:itd-core}, $C_K$ is a $K$-core. Finite
+etale commensurable orbicurves have the same category of finite
+etale correspondences, so this is also the $K$-core of
+$\underline C_K$.
+
+The nonzero element $\bar v\in V/H$ gives a nonzero cusp in
+$Q$ through \eqref{eq:itd-quotient}; its inversion orbit gives a
+cusp $\epsilon$ of $\underline C_K$. Both the cover and
+$\epsilon$ are now fixed globally. They will not be changed in
+the construction at the different primes.
+
+\smallskip\noindent
+\emph{The section and the local cusp conditions in (e)--(f).}
+For each $r\in S_0$, initially choose any place $w$ of $K$ above
+$r$. Split Tate uniformization over $F_{w|F}$ and then $K_w$
+gives
+\begin{equation}\label{eq:itd-tate-sequence}
+ 0\longrightarrow\mu_{43}
+ \longrightarrow D[43](K_w)
+ \longrightarrow\Z/43\Z\longrightarrow0.
+\end{equation}
+All these torsion points come from $V$. The kernel defines a
+line $H_w\subset V$, and the class of $q_w^{1/43}$ determines
+a nonzero vector $\bar v_w\in V/H_w$. Changing the root only
+multiplies by $\mu_{43}$. Reversing the Tate orientation changes
+the vector's sign, which is permitted for the cusp of the
+inversion quotient. For the following argument choose one of the
+two orientations.
+
+The decorated pairs are equivariant under
+$\operatorname{Gal}(K/F)$. With the convention
+$(gw)(x)=w(g^{-1}x)$, the map of completions
+$g:K_w\to K_{gw}$ transports Tate uniformization and its
+multiplicative subgroup. It also transports the graph generator.
+Thus
+\begin{equation}\label{eq:itd-place-action}
+ (H_{gw},\bar v_{gw})=g(H_w,\bar v_w)
+\end{equation}
+for compatible orientation choices; the equality modulo sign does
+not require those choices.
+Lemma~\ref{lem:itd-decorated}, together with the actual
+$\operatorname{SL}_2(\mathbb F_{43})$ in the Galois image,
+therefore gives $g_r\in\operatorname{Gal}(K/F)$ such that
+$g_r(H_w,\bar v_w)=(H,\bar v)$. Choose $v_r=g_rw$ as the
+selected place above $r$.
+
+The isogeny direction is significant. At this place, write the
+curve as $E(q)$ and the matched line as $H=\mu_{43}$. Then
+\begin{equation}\label{eq:itd-tate-isogenies}
+ \begin{aligned}
+  \phi:E(q)&\longrightarrow E(q^{43}),&
+           [z]&\longmapsto[z^{43}],\\
+  \psi:E(q^{43})&\longrightarrow E(q),&
+           [z]&\longmapsto[z].
+ \end{aligned}
+\end{equation}
+The kernel of $\psi$ is generated by $[q]$, and
+$\phi([q^{1/43}])=[q]$. Accordingly $\psi$, which defines our
+cover, is the graph cover obtained by reducing the natural
+$\Pi_X^{\rm tp}\twoheadrightarrow\Z$ quotient modulo 43.
+Its distinguished cusp is the image of the generator, up to sign.
+This is the graph quotient constructed at the beginning of
+\cite[Section~1]{MochEtaleTheta}; its profinite completion is the
+$\widehat\Z$ quotient in Definition~2.5(i) of that paper.
+It follows that $\underline C_{v_r}$ has type
+$(1,\Z/43\Z)^\pm$, and that $\epsilon_{v_r}$ is its
+specified $\pm1$ cusp.
+
+At all remaining rational places, including the archimedean place,
+choose any one place of $K$ above it. Combining these choices with
+the $v_r$ gives $\mathbb V$. The source requires a section of
+$V(K)\to V(F_{\rm mod})$, with no equivariance, continuity, or
+previously fixed section condition. Thus the $g_r$ can be chosen
+independently at the finitely many bad primes. There is still one
+global $H$, one global cover, and one global $\epsilon$; the
+argument has not substituted different global covers at different
+places.
+
+\smallskip\noindent
+\emph{The auxiliary theta covers.}
+We finish by checking the auxiliary construction recalled in
+parts (d)--(f), without extending $F$. For odd $\ell$, inversion
+determines the canonical geometric subgroups of the theta cover,
+by \cite[Proposition~2.2]{MochEtaleTheta}. An arithmetic splitting
+of the indicated cusp extension gives a model over the base
+field; the choices form a torsor under
+$H^1(G_k,\mu_{43})=k^\times/(k^\times)^{43}$. Part (d) of the
+initial-data definition only invokes the geometric subgroups.
+Part (e) then invokes their natural local models at each selected
+bad place; it does not prescribe a single arithmetic splitting
+over $K$ compatible with all local splittings.
+
+Let $k=K_v$ at a selected bad place. Its residue characteristic
+is odd and prime to 43, the curve is split multiplicative, and
+$i\in k$. The nonarithmeticity needed at the beginning of
+\cite[Section~2]{MochEtaleTheta} follows from
+Proposition~\ref{prop:itd-core} and its proof. Moreover rational
+full 2-torsion implies $q^{1/2}\in k$. Indeed, a square root
+$b_0$ represents a rational Tate 2-torsion class. For every
+$\sigma\in G_k$, the ratio $\sigma(b_0)/b_0$ belongs to
+$q^\Z$ and has valuation zero, so it equals one. Thus
+$k=k(\mu_2,q^{1/2})=\ddot k$, the field condition of
+\cite[Definition~2.5]{MochEtaleTheta}.
+The root-of-unity condition recalled in Remark~1.10.1(ii) of
+that paper also holds: rational $D[3]$ and the Weil pairing give
+$\mu_3\subset F$, while $i\in F$ gives $\mu_4\subset F$.
+Hence $\mu_{12}\subset F\subset k$, without any further field
+extension.
+
+The classical theta series in
+\cite[Proposition~1.4]{MochEtaleTheta} has value $2i$ plus terms
+of positive valuation at the point represented by $i$. This
+value is a unit, so a $k$-unit multiple normalizes it to one and
+gives a class of standard type in Definition~1.9 of that paper.
+Theorem~1.10(iii) there supplies the compatible
+$\{\pm1\}$-structure on the cusp torsor. Passing to the
+order-43 quotient gives the required splitting class: the two
+representatives differing by $-1$ agree in
+$k^\times/(k^\times)^{43}$ because $(-1)^{43}=-1$.
+Proposition~2.2 with that splitting gives exactly the local
+theta cover in Definition~2.5(i). All cusps used here are
+$k$-rational; also $\mu_{43}\subset k$ by the Weil pairing on
+the rational $43$-torsion.
+
+These are the local models invoked in
+\cite[Definition~3.1(e)]{IUT1}. They use no global extension
+obtained by adjoining arbitrary $43$rd roots of constants. The
+oriented covers at the end of part (f) are then determined by
+the fixed triple $(X_K,\underline C_K,\epsilon)$, as in
+Definition~1.1 and Remark~1.1.2 of \cite{IUT1}. This verifies
+the final auxiliary construction and completes all parts of the
+initial-data definition.
+\end{proof}
+
+For checking the last part directly, the relevant author-PDF pages
+of \cite{MochEtaleTheta} are: the graph quotient on page~11;
+$\ddot k=k(\mu_2,q^{1/2})$ on page~16; Proposition~1.4 on
+pages~20--21; Definition~1.9 and Theorem~1.10 on pages~27--28;
+and Definitions~2.1, 2.5 with Proposition~2.2 on pages~32--36.
+The original PDFs and their hashes are recorded separately, so
+these locations refer to fixed source objects.
+
+\subsection{A uniform construction along the power-free family}
+
+The covering construction uses no property specific to the number
+43 beyond the arithmetic hypotheses already verified. The following
+criterion states precisely what can vary.
+
+\begin{proposition}[A rational initial-data criterion]
+\label{prop:itd-criterion}
+Let $D/\Q$ be an elliptic curve, let $\ell\ge7$ be prime, and set
+\[
+ F_D=\Q(i,D[30]),\qquad
+ K_D=F_D(D[\ell])=\Q(i,D[30\ell]).
+\]
+Suppose that $D_{F_D}$ has good or multiplicative reduction at every
+finite place, that the image of $G_{F_D}$ on $D[\ell]$ contains
+$\operatorname{SL}_2(\mathbb F_\ell)$, and that
+$v_{p_0}(j(D))<0$ for some rational prime $p_0>5$.
+Let $S_0$ be a nonempty finite set of odd rational primes, different
+from $\ell$, where $D/\Q$ is split multiplicative. Suppose that
+every integral Tate order at a place of $F_D$ above $S_0$ is prime
+to $\ell$.
+
+For any line $H\subset D[\ell](K_D)$ and any nonzero
+$\bar v\in D[\ell](K_D)/H$, the quotient isogeny and its dual
+construct one global cover $\underline C_{K_D}$ and cusp
+$\epsilon$. A section $\mathbb V\subset V(K_D)$ of the rational
+place map can be chosen such that
+\[
+ (\overline F_D/F_D,D_{F_D}\setminus\{O\},\ell,
+       \underline C_{K_D},\mathbb V,S_0,\epsilon)
+\]
+satisfies \cite[Definition~3.1(a)--(f)]{IUT1}.
+No extension of $F_D$ or $K_D$ is required.
+\end{proposition}
+
+\begin{proof}
+The universal degree bound
+$[F_D:\Q]\mid276480=2^{11}3^3 5$ is prime to $\ell$.
+The field is Galois, contains $i$ and rational full 6-torsion,
+and the original pointed curve has field of moduli $\Q$.
+The mod-$\ell$ kernel cuts out exactly $K_D$.
+The reduction hypothesis gives a stable one-pointed model at
+every finite place, by the same smooth or nodal construction
+used above. The image and Tate-order hypotheses then give all
+the other conditions in parts (a)--(c). The orders are imposed
+over $F_D$, as in the source, not over $K_D$.
+
+All four invariants in \eqref{eq:itd-four} are integral at every
+prime greater than 5. The condition at $p_0$ therefore proves
+nonarithmeticity by the same classification and excludes no
+additional curves. The proof of Proposition~\ref{prop:itd-core}
+gives a core over $K_D$ and over each completion.
+
+Take the quotient $\phi:D\to D/H$ and its dual
+$\psi:D/H\to D$ over $K_D$. Their constant kernel sequence is
+$0\to H\to D[\ell]\to\ker\psi\to0$. Removing $\ker\psi$
+and quotienting by inversion constructs the cover exactly as in
+\eqref{eq:itd-cover}. Its cusps are rational, its geometric
+monodromy is cyclic of order $\ell$, and its full cusp
+decomposition group acts trivially on the fiber at the origin.
+It therefore has the type required in part (d), with the same core.
+The class $\bar v$ fixes one nonzero global cusp.
+
+Lemma~\ref{lem:itd-decorated} applies over $\mathbb F_\ell$.
+For each $r\in S_0$, choose any place $w$ above it and then an
+actual $g_r\in\operatorname{Gal}(K_D/F_D)$ carrying its Tate
+decorated quotient to the fixed $(H,\bar v)$. Formula
+\eqref{eq:itd-place-action} is independent of 43, so selecting
+$g_rw$ gives the required local interpretation of that one
+global cover and cusp. The dual isogeny is
+$E(q^\ell)\to E(q)$, $[z]\mapsto[z]$; its graph generator is
+$[q]$, the image of $[q^{1/\ell}]$. All remaining places may
+be selected arbitrarily. This verifies the section and generator
+requirements in parts (e)--(f).
+
+Finally, the auxiliary-cover argument above only uses oddness of
+$\ell$, the original full mod-$\ell$ torsion, and the explicit
+local conditions. At a selected place $k$, rational 2-torsion
+gives $k=\ddot k$; rational 3-torsion and $i$ give
+$\mu_{12}\subset k$; and the theta value at $i$ is a unit
+in odd residue characteristic. EtTh's canonical geometric
+subgroups and natural local theta splittings therefore apply.
+The sign ambiguity disappears modulo $(k^\times)^\ell$ because
+$(-1)^\ell=-1$. For the oriented covers, $\ell\ge7$ is
+prime to 6, and the original curve's mod-$\ell$ abelian action
+is trivial over $K_D$. There is no extra global arithmetic
+splitting condition, and no need to adjoin the full
+$\ell$-torsion of $D/H$. These are exactly the remaining
+assumptions checked in the preceding proof.
+\end{proof}
+
+\begin{corollary}[Initial data throughout the unbounded family]
+\label{cor:itd-powerfree-family}
+For every member $(\ell,p,A)$ of
+Theorem~\ref{thm:powerfree-global-family}, put
+\[
+ \begin{gathered}
+  F_A=\Q(i,D_A[30]),\qquad K_A=\Q(i,D_A[30\ell]),\\
+  S_A=\{r:r\text{ is an odd prime},\ r\mid A^2(A^2+1)(2A^2+1)\}.
+ \end{gathered}
+\]
+For every nonempty $S_0\subseteq S_A$, every line
+$H\subset D_A[\ell](K_A)$, and every nonzero quotient vector
+$\bar v$, Proposition~\ref{prop:itd-criterion} supplies initial
+theta data with precisely these fields and the chosen prime
+$\ell$. In particular $S_0=S_A$ is allowed.
+The construction introduces no further largeness threshold on
+$\ell$ beyond that in the family existence theorem.
+\end{corollary}
+
+\begin{proof}
+Every odd bad prime is split multiplicative by the family
+calculation, and all other odd primes are good. Odd $A$ gives
+$v_2(j(D_A))=6$, so Lemma~\ref{lem:itd-two} gives good reduction
+over each completion of $F_A$ at 2. Thus the first hypothesis
+of Proposition~\ref{prop:itd-criterion} holds. The family
+theorem gives the required $\operatorname{SL}_2$ image over
+$F_A$. At its prescribed prime $p\ge30\ell-1>5$,
+$v_p(A)=1$ and $v_p(j(D_A))=-4$, proving the core criterion
+uniformly. Also $p\in S_A$, so this set is nonempty, while
+$(a,b,c)\equiv(1,2,3)\pmod\ell$ gives $\ell\notin S_A$.
+
+For the order condition one must use the precise power-free
+statement; it is not asserted that $A^2$ is $\ell$-power-free.
+For $w\mid r$ in $F_A$, the three mutually exclusive cases give
+\begin{equation}\label{eq:itd-family-orders}
+ \operatorname{ord}_w(q_w)=
+ \begin{cases}
+  4e(w/r)v_r(A),&r\mid A,\\
+  2e(w/r)v_r(A^2+1),&r\mid A^2+1,\\
+  2e(w/r)v_r(2A^2+1),&r\mid2A^2+1.
+ \end{cases}
+\end{equation}
+Each valuation on the right lies between 1 and $\ell-1$,
+and $e(w/r)$ divides the prime-to-$\ell$ degree $[F_A:\Q]$.
+Since $\ell$ is odd, all three orders are prime to $\ell$.
+This verifies the last hypothesis of the proposition without
+the unnecessary stronger inequality $v_r(abc)<\ell$.
+The proposition now applies to each chosen $S_0$ and fixed
+decorated quotient.
+\end{proof}
+
+When $p\in S_0$, changing the selected place by $g_p$ leaves
+the exact local field in the family theorem unchanged up to
+isomorphism. It still has ramification index $15\ell$, residue
+degree two, and total degree $30\ell$. In the notation of
+\eqref{eq:pf-uniformizer}, $\beta$ remains a uniformizer and
+\[
+ v_p(q^{1/(2\ell)})=2/\ell.
+\]
+Thus the compatible section does not remove the actual Tate unit
+or change the valuation to $1/\ell$. The cover and cusp are
+single fixed global objects for each family member; there is
+no assertion that distinct curves share one covering or one field.
+
+\begin{remark}[Scope of the construction]\label{rem:itd-boundary}
+Theorem~\ref{thm:itd-data} and Corollary~\ref{cor:itd-powerfree-family}
+verify the original global initial data, including one covering
+and cusp with simultaneous local interpretations for each curve.
+Neither identifies our prescribed $\ell$ with an existentially
+selected prime in \cite[Theorem~5.7.1]{JoshiIV}.
+For the isolated level-43 example, no exceptional-set avoidance
+is claimed. For the unbounded family, avoidance of a finite set
+fixed before the family varies is the separate statement of
+Corollary~\ref{cor:powerfree-finite-exception}; it uses the
+original compactly bounded domain specified there.
+
+At the selected place above 1289, the completion is still, up
+to isomorphism, the exact field of
+Section~\ref{sec:frey-realizations}, with ramification index
+645, residue degree two, and total degree 1290. Selecting a
+Galois-conjugate place changes none of these quantities. The
+native root $q^{1/86}$ retains valuation $2/43$.
+
+Initial data alone do not identify the published pilot family
+with the explicit native point family, its saturated unit family,
+or a principal maximal-order ideal formed before transport.
+The exact local pre-ideal/point-hull equality proved separately
+applies to its specified native source and integral arrows; this
+initial-data construction does not identify them with the whole
+published pilot. The standard Bloch--Kato versus $p^{-1}\log$
+normalization, the $j^2$-dependent absolute-value rescaling, the
+specified order of hull operations, and the remaining Ind3 and
+global Frobenius comparisons still need their own compatible proofs.
+Neither the initial-data theorems in this section nor the external
+core and theta-cover theorems invoked here have been formalized
+in Lean in this work.
+\end{remark}

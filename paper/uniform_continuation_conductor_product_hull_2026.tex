@@ -1,0 +1,194 @@
+\section{A coefficient-below-six obstruction and finite selected-place hulls}
+\label{sec:conductor-product-hull}
+
+We next close two proposed shortcuts.  On the Frey route, optimization over
+an entire rational isogeny class cannot lower the coefficient below six.  On
+the local IUT route, projected membership does suffice after the actual
+finite product-order hull, but that finite statement does not determine a
+global Arakelov degree.
+
+\subsection{An exact conductor and an isogeny-class obstruction}
+
+For $n\geq1$, put $c=1792n+2$ and
+\[
+ E_c:y^2=x(x-1)(x+c-1)
+     =x^3+(c-2)x^2+(1-c)x.
+\]
+The preceding sections determine the four vertices of its rational isogeny
+class and prove that the minimum absolute logarithmic Weil height in that
+class is
+\begin{equation}\label{eq:new-entire-min-height}
+                     3\log(c^2-16c+16).
+\end{equation}
+
+\begin{proposition}[Exact local and global conductor]
+\label{prop:new-frey-conductor}
+The displayed equation is minimal at every prime.  At $2$ it has Kodaira
+symbol III and conductor exponent five.  Every odd prime
+$s\mid c(c-1)$ is multiplicative of type
+$I_{2v_s(c(c-1))}$ and has conductor exponent one.  Hence every elliptic
+curve $F/\Q$ rationally isogenous to $E_c$ has
+\begin{equation}\label{eq:new-frey-conductor}
+              N(F)=16\rad(c(c-1)).
+\end{equation}
+If $D=(c-1)(c/2)^4$ is the reduced denominator of the height-minimizing
+$j$-invariant, then
+\begin{equation}\label{eq:new-frey-den-conductor}
+                         N(F)=32\rad(D).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Write $A=c-2$ and $B=1-c$.  Then
+\[
+ v_2(A)\geq8,\qquad v_2(B)=0,\qquad B\equiv-1\pmod4.
+\]
+The corresponding row of the complete two-torsion model table in
+Mulholland~\cite[Theorem 2.1 and Table 2.1]{Mulholland2006}, which
+specializes Papadopoulos's classification, gives type III, conductor
+exponent five, and minimality at two.  The invariants are
+\[
+ c_4=16(c^2-c+1),\qquad \Delta=16(c-1)^2c^2.
+\]
+If an odd prime $s$ divides $c$ or $c-1$, then $c^2-c+1\equiv1\pmod s$.
+Thus $c_4$ is a unit and the model is minimal multiplicative, with the
+asserted type and conductor exponent.  All other odd primes are good.  This
+proves \eqref{eq:new-frey-conductor} for $E_c$.  Rational isogenies identify
+the rational Tate modules and hence preserve every local Artin conductor,
+so the same formula holds throughout the class.
+
+Writing $u=c/2$, one has $D=(2u-1)u^4$ and
+$\gcd(u,2u-1)=1$.  Therefore
+\[
+ \rad(c(c-1))=\rad(2u(2u-1))=2\rad(D),
+\]
+which gives \eqref{eq:new-frey-den-conductor}.
+\end{proof}
+
+The congruence modulus permits an infinite power subfamily.  Put
+\[
+ c_k=2\cdot897^k,\qquad
+ n_k=\frac{897^k-1}{896}=1+897+\cdots+897^{k-1}.
+\]
+Then $c_k=1792n_k+2$ and, since $897=3\cdot13\cdot23$,
+\begin{equation}\label{eq:new-power-conductor}
+ N(E_{c_k})=28704\rad(2\cdot897^k-1)<28704c_k.
+\end{equation}
+
+\begin{theorem}[Uniform failure of every coefficient below six]
+\label{thm:new-frey-six-obstruction}
+For every $0\leq\theta<6$ and $C\in\R$, all sufficiently large $k$ satisfy
+\[
+ h(j(F))>\theta\log N(F)+C
+\]
+simultaneously for every $F/\Q$ rationally isogenous to $E_{c_k}$.
+\end{theorem}
+
+\begin{proof}
+For $c_k>32$, \eqref{eq:new-entire-min-height} gives
+\[
+ h(j(F))>6\log c_k-3\log2.
+\]
+Equation~\eqref{eq:new-power-conductor} and $\theta\geq0$ give
+\[
+ \theta\log N(F)<\theta\log c_k+\theta\log28704.
+\]
+Their difference is greater than
+\[
+ (6-\theta)\log c_k-3\log2-\theta\log28704,
+\]
+which tends to infinity because $c_k=2\cdot897^k$ and $\theta<6$.
+\end{proof}
+
+This rules out every subcritical coefficient obtained merely by changing
+the representative inside the rational isogeny class.  It leaves the
+coefficient-six and all-epsilon estimate
+$(6+\eps)\log N+C_\eps$ untouched; in particular, it does not prove that
+six is an attainable or optimal coefficient.  On this family the
+remaining input is a lower bound for
+$\rad(2\cdot897^k-1)$; the elementary upper bound in
+\eqref{eq:new-power-conductor} cannot supply it.
+
+\subsection{Finite products of selected-place components}
+
+Fix a rational prime and one label.  After decomposing the finite-etale
+tensor packet into field factors, write
+\[
+                         T=\prod_{w\in W}T_w,
+             \qquad B=\prod_{w\in W}B_w,
+\]
+where $W$ is the finite set of ordered selected-place words and $B_w$ is the
+product of the integer rings in the field factors of $T_w$.
+
+\begin{proposition}[Exact product-order span]\label{prop:new-product-span}
+For every subset $S\subset T$,
+\begin{equation}\label{eq:new-product-span}
+       \Span_B(S)=\prod_{w\in W}\Span_{B_w}(\pi_wS).
+\end{equation}
+The same identity holds after topological closure.
+\end{proposition}
+
+\begin{proof}
+Projection of a $B$-linear combination gives the forward inclusion.  For
+the reverse inclusion, let $e_w\in B$ be the central idempotent supported on
+the $w$-component.  If
+$y_w=\sum_i b_i\pi_w(s_i)$, then
+$\sum_i(e_wb_i)s_i$ belongs to $\Span_B(S)$, has component $y_w$ at $w$,
+and has every other component zero.  Sum this construction over the finite
+set $W$.  Closure commutes with a finite product.
+\end{proof}
+
+Suppose now that $S$ satisfies the first-branch hypotheses of
+IUT~III, Remark 3.9.5(i): it is relatively compact and contains a relatively
+compact finite-log-volume subset.  The source holomorphic hull is the
+smallest $\lambda B$ containing $S$, with every field component of $\lambda$
+nonzero.  Its definition is componentwise, and therefore
+\begin{equation}\label{eq:new-product-hull}
+       \operatorname{Hull}_B(S)
+       =\prod_{w\in W}\operatorname{Hull}_{B_w}(\pi_wS).
+\end{equation}
+The compactness hypothesis is essential: in the other branch of the source
+definition, the hull is the entire ambient space.
+
+If full-rank product fractional ideals $P_w$ satisfy
+\[
+ P_w\subset\overline{\Span_{B_w}(\pi_wS)}
+ \qquad(w\in W),
+\]
+then \eqref{eq:new-product-span} gives
+\[
+       \prod_wP_w\subset\operatorname{Hull}_B(S).
+\]
+For an ordered word $w=(v_0,\ldots,v_j)$, set
+\[
+ h_v=[(F_{\rm mod})_v:\Q_p],\qquad
+ \omega_w=\frac{\prod_i h_{v_i}}
+                 {[F_{\rm mod}:\Q]^{j+1}}.
+\]
+IUT~IV, Remark 1.7.1 gives precisely these normalized weights.  They sum to
+one because
+\[
+ \sum_w\prod_i h_{v_i}
+ =\left(\sum_{v\mid p}h_v\right)^{j+1}
+ =[F_{\rm mod}:\Q]^{j+1}.
+\]
+Monotonicity of Haar measure now yields the finite weighted lower bound
+\begin{equation}\label{eq:new-weighted-hull}
+ \sum_w\omega_w V_w(\pi_w\operatorname{Hull}(S))
+ \geq\sum_w\omega_w V_w(P_w),
+\end{equation}
+where $V_w=D_w^{-1}\log\mu_w$ and
+$D_w=\dim_{\Q_p}T_w$.  No single raw member must realize all word
+projections: the central idempotents combine witnesses only after taking the
+$B$-span.
+
+Equation~\eqref{eq:new-weighted-hull} is a finite-place result.  It does not
+specify the archimedean metric or prove that the finite lattices localize one
+global projective module.  Indeed, keep every finite lattice of
+$L=\Z\subset\Q$ fixed and set
+$\lVert x\rVert_{\infty,t}=e^{-t}|x|$.  All finite projections, hulls, and
+Haar volumes are independent of $t$, while
+$\widehat\deg(\overline L_t)=t$.  Thus finite projected membership alone
+cannot determine a global Arakelov inequality.  The remaining source problem
+is to construct the same globally metrized marked family and compare it,
+through the actual Ind3 and horizontal links, with the fixed $q$-pilot.

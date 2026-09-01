@@ -1,0 +1,363 @@
+\section{Admissible unit actions and a cyclotomic trace invariant}
+\label{sec:admissible-arrows}
+
+This section uses the actual all-open-subgroup condition in
+\cite[Example~1.8(iv), author-version pp.~38--39]{IUT2}.
+It must be distinguished from allowing every automorphism of one fixed
+integral lattice. Fix a finite extension $E/\Q_p$, an algebraic closure
+$\overline E$, and $G=\operatorname{Gal}(\overline E/E)$. For each finite
+$K/E$ inside $\overline E$, put
+\[
+ U_K=\OO_K^\times,\qquad L_K=\log U_K\subset K,
+ \qquad I_K=p^{-1}L_K.
+\]
+The logarithm is used only on units. Its kernel on $U_K$ is the finite
+group of roots of unity in $K$, and $L_K$ is a full $\Z_p$-lattice in $K$.
+These assertions hold also for $p=2$.
+
+Logarithm induces a $G$-equivariant additive isomorphism
+\begin{equation}\label{eq:unit-log-quotient}
+ \OO_{\overline E}^\times/\mu(\overline E)
+       \simeq (\overline E,+).
+\end{equation}
+Indeed the finite-field kernel statement proves injectivity. Given
+$x\in\overline E$, choose $n$ large enough for $\exp(p^n x)$ to converge
+in a finite extension and choose a $p^n$-th root $y$ of it. Then $y$ is
+a unit and $\log y=x$, proving surjectivity. If
+$H=\operatorname{Gal}(\overline E/K)$, the invariants of the quotient
+in \eqref{eq:unit-log-quotient} are $K$, whereas the image of the
+invariants of the original unit group is precisely $L_K$.
+
+Under this identification, the group $\operatorname{Ism}(G)$ specified
+in \cite{IUT2} consists of additive $G$-equivariant automorphisms $F$ of
+$\overline E$ preserving $L_K$ for \emph{every} finite $K/E$. The source
+requires preservation of these lattices, not only of their rational
+spans. Such a map is $\Q_p$-linear on each $K$: preservation of
+$p^nL_K$ implies continuity, which extends integer linearity to
+$\Z_p$-linearity and then to $\Q_p$-linearity.
+
+\subsection{The all-open condition forces scalar action}
+
+\begin{lemma}[Realizing logarithmic sublattices by norms]
+\label{lem:norm-sublattice}
+For every finite-index $\Z_p$-submodule $J\subset L_E$, there is a
+finite abelian extension $K/E$ such that
+\[
+ \operatorname{Tr}_{K/E}(L_K)=J.
+\]
+\end{lemma}
+\begin{proof}
+Let $V=\log^{-1}(J)\subset U_E$, choose a uniformizer $\pi$ of $E$, and
+put $N=\pi^{\Z}V$. This is an open finite-index subgroup of $E^\times$.
+The local existence theorem of class field theory
+\cite[Chapter~I, Theorem~1.4]{MilneCFT} supplies a finite abelian $K/E$
+with $\operatorname{Norm}_{K/E}(K^\times)=N$. For integer-normalized
+valuations,
+\[
+ v_E(\operatorname{Norm}_{K/E}z)=f_{K/E}v_K(z).
+\]
+Consequently a norm is a unit exactly when its preimage is a unit, and
+$\operatorname{Norm}_{K/E}(U_K)=N\cap U_E=V$.
+The identity $\log\operatorname{Norm}z=\operatorname{Tr}\log z$ follows
+by summing the logarithms of the conjugates. Therefore
+$\operatorname{Tr}_{K/E}(L_K)=\log V=J$.
+\end{proof}
+
+\begin{lemma}[Sublattice rigidity]\label{lem:sublattice-rigidity}
+An automorphism of a nonzero finite free $\Z_p$-module preserving every
+finite-index submodule is multiplication by one element of $\Z_p^\times$.
+\end{lemma}
+\begin{proof}
+Choose a basis $e_1,\ldots,e_d$. Preservation of
+$\Z_pe_i+p^nL$ for every $n$ puts the image of $e_i$ in their
+intersection, which is $\Z_pe_i$: every other coordinate is divisible
+by every power of $p$ and hence is zero. Write $F(e_i)=\lambda_i e_i$.
+The same argument for $e_i+e_j$ implies $\lambda_i=\lambda_j$.
+Thus $F=\lambda\operatorname{id}$; surjectivity shows that $\lambda$
+is a unit. The rank-one case is already covered by the first step.
+\end{proof}
+
+\begin{theorem}[Classification of the specified Ism action]
+\label{thm:ism-scalar}
+For the group defined in \cite[Example~1.8(iv)]{IUT2},
+\[
+ \operatorname{Ism}(G)=\Z_p^\times
+\]
+under \eqref{eq:unit-log-quotient}, with the right side acting by scalars.
+\end{theorem}
+\begin{proof}
+For finite abelian $K/E$, equivariance gives
+$F_E\operatorname{Tr}_{K/E}=\operatorname{Tr}_{K/E}F_K$.
+Since $F_K(L_K)=L_K$, Lemma~\ref{lem:norm-sublattice} implies that
+$F_E$ preserves every finite-index submodule of $L_E$.
+Lemma~\ref{lem:sublattice-rigidity} gives
+$F_E=\lambda_E\operatorname{id}$ with $\lambda_E\in\Z_p^\times$.
+Repeat over any finite $K/E$: the hypothesis includes all finite
+extensions of $K$, since their Galois groups are open in $G$.
+Thus $F_K=\lambda_K\operatorname{id}$. Restriction to the nonzero
+subfield $E$ gives $\lambda_K=\lambda_E$, proving the assertion on
+all of $\overline E$. Conversely every $\Z_p$-unit scalar preserves
+all the lattices and commutes with $G$. It is the image of a unit of
+$\widehat\Z$ under the unit-power action; prime-to-$p$ components act
+trivially after quotienting by all roots of unity.
+\end{proof}
+
+Only preserving $L_E$ would leave the full group
+$\GL_{[E:\Q_p]}(\Z_p)$; the finite-extension hypothesis is decisive.
+The full-unit lifting theorem \cite[Theorem~7.6]{Hoshi} by itself does
+not classify automorphisms of the torsion quotient. The preceding proof
+supplies that additional step. For the indeterminacy called Ind2 in
+\cite[Theorem~3.11(i)]{IUT3}, the theorem applies to its indicated Ism
+factors. It does not classify the Galois arrows of Ind1 or the set
+operations of Ind3.
+
+For example, if $1<e(E/\Q_p)\le p-2$, logarithm and exponential on the
+maximal ideal give $I_E=\pi^{1-e}\OO_E$. The unit
+$u=\log(1+p)/p$ has native valuation zero, and all its Ism images
+still have valuation zero. None reaches the least valuation $1/e-1$
+of this larger lattice. This statement concerns Ism; it adds no
+unproved restriction to Ind1.
+
+\subsection{What the procession retains, and an exact Ind2 hull equality}
+
+The Ind1 source in \cite[Theorem~3.11(i)]{IUT3} is the mono-analytic
+procession of \cite[Proposition~6.9(ii)]{IUT1}. At a nonarchimedean
+place its retained category is $\mathcal B(E)^0$, the connected finite
+etale covers of $E$, rather than the earlier curve-covering category
+\cite[Examples~3.2(i), 3.3(i), Definition~4.1(iii)--(iv)]{IUT1}.
+Its self-equivalences, up to natural isomorphism, correspond to
+$\operatorname{Out}(G_E)$: pullback of finite transitive $G_E$-sets
+constructs one direction, and adjoining finite disjoint unions and
+recovering the fibre functor constructs the inverse.
+
+For fixed capsule labels, the capsule-full poly-isomorphism contains
+all collections of constituent isomorphisms
+\cite[\S0, pp.~33--34; Definition~4.10]{IUT1}. Consequently every
+local outer Galois automorphism occurs as a representative in an
+allowed poly-automorphism, with the same representative used at repeated
+labels if required. To see this directly, identify each labelled
+category with $\mathcal B(E)^0$, conjugate the chosen pullback
+equivalence to each copy, and use identity maps at the other places.
+Keep the capsule and stage injections equal to the identity. Each
+resulting collection belongs to the required full set of constituent
+isomorphisms, and conjugation preserves the full connecting sets.
+There is no further requirement to lift back to the curve category.
+This is a statement about representatives inside poly-morphisms, not
+a claim that each representative is a distinct object or morphism of
+the coarse category. It supplies no arbitrary integral linear lift.
+
+\begin{proposition}[Ind2 does not enlarge a fixed module hull]
+\label{prop:ind2-hull-equality}
+On a fixed marked nonarchimedean tensor carrier, let
+\[
+ T=\bigotimes_{i,\Q_p}\Bigl(\prod_{v\in J_i}E_{i,v}\Bigr),
+ \qquad
+ A=\bigotimes_{i,\Z_p}\Bigl(\prod_{v\in J_i}\OO_{E_{i,v}}\Bigr)
+ \subset B,
+\]
+where $B$ is the maximal order of the finite etale algebra $T$.
+For any subset $S\subset T$, write $\Gamma_2S$ for the union of its
+images under the local Ind2 operators of \cite[Theorem~3.11(i)]{IUT3}.
+Then
+\[
+ \Span_B(\Gamma_2S)=\Span_B(S).
+\]
+The same equality holds for closed $B$-module hulls.
+\end{proposition}
+\begin{proof}
+Theorem~\ref{thm:ism-scalar} makes the action on each local direct
+summand multiplication by a scalar $\lambda_{i,v}\in\Z_p^\times$.
+In factor $i$, their tuple $c_i=(\lambda_{i,v})_v$ is a unit of
+$\prod_v\OO_{E_{i,v}}$. The tensor product operator is multiplication
+by $c=\bigotimes_i c_i\in A^\times$, with inverse the tensor of the
+$c_i^{-1}$. Thus every image of $S$ lies in $\Span_B(S)$.
+The identity Ind2 operator supplies the reverse inclusion of spans.
+Taking closures gives the closed version. Any extra convention forcing
+some scalars to coincide leaves the argument unchanged.
+\end{proof}
+
+This removes the Ind2 step from a $B$-module-hull computation once
+the Ind1 image set and native markings are fixed. It does not remove
+the distinction between $A$ and $B$, turn an Ind1 map into a
+$B$-linear map, or identify Ind3 with multiplication by a unit.
+
+\subsection{Integral Galois transport preserves trace depth}
+
+A coefficient-compatible Galois arrow consists of a continuous
+isomorphism $\alpha:G_{E'}\simeq G_E$ and an isomorphism
+$\beta:\alpha^*\Z_p(1)_E\simeq\Z_p(1)_{E'}$ of integral Tate modules.
+The cyclotomic character and inertia are group-theoretically determined
+\cite[Propositions~1.1--1.2 and Corollary~1.3]{MochLocal}.
+In particular the coefficient isomorphism can be chosen integrally;
+one cannot insert multiplication by $p$ as an isomorphism.
+
+\begin{proposition}\label{prop:trace-transport}
+The induced logarithmic map $F_{\log}:E\longrightarrow E'$ satisfies
+\begin{equation}\label{eq:trace-transport}
+ \operatorname{Tr}_{E'/\Q_p}(F_{\log}x)
+       =c_\alpha\operatorname{Tr}_{E/\Q_p}(x)
+ \quad(x\in E)
+\end{equation}
+for some $c_\alpha\in\Z_p^\times$. The statement also holds with both
+logarithmic coordinates divided by $p$.
+\end{proposition}
+\begin{proof}
+Put $h_E=\log_p\chi_E\in H^1(G_E,\Z_p)$, where the latter coefficient
+action is trivial. Equivariance of $\beta$ gives
+$\chi_E\alpha=\chi_{E'}$, hence $\alpha^*h_E=h_{E'}$.
+Local duality and the invariant map identify
+$H^2(G_E,\Z_p(1))$ with $\Z_p$. Integral cohomology transport is an
+isomorphism, so it acts there by a unit $c_\alpha$, not by an arbitrary
+nonzero rational $p$-adic scalar.
+
+The local reciprocity cup-product formula, for an integral character $h$
+and a Kummer class $\kappa(z)$, is
+\[
+ \operatorname{inv}(h\mathbin\cup\kappa(z))=h(\operatorname{rec}_E z).
+\]
+It follows at finite level from the cyclic-algebra description and then
+by inverse limit; see \cite[Chapter~III, Proposition~3.6 and \S4]{MilneCFT}.
+In the arithmetic-Frobenius convention,
+\[
+ h_E(\operatorname{rec}_E z)
+   =-\log_p\operatorname{Norm}_{E/\Q_p}z
+   =-\operatorname{Tr}_{E/\Q_p}\log_p z
+ \qquad(z\in U_E).
+\]
+The integral unit Kummer submodule is also preserved: it is the
+annihilator, under this pairing, of the unramified $\Z_p$-character.
+Characteristic inertia carries a generator of that unramified
+character module to a unit multiple of a generator, and cup-product
+naturality preserves its annihilator.
+
+Applying the same naturality with $h_E$ now proves
+\eqref{eq:trace-transport} on $L_E$. Torsion unit classes are killed
+by logarithm and pair to zero in the torsion-free integral $H^2$;
+the argument therefore descends to the actual free unit lattice.
+Since $L_E$ spans $E$, $\Q_p$-linearity proves the formula everywhere.
+Uniform division by $p$ on both sides does not change it.
+\end{proof}
+
+Composing with the Ism factors of Theorem~\ref{thm:ism-scalar} only
+changes $c_\alpha$ by a unit. Thus the valuation of a nonzero absolute
+trace is an invariant of these local Galois/Kummer/Ism arrows.
+For example, on $E=\Q_7(\pi)$ with $\pi^3=7$, the normalized integral
+log lattice $I_E$ has basis $1,\pi/7,\pi^2/7$. Swapping its first two basis vectors is
+not an admissible Galois/Kummer arrow: their traces are $3$ and $0$.
+No claim that every matrix satisfying \eqref{eq:trace-transport} is
+admissible is made.
+
+\begin{theorem}[A native root-power obstruction]\label{thm:root-trace}
+Let $p\ne\ell$ be odd primes, $b\in\Q_p$ with
+$N=v_p(b)>0$ and $\ell\nmid N$, and let $E/\Q_p$ contain
+$\mu_\ell$ and $a$ with $a^\ell=b$. Write $d=[E:\Q_p]$ and, for
+$s\ge1$ with $\ell\nmid s$, put $\tau_s=\log(1+pa^s)/p$. Then
+\begin{align}
+ \operatorname{Tr}_{E/\Q_p}\tau_s
+   &=\frac{d}{\ell p}\log(1+p^\ell b^s),\label{eq:root-trace}\\
+ v_p(\operatorname{Tr}_{E/\Q_p}\tau_s)
+   &=v_p(d/\ell)+\ell-1+sN.\label{eq:root-trace-depth}
+\end{align}
+In particular, distinct such $s$ give distinct orbits under the arrows
+of Proposition~\ref{prop:trace-transport}, even after Ism action.
+\end{theorem}
+\begin{proof}
+The field $F=\Q_p(\mu_\ell)$ is unramified over $\Q_p$.
+The valuation assumption makes $b$ a non-$\ell$-th-power in $F$, so
+$K=F(a)$ has degree $\ell$ over $F$. Since multiplication by $s$
+permutes the exponents modulo $\ell$, and $\ell$ is odd,
+\[
+ \operatorname{Norm}_{K/F}(1+pa^s)
+   =\prod_{\zeta\in\mu_\ell}(1+p\zeta a^s)=1+p^\ell b^s.
+\]
+All factors are principal units. Taking logarithms, dividing by $p$,
+and using trace transitivity gives \eqref{eq:root-trace}: the remaining
+factor is $[E:K][F:\Q_p]=d/\ell$.
+For $x=p^\ell b^s$, the term $x$ is the unique least-valuation term
+in $\log(1+x)$, since
+\[
+ v_p(x^k/k)-v_p(x)=(k-1)(\ell+sN)-v_p(k)>0\quad(k\ge2).
+\]
+This proves \eqref{eq:root-trace-depth}, including nonvanishing.
+Its values differ by $(s-t)N$ for distinct labels, which
+\eqref{eq:trace-transport} cannot change.
+\end{proof}
+
+For a concrete example take $p=11$, $\ell=5$, $b=11$, and
+$E=\Q_{11}(\pi)$ with $\pi^5=11$. The base field contains $\mu_5$;
+the trace depths of $\tau_1$ and $\tau_4$ are $5$ and $8$.
+This is a specified local example, not a construction of all the
+global initial theta data.
+
+There is a direct local link with a split Tate curve having rational
+full $2$-torsion. If $q$ is its parameter, choose $b^2=q$.
+The class of $b$ in $\overline{\Q}_p^\times/q^\Z$ is rational, so
+$g(b)/b\in q^\Z\cap\{1,-1\}$. Valuation makes this intersection
+$\{1\}$; hence $b\in\Q_p$. Rationalizing full $\ell$-torsion also
+rationalizes full $2\ell$-torsion and supplies the required $a$ and
+$\mu_\ell$. The theorem consequently applies when
+$\ell\nmid v_p(q)/2$. It does not assert that every bad prime meets
+that condition.
+
+For a pure tensor with $m-1$ factors $u=\log(1+p)/p$ and one factor
+$\tau_s$, trace in $E^{\otimes m}$ is the product of the factor traces.
+Its valuation is
+\[
+ (m-1)v_p(d)+v_p(d/\ell)+\ell-1+sN.
+\]
+Local arrows, Ism actions, and factor permutations preserve this number,
+including when labels require repeated use of one arrow.
+This separates the exponent-$1$ input from the exponent-$j^2$ input
+for $j>1$, $j<\ell$. Raising $1+pa$ to the power $j^2$, which scales
+its logarithm, is a different operation from replacing $a$ by $a^{j^2}$.
+
+\subsection{Why this is not yet a holomorphic-hull comparison}
+
+Multiplying generators by coefficients of the maximal tensor order
+need not preserve their trace depths. Thus distinct pure orbits do not
+imply distinct module hulls. The upper-semicompatibility operation Ind3
+in \cite[Theorem~3.11(ii)]{IUT3} is a further operation, and has not
+been replaced here by an automorphism of one fixed Kummer module.
+Nor does changing an untilt's real-valued norm change the native trace
+in a fixed marked $p$-adic field.
+
+A converse test is useful: trace preservation alone permits a common
+least-layer displacement, without establishing an Ind1 lift.
+\begin{lemma}[Common avoidance with fixed trace]
+\label{lem:trace-transvection}
+Let $k$ be a field of characteristic different from two, let $V$ be a
+$k$-vector space, and let $t,l\in V^*$. Suppose $t(w)=0$, $l(w)=1$.
+For any nonzero $x,y\in V$, there is an automorphism $F$ with
+$tF=t$ and $l(Fx),l(Fy)\ne0$.
+\end{lemma}
+\begin{proof}
+Set $P(v)=v-l(v)w$. Choose a functional $h$ nonzero on each nonzero
+vector among $P(x),P(y)$. Such a functional exists: separate the first
+vector; if that functional kills the second, separate the second and
+use either the new functional or the sum, according to its value on the
+first. Put $f=hP$, so $f(w)=0$. The maps
+$F_z(v)=v+zf(v)w$ have inverses $F_{-z}$ and preserve $t$.
+For $v=x,y$, the polynomial $l(v)+zf(v)$ is nonzero: if $l(v)=0$,
+then $P(v)=v\ne0$. Two nonzero affine polynomials have at most two
+roots altogether. The three distinct scalars $0,1,-1$ therefore
+contain a valid choice of $z$.
+\end{proof}
+
+For finite Galois $E/\Q_p$ with $2\le e\le p-2$, one has
+$I_E=\pi^{1-e}\OO_E$, the inverse different. Both
+$\operatorname{Tr}:I_E\to\Z_p$ and
+$\operatorname{Tr}:\OO_E\to\Z_p$ are onto; the latter follows by
+tracing first through the tame ramified extension and then through the
+unramified one. On $I_E/pI_E$, trace modulo $p$ is independent of any
+nonzero $\mathbb F_p$-coordinate of $I_E/\pi I_E$: the latter vanishes
+on $\OO_E\subset\pi I_E$, whereas trace does not. The lemma gives an
+automorphism preserving trace modulo $p$ and reaching the least
+valuation layer for two primitive vectors simultaneously.
+Choose a basis splitting integral trace. The residue matrix has first
+row $(1,0,\ldots,0)$; lift that row exactly and the others arbitrarily.
+The determinant is a unit, so this is an integral invertible lift
+preserving trace exactly. No lift to an absolute Galois automorphism
+is established by this construction. Determining that image, and then performing all
+source-prescribed hull operations, remains necessary for a global
+comparison. No IUT theorem or the abc conjecture has been disproved
+by these local nonreachability statements.

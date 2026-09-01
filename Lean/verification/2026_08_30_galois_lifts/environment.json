@@ -1,0 +1,64 @@
+{
+  "repository_head": "3447f881ec8331f6c343a466e07b8689ded4bebe",
+  "lean": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "lake": "Lake version 5.0.0-src+8c9756b (Lean version 4.32.0)",
+  "packages": {
+    "mathlib": "81a5d257c8e410db227a6665ed08f64fea08e997",
+    "iut": "ddaddc274281adb5674d647e24fa478745ac6d40",
+    "genl": "6e9a6543b46a2a02fd7fe7ec8ab203d878f32859",
+    "heights": "3539e2a12dd3470c057a4eb531dc3fd627d4c97b",
+    "tate-curves-theta": "90d7fac0e4ef2d6bf2a619326c30adb862d1b3de"
+  },
+  "protected_file_sha256": {
+    "Lean/lean-toolchain": "56a12c348c1fb7bb3e6475757349976a7e93e94fa2918bf92811b1b2e9634504",
+    "Lean/lakefile.toml": "88f9f4ac807745d3f8d58bf692a956e17990382d6b667a1cd8a1a76611aafd2c",
+    "Lean/lake-manifest.json": "9c9ac0744b4579d6e2afa37150fc27263ff84e43753e5a6bdfc04f44ac96c8a8",
+    "Lean/IUTThreeClosures/ABCStatement.lean": "1da397c7959c179809ad091f0bcd619583339cc5100844363a35c25c0f4ee457",
+    "Lean/IUTThreeClosures/NonCircularDownstream.lean": "943718c1cc1107e0c63afbc5087565f41d87e5269100afaa97ab254b8e30dff2"
+  },
+  "package_tracked_changes": {
+    "mathlib": "",
+    "iut": "",
+    "genl": "",
+    "heights": "",
+    "tate-curves-theta": ""
+  },
+  "protected_files_match_previous": true,
+  "packages_match_previous": true,
+  "commands": {
+    "build": {
+      "command": [
+        "lake",
+        "build"
+      ],
+      "exit_code": 0
+    },
+    "audit": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "IUTThreeClosures/ResearchGaloisLifts20260830Audit.lean"
+      ],
+      "exit_code": 0
+    },
+    "previous-uniform": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "IUTThreeClosures/ResearchUniformGate20260830Audit.lean"
+      ],
+      "exit_code": 0
+    },
+    "previous-continuation": {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "IUTThreeClosures/ResearchContinuation20260830Audit.lean"
+      ],
+      "exit_code": 0
+    }
+  }
+}

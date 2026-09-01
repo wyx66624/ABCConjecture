@@ -316,3 +316,108 @@ import IUTThreeClosures.FreyPellChebyshevPrescribedFrobeniusCounterexample
 import IUTThreeClosures.FreyPellChebyshevPrescribedFrobeniusSurvivingFiveSieveCounterexample
 import IUTThreeClosures.FreyEventualModifiedSzpiroGate
 import IUTThreeClosures.ABCCounterexampleExcessMassGate
+
+-- August 30, 2026: proved arithmetic, finite counting and reachable-lattice components.
+import IUTThreeClosures.SmoothLowOmegaCounting
+import IUTThreeClosures.SignedPrimeSupport
+import IUTThreeClosures.SignedEndpointDyadicObstruction
+import IUTThreeClosures.ReachableTensorLatticeCriterion
+import IUTThreeClosures.FreyPellEffectiveResidualCorridor20260830
+
+-- Continuation: proved amplification bounds, full-rank local Haar certificates,
+-- explicit Pell logarithmic estimates, and fixed-source collation algebra.
+-- The external Matveev/BEG inputs are parameters, never new axioms.
+import IUTThreeClosures.AnalyticAmplificationContinuation20260830
+import IUTThreeClosures.DVRReachableHaar20260830
+import IUTThreeClosures.GeometryUniformityContinuation20260830
+import IUTThreeClosures.IUTReachabilityContinuation20260830
+import IUTThreeClosures.MatveevPellFinitePacket20260830
+import IUTThreeClosures.IUTTargetReset20260830
+
+-- Uniformity continuation: actual radicals, canonical cubic auxiliaries,
+-- trace transport consequences and the algebraic all-open lattice core.
+-- Source Galois/LCFT/analytic results remain paper proofs, never axioms here.
+import IUTThreeClosures.AnalyticActualRadicalUniformGate20260830
+import IUTThreeClosures.GeometryGlobalUniformGate20260830
+import IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830
+import IUTThreeClosures.IUTTracePreservingTransvection20260830
+import IUTThreeClosures.IUTAllOpenLatticeRigidity20260830
+
+-- Full free-group word lifts, simultaneous finite-field linear actions,
+-- and actual Frey Weierstrass invariants and residue-field point counts.
+-- Their source LCFT/Tate/full-Galois interpretations remain paper proofs.
+import IUTThreeClosures.IUTFullGaloisWordLift20260830
+import IUTThreeClosures.IUTThreeLabelMinimumLayer20260830
+import IUTThreeClosures.Frey139Tate210Realization20260830
+import IUTThreeClosures.SL2TransvectionGeneration20260830
+import IUTThreeClosures.Frey43BalancedRealization20260830
+import IUTThreeClosures.IUTGeneralTameSquareLabels20260830
+import IUTThreeClosures.TraceDualPreidealHull20260831
+
+-- August 31: actual two-prime support, trace-covariant rational returns,
+-- exact odd-part fibres, and arithmetic of the entire-isogeny obstruction family.
+-- Galois/Kummer transport and the complete isogeny-class argument remain paper proofs.
+import IUTThreeClosures.ABCTwoPrimeSupport20260831
+import IUTThreeClosures.TraceCovariantRationalReturn20260831
+import IUTThreeClosures.ABCOddPartFibre20260831
+import IUTThreeClosures.FreyEntireIsogenyArithmetic20260831
+import IUTThreeClosures.FreyIsogenyWeilHeight20260831
+import IUTThreeClosures.FreyIsogenyConductorSharpness20260831
+import IUTThreeClosures.IUTFiniteProductProjectionSpan20260831
+import IUTThreeClosures.ABCThreePrimeSignatures20260831
+
+-- August 31 continuation: exact mixed-full Campana radical slope and its
+-- standard-abc height/disproof gates.  The new analytic counting theorem is
+-- cited in the paper report and is not introduced as an axiom.
+import IUTThreeClosures.ABCMixedFullCampana20260831
+
+-- August 31 dual-route continuation: exact equivalence between standard abc
+-- and uniform boundedness on every fixed subcritical radical locus, together
+-- with kernel-checked counting thresholds and a sparse-gap countermodel.
+import IUTThreeClosures.ABCSubcriticalLocusUniformity20260831
+
+-- The complementary counterexample route: an actual Pell orbit, fullness
+-- transfer to the strict (7,3,2) signature, and a conditional implication to
+-- the unchanged negation of abc.  Squarefullness of an unbounded subsequence
+-- is not assumed by the repository outside the theorem hypothesis.
+import IUTThreeClosures.PellCampanaCounterexample20260831
+
+-- A deterministic descent of the same squarefull Pell premise to the
+-- primitive adjacent point `(r,1,r+1)`.  Its actual conductor has slope
+-- `1/2` (rather than `3/4`), and even squarefull roots make both adjacent
+-- factors fourth-full.  No existence premise is asserted globally.
+import IUTThreeClosures.PellAdjacentFactorCounterexample20260831
+
+-- Square-root descent through `(1 + sqrt 2)^n`: the squarefull Pell root is
+-- exactly a product of two coprime companion coordinates, and is squarefull
+-- iff both coordinates are.  This sharpens the unresolved arithmetic target.
+import IUTThreeClosures.PellSquareRootDescent20260831
+
+-- Elementary formal core of the prime-index balancing dichotomy: odd
+-- squarefull exponents have depth at least three, the exceptional index seven
+-- has a certified simple divisor, and the two channel bounds multiply.
+-- Literature-level perfect-power and valuation inputs remain explicit paper
+-- dependencies rather than project axioms.
+import IUTThreeClosures.PellPrimeIndexDichotomy20260831
+
+-- An independent Hall-family gate: primitive `X^3 + K = Y^2` data with
+-- squarefull `K` and `K^2 <= X` have exact radical slope below `11/12`.
+-- Existence of an unbounded family satisfying that premise is not asserted.
+import IUTThreeClosures.HallSquarefullCounterexample20260831
+
+-- A global symbolic sieve for the explicit Danilov--Hall Pell orbit.  If its
+-- normalized remainder is squarefull, the index lies in one explicit huge
+-- residue class; in particular every smaller nonnegative index is excluded.
+-- The surviving residue class remains an active arithmetic target.
+import IUTThreeClosures.DanilovGlobalIndexSieve20260831
+
+-- Deterministic core of the positive affine-shear route: every admissible
+-- pair gives a distinct primitive abc output.  The unresolved analytic
+-- repeated-prime lower bound remains a paper-level open gate, not an axiom.
+import IUTThreeClosures.AffineShearAmplification20260831
+
+-- Deterministic core of the sharpened affine exceptional-set bound: all
+-- three pair projections are injective, same-prime double divisibility is
+-- excluded, and the geometric-mean reduction is checked over the naturals.
+-- The external de Bruijn counting estimate is not added as an axiom.
+import IUTThreeClosures.AffineExcessUpperBound20260831

@@ -1,0 +1,74 @@
+{
+  "generatedAt": "2026-09-01T00:34:18.0444967-07:00",
+  "status": "PASS",
+  "tools": {
+    "lean": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+    "lake": "Lake version 5.0.0-src+8c9756b (Lean version 4.32.0)"
+  },
+  "directRuns": [
+    {
+      "name": "Danilov",
+      "file": "Lean/IUTThreeClosures/DanilovGlobalIndexSieve20260831.lean",
+      "exitCode": 0,
+      "log": "danilov-direct.log"
+    },
+    {
+      "name": "DanilovAudit",
+      "file": "Lean/IUTThreeClosures/DanilovGlobalIndexSieve20260831Audit.lean",
+      "exitCode": 0,
+      "log": "danilov-audit-direct.log"
+    },
+    {
+      "name": "Pell",
+      "file": "Lean/IUTThreeClosures/PellPrimeIndexDichotomy20260831.lean",
+      "exitCode": 0,
+      "log": "pell-direct.log"
+    },
+    {
+      "name": "Affine",
+      "file": "Lean/IUTThreeClosures/AffineExcessUpperBound20260831.lean",
+      "exitCode": 0,
+      "log": "affine-direct.log"
+    }
+  ],
+  "aggregateBuild": {
+    "exitCode": 0,
+    "jobs": 9151,
+    "log": "aggregate-lake-build.log"
+  },
+  "sourceScan": {
+    "forbiddenMatches": [],
+    "forbiddenKernelNames": []
+  },
+  "declarationCounts": [
+    {
+      "file": "Lean/IUTThreeClosures/DanilovGlobalIndexSieve20260831.lean",
+      "theorems": 43,
+      "definitions": 28,
+      "structures": 2,
+      "axioms": 0,
+      "countedDeclarations": 73
+    },
+    {
+      "file": "Lean/IUTThreeClosures/PellPrimeIndexDichotomy20260831.lean",
+      "theorems": 9,
+      "definitions": 0,
+      "structures": 0,
+      "axioms": 0,
+      "countedDeclarations": 9
+    },
+    {
+      "file": "Lean/IUTThreeClosures/AffineExcessUpperBound20260831.lean",
+      "theorems": 5,
+      "definitions": 0,
+      "structures": 0,
+      "axioms": 0,
+      "countedDeclarations": 5
+    }
+  ],
+  "totals": {
+    "theorems": 57,
+    "definitionsOrStructures": 30,
+    "countedDeclarations": 87
+  }
+}

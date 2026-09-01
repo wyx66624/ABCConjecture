@@ -1,0 +1,717 @@
+\section{Balanced persistence: affine amplification and explicit counterexample gates}
+\label{sec:balanced-persistence}
+
+This section records a further simultaneous attack on the positive and
+negative directions.  A route is kept active whenever its missing statement
+is merely difficult or unknown.  We mark a construction mechanism as closed
+only when a theorem or an explicit counterexample contradicts the statement
+that mechanism actually needs.  A local failure is never promoted to a
+failure of the surrounding route.
+
+The standard conjecture remains the target throughout.  No existence premise
+for a squarefull Pell subsequence, a squarefull Hall remainder, or a large
+low-radical affine subfibre is assumed.
+
+\subsection{A complete two-parameter primitive shear}
+
+Fix a primitive positive seed
+\[
+             a+b=c,\qquad \gcd(a,b)=1,
+\]
+and put
+\[
+ P=abc,\qquad R=\rad(P),\qquad
+ \rho=\frac{\log P}{\log c},\qquad
+ \sigma=\frac{\log R}{\log c}.
+\]
+After interchanging $a$ and $b$, assume $b\geq c/2$.  The elementary bounds
+\begin{equation}\label{eq:bp-P-range}
+                  c(c-1)\leq P\leq \frac{c^3}{4}
+\end{equation}
+will be used repeatedly.
+
+For integers $h,k\geq1$ define
+\begin{equation}\label{eq:bp-shear}
+ \begin{split}
+ U&=1+Ph,\\
+ V&=1+P(h+ck),\\
+ W&=1+P(h+bk).
+ \end{split}
+\end{equation}
+
+\begin{theorem}[Primitive affine shear]
+\label{thm:bp-affine-shear}
+If $\gcd(U,k)=1$, then
+\[
+                         (aU,bV,cW)
+\]
+is a positive primitive $abc$ point.  The ordered output determines the
+parameter pair $(h,k)$.
+\end{theorem}
+
+\begin{proof}
+The three identities
+\[
+ V-U=cPk,\qquad W-U=bPk,\qquad V-W=aPk
+\]
+and $a+b=c$ give
+\[
+ aU+bV=cW.
+\]
+All three cofactors are congruent to $1$ modulo $P$, so they avoid every
+prime of the seed.  A common divisor of $U$ and $V$ divides $cPk$ and is
+coprime to $cP$; it must therefore divide $k$, contrary to
+$\gcd(U,k)=1$.  The same argument gives $\gcd(U,W)=1$.
+
+A common divisor of $V$ and $W$ divides $aPk$.  It avoids $aP$, while
+$V\equiv U\pmod{k}$ and hence is coprime to $k$.  Thus $U,V,W$ are pairwise
+coprime.  The seed coordinates are pairwise coprime, and all cross terms are
+coprime because the cofactors avoid $P$.  This proves primitivity.
+Finally $U=(aU)/a$ recovers $h$, and $V-U=cPk$ then recovers $k$.
+\end{proof}
+
+The construction is not a thin parametrization.
+
+\begin{lemma}[Uniform admissible count]
+\label{lem:bp-admissible-count}
+For all sufficiently large $M$,
+\[
+ \#\{1\leq h,k\leq M:\gcd(1+Ph,k)=1\}\geq \frac{M^2}{8}.
+\]
+Inside the upper square $\lceil M/2\rceil\leq h,k\leq M$, the count is at
+least $M^2/32$.
+\end{lemma}
+
+\begin{proof}
+A bad pair has a prime $\ell\leq M$ dividing both $k$ and $1+Ph$; such a
+prime does not divide $P$.  For each $\ell$, there are at most $M/\ell$
+choices of $k$ and at most $M/\ell+1$ choices of $h$.  Hence
+\[
+ \#\{\hbox{bad pairs}\}
+ \leq M^2\sum_{\substack{\ell\leq M\\ \ell\text{ prime}}}\ell^{-2}
+       +M\sum_{2\leq n\leq M}n^{-1}
+ \leq \frac{3M^2}{4}+M\log M.
+\]
+Here $\sum_{n\geq2}n^{-2}\leq3/4$.  This proves the first assertion for
+large $M$.
+
+For the upper square let $L$ denote its side length.  The contribution of
+$\ell$ is at most $(L/\ell+1)^2$, so the total number of bad pairs is at
+most
+\[
+                       \frac{3L^2}{4}+2L\log M+\pi(M).
+\]
+For large $M$ the final two terms are at most $L^2/8$.  Since $L\geq M/2$,
+at least $L^2/8\geq M^2/32$ pairs remain.
+\end{proof}
+
+For fixed $K>5$, set
+\[
+                  M_K=\left\lfloor\frac{c^{K-2}}{4P}\right\rfloor.
+\]
+Equation \eqref{eq:bp-P-range}, Theorem~\ref{thm:bp-affine-shear}, and
+Lemma~\ref{lem:bp-admissible-count} give
+\begin{equation}\label{eq:bp-raw-fibre}
+ \#\{\hbox{distinct outputs of height at most }c^K\}
+              \gg M_K^2\gg c^{2K-10}.
+\end{equation}
+Indeed,
+\[
+ cW\leq c+cPM_K(1+b)<c^K.
+\]
+At $K=8$ this produces at least $c^6/32$ outputs after increasing the fixed
+lower threshold for $c$.
+
+\subsection{The actual-radical gate}
+
+The raw count does not inherit the seed's radical saving automatically.  For
+$n\geq1$ put
+\[
+                         E(n)=\frac{n}{\rad(n)}.
+\]
+Because the cofactors in \eqref{eq:bp-shear} are pairwise coprime and avoid
+$P$, radical multiplicativity gives the exact identity
+\begin{equation}\label{eq:bp-excess-identity}
+ \rad(aUbVcW)=R\rad(UVW)
+             =\frac{RUVW}{E(U)E(V)E(W)}.
+\end{equation}
+Writing $H=cW$, the condition
+\[
+                       \rad(aUbVcW)<H^\mu
+\]
+is therefore equivalent to
+\begin{equation}\label{eq:bp-excess-gate}
+ E(U)E(V)E(W)>\frac{R}{c}\,UVH^{1-\mu}.
+\end{equation}
+This equivalence is the positive route's exact remaining arithmetic object.
+
+At $K=8$, $\mu=3/4$, and on the upper parameter square, every exceptional
+output has
+\begin{equation}\label{eq:bp-excess-c14}
+                       E(U)E(V)E(W)>\frac{R}{8192}c^{14}.
+\end{equation}
+To see the direction of the height inequality explicitly, the lower bounds
+in the upper square give $UVW\geq c^{20}/8192$, while $H<c^8$, and
+\[
+ \frac{R}{c}UVH^{1/4}=\frac{RUVW}{H^{3/4}}.
+\]
+
+Define the square-root part
+\[
+ Q(n)=\prod_p p^{\lfloor v_p(n)/2\rfloor}.
+\]
+Primewise, $Q(n)^2\mid n$ and $Q(n)^2\geq E(n)$.  Thus
+\eqref{eq:bp-excess-c14} places every desired output in the tail
+\begin{equation}\label{eq:bp-large-square-tail}
+                        Q(UVW)\gg R^{1/2}c^7,
+\end{equation}
+whereas the parameter box has side $M\ll c^4$.  This explains why an
+ordinary small-modulus squarefree sieve does not settle either direction.
+
+There is nevertheless a uniform unconditional upper budget.  Let
+$\mathcal E_c$ be the $K=8$, $\mu=3/4$ exceptional subfibre.  Then
+\begin{theorem}[Three-way exceptional budget]
+\label{thm:bp-three-way-budget}
+For every fixed subcritical source locus and every $\delta>0$,
+\begin{equation}\label{eq:bp-three-way-budget}
+ |\mathcal E_c|\ll_\delta
+ c^{\min\{12-2\rho,\,6-\sigma,\,8-\rho-\sigma/3\}+\delta},
+\end{equation}
+uniformly in the seed.
+\end{theorem}
+
+\begin{proof}
+The first term is the size of the full two-parameter fibre.  The second is
+the actual-support $S$-unit estimate from Section~\ref{sec:actual-radical},
+applied with target radical below $c^6$ and inherited radical $R$.
+
+For the third term, \eqref{eq:bp-excess-identity} implies
+\[
+ D:=\rad(UVW)<\frac{c^6}{R}.
+\]
+Since the three cofactors are pairwise coprime, one of their radicals is
+below
+\[
+                         Z=(c^6/R)^{1/3}=c^{2-\sigma/3}.
+\]
+The de Bruijn radical count used by
+Bernert--Browning--Lichtman--Ter\"av\"ainen~\cite{BBLT} bounds the number of
+possible values of that cofactor by
+$O_\delta(c^{2-\sigma/3+\delta})$.  The exponent is uniform: for a fixed
+source slope $\sigma\in[0,\lambda]$, the relevant de Bruijn exponent ranges
+over a compact interval, so a finite mesh and monotonicity reduce the claim
+to finitely many fixed estimates.
+
+For fixed $U$, the parameter $h$ is unique and there are at most $M$ choices
+of $k$.  Fixed $V$ or $W$ has no larger representation multiplicity.
+Since $M\ll c^{6-\rho}$, the third exponent follows.
+\end{proof}
+
+\begin{theorem}[Seed-sensitive affine upper gate]
+Fix a positive primitive seed $a+b=c$, and put $R=\rad(abc)$.  Let
+$X\geq2$ and $0<\mu<1$.  For an arbitrary subset of the admissible positive
+integral parameters, let $\mathcal E(X)$ be its set of distinct affine-shear
+outputs satisfying $H=cW\leq X$ and $\rad(aUbVcW)<H^\mu$.  Then, for every
+$\varepsilon>0$,
+\begin{equation}\label{eq:bp-sharp-affine-upper}
+ \#\mathcal E(X)\ll_{\mu,\varepsilon}
+        R^{-2/3}X^{2\mu/3+\varepsilon}.
+\end{equation}
+The implied constant is independent of the seed and of the chosen parameter
+subset.
+\end{theorem}
+
+\begin{proof}
+Positivity in $aU+bV=cW=H$ gives $U,V,W\leq H\leq X$.  Exact support
+avoidance and cofactor coprimality give
+\[
+ \rad(aUbVcW)=R\rad(U)\rad(V)\rad(W),
+\]
+so every exceptional output satisfies
+\[
+ \rad(U)\rad(V)\rad(W)<X^\mu/R.
+\]
+All three pair projections $(U,V)$, $(U,W)$, and $(V,W)$ are injective.  The
+two-coordinate consequence of the de Bruijn radical count is
+\[
+ \#\{(m,n):m,n\leq X,\ \rad(m)\rad(n)<Y\}
+ \ll_\varepsilon YX^\varepsilon.
+\]
+Writing $r_1,r_2,r_3$ for the three cofactor radicals, the identity
+$(r_1r_2)(r_1r_3)(r_2r_3)=(r_1r_2r_3)^2$ shows that one pair product is below
+$(X^\mu/R)^{2/3}$.  Apply the pair count through the corresponding injective
+projection and sum over the three choices.  This proves
+\eqref{eq:bp-sharp-affine-upper}.
+\end{proof}
+
+The relaxed region $\rho\leq3$, $\sigma<1$ leaves every exponent in
+\eqref{eq:bp-three-way-budget} above $4$; the infimum of the third term is
+$14/3$.  This is a lower envelope of the available upper-budget exponents,
+not a pointwise upper bound $|\mathcal E_c|\ll c^{14/3}$.  For a fixed
+source slope $\lambda<1$ its corresponding relaxed envelope is
+$5-\lambda/3$.
+
+At $\mu=3/4$, Proposition~1.1 of
+Bernert--Browning--Lichtman--Ter\"av\"ainen gives exponent
+$2\mu/3=1/2$ in target height~\cite{BBLT}.  Their Theorem~1.3 gives the
+different uniform exponent $3/5$ for fixed $\mu<1$; at $\mu=3/4$ it is the
+weaker of the two applicable estimates.  Hence the following statement would
+close the positive route through the subcritical-locus equivalence.
+
+\begin{corollary}[Exact conditional closing step]
+\label{cor:bp-affine-closing-step}
+Fix $\lambda<1$.  Suppose every sufficiently large seed satisfying
+$R<c^\lambda$ has at least $c^{17/4}$ members of $\mathcal E_c$.  Then the
+height of that source locus is bounded.
+\end{corollary}
+
+\begin{proof}
+Every member is a distinct primitive point of height below $c^8$.  For every
+$\delta>0$, the cited exceptional-set theorem gives
+\[
+                         |\mathcal E_c|\ll_\delta c^{4+8\delta}.
+\]
+Take $\delta=1/64$.  Then $4+8\delta=33/8<17/4$, so comparison with the
+hypothesized lower bound bounds $c$.
+\end{proof}
+
+The fixed exponent $17/4$ is sufficient but no longer optimal.  By
+\eqref{eq:bp-sharp-affine-upper}, the sharp conditional comparison at
+$X=c^8$ is
+\[
+              |\mathcal E_c|\geq R^{-2/3}c^{4+\eta}
+              \qquad(\eta>0).
+\]
+For a seed with $R=c^{\sigma+o(1)}$, the required exponent is therefore
+$4-2\sigma/3+\eta$.  This is a conditional lower target, not a consequence of
+the upper bound.
+
+There is also a precise local warning.  Conditional on local admissibility at
+$p\nmid P$, each of $p^2\mid U,V,W$ has probability $1/(p(p+1))$, but the
+three events are pairwise disjoint.  Thus the model asserting independence of
+the three same-prime events is refuted.  Finite local data at distinct primes
+remain exactly independent by the Chinese remainder theorem.  This local
+counterexample closes only that probabilistic model; it does not refute the
+affine lower-bound route.
+
+No theorem presently supplies the lower bound in
+Corollary~\ref{cor:bp-affine-closing-step}.  The upper budget does not refute
+it.  The affine route therefore remains active.
+
+\subsection{Square-root descent on the balancing Pell orbit}
+
+Let
+\[
+ u_0=0,\quad u_1=1,\quad u_{n+2}=6u_{n+1}-u_n,
+\]
+and define $x_n$ by
+\[
+                         x_n^2-8u_n^2=1.
+\]
+Equivalently,
+\[
+                         (3+\sqrt8)^n=x_n+u_n\sqrt8.
+\]
+Introduce the companion coordinates
+\[
+                         (1+\sqrt2)^n=A_n+B_n\sqrt2.
+\]
+
+\begin{theorem}[Coprime square-root factorization]
+\label{thm:bp-square-root-factorization}
+For every $n\geq1$,
+\begin{equation}\label{eq:bp-square-root-factorization}
+ x_n=A_n^2+2B_n^2,\qquad u_n=A_nB_n,\qquad
+ A_n^2-2B_n^2=(-1)^n,\qquad \gcd(A_n,B_n)=1.
+\end{equation}
+Consequently $u_n$ is squarefull if and only if both $A_n$ and $B_n$ are
+squarefull.
+\end{theorem}
+
+\begin{proof}
+Squaring $(1+\sqrt2)^n$ and using
+$(1+\sqrt2)^2=3+\sqrt8$ gives the first two identities.  Taking norms gives
+the third.  A common divisor of $A_n$ and $B_n$ divides the norm, hence is
+one.  The prime supports of the two factors are therefore disjoint, which
+proves the squarefull equivalence.
+\end{proof}
+
+Adding and subtracting the norm identity gives
+\begin{equation}\label{eq:bp-adjacent-shapes}
+ \left(\frac{x_n-1}{2},\frac{x_n+1}{2}\right)=
+ \begin{cases}
+  (2B_n^2,A_n^2),&n\text{ even},\\
+  (A_n^2,2B_n^2),&n\text{ odd}.
+ \end{cases}
+\end{equation}
+Thus the associated primitive point $Q_n$ is obtained by inserting the unit
+between the two entries in \eqref{eq:bp-adjacent-shapes}.
+
+\begin{theorem}[One-half radical slope]
+\label{thm:bp-half-slope}
+If $u_n$ is squarefull and $c_n$ is the larger nonunit entry of $Q_n$, then
+\begin{equation}\label{eq:bp-half-slope}
+              \log\rad(Q_n)<\frac12\log c_n+\log2.
+\end{equation}
+Hence an unbounded squarefull subsequence of $(u_n)$ would disprove the
+standard $abc$ conjecture.
+\end{theorem}
+
+\begin{proof}
+Theorem~\ref{thm:bp-square-root-factorization} makes both factors squarefull,
+so
+\[
+ \rad(Q_n)=\rad(2A_n^2B_n^2)
+       \leq2\rad(A_n)\rad(B_n)\leq2\sqrt{A_nB_n}.
+\]
+For even $n$, $c_n=A_n^2$ and $B_n<A_n$; for odd $n$,
+$c_n=2B_n^2$ and $A_n<2B_n$.  Thus $A_nB_n<c_n$ in both cases, proving
+\eqref{eq:bp-half-slope}.  Applying standard $abc$ with, for example,
+$\eps=1/2$ would bound the heights, contradicting an unbounded subsequence.
+\end{proof}
+
+On an even squarefull index, both nonunit entries are $4$-full, so the fixed
+signature is $(3,4,4)$ with reciprocal sum $5/6$.  This is an additional
+conversion of the same unresolved squarefull premise, rather than a new
+source of indices.
+
+\subsection{Valuation saturation and prime-index descent}
+
+For a prime $p$, let $z(p)$ be its rank of apparition in $(u_n)$.  Strong
+divisibility gives $p\mid u_n$ if and only if $z(p)\mid n$.  For odd $p$,
+the order calculation in the quadratic residue algebra gives
+\begin{equation}\label{eq:bp-rank-bound}
+                       z(p)\mid p-\left(\frac{2}{p}\right).
+\end{equation}
+Sanna's exact valuation theorem~\cite{Sanna2016} specializes to
+\begin{equation}\label{eq:bp-Sanna}
+ v_p(u_n)=
+ \begin{cases}
+  v_p(u_{z(p)})+v_p(n),&z(p)\mid n,\\
+  0,&z(p)\nmid n,
+ \end{cases}
+ \qquad(p\text{ odd}),
+\end{equation}
+and
+\[
+ v_2(u_n)=0\quad(n\text{ odd}),\qquad
+ v_2(u_n)=v_2(n)\quad(n\text{ even}).
+\]
+
+Equations \eqref{eq:bp-rank-bound}--\eqref{eq:bp-Sanna} yield an exact
+saturation rule.  If $p\parallel u_{z(p)}$, $z(p)\mid N$, and $u_N$ is
+squarefull, then $p\mid N/z(p)$.  Iterating only the factorizations
+\[
+ \begin{array}{c|l}
+ 2&2\cdot3\\
+ 3&5\cdot7\\
+ 4&2^2\cdot3\cdot17\\
+ 5&29\cdot41\\
+ 6&2\cdot3^2\cdot5\cdot7\cdot11\\
+ 7&13^2\cdot239
+ \end{array}
+\]
+proves the finite obstruction
+\begin{equation}\label{eq:bp-index-saturation}
+ u_N\text{ squarefull and }2\mid N
+ \quad\Longrightarrow\quad
+       22{,}318{,}790{,}340\mid N.
+\end{equation}
+The factor $13^2$ at rank seven supplies no outgoing exponent-one edge.  This
+is a real obstruction to the naive use of primitive-divisor theorems:
+\begin{equation}\label{eq:bp-u7}
+                         u_7=13^2\cdot239.
+\end{equation}
+Carmichael's theorem in Yabuta's formulation~\cite{Yabuta2001} provides a
+primitive divisor at every relevant index, but \eqref{eq:bp-u7} proves that
+``primitive'' does not mean ``valuation one.''
+
+The strongest unconditional descent obtained here reduces the full
+squarefull question to prime indices.
+
+\begin{theorem}[Largest-prime descent]
+\label{thm:bp-largest-prime-descent}
+Suppose $N>1$ and $u_N$ is squarefull.  If $\ell$ is the largest prime
+divisor of $N$, then $\ell$ is odd and $u_\ell$ is squarefull.
+\end{theorem}
+
+\begin{proof}
+If $N$ were a power of two, then $z(3)=2$ and
+\eqref{eq:bp-Sanna} would give $v_3(u_N)=1$, a contradiction.  Thus $\ell$
+is odd.
+
+Let $q\mid u_\ell$.  Since $u_\ell$ is odd and $\ell$ is prime,
+$z(q)=\ell$.  Equation \eqref{eq:bp-rank-bound} gives $\ell\mid q\pm1$.
+An odd prime with this property is larger than $\ell$: the first positive
+representatives $\ell-1$ and $\ell+1$ are even.  Hence $q\nmid N$ by the
+maximality of $\ell$.  Since $\ell\mid N$, valuation lifting gives
+\[
+                         v_q(u_N)=v_q(u_\ell)+v_q(N)=v_q(u_\ell).
+\]
+The left side is at least two.  This holds for every prime divisor of
+$u_\ell$, proving squarefullness.
+\end{proof}
+
+An odd prime $p$ for which $p^2\mid u_{z(p)}$ is a balancing-Wieferich prime.
+Write $(1+\sqrt2)^n=A_n+B_n\sqrt2$.  At an odd prime index $\ell$,
+$u_\ell=A_\ell B_\ell$ and $\gcd(A_\ell,B_\ell)=1$.  The perfect-power
+classifications of Cohn and Ljunggren~\cite{Cohn1996Pell,Cohn2003Pell,Ljunggren1942}
+sharpen the prime-index alternative as follows.
+
+\begin{theorem}[Prime-index four-prime packet]
+\label{thm:bp-four-prime-packet}
+For every odd prime $\ell$, either some prime satisfies
+$q\parallel u_\ell$, or $\ell\ne7$ and $u_\ell$ is squarefull with at least
+four distinct support primes of rank exactly $\ell$: at least two divide
+$A_\ell$ and at least two divide $B_\ell$.  In this second alternative every
+such prime has first valuation at least two, and each channel contains a prime
+whose first valuation is at least three.
+\end{theorem}
+
+\begin{proof}
+If no support valuation equals one, the term is squarefull.  Coprimality makes
+both channels squarefull.  Cohn's associated-Pell theorem says that
+$A_\ell>1$ is not a perfect power.  The standard Pell classifications say the
+same for $B_\ell$, except at $\ell=7$; there
+$u_7=13^2\cdot239$ and $239\parallel u_7$.  A squarefull integer which is not
+a perfect power has at least two support primes and an odd valuation at least
+three.  Applying this separately to the two channels proves the packet.
+The rank and valuation claims follow from
+\eqref{eq:bp-rank-bound}--\eqref{eq:bp-Sanna}.
+\end{proof}
+
+The channel orders also force
+\[
+ q\mid A_\ell\Longrightarrow q\equiv1\text{ or }2\ell+1\pmod{4\ell},
+ \qquad
+ q\mid B_\ell\Longrightarrow q\equiv1\text{ or }2\ell-1\pmod{4\ell}.
+\]
+Combining Theorem~\ref{thm:bp-four-prime-packet} with the largest-prime
+descent shows that every hypothetical nonunit squarefull balancing term forces
+such a packet at an odd prime rank.  The adjacent Pell point consequently has
+the sharpened bound
+\begin{equation}\label{eq:bp-channel-radical}
+ \rad(2A_\ell^2B_\ell^2)
+ \leq 2\sqrt{\frac{u_\ell}{4\ell^2-1}}.
+\end{equation}
+No theorem currently rules out all such packets or constructs infinitely many
+of them.  The Pell route remains active.
+
+\subsection{Elliptic and Hall alternatives}
+
+The Mordell curve
+\[
+                         E:y^2=x^3-2,\qquad P=(3,5)
+\]
+supplies an independent critical family.  Write
+\[
+ nP=\left(\frac{\mathsf X_n}{\mathsf D_n^2},
+           \frac{\mathsf Y_n}{\mathsf D_n^3}\right)
+\]
+in lowest terms.  Then
+\begin{equation}\label{eq:bp-EDS}
+                  \mathsf Y_n^2+2\mathsf D_n^6=\mathsf X_n^3.
+\end{equation}
+The three entries are pairwise coprime.  Since
+\[
+ 2P=\left(\frac{129}{10^2},\frac{-383}{10^3}\right),
+\]
+the denominator elliptic divisibility sequence satisfies
+$\mathsf D_2\mid\mathsf D_{2k}$, so $\mathsf D_n$ is even at every even
+index~\cite{EverestMcLarenWard2006}.  Equation
+\eqref{eq:bp-EDS} then has critical signature $(2,6,3)$.  It becomes strict
+if $\mathsf Y_n$ or $\mathsf X_n$ is squarefull on an unbounded subsequence,
+or if the odd part of $\mathsf D_n$ is squarefull.  Elliptic
+primitive-divisor theorems control new support, but not its first valuation,
+so none of these upgrade gates is currently refuted.
+
+There is also a size-sensitive Hall gate.
+
+\begin{proposition}[Squarefull Hall gate]
+\label{prop:bp-Hall-gate}
+Suppose positive primitive data satisfy
+\[
+                         X^3+K=Y^2,\qquad K^2\leq X,
+\]
+and $K$ is squarefull.  Then
+\begin{equation}\label{eq:bp-Hall-powers}
+       \rad(X^3KY^2)^{12}<(Y^2)^{11},
+\end{equation}
+so an unbounded family of such data would disprove standard $abc$.
+\end{proposition}
+
+\begin{proof}
+Put $D=\rad(X^3KY^2)$.  Radical submultiplicativity gives
+$D\leq X\rad(K)Y$.  Squarefullness and the size condition give
+\[
+                         \rad(K)^{12}\leq K^6\leq X^3.
+\]
+Therefore $D^{12}\leq X^{15}Y^{12}$.  Since $K>0$,
+$X^3<Y^2$, whence $X^{15}<Y^{10}$.  This proves
+\eqref{eq:bp-Hall-powers}.  Its logarithmic slope is strictly below $11/12$.
+\end{proof}
+
+Danilov's identity, as recorded by Dujella~\cite{Danilov1982,Dujella2011}, is
+\begin{equation}\label{eq:bp-Danilov}
+ (z^2+6z+4)^3-(z^2+1)(z^2+9z+19)^2=-27(2z+11).
+\end{equation}
+Choose positive solutions
+\[
+ z^2-5w^2=-1,\qquad z\equiv57\pmod{125}.
+\]
+There are infinitely many: one is $(682,305)$, and multiplication by a fixed
+positive power of the norm-one unit $9+4\sqrt5$ preserves the congruence and
+gives an unbounded orbit.  Put
+\[
+ \begin{split}
+ A&=z^2+6z+4,\qquad B=z^2+9z+19,\qquad L=2z+11,\\
+ X&=A/5,\qquad Y=wB/5,\qquad K=27L/125.
+ \end{split}
+\]
+The congruence gives $125\mid L$, $A\equiv20\pmod{25}$, and $5\mid w$.
+Equation \eqref{eq:bp-Danilov} becomes
+\begin{equation}\label{eq:bp-Danilov-normalized}
+                         X^3+K=Y^2.
+\end{equation}
+Moreover $\gcd(A,B)=1$ and $\gcd(A,wB)=5$, so $\gcd(X,Y)=1$.  Thus this is
+an unbounded primitive Hall family with
+\[
+       X\sim\frac{z^2}{5},\qquad
+       K\sim\frac{54z}{125}
+        \sim\frac{54\sqrt5}{125}\sqrt X,\qquad
+       \frac{54\sqrt5}{125}<1.
+\]
+Consequently $K^2<X$ on a sufficiently large tail of the orbit.
+The first point is the exact identity
+\[
+                     93844^3+297=28748141^2.
+\]
+Here $297=3^3\cdot11$ is not squarefull.  This refutes only the universal
+claim that every remainder in the congruence orbit is squarefull; it does not
+refute an unbounded squarefull subsequence.  Such a subsequence would satisfy
+Proposition~\ref{prop:bp-Hall-gate} after discarding its finite initial segment
+and would disprove $abc$.
+
+For each fixed $m\geq2$, forcing the moving factor
+$(2z+11)/125$ to be one exact $m$th power leads to the hyperelliptic equation
+\[
+ (2w)^2=3125t^{2m}-550t^m+25.
+\]
+The polynomial on the right is squarefree of degree $2m$, so its smooth
+completion has genus $m-1\geq1$.  Siegel's theorem yields only finitely many
+integral points for that fixed $m$.  This closes the fixed exact-power
+mechanism.  It does not close the squarefull route because the square and
+cube kernels may both move.
+
+\paragraph{Certified finite computation.}
+A reproducible exact audit in the companion computation archive checked both
+open squarefull routes without extrapolating from finite data.  For the
+balancing recurrence, every one of the $999$ terms $u_n$ with
+$2\leq n\leq1000$ has an explicit prime $p$ and residue $q$ such that
+\[
+                  u_n\equiv pq\pmod {p^2},\qquad 1\leq q<p.
+\]
+Thus each of those terms is rigorously non-squarefull.  The extended
+certified run through $n=2000$ now settles $1997$ of the $1999$ nonunit terms
+and leaves precisely
+\[
+                         \{1873,1951\}
+\]
+unresolved.  These two indices are neither squarefull hits nor certified
+non-hits.  The seven new exclusions use local recursive Pocklington proofs and
+two independent recurrences modulo $p^2$.
+
+An exhaustive scan of all $183{,}071$ odd primes $q\leq2{,}500{,}000$ tested
+$u_{q-(2/q)}$ modulo $q^3$.  The only balancing-Wieferich hits are
+$13,31,1546463$, all of exact depth two; no depth-three hit occurs in this
+finite range.  This is pressure against the four-prime packet, not an
+infinite nonexistence theorem.
+
+On the Danilov orbit obtained by iterating
+$(9+4\sqrt5)^{10}$ from $(682,305)$, the audit verifies the Pell equation,
+integrality, primitivity, $X^3+K=Y^2$, and $K^2\leq X$ for
+$0\leq t\leq80$; every one of the $81$ remainders also has a certified prime
+with $v_p(K)=1$.  The five-small-prime periodic sieve already fails to decide
+$t=326$.  A subsequent symbolic prime-square lift eliminates the finite-search
+boundary: if $K_t$ is squarefull, then
+\begin{equation}\label{eq:bp-Danilov-global-sieve}
+ \begin{aligned}
+ t&\equiv122136955032565025967809449110840347537827\\
+  &\hspace{1em}\pmod{183205432548847538951714173666260521306741}.
+ \end{aligned}
+\end{equation}
+Hence every nonnegative index below the displayed representative is ruled out
+as a squarefull index.  The surviving index residue class is nonempty, but the
+theorem asserts no squarefull value in it and does not exclude all such values.
+The Danilov route remains active.
+
+The Cohn--Nitaj constructions provide genuine unbounded critical $(3,3,3)$
+families~\cite{Nitaj1995,Cohn1998}.  Walsh's Theorem~1.1 supplies another
+infinite family for an odd prime $p$ under the explicit hypothesis that
+\(Y^2=X^3-432p^2\) has positive rank~\cite{Walsh2024}; without a proved rank
+statement for the selected $p$, that branch remains conditional.  In each
+case the reciprocal sum equals one.  A powerful-coordinate subsequence would
+make a strict signature, and no cited theorem either constructs or refutes
+that subsequence.  These routes also remain active.
+
+\subsection{Formalization boundary and route ledger}
+
+Seven Lean modules formalize the elementary deterministic core after the
+paper proofs were written:
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.36\textwidth}
+                >{\raggedright\arraybackslash}p{0.55\textwidth}}
+\toprule
+Module & Kernel-checked content\\
+\midrule
+\texttt{PellAdjacentFactor\allowbreak Counterexample20260831}
+ & Half-factor existence, primitive adjacent point, radical square bound,
+ one-half conductor inequality, fourth-full transfer, and the conditional
+ implication to $\neg\texttt{ABCConjecture}$.\\
+\texttt{PellSquareRoot\allowbreak Descent20260831}
+ & The $(1+\sqrt2)^n$ recurrence, norm, coprimality, exact square shapes,
+ fullness splitting, and equivalence with the Pell coordinate.\\
+\texttt{PellPrimeIndex\allowbreak Dichotomy20260831}
+ & Odd squarefull exponents have depth at least three, the complete
+ index-seven obstruction $239\parallel u_7$, and the two-channel numerical
+ product bound.\\
+\texttt{HallSquarefull\allowbreak Counterexample20260831}
+ & The primitive Hall point, the twelfth-power radical inequality, the
+ $11/12$ conductor inequality, and the unbounded-family disproof gate.\\
+\texttt{AffineShear\allowbreak Amplification20260831}
+ & The shear equation, avoidance of the seed support, all cofactor and
+ endpoint coprimality statements, the actual \texttt{ABCPoint}, and
+ injectivity of the parameter map.\\
+\texttt{AffineExcess\allowbreak UpperBound20260831}
+ & Injectivity of all three pair projections, same-prime double-divisibility
+ exclusion, and the integer geometric-mean lemma.\\
+\texttt{DanilovGlobalIndex\allowbreak Sieve20260831}
+ & The $11$- and $89$-adic stages, ten prime-square lift packets, exact CRT,
+ and the global progression and lower-index exclusion in
+ \eqref{eq:bp-Danilov-global-sieve}.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The analytic BBLT and $S$-unit estimates; the Cohn--Ljunggren perfect-power
+classifications; Sanna's valuation theorem; Carmichael--Yabuta and Siegel;
+elliptic-divisibility and primitive-divisor results; the Danilov
+parametrization, primitivity, and orbit unboundedness; and the Cohn--Nitaj and
+conditional Walsh existence results all remain outside this Lean increment.
+They are proved on paper or cited, rather than inserted as project axioms.
+
+The resulting route ledger is deliberately narrow:
+\begin{itemize}
+\item the affine repeated-prime lower bound, simultaneous squarefull Pell
+coordinates, exclusion or construction of the forced four-prime
+balancing-Wieferich packets, the surviving Danilov residue class, and powerful
+elliptic-coordinate subsequences are \emph{active};
+\item a fixed strict generalized-Fermat equation, a finite residual-kernel
+packet, a primitive polynomial-full identity, and the fixed exact-power
+Danilov specialization are closed only as the stated construction mechanisms;
+\item the example $K=297$ refutes ``every Danilov remainder is squarefull''
+but leaves all unbounded-subsequence variants open; the same-prime independent
+affine model is also refuted, without closing the affine route.
+\end{itemize}
+No unconditional closed term of type \texttt{ABCConjecture}, and no rigorous
+unconditional disproof, is obtained in this increment.

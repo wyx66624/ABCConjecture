@@ -1,0 +1,46 @@
+/-
+Copyright (c) 2026 ChatGPT. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: ChatGPT
+-/
+import IUTThreeClosures.SmoothLowOmegaCounting
+import IUTThreeClosures.SignedPrimeSupport
+import IUTThreeClosures.SignedEndpointDyadicObstruction
+import IUTThreeClosures.ReachableTensorLatticeCriterion
+import IUTThreeClosures.FreyPellEffectiveResidualCorridor20260830
+
+/-!
+# Reproducible declaration and dependency audit for the August 30 increment
+
+This file reports proved components. It deliberately does not claim a term of
+type `ABCConjecture` or its negation. External analytic and effective-height
+inputs remain at the boundaries documented in the companion manuscript.
+-/
+
+#print IUTThreeClosures.ABCConjecture
+
+#check @IUTThreeClosures.SmoothLowOmegaCounting.smoothLowOmegaUpTo_card_le
+#print axioms IUTThreeClosures.SmoothLowOmegaCounting.smoothLowOmegaUpTo_card_le
+#check @IUTThreeClosures.SmoothLowOmegaCounting.packet_omega_sum_lower
+#print axioms IUTThreeClosures.SmoothLowOmegaCounting.packet_omega_sum_lower
+
+#check @IUTThreeClosures.SignedPrimeSupport.coupled_prime_support_iff_abc
+#print axioms IUTThreeClosures.SignedPrimeSupport.coupled_prime_support_iff_abc
+#check @IUTThreeClosures.SignedEndpointDyadicObstruction.not_uniform_separate_endpoint_bound
+#print axioms IUTThreeClosures.SignedEndpointDyadicObstruction.not_uniform_separate_endpoint_bound
+
+#check @IUTThreeClosures.ReachableTensorLatticeCriterion.span_eq_top_of_reachable_columns
+#print axioms IUTThreeClosures.ReachableTensorLatticeCriterion.span_eq_top_of_reachable_columns
+#check @IUTThreeClosures.ReachableTensorLatticeCriterion.diagonalSpan_eq_symmetric
+#print axioms IUTThreeClosures.ReachableTensorLatticeCriterion.diagonalSpan_eq_symmetric
+#check @IUTThreeClosures.ReachableTensorLatticeCriterion.offDiagonal_not_mem_diagonalSpan
+#print axioms IUTThreeClosures.ReachableTensorLatticeCriterion.offDiagonal_not_mem_diagonalSpan
+#check @IUTThreeClosures.ReachableTensorLatticeCriterion.independent_pureTensor_span_eq_top
+#print axioms IUTThreeClosures.ReachableTensorLatticeCriterion.independent_pureTensor_span_eq_top
+
+#check @IUTThreeClosures.ABCPoint.c_pow_four_le_1024_freyJReducedDen
+#print axioms IUTThreeClosures.ABCPoint.c_pow_four_le_1024_freyJReducedDen
+#check @IUTThreeClosures.pellEffective_kernelFifthCorridor
+#print axioms IUTThreeClosures.pellEffective_kernelFifthCorridor
+#check @IUTThreeClosures.pellEffective_squareFactorDescent
+#print axioms IUTThreeClosures.pellEffective_squareFactorDescent

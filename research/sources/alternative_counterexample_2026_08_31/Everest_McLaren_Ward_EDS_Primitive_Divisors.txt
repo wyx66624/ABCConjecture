@@ -1,0 +1,898 @@
+arXiv:math/0409540v2  [math.NT]  16 Mar 2006
+Primitive divisors of elliptic divisibility
+sequences
+Graham Everest 1, Gerard Mclaren, Thomas Ward ∗
+Abstract
+Silverman proved the analogue of Zsigmondy’s Theorem for elliptic divisibility se-
+quences. For elliptic curves in global minimal form, it seems likely this result is true
+in a uniform manner. We present such a result for certain inﬁnite families of curves
+and points. Our methods allow the ﬁrst explicit examples of the elliptic Zsigmondy
+Theorem to be exhibited. As an application, we show that every term beyond the
+fourth of the Somos-4 sequence has a primitive divisor.
+Key words: elliptic curve, primitive divisor, Zsigmondy’s Theorem, Somos
+sequence, elliptic divisibility sequence, prime
+1991 MSC: 11G05, 11A41
+1
+Introduction
+Let A = (An)n≥1 be an integer sequence. A prime p dividing a term An is
+called a primitive divisor of An if p does not divide any term Am, 1 ≤m < n.
+Thus, in the list of prime factors of the terms of the sequence, a primitive
+divisor is a new prime factor. Sequences with the property that all terms (or
+all terms beyond some point) have a primitive divisor are of great interest.
+Deﬁnition 1.1 Let A = (An)n≥1 be an integer sequence. Deﬁne
+Z(A) = max{n | An does not have a primitive divisor}
+∗Corresponding author. School of Mathematics, University of East Anglia, Norwich
+NR4 7TJ, UK.
+Email addresses: g.everest@uea.ac.uk (Graham Everest), t.ward@uea.ac.uk
+(Thomas Ward).
+1 Our thanks go to Mike Bennett for help in applying his results, and to anonymous
+referees for several improvements.
+Preprint submitted to Journal of Number Theory
+13 November 2018
+
+if this set is ﬁnite, and Z(A) = ∞if not. The number Z(A) will be called the
+Zsigmondy bound for A.
+A striking early result is that of Zsigmondy [18]. For the Mersenne sequence
+M = (2n −1)n≥1 ,
+he showed that
+Z(M) = 6.
+More generally, Zsigmondy also showed that for any coprime integers a and b,
+Z
+
+(an −bn)n≥1
+
+≤6.
+This line of development culminated in a deep result due to Bilu, Hanrot and
+Voutier [3]: for any non-trivial Lucas or Lehmer sequence L,
+Z(L) ≤30.
+Much of the arithmetic of linear recurrence sequences extends to elliptic and
+bilinear recurrence sequences (see [7, Chap. 10] for an overview), and it is nat-
+ural to ask if results like that of Zsigmondy might hold for elliptic divisibility
+sequences.
+Let E denote an elliptic curve deﬁned over Q, given in generalized Weierstrass
+form, and suppose P = (x(P), y(P)) denotes a non-torsion rational point
+on E (see [5], [8], [12] or [15] for background on elliptic curves). For any non-
+zero n ∈Z, write
+x(nP) = An
+Bn
+,
+in lowest terms, with An ∈Z and Bn ∈N. The sequence BE,P = (Bn)n≥1 is a
+divisibility sequence, meaning that
+m
+n =⇒Bm
+Bn.
+Such sequences have become known as elliptic divisibility sequences (this ter-
+minology follows a suggestion of Silverman; the term has also been used for
+more general sequences related to rational points on elliptic curves). Silver-
+man [13] showed that BE,P satisﬁes an analogue of Zsigmondy’s theorem.
+Theorem 1.2 [Silverman] With E and P as above,
+Z(BE,P) < ∞.
+Our purpose here is to show that uniform explicit bounds in Theorem 1.2 can
+be found for certain inﬁnite families of curves, after the manner of [3]. The
+methods allow explicit versions of the theorem for particular examples. Many
+2
+
+of the bounds arrived at below can be improved, similar methods may be
+applied to other elliptic surfaces, and the techniques used here may be applied
+to bound the number of terms in an elliptic divisibility sequence which are
+prime squares; further details in these directions may be found in the thesis
+of the second named author [10].
+2
+Main results
+The behaviour along the odd and even subsequences of an elliptic divisibility
+sequence requires slightly diﬀerent treatment, so the following reﬁnement of
+Deﬁnition 1.1 will be useful.
+Deﬁnition 2.1 Let A = (An)n≥1 be an integer sequence. Deﬁne the even
+Zsigmondy bound
+Ze(A) = max{2n | A2n does not have a primitive divisor}
+if this set is ﬁnite, and Ze(A) = ∞if not. Similarly deﬁne the odd Zsigmondy
+bound
+Zo(A) = max{2n −1 | A2n−1 does not have a primitive divisor}
+if this set is ﬁnite, and Zo(A) = ∞if not.
+Clearly Z(A) = max{Ze(A), Zo(A)}; in certain cases our methods can bound
+explicitly either one of Ze and Zo but not both.
+Theorem 2.2 Suppose the curve E is given by a Weierstrass equation
+E :
+y2 = x3 −T 2x,
+with T > 0 square-free, and suppose that E has a non-torsion point P in E(Q).
+Then
+Ze (BE,P) ≤10.
+If x(P) < 0, then
+Zo (BE,P) ≤3.
+If x(P) is a square, then
+Zo (BE,P) ≤21.
+Notice that the existence of the point P certainly implies that T ≥5, so log T
+is at least 1.609. This will be used several times in the calculations below.
+Example 2.3 Consider the curve
+E :
+y2 = x3 −25x,
+3
+
+with P = (−4, 6). We will show below that Z (BE,P) = 1.
+The assumption about T being square-free guarantees that E is in global mini-
+mal form. Clearly an assumption of this kind is necessary. It is always possible
+to clear arbitrarily many denominators of the multiples x(nP) by applying
+suitable isomorphisms, making an explicit bound impossible. Assuming the
+curve is in minimal form prevents this possibility.
+The most general form of result we can exhibit with our current techniques
+will now be stated. Lang’s Conjecture says that if E denotes an elliptic curve
+deﬁned over Q deﬁned by a Weierstrass equation in minimal form and if P
+denotes a non-torsion rational point on E, then
+ˆh(P) ≥c log ∆(E).
+(1)
+In (1), ∆(E) denotes the discriminant of E and the constant c > 0 is uniform,
+independent of E and P. The family of curves in Theorem 2.2 is one for which
+Lang’s Conjecture is known to hold.
+Theorem 2.4 Let F denote a family of elliptic curves E, given by Weierstrass
+models in global minimal form, and rational points P, Q ∈E(Q), with P a non-
+torsion point and Q a 2-torsion point. Suppose that Lang’s Conjecture holds
+for the family; in other words, there is a uniform constant c = c(F) > 0 such
+that for every triple (E, P, Q) ∈F, the inequality (1) holds. Then Ze(BE,P) is
+bounded uniformly for F, and the bound depends on c only. If, in addition to
+Lang’s Conjecture, either of the following conditions hold:
+(1) P does not lie in the (real) connected component of the identity;
+(2) x(P) −x(Q) is a square,
+then Zo(BE,P) is bounded uniformly.
+Inﬁnite families satisfying the conditions of Theorem 2.4 are easy to manufac-
+ture.
+Example 2.5 Fix T ∈N, T > 1, and let E denote the elliptic curve
+E :
+y2 = x3 −T 2(T 2 −1)x,
+together with the non-torsion point P = (1 −T 2, 1 −T 2) and the 2-torsion
+point Q = (0, 0). Using the methods in [4], an explicit form of Lang’s Con-
+jecture is provable for the family F = {(E, P, Q)}. This gives an example of
+case (1) in Theorem 2.4. Taking P = (T 2, T 2) on the same curve yields an
+example of case (2).
+4
+
+Example 2.6 For all T > 0 consider the curve
+E :
+y2 = (x + 1)(x −T)(x −4T),
+together with the non-torsion point P = (0, 2T) and the 2-torsion point Q =
+(−1, 0). Lang’s Conjecture holds for this family and, in principle, the con-
+stant c can be computed explicitly. For this family (1) in Theorem 2.4 holds.
+The proofs of the theorems seem to need some form of Siegel’s Theorem on
+the ﬁniteness of the number of integral points on the curve. Indeed, Z(BE,P)
+being ﬁnite requires that Bn grows with n. There are eﬀective versions of
+Siegel’s Theorem, however – as far as we can see – no routine application of
+these will yield our results. The strongest forms of Siegel’s Theorem are proved
+using elliptic transcendence theory. These methods give good bounds in terms
+of the shape of error terms and they work in great generality. However, the
+dependence upon the discriminant does not allow uniformity results – also
+the size of the constants gives excessively large estimates for the Zsigmondy
+bound in particular cases. This is discussed further after equation (6) below.
+2.1
+Curves without rational 2-torsion
+The strongest results in the paper require the presence of a rational 2-torsion
+point. The following example illustrates how knowledge about the odd Zsig-
+mondy bound can outstrip that for the even bound when no such point is
+present.
+Example 2.7 Consider the pair (E, P) with
+E :
+y2 + y = x3 −x and P = (0, 0).
+The methods we describe allow a painless proof that Zo(BE,P) = 3. Notice
+that in this case nP is integral for n = 1, 2, 3, 4, 6 so we could not expect
+the bound to be any smaller. However, we are unable to prove that the even
+Zsigmondy bound is 6. Given any example where P does not lie in the real
+connected component of the identity, the methods in this paper would allow
+the odd Zsigmondy bound to be computed.
+Example 2.8 The odd terms of the sequence in Example 2.7 comprise the
+Somos-4 sequence
+1, 1, 1, 1, 2, 3, 7, 23, . . ..
+This sequence, which satisﬁes the bilinear recurrence
+unun−4 = un−1un−3 + u2
+n−2,
+5
+
+was studied by Somos [16]. By the bound for Zo in Example 2.7, every term
+of the Somos-4 sequence beyond the fourth term has a primitive divisor.
+For further results on Somos sequences, see the papers [9], [11] and the mono-
+graph [7, Sect. 1.1.17].
+Our ﬁnal example is a family of curves for which knowledge about the even
+Zsigmondy bound outstrips that for the odd bound. This is included because
+it uses a new technique.
+Theorem 2.9 Consider the pair (E, P) where
+E :
+y2 = x3 + T 3 + 1 and P = (−T, 1).
+Then Ze(BE,P) is uniformly bounded for all T > 1.
+In the setting of Theorem 2.9, we are unable to prove such a statement for the
+odd Zsigmondy bound.
+The proof of Theorem 2.2 is given in Section 3, using a sharpening of Sil-
+verman’s original approach, together with results of Bremner, Silverman and
+Tzanakis concerning the diﬀerence between the na¨ive height and the canonical
+height of a rational point on an elliptic curve. In Section 4 we will further il-
+lustrate the method by explaining Examples 2.3 and 2.7. In Section 5, a proof
+of Theorem 2.4 will be given. Much of this is routine and we will not labour
+it; however some explanation is required for case (1) in order to preserve the
+dependence of the error term upon the discriminant. Theorem 2.9 is proved
+in Section 6.
+3
+Proof of Theorem 2.2
+We begin with some basic facts about divisibility properties of the sequence
+BE,P = (Bn)n≥1.
+Lemma 3.1 Suppose p denotes any prime divisor of Bn. Then
+ordp(Bnk) = ordp(Bn) + 2ordp(k).
+(2)
+This comes out of the development of the p-adic elliptic logarithm in [12] and
+requires some local analysis of elliptic curves. Note that the property of being
+a divisibility sequence follows from (2). Indeed a stronger property follows
+immediately.
+6
+
+Lemma 3.2 For any m, n ∈N
+gcd(Bn, Bm) = Bgcd(m,n).
+Proof. Let d = gcd(m, n) and write m = kd, n = ℓd. Then for any prime p
+dividing Bd, one of ordp(k) and ordp(ℓ) must be zero. By (2),
+ordp(Bm) = ordp(Bd) + 2 ordp(k) and ordp(Bn) = ordp(Bd) + 2 ordp(ℓ),
+so
+ordp (gcd(Bm, Bn)) = min {ordp(Bd) + 2 ordp(k), ordp(Bd) + 2 ordp(ℓ)}
+= ordp(Bd),
+so Bd
+ gcd(Bn, Bm). Conversely, if a prime p divides Bn and Bm, then on the
+underlying elliptic curve reduced modulo p, mP = nP = O, the identity,
+hence dP = O and so p
+Bd.
+□
+These two lemmas will now be used to prove the fundamental property shared
+by those terms Bn which do not have a primitive divisor.
+Lemma 3.3 If Bn does not have a primitive divisor then
+Bn
+
+Y
+p|n
+p2Bn/p.
+(3)
+If (3) holds, then any primitive divisor of Bn divides n.
+Proof. Assume that Bn does not have a primitive divisor. Let q be any
+prime, and p a prime dividing n. If ordq(Bn/p) > 0 for some prime p
+n, then
+by Lemma 3.1
+ordq(Bn) = ordq(Bn/p) + 2 ordq(p) ≤ordq(Bn/p) + 2.
+If ordq(Bn/p) = 0 for all primes p
+n then q ̸
+ Bn. To see this, notice that
+if q
+Bn then by assumption q
+Bm for some m
+n, hence q
+Bn/p for some prime p,
+contradicting ordq(Bn/p) = 0.
+The partial converse follows in a similar way: if (3) holds and q is a primitive
+divisor of Bn, then
+q
+
+Y
+p|n
+p2,
+so q
+n.
+□
+7
+
+Lemma 3.3 will play a practical as well as a theoretical role in the sequel. Our
+methods typically show that Z(BE,P) ≤C for some moderately large C. The
+terms with n ≤C need to be checked to ﬁnd the lowest bound. The quadratic-
+exponential growth rate of the Bn means we wish to avoid factorizing terms to
+do the checking. Lemma 3.3 is an easily implemented method for performing
+the check which is factorization-free.
+Finally, we gather some well-known facts about heights on elliptic curves.
+Recall that P is a non-torsion point in E(Q), where the curve E is
+E :
+y2 = x3 −T 2x,
+with T ∈Z square-free.
+Write h( a
+b) = log max{|a|, |b|} for the Weil height of a rational number, so
+h(x(nP)) = log max{|An|, Bn}.
+Lemma 3.4 Let ˆh(P) denote the global canonical height of P. Then
+n2ˆh(P) −1
+2 log(T 2 + 1) −0.116 ≤h(x(nP)) ≤n2ˆh(P) + log T + 0.347,
+(4)
+and
+ˆh(P) ≥1
+4 log T.
+(5)
+Proof. By [4, Eqn. (15)], for any point Q ∈E(Q),
+−0.347 −log T < ˆh(Q) −h(x(Q)) < 1
+2 log(T 2 + 1) + 0.116
+(notice that the canonical height we are working with is twice the value used
+in [4]). In particular,
+h(x(nP)) ≤ˆh(nP) + log T + 0.347
+= n2ˆh(P) + log T + 0.347
+and
+h(x(nP)) ≥ˆh(nP) −1
+2 log(T 2 + 1) −0.116
+= n2ˆh(P) −1
+2 log(T 2 + 1) −0.116
+proving (4).
+The other result we call upon also appeared in [4, Prop. 2.1]. If P denotes any
+non-torsion rational point on E, then
+1
+8 log(2T 2) ≤ˆh(P),
+8
+
+from which (5) is immediate.
+□
+Proof of Theorem 2.2. Assume that Bn does not have a primitive divisor.
+Taking logarithms in Lemma 3.3 gives
+log Bn ≤2
+X
+p|n
+log p +
+X
+p|n
+log Bn/p.
+(6)
+The proof proceeds using various upper and lower estimates for log Bk to make
+quantitative the observation that (6) automatically bounds n.
+It is possible to use a deep general result from elliptic transcendence theory
+to obtain a lower bound of the form
+log Bn ≥n2ˆh(P) −O(log n log log n).
+(7)
+Inserting this into (6) shows that Z(BE,P) is ﬁnite because the right-hand side
+is bounded by cn2 with c < 1.
+Results of the form (7) have been obtained by David [6]. The form of the
+implied constant in (7) is given explicitly in [17]. However, the shape of the
+constant is too unwieldy for our purposes. For one thing, the dependence
+upon T comes as a power of log T – to obtain a uniformity result we need
+it to be linear in log T. Another problem is that the implied constants are
+enormous. The quadratic-exponential growth rate of the sequence BE,P means
+that applying this method would greatly complicate the computation of the
+Zsigmondy bound.
+Our approach is to use an inferior lower bound in respect of the leading term:
+typically n2ˆh(P) will be replaced by three quarters or even one quarter of this.
+However, the resulting error term is more readily controlled.
+By (4), for any p
+n,
+log Bn/p ≤h(x( n
+pP))
+≤ˆh( n
+pP) + log T + 0.347
+= n2
+p2 ˆh(P) + log T + 0.347.
+(8)
+We will call on three arithmetical functions. Denote by ω(n) the number of
+distinct prime divisors of n. Clearly
+ω(n) ≤log n/ log 2 ≤1.443 log n.
+9
+
+Denote by ρ(n) the sum P
+p|n
+1
+p2 over prime divisors of n. A calculation shows
+that
+ρ(n) ≤0.453 for all n ≥1
+and, crucially,
+ρ(n) ≤0.203 for all odd n ≥1.
+Finally, deﬁne
+η(n) = 2
+X
+p|n
+log p.
+Substituting (8) into (6) gives
+log Bn ≤η(n) +
+X
+p|n
+
+n2
+p2 ˆh(P) + log T + 0.347
+
+≤η(n) + n2ρ(n)ˆh(P) + ω(n) (log T + 0.347)
+(9)
+Assume ﬁrst that n = 2m is even. From the duplication formula on the
+curve E,
+An
+Bn
+= A2m
+B2m
+= x(nP) = x(2mP) =
+(A2
+m + T 2B2
+m)2
+4AmBm(A2
+m −T 2B2
+m).
+(10)
+It follows that
+B2m =
+4AmBm(A2
+m −T 2B2
+m)
+gcd ((A2
+m + T 2B2
+m)2, 4AmBm(A2
+m −T 2B2
+m)).
+(11)
+To bound the size of the greatest common divisor, note that Am and Bm are
+coprime by deﬁnition, and recall that T is square-free. We must allow for the
+possibility that 4 divides the numerator in (11). Now let p be an odd prime
+dividing the greatest common divisor. Then
+p
+A2
+m + T 2B2
+m
+and
+p
+AmBm(A2
+m −T 2B2
+m),
+so p
+A3
+mBm. Now p
+Bm implies that p
+Am, which is impossible as Am and Bm
+are coprime. So we deduce that p
+Am and hence p
+T. Let
+α = ordp(A2
+m + T 2B2
+m),
+β = ordp(Am)
+and
+γ = ordp(A2
+m −T 2B2
+m).
+If β ≥2, then α = γ = 2, so p divides the greatest common divisor four times.
+If β = 1, then γ ≥2 implies that α = 2, while α ≥2 implies that γ = 2. In
+10
+
+all cases, it follows that p divides the greatest common divisor no more than
+four times. Thus
+gcd
+
+(A2
+m + T 2B2
+m)2, 4AmBm(A2
+m −T 2B2
+m)
+
+≤4T 4.
+(12)
+The greatest common divisor may also be bounded using the following argu-
+ment. From (4), trivial estimates for the numerator and denominator in (10)
+show that the logarithm of each is bounded by 4ˆhm2 + O(1), with a uni-
+form error. However (4) shows that log max{|A2m|, B2m} is bounded below
+by 4ˆhm2 −O(log T); thus bounding the possible cancellation by a power of T
+as before. For even n this approach is not needed, but we will make essential
+use of it later for one of the odd n cases.
+From (11) and (12) we deduce the important lower bound
+|AmBm(A2
+m −T 2B2
+m)|
+T 4
+≤B2m,
+or in logarithmic form,
+log |Am| + log Bm + log |A2
+m −T 2B2
+m| −4 log T ≤log B2m = log Bn.
+(13)
+Lemma 3.5 For T ≥5,
+3 log max{|Am|, Bm} −log T −0.693 ≤log |Am| + log Bm + log |A2
+m −T 2B2
+m|.
+(14)
+Proof. Let α = |Am| and β = |T|Bm, so that (14) follows from the inequality
+αβ|α −β|(α + β) ≥1
+2 max{α, β}3.
+(15)
+The expression in (15) is symmetrical in α and β, so assume without loss of
+generality that α > β.
+If α ≥2β then
+αβ(α −β)(α + β) ≥α · 1 · 1
+2α · α = 1
+2α3 ≥1
+2 max{α, β}3.
+If β < α < 2β then
+αβ(α −β)(α + β) ≥α · 1
+2α · 1 · 3
+2α ≥3
+4α3 ≥1
+2 max{α, β}3.
+□
+By (13) and (14),
+11
+
+log Bn ≥log |Am| + log Bm + log |A2
+m −T 2B2
+m| −4 log T
+≥3 log max{|Am|, Bm} −5 log T −0.693
+= 3h(x(mP)) −5 log T −0.693,
+so by (4) and (9),
+3
+4n2ˆh(P) −5 log T −3
+2 log(T 2 + 1) −1.041 ≤3h(x(mP)) −5 log T −0.693
+≤log Bn
+≤η(n) + n2ρ(n)ˆh(P)
++ω(n) (log T + 0.347) .
+It follows that
+n2ˆh(P)
+
+3
+4 −ρ(n)
+
+≤η(n) + ω(n) (log T + 0.347)
++5 log T + 3
+2 log(T 2 + 1) + 1.041.
+(16)
+Recall that T ≥5 so log T > 1.609 and hence
+log(T 2 + 1)
+log T
+≤2.0244.
+(17)
+Apply (5) to (16), divide through by log T, and apply (17) to deduce that
+n2 
+3
+4 −ρ(n)
+
+≤4
+
+0.621η(n) + 1.216ω(n) + 9.0776
+
+.
+This implies that n ≤11, so Ze(BE,P) ≤10.
+The bound obtained so far (when n is even) takes a similar form in general.
+Assume that x(P) < 0 and n is odd. If Bn ≥|An| then
+log Bn ≥h(x(nP)) ≥n2ˆh(P) −1
+2 log(T 2 + 1) −0.116.
+(18)
+If Bn < |An|, use the fact that if n is odd then x(nP) < 0, therefore
+−T ≤x(nP) < 0.
+Thus |An/Bn| ≤T, so
+log |An| −log T ≤log Bn.
+Therefore
+log Bn ≥h(x(nP)) −log T
+≥n2ˆh(P) −1
+2 log(T 2 + 1) −log T −0.116.
+12
+
+This lower bound, being smaller than the one in (18), covers both cases. By (4)
+and (6),
+n2ˆh(P) −1
+2 log(T 2 + 1) −log T −0.116 ≤log Bn
+≤η(n) + n2ρ(n)ˆh(P)
++ω(n) (log T + 0.347) .
+The bound (5) then implies that
+n2(1 −ρ(n)) ≤4
+
+0.621η(n) + 1.216ω(n) + 2.085
+
+,
+using (17) again.
+It follows (for odd n) that n ≤3, so Zo(BE,P) ≤3. This dramatic improvement
+in the size of the bound is mainly accounted for by the fact that ρ(n) ≤0.203
+for all odd n, and the very good lower bound for log Bn. The fact that the
+bound for ρ(n) over odd n is strictly smaller than 1
+4 will play a critical role
+later.
+Finally, assume that x(P) is a square. For this part of Theorem 2.2, we are
+going to use the fact that x(nP) is a square for all n ∈N. This follows from
+the proof of the Weak Mordell Theorem: the map E(Q) →Q∗/Q∗2 given by
+P 7→x(P)Q∗2 and (0, 0) 7→−Q∗2
+is a group homomorphism. Write
+nP =
+ An
+Bn
+, Cn
+B3/2
+n
+!
+.
+Assume that n = 2m + 1 is odd and write
+nP = mP + (m + 1)P.
+Then
+x(nP) = A2m+1
+B2m+1
+=
+ y((m + 1)P) + y(mP)
+x((m + 1)P) −x(mP)
+!2
+−x(mP) −x((m + 1)P).
+Inserting the explicit form of nP = mP + (m + 1)P into this formula yields
+(AmAm+1 −T 2BmBm+1)(AmBm+1 + Am+1Bm) −2CmCm+1B1/2
+m B1/2
+m+1
+(Am+1Bm −AmBm+1)2
+(19)
+for x(nP). Once again we wish to bound the possible size of the greatest
+common divisor of the numerator N and the denominator D in (19). An
+13
+
+additional complication here is the appearance of terms arising from y(P).
+Since nP lies on the curve y2 = x3 −T 2x,
+C2
+n = A3
+n −T 2AnB2
+n.
+It follows that
+log |Cn| ≤1
+2 (log 2 + max log{|An|3, T 2|An|B2
+n})
+≤1
+2
+
+log 2 + 3n2ˆh(P) + 5 log T + 1.041
+
+.
+(20)
+Now write
+α = (AmAm+1 −T 2BmBm+1)(AmBm+1 + Am+1Bm)
+and
+β = 2CmCm+1B1/2
+m B1/2
+m+1.
+By using (4) and (20),
+log |α| ≤log 4 + log max{|AmAm+1|, T 2BmBm+1}
++ log max{|Am|Bm+1, |Am+1|Bm}
+≤(4m2 + 4m + 2)ˆh(P) + 6 log T + 2.775
+and
+log |β| ≤(4m2 + 4m + 2)ˆh(P) + 6 log T + 2.775.
+Thus the numerator and denominator of (19) satisfy
+max{log |N|, log |D|} ≤log 2 + log max{|α|, |β|}
+≤(4m2 + 4m + 2)ˆh(P) + 6 log T + 3.469.
+(21)
+On the other hand, by the lower bound in (4),
+max{log |An|, log Bn} ≥n2ˆh(P) −1
+2 log(T 2 + 1) −0.116
+= (4m2 + 4m + 1)ˆh(P) −1
+2 log(T 2 + 1) −0.116.
+It follows that
+gcd(N, D) ≤ˆh(P) + 6 log T + 1
+2 log(T 2 + 1) + 3.584,
+so by (19) and (9)
+2 log (Am+1Bm−AmBm+1) −ˆh(P) −6 log T −1
+2 log(T 2 + 1) −3.584
+< log Bn
+< η(n) + n2ρ(n)ˆh(P) + ω(n) (log T + 0.347) .
+(22)
+14
+
+Now by assumption Am, Am+1, Bm and Bm+1 are all squares; write A∗= a2
+∗
+and B∗= b2
+∗with a∗, b∗> 0. Then
+max{log |am+1|, |bm+1|} ≤log (|am+1| + |bm+1|)
+≤log (|am+1bm| + |ambm+1|)
+≤log
+a2
+m+1b2
+m −a2
+mb2
+m+1
+ ,
+(23)
+so by (22)
+h ((m + 1)P) = max{log Am+1, Bm+1}
+≤η(n) + (n2 + 1)ρ(n)ˆh(P) + ω(n) (log T + 0.347)
++6 log T + 1
+2 log(T 2 + 1) + 3.584.
+Using (4), (5) and the assumption that T ≥5, this shows that
+1
+4(n + 1)2 −(n2 + 1)ρ(n) ≤4
+
+0.621η(n) + 10.596 + 1.216ω(n)
+
+.
+(24)
+It is not clear that the left-hand side of (24) grows at all. However, as noted
+earlier, for odd n we have ρ(n) < 0.203 < 1
+4, so the left-hand side of (24) grows
+at least like 0.047n2 for odd n. Thus (24) does bound n. Indeed (24) implies
+that n ≤21, showing that Zo(BE,P) ≤21.
+□
+4
+Explicit Examples
+Theorem 2.2 supplies such good bounds that the remaining cases can be
+checked using Lemma 3.3. Inserting explicit values for the canonical heights
+in speciﬁc examples reduces the checking even further. From the proof in Sec-
+tion 3 we have the following inequalities under the assumption that Bn does
+not have a primitive divisor. If x(P) < 0 and n is odd, then
+n2ˆh(P) (1 −ρ(n)) ≤η(n) + ω(n) log T + 0.347ω(n)
++ 1
+2 log(T 2 + 1) + log T + 0.116;
+(25)
+whilst if n is even, then
+n2ˆh(P)
+
+3
+4 −ρ(n)
+
+≤η(n) + ω(n) (log T + 0.347)
++5 log T + 3
+2 log(T 2 + 1) + 1.041.
+(26)
+15
+
+Example 2.3. Here T = 5 and the canonical height of P = (−4, 6) is given
+by ˆh(P) = 1.899 . . . . Theorem 2.2 predicts Ze(BE,P) ≤12. Using Lemma 3.3,
+the checking of the remaining cases is quick. Inserting the explicit estimate for
+ˆh(P) reduces this calculation still further. Assuming that Bn does not have a
+primitive divisor, (25) and (26) imply Zo(BE,P) = 1 and Ze(BE,P) ≤8. The
+remaining cases can easily be checked almost by hand, but certainly using
+Lemma 3.3.
+Example 2.7. This is proved in similar fashion to Example 2.3 so it is not
+discussed it in detail.
+5
+Proof of Theorem 2.4
+Suppose without loss of generality that Q = (0, 0) in every case, since transla-
+tion preserves both the discriminant of the curve and the kind of result sought.
+Assume the deﬁning equation for E has the form
+E :
+y2 = x(x2 + ax + b) = x(x −r1)(x −r2).
+The discriminant ∆= ∆(E) of the curve is given by
+∆= (r1r2(r1 −r2))2.
+(27)
+Lemma 5.1
+max{| log |r1||, | log |r2||} ≤3
+2 log |∆|.
+(28)
+Proof. Without loss of generality we may assume that |r1| ≤|r2|. It follows
+that |r2| ≥1 and |r1| ≥
+1
+|r2|, so
+max{| log |r1||, | log |r2||} = log |r2|.
+If |r1| ≤1
+2|r2| then
+∆= |r2r2
+r1
+r2
+−1
+
+|2 ≥b2|r2
+2|
+4
+≥r2
+2|
+4
+so |r2| ≤2
+q
+|∆|.
+Assume now that |r1| > 1
+2|r2|. Now
+|r1 −r2| =
+q
+|a2 −4b| ≥1,
+so
+|∆| ≥r2
+1r2
+2 ≥1
+4|r2|4,
+16
+
+and thus |r2| ≤(4|∆|)1/4 . Since |∆| ≥3, this completes the proof.
+□
+In the situation of Theorem 2.4, we need a bound of the form
+|ˆh(P) −h(P)| ≤c log ∆,
+(29)
+and this follows from the result in [14] which bounds |ˆh(P) −h(P)| in terms
+of the height of the j-invariant (and hence the height of the discriminant) of
+the curve.
+Proof of Theorem 2.4. In the even case, writing n = 2m and applying the
+duplication formula shows that
+log |Am| + log Bm + log |A2
+m + aAmBm + bB2
+m| −O(log ∆) ≤log Bn.
+If |A2
+m + aAmBm + bB2
+m| ≥|AmBm| then
+log Bn ≥2h(mP) −O(log ∆)
+≥1
+2ˆh(P) −O(log ∆)
+by (29). On the other hand, using the same argument as before shows
+log |Am| −log Bm = O(max{| log |r1||, | log |r2||} = O(log ∆)
+by (28). This gives an analog of the inequality (16), and the proof proceeds
+as before.
+In case (2), the argument for the odd Zsigmondy bound is essentially identical
+to that given before. In case (1) the existence of two connected components
+requires there to be three real 2-torsion points; there are then various cases to
+consider depending upon the signs and relative sizes of the roots, and these
+can be summarized as follows. Notice ﬁrst that
+log |An/Bn| ≤max{| log |r1||, | log |r2||, log |r1 −r2|}.
+Each of the terms on the right is O(log ∆) and
+hn2 −O(log ∆) ≤log Bn.
+The proof is completed exactly as before.
+□
+17
+
+6
+Proof of Theorem 2.9
+This may be shown using strong results of Bennett [1], [2] on Diophantine
+approximation in addition to the methods of Section 3. Writing n = 2m as
+usual, the crucial point is to ﬁnd an explicit estimate for
+Bm
+A3
+m + (T 3 + 1)B3
+m
+ .
+If Am/Bm is bounded away from θ = (T 3 + 1)
+1
+3 then we can proceed as before
+without diﬃculty. Otherwise, we need some kind of explicit lower bound from
+Diophantine approximation, of the form
+a
+qλ <
+θ −p
+q
+
+for all rationals p/q in lowest terms. Probably the best results of this kind
+have been found by Bennett [1], [2]. Applying these estimates shows we may
+take
+log a = O(log T)
+and
+λ = 1 + 2 log(
+√
+T 3 +
+√
+T 3 + 1) + log(3
+√
+3/2)
+2 log(
+√
+T 3 +
+√
+T 3 + 1) −log(3
+√
+3/2)
+,
+(30)
+where all implied constants are explicit and uniform. The right-hand side
+of (30) is decreasing in T and converges to 2 as T →∞. For the methods
+used here, we need λ < 2.188 and for this T needs to be at least 26. Inserting
+this data into our machine yields an inequality of the form
+ˆh
+
+0.047 + O(1/ log T)
+
+n2 < 2 log n + O(log T).
+Finally, the canonical height of P satisﬁes
+ˆh = ˆh(P) ∼1
+2 log T.
+Using the same methods as in [4], it is possible to give an explicit, positive
+lower bound for ˆh(P)/ log T and the uniformity result follows. For this class
+of examples we have not tried to state the most explicit result possible.
+References
+[1] M. A. Bennett. Eﬀective measures of irrationality for certain algebraic numbers.
+J. Austral. Math. Soc. Ser. A, 62(3):329–344, 1997.
+[2] M. A. Bennett. Explicit lower bounds for rational approximation to algebraic
+numbers. Proc. London Math. Soc. (3), 75(1):63–78, 1997.
+18
+
+[3] Y. Bilu, G. Hanrot, and P. M. Voutier. Existence of primitive divisors of Lucas
+and Lehmer numbers.
+J. Reine Angew. Math., 539:75–122, 2001.
+With an
+appendix by M. Mignotte.
+[4] A. Bremner, J. H. Silverman, and N. Tzanakis. Integral points in arithmetic
+progression on y2 = x(x2 −n2). J. Number Theory, 80(2):187–208, 2000.
+[5] J. W. S. Cassels. Lectures on elliptic curves, volume 24 of London Mathematical
+Society Student Texts. Cambridge University Press, Cambridge, 1991.
+[6] S. David. Minorations de formes lin´eaires de logarithmes elliptiques. M´em. Soc.
+Math. France (N.S.), (62):iv+143, 1995.
+[7] G. Everest, A. van der Poorten, I. Shparlinski, and T. Ward.
+Recurrence
+sequences, volume 104 of Mathematical Surveys and Monographs.
+American
+Mathematical Society, Providence, RI, 2003.
+[8] G. Everest and T. Ward. An introduction to number theory. Springer-Verlag,
+New York, 2005.
+[9] D. Gale. The strange and surprising saga of the Somos sequences. Mathematical
+Intelligencer, 13(1):40–42, 1991.
+[10] G. Mclaren. PhD thesis, University of East Anglia, expected 2006.
+[11] R. M. Robinson.
+Periodicity of Somos sequences.
+Proc. Amer. Math. Soc.,
+116(3):613–619, 1992.
+[12] J. H. Silverman. The arithmetic of elliptic curves. Springer-Verlag, New York,
+1986.
+[13] J. H. Silverman. Wieferich’s criterion and the abc-conjecture. J. Number Theory,
+30(2):226–237, 1988.
+[14] J. H. Silverman.
+The diﬀerence between the Weil height and the canonical
+height on elliptic curves. Math. Comp., 55(192):723–743, 1990.
+[15] J. H. Silverman and J. Tate. Rational points on elliptic curves. Undergraduate
+Texts in Mathematics. Springer-Verlag, New York, 1992.
+[16] M. Somos. Problem 1470. Crux Mathematicorum, 15:208, 1989.
+[17] R. J. Stroeker and N. Tzanakis.
+Solving elliptic Diophantine equations by
+estimating linear forms in elliptic logarithms. Acta Arith., 67(2):177–196, 1994.
+[18] K. Zsigmondy. Zur Theorie der Potenzreste. Monatsh. Math., 3:265–284, 1892.
+19

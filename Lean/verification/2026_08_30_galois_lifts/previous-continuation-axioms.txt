@@ -1,0 +1,273 @@
+def IUTThreeClosures.ABCConjecture : Prop :=
+∀ (ε : ℝ),
+  0 < ε →
+    ∃ C,
+      ∀ (a b c : ℕ),
+        0 < a →
+          0 < b →
+            0 < c →
+              a + b = c →
+                PairwiseCoprimeABC a b c →
+                  Real.log ↑(max a (max b c)) ≤ (1 + ε) * Real.log ↑(abcRadical (a * b * c)) + C
+@inherited_radical_bound : ∀ {U V W u v w : ℕ},
+  0 < u →
+    0 < v →
+      0 < w →
+        UniqueFactorizationMonoid.radical (U * u * (V * v) * (W * w)) ≤
+          UniqueFactorizationMonoid.radical (U * V * W) * u * v * w
+'IUTThreeClosures.AnalyticAmplificationContinuation20260830.inherited_radical_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@inherited_cofactor_certificate_budget : ∀ {U V W u v w : ℕ},
+  0 < w →
+    UniqueFactorizationMonoid.radical (U * V * W) * u * v * w ≤ W * w →
+      UniqueFactorizationMonoid.radical (U * V * W) * (U * u) * (V * v) ≤ U * V * W
+'IUTThreeClosures.AnalyticAmplificationContinuation20260830.inherited_cofactor_certificate_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@crt_certificate_unique_in_strip : ∀ {U V W L : ℕ} {p q : ℕ × ℕ},
+  U.Coprime V →
+    U.Coprime W →
+      V.Coprime W →
+        IsCRTCertificate U V W p →
+          IsCRTCertificate U V W q → 2 ≤ U * V * W → L ≤ p.1 → p.1 < 2 * L → L ≤ q.1 → q.1 < 2 * L → p = q
+'IUTThreeClosures.AnalyticAmplificationContinuation20260830.crt_certificate_unique_in_strip' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@crtCertifiedUpTo_card_le : ∀ {U V W T : ℕ},
+  U.Coprime V → U.Coprime W → V.Coprime W → (crtCertifiedUpTo U V W T).card ≤ Nat.log 2 T + 1
+'IUTThreeClosures.AnalyticAmplificationContinuation20260830.crtCertifiedUpTo_card_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@inherited_template_union_card_le : ∀ {a b c T : ℕ},
+  a.Coprime b →
+    a.Coprime c →
+      b.Coprime c →
+        (((a.divisors ×ˢ b.divisors) ×ˢ c.divisors).biUnion fun d => crtCertifiedUpTo d.1.1 d.1.2 d.2 T).card ≤
+          a.divisors.card * b.divisors.card * c.divisors.card * (Nat.log 2 T + 1)
+'IUTThreeClosures.AnalyticAmplificationContinuation20260830.inherited_template_union_card_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@square_completion_radical_bound : ∀ {a b c x y z : ℕ},
+  0 < x →
+    0 < y →
+      0 < z →
+        UniqueFactorizationMonoid.radical (a * x ^ 2 * (b * y ^ 2) * (c * z ^ 2)) ≤
+          UniqueFactorizationMonoid.radical (a * b * c) * x * y * z
+'IUTThreeClosures.AnalyticAmplificationContinuation20260830.square_completion_radical_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+square_completion_parameter_identity : ∀ (a b m n : ℤ),
+  a * (a * n ^ 2 + b * m ^ 2 - 2 * n * (a * n + b * m)) ^ 2 +
+      b * (a * n ^ 2 + b * m ^ 2 - 2 * m * (a * n + b * m)) ^ 2 =
+    (a + b) * (a * n ^ 2 + b * m ^ 2) ^ 2
+'IUTThreeClosures.AnalyticAmplificationContinuation20260830.square_completion_parameter_identity' depends on axioms: [propext,
+ Quot.sound]
+@square_completion_certificate_height : ∀ {a b c x y z R : ℕ} {μ : ℝ},
+  0 < a →
+    0 < b →
+      0 < x →
+        0 < y →
+          a + b = c →
+            a * x ^ 2 + b * y ^ 2 = c * z ^ 2 →
+              ↑(R * x * y * z) ≤ ↑(c * z ^ 2) ^ μ → ↑R * ↑(c * z ^ 2) ≤ ↑c * ↑(c * z ^ 2) ^ μ
+'IUTThreeClosures.AnalyticAmplificationContinuation20260830.square_completion_certificate_height' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@seed_radical_product_ge_sq : ∀ {a b c : ℕ},
+  0 < a → 0 < b → a + b = c → c ^ 2 ≤ UniqueFactorizationMonoid.radical (a * b * c) * (a * b * c)
+'IUTThreeClosures.AnalyticAmplificationContinuation20260830.seed_radical_product_ge_sq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@half_lt_bblt_exponent : ∀ {μ : ℝ}, 0 < μ → μ < 1 → μ / 2 < min (2 * μ / 3) (min ((23 * μ + 3) / 40) (3 / 5))
+'IUTThreeClosures.AnalyticAmplificationContinuation20260830.half_lt_bblt_exponent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@mem_range_of_det_dvd_cramer : ∀ {R : Type u_1} [inst : CommRing R] [IsDomain R] {n : Type u_2} [inst_2 : Fintype n]
+  [inst_3 : DecidableEq n] (A : Matrix n n R),
+  A.det ≠ 0 → ∀ (s : n → R), (∀ (j : n), A.det ∣ (A.updateCol j s).det) → s ∈ A.mulVecLin.range
+'IUTThreeClosures.DVRReachableHaar20260830.mem_range_of_det_dvd_cramer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@exists_reachable_min_det_span : ∀ {R : Type u_1} [inst : CommRing R] [inst_1 : IsDomain R]
+  [inst_2 : IsDiscreteValuationRing R] {n : Type u_2} [inst_3 : Fintype n] [inst_4 : DecidableEq n] (S : Set (n → R)),
+  (∃ A, (∀ (j : n), A.col j ∈ S) ∧ A.det ≠ 0) →
+    ∃ d A,
+      (∀ (j : n), A.col j ∈ S) ∧
+        A.det ≠ 0 ∧
+          (IsDiscreteValuationRing.addVal R) A.det = ↑d ∧
+            (∀ (B : Matrix n n R), (∀ (j : n), B.col j ∈ S) → A.det ∣ B.det) ∧ Submodule.span R S = A.mulVecLin.range
+'IUTThreeClosures.DVRReachableHaar20260830.exists_reachable_min_det_span' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@cardQuot_matrix_range : ∀ {R : Type u_1} [inst : CommRing R] [inst_1 : IsDomain R] [inst_2 : IsDiscreteValuationRing R]
+  {n : Type u_2} [inst_3 : Fintype n] [inst_4 : DecidableEq n] (A : Matrix n n R),
+  A.det ≠ 0 → A.mulVecLin.range.cardQuot = residueCard R ^ ((IsDiscreteValuationRing.addVal R) A.det).toNat
+'IUTThreeClosures.DVRReachableHaar20260830.cardQuot_matrix_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@matrix_range_isClosed : ∀ {R : Type u_1} [inst : CommRing R] {n : Type u_2} [inst_1 : Fintype n]
+  [inst_2 : TopologicalSpace R] [IsTopologicalRing R] [CompactSpace R] [T2Space R] (A : Matrix n n R),
+  IsClosed ↑A.mulVecLin.range
+'IUTThreeClosures.DVRReachableHaar20260830.matrix_range_isClosed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@measure_matrix_range : ∀ {R : Type u_1} [inst : CommRing R] [inst_1 : IsDomain R] [inst_2 : IsDiscreteValuationRing R]
+  {n : Type u_2} [inst_3 : Fintype n] [inst_4 : DecidableEq n] [inst_5 : TopologicalSpace R] [IsTopologicalRing R]
+  [CompactSpace R] [T2Space R] [inst_9 : MeasurableSpace (n → R)] [BorelSpace (n → R)] [MeasurableAdd (n → R)]
+  [Finite (IsLocalRing.ResidueField R)] (μ : MeasureTheory.Measure (n → R)) [μ.IsAddLeftInvariant],
+  μ Set.univ = 1 →
+    ∀ (A : Matrix n n R),
+      A.det ≠ 0 → μ ↑A.mulVecLin.range = (↑(residueCard R) ^ ((IsDiscreteValuationRing.addVal R) A.det).toNat)⁻¹
+'IUTThreeClosures.DVRReachableHaar20260830.measure_matrix_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@log_measure_matrix_range : ∀ {R : Type u_1} [inst : CommRing R] [inst_1 : IsDomain R]
+  [inst_2 : IsDiscreteValuationRing R] {n : Type u_2} [inst_3 : Fintype n] [inst_4 : DecidableEq n]
+  [inst_5 : TopologicalSpace R] [IsTopologicalRing R] [CompactSpace R] [T2Space R] [inst_9 : MeasurableSpace (n → R)]
+  [BorelSpace (n → R)] [MeasurableAdd (n → R)] [Finite (IsLocalRing.ResidueField R)] (μ : MeasureTheory.Measure (n → R))
+  [μ.IsAddLeftInvariant],
+  μ Set.univ = 1 →
+    ∀ (A : Matrix n n R),
+      A.det ≠ 0 →
+        Real.log (μ ↑A.mulVecLin.range).toReal =
+          -↑((IsDiscreteValuationRing.addVal R) A.det).toNat * Real.log ↑(residueCard R)
+'IUTThreeClosures.DVRReachableHaar20260830.log_measure_matrix_range' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@exists_reachable_closed_span_volume : ∀ {R : Type u_1} [inst : CommRing R] [inst_1 : IsDomain R]
+  [inst_2 : IsDiscreteValuationRing R] {n : Type u_2} [inst_3 : Fintype n] [inst_4 : DecidableEq n]
+  [inst_5 : TopologicalSpace R] [IsTopologicalRing R] [CompactSpace R] [T2Space R] [inst_9 : MeasurableSpace (n → R)]
+  [BorelSpace (n → R)] [MeasurableAdd (n → R)] [Finite (IsLocalRing.ResidueField R)] (μ : MeasureTheory.Measure (n → R))
+  [μ.IsAddLeftInvariant],
+  μ Set.univ = 1 →
+    ∀ (S : Set (n → R)),
+      (∃ A, (∀ (j : n), A.col j ∈ S) ∧ A.det ≠ 0) →
+        ∃ d A,
+          (∀ (j : n), A.col j ∈ S) ∧
+            A.det ≠ 0 ∧
+              (IsDiscreteValuationRing.addVal R) A.det = ↑d ∧
+                (∀ (B : Matrix n n R), (∀ (j : n), B.col j ∈ S) → A.det ∣ B.det) ∧
+                  Submodule.span R S = A.mulVecLin.range ∧
+                    IsClosed ↑(Submodule.span R S) ∧
+                      μ (closure ↑(Submodule.span R S)) = (↑(residueCard R) ^ d)⁻¹ ∧
+                        Real.log (μ (closure ↑(Submodule.span R S))).toReal = -↑d * Real.log ↑(residueCard R)
+'IUTThreeClosures.DVRReachableHaar20260830.exists_reachable_closed_span_volume' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+geometry_logAbsorption : ∀ (X M : ℝ), 0 < X → 0 < M → X ≤ M * Real.log (3 * X) → X ≤ 2 * M * Real.log (3 * M)
+'IUTThreeClosures.geometry_logAbsorption' depends on axioms: [propext, Classical.choice, Quot.sound]
+geometry_jointSixthLogCorridor : ∀ (H A B D KA KB L : ℝ),
+  D = 3 * A * B → H ^ 2 ≤ KA * A * L ^ 4 → H ^ 2 ≤ KB * B * L ^ 2 → 3 * H ^ 4 ≤ KA * KB * D * L ^ 6
+'IUTThreeClosures.geometry_jointSixthLogCorridor' depends on axioms: [propext, Classical.choice, Quot.sound]
+geometry_normThreeRatioBounds : ∀ (b u r s : ℝ),
+  0 < b →
+    0 ≤ u →
+      0 ≤ r →
+        0 ≤ s →
+          u ^ 2 = b →
+            r ^ 2 = b + 2 →
+              s ^ 2 = b + 3 → 0 < (s + u) / (s + r) ∧ (s + u) / (s + r) < 1 ∧ 2 * b * (1 - (s + u) / (s + r)) < 1
+'IUTThreeClosures.geometry_normThreeRatioBounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+geometry_indexTwoRatioBound : ∀ (b γ : ℝ),
+  0 < b → 0 < γ → γ < 1 → 2 * b * (1 - γ) < 1 → ∀ (N : ℕ), 1 ≤ N → N ≤ 2 → 0 < γ ^ N ∧ γ ^ N < 1 ∧ b * (1 - γ ^ N) < 1
+'IUTThreeClosures.geometry_indexTwoRatioBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+ABCPoint.geometryFrey_invariantNormalization : ∀ (P : ABCPoint),
+  (abcFreyCurveZ P).c₄ = 4 ^ 2 * ↑P.legendreCore ∧ (abcFreyCurveZ P).c₆ = 4 ^ 3 * P.geometryFreyY
+'IUTThreeClosures.ABCPoint.geometryFrey_invariantNormalization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ABCPoint.geometryFrey_normalizedMordellPoint : ∀ (P : ABCPoint),
+  P.geometryFreyY ^ 2 = ↑P.legendreCore ^ 3 - 27 * ↑P.geometryFreyHalfProduct ^ 2
+'IUTThreeClosures.ABCPoint.geometryFrey_normalizedMordellPoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ABCPoint.geometryFrey_weightedPrimitive : ∀ (P : ABCPoint) (z : ℕ),
+  0 < z → z ^ 2 ∣ P.legendreCore → ↑z ^ 3 ∣ P.geometryFreyY → z = 1
+'IUTThreeClosures.ABCPoint.geometryFrey_weightedPrimitive' depends on axioms: [propext, Classical.choice, Quot.sound]
+ABCPoint.geometryFrey_normalizedCubicSplit : ∀ (P : ABCPoint) (U V : ℤ),
+  U ^ 3 - 3 * ↑P.legendreCore * U * V ^ 2 + 2 * P.geometryFreyY * V ^ 3 =
+    (U - (↑P.a - ↑P.b) * V) * (U - (↑P.a + 2 * ↑P.b) * V) * (U + (2 * ↑P.a + ↑P.b) * V)
+'IUTThreeClosures.ABCPoint.geometryFrey_normalizedCubicSplit' depends on axioms: [propext, Classical.choice, Quot.sound]
+@principalHull_le : ∀ {T : Type u_1} [inst : CommRing T] (O : Subring T) (H : Submodule (↥O) T) {t : T},
+  t ∈ H → ↥O ∙ t ≤ H
+'IUTThreeClosures.IUTReachabilityContinuation20260830.principalHull_le' depends on axioms: [propext, Quot.sound]
+@isUnit_tmul : ∀ {K : Type u_1} {A : Type u_2} {B : Type u_3} [inst : CommRing K] [inst_1 : CommRing A]
+  [inst_2 : CommRing B] [inst_3 : Algebra K A] [inst_4 : Algebra K B] {a : A} {b : B},
+  IsUnit a → IsUnit b → IsUnit (a ⊗ₜ[K] b)
+'IUTThreeClosures.IUTReachabilityContinuation20260830.isUnit_tmul' depends on axioms: [propext, Quot.sound]
+@linearIndependent_tmul_mul : ∀ {K : Type u_1} {A : Type u_2} {B : Type u_3} [inst : CommRing K] [inst_1 : CommRing A]
+  [inst_2 : CommRing B] [inst_3 : Algebra K A] [inst_4 : Algebra K B] {ι : Type u_4} (v : ι → TensorProduct K A B),
+  LinearIndependent K v → ∀ {a : A} {b : B}, IsUnit a → IsUnit b → LinearIndependent K fun i => a ⊗ₜ[K] b * v i
+'IUTThreeClosures.IUTReachabilityContinuation20260830.linearIndependent_tmul_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@scaledIntegralTensorSpan_le_hull : ∀ {K : Type u_1} {A : Type u_2} {B : Type u_3} [inst : CommRing K]
+  [inst_1 : CommRing A] [inst_2 : CommRing B] [inst_3 : Algebra K A] [inst_4 : Algebra K B] (OA : Subring A)
+  (OB : Subring B) (O : Subring (TensorProduct K A B)) (H : Submodule (↥O) (TensorProduct K A B)),
+  (∀ (x : ↥OA), ↑x ⊗ₜ[K] 1 ∈ O) →
+    (∀ (y : ↥OB), 1 ⊗ₜ[K] ↑y ∈ O) →
+      ∀ {a : A} {b : B}, a ⊗ₜ[K] b ∈ H → scaledIntegralTensorSpan OA OB a b ≤ Submodule.restrictScalars ℤ H
+'IUTThreeClosures.IUTReachabilityContinuation20260830.scaledIntegralTensorSpan_le_hull' depends on axioms: [propext,
+ Quot.sound]
+pellMatveevRoot_sq : ∀ (t : ℝ), 1 < t → pellMatveevRoot t ^ 2 = pellMatveevRoot (2 * t ^ 2 - 1)
+'IUTThreeClosures.pellMatveevRoot_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+pellMatveevEta_of_packet : ∀ (b r s : ℝ),
+  0 ≤ r → 0 ≤ s → b + 2 = 3 * r ^ 2 → b + 3 = s ^ 2 → pellMatveevEta b = s + r * √3
+'IUTThreeClosures.pellMatveevEta_of_packet' depends on axioms: [propext, Classical.choice, Quot.sound]
+pellMatveevEta_fourth : ∀ (b : ℝ), 0 < b → pellMatveevEta b ^ 4 = pellMatveevRoot (8 * b ^ 2 + 40 * b + 49)
+'IUTThreeClosures.pellMatveevEta_fourth' depends on axioms: [propext, Classical.choice, Quot.sound]
+pellMatveev_actualApproximation : ∀ (b : ℝ),
+  22 ≤ b →
+    1 < pellMatveevEta b ^ 4 / (8 * pellMatveevW b) ∧
+      pellMatveevEta b ^ 4 / (8 * pellMatveevW b) < 1 + 2 / b ∧ pellMatveevEta b ^ 2 < pellMatveevW b
+'IUTThreeClosures.pellMatveev_actualApproximation' depends on axioms: [propext, Classical.choice, Quot.sound]
+pellMatveev_actualLogLower : ∀ (b : ℝ),
+  22 ≤ b →
+    have Λ := Real.log (pellMatveevEta b ^ 4 / (8 * pellMatveevW b));
+    0 < Λ ∧ Λ < 2 / b ∧ Real.log (b + 2) / 2 < -Real.log Λ
+'IUTThreeClosures.pellMatveev_actualLogLower' depends on axioms: [propext, Classical.choice, Quot.sound]
+pellMatveev_actualLogHeight : ∀ (b : ℝ), 22 ≤ b → Real.log (pellMatveevW b) < 3 * Real.log (b + 2)
+'IUTThreeClosures.pellMatveev_actualLogHeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+pellMatveev_normalizedExponentBound : ∀ (m p leps ldelta leta lW : ℝ),
+  2 ≤ p →
+    0 < ldelta →
+      m * leps = leta →
+        p * ldelta = lW →
+          2 * leta < lW →
+            6 * Real.log 2 < 4 * ldelta →
+              max 1 (max (4 * m * (2 * leps) / (2 * ldelta)) (max (3 * (4 * Real.log 2) / (2 * ldelta)) p)) ≤ 2 * p
+'IUTThreeClosures.pellMatveev_normalizedExponentBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+pellMatveev_indexAbsorption : ∀ (p : ℝ), 0 < p → p < 2 ^ 52 * Real.log (2 * Real.exp 1 * p) → p < 2 ^ 59
+'IUTThreeClosures.pellMatveev_indexAbsorption' depends on axioms: [propext, Classical.choice, Quot.sound]
+pellMatveev_explicitEstimate_indexBound : ∀ (H p ell : ℝ),
+  0 < H → 0 < p → H / 2 < ell → ell < 2 ^ 38 * 16 * 3 * 96 * (H / p) * Real.log (2 * Real.exp 1 * p) → p < 2 ^ 59
+'IUTThreeClosures.pellMatveev_explicitEstimate_indexBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+pellMatveev_effectiveHeightCap : ∀ (H p : ℝ),
+  0 < p → p < 2 ^ 59 → H ≤ Real.exp (4300 * p ^ 5) → H < Real.exp (4300 * 2 ^ 295)
+'IUTThreeClosures.pellMatveev_effectiveHeightCap' depends on axioms: [propext, Classical.choice, Quot.sound]
+pellMatveev_effectiveCoordinateCap : ∀ (b p : ℝ),
+  0 < b + 2 →
+    0 < p → p < 2 ^ 59 → Real.log (b + 2) ≤ Real.exp (4300 * p ^ 5) → b + 2 < Real.exp (Real.exp (4300 * 2 ^ 295))
+'IUTThreeClosures.pellMatveev_effectiveCoordinateCap' depends on axioms: [propext, Classical.choice, Quot.sound]
+@image_coherentCollation : ∀ {R : Type u_1} [inst : Semiring R] {Y : Type u_2} {M : Y → Type u_3}
+  [inst_1 : (y : Y) → AddCommMonoid (M y)] [inst_2 : (y : Y) → Module R (M y)] {G : Type u_4} {A : Type u_5}
+  {U : Type u_6} [inst_3 : AddCommMonoid U] [inst_4 : Module R U] {V : Type u_7} [inst_5 : AddCommMonoid V]
+  [inst_6 : Module R V] (label : G → A → Y) (classes : (g : G) → (a : A) → M (label g a)) (c : U ≃ₗ[R] V),
+  (fun v a => c (v a)) '' coherentCollation label classes U = coherentCollation label classes V
+'IUTThreeClosures.IUTTargetReset20260830.image_coherentCollation' depends on axioms: [propext, Quot.sound]
+@map_span_coherentCollation : ∀ {R : Type u_1} [inst : Semiring R] {Y : Type u_2} {M : Y → Type u_3}
+  [inst_1 : (y : Y) → AddCommMonoid (M y)] [inst_2 : (y : Y) → Module R (M y)] {G : Type u_4} {A : Type u_5}
+  {U : Type u_6} [inst_3 : AddCommMonoid U] [inst_4 : Module R U] {V : Type u_7} [inst_5 : AddCommMonoid V]
+  [inst_6 : Module R V] (label : G → A → Y) (classes : (g : G) → (a : A) → M (label g a)) (c : U ≃ₗ[R] V),
+  Submodule.map (↑(LinearEquiv.piCongrRight fun x => c)) (Submodule.span R (coherentCollation label classes U)) =
+    Submodule.span R (coherentCollation label classes V)
+'IUTThreeClosures.IUTTargetReset20260830.map_span_coherentCollation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@coherentCollation_reindex : ∀ {R : Type u_1} [inst : Semiring R] {Y : Type u_2} {M : Y → Type u_3}
+  [inst_1 : (y : Y) → AddCommMonoid (M y)] [inst_2 : (y : Y) → Module R (M y)] {G : Type u_4} {A : Type u_5}
+  {U : Type u_6} [inst_3 : AddCommMonoid U] [inst_4 : Module R U] {G' : Type u_7} (e : G' ≃ G) (label : G → A → Y)
+  (classes : (g : G) → (a : A) → M (label g a)),
+  coherentCollation (fun g' a => label (e g') a) (fun g' a => classes (e g') a) U = coherentCollation label classes U
+'IUTThreeClosures.IUTTargetReset20260830.coherentCollation_reindex' depends on axioms: [propext, Quot.sound]

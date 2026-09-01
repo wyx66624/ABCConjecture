@@ -1,0 +1,361 @@
+\section{An obstruction in the entire rational isogeny class}
+\label{sec:entire-rational-isogeny}
+
+For one infinite family of primitive abc triples, we determine the
+entire rational isogeny class of the actual Frey curve and obtain
+matching bounds for two intrinsic quantities on that class. The largest
+minimal discriminant has order $c^5$, while the smallest complex
+absolute $j$-invariant has order $c$. Thus selecting an arbitrary
+rationally isogenous representative cannot recover a sixth power of
+the endpoint from its minimal discriminant.
+
+\subsection{Odd isogenies and prime-degree paths}
+
+We use the following unconditional classification:
+if an elliptic curve over $\Q$ admits a cyclic $\Q$-isogeny of degree $N$,
+then
+\begin{equation}\label{eq:entire-cyclic-degrees}
+ N\in\{1,\ldots,19,21,25,27,37,43,67,163\}.
+\end{equation}
+The prime-degree theorem is due to Mazur
+\cite[Theorem~1]{MazurIsogenies1978}. Its completion by Kenku for
+composite cyclic degrees is stated in
+\cite[Theorem~2.2, p.~239]{BalakrishnanMazur2025}.
+We use this completed statement, including its CM cases.
+Quotients by Galois-stable finite subgroups, dual isogenies, and descent
+of uniquely determined factors are the standard characteristic-zero
+isogeny results of \cite[Chapter~III]{Silverman}.
+
+\begin{proposition}\label{prop:entire-odd-prime}
+Let $E/\Q$ have full rational $2$-torsion. If $E$ admits a
+$\Q$-isogeny of odd prime degree $\ell$, then $\ell=3$.
+\end{proposition}
+
+\begin{proof}
+Write the isogeny as $\psi:E\to E'$, and choose distinct nonzero points
+$T_0,T_1\in E[2](\Q)$. Since $\ell$ is odd, $\psi$ identifies
+$E[2]$ with $E'[2]$. Form the rational quotient maps
+\[
+ \phi_0:E\longrightarrow E_0=E/\langle T_0\rangle,\qquad
+ \phi_1:E'\longrightarrow E_1=E'/\langle\psi(T_1)\rangle.
+\]
+The composite
+\[
+ \Phi=\phi_1\circ\psi\circ\widehat{\phi_0}:E_0\longrightarrow E_1
+\]
+has degree $4\ell$. We check that its geometric kernel is cyclic;
+the degree alone is insufficient.
+
+On $E_0[2]$, the dual $\widehat{\phi_0}$ has a kernel of order two.
+Its image has order two and is contained in $\ker\phi_0$, since
+$\phi_0\widehat{\phi_0}=[2]$. Consequently its image is
+$\langle T_0\rangle$. The subgroups
+$\langle\psi(T_0)\rangle$ and $\langle\psi(T_1)\rangle$ are distinct
+subgroups of order two. Therefore
+\[
+ \ker\Phi\cap E_0[2]=\ker\widehat{\phi_0},\qquad
+ \#(\ker\Phi)[2]=2.
+\]
+The $2$-primary subgroup of $\ker\Phi$ has order four. It cannot be
+$(\Z/2\Z)^2$, so it is cyclic. The $\ell$-primary subgroup has prime
+order and is also cyclic. Their coprime orders imply that $\ker\Phi$
+is cyclic of order $4\ell$. The list
+\eqref{eq:entire-cyclic-degrees} permits this only for $\ell=3$.
+\end{proof}
+
+The hypothesis here is a rational isogeny, or equivalently a
+Galois-stable subgroup, and does not require a rational point of order
+$\ell$.
+
+\begin{lemma}\label{lem:entire-prime-path}
+Any two elliptic curves that are isogenous over $\Q$ are joined by a
+finite path of rational prime-degree isogenies, up to
+$\Q$-isomorphism at the endpoint.
+\end{lemma}
+
+\begin{proof}
+Let the curves be $E,F$. By duality there is a rational isogeny
+$E\to F$. Among all such maps choose $\theta$ of least positive degree,
+and let $H$ be its finite geometric kernel. If $H$ is not cyclic, one
+of its primary subgroups is not cyclic, and for some prime $\ell$ the
+group $H[\ell]$ has dimension two over $\mathbb F_\ell$.
+Here we used $H[\ell]\subseteq E[\ell]$ and
+$E[\ell]\cong(\Z/\ell\Z)^2$. Thus $E[\ell]\subseteq H$.
+The quotient property gives a factorization
+\[
+ \theta=\theta_1\circ[\ell],\qquad
+ \deg\theta_1=\deg\theta/\ell^2<\deg\theta.
+\]
+The factor $\theta_1$ is defined over $\Q$: it is unique, and both
+$\theta$ and $[\ell]$ are defined over $\Q$. This contradicts the
+choice of $\theta$.
+
+Hence $H$ is cyclic. Its unique subgroup of each divisor order is
+Galois-stable. Quotienting along a subgroup chain with successive
+prime-order quotients, then identifying $E/H$ with $F$, proves the
+claim.
+\end{proof}
+
+This argument replaces the initial map by one of least degree. It does
+not assert that every given rational isogeny factors through rational
+prime-degree maps: multiplication by $\ell$ on a curve with
+irreducible $E[\ell]$ need not do so.
+
+\begin{lemma}\label{lem:entire-odd-transport}
+Fix an odd prime $\ell$. If $E/\Q$ has no rational $\ell$-isogeny,
+neither does any curve rationally isogenous to $E$ by an isogeny of
+$2$-power degree.
+\end{lemma}
+
+\begin{proof}
+Take such a curve $F$ and a rational isogeny $\alpha:F\to E$ of
+$2$-power degree, using a dual if necessary. Its restriction to
+$F[\ell]$ is a Galois-equivariant isomorphism onto $E[\ell]$.
+A Galois-stable subgroup of order $\ell$ in $F[\ell]$ would therefore
+give one in $E[\ell]$, contrary to the hypothesis.
+\end{proof}
+
+\subsection{An explicit family and its four models}
+
+For every integer $n\ge1$, put
+\begin{equation}\label{eq:entire-family}
+ c=c_n=1792n+2,\qquad (a,b,c)=(1,c_n-1,c_n),\qquad
+ E_c:\ y^2=x(x-1)(x+c-1).
+\end{equation}
+These are positive primitive abc triples, and $c_n$ tends to infinity.
+Moreover,
+\[
+ c\equiv2\pmod8,\qquad c\equiv2\pmod7,\qquad c\ge1794.
+\]
+The curve $E_c$ is the actual Frey curve of this triple, with full
+rational $2$-torsion.
+
+\begin{lemma}\label{lem:entire-no-three}
+The curve $E_c$ in \eqref{eq:entire-family} has no rational
+$3$-isogeny.
+\end{lemma}
+
+\begin{proof}
+Its displayed discriminant is $16(c-1)^2c^2$, a $7$-adic unit, so it
+has good reduction at $7$. Its reduction is $y^2=x^3-x$. The complete
+affine count is
+\[
+ \begin{array}{c|rrrrrrr}
+ x&0&1&2&3&4&5&6\\ \hline
+ x^3-x\pmod7&0&0&6&3&4&1&0\\
+ \#\{y:y^2=x^3-x\}&1&1&0&0&2&2&1
+ \end{array}
+\]
+and gives seven affine points. Adding the point at infinity yields
+$\#E_c(\mathbb F_7)=8$, hence $a_7=0$. The good-reduction Frobenius
+theorem identifies the characteristic polynomial on $E_c[3]$ with
+$T^2-a_7T+7$, reduced modulo $3$
+\cite[Chapters~V and~VII]{Silverman}. This is $T^2+1$, which has no
+root in $\mathbb F_3$. A rational $3$-isogeny would supply a
+Galois-stable line in $E_c[3]$, on which Frobenius would have an
+eigenvalue in $\mathbb F_3$. This is impossible.
+\end{proof}
+
+Proposition~\ref{prop:entire-odd-prime} and
+Lemma~\ref{lem:entire-no-three} now exclude every odd-prime rational
+isogeny from $E_c$.
+
+For the quotient at $(0,0)$ of
+$y^2=u^3+A u^2+B u$, the usual integral model is
+\begin{equation}\label{eq:entire-two-quotient}
+ Y^2=X^3-2AX^2+(A^2-4B)X.
+\end{equation}
+For example the formula
+$X=u+A+B/u$, $Y=y(1-B/u^2)$ verifies the equation and extends to the
+degree-two quotient with kernel $\{O,(0,0)\}$.
+The discriminant of the remaining quadratic factor on the right of
+\eqref{eq:entire-two-quotient} is $16B$. Hence the quotient has extra
+rational $2$-torsion exactly when $B$ is a rational square.
+
+Translate each of the three rational points of order two of $E_c$ to
+$(0,0)$. The resulting values of $B$ are, respectively,
+\[
+ -(c-1),\qquad c,\qquad c(c-1).
+\]
+The first is negative, and the other two are $2$ modulo $8$. An
+integer that is a rational square is an integer square, and a square
+cannot be $2$ modulo $8$. Thus each of the three quotients has exactly
+one nonzero rational point of order two. Its only rational
+degree-two quotient is the dual edge back to $E_c$, up to rational
+isomorphism.
+
+Denote these quotient curves by $E_0,E_a,E_b$, where the last
+subscript refers to the kernel at $x=-(c-1)$. Their equations are
+\begin{equation}\label{eq:entire-models}
+ \begin{aligned}
+ E_c&:\quad y^2=x^3+(c-2)x^2-(c-1)x,\\
+ E_0&:\quad Y^2=X^3+(4-2c)X^2+c^2X,\\
+ E_a&:\quad Y^2=X^3-2(c+1)X^2+(c-1)^2X,\\
+ E_b&:\quad Y^2=X^3+(4c-2)X^2+X.
+ \end{aligned}
+\end{equation}
+Direct computation of their Weierstrass invariants gives
+\begin{equation}\label{eq:entire-invariants}
+ \begin{array}{c|c|c}
+ \text{curve}&c_4/16&\Delta_{\mathrm{disp}}\\ \hline
+ E_c&c^2-c+1&16(c-1)^2c^2\\
+ E_0&c^2-16c+16&-256(c-1)c^4\\
+ E_a&c^2+14c+1&256c(c-1)^4\\
+ E_b&16c^2-16c+1&256c(c-1)
+ \end{array}
+\end{equation}
+Here the subscript indicates the discriminant of the displayed
+integral model, without an assertion of minimality at $2$.
+
+\begin{theorem}\label{thm:entire-four-models}
+Every elliptic curve over $\Q$ isogenous to $E_c$ over $\Q$,
+by an isogeny of any degree, is $\Q$-isomorphic to one of the four
+curves in \eqref{eq:entire-models}.
+\end{theorem}
+
+\begin{proof}
+The quotient computation exhausts the connected rational
+$2$-isogeny graph: $E_c$ has precisely the three indicated subgroups
+of order two, and each quotient has only its dual edge back.
+Lemma~\ref{lem:entire-odd-transport} excludes every odd-prime
+isogeny from every vertex of this graph.
+
+Any rationally isogenous curve is connected to $E_c$ by a
+prime-degree path, by Lemma~\ref{lem:entire-prime-path}. Every initial
+$2$-edge stays among the four displayed vertices. A first odd-prime
+edge is impossible by the preceding paragraph. Thus the entire path
+stays in the list. Possible isomorphisms between displayed vertices
+only shorten the list and do not affect the conclusion.
+\end{proof}
+
+The theorem has no non-CM or conjectural Galois-surjectivity hypothesis.
+Its external inputs are the stated cyclic-isogeny classification,
+the basic quotient and dual theory, and the good-reduction Frobenius
+theorem.
+
+\subsection{Matching bounds throughout the class}
+
+Let $\mathcal I_c$ be the nonempty finite set of rational isomorphism
+classes in Theorem~\ref{thm:entire-four-models}, and define
+\[
+ D_{\max}(c)=\max_{F\in\mathcal I_c}|\Delta_{\min}(F)|,\qquad
+ J_{\min,\infty}(c)=\min_{F\in\mathcal I_c}|j(F)|.
+\]
+Here $\Delta_{\min}$ is the global minimal discriminant over $\Q$.
+The absolute value in $J_{\min,\infty}$ is the single complex
+absolute value of the rational number $j(F)$; it is not its global
+Weil height.
+
+\begin{theorem}\label{thm:entire-class-bounds}
+For every $c=c_n$ in \eqref{eq:entire-family},
+\begin{equation}\label{eq:entire-class-bounds}
+ \frac{c^5}{32}\le D_{\max}(c)\le256c^5,\qquad
+ 2c\le J_{\min,\infty}(c)\le32c.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Every absolute displayed discriminant in
+\eqref{eq:entire-invariants} is at most $256c^5$. Passing to a minimal
+integral model cannot increase a prime valuation of the discriminant.
+Theorem~\ref{thm:entire-four-models} therefore gives the upper bound
+for $D_{\max}$ over the entire class.
+
+For its lower bound use $E_0$. At an odd prime $q\mid c$, its
+$c_4$ invariant is congruent to $256$ modulo $q$. At an odd prime
+$q\mid c-1$, it is congruent to $16$ modulo $q$. Thus $c_4$ is a
+unit at every odd prime dividing the displayed discriminant, and
+the integral model is minimal there. We use here the usual
+minimality criterion for integral Weierstrass models
+\cite[Chapter~VII]{Silverman}: lowering the discriminant by $q^{12}$
+would require $q^4\mid c_4$.
+Since $v_2(c)=1$ and $c-1$ is odd, the odd part of the displayed
+discriminant is retained, giving
+\begin{equation}\label{eq:entire-odd-discriminant}
+ |\Delta_{\min}(E_0)|
+ \ge(c-1)(c/2)^4
+ =\frac{(c-1)c^4}{16}
+ \ge\frac{c^5}{32}.
+\end{equation}
+No calculation of the minimal model at $2$ is needed.
+
+For the $j$-bounds, $c\ge1794>32$ implies that each polynomial in
+the $c_4/16$ column of \eqref{eq:entire-invariants} is at least
+$c^2/2$. In particular,
+\[
+ c^2-16c+16-\frac{c^2}{2}
+   =\frac{c(c-32)}{2}+16\ge0;
+\]
+the other three inequalities follow directly for $c\ge2$.
+Consequently every displayed curve has $|c_4|\ge8c^2$ and
+\[
+ |j|=\frac{|c_4|^3}{|\Delta_{\mathrm{disp}}|}
+       \ge\frac{512c^6}{256c^5}=2c.
+\]
+This ratio is unchanged when one passes to a minimal model.
+Finally $0<c^2-16c+16\le c^2$ for our values of $c$, so $E_0$ gives
+\[
+ |j(E_0)|=
+ \frac{16(c^2-16c+16)^3}{(c-1)c^4}
+ \le\frac{16c^2}{c-1}\le32c.
+\]
+This proves both pairs of inequalities.
+\end{proof}
+
+With $\log^+x=\max\{0,\log x\}$, the bounds imply
+\begin{equation}\label{eq:entire-limits}
+ \lim_{n\to\infty}
+ \frac{\log D_{\max}(c_n)}{\log c_n}=5,\qquad
+ \lim_{n\to\infty}
+ \frac{\min_{F\in\mathcal I_{c_n}}\log^+|j(F)|}{\log c_n}=1.
+\end{equation}
+The second limit concerns complex $j$-values, not a height of a
+rational point on an auxiliary elliptic curve.
+
+\begin{corollary}\label{cor:entire-sixth-power-obstruction}
+For every real $\theta>5$ and constant $C>0$, there are positive
+primitive abc triples for which no elliptic curve $F/\Q$ rationally
+isogenous to the actual Frey curve satisfies
+\[
+ c^\theta\le C|\Delta_{\min}(F)|.
+\]
+\end{corollary}
+
+\begin{proof}
+Choose $n$ so large that $c_n^{\theta-5}>256C$, and apply
+\eqref{eq:entire-class-bounds}.
+\end{proof}
+
+Thus a uniform $c^{6-\delta}$ recovery for $0<\delta<1$, or a
+$c^{6-o(1)}$ recovery along this family, fails even when the
+representative can depend arbitrarily on the triple. This refutes the
+specified discriminant-replacement step. It does not refute a Szpiro
+conjecture or abc: no sufficiently small radical has been established
+for these triples. Bounds retaining the archimedean contribution, or
+using curves outside this rational isogeny class, remain separate
+possibilities.
+
+\begin{remark}[Formalization boundary]
+The Lean arithmetic companion verifies the actual
+primitive family, the actual elliptic-curve point count over
+$\mathbb F_7$, the absence of a root of $T^2+1$ over $\mathbb F_3$,
+the four Weierstrass models and their invariants, and the displayed
+discriminant and rational absolute $j$-bounds.
+It does not formalize the cyclic-degree classification, the
+Frobenius interpretation of the point count, the entire isogeny-class
+identification, or minimal-discriminant theory. These are the external
+mathematical steps explicitly used above.
+\end{remark}
+
+% New bibliography entries for insertion by the integrating editor:
+% \bibitem{BalakrishnanMazur2025}
+% J.~S.~Balakrishnan and B.~Mazur, with an appendix by N.~Dogra,
+% Ogg's torsion conjecture: Fifty years later,
+% \emph{Bull. Amer. Math. Soc. (N.S.)} \textbf{62} (2025), no.~2, 235--268.
+% \href{https://doi.org/10.1090/bull/1851}{doi:10.1090/bull/1851}.
+%
+% \bibitem{MazurIsogenies1978}
+% B.~Mazur, with an appendix by D.~Goldfeld,
+% Rational isogenies of prime degree,
+% \emph{Invent. Math.} \textbf{44} (1978), no.~2, 129--162.
+% \href{https://doi.org/10.1007/BF01390348}{doi:10.1007/BF01390348}.

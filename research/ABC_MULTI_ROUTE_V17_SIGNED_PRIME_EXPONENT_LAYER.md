@@ -170,35 +170,39 @@ This is stronger than the v15 statement that one prime cube occurs on one
 endpoint. A fixed cube is harmless; the present theorem forces an entire
 signed exponent budget to become large.
 
-## 5. Revised positive target
+## 5. Corrected positive target
 
-A proof of abc along this route must control, for each of the two large
-endpoints,
+The subsequent dyadic audit shows that the two large endpoints must be
+controlled together. Separate uniform subcritical bounds for each quantity
 
 \[
 W_{>2}(x)-W_1(x),
 \]
 
-not `W_{>2}(x)` alone. The family
+are false. The family
 
 \[
 1+2^N=2^N+1
 \]
 
-illustrates why: the high power on `2^N` is cancelled by the exponent-one
-radical of the neighbouring odd integer, so an unsigned cubeful estimate is
-far stronger than abc and is false uniformly.
+gives `delta_2(2^N)=(N-2)log 2`, while the full conductor is at most
+`(N+2)log 2`. Thus any separate-endpoint bound with slope below one fails
+uniformly. This uses only a radical upper bound for the odd neighbour; it
+does not assert that its exponent-one mass always supplies enough cancellation.
 
 The exact remaining arithmetic problem is consequently:
 
-> rule out, uniformly up to an arbitrarily small conductor slope, a coprime
-> short-gap pair in which one endpoint has above-two exponent mass exceeding
-> its exponent-one mass by the small-endpoint radical budget.
+> bound the sum of the two signed endpoint defects, after subtracting twice
+> the small-endpoint radical logarithm, by an arbitrarily small conductor
+> slope plus a constant independent of the triple.
 
 This formulation is compatible with analytic short-interval methods,
 powerful-number gap results, Frey--Szpiro estimates, and source-derived IUT
-height comparisons, while retaining the cancellation required by elementary
-families.
+height comparisons, while retaining the possibility of cancellation between
+the two endpoints. The one-endpoint event in Section 4 is a necessary
+condition on a violation, not a sufficient criterion for producing one.
+The complete correction and the kernel-checked unbounded obstruction are in
+`SIGNED_LAYER_ARITHMETIC_SESSION_2026_08_30.md`.
 
 ## 6. Lean deliverable
 

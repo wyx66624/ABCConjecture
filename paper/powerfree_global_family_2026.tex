@@ -1,0 +1,444 @@
+\section{An unbounded family with prescribed local level data}
+\label{sec:powerfree-global-family}
+
+The preceding local constructions can be supplied by rational elliptic
+curves of unbounded height while the relevant local bounding domain remains
+fixed. We prove this using a least-prime theorem and a finite sieve in one
+arithmetic progression. The result is an existence family with specified
+reduction, torsion-image, and level-window properties. No lower bound for
+its abc quality with an exponent greater than one is asserted.
+
+\subsection{A uniform finite sieve}
+
+An integer is \(k\)-power-free if it is not divisible by \(q^k\) for any
+prime \(q\). We shall use the following estimate with \(k\) and the
+progression modulus both growing.
+
+\begin{lemma}[Power-free values in a progression]
+\label{lem:powerfree-crt-count}
+Let \(k\ge5\), let \(M\) be a positive even integer, and let \(X\ge1\).
+Fix a residue class \(r\bmod M\), and suppose that, for every integer
+\(A\in[X,2X]\) in this class, none of
+\[
+ A,\qquad A^2+1,\qquad 2A^2+1
+\]
+is divisible by \(q^k\) at a prime \(q\mid M\). The number \(N_{\rm good}\)
+of such \(A\) for which all three values are \(k\)-power-free satisfies
+\begin{equation}\label{eq:pf-sieve}
+ N_{\rm good}\ge
+ \frac XM\left(1-5\sum_{q\ {\rm prime}}q^{-k}\right)
+       -1-5(9X^2)^{1/k}
+ \ge \frac{3X}{4M}-1-5(9X^2)^{1/k}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The interval contains at least \(X/M-1\) integers of the prescribed
+class. If \(q\nmid M\), then \(q\) is odd. The polynomial \(T\) has one
+root modulo \(q^k\), and each of \(T^2+1\) and \(2T^2+1\) has at most two.
+For the latter assertion, there are at most two roots modulo \(q\), and
+the derivative is nonzero at every root. A root \(x\bmod q^h\) has lifts
+\(x+tq^h\); reduction of
+\[
+ f(x+tq^h)\equiv f(x)+tq^h f'(x)\pmod {q^{h+1}}
+\]
+gives exactly one admissible \(t\bmod q\). This proves the root bound
+at every exponent without a uniformity assumption on the prime.
+
+Each of these at most five roots, combined with \(r\bmod M\), specifies
+one class modulo \(Mq^k\). It contributes at most \(X/(Mq^k)+1\)
+integers. All three polynomial values are positive and at most \(9X^2\).
+Thus only primes
+\[
+ q\le Y:=(9X^2)^{1/k}
+\]
+can exclude an integer. Summing these upper bounds over \(q\le Y\)
+excludes at most
+\[
+ \frac{5X}{M}\sum_{q\ {\rm prime}}q^{-k}+5Y
+\]
+integers. The sum of the error terms is finite; no error of size one
+is summed over infinitely many primes. Subtracting gives the first
+inequality. Finally,
+\[
+ \sum_{q\ {\rm prime}}q^{-k}
+ \le \sum_{n=2}^{\infty}n^{-k}
+ \le 2^{-k}+\frac{2^{1-k}}{k-1}
+ \le \frac32\,2^{-k}.
+\]
+For \(k\ge5\), five times this bound is at most \(15/64<1/4\).
+\end{proof}
+
+\subsection{The existence theorem}
+
+The only prime-distribution input needed below is the effective estimate
+of Xylouris \cite[Theorem~1.1, author manuscript p.~9]{XylourisLinnik2009}.
+With \(P(m)\) the maximum, over reduced classes modulo \(m\), of the least
+prime in the class, it gives an effective absolute constant \(C\) such
+that
+\begin{equation}\label{eq:pf-linnik}
+ P(m)\le C m^{26/5}.
+\end{equation}
+We use the exponent \(5.2\) of that archived author version throughout;
+the later improvement is unnecessary. In particular, \(C\) is independent
+of both the modulus and the reduced class.
+
+\begin{theorem}[An unbounded balanced Frey--Legendre family]
+\label{thm:powerfree-global-family}
+For every sufficiently large prime \(\ell\equiv43\pmod {60}\), let \(p\)
+be the least prime congruent to \(-1\pmod {30\ell}\), and put
+\begin{equation}\label{eq:pf-parameters}
+ M=10\ell p^2,\qquad X=\exp(\ell^2/16).
+\end{equation}
+There are at least \(X/(2M)\) integers \(A\in[X,2X]\) satisfying
+\begin{equation}\label{eq:pf-crt}
+ A\equiv1\pmod2,\qquad A\equiv1\pmod {5\ell},
+ \qquad A\equiv p\pmod {p^2},
+\end{equation}
+for which \(A,A^2+1,2A^2+1\) are all \(\ell\)-power-free.
+Every such \(A\) gives the positive primitive triple and curve
+\begin{equation}\label{eq:pf-family}
+ (a,b,c)=(A^2,A^2+1,2A^2+1),\qquad
+ D_A:\ y^2=x(x-a)(x+b).
+\end{equation}
+The curve is rationally isomorphic to the Legendre curve with
+\[
+ \lambda_A=-1-A^{-2}.
+\]
+For \(L_A=\Q(i,D_A[30])\), the following assertions hold:
+\begin{enumerate}
+\item At \(p\), the curve is split multiplicative with native Tate
+      valuation \(v_p(q)=4\).
+\item The mod-\(\ell\) image over \(\Q\) and over \(L_A\) contains
+      \(\operatorname{SL}_2(\mathbf F_\ell)\). Reduction at \(\ell\) is good.
+\item Every nonzero integral Tate order over \(L_A\) is prime to \(\ell\).
+\item The Tate degree normalized by \([L_A:\Q]^{-1}\) is
+      \begin{equation}\label{eq:pf-degree}
+       Q_A=2\log\frac{A^2(A^2+1)(2A^2+1)}2,
+       \qquad \frac34\ell^2<Q_A<\ell^2.
+      \end{equation}
+\end{enumerate}
+The parameters lie in one fixed compactly bounded domain in the original
+sense specified below, and both \(\height(\lambda_A)\) and
+\(\height(j(D_A))\) tend to infinity with \(\ell\). The threshold is
+effective in terms of the effective constant in \eqref{eq:pf-linnik};
+no numerical value of that constant is extracted here.
+\end{theorem}
+
+\begin{proof}[Existence of the integers]
+The three moduli in \eqref{eq:pf-crt} are pairwise coprime. By
+\eqref{eq:pf-linnik},
+\[
+ 30\ell-1\le p\le C(30\ell)^{26/5},\qquad
+ M\le C_0\ell^{57/5},\qquad C_0=10C^2 30^{52/5}.
+\]
+The primes dividing \(M\) cause no exclusion in
+Lemma~\ref{lem:powerfree-crt-count}. At 2, \(A\) is odd, so
+\(v_2(A^2+1)=1\) and \(2A^2+1\) is odd. At 5 and \(\ell\), the three
+values are \(1,2,3\). At \(p\), their valuations are \(1,0,0\).
+All four primes are distinct.
+
+For \(k=\ell\), the error parameter is
+\[
+ Y=9^{1/\ell}\exp(\ell/8).
+\]
+It suffices that \(1+5Y\le X/(4M)\). Since
+\(1+5Y\le46\exp(\ell/8)\), an explicit sufficient condition is
+\begin{equation}\label{eq:pf-threshold}
+ \frac{\ell^2}{16}-\frac{\ell}{8}
+       -\frac{57}{5}\log\ell\ge\log(184C_0).
+\end{equation}
+The left side tends to infinity and is increasing for \(\ell\ge43\):
+its derivative is \(\ell/8-1/8-57/(5\ell)>0\).
+Lemma~\ref{lem:powerfree-crt-count} now gives the lower bound \(X/(2M)\).
+All constants are independent of the chosen \(\ell,p,A\).
+
+There are infinitely many eligible primes \(\ell\). Indeed, if the primes
+congruent to 43 modulo 60 were a finite list \(\ell_1,\ldots,\ell_s\),
+the reduced CRT class congruent to 43 modulo 60 and to 1 modulo each
+\(\ell_i\) would contain a prime by \eqref{eq:pf-linnik}. It would be a
+new prime in the original progression, a contradiction.
+\end{proof}
+
+\begin{proof}[Arithmetic and height assertions]
+Pairwise coprimality in \eqref{eq:pf-family} follows from
+\(\gcd(A^2,A^2+1)=1\) and \(2(A^2+1)-(2A^2+1)=1\).
+The substitution \(x=A^2x_1,\ y=A^3y_1\) gives
+\[
+ y_1^2=x_1(x_1-1)(x_1+1+A^{-2}).
+\]
+It is an isomorphism over \(\Q\), not a quadratic twist.
+The general invariants \eqref{eq:fr-invariants} give, with
+\(S_A=3A^4+3A^2+1\),
+\begin{equation}\label{eq:pf-invariants}
+ \Delta=16(abc)^2,\qquad c_4=16S_A,\qquad
+ j(D_A)=\frac{256S_A^3}{(abc)^2},\qquad \gcd(S_A,abc)=1.
+\end{equation}
+At an odd prime \(r\mid abc\), unit \(c_4\) makes the equation minimal
+and multiplicative, with Tate order \(2v_r(abc)\).
+Splitness is also uniform in \(A\). If \(r\mid a\) or \(r\mid b\),
+the reduced node has tangent slopes \(\pm1\); if \(r\mid c\), translation
+of the node at \(x=a\) gives \(y^2=x_1^2(x_1+a)\), with slopes \(\pm A\).
+In each case they are distinct units.
+These are the reduction criteria of
+\cite[Chapter~VII, Proposition~5.1]{Silverman}; the split Tate
+description is \cite[Theorems~1--2]{KedlayaTate}.
+At the prescribed \(p\), \(v_p(A)=1\), and hence \(v_p(q)=4\).
+At \(\ell\), the endpoints are \(1,2,3\), so reduction is good.
+
+The good reduction at 5 is the same fixed curve
+\(y^2=x(x-1)(x+2)\) used in Section~\ref{sec:frey-realizations}.
+It has four \(\mathbf F_5\)-points, giving Frobenius polynomial
+\(T^2-2T+5\). Its discriminant \(-16\) is a nonsquare modulo \(\ell\),
+as \(\ell\equiv3\pmod4\); thus this image element fixes no line.
+At \(p\), Tate uniformization supplies a nonidentity inertia
+transvection of order \(\ell\), because \(p\ne\ell\) and
+\(\ell\nmid v_p(q)=4\)
+\cite[Proposition~3]{KedlayaTate}.
+Conjugating its fixed line by the Frobenius element gives a distinct
+fixed line. Lemma~\ref{lem:fr-sl2} therefore gives the full
+\(\operatorname{SL}_2(\mathbf F_\ell)\) subgroup.
+The same lemma applies over \(L_A\): the latter is Galois, and
+\eqref{eq:fr-level-degree} gives
+\begin{equation}\label{eq:pf-level-degree}
+ [L_A:\Q]\mid 2\lvert\GL_2(\Z/30\Z)\rvert
+       =276480=2^{11}3^3 5,
+\end{equation}
+which is prime to \(\ell\). The normal image over \(L_A\) retains the
+order-\(\ell\) transvection and its conjugate.
+
+At 2, \eqref{eq:pf-invariants} gives \(v_2(j)=6\), hence potential good
+reduction \cite[Chapter~VII, Proposition~5.5]{Silverman}. We check why
+the specific field \(L_A\) already gives good reduction. Potential good
+reduction makes the inertia image on \(T_3(D_A)\) finite. Since all
+3-torsion is rational over \(L_A\), that image lies in
+\(1+3\Mat_2(\Z_3)\), a torsion-free group. To see the last assertion,
+write a nonidentity element as \(1+3^hB\), where \(h\ge1\) and
+\(B\not\equiv0\pmod3\). Powers prime to 3 preserve \(h\), and
+\[
+ (1+3^hB)^3
+ =1+3^{h+1}\bigl(B+3^hB^2+3^{2h-1}B^3\bigr)
+\]
+increases it by exactly one. Thus no positive finite power is the
+identity. Inertia is trivial, and the Neron--Ogg--Shafarevich criterion
+\cite[Chapter~VII, Theorem~7.1]{Silverman} gives good reduction over
+every completion of \(L_A\) at 2.
+
+For \(w\mid r\), where \(r\) is odd and divides \(abc\), the integral
+Tate order over \(L_A\) is
+\[
+ \operatorname{ord}_w(q_w)=2e(w/r)v_r(abc).
+\]
+If \(r\mid A\), this equals \(4e(w/r)v_r(A)\); otherwise it is twice
+the ramification index times the valuation of one of the two quadratic
+factors. Each latter valuation, and \(v_r(A)\), lies strictly between
+zero and \(\ell\). Also \(\ell\nmid e(w/r)\), by
+\eqref{eq:pf-level-degree}. Since \(\ell\) is odd, every nonzero order
+is prime to \(\ell\). We do not need or assert that \(A^2\) itself is
+\(\ell\)-power-free.
+
+Sum these orders with residue-degree weights and divide by \([L_A:\Q]\).
+For each \(r\), the identity \(\sum_{w\mid r}e(w/r)f(w/r)=[L_A:\Q]\),
+good reduction at 2, and \(v_2(abc)=1\) give the exact formula for \(Q_A\)
+in \eqref{eq:pf-degree}. Finally, for \(A>1\),
+\[
+ A^6<\frac{A^2(A^2+1)(2A^2+1)}2<3A^6.
+\]
+Together with \(X\le A\le2X\), this yields
+\begin{equation}\label{eq:pf-height-window}
+ \frac34\ell^2<Q_A
+ <\frac34\ell^2+12\log2+2\log3
+ <\frac34\ell^2+16<\ell^2.
+\end{equation}
+The remaining domain and unbounded-height assertions follow from
+Proposition~\ref{prop:powerfree-fixed-domain} below.
+\end{proof}
+
+The prime-to-\(\ell\) order assertion is over \(L_A\), as stated. It is
+not an assertion over \(L_A(D_A[\ell])\), whose ramification at \(p\)
+has an additional factor \(\ell\).
+Set \(\delta=2^{12}3^3 5=552960\), the constant for \(d_{\rm mod}=1\)
+in \cite[Theorem~5.7.1]{JoshiIV}. Equation~\eqref{eq:pf-height-window}
+also proves both numerical endpoints
+\begin{equation}\label{eq:pf-joshi-window}
+ \sqrt{Q_A}<\ell
+ <10\delta\sqrt{Q_A}\log(2\delta\log Q_A).
+\end{equation}
+For the second inequality, use \(\sqrt{Q_A}>\ell/2\) and
+\(\log(2\delta\log Q_A)>1\). This directly verifies a window for our
+chosen \(\ell\); it does not identify it with an existential choice in
+that source.
+
+\subsection{The full local torsion field}
+
+The local field in this family is determined with its actual Tate unit
+retained. Put \(N=30\ell\) and \(e=15\ell\). Full rational 2-torsion
+implies that a square root \(b_0\) of \(q\) belongs to \(\Q_p\).
+Indeed, its Tate class is rational, so for every Galois element the ratio
+of a conjugate to \(b_0\) is a power of \(q\). The ratio has valuation
+zero, hence is one. Thus \(v_p(b_0)=2\).
+
+Let \(K_0=\Q_p(\mu_N)\), choose \(\varpi^e=b_0\), and write
+\(u_0=b_0/p^2\). Since \(p\equiv-1\pmod N\), \(K_0/\Q_p\) is
+unramified quadratic. The element \(\varpi\) has valuation \(2/e\);
+the uniformizer is instead
+\begin{equation}\label{eq:pf-uniformizer}
+ \beta=\frac{\varpi^{(e+1)/2}}p,\qquad
+ \beta^e=p\,u_0^{(e+1)/2},\qquad
+ \varpi=u_0^{-1}\beta^2.
+\end{equation}
+The equation for \(\beta\) is Eisenstein over \(K_0\). Consequently
+\[
+ E=K_0(\varpi)=K_0(\beta),\qquad
+ [E:\Q_p]=30\ell,\quad e(E/\Q_p)=15\ell,\quad f(E/\Q_p)=2.
+\]
+Tate uniformization identifies
+\[
+ \Q_p(D_A[N])=\Q_p(\mu_N,q^{1/N})=E:
+\]
+fixing each torsion class forces its root-of-unity multiplier to be one,
+because a nontrivial power of \(q\) has nonzero valuation.
+The unramified quadratic field \(K_0\) contains \(i\), so \(E\) is also
+the completion at \(p\) of \(\Q(i,D_A[N])\).
+It is Galois, being the splitting field obtained from the cyclotomic
+field by adjoining all roots of \(T^e-b_0\).
+Moreover,
+\begin{equation}\label{eq:pf-small-tame}
+ e=15\ell\le p-2,\qquad \gcd(e,p-1)=1,
+\end{equation}
+since \(p\ge30\ell-1\) and \(p-1\equiv-2\pmod {15\ell}\).
+Thus the small tame range of the local arguments occurs at unbounded
+global height. No substitution \(q=p^4\) or \(b_0=p^2\) has been made.
+
+\subsection{A fixed domain and the finite-set quantifier}
+
+Let \(U=\mathbf P^1\setminus\{0,1,\infty\}\). Consider
+\begin{equation}\label{eq:pf-domains}
+ \begin{split}
+  \mathcal K_\infty
+     &=\{z\in\mathbf C:|z+1|\le1/2\},\\
+  \mathcal K_2
+     &=\{z\in\overline{\Q}_2:|z+2|_2\le1/8\}.
+ \end{split}
+\end{equation}
+For nonarchimedean places, the original compactly bounded condition of
+\cite[Example~1.3(ii), author manuscript pp.~5--6]{MochGeneralPosition}
+is formulated on intersection with each finite local extension. It does
+not require the entire set \(\mathcal K_2\) to be compact in
+\(\overline{\Q}_2\).
+
+\begin{proposition}[Fixed local bounds and unbounded rational height]
+\label{prop:powerfree-fixed-domain}
+The sets \eqref{eq:pf-domains} give one compactly bounded domain of support
+\(\{\infty,2\}\) in that original sense. Every member of
+Theorem~\ref{thm:powerfree-global-family} belongs to this domain, and
+\begin{equation}\label{eq:pf-unbounded-heights}
+ \height(\lambda_A)=\log(A^2+1)\longrightarrow\infty,\qquad
+ \height(j(D_A))\ge Q_A\longrightarrow\infty.
+\end{equation}
+On all of \(\mathcal K_2\), the Legendre invariant has valuation 6.
+\end{proposition}
+
+\begin{proof}
+Both sets avoid the three removed points and are stable under the
+respective Galois actions. The complex set is a compact regular closed
+disc. For every finite extension \(k/\Q_2\),
+\[
+ \mathcal K_2\cap k=-2+8\OO_k
+\]
+is compact and open, hence is the closure of its interior in \(k\).
+The set \(\mathcal K_2\) is itself open and closed in
+\(\overline{\Q}_2\), so any separate regular-closed requirement also
+holds. These are the stated original conditions.
+
+For \(A\ge2\), \(|\lambda_A+1|=A^{-2}\le1/4\). Since \(A\) is odd,
+\(A^2\) and its inverse are 1 modulo 8, giving
+\(\lambda_A\equiv-2\pmod8\). Thus the domain is fixed independently of
+\(\ell,p,A\), and the degree bound is one. If \(z\in\mathcal K_2\),
+then \(v_2(z)=1\), \(v_2(1-z)=0\), and
+\(v_2(1-z+z^2)=0\). The formula
+\[
+ j(z)=\frac{256(1-z+z^2)^3}{z^2(1-z)^2}
+\]
+therefore gives \(v_2(j(z))=6\).
+On \(\mathcal K_\infty\), the inequalities
+\(1/2\le|z|\le3/2\) and \(|1-z|\ge3/2\) also give the fixed coarse bound
+\[
+ |j(z)|\le
+ \frac{256(19/4)^3}{(1/2)^2(3/2)^2}
+ =\frac{438976}{9}<50000.
+\]
+
+The numerator and denominator of \(\lambda_A=-(A^2+1)/A^2\)
+are coprime. Its rational height is therefore the first expression in
+\eqref{eq:pf-unbounded-heights}. Also \(abc/2\) is odd, and
+\eqref{eq:pf-invariants} reduces to
+\[
+ j(D_A)=\frac{64S_A^3}{(abc/2)^2}
+\]
+in lowest terms. Its denominator alone gives
+\(\height(j(D_A))\ge2\log(abc/2)=Q_A\).
+\end{proof}
+
+\begin{corollary}[Avoidance of any fixed finite set]
+\label{cor:powerfree-finite-exception}
+If a finite set of parameters in \(U(\overline{\Q})\), or a finite set
+of geometric elliptic moduli points, is fixed before \(\ell\) varies,
+all sufficiently large members of the family avoid it.
+\end{corollary}
+
+\begin{proof}
+Take the maximum of the finitely many parameter heights, or of the
+heights of their \(j\)-invariants, and apply
+\eqref{eq:pf-unbounded-heights}. In particular, bounded complex absolute
+values of these invariants do not bound their rational heights.
+\end{proof}
+
+\subsection{The source-interface limits}
+
+The finite-set statement has its exact order of quantifiers: the set
+must be fixed before the family varies. It cannot be used for an
+exceptional set chosen separately for each member. There is also a
+topological difference that prevents silently substituting one definition
+for another.
+
+\begin{proposition}[The literal ambient compactness condition]
+\label{prop:powerfree-literal-compact}
+In the usual valuation topology of \(U(\overline{\Q}_2)\), every compact
+subset has empty interior. Consequently no nonempty compact subset is
+the closure of its ambient interior.
+\end{proposition}
+
+\begin{proof}
+Every nonempty open ball contains, after translation and a sufficiently
+small nonzero scaling, infinitely many algebraic integral units with
+distinct residues in \(\overline{\mathbf F}_2\). For example, one may
+take lifts in finite unramified extensions. The distances between the
+scaled points are all the same positive constant. Thus the ball is not
+totally bounded and cannot be contained in a compact set. A compact
+set with nonempty interior would contain such a ball, a contradiction.
+\end{proof}
+
+Section~5.1 of the archived v2 of \cite{JoshiIV}, p.~50, literally
+requires nonempty compact subsets in the product of the local algebraic
+closures and equality with the closure of their ambient interiors.
+Under the usual valuation topology, the proposition applies to the
+nonarchimedean factor, and the same obstruction holds for a product
+containing it. The domain \eqref{eq:pf-domains} satisfies the original
+finite-extension-section definition; it must not be described as a
+compact subset of that full algebraic closure. Using finite-extension
+sections or a different topology would require stating that interpretation
+explicitly. This observation does not disprove the original IUT statements.
+
+Finally, the separate existence quantifier in
+\cite[Theorem~5.7.1, p.~53]{JoshiIV} supplies some prime in a window.
+Our chosen \(\ell\) satisfies \eqref{eq:pf-joshi-window} and the arithmetic
+properties proved above directly, but these facts do not identify it
+with that existential prime. The covering and marking requirements of
+\cite[Definition~3.1]{IUT1} for these members are supplied separately
+by Corollary~\ref{cor:itd-powerfree-family}. They do not identify the
+complete possible-image source including subsequent indeterminacies.
+The classical least-prime,
+elliptic-curve, and local-field inputs in this section remain mathematical
+source dependencies; they are not asserted as new Lean axioms or as a
+formal proof of the abc conjecture.

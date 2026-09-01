@@ -1,0 +1,65 @@
+{
+  "research_date": "2026-08-31",
+  "status": "Lean validation passed; rigorous partial results",
+  "direct_compile_exit_codes": {
+    "ABCMixedFullCampana20260831": 0,
+    "FreyIsogenyConductorSharpness20260831": 0,
+    "IUTFiniteProductProjectionSpan20260831": 0,
+    "ABCThreePrimeSignatures20260831": 0,
+    "ABCSubcriticalLocusUniformity20260831": 0,
+    "PellCampanaCounterexample20260831": 0
+  },
+  "audit_compile_exit_code": 0,
+  "audit_target_build_exit_code": 0,
+  "full_build_exit_code": 0,
+  "full_build_jobs": 9142,
+  "full_build_warning_count": 265,
+  "frozen_baseline_warning_count": 265,
+  "warning_multiset_matches_frozen_baseline": true,
+  "new_module_warning_count": 0,
+  "module_count": 6,
+  "public_theorems_by_module": {
+    "ABCMixedFullCampana20260831": 8,
+    "FreyIsogenyConductorSharpness20260831": 28,
+    "IUTFiniteProductProjectionSpan20260831": 5,
+    "ABCThreePrimeSignatures20260831": 16,
+    "ABCSubcriticalLocusUniformity20260831": 16,
+    "PellCampanaCounterexample20260831": 21
+  },
+  "additional_declarations_by_module": {
+    "ABCMixedFullCampana20260831": 2,
+    "FreyIsogenyConductorSharpness20260831": 5,
+    "IUTFiniteProductProjectionSpan20260831": 1,
+    "ABCThreePrimeSignatures20260831": 0,
+    "ABCSubcriticalLocusUniformity20260831": 4,
+    "PellCampanaCounterexample20260831": 3
+  },
+  "public_theorem_count": 94,
+  "additional_declaration_count": 15,
+  "audited_declaration_count": 109,
+  "zero_axiom_declaration_count": 5,
+  "axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "unexpected_axioms": [],
+  "audit_has_sorryAx": false,
+  "forbidden_source_tokens": {},
+  "protected_files_match_frozen_baseline": true,
+  "packages_match_frozen_baseline": true,
+  "standard_abc_proof_or_disproof": false,
+  "positive_route_status": "exact equivalence and conditional amplification gates proved",
+  "counterexample_route_status": "conditional Pell squarefull-root disproof gate proved; premise open",
+  "all_passed": true,
+  "final_pdf": {
+    "path": "output/pdf/ChatGPT_ABC_Dual_Route_2026_08_31.pdf",
+    "title": "Uniformity, Prime Support, and Reachable Lattices in Approaches to the abc Conjecture",
+    "author": "ChatGPT",
+    "pages": 102,
+    "bytes": 789527,
+    "sha256": "cbbd600376a9c27754e6969612efa9ed2833060f60cb1a48d4b64ed03c25bfc4",
+    "all_pages_rendered_and_visually_inspected": true,
+    "final_tex_diagnostic_count": 0
+  }
+}

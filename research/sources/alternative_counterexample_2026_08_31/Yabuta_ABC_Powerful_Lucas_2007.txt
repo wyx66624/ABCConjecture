@@ -1,0 +1,198 @@
+THE ABC-CONJECTURE AND THE POWERFUL
+NUMBERS IN LUCAS SEQUENCES
+Minoru Yabuta
+Senri High School, 17-1, 2-chome, Takanodai, Suita, Osaka, 565-0861, Japan
+e-mail: yabutam@senri.osaka-c.ed.jp
+(Submitted August 2007 - Final Revision September 2007)
+ABSTRACT
+P. Ribenboim and G. Walsh showed that if the ABC-conjecture is true then every Lucas
+sequence has only ﬁnitely many powerful terms in the case of positive discriminant. We extend
+this result into the case of negative discriminant.
+1. INTRODUCTION
+We consider two sequences {Un}n≥0 and {Vn}n≥0 deﬁned by the recursion relations:
+U0 = 0, U1 = 1, Un+2 = PUn+1 −QUn,
+(1)
+V0 = 2, V1 = P, Vn+2 = PVn+1 −QVn,
+(2)
+where P and Q are non-zero integers such that D = P 2 −4Q ̸= 0 and gcd(P, Q) = 1. Each
+Un is called the Lucas number, which is an integer.
+A Lucas sequence {Un}n≥0 is called
+degenerate if the quotient of the roots of the polynomial X2 −PX + Q is a root of unity and
+non-degenerate, otherwise. Throughout this paper we assume that {Un}n≥0 and {Vn}n≥0 are
+non-degenerate. An integer n is powerful if p2 divides n whenever a prime p divides n.
+In 1999, Ribenboim and Walsh [6] proved that the following conjecture of Masser and
+Oesterl´e implies that if P > 0 and Q ̸= 0 are integers such that D = P 2 −4Q > 0 and
+gcd(P, Q) = 1 then Un and Vn are powerful for only ﬁnitely many terms.
+ABC-conjecture (Masser and Oesterl´e). Let a, b, c be relatively prime integers satisfying
+a + b + c = 0. Then, for every ϵ > 0,
+max{|a|, |b|, |c|} ≪ϵ
+
+Y
+p|abc
+p
+
+
+1+ϵ
+,
+(3)
+where the product is over all primes dividing abc. We use the Vinogradov symbols ≫ϵ and
+≪ϵ with their usual meanings. The constant depends only on ϵ, independent of a, b, c.
+In this paper we will extend the result of Ribenboim and Walsh [6] into the case of negative
+discriminant. In other words, we will show that even if D = P 2 −4Q < 0 the ABC-conjecture
+implies that Un and Vn are powerful for only ﬁnitely many terms.
+The problem of the powerful numbers in Lucas sequences has been studied by several
+authors. In 1964, Cohn [3] proved that the only squares in the Fibonacci sequence {Fn}n≥0
+are F0 = 0, F1 = F2 = 1 and F12 = 144. In 1969, London and Finkelstein [4] proved that the
+only cubes in the Fibonacci sequence are F0 = 0, F1 = F2 = 1 and F6 = 8. In 1996, Ribenboim
+362
+[NOVEMBER
+
+THE ABC-CONJECTURE AND THE POWERFUL NUMBERS IN LUCAS SEQUENCES
+and McDaniel [5] proved that if P and Q are odd numbers such that D = P 2 −4Q > 0 and
+gcd(P, Q) = 1, then Un is a perfect square only if n = 0, 1, 2, 3, 6, 12, and Vn is a perfect square
+only if n = 1, 3, 5. Recently, Bugeaud, Mignotte and Siksek [2] showed that the only perfect
+powers in the Fibonacci sequence are F0, F1, F2, F6 and F12.
+2. THE POWERFUL NUMBERS IN LUCAS SEQUENCES
+Let P and Q be non-zero integers such that D = P 2 −4Q ̸= 0 and gcd(P, Q) = 1. Let α
+and β be the roots of the polynomial X2 −PX + Q. Then, for all integers n ≥0,
+Un = αn −βn
+α −β ,
+Vn = αn + βn.
+(4)
+We assume that the sequences {Un}n≥0 and {Vn}n≥0 are non-degenerate. Since D = (α −β)2
+and αβ = Q, we have that for all n ≥0,
+V 2
+n −DU 2
+n = 4Qn.
+(5)
+Lemma 2.1: For all integers n ≥1,
+(1) gcd(Un, Q) = gcd(Vn, Q) = 1
+(2) gcd(Un, Vn) = 1 or 2.
+Proof: Let p be an arbitrary prime dividing Q. Then from (1) and (2), we have that
+Un ≡P n−1 and Vn ≡P n (mod p). Since P and Q are relatively prime, Un ̸≡0 and Vn ̸≡0
+(mod p). Hence, gcd(Un, Q) = gcd(Vn, Q) = 1. Then from (5) we have that gcd(Un, Vn) =
+1 or 2.
+If N is an integer then we can write N = uv with gcd(u, v) = 1, where u is a squarefree
+integer and v is a powerful integer. Then u is called the powerless part and v the powerful part.
+Lemma 2.2: Let C be an arbitrary positive number. Then
+♯{n ∈N : Un is powerful and Un ≤C} < ∞.
+Proof: The proof is by contradiction. In [1] we ﬁnd that if n > 30 then Un has a primitive
+divisor, which divides Un but does not divide Uk for 0 < k < n. Assume that there are inﬁnitely
+many powerful terms Un with Un ≤C. Then Ul = Um for some integers 30 < l < m, which
+contradicts that Um has a primitive divisor. Thus, we have completed the proof.
+Theorem 2.3: The ABC-conjecture implies that if P and Q are nonzero integers such that
+D = P 2 −4Q ̸= 0 and gcd(P, Q) = 1 then Un and Vn are powerful for only ﬁnitely many
+terms.
+Proof: We will prove this theorem for the sequence {Un}n≥0.
+In a similar way, we
+can prove this theorem for the sequence {Vn}n≥0. We distinguish the proof into two cases,
+depending on whether gcd(Un, Vn) is equal to 1 or 2. We omit the proof for the second case,
+which is similar to that for the ﬁrst case.
+2007]
+363
+
+THE FIBONACCI QUARTERLY
+Now deﬁne N1 = {n ≥1 : gcd(Un, Vn) = 1}. According to Ribenboim and Walsh [5], for
+n ∈N1 deﬁne
+ Zn = Vn/2, ∆= D/4, E = 1
+for P even
+Zn = Vn, ∆= D, E = 4
+for P odd.
+Then
+Z2
+n −∆U 2
+n = EQn,
+(6)
+and in both cases gcd(Zn, ∆Un, EQn) = 1. We write Un = unvn with gcd(un, vn) = 1 and
+vn > 0, where un is the powerless part and vn is the powerful part.
+Applying the ABC-
+conjecture to (6), we obtain that there exists a constant κ depending only on ϵ such that
+max{|Z2
+n|, |∆U 2
+n|, |EQn|} ≤κ
+
+
+Y
+p|Zn∆UnEQ
+p
+
+
+1+ϵ
+≤κ|Zn∆EQun
+√vn|1+ϵ.
+(7)
+Now
+|Z2
+n| = |∆U 2
+n + EQn| ≤2 max{|∆U 2
+n|, |EQn|},
+so
+|Zn| ≤
+√
+2 max{|∆U 2
+n|, |EQn|}1/2.
+Substituting this into (7), we have that
+max{|∆U 2
+n|, |EQn|} ≪ϵ max{|∆U 2
+n|1/2|un
+√vn|, |EQn|1/2|un
+√vn|}1+ϵ,
+and therefore,
+max{|∆U 2
+n|, |EQn|}(1−ϵ)/2 ≪ϵ |un
+√vn|1+ϵ.
+Hence
+|∆U 2
+n|(1−ϵ)/2 ≪ϵ |un
+√vn|1+ϵ.
+(8)
+Now ﬁx 0 < ϵ < 1/3. Substituting Un = unvn into (8), we obtain that for all n ∈N1,
+u2ϵ
+n ≫ϵ v(1−3ϵ)/2
+n
+.
+(9)
+This means that there exists a constant C > 0 independent of n, so that if vn > C then
+|un| > 1. In other words, the terms Un with vn > C is not powerful for any integer n ∈N1.
+From Lemma 2.2 we have further that the term Un with vn ≤C is powerful for only ﬁnitely
+many integers n ∈N1. It follows that the term Un is powerful for only ﬁnitely many integers
+n ∈N1. We conclude that the term Un is powerful for only ﬁnitely many integers n ≥1.
+Now let ˜E : y2 = x3 + B with B ∈Z be an elliptic curve and let ˜P be any rational point
+of inﬁnite order on the curve ˜E. For every integer n ≥1 write n ˜P = (an/d2
+n, bn/d3
+n). Let
+˜vn be the powerful part of dn. Then Silverman [7] showed that the ABC-conjecture implies
+˜vn ≪ϵ, ˜
+E dϵ
+n. In the proof of Theorem 2.3 we made reference to [7].
+364
+[NOVEMBER
+
+THE ABC-CONJECTURE AND THE POWERFUL NUMBERS IN LUCAS SEQUENCES
+ACKNOWLEDGMENTS
+The author would like to express his gratitude to the anonymous referee for many useful
+and valuable suggestions that improved this paper. In particular, the proof of Theorem 2.3
+was improved by the referee’s suggestion.
+REFERENCES
+[1] Yu.
+Bilu, G. Hanrot, P. Voutier (with an appendix by M. Mignotte).
+“Existence of
+Primitive Divisors of Lucas and Lehmer Numbers.” J. Reine Angew. Math. 539 (2001):
+75–122.
+[2] Y. Bugeaud, M. Mignotte, S. Siksek. “Classical and Modular Approaches to Exponential
+Diophantine Equations. Fibonacci and Lucas Perfect Powers.” Ann. of Math. 163.3
+(2006): 969–1018.
+[3] J. H. E. Cohn. “On Square Fibonacci Numbers.” Proc. London Math. Soc. 39 (1964):
+537–541.
+[4] H. London, R. Finkelstein. “On Fibonacci and Lucas Numbers Which are Perfect Powers.”
+Fibonacci Quart. 7.5 (1969): 476–481, 487; errata, ibid. 8.3 (1970): 248.
+[5] P. Ribenboim and W. L. McDaniel. “The Square Terms in Lucas Sequences.” J. Number
+Theory 58 (1996): 104–123.
+[6] P. Ribenboim and G. Walsh. “The ABC Conjecture and the Powerful Part of Terms in
+Binary Recurring Sequences.” J. Number Theory 74 (1999): 134–147.
+[7] J. H. Silverman. “Wieferich’s Criterion and the ABC-Conjecture.” J. Number Theory 30
+(1988): 226–237.
+AMS Classiﬁcation Numbers: 11B39, 11D09
+✠✠✠
+2007]
+365

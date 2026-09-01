@@ -1,0 +1,340 @@
+\subsection{A tensor point inside the holomorphic hull}\label{sec:holomorphic-hull}
+An important distinction changes the reachability question. The hull in
+\cite[Section~9.10.7, p.~125]{JoshiIII} is, after the finite-etale
+decomposition of a tensor algebra, a product of principal local ideals.
+It is therefore a module over the \emph{whole product of integer rings}.
+Independent linear actions are not necessary for the following containment.
+
+Let $E_1,\ldots,E_m$ be finite extensions of $\Q_p$, and write
+\[
+ T=\bigotimes_{i=1}^m E_i=\prod_\alpha F_\alpha,\qquad
+ B=\prod_\alpha\OO_{F_\alpha},\qquad
+ A=\bigotimes_{i=1}^m\OO_{E_i}\subset T,
+\]
+where the integral tensor product is over $\Z_p$.
+Tensoring integral bases embeds $A$ as a full lattice. Its elements are
+integral over $\Z_p$, so $A\subset B$, of finite index $I=[B:A]$.
+
+\begin{proposition}\label{prop:point-hull}
+For nonzero $\tau_i\in E_i$, put $t=\bigotimes_i\tau_i$. If a
+$B$-submodule $H\subset T$ contains a set $S$ with $t\in S$, then
+\[
+ \bigotimes_i\tau_i\OO_{E_i}=tA\subset tB\subset H.
+\]
+Both displayed lattices have full rank, and the smallest $B$-module
+containing the singleton $\{t\}$ is exactly $tB$.
+\end{proposition}
+\begin{proof}
+The inverse of $t$ is $\bigotimes_i\tau_i^{-1}$, by multiplication in
+the tensor algebra. Closure under $B$ gives $tB\subset H$.
+The inclusion $A\subset B$ and the tensor multiplication rule give
+the other equality and inclusion. Multiplication by the unit $t$ is a
+$\Q_p$-linear automorphism and preserves full rank. Finally $tB$ itself
+is a $B$-module containing $t$, proving the singleton assertion.
+\end{proof}
+
+The conclusion applies \emph{after} taking the specified holomorphic hull.
+It does not put $tA$ in the raw tensor-image set or its ordinary
+$\Z_p$ convex closure. As printed, Section~9.10.7 requires the component
+generators to be nonzero and integral. An arbitrary bounded nonintegral
+set is not covered by that definition. With fractional generators allowed,
+a bounded set containing a unit has a unique such hull: take the least
+valuation in each nonzero component. This is an explicit extension of
+the convention, not an assumption that every source output is integral.
+
+\begin{proposition}[The two closures can differ]\label{prop:hull-convex-difference}
+Let $E=\Q_3(\pi)$ with $\pi^2=3$. Under
+\[
+ E\otimes_{\Q_3}E\simeq E^2,\qquad
+ a\otimes b\longmapsto(ab,\sigma(a)b),\quad\sigma(\pi)=-\pi,
+\]
+the tensor order satisfies
+\[
+ A=\{(x,y)\in\OO_E^2:x-y\in\pi\OO_E\},\qquad [\OO_E^2:A]=3.
+\]
+It is already a closed $\Z_3$-module, whereas its holomorphic hull is
+$B=\OO_E^2$. The singleton $(1,1)$ also has holomorphic hull $B$,
+while its ordinary convex closure is contained in $\Z_3(1,1)$.
+\end{proposition}
+\begin{proof}
+Valuations show that $\pi\notin\Q_3$ and
+$\OO_E=\Z_3+\Z_3\pi$. The images of an integral tensor basis are
+\[
+ (1,1),\quad(\pi,-\pi),\quad(\pi,\pi),\quad(3,-3).
+\]
+Their differences are divisible by $\pi$. Conversely write
+$x=a+b\pi$, $y=c+d\pi$. The asserted congruence is $3\mid a-c$,
+and coefficients $(a+c)/2,(b-d)/2,(b+d)/2,(a-c)/6$ express $(x,y)$
+in the displayed basis. Reduction of $x-y$ modulo $\pi$ gives the
+quotient $\mathbf F_3$ and hence the index. Both $A$ and the singleton
+contain $(1,1)$; its $B$-multiples are all of $B$.
+The compact module $\Z_3(1,1)$ is convex and omits $(1,0)$, proving
+the last distinction without relying on a choice between affine and
+absolutely convex conventions.
+\end{proof}
+
+This gives a counterexample to the general equality of holomorphic hull
+and minimum ordinary convex closure in
+\cite[Proposition~9.10.8.1]{JoshiIII}. It does not refute IUT or abc.
+In particular the positive containment in Proposition~\ref{prop:point-hull}
+must be used on the holomorphic-hull side of this distinction.
+
+\subsection{Native coefficients and compatible volumes}
+There is a coherent marking-preserving collation of the relevant local
+Kummer classes. For a fixed finite extension $E/\Q_p$ and marked copies
+$i_y:E\simeq E_y$, Kummer theory identifies the integral multiplicative
+cohomology with
+\[
+ \mathcal K(E_y)=\varprojlim_n E_y^\times/(E_y^\times)^{p^n}.
+\]
+This is the identification used in
+\cite[Proposition~7.2.2]{JoshiIIhalf}. At each finite level, the map
+$i_z i_y^{-1}$ induces an isomorphism of these quotients; their inverse
+limit gives a topological isomorphism $F_{y\to z}$ with
+\[
+ F_{y\to z}\bigl(\kappa_y(i_y(u))\bigr)=\kappa_z(i_z(u)),\qquad
+ F_{z\to r}F_{y\to z}=F_{y\to r}.
+\]
+It preserves the unit-completion subgroup and can be chosen coherently
+every time a label is repeated. This uses one family of the factorwise
+topological collations in the cited source; it does not assert that every
+such collation preserves a marked arithmetic element.
+
+For $b_p=p$ when $p$ is odd and $b_2=4$, the coefficient in
+\cite[equation~(9.7.2.2)]{JoshiIII} is
+\[
+ \lambda_{b_p}(a)=\frac{\log(1+b_pa)}{b_p},\qquad a\in\OO_E.
+\]
+For $a\ne0$ it is nonzero and has the same valuation as $a$.
+Indeed, with $v(p)=1$ and $x=b_pa$, every term after the first in the
+logarithm series has greater valuation:
+\[
+ v(x^n/n)-v(x)=(n-1)v(x)-v_p(n)>0\quad(n\ge2).
+\]
+For odd $p$ use $v_p(n)<n-1$, and for $p=2$ use $v(x)\ge2$.
+The terms tend to zero, so $v(\log(1+x))=v(x)$.
+The field markings commute with this convergent series, yielding the
+same normalized coefficient in the fixed target. In particular, the
+background coefficient $\lambda_{b_p}(1)$ is a unit.
+
+\begin{proposition}\label{prop:balanced-volume}
+Put $d_i=[E_i:\Q_p]$, $D_T=\prod_i d_i$, and normalize Haar measure
+on $T$ by $\mu(A)=1$. For $t=\bigotimes_i\tau_i$,
+\[
+ \mu(tB)=I\prod_i|\tau_i|_{E_i}^{D_T/d_i},
+ \qquad |x|_{E_i}=|N_{E_i/\Q_p}(x)|_p.
+\]
+For any $c_0>0$, the functional $\nu(U)=\mu(U)^{c_0/D_T}$ is monotone,
+and every measurable $H\supset tB$ satisfies
+\[
+ \nu(H)\ge I^{c_0/D_T}\prod_i|\tau_i|_{E_i}^{c_0/d_i}
+           \ge\prod_i|\tau_i|_{E_i}^{c_0/d_i}.
+\]
+A factor prescription
+$\prod_i\mu_i(V_i)^{\gamma_i}$ for the same integral tensor lattice
+can be independent of its presentation only if all $d_i\gamma_i$ agree.
+These equalities are also sufficient on full tensor lattices.
+\end{proposition}
+\begin{proof}
+The $I$ translates of $A$ partition $B$, so $\mu(B)=I$.
+Multiplication by $\tau_i$ in its tensor factor has determinant
+$N_{E_i/\Q_p}(\tau_i)^{D_T/d_i}$. Multiplication by $t$ is the
+composition of these maps, giving the displayed Haar factor.
+Monotonicity and the positive power give the inequalities.
+For necessity of balancing, put a scalar $p$ in any one factor of the
+tensor lattice $pA$. The proposed values are
+$p^{-d_i\gamma_i}$ and must agree. If $d_i\gamma_i=c_0$, the normalized
+functional $\mu^{c_0/D_T}$ gives the factor prescription by the same
+determinant computation, proving sufficiency.
+\end{proof}
+
+The normalization matters when using an upper estimate from another
+source. Denote the preceding Haar measure by $\mu_A$, and instead let
+$\mu_B(B)=1$. On a measurable region of finite positive measure, put
+\[
+ V_A(U)=\frac{\log\mu_A(U)}{D_T},\qquad
+ V_B(U)=\frac{\log\mu_B(U)}{D_T}.
+\]
+Uniqueness of Haar measure and $\mu_A(B)=I$ give
+\begin{equation}\label{eq:order-normalization}
+ V_A(U)=V_B(U)+\frac{\log I}{D_T},\qquad
+ V_B(tB)=\sum_i\frac{\log|\tau_i|_{E_i}}{d_i}.
+\end{equation}
+The positive power of Haar measure used above need not itself be an
+additive measure. Only its monotonicity was asserted.
+
+This conversion is required by the original texts:
+\cite[Section~9.10.3.1]{JoshiIII} assigns value one to the tensor order
+$A$, whereas \cite[Proposition~1.4(i), author-version p.~13]{IUT4}
+normalizes the log-volume of the maximal order $B$ to zero.
+The positive index contribution cannot be carried into a $B$-normalized
+upper estimate. The second equality in \eqref{eq:order-normalization}
+preserves the native lower bound without that contribution.
+
+For example, if all $m$ factors equal a Galois extension $E/\Q_p$ of
+degree $d$, then
+\[
+ E^{\otimes m}\simeq E^{d^{m-1}},\qquad
+ \log_p[B:A]=\frac{(m-1)d^{m-1}\delta_E}{2},
+\]
+where $\delta_E$ is the exponent of its discriminant over $\Z_p$.
+Indeed, the trace Gram matrix on a tensor basis has discriminant exponent
+$m d^{m-1}\delta_E$. On the product maximal order that exponent is
+$d^{m-1}\delta_E$. Their difference is twice the exponent of the
+lattice index. Thus
+\[
+ V_A(U)-V_B(U)=\frac{(m-1)\delta_E}{2d}\log p.
+\]
+
+For copies of a fixed selected field $E=L'_w$ over $F=L_{\rm mod,v}$,
+the source weight $\gamma=1/[E:F]$ obeys
+$[E:\Q_p]\gamma=[F:\Q_p]$. It is thus balanced. A tuple with $r$
+theta coefficients $\lambda_{b_p}(a)$ and the remaining coefficients
+$\lambda_{b_p}(1)$ gives the native lower bound
+\[
+ \nu(H)\ge |a|_E^{r/[E:F]}\ge |a|_E^r
+ \quad\text{if }0<|a|_E<1.
+\]
+For a rational Frey curve $C$, the field of moduli is $\Q$.
+The underlying punctured curve is defined over $\Q$; its absolute
+field of moduli, used before adjoining level structure in
+\cite[Section~3.1(4)]{JoshiIII}, is therefore $\Q$.
+Equivalently the Legendre parameter $-b/a$ gives
+$\Q(j)=\Q$ in \cite[Section~5.3]{JoshiIV}.
+The later extensions $L=\Q(i,C[30])$ and $L'=L(C[\ell])$ are Galois
+over $\Q$ and do not redefine that unlevelled moduli field.
+Choosing one place of $L'$ above each rational prime gives the
+place-compatible selected bijection of \cite[Section~3.3(14) and
+Proposition~9.4.2.4(4)]{JoshiIII}. Thus there is one selected place per
+prime. The internal field decomposition of $E^{\otimes m}$ still remains.
+
+For a split multiplicative place with $q\in\Q_p$, take a root
+$a^{2\ell}=q$ in the selected field $E$. The native module absolute value
+satisfies $|q|_E=|q|_p^d$, so
+\[
+ |\lambda_{b_p}(a)|_E^{1/d}=|q|_p^{1/(2\ell)}.
+\]
+A block with one such entry and background units therefore gives
+\begin{equation}\label{eq:native-point-lower}
+ V_B(H)\ge V_B(tB)=-Q_p,\qquad Q_p=-\frac{\log|q|_p}{2\ell}>0.
+\end{equation}
+The chosen marking-induced isomorphisms give an actual tuple in the
+collation, and convex closure retains it. The tuple-to-tensor map and
+the module hull then give the stated containment. No independent action
+on repeated labels is needed.
+
+\subsection{Changing the target of the whole collation}
+\label{sec:target-reset}
+Fix a family of source groups $C_y$, a set of configurations of source
+classes, and a fixed slot set in each block. Require repeated occurrences
+of a source label to use the same isomorphism. Let $\Psi_k$ be the union
+of all resulting tuples in a target $C_k$, where all allowed topological
+group isomorphisms are used. The same discussion applies to a groupoid
+of Galois-induced isomorphisms.
+
+\begin{proposition}[Covariance for a fixed source family]
+\label{prop:target-reset}
+If $c:C_0\simeq C_1$ is an allowed target isomorphism, then
+\[
+ \Psi_1=c^{\rm slots}(\Psi_0).
+\]
+If $c$ in logarithmic coordinates is induced by a local field marking,
+the same covariance holds for closed convex closure, tensor image,
+and the maximal-order module hull. In particular the transported hulls
+have equal $V_A$ volumes, and equal $V_B$ volumes with the respective
+normalizations.
+\end{proposition}
+\begin{proof}
+Postcomposition $f\mapsto c\circ f$ is a bijection from
+$\operatorname{Iso}(C_y,C_0)$ to $\operatorname{Iso}(C_y,C_1)$,
+with inverse postcomposition by $c^{-1}$. Apply it to the whole family
+of maps used by a source configuration. Equal maps on repeated labels
+remain equal in both directions. Taking the union proves the set equality.
+For a groupoid the same argument uses closure under composition and inverse.
+
+The marking induces a linear homeomorphism in logarithmic coordinates,
+so it carries a smallest closed convex region to the corresponding
+smallest closed convex region. Tensoring the field maps commutes with
+the map on pure tensors. The resulting algebra isomorphism preserves
+integrality over $\Z_p$ and thus carries $A_0,B_0$ to $A_1,B_1$.
+Minimality of the coefficient-module hull, applied also to the inverse,
+proves equality of the transported hulls. Finally uniqueness of Haar
+measure transports the chosen normalization, and dimensions are unchanged.
+\end{proof}
+
+The source family and its classes are hypotheses of this proposition.
+It justifies a change of target in the all-isomorphism construction of
+\cite[Section~9.7.5.1]{JoshiIII}; it does not show that every operation
+intended by a later Frobenius comparison keeps that source family fixed.
+In particular a favorable native point and covariance for this family
+cannot be combined with an upper estimate for a different family.
+
+To see the normalization issue directly, write a rescaled untilt norm
+on the marked finite field as $N_y(x)=|x|_E^{s_y}$, $s_y>0$.
+The native Haar contribution is
+\[
+ |\lambda_{b_p}(a)|_E^{1/d}
+   =N_y(\lambda_{b_p}(a))^{1/(ds_y)}.
+\]
+Changing $s_y$ alone leaves it unchanged.
+Also replacing $q$ by $q^p$ rebuilds the principal unit from $a^p$ and
+gives coefficient $\lambda_{b_p}(a^p)$, whereas raising $1+b_pa$
+to its $p$th power gives $p\lambda_{b_p}(a)$.
+They need not agree: for $p=3,E=\Q_3,a=3$, their valuations are three
+and two, respectively. The Frobenius in
+\cite[Corollary~5.6.2]{JoshiIIhalf} acts on a perfected multiplicative
+monoid, not by definition on this fixed integral Kummer lattice.
+
+The original IUT~IV computation explicitly uses a squared exponent:
+\cite[Theorem~1.10, Step~(v), author-version pp.~27--29]{IUT4} takes
+the $j$th theta-pilot valuation to be $j^2v_p(q)/(2\ell)$.
+Replacing the coefficient above by $\lambda_{b_p}(a^{j^2})$ would
+give the single-point lower bound $-j^2Q_p$, rather than $-Q_p$.
+For $s=(\ell-1)/2$ the average of these coefficients is
+\[
+ \frac1s\sum_{j=1}^s j^2=\frac{(s+1)(2s+1)}6
+                          =\frac{\ell(\ell+1)}{12}.
+\]
+Proposition~\ref{prop:target-reset} can be proved for either fixed family,
+but it does not identify them. The required favorable lower bound for
+the correctly powered possible-image family is a further assertion.
+
+\subsection{The source weights for several selected places}
+The mixed-place weights can also be read from the original upper source,
+\cite[Remark~1.7.1, author-version p.~17]{IUT4}.
+Let $F=L_{\rm mod}$ have degree $n$, put
+$h_v=[F_v:\Q_p]$, $d_v=[L'_{w(v)}:\Q_p]$, and
+$\gamma_v=h_v/d_v$ for $v\mid p$. Then $\sum_vh_v=n$.
+For a word $f$ of length $m$ in these places put
+\[
+ D_f=\prod_i d_{f(i)},\qquad \rho_f=\frac{\prod_i h_{f(i)}}{n^m}.
+\]
+With $B_f$ the maximal order in the corresponding tensor algebra, the
+degree-normalized functional on a product of ideal hulls is
+\[
+ V_{B,p,m}(H)=\sum_f\frac{\rho_f}{D_f}\log\mu_{B_f}(H_f),
+ \qquad \mu_{B_f}(B_f)=1.
+\]
+The word weights sum to one and have marginal $h_v/n$ at every slot.
+Applying the tensor determinant identity therefore gives
+\[
+ V_{B,p,m}(tB)=\frac1n\sum_i\sum_{v\mid p}
+                      \gamma_v\log|\tau_{i,v}|_{L'_{w(v)}}.
+\]
+The corresponding tensor-order normalization differs by exactly
+$\sum_f(\rho_f/D_f)\log[B_f:A_f]$.
+This proves the formula on product ideal hulls. It is not a product
+formula for an arbitrary measurable non-product region. The extra global
+factor $n$ must be coordinated with the arithmetic-degree convention;
+it equals one in the rational branch.
+
+These constructions prove the local point-to-lattice implication and
+fixed-source target covariance with their stated normalizations.
+They do not yet identify the full Frobenius-shifted source families in
+\cite[Theorem~6.10.1]{JoshiIV} with those of the later upper estimate.
+That estimate must concern the same hull and volume functional.
+Part~III already introduces the
+volume of a containing compact region on p.~121; omission of a hull symbol
+in a later formula is therefore not, by itself, evidence that a different
+set was estimated. What is needed is the actual comparison with the
+region and measure in IUT~IV, rather than an identification by notation.

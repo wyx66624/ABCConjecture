@@ -1,0 +1,243 @@
+On Hall’s conjecture
+Andrej Dujella
+Abstract
+We show that for any even positive integer δ there exist polynomials
+x and y with integer coeﬃcients such that deg(x) = 2δ, deg(y) = 3δ
+and deg(x3 −y2) = δ + 5.
+Hall’s conjecture asserts that for any ε > 0, there exists a constant
+c(ε) > 0 such that if x and y are positive integers satisfying x3 −y2 ̸= 0,
+then |x3 −y2| > c(ε)x1/2−ε.
+It is known that Hall’s conjecture follows
+from the abc-conjecture. For a stronger version of Hall’s conjecture which
+is equivalent to the abc-conjecture see [3, Ch. 12.5]. Originally, Hall [8]
+conjectured that there is C > 0 such that |x3 −y2| ≥C√x for positive
+integers x, y with x3 −y2 ̸= 0, but this formulation is unlikely to be true.
+Danilov [4] proved that 0 < |x3 −y2| < 0.97√x has inﬁnitely many solutions
+in positive integers x, y; here 0.97 comes from 54
+√
+5/125. For examples with
+“very small” quotients |x3 −y2|/√x, up to 0.021, see [7] and [9].
+It is well known that for non-constant complex polynomials x and y,
+such that x3 ̸= y2, we have deg(x3 −y2)/ deg(x) > 1/2. More precisely,
+Davenport [6] proved that for such polynomials the inequality
+deg(x3 −y2) ≥1
+2 deg(x) + 1
+(1)
+holds. This statement also follows from Stothers-Mason’s abc theorem for
+polynomials (see, e.g., [10, Ch. 4.7]). Zannier [12] proved that for any posi-
+tive integer δ there exist complex polynomials x and y such that deg(x) = 2δ,
+deg(y) = 3δ and x, y satisfy the equality in Davenport’s bound (1). In his
+previous paper [11], he related the existence of such examples with coverings
+of the Riemann sphere, unramiﬁed except above 0, 1 and ∞.
+02000 Mathematics Subject Classiﬁcation: 11C08, 11D25, 11D75.
+Key words: Hall’s conjecture, integer polynomials.
+The author was supported by the Ministry of Science, Education and Sports, Republic
+of Croatia, grant 037-0372781-2821.
+1
+
+It is natural to ask whether examples with the equality in (1) exist for
+polynomials with integer (rational) coeﬃcients. Such examples are known
+only for δ = 1, 2, 3, 4, 5 (see [1, 7]). The ﬁrst example for δ = 5 was found
+by Birch, Chowla, Hall and Schinzel [2]. It is given by
+x = t
+9(t9+6t6+15t3+12),
+y = 1
+54(2t15+18t12+72t9+144t6+135t3+27),
+while then
+x3 −y2 = −1
+108(3t6 + 14t3 + 27)
+(note that x, y are integers for t ≡3 (mod 6)). One more example for δ = 5
+has been found by Elkies [7]:
+x = t10−2t9+33t8−12t7+378t6+336t5+2862t4+2652t3+14397t2+9922t+18553,
+y = t15 −3t14 + 51t13 −67t12 + 969t11 + 33t10 + 10963t9 + 9729t8 + 96507t7
++ 108631t6 + 580785t5 + 700503t4 + 2102099t3 + 1877667t2 + 3904161t + 1164691,
+x3 −y2 = 4591650240t6 −5509980288t5 + 101934635328t4 + 58773123072t3
++ 730072388160t2 + 1151585880192t + 5029693672896.
+In these examples we have
+deg(x3 −y2)/ deg(x) = 0.6,
+and it seems that no examples of polynomials with integer coeﬃcients, sat-
+isfying x3 −y2 ̸= 0 and deg(x3 −y2)/ deg(x) < 0.6, were published until
+now.
+In this note we will show the following result.
+Theorem 1 For any ε > 0 there exist polynomials x and y with integer
+coeﬃcients such that x3 ̸= y2 and deg(x3 −y2)/ deg(x) < 1/2 + ε.
+More precisely, for any even positive integer δ there exist polynomials
+x and y with integer coeﬃcients such that deg(x) = 2δ, deg(y) = 3δ and
+deg(x3 −y2) = δ + 5.
+As an immediate corollary we obtain a nontrivial lower bound for the
+number of integer solutions to the inequality |x3 −y2| < x1/2+ε with 1 ≤
+x ≤N (heuristically, it is expected that this number is around Nε).
+Corollary 1 For any ε > 0 and positive integer N by S(ε, N) we denote
+the number of integers x, 1 ≤x ≤N, for which there exists an integer y
+such that 0 < |x3 −y2| < x1/2+ε. Then we have
+S(ε, N) ≫Nε/(5+4ε).
+2
+
+Indeed, take δ to be the smallest even integer greater that 5/(2ε), so
+that 5/(2ε) < δ < 5/(2ε) + 2, and take x = x(t), y = y(t) as in Theorem 1.
+Then for suﬃciently large t we have x = O(t2δ) and |x3 −y2| = O(tδ+5) =
+O(x
+1
+2 + 5
+2δ ) < x1/2+ε. Therefore,
+S(ε, N) ≫N1/(2δ) ≫Nε/(5+4ε).
+Here is an explicit example which improves the quotient deg(x3−y2)/ deg(x) =
+0.6 from the above mentioned examples by Birch, Chowla, Hall, Schinzel and
+Elkies, as deg(x3 −y2)/ deg(x) = 31/52 = 0.5961... :
+x = 281474976710656t52 + 3799912185593856t50 + 24189255811072000t48 + 96537120918732800t46
++ 270892177293312000t44 + 568175382432317440t42 + 924393098014883840t40
++ 1194971570896896000t38 + 1247222961904025600t36 + 1062249296822272000t34
++ 743181990714408960t32 + 428630517911388160t30 + 203971125837824000t28 + 100663296t27
++ 79960271015116800t26 + 729808896t25 + 25720746147840000t24 + 2359296000t23
++ 6745085391667200t22 + 4482662400t21 + 1428736897843200t20 + 5554176000t19
++ 241375027200000t18 + 4706795520t17 + 31982191104000t16 + 2782494720t15 + 3250264320000t14
++ 1148928000t13 + 245895686400t12 + 326476800t11 + 13292822400t10 + 61776000t9 + 484380000t8
++ 7344480t7 + 10894000t6 + 496080t5 + 130625t4 + 15750t3 + 629t2 + 150t + 4,
+y = 4722366482869645213696t78 + 95627921278110315577344t76 + 931486788746037518401536t74
++ 5812273909720700361375744t72 + 26102714713365300532740096t70 + 89873242715073754863501312t68
++ 246761827996223603178733568t66 + 554869751478978106456276992t64
++ 1041377162422256031202541568t62 + 1654256777803799676753805312t60
++ 2247766244734980591395536896t58 + 2633529391786763986554322944t56
++ 2676840149412734907329806336t54 + 2533274790395904t53 + 2371433108159248512627769344t52
++ 35465847065542656t51 + 1837294956807449113993936896t50 + 234486247786020864t49
++ 1247823926411289395000770560t48 + 973569167884025856t47 + 743994544482135039635619840t46
++ 2847272221544546304t45 + 389682593956278112836648960t44 + 6236328797675716608t43
++ 179279686440609529032867840t42 + 10618254681610125312t41 + 72388134028773255869890560t40
++ 14399046085119049728t39 + 25611943886548098204303360t38 + 15806610071787405312t37
++ 7922395450159324505047040t36 + 14200560742834372608t35 + 2135839807968003238133760t34
++ 10514148446410113024t33 + 499883693495498613719040t32 + 6441026076788391936t31
++ 101073262762096181903360t30 + 3269189665642512384t29 + 17550157782838363029504t28
++ 1373442845007937536t27 + 2598168579136061177856t26 + 476068223096193024t25
++ 325093317533140516864t24 + 135395930768670720t23 + 34019036843474681856t22
++ 31339645700014080t21 + 2939255644452962304t20 + 5838612910571520t19 + 206402445920944128t18
++ 862650209710080t17 + 11551766627438592t16 + 99129281310720t15 + 502656091170048t14
++ 8633278321920t13 + 16468534726592t12 + 550276346880t11 + 389483950128t10 + 24450210720t9
++ 6312333144t8 + 705350880t7 + 68685241t6 + 11812545t5 + 642429t4 + 94050t3 + 6591t2 + 225t + 19,
+3
+
+x3 −y2 = −905969664t31 −8380219392t29 −35276193792t27 −89379569664t25 −151909171200t23
+−182680289280t21 −159752355840t19 −102786416640t17 −48661447680t15 −16772918400t13
+−4116359520t11 −692649360t9 −75171510t7 −297t6 −4749570t5 −891t4 −144450t3 −891t2
+−1350t −297.
+Now we describe the general construction.
+Let us deﬁne the binary
+recursive sequence by
+a1 = 0,
+a2 = t2 + 1,
+am = 2tam−1 + am−2.
+Thus, for m ≥2, am is a polynomial in variable t, of degree m. Put u = ak−1
+and v = ak for an odd positive integer k ≥3. We search for examples with
+x = O(v2), y = O(v3) and x3 −y2 = O(v). Note that
+v2 −2tuv −u2 = −(a2
+2 −2ta1a2 −a2
+1) = −(t2 + 1)2.
+(2)
+Therefore, we may take
+x = av2 + buv + cu + dv + e,
+y = fv3 + gv2u + hv2 + iuv + ju + mv + n,
+with unknown coeﬃcients a, b, c, . . . , n, which will be determined so that
+in the expression for x3 −y2 the coeﬃcients with v6, uv5, v5, . . . , v2, uv are
+equal to 0. We ﬁnd the following (polynomial) solution:
+x = v2 −2tuv + 6v −6tu + (t4 + 5t2 + 4),
+y = −2tv3 + (4t2 + 1)uv2 −9tv2 + (18t2 + 9)uv + (−2t5 −4t3 −2t)v
++ (t4 + 20t2 + 19)u + (−9t5 −18t3 −9t).
+Using (2), it is easy to check that we have
+x3 −y2 = −27(t2 + 1)2(2v −2tu + 11t2 + 11).
+Therefore, deg(x) = 2k −2 and deg(x3 −y2) = k + 4. Also,
+deg(x3 −y2)/ deg(x) = (k + 4)/(2k −2),
+which tends to 1/2 when k tends to inﬁnity. The above explicit example
+corresponds to k = 27.
+Comparing with Davenport’s bound, our polynomial x and y satisfy
+deg(x3 −y2) = 1
+2 deg(x) + 5.
+4
+
+Thus, although our examples (x, y) do not give the equality in Davenport’s
+bound (1), they are very close to the best possible result for deg(x3 −y2),
+and it seems that this is the ﬁrst known result of the form that deg(x3 −
+y2)−1
+2 deg(x) is bounded by an absolute constant, for polynomials x, y with
+integer coeﬃcients and arbitrarily large degrees.
+Since (t2 +1) divides am for all m, it could be noted that (t2 +1) divides
+x and (t2 + 1)2 divides y. Hence, with x = (t2 + 1)X and y = (t2 + 1)2Y ,
+we have
+deg(X3 −(t2 + 1)Y 2) = 1
+2 deg(X).
+This shows that the only branch points of the rational function x3/y2 are 0,
+1 and ∞, which is in agreement with the results of Zannier [11, 12].
+Let us give an interpretation of our result in terms of polynomial Pell’s
+equations. Following a suggestion by N. Elkies, we put v −tu = (t2 + 1)z.
+Then the expressions of x and x3 −y2 simplify considerably, and we get
+x = (t2 + 1)(z2 + 6z + 4), x3 −y2 = −27(t2 + 1)3(2z + 11) which gives
+y2 = (t2 +1)3(z2 +1)(z2 +9z +19)2. Thus, we need that z2 +1 = (t2 +1)w2,
+i.e
+z2 −(t2 + 1)w2 = −1.
+(3)
+The fundamental solution of Pell’s equation (3) is (z, w) = (t, 1). Taking
+t = z, we obtain the identity
+(z2 + 6z + 4)3 −(z2 + 1)(z2 + 9z + 19)2 = −27(2z + 11),
+which is equivalent to Danilov’s example [4] (and by taking z2+1 = 5w2 and
+2z+11 ≡0 (mod 125), we get a well-known sequence of numerical examples
+with |x3 −y2| < √x).
+However, if we consider (3) as a polynomial Pell’s equation (in variable
+t), we obtain the sequence of solutions
+z1 = t,
+z2 = 4t3 + 3t,
+zk = (4t2 + 2)zk−1 −zk−2.
+This gives exactly the sequences of polynomials x and y, as given above.
+Remark 1 In [5], Danilov consireded small values of |x4−Ay2|, for integers
+A satisfying certain conditions. Using the formula
+(27z + 7)4 −(81z + 20)2 · (81z + 22)2 + 2
+81
+= 4z + 1,
+(4)
+5
+
+he proved that if the Pellian equation u2 −81Av2 = −2 has a solution,
+then the inequality |x4 −Ay2| <
+4
+27|x| has inﬁnitely many integer solutions
+x, y.
+By applying a similar construction, as above, to Danilov’s formula
+(4), we obtain the sequences xk and yk of polynomials in variable t with
+deg(xk) = 2k + 1, deg(yk) = 4k and deg(x4 −(t2 + 2)y2) = deg(x) = 2k + 1.
+For example, for k = 3 we have
+x = 8t7 + 28t5 + 28t3 + 7t −1,
+y = 64t13 + 384t11 + 880t9 + 960t7 −16t6 + 504t5 −40t4 + 112t3 −24t2 + 7t −2,
+and then
+x4 −(t2 + 2)y2 = 32t7 + 112t5 + 112t3 + 28t −7.
+Acknowledgements. The author is grateful to Yann Bugeaud, Noam
+Elkies, Clemens Fuchs, Boris ˇSirola and Umberto Zannier for their very
+interesting and useful comments on the previous version of this note.
+References
+[1] F. Beukers, C. L. Stewart, Neighboring powers, J. Number Theory 130 (2010),
+660–679.
+[2] B. J. Birch, S. Chowla, M. Hall, Jr., A. Schinzel, On the diﬀerence x3 −y2,
+Norske Vid. Selsk. Forh. (Trondheim) 38 (1965), 65–69.
+[3] E. Bombieri, W. Gubler, Heights in Diophantine geometry, Cambridge Uni-
+versity Press, Cambridge, 2006.
+[4] L. V. Danilov, The Diophantine equation x3 −y2 = k and Hall’s conjecture,
+Math. Notes Acad. Sci. USSR 32 (1982), 617–618.
+[5] L. V. Danilov, The Diophantine equations xm −Ayn = k, Math. Notes Acad.
+Sci. USSR 46 (1989), 914–919.
+[6] H. Davenport, On f 3(t) −g2(t), Norske Vid. Selsk. Forh. (Trondheim) 38
+(1965), 86–87.
+[7] N. Elkies, Rational points near curves and small nonzero |x3 −y2| via lattice
+reduction, Lecture Notes in Computer Science 1838 (proceedings of ANTS-4,
+2000; W. Bosma, ed.), 33–63.
+[8] M. Hall , Jr., The Diophantine equation x3−y2 = k, in: Computers in Number
+Theory, A. O. L. Atkin and B. J. Birch (eds.), Proc. Oxford 1969, Academic
+Press, 1971, 173-198.
+6
+
+[9] I. Jim´enez Calvo, J. Herranz, G. S´aez, A new algorithm to search for small
+nonzero |x3 −y2| values, Math. Comp. 78 (2009), 2435–2444.
+[10] S. Lang, Algebra, 3rd ed., Addison-Wesley, Reading, 1993.
+[11] U. Zannier, Some remarks on the S-unit equation in function ﬁelds, Acta
+Arith. 64 (1993), 87–98.
+[12] U. Zannier, On Davenport’s bound for the degree of f 3 −g2 and Riemann’s
+Existence Theorem, Acta Arith. 71 (1995), 103–137.
+Department of Mathematics, University of Zagreb,
+Bijeniˇcka cesta 30, 10000 Zagreb, Croatia
+E-mail address: duje@math.hr
+7

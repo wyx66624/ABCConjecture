@@ -1,0 +1,86 @@
+{
+  "balancing": {
+    "certificate_discovery_methods": {
+      "FactorDB candidate discovery + local modular verification": 15,
+      "prime-index congruence search": 33,
+      "small-prime recurrence scan": 951
+    },
+    "complete_local_factorization_range": "2 <= n <= 26",
+    "complete_local_factorizations": 25,
+    "definition": "u_0=0, u_1=1, u_{n+2}=6u_{n+1}-u_n",
+    "exponent_one_certificates": 999,
+    "extended_exploratory_range": "2 <= n <= 2000",
+    "extended_prime_indices_total": 303,
+    "extended_qualification": "The unresolved indices are not hits and not misses: no complete factorization or exponent-one prime was obtained within the stated search windows.",
+    "extended_terms_with_verified_exponent_one_certificate": 1990,
+    "extended_unresolved_indices": [
+      1009,
+      1181,
+      1667,
+      1699,
+      1723,
+      1847,
+      1873,
+      1901,
+      1951
+    ],
+    "prime_indices_checked": 168,
+    "scope_limit": "This proves only that u_n is non-squarefull for 2<=n<=1000. It does not imply eventual non-squarefullness or close the Pell route.",
+    "searched_nonunit_range": "2 <= n <= 1000",
+    "squarefull_nonunit_hits": [],
+    "terms_checked": 999,
+    "trivial_positive_hit": {
+      "n": 1,
+      "qualification": "1 is squarefull vacuously",
+      "u_n": 1
+    },
+    "verification": "Every p is prime by deterministic 64-bit Miller-Rabin or one of two saved local Pocklington certificates; every recurrence is recomputed modulo p^2 and satisfies p | u_n but p^2 does not divide u_n."
+  },
+  "danilov": {
+    "all_points_verified": [
+      "symbolic Danilov polynomial identity",
+      "Pell equation",
+      "z congruence",
+      "integrality of X,Y,K",
+      "X^3+K=Y^2",
+      "pairwise gcd 1",
+      "K^2<=X",
+      "p prime and v_p(K)=1"
+    ],
+    "base_congruence": "z == 57 (mod 125)",
+    "base_point": [
+      682,
+      305
+    ],
+    "certificate_primes": [
+      7,
+      11,
+      13,
+      41,
+      89
+    ],
+    "chosen_step_eta": [
+      "1730726404001",
+      "774004377960"
+    ],
+    "complete_local_factorization_range": "0 <= t <= 3",
+    "complete_local_factorizations": 4,
+    "eta_mod_125": [
+      1,
+      85
+    ],
+    "exponent_one_certificates": 81,
+    "full_ring_order_mod_125": 250,
+    "least_positive_power_returning_the_base_point_z_congruence": 10,
+    "norm_one_generator": [
+      9,
+      4
+    ],
+    "pell_equation": "z^2 - 5 w^2 = -1",
+    "points_checked": 81,
+    "scope_limit": "This proves only that the first 81 points of this forward orbit have non-squarefull K. It does not rule out a later or different squarefull subsequence and does not close the Danilov route.",
+    "searched_orbit_range": "0 <= t <= 80",
+    "selected_prime_sieve_first_uncovered_index": 326,
+    "squarefull_K_hits": []
+  }
+}

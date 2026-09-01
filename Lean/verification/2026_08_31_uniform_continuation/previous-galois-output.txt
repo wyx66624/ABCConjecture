@@ -1,0 +1,651 @@
+def IUTThreeClosures.ABCConjecture : Prop :=
+∀ (ε : ℝ),
+  0 < ε →
+    ∃ C,
+      ∀ (a b c : ℕ),
+        0 < a →
+          0 < b →
+            0 < c →
+              a + b = c →
+                IUTThreeClosures.PairwiseCoprimeABC a b c →
+                  Real.log ↑(max a (max b c)) ≤ (1 + ε) * Real.log ↑(IUTThreeClosures.abcRadical (a * b * c)) + C
+IUTThreeClosures.IUTFullGaloisWordLift20260830.forward_a.{u} {G : Type u} [Group G] (q : Frame G) : (forward q).a = q.a
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.forward_a' depends on axioms: [propext]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.backward_a.{u} {G : Type u} [Group G] (q : Frame G) :
+  (backward q).a = q.a
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.backward_a' depends on axioms: [propext]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.forward_backward.{u} {G : Type u} [Group G] (q : Frame G) :
+  forward (backward q) = q
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.forward_backward' depends on axioms: [propext]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.backward_forward.{u} {G : Type u} [Group G] (q : Frame G) :
+  backward (forward q) = q
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.backward_forward' depends on axioms: [propext]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.forward_boundary.{u} {G : Type u} [Group G] (q : Frame G) :
+  boundary (forward q) = boundary q
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.forward_boundary' depends on axioms: [propext]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.backward_boundary.{u} {G : Type u} [Group G] (q : Frame G) :
+  boundary (backward q) = boundary q
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.backward_boundary' depends on axioms: [propext]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.map_forward.{u, v} {G : Type u} [Group G] {H : Type v} [Group H]
+  (φ : G →* H) (q : Frame G) : mapFrame φ (forward q) = forward (mapFrame φ q)
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.map_forward' depends on axioms: [propext]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.map_backward.{u, v} {G : Type u} [Group G] {H : Type v} [Group H]
+  (φ : G →* H) (q : Frame G) : mapFrame φ (backward q) = backward (mapFrame φ q)
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.map_backward' depends on axioms: [propext]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.map_boundary.{u, v} {G : Type u} [Group G] {H : Type v} [Group H]
+  (φ : G →* H) (q : Frame G) : φ (boundary q) = boundary (mapFrame φ q)
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.map_boundary' depends on axioms: [propext]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.commutative_forward.{v} {A : Type v} [CommGroup A] (q : Frame A) :
+  forward q = { a := q.a, b := q.b * q.d, c := q.c * q.a⁻¹, d := q.d }
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.commutative_forward' depends on axioms: [propext]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.abelian_image.{u, v} {G : Type u} [Group G] {A : Type v} [CommGroup A]
+  (φ : G →* A) (q : Frame G) :
+  mapFrame φ (forward q) = { a := φ q.a, b := φ q.b * φ q.d, c := φ q.c * (φ q.a)⁻¹, d := φ q.d }
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.abelian_image' depends on axioms: [propext]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.evaluate_map.{u, v} {G : Type u} [Group G] {H : Type v} [Group H]
+  (φ : G →* H) (q : Frame G) (i : Letter) : evaluate (mapFrame φ q) i = φ (evaluate q i)
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.evaluate_map' does not depend on any axioms
+IUTThreeClosures.IUTFullGaloisWordLift20260830.evaluate_generators (i : Letter) : evaluate generators i = FreeGroup.of i
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.evaluate_generators' does not depend on any axioms
+IUTThreeClosures.IUTFullGaloisWordLift20260830.forwardHom_generators :
+  mapFrame forwardHom generators = forward generators
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.forwardHom_generators' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.backwardHom_generators :
+  mapFrame backwardHom generators = backward generators
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.backwardHom_generators' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.backwardHom_comp_forwardHom :
+  backwardHom.comp forwardHom = MonoidHom.id (FreeGroup Letter)
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.backwardHom_comp_forwardHom' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.forwardHom_comp_backwardHom :
+  forwardHom.comp backwardHom = MonoidHom.id (FreeGroup Letter)
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.forwardHom_comp_backwardHom' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.crossHandleAut_fixes_first :
+  crossHandleAut (FreeGroup.of Letter.a) = FreeGroup.of Letter.a
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.crossHandleAut_fixes_first' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.crossHandleAut_fixes_boundary :
+  crossHandleAut (boundary generators) = boundary generators
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.crossHandleAut_fixes_boundary' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.crossHandleAut_abelian_image.{v} {A : Type v} [CommGroup A]
+  (φ : FreeGroup Letter →* A) :
+  mapFrame φ (mapFrame crossHandleAut.toMonoidHom generators) =
+    { a := φ (FreeGroup.of Letter.a), b := φ (FreeGroup.of Letter.b) * φ (FreeGroup.of Letter.d),
+      c := φ (FreeGroup.of Letter.c) * (φ (FreeGroup.of Letter.a))⁻¹, d := φ (FreeGroup.of Letter.d) }
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.crossHandleAut_abelian_image' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.cross_comp.{u, v} {R : Type u} [CommRing R] {W : Type v}
+  [AddCommGroup W] [Module R W] (ω : LinearMap.BilinForm R W) (w v : W) :
+  crossMap ω w ∘ₗ crossMap ω v = centralMap ((ω w) v) ∘ₗ crossMap ω (w + v)
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.cross_comp' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.central_comp.{u, v} {R : Type u} [CommRing R] {W : Type v}
+  [AddCommGroup W] [Module R W] (c d : R) : centralMap c ∘ₗ centralMap d = centralMap (c + d)
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.central_comp' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.central_cross_comm.{u, v} {R : Type u} [CommRing R] {W : Type v}
+  [AddCommGroup W] [Module R W] (ω : LinearMap.BilinForm R W) (c : R) (w : W) :
+  centralMap c ∘ₗ crossMap ω w = crossMap ω w ∘ₗ centralMap c
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.central_cross_comm' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.central_zero.{u, v} {R : Type u} [CommRing R] {W : Type v}
+  [AddCommGroup W] [Module R W] : centralMap 0 = LinearMap.id
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.central_zero' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.cross_zero.{u, v} {R : Type u} [CommRing R] {W : Type v}
+  [AddCommGroup W] [Module R W] (ω : LinearMap.BilinForm R W) : crossMap ω 0 = LinearMap.id
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.cross_zero' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.central_corrected_cross_comp.{u, v} {R : Type u} [CommRing R]
+  {W : Type v} [AddCommGroup W] [Module R W] (ω : LinearMap.BilinForm R W) (w v : W) :
+  centralMap (-(ω w) v) ∘ₗ crossMap ω w ∘ₗ crossMap ω v = crossMap ω (w + v)
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.central_corrected_cross_comp' depends on axioms: [propext,
+ Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.cross_neg_comp.{u, v} {R : Type u} [CommRing R] {W : Type v}
+  [AddCommGroup W] [Module R W] (ω : LinearMap.BilinForm R W) (hω : ω.IsAlt) (w : W) :
+  crossMap ω (-w) ∘ₗ crossMap ω w = LinearMap.id
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.cross_neg_comp' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.cross_comp_neg.{u, v} {R : Type u} [CommRing R] {W : Type v}
+  [AddCommGroup W] [Module R W] (ω : LinearMap.BilinForm R W) (hω : ω.IsAlt) (w : W) :
+  crossMap ω w ∘ₗ crossMap ω (-w) = LinearMap.id
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.cross_comp_neg' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.transvectionMap_apply.{u, v} {R : Type u} [CommRing R] {W : Type v}
+  [AddCommGroup W] [Module R W] (ω : LinearMap.BilinForm R W) (r x : W) : (transvectionMap ω r) x = x + (ω r) x • r
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.transvectionMap_apply' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.transvection_preserves.{u, v} {R : Type u} [CommRing R] {W : Type v}
+  [AddCommGroup W] [Module R W] (ω : LinearMap.BilinForm R W) (hω : ω.IsAlt) (r x y : W) :
+  (ω ((transvectionMap ω r) x)) ((transvectionMap ω r) y) = (ω x) y
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.transvection_preserves' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.exists_outside_subspaces.{u, v, z} {K : Type u} [Field K] [Fintype K]
+  {W : Type v} [AddCommGroup W] [Module K W] {ι : Type z} [Fintype ι] (P : ι → Submodule K W) (hP : ∀ (i : ι), P i ≠ ⊤)
+  (hcard : Fintype.card ι < Fintype.card K) : ∃ r, ∀ (i : ι), r ∉ P i
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.exists_outside_subspaces' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.exists_common_nonzero.{u, v, z} {K : Type u} [Field K] [Fintype K]
+  {W : Type v} [AddCommGroup W] [Module K W] {ι : Type z} [Fintype ι] (f : ι → W →ₗ[K] K) (hf : ∀ (i : ι), f i ≠ 0)
+  (hcard : Fintype.card ι < Fintype.card K) : ∃ r, ∀ (i : ι), (f i) r ≠ 0
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.exists_common_nonzero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.exists_common_nonzero_with_projection.{u, v, w, z} {K : Type u}
+  [Field K] [Fintype K] {W : Type v} [AddCommGroup W] [Module K W] {Q : Type w} [AddCommGroup Q] [Module K Q]
+  {ι : Type z} [Fintype ι] (f : ι → W →ₗ[K] K) (hf : ∀ (i : ι), f i ≠ 0) (proj : W →ₗ[K] Q) (hproj : proj ≠ 0)
+  (hcard : Fintype.card ι + 1 < Fintype.card K) : ∃ r, proj r ≠ 0 ∧ ∀ (i : ι), (f i) r ≠ 0
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.exists_common_nonzero_with_projection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.exists_common_transvection_projection.{u, v, w, z} {K : Type u}
+  [Field K] [Fintype K] {W : Type v} [AddCommGroup W] [Module K W] {Q : Type w} [AddCommGroup Q] [Module K Q]
+  {ι : Type z} [Fintype ι] (ω : LinearMap.BilinForm K W) (hω : ω.IsAlt) (v : ι → W) (hv : ∀ (i : ι), ω.flip (v i) ≠ 0)
+  (proj : W →ₗ[K] Q) (hproj : proj ≠ 0) (hzero : ∀ (i : ι), proj (v i) = 0)
+  (hcard : Fintype.card ι + 1 < Fintype.card K) :
+  ∃ r, proj r ≠ 0 ∧ ∀ (i : ι), proj ((transvectionEquiv ω hω r) (v i)) ≠ 0
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.exists_common_transvection_projection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.three_labels_common_transvection.{v, w} {W : Type v} [AddCommGroup W]
+  [Module (ZMod 139) W] {Q : Type w} [AddCommGroup Q] [Module (ZMod 139) Q] (ω : LinearMap.BilinForm (ZMod 139) W)
+  (hω : ω.IsAlt) (v : Fin 3 → W) (hv : ∀ (i : Fin 3), ω.flip (v i) ≠ 0) (proj : W →ₗ[ZMod 139] Q) (hproj : proj ≠ 0)
+  (hzero : ∀ (i : Fin 3), proj (v i) = 0) : ∃ r, proj r ≠ 0 ∧ ∀ (i : Fin 3), proj ((transvectionEquiv ω hω r) (v i)) ≠ 0
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.three_labels_common_transvection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.freyModel_equation.{u} {R : Type u} [CommRing R] (a b x y : R) :
+  (freyModel a b).toAffine.Equation x y ↔ y ^ 2 = x * (x - a) * (x + b)
+'IUTThreeClosures.Frey139Tate210Realization20260830.freyModel_equation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.freyModel_discriminant.{u} {R : Type u} [CommRing R] (a b : R) :
+  (freyModel a b).Δ = 16 * (a * b * (a + b)) ^ 2
+'IUTThreeClosures.Frey139Tate210Realization20260830.freyModel_discriminant' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.freyModel_c4.{u} {R : Type u} [CommRing R] (a b : R) :
+  (freyModel a b).c₄ = 16 * (a ^ 2 + a * b + b ^ 2)
+'IUTThreeClosures.Frey139Tate210Realization20260830.freyModel_c4' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_discriminant : firstCurve.Δ = 16 * (139 * 279 * 418) ^ 2
+'IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_discriminant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_c4 : firstCurve.c₄ = 16 * 135943
+'IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_c4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_j :
+  firstCurve.j = 256 * 135943 ^ 3 / (139 * 279 * 418) ^ 2
+'IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_j' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_cubic_mod139 (x : ZMod 139) :
+  x * (x - 139) * (x + 279) = x ^ 2 * (x + 1)
+'IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_cubic_mod139' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_tangent_cone (x y : ZMod 139) :
+  y ^ 2 - x ^ 2 * (x + 1) = (y - x) * (y + x) - x ^ 3
+'IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_tangent_cone' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.tangent_slopes_distinct : 1 ≠ -1
+'IUTThreeClosures.Frey139Tate210Realization20260830.tangent_slopes_distinct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_equation (x y : ZMod 5) :
+  firstCurve5.toAffine.Equation x y ↔ y ^ 2 = x ^ 3 - x
+'IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_equation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_affine_card :
+  Fintype.card { xy // xy.2 ^ 2 = xy.1 ^ 3 - xy.1 } = 7
+'IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_affine_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_point_card : Nat.card firstCurve5.toAffine.Point = 8
+'IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_point_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_count_trace :
+  5 + 1 - ↑(Nat.card firstCurve5.toAffine.Point) = -2
+'IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_count_trace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.first_frobenius_polynomial_no_root (z : ZMod 7) :
+  z ^ 2 + 2 * z + 5 ≠ 0
+'IUTThreeClosures.Frey139Tate210Realization20260830.first_frobenius_polynomial_no_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.level_degree_bound_prime_to_seven : (2 * 6 * 48 * 480).Coprime 7
+'IUTThreeClosures.Frey139Tate210Realization20260830.level_degree_bound_prime_to_seven' does not depend on any axioms
+IUTThreeClosures.Frey139Tate210Realization20260830.local_210_numerics :
+  139 % 210 ≠ 1 ∧ 139 ^ 2 % 210 = 1 ∧ 105 ≤ 139 - 2 ∧ Nat.Coprime 105 139 ∧ 105 * 2 = 210
+'IUTThreeClosures.Frey139Tate210Realization20260830.local_210_numerics' depends on axioms: [propext]
+IUTThreeClosures.Frey139Tate210Realization20260830.first_height_integer_certificate :
+  3 ^ 25 < 8105229 ^ 2 ∧ 8105229 ^ 2 < 2 ^ 49
+'IUTThreeClosures.Frey139Tate210Realization20260830.first_height_integer_certificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.log_window_of_integer_certificate (N : ℕ) (hN : 0 < N)
+  (hlow : 3 ^ 25 < N ^ 2) (hupp : N ^ 2 < 2 ^ 49) : 25 < 2 * Real.log ↑N ∧ 2 * Real.log ↑N < 49
+'IUTThreeClosures.Frey139Tate210Realization20260830.log_window_of_integer_certificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.first_tate_height_window :
+  25 < 2 * Real.log 8105229 ∧ 2 * Real.log 8105229 < 49
+'IUTThreeClosures.Frey139Tate210Realization20260830.first_tate_height_window' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_equation (x y : ℚ) :
+  directCurve.toAffine.Equation x y ↔ y ^ 2 = x * (x - 1) * (x - -2362)
+'IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_equation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_discriminant : directCurve.Δ = 16 * 5581406 ^ 2
+'IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_discriminant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_c4 : directCurve.c₄ = 16 * 5581407
+'IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_c4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_j : directCurve.j = 256 * 5581407 ^ 3 / 5581406 ^ 2
+'IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_j' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directTriple_factorization :
+  2362 = 2 * 1181 ∧ 2363 = 17 * 139 ∧ Nat.Prime 1181 ∧ Nat.Prime 17 ∧ Nat.Prime 139
+'IUTThreeClosures.Frey139Tate210Realization20260830.directTriple_factorization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_cubic_mod139 (x : ZMod 139) :
+  x * (x - 1) * (x + 2362) = x * (x - 1) ^ 2
+'IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_cubic_mod139' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_translated_tangent_cone (x y : ZMod 139) :
+  y ^ 2 - (x + 1) * x ^ 2 = (y - x) * (y + x) - x ^ 3
+'IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_translated_tangent_cone' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_discriminant_mod7_ne_zero : (freyModel 1 2362).Δ ≠ 0
+'IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_discriminant_mod7_ne_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_equation (x y : ZMod 5) :
+  directCurve5.toAffine.Equation x y ↔ y ^ 2 = x * (x - 1) * (x + 2)
+'IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_equation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_affine_card :
+  Fintype.card { xy // xy.2 ^ 2 = xy.1 * (xy.1 - 1) * (xy.1 + 2) } = 3
+'IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_affine_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_point_card : Nat.card directCurve5.toAffine.Point = 4
+'IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_point_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_count_trace :
+  5 + 1 - ↑(Nat.card directCurve5.toAffine.Point) = 2
+'IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_count_trace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.direct_frobenius_polynomial_no_root (z : ZMod 7) :
+  z ^ 2 - 2 * z + 5 ≠ 0
+'IUTThreeClosures.Frey139Tate210Realization20260830.direct_frobenius_polynomial_no_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.direct_height_integer_certificate :
+  3 ^ 25 < 2790703 ^ 2 ∧ 2790703 ^ 2 < 2 ^ 49
+'IUTThreeClosures.Frey139Tate210Realization20260830.direct_height_integer_certificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.direct_tate_height_window :
+  25 < 2 * Real.log 2790703 ∧ 2 * Real.log 2790703 < 49
+'IUTThreeClosures.Frey139Tate210Realization20260830.direct_tate_height_window' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.transvection_nat_pow.{u_1, u_2} {ι : Type u_1} {R : Type u_2}
+  [Fintype ι] [DecidableEq ι] [CommRing R] {i j : ι} (hij : i ≠ j) (s : R) (n : ℕ) :
+  Matrix.SpecialLinearGroup.transvection hij s ^ n = Matrix.SpecialLinearGroup.transvection hij (↑n * s)
+'IUTThreeClosures.SL2TransvectionGeneration20260830.transvection_nat_pow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.transvection_parameter_mem {p : ℕ} [Fact (Nat.Prime p)]
+  (H : Subgroup (Matrix.SpecialLinearGroup (Fin 2) (ZMod p))) {i j : Fin 2} (hij : i ≠ j) {s : ZMod p} (hs : s ≠ 0)
+  (hmem : Matrix.SpecialLinearGroup.transvection hij s ∈ H) (c : ZMod p) :
+  Matrix.SpecialLinearGroup.transvection hij c ∈ H
+'IUTThreeClosures.SL2TransvectionGeneration20260830.transvection_parameter_mem' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.subgroup_eq_top_of_upper_lower {p : ℕ} [Fact (Nat.Prime p)]
+  (H : Subgroup (Matrix.SpecialLinearGroup (Fin 2) (ZMod p))) {s t : ZMod p} (hs : s ≠ 0) (ht : t ≠ 0)
+  (hu : upper s ∈ H) (hl : lower t ∈ H) : H = ⊤
+'IUTThreeClosures.SL2TransvectionGeneration20260830.subgroup_eq_top_of_upper_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.transvection_pow_prime {p : ℕ} [Fact (Nat.Prime p)] {i j : Fin 2}
+  (hij : i ≠ j) (s : ZMod p) : Matrix.SpecialLinearGroup.transvection hij s ^ p = 1
+'IUTThreeClosures.SL2TransvectionGeneration20260830.transvection_pow_prime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.hom_mem_of_upper_lower.{u_1} {p : ℕ} [Fact (Nat.Prime p)]
+  {G : Type u_1} [Group G] (ρ : Matrix.SpecialLinearGroup (Fin 2) (ZMod p) →* G) (H : Subgroup G) {s t : ZMod p}
+  (hs : s ≠ 0) (ht : t ≠ 0) (hu : ρ (upper s) ∈ H) (hl : ρ (lower t) ∈ H)
+  (A : Matrix.SpecialLinearGroup (Fin 2) (ZMod p)) : ρ A ∈ H
+'IUTThreeClosures.SL2TransvectionGeneration20260830.hom_mem_of_upper_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.hom_range_le_of_upper_lower.{u_1} {p : ℕ} [Fact (Nat.Prime p)]
+  {G : Type u_1} [Group G] (ρ : Matrix.SpecialLinearGroup (Fin 2) (ZMod p) →* G) (H : Subgroup G) {s t : ZMod p}
+  (hs : s ≠ 0) (ht : t ≠ 0) (hu : ρ (upper s) ∈ H) (hl : ρ (lower t) ∈ H) : ρ.range ≤ H
+'IUTThreeClosures.SL2TransvectionGeneration20260830.hom_range_le_of_upper_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.toGL_mem_of_upper_lower {p : ℕ} [Fact (Nat.Prime p)]
+  (H : Subgroup (GL (Fin 2) (ZMod p))) {s t : ZMod p} (hs : s ≠ 0) (ht : t ≠ 0)
+  (hu : Matrix.SpecialLinearGroup.toGL (upper s) ∈ H) (hl : Matrix.SpecialLinearGroup.toGL (lower t) ∈ H)
+  (A : Matrix.SpecialLinearGroup (Fin 2) (ZMod p)) : Matrix.SpecialLinearGroup.toGL A ∈ H
+'IUTThreeClosures.SL2TransvectionGeneration20260830.toGL_mem_of_upper_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.mem_normal_of_pow_eq_one_of_coprime_index.{u_1} {G : Type u_1}
+  [Group G] (H : Subgroup G) [H.Normal] {x : G} {n : ℕ} (hx : x ^ n = 1) (hcop : n.Coprime H.index) : x ∈ H
+'IUTThreeClosures.SL2TransvectionGeneration20260830.mem_normal_of_pow_eq_one_of_coprime_index' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.hom_mem_normal_of_coprime_index.{u_1} {p : ℕ} [Fact (Nat.Prime p)]
+  {G : Type u_1} [Group G] (ρ : Matrix.SpecialLinearGroup (Fin 2) (ZMod p) →* G) (H : Subgroup G) [H.Normal]
+  (hcop : p.Coprime H.index) (A : Matrix.SpecialLinearGroup (Fin 2) (ZMod p)) : ρ A ∈ H
+'IUTThreeClosures.SL2TransvectionGeneration20260830.hom_mem_normal_of_coprime_index' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.hom_range_le_normal_of_coprime_index.{u_1} {p : ℕ}
+  [Fact (Nat.Prime p)] {G : Type u_1} [Group G] (ρ : Matrix.SpecialLinearGroup (Fin 2) (ZMod p) →* G) (H : Subgroup G)
+  [H.Normal] (hcop : p.Coprime H.index) : ρ.range ≤ H
+'IUTThreeClosures.SL2TransvectionGeneration20260830.hom_range_le_normal_of_coprime_index' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.normal_eq_top_of_coprime_index {p : ℕ} [Fact (Nat.Prime p)]
+  (H : Subgroup (Matrix.SpecialLinearGroup (Fin 2) (ZMod p))) [H.Normal] (hcop : p.Coprime H.index) : H = ⊤
+'IUTThreeClosures.SL2TransvectionGeneration20260830.normal_eq_top_of_coprime_index' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.toGL_mem_normal_of_coprime_index {p : ℕ} [Fact (Nat.Prime p)]
+  (H : Subgroup (GL (Fin 2) (ZMod p))) [H.Normal] (hcop : p.Coprime H.index)
+  (A : Matrix.SpecialLinearGroup (Fin 2) (ZMod p)) : Matrix.SpecialLinearGroup.toGL A ∈ H
+'IUTThreeClosures.SL2TransvectionGeneration20260830.toGL_mem_normal_of_coprime_index' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.balancedA_pos : 0 < balancedA
+'IUTThreeClosures.Frey43BalancedRealization20260830.balancedA_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.endpoints_pos : 0 < endpointA ∧ 0 < endpointB ∧ 0 < endpointC
+'IUTThreeClosures.Frey43BalancedRealization20260830.endpoints_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.endpoints_sum : endpointA + endpointB = endpointC
+'IUTThreeClosures.Frey43BalancedRealization20260830.endpoints_sum' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.endpoints_pairwise_coprime :
+  IUTThreeClosures.PairwiseCoprimeABC endpointA endpointB endpointC
+'IUTThreeClosures.Frey43BalancedRealization20260830.endpoints_pairwise_coprime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.chosen_primes : Nat.Prime 1289 ∧ Nat.Prime 43
+'IUTThreeClosures.Frey43BalancedRealization20260830.chosen_primes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.balancedA_residues :
+  balancedA % 8 = 5 ∧ balancedA % 5 = 1 ∧ balancedA % 43 = 1
+'IUTThreeClosures.Frey43BalancedRealization20260830.balancedA_residues' depends on axioms: [propext]
+IUTThreeClosures.Frey43BalancedRealization20260830.balancedA_at_1289 : 1289 ∣ balancedA ∧ ¬1289 ^ 2 ∣ balancedA
+'IUTThreeClosures.Frey43BalancedRealization20260830.balancedA_at_1289' depends on axioms: [propext]
+IUTThreeClosures.Frey43BalancedRealization20260830.balancedA_sandwich :
+  1289 ^ 17 < balancedA ∧ balancedA < 2 * 1289 ^ 17
+'IUTThreeClosures.Frey43BalancedRealization20260830.balancedA_sandwich' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.endpoints_lt_two_pow :
+  endpointA < 2 ^ 377 ∧ endpointB < 2 ^ 377 ∧ endpointC < 2 ^ 377
+'IUTThreeClosures.Frey43BalancedRealization20260830.endpoints_lt_two_pow' depends on axioms: [propext]
+IUTThreeClosures.Frey43BalancedRealization20260830.endpointProduct_gcd_primorial :
+  endpointProduct.gcd (primorial 511) = 102
+'IUTThreeClosures.Frey43BalancedRealization20260830.endpointProduct_gcd_primorial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.small_prime_support {q : ℕ} (hq : Nat.Prime q) (hsmall : q < 512)
+  (hdiv : q ∣ endpointProduct) : q = 2 ∨ q = 3 ∨ q = 17
+'IUTThreeClosures.Frey43BalancedRealization20260830.small_prime_support' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.small_prime_43_powers_not_dvd :
+  ¬2 ^ 43 ∣ endpointProduct ∧ ¬3 ^ 43 ∣ endpointProduct ∧ ¬17 ^ 43 ∣ endpointProduct
+'IUTThreeClosures.Frey43BalancedRealization20260830.small_prime_43_powers_not_dvd' depends on axioms: [propext]
+IUTThreeClosures.Frey43BalancedRealization20260830.prime_power_dvd_endpoint {q : ℕ} (hq : Nat.Prime q)
+  (hdiv : q ^ 43 ∣ endpointProduct) : q ^ 43 ∣ endpointA ∨ q ^ 43 ∣ endpointB ∨ q ^ 43 ∣ endpointC
+'IUTThreeClosures.Frey43BalancedRealization20260830.prime_power_dvd_endpoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.prime_43_power_not_dvd (q : ℕ) (hq : Nat.Prime q) :
+  ¬q ^ 43 ∣ endpointProduct
+'IUTThreeClosures.Frey43BalancedRealization20260830.prime_43_power_not_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.endpointProduct_factorization_lt (q : ℕ) (hq : Nat.Prime q) :
+  endpointProduct.factorization q < 43
+'IUTThreeClosures.Frey43BalancedRealization20260830.endpointProduct_factorization_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.level_degree_bound_prime_to_43 : (2 * 6 * 48 * 480).Coprime 43
+'IUTThreeClosures.Frey43BalancedRealization20260830.level_degree_bound_prime_to_43' does not depend on any axioms
+IUTThreeClosures.Frey43BalancedRealization20260830.local_1290_numerics :
+  1289 % 1290 = 1289 ∧
+    1289 ^ 2 % 1290 = 1 ∧
+      645 ≤ 1289 - 2 ∧ Nat.Coprime 645 1288 ∧ 2 * 645 = 1290 ∧ 21 * 15 + 43 + 20 < 645 ∧ 42 + 1 < 1289
+'IUTThreeClosures.Frey43BalancedRealization20260830.local_1290_numerics' depends on axioms: [propext]
+IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve_discriminant :
+  balancedCurve.Δ = 16 * ↑endpointProduct ^ 2
+'IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve_discriminant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve_c4 :
+  balancedCurve.c₄ = 16 * (3 * ↑balancedA ^ 4 + 3 * ↑balancedA ^ 2 + 1)
+'IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve_c4' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve5_eq_directCurve5 :
+  balancedCurve5 = IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5
+'IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve5_eq_directCurve5' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve5_point_card :
+  Nat.card balancedCurve5.toAffine.Point = 4
+'IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve5_point_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve_discriminant_mod43_ne_zero :
+  (IUTThreeClosures.Frey139Tate210Realization20260830.freyModel ↑endpointA ↑endpointB).Δ ≠ 0
+'IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve_discriminant_mod43_ne_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.frobenius_polynomial_mod43_no_root (z : ZMod 43) :
+  z ^ 2 - 2 * z + 5 ≠ 0
+'IUTThreeClosures.Frey43BalancedRealization20260830.frobenius_polynomial_mod43_no_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.normalizedTateBase_pos : 0 < normalizedTateBase
+'IUTThreeClosures.Frey43BalancedRealization20260830.normalizedTateBase_pos' depends on axioms: [propext]
+IUTThreeClosures.Frey43BalancedRealization20260830.height_integer_certificates :
+  3 ^ 1224 < normalizedTateBase ^ 2 ∧ 3 ^ 1648 * normalizedTateBase ^ 2 < 8 ^ 1648
+'IUTThreeClosures.Frey43BalancedRealization20260830.height_integer_certificates' depends on axioms: [propext]
+IUTThreeClosures.Frey43BalancedRealization20260830.normalized_tate_height_window :
+  1224 < 2 * Real.log ↑normalizedTateBase ∧ 2 * Real.log ↑normalizedTateBase < 1648
+'IUTThreeClosures.Frey43BalancedRealization20260830.normalized_tate_height_window' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.two_halfLabels_add_one {ell : ℕ} (hp : Nat.Prime ell)
+  (hell : 7 ≤ ell) : 2 * halfLabels ell + 1 = ell
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.two_halfLabels_add_one' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.badIndexBudget_eq {ell : ℕ} (hp : Nat.Prime ell) (hell : 7 ≤ ell) :
+  badIndexBudget ell = 9 * ell - 9
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.badIndexBudget_eq' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.badIndexBudget_lt {ell : ℕ} (hp : Nat.Prime ell) (hell : 7 ≤ ell) :
+  badIndexBudget ell < 15 * ell
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.badIndexBudget_lt' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.residue_card_gt_label_count {ell p : ℕ} (hell : 7 ≤ ell)
+  (hcong : p % (30 * ell) = 30 * ell - 1) : ell < p
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.residue_card_gt_label_count' depends on axioms: [propext,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.exists_index_outside_bad {ell : ℕ} (hp : Nat.Prime ell)
+  (hell : 7 ≤ ell) (bad : Finset (Fin (15 * ell))) (hbad : bad.card ≤ badIndexBudget ell) : ∃ t, t ∉ bad
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.exists_index_outside_bad' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.exceptional_half_label_unique {ell j k : ℕ} (hp : Nat.Prime ell)
+  (hj : 0 < j) (hk : 0 < k) (hjr : 2 * j < ell) (hkr : 2 * k < ell) (hjroot : 30 * ↑j ^ 2 + 1 = 0)
+  (hkroot : 30 * ↑k ^ 2 + 1 = 0) : j = k
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.exceptional_half_label_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.prime_not_dvd_two_square {ell j : ℕ} (hp : Nat.Prime ell)
+  (hell : 7 ≤ ell) (hj : 0 < j) (hjr : 2 * j < ell) : ¬ell ∣ 2 * j ^ 2
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.prime_not_dvd_two_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.content_strict_sandwich {ell j : ℕ} (hp : Nat.Prime ell)
+  (hell : 7 ≤ ell) (hj : 0 < j) (hjr : 2 * j < ell) :
+  ell * wholeContent ell j < 2 * j ^ 2 ∧ 2 * j ^ 2 < ell * (wholeContent ell j + 1)
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.content_strict_sandwich' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeContent_add_one_le {ell j : ℕ} (hj : 0 < j)
+  (hjr : 2 * j < ell) : wholeContent ell j + 1 ≤ j
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeContent_add_one_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeExponent_eq_point_sub (ell j : ℕ) :
+  wholeExponent ell j = pointExponent ell j - 15 * ↑ell
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeExponent_eq_point_sub' depends on axioms: [propext,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.pointExponent_le {ell j : ℕ} (hj : 0 < j) (hjr : 2 * j < ell) :
+  pointExponent ell j ≤ ↑j + 1 - 15 * ↑ell
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.pointExponent_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.pointExponent_neg {ell j : ℕ} (hj : 0 < j) (hjr : 2 * j < ell) :
+  pointExponent ell j < 0
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.pointExponent_neg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeExponent_neg {ell j : ℕ} (hj : 0 < j) (hjr : 2 * j < ell) :
+  wholeExponent ell j < 0
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeExponent_neg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.pointExponent_standard_scale (ell j : ℕ) :
+  pointExponent ell j + 15 * ↑ell * (↑j + 1) = 15 * ↑ell * ↑(wholeContent ell j + 1) + (↑j + 1)
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.pointExponent_standard_scale' depends on axioms: [propext,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeExponent_standard_scale (ell j : ℕ) :
+  wholeExponent ell j + 15 * ↑ell * (↑j + 1) = 15 * ↑ell * ↑(wholeContent ell j) + (↑j + 1)
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeExponent_standard_scale' depends on axioms: [propext,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.pointExponent_standard_pos (ell j : ℕ) :
+  0 < pointExponent ell j + 15 * ↑ell * (↑j + 1)
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.pointExponent_standard_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeExponent_standard_pos (ell j : ℕ) :
+  0 < wholeExponent ell j + 15 * ↑ell * (↑j + 1)
+'IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeExponent_standard_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceDualPreidealHull20260831.mem_integralTraceDual.{u_1, u_2, u_3} {R : Type u_1} {K : Type u_2}
+  {D : Type u_3} [CommRing R] [Field K] [CommRing D] [Algebra R K] [Algebra K D] [Algebra R D] [IsScalarTower R K D]
+  (L : Submodule R D) (x : D) : x ∈ integralTraceDual L ↔ ∀ y ∈ L, (Algebra.trace K D) (x * y) ∈ 1
+'IUTThreeClosures.TraceDualPreidealHull20260831.mem_integralTraceDual' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceDualPreidealHull20260831.integralTraceDual_antitone.{u_1, u_2, u_3} {R : Type u_1} {K : Type u_2}
+  {D : Type u_3} [CommRing R] [Field K] [CommRing D] [Algebra R K] [Algebra K D] [Algebra R D] [IsScalarTower R K D]
+  {L N : Submodule R D} (hLN : L ≤ N) : integralTraceDual N ≤ integralTraceDual L
+'IUTThreeClosures.TraceDualPreidealHull20260831.integralTraceDual_antitone' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceDualPreidealHull20260831.integralTraceDual_prod.{u_1, u_2, u_4, u_5} {R : Type u_1} {K : Type u_2}
+  [CommRing R] [Field K] [Algebra R K] {D₁ : Type u_4} {D₂ : Type u_5} [CommRing D₁] [CommRing D₂] [Algebra K D₁]
+  [Algebra K D₂] [Algebra R D₁] [Algebra R D₂] [IsScalarTower R K D₁] [IsScalarTower R K D₂] [Module.Finite K D₁]
+  [Module.Finite K D₂] (L₁ : Submodule R D₁) (L₂ : Submodule R D₂) :
+  integralTraceDual (L₁.prod L₂) = (integralTraceDual L₁).prod (integralTraceDual L₂)
+'IUTThreeClosures.TraceDualPreidealHull20260831.integralTraceDual_prod' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceDualPreidealHull20260831.principalOrderIdeal_le_traceDual.{u_1, u_2, u_3} {R : Type u_1}
+  {K : Type u_2} {D : Type u_3} [CommRing R] [Field K] [CommRing D] [Algebra R K] [Algebra K D] [Algebra R D]
+  [IsScalarTower R K D] {A B : Subalgebra R D} (hAB : A ≤ B) {z : D}
+  (hz : z ∈ integralTraceDual (Subalgebra.toSubmodule B)) :
+  principalOrderIdeal B z ≤ integralTraceDual (Subalgebra.toSubmodule A)
+'IUTThreeClosures.TraceDualPreidealHull20260831.principalOrderIdeal_le_traceDual' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceDualPreidealHull20260831.principalOrderIdeal_le_scaled_traceDual.{u_1, u_2, u_3} {R : Type u_1}
+  {K : Type u_2} {D : Type u_3} [CommRing R] [Field K] [CommRing D] [Algebra R K] [Algebra K D] [Algebra R D]
+  [IsScalarTower R K D] {A B : Subalgebra R D} (hAB : A ≤ B) {z : D} {c : K} (hc : c ≠ 0)
+  (hz : c⁻¹ • z ∈ integralTraceDual (Subalgebra.toSubmodule B)) :
+  principalOrderIdeal B z ≤ c • integralTraceDual (Subalgebra.toSubmodule A)
+'IUTThreeClosures.TraceDualPreidealHull20260831.principalOrderIdeal_le_scaled_traceDual' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceDualPreidealHull20260831.transportedOrderSpan_le.{u_1, u_2, u_3} {R : Type u_1} {K : Type u_2}
+  {D : Type u_3} [CommRing R] [Field K] [CommRing D] [Algebra R K] [Algebra K D] [Algebra R D] [IsScalarTower R K D]
+  {A B : Subalgebra R D} (hAB : A ≤ B) {z : D} {c : K} (hc : c ≠ 0)
+  (hz : c⁻¹ • z ∈ integralTraceDual (Subalgebra.toSubmodule B)) (maps : Set (D →ₗ[K] D))
+  (hstable :
+    ∀ f ∈ maps,
+      ∀ y ∈ integralTraceDual (Subalgebra.toSubmodule A), f y ∈ integralTraceDual (Subalgebra.toSubmodule A)) :
+  transportedOrderSpan B z maps ≤ c • Submodule.span ↥B ↑(integralTraceDual (Subalgebra.toSubmodule A))
+'IUTThreeClosures.TraceDualPreidealHull20260831.transportedOrderSpan_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.frameEquiv.{u} {G : Type u} [Group G] : Frame G ≃ Frame G
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.frameEquiv' depends on axioms: [propext]
+IUTThreeClosures.IUTFullGaloisWordLift20260830.crossHandleAut : FreeGroup Letter ≃* FreeGroup Letter
+'IUTThreeClosures.IUTFullGaloisWordLift20260830.crossHandleAut' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.crossEquiv.{u, v} {R : Type u} [CommRing R] {W : Type v}
+  [AddCommGroup W] [Module R W] (ω : LinearMap.BilinForm R W) (hω : ω.IsAlt) (w : W) :
+  Coordinates R W ≃ₗ[R] Coordinates R W
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.crossEquiv' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.transvectionEquiv.{u, v} {R : Type u} [CommRing R] {W : Type v}
+  [AddCommGroup W] [Module R W] (ω : LinearMap.BilinForm R W) (hω : ω.IsAlt) (r : W) : W ≃ₗ[R] W
+'IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.transvectionEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.firstTriple : IUTThreeClosures.ABCPoint
+'IUTThreeClosures.Frey139Tate210Realization20260830.firstTriple' does not depend on any axioms
+IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_isElliptic : firstCurve.IsElliptic
+'IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_isElliptic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_isElliptic : firstCurve5.IsElliptic
+'IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_isElliptic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directTriple : IUTThreeClosures.ABCPoint
+'IUTThreeClosures.Frey139Tate210Realization20260830.directTriple' does not depend on any axioms
+IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_isElliptic : directCurve.IsElliptic
+'IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_isElliptic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_isElliptic : directCurve5.IsElliptic
+'IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_isElliptic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.upper.{u_2} {R : Type u_2} [CommRing R] (s : R) :
+  Matrix.SpecialLinearGroup (Fin 2) R
+'IUTThreeClosures.SL2TransvectionGeneration20260830.upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+IUTThreeClosures.SL2TransvectionGeneration20260830.lower.{u_2} {R : Type u_2} [CommRing R] (t : R) :
+  Matrix.SpecialLinearGroup (Fin 2) R
+'IUTThreeClosures.SL2TransvectionGeneration20260830.lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.balancedTriple : IUTThreeClosures.ABCPoint
+'IUTThreeClosures.Frey43BalancedRealization20260830.balancedTriple' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve_isElliptic : balancedCurve.IsElliptic
+'IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve_isElliptic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve5_isElliptic : balancedCurve5.IsElliptic
+'IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve5_isElliptic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

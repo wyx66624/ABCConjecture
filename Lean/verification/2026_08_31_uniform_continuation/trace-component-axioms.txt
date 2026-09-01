@@ -1,0 +1,58 @@
+IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_trace_balance.{uK, uS, uT} {K : Type uK} [Field K]
+  {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] (F : S →ₗ[K] T) (c a b : K)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x)
+  (hreturn : F ((algebraMap K S) a) = (algebraMap K T) b) : ↑(Module.finrank K T) * b = c * (↑(Module.finrank K S) * a)
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_trace_balance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_of_equal_finrank.{uK, uS, uT} {K : Type uK}
+  [Field K] {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] [CharZero K]
+  [Nontrivial S] [Module.Finite K S] (F : S →ₗ[K] T) (c a b : K) (hdegree : Module.finrank K S = Module.finrank K T)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x)
+  (hreturn : F ((algebraMap K S) a) = (algebraMap K T) b) : b = c * a
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_of_equal_finrank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceCovariantRationalReturn20260831.map_one_of_nonzero_scalar_return.{uK, uS, uT} {K : Type uK}
+  [Field K] {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] [CharZero K]
+  [Nontrivial S] [Module.Finite K S] (F : S →ₗ[K] T) (c a b : K) (hdegree : Module.finrank K S = Module.finrank K T)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x) (ha : a ≠ 0)
+  (hreturn : F ((algebraMap K S) a) = (algebraMap K T) b) : F 1 = (algebraMap K T) c
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.map_one_of_nonzero_scalar_return' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_line_of_nonzero_return.{uK, uS, uT} {K : Type uK} [Field K]
+  {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] [CharZero K] [Nontrivial S]
+  [Module.Finite K S] (F : S →ₗ[K] T) (c a b : K) (hdegree : Module.finrank K S = Module.finrank K T)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x) (ha : a ≠ 0)
+  (hreturn : F ((algebraMap K S) a) = (algebraMap K T) b) (t : K) : F ((algebraMap K S) t) = (algebraMap K T) (c * t)
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_line_of_nonzero_return' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceCovariantRationalReturn20260831.exists_nonzero_return_iff_scalar_line.{uK, uS, uT} {K : Type uK}
+  [Field K] {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] [CharZero K]
+  [Nontrivial S] [Module.Finite K S] (F : S →ₗ[K] T) (c : K) (hdegree : Module.finrank K S = Module.finrank K T)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x) :
+  (∃ a b, a ≠ 0 ∧ F ((algebraMap K S) a) = (algebraMap K T) b) ↔
+    ∀ (t : K), F ((algebraMap K S) t) = (algebraMap K T) (c * t)
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.exists_nonzero_return_iff_scalar_line' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_addValuation.{uK, uS, uT, uV} {K : Type uK}
+  [Field K] {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] [CharZero K]
+  [Nontrivial S] [Module.Finite K S] {V : Type uV} [LinearOrderedAddCommMonoidWithTop V] (v : AddValuation K V)
+  (F : S →ₗ[K] T) (c a b : K) (hdegree : Module.finrank K S = Module.finrank K T)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x) (hc : v c = 0)
+  (hreturn : F ((algebraMap K S) a) = (algebraMap K T) b) : v b = v a
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_addValuation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceCovariantRationalReturn20260831.no_scalar_return_of_addValuation_ne.{uK, uS, uT, uV} {K : Type uK}
+  [Field K] {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] [CharZero K]
+  [Nontrivial S] [Module.Finite K S] {V : Type uV} [LinearOrderedAddCommMonoidWithTop V] (v : AddValuation K V)
+  (F : S →ₗ[K] T) (c a b : K) (hdegree : Module.finrank K S = Module.finrank K T)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x) (hc : v c = 0) (hne : v b ≠ v a) :
+  F ((algebraMap K S) a) ≠ (algebraMap K T) b
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.no_scalar_return_of_addValuation_ne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

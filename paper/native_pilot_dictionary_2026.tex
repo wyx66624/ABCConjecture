@@ -1,0 +1,634 @@
+\section{Native pilot points, multiplicative families, and transported ideals}
+\label{sec:native-pilot-dictionary}
+
+We now distinguish three local inputs: a specified point, the image of
+multiplication on a log lattice, and a principal maximal-order ideal
+before transport. There are positive comparisons between these inputs,
+even for nongeometric Galois arrows. In the attained examples the
+point and pre-ideal hulls coincide, while saturation to the whole
+multiplication image produces a strictly larger hull.
+All the constructions in this section use one native carrier and one
+normalization; they do not assume the cross-arithmeticoid comparison
+in \cite[Theorem~6.10.1]{JoshiIV}.
+
+\subsection{The local objects and the logarithmic scale}
+
+Let $p>2$ and let $E/\Q_p$ be finite Galois, of degree $d$ and
+ramification index $2\le e\le p-2$. Normalize $v(p)=1$, choose a
+uniformizer $\pi$, and write
+\begin{equation}\label{eq:np-lattice}
+ \kappa=\frac{e-1}{e},\qquad
+ I=p^{-1}\log\OO_E^\times
+   =p^{-1}\mathfrak m_E=\pi^{1-e}\OO_E,\qquad
+ u=p^{-1}\log(1+p).
+\end{equation}
+Logarithm and exponential are inverse isometries on
+$1+\mathfrak m_E$ and $\mathfrak m_E$, since
+$1/e>1/(p-1)$. The tame different is
+$\mathfrak D_{E/\Q_p}=\pi^{e-1}\OO_E$, so $I=\mathfrak D^{-1}$.
+The convention $(2p)^{-1}\log\OO_E^\times$ differs only by a
+$\Z_p^\times$-factor, which does not affect the ideals below.
+
+For $m\ge1$, set
+\[
+ T_m=E^{\otimes_{\Q_p}m},\qquad
+ A_m=\OO_E^{\otimes_{\Z_p}m},\qquad
+ B_m=\text{the normalization of }A_m\text{ in }T_m.
+\]
+The algebra $T_m$ is a product of $d^{m-1}$ copies of $E$, and
+$B_m$ is the product of their integer rings. An ideal written
+$\pi^tB_m$ means the product ideal of valuation $t/e$ in every
+component, without requiring identical component generators.
+
+Let $\Gamma$ be a family containing the identity of actual integral
+Kummer actions on $I$, or more generally any such family in
+$\operatorname{Aut}_{\Z_p}(I)$. Each action extends $\Q_p$-linearly
+to $E$. We do not suppose that the actual Galois family exhausts
+this general linear group. With the same arrow in each factor, put
+\begin{equation}\label{eq:np-hull}
+ \mathcal H_\Gamma(S)=
+ \overline{\Span_{B_m}
+ \{Fx_1\otimes\cdots\otimes Fx_m:
+             F\in\Gamma,\ (x_1,\ldots,x_m)\in S\}}
+ \qquad(S\subset E^m).
+\end{equation}
+This is an orbit followed by a module hull. Taking a product convex
+hull before tensoring is a separate operation.
+
+Write $\operatorname{Kum}$ for the integral Kummer map on principal
+units. The standard Bloch--Kato exponential, extended by
+$p^{-n}\operatorname{Kum}(\exp(p^nx))$ when necessary, has inverse
+$\log_{\rm BK}^{\rm std}$ satisfying
+\[
+ \log_{\rm BK}^{\rm std}(\operatorname{Kum}(1+pa))
+       =\log(1+pa).
+\]
+The following coordinate map is different:
+\begin{equation}\label{eq:np-rho}
+ \rho=p^{-1}\log_{\rm BK}^{\rm std},\qquad
+ \lambda_p(a)=\rho(\operatorname{Kum}(1+pa))
+             =p^{-1}\log(1+pa).
+\end{equation}
+The three displays \cite[(9.7.1.1), (9.7.2.1)--(9.7.2.2),
+PDF p.~110]{JoshiIII} require this distinction. If the exponential
+has its standard cohomological scalar meaning and the class is the
+unscaled class of $1+pa$ defined on p.~109, its inverse cannot take
+that class to $\lambda_p(a)$. Indeed, for nonzero integral $a$,
+\[
+ \exp_{\rm BK}(\lambda_p(a))
+       =p^{-1}\operatorname{Kum}(1+pa)
+       \ne\operatorname{Kum}(1+pa).
+\]
+The Kummer class is nonzero because its logarithm has nonzero
+leading term $pa$. Formula~\eqref{eq:np-rho} is a consistent
+normalized coordinate, but it is not that inverse formula.
+
+Passing from $\rho$ to $\log_{\rm BK}^{\rm std}$ multiplies each
+entry, including each background entry, by $p$. Since integral
+Kummer arrows commute with this scalar, every length-$m$ hull satisfies
+\begin{equation}\label{eq:np-standard-scale}
+ H^{\rm std}=p^mH^\rho,\qquad
+ V_B(H^{\rm std})=V_B(H^\rho)-m\log p,
+ \quad
+ V_B(H)=d^{-m}\log\mu_B(H),\quad \mu_B(B_m)=1.
+\end{equation}
+The determinant of multiplication by $p^m$ on $T_m$ is $p^{md^m}$,
+which proves the volume formula. If instead $\mu_A(A_m)=1$, then
+$V_A(H)=V_B(H)+d^{-m}\log[B_m:A_m]$. This constant cancels when
+both sets use the same reference order.
+
+\subsection{A point bridge that survives every integral arrow}
+
+\begin{proposition}[Transported root and crystalline point]
+\label{prop:np-point-bridge}
+For $0\ne a\in\OO_E$, set $r=v(a)$ and
+$k=\lfloor r+\kappa\rfloor$. Every
+$F\in\operatorname{Aut}_{\Z_p}(I)$ satisfies
+\begin{equation}\label{eq:np-point-val}
+             v(F\lambda_p(a))=v(Fa),\qquad v(Fu)=v(F1).
+\end{equation}
+Consequently
+\begin{equation}\label{eq:np-point-hulls}
+ \mathcal H_\Gamma(\{(\lambda_p(a),u,\ldots,u)\})
+      =\mathcal H_\Gamma(\{(a,1,\ldots,1)\}).
+\end{equation}
+\end{proposition}
+\begin{proof}
+The choice of $k$ gives
+$a\in p^kI\setminus p^{k+1}I$. In the convergent expansion
+\[
+ \lambda_p(a)-a
+       =\sum_{n\ge2}(-1)^{n+1}\frac{p^{n-1}a^n}{n},
+\]
+every term has valuation at least $1+2r$: for $p>2$ and $n\ge2$,
+$v_p(n)\le n-2$. Hence
+\[
+ v(\lambda_p(a)-a)\ge1+2r\ge k+1-\kappa,\qquad
+              \lambda_p(a)-a\in p^{k+1}I.
+\]
+As $F$ preserves each $p^nI$ in both directions,
+\[
+ v(Fa)<k+1-\kappa,\qquad
+ v(F(\lambda_p(a)-a))\ge k+1-\kappa.
+\]
+The strict ultrametric inequality proves the first equality in
+\eqref{eq:np-point-val}; apply it to $a=1$ for the second.
+
+In every component of $T_m$, the two nonzero tensors
+$F\lambda_p(a)\otimes(Fu)^{\otimes(m-1)}$ and
+$Fa\otimes(F1)^{\otimes(m-1)}$ have the same valuation.
+Their componentwise ratio is a unit of $B_m$, so they generate
+the same principal $B_m$-ideal. Taking spans and closures proves
+\eqref{eq:np-point-hulls}. No $E$-linearity or multiplicativity
+of $F$ was used.
+\end{proof}
+
+The same proof allows different prescribed integral arrows in
+different factors. Root-of-unity ambiguities can be handled by
+applying the proposition separately to each permitted $\zeta a$
+and then taking their union; one does not assert
+$F(\zeta a)=\zeta F(a)$. Also, \eqref{eq:np-point-hulls} is a
+statement about module hulls of raw orbits. The tensor map is not
+additive in its tuple of inputs, so equality after a product
+convex hull needs a further argument. An attaining-point argument
+below supplies it in the explicit example.
+
+\subsection{A whole multiplication image requires a whole unit family}
+
+\begin{proposition}[Exact saturated Kummer family]
+\label{prop:np-saturated}
+For $0\ne a\in\OO_E$, the group
+$U_a=1+paI=1+a\mathfrak m_E$ satisfies, as actual sets,
+\begin{equation}\label{eq:np-saturated}
+ \rho(\operatorname{Kum}(U_a))=aI,\qquad
+ \log_{\rm BK}^{\rm std}(\operatorname{Kum}(U_a))=paI.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The ideal $paI=a\mathfrak m_E$ lies in the common strict convergence
+disk of logarithm and exponential. These maps preserve valuations,
+so $\log(1+paI)=paI$. More explicitly, for every $z\in aI$,
+$\exp(pz)\in U_a$ and
+$\rho(\operatorname{Kum}(\exp(pz)))=z$. The inverse series gives
+the reverse containment. The positive-valuation ideal also makes
+$U_a$ closed under multiplication and inversion.
+\end{proof}
+
+In particular, the background family is the whole principal-unit
+group $U_1$, not the singleton $1+p$. Taking products in
+\eqref{eq:np-saturated} realizes $aI\times I^{m-1}$ before
+any arrows or hulls are applied. This equality therefore survives
+the same transport, product convex closure, tensor map, and final
+module hull, in any specified order.
+
+\begin{proposition}[The singleton can be strictly smaller]
+\label{prop:np-strict}
+Put
+\[
+ P(a)=\mathcal H_\Gamma(\{(\lambda_p(a),u,\ldots,u)\}),\qquad
+ S(a)=\mathcal H_\Gamma(aI\times I^{m-1}).
+\]
+If $v(a)<\lfloor v(a)+\kappa\rfloor$, then $P(a)\subsetneq S(a)$.
+The strict inclusion persists if both product inputs first undergo
+closed $\Z_p$-convex closure.
+\end{proposition}
+\begin{proof}
+Writing $r=v(a)$ and $k=\lfloor r+\kappa\rfloor$, the logarithmic
+expansion gives $\lambda_p(a)/a\in\OO_E^\times$. Also
+$u\in\OO_E\subset I$, so the singleton input lies in the whole
+input. Every transported singleton lies in the closed product
+lattice $p^kI\times I^{m-1}$, so every tensor in $P(a)$ has
+component valuation at least $k-m\kappa$.
+The whole input at the identity contains
+\[
+                   (a\pi^{1-e},\pi^{1-e},\ldots,\pi^{1-e}).
+\]
+Its tensor has component valuation $r-m\kappa<k-m\kappa$,
+proving strictness. Convex closure keeps the smaller input in its
+closed product container and retains the displayed larger input.
+\end{proof}
+
+Proposition~\ref{prop:np-saturated} supplies a positive cohomological
+realization of a specified multiplication image. It is an enlargement
+of a single-class recipe. Proposition~\ref{prop:np-strict} shows
+why equality of coefficient norms alone cannot justify omitting
+this enlargement.
+
+\subsection{One actual arrow for six normalized inputs}
+
+We use the field of \eqref{eq:gl-139-field}: $p=139$,
+$v(b_0)=1$, $\pi^{105}=b_0$, and
+$E=\Q_p(\mu_{210},\pi)$. Thus $(d,e,f)=(210,105,2)$ and
+$I=\pi^{-104}\OO_E$. Put
+\[
+ r_0=\pi^{15},\quad \alpha_s=r_0^s,\quad
+ \tau_s=\lambda_p(\alpha_s),\quad
+ n_s=\lfloor s/7\rfloor,\quad
+ k_s=\lfloor s/7+104/105\rfloor
+ \qquad(s=1,4,9),
+\]
+and define two normalized families
+\begin{equation}\label{eq:np-six-vectors}
+             T_s=\tau_s/p^{k_s},\qquad
+             X_s=\alpha_s\pi^{-104}/p^{n_s}.
+\end{equation}
+
+\begin{lemma}[A common arrow for both families]
+\label{lem:np-six}
+One actual integral Kummer arrow $F$ satisfies
+\[
+           v(Fu)=v(FT_s)=v(FX_s)=-104/105
+                  \qquad(s=1,4,9).
+\]
+\end{lemma}
+\begin{proof}
+The triples $(n_s)$ and $(k_s)$ are $(0,0,1)$ and $(1,1,2)$.
+The native valuations are
+\[
+ \begin{array}{c|ccc}
+ s&1&4&9\\ \hline
+ v(T_s)&-90/105&-45/105&-75/105\\
+ v(X_s)&-89/105&-44/105&-74/105 .
+ \end{array}
+\]
+Thus all six vectors are in $\pi I\setminus pI$.
+The Kummer conjugates show $\operatorname{Tr}(X_s)=0$, since
+$105\nmid15s-104$, including for the negative powers occurring
+here. The direct norm computation used in
+Theorem~\ref{thm:gl-three-labels} gives
+\[
+ \operatorname{Tr}(T_s)
+     =\frac{30\log(1+p^7b_0^s)}{p^{k_s+1}},\qquad
+ v(\operatorname{Tr}(T_s))=s+6-k_s\in\{6,9,13\},
+ \qquad\operatorname{Tr}(u)=210u\in\Z_p^\times.
+\]
+For the norm formula, the seven distinct conjugates of
+$1+p\pi^{15s}$ multiply to $1+p^7b_0^s$, and there are
+fifteen repetitions over the unramified quadratic subfield.
+
+Let $V=I/pI$ and $L=\pi I/pI$, of codimension two.
+Lemma~\ref{lem:gl-integral-basis} gives coordinates
+$V=\mathbf F_p a\oplus\mathbf F_p b\oplus W$ in which
+the $b$-coordinate is a unit multiple of the trace.
+The trace is onto on $\pi I$: the element $1/210$ lies in
+$\OO_E\subset\pi I$ and has trace one. Consequently
+$\ker B\to V/L$ is onto. The vector $u$ is in $L$ with nonzero
+$b$-coordinate, and the six other vectors are nonzero in
+$L\cap\ker B$.
+
+There is an actual field automorphism
+$\sigma(\pi)=\zeta_7\pi$, fixing $\Q_p(\mu_{210})$.
+Modulo $pI$, the leading term of $T_s$ is
+$\alpha_s/p^{k_s}$. Proposition~\ref{prop:np-point-bridge}
+places its logarithmic error in $pI$. The characters on
+$T_s$ and $X_s$ are therefore respectively
+$\zeta_7^s$ and $\zeta_7^{15s-104}=\zeta_7^{s+1}$.
+All six are nontrivial. Since
+$\mu_7\cap\mathbf F_{139}^\times=\{1\}$, each of their
+projective orbits has length seven. Indeed a difference
+between a nontrivial such scalar and a scalar of
+$\mathbf F_{139}^\times$ is a residue-field unit and
+cannot annihilate a nonzero vector.
+
+For each vector there is at most one
+$h\in\{0,\ldots,6\}$ placing $\sigma^h$ of that vector on
+the line $\mathbf F_p a$. Avoid all six forbidden choices
+at once. This common inertia action fixes $u$ and preserves
+$L$ and the trace. Now the six vectors satisfy all hypotheses
+of Lemma~\ref{lem:gl-finite-family}, with $r=6$ and
+$r+1<139$. Its full-Galois lift sends them and $u$ outside
+$L$ simultaneously. Finally
+Proposition~\ref{prop:gl-variance} converts the canonical
+action $M$ into a Kummer action by taking the inverse
+Galois arrow: the resulting action is a $\Z_p^\times$-multiple
+of $M$. This preserves all seven minimum valuations.
+\end{proof}
+
+\begin{theorem}[Exact point and whole-family hulls]
+\label{thm:np-two-hulls}
+For $s=j^2$, $j=1,2,3$, and $m=j+1$, define
+\[
+ P_j^\rho=\mathcal H_\Gamma(\{(\tau_s,u,\ldots,u)\}),\qquad
+ S_j^\rho=\mathcal H_\Gamma(\alpha_sI\times I^{m-1}),
+\]
+where $\Gamma$ is the full integral Galois--Kummer family.
+Then
+\begin{equation}\label{eq:np-two-hulls}
+ P_j^\rho=\pi^{105k_s-104m}B_m,\qquad
+ S_j^\rho=\pi^{105n_s-104m}B_m=p^{-1}P_j^\rho .
+\end{equation}
+One common arrow attains both bounds in all three blocks.
+The same equalities hold with intermediate closed product
+convex hulls.
+\end{theorem}
+\begin{proof}
+The containments $\tau_s\in p^{k_s}I$ and
+$\alpha_sI\subseteq p^{n_s}I$ give componentwise lower
+valuation bounds $k_s-m\kappa$ and $n_s-m\kappa$ for
+the two transported families. Lemma~\ref{lem:np-six}
+attains the first bound on
+$(\tau_s,u,\ldots,u)$, and the second on
+$(\alpha_s\pi^{-104},u,\ldots,u)$, using the same arrow:
+their first entries are respectively $p^{k_s}T_s$ and
+$p^{n_s}X_s$. Each attaining tensor has that valuation
+in every field component. Its principal $B_m$-span is
+the entire asserted product ideal, proving the reverse
+containments and closedness. Since $k_s=n_s+1$,
+the two ideals differ by $p^{-1}$.
+
+The containing product lattices
+$p^{k_s}I\times I^{m-1}$ and $p^{n_s}I\times I^{m-1}$
+are closed and convex. Convex closure cannot violate
+the upper containments and retains the attaining tuples.
+\end{proof}
+
+Proposition~\ref{prop:np-point-bridge} gives the same point
+hull with $(\alpha_s,1,\ldots,1)$; the same argument now
+also treats its product convex hull. The formulas remain
+valid for independent integral factor arrows if the
+diagonal witnesses are retained. For reference, the
+exponents of $\pi$ in the two logarithmic scales are
+\[
+ \begin{array}{c|c|rr|rr}
+ j&m&P_j^\rho&S_j^\rho&P_j^{\rm std}&S_j^{\rm std}\\ \hline
+ 1&2&-103&-208&107&2\\
+ 2&3&-207&-312&108&3\\
+ 3&4&-206&-311&214&109
+ \end{array}
+\]
+The last two columns add $105m$ to the corresponding
+$\rho$ columns. Nonintegrality in a $\rho$ column is
+therefore not a violation of a bound stated in the
+standard cohomological coordinate.
+
+\subsection{The maximal-order ideal before transport}
+
+For $z=a\otimes1\otimes\cdots\otimes1$ and
+$\Phi_F=F^{\otimes m}$, put
+\begin{equation}\label{eq:np-preideal}
+ \mathcal M_\Gamma(a)=
+ \overline{\Span_{B_m}
+       \{\Phi_F(b):b\in zB_m,\ F\in\Gamma\}}.
+\end{equation}
+The ideal $zB_m$ is the input, not an ideal formed after
+applying $\Phi_F$.
+
+\begin{proposition}[A trace-dual comparison for one source set]
+\label{prop:np-sandwich}
+For $0\ne a\in\OO_E$,
+\begin{equation}\label{eq:np-sandwich}
+ \mathcal H_\Gamma(\{(a,1,\ldots,1)\})
+       \subseteq\mathcal M_\Gamma(a)
+       \subseteq\mathcal H_\Gamma(aI\times I^{m-1}).
+\end{equation}
+\end{proposition}
+\begin{proof}
+The first containment follows from $z\in zB_m$.
+Take the integral trace dual of $A_m$ in the finite etale
+algebra $T_m$. Trace factorizes on pure tensors; choosing
+an integral basis and its trace-dual basis in each factor
+therefore gives
+\[
+ A_m^\vee
+    =(\mathfrak D_{E/\Q_p}^{-1})^{\otimes_{\Z_p}m}
+    =I^{\otimes_{\Z_p}m}.
+\]
+If $b\in B_m$ and $c\in A_m\subset B_m$, the product
+$bc$ is integral in every component field. Its trace
+belongs to $\Z_p$, proving $B_m\subseteq A_m^\vee$.
+Consequently $zB_m$ is contained in the $\Z_p$-span
+of pure tensors with entries in $aI\times I^{m-1}$.
+Apply the $\Q_p$-linear map $\Phi_F$, then take the
+common $B_m$-span and closure.
+\end{proof}
+
+In particular, the preceding native example gives bounds
+for the same pre-hull input:
+\begin{equation}\label{eq:np-native-interval}
+ P_j^\rho\subseteq\mathcal M_\Gamma(\alpha_{j^2})
+       \subseteq S_j^\rho=p^{-1}P_j^\rho,
+\end{equation}
+and hence
+\[
+ (m\kappa-k_{j^2})\log p
+ \le V_B(\mathcal M_\Gamma(\alpha_{j^2}))
+ \le(m\kappa-n_{j^2})\log p.
+\]
+This is a valid interval bound of width $\log p$.
+The next result sharpens it and determines the middle
+ideal exactly in the attained examples.
+
+\begin{proposition}[The sharper trace-dual bound]
+\label{prop:np-sharp-preideal}
+Let $0\ne a\in\OO_E$, $r=v(a)$, and
+$k=\lfloor r+\kappa\rfloor$. If a $\Q_p$-linear map
+$\Phi:T_m\to T_m$ satisfies
+$\Phi(A_m^\vee)\subseteq A_m^\vee$, then
+\begin{equation}\label{eq:np-sharp-preideal}
+ \Span_{B_m}\Phi(zB_m)
+       \subseteq\pi^{ek-m(e-1)}B_m,
+ \qquad z=a\otimes1\otimes\cdots\otimes1.
+\end{equation}
+In particular this bounds $\mathcal M_\Gamma(a)$ for
+every family of integral factor arrows used above.
+The upper bound itself does not require $\Phi$ to
+factor as a tensor product.
+\end{proposition}
+
+\begin{proof}
+Take all trace duals with respect to the absolute algebra
+trace $\operatorname{Tr}_{T_m/\Q_p}$. Since $E/\Q_p$
+is Galois, every component field of $T_m$ is a copy of
+$E$. The idempotents of $B_m$ isolate the components
+of the trace sum, so
+\begin{equation}\label{eq:np-two-duals}
+ B_m^\vee=\prod_\alpha I_\alpha
+       \subseteq A_m^\vee=I^{\otimes_{\Z_p}m},
+\end{equation}
+where $I_\alpha$ is the inverse different in the
+corresponding copy of $E$. There is no additional
+degree or component-count factor in this formula.
+The containment follows from $A_m\subseteq B_m$
+by contravariance of the trace dual.
+
+Each component of $z$ has valuation $r$. Because
+$r-k\ge-\kappa$, one has
+\[
+ p^{-k}zB_m\subseteq B_m^\vee\subseteq A_m^\vee.
+\]
+It follows that $\Phi(zB_m)\subseteq p^kA_m^\vee$.
+Every pure tensor in $I^{\otimes m}$ has component
+valuation at least $-m\kappa$, and
+$(\pi^{1-e})^{\otimes m}$ attains this value in every
+component. Consequently
+\[
+ \Span_{B_m}A_m^\vee=\pi^{-m(e-1)}B_m.
+\]
+Multiplying by $p^k$ proves
+\eqref{eq:np-sharp-preideal}. The bounding ideal is
+closed, so unions and closures preserve this upper
+bound. Integral factor arrows preserve
+$I^{\otimes m}=A_m^\vee$, as required.
+\end{proof}
+
+\begin{corollary}[Exact pre-ideal hull]
+\label{cor:np-exact-preideal}
+If the point orbit attains depth $k-m\kappa$ in every
+component, then
+\[
+ \mathcal M_\Gamma(a)=
+ \mathcal H_\Gamma(\{(a,1,\ldots,1)\})
+       =\pi^{ek-m(e-1)}B_m.
+\]
+In the degree-210 three-label example, this gives
+\begin{equation}\label{eq:np-exact-preideal}
+ \begin{gathered}
+ \mathcal M_\Gamma(\alpha_{j^2})=P_j^\rho,
+ \qquad S_j^\rho=p^{-1}\mathcal M_\Gamma(\alpha_{j^2}),\\
+ V_B(\mathcal M_\Gamma(\alpha_{j^2}))
+       =(m\kappa-k_{j^2})\log p,
+ \qquad m=j+1,\quad j=1,2,3.
+ \end{gathered}
+\end{equation}
+The same actual full-Galois arrow can witness all three
+point attainments.
+\end{corollary}
+
+\begin{proof}
+The point-orbit containment in
+Proposition~\ref{prop:np-sandwich} and the assumed
+attainment give the reverse inclusion to
+\eqref{eq:np-sharp-preideal}. In the stated example,
+Proposition~\ref{prop:np-point-bridge} identifies each
+transported root-point principal ideal with its
+normalized crystalline-point ideal, including the
+background factors. Theorem~\ref{thm:np-two-hulls}
+supplies the common attaining arrow and the separate
+whole-family formula. The measure follows from the
+depth of the resulting product ideal.
+\end{proof}
+
+This comparison has the input type of the containing
+calculation in \cite[Proposition~1.2, PDF pp.~10--11;
+Theorem~1.10, Step~(v), pp.~27--28]{IUT4}.
+Indeed $\Phi_F$ preserves
+$I^{\otimes m}$, and hence
+$(\log\OO_E^\times)^{\otimes m}=p^mI^{\otimes m}$,
+as required there. The displayed input is
+$\phi(p^\lambda B_m)$, with
+$\lambda=v(\underline q^{\,j^2})$ at a bad place.
+Here $\underline q=q^{1/(2\ell)}$ is the root fixed in
+\cite[Example~3.2(iv), PDF p.~71]{IUT1}.
+In the example $e=105,p=139$, its parameters are
+\[
+ d_i=104/105,\qquad a_i=1/105,\qquad b_i=-1/105.
+\]
+Thus its displayed containing ideal has depth
+\[
+ \lfloor\lambda-d_I-a_I\rfloor-b_I
+       =\lfloor\lambda\rfloor-m\kappa,
+       \qquad \lambda=j^2/7,
+\]
+which is the upper endpoint in
+\eqref{eq:np-native-interval}. By
+\eqref{eq:np-exact-preideal} it is a larger containing
+ideal, equal to $p^{-1}$ times the exact pre-ideal hull
+in these examples. A loose upper bound is not a
+contradiction, and its agreement with the whole-family
+formula does not identify those input sets.
+
+If all tensor coordinates are changed from $\rho$
+to the standard logarithm, the pre-ideal input changes
+from $zB_m$ to $p^mzB_m$. Its hull then becomes
+$p^m\mathcal M_\Gamma(\alpha_{j^2})=P_j^{\rm std}$,
+with measure shift $-m\log p$. This conversion does
+not insert $p^m$ into a printed $\phi(p^\lambda B_m)$
+input without changing its coordinate description.
+
+\subsection{The source distinctions that remain}
+
+Three distinctions are necessary when using these local
+interfaces in the published constructions.
+
+First, \cite[\S9.6.2 and Theorem-Definition~9.8.1.1,
+PDF pp.~109, 114--115]{JoshiIII} defines a chosen class
+from $1+p\,q^{1/(2\ell)}$ and background classes from $1+p$.
+The optional family in its Remark~9.6.2.1 is printed
+with exponent $j/(2\ell)$, whereas the squared-exponent
+pilot in \cite[Theorem~3.11; Remark~3.11.1(i)]{IUT3}
+involves $\underline q^{\,j^2}$.
+The valuation scaling of \cite[(4.2.2.2)]{JoshiIII}
+is additional marking data. It does not by itself
+replace an algebraic root by its squared power.
+For example, in our fixed native field
+$\lambda_p(r_0)$ belongs to $pI\setminus p^2I$,
+while $\lambda_p(r_0^9)$ belongs to $p^2I\setminus p^3I$.
+No integral log-lattice isomorphism identifies these
+two specified elements. A change $v\mapsto cv$ changes
+$v(p)$ as well and does not change this integral content.
+
+Second, the monoid representation in
+\cite[Theorem~3.11(i)(b), PDF pp.~153--154]{IUT3}
+is a subset equipped with a multiplicative action;
+the pilot also has the fractional-ideal realization of
+its Proposition~3.7(v) and Definition~3.8(i).
+A point, an operator image, and a principal ideal before
+transport have different quantifiers.
+Proposition~\ref{prop:np-point-bridge} supplies an equality
+for specified point hulls, and
+Proposition~\ref{prop:np-saturated} supplies a set equality
+for a specified whole family. Neither permits a
+$B_m$-span to be moved across a non-$B_m$-linear arrow.
+Proposition~\ref{prop:np-sharp-preideal} instead
+bounds the entire pre-ideal before the arrow is
+applied; together with point attainment it proves
+\eqref{eq:np-exact-preideal} without moving a module
+span across that arrow.
+
+Third, the standard versus normalized logarithmic map
+must be the same on both sides of a volume comparison.
+Equation~\eqref{eq:np-standard-scale} is its explicit
+conversion, including background factors. The
+native fixed-source covariance of an all-isomorphism
+collation cannot at the same time be interpreted as
+a change of its source element or source principal ideal.
+Remark~6.10.2 of \cite{JoshiIV} itself restricts direct
+comparison of local quantities at different arithmeticoids.
+
+The degree-210 calculation applies locally to a split
+rational Frey curve with full rational $2$-torsion and
+$v(q)=2$. Tate uniformization
+\cite[Theorem~C.14.1]{Silverman} makes a chosen square root
+of $q$ rational: its class is a rational point of order
+two, so its Galois sign must be a power of $q$; valuations
+force that power to be zero. Thus it supplies precisely
+the $b_0$ allowed above, without requiring $q=p^2$.
+This local observation does not establish all the
+initial data in \cite[Definition~3.1]{IUT1}.
+
+There is also a small-parameter limitation to using the
+particular existence proof of \cite[\S5.8]{JoshiIV}.
+Its prime threshold must satisfy $\xi_{\rm prm}>10$,
+because $\theta(10)=\log210<20/3$. With the normalized
+$Q$ of its Definition~5.4.1 and Theorem~5.7.1,
+every candidate with $\sqrt Q\le\ell=7$ is therefore
+included in the proof's small-$Q$ exceptional set, if
+it is in the chosen bounding domain. The opening display
+of Section~5.8 omits the degree divisor present in that
+definition. If this display is instead read literally
+as a different unnormalized quantity, the normalized
+value and numerical prime window cannot be reused for it.
+Neither reading turns a local example into an automatic
+outside-exception global input. This statement concerns
+that proof-constructed set, not every possible sufficient
+exceptional set or a direct verification of initial data.
+
+Finally, the actual global family, its product weights,
+the Ind3 operation, and the cross-Frobenius comparison
+are not computed in this section. The trace-dual bound,
+the attained exact pre-ideal equality, and the two positive
+Kummer interfaces are local theorems
+about their explicitly specified sets. Their $p$-adic
+analytic and full local-Galois hypotheses have not yet
+been completely formalized in Lean. They neither prove
+nor disprove the unconditional abc conjecture.

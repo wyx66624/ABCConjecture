@@ -1,0 +1,1 @@
+Interim height-input compile: one overfull module-name line and a transient Windows file-in-use error after PDF generation. Not a successful or visually reviewed final artifact. The source filename was subsequently replaced with a prose reference; no mathematical statement changed.

@@ -1,0 +1,38 @@
+{
+  "command": [
+    "lake",
+    "build",
+    "IUTThreeClosures.ResearchBalancedPersistence20260831Audit"
+  ],
+  "started_utc": "2026-09-01T05:02:05.096390+00:00",
+  "completed_utc": "2026-09-01T05:02:09.073781+00:00",
+  "elapsed_seconds": 3.976,
+  "exit_code": 0,
+  "output_file": "Lean/verification/2026_08_31_balanced_persistence/audit-target-build-output.txt",
+  "output_sha256": "85c3864168b2bea230e52fe7d818d5702b126a147d44c0e6eacabfd86f08716a",
+  "completion_jobs": 8767,
+  "warning_count": 19,
+  "warning_headers": [
+    "warning: IUTThreeClosures/ABCStatement.lean:35:20: '' starts on column 20, but all commands should start at the beginning of the line.",
+    "warning: IUTThreeClosures/ABCPointLegendreCurve.lean:1:1: * '-/':",
+    "warning: IUTThreeClosures/ABCPointLegendreCurve.lean:130:20: '' starts on column 20, but all commands should start at the beginning of the line.",
+    "warning: IUTThreeClosures/LegendreArithmetic.lean:1:1: * '-/':",
+    "warning: IUTThreeClosures/ABCFreyCurve.lean:1:1: * '-/':",
+    "warning: IUTThreeClosures/ABCFreyCurve.lean:45:48: this tactic is never executed",
+    "warning: IUTThreeClosures/ABCFreyCurve.lean:45:48: 'ring' tactic does nothing",
+    "warning: IUTThreeClosures/ABCFreyCurve.lean:49:44: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+    "warning: IUTThreeClosures/ABCFreyCurve.lean:57:44: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+    "warning: IUTThreeClosures/ABCFreyCurve.lean:78:47: this tactic is never executed",
+    "warning: IUTThreeClosures/ABCFreyCurve.lean:78:47: 'ring' tactic does nothing",
+    "warning: IUTThreeClosures/ABCFreyCurve.lean:82:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+    "warning: IUTThreeClosures/ABCFreyCurve.lean:90:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+    "warning: IUTThreeClosures/FreyDiscriminantConductor.lean:1:1: * '-/':",
+    "warning: IUTThreeClosures/PrimePowerSmoothNeighbour.lean:96:4: This simp argument is unused:",
+    "warning: IUTThreeClosures/PrimePowerSmoothNeighbour.lean:234:0: Definition `toLogRadicalGapCertificate` is a proposition; use `theorem` instead of `def`",
+    "warning: IUTThreeClosures/LowRadicalNeighbourTransfer.lean:87:4: This simp argument is unused:",
+    "warning: IUTThreeClosures/LowRadicalNeighbourTransfer.lean:186:0: Definition `toLogRadicalGapCertificate` is a proposition; use `theorem` instead of `def`",
+    "warning: IUTThreeClosures/SquareRootSmoothNeighbourThreshold.lean:53:5: Variable name `hs` is not explicitly referenced."
+  ],
+  "new_module_warning_count": 0,
+  "new_module_warning_headers": []
+}

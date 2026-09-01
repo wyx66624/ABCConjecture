@@ -1,0 +1,164 @@
+{
+  "ABCMixedFullCampana20260831": {
+    "source": "Lean/IUTThreeClosures/ABCMixedFullCampana20260831.lean",
+    "source_sha256": "941c60d238c6fde2bb8c5ec3a9fc7b0a962daaf7b21e16e452bc3dc6095dd5d8",
+    "source_bytes": 10135,
+    "public_theorems": [
+      "mixedFullSlope_nonneg",
+      "mixedFullSlope_eq_pairSum_div_product",
+      "mixedFullSlope_lt_one_iff_pairSum_lt_product",
+      "radical_pow_pqr_le_c_pow_pairSum",
+      "conductor_le_mixedFullSlope_mul_height",
+      "exists_positive_epsilon_of_mixedFullSlope_lt_one",
+      "abcConjecture_implies_mixedFull_height_bound",
+      "not_abcConjecture_of_unbounded_mixedFull_family"
+    ],
+    "additional_proof_bearing_declarations": [
+      "mixedFullSlope",
+      "MixedFull"
+    ]
+  },
+  "FreyIsogenyConductorSharpness20260831": {
+    "source": "Lean/IUTThreeClosures/FreyIsogenyConductorSharpness20260831.lean",
+    "source_sha256": "2e3e938f0eef0541faabcf21277de042538382a56085218882799aba302c2913",
+    "source_bytes": 12601,
+    "public_theorems": [
+      "endpointC_eq_two_halfEndpointNat",
+      "oddEndpoint_eq_two_half_sub_one",
+      "endpointC_sub_one_eq_oddEndpoint",
+      "halfEndpointNat_pos",
+      "oddEndpoint_pos",
+      "two_coprime_halfEndpointNat",
+      "two_half_coprime_oddEndpoint",
+      "half_coprime_oddEndpoint",
+      "oddEndpoint_coprime_half",
+      "radical_two",
+      "minimumJDenominator_radical",
+      "endpoint_radical_eq_two_minimum_denominator_radical",
+      "reducedDenominator_zeroKernel_eq_minimumJDenominator",
+      "familyCurve_zeroKernel_den",
+      "endpoint_radical_eq_two_actual_j_den_radical",
+      "powerIndex_mul_896",
+      "endpointC_powerIndex",
+      "powerIndex_pos",
+      "radical_897",
+      "radical_897_pow",
+      "powerEndpoint_coprime_odd",
+      "two_coprime_897_pow",
+      "powerEndpoint_radical",
+      "power_conductorProxy",
+      "power_conductorProxy_lt",
+      "powerEndpoint_log",
+      "powerFamily_subcritical_gap",
+      "exists_powerFamily_gap_gt"
+    ],
+    "additional_proof_bearing_declarations": [
+      "halfEndpointNat",
+      "oddEndpoint",
+      "minimumJDenominator",
+      "conductorProxy",
+      "powerIndex"
+    ]
+  },
+  "IUTFiniteProductProjectionSpan20260831": {
+    "source": "Lean/IUTThreeClosures/IUTFiniteProductProjectionSpan20260831.lean",
+    "source_sha256": "75e915545947ab639e206f28ce0d9be17988ba5e9a7c19f09428f0352b3a8afc",
+    "source_bytes": 5684,
+    "public_theorems": [
+      "mem_coordinateSpan_of_mem_productSpan",
+      "mem_productSpan_of_forall_mem_coordinateSpan",
+      "mem_productSpan_iff",
+      "mem_productSpan_of_mem_coordinateProduct",
+      "finite_weighted_sum_mono"
+    ],
+    "additional_proof_bearing_declarations": [
+      "coordinateSpan"
+    ]
+  },
+  "ABCThreePrimeSignatures20260831": {
+    "source": "Lean/IUTThreeClosures/ABCThreePrimeSignatures20260831.lean",
+    "source_sha256": "a324e6be05574949bdd3fb1e95e0134164937f08019586332673cbee8745adf9",
+    "source_bytes": 10888,
+    "public_theorems": [
+      "left_eq_one_of_mul_eq_prime_sq_of_lt",
+      "factors_eq_of_mul_eq_prime_sq",
+      "prime_not_square",
+      "consecutive_primes",
+      "prime_sq_eq_prime_add_one",
+      "prime_sq_add_one_eq_prime",
+      "square_add_cube_ne_cube",
+      "cube_add_cube_ne_prime_square_of_gt_one",
+      "cube_add_cube_ne_square",
+      "square_add_cube_ne_sixth",
+      "square_add_sixth_ne_cube",
+      "cube_add_sixth_ne_square",
+      "no_prime_signature_233",
+      "no_prime_signature_236_output_sixth",
+      "no_prime_signature_236_output_cube",
+      "no_prime_signature_236_output_square"
+    ],
+    "additional_proof_bearing_declarations": []
+  },
+  "ABCSubcriticalLocusUniformity20260831": {
+    "source": "Lean/IUTThreeClosures/ABCSubcriticalLocusUniformity20260831.lean",
+    "source_sha256": "ad260551ef1d1e4741926440b457e26cacc4269f7a80f10c696363640e613358",
+    "source_bytes": 11845,
+    "public_theorems": [
+      "subcriticalLociHaveBoundedHeight_of_abcConjecture",
+      "abcConjecture_of_subcriticalLociHaveBoundedHeight",
+      "abcConjecture_iff_subcriticalLociHaveBoundedHeight",
+      "finset_eq_empty_of_card_cast_lt_one",
+      "pointwise_fiber_card_le_target",
+      "sources_eq_empty_of_pointwise_oversized_fiber",
+      "height_le_of_amplification_log_count",
+      "superSparseHeight_succ",
+      "superSparseHeight_strictMono",
+      "mem_superSparseIndicesUpTo",
+      "superSparseIndicesUpTo_card_le_log_log",
+      "index_succ_sq_le_superSparseHeight",
+      "superSparseIndicesUpTo_card_sq_le",
+      "superSparsePrefix_card",
+      "superSparsePrefix_le_final",
+      "superSparsePrefix_card_unbounded"
+    ],
+    "additional_proof_bearing_declarations": [
+      "SubcriticalLociHaveBoundedHeight",
+      "superSparseHeight",
+      "superSparseIndicesUpTo",
+      "superSparsePrefix"
+    ]
+  },
+  "PellCampanaCounterexample20260831": {
+    "source": "Lean/IUTThreeClosures/PellCampanaCounterexample20260831.lean",
+    "source_sha256": "e0efc5940abe29283021ffa6e4e0786d7c2410208738a5de8c12db0cb98f75d8",
+    "source_bytes": 8510,
+    "public_theorems": [
+      "pellOrbit_zero",
+      "pellOrbit_succ",
+      "pellOrbit_norm",
+      "pellOrbit_fst_pos",
+      "pellOrbit_snd_lt_snd_succ",
+      "pellOrbit_index_le_snd",
+      "pellOrbit_snd_lt_fst_succ",
+      "pellOrbit_fst_unbounded",
+      "one_isKFull",
+      "power_isKFull",
+      "eight_mul_sq_isTwoFull",
+      "eight_mul_sq_isThreeFull",
+      "Datum.point_a",
+      "Datum.point_b",
+      "Datum.point_c",
+      "Datum.a_sevenFull",
+      "Datum.b_threeFull",
+      "Datum.c_twoFull",
+      "Datum.point_mixedFull",
+      "signature_732_subcritical",
+      "not_abcConjecture_of_unbounded_squarefullPell_family"
+    ],
+    "additional_proof_bearing_declarations": [
+      "pellOrbit",
+      "Datum",
+      "Datum.point"
+    ]
+  }
+}

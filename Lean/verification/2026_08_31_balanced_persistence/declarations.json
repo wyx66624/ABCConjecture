@@ -1,0 +1,164 @@
+{
+  "PellAdjacentFactorCounterexample20260831": {
+    "source": "Lean/IUTThreeClosures/PellAdjacentFactorCounterexample20260831.lean",
+    "source_sha256": "07569e80aa0d361bfbc2ce672f4f60b457853449f9ebd3127be0a490126122cf",
+    "source_bytes": 9800,
+    "public_theorems": [
+      "exists_pell_half_factors",
+      "pell_half_factor_unique",
+      "exists_datum_of_pellDatum",
+      "Datum.point_a",
+      "Datum.point_b",
+      "Datum.point_c",
+      "Datum.point_height",
+      "Datum.point_radical_sq_le_four_mul_c",
+      "Datum.point_conductor_le_half_height_add_log_two",
+      "left_factor_isFourFull_of_even_twoFull",
+      "Datum.r_fourFull_of_even",
+      "Datum.s_fourFull_of_even",
+      "not_abcConjecture_of_unbounded_adjacentPell_family"
+    ],
+    "additional_declarations": [
+      {
+        "kind": "structure",
+        "name": "Datum"
+      },
+      {
+        "kind": "def",
+        "name": "Datum.point"
+      }
+    ],
+    "audited_declaration_count": 15
+  },
+  "PellSquareRootDescent20260831": {
+    "source": "Lean/IUTThreeClosures/PellSquareRootDescent20260831.lean",
+    "source_sha256": "ce9868c50f375b00716eecc1344bfa63c0b5e41afc73e4c72c83000e0c7c077b",
+    "source_bytes": 7518,
+    "public_theorems": [
+      "sqrtTwoOrbit_zero",
+      "sqrtTwoOrbit_succ",
+      "sqrtTwoOrbit_fst_pos",
+      "sqrtTwoOrbit_snd_pos_succ",
+      "sqrtTwoOrbit_coprime",
+      "sqrtTwoOrbit_norm",
+      "sqrtTwoOrbit_norm_even",
+      "sqrtTwoOrbit_norm_odd",
+      "pellOrbit_eq_sqrtTwo_square",
+      "even_adjacent_square_shapes",
+      "odd_adjacent_square_shapes",
+      "isKFull_mul",
+      "isKFull_factors_of_coprime_product",
+      "pellOrbit_snd_twoFull_iff"
+    ],
+    "additional_declarations": [
+      {
+        "kind": "def",
+        "name": "sqrtTwoOrbit"
+      }
+    ],
+    "audited_declaration_count": 15
+  },
+  "HallSquarefullCounterexample20260831": {
+    "source": "Lean/IUTThreeClosures/HallSquarefullCounterexample20260831.lean",
+    "source_sha256": "073305dad49a471681eed9bd9ebd61ccd8a5385489f0a0d2d7db82a265574294",
+    "source_bytes": 6595,
+    "public_theorems": [
+      "Datum.point_a",
+      "Datum.point_b",
+      "Datum.point_c",
+      "Datum.point_radical_le",
+      "Datum.point_radical_pow_twelve_lt_height_pow_eleven",
+      "Datum.point_conductor_lt_eleven_twelfths_height",
+      "not_abcConjecture_of_unbounded_Hall_squarefull_family"
+    ],
+    "additional_declarations": [
+      {
+        "kind": "structure",
+        "name": "Datum"
+      },
+      {
+        "kind": "def",
+        "name": "Datum.point"
+      }
+    ],
+    "audited_declaration_count": 9
+  },
+  "AffineShearAmplification20260831": {
+    "source": "Lean/IUTThreeClosures/AffineShearAmplification20260831.lean",
+    "source_sha256": "e9b35f7548352e2a26d54258f65fcb2f2bd8024d5b6f299f960c8931523a580a",
+    "source_bytes": 9255,
+    "public_theorems": [
+      "Seed.P_pos",
+      "Seed.a_dvd_P",
+      "Seed.b_dvd_P",
+      "Seed.c_dvd_P",
+      "Seed.one_add_P_mul_coprime_P",
+      "Seed.U_coprime_P",
+      "Seed.V_coprime_P",
+      "Seed.W_coprime_P",
+      "Seed.V_eq_U_add",
+      "Seed.W_eq_U_add",
+      "Seed.V_eq_W_add",
+      "Seed.shear_equation",
+      "Seed.Parameter.V_coprime_k",
+      "Seed.Parameter.W_coprime_k",
+      "Seed.Parameter.U_coprime_V",
+      "Seed.Parameter.U_coprime_W",
+      "Seed.Parameter.V_coprime_W",
+      "Seed.Parameter.A_pos",
+      "Seed.Parameter.B_pos",
+      "Seed.Parameter.C_pos",
+      "Seed.Parameter.A_add_B_eq_C",
+      "Seed.Parameter.A_coprime_B",
+      "Seed.Parameter.B_coprime_C",
+      "Seed.Parameter.C_coprime_A",
+      "Seed.Parameter.point_a",
+      "Seed.Parameter.point_b",
+      "Seed.Parameter.point_c",
+      "Seed.shear_parameter_injective"
+    ],
+    "additional_declarations": [
+      {
+        "kind": "structure",
+        "name": "Seed"
+      },
+      {
+        "kind": "def",
+        "name": "Seed.P"
+      },
+      {
+        "kind": "def",
+        "name": "Seed.U"
+      },
+      {
+        "kind": "def",
+        "name": "Seed.V"
+      },
+      {
+        "kind": "def",
+        "name": "Seed.W"
+      },
+      {
+        "kind": "structure",
+        "name": "Seed.Parameter"
+      },
+      {
+        "kind": "def",
+        "name": "Seed.Parameter.A"
+      },
+      {
+        "kind": "def",
+        "name": "Seed.Parameter.B"
+      },
+      {
+        "kind": "def",
+        "name": "Seed.Parameter.C"
+      },
+      {
+        "kind": "def",
+        "name": "Seed.Parameter.point"
+      }
+    ],
+    "audited_declaration_count": 38
+  }
+}

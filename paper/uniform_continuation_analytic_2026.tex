@@ -1,0 +1,373 @@
+\section{Two-prime support and rational-return rigidity}
+\label{sec:uniform-analytic-continuation}
+
+We give a complete elementary bound on one moving-support subclass of
+abc triples, and then examine a proposed passage from local logarithmic
+arrows to rational $S$-unit solutions. These are different conclusions:
+the first is a special-case height estimate, while the second restricts
+the number of outputs of a specified construction. Throughout this
+section, $r=\rad(abc)$ and $R=\log r$, as in \eqref{eq:abc}.
+
+\subsection{The complete two-prime subclass}
+
+\begin{theorem}[A sharp bound on two-prime support]
+\label{thm:uac-two-prime}
+Let $a,b,c$ be positive integers with $a+b=c$ and $\gcd(a,b)=1$.
+If $\omega(abc)\le2$, then
+\begin{equation}\label{eq:uac-two-prime-bound}
+                         c\le\frac32\rad(abc).
+\end{equation}
+Equality holds precisely for $(a,b,c)=(1,8,9)$ or $(8,1,9)$.
+Every other triple in this class satisfies $c\le\rad(abc)$.
+\end{theorem}
+
+\begin{proof}
+The entries are pairwise coprime. Exactly one is even: the addends
+cannot both be even, and their parities determine that of their sum.
+If all three entries exceeded $1$, each would contribute a different
+prime divisor, contradicting the support bound. An addend is therefore
+$1$. The case $(1,1,2)$ has $c=r=2$. Otherwise, after exchanging the
+addends if necessary, write the triple as $(1,N,N+1)$, with $N\ge2$.
+Both consecutive integers have a prime factor, and their supports are
+disjoint. Thus, for an odd prime $q$ and positive integers $u,v$,
+\begin{equation}\label{eq:uac-consecutive-powers}
+                         \{N,N+1\}=\{2^u,q^v\}.
+\end{equation}
+
+Suppose first that $2^u=q^v+1$. If $v$ is even, then
+$q^v\equiv1\pmod4$, so $2^u\equiv2\pmod4$ and $u=1$,
+contrary to $q^v+1>2$. If $v\ge3$ is odd, the factorization
+\[
+ q^v+1=(q+1)(q^{v-1}-q^{v-2}+\cdots-q+1)
+\]
+has an odd second factor greater than $1$. Indeed, its $v$ terms
+are odd modulo $2$, and its value is at least $q^2-q+1>1$.
+Such a factor cannot divide a power of $2$. This ordering therefore
+requires $v=1$.
+
+Now suppose that $q^v=2^u+1$. An odd $v\ge3$ is excluded by
+\[
+ q^v-1=(q-1)(1+q+\cdots+q^{v-1}),
+\]
+whose second factor is again odd and greater than $1$.
+If $v$ is even, set $Q=q^{v/2}\ge3$. Both factors in
+\[
+                         (Q-1)(Q+1)=2^u
+\]
+are positive powers of $2$. Write $Q-1=2^s$ and $Q+1=2^t$,
+with $1\le s<t$. Subtraction gives
+$2^s(2^{t-s}-1)=2$, hence $s=1$, $t=2$ and $Q=3$.
+Since $q$ is prime, this forces $q=3$, $v=2$ and $u=3$.
+The resulting pair is $\{8,9\}$.
+
+In every remaining case $v=1$, the radical is $r=2q$, and the
+larger endpoint is $q$ or $q+1$, both at most $2q$.
+For $(1,8,9)$ and its exchanged triple, $c=9$ and $r=6$.
+These observations prove both the bound and its equality statement.
+\end{proof}
+
+The estimate is uniform as the odd prime varies. For every $\eps>0$,
+the entire subclass in Theorem~\ref{thm:uac-two-prime} satisfies
+\[
+ \log c\le R+\log(3/2)
+        \le(1+\eps)R+\log(3/2),
+\]
+with no constant depending on the prime support. The proof is elementary
+and uses no classification theorem for general consecutive perfect
+powers. No priority claim is made for this classical special case, and
+no estimate for $\omega(abc)\ge3$ follows from it.
+
+\subsection{Nonzero rational return under the actual trace constraint}
+
+Let $E,E'$ be finite extensions of $\Q_p$. We retain the
+coefficient-compatible arrow of Proposition~\ref{prop:trace-transport}:
+a continuous isomorphism $\alpha:G_{E'}\simeq G_E$ together with
+an integral equivariant coefficient isomorphism
+\[
+ \beta:\alpha^*\Z_p(1)_E\simeq\Z_p(1)_{E'}.
+\]
+Its induced logarithmic map $F:E\longrightarrow E'$ is $\Q_p$-linear
+and satisfies, for some $\kappa\in\Z_p^\times$,
+\begin{equation}\label{eq:uac-trace-covariance}
+ \operatorname{Tr}_{E'/\Q_p}(Fz)
+                 =\kappa\,\operatorname{Tr}_{E/\Q_p}(z)
+                 \qquad(z\in E).
+\end{equation}
+This is the previously proved identity \eqref{eq:trace-transport}.
+Its unit multiplier comes from the integral transport of
+$H^2(G_E,\Z_p(1))\cong\Z_p$, together with the reciprocity
+cup-product formula
+\cite[Chapter~III, Proposition~3.6 and \S4]{MilneCFT}.
+Cyclotomic character, inertia and absolute degree are recovered from
+the local Galois group
+\cite[Propositions~1.1--1.2 and Corollary~1.3]{MochLocal}.
+In particular the degrees of $E$ and $E'$ agree for these arrows.
+None of these assertions requires the arrow to be induced by a field
+isomorphism.
+
+\begin{lemma}[Rational return and the scalar line]
+\label{lem:uac-rational-return}
+Suppose $[E:\Q_p]=[E':\Q_p]=d$ and a $\Q_p$-linear map $F$
+satisfies \eqref{eq:uac-trace-covariance}.
+If $z\in\Q_p\subset E$ and $F(z)=z'\in\Q_p\subset E'$, then
+\begin{equation}\label{eq:uac-rational-scalar}
+                              z'=\kappa z.
+\end{equation}
+For nonzero $z$, the output is nonzero and $v_p(z')=v_p(z)$.
+Moreover, one such nonzero return implies
+\[
+                         F(t)=\kappa t\qquad(t\in\Q_p).
+\]
+\end{lemma}
+
+\begin{proof}
+The traces of the two rational elements are $dz$ and $dz'$.
+Equation~\eqref{eq:uac-trace-covariance} gives $dz'=\kappa dz$.
+The positive integer $d$ is nonzero in $\Q_p$, so cancellation
+gives \eqref{eq:uac-rational-scalar}, even when $p\mid d$.
+Its valuation assertion follows from $v_p(\kappa)=0$.
+If $z\ne0$, linearity gives
+$F(1)=z^{-1}F(z)=\kappa$, and then $F(t)=tF(1)=\kappa t$.
+\end{proof}
+
+Equal degree is an explicit hypothesis in this linear-algebra statement.
+With unequal degrees $d,d'$, the same calculation would instead yield
+$z'=\kappa(d/d')z$. Uniform division of both logarithmic coordinates
+by $p$ leaves the displayed trace identity unchanged; independent
+rescalings by different powers of $p$ do not. The lemma does not assert
+that every local Galois arrow preserves the rational line. It describes
+what follows if a specified point returns to that line.
+
+\begin{lemma}[Depth of an odd-prime principal-unit logarithm]
+\label{lem:uac-log-depth}
+For an odd prime $p$ and $0\ne\xi\in p\Z_p$,
+\begin{equation}\label{eq:uac-log-depth}
+                  v_p\bigl(\log_p(1-\xi)\bigr)=v_p(\xi).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Put $e=v_p(\xi)\ge1$. In the convergent series
+\[
+                    \log_p(1-\xi)=-\sum_{n\ge1}\frac{\xi^n}{n},
+\]
+the first term has valuation $e$. For $n\ge2$ one has
+$v_p(n)\le n-2$: this is immediate for $n=2$, and for $n\ge3$
+it follows from $v_p(n)\le\log_3 n\le n-2$.
+Every subsequent term therefore has valuation
+$ne-v_p(n)\ge e+1$, and these valuations tend to infinity.
+The first term is the unique term of least valuation. The logarithm
+is nonzero and has valuation $e$.
+\end{proof}
+
+For an odd prime $p\mid abc$, choose the following vanishing coordinate
+and its companion rational $S$-unit, where $S$ is the full prime support
+of $abc$:
+\begin{equation}\label{eq:uac-companions}
+\begin{array}{c|cc}
+ &\xi_p&u_p=1-\xi_p\\ \hline
+ p\mid a&a/c&b/c\\
+ p\mid b&b/c&a/c\\
+ p\mid c&c/a&-b/a .
+\end{array}
+\end{equation}
+Pairwise coprimality makes every denominator a $p$-adic unit. Thus
+$\xi_p\in p\Z_p$, $u_p\in1+p\Z_p$, and $v_p(\xi_p)$ is exactly
+the exponent of $p$ in the indicated endpoint. In the last row
+$1-c/a=-b/a$; the negative real sign does not prevent
+$p$-adic congruence to $1$.
+
+\begin{proposition}[An endpoint exponent cannot change under rational return]
+\label{prop:uac-endpoint-depth}
+Let $(a,b,c)$ and $(A,B,C)$ be positive primitive triples, and let
+an odd prime $p$ divide the same labelled endpoint in both triples.
+Form $u_p,u'_p$ using that row of \eqref{eq:uac-companions}.
+Suppose an equal-degree coefficient-compatible logarithmic arrow
+satisfies the pointwise equality
+\begin{equation}\label{eq:uac-point-match}
+                         F_p(\log_p u_p)=\log_p u'_p .
+\end{equation}
+Then the exponent of $p$ in the indicated endpoint is the same in
+the two triples.
+\end{proposition}
+
+\begin{proof}
+Both logarithms are nonzero rational $p$-adic elements by
+Lemma~\ref{lem:uac-log-depth}. Lemma~\ref{lem:uac-rational-return}
+equates their valuations, and \eqref{eq:uac-log-depth} identifies
+those valuations with the corresponding endpoint exponents.
+\end{proof}
+
+The proposition imposes no condition at $p=2$.
+The depth identity used here is not valid for every
+$\xi\in2\Z_2$. Nor can \eqref{eq:uac-point-match} be replaced by
+membership of the two logarithms in the same ideal or hull.
+
+\subsection{The exact arithmetic fibre bound}
+
+For $n>0$, write $n_{\rm odd}=n/2^{v_2(n)}$. Fix a positive primitive
+triple $(a,b,c)$ and put
+$(a_0,b_0,c_0)=(a_{\rm odd},b_{\rm odd},c_{\rm odd})$.
+Let $\mathcal F(a,b,c)$ be the set of all positive primitive triples
+$(A,B,C)$ with
+\[
+                    (A_{\rm odd},B_{\rm odd},C_{\rm odd})
+                                      =(a_0,b_0,c_0).
+\]
+These conditions fix all odd-prime exponents in their labelled
+endpoints, while allowing the even endpoint to move.
+
+\begin{theorem}[Two possible outputs]
+\label{thm:uac-odd-fibre}
+For every positive primitive triple,
+\begin{equation}\label{eq:uac-fibre-bound}
+                              |\mathcal F(a,b,c)|\le2.
+\end{equation}
+If the position of the even endpoint is fixed to that of the seed,
+the fibre contains only the seed. The bound two is attained.
+\end{theorem}
+
+\begin{proof}
+Every target has exactly one even endpoint, with exponent $k\ge1$.
+The three possible positions give
+\begin{equation}\label{eq:uac-fibre-cases}
+\begin{array}{c|c|c}
+ \text{even endpoint}&(A,B,C)&\text{required equation}\\ \hline
+ A&(2^ka_0,b_0,c_0)&2^ka_0+b_0=c_0\\
+ B&(a_0,2^kb_0,c_0)&a_0+2^kb_0=c_0\\
+ C&(a_0,b_0,2^kc_0)&a_0+b_0=2^kc_0 .
+\end{array}
+\end{equation}
+Each row admits at most one $k$, since $2^k$ multiplies a fixed
+positive integer and is strictly increasing. Either of the first
+two rows implies $c_0>a_0+b_0$, whereas the third implies
+$c_0<a_0+b_0$. The third row cannot coexist with either of the
+first two, so at most two triples occur.
+
+When the even position is fixed, only one row remains, and it
+already contains the seed. No division by a difference of odd
+parts was used. In particular, if $a_0=b_0$, coprimality forces
+$a_0=b_0=1$ and the same argument applies. When all three odd
+parts are $1$, the only possibility is $(1,1,2)$.
+
+Finally, the two distinct triples
+\begin{equation}\label{eq:uac-sharp-triples}
+                          (4,3,7),\qquad(1,6,7)
+\end{equation}
+are primitive and have the same labelled odd parts $(1,3,7)$.
+Thus the bound is sharp.
+\end{proof}
+
+\begin{corollary}[The specified rational-return construction]
+\label{cor:uac-rational-return-fibre}
+Fix a seed $(a,b,c)$ with full prime support $S$. Consider positive
+primitive targets $(A,B,C)$ satisfying all of the following:
+\begin{enumerate}
+\item Their exact prime support is $S$.
+\item Every odd $p\in S$ belongs to the same labelled endpoint as
+in the seed.
+\item For each odd $p\in S$, an equal-degree coefficient-compatible
+local logarithmic arrow gives \eqref{eq:uac-point-match}, with the
+companion units in \eqref{eq:uac-companions}.
+\end{enumerate}
+There are at most two targets. If the even endpoint is prescribed
+as well, the only target is the seed.
+\end{corollary}
+
+\begin{proof}
+Proposition~\ref{prop:uac-endpoint-depth} preserves every odd exponent
+on the specified support. Primitivity makes its exponents on the other
+two endpoints zero. Exact support equality excludes any new odd primes,
+so all three odd parts agree. Apply Theorem~\ref{thm:uac-odd-fibre}.
+Identity arrows admit the seed itself.
+\end{proof}
+
+The local arrows may depend on the prime and the target; the upper
+bound requires no common global arrow. Exact support and endpoint-label
+preservation are hypotheses, not consequences of trace transport.
+Checking the old primes alone would not exclude new prime factors.
+
+\begin{proposition}[Sharpness with freely chosen coefficient units]
+\label{prop:uac-coefficient-sharpness}
+In the class of pairs $(\alpha,\beta)$ in which an identity-Galois
+arrow may be accompanied by any integral Tate-module coefficient unit,
+the upper bound in Corollary~\ref{cor:uac-rational-return-fibre} is attained
+by the seed and target in \eqref{eq:uac-sharp-triples}.
+\end{proposition}
+
+\begin{proof}
+Both triples have support $\{2,3,7\}$; the odd prime $3$ stays on
+the second endpoint and $7$ on the third. Their companion units are
+\[
+ (u_3,u'_3)=(4/7,1/7),\qquad
+ (u_7,u'_7)=(-3/4,-6).
+\]
+The vanishing coordinates at $3$ are $3/7,6/7$, and those at $7$
+are $7/4,7$. All have valuation one at their indicated prime.
+Lemma~\ref{lem:uac-log-depth} therefore shows that
+\[
+                       \kappa_p=
+                     \frac{\log_p u'_p}{\log_p u_p}
+                        \in\Z_p^\times\qquad(p=3,7).
+\]
+Take $E=E'=\Q_p$ and $\alpha=\operatorname{id}_{G_{\Q_p}}$.
+Multiplication by $\kappa_p$ on $\Z_p(1)$ is an integral
+equivariant coefficient isomorphism. It acts as that same scalar
+on unit Kummer cohomology and its logarithmic module, so it gives
+exactly \eqref{eq:uac-point-match}. These are principal units at
+odd primes, where logarithm is injective; no torsion ambiguity
+affects the stated points. Together with the identity arrows for
+the seed, this supplies two targets in the specified coefficient-pair
+class.
+\end{proof}
+
+The coefficient convention in this proposition is essential.
+The purely arithmetic sharpness of Theorem~\ref{thm:uac-odd-fibre}
+has no Galois hypothesis. Its additional realization just proved
+allows $\beta$ to be multiplied by a freely chosen element of
+$\Z_p^\times$. It does not show that every resulting $\kappa_p$
+is induced by a strict automorphism of $G_{\Q_p}$ when a Tate
+coefficient framing has been fixed. For that possibly smaller
+class, the upper bound remains valid, but this example alone
+does not establish sharpness. No arrow condition at $p=2$ was imposed.
+
+\subsection{Formal scope and the unproved uniform step}
+
+Theorem~\ref{thm:uac-two-prime}, including its equality classification,
+is formalized in the separate module
+\texttt{ABCTwoPrimeSupport20260831}. Its proof starts with the actual
+prime-factor support and the repository radical; the prime-power
+classification is proved rather than assumed. All 22 public theorems
+in that module were compiled and checked for axiom dependencies.
+The module \texttt{TraceCovariantRationalReturn20260831} proves the
+algebraic cancellation and scalar-line conclusions using the actual
+algebra trace and actual dimensions. Trace covariance remains an
+explicit hypothesis there: this does not formalize its local Galois
+or Kummer derivation, or the principal-unit logarithm argument.
+The separate module \texttt{ABCOddPartFibre20260831} now proves
+Theorem~\ref{thm:uac-odd-fibre} for the actual natural-number odd part
+and the unchanged primitive-triple type. It constructs an injection
+of each entire fibre into a two-element type, proves that the fibre
+is finite, and establishes cardinality exactly two for the displayed
+example. This is an arithmetic fibre theorem; the logarithmic
+endpoint-transfer proposition and the coefficient-pair realization
+remain the mathematical proofs above, rather than formalized
+Galois-orbit assertions.
+
+The rational-return obstruction is compatible with the minimum-layer
+constructions of the preceding sections. Those constructions can move
+a rational input outside the rational line and then form a hull.
+Returning to an actual rational $S$-unit solution is an additional
+condition. Multiplication by tensor-order coefficients, addition and
+ideal generation do not automatically preserve a point's trace, so
+the fibre bound cannot be applied after replacing
+\eqref{eq:uac-point-match} by hull membership.
+
+No general $S$-unit method, IUT theorem, complete Ind3 operation or abc
+conjecture is disproved by this obstruction. Mechanisms introducing new
+prime support, changing prime labels, or using nonrational intermediate
+points followed by a proved arithmetic descent remain outside its
+scope. The uniform estimate \eqref{eq:abc} for $\omega(abc)\ge3$,
+even for a fixed number of primes which themselves vary, is not proved
+here. Neither finite exceptional sets depending on the support nor
+density-one bounds supply that missing quantifier.

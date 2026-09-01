@@ -1,0 +1,205 @@
+\section{Actual radical budgets and a necessary amplification window}
+\label{sec:actual-radical}
+
+Here we count actual prime support, allowing arbitrary new primes and their
+repeated powers. Fix a positive primitive seed $a+b=c$ and put $P=abc$.
+\emph{Only in this section, $R=\rad(P)$ denotes the integer radical, rather
+than its logarithm as in the introductory notation.}
+Thus $c\ge2$ and $R\le P\le c^3$. All output triples below are ordered.
+
+\begin{theorem}[A height-independent radical budget]
+\label{thm:actual-radical-budget}
+Let $R\ge1$ be a squarefree integer and $Y>0$ a real number. The number
+$\mathcal N(R,Y)$ of all positive primitive triples $A+B=C$ with
+$R\mid\rad(ABC)$ and $\rad(ABC)\le Y$ is zero if $Y<R$. If $Y\ge R$,
+then, with $X=Y/R\ge1$,
+\begin{equation}\label{eq:actual-radical-budget}
+ \mathcal N(R,Y)\le905\,45^{\omega(R)}X(1+\log X)^{44}.
+\end{equation}
+There is no restriction on the output height $C$.
+\end{theorem}
+\begin{proof}
+For each output, $D=\rad(ABC)/R$ is a squarefree integer with
+$D\le X$ and $\gcd(D,R)=1$. Fix $D$ and take $S$ to consist of the
+archimedean place of $\Q$ and the primes dividing $RD$. The pair
+$(A/C,B/C)$ solves $u+v=1$ in $S$-units. This association is injective:
+$A/C$ is reduced because $\gcd(A,C)=1$, so it recovers $A,C$ and then $B$.
+
+Theorem~1.1 of \cite{HKPW} bounds the number of solutions over a
+degree-$m$ number field by $(3.1+5(3.4)^m)45^{|S|}$.
+Here $m=1$ and $|S|=1+\omega(R)+\omega(D)$, including the infinite place.
+The number for this $D$ is consequently at most
+$904.5\,45^{\omega(R)+\omega(D)}$, which is smaller than the same
+expression with coefficient $905$.
+
+For an integer $M\ge1$, let $d_M(n)$ count positive ordered $M$-tuples
+of product $n$. Prime factorization gives
+\[
+ M^{\omega(n)}\le d_M(n)
+ =\prod_{p^e\Vert n}\binom{e+M-1}{M-1}.
+\]
+Fixing the first $M-1$ entries of a tuple, and then dropping their product
+restriction, yields for every real $X\ge1$
+\begin{align*}
+ \sum_{n\le X}d_M(n)
+ &\le X\sum_{n_1\cdots n_{M-1}\le X}\frac1{n_1\cdots n_{M-1}}\\
+ &\le X\left(\sum_{1\le n\le X}\frac1n\right)^{M-1}
+ \le X(1+\log X)^{M-1}.
+\end{align*}
+The empty tuple covers $M=1$, and every sum equals one when $X=1$.
+Sum the fixed-$D$ estimate, enlarge the sum by discarding coprimality
+and squarefreeness, and use $M=45$. This proves the bound and finiteness.
+The case $Y<R$ follows from divisibility of positive integers.
+\end{proof}
+
+\begin{corollary}[Uniformity for a seed]\label{cor:actual-radical-uniform}
+Fix $K>0$, $0<\mu<1$, and $\eps>0$. The number of outputs with
+\[
+ R\mid\rad(ABC),\qquad \rad(ABC)\le C^\mu,\qquad C\le T\le c^K
+\]
+is zero if $T^\mu<R$, and otherwise is
+\begin{equation}\label{eq:actual-radical-seed-count}
+ \ll_{\eps,K,\mu} c^\eps\frac{T^\mu}{R}.
+\end{equation}
+The implied constant is independent of the seed and of $T$.
+\end{corollary}
+\begin{proof}
+Apply Theorem~\ref{thm:actual-radical-budget} with $Y=T^\mu$.
+For any fixed $\eta>0$, separating the finitely many primes
+$p<45^{1/\eta}$ gives
+$45^{\omega(R)}\ll_\eta R^\eta\le c^{3\eta}$.
+Choose $\eta=\eps/6$ before varying the seed. Since
+$\log(T^\mu/R)\le K\mu\log c$, the remaining logarithmic factor is
+$\OO_{\eps,K,\mu}(c^{\eps/2})$. This proves the assertion.
+\end{proof}
+
+To record exactly what repeated primes save, for positive integers $P,n$ set
+\[
+ D_P(n)=\prod_{\substack{p\mid n\\p\nmid P}}p,
+ \qquad E_P(n)=n/D_P(n)\in\N_{>0}.
+\]
+The factor $D_P(n)$ divides $n$, is squarefree, and is coprime to $R$.
+In $E_P(n)$, an old prime contributes its entire exponent, and a new
+prime of exponent $e$ contributes exponent $e-1$.
+
+\begin{proposition}[Exact excess accounting]\label{prop:actual-excess}
+Let $x,y,z$ be positive integers satisfying $ax^2+by^2=cz^2$, and put
+$(A,B,C)=(ax^2,by^2,cz^2)$. Then
+\begin{equation}\label{eq:actual-excess}
+ \rad(ABC)=R D_P(xyz),\qquad
+ \rad(ABC)E_P(xyz)=Rxyz.
+\end{equation}
+In particular, $\rad(ABC)\le C^\mu$ implies
+\begin{equation}\label{eq:actual-excess-necessary}
+ E_P(xyz)\ge(R/c)C^{1-\mu}.
+\end{equation}
+These statements do not require the output to be primitive.
+\end{proposition}
+\begin{proof}
+The prime divisors of $Pn^2$ are exactly those of $Pn$, so
+$\rad(Pn^2)=R D_P(n)$. Use $ABC=P(xyz)^2$ to obtain
+\eqref{eq:actual-excess}. The conic equation makes $z^2$ a positive
+weighted average of $x^2,y^2$. Thus $\max(x,y)\ge z$, and $x,y\ge1$
+give $xyz\ge z^2=C/c$. Consequently
+$RC/c\le Rxyz=\rad(ABC)E_P(xyz)\le C^\mu E_P(xyz)$.
+\end{proof}
+
+\begin{theorem}[A necessary amplification window]
+\label{thm:actual-amplification-window}
+Put $\rho=\log P/\log c$ and $\sigma=\log R/\log c$.
+Fix $K>0$ and $0<\mu<1$. Consider all positive integer square completions
+whose \emph{unscaled} output $(ax^2,by^2,cz^2)$ is primitive and satisfies
+$C\le c^K$ and $\rad(ABC)\le C^\mu$. If nonempty, this family has size
+\begin{equation}\label{eq:actual-conic-count}
+ \ll_{\eps,K,\mu}
+ c^{\min\{\max(0,(K-\rho)/2),\ K\mu-\sigma\}+\eps}
+ \qquad(\eps>0).
+\end{equation}
+For the exponent before $\eps$ to exceed $KF(\mu)$ from
+\eqref{eq:exceptional-exponent}, it is necessary that
+\begin{equation}\label{eq:actual-amplification-window}
+ K>\rho+4\sigma,\qquad
+ \frac{3\sigma}{K}<\mu<\frac34\left(1-\frac\rho K\right)<\frac34.
+\end{equation}
+All implied constants are uniform in the seed for fixed $K,\mu,\eps$.
+\end{theorem}
+\begin{proof}
+Integer square completion retains every prime of $P$, so
+Corollary~\ref{cor:actual-radical-uniform} gives the exponent $K\mu-\sigma$;
+nonemptiness makes it nonnegative. The complete fibre bound
+\eqref{eq:conic-fibre} in Theorem~\ref{thm:conic-fibre}, together with
+$\tau(P)\ll_\eta P^\eta$ and $P\le c^3$, gives
+$\max(0,(K-\rho)/2)$. Taking the smaller bound proves
+\eqref{eq:actual-conic-count}. The elementary divisor estimate used here
+follows by splitting primes at a fixed threshold; for large primes,
+$e+1\le p^{\eta e}$, and for each remaining prime the quotient has a
+finite supremum over $e\ge0$.
+
+The BBLT exponent is
+$F(\mu)=\min\{2\mu/3,(23\mu+3)/40,3/5\}$ \cite{BBLT}.
+If $\mu\ge3/4$, all three entries are at least $1/2$, whereas
+$\max(0,(K-\rho)/2)<K/2$ because $K,\rho>0$. Thus the desired strict
+exponent gain is impossible in this range, even for the complete fibre.
+If $0<\mu<3/4$, then $F(\mu)=2\mu/3$. Both exponents in
+\eqref{eq:actual-conic-count} must exceed $2K\mu/3$, forcing
+\[
+ K\mu-\sigma>2K\mu/3,\qquad (K-\rho)/2>2K\mu/3.
+\]
+These inequalities give the two bounds on $\mu$ in
+\eqref{eq:actual-amplification-window}; their interval is nonempty only
+if $K>\rho+4\sigma$.
+\end{proof}
+
+In particular, along seeds satisfying $K\le\rho+4\sigma$, this family
+cannot supply a uniform lower count $c^\alpha$ with a fixed gap
+$\alpha>KF(\mu)$. Choose $\eps$ in \eqref{eq:actual-conic-count} smaller
+than that gap to see this directly. The conclusion is for fixed $K,\mu$;
+it asserts no uniformity for growing $K$. An exceptional seed bounds
+$\sigma$ from above, and that must not be substituted as a lower bound
+in the counting estimate. The interval
+\eqref{eq:actual-amplification-window} remains open: no sufficient lower
+bound for actual excesses or distinct outputs has been proved here.
+
+Full support retention also needs its stated domain. The primitive seed
+$(49,576,625)$, of radical $210$, has the rational completion
+$(x,y,z)=(3/7,1/6,1/5)$ with primitive output $(9,16,25)$ of radical $30$.
+Equivalently, the integer point $(90,35,42)$ loses the prime $7$ after its
+output is divided by the common factor $44100$. Thus arbitrary projective
+normalization is not covered by the full-$R$ estimate. If the output
+itself retains the rational squareclasses $ax^2,by^2,cz^2$, only primes
+of odd valuation in $P$ are automatically retained: their corresponding
+output valuations are nonnegative odd integers.
+
+A separate attempt uses the three quadratic tripod identities
+\[
+ ((a-b)^2,4ab,c^2),\quad
+ (a^2,4bc,(b+c)^2),\quad
+ (b^2,4ac,(a+c)^2),
+\]
+with $a\ne b$ and each row divided by its actual common divisor.
+That divisor is $1$ or $4$: for coprime $u,v$, the entries
+$(u-v)^2,4uv,(u+v)^2$ have no common odd prime, and their gcd is $4$
+exactly when both $u,v$ are odd. Their primitive radicals are exactly
+\[
+ R\rad_{\mathrm{odd}}(|a-b|),\qquad
+ R\rad_{\mathrm{odd}}(a+2b),\qquad
+ R\rad_{\mathrm{odd}}(2a+b),
+\]
+where $\rad_{\mathrm{odd}}$ omits the prime $2$. Every new odd prime in
+the displayed factor is coprime to $P$, while all seed odd primes survive
+normalization and every primitive positive triple contains $2$.
+Thus all three branches, and their positive iterates, retain $R$.
+
+Nevertheless, no branch is guaranteed to preserve quality
+$q=\log C/\log\rad(ABC)$. The seed $(1,8,9)$ gives
+$(49,32,81)$, $(1,288,289)$, and $(16,9,25)$, with radicals $42,102,30$.
+The first quality is smaller than $\log9/\log6$ because $42>36$;
+the last is less than one. For the middle one,
+\[
+ \frac{\log289}{\log102}<\frac{38}{31}<\frac{\log9}{\log6},
+ \qquad 17^{24}<6^{38},\quad 2^{38}<3^{24},
+\]
+where the integer comparisons prove the two logarithmic inequalities.
+This refutes only the proposed universal quality-preserving selection
+among these three branches. Neither finite example is an abc disproof,
+and more general maps and the remaining window are not excluded.

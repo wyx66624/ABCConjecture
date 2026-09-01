@@ -1,0 +1,1754 @@
+{
+  "audits": [
+    {
+      "mode": "audit",
+      "source": "Lean/IUTThreeClosures/ResearchUniformContinuation20260831Audit.lean",
+      "source_sha256": "3c481365d28d92d296a2c3fd738d4fb8b8eeb451238f3efba21cf5e62c417a3c",
+      "output_sha256": "c630481ceb03ad148f155a3fbe3ab1493cda4506ce8bc762e516cc2f1d73afd4",
+      "expected_count": 79,
+      "actual_count": 79,
+      "zero_axiom_count": 3,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "failures": [],
+      "dependencies": {
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.primeFactors_card_mul_three": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.one_addend_eq_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.two_prime_powers_of_small_support": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.int_eq_one_or_neg_one_of_dvd_two_pow": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.odd_geometric_gap_eq_base_gap": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.odd_exponent_eq_one_of_pow_add_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.odd_exponent_eq_one_of_pow_eq_two_pow_add_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.odd_square_add_one_ne_two_pow": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.two_pow_add_two_eq_two_pow": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.even_exponent_exception": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.exponent_eq_one_of_prime_pow_add_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.exponent_eq_one_or_eight_nine": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.power_two_and_odd_prime_power": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.radical_two_prime_powers": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.radical_seventy_two": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.one_addend_bound_or_exception": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.radical_bound_or_exception": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.c_le_radical_of_not_exception": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.two_mul_c_le_three_mul_radical": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.two_mul_c_eq_three_mul_radical_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.pairwise_coprime_of_add": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCTwoPrimeSupport20260831.two_mul_c_le_three_mul_radical_of_coprime": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_trace_balance": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_of_equal_finrank": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.TraceCovariantRationalReturn20260831.map_one_of_nonzero_scalar_return": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_line_of_nonzero_return": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.TraceCovariantRationalReturn20260831.exists_nonzero_return_iff_scalar_line": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_addValuation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.TraceCovariantRationalReturn20260831.no_scalar_return_of_addValuation_ne": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.oddPart_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.oddPart_eq_self_of_odd": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.oddPart_lt_self_of_even": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.parity_cases": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.sameOddParts_symm": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.eq_of_sameOddParts_even_a": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.eq_of_sameOddParts_even_b": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.eq_of_sameOddParts_even_c": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.not_sameOddParts_even_b_even_c": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.eq_of_sameOddParts_mod_a": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.parityMap_injective": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.fibre_card_le_two": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.exampleP_oddParts": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.exampleQ_oddParts": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.exampleP_ne_exampleQ": [
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.fibre_one_three_seven_classification": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.fibre_one_three_seven_card": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.parityMap": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.fibreFinite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_strictMono": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_ge_two": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_ge_1794": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_mod_eight": [
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_cast_mod_seven": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_map": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_c4": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_discriminant": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_eq_canonical": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_discriminant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.canonical_reduction_seven": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_affine_card": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_point_card": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_count_trace": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.degree_three_polynomial_no_root": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_discriminant_abs": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_discriminant_upper": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_c4_lower": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_discriminant_ne_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_abs_j": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_j_lower": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.zeroKernel_j_upper": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.prime3": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.prime7": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyTriple": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_isElliptic": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_isElliptic": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCOddPartFibre20260831.point_eq_of_coordinates": [],
+        "IUTThreeClosures.ABCOddPartFibre20260831.exampleP": [],
+        "IUTThreeClosures.ABCOddPartFibre20260831.exampleQ": []
+      }
+    },
+    {
+      "mode": "previous-galois",
+      "source": "Lean/IUTThreeClosures/ResearchGaloisLifts20260830Audit.lean",
+      "source_sha256": "9b033213ef787ed7eb35ff21516f11d6052161fc0d56ba57a2853057617af70f",
+      "output_sha256": "82533a6ab275b549206a919fec00d31a24789bab9a23213f44b1c1811c36183a",
+      "expected_count": 145,
+      "actual_count": 145,
+      "zero_axiom_count": 6,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "failures": [],
+      "dependencies": {
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.forward_a": [
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.backward_a": [
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.forward_backward": [
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.backward_forward": [
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.forward_boundary": [
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.backward_boundary": [
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.map_forward": [
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.map_backward": [
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.map_boundary": [
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.commutative_forward": [
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.abelian_image": [
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.forwardHom_generators": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.backwardHom_generators": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.backwardHom_comp_forwardHom": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.forwardHom_comp_backwardHom": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.crossHandleAut_fixes_first": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.crossHandleAut_fixes_boundary": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.crossHandleAut_abelian_image": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.cross_comp": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.central_comp": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.central_cross_comm": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.central_zero": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.cross_zero": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.central_corrected_cross_comp": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.cross_neg_comp": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.cross_comp_neg": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.transvectionMap_apply": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.transvection_preserves": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.exists_outside_subspaces": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.exists_common_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.exists_common_nonzero_with_projection": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.exists_common_transvection_projection": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.three_labels_common_transvection": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.freyModel_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.freyModel_discriminant": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.freyModel_c4": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_discriminant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_c4": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_j": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_cubic_mod139": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_tangent_cone": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.tangent_slopes_distinct": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_affine_card": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_point_card": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_count_trace": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.first_frobenius_polynomial_no_root": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.local_210_numerics": [
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.first_height_integer_certificate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.log_window_of_integer_certificate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.first_tate_height_window": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_discriminant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_c4": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_j": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directTriple_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_cubic_mod139": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_translated_tangent_cone": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_discriminant_mod7_ne_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_affine_card": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_point_card": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_count_trace": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.direct_frobenius_polynomial_no_root": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.direct_height_integer_certificate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.direct_tate_height_window": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.transvection_nat_pow": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.transvection_parameter_mem": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.subgroup_eq_top_of_upper_lower": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.transvection_pow_prime": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.hom_mem_of_upper_lower": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.hom_range_le_of_upper_lower": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.toGL_mem_of_upper_lower": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.mem_normal_of_pow_eq_one_of_coprime_index": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.hom_mem_normal_of_coprime_index": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.hom_range_le_normal_of_coprime_index": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.normal_eq_top_of_coprime_index": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.toGL_mem_normal_of_coprime_index": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.balancedA_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.endpoints_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.endpoints_sum": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.endpoints_pairwise_coprime": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.chosen_primes": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.balancedA_residues": [
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.balancedA_at_1289": [
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.balancedA_sandwich": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.endpoints_lt_two_pow": [
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.endpointProduct_gcd_primorial": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.small_prime_support": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.small_prime_43_powers_not_dvd": [
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.prime_power_dvd_endpoint": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.prime_43_power_not_dvd": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.endpointProduct_factorization_lt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.local_1290_numerics": [
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve_discriminant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve_c4": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve5_eq_directCurve5": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve5_point_card": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve_discriminant_mod43_ne_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.frobenius_polynomial_mod43_no_root": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.normalizedTateBase_pos": [
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.height_integer_certificates": [
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.normalized_tate_height_window": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.two_halfLabels_add_one": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.badIndexBudget_eq": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.badIndexBudget_lt": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.residue_card_gt_label_count": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.exists_index_outside_bad": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.exceptional_half_label_unique": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.prime_not_dvd_two_square": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.content_strict_sandwich": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeContent_add_one_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeExponent_eq_point_sub": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.pointExponent_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.pointExponent_neg": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeExponent_neg": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.pointExponent_standard_scale": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeExponent_standard_scale": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.pointExponent_standard_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTGeneralTameSquareLabels20260830.wholeExponent_standard_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.TraceDualPreidealHull20260831.mem_integralTraceDual": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.TraceDualPreidealHull20260831.integralTraceDual_antitone": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.TraceDualPreidealHull20260831.integralTraceDual_prod": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.TraceDualPreidealHull20260831.principalOrderIdeal_le_traceDual": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.TraceDualPreidealHull20260831.principalOrderIdeal_le_scaled_traceDual": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.TraceDualPreidealHull20260831.transportedOrderSpan_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.frameEquiv": [
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.crossHandleAut": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.crossEquiv": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTThreeLabelMinimumLayer20260830.transvectionEquiv": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve_isElliptic": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.firstCurve5_isElliptic": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directCurve_isElliptic": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directCurve5_isElliptic": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.upper": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.SL2TransvectionGeneration20260830.lower": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.balancedTriple": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve_isElliptic": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.balancedCurve5_isElliptic": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.evaluate_map": [],
+        "IUTThreeClosures.IUTFullGaloisWordLift20260830.evaluate_generators": [],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.level_degree_bound_prime_to_seven": [],
+        "IUTThreeClosures.Frey43BalancedRealization20260830.level_degree_bound_prime_to_43": [],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.firstTriple": [],
+        "IUTThreeClosures.Frey139Tate210Realization20260830.directTriple": []
+      }
+    },
+    {
+      "mode": "previous-uniform",
+      "source": "Lean/IUTThreeClosures/ResearchUniformGate20260830Audit.lean",
+      "source_sha256": "94028039c43996600ba59895b4f39ac23d4d0947dc9adcc7928299d1c02f3916",
+      "output_sha256": "55f1b1fc9778061247dcca23a671500d62e14df732461433da01d2ad260d71b0",
+      "expected_count": 89,
+      "actual_count": 89,
+      "zero_axiom_count": 0,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "failures": [],
+      "dependencies": {
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.newPrimeRadical_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.newPrimeRadical_dvd": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.newPrimeRadical_coprime": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.radical_mul_eq_newPrimeRadical": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.radical_mul_sq_eq_newPrimeRadical": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.newPrimeRadical_mul_primeExcess": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.primeExcess_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.square_completion_radical_eq_newPrimeRadical": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.square_completion_retains_seed_radical": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.square_completion_radical_mul_excess": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.square_completion_actual_excess_budget": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.bbltExponent_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.bbltExponent_ge_half": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.bbltExponent_eq_two_thirds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.actual_conic_exponent_window": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.actual_conic_min_exponent_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.rational_completion_support_loss_coordinates": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticActualRadicalUniformGate20260830.quadratic_quality_separator_powers": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cubeBase_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cubeBase_cube_dvd": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cube_decomposition": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cubeCoefficient_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cubeBase_dvd": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cubeCoefficient_dvd": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cubeCoefficient_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.pair_decomposition": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.pairCoefficient_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.pairX_cube": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.pairX_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.pair_mordell_difference": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.pair_mordell_sum": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.mordell_omit_a": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.mordell_omit_b": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.mordell_omit_c": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.selected_pair_height": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.all_three_points_retain_height": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.trace_matrix_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.plus_order_matrix_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.minus_order_matrix_determinant": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.radical_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.radical_mul_cube": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.three_cost_radical_product": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.coefficientProduct_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.baseProduct_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.abc_cube_decomposition": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.costA_eq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.costB_eq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.costC_eq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.actual_three_cost_product": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.truncatedTwo_factorization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.radical_mul_square": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.truncated_mordell_parameter": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cubic_root_cubes": [
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cubic_plus_root": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cubic_minus_root": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cubic_plus_square_coordinates": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cubic_minus_square_coordinates": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.scale_mordell": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.parameterA_identity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.parameterB_identity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.parameterC_identity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.common_curve_omit_a": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.common_curve_omit_b": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.common_curve_omit_c": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cubeCoefficient_mul": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.coefficientProduct_eq_cubeCoefficient": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.prime_dvd_residualSupport_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.cubeCoefficient_dvd_residualSupport_sq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.coefficientProduct_le_residualSupport_sq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.auxiliary_isogeny_polynomial": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.GeometryGlobalUniformGate.auxiliary_isogeny_equation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.trace_zero_iff": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.trace_kernel_comap": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.trace_transport_comp": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.trace_addValuation": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.not_maps_of_trace_addValuation_ne": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.affine_traceDepth_injective": [
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.no_transport_between_affine_trace_depths": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAdmissibleGaloisUniformGate20260830.span_unitScalarOrbit": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTTracePreservingTransvection20260830.exists_dual_nonzero_pair": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTTracePreservingTransvection20260830.exists_dual_nonzero_when_nonzero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTTracePreservingTransvection20260830.exists_scalar_avoiding_two_affine": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTTracePreservingTransvection20260830.exists_trace_preserving_common_avoidance": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAllOpenLatticeRigidity20260830.off_diagonal_eq_zero": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAllOpenLatticeRigidity20260830.diagonal_eq": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAllOpenLatticeRigidity20260830.exists_scalar_of_line_neighborhoods": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAllOpenLatticeRigidity20260830.exists_unit_scalar_of_line_neighborhoods": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAllOpenLatticeRigidity20260830.padic_eq_zero_of_all_power_dvd": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTAllOpenLatticeRigidity20260830.padic_exists_unit_scalar": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    {
+      "mode": "previous-continuation",
+      "source": "Lean/IUTThreeClosures/ResearchContinuation20260830Audit.lean",
+      "source_sha256": "44fe13e8798f334163e03dbcc6064e24dbdc12c62778e23b59661c0475880f65",
+      "output_sha256": "9e8be41105ff5ebcfd57aa26dd85de182de3e1a65f355a7e518a4b50d0aa2703",
+      "expected_count": 43,
+      "actual_count": 43,
+      "zero_axiom_count": 0,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "failures": [],
+      "dependencies": {
+        "IUTThreeClosures.AnalyticAmplificationContinuation20260830.inherited_radical_bound": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticAmplificationContinuation20260830.inherited_cofactor_certificate_budget": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticAmplificationContinuation20260830.crt_certificate_unique_in_strip": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticAmplificationContinuation20260830.crtCertifiedUpTo_card_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticAmplificationContinuation20260830.inherited_template_union_card_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticAmplificationContinuation20260830.square_completion_radical_bound": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticAmplificationContinuation20260830.square_completion_parameter_identity": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticAmplificationContinuation20260830.square_completion_certificate_height": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticAmplificationContinuation20260830.seed_radical_product_ge_sq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.AnalyticAmplificationContinuation20260830.half_lt_bblt_exponent": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.DVRReachableHaar20260830.mem_range_of_det_dvd_cramer": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.DVRReachableHaar20260830.exists_reachable_min_det_span": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.DVRReachableHaar20260830.cardQuot_matrix_range": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.DVRReachableHaar20260830.matrix_range_isClosed": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.DVRReachableHaar20260830.measure_matrix_range": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.DVRReachableHaar20260830.log_measure_matrix_range": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.DVRReachableHaar20260830.exists_reachable_closed_span_volume": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.geometry_logAbsorption": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.geometry_jointSixthLogCorridor": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.geometry_normThreeRatioBounds": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.geometry_indexTwoRatioBound": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCPoint.geometryFrey_invariantNormalization": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCPoint.geometryFrey_normalizedMordellPoint": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCPoint.geometryFrey_weightedPrimitive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.ABCPoint.geometryFrey_normalizedCubicSplit": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTReachabilityContinuation20260830.principalHull_le": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTReachabilityContinuation20260830.isUnit_tmul": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTReachabilityContinuation20260830.linearIndependent_tmul_mul": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTReachabilityContinuation20260830.scaledIntegralTensorSpan_le_hull": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.pellMatveevRoot_sq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.pellMatveevEta_of_packet": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.pellMatveevEta_fourth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.pellMatveev_actualApproximation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.pellMatveev_actualLogLower": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.pellMatveev_actualLogHeight": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.pellMatveev_normalizedExponentBound": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.pellMatveev_indexAbsorption": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.pellMatveev_explicitEstimate_indexBound": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.pellMatveev_effectiveHeightCap": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.pellMatveev_effectiveCoordinateCap": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTTargetReset20260830.image_coherentCollation": [
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTTargetReset20260830.map_span_coherentCollation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "IUTThreeClosures.IUTTargetReset20260830.coherentCollation_reindex": [
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  ],
+  "history": [
+    {
+      "manifest": "Lean/verification/2026_08_30_galois_lifts/SHA256SUMS",
+      "manifest_sha256": "a05309cddfaa382f90398e4ec17fdddcf4572c93116e420a4658e625987606ce",
+      "checked_files": 705,
+      "remapped_paths": 6,
+      "mapping": "Lean/verification/2026_08_31_uniform_continuation/previous-manifest-map.json",
+      "failures": []
+    },
+    {
+      "manifest": "Lean/verification/2026_08_30_uniform_gate/SHA256SUMS",
+      "manifest_sha256": "c470be98f60af38a31b8a00393d09f276e10d223c197034cfd1a1ee5628afe7a",
+      "checked_files": 506,
+      "remapped_paths": 6,
+      "mapping": "Lean/verification/2026_08_30_galois_lifts/previous-manifest-map.json",
+      "failures": []
+    },
+    {
+      "manifest": "Lean/verification/2026_08_30_continuation/SHA256SUMS",
+      "manifest_sha256": "dbc5fdc869019dd21fd091e40c32a3d3cf607dcb8feda2819facd529d7e3684a",
+      "checked_files": 447,
+      "remapped_paths": 10,
+      "mapping": "Lean/verification/2026_08_30_uniform_gate/previous-manifest-map.json",
+      "failures": []
+    }
+  ],
+  "build": {
+    "exit_code": 0,
+    "warnings": 265,
+    "completion": [
+      "Build completed successfully (9134 jobs)."
+    ],
+    "warning_multiset_matches_previous": true,
+    "new_warning_headers": [],
+    "missing_previous_warning_headers": [],
+    "all_passed": true
+  },
+  "all_passed": true
+}

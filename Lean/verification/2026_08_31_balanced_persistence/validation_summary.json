@@ -1,0 +1,58 @@
+{
+  "research_date": "2026-08-31",
+  "status": "Lean validation passed; rigorous conditional and structural results",
+  "standard_abc_proof_or_disproof": false,
+  "abc_status": "The standard ABCConjecture remains open",
+  "module_count": 4,
+  "audit_module": "ResearchBalancedPersistence20260831Audit",
+  "direct_compile_exit_codes": {
+    "PellAdjacentFactorCounterexample20260831": 0,
+    "PellSquareRootDescent20260831": 0,
+    "HallSquarefullCounterexample20260831": 0,
+    "AffineShearAmplification20260831": 0,
+    "ResearchBalancedPersistence20260831Audit": 0
+  },
+  "audit_target_build_exit_code": 0,
+  "audit_target_build_jobs": 8767,
+  "audit_target_warning_count": 19,
+  "audit_target_new_module_warning_count": 0,
+  "library_target_build_exit_code": 0,
+  "library_target_build_jobs": 9147,
+  "default_build_exit_code": 0,
+  "default_build_jobs": 9147,
+  "public_theorems_by_module": {
+    "PellAdjacentFactorCounterexample20260831": 13,
+    "PellSquareRootDescent20260831": 14,
+    "HallSquarefullCounterexample20260831": 7,
+    "AffineShearAmplification20260831": 28
+  },
+  "additional_declarations_by_module": {
+    "PellAdjacentFactorCounterexample20260831": 2,
+    "PellSquareRootDescent20260831": 1,
+    "HallSquarefullCounterexample20260831": 2,
+    "AffineShearAmplification20260831": 10
+  },
+  "public_theorem_count": 62,
+  "additional_declaration_count": 15,
+  "audited_declaration_count": 77,
+  "zero_axiom_declaration_count": 12,
+  "kernel_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "unexpected_axioms": [],
+  "audit_has_sorryAx": false,
+  "forbidden_primary_source_tokens": {},
+  "extended_escape_source_tokens": {},
+  "library_warning_count": 265,
+  "default_warning_count": 265,
+  "frozen_baseline_warning_count": 265,
+  "library_warning_multiset_matches_baseline": true,
+  "default_warning_multiset_matches_baseline": true,
+  "new_module_warning_count": 0,
+  "packages_match_dual_route_baseline": true,
+  "protected_files_match_dual_route_baseline": true,
+  "source_inputs_changed_during_validation": [],
+  "all_passed": true
+}

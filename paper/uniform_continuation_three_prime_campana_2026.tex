@@ -1,0 +1,171 @@
+\section{Three-prime support and mixed-full Campana points}
+\label{sec:three-prime-campana}
+
+This section records two complementary descriptions of the first locus not
+covered by the two-prime theorem.  The first is an exact support
+decomposition.  The second keeps multiplicities rather than support size and
+isolates the log-general-type Campana locus studied most recently by
+Browning--Verzobio~\cite{BrowningVerzobio2026}.
+
+\subsection{The support-three gate}
+
+Let $a+b=c$ be a positive primitive triple with
+$\omega(abc)\leq 3$.  Pairwise coprimality gives
+\[
+ \omega(abc)=\omega(a)+\omega(b)+\omega(c).
+\]
+If $a,b>1$, every term on the right is positive.  Hence equality holds in
+the support bound, and there are distinct primes $p,q,r$ and positive
+integers $x,y,z$ such that
+\begin{equation}\label{eq:three-prime-fermat}
+                     a=p^x,\qquad b=q^y,\qquad c=r^z.
+\end{equation}
+If one input is one, the support split between the two consecutive nonunits
+is exactly $(1,1)$, $(1,2)$, or $(2,1)$.  Thus, after exchanging the inputs,
+the remaining equations are
+\begin{equation}\label{eq:three-prime-unit-branches}
+ 1+p^x=q^y,\qquad 1+p^x=q^yr^z,\qquad
+ 1+p^xq^y=r^z,
+\end{equation}
+with distinct displayed prime bases.  This proves an exhaustion rather than
+a density reduction: the two semiprime branches in
+\eqref{eq:three-prime-unit-branches} remain moving Diophantine problems.
+
+The all-nonunit branch has the following useful rigidity.
+
+\begin{theorem}[Common-exponent rigidity]\label{thm:three-prime-common-exp}
+Suppose that distinct primes satisfy
+$p^x+q^y=r^z$ and $d=\gcd(x,y,z)>1$.  Then, up to exchanging the inputs,
+\[
+                         2^4+3^2=5^2.
+\]
+\end{theorem}
+
+\begin{proof}
+Set $X=p^{x/d}$, $Y=q^{y/d}$, and $Z=r^{z/d}$.  Then
+$X^d+Y^d=Z^d$.  Fermat's Last Theorem~\cite{Wiles1995,TaylorWiles1995}
+forces $d=2$.  In the resulting primitive Pythagorean triple the even leg is
+a power of two, say $X=2^A$.  Euclid's parametrization gives
+\[
+ X=2mn,\qquad Y=m^2-n^2,\qquad Z=m^2+n^2,
+\]
+where $m,n$ are coprime and of opposite parity.  Since $mn$ is a power of
+two, one has $n=1$ and $m=2^k$.  Now
+\[
+ Y=(2^k-1)(2^k+1)
+\]
+is a prime power, while the two odd factors are coprime.  The smaller factor
+must be one, so $k=1$ and $(X,Y,Z)=(4,3,5)$.  Squaring proves the assertion.
+\end{proof}
+
+For $x,y,z\geq2$, sorting the exponents shows that
+$1/x+1/y+1/z\geq1$ occurs only for
+\[
+ (2,2,n),\ (2,3,3),\ (2,3,4),\ (2,3,5),\
+ (3,3,3),\ (2,4,4),\ (2,3,6).
+\]
+Elementary difference-of-powers arguments exclude the full signatures
+$(2,3,3)$ and $(2,3,6)$ in every output orientation.  Theorem
+\ref{thm:three-prime-common-exp} excludes $(3,3,3)$ and $(2,4,4)$.
+For $(2,2,n)$, the odd-exponent orientation reduces to
+$S^2+4=R^n$; the theorem of Arif--Abu Muriefah
+\cite{ArifAbuMuriefah2001} then yields the second of exactly two solutions
+\[
+                 2^4+3^2=5^2,\qquad 2^2+11^2=5^3.
+\]
+The other orientations follow by factoring a difference of squares; even
+$n$ follows from Theorem~\ref{thm:three-prime-common-exp}.
+
+Consequently, if $c>\rad(abc)$ in an all-nonunit support-three triple, then
+the exponent gcd is one and the all-nonlinear remainder consists only of
+$(2,2,3)$, $(2,3,4)$, $(2,3,5)$, or signatures with reciprocal sum below
+one.  The first case is the genuine triple
+$2^2+11^2=5^3$, for which $125>110$.  Linear exponents are essential:
+\[
+                 7+181^2=2^{15},\qquad
+ \frac{2^{15}}{2\cdot7\cdot181}>12.
+\]
+This example refutes a putative extension $c\leq\rad(abc)$ to support
+three; it is not an abc counterexample.  The unresolved branches are the two
+semiprime unit equations, linear exponents, the prime-base signatures
+$(2,3,4)$ and $(2,3,5)$, and the union over varying hyperbolic signatures.
+Darmon--Granville~\cite{DarmonGranville1995} gives finiteness for each fixed
+hyperbolic signature, not uniformly over that union.
+
+\subsection{Different fullness exponents}
+
+An integer $n>0$ is $m$-full when every prime divisor occurs with valuation
+at least $m$.  Let $P=(a,b,c)$ be a primitive abc point and suppose that
+$a,b,c$ are respectively $p$-, $q$-, and $r$-full, where $p,q,r>0$.  Put
+\[
+       \sigma_{p,q,r}=\frac1p+\frac1q+\frac1r.
+\]
+
+\begin{theorem}[Mixed-full radical compression]
+\label{thm:mixed-full-compression}
+One has
+\begin{align}
+ \rad(abc)^{pqr}&\le c^{qr+pr+pq},\label{eq:mixed-full-natural}\\
+ \log\rad(abc)&\le \sigma_{p,q,r}\log c.\label{eq:mixed-full-log}
+\end{align}
+Moreover,
+\[
+ \sigma_{p,q,r}<1\quad\Longleftrightarrow\quad
+ qr+pr+pq<pqr.
+\]
+\end{theorem}
+
+\begin{proof}
+Fullness gives $\rad(a)^p\mid a$, and similarly for $b,c$.
+Raise these three divisibilities to $qr,pr,pq$, multiply them, and use
+radical multiplicativity across a primitive triple.  Since $a,b<c$, this
+gives
+\[
+ \rad(abc)^{pqr}
+ \le a^{qr}b^{pr}c^{pq}
+ \le c^{qr+pr+pq},
+\]
+which proves \eqref{eq:mixed-full-natural}.  Taking the three logarithmic
+inequalities separately gives
+\[
+ \log\rad(abc)
+ \le \frac{\log a}{p}+\frac{\log b}{q}+\frac{\log c}{r}
+ \le \sigma_{p,q,r}\log c,
+\]
+proving \eqref{eq:mixed-full-log}.  Clearing the positive denominator $pqr$
+proves the final equivalence.
+\end{proof}
+
+\begin{corollary}[A strict Campana disproof gate]
+\label{cor:mixed-full-disproof-gate}
+Fix $p,q,r>0$ with $\sigma_{p,q,r}<1$.  The abc conjecture implies a
+uniform height bound for every primitive abc point with the three prescribed
+fullness conditions.  Conversely, an unbounded family of such points
+implies the negation of the standard abc conjecture.
+\end{corollary}
+
+\begin{proof}
+Choose $\eps>0$ so that $(1+\eps)\sigma_{p,q,r}<1$.  If abc holds with
+constant $C_\eps$, Theorem~\ref{thm:mixed-full-compression} gives
+\[
+ \bigl(1-(1+\eps)\sigma_{p,q,r}\bigr)\log c\le C_\eps.
+\]
+The coefficient is positive, so $c$ is bounded.  This proves the first
+claim.  The same displayed inequality contradicts unbounded height and
+proves the second.
+\end{proof}
+
+Browning--Verzobio~\cite[Theorems 1.1 and 1.2]{BrowningVerzobio2026}
+study exactly these points.  If $p=r+u$, $q=r+v$, with fixed $u\geq v\geq0$,
+they prove, for all sufficiently large $r$,
+\[
+ N(B)\ll B^{1/p+1/q-\eta_{u,v}(r)+\eps},\qquad
+ \eta_{u,v}(r)=r^{-2}+O_{u,v}(r^{-5/2})>0.
+\]
+They also obtain a power saving for every $r\geq2$ in the special family
+$(p,q,r)=(r+2,r+1,r)$.  This is a genuine improvement over the trivial
+$B^{1/p+1/q}$ count and applies precisely to the low-radical locus in
+Corollary~\ref{cor:mixed-full-disproof-gate}.  Its exponent remains positive,
+so it proves neither the predicted boundedness nor the existence of an
+unbounded family.  The determinant-method and function-field inputs of that
+paper are cited mathematical results and are not declared as Lean axioms.

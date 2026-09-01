@@ -1,0 +1,377 @@
+\section{Standard-type theta points in a declared additive carrier}
+\label{sec:uniform-theta-points}
+
+We now restrict the local source to numerical representatives of
+standard-type theta values, with their finite root-of-unity ambiguity.
+For each independent choice of these representatives, one actual
+full-Galois Kummer operator attains every point-hull bound below.
+The operator acts on a declared native additive carrier. This does
+not identify its action there with an action on the original
+multiplicative theta Kummer class, or establish membership in the
+global output family of \cite[Corollary~3.12]{IUT3}.
+
+Page references to the theta and IUT sources in this section use
+the archived author versions: December 2008 for \cite{MochEtaleTheta},
+May 2020 for \cite{IUT1,IUT3}, and December 2020 for \cite{IUT2}.
+
+\subsection{The normalized evaluation and its finite ambiguity}
+
+Retain the field and roots of \eqref{eq:gs-field-data}. Thus
+$\ell\ge7$ and $p$ are primes, $p\equiv-1\pmod{30\ell}$,
+$v_p(b_0)=2$, and
+\begin{equation}\label{eq:utp-field}
+ \begin{gathered}
+ e=15\ell,\quad d=2e,\quad h=(\ell-1)/2,\quad
+ K_0=\Q_p(\mu_{30\ell}),\\
+ \varpi^e=b_0,\quad E=K_0(\varpi),\quad q=b_0^2,\quad
+ r_0=\varpi^{15}=q^{1/(2\ell)},\\
+ \beta=\varpi^{(e+1)/2}/p,\quad
+ \kappa=1-1/e,\quad I=\beta^{1-e}\OO_E .
+ \end{gathered}
+\end{equation}
+Here $\varpi$ is the element denoted $\pi$ in
+\eqref{eq:gs-field-data}, and is not a uniformizer.
+Lemma~\ref{lem:gs-field} gives
+$I=p^{-1}\log\OO_E^\times$, $\operatorname{Tr}I=\Z_p$,
+and $\mu_{2\ell}\subset K_0$. In particular, $e\le p-2$,
+$p\nmid d$, and $E/\Q_p$ is Galois with residue degree two.
+
+Choose $i^2=-1$ in an algebraic closure. The series of
+\cite[Proposition~1.4, pp.~20--21]{MochEtaleTheta} is
+\begin{equation}\label{eq:utp-series}
+ \vartheta(U)=
+ \sum_{n\in\Z}(-1)^nq^{n(n+1)/2}U^{2n+1},
+ \qquad f(U)=\vartheta(U)/\vartheta(i).
+\end{equation}
+The standard-type theta function is the reciprocal of an
+$\ell$-th root of this normalized function
+\cite[Example~3.2(ii),(iv)]{IUT1}.
+
+\begin{lemma}[The normalized theta coset]\label{lem:utp-evaluation}
+For every integer $a$ and every nonzero $U$ in a finite extension
+of $E$,
+\[
+ \vartheta(q^{a/2}U)
+   =(-1)^a q^{-a^2/2}U^{-2a}\vartheta(U),
+ \qquad
+ f(\pm i q^{a/2})=\pm q^{-a^2/2}.
+\]
+The reciprocals of the $\ell$-th roots of these two evaluations
+form exactly the coset
+\begin{equation}\label{eq:utp-coset}
+                         \mu_{2\ell}r_0^{a^2}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+At the indicated points the term valuations grow quadratically
+as $|n|\to\infty$, so reindexing is legitimate. Substitution
+$n\mapsto n+a$ gives the functional equation. Also
+$\vartheta(-U)=-\vartheta(U)$. At $U=i$ the terms $n=0,-1$
+sum to $2i$, and all other terms have positive valuation.
+Thus $\vartheta(i)$ is a unit. Since $i^{-2a}=(-1)^a$,
+the two normalized evaluations follow. Their reciprocal roots
+have $\ell$-th powers $\pm q^{a^2/2}$, whose complete root set,
+for odd $\ell$, is \eqref{eq:utp-coset}.
+\end{proof}
+
+In the standard cyclotomic and Kummer marking,
+\cite[Remark~2.5.1(i), p.~72]{IUT2} identifies the unperfected
+evaluation set at label $j$ with the Kummer image of
+$\mu_{2\ell}r_0^{j^2}$, where the exponent uses the integer
+representative $0\le j\le h$. The ambiguities at different
+labels are independent \cite[Remark~2.5.1(iii), p.~73]{IUT2}.
+They are not arbitrary elements of $\OO_E^\times$:
+standard-type normalization removes that larger constant-unit
+ambiguity \cite[Remark~1.12.2(i),(ii)]{IUT2}.
+
+\subsection{One arrow for independent torsion representatives}
+
+For each $1\le j\le h$, choose $\zeta_j\in\mu_{2\ell}$
+independently and put
+\begin{equation}\label{eq:utp-inputs}
+ \begin{gathered}
+ x_j=\zeta_j r_0^{j^2},\qquad r_j=v_p(x_j)=2j^2/\ell,\\
+ n_j=\lfloor r_j\rfloor,\qquad k_j=n_j+1,\qquad
+ T_j=p^{-k_j}x_j,\qquad
+ V=I/pI,\quad V_0=\beta I/pI .
+ \end{gathered}
+\end{equation}
+The quotient $V/V_0$ has dimension two over $\mathbf F_p$.
+Bars will denote reduction modulo $pI$.
+
+\begin{lemma}[Content, trace and projective inertia]
+\label{lem:utp-content}
+For every choice of the $\zeta_j$,
+\begin{equation}\label{eq:utp-content}
+ \begin{gathered}
+ k_j=\lfloor r_j+\kappa\rfloor,\qquad
+ T_j\in\beta I\setminus pI,\qquad
+ \operatorname{Tr}_{E/\Q_p}(T_j)=0,\\
+ 1\in\beta I\setminus pI,\qquad
+ \operatorname{Tr}_{E/\Q_p}(1)=d\in\Z_p^\times .
+ \end{gathered}
+\end{equation}
+If $\sigma(\beta)=\epsilon\beta$ generates
+$\operatorname{Gal}(E/K_0)$, with $\epsilon$ of order $e$, then
+\begin{equation}\label{eq:utp-character}
+                         \sigma(T_j)=\epsilon^{30j^2}T_j .
+\end{equation}
+The projective orbit of $\overline{T_j}$ over $\mathbf F_p$
+has exactly $\ell$ elements.
+\end{lemma}
+\begin{proof}
+Write $2j^2=\ell n_j+\delta_j$, where
+$1\le\delta_j\le\ell-1$. Then
+$0<\delta_j/\ell-1/e<1$, proving the formula for $k_j$.
+Moreover
+\[
+ e\,v_p(T_j)=15\delta_j-e,\qquad
+ 2-e<15-e\le15\delta_j-e\le-15<1 .
+\]
+The exponents $2-e$ and $1$ are the thresholds for $\beta I$
+and $pI$. This proves the two membership assertions, including
+the analogous assertion for $1$, whose exponent is zero.
+
+With $\gamma=p^2/b_0\in\Z_p^\times$,
+\eqref{eq:gs-uniformizer} gives $r_0=\gamma^{15}\beta^{30}$.
+Both $\gamma$ and $\zeta_j$ lie in $K_0$ and are fixed by
+$\sigma$, proving \eqref{eq:utp-character}. Its character
+has order
+$e/\gcd(e,30j^2)=\ell$. Summing its inertia conjugates gives
+zero trace over $K_0$, and then zero absolute trace.
+
+These roots reduce injectively and
+$\mu_\ell\cap\mathbf F_p^\times=\{1\}$, since
+$p\equiv-1\pmod\ell$. If two inertia images of
+$\overline{T_j}$ are proportional over $\mathbf F_p$,
+their character residues are therefore equal. Indeed, a
+nonzero difference of residues is a unit of $K_0$, and
+multiplying $T_j\notin pI$ by such a unit cannot put it in
+$pI$. Thus proportionality forces the inertia exponents
+to agree modulo $\ell$, while agreement gives equality
+already in $E$. This proves the projective orbit assertion.
+\end{proof}
+
+Let $\Gamma_E$ be the actual integral Kummer operators of
+Section~\ref{sec:full-galois-lifts}, extended $\Q_p$-linearly
+to $E$. They preserve $I$; we do not identify this group of
+operators with every integral linear automorphism.
+
+\begin{theorem}[Common attainment for the finite theta source]
+\label{thm:utp-common-arrow}
+For every tuple $(\zeta_1,\ldots,\zeta_h)\in\mu_{2\ell}^h$,
+there is one $F\in\Gamma_E$ such that
+\begin{equation}\label{eq:utp-common}
+ v_p(F(1))=v_p(F(T_j))=-\kappa
+                      \qquad(1\le j\le h).
+\end{equation}
+The chosen $F$ may depend on the tuple.
+\end{theorem}
+\begin{proof}
+The hypotheses of Lemma~\ref{lem:gl-integral-basis} hold:
+$d$ is even, $2\le e\le p-2$, and $\operatorname{Tr}I=\Z_p$.
+Use its basis
+\[
+ I=\Z_p a_{\rm JW}\oplus\Z_p b_{\rm JW}\oplus W,\qquad
+ I\cap\ker\operatorname{Tr}=\Z_p a_{\rm JW}\oplus W,
+\]
+and let $B$ be the $b_{\rm JW}$-coordinate. The trace of
+$b_{\rm JW}$ is a unit, so $B=\operatorname{Tr}/
+\operatorname{Tr}(b_{\rm JW})$.
+
+For each $j$, at most one of the first $\ell$ inertia powers
+can place $\overline{T_j}$ on
+$\mathbf F_p\overline a_{\rm JW}$. Since $h<\ell$,
+one power avoids this line for every label. It fixes $1$
+and preserves $V_0$ and trace. We now verify every remaining
+hypothesis of Lemma~\ref{lem:gl-finite-family}, with
+$k=\mathbf F_p$, $L=V_0$, $U=\overline1$ and the transformed
+vectors $\overline{T_j}$. All lie in $L$ by
+Lemma~\ref{lem:utp-content}; $B(U)\ne0$, $B(T_j)=0$,
+and $T_j\notin\mathbf F_p a_{\rm JW}$.
+The trace kernel maps onto $V/V_0$: for $y\in I$,
+subtract $\operatorname{Tr}(y)/d\in\OO_E\subset\beta I$.
+Finally its cardinality condition is $h+1<p$.
+
+That lemma consequently gives one parabolic composition
+sending all these vectors outside $V_0$. Its integer-coordinate
+crosses and symplectic operations have actual full-group lifts
+by Proposition~\ref{prop:gl-full-descent} and
+Lemma~\ref{lem:gl-central}, as used in the arithmetic conclusion
+of Lemma~\ref{lem:gl-finite-family}. Compose them with the
+chosen field inertia automorphism. The resulting canonical
+action $M$ sends every input into $I\setminus\beta I$, of
+valuation $-\kappa$.
+
+Proposition~\ref{prop:gl-variance} gives Kummer action
+$c_\alpha M_\alpha^{-1}$, with $c_\alpha\in\Z_p^\times$.
+Using the inverse of the constructed group automorphism
+therefore gives a unit multiple of $M$, proving
+\eqref{eq:utp-common}.
+\end{proof}
+
+This proves $\forall(\zeta_j)\,\exists F\,\forall j$,
+not the stronger assertion that one $F$ works for every
+tuple. It does not commute multiplication by $\zeta_j$
+with $F$, which need not be $K_0$-linear.
+
+\subsection{The additive point hull and the logarithmic bridge}
+
+For $m=m_j=j+1$, let
+\[
+ \mathcal T_m=E^{\otimes_{\Q_p}m},\qquad
+ A_m=\OO_E^{\otimes_{\Z_p}m},\qquad
+ B_m=\prod_{\operatorname{Gal}(E/\Q_p)^{m-1}}\OO_E
+\]
+under the decomposition \eqref{eq:gl-tensor-decomposition}.
+Thus $B_m$ is the integral closure of $A_m$.
+The multiplication and literal unit $1$ here belong to the fixed
+native field $E$. The normalization $I=p^{-1}\log\OO_E^\times$
+specifies a lattice in that field; it does not replace its
+multiplication by a structure transported through $\rho$.
+In the declared additive tensor carrier put
+\begin{equation}\label{eq:utp-point-source}
+ Z_{j,\zeta_j}=1\otimes\cdots\otimes x_j,\qquad
+ H_{j,\zeta_j}=
+ \overline{\Span_{B_m}
+   \{F^{\otimes m}(Z_{j,\zeta_j}):F\in\Gamma_E\}} .
+\end{equation}
+The literal ones agree with the single-slot embedding of
+\cite[Proposition~3.1(ii), p.~93]{IUT3}. Choosing this
+embedding does not itself prove global source membership.
+
+\begin{theorem}[An attained point-source hull]\label{thm:utp-point-hull}
+For every label and every finite torsion representative,
+\begin{equation}\label{eq:utp-point-hull}
+ H_{j,\zeta_j}=P_j
+       =\beta^{\,e k_j-(e-1)m_j}B_{m_j}.
+\end{equation}
+Here the uniformizer exponent is taken in every field component.
+For each tuple of representatives, one $F$ generates these
+ideals simultaneously for all labels. With $\mu(B_m)=1$ and
+$D_m=d^m$,
+\begin{equation}\label{eq:utp-point-volume}
+ D_{m_j}^{-1}\log\mu(H_{j,\zeta_j})
+                       =(m_j\kappa-k_j)\log p .
+\end{equation}
+\end{theorem}
+\begin{proof}
+Every $F$ preserves $I$ and $p^{k_j}I$. Since
+$x_j\in p^{k_j}I$ and $1\in I$, each tensor component
+has valuation at least $k_j-m_j\kappa$. The component
+embeddings preserve valuation, giving containment in $P_j$.
+The common $F$ from Theorem~\ref{thm:utp-common-arrow} gives
+$v_p(Fx_j)=k_j-\kappa$ and $v_p(F1)=-\kappa$.
+Its tensor has the required valuation in every component,
+so it is a generator of $P_j$ times an element of
+$B_{m_j}^{\times}$. This proves the reverse inclusion
+before closure; the fractional ideal is closed.
+It is also the direct specialization $u=1$, $t=T_j$ of
+Proposition~\ref{prop:gl-block-hull}.
+
+There are $d^{m-1}$ field components, each with residue degree
+two. Hence $\log\mu(\beta^\nu B_m)
+=-2d^{m-1}\nu\log p$. Division by $d^m$ proves
+\eqref{eq:utp-point-volume}. No further division by $m_j$
+is made.
+\end{proof}
+
+The entire finite orbit $\mu_{2\ell}r_0^{j^2}$ gives the
+same hull. The source in this proof contains no arbitrarily
+chosen $\OO_E^\times$-multiple and need not contain
+$r_0^{j^2}B_m$ or a product of fractional ideals.
+
+\begin{proposition}[A comparison for each arrow]
+\label{prop:utp-logarithmic-bridge}
+For $0\ne x\in\OO_E$, set
+$\lambda(x)=p^{-1}\log(1+px)$, $r=v_p(x)$ and
+$k=\lfloor r+\kappa\rfloor$. For every $F\in\Gamma_E$,
+\begin{equation}\label{eq:utp-tail}
+ \begin{gathered}
+ v_p(\lambda(x)-x)\ge1+2r\ge k+1-\kappa,\qquad
+ \lambda(x)-x\in p^{k+1}I,\\
+                       v_p(F(\lambda(x)))=v_p(F(x)).
+ \end{gathered}
+\end{equation}
+Thus, for $t_j=\lambda(x_j)$ and $u=\lambda(1)$, the
+point tensors with factors $(x_j,1,\ldots,1)$ and
+$(t_j,u,\ldots,u)$ generate the same principal
+$B_{m_j}$-ideal after each individual $F^{\otimes m_j}$.
+Both orbit hulls are $P_j$, with the same common attainer.
+\end{proposition}
+\begin{proof}
+For $n\ge2$, the $n$-th term of $\lambda(x)-x$ has valuation
+$(n-1)+nr-v_p(n)$. For odd $p$, $v_p(n)\le n-2$,
+so this is at least $1+2r$. Convergence and
+ultrametricity give the first inequality; the second
+uses $k\le r+\kappa$ and $r\ge0$.
+By the definition of $k$, $x\in p^kI\setminus p^{k+1}I$.
+Since $F$ is an automorphism of this filtered lattice,
+\[
+ v_p(Fx)<k+1-\kappa
+                    \le v_p(F(\lambda(x)-x)).
+ \]
+Strict ultrametricity proves the valuation equality.
+Also $u\in\Z_p^\times$, so $\Q_p$-linearity gives
+$F(u)=uF(1)$. All component valuations of the two
+tensors therefore agree, proving the ideal assertions.
+Finally $(t_j-x_j)/p^{k_j}\in pI$, so the common
+attainer for $T_j$ also works for $t_j/p^{k_j}$.
+\end{proof}
+
+Here $\lambda(x)$ is the coefficient of the separately
+defined class $\operatorname{Kum}_p(1+px)$ in
+$\rho=p^{-1}\log_{\rm BK}^{\rm std}$. It is not the
+theta evaluation class. In particular, exact zero trace
+was proved for $T_j$, not for $t_j$.
+If all $m_j$ coordinates of this unit-cohomology packet
+are changed from $\rho$ to $\log_{\rm BK}^{\rm std}$,
+the tensor is multiplied by $p^{m_j}$. Consequently
+\begin{equation}\label{eq:utp-standard-scale}
+ \begin{gathered}
+ P_j^{\rm std}=p^{m_j}P_j
+                 =\beta^{\,e k_j+m_j}B_{m_j},\\
+ D_{m_j}^{-1}\log\mu(P_j^{\rm std})
+                       =-(k_j+m_j/e)\log p .
+ \end{gathered}
+\end{equation}
+The change is $-m_j\log p$. This rescales every coordinate
+of the specified cohomological source; it does not give the
+original theta function an additional factor $p^{m_j}$.
+
+\subsection{Synchronized source conditions}
+
+The constructions distinguish
+$\operatorname{Kum}(x_j)$, the numerical scalar $x_j$,
+and $\operatorname{Kum}_p(1+px_j)$.
+Their valuations already separate the first and third:
+$v_p(x_j)=2j^2/\ell>0$, whereas $v_p(1+px_j)=0$.
+Under normalized logarithm the scalar $x_j$ instead comes
+from the unit $\exp(px_j)$. Equal additive hulls therefore
+do not identify the multiplicative inputs.
+
+The LGP construction uses the prescribed log-link pullback
+before the single-slot insertion
+\cite[Propositions~3.4(ii) and 3.5, pp.~102--106]{IUT3}.
+A tautological local logarithmic marking can give this
+pullback the numerical coordinate $x_j$. It neither makes
+the log-link a ring homomorphism from the predecessor's
+original field nor permits independent choices at all labels.
+The theater log-link comes from one isomorphism and retains
+its synchronization
+\cite[Proposition~1.3(i) and Remark~1.3.1, pp.~42--43]{IUT3}.
+
+Theorem~\ref{thm:utp-point-hull} alone does not establish
+membership in the possible-image family of
+\cite[Corollary~3.12, pp.~173--175]{IUT3}.
+Section~\ref{sec:uniform-identity-membership} supplies one
+globally synchronized copy representative and proves the
+canonical local inclusion in its fixed base branch.
+Compatibility of the complete family of log-Kummer maps
+and reference data with the unindetermined $q$-pilot,
+including the required Ind3 comparison, remains separate.
+The full local Galois constructions used here are mathematical
+inputs from Section~\ref{sec:full-galois-lifts}; their local
+class field theory and source identifications are not newly
+formalized in Lean by this section. No global abc conclusion
+is asserted.

@@ -1,0 +1,209 @@
+\subsection{A stronger bound from a fixed-norm element}\label{sec:fixed-norm}
+For the height and kernel estimates in this subsection use only
+\eqref{eq:packet1}, and impose the additional conditions that $A,B$ are
+squarefree and
+\[
+ A\equiv22\pmod {24},\qquad B\equiv23\pmod {24}.
+\]
+They specify the squarefree branch under consideration; the more general
+packet estimates above did not require them. No Chebyshev decomposition
+is needed except in the displayed consequence for $p$. In particular $b\ge22$,
+$A,B>1$, $3\nmid AB$, $\gcd(A,B)=1$, and $D=3AB$ is squarefree.
+Let $R_A,R_B$ denote the regulators of the maximal real quadratic orders.
+
+We use two general tools from the proof of the new result
+\cite[Theorem~2.4 and Lemma~2.5]{PastenNew}, without applying its
+irreducible-cubic theorem to a split polynomial. First, in a totally real
+degree-four field, for a multiplicative group generated modulo torsion
+by three independent elements $g_1,g_2,g_3$ and $g\ne1$ in that group,
+\begin{equation}\label{eq:group-approximation}
+ -\log|1-g|\le C_*\log\max\{2,\height(g)\}
+                  \prod_{i=1}^3\max\{1,\height(g_i)\},
+\end{equation}
+where $C_*>0$ is effective and absolute. Second, for an algebraic integer
+$\omega$ of absolute norm $q>1$ in a real quadratic field $K$, the group
+$\OO_K^\times\langle\omega\rangle$ has independent elements $\xi_1,\xi_2$
+generating a subgroup modulo torsion of index $1\le N\le2$ such that
+\begin{equation}\label{eq:small-generators}
+ \omega^N=\zeta\xi_1^{e_1}\xi_2^{e_2},\quad\zeta\in\{\pm1\},
+ \qquad \height(\xi_1)\height(\xi_2)\le\frac38R_K\log q.
+\end{equation}
+Here the set $S$ consists of both real places and no finite place, so the
+all-or-none condition in Lemma~2.5 is satisfied and $q'=q$.
+The small-generator estimate follows from the exterior-product theorem
+of Akhtari--Vaaler \cite[Theorem~1.2]{AV}; its joint use of the unit and
+nonunit generators is what saves a regulator factor.
+Finally Landau's fixed-degree estimate gives an effective absolute $C_Q$
+with
+\begin{equation}\label{eq:quadratic-regulator}
+ R_A\le C_Q\sqrt A\log(2A),\qquad R_B\le C_Q\sqrt B\log(2B).
+\end{equation}
+
+\begin{theorem}\label{thm:fixed-norm-A}
+There is an effective absolute constant $C_A$ such that every packet in
+this subsection satisfies
+\[
+ H\le C_A\sqrt A[\log(2A)]^2.
+\]
+\end{theorem}
+\begin{proof}
+Put $\varphi=(1+\sqrt5)/2$ and $\rho=\tfrac12\log\varphi$.
+Every nonzero algebraic number of degree at most two which is not a root
+of unity has height at least $\rho$. Indeed a rational such number has
+height at least $\log2$. For a quadratic number, its primitive minimal
+polynomial has Mahler measure at least two if the leading or constant
+coefficient has absolute value at least two. Otherwise it is a quadratic
+unit. For norm minus one a nonzero integral trace gives a root of absolute
+value at least $\varphi$; trace zero is reducible. For norm plus one,
+traces of absolute value at most two give roots of unity or reducibility,
+and the other traces give a root of absolute value at least $\varphi^2$.
+The formula $2\height=\log M$ proves the height lower bound.
+
+In $K=\Q(\sqrt A)$ take
+\[
+ \omega=s+u\sqrt A=\sqrt{b+3}+\sqrt b,
+ \qquad \eta=s+r_0\sqrt3=\sqrt{b+3}+\sqrt{b+2}.
+\]
+Their respective quadratic norms are three and one. The latter is a
+positive power of $\varepsilon_3=2+\sqrt3$. Apply
+\eqref{eq:small-generators} with $q=3$. The field
+$F=\Q(\sqrt A,\sqrt3)$ has degree four, since $A>1$ is squarefree and
+$A\ne3$. Define $\gamma=\omega/\eta$. At the chosen real embedding,
+\[
+ 0<\gamma<1,\qquad
+ 1-\gamma=
+ \frac{2}{(\sqrt{b+2}+\sqrt b)(\sqrt{b+3}+\sqrt{b+2})}
+ <\frac1{2b}.
+\]
+As $1\le N\le2$, it follows that $0<1-\gamma^N<1/b$.
+
+The group $\langle-1,\xi_1,\xi_2,\varepsilon_3\rangle$ has rank three
+modulo torsion and contains $\gamma^N$. Independence follows because
+$K\cap\Q(\sqrt3)=\Q$, and a rational power of $\varepsilon_3$ must equal
+its conjugate, forcing that power to be zero. The other two generators
+are independent by construction. Moreover $\height(\varepsilon_3)<1$ and
+$\max(1,\height(\xi_i))\le\height(\xi_i)/\rho$, giving
+\[
+ \prod_i\max(1,\height(g_i))\le\frac{3\log3}{8\rho^2}R_A.
+\]
+Both conjugates of $\omega,\eta$ are positive. Their smaller conjugates
+are $3/\omega<1$ and $1/\eta<1$, so their global heights are
+$\tfrac12\log\omega$ and $\tfrac12\log\eta$. Thus
+\[
+ \height(\gamma^N)\le2\bigl(\height(\omega)+\height(\eta)\bigr)
+ <\log(4(b+3))<H+2\le3H.
+\]
+Applying \eqref{eq:group-approximation} gives
+$\log b\ll R_A\log(3H)$, with an effective absolute constant.
+Since $H\le\log b+\log3$, we have
+$H\le M\log(3H)$ for $M=C_1\max(1,R_A)\ge1$ and an absolute $C_1$.
+
+For any positive $X,M$ with $X\le M\log(3X)$, one has
+\begin{equation}\label{eq:log-absorption}
+ X\le2M\log(3M).
+\end{equation}
+To prove it, write $t=X/M$ and use
+$\log t\le t/2$, which follows from
+$\log(t/2)\le t/2-1$ and $\log2<1$.
+Then $t\le\log(3M)+t/2$, proving \eqref{eq:log-absorption}.
+Equation~\eqref{eq:quadratic-regulator} bounds $M$ by
+$C_2\sqrt A\log(2A)$ and $\log(3M)$ by $C_3\log(2A)$.
+Applying \eqref{eq:log-absorption} proves the theorem.
+\end{proof}
+
+Replacing $\omega$ by $s+v\sqrt B$, of norm two, gives the analogous
+bound with $\sqrt B\log^2(2B)$. For this endpoint, however, a stronger
+published input is available and was already identified in the repository.
+The unit
+\[
+ \varepsilon_B=(b+2)+vs\sqrt B
+\]
+is the fundamental positive norm-one unit: its first coordinate is $3r_0^2$,
+so Bennett--Walsh \cite[Theorem~1.2]{BW} says that its unit index is the
+first index at which three divides the first Pell coordinate. If the
+fundamental first coordinate is $1$ or $-1$ modulo three, the Chebyshev
+recurrence gives only $1$ or alternating signs modulo three, respectively.
+A first coordinate divisible by three therefore forces the fundamental first
+coordinate itself to be divisible by three, and the index is one.
+Since $B\equiv3\pmod4$, the order $\Z[\sqrt B]$ is maximal and a
+norm-minus-one unit is impossible modulo four. Consequently
+\begin{equation}\label{eq:fundamental-B}
+ H<R_B\le C_Q\sqrt B\log(2B).
+\end{equation}
+We use this established endpoint result, rather than presenting it as a
+new consequence of the recent preprint.
+
+\begin{corollary}\label{cor:joint-sixth}
+There is an effective absolute $K\ge1$ such that these packets satisfy
+\begin{equation}\label{eq:joint-sixth}
+ H^4\le K D[\log(2D)]^6.
+\end{equation}
+In particular,
+\begin{equation}\label{eq:joint-inverse}
+ D\ge\frac{H^4}{K5^6(\log H)^6},\qquad
+ \log D\ge4\log H-6\loglog H-\log(K5^6).
+\end{equation}
+When the latter lower bound is positive,
+\[
+ p<\frac{4H}{4\log H-6\loglog H-\log(K5^6)}.
+\]
+\end{corollary}
+\begin{proof}
+Square Theorem~\ref{thm:fixed-norm-A} and \eqref{eq:fundamental-B} and
+multiply. Since $AB=D/3$ and $A,B\le D$, the result is
+\eqref{eq:joint-sixth}. If $D\ge H^4$, the first inequality in
+\eqref{eq:joint-inverse} is immediate because $H>2$ and $K\ge1$.
+Otherwise $\log(2D)\le5\log H$, giving that inequality from
+\eqref{eq:joint-sixth}. Taking logarithms proves the second one.
+Finally use $p\log(D+1)<4H$.
+\end{proof}
+
+The absolute index bound already excludes an unbounded sequence with
+$p\ge3$. The kernel estimate \eqref{eq:joint-sixth} remains useful without
+a Chebyshev decomposition, including cases where the product Pell unit
+is fundamental. Its polynomial dependence on $H$ does not supply the
+radical bound required for abc.
+
+\begin{proposition}[A general split-cubic estimate]\label{prop:split-cubic}
+For positive squarefree $d$, an integral solution of
+$y^2=d(x^3-x)$ with $x\ge2$ satisfies
+\[
+ \log x\ll d^{2/3}[\log(2d)]^3
+\]
+with an effective absolute implied constant.
+\end{proposition}
+\begin{proof}
+Write $x-1=a_0u^2$, $x=b_0v^2$, $x+1=c_0w^2$ with positive squarefree
+coefficients. Adjacent coefficients are coprime and
+$g=\gcd(a_0,c_0)\in\{1,2\}$, so $a_0b_0c_0=g^2d\le4d$.
+No two coefficients are equal: equality for adjacent ones would force
+positive squares to differ by one; equality at the ends forces the common
+coefficient to divide two and gives the same impossibility or a difference
+of squares equal to two. The quadratic fields of the three products
+$a_0b_0,b_0c_0,a_0c_0$ are therefore distinct.
+
+The three positive norm-one units
+\[
+ U=2x-1+2uv\sqrt{a_0b_0},\quad
+ V=2x+1+2vw\sqrt{b_0c_0},\quad
+ W=x+uw\sqrt{a_0c_0}
+\]
+satisfy $1<V/U,V/(2W),2W/U<1+2/x$.
+Indeed $2t-1<t+\sqrt{t^2-1}<2t$ for $t>1$ gives these inequalities
+directly at $t=2x-1,2x+1,x$.
+Each ratio is generated by two quadratic fundamental units and two;
+two may also be adjoined for the first ratio. Distinct quadratic fields
+give independence, and two is an independent nonunit. The global height
+of each ratio is at most $\log x+O(1)$.
+Choose the pair whose radicands share
+$m=\min(a_0,b_0,c_0)$. Landau's bound gives a product of regulators at most
+\[
+ C\sqrt{a_0b_0c_0m}\,[\log(2a_0b_0c_0)]^2
+ \le C(a_0b_0c_0)^{2/3}[\log(2a_0b_0c_0)]^2.
+\]
+Passing to squarefree radicands can only decrease the discriminant bound.
+Apply \eqref{eq:group-approximation} to the selected ratio and then
+\eqref{eq:log-absorption}, adjusting absolute constants for bounded $x$.
+The latter step adds one logarithmic power. Using $a_0b_0c_0\le4d$
+proves the claim.
+\end{proof}

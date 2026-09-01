@@ -1,0 +1,192 @@
+\subsection{An absolute index bound from normalized logarithmic forms}
+\label{sec:matveev}
+The preceding effective height estimate can be combined with a different
+logarithmic-form argument to prove finiteness, uniformly in the index.
+For this argument retain only positive integers $b,r_0,s,X$ and an integer
+$p\ge3$ satisfying
+\begin{equation}\label{eq:wide-pell-packet}
+ b+2=3r_0^2,\qquad b+3=s^2,\qquad
+ Z=b^2+3b+1=T_p(X),\qquad X>1.
+\end{equation}
+Primality of $p$, the endpoint kernels $A,B$, and their congruences are not
+needed. Put
+\[
+ \varepsilon=2+\sqrt3,\quad \eta=s+r_0\sqrt3,\quad
+ \delta=X+\sqrt{X^2-1},\quad W=Z+\sqrt{Z^2-1},\quad H=\log(b+2).
+\]
+The Pell equation gives $\eta=\varepsilon^m$ for an integer $m\ge1$.
+The Chebyshev identity gives $W=\delta^p$; $\delta$ need not be a
+fundamental unit. In fact $b\ge22$: below 22 the fixed Pell equations
+leave only $b=1,r_0=1,s=2$, whereas $Z=5<T_p(X)$ for $p\ge3,X\ge2$.
+Here $T_p(X)\ge X^p$ follows by induction from its recurrence and
+$T_{n+1}(X)\ge T_n(X)>0$.
+
+We use Matveev's original Corollary~2.3 \cite{Matveev}, with the
+normalized coefficient parameter in his equation~(1.3).
+For a real number field of degree $d$, algebraic numbers
+$\alpha_i>1$, and a nonzero form $\Lambda=\sum_{i=1}^n b_i\log\alpha_i$
+with integral coefficients, take
+\[
+ A_i\ge\max\{d\height(\alpha_i),|\log\alpha_i|,0.16\},\qquad
+ B_* =\max\left\{1,\max_i\frac{|b_i|A_i}{A_n}\right\},\qquad
+ \Omega=\prod_i A_i.
+\]
+Then
+\begin{equation}\label{eq:matveev-original}
+ \log|\Lambda|>
+ -C_1(n,1)d^2\Omega\log(ed)\log(eB_*),\qquad
+ C_1(n,1)\le2^{6n+20}.
+\end{equation}
+Unlike Theorem~2.1 of that source, this corollary does not require the
+logarithms to be independent. It also does not require $A_n$ to be the
+largest parameter. Both points matter when $\delta$ varies.
+
+\begin{lemma}\label{lem:matveev-approximation}
+For \eqref{eq:wide-pell-packet},
+\[
+ 1<\frac{\eta^4}{8W}<1+\frac2b,\qquad
+ W>\eta^2,\qquad \log W<3H.
+\]
+Consequently the real linear form
+\begin{equation}\label{eq:matveev-form}
+ \Lambda=4m\log\varepsilon-3\log2-p\log\delta
+        =\log\frac{\eta^4}{8W}
+\end{equation}
+satisfies $0<\Lambda<2/b$ and $-\log\Lambda>H/2$.
+\end{lemma}
+\begin{proof}
+For $t>1$, write $f(t)=t+\sqrt{t^2-1}$, so $2t-1<f(t)<2t$.
+The Pell identities give
+\[
+ \eta^2=f(2b+5),\quad \eta^4=f(8b^2+40b+49),\quad W=f(Z).
+\]
+Thus
+\[
+ \eta^4>16b^2+80b+97>16Z>8W,
+\]
+and
+\[
+ \frac{\eta^4}{8W}-1
+ <\frac{32b+90}{16b^2+48b+8}<\frac2b.
+\]
+The final comparison is equivalent to
+$32b^2+90b<32b^2+96b+16$.
+Also $W>2b^2+6b+1>4b+10>\eta^2$ for $b\ge22$.
+Finally $W<2Z<2(b+2)^2$ gives $\log W<\log2+2H<3H$.
+The strict inequality $\log(1+u)<u$ for $u>0$ proves the asserted
+bounds for $\Lambda$. Since $(b/2)^2>b+2$,
+$-\log\Lambda>\log(b/2)>H/2$.
+\end{proof}
+
+\begin{theorem}[An absolute index bound]\label{thm:absolute-pell-index}
+Every tuple \eqref{eq:wide-pell-packet} satisfies $p<2^{59}$.
+\end{theorem}
+\begin{proof}
+Use the real field $K=\Q(\sqrt3,\sqrt{X^2-1})$ of degree $d\le4$,
+and in this order choose
+\[
+ (\alpha_1,\alpha_2,\alpha_3)=(\varepsilon,2,\delta),\qquad
+ (b_1,b_2,b_3)=(4m,-3,-p),
+\]
+\[
+ A_1=2\log\varepsilon,\qquad A_2=4\log2,\qquad A_3=2\log\delta.
+\]
+For integer $X\ge2$, $X^2-1$ lies strictly between two consecutive
+squares. Hence $\delta$ is a quadratic algebraic integer with minimal
+polynomial $t^2-2Xt+1$ and conjugate $\delta^{-1}$.
+The absolute heights are
+\[
+ \height(\varepsilon)=\tfrac12\log\varepsilon,\qquad
+ \height(2)=\log2,\qquad \height(\delta)=\tfrac12\log\delta.
+\]
+These identities, $d\le4$, and $\delta\ge\varepsilon$ verify all the
+height and $0.16$ conditions in \eqref{eq:matveev-original}.
+The fields may coincide; no independence assertion is used.
+
+By Lemma~\ref{lem:matveev-approximation}, the normalized coefficients obey
+\[
+ \frac{4mA_1}{A_3}
+ =\frac{4p\log\eta}{\log W}<2p,\qquad
+ \frac{3A_2}{A_3}=\frac{6\log2}{\log\delta}<4\le2p.
+\]
+For the latter strict inequality use $\delta^2\ge\varepsilon^2>8$.
+The remaining entries are $p$ and one, so $B_*\le2p$.
+Using the same chosen parameters, rather than changing them when
+estimating $B_*$, gives
+\[
+ \Omega=16\log\varepsilon\log2\,\frac{\log W}{p}
+ <96\frac Hp.
+\]
+Apply \eqref{eq:matveev-original}, with $C_1(3,1)\le2^{38}$,
+$d^2\le16$, and $\log(ed)<3$. Comparison with the upper approximation
+gives
+\[
+ \frac H2< -\log\Lambda
+ <2^{38}\cdot16\cdot3\cdot96\,\frac Hp\log(2ep).
+\]
+Cancel the positive $H$ and multiply by $p$ to obtain
+\begin{equation}\label{eq:matveev-index-absorption}
+ p<9\cdot2^{48}\log(2ep)<2^{52}\log(2ep).
+\end{equation}
+With $t=p/2^{52}>0$, this reads
+$t<53\log2+1+\log t$. The elementary inequality
+$\log t\le t/2$ gives $t<2(53\log2+1)<108<128$.
+Thus $p<2^{59}$, independently of the height and all varying fields.
+\end{proof}
+
+\begin{corollary}[Effective finiteness of the specified family]
+\label{cor:finite-pell-packet}
+The tuples \eqref{eq:wide-pell-packet} form a finite set. Every such tuple
+satisfies
+\begin{equation}\label{eq:absolute-pell-height}
+ H<\exp(4300\cdot2^{295}),\qquad
+ b+2<\exp\!\bigl(\exp(4300\cdot2^{295})\bigr).
+\end{equation}
+In particular the more restrictive residual
+\eqref{eq:packet1}--\eqref{eq:packet2} is effectively finite.
+\end{corollary}
+\begin{proof}
+The first part of the proof of Proposition~\ref{prop:pell} applies to
+$4T_p(X)+5=(2b+3)^2$ for every integer $p\ge3$, giving
+$H\le\exp(4300p^5)$. Combine it with
+Theorem~\ref{thm:absolute-pell-index} and exponentiate.
+The resulting bound leaves finitely many positive integers $b$.
+The square equations determine $r_0,s$, the index is bounded, and
+$X^p\le Z$ bounds $X$. If the endpoint data are also retained, then
+$A\mid b$, $B\mid b+1$, and their positive square multipliers have only
+finitely many possibilities.
+\end{proof}
+
+These bounds are effective but far beyond feasible enumeration.
+They prove finiteness without listing the exceptional tuples.
+They improve a fixed-index finiteness statement: the same absolute bound
+applies while both the index and the quadratic field vary.
+
+\begin{corollary}[The product Pell unit outside the finite set]
+\label{cor:product-fundamental}
+Suppose only that $b,r_0,s$ are positive integers with
+$b+2=3r_0^2$ and $b+3=s^2$. Put $Z=b^2+3b+1$ and write
+$Z^2-1=D_0y^2$ with $D_0>1$ squarefree and $y$ a positive integer. Outside the bound in
+\eqref{eq:absolute-pell-height}, $Z+y\sqrt{D_0}$ is the fundamental
+positive norm-one unit of the integral Pell group $\Z[\sqrt{D_0}]$.
+\end{corollary}
+\begin{proof}
+Write $Z+y\sqrt{D_0}=\varepsilon_{D_0}^k$, $k\ge1$.
+If $k=2j$, then $Z=T_2(T_j(X_0))$ for the integer first coordinate
+$X_0>1$ of $\varepsilon_{D_0}$. Thus, with $Y=T_j(X_0)$,
+\[
+ 2Y^2=Z+1=(b+1)(b+2)=3(b+1)r_0^2.
+\]
+Since $3\nmid b+1$, the right side has odd 3-adic valuation and the
+left side has even 3-adic valuation, a contradiction. Therefore $k$ is
+odd. If $k>1$, it is at least three and
+\eqref{eq:wide-pell-packet} holds with $p=k,X=X_0$.
+Corollary~\ref{cor:finite-pell-packet} bounds $b$, proving the assertion.
+\end{proof}
+
+This last statement concerns the integral Pell group, without identifying
+it with the unit group of a larger maximal order. A fundamental moving
+Pell unit can still have a large regulator relative to its discriminant.
+Neither finiteness of the nonfundamental cases nor the absolute index bound
+gives the radical estimate \eqref{eq:abc}, and no reduction of arbitrary
+abc triples to \eqref{eq:wide-pell-packet} has been established.

@@ -1,0 +1,397 @@
+def IUTThreeClosures.ABCConjecture : Prop :=
+∀ (ε : ℝ),
+  0 < ε →
+    ∃ C,
+      ∀ (a b c : ℕ),
+        0 < a →
+          0 < b →
+            0 < c →
+              a + b = c →
+                IUTThreeClosures.PairwiseCoprimeABC a b c →
+                  Real.log ↑(max a (max b c)) ≤ (1 + ε) * Real.log ↑(IUTThreeClosures.abcRadical (a * b * c)) + C
+IUTThreeClosures.ABCTwoPrimeSupport20260831.primeFactors_card_mul_three {a b c : ℕ} (ha : 0 < a) (hb : 0 < b)
+  (hc : 0 < c) (hcop : IUTThreeClosures.PairwiseCoprimeABC a b c) :
+  (a * b * c).primeFactors.card = a.primeFactors.card + b.primeFactors.card + c.primeFactors.card
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.primeFactors_card_mul_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.one_addend_eq_one {a b c : ℕ} (ha : 0 < a) (hb : 0 < b) (hadd : a + b = c)
+  (hcop : IUTThreeClosures.PairwiseCoprimeABC a b c) (hcard : (a * b * c).primeFactors.card ≤ 2) : a = 1 ∨ b = 1
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.one_addend_eq_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.two_prime_powers_of_small_support {b c : ℕ} (hb : 1 < b) (hc : 1 < c)
+  (hcop : b.Coprime c) (hcard : (b * c).primeFactors.card ≤ 2) :
+  ∃ p q u v, Nat.Prime p ∧ Nat.Prime q ∧ 0 < u ∧ 0 < v ∧ p ^ u = b ∧ q ^ v = c ∧ p ≠ q
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.two_prime_powers_of_small_support' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.int_eq_one_or_neg_one_of_dvd_two_pow {z : ℤ} {u : ℕ} (hz : ¬2 ∣ z)
+  (hdiv : z ∣ 2 ^ u) : z = 1 ∨ z = -1
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.int_eq_one_or_neg_one_of_dvd_two_pow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.odd_geometric_gap_eq_base_gap {x y : ℤ} {n u : ℕ} (hxypos : 0 < x - y)
+  (hxy : 2 ∣ x - y) (hx : ¬2 ∣ x) (hn : Odd n) (hgap : x ^ n - y ^ n = 2 ^ u) : x ^ n - y ^ n = x - y
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.odd_geometric_gap_eq_base_gap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.odd_exponent_eq_one_of_pow_add_one {q n u : ℕ} (hq : 1 < q) (hqodd : Odd q)
+  (hn : Odd n) (heq : q ^ n + 1 = 2 ^ u) : n = 1
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.odd_exponent_eq_one_of_pow_add_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.odd_exponent_eq_one_of_pow_eq_two_pow_add_one {q n u : ℕ} (hq : 1 < q)
+  (hqodd : Odd q) (hn : Odd n) (heq : q ^ n = 2 ^ u + 1) : n = 1
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.odd_exponent_eq_one_of_pow_eq_two_pow_add_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.odd_square_add_one_ne_two_pow {Q u : ℕ} (hQ : 1 < Q) (hQodd : Odd Q) :
+  Q ^ 2 + 1 ≠ 2 ^ u
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.odd_square_add_one_ne_two_pow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.two_pow_add_two_eq_two_pow {r s : ℕ} (hr : 0 < r)
+  (heq : 2 ^ r + 2 = 2 ^ s) : r = 1 ∧ s = 2
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.two_pow_add_two_eq_two_pow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.even_exponent_exception {q v u : ℕ} (hq : Nat.Prime q) (hqne : q ≠ 2)
+  (hv : 0 < v) (heven : Even v) (heq : q ^ v = 2 ^ u + 1) : q = 3 ∧ v = 2 ∧ u = 3
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.even_exponent_exception' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.exponent_eq_one_of_prime_pow_add_one {q v u : ℕ} (hq : Nat.Prime q)
+  (hqne : q ≠ 2) (hv : 0 < v) (heq : q ^ v + 1 = 2 ^ u) : v = 1
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.exponent_eq_one_of_prime_pow_add_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.exponent_eq_one_or_eight_nine {q v u : ℕ} (hq : Nat.Prime q) (hqne : q ≠ 2)
+  (hv : 0 < v) (heq : q ^ v = 2 ^ u + 1) : v = 1 ∨ q = 3 ∧ v = 2 ∧ u = 3
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.exponent_eq_one_or_eight_nine' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.power_two_and_odd_prime_power {b c : ℕ} (hb : 1 < b) (hadd : b + 1 = c)
+  (hcop : b.Coprime c) (hcard : (b * c).primeFactors.card ≤ 2) :
+  ∃ q u v, Nat.Prime q ∧ q ≠ 2 ∧ 0 < u ∧ 0 < v ∧ (b = 2 ^ u ∧ c = q ^ v ∨ b = q ^ v ∧ c = 2 ^ u)
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.power_two_and_odd_prime_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.radical_two_prime_powers {q u v : ℕ} (hq : Nat.Prime q) (hqne : q ≠ 2)
+  (hu : 0 < u) (hv : 0 < v) : IUTThreeClosures.abcRadical (2 ^ u * q ^ v) = 2 * q
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.radical_two_prime_powers' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.radical_seventy_two : IUTThreeClosures.abcRadical 72 = 6
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.radical_seventy_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.one_addend_bound_or_exception {b c : ℕ} (hb : 0 < b) (hadd : 1 + b = c)
+  (hcop : b.Coprime c) (hcard : (b * c).primeFactors.card ≤ 2) : c ≤ IUTThreeClosures.abcRadical (b * c) ∨ b = 8 ∧ c = 9
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.one_addend_bound_or_exception' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.radical_bound_or_exception {a b c : ℕ} (ha : 0 < a) (hb : 0 < b)
+  (hadd : a + b = c) (hcop : IUTThreeClosures.PairwiseCoprimeABC a b c) (hcard : (a * b * c).primeFactors.card ≤ 2) :
+  c ≤ IUTThreeClosures.abcRadical (a * b * c) ∨ a = 1 ∧ b = 8 ∧ c = 9 ∨ a = 8 ∧ b = 1 ∧ c = 9
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.radical_bound_or_exception' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.c_le_radical_of_not_exception {a b c : ℕ} (ha : 0 < a) (hb : 0 < b)
+  (hadd : a + b = c) (hcop : IUTThreeClosures.PairwiseCoprimeABC a b c) (hcard : (a * b * c).primeFactors.card ≤ 2)
+  (hnot₁ : ¬(a = 1 ∧ b = 8 ∧ c = 9)) (hnot₂ : ¬(a = 8 ∧ b = 1 ∧ c = 9)) : c ≤ IUTThreeClosures.abcRadical (a * b * c)
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.c_le_radical_of_not_exception' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.two_mul_c_le_three_mul_radical {a b c : ℕ} (ha : 0 < a) (hb : 0 < b)
+  (hadd : a + b = c) (hcop : IUTThreeClosures.PairwiseCoprimeABC a b c) (hcard : (a * b * c).primeFactors.card ≤ 2) :
+  2 * c ≤ 3 * IUTThreeClosures.abcRadical (a * b * c)
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.two_mul_c_le_three_mul_radical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.two_mul_c_eq_three_mul_radical_iff {a b c : ℕ} (ha : 0 < a) (hb : 0 < b)
+  (hadd : a + b = c) (hcop : IUTThreeClosures.PairwiseCoprimeABC a b c) (hcard : (a * b * c).primeFactors.card ≤ 2) :
+  2 * c = 3 * IUTThreeClosures.abcRadical (a * b * c) ↔ a = 1 ∧ b = 8 ∧ c = 9 ∨ a = 8 ∧ b = 1 ∧ c = 9
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.two_mul_c_eq_three_mul_radical_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.pairwise_coprime_of_add {a b c : ℕ} (hadd : a + b = c)
+  (hcop : a.Coprime b) : IUTThreeClosures.PairwiseCoprimeABC a b c
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.pairwise_coprime_of_add' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.ABCTwoPrimeSupport20260831.two_mul_c_le_three_mul_radical_of_coprime {a b c : ℕ} (ha : 0 < a)
+  (hb : 0 < b) (hadd : a + b = c) (hcop : a.Coprime b) (hcard : (a * b * c).primeFactors.card ≤ 2) :
+  2 * c ≤ 3 * IUTThreeClosures.abcRadical (a * b * c)
+'IUTThreeClosures.ABCTwoPrimeSupport20260831.two_mul_c_le_three_mul_radical_of_coprime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_trace_balance.{uK, uS, uT} {K : Type uK} [Field K]
+  {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] (F : S →ₗ[K] T) (c a b : K)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x)
+  (hreturn : F ((algebraMap K S) a) = (algebraMap K T) b) : ↑(Module.finrank K T) * b = c * (↑(Module.finrank K S) * a)
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_trace_balance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_of_equal_finrank.{uK, uS, uT} {K : Type uK}
+  [Field K] {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] [CharZero K]
+  [Nontrivial S] [Module.Finite K S] (F : S →ₗ[K] T) (c a b : K) (hdegree : Module.finrank K S = Module.finrank K T)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x)
+  (hreturn : F ((algebraMap K S) a) = (algebraMap K T) b) : b = c * a
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_of_equal_finrank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceCovariantRationalReturn20260831.map_one_of_nonzero_scalar_return.{uK, uS, uT} {K : Type uK}
+  [Field K] {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] [CharZero K]
+  [Nontrivial S] [Module.Finite K S] (F : S →ₗ[K] T) (c a b : K) (hdegree : Module.finrank K S = Module.finrank K T)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x) (ha : a ≠ 0)
+  (hreturn : F ((algebraMap K S) a) = (algebraMap K T) b) : F 1 = (algebraMap K T) c
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.map_one_of_nonzero_scalar_return' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_line_of_nonzero_return.{uK, uS, uT} {K : Type uK} [Field K]
+  {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] [CharZero K] [Nontrivial S]
+  [Module.Finite K S] (F : S →ₗ[K] T) (c a b : K) (hdegree : Module.finrank K S = Module.finrank K T)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x) (ha : a ≠ 0)
+  (hreturn : F ((algebraMap K S) a) = (algebraMap K T) b) (t : K) : F ((algebraMap K S) t) = (algebraMap K T) (c * t)
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_line_of_nonzero_return' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceCovariantRationalReturn20260831.exists_nonzero_return_iff_scalar_line.{uK, uS, uT} {K : Type uK}
+  [Field K] {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] [CharZero K]
+  [Nontrivial S] [Module.Finite K S] (F : S →ₗ[K] T) (c : K) (hdegree : Module.finrank K S = Module.finrank K T)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x) :
+  (∃ a b, a ≠ 0 ∧ F ((algebraMap K S) a) = (algebraMap K T) b) ↔
+    ∀ (t : K), F ((algebraMap K S) t) = (algebraMap K T) (c * t)
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.exists_nonzero_return_iff_scalar_line' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_addValuation.{uK, uS, uT, uV} {K : Type uK}
+  [Field K] {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] [CharZero K]
+  [Nontrivial S] [Module.Finite K S] {V : Type uV} [LinearOrderedAddCommMonoidWithTop V] (v : AddValuation K V)
+  (F : S →ₗ[K] T) (c a b : K) (hdegree : Module.finrank K S = Module.finrank K T)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x) (hc : v c = 0)
+  (hreturn : F ((algebraMap K S) a) = (algebraMap K T) b) : v b = v a
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.scalar_return_addValuation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.TraceCovariantRationalReturn20260831.no_scalar_return_of_addValuation_ne.{uK, uS, uT, uV} {K : Type uK}
+  [Field K] {S : Type uS} [CommRing S] [Algebra K S] {T : Type uT} [CommRing T] [Algebra K T] [CharZero K]
+  [Nontrivial S] [Module.Finite K S] {V : Type uV} [LinearOrderedAddCommMonoidWithTop V] (v : AddValuation K V)
+  (F : S →ₗ[K] T) (c a b : K) (hdegree : Module.finrank K S = Module.finrank K T)
+  (htrace : ∀ (x : S), (Algebra.trace K T) (F x) = c * (Algebra.trace K S) x) (hc : v c = 0) (hne : v b ≠ v a) :
+  F ((algebraMap K S) a) ≠ (algebraMap K T) b
+'IUTThreeClosures.TraceCovariantRationalReturn20260831.no_scalar_return_of_addValuation_ne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.oddPart_le (n : ℕ) : oddPart n ≤ n
+'IUTThreeClosures.ABCOddPartFibre20260831.oddPart_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.oddPart_eq_self_of_odd {n : ℕ} (hn : n % 2 = 1) : oddPart n = n
+'IUTThreeClosures.ABCOddPartFibre20260831.oddPart_eq_self_of_odd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.oddPart_lt_self_of_even {n : ℕ} (hn : 0 < n) (heven : n % 2 = 0) :
+  oddPart n < n
+'IUTThreeClosures.ABCOddPartFibre20260831.oddPart_lt_self_of_even' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.point_eq_of_coordinates {P Q : IUTThreeClosures.ABCPoint} (ha : P.a = Q.a)
+  (hb : P.b = Q.b) (hc : P.c = Q.c) : P = Q
+'IUTThreeClosures.ABCOddPartFibre20260831.point_eq_of_coordinates' does not depend on any axioms
+IUTThreeClosures.ABCOddPartFibre20260831.parity_cases (P : IUTThreeClosures.ABCPoint) :
+  P.a % 2 = 0 ∧ P.b % 2 = 1 ∧ P.c % 2 = 1 ∨
+    P.a % 2 = 1 ∧ P.b % 2 = 0 ∧ P.c % 2 = 1 ∨ P.a % 2 = 1 ∧ P.b % 2 = 1 ∧ P.c % 2 = 0
+'IUTThreeClosures.ABCOddPartFibre20260831.parity_cases' depends on axioms: [propext, Classical.choice, Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.sameOddParts_symm {P Q : IUTThreeClosures.ABCPoint} (h : SameOddParts P Q) :
+  SameOddParts Q P
+'IUTThreeClosures.ABCOddPartFibre20260831.sameOddParts_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.eq_of_sameOddParts_even_a {P Q : IUTThreeClosures.ABCPoint}
+  (h : SameOddParts P Q) (hp : P.a % 2 = 0) (hq : Q.a % 2 = 0) : P = Q
+'IUTThreeClosures.ABCOddPartFibre20260831.eq_of_sameOddParts_even_a' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.eq_of_sameOddParts_even_b {P Q : IUTThreeClosures.ABCPoint}
+  (h : SameOddParts P Q) (hp : P.b % 2 = 0) (hq : Q.b % 2 = 0) : P = Q
+'IUTThreeClosures.ABCOddPartFibre20260831.eq_of_sameOddParts_even_b' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.eq_of_sameOddParts_even_c {P Q : IUTThreeClosures.ABCPoint}
+  (h : SameOddParts P Q) (hp : P.c % 2 = 0) (hq : Q.c % 2 = 0) : P = Q
+'IUTThreeClosures.ABCOddPartFibre20260831.eq_of_sameOddParts_even_c' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.not_sameOddParts_even_b_even_c {P Q : IUTThreeClosures.ABCPoint}
+  (hp : P.b % 2 = 0) (hq : Q.c % 2 = 0) : ¬SameOddParts P Q
+'IUTThreeClosures.ABCOddPartFibre20260831.not_sameOddParts_even_b_even_c' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.eq_of_sameOddParts_mod_a {P Q : IUTThreeClosures.ABCPoint}
+  (h : SameOddParts P Q) (hmod : P.a % 2 = Q.a % 2) : P = Q
+'IUTThreeClosures.ABCOddPartFibre20260831.eq_of_sameOddParts_mod_a' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.parityMap_injective (A B C : ℕ) : Function.Injective parityMap
+'IUTThreeClosures.ABCOddPartFibre20260831.parityMap_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.fibre_card_le_two (A B C : ℕ) : Nat.card (Fibre A B C) ≤ 2
+'IUTThreeClosures.ABCOddPartFibre20260831.fibre_card_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.exampleP_oddParts :
+  oddPart exampleP.a = 1 ∧ oddPart exampleP.b = 3 ∧ oddPart exampleP.c = 7
+'IUTThreeClosures.ABCOddPartFibre20260831.exampleP_oddParts' depends on axioms: [propext, Classical.choice, Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.exampleQ_oddParts :
+  oddPart exampleQ.a = 1 ∧ oddPart exampleQ.b = 3 ∧ oddPart exampleQ.c = 7
+'IUTThreeClosures.ABCOddPartFibre20260831.exampleQ_oddParts' depends on axioms: [propext, Classical.choice, Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.exampleP_ne_exampleQ : exampleP ≠ exampleQ
+'IUTThreeClosures.ABCOddPartFibre20260831.exampleP_ne_exampleQ' depends on axioms: [propext]
+IUTThreeClosures.ABCOddPartFibre20260831.fibre_one_three_seven_classification (P : Fibre 1 3 7) :
+  ↑P = exampleP ∨ ↑P = exampleQ
+'IUTThreeClosures.ABCOddPartFibre20260831.fibre_one_three_seven_classification' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.fibre_one_three_seven_card : Nat.card (Fibre 1 3 7) = 2
+'IUTThreeClosures.ABCOddPartFibre20260831.fibre_one_three_seven_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.parityMap {A B C : ℕ} (P : Fibre A B C) : Fin 2
+'IUTThreeClosures.ABCOddPartFibre20260831.parityMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.fibreFinite (A B C : ℕ) : Finite (Fibre A B C)
+'IUTThreeClosures.ABCOddPartFibre20260831.fibreFinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+IUTThreeClosures.ABCOddPartFibre20260831.exampleP : IUTThreeClosures.ABCPoint
+'IUTThreeClosures.ABCOddPartFibre20260831.exampleP' does not depend on any axioms
+IUTThreeClosures.ABCOddPartFibre20260831.exampleQ : IUTThreeClosures.ABCPoint
+'IUTThreeClosures.ABCOddPartFibre20260831.exampleQ' does not depend on any axioms
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_strictMono : StrictMono endpointC
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_strictMono' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_ge_two (n : ℕ) : 2 ≤ endpointC n
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_ge_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_ge_1794 (n : ℕ) (hn : 1 ≤ n) : 1794 ≤ endpointC n
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_ge_1794' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_mod_eight (n : ℕ) : endpointC n % 8 = 2
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_mod_eight' depends on axioms: [propext]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_cast_mod_seven (n : ℕ) : ↑(endpointC n) = 2
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.endpointC_cast_mod_seven' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_map.{u, v} {R : Type u} {S : Type v} [CommRing R]
+  [CommRing S] (f : R →+* S) (c : R) (i : ModelLabel) : (model c i).map f = model (f c) i
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_map' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_c4.{u} {R : Type u} [CommRing R] (c : R) (i : ModelLabel) :
+  (model c i).c₄ =
+    16 *
+      match i with
+      | ModelLabel.original => c ^ 2 - c + 1
+      | ModelLabel.zeroKernel => c ^ 2 - 16 * c + 16
+      | ModelLabel.aKernel => c ^ 2 + 14 * c + 1
+      | ModelLabel.negBKernel => 16 * c ^ 2 - 16 * c + 1
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_c4' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_discriminant.{u} {R : Type u} [CommRing R] (c : R)
+  (i : ModelLabel) :
+  (model c i).Δ =
+    match i with
+    | ModelLabel.original => 16 * (c - 1) ^ 2 * c ^ 2
+    | ModelLabel.zeroKernel => -256 * (c - 1) * c ^ 4
+    | ModelLabel.aKernel => 256 * c * (c - 1) ^ 4
+    | ModelLabel.negBKernel => 256 * c * (c - 1)
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_discriminant' depends on axioms: [propext, Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_eq_canonical (n : ℕ) (i : ModelLabel) :
+  familyCurve n i =
+    match i with
+    | ModelLabel.original => IUTThreeClosures.abcFreyCurve (familyTriple n)
+    | ModelLabel.zeroKernel => IUTThreeClosures.abcFreyTwoIsogenousCurve (familyTriple n)
+    | ModelLabel.aKernel => IUTThreeClosures.abcFreyAtAQuotientCurve (familyTriple n)
+    | ModelLabel.negBKernel => IUTThreeClosures.abcFreyAtNegBQuotientCurve (familyTriple n)
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_eq_canonical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_discriminant : residueCurve.Δ = 1
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_discriminant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.canonical_reduction_seven (n : ℕ) :
+  (IUTThreeClosures.abcFreyCurveZ (familyTriple n)).map (Int.castRingHom (ZMod 7)) = residueCurve
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.canonical_reduction_seven' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_equation (x y : ZMod 7) :
+  residueCurve.toAffine.Equation x y ↔ y ^ 2 = x ^ 3 - x
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_equation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_affine_card :
+  Fintype.card { xy // xy.2 ^ 2 = xy.1 ^ 3 - xy.1 } = 7
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_affine_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_point_card : Nat.card residueCurve.toAffine.Point = 8
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_point_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_count_trace :
+  7 + 1 - ↑(Nat.card residueCurve.toAffine.Point) = 0
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_count_trace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.degree_three_polynomial_no_root (z : ZMod 3) : z ^ 2 + 1 ≠ 0
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.degree_three_polynomial_no_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_discriminant_abs (c : ℚ) (hc : 1 ≤ c) (i : ModelLabel) :
+  |(model c i).Δ| =
+    match i with
+    | ModelLabel.original => 16 * (c - 1) ^ 2 * c ^ 2
+    | ModelLabel.zeroKernel => 256 * (c - 1) * c ^ 4
+    | ModelLabel.aKernel => 256 * c * (c - 1) ^ 4
+    | ModelLabel.negBKernel => 256 * c * (c - 1)
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_discriminant_abs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_discriminant_upper (c : ℚ) (hc : 1 ≤ c) (i : ModelLabel) :
+  |(model c i).Δ| ≤ 256 * c ^ 5
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_discriminant_upper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_c4_lower (c : ℚ) (hc : 32 ≤ c) (i : ModelLabel) :
+  8 * c ^ 2 ≤ (model c i).c₄
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_c4_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_discriminant_ne_zero (c : ℚ) (hc : 1 < c) (i : ModelLabel) :
+  (model c i).Δ ≠ 0
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.model_discriminant_ne_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_abs_j (n : ℕ) (i : ModelLabel) :
+  |(familyCurve n i).j| = |(familyCurve n i).c₄| ^ 3 / |(familyCurve n i).Δ|
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_abs_j' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_j_lower (n : ℕ) (hn : 1 ≤ n) (i : ModelLabel) :
+  2 * ↑(endpointC n) ≤ |(familyCurve n i).j|
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_j_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.zeroKernel_j_upper (n : ℕ) (hn : 1 ≤ n) :
+  |(familyCurve n ModelLabel.zeroKernel).j| ≤ 32 * ↑(endpointC n)
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.zeroKernel_j_upper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.prime3 : Fact (Nat.Prime 3)
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.prime3' depends on axioms: [propext, Classical.choice, Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.prime7 : Fact (Nat.Prime 7)
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.prime7' depends on axioms: [propext, Classical.choice, Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyTriple (n : ℕ) : IUTThreeClosures.ABCPoint
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyTriple' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_isElliptic : residueCurve.IsElliptic
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.residueCurve_isElliptic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_isElliptic (n : ℕ) (i : ModelLabel) :
+  (familyCurve n i).IsElliptic
+'IUTThreeClosures.FreyEntireIsogenyArithmetic20260831.familyCurve_isElliptic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,74 @@
+def IUTThreeClosures.ABCConjecture : Prop :=
+∀ (ε : ℝ),
+  0 < ε →
+    ∃ C,
+      ∀ (a b c : ℕ),
+        0 < a →
+          0 < b →
+            0 < c →
+              a + b = c →
+                IUTThreeClosures.PairwiseCoprimeABC a b c →
+                  Real.log ↑(max a (max b c)) ≤ (1 + ε) * Real.log ↑(IUTThreeClosures.abcRadical (a * b * c)) + C
+IUTThreeClosures.SmoothLowOmegaCounting.smoothLowOmegaUpTo_card_le : ∀ (N Y w : ℕ),
+  (IUTThreeClosures.SmoothLowOmegaCounting.smoothLowOmegaUpTo N Y w).card ≤ (1 + Y * Nat.log 2 N) ^ w
+'IUTThreeClosures.SmoothLowOmegaCounting.smoothLowOmegaUpTo_card_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SmoothLowOmegaCounting.packet_omega_sum_lower : ∀ (s : Finset ℕ) {N Y w : ℕ},
+  (∀ n ∈ s, 0 < n ∧ n ≤ N) →
+    (∀ n ∈ s, ∀ p ∈ n.primeFactors, p ≤ Y) →
+      (w + 1) * (s.card - (1 + Y * Nat.log 2 N) ^ w) ≤ ∑ n ∈ s, n.primeFactors.card
+'IUTThreeClosures.SmoothLowOmegaCounting.packet_omega_sum_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.SignedPrimeSupport.coupled_prime_support_iff_abc : IUTThreeClosures.SignedPrimeSupport.UniformCoupledPrimeSupportBound ↔
+  IUTThreeClosures.ABCConjecture
+'IUTThreeClosures.SignedPrimeSupport.coupled_prime_support_iff_abc' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@IUTThreeClosures.SignedEndpointDyadicObstruction.not_uniform_separate_endpoint_bound : ∀ {ρ : ℝ},
+  0 ≤ ρ →
+    ρ < 1 →
+      ¬∃ K,
+          ∀ (P : IUTThreeClosures.ABCPoint),
+            IUTThreeClosures.ABCPoint.singleEndpointSquareRadicalDefect P.largeEndpoint ≤
+              Real.log ↑(IUTThreeClosures.abcRadical P.endpointMin) + ρ * P.conductor + K
+'IUTThreeClosures.SignedEndpointDyadicObstruction.not_uniform_separate_endpoint_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@IUTThreeClosures.ReachableTensorLatticeCriterion.span_eq_top_of_reachable_columns : ∀ {R : Type u_1}
+  [inst : CommRing R] {n : Type u_2} [inst_1 : Fintype n] [inst_2 : DecidableEq n] (S : Set (n → R)) (A : Matrix n n R),
+  (∀ (j : n), A.col j ∈ S) → IsUnit A.det → Submodule.span R S = ⊤
+'IUTThreeClosures.ReachableTensorLatticeCriterion.span_eq_top_of_reachable_columns' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@IUTThreeClosures.ReachableTensorLatticeCriterion.diagonalSpan_eq_symmetric : ∀ {R : Type u_1} [inst : CommRing R],
+  IUTThreeClosures.ReachableTensorLatticeCriterion.diagonalSpan R =
+    IUTThreeClosures.ReachableTensorLatticeCriterion.symmetricSubmodule R
+'IUTThreeClosures.ReachableTensorLatticeCriterion.diagonalSpan_eq_symmetric' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@IUTThreeClosures.ReachableTensorLatticeCriterion.offDiagonal_not_mem_diagonalSpan : ∀ {R : Type u_1}
+  [inst : CommRing R] [Nontrivial R],
+  IUTThreeClosures.ReachableTensorLatticeCriterion.pureTensor ![1, 0] ![0, 1] ∉
+    IUTThreeClosures.ReachableTensorLatticeCriterion.diagonalSpan R
+'IUTThreeClosures.ReachableTensorLatticeCriterion.offDiagonal_not_mem_diagonalSpan' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@IUTThreeClosures.ReachableTensorLatticeCriterion.independent_pureTensor_span_eq_top : ∀ {R : Type u_1}
+  [inst : CommRing R],
+  Submodule.span R (Set.range fun uv => IUTThreeClosures.ReachableTensorLatticeCriterion.pureTensor uv.1 uv.2) = ⊤
+'IUTThreeClosures.ReachableTensorLatticeCriterion.independent_pureTensor_span_eq_top' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.ABCPoint.c_pow_four_le_1024_freyJReducedDen : ∀ (P : IUTThreeClosures.ABCPoint),
+  P.c ^ 4 ≤ 1024 * P.freyJReducedDen
+'IUTThreeClosures.ABCPoint.c_pow_four_le_1024_freyJReducedDen' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+IUTThreeClosures.pellEffective_kernelFifthCorridor : ∀ (H L P G : ℝ),
+  0 ≤ L → 0 ≤ P → P * L ≤ 4 * H → G ≤ 4300 * P ^ 5 → G * L ^ 5 ≤ 4300 * (4 * H) ^ 5
+'IUTThreeClosures.pellEffective_kernelFifthCorridor' depends on axioms: [propext, Classical.choice, Quot.sound]
+IUTThreeClosures.pellEffective_squareFactorDescent : ∀ (d t x Y : ℤ),
+  t ≠ 0 → Y ^ 2 = d * t ^ 2 * (x ^ 3 - x) → ∃ y, Y = t * y ∧ y ^ 2 = d * (x ^ 3 - x)
+'IUTThreeClosures.pellEffective_squareFactorDescent' depends on axioms: [propext, Classical.choice, Quot.sound]

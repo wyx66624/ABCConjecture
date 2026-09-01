@@ -10,6 +10,533 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
+## September 1, 2026 balanced-persistence continuation: global arithmetic filters
+
+The standard unconditional `ABCConjecture` remains unproved and
+undisproved.  The current synthesis is
+`../research/ABC_BALANCED_PERSISTENCE_CONTINUATION_2026_09_01.md`.
+
+- **Affine shear.**  For inherited seed radical `R`, target cap `X`, and
+  `0<mu<1`, the actual exceptional set satisfies
+  `#E(X) << R^(-2/3) X^(2mu/3+epsilon)`, uniformly in the seed.  At
+  `X=c^8, mu=3/4` the exact comparison is
+  `R^(-2/3)c^(4+epsilon)`.  The matching positive lower gate is open.
+  Same-prime independence is refuted by pairwise-disjoint local events; that
+  counterexample closes only the heuristic, not the affine route.
+- **Balancing Pell orbit.**  Every hypothetical nonunit squarefull term
+  descends to a squarefull odd-prime index.  There it forces four distinct
+  same-rank balancing-Wieferich primes, with one first-occurrence valuation at
+  least three in each of the two coprime Pell channels.  The exhaustive scan of
+  183,071 odd primes through 2,500,000 finds only `13,31,1546463`, all at
+  depth exactly two.  Through index 2000, exactly `1873,1951` remain
+  unresolved; they are not squarefull hits.
+- **Danilov--Hall orbit.**  Squarefullness of the normalized remainder forces
+  the nonnegative index into
+  `t = 122136955032565025967809449110840347537827`
+  modulo `183205432548847538951714173666260521306741`.  The indices below the
+  displayed representative are excluded, while the surviving progression is
+  undecided and active.
+- **Other routes.**  Mordell EDS, Cohn--Nitaj, Frey, geometry, and IUT routes
+  remain active at their stated global gates.  Walsh's family is infinite only
+  under its explicit positive-rank hypothesis for
+  `Y^2=X^3-432p^2`; the repository does not erase that premise.
+
+The three result modules contain 57 theorems and 30 definitions or structures,
+87 counted declarations.  Four direct Lean elaborations and the aggregate
+9,151-job build pass.  The source scan finds no `sorry`, `admit`,
+`native_decide`, declared axiom, `opaque`, or `unsafe`; declaration-level
+dependency output is contained in `propext`, `Classical.choice`, and
+`Quot.sound`.  Reproduction and hashes are in
+`verification/2026_09_01_balanced_persistence_continuation/VALIDATION.md`.
+
+The current ChatGPT paper is
+`../output/pdf/ChatGPT_ABC_Balanced_Persistence_2026_09_01.pdf`: 111 A4 pages,
+844,056 bytes, SHA256
+`609962b0bf64daf51e5822410c1dbcdff4f55ae452c70d2da6db9fc3e9f87bbc`.
+Its claim audit, text checks, and rendered-page inspection pass.  No terminal
+Lean term of `ABCConjecture` or its negation is claimed.
+
+## August 31, 2026 balanced-persistence continuation: affine amplification and arithmetic upgrade gates
+
+The standard unconditional `ABCConjecture` remains unproved and
+undisproved.  The latest mathematical synthesis is
+`../research/ABC_BALANCED_PERSISTENCE_CONTINUATION_2026_08_31.md`.
+It combines the final affine-amplification audit with the Pell/Lucas, Hall,
+Mordell EDS, Danilov, Cohn--Nitaj, and Walsh source reviews.  It is a
+partial-results and route-status report, not a proof or disproof of abc.
+
+- **Positive affine route:** the two-parameter shear gives a primitive,
+  injective fibre and at least `c^6/32` raw outputs below height `c^8`.
+  The exact low-radical criterion requires large repeated-prime excess in
+  the three new affine factors.  The unconditional upper ledger leaves the
+  worst-shape target window above the BBLT threshold open; in particular,
+  the seed-uniform lower bound `|E_c| >= c^(17/4)` on every fixed
+  subcritical locus is not contradicted and remains unproved.  The value
+  `14/3` is a lower envelope of available budget exponents on the relaxed
+  region `rho<3, sigma<1`, not a per-seed upper bound.
+- **Pell/Lucas route:** the balancing term factors exactly as
+  `u_n=A_n B_n` with coprime Pell coordinates, and it is squarefull
+  exactly when both coordinates are squarefull.  The adjacent primitive
+  points then have radical slope `1/2`; even indices have strict signature
+  `(3,4,4)`.  Index saturation, largest-prime descent, and the
+  double-Wieferich condition are necessary conditions only.  Carmichael and
+  Bilu--Hanrot--Voutier do not force valuation one.  The audited literature
+  supplies neither an unbounded squarefull subsequence nor an eventual
+  valuation-one theorem.
+- **Hall, Danilov, and Mordell EDS:** primitive Hall data with squarefull
+  `K` and `K^2<=X` have radical slope below `11/12`.  Danilov gives an
+  unbounded primitive critical-scale family, but squarefullness of its
+  moving remainder is open.  The Mordell EDS family
+  `C_n^2+2B_n^6=A_n^3` is unbounded and primitive on the critical
+  `(2,6,3)` line; its three powerful-coordinate upgrades remain open.
+- **Cohn--Nitaj and Walsh:** Cohn--Nitaj give genuine infinite 3-full
+  families with base signature `(3,3,3)`.  Walsh gives the corresponding
+  family under the stated positive-rank hypothesis.  The displayed fullness
+  certificates are critical rather than counterexamples, and no cited theorem
+  produces the required strict powerful-coordinate subsequence.
+- **Exact local closures:** Darmon--Granville closes only a fixed strict
+  generalized-Fermat equation or a finite residual-kernel packet.
+  Mason--Stothers closes only a polynomial-full tripod.  Siegel closes each
+  fixed-exponent perfect-power specialization of the Danilov remainder.
+  These theorems do not cover moving kernels, sparse powerful values, or the
+  active Pell and elliptic upgrade gates.
+
+The permanent
+[`targeted counterexample-search bundle`](../research/computation/2026_08_31_targeted_counterexample_search/REPORT.md)
+records exact finite computation only, with
+[`REPRODUCE.md`](../research/computation/2026_08_31_targeted_counterexample_search/REPRODUCE.md)
+and [`manifest.json`](../research/computation/2026_08_31_targeted_counterexample_search/manifest.json).
+For the balancing recurrence, all 999 terms with `2<=n<=1000` have an
+explicit exponent-one prime certificate, including all 168 prime indices.
+The extension through `n=2000` certifies 1,990 of 1,999 nonunit terms; the
+nine indices
+`[1009,1181,1667,1699,1723,1847,1873,1901,1951]` are unresolved and are
+neither hits nor certified non-hits.  The composite index `1711=29*59` is
+certified by `p=44560482149` modulo `p^2`.  All 81 Danilov points with
+`0<=t<=80` have `v_p(K_t)=1` certificates.  The five-small-prime sieve first
+leaves `t=326` uncovered; this is not a squarefull hit.  Rerunning
+`exact_audit.py` in the permanent directory leaves all 85 manifest entries
+valid.  The manifest SHA256 is
+`62abe5c80716d9e4d5697df95e5330b9fb3d011f463d4647e72332c9288bbac3`.
+These finite results close neither the Pell nor the Danilov route.
+
+The research rule is explicit: mathematics precedes Lean; no open arithmetic
+premise is introduced as an axiom.  A route is not abandoned because it is
+difficult, because a finite scan is negative, or because only a necessary
+condition is known.  A concrete counterexample rejects only the exact claim
+it contradicts, and a no-go theorem closes only its stated mechanism.
+
+Four new mathematical modules contain exactly **62 explicitly written
+theorem declarations and 15 explicitly written definitions or structures,
+for 77 top-level source declarations total**:
+
+- `IUTThreeClosures/PellAdjacentFactorCounterexample20260831.lean`;
+- `IUTThreeClosures/PellSquareRootDescent20260831.lean`;
+- `IUTThreeClosures/HallSquarefullCounterexample20260831.lean`; and
+- `IUTThreeClosures/AffineShearAmplification20260831.lean`.
+
+`IUTThreeClosures/ResearchBalancedPersistence20260831Audit.lean`
+enumerates the 77 declarations with matching `#check` and
+`#print axioms`; it is not a fifth mathematical module.  Automatically
+generated structure projections, constructors, recursors, and equation
+declarations are outside this 77-item count.  The frozen evidence is in
+`verification/2026_08_31_balanced_persistence/VALIDATION.md`.  Direct
+compilation of the four modules and audit entry exits zero with no warnings.
+The audit target passes 8,767 jobs with 19 historical dependency warnings
+and zero new-module warnings; the library target and default build each pass
+9,147 jobs with 265 warnings, exactly matching the dual-route baseline
+warning multiset.  Source and kernel audits find no `sorry`, `admit`, axiom
+declaration, `unsafe`, or `sorryAx`; the dependency union is exactly
+`propext`, `Classical.choice`, and `Quot.sound`.  All 13 JSON files parse,
+the 22-file manifest agrees with the files, and all 23 `SHA256SUMS` entries
+verify.  The `SHA256SUMS` SHA256 is
+`4e25867f5026bbd04a05240de9d6f51e06abc6518bf9819d48aaa03d1bb85916`.
+The released ChatGPT paper is
+`../output/pdf/ChatGPT_ABC_Balanced_Persistence_2026_08_31.pdf`: 109 pages,
+830,854 bytes, SHA256
+`ccbc4d77d112aec78a869caba53104b133467f6cd4a60ee528e09437f79d2e3e`.
+All 109 pages were rerendered at 110 dpi.  Only pages 102--109 changed from
+the preceding fully inspected candidate, and all eight passed original-size
+page inspection.  Extracted text has 340,732 characters, with at least 1,926
+on every page.  All 29 fonts are embedded; the PDF has no forms or
+JavaScript; and the log has only one pre-existing underfull box.  The QA
+directory is
+`../output/pdf/ChatGPT_ABC_Balanced_Persistence_2026_08_31_QA`, whose
+`SHA256SUMS` SHA256 is
+`206f1edb9c9e190ec65c3333ddf2a3166fefe06f907e132f349725897be18e98`.
+
+## August 31, 2026 dual-route continuation: exact positive gate and conditional Pell disproof gate
+
+The standard unconditional `ABCConjecture` remains unproved and undisproved.
+The newest completed partial-results account is
+`../research/ABC_DUAL_ROUTE_CONTINUATION_2026_08_31.md`, with reproducible
+evidence in `verification/2026_08_31_dual_route_continuation/VALIDATION.md`.
+The original target, Lean 4.32.0 toolchain, package pins, and protected
+downstream statements are unchanged.
+
+- **Positive route, exact quantifiers:** standard logarithmic abc is proved
+  equivalent to uniform height boundedness on every fixed locus
+  `R(P) <= mu H(P)`, `0 <= mu < 1`. This is a theorem about the unchanged
+  target, not a replacement definition. A super-sparse sequence with
+  `X_(n+1)=X_n^2` proves that a positive-power count, even with square gaps,
+  cannot imply this pointwise boundedness. Decaying shell counts and a
+  single-source amplification with exponent `beta > kappa*theta` are proved
+  sufficient upgrades; constructing either upgrade for actual abc points is
+  still open.
+- **Counterexample route, exact survival conditions:** canonical power-residue
+  decomposition plus Darmon--Granville proves that any unbounded strict
+  mixed-full family must visit infinitely many residual-kernel triples.
+  Mason--Stothers rules out a pairwise-coprime polynomial-full identity in the
+  strict reciprocal range. Neither result excludes sparse specializations or
+  a Pell/elliptic source whose residual kernels escape.
+- **Conditional Pell gate:** the positive solutions of `x^2-8y^2=1` give
+  primitive triples `(1,8y^2,x^2)`. If an unbounded subsequence of the roots
+  `y` is squarefull, the triples have strict signature `(7,3,2)` and radical
+  slope at most `3/4` up to an additive constant, so the unchanged standard
+  `ABCConjecture` is false. The squarefull-subsequence premise is open. The
+  Bilu--Hanrot--Voutier primitive-divisor theorem does not assert valuation
+  one and therefore does not negate that premise.
+- **Complementary checks:** the mixed-full module proves the exact radical
+  compression and standard-target implication; the three-prime module
+  checks the relevant signatures and small-support placements; the Frey
+  module proves that every leading coefficient below six fails uniformly
+  across the exhibited rational isogeny class, without claiming coefficient
+  six is attained as an optimal general theorem; the finite-product IUT
+  module proves a selected-place product-span identity, not the missing
+  globally synchronized comparison.
+
+Six new modules contain **94 public theorems and 15 additional definitions
+or structures**. The declaration audit covers all **109** items: five are
+axiom-free, and every other dependency is a subset of `propext`,
+`Classical.choice`, and `Quot.sound`. There is no `sorryAx`, declaration-style
+mathematical axiom, or unsafe proof. Direct compilation, the audit target, and
+the full **9142-job** build pass. Its **265** warning lines exactly match the
+frozen baseline multiset; the new modules add zero warnings.
+
+The English manuscript by **ChatGPT** has **102 pages**. The final TeX pass
+has zero diagnostics in the audited categories, and all pages were rendered
+and visually inspected. The accepted artifact is
+`../output/pdf/ChatGPT_ABC_Dual_Route_2026_08_31.pdf`, SHA256
+`cbbd600376a9c27754e6969612efa9ed2833060f60cb1a48d4b64ed03c25bfc4`.
+This is a rigorous partial-results paper, not an unconditional abc proof or
+disproof and not external peer review.
+
+Both directions remain active. The positive route next needs an actual
+source-to-target construction strong enough to force pointwise boundedness,
+or another uniform estimate equivalent to the subcritical-locus statement.
+The counterexample route next needs an unbounded squarefull Pell subsequence
+or another primitive, fixed-slope, height-unbounded kernel-escaping family.
+The IUT route still needs the complete globally synchronized family,
+markings, Ind3 and cross-Frobenius comparison. No route is abandoned merely
+because this remaining theorem is hard.
+
+## August 31, 2026 uniform continuation: exact heights and canonical local membership
+
+The standard unconditional `ABCConjecture` remains unproved and undisproved.
+The latest completed partial-results account is
+`../research/ABC_UNIFORM_CONTINUATION_2026_08_31.md`, with evidence in
+`verification/2026_08_31_uniform_continuation/VALIDATION.md`.
+The original target and downstream interface, Lean 4.32.0, all dependency
+pins and the tracked dependency worktrees are unchanged.
+
+- **Complete two-prime subclass:** every actual primitive positive triple
+  with at most two distinct prime divisors satisfies `2c ≤ 3 rad(abc)`.
+  Equality occurs only at `(1,8,9)` and `(8,1,9)`; all other triples in
+  that subclass satisfy `c ≤ rad(abc)`. The prime-power classification
+  is proved from the actual support, not assumed.
+- **Actual trace and arithmetic fibres:** a nonzero scalar return under
+  the stated trace covariance determines the entire scalar-line action.
+  Equal dimensions and the valuation-unit condition retain their exact
+  hypotheses. Labelled odd-part fibres of actual ABCPoint values have
+  cardinality at most two, with a proved finite type and an attained
+  two-point example. Pointwise return must not be replaced by hull membership.
+- **Entire isogeny class and exact Weil height:** for `c=1792n+2`, `n≥1`,
+  the rational isogeny class has four actual models. Its maximum minimal
+  discriminant has order `c^5`, while the unique least absolute
+  logarithmic Weil height is `3 log(c²−16c+16)=6 log c+o(1)`.
+  The reduced denominator explains the difference from complex absolute
+  magnitude. Classification, Frobenius and minimal-model arguments are
+  paper proofs. Lean checks actual curves, rational numerators and
+  denominators, actual library heights and the attained four-model minimum.
+- **Canonical IUT local source:** for the standard finite theta ambiguity,
+  the attained native point hull is the actual ideal `P_j`. One synchronized
+  copy representative and the source's reciprocity comparison place the
+  canonical `M_alpha^(-1)` orbit in a fixed same-column basic branch of
+  the raw possible-image set. The preceding carrier, three cyclotomes,
+  transported test vector and selected-place packet are explicit.
+  General multiple-place packets only give projection membership.
+  This proves a local lower inclusion, not equality with the full hull
+  or the complete global comparison. This reconstruction remains outside Lean.
+- **Arithmetic objects:** the specified local ideals define actual
+  metrized vector bundles, and an integral weighted determinant descends
+  isometrically to Q. Its precise weights and reference changes are
+  computed; these objects are not identified with the entire global pilot.
+
+Five new modules contain **97 public theorems and 9 additional
+proof-bearing declarations**. The complete **106-report** audit passed:
+3 declarations are axiom-free; all other dependencies are subsets of
+`propext`, `Classical.choice`, `Quot.sound`. The full **9135-job** build
+passed with precisely the previous multiset of **265** warnings, zero
+new warnings. Older 145/89/43 audits were rerun and exactly parsed.
+No new mathematical axiom, `sorryAx`, or disabled linter fills a gap.
+
+The English manuscript by **ChatGPT** has **93 pages**, zero final TeX
+warnings and an actual image review of every page. Its accepted output is
+`../output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf`, SHA256
+`0dfc4b7be5f7b32c65d357bf43d1e0df91a4ec8c35eb68cec7f46c56898e4e9f`.
+The older same-name PDF open in WPS is left unchanged and is not the
+current deliverable. The accepted 66-page predecessor is separately
+preserved in this stage's previous_snapshot. The frozen 705/506/447-entry
+manifests replay through 6/6/10 recorded mappings without a mismatch.
+No original/user PDF, prior manifest, commit, or external submission was changed.
+
+The analytic all-support uniformity estimate, geometry's varying-support
+height/conductor estimate, and IUT's full same-family global comparison
+remain active. A counterexample to a specified discriminant or height
+replacement is not an ABC counterexample. No broad route is abandoned,
+and internal agent review is not external human peer review.
+
+## August 31, 2026 full Galois lifts and complete initial theta data (historical)
+
+The following preserves the preceding 145-declaration, 66-page increment.
+Its specific remaining local-source questions are superseded only to the
+limited scope stated in the newer entry above; its acceptance is immutable.
+
+The standard unconditional `ABCConjecture` remains unproved and undisproved.
+The preceding completed increment is `../research/ABC_GALOIS_LIFTS_2026_08_31.md`;
+its exact acceptance record is
+`verification/2026_08_30_galois_lifts/VALIDATION.md`. The date in that
+directory records the start of work; final proof and PDF checks occurred
+on August 31. The original target, protected downstream file, toolchain,
+dependency manifest and package revisions are unchanged.
+
+- **Actual full local Galois maps:** explicit cross-handle words preserve
+  the full Jannsen–Wingberg presentation. An integral basis and a common
+  inertia/parabolic choice give one actual Kummer arrow for every square
+  label in the specified tame family. No arbitrary GL action is assumed.
+- **Exact pre-ideal hull:** with absolute algebra trace,
+  `B^dual = product I subset A^dual`, and the normalized pre-ideal lies
+  in that dual. Its transported B-hull is exactly the attained point
+  hull `P`; the larger whole-product input gives `p^(-1)*P`. The previous
+  unresolved middle-set question is thus settled for these examples.
+  Every coordinate and the source must change together under conversion
+  from normalized to standard logarithms; native positivity is not a
+  disproof of a standard-coordinate comparison.
+- **Actual arithmetic and unbounded family:** rational Frey models,
+  genuine point counts and SL2 image arguments realize the local fields.
+  The exact level-43 arithmetic is checked without factoring the enormous
+  endpoints. A CRT/power-free count and the archived effective Linnik
+  exponent 5.2 construct an unbounded balanced family with prime-to-level
+  Tate orders and unbounded height in a fixed original bounding domain.
+- **Full original initial theta data:** all conditions of IUT I
+  Definition 3.1 hold for the level-43 example and every member of that
+  family. The proof includes the core, dual-isogeny graph cover,
+  distinguished cusp, separate place choices and theta/orientation
+  conditions over `Q(i,D[30*ell])`. No extra torsion-field extension is
+  hidden. This complete geometric construction is still a paper proof.
+- **Formal scope:** seven modules contain 130 public theorems and 15
+  additionally audited constructions. They prove actual free-group,
+  linear/matrix, Weierstrass, finite-field, prime-exponent, real-logarithm,
+  label-arithmetic and trace-dual/submodule statements. The latter uses
+  actual algebra trace and the span after transport, not an assumed
+  desired containment. Full profinite/LCFT/Tate reconstruction, Linnik,
+  initial-data geometry and global IUT comparison remain outside Lean.
+
+The final default build passes with **9129 jobs**, **zero new warnings**
+and **265 pre-existing warning entries**. All **145** new declaration
+reports pass; six are axiom-free and the rest use only `propext`,
+`Classical.choice`, and `Quot.sound`. Previous 89- and 43-declaration
+audits were rerun successfully. No linter was disabled or mathematical
+axiom added. The English manuscript by **ChatGPT** has **66 pages**, no
+final TeX warning, and a recorded image inspection of every page.
+Internal independent-agent reviews are not external human peer review.
+
+The previous 34-page artifact and five other mutable canonical files
+were captured before replacement. Its unchanged **506-entry** manifest
+replays with six documented mappings and zero failures. Earlier snapshots
+and source PDFs are preserved. No commit, push, external submission, or
+edit to an original or user PDF was made.
+
+The next IUT gate is the complete same-family global pilot, its weights,
+Ind3 and cross-Frobenius compatibility. Initial-data existence and the
+local attaining maps are no longer left as that gate. Analytic radical
+amplification and arithmetic-geometric all-epsilon uniform estimates
+remain independent active routes. No unconditional ABC closed term or
+rigorous disproof has been obtained, and no broad route is abandoned.
+
+## August 30, 2026 uniform estimates and admissible Galois maps (historical)
+
+The following is the preserved account of the preceding completed
+increment. Its then-open full-Galois and initial-data questions are
+superseded where explicitly stated in the August 31 entry above; its
+89-theorem and 34-page acceptance record remains immutable.
+
+The standard `ABCConjecture` remains unproved and undisproved. Its definition,
+`ABCPoint`, radical, the protected downstream file, toolchain and dependency
+pins are unchanged. The latest completed account is
+`../research/ABC_UNIFORM_GATE_2026_08_30.md`; the reproducible validation record
+is `verification/2026_08_30_uniform_gate/VALIDATION.md`.
+
+- **Actual radicals:** using the original explicit S-unit bound gives a
+  count with prescribed squarefree radical divisor `R`, without a height
+  restriction: for `X=Y/R>=1`, at most
+  `905*45^omega(R)*X*(1+log X)^44` positive primitive triples have radical
+  at most `Y` and divisible by `R`. The exact new-prime/excess identity
+  applies to actual integer conic lifts. Combined with the complete-fibre
+  bound, it yields a necessary amplification window `K>rho+4*sigma`,
+  `3*sigma/K<mu<(3/4)*(1-rho/K)`. This is an upper bound and a necessary
+  window, not an amplification lower bound or abc finiteness.
+- **Moving geometric family:** canonical factorization modulo three gives
+  three actual integer Mordell points, their exact local prime costs, and
+  three rational points on one curve `Y^2=X^3+16N^2`, related by its
+  rational 3-torsion. The cubic field/index calculation retains the field
+  regulator in an effective relative bound obtained from Pasten's 2026
+  preprint. Siegel's original theorem proves the stated asymptotic only
+  when the support `R0` is bounded. An infinite family with `R0=3` rules
+  out treating bounded residual support as finiteness of abc triples.
+- **Actual IUT definitions:** the all-open-subgroup condition in the
+  original Ism definition, together with local class field theory, forces
+  multiplication by `Z_p` units. The resulting Ind2 operation leaves
+  every fixed holomorphic `B`-module hull unchanged. Mono-analytic
+  processions allow local outer Galois representatives; this does not
+  identify their linear image with all integral matrices. The genuine
+  Kummer action preserves trace up to a scalar unit, which distinguishes
+  certain affine trace depths but not their coefficient-module hulls.
+- **Formal boundary:** five new modules contain 89 public theorems. They
+  check actual radical and coordinate identities, algebraic geometry
+  calculations, trace-obstruction implications, scalar-orbit spans,
+  trace-preserving transvections, and the p-adic all-neighborhoods rigidity
+  argument. They do not formalize the whole S-unit theorem, Pasten,
+  Siegel, local class field theory, full Galois reconstruction, or IUT's
+  global comparison. None of these inputs is hidden as a new Lean axiom.
+
+The final default build succeeds with **9121 jobs**, zero warnings from the
+five new modules or their audit, and 265 pre-existing warning entries.
+All **89** new public theorem dependencies and **43** declarations from
+the preceding continuation were checked: only `propext`, `Classical.choice`
+and `Quot.sound` occur. No linter was disabled. The 34-page English paper
+by ChatGPT compiles without final TeX warnings and has been inspected on
+every page. Separate-agent mathematical and visual checks are internal
+cross-review, not external peer review.
+
+A subsequent explicit construction using the full Jannsen--Wingberg
+presentation is being checked in separate minimum-layer research logs.
+It is not included in the above 89-theorem or 34-page acceptance record.
+The previous 22-page paper, mutable status files and aggregate imports
+were preserved byte for byte; all 447 entries of the previous manifest
+were successfully replayed using ten documented path remappings.
+No broad research route was abandoned.
+
+## August 30, 2026 continuation: effective finiteness of the specified Pell family
+
+The standard `ABCConjecture` is still unproved and undisproved here. The
+target definition, `ABCPoint`, radical, toolchain, and pinned dependencies
+are unchanged. The consolidated account for this earlier increment is
+`../research/ABC_CONTINUATION_2026_08_30.md`; its verification record is
+`verification/2026_08_30_continuation/VALIDATION.md`.
+
+- **Uniform Pell result:** for positive integers satisfying
+  `b+2=3r^2`, `b+3=s^2`, `b^2+3b+1=T_p(X)`, `p>=3`, `X>1`,
+  Matveev Corollary 2.3 with its normalized coefficient parameter gives
+  `p<2^59`. Combining the independently checked BEG application bounds
+  `b+2` by `exp(exp(4300*2^295))`. The specified moving-index packet is
+  therefore effectively finite. Primality and the endpoint congruences
+  are not needed. This supersedes the earlier open numerical corridor
+  for that packet, but does not supply a global abc reduction.
+- **Formal scope of that result:** `MatveevPellFinitePacket20260830`
+  proves actual square-root and Pell-coordinate identities, strict
+  approximation, normalized-coefficient algebra, and constant absorption.
+  Matveev/BEG conclusions remain explicit arguments where used; their
+  full theorems and the complete finiteness statement are not formalized.
+- **Local Haar:** `DVRReachableHaar20260830` proves the minimum determinant
+  on actual reachable columns, exact quotient size, closedness, Haar
+  measure, and log-volume for the full-rank compact integral lattice.
+  The ambient local-field restriction bridge and deficient-rank zero
+  measure are still paper proofs. No source reachability is inferred
+  from this abstract local result.
+- **Amplification and geometry:** exact CRT and conic certificates now
+  have quantitative output counts; the stated size-certified families
+  cannot beat the compared exceptional-set exponents. Actual radical
+  exceptions need not satisfy those certificates. Fixed-norm methods
+  give `H^4 <= K D log(2D)^6` without needing a nontrivial Chebyshev
+  decomposition, so the fundamental-unit branch remains relevant.
+  The primitive Frey--Mordell point and its split cubic are checked.
+- **IUT source comparison:** a marked unit point supplies a full lattice
+  after the specified holomorphic hull. The rational selected-place
+  set, tensor/maximal-order normalization, and fixed-source target-reset
+  covariance have explicit proofs. The original upper container uses
+  a squared-exponent input. The 109-adic direct-dictionary example fails
+  Joshi's prime window and is not a global IUT counterexample. A further
+  exact-hull/window result applies only to the explicitly maximal
+  integral-linear automorphism model; it is not granted to the actual
+  Galois-induced family without a reachability proof.
+
+Six companion modules and `ResearchContinuation20260830Audit` were added
+to the default development. The final default build passes with **9115
+jobs**; the new audit reports **43 declarations**, all using only
+`propext`, `Classical.choice`, and `Quot.sound`. New modules emit no
+warnings; 265 older warning entries remain. No linter was disabled to
+obtain this result. The English manuscript has been updated accordingly.
+
+Full mathematical proofs precede the Lean implementations. The latest
+exact-hull/window note is mathematical work whose complete formalization
+remains pending. Internal cross-review by separate agents is not external
+human peer review. No broad route is abandoned merely because an interface
+remains unproved.
+
+## August 30, 2026 first increment: historical source audit
+
+The following records the earlier increment. Its unbounded Pell corridor
+and paper-only full-rank Haar boundary are superseded by the continuation
+above; the older verification record and paper snapshot are preserved.
+
+This increment does not prove or disprove `ABCConjecture`. Mathematical
+arguments were written before the corresponding Lean components were
+implemented, and were cross-reviewed by independent route agents. The user requested a new
+literature review, superseding the older source-learning freeze for this
+session. Full proofs are in `../research/*SESSION_2026_08_30.md`.
+
+- **Analytic route:** an actual prime-power encoding proves
+  `#{n<=N: P+(n)<=Y, omega(n)<=w} <= (1+Y*floor(log_2 N))^w`.
+  Together with Younis's unconditional short-interval theorem and the
+  classical long-interval estimate, it disproves Carella v2, Lemmas 4.2 and
+  4.4 and the relative exceptional estimate (4.24), in their stated range.
+  The low-support subset is negligible within the smooth set; an extremely
+  sparse unbounded sequence is still not excluded. Lean checks the actual
+  integer encoding, finite cardinalities, and finite first moment; it does
+  not formalize the external analytic theorems.
+- **Signed endpoints:** actual prime-factor sums now realize the v17
+  identity and its coupled, abc-equivalent estimate. Genuine triples
+  `(1,2^N,2^N+1)` refute separate-endpoint slopes below one without making
+  any assertion about the odd neighbour's radical lower bound. The existing
+  v17 source needed an explicit endpoint import, one algebraic proof step,
+  and an unfolding-order repair; all three were fixed without weakening a
+  statement. A merge description alone was not accepted as proof evidence.
+- **IUT/local lattices:** the closed integral span of actual reachable
+  vectors in a normalized local lattice has measure `q^(-d)`, where `d`
+  is the minimum nonzero determinant valuation, or zero measure in the
+  rank-deficient case. This full Haar statement has a paper proof. Lean
+  checks the unit-determinant span certificate and the strict simultaneous
+  tensor counterexample, including characteristic two. Independent
+  admissible generation and actual IUT normalization remain open. The
+  July 30 Joshi response and pinned July LANA report were checked directly.
+- **Arithmetic geometry:** effective integral-point results and square-factor
+  descent force both the index and the squarefree quadratic kernel to grow in the specifically stated
+  Pell--Chebyshev residual, with `log(D)/log(b) -> 0`; the resulting bounds
+  are still compatible. A new actual Frey bound
+  `c^4 <= 1024 * den(j_Frey)` shows that each fixed small-denominator
+  hypothesis covers only finitely many positive Frey triples. Pasten's
+  August 24, 2026 preprint was checked for its real hypotheses, with point
+  heights distinguished from curve heights. External effective-height
+  estimates remain explicit hypotheses in the Lean scalar implications.
+
+The English manuscript is `../paper/ChatGPT_ABC_Uniformity_2026.tex`.
+The consolidated verification record is
+`verification/2026_08_30/VALIDATION.md`; it distinguishes complete builds,
+component checks, external inputs and the final target for which no proof
+term has been constructed.
+No broader route is abandoned merely because it remains incomplete.
+
 ## Current parallel program
 
 Prime-by-prime testing is no longer a main research line.  The completed
