@@ -126,8 +126,12 @@ theorem coprimeProduct_dvd_parameterSquare_sub
     (hleft : dR ∣ t - mu)
     (hright : dS ∣ t + mu) :
     dR * dS ∣ t ^ 2 - mu ^ 2 := by
+  have hleftProduct : dR ∣ (t - mu) * (t + mu) :=
+    dvd_mul_of_dvd_left hleft (t + mu)
+  have hrightProduct : dS ∣ (t - mu) * (t + mu) :=
+    dvd_mul_of_dvd_right hright (t - mu)
   have hproduct : dR * dS ∣ (t - mu) * (t + mu) :=
-    hcoprime.mul_dvd hleft hright
+    hcoprime.mul_dvd hleftProduct hrightProduct
   convert hproduct using 1 <;> ring
 
 /-- Canonical support saturation gives opposite congruence classes for the
