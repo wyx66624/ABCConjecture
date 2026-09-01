@@ -1,0 +1,73 @@
+WORKDIR: E:\AImath\abc猜想\research\computation\2026_09_01_danilov_wss_escape
+COMMAND: D:\anaconda3\python.exe E:\AImath\abc猜想\research\computation\2026_09_01_danilov_wss_escape\verify_wss_escape_claims.py
+{
+  "all_classes_have_unique_p2_lifts": true,
+  "all_saved_primes_have_two_classes": true,
+  "bounded_full_hypothesis_search": {
+    "actual_top_indices": 121,
+    "certificate_file_sha256": "cff864120ca421082cee89fcb5963307728890f4db6fdeaa6dd4f6343d228007",
+    "range": "2<=Q<=1000, Q squarefree, gcd(Q,30)=1, Q=1 mod 3",
+    "ruled_out_by_exact_simple_primitive_certificate": 105,
+    "unresolved_not_counterexamples": [
+      37,
+      67,
+      133,
+      331,
+      457,
+      541,
+      553,
+      589,
+      619,
+      721,
+      793,
+      817,
+      877,
+      907,
+      913,
+      919
+    ]
+  },
+  "cross_bundle_input_hashes_verified": 8,
+  "cyclotomic_derivative_counterexample": {
+    "Phi10(-3)": 121,
+    "Phi10_prime(-3)": -142,
+    "discriminant_Phi10": 125
+  },
+  "factor_bound_amplification": {
+    "exceptional_divisors_e_with_10e_le_B": 622,
+    "forced_distinct_WSS_lower_bound_digits": 193,
+    "forced_distinct_WSS_lower_bound_expression": "2^638-622",
+    "max_Q_prime_factor_B": 99966059,
+    "small_divisor_threshold_floor_B_over_10": 9996605,
+    "sorted_exceptional_divisor_list_sha256": "793e089d9f3d6fa31903a5d3bc72380de7c0625dee220de7f73a4bed68c69e08"
+  },
+  "fibonacci_cyclotomic_C110": 142585201,
+  "final_Q_digits": 4398,
+  "final_Q_distinct_prime_factors": 638,
+  "final_Q_gcd_30": 1,
+  "final_Q_max_factor": 99966059,
+  "final_Q_squarefree": true,
+  "final_state_relation": "3*T+1=Q",
+  "forced_WSS_lower_bound_digits": 192,
+  "forced_WSS_lower_bound_expression": "2^637",
+  "provenance": {
+    "canonical_stage_file_count": 14,
+    "decimal_Q_sha256": "51216920fd7197cafc62ce7337f68f348acbfd2bc9267780ba2ef739071b39ae",
+    "endpoint_file_sha256": "2b87f6fd5be958ec9477ecf4c8f70e821e0cbf1990f811cd8645ae0b662859c7",
+    "endpoint_relative_path": "research/computation/2026_09_01_danilov_recursive_lift/search_stage13_100m.json",
+    "factor_construction": "12 initial factors followed by 626 packet primes in canonical stage/row order",
+    "ordered_factor_list_sha256": "c5d5a40e7ea0303ea9a0c29a787271f200a20ae86d8ce033656b28bdbc4a9319"
+  },
+  "saved_primes_checked": [
+    13,
+    11621,
+    141961,
+    178093,
+    3561881,
+    10685641,
+    59127209
+  ],
+  "scope": "finite exact audit; no claim of a global cover or WSS nonexistence",
+  "status": "PASS"
+}
+EXIT_CODE: 0

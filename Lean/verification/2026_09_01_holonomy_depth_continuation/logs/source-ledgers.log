@@ -1,0 +1,40 @@
+[
+  {
+    "name": "affine_density_attack",
+    "checksumManifest": {
+      "path": "research/sources/affine_density_attack_2026_09_01/SHA256SUMS",
+      "entries": 2,
+      "sha256": "0e3af3b691dd90d98180fb6ef951d7c9d72d83901822d44104a377dcdb0343fe"
+    },
+    "referencedPrimarySources": 2
+  },
+  {
+    "name": "pell_packet_global_attack",
+    "checksumManifest": {
+      "path": "research/sources/pell_packet_global_attack_2026_09_01/SHA256SUMS",
+      "entries": 3,
+      "sha256": "81128765b12565f8e667f60d1c9f5e20a0f8e89b2d461574e43b523505bd9130"
+    },
+    "referencedPrimarySources": 2
+  },
+  {
+    "name": "iut_corrected_volume_holonomy",
+    "pinnedProjectLanaCommit": "ddaddc274281adb5674d647e24fa478745ac6d40",
+    "sourceMetadata": {
+      "path": "research/sources/iut_corrected_volume_holonomy_2026_09_01/source-metadata.json",
+      "sha256": "7278fb8535fcb76fb77b9af169a5669c0ffab5e23f2664ae822d73d47065be1f"
+    },
+    "checksumManifest": {
+      "path": "research/sources/iut_corrected_volume_holonomy_2026_09_01/SHA256SUMS",
+      "entries": 4,
+      "sha256": "c4b55449a7dc5ce91c0965a841bfac310e322aa74b4b2e1f8ee21a6a5b7a5724"
+    },
+    "referencedPrimarySources": 5,
+    "replay": {
+      "name": "iut-corrected-source-ledger-replay",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/iut-corrected-source-ledger-replay.log",
+      "logSha256": "9ffbafbbc593c34100e76467ce16b992449180a7e6410175f6bf180f9a6839c3"
+    }
+  }
+]

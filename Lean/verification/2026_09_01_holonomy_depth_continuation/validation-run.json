@@ -1,0 +1,303 @@
+{
+  "generatedAt": "2026-09-01T07:09:29.8768082-07:00",
+  "status": "PASS",
+  "repositoryHead": "517f31f9daa024a348ec7bf1b241944dd569e5f6",
+  "tools": {
+    "lake": "Lake version 5.0.0-src+8c9756b (Lean version 4.32.0)",
+    "lean": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+    "python": "Python 3.13.5",
+    "pythonExecutable": "D:\\anaconda3\\python.exe"
+  },
+  "modules": [
+    "AffineDensityAttack20260901",
+    "DanilovWSSEscape20260901",
+    "IUTCorrectedVolumeHolonomy20260901",
+    "PellFourPrimeCoupling20260901"
+  ],
+  "directRuns": [
+    {
+      "name": "AffineDensityAttack20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/AffineDensityAttack20260901-direct.log",
+      "logSha256": "e9d0874715b2d8c4140546a31a390b6ebb6828a1cde149803c23b9fb4564ea0d",
+      "warnings": 0
+    },
+    {
+      "name": "DanilovWSSEscape20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/DanilovWSSEscape20260901-direct.log",
+      "logSha256": "0a8ef6c1697c28ab1d791235db7a477e5e04fb6ffe30dc4e4ac01c63619fe701",
+      "warnings": 0
+    },
+    {
+      "name": "IUTCorrectedVolumeHolonomy20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/IUTCorrectedVolumeHolonomy20260901-direct.log",
+      "logSha256": "8cde96cf5c572807391c2add07286857793111ead8ba588d9c98b6d8d2ed5792",
+      "warnings": 0
+    },
+    {
+      "name": "PellFourPrimeCoupling20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/PellFourPrimeCoupling20260901-direct.log",
+      "logSha256": "f32fc333d9259873137b7a576dbb68d5ea10ba323f691b87b8b5d58189cec5eb",
+      "warnings": 0
+    }
+  ],
+  "aggregateBuild": {
+    "exitCode": 0,
+    "jobs": 9198,
+    "warnings": 299,
+    "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/aggregate-lake-build.log",
+    "logSha256": "cdee8ba3693c273338a9cfe78a16f3fa424066f9ed5b6343262e0b141d23bd3f"
+  },
+  "sourceScan": {
+    "forbiddenMatches": [],
+    "printAxiomsCommands": 58,
+    "observedAxioms": [
+      "Classical.choice",
+      "propext",
+      "Quot.sound"
+    ],
+    "allowedAxioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "unexpectedAxioms": [],
+    "forbiddenKernelNames": []
+  },
+  "declarations": {
+    "files": [
+      {
+        "file": "Lean/IUTThreeClosures/AffineDensityAttack20260901.lean",
+        "theorems": 19,
+        "lemmas": 0,
+        "definitions": 3,
+        "abbreviations": 2,
+        "structures": 0,
+        "classes": 0,
+        "inductives": 0,
+        "instances": 0,
+        "printAxiomsCommands": 14,
+        "countedTopLevelDeclarations": 24
+      },
+      {
+        "file": "Lean/IUTThreeClosures/DanilovWSSEscape20260901.lean",
+        "theorems": 14,
+        "lemmas": 0,
+        "definitions": 4,
+        "abbreviations": 2,
+        "structures": 0,
+        "classes": 0,
+        "inductives": 0,
+        "instances": 0,
+        "printAxiomsCommands": 14,
+        "countedTopLevelDeclarations": 20
+      },
+      {
+        "file": "Lean/IUTThreeClosures/IUTCorrectedVolumeHolonomy20260901.lean",
+        "theorems": 26,
+        "lemmas": 0,
+        "definitions": 10,
+        "abbreviations": 0,
+        "structures": 5,
+        "classes": 0,
+        "inductives": 0,
+        "instances": 0,
+        "printAxiomsCommands": 24,
+        "countedTopLevelDeclarations": 41
+      },
+      {
+        "file": "Lean/IUTThreeClosures/PellFourPrimeCoupling20260901.lean",
+        "theorems": 6,
+        "lemmas": 0,
+        "definitions": 1,
+        "abbreviations": 0,
+        "structures": 0,
+        "classes": 0,
+        "inductives": 0,
+        "instances": 0,
+        "printAxiomsCommands": 6,
+        "countedTopLevelDeclarations": 7
+      }
+    ],
+    "expectedTotals": {
+      "theoremsOrLemmas": 65,
+      "definitions": 18,
+      "abbreviations": 4,
+      "definitionsOrAbbreviations": 22,
+      "structuresClassesOrInductives": 5,
+      "instances": 0,
+      "countedTopLevelDeclarations": 92,
+      "printAxiomsCommands": 58
+    },
+    "totals": {
+      "theoremsOrLemmas": 65,
+      "definitions": 18,
+      "abbreviations": 4,
+      "definitionsOrAbbreviations": 22,
+      "structuresClassesOrInductives": 5,
+      "instances": 0,
+      "countedTopLevelDeclarations": 92
+    }
+  },
+  "computationBundles": [
+    {
+      "name": "affine_density_attack",
+      "checksumManifest": {
+        "path": "research/computation/2026_09_01_affine_density_attack/SHA256SUMS",
+        "entries": 4,
+        "sha256": "9b7a26382f68f3d44719bcf8cdcdd297e5b2d5dabff7c1b19de011f9fef26cfe"
+      },
+      "replays": [
+        {
+          "name": "affine-square-conic-replay",
+          "exitCode": 0,
+          "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/affine-square-conic-replay.log",
+          "logSha256": "6f8c1f2d366c62e412ceb2cfb4bdbfa7baf05c2938d5f1a7f2dca977aba27abe"
+        }
+      ],
+      "recordedEvidence": {
+        "seeds": 20,
+        "admissibleRows": 49671,
+        "exceptions": 0,
+        "scope": "finite_no_hit_only"
+      }
+    },
+    {
+      "name": "pell_four_prime_coupling",
+      "checksumManifest": {
+        "path": "research/computation/2026_09_01_pell_four_prime_coupling/SHA256SUMS",
+        "entries": 20,
+        "sha256": "8292ebe7eef4cf8c4033a1e2e8f8db5eab6f0d01f29b0a7534eb94882b27d087"
+      },
+      "replays": [
+        {
+          "name": "pell-manifest-replay",
+          "exitCode": 0,
+          "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/pell-manifest-replay.log",
+          "logSha256": "abab9eda883c99625d88ee24c6cd10301ab85ce05e96dcdf18239bd6c16434f7"
+        },
+        {
+          "name": "pell-bigint-hit-replay",
+          "exitCode": 0,
+          "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/pell-bigint-hit-replay.log",
+          "logSha256": "16cf03d96cfdc5f21e28bd24a45364da7e28b03eec3e83ab2f3fe22959a39810"
+        },
+        {
+          "name": "pell-coupling-replay",
+          "exitCode": 0,
+          "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/pell-coupling-replay.log",
+          "logSha256": "1aad9c8fce3a37b55ab2914747c69afe0009e3abd548623c79a3837fd71f2adb"
+        }
+      ],
+      "fullScanRerun": false,
+      "recordedEvidence": {
+        "limit": 1000000000,
+        "oddPrimesTested": 50847533,
+        "exactDepthTwoPrimes": [
+          13,
+          31,
+          1546463
+        ],
+        "valuationAtLeastThreeHits": 0,
+        "couplingRows": 13
+      }
+    },
+    {
+      "name": "danilov_wss_escape",
+      "jsonManifest": {
+        "path": "research/computation/2026_09_01_danilov_wss_escape/FILE_MANIFEST.json",
+        "entries": 10,
+        "sha256": "0b69c049253ed35949121332c738705cdf48a25f92d20e59e49914db0d373598"
+      },
+      "checksumManifest": {
+        "path": "research/computation/2026_09_01_danilov_wss_escape/SHA256SUMS",
+        "entries": 11,
+        "sha256": "f5c9320ac6c5f3d11917781ea0c318039fa3921af41e8fd183bfa7aa9bb2387e"
+      },
+      "replays": [
+        {
+          "name": "danilov-manifest-replay",
+          "exitCode": 0,
+          "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/danilov-manifest-replay.log",
+          "logSha256": "e7cc28a1dea4331cd75b2f1e48b80f3a0088795204bf33858ce9ad25a296f651"
+        },
+        {
+          "name": "danilov-wss-claims-replay",
+          "exitCode": 0,
+          "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/danilov-wss-claims-replay.log",
+          "logSha256": "8cbe67f3d1342c598f610e452533542b9b48eb1915565ae4bd17fba0dc533e82"
+        }
+      ],
+      "recordedEvidence": {
+        "upstreamInputsVerified": 8,
+        "qDigits": 4398,
+        "qDistinctPrimeFactors": 638,
+        "factorBoundLowerExpression": "2^638-622",
+        "excludedSmallDivisors": 622,
+        "boundedActualTopIndices": 121,
+        "boundedRuledOut": 105,
+        "boundedUnresolvedNotCounterexamples": 16
+      }
+    }
+  ],
+  "sourceLedgers": [
+    {
+      "name": "affine_density_attack",
+      "checksumManifest": {
+        "path": "research/sources/affine_density_attack_2026_09_01/SHA256SUMS",
+        "entries": 2,
+        "sha256": "0e3af3b691dd90d98180fb6ef951d7c9d72d83901822d44104a377dcdb0343fe"
+      },
+      "referencedPrimarySources": 2
+    },
+    {
+      "name": "pell_packet_global_attack",
+      "checksumManifest": {
+        "path": "research/sources/pell_packet_global_attack_2026_09_01/SHA256SUMS",
+        "entries": 3,
+        "sha256": "81128765b12565f8e667f60d1c9f5e20a0f8e89b2d461574e43b523505bd9130"
+      },
+      "referencedPrimarySources": 2
+    },
+    {
+      "name": "iut_corrected_volume_holonomy",
+      "pinnedProjectLanaCommit": "ddaddc274281adb5674d647e24fa478745ac6d40",
+      "sourceMetadata": {
+        "path": "research/sources/iut_corrected_volume_holonomy_2026_09_01/source-metadata.json",
+        "sha256": "7278fb8535fcb76fb77b9af169a5669c0ffab5e23f2664ae822d73d47065be1f"
+      },
+      "checksumManifest": {
+        "path": "research/sources/iut_corrected_volume_holonomy_2026_09_01/SHA256SUMS",
+        "entries": 4,
+        "sha256": "c4b55449a7dc5ce91c0965a841bfac310e322aa74b4b2e1f8ee21a6a5b7a5724"
+      },
+      "referencedPrimarySources": 5,
+      "replay": {
+        "name": "iut-corrected-source-ledger-replay",
+        "exitCode": 0,
+        "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/iut-corrected-source-ledger-replay.log",
+        "logSha256": "9ffbafbbc593c34100e76467ce16b992449180a7e6410175f6bf180f9a6839c3"
+      }
+    }
+  ],
+  "replayArtifactScan": {
+    "rootsChecked": [
+      "research/computation/2026_09_01_affine_density_attack",
+      "research/computation/2026_09_01_pell_four_prime_coupling",
+      "research/computation/2026_09_01_danilov_wss_escape",
+      "research/sources/iut_corrected_volume_holonomy_2026_09_01",
+      "research/sources/affine_density_attack_2026_09_01",
+      "research/sources/pell_packet_global_attack_2026_09_01"
+    ],
+    "forbiddenExeFiles": 0,
+    "forbiddenPycacheDirectories": 0
+  },
+  "frozenInputManifest": {
+    "path": "Lean/verification/2026_09_01_holonomy_depth_continuation/input-manifest.json",
+    "entries": 24,
+    "sha256": "b3fa32f75398356f93c87904628a72811ac9af224c3547fb6251fdf54dd8c953"
+  }
+}

@@ -10,6 +10,105 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
+## September 1, 2026 holonomy, density, and deep-prime continuation
+
+The standard unconditional `ABCConjecture` remains unproved and
+undisproved.  This checkpoint continues positive deductions and
+counterexample searches on four independent routes.  No broad route is
+retired for difficulty or for a bounded search with no hit.  A counterexample
+closes only the statement whose complete hypotheses it satisfies.  The
+combined mathematical ledger is
+`../research/ABC_MULTI_ROUTE_HOLONOMY_DEPTH_CONTINUATION_2026_09_01.md`.
+
+- **Corrected IUT/LANA log-volume route.**  On the inhabited domain of
+  p-adic valuation balls of finite positive Haar measure, prime preimage
+  shifts log volume by exactly `log p`; normalized finite packets and
+  processions retain that shift.  Logarithmic transports compose additively,
+  and an object-level closed transport has zero holonomy.  Hence an
+  uncorrected loop with a positive accumulated scale shift is impossible and
+  any genuine correction must contribute the negative shift.  Distinct
+  rational-prime logarithms are independent over the rationals, so rational
+  place coefficients cancel prime by prime.  They are not independent over
+  the reals.  More sharply, the report constructs two distinct strictly
+  positive normalized weight triples on `log 2, log 3, log 5` having the same
+  weighted scalar.  This full counterexample closes scalar reconstruction
+  from one normalized real volume, but it does not address an object-level
+  same-pilot theorem retaining labelled local data.  The corrected object
+  construction, all genuine IUT links and corrections, and the final output
+  estimate remain active.  See
+  `../research/ABC_IUT_CORRECTED_VOLUME_HOLONOMY_2026_09_01.md` and
+  `IUTThreeClosures/IUTCorrectedVolumeHolonomy20260901.lean`.
+- **Minimal affine-shear route.**  The cofactor gaps recover the seed
+  exactly.  The reverse characterization of a positive-parameter shear
+  requires `1<U<W<V`.  The row `(U,W,V)=(1,3,5)` satisfies every divisibility
+  and coprimality hypothesis of the weaker `1<=U` statement but reconstructs
+  `h=0`; it is therefore a full counterexample to that boundary relaxation.
+  For the corrected positive statement, every target three-quarter exception
+  satisfies both `8192*E(V)>R*c` and `8192*E(W)>R*c`.  In the other direction,
+  for each fixed `theta<5/2` and all sufficiently large seeds with
+  `R<c^theta`, a positive proportion
+  `(1/2)*(5-pi^2/2)*N^2` of the canonical box is admissible with `U,V,W` all
+  squarefree.  This generic nonexceptional bulk can coexist with the thinner
+  exceptional lower target and does not refute it.  The support-closed
+  simultaneous two-arm high-excess construction remains active.  See
+  `../research/ABC_AFFINE_DENSITY_ATTACK_2026_09_01.md` and
+  `IUTThreeClosures/AffineDensityAttack20260901.lean`.
+- **Balancing-Pell four-prime route.**  Each channel now has a pointwise
+  simple-or-odd-depth-three alternative.  If the global depth-three set is
+  finite, both channels have simple divisors at the same prime index for all
+  but finitely many indices.  The signed Fellini--Murty argument gives a
+  separate infinite simple-index set in each channel; infinitude alone gives
+  no intersection theorem.  The second-order quotient ledger modulo
+  `4*ell^2` and the all-pairs quadratic-character ledger give necessary
+  packet constraints, but no contradiction.  Two independent exhaustive
+  implementations scan all 50,847,533 odd primes through `10^9`; both find
+  exactly `13,31,1546463`, all at exact depth two, and no depth-three prime.
+  Thus every rational balancing depth-three prime, including the two required
+  by a full opposite-channel packet, is greater than `10^9`.  This is a
+  certified finite lower bound and does not exclude the packet.  See
+  `../research/ABC_PELL_FOUR_PRIME_COUPLING_2026_09_01.md`,
+  `../research/computation/2026_09_01_pell_four_prime_coupling/`, and
+  `IUTThreeClosures/PellFourPrimeCoupling20260901.lean`.
+- **Danilov/Fibonacci deep-prime route.**  Let `Q_*` be the verified
+  4,398-digit squarefree modulus with 638 distinct prime factors.  If a member
+  of the final progression is a squarefull Danilov survivor, the factor-bound
+  amplification theorem forces at least `2^638-622` distinct
+  Wall--Sun--Sun primes.  A distinguished `2^637`-prime subfamily lies
+  entirely above `10^2199`, and Hong's large primitive-divisor theorem gives
+  one forced prime above `10^4399`.  These are unconditional implications
+  from the survivor hypothesis, not contradictions: no available theorem
+  bounds the total Wall--Sun--Sun population.  The exact identity
+  `Phi_10(-3)=11^2`, with derivative and discriminant nonzero modulo 11,
+  refutes the generic shortcut from a simple modular root or nonzero
+  discriminant to valuation one.  It does not refute the Fibonacci survivor
+  implication.  The saved seven-prime local classes do not cover the final
+  progression, so the Danilov route remains active.  See
+  `../research/ABC_DANILOV_WSS_ESCAPE_2026_09_01.md`,
+  `../research/computation/2026_09_01_danilov_wss_escape/`, and
+  `IUTThreeClosures/DanilovWSSEscape20260901.lean`.
+
+The mathematical proofs precede the four Lean modules.  The modules check
+the elementary valuation-ball, holonomy, affine, Pell, and abstract Danilov
+counting kernels; they do not turn the cited perfect-power,
+primitive-divisor, valuation, or large-prime results into new axioms.  There
+is still no terminal Lean term of `ABCConjecture` or its negation, and all
+four broad routes remain active at the gates stated above.
+
+The permanent validation package is
+`verification/2026_09_01_holonomy_depth_continuation/`.  All four direct
+module compilations are warning-free; the aggregate target completes 9,198
+jobs.  The comment-stripped inventory is 65 theorems, 18 definitions, four
+abbreviations, and five structures, hence 92 declarations, with 58
+`#print axioms` reports.  Their dependency union is exactly
+`Classical.choice`, `propext`, and `Quot.sound`.  Three computation bundles
+and three source ledgers pass their strict manifests and lightweight replays;
+the frozen Pell `q<=10^9` C++ scans are verified but not rerun.  The final
+124-page ChatGPT-authored paper is
+`../output/pdf/ChatGPT_ABC_Holonomy_Depth_Continuation_2026_09_01.pdf`,
+SHA-256
+`02c415a2f49575117dc5ae86f43c810a63c3cc6e201b1e82def151d93d934df9`;
+its complete rendered-page audit is in the adjacent `_QA` directory.
+
 ## September 1, 2026 five-route continuation: packet attacks, recursive lifts, and the pinned LANA audit
 
 The standard unconditional `ABCConjecture` remains unproved and undisproved.

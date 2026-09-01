@@ -401,6 +401,12 @@ import IUTThreeClosures.PellSquareRootDescent20260831
 import IUTThreeClosures.PellPrimeIndexDichotomy20260831
 import IUTThreeClosures.PellPrimeRankCounterexamples20260901
 
+-- September 1 second-order continuation of the Pell packet route: finite
+-- product truncation, exact quotient cancellation, and the two-channel
+-- congruence modulo 4*ell^2.  The exhaustive q<=10^9 search and the
+-- literature-level channel alternatives remain separately certified inputs.
+import IUTThreeClosures.PellFourPrimeCoupling20260901
+
 -- An independent Hall-family gate: primitive `X^3 + K = Y^2` data with
 -- squarefull `K` and `K^2 <= X` have exact radical slope below `11/12`.
 -- Existence of an unbounded family satisfying that premise is not asserted.
@@ -424,6 +430,13 @@ import IUTThreeClosures.DanilovRecursiveLift20260901
 -- finite-correction, and 41*n+1 consequences without importing open inputs.
 import IUTThreeClosures.DanilovSimplePrimitiveNoGo20260901
 
+-- Divisor-pair amplification of a hypothetical final Danilov survivor:
+-- Lean checks primitive-rank injectivity, multiplicity transfer, exact finite
+-- witness counts, the 41*n+1 arithmetic kernel, and the derivative no-go.
+-- Carmichael--Yabuta, Sanna, and the 4398-digit certificate remain explicit
+-- paper and computation inputs rather than axioms.
+import IUTThreeClosures.DanilovWSSEscape20260901
+
 -- Deterministic core of the positive affine-shear route: every admissible
 -- pair gives a distinct primitive abc output.  The unresolved analytic
 -- repeated-prime lower bound remains a paper-level open gate, not an axiom.
@@ -441,6 +454,12 @@ import IUTThreeClosures.AffineExcessUpperBound20260831
 -- matching-lower quantifier gate and square-row nonexamples are also checked.
 import IUTThreeClosures.AffineRadicalStep20260901
 
+-- Support-closed gap recovery and the coupled long-arm excess gate for the
+-- minimal affine shear.  The paper proves the uniform squarefree bulk; Lean
+-- checks its exact algebraic and finite-field counting kernels, including the
+-- U=1 boundary counterexample to the weaker reverse characterization.
+import IUTThreeClosures.AffineDensityAttack20260901
+
 -- Exact scalar content of the "perhaps only up to approximation" sentence in
 -- IUT III, Corollary 3.12: arbitrary or vanishing one-sided approximation in
 -- the printed closed ray suffices, while fixed tolerance and an uncalibrated
@@ -454,6 +473,12 @@ import IUTThreeClosures.IUTClosedRayApproximationBridge20260901
 -- suffice after correcting the interface.  This is a specification result,
 -- not an IUT or abc conclusion.
 import IUTThreeClosures.IUTLanaSpecificationNoGo20260901
+
+-- Inhabited valuation-ball repair of the local log-volume interface, additive
+-- transport holonomy, rational-prime local cancellation, and full scalar
+-- counterexamples over real weights.  This is a necessary same-pilot ledger,
+-- not an object-level IUT construction or an abc conclusion.
+import IUTThreeClosures.IUTCorrectedVolumeHolonomy20260901
 
 -- Integrated cloud arithmetic core, v26--v29.  These modules retain the
 -- square/cube and affine-residual reductions from current main, then add the

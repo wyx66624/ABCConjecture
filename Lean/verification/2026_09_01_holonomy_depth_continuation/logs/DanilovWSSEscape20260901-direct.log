@@ -1,0 +1,38 @@
+WORKDIR: E:\AImath\abc猜想\Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.exe env lean IUTThreeClosures/DanilovWSSEscape20260901.lean
+'IUTThreeClosures.DanilovWSSEscape20260901.primitive_index_unique' depends on axioms: [propext]
+'IUTThreeClosures.DanilovWSSEscape20260901.primitive_witness_injective' depends on axioms: [propext]
+'IUTThreeClosures.DanilovWSSEscape20260901.square_dvd_of_factorization_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovWSSEscape20260901.repeatedPrimitiveAtRank_of_multiplicity_transfer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovWSSEscape20260901.card_halfDivisorCode' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovWSSEscape20260901.witnessValues_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovWSSEscape20260901.primitiveWitnessValues_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovWSSEscape20260901.repeatedPrimitiveWitness_amplification' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovWSSEscape20260901.card_allDivisorCode' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovWSSEscape20260901.card_nonexceptionalCodes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovWSSEscape20260901.nonexceptionalPrimitiveWitnessValues_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovWSSEscape20260901.nonexceptionalRepeatedPrimitiveWitness_amplification' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.DanilovWSSEscape20260901.large_split_witness_of_avoids_first_forty' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.DanilovWSSEscape20260901.cyclotomic_square_not_detected_by_derivative_or_discriminant' depends on axioms: [propext]
+EXIT_CODE: 0

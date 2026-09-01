@@ -1,0 +1,417 @@
+\section{Corrected volume holonomy, affine density, and deep-prime escape}
+\label{sec:holonomy-density-depth}
+
+This section records the next continuation of the four active routes.  The
+results are deliberately asymmetric.  On the positive side we construct an
+inhabited valuation-ball model for the local volume law, prove an affine
+squarefree-bulk theorem, and amplify the arithmetic consequences of a
+hypothetical Pell or Danilov survivor.  On the negative side we give complete
+counterexamples to two scalar reconstruction mechanisms.  Neither
+counterexample satisfies the stronger object-level hypotheses of the
+corresponding IUT or arithmetic route.
+
+\subsection{A corrected local volume model and its holonomy ledger}
+
+Fix a rational prime $p$, normalize $|p|_p=p^{-1}$, and for $k\in\Z$ put
+\[
+             B_p(k)=\{x\in\Q_p:|x|_p\leq p^{-k}\}.
+\]
+These compact-open balls avoid the empty-set obstruction in
+Theorem~\ref{thm:gpsp-lana-empty} while retaining the intended scaling law.
+
+\begin{proposition}[Valuation-ball transport]
+\label{prop:hdd-ball-transport}
+For every $k\in\Z$,
+\[
+       (x\mapsto px)^{-1}B_p(k)=B_p(k-1).
+\]
+Moreover, $B_p(k)\subseteq B_p(m)$ if and only if $m\leq k$.  If
+$\operatorname{vol}(B_p(k))=p^{-k}$, then
+\[
+ \log\operatorname{vol}((x\mapsto px)^{-1}B_p(k))
+   =\log\operatorname{vol}(B_p(k))+\log p.
+\]
+The same additive shift survives every normalized finite weighted packet and
+every positive-length procession average.
+\end{proposition}
+
+\begin{proof}
+The first assertion is the chain
+\[
+ |px|_p\leq p^{-k}
+ \iff p^{-1}|x|_p\leq p^{-k}
+ \iff |x|_p\leq p^{-(k-1)}.
+\]
+The inclusion criterion follows because $p^{-k}\leq p^{-m}$ precisely when
+$m\leq k$; necessity may also be tested at $p^k$.  The volume formula is
+$\log p^{-(k-1)}=\log p^{-k}+\log p$.  Finally, a common additive shift
+passes through a weighted sum whose weights total one, and through division
+by a positive finite procession length.
+\end{proof}
+
+Let a logarithmic transport from a pointed object $x$ to a pointed object
+$y$ with coordinate $L$ and shift $\delta$ mean
+\[
+                              L(y)=L(x)+\delta.
+\]
+Composition adds shifts and reversal negates them.
+
+\begin{theorem}[Zero logarithmic holonomy]
+\label{thm:hdd-zero-holonomy}
+Every transport returning to the same pointed object has total shift zero.
+Consequently an uncorrected loop whose edge shifts are nonnegative and whose
+total shift is positive cannot be a same-pilot loop.  A correcting edge in a
+closed loop must contribute the negative of the accumulated shift.
+\end{theorem}
+
+\begin{proof}
+If $y=x$, then $L(x)=L(x)+\delta$, and cancellation gives $\delta=0$.
+The remaining assertions are immediate applications to a sum of edge
+shifts.
+\end{proof}
+
+For rational coefficients the scalar test can be sharpened place by place.
+
+\begin{theorem}[Prime-local rational ledger]
+\label{thm:hdd-prime-ledger}
+Let $p_1,\ldots,p_r$ be distinct rational primes and $c_i\in\Q$.  If
+\[
+                         \sum_{i=1}^r c_i\log p_i=0,
+\]
+then $c_i=0$ for every $i$.  Hence a closed rational-prime logarithmic
+transport must cancel separately at every rational place.
+\end{theorem}
+
+\begin{proof}
+Clear a common denominator and write the resulting coefficients as
+$m_i\in\Z$.  Exponentiation gives $\prod_i p_i^{m_i}=1$.  Moving negative
+powers to the other side produces an equality of positive integers, and
+unique factorization forces every $m_i$ to vanish.
+\end{proof}
+
+The coefficient field and the amount of retained local data are essential.
+Arbitrary real coefficients are dependent, for example
+$(\log3)\log2-(\log2)\log3=0$.  Positivity and normalization do not repair
+the loss of labelled information.
+
+\begin{proposition}[Positive normalized scalar collision]
+\label{prop:hdd-positive-collision}
+There are two different triples of strictly positive real weights, each
+having sum one, whose weighted averages of $\log2,\log3,\log5$ are equal.
+\end{proposition}
+
+\begin{proof}
+Put $a=\log2<b=\log3<c=\log5$ and define
+\[
+ W=\left(\frac{c-b}{2(c-a)},\frac12,
+          \frac{b-a}{2(c-a)}\right),\qquad
+ V=\left(\frac{c-b}{3(c-a)},\frac23,
+          \frac{b-a}{3(c-a)}\right).
+\]
+All six entries are positive, and each row sums to one.  More generally, for
+$n=2,3$,
+\[
+ \frac{c-b}{n(c-a)}a+\left(1-\frac1n\right)b
+       +\frac{b-a}{n(c-a)}c=b,
+\]
+because $(c-b)a+(b-a)c=b(c-a)$.  The middle coordinates $1/2$ and $2/3$
+show that the triples differ.
+\end{proof}
+
+Proposition~\ref{prop:hdd-positive-collision} is a full counterexample to
+recovering labelled weights from one positive normalized scalar.  It does
+not refute a construction which transports the labelled local objects, nor
+the stronger same-pilot map equality discussed after
+Proposition~\ref{prop:gpsp-pointed-hit}.
+
+\subsection{Squarefree bulk and the coupled long-arm affine gate}
+
+Return to the minimal radical-step shear in
+Theorem~\ref{thm:gpsp-radical-shear}.  Thus $a+b=c$ is primitive,
+$R=\rad(abc)$, and
+\[
+ U=1+Rh,\qquad V=1+R(h+ck),\qquad W=1+R(h+bk).
+\]
+
+\begin{proposition}[Support-closed gap recovery]
+\label{prop:hdd-gap-recovery}
+For $h,k>0$,
+\[
+ \gcd(V-U,W-U)=Rk,
+ \qquad
+ (a,b,c)=\frac1{Rk}(V-W,W-U,V-U).
+\]
+Conversely, let $1<U<W<V$, put $g=\gcd(V-U,W-U)$, and divide the
+three consecutive gaps by $g$ to obtain $(a,b,c)$.  If
+$\rad(abc)\mid g$ and $\rad(abc)\mid U-1$, then the triple is exactly a
+minimal positive-parameter radical-step shear with $k=g/R$ and
+$h=(U-1)/R$.
+\end{proposition}
+
+\begin{proof}
+The forward identities follow from
+$(V-W,W-U,V-U)=Rk(a,b,c)$ and $\gcd(b,c)=1$.  Conversely the definition of
+$g$ makes the normalized gaps integral and primitive, while addition of the
+first two gives the third.  The two divisibilities define integral $h,k$;
+the strict inequality $U>1$ gives $h>0$, and substitution recovers the
+three displayed affine forms.  The weaker condition $U\geq1$ is false:
+$(U,W,V)=(1,3,5)$ gives $(a,b,c)=(1,1,2)$ and $R=g=2$, but $h=0$.
+\end{proof}
+
+Write $E(n)=n/\rad(n)$.  The inherited three-quarter exceptional inequality
+in the upper-half canonical box is
+\[
+                         E(U)E(V)E(W)>\frac{Rc^{14}}{8192},
+\]
+while $U\leq c^6$ and $V,W\leq c^7$.  It follows pointwise that
+\begin{equation}\label{eq:hdd-two-long-arms}
+                         8192E(V)>Rc,\qquad8192E(W)>Rc.
+\end{equation}
+Thus both long arms must have large repeated-prime excess.
+
+The same box nevertheless contains a uniformly positive squarefree bulk.
+Put
+\[
+ M=\left\lfloor\frac{c^6}{4R}\right\rfloor,
+ \qquad I_M=\{\lfloor M/2\rfloor+1,\ldots,M\},
+ \qquad N=|I_M|.
+\]
+
+\begin{theorem}[Uniform squarefree-admissible bulk]
+\label{thm:hdd-affine-squarefree-bulk}
+Fix $\theta<5/2$.  For all sufficiently large primitive seeds satisfying
+$R<c^\theta$, at least
+\[
+       \frac12\left(5-\frac{\pi^2}{2}\right)N^2
+\]
+pairs $(h,k)\in I_M^2$ obey $\gcd(U,k)=1$ and have $U,V,W$ all squarefree.
+Every resulting $abc$ output has radical at least its height and is therefore
+nonexceptional for every fixed exponent below one.
+\end{theorem}
+
+\begin{proof}
+For a prime $p\nmid R$, failure of $\gcd(U,k)=1$ prescribes one residue class
+for both $h$ and $k$ modulo $p$, and hence occurs for at most
+$(N/p+1)^2$ pairs.  For a fixed $F\in\{U,V,W\}$, the condition $p^2\mid F$
+prescribes one class of $h$ modulo $p^2$ after $k$ is fixed, and hence occurs
+for at most $N^2/p^2+N$ pairs.  Primes dividing $R$ cause neither event.
+Since $2\mid R$, the union bound and
+\[
+ \sum_{j\geq1}\frac1{(2j+1)^2}=\frac{\pi^2}{8}-1
+\]
+leave at least
+\[
+ \left(5-\frac{\pi^2}{2}\right)N^2
+       -2N(1+\log M)-M-3Nc^{7/2}
+\]
+good pairs.  Here every possible square divisor is covered because
+$U,V,W\leq c^7$.  The hypothesis $R<c^\theta$ gives
+$N\gg c^{6-\theta}$, so the three error terms are smaller than half the
+positive main term when $\theta<5/2$.
+
+For a good pair, pairwise coprimality and avoidance of the seed support give
+$\rad(aUbVcW)=RUVW$.  Also $U\geq c$ for all sufficiently large seeds in
+this range, and therefore $RUVW\geq cW$, the output height.
+\end{proof}
+
+Theorem~\ref{thm:hdd-affine-squarefree-bulk} and
+\eqref{eq:hdd-two-long-arms} point in opposite directions without
+contradiction.  The desired exceptional lower count occupies a vanishing
+fraction of the raw box, so a positive-density generic bulk cannot be
+complemented into that lower bound.  A proof must create simultaneous
+high-excess tails in both long arms or exploit the support-closed reverse
+description in Proposition~\ref{prop:hdd-gap-recovery}.
+
+\subsection{Prime-rank depth and second-order Pell coupling}
+
+Let $u_0=0,u_1=1,u_{n+2}=6u_{n+1}-u_n$ and write
+$(1+\sqrt2)^n=A_n+B_n\sqrt2$.  At an odd prime index $\ell$,
+$u_\ell=A_\ell B_\ell$, and the inherited valuation dictionary identifies
+every odd divisor of either channel with rank $\ell$.
+
+\begin{theorem}[Pointwise channel escape]
+\label{thm:hdd-channel-escape}
+For every odd prime $\ell$, the $A$ channel has either a prime
+$q\parallel A_\ell$ or an odd-exponent divisor $p^{e(p)}\mid A_\ell$ with
+rank $\ell$ and $e(p)\geq3$.  The same holds for the $B$ channel except for
+$B_7=13^2$.  Consequently each channel separately has simple divisors at all
+but finitely many prime indices, or has infinitely many distinct prime-rank
+depth-three primes.  If the global set of depth-three primes is finite, then
+both simple divisors occur simultaneously at every sufficiently large prime
+index.
+\end{theorem}
+
+\begin{proof}
+An integer which is not a perfect power either has an exponent-one prime or
+has an odd prime exponent at least three.  Apply this observation to the
+perfect-power classifications of the two Pell coordinates.  Different prime
+indices give different ranks, hence different primes in the second branch.
+If only finitely many depth-three primes exist, delete their finitely many
+ranks and the exceptional index seven; both channels must then take the
+simple branch at every remaining prime index
+\cite{Cohn1996Pell,Cohn2003Pell,Ljunggren1942}.
+\end{proof}
+
+Factoring the channels and expanding every signed local factor through its
+quadratic term yields a necessary congruence one digit deeper than the
+first-order ledger.  With the notation $K_A,K_B,C_A,C_B$ for the linear and
+quadratic factor coefficients, respectively,
+\begin{equation}\label{eq:hdd-second-order}
+ K_A-2K_B+\ell(K_A^2-2K_B^2)
+       +2\ell(C_A-2C_B)\equiv0\pmod{4\ell^2}.
+\end{equation}
+Quadratic reciprocity also gives the all-pairs identity
+\[
+ \prod_{q\mid A_\ell}\prod_{r\mid B_\ell}
+       \left(\frac qr\right)^{v_q(A_\ell)v_r(B_\ell)}
+       =\left(\frac2\ell\right).
+\]
+These ledgers constrain a full four-prime packet but do not yet force an
+inconsistency.
+
+Applying the repaired Fellini--Murty prime-order argument separately to
+$1+\sqrt2$ and its negative produces an alternative: either infinitely many
+rational balancing primes have depth at least three, or infinitely many
+prime indices have a simple $A$-divisor and infinitely many prime indices
+have a simple $B$-divisor.  The latter two index sets are not asserted to
+intersect; the synchronized conclusion in
+Theorem~\ref{thm:hdd-channel-escape} uses the stronger finite-depth-three
+hypothesis instead~\cite{FelliniMurty2026}.
+
+An exhaustive certificate checks every one of the $50{,}847{,}533$ odd
+primes $q\leq10^9$.  Independent segmented-sieve/Lucas-doubling and
+dense-sieve/quotient-ring implementations agree: the only depth-two primes
+are
+\[
+                         13,\quad31,\quad1546463,
+\]
+and each has exact depth two; no depth-three prime occurs.  Arbitrary-precision
+replay verifies the three residues modulo $q^3$.  Thus each depth-three prime
+required by an actual opposite-channel packet exceeds $10^9$.  This is a
+finite lower bound, not a nonexistence result.
+
+\subsection{Divisor-pair amplification on the Danilov survivor}
+
+Let $F_n$ be the Fibonacci sequence.  The Danilov factorization has the
+form
+\[
+                    K_t=\frac{27}{25}F_NF_{N-5},
+              \qquad N=10(3t+1),
+\]
+with $\gcd(F_N,F_{N-5})=5$.  The final recursive certificate supplies a
+squarefree, $638$-prime, $4398$-digit modulus $Q_*$, coprime to $30$, such
+that $Q_*\mid3t+1$ throughout the surviving progression.
+
+\begin{theorem}[Wall--Sun--Sun divisor-pair amplification]
+\label{thm:hdd-wss-amplification}
+Let $Q>1$ be squarefree and coprime to $10$, let $R$ be a positive multiple
+of $Q$, and put $N=10R$.
+If $(27/25)F_NF_{N-5}$ is squarefull and $Q$ has $s$ distinct prime factors,
+then there are at least $2^{s-1}$ distinct Wall--Sun--Sun primes.  They may
+be indexed by the divisors $d\mid Q$ satisfying $d<Q/d$, and the indexed
+prime $p_d$ obeys
+\[
+                z(p_d)=N/d,\qquad p_d\equiv1\pmod{N/d},
+                \qquad p_d>N/\sqrt Q.
+\]
+For the final Danilov progression this supplies a distinguished subfamily of
+at least $2^{637}$ such primes, each exceeding $10^{2199}$.
+\end{theorem}
+
+\begin{proof}
+The involution $d\mapsto Q/d$ pairs the $2^s$ divisors of nonsquare $Q$, so
+exactly $2^{s-1}$ satisfy $d<Q/d$.  Put $m_d=N/d$.  Carmichael--Yabuta gives
+a primitive divisor $p_d$ of $F_{m_d}$~\cite{Yabuta2001}.  Since
+$10\mid m_d$, its rank is
+$m_d$ and the split-rank congruence gives $p_d\equiv1\pmod{m_d}$.  The
+inequality $d<\sqrt Q$ implies $m_d>d$, whence $p_d$ divides neither $m_d$
+nor $d$ and therefore does not divide $N=m_dd$.
+
+Now $p_d\mid F_N$ and, because $p_d>5$, it does not divide $F_{N-5}$ or the
+rational prefactor.  Squarefullness forces $v_{p_d}(F_N)\geq2$.  The exact
+Lucas valuation formula and $p_d\nmid N$ transfer this valuation to
+$F_{m_d}$, making $p_d$ a Wall--Sun--Sun prime~\cite{Sanna2016}.  Equality of two selected
+primes would force equality of their ranks and hence equality of the
+corresponding divisors, so they are distinct.  Finally
+$p_d\geq N/d+1>N/\sqrt Q$.
+
+For $Q_*$ take $s=638$.  Since $Q_*$ has $4398$ decimal digits and
+$R\geq Q_*$, the size bound gives
+$p_d>10\sqrt{Q_*}>10^{2199}$.
+\end{proof}
+
+The certified upper bound for the prime factors of $Q_*$ permits almost all
+divisors, rather than only one representative from each complementary pair.
+
+\begin{theorem}[Factor-bound amplification]
+\label{thm:hdd-wss-factor-bound}
+Under the hypotheses of
+Theorem~\ref{thm:hdd-wss-amplification}, suppose every prime factor of $Q$
+is at most $B$, and put
+\[
+ E_B(Q)=\#\{e:e\mid Q,\ 10e\leq B\}.
+\]
+Then squarefullness forces at least $2^s-E_B(Q)$ distinct Wall--Sun--Sun
+primes.  At the verified endpoint $B=99{,}966{,}059$ and exact truncated
+subset-product enumeration gives $E_B(Q_*)=622$.  Thus a survivor forces at
+least $2^{638}-622$ distinct Wall--Sun--Sun primes.  At least one forced
+prime is at least $41N+1>10^{4399}$.
+\end{theorem}
+
+\begin{proof}
+Write $R=kQ$.  For every divisor $e\mid Q$ with $10e>B$, put
+$d=Q/e$ and $m_e=N/d=10ke$.  A primitive divisor $p_e$ of $F_{m_e}$ is
+congruent to one modulo $m_e$, so $p_e>m_e>B$.  It divides neither $Q$ nor
+$m_e$, and hence does not divide $N=m_ed$.  The squarefullness and valuation
+transfer argument from Theorem~\ref{thm:hdd-wss-amplification} makes it a
+Wall--Sun--Sun prime.  Different $e$ give different ranks and hence different
+primes.  Exactly $E_B(Q)$ of the $2^s$ divisors were omitted.
+
+For $Q_*$ the certified factor list has maximum $B=99{,}966{,}059$; exact
+enumeration below $B/10$ returns $622$ divisors.  The final large-prime claim
+uses Hong's primitive-divisor theorem with $\kappa=40$: since
+$\log N>10036$, it supplies a primitive divisor of $F_N$ outside
+$jN\mathbin\pm1$ for $1\leq j\leq40$.  The split congruence leaves the plus
+sign and coefficient at least $41$, and squarefullness transfers repeatedness
+as before~\cite{Hong2025}.
+\end{proof}
+
+No known theorem excludes $2^{638}-622$ Wall--Sun--Sun primes at these sizes,
+so Theorems~\ref{thm:hdd-wss-amplification} and
+\ref{thm:hdd-wss-factor-bound} are strong, explicitly quantified conditional
+obstructions,
+not a contradiction.  The cyclotomic-derivative shortcut also fails: the
+complete example
+\[
+ \Phi_{10}(-3)=121=11^2,\qquad \Phi_{10}'(-3)=-142,
+ \qquad \gcd(121,142)=1
+\]
+shows that a squared value need not come from a multiple root.  Hensel
+uniqueness does not prevent a fixed algebraic unit from landing on the unique
+lift.  This counterexample closes only that derivative mechanism; the
+Fibonacci and Danilov routes remain active.
+
+\subsection{Formal and logical boundary}
+
+The elementary parts of Propositions~\ref{prop:hdd-ball-transport} and
+\ref{prop:hdd-positive-collision}, Theorems~\ref{thm:hdd-zero-holonomy} and
+\ref{thm:hdd-prime-ledger}, the affine gap and excess identities, the Pell
+second-order ledger, and the abstract Danilov divisor-pair transfer have
+independent Lean implementations.  Across the four companion modules these
+comprise $65$ theorem or lemma declarations, $18$ definitions, four
+abbreviations, and five structures, for $92$ declarations; $58$ embedded
+\texttt{\#print axioms} queries report only \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}.  The squarefree-bulk
+estimate, the perfect-power classifications and Fellini--Murty argument, the
+primitive-divisor and valuation theorems, Hong's theorem, and the large finite
+certificates remain explicit paper, literature, or computation inputs and are
+not introduced as Lean axioms.  The computation packages freeze source,
+output, byte count, and SHA-256 manifests.
+
+At this stage the four live endpoints are: construct an object-level
+same-pilot transport satisfying the prime-local zero-holonomy ledger; produce
+or exclude the simultaneous affine high-excess tails; rule out or construct
+opposite-channel prime-rank depth-three Pell packets; and exclude or realize
+the enormous Wall--Sun--Sun population forced by a Danilov survivor.  None is
+closed by difficulty or by a finite no-hit, and no unconditional term of type
+\texttt{ABCConjecture} or its negation is claimed.

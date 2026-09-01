@@ -1,0 +1,32 @@
+WORKDIR: E:\AImath\abc猜想\research\computation\2026_09_01_affine_density_attack
+COMMAND: D:\anaconda3\python.exe E:\AImath\abc猜想\research\computation\2026_09_01_affine_density_attack\verify_square_conic.py
+bound=500
+seed_count=20
+parameter_domain=-BOUND<=p<=BOUND, 1<=q<=BOUND, gcd(|p|,q)=1
+seed=(1,4374,4375) R=210 rows=753 exceptions=0
+seed=(1,2400,2401) R=210 rows=715 exceptions=0
+seed=(3,125,128) R=30 rows=2873 exceptions=0
+seed=(625,2048,2673) R=330 rows=0 exceptions=0
+seed=(289,6272,6561) R=714 rows=64 exceptions=0
+seed=(1,5831,5832) R=714 rows=66 exceptions=0
+seed=(1,512,513) R=114 rows=303 exceptions=0
+seed=(1,242,243) R=66 rows=1282 exceptions=0
+seed=(5,1024,1029) R=210 rows=836 exceptions=0
+seed=(1,80,81) R=30 rows=10784 exceptions=0
+seed=(10,2187,2197) R=390 rows=44 exceptions=0
+seed=(13,243,256) R=78 rows=1348 exceptions=0
+seed=(125,2187,2312) R=510 rows=2 exceptions=0
+seed=(81,1250,1331) R=330 rows=311 exceptions=0
+seed=(1,6560,6561) R=1230 rows=38 exceptions=0
+seed=(1,6859,6860) R=1330 rows=23 exceptions=0
+seed=(1,8,9) R=6 rows=28496 exceptions=0
+seed=(1,288,289) R=102 rows=789 exceptions=0
+seed=(11,3125,3136) R=770 rows=47 exceptions=0
+seed=(49,576,625) R=210 rows=897 exceptions=0
+total_rows=49671
+total_exceptions=0
+best_H3_over_rad4=105193802498409/6012619931833708677136
+best_row=seed=(1,8,9) R=6 p=-8 q=127 xyz=(71,1961,1849) h=840 k=71120 rad=35921598 H=30769209
+scope=finite_no_hit_only
+captured_output_match=true
+EXIT_CODE: 0

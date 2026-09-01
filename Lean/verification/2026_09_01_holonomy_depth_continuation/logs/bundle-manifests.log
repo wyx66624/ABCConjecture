@@ -1,0 +1,101 @@
+[
+  {
+    "name": "affine_density_attack",
+    "checksumManifest": {
+      "path": "research/computation/2026_09_01_affine_density_attack/SHA256SUMS",
+      "entries": 4,
+      "sha256": "9b7a26382f68f3d44719bcf8cdcdd297e5b2d5dabff7c1b19de011f9fef26cfe"
+    },
+    "replays": [
+      {
+        "name": "affine-square-conic-replay",
+        "exitCode": 0,
+        "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/affine-square-conic-replay.log",
+        "logSha256": "6f8c1f2d366c62e412ceb2cfb4bdbfa7baf05c2938d5f1a7f2dca977aba27abe"
+      }
+    ],
+    "recordedEvidence": {
+      "seeds": 20,
+      "admissibleRows": 49671,
+      "exceptions": 0,
+      "scope": "finite_no_hit_only"
+    }
+  },
+  {
+    "name": "pell_four_prime_coupling",
+    "checksumManifest": {
+      "path": "research/computation/2026_09_01_pell_four_prime_coupling/SHA256SUMS",
+      "entries": 20,
+      "sha256": "8292ebe7eef4cf8c4033a1e2e8f8db5eab6f0d01f29b0a7534eb94882b27d087"
+    },
+    "replays": [
+      {
+        "name": "pell-manifest-replay",
+        "exitCode": 0,
+        "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/pell-manifest-replay.log",
+        "logSha256": "abab9eda883c99625d88ee24c6cd10301ab85ce05e96dcdf18239bd6c16434f7"
+      },
+      {
+        "name": "pell-bigint-hit-replay",
+        "exitCode": 0,
+        "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/pell-bigint-hit-replay.log",
+        "logSha256": "16cf03d96cfdc5f21e28bd24a45364da7e28b03eec3e83ab2f3fe22959a39810"
+      },
+      {
+        "name": "pell-coupling-replay",
+        "exitCode": 0,
+        "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/pell-coupling-replay.log",
+        "logSha256": "1aad9c8fce3a37b55ab2914747c69afe0009e3abd548623c79a3837fd71f2adb"
+      }
+    ],
+    "fullScanRerun": false,
+    "recordedEvidence": {
+      "limit": 1000000000,
+      "oddPrimesTested": 50847533,
+      "exactDepthTwoPrimes": [
+        13,
+        31,
+        1546463
+      ],
+      "valuationAtLeastThreeHits": 0,
+      "couplingRows": 13
+    }
+  },
+  {
+    "name": "danilov_wss_escape",
+    "jsonManifest": {
+      "path": "research/computation/2026_09_01_danilov_wss_escape/FILE_MANIFEST.json",
+      "entries": 10,
+      "sha256": "0b69c049253ed35949121332c738705cdf48a25f92d20e59e49914db0d373598"
+    },
+    "checksumManifest": {
+      "path": "research/computation/2026_09_01_danilov_wss_escape/SHA256SUMS",
+      "entries": 11,
+      "sha256": "f5c9320ac6c5f3d11917781ea0c318039fa3921af41e8fd183bfa7aa9bb2387e"
+    },
+    "replays": [
+      {
+        "name": "danilov-manifest-replay",
+        "exitCode": 0,
+        "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/danilov-manifest-replay.log",
+        "logSha256": "e7cc28a1dea4331cd75b2f1e48b80f3a0088795204bf33858ce9ad25a296f651"
+      },
+      {
+        "name": "danilov-wss-claims-replay",
+        "exitCode": 0,
+        "log": "Lean/verification/2026_09_01_holonomy_depth_continuation/logs/danilov-wss-claims-replay.log",
+        "logSha256": "8cbe67f3d1342c598f610e452533542b9b48eb1915565ae4bd17fba0dc533e82"
+      }
+    ],
+    "recordedEvidence": {
+      "upstreamInputsVerified": 8,
+      "qDigits": 4398,
+      "qDistinctPrimeFactors": 638,
+      "factorBoundLowerExpression": "2^638-622",
+      "excludedSmallDivisors": 622,
+      "boundedActualTopIndices": 121,
+      "boundedRuledOut": 105,
+      "boundedUnresolvedNotCounterexamples": 16
+    }
+  }
+]

@@ -1,0 +1,39 @@
+WORKDIR: E:\AImath\abc猜想\Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.exe env lean IUTThreeClosures/AffineDensityAttack20260901.lean
+'IUTThreeClosures.AffineDensityAttack20260901.SupportModulus.gap_gcd_eq_Q_mul_k' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineDensityAttack20260901.SupportModulus.consecutive_gap_gcd_eq_Q_mul_k' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineDensityAttack20260901.SupportModulus.recover_seed_from_gaps' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineDensityAttack20260901.first_parameter_pos_of_strict_U' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.AffineDensityAttack20260901.second_parameter_pos_of_positive_gap' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineDensityAttack20260901.weak_reverse_first_boundary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDensityAttack20260901.affineCoordinateEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDensityAttack20260901.zmod_affine_zero_fiber_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDensityAttack20260901.abcRadical_eq_self_of_squarefree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDensityAttack20260901.abcPowerfulPart_eq_one_of_squarefree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDensityAttack20260901.squarefree_triple_not_above_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDensityAttack20260901.longV_excess_of_product_threshold' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDensityAttack20260901.longW_excess_of_product_threshold' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineDensityAttack20260901.affine_two_long_arms' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

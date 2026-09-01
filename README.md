@@ -7,6 +7,66 @@ Arakelov--Vojta、Frey--Szpiro、S-unit 与算术微分等路线中的真实组�
 严格反例及剩余核心缺口均在
 [`Lean/RESEARCH_STATUS.md`](Lean/RESEARCH_STATUS.md) 中逐项区分。
 
+## 2026-09-01 最新四路线续研：holonomy、仿射密度与深素数逃逸
+
+标准、无条件的 `ABCConjecture` 仍未被证明或证伪。本检查点继续同时进行
+正向证明与反例搜索；不会因为路线困难或有限搜索没有命中而将其关闭，反例
+也只淘汰其满足全部假设的精确命题。统一结论、证明边界与下一步门槛见
+[`四路线综合报告`](research/ABC_MULTI_ROUTE_HOLONOMY_DEPTH_CONTINUATION_2026_09_01.md)。
+
+- **修正后的 IUT/LANA log-volume 路线。** 在非空、有限正 Haar 体积的
+  p-adic valuation balls 上，乘以素数的逆像使 log-volume 精确增加
+  `log p`；有限归一化 packet 与 procession 保留该位移，而对象级闭合运输
+  必须具有零 holonomy。不同有理素数的对数对有理系数线性无关，因此有理
+  位移账本逐素数抵消。另一方面，报告给出了 `log 2,log 3,log 5` 上两个
+  不同、严格正且归一化的权重三元组，它们具有同一标量平均。这一完整反例
+  关闭“一个标量可重构带标签权重”的命题；未修正的正位移闭环也被排除。
+  它们都不否定保留局部标签与真实修正项的 object-level same-pilot 路线。
+  见 [`修正体积与 holonomy 报告`](research/ABC_IUT_CORRECTED_VOLUME_HOLONOMY_2026_09_01.md)。
+- **最小步长仿射路线。** cofactor gaps 可精确恢复 seed；其逆刻画必须使用
+  严格边界 `1<U<W<V`。三元组 `(U,W,V)=(1,3,5)` 满足把边界放宽为
+  `1≤U` 后的全部整除与互素假设，却给出 `h=0`，因而是该弱表述的完整
+  反例。每个目标异常点都迫使两个 long arms 同时满足
+  `8192 E(V)>Rc` 与 `8192 E(W)>Rc`；同时，对每个固定 `theta<5/2`，
+  `R<c^theta` 时存在正比例的 admissible 参数使 `U,V,W` 全部 squarefree。
+  该 generic bulk 可与稀薄异常集并存，不能反驳仍开放的 matching lower
+  bound。见 [`仿射密度报告`](research/ABC_AFFINE_DENSITY_ATTACK_2026_09_01.md)。
+- **balancing-Pell 四素数耦合路线。** 每个通道得到 pointwise
+  simple-or-odd-depth-three 二择一，并建立模 `4 ell^2` 的二阶耦合与互反
+  约束；两个分别无限的 simple-index 集合不能据此推出交集无限。两套独立
+  穷举实现检查了全部 `50,847,533` 个奇素数 `q≤10^9`，只发现
+  `13,31,1546463` 三个精确 depth-two 命中，未发现 depth three。因此任何
+  所需 depth-three rational balancing prime 必须大于 `10^9`；这只是严格
+  有限下界，不是不存在性证明，四素数包路线继续开放。见
+  [`Pell 四素数耦合报告`](research/ABC_PELL_FOUR_PRIME_COUPLING_2026_09_01.md)与
+  [`可复算证据`](research/computation/2026_09_01_pell_four_prime_coupling/)。
+- **Danilov/Fibonacci 深素数路线。** 若最终 4398 位、638 素因子的递归
+  progression 中存在 squarefull survivor，则因子界放大定理强迫至少
+  `2^638-622` 个不同的 Wall--Sun--Sun 素数；其中一个 `2^637` 元子族的
+  每个素数都大于 `10^2199`，另至少一个大于 `10^4399`。这是从 survivor
+  假设出发的无条件蕴含，但现有理论没有给出 WSS 素数总数上界，所以尚未
+  形成矛盾。`Phi_10(-3)=11^2` 且导数、判别式模 11 非零，完整否定的只是
+  “simple root/非零判别式自动排除平方整除”的捷径。Danilov 路线仍 active。
+  见 [`WSS escape 报告`](research/ABC_DANILOV_WSS_ESCAPE_2026_09_01.md)与
+  [`可复算证据`](research/computation/2026_09_01_danilov_wss_escape/)。
+
+上述数学证明完成后，才加入四个对应 Lean 核心模块：
+[`IUTCorrectedVolumeHolonomy20260901`](Lean/IUTThreeClosures/IUTCorrectedVolumeHolonomy20260901.lean)、
+[`AffineDensityAttack20260901`](Lean/IUTThreeClosures/AffineDensityAttack20260901.lean)、
+[`PellFourPrimeCoupling20260901`](Lean/IUTThreeClosures/PellFourPrimeCoupling20260901.lean) 与
+[`DanilovWSSEscape20260901`](Lean/IUTThreeClosures/DanilovWSSEscape20260901.lean)。
+它们形式化各报告中已证明的初等核心，不把高层文献输入或 abc 本身声明为
+Lean 公理。当前仍没有无条件的 `ABCConjecture` 闭项或其严格否定项。
+
+本检查点的[永久验证包](Lean/verification/2026_09_01_holonomy_depth_continuation/README.md)
+记录了四个模块的零警告直接编译、`9198`-job 聚合构建、`92` 个声明、
+`58` 次 `#print axioms`、三套计算证据与三套来源账本的重放结果。英文期刊稿
+由 ChatGPT 署名，共 124 页；[最终 PDF](output/pdf/ChatGPT_ABC_Holonomy_Depth_Continuation_2026_09_01.pdf)
+的 SHA-256 为
+`02c415a2f49575117dc5ae86f43c810a63c3cc6e201b1e82def151d93d934df9`，
+[PDF QA](output/pdf/ChatGPT_ABC_Holonomy_Depth_Continuation_2026_09_01_QA/QA.md)
+覆盖全部页面及新章节高分辨率抽检。
+
 ## 2026-09-01 最新五路线续研：全局包、递归提升与同一 pilot 规格审计
 
 标准、无条件的 `ABCConjecture` 仍未被证明或证伪。以下成果同时推进正向

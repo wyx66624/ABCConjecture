@@ -79,6 +79,12 @@ J. H. E. Cohn, *The Diophantine equation x^n=Dy^2+1*, Acta Arithmetica
 
 * Official article page:
   <https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/106/1/81995/the-diophantine-equation-x-n-dy-2-1>.
+* Official IMPAN PDF download:
+  <https://www.impan.pl/shop/en/publication/transaction/download/product/81995>.
+* Repository file:
+  `research/sources/pell_packet_global_attack_2026_09_01/Cohn_2003_Diophantine_xn_Dy2_plus_1.pdf`.
+* Bytes and SHA-256: `140958`,
+  `2c1f60eef15e6b7efef8b1358cc8abb4535042bb97135393a71a04ca88fb51f7`.
 * Exact inherited use: Section 6, Theorem 6.1 says that the associated Pell
   recurrence `Q_0=Q_1=1`, `Q_(n+2)=2Q_(n+1)+Q_n` has only the
   perfect-power value `1`.  This is the `A_n` sequence in the report.

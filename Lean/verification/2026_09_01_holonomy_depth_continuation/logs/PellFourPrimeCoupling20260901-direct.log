@@ -1,0 +1,34 @@
+WORKDIR: E:\AImath\abc猜想\Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.exe env lean IUTThreeClosures/PellFourPrimeCoupling20260901.lean
+IUTThreeClosures.PellFourPrimeCoupling20260901.pellChannelQuotient_exact (ell A B s a b : ℤ) (hell : ell ≠ 0)
+  (hA : A = 1 + 2 * ell * a) (hB : s * B = 1 + 2 * ell * b) (hs : s ^ 2 = 1) (hPell : A ^ 2 - 2 * B ^ 2 = -1) :
+  a - 2 * b + ell * (a ^ 2 - 2 * b ^ 2) = 0
+IUTThreeClosures.PellFourPrimeCoupling20260901.pairCoefficient : List ℤ → ℤ
+IUTThreeClosures.PellFourPrimeCoupling20260901.product_one_add_secondOrder (x : ℤ) (ts : List ℤ) :
+  (List.map (fun t => 1 + x * t) ts).prod ≡ 1 + x * ts.sum + x ^ 2 * pairCoefficient ts [ZMOD x ^ 3]
+IUTThreeClosures.PellFourPrimeCoupling20260901.quotient_secondOrder_of_product (x a : ℤ) (ts : List ℤ) (hx : x ≠ 0)
+  (hprod : 1 + x * a = (List.map (fun t => 1 + x * t) ts).prod) : a ≡ ts.sum + x * pairCoefficient ts [ZMOD x ^ 2]
+IUTThreeClosures.PellFourPrimeCoupling20260901.secondOrderCoupling_of_channelCongruences (ell a b KA KB CA CB : ℤ)
+  (ha : a ≡ KA + 2 * ell * CA [ZMOD 4 * ell ^ 2]) (hb : b ≡ KB + 2 * ell * CB [ZMOD 4 * ell ^ 2])
+  (hExact : a - 2 * b + ell * (a ^ 2 - 2 * b ^ 2) = 0) :
+  KA - 2 * KB + ell * (KA ^ 2 - 2 * KB ^ 2) + 2 * ell * (CA - 2 * CB) ≡ 0 [ZMOD 4 * ell ^ 2]
+IUTThreeClosures.PellFourPrimeCoupling20260901.indexSeven_exactQuotientCertificate :
+  17 - 2 * 12 + 7 * (17 ^ 2 - 2 * 12 ^ 2) = 0
+IUTThreeClosures.PellFourPrimeCoupling20260901.indexSeven_secondOrderCertificate :
+  17 - 2 * -2 + 7 * (17 ^ 2 - 2 * (-2) ^ 2) + 2 * 7 * (0 - 2 * 1) ≡ 0 [ZMOD 4 * 7 ^ 2]
+'IUTThreeClosures.PellFourPrimeCoupling20260901.pellChannelQuotient_exact' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellFourPrimeCoupling20260901.product_one_add_secondOrder' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellFourPrimeCoupling20260901.quotient_secondOrder_of_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellFourPrimeCoupling20260901.secondOrderCoupling_of_channelCongruences' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellFourPrimeCoupling20260901.indexSeven_exactQuotientCertificate' depends on axioms: [propext]
+'IUTThreeClosures.PellFourPrimeCoupling20260901.indexSeven_secondOrderCertificate' depends on axioms: [propext,
+ Quot.sound]
+EXIT_CODE: 0
