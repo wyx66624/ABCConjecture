@@ -10,6 +10,82 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
+## September 1, 2026 source-realization, balanced-multiplier, catalogue-overlap, and all-order Lucas checkpoint
+
+The standard unconditional `ABCConjecture` remains unproved and
+undisproved.  Positive proof construction and full-premise counterexample
+search continue in parallel.  A difficult estimate, an unavailable
+formalization, or a finite search with no hit does not retire a route.  A
+counterexample retires only the exact statement whose complete hypotheses it
+satisfies; all corrected parent routes below remain active.
+
+- **IUT rational degree-one source realization.**  The genuine rational
+  tripod `P^1_Q - {0,1,infinity}` is identified arithmetically with minimal
+  field `Q` and exact degree one.  Its canonical height lies in the standard
+  Weil-height bounded-discrepancy class, its different is exactly zero, and
+  its standard-model conductor equals the truncated conductor pointwise;
+  other permitted models differ boundedly.  In the abstract interface the
+  source-faithful restricted form of Statement I is proved equivalent to
+  integer `ABCConjecture`, while full Statement I together with an explicit
+  source-faithful realization implies abc.  This identifies the remaining
+  source theorem and formal instantiation rather than proving them.  Full-premise abstract
+  countermodels show separately that the bare generic interface does not
+  manufacture degree membership, the required two-sided height comparison,
+  zero different, or the conductor comparison.  They refute only those
+  weakened extraction claims and do not refute IUT or this route.
+- **Mersenne balanced multiplier-depth localization.**  With
+  `L = log log (3m)`, the cutoff
+  `F = log(3m) * L^(1+eta)` and
+  `H = floor(sqrt(log(3m)/L^(1+eta)))` combines Yamada's pointwise valuation
+  bound, LTE, and the triangular energy of distinct exact-order multipliers.
+  For every fixed `eta>0`, the low-multiplier deep mass is `o(m)`; endpoint
+  failure is therefore localized into a high-multiplier deep arm or the
+  balanced near-square-root arm.  Relative to the preceding `L^2` cutoff the
+  denominator is strictly sharper only for `0<eta<1`, equal at `eta=1`, and
+  weaker but still valid for `eta>1`.  The prime `3511`, with
+  `ord_3511(2)=1755` and depth two, is a full-premise counterexample only to
+  the proposed strengthening that every repeated exact-order multiplier is
+  at least three.  The multiplier-depth route remains active.
+- **Affine catalogue weight and overlap.**  The actual divisor catalogue has
+  exact mass
+  `sum phi(e_U)phi(e_V)phi(e_W) = d_U*d_V*d_W`, giving the finite tail bound
+  `D <= L_T + T*tau(d_U)*tau(d_V)*tau(d_W)`.  Catalogue overlap can only
+  increase the cubic energy, and the exact shifted incidence identity gives
+  `(I-W)^3 <= W^2 * sum_i w_i*(n_i-1)^3`.  The complete packet
+  `(d_U,d_V,d_W,T)=(9,25,1,5)` has large weight `218 < 220`; it refutes only
+  the false strengthening `L_T >= D-T`.  Signed ray caps, arm directions, and
+  control of singleton novelty remain open and active.
+- **Pell/Lucas all-order staircase.**  For `u_n=B_(2n)/2=A_n*B_n` and
+  `v_n=2*A_(2n)`, the exact identity `v_n^2-32*u_n^2=4` and the all-order
+  expansion produce tails `D_r=U^(2r)E_r` with `gcd(E_r,U)=1`; hence
+  `v_p(D_r)=2r*v_p(U)` at every support prime.  The companion congruence
+  `ell*S = 3*v_ell*W (mod U^2)` distinguishes the two channel squares and
+  recovers the square-root-of-one idempotent.  The explicit full-premise
+  local example at `n=3`, multiplier `2451`, and residue `2 mod 5` refutes
+  only a fixed-zero rigidity claim.  No counterexample to the paired or
+  all-order route, and no squarefull packet counterexample, has been found;
+  bounded no-hit evidence does not retire the route.
+
+The four companion modules contain 67 theorem declarations, 18 definitions,
+and one structure, for 86 counted declarations.  Their direct warning-as-error
+compilations and the 9229-job aggregate build pass with only the standard axiom
+union `Classical.choice`, `Quot.sound`, and `propext`.  The Pell/Lucas replay
+checks all five local rows and sample indices `3, 5, 7, 11`.  None of these
+modules constructs an unconditional term of `ABCConjecture` or its negation.
+
+The permanent replay package is
+`verification/2026_09_01_source_multiplier_catalogue_lucas/`.  It freezes the
+four Lean modules, mathematical ledgers, source audits, computations, paper
+fragments, integrated manuscript, and delivery PDF; it hard-checks the exact
+per-module declaration inventory, all five residues modulo five in the
+Pell/Lucas replay, the one-for-one axiom reports, and the 9229-job aggregate
+build.  The integrated English manuscript by ChatGPT is the 182-page A4
+artifact `../output/pdf/ChatGPT_ABC_Uniformity_2026.pdf`, with SHA-256
+`94168cdd83388ff58cf03008c120204debb21755b4be4f72c8914656456a1d15`.
+The adjacent `_QA` directory records final-log, all-page rendering, ten
+contact-sheet, and 18 selected high-resolution visual checks.  This replay and
+QA record close no remaining abc gate.
+
 ## September 1, 2026 period, rational-shadow, multiplier-index, and odd-kernel checkpoint
 
 The standard unconditional `ABCConjecture` remains unproved and

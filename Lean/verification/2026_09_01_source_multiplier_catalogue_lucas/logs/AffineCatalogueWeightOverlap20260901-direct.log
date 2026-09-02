@@ -1,0 +1,45 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true IUTThreeClosures/AffineCatalogueWeightOverlap20260901.lean
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.divisorTripleCatalogueWeight_eq_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.small_add_large_eq_catalogue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.smallDivisorTripleWeight_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.product_le_largeWeight_add_threshold_mul_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.margin_le_largeDivisorTripleWeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.topLabelWeight_le_largeDivisorTripleWeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.sum_cube_le_cube_sum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.monotone_overlap_cubicEnergy_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.weightedIncidence_cube_le_weight_sq_mul_cubicEnergy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.weightedShiftedIncidence_cube_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.weightedIncidence_eq_catalogue_add_shifted' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.weightedIncidence_sub_catalogue_cube_le_shiftedEnergy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.weightedShiftedIncidence_cube_le_of_caps' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.powerful_pairwiseCatalogue_tail_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

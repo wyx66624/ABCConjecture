@@ -1,0 +1,4 @@
+WORKDIR: research/computation/2026_09_01_pell_lucas_all_order
+COMMAND: D:\anaconda3\python.exe -B verify_lucas_all_order_packet.py
+{"local_method": "binary powering in Z[T]/(T^2-6T+1)", "local_rows": 5, "sample_indices": [3, 5, 7, 11], "sample_method": "binary Binet and Pell powering", "verification": "PASS"}
+EXIT_CODE: 0

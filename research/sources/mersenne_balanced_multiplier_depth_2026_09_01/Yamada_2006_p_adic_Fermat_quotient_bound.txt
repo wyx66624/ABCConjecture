@@ -1,0 +1,483 @@
+arXiv:math/0607072v3  [math.NT]  31 Jul 2007
+A note on the paper by Bugeaud and Laurent
+”Minoration eﬀective de la distance p-adique
+entre puissances de nombres alg´ ebriques”∗† ‡
+Tomohiro Yamada§ ¶
+October 30, 2018
+Abstract
+We shall make a slight improvement to a result of p-adic logarithms,
+which gives a nontrivial upper bound for the exponent of p dividing the
+Fermat quotient xp−1 − 1.
+1 Introduction
+In 1939, Gel’fond[3] established a result concerning upper bounds f or p-adic
+distance between two integral powers. This result has been reﬁne d by several
+papers such as Schinzel[8], Yu[11, 12, 13, 14, 15], Bugeaud[2], and Bu geaud and
+Laurent[1]. Our purpose is to improve a result in the last paper by not ing that
+constants γj(j = 1, 2) in [1, Th´ eor` eme 1] can be replaced by 1, which allows us
+to omit the condition log Ai ≥ (log p)/D in [1] by modifying some constants.
+Theorem 1.1. Denote a (p − 1)-th root of unity in Zp by ζ. Let p be a prime
+and α 1, α 2 be integers not divisible by p. Let mi be integers satisfying α i ≡ ζmi
+(mod p) for i = 1 , 2 and g be an integer satisfying α g
+1 ≡ α g
+2 ≡ 1 (mod p). Let
+K ≥ 3, L ≥ 2, R1, R 2, S 1, S 2 be nonnegative integers. Put R = R1 + R2 − 1, S =
+S1 + S2 − 1, N = KL. Let b1, b 2 be positive integers with (b1, b 2, p ) = 1 and
+denote
+b = (R − 1)b2 + (S − 1)b1
+2 (
+K− 1∏
+k=1
+k!)− 2/(K 2− K).
+Suppose there exist congruence classes c1, c 2 modulo g such that
+#{α r
+1α s
+2 |0 ≤ r < R 1, 0 ≤ s < S 1, m 1r + m2s ≡ c1 (mod g)}
+≥ L, (1)
+∗Keywords: p-adic logarithm, Fermat quotient.
+†2000 Mathematics Subject Classiﬁcation: 11A05, 11A07, 11J 86.
+‡This paper is a revised version of my master thesis[10].
+§Department of Mathematics, Kyoto University, Kyoto, 606-8 502, Japan
+¶e-mail: tyamada@math.kyoto-u.ac.jp
+1
+
+1 INTRODUCTION 2
+#{b2r + b1s |0 ≤ r < R 2, 0 ≤ s < S 2, m 1r + m2s ≡ c2 (mod g)}
+≥ (K − 1)L. (2)
+If we have
+K(L − 1) log p > 3 log N + (K − 1) log b + L((R − 1) log α 1 + (S − 1) log α 2), (3)
+then
+vp(Λ) ≤ KL − 1. (4)
+A special case to which we can apply our version of Bugeaud-Lauren t the-
+orem is a problem of Fermat quotient. By a well-known theorem of Fer mat,
+xp− 1 ≡ 1 mod p for any prime p and integer x relatively prime to p. However,
+it is unknown whether there exist inﬁnitely many prime p such that xp− 1 ≡ 1
+mod p2. It seems to be intersting and important to search for a nontrivial upper
+bound for the exponent of p dividing xp− 1 − 1. This is equivalent to give a non-
+trivial estimate for the p-adic logarithm log p xp− 1. But already known results
+for linear forms in p-adic logarithms do not give it. As for results of Bugeaud
+and Laurent[1], the condition log Ai ≥ (log p)/D renders the estimate trivial.
+But now we can overcome this obstacle using Theorem 1.1. Our result is as
+follows.
+Theorem 1.2. If p is a prime and x, y are relatively prime integers, then
+vp(xp− 1 − 1) ≤
+⌊
+283(p − 1) log y
+log p
+log xy
+log p
+⌋
++ 4. (5)
+If q is odd prime, then we have
+vp(qp− 1 − 1) ≤
+⌊
+283(p − 1) log 2
+log p
+log 2q
+log p
+⌋
++ 4. (6)
+Moreover, we have
+vp(2p− 1 − 1) ≤
+⌊
+283(p − 1) log 3
+log p
+log 6
+log p
+⌋
++ 4 (7)
+Our argument is essentially the same as the argument of Bugeaud an d
+Laurent[1]. Indeed, all that we need is to make a very slight change in this
+paper.
+Though this result is nontrivial, this seems to be far from best possib le.
+Ridout[7] shows that there are only ﬁnitely many rational integers x such that
+vp(xp− 1 − 1) ≥ (1 + ǫ)(log x)/ (log p) for any ﬁxed prime p and positive ǫ. It is
+conjectured that vp(xp− 1 − 1) ≥ 3 occurs only ﬁnitely many times for any ﬁxed
+integer x > 1.
+The abc conjecture implies that for any ǫ > 0, the inequality vp(xp− 1 −
+1) ≥ 1 + (1 + ǫp)(log x)/ (log p) occurs only ﬁnitely many times. We can even
+conjecture:
+
+1 INTRODUCTION 3
+Conjecture 1.3. The inequality
+vp(xp− 1 − 1) ≤ 2 + log x + 2 log log x + log log p
+log p (8)
+holds for any integer x > 1 and prime p except ﬁnitely many pairs ( x, p ).
+Furthermore, the inequality
+vp(qp− 1 − 1) ≤ 2 + log q + log log q + log log p
+log p (9)
+holds for any primes ( q, p ) except ﬁnitely many pairs ( q, p ).
+We have a heuristic argument. Since( x + p)p− 1 ≡ xp− 1 − p (mod p2),
+we see that for any integer x0 not divisible by p, the values ( xp− 1 − 1)/p
+(mod pe− 1)(0 ≤ x < p e − 1, x ≡ x0 (mod p)) take each congruent class exactly
+once. Hence it is reasonable to assume the probability of xp− 1 ≡ 1 (mod pe) is
+p− e+1. Let e(x, p ) be a function deﬁned over nonnegative integers x and primes
+p. If ∑
+x,p p− e(x,p)+1 converges, then we can expect that vp(xp− 1 − 1) ≥ e(x, p )
+has only ﬁnitely many solutions in ( x, p ).
+We can choose
+e(x, p ) = 2 + log x + 2 log log x + log log p
+log p . (10)
+Then we see that
+∑
+x,p
+p− e(x,p)+1 ≤
+∑
+x,p
+(p log p)− 1(x log2 x)− 1 =
+∑
+p
+(p log p)− 1 ∑
+x
+(x log2 x)− 1
+(11)
+and therefore the sum converges.
+One of our purposes of obtaining an upper bound for the exponent of p
+dividing xp− 1 − 1 is an application for the study of problems involving the
+sum-of-divisors function.
+Nagell[4, Theorems 94, 95] gives that vp(σ (qc)) ≤ vp(qp− 1 − 1) + vp(c + 1)
+for distinct primes p, q with q ̸= 2 and a positive integer c. Now Theorem 1.2
+immidiately gives the following theorem.
+Theorem 1.4. If q is an odd prime, then we have
+vp(σ (qc)) ≤ vp(c + 1) +
+⌊
+283(p − 1) log 2
+log p
+log 2q
+log p
+⌋
++ 4. (12)
+Moreover, we have
+vp(σ (2c)) ≤ vp(c + 1) +
+⌊
+283(p − 1) log 3
+log p
+log 6
+log p
+⌋
++ 4. (13)
+If we assume Conjecture 1.3, we have
+vp(σ (qc)) ≤ vp(c + 1) + 2 + log q + log log q + log log p
+log p (14)
+except only ﬁnitely many pairs (p, q ).
+
+2 PROOF OF THEOREM ?? 4
+We exhibit an application to the problem of perfect numbers. If N =∏k
+i=1 pei
+i is a perfect number with p1 < · · ·< p i distinct primes, then ei ≤
+(pk − 1)/ 2 by a well-known result of primitive prime factors. Hence N <
+(∏
+i pi)(pk− 1)/2(for other ﬁniteness results, see, for example, [5], [6], [9]). We
+can improve this upper bound using Theorem 1.4.
+Theorem 1.5. If σ (N ) = αN with α = n/d and N = ∏k
+i=1 pei
+i with p1 < · · ·<
+pi distinct primes, then
+N ≤ dC
+k− 1∏
+i=1
+pC(k− 1)(pk− 1)/ log pk
+i pC(k− 1)(pk− 1− 1)/ log pk− 1
+k (15)
+for some absolute constant C. Furthermore, if Conjecture 1.3 is true, then
+N < max
+{
+ek2
+, d e/(e− 2)k− ke/(e− 2)(
+∏
+i
+pi)kC ′
+}
+(16)
+for some absolute constant C′.
+We hope that our method will provide some systematical method to s tudy
+arithmetic functions involving divisors.
+2 Proof of Theorem 1.1
+We begin by improving [1, Lemme 10]; we shall show that the term g in the
+error terms can be omitted.
+Lemma 2.1. Let K, L, R, S, g be integers ≥ 1, m1, m 2, c rational integers with
+(m1, m 2, g ) = 1 . Write N = KL and lj = ⌊(j − 1)/K ⌋ (j = 1 , · · ·, N ). If
+(rj, s j)(j = 1, · · ·, N ) are N pairs of integers satisfying
+0 ≤ rv ≤ R − 1, 0 ≤ sv ≤ S − 1,
+m1rv + m2sv ≡ c (mod g) (17)
+for j = 1, · · ·, N , then
+M1 − G1 ≤
+N∑
+j=1
+ljrj ≤ M1 + G1,
+M2 − G2 ≤
+N∑
+j=1
+ljsj ≤ M2 + G2,
+(18)
+where
+M1 = (L − 1)(r1 + · · ·+ rN )
+2 , G 1 = N L(R − 1)
+4 ,
+M2 = (L − 1)(s1 + · · ·+ sN )
+2 , G 1 = N L(S − 1)
+4 .
+(19)
+
+3 PROOF OF THEOREM ?? 5
+Proof. We shall only show the inequality concerning ∑N
+j=1 ljrj . The other in-
+equality can be easily shown in a similar way. Write g′ = (m2, g ) and g′′= g/g ′.
+If R ≥ g′, then we can proceed as in the original lemma and our lemma
+follows observing that R + g′ − 1 ≤ 2(R − 1).
+If R < g ′, then all rj must be equal to c′ in the original lemma. Hence we
+have
+N∑
+j=1
+ljrj = c′
+N∑
+j=1
+lj = c′N (L − 1)/ 2 = ( r1 + · · ·+ rN )(L − 1)/ 2 = M1.
+This proves the lemma.
+In [1, Lemme 11], we can replace γj(j = 1, 2) by one. This proves Theorem
+1.1.
+3 Proof of Theorem 1.2
+We write ai = (log Ai)/ (log p) and choose real constants B, k, l satisfying B ≥
+(log b)/ (log p), k, l > 0, and
+k ⌊lB + 1⌋ ⌊lB + 2⌋ − k ⌊lB + 2⌋ B ≥ T1 + T2 + T3, (20)
+where
+T1 =2 ⌊lB + 2⌋2 √
+k,
+T2 =2 ⌊lB + 2⌋3/2 (ga1a2)− 1/2,
+T3 = 3 log(ga1a2k ⌊lB + 2⌋2 + ⌊lB + 2⌋)
+ga1a2 log p .
+We set L, K, R 1, R 2, S 1, S 2 as follows:
+L = ⌊lB⌋ + 2,K = ⌊kgLa 1a2⌋ + 1,
+R1 =
+⌊√
+gLa2/a 1
+⌋
++ 1,S 1 =
+⌊√
+gLa1/a 2
+⌋
++ 1,
+R2 =
+⌊√
+g(K − 1)La2/a 1
+⌋
++ 1,S 2 =
+⌊√
+g(K − 1)La1/a 2
+⌋
++ 1,
+b = g(R + S − 2)
+2 (
+K− 1∏
+k=1
+k!)− 2/(K 2− K).
+(21)
+Proceeding as in [1, Section 6], we ﬁnd that if the condition
+#{b2r + b1s |0 ≤ r < R 2, 0 ≤ s < S 2, m 1r + m2s ≡ c (mod g)}
+=#{(r, s ) |0 ≤ r < R 2, 0 ≤ s < S 2, m 1r + m2s ≡ c (mod g)}. (22)
+holds, then we have v(Λ) < N .
+
+4 PROOF OF THEOREM ?? 6
+To prove Theorem 1.2, we apply this with g = b1 = b2 = p − 1, α 1 = q,
+α 2 = 2 , 3 according to whether p is odd or not, and each mi(i = 1 , 2) being
+an integer satisfying α i ≡ ζmi (mod p). We may assume that p > 2283, since
+otherwise the theorem follows from the trivial estimate. We begin by conﬁrming
+that the choice ( k, l, B ) = (11 . 32, 3, 1. 027) satisﬁes (20).
+Now K = ⌊56. 6ga1a2⌋ + 1 > 2100 and ǫ(K) in [1, Lemme 13] is smaller than
+10− 30. Hence
+log b ≤ log g + log( 1
+a1
++ 1
+a2
+) + 3
+2 − log 2 − 1
+2 log k + ǫ(K)
+≤ log p + log log p < (1. 027) log p,
+(23)
+which assures that the choice B = 1. 027 satisﬁes the condition B ≥ (log b)/ (log p).
+Since N = ⌊283ga1a2⌋ + 5, we succeeded to prove (5) under the condition (22).
+If the condition (22) fails, then there exist rational integers c0, c 1 such that
+the congruence m1r+m2s ≡ c0 (mod g) has two solutions ( r1, s 1) and (r2, s 2) in
+integers 0 ≤ r < R 2, 0 ≤ s < S 2 satisfying ri − si = c1. We have r2 − r1 = s2 − s1
+and therefore
+(m1 − m2)(r1 − r2) ≡ m1(r1 − r2) + m2(s1 − s2) ≡ 0 (mod g). (24)
+Let m0 = m1 − m2 and g0 be the residual order of q (mod p). We can easily
+see that g0 divides r1 − r2 since gcd( m1 − m2, g ) = gcd( m0, g ) = g/g 0. Hence
+R2 > max{r1, r 2} ≥ g0. Now (5) follows from the trivial estimate
+v(Lm) ≤ g0
+log q
+log p ≤ (R2 − 1) log q
+log p ≤ gLa2log qlog p = 5ga1a2. (25)
+(6) and (7) immidiately follow from (5) by taking ( x, y ) as (2 , q ) and (3 , 2)
+respectively. This completes the proof.
+4 Proof of Theorem 1.5
+In this section, we denote by C1, C 2, · · ·absolute constants.
+By Theorem 1.4, we have
+vpj (σ (pei
+i )) ≤ vpj (ei + 1) + 283(pj − 1) log 2
+log pj
+log 2pi
+log pj
++ 4 (26)
+if pi is odd. Moreover, we have
+vpj (σ (2ei )) ≤ vpj (ei + 1) + 283(pj − 1) log 3
+log pj
+log 6
+log pj
++ 4. (27)
+Thus we obtain
+vpj (αN ) ≤ vpj (
+∏
+i̸=j
+(ei + 1))
++ 283 pj − 1
+(log pj)2 (
+∑
+pi=2
+log 3 log 6 + log 2
+∑
+i̸=j,pi>2
+log 2pi)
++ 4(k − 1).
+(28)
+
+4 PROOF OF THEOREM ?? 7
+Noting that N divides dαN and N is composed of pi(1 ≤ i ≤ k), we see
+N ≤ d
+k∏
+i=1
+(ei + 1)
+∏
+pi=2
+6
+4(k− 1)+(283 log 3) P
+pj >2(pj − 1)/ log pj
+×
+∏
+pi>2
+(2pi)4(k− 1)+(283 log 2) P
+j̸=i(pj − 1)/ log pj .
+(29)
+Since ∏k
+i=1(ei + 1) = d(N ) = N o(1), we have
+N ≤ dC1
+k− 1∏
+i=1
+pC1(k− 1)(pk− 1)/ log pk
+i pC1(k− 1)(pk− 1− 1)/ log pk− 1
+k . (30)
+This proves (15).
+We assume Conjecture 1.3. Theorem 1.4 gives
+vpj (σ (pei
+i )) ≤ vpj (ei + 1) + max{2 + log pi + log log pi + log log pj
+log pj
+, C 2} (31)
+for any i, j . A similar argument to the ﬁrst case, we have
+N ≤ d
+k∏
+i=1
+(ei + 1)
+∏
+1≤ i,j≤ k,i̸=j
+max{pi(log pi)p2
+j (log pj), p C2
+j }
+≤ d
+k∏
+i=1
+(ei + 1)
+∏
+1≤ i,j≤ k,i̸=j
+pi(log pi)pC2
+j (log pj)
+≤ d
+k∏
+i=1
+(ei + 1)p(C2+1)(k− 1)
+i (log pi)2(k− 1)
+≤ d
+k∏
+i=1
+(ei + 1)pC3(k− 1)
+i .
+(32)
+Let E = ∑(ei + 1) log pi. Then, since
+k∏
+i=1
+pei− C3(k− 1)
+i ≤ d
+k∏
+i=1
+(ei + 1) (33)
+by (32), we have
+k∏
+i=1
+(log pi)pei+1− kC4
+i ≤ d
+k∏
+i=1
+(ei + 1) log pi ≤ d(E/k )k. (34)
+Taking the logarithms of both sides, we have
+E ≤ k log E − k log k + log d + kC4
+∑
+i
+log pi. (35)
+
+REFERENCES 8
+We observe that x ≥ k2 implies k(log x)/x ≤ 2(log k)/k ≤ 2/e . Hence
+E ≤ max
+{
+k2, e
+e − 2 (log d − k log k + kC4
+∑
+i
+log pi)
+}
+. (36)
+Since N = ∏
+i pei
+i < e E, we have
+N < max
+{
+ek2
+, d e/(e− 2)k− ke/(e− 2)(
+∏
+i
+pi)kC5
+}
+. (37)
+This completes the proof.
+References
+[1] Y. Bugeaud and M. Laurent, Minoration eﬀective de la distance p-adique
+entre puissances de nombres alg´ ebriques, J. Number Theory 61(1996), 311–
+342.
+[2] Y. Bugeaud, Linear forms in p-adic logarithms and the Diophantine equation
+(xn − 1)/ (x − 1) = yq, Math. Proc. Cambridge Phil. Soc. 127(1999), 373–381.
+[3] A. O. Gel’fond, Sur la divisibilit´ e de la diﬀerence des puissances de de ux
+nombres entiers par une puissance d’un id´ eal premier, Mat. Sb. 7(1940), 7–
+25.
+[4] T. Nagell, Introduction to Number Theory , Second edition, Chelsea, New
+York, 1964.
+[5] Pace P. Nielsen, An upper bound for odd perfect numbers , Integers 3 (2003),
+#A14.
+[6] C. Pomerance, Multiply perfect numbers, Mersenne primes and e ﬀective
+computability, Math. Ann. 226 (1977), 195–206.
+[7] D. Ridout, Rational approximations to algebraic numbers, Mathematika
+4(1957), 125–131.
+[8] A. Schinzel, On two theorems of Gel’fond and some of their applicat ions,
+Acta Arith., 13(1967), 177–236.
+[9] T. Yamada, Odd perfect numbers of a special form, Colloq. Math. ,
+103(2005), 303–307.
+[10] T. Yamada, On Wieferich primes and p-adic logarithms, Master Thesis,
+Kyoto University, Kyoto, Japan, 2006.
+[11] K. R. Yu, Linear forms in p-adic logarithms, Acta Arith. , 53(1989), 107–
+186.
+
+REFERENCES 9
+[12] K. R. Yu, Linear forms in p-adic logarithms, Compos. Math. , 74(1990),
+15–113.
+[13] K. R. Yu, Linear forms in p-adic logarithms, Compos. Math. , 91(1994),
+241–276.
+[14] K. R. Yu, Linear forms in p-adic logarithms and group varieties I, J. reine
+angew. Math. , 502(1998), 29–92.
+[15] K. R. Yu, Linear forms in p-adic logarithms and group varieties II, Acta
+Arith., 89(1999), 337–378.

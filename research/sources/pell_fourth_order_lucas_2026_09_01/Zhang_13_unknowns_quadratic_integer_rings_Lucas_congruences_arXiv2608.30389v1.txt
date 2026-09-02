@@ -1,0 +1,1338 @@
+
+===== PDF PAGE 1 =====
+13 UNKNOWNS OVER QUADRATIC INTEGER RINGS
+AND LUCAS CONGRUENCES
+GENG-RUI ZHANG
+Abstract. For every quadratic number field K, we prove a uniform 3-unknown Dio-
+phantine definition of integer tuples in OK, allowing finitely many polynomial nonva-
+nishing conditions. This yields an effective +3 transfer principle and a 13-unknown
+representation of every recursively enumerable integer relation. Consequently, there
+exists an absolute degree bound D0 ≥ 1 such that for every quadratic number field
+K, there is no algorithm that, given
+P (Y1, . . . , Y13) ∈ Z[Y1, . . . , Y13], deg P ≤ D0,
+decides whether P = 0 has a solution in O13
+K .
+The arithmetic input is a fourth-order Pell–Lucas congruence. It is a specialization
+of the norm-one Lucas multiplication formula, which yields exact valuations for the
+deviation of a Lucas quotient from its linear term, together with deviation criteria for
+Lucas–Wieferich and Wall–Sun–Sun primes. We also establish local surjectivity and
+ℓ-adic density for second-order correction terms for norm-one Lucas sequences.
+Contents
+1. Introduction 1
+2. Relation combining and Pell congruences 5
+3. Quadratic integrality criteria 7
+4. Diophantine transfer and undecidability 12
+5. Lucas applications 19
+References 24
+1. Introduction
+Hilbert’s tenth problem (HTP) over a commutative ring R asks whether there is an
+algorithm deciding the solvability in R of polynomial equations with coeﬀicients in R.
+For the rings of integers of quadratic number fields, undecidability was proved by Denef
+[Den75]. Koymans–Pagano [ KP26] and Alpöge–Bhargava–Ho–Shnidman [ ABH+26] in-
+dependently proved that HTP is undecidable over the ring of integers of every number
+field.
+We study the quantitative problem for quadratic fields: how many unknowns suﬀice
+for undecidability when the input polynomial has coeﬀicients in Z? This question is
+Date: August 31, 2026.
+2020 Mathematics Subject Classification. Primary 11U05, 03D35; Secondary 03D25, 11B39, 11R11.
+Key words and phrases. Hilbert’s tenth problem, quadratic integer rings, Diophantine definability,
+undecidability, Pell’s equations, Lucas sequences.
+1
+arXiv:2608.30389v1  [math.NT]  31 Aug 2026
+
+===== PDF PAGE 2 =====
+2 GENG-RUI ZHANG
+related to quantitative Diophantine definability and existential rank; see, for exam-
+ple, [ DDF21]. Recent work of Bayer–David–Hassler–Matiyasevich–Schleicher studies
+universal unknown–degree pairs over Z, together with a parallel formal-verification
+program [ BDH+25, BD25].
+For the ring of Gaussian integers Z[i], Matiyasevich and Sun obtained a 20-unknown
+bound [ MS27], subsequently reduced to 18 by Ding–Li [ DL26]. Sun [ Sun26, Theo-
+rems 1.1 and 1.2] then proved that, for an arbitrary quadratic number field K, solvabil-
+ity over OK is undecidable for integer-coeﬀicient polynomial equations in 16 unknowns
+when K is imaginary and in 15 unknowns when K is real.
+We prove a uniform 13-unknown bound together with an absolute degree bound:
+Theorem 1.1. There exists an integer D0 ≥ 1 such that for every quadratic number
+field K, there is no algorithm that, given
+P (Y1; : : : ; Y13) ∈ Z[Y1; : : : ; Y13]; deg P ≤ D0;
+decides whether P = 0 has a solution in O13
+K .
+The count follows from a fixed-cost transfer theorem: integer tuples, together with
+finitely many polynomial equalities and nonvanishing conditions, can be transferred to
+OK using 3 additional unknowns; this number is independent of the tuple length and
+of the number of conditions.
+1.1. 3-unknown transfer. The main structural results of the paper are two fixed-cost
+integrality theorems.
+Theorem 1.2 (Uniform 3-unknown integrality). Let K be a quadratic number field and
+let n ∈ Z≥0. For every R(X) ∈ Z[X1; : : : ; Xn], there is a polynomial
+ΦK,n,R(X; U; V; J) ∈ Z[X1; : : : ; Xn; U; V; J]
+such that, for every a ∈ O n
+K,
+∃u; v; j ∈ O K : Φ K,n,R(a; u; v; j) = 0 ⇐ ⇒ a ∈ Zn and R(a) ̸= 0:
+Moreover, the polynomial ΦK,n,R can be constructed effectively from (K; n; R).
+The theorem is uniform in n: exactly 3 additional unknowns suﬀice for every n. It
+yields the following finite-system transfer principle. We use the convention that Z0 and
+O0
+K consist of a single empty tuple.
+Theorem 1.3 (Finite-system +3 transfer). Let K be a quadratic number field, and let
+r; m; s; t ∈ Z≥0. Let
+X = (X1; : : : ; Xr) and Y = (Y1; : : : ; Ym)
+be unknowns. Given
+P1; : : : ; Ps; R1; : : : ; Rt ∈ Z[X; Y];
+there is an effectively constructible polynomial
+H(X; Y; U; V; J) ∈ Z[X; Y; U; V; J]
+
+===== PDF PAGE 3 =====
+13 UNKNOWNS AND LUCAS CONGRUENCES 3
+such that, for every a ∈ O r
+K,
+∃(b; u; v; j) ∈ O m+3
+K : H(a; b; u; v; j) = 0
+⇐ ⇒ a ∈ Zr and ∃b ∈ Zm : P1(a; b) = · · · = Ps(a; b) = 0 ;
+R1(a; b) · · · Rt(a; b) ̸= 0;
+where the equality condition is vacuous if s = 0, and the product is 1 if t = 0. Therefore,
+finitely many polynomial equalities and nonvanishing conditions over Z transfer to OK
+at the cost of 3 additional unknowns.
+Theorems 1.2 and 1.3 still hold if the input polynomial(s) are allowed to have coeﬀi-
+cients in OK; see Remark 4.1.
+The proofs use the following ingredients. Proposition 2.4 is the common arithmetic
+tool. Its fourth-order congruence determines a normalized Pell quotient modulo the
+square of a Pell coordinate, and Corollary 2.5 uses the same auxiliary unknown to
+enforce a divisibility condition that encodes nonvanishing. Lemma 2.2 by Sun combines
+two square conditions and this divisibility condition into one equation.
+For Theorem 1.2, the construction differs between the real and imaginary cases. If
+K = Q(
+√
+−d) is imaginary, the theorem of Matiyasevich–Sun (Theorem 3.4) encodes
+an arbitrary tuple into two quantities, and Sun’s Pell rigidity (Lemma 3.2)
+u2 − 3v2 = 1; u; v ∈ O K =⇒ u; v ∈ Z
+establishes their integrality. Our Proposition 3.3 provides a two-element test for inte-
+gers. If K = Q(
+√
+d) is real, Denef [ Den75] (Theorem 3.5) proved a square-rationality
+criterion. The real packing theorem (Theorem 3.6) based on Sun’s work, together with
+our trace–norm criterion in Proposition 3.7, uses Denef’s square-rationality conclusion
+to deduce integrality.
+After establishing Theorem 1.2, Theorem 1.3 follows by combining the finitely many
+conditions and applying Theorem 1.2 to the full tuple. The nonvanishing conditions
+are replaced by their product, the equalities are combined into one equation by a sum
+of squares in the real case, and by repeated use of the anisotropic form A2 + (d + 1)B2
+of Sun (Lemma 3.1) in the imaginary case. Then Theorem 1.2 is applied to the full
+tuple. No additional unknowns are introduced.
+For Theorem 1.1, we need the following result of Sun [ Sun21, Theorem 1.1(ii)]:
+Theorem 1.4 (Sun). For every recursively enumerable (r.e.) set A ⊆ Z≥0, there is a
+polynomial QA ∈ Z[T; Z1; : : : ; Z10] such that for every a ∈ Z≥0,
+a ∈ A ⇐ ⇒ ∃ z1; : : : ; z10 ∈ Z : QA(a; z1; : : : ; z10) = 0 ; z 10 ̸= 0:
+Consequently, there is no algorithm that, given
+P (Z1; : : : ; Z10) ∈ Z[Z1; : : : ; Z10];
+decides whether there exist z1; : : : ; z10 ∈ Z such that
+P (z1; : : : ; z10) = 0 ; z 10 ̸= 0:
+For basics of recursive theory, we refer the reader to [ Cut80]. Nonrecursive r.e. subsets
+of Z≥0 exist; see [ Cut80, § 7.4].
+
+===== PDF PAGE 4 =====
+4 GENG-RUI ZHANG
+Applying Theorem 1.3 to Theorem 1.4 gives Theorem 4.2: every r.e. relation on Zr
+has a representation over OK with 13 unknowns, uniformly in r. Fixing one nonrecursive
+r.e. set A ⊆ Z≥0 then yields Theorem 1.1; the degree D0 is uniformly bounded because
+in the explicit construction, the degrees of polynomials only depend on deg(QA) and
+the signature of K.
+1.2. Toward 12 unknowns. The unknown count underlying Theorem 1.1 factors as
+13 = 10 + 3 , so there are two possible routes to 12.
+The first is to improve the source theorem over Z, Theorem 1.4. Consequently, a
+9-unknown undecidability source theorem over Z would yield a 12-unknown bound over
+OK via Theorem 1.3. Sun [ Sun21, Theorem 1.1(i)] proved 9-unknown representations
+of r.e. sets when one unknown is constrained to be nonnegative. Another possible
+approach is to reuse the nonnegativity unknown inside the transfer construction; the
+present construction does not achieve this.
+The second route is to reduce the 3-unknown cost in Theorem 1.2. In both cases,
+its proof uses two Pell-square conditions. In the imaginary case, they force two mixed
+expressions to be integral. In the real case, their quotient supplies the rationality
+required by Proposition 3.7. The relation-combining polynomial F requires the third
+auxiliary unknown; see Lemma 2.2. A uniform 2-unknown definition of
+a ∈ Zn; R (a) ̸= 0
+inside OK would therefore give a 12-unknown theorem.
+1.3. Applications. Section 4 proves the transfer theorems and the 13-unknown r.e.
+representation theorem (Theorem 4.2); the latter yields Theorem 1.1. Then we transfer
+the explicit 11-unknown universal pair (11; ∆Z ≈ 1:68105 · 1063) over Z of Bayer et
+al. [ BDH+25, BD25] to a 14-unknown universal pair (14; 2∆Z) over every quadratic
+integer ring. Corollary 4.4 gives the resulting 14-unknown undecidability statement for
+all quadratic integer rings, with a uniform explicit degree bound 2∆Z.
+Section 5 studies the Lucas expansion behind Proposition 2.4. Proposition 5.1 and
+Corollary 5.2 present all-orders and fourth-order expansion formulas. Corollary 5.3
+then isolates the finer arithmetic information used here: the exact `-adic valuation of
+the deviation of unk=un from its linear term. Corollaries 5.4 and 5.5 express Lucas–
+Wieferich and Wall–Sun–Sun conditions through these deviations, while Theorem 5.6
+and Corollary 5.7 show local surjectivity and `-adic density for normalized second-order
+correction terms.
+Structure of the paper. In § 2, we recall the relation-combining polynomial of Sun
+and develop the Pell congruence. In § 3, we establish the integrality criteria for imagi-
+nary and real quadratic fields. In § 4, we complete the proofs of Theorems 1.2, 1.3, 4.2,
+and 1.1; then we derive the universal-pair and the explicit bounded-degree consequence.
+In § 5, we present the relevant Lucas multiplication expansion, exact linearization-
+deviation valuations, and Wieferich deviation criteria, and prove the local surjectivity
+and `-adic density results.
+
+===== PDF PAGE 5 =====
+13 UNKNOWNS AND LUCAS CONGRUENCES 5
+2. Relation combining and Pell congruences
+Throughout, if A is a commutative ring and a; b ∈ A, then a | b in A means that
+b = ac for some c ∈ A. For a commutative ring A, write Sq(A) = {r2 : r ∈ A}.
+2.1. Nonzero integers and relation combining. Define
+D(X) = (2 X + 1)(3X + 1) ∈ Z[X]:
+Lemma 2.1. For s ∈ Z, one has
+s ̸= 0 ⇐ ⇒ ∃ w ∈ Z : s | D(w) in Z:
+It is easy to see that for every q ∈ Z>0, D(X) ≡ 0 (mod q) is solvable in Z
+(cf. [ Sie70, Problem 202]), which gives Lemma 2.1. A related 2-unknown parametriza-
+tion of nonzero integers is attributed to Tung; see [ MS27, Lemma 3.4].
+We will also use the fact that, for every algebraic integer x ∈ Q,
+(2.1) D(x) ̸= 0:
+Define
+F (A1; A2; S; T; J) = ( T − JS )4 − 2(A1 + A2)S2(T − JS )2
++ (A1 − A2)2S4 ∈ Z[A1; A2; S; T; J]:
+We need the following relation-combining lemma of Sun [ Sun26, Lemma 2.2]:
+Lemma 2.2 (Sun). Let K be a number field. Let a1; a2; s; t ∈ O K with a1 ̸= a2 and
+t ̸= 0. Then the following are equivalent:
+(i) a1; a2 ∈ Sq(OK) and s | t in OK;
+(ii) there exists j ∈ O K such that F (a1; a2; s; t; j) = 0 .
+Lemma 2.2 extends to every integrally closed domain of characteristic ̸= 2.
+2.2. Fourth-order Pell congruence. We need the following lemma, which follows
+from [ BW23, p. 27]. See also [ Sun26, Lemma 3.5].
+Lemma 2.3 (Pell divisibility) . Let a ≥ 2 be an integer, set e = a2 − 1, and define
+pj; qj ∈ Z≥0 by
+pj + qj
+√e = (a + √e)j (j ∈ Z≥0):
+For every h ∈ Z \ {0}, there exists an integer r ∈ Z>0 such that for every m ∈ Z>0,
+h | qmr in Z:
+Proposition 2.4 (Fourth-order Pell congruence). Let a ≥ 2 be an integer, set e = a2−1,
+and define pj; qj ∈ Z≥0 by
+pj + qj
+√e = (a + √e)j (j ∈ Z≥0):
+Fix n ∈ Z>0. Define
+e(Z) = eZ(Z 2 − 1)
+6 ∈ Q[Z]:
+Then the following two statements hold.
+
+===== PDF PAGE 6 =====
+6 GENG-RUI ZHANG
+(1) For every positive odd integer k, one has qn | qnk in Z and
+qnk
+qn
+≡ k + e(k)q2
+n (mod q4
+n);
+where e(k) ∈ Z≥0. In particular,
+qnk
+qn
+≡ k (mod q2
+n):
+(2) Let s ∈ Z \ {0} satisfy s | qn in Z, let t ∈ Z be odd, fix " ∈ {± 1}, and fix
+a residue class c (mod s). Then there exist infinitely many r ∈ Z such that
+k := t + rq2
+n is a positive odd integer and, with
+k := qnk
+qn
+∈ Z>0 and x := " k − t
+q2
+n
+= "
+( k − k
+q2
+n
++ r
+)
+∈ Z;
+one has
+x ≡ c (mod s):
+Proof. (1). The case k = 1 is trivial. Suppose that k ≥ 3 is an odd integer. The
+sequence (qj)j is the Lucas sequence (Uj(2a; 1))j, while 2pj = Vj(2a; 1). By the classical
+Lucas multiplication formula [ BW23, (2.28)], we have
+(2.2) qnk
+qn
+=
+(k−1)/2∑
+j=0
+( k
+2j + 1
+)
+ejpk−2j−1
+n q2j
+n :
+In particular, qn | qnk in Z.
+Only the terms 0 ≤ j ≤ 1 in (2.2) contribute modulo q4
+n. Moreover, from p2
+n − eq2
+n = 1
+we obtain
+pk−1
+n = (1 + eq2
+n)(k−1)/2 ≡ 1 + k − 1
+2 eq2
+n (mod q4
+n) and pk−3
+n ≡ 1 (mod q2
+n):
+Thus,
+qnk
+qn
+≡ k
+(
+1 + k − 1
+2 eq2
+n
+)
++
+(k
+3
+)
+eq2
+n = k + e(k)q2
+n (mod q4
+n):
+(2). Choose r modulo s so that
+(2.3) r ≡ "c − e(t) (mod s):
+Then there are infinitely many representatives r of this residue class for which
+k := t + rq2
+n
+is a positive odd integer. Indeed, if qn is even, then q2
+nr is even for every r ∈ Z, so k is
+odd because t is odd. Fix any representative r0 of the residue class in ( 2.3). Then
+r = r0 + m|s| (m ∈ Z≥0)
+remains in this residue class, and for all suﬀiciently large m, the corresponding k is
+positive. Suppose now that qn is odd. Then s is also odd because s | qn. Hence, exactly
+one of r0 and r0 + s is even; denote this even representative by r1. Then
+r = r1 + 2m|s| (m ∈ Z≥0)
+
+===== PDF PAGE 7 =====
+13 UNKNOWNS AND LUCAS CONGRUENCES 7
+remains in the prescribed residue class and is even. Since both t and q2
+n are odd, the
+corresponding integer k = t + rq2
+n is odd, and it is positive for all suﬀiciently large m.
+Thus, in either case, there are infinitely many desired choices of r.
+Fix any such r. By part (1), we have k = k + e(k)q2
+n + bq4
+n for some b ∈ Z. Hence
+(2.4) k − t
+q2
+n
+= k − (k − rq2
+n)
+q2
+n
+= r + e(k) + bq2
+n:
+Note that
+6 (e(k) − e(t)) = e(k − t)(k2 + kt + t2 − 1):
+If vℓ(s) = f with ` a prime and f ≥ 1, then vℓ(qn) ≥ f because s | qn, and
+vℓ (e(k) − e(t)) ≥ vℓ(k − t) − vℓ(6) = vℓ(rq2
+n) − vℓ(6) ≥ 2f − 1 ≥ f:
+Therefore,
+e(k) ≡ e(t) (mod s):
+Using ( 2.4), s | qn, and ( 2.3), we obtain
+k − t
+q2
+n
+≡ r + e(t) ≡ "c (mod s):
+Multiplying by " shows that the integer x satisfies x ≡ c (mod s). Since the preceding
+argument applies to each of the infinitely many choices of r, the conclusion follows. □
+Proposition 2.4(2) yields the following corollary:
+Corollary 2.5. Let a ≥ 2 be an integer, set e = a2 − 1, and define pj; qj ∈ Z≥0 by
+pj + qj
+√e = (a + √e)j (j ∈ Z≥0):
+Fix n ∈ Z>0. Let s ∈ Z \ {0} satisfy s | qn in Z, let t ∈ Z be odd, and fix a sign
+" ∈ {±1}. Then there exist infinitely many pairs (r; x) ∈ Z2 such that k = t + rq2
+n is a
+positive odd integer,
+x = " qnk=qn − t
+q2
+n
+; and s | D(x):
+Proof. By Lemma 2.1, choose c ∈ Z such that s | D(c). Apply Proposition 2.4(2) to
+the residue class c (mod s). It gives infinitely many r ∈ Z such that k = t + rq2
+n is a
+positive odd integer and, with
+x = " qnk=qn − t
+q2
+n
+∈ Z;
+one has x ≡ c (mod s). Hence
+D(x) ≡ D(c) ≡ 0 (mod s);
+and therefore s | D(x). □
+3. Quadratic integrality criteria
+The proof of the 3-unknown theorem requires different inputs for the imaginary and
+real quadratic fields. We collect them in this section.
+
+===== PDF PAGE 8 =====
+8 GENG-RUI ZHANG
+3.1. Imaginary quadratic fields. Fix a squarefree integer d ∈ Z>0 and set K =
+Q(
+√
+−d).
+We use two lemmas of Sun [ Sun26, Lemmas 2.3 and 2.4].
+Lemma 3.1 (Sun). For u; v ∈ O K,
+u = v = 0 ⇐ ⇒ u2 + (d + 1)v2 = 0:
+Clearly, Lemma 3.1 also works for u; v ∈ K.
+Lemma 3.2 (Sun). If u; v ∈ O K satisfy u2 − 3v2 = 1, then u; v ∈ Z.
+Define the polynomial
+(3.1) H0(X) = 2(2 X + 1)2 + 1 ∈ Z[X]:
+For every z ∈ O K, since 2z + 1 ∈ O K and the roots of 2Z 2 + 1 = 0 are not algebraic
+integers, we have H0(z) ̸= 0.
+Proposition 3.3 (Two-element integer test). Let z1; z2 ∈ O K, and set
+h = H0(z1)H0(z2) ∈ O K \ {0}:
+Then the following three statements are equivalent.
+(1) z1; z2 ∈ Z.
+(2) For every t ∈ Z \ {0} there exist v; x ∈ Z such that, on setting
+s = vt; y = sh; b = 3y2 + 1; c = 3y2 (
+2(z1 + yz2) + 1 − xy2)2
++ 1;
+one has b; c ∈ Sq(Z) and s | D(x) in Z.
+(3) There exist s ∈ O K \ {0} and x ∈ O K such that, on setting
+y = sh; b = 3y2 + 1; c = 3y2 (
+2(z1 + yz2) + 1 − xy2)2
++ 1;
+one has b; c ∈ Sq(OK).
+Proof. We prove (3) ⇒(1), (1) ⇒(2), and finally (2) ⇒(3).
+Assume (3). Write b = u2 with u ∈ O K. Then u2 − 3y2 = 1 , so Lemma 3.2 implies
+u; y ∈ Z. Note that y = sh ̸= 0.
+Every nonzero algebraic integer  in an imaginary quadratic field satisfies
+||2 = N K/Q() ∈ Z>0;
+and hence || ≥ 1. Then
+(3.2) |H0(zj)| ≤ | h| = |y|
+|s| ≤ |y| (j = 1; 2):
+We claim that |y| ≥ 2. If |y| = 1 , then ( 3.2) forces both H0(zj) to be units. The unit
+group of an imaginary quadratic integer ring is {±1}, except for d = 1 ; 3; see [ Kha22,
+Proposition 5.8]. In the exceptional cases d = 1; 3, it is easy to see that the additional
+roots of unity are not congruent to 1 modulo 2OK. Since H0(Z) ≡ 1 (mod 2 OK), we
+conclude that H0(zj) ∈ {±1} for 1 ≤ j ≤ 2. The equation H0(z) = 1 gives 2z + 1 = 0 ,
+impossible for an algebraic integer; the equation H0(z) = −1 gives (2z + 1) 2 = −1,
+which can occur in K only for d = 1, and then z = (−1 ± i)=2 =∈ Z[i]. Thus, |y| ≥ 2.
+
+===== PDF PAGE 9 =====
+13 UNKNOWNS AND LUCAS CONGRUENCES 9
+Since u2 − 3y2 = 1 with u ∈ Z and y ∈ Z \ {0; ±1}, we see that
+ := |y| ≥ 4:
+By ( 3.2), for 1 ≤ j ≤ 2 we obtain
+2|2zj + 1|2 − 1 ≤ |H0(zj)| ≤ ;
+so
+(3.3) |2zj + 1| ≤
+√
+ + 1
+2 :
+Set
+ =
+{
+2; d ≡ 3 (mod 4) ;
+1; d ̸≡ 3 (mod 4) :
+Write
+x =  + 
+√
+−d
+ and zj = j + j
+√
+−d
+ ;
+with ; ; j; j ∈ Z, j = 1; 2. If  = 2, we have
+ ≡  (mod 2) and j ≡ j (mod 2) ( j = 1; 2):
+The imaginary part of 2zj + 1 has absolute value 2|j|
+√
+d=; then ( 3.3) yields
+(3.4) |j| ≤ 
+√
+ + 1
+8d (j = 1; 2):
+Now write c = w2 with w ∈ O K and set
+q = 2(z1 + yz2) + 1 − xy2 ∈ O K:
+Then
+w2 − 3(yq)2 = c − 3y2q2 = 1;
+and Lemma 3.2 implies w; yq ∈ Z. Since y ∈ Z \ {0} and q ∈ O K, it follows that
+q = yq
+y ∈ Q ∩ OK = Z:
+The coeﬀicient of
+√
+−d in q therefore vanishes:
+(3.5) 21 + 2y2 − 2 = 0:
+If  ̸= 0, then ( 3.4) and ( 3.5) give
+2 ≤ 2|| = |21 + 2y2| ≤ 2|1| + 2|2| ≤ ( + 1)3/2
+√
+2d
+≤
+√
+2( + 1)3/2:
+This is impossible for  ≥ 4; hence  = 0. Equation ( 3.5) becomes 1 = −y2. But ( 3.4)
+implies |1| <  . If 2 ̸= 0 , then |1| = |2| ≥ , a contradiction. Thus, 1 = 2 = 0 ,
+and then z1; z2 ∈ Z = OK ∩ Q. This establishes (3) ⇒(1).
+Now assume (1) and fix an arbitrary t ∈ Z \ {0}. Note that H0(z1), H0(z2) and h are
+positive odd integers. Use the Pell sequence
+pj + qj
+√
+3 = (2 +
+√
+3)j (j ∈ Z≥0):
+
+===== PDF PAGE 10 =====
+10 GENG-RUI ZHANG
+By Lemma 2.3, take n ∈ Z>0 such that ht | qn. Set
+v = qn
+ht ; s = vt = qn
+h ; and y = sh = qn:
+Then
+b := 3y2 + 1 = 3 q2
+n + 1 = p2
+n
+is a square in Z. Define
+t0 := 2(z1 + yz2) + 1;
+which is an odd integer. Set
+" = sgn(t0) ∈ {±1} and  = |t0| ∈ Z>0:
+Apply Corollary 2.5 with (a; e) = (2 ; 3), (n; s) as above, the prescribed positive odd
+integer  , and the sign −". We obtain a positive odd integer k and an integer x such
+that
+x = −" qnk=qn − 
+q2
+n
+and s | D(x):
+Consequently,
+t0 − xy2 = " + "
+( qnk
+qn
+− 
+)
+= " qnk
+qn
+;
+and therefore
+c := 3y2(t0 − xy2)2 + 1 = 3 q2
+n
+(
+" qnk
+qn
+)2
++ 1 = 3 q2
+nk + 1 = p2
+nk
+is a square in Z. This proves (1) ⇒(2).
+Finally, assume (2) and take t = 1 in (2). Then the corresponding integers v = s and
+x give s | D(x). It suﬀices to show that s ̸= 0 , which follows from s | D(x) and ( 2.1).
+Thus (2)⇒(3), and all three statements are equivalent. □
+We also need the following result of Matiyasevich and Sun [ MS27, Theorem 1.2]:
+Theorem 3.4 (Matiyasevich–Sun). Let n; d ≥ 1 be integers with d squarefree. Let
+K = Q(
+√
+−d) and x1; : : : ; xn ∈ O K. Set
+ = 2
+n∏
+j=1
+(3xj + 1):
+Then
+ +
+n∑
+j=1
+xj
+j ∈ Q ⇐ ⇒ x1; : : : ; xn ∈ Z:
+
+===== PDF PAGE 11 =====
+13 UNKNOWNS AND LUCAS CONGRUENCES 11
+3.2. Real quadratic fields. Fix a squarefree integer d ≥ 2, set K = Q(
+√
+d), and let
+1; 2 : K ,→ R be the two real embeddings of K.
+Choose integers a0 ≥ 2 and b0 ≥ 1 such that a2
+0 − db2
+0 = 1. Such a nontrivial positive
+integer solution exists by the classical Pell equation. Define
+(3.6) a = a2
+0 + db2
+0 = 2a2
+0 − 1; b = 2a0b0; e = a2 − 1 = db2:
+Then a ≥ 7 is odd and e ≥ 48 is even. Define pj; qj ∈ Z≥0 by
+pj + qj
+√e = (a + √e)j (j ∈ Z≥0):
+We use the following consequence of Denef [ Den75, Lemma 4]; see also [ Sun26,
+Lemma 3.3(i)].
+Theorem 3.5 (Denef). If u; v ∈ O K satisfy u2 − ev2 = 1, then v2 ∈ Z≥0.
+The following real packing theorem is based on Sun [ Sun26, Theorem 3.1]:
+Theorem 3.6 (Real packing). Let n ∈ Z>0 and x1; : : : ; xn ∈ O K. Set
+(3.7) m = 2
+n∏
+j=1
+(x2
+j + 1) and w = mn+1 +
+n∑
+j=1
+xjmn−j:
+Then the following two statements hold.
+(1) 1(w) > 3 and 2(w) > 3.
+(2) For every r ∈ Z>0, we have wr ∈ Q if and only if x1; : : : ; xn ∈ Z.
+Proof. (1). For i ∈ {1; 2}, write
+mi = i(m) = 2
+n∏
+j=1
+(
+i(xj)2 + 1
+)
+> 0 and ri =
+n∑
+j=1
+i(xj)mn−j
+i :
+Since t2 + 1 ≥ 2|t| for t ∈ R, we have, for all i and j,
+mi ≥ 2
+(
+i(xj)2 + 1
+)
+≥ 4|i(xj)|:
+Also mi ≥ 2. Consequently,
+|ri| ≤ mi
+4
+n∑
+j=1
+mn−j
+i = mn
+i
+4
+n−1∑
+r=0
+m−r
+i < mn
+i
+2 :
+Therefore,
+i(w) = mn+1
+i + ri > m n
+i
+(
+mi − 1
+2
+)
+≥ mn
+i
+(
+2 − 1
+2
+)
+≥ 2 · 3
+2 = 3:
+(2). For the elements m; w in ( 3.7), Sun’s theorem [ Sun26, Theorem 3.1] gives
+(3.8) w ∈ Q ⇐ ⇒ x1; : : : ; xn ∈ Z:
+Let r ∈ Z>0. If x1; : : : ; xn ∈ Z, then w ∈ Z, and hence wr ∈ Q. Conversely, suppose
+that wr ∈ Q. Then
+1(w)r = wr = 2(w)r:
+By (1), both 1(w) and 2(w) are strictly positive, so 1(w) = 2(w) and therefore
+w ∈ Q. Then ( 3.8) yields x1; : : : ; xn ∈ Z. □
+
+===== PDF PAGE 12 =====
+12 GENG-RUI ZHANG
+Proposition 3.7. Let ∆K be the absolute discriminant of K. Let  ∈ Z>0 and t; q; x ∈
+OK satisfy
+(3.9) q2 ∈ Q and q = t + x:
+Suppose further that
+(3.10)  ∤ TrK/Q(t) in Z and |1(t) − 2(t)| < 
+√
+∆K:
+Then t ∈ Z.
+Proof. Write q =  + 
+√
+d with ;  ∈ Q. By ( 3.9), we obtain  = 0 . Then either
+q ∈ Q or TrK/Q(q) = 0 .
+Suppose first that TrK/Q(q) = 0 . Taking traces in q = t + x yields
+TrK/Q(t) +  TrK/Q(x) = 0 :
+Since x ∈ O K, its trace is an integer, whence  | TrK/Q(t) in Z, contrary to ( 3.10).
+Therefore q ∈ Q ∩ OK = Z.
+Take the standard integral basis 1; ! of OK, so that
+! =
+{√
+d; d ̸≡ 1 (mod 4) ;
+(1 +
+√
+d)=2; d ≡ 1 (mod 4) ;
+√
+∆K = |1(!) − 2(!)|:
+Write t = 0 + 0! and x = 0 + 0! with 0; 0; 0; 0 ∈ Z. Since q = t + x ∈ Z,
+comparison of the !-coeﬀicients implies 0 + 0 = 0; hence  | 0 in Z. If 0 ̸= 0, then
+|1(t) − 2(t)| = |0||1(!) − 2(!)| = |0|
+√
+∆K ≥ 
+√
+∆K;
+contrary to ( 3.10). Thus 0 = 0, and therefore t ∈ Z. □
+4. Diophantine transfer and undecidability
+We now prove the transfer results stated in the introduction. The main theorem
+(Theorem 1.1) will follow from the r.e. representation theorem (Theorem 4.2) in § 4.2.
+4.1. Transfer principles.
+Proof of Theorem 1.2. Fix n ∈ Z≥0. Let R(X) ∈ Z[X1; : : : ; Xn] be an arbitrary poly-
+nomial, where X = (X1; : : : ; Xn) are unknowns.
+We first deal with the case n = 0 . In this case, Z[X1; : : : ; Xn] = Z; so R is a fixed
+integer, and the unique element of O0
+K is the empty tuple, which also belongs to Z0. If
+R ̸= 0, set ΦK,0,R(U; V; J) = 0 . If R = 0, set ΦK,0,R(U; V; J) = 1 . Then
+∃u; v; j ∈ O K : Φ K,0,R(u; v; j) = 0 ⇐ ⇒ R ̸= 0;
+which is exactly the required equivalence. This construction is clearly effective. It
+remains to consider n ≥ 1.
+Suppose now n ≥ 1. We treat imaginary and real quadratic fields separately.
+
+===== PDF PAGE 13 =====
+13 UNKNOWNS AND LUCAS CONGRUENCES 13
+Imaginary quadratic fields. Write K = Q(
+√
+−d), where d ≥ 1 is a squarefree integer.
+Define the polynomials
+L0(X) = 2
+n∏
+i=1
+(3Xi + 1);
+L1(X) = L0(X)n;
+L2(X) = L0(X)n+1 +
+n∑
+i=1
+XiL0(X)n−i:
+Theorem 3.4 gives, for every a = (a1; : : : ; an) ∈ O n
+K,
+(4.1) L1(a); L2(a) ∈ Z =⇒ L2(a)
+L1(a) = L0(a) +
+n∑
+i=1
+ai
+L0(a)i ∈ Q =⇒ a ∈ Zn:
+The converse implication a ∈ Zn ⇒ L1(a); L2(a) ∈ Z holds trivially. Note that L0(a) ̸=
+0 for every a ∈ O n
+K.
+Use the polynomial H0 from ( 3.1), and introduce the 3 new unknowns U; V; J. Set
+H(X) = H0(L1(X))H0(L2(X));
+S(X; U) = U R(X);
+Y (X; U) = S(X; U)H(X);
+B(X; U) = 3 Y (X; U)2 + 1;
+C(X; U; V ) = 3 Y (X; U)2 (
+2 (L1(X) + Y (X; U)L2(X)) + 1 − V Y (X; U)2)2
++ 1:
+Finally, set
+ΦK,n,R(X; U; V; J) = F (9B(X; U); C(X; U; V ); S(X; U); D(V ); J) ;
+where F and D are as in § 2.1.
+For every evaluation (a; u; v; j) = ( a1; : : : ; an; u; v; j) ∈ O n+3
+K , write
+li = Li(a) ( i = 0; 1; 2); h = H(a); s = S(a; u); y = Y (a; u);
+b = B(a; u); c = C(a; u; v):
+Then
+9b ≡ 0 (mod 3 OK) and c ≡ 1 (mod 3 OK);
+so 9b ̸= c. Moreover, since b ∈ O K and OK is integrally closed,
+(4.2) 9b ∈ Sq(OK) ⇐ ⇒ b ∈ Sq(OK):
+Suppose first that a ∈ Zn and R(a) ̸= 0 . Then l1; l2 ∈ Z. By the direction (1) ⇒(2)
+of Proposition 3.3, there are u; v ∈ Z such that, for (z1; z2) = ( l1; l2), t = R(a) ̸= 0, and
+s = uR(a), one has
+b; c ∈ Sq(Z) and s | D(v) in Z:
+Then 9b and c are squares in Z. Lemma 2.2 for Z shows that there exists j ∈ Z such
+that ΦK,n,R(a; u; v; j) = 0 .
+Conversely, for (a; u; v; j) ∈ O n+3
+K , suppose ΦK,n,R(a; u; v; j) = 0 . Since D(v) ̸= 0 ,
+Lemma 2.2 for OK implies
+9b; c ∈ Sq(OK) and s | D(v) in OK:
+
+===== PDF PAGE 14 =====
+14 GENG-RUI ZHANG
+Hence s ̸= 0, and we have b ∈ Sq(OK) by (4.2). The direction (3) ⇒(1) of Proposition 3.3
+yields l1; l2 ∈ Z. Observe that a ∈ Zn by (4.1). Finally, R(a) ̸= 0 because s = uR(a) ̸=
+0.
+Real quadratic fields. Write K = Q(
+√
+d), where d ≥ 2 is squarefree. Define
+M (X) = 2
+n∏
+i=1
+(X 2
+i + 1);
+W (X) = M (X)n+1 +
+n∑
+i=1
+XiM (X)n−i;
+T (X) = 2 W (X) + 1:
+For every a ∈ O n
+K, Theorem 3.6 (1) implies
+(4.3) i(W (a)) > 3 and i(T (a)) > 7 ( i = 1; 2);
+and Theorem 3.6 (2) with r = 1 shows that
+(4.4) W (a) ∈ Q ⇐ ⇒ a ∈ Zn:
+Let a; e be the fixed integers from ( 3.6). Introduce new unknowns U; V; J and define
+Y (X; U) = T (X)R(X)U;
+Q(X; U; V ) = T (X) + Y (X; U)2V;
+A1(X; U) = 1 + eY (X; U)2;
+A2(X; U; V ) = 1 + eY (X; U)2Q(X; U; V )2:
+Set
+ΦK,n,R(X; U; V; J) = F (4A1(X; U); A2(X; U; V ); Y (X; U); D(V ); J) :
+Because e is even, the first two arguments of F are distinct after every evaluation over
+OK. Also, for every  ∈ O K,
+(4.5) 4 ∈ Sq(OK) ⇐ ⇒  ∈ Sq(OK):
+Suppose first that a ∈ Zn and R(a) ̸= 0. Set
+w = W (a) and t = T (a) = 2 w + 1:
+Then w ∈ Z and w > 3 by ( 4.3), so t ∈ Z>0 is odd. By Lemma 2.3, choose r0 ∈ Z>0
+such that
+tR(a) | qr0 in Z;
+where pm; qm ∈ Z≥0 (m ≥ 0) are defined as in § 3.2. Set
+y = qr0 and u = qr0
+tR(a) ∈ Z:
+Then y = Y (a; u). Applying Corollary 2.5 with sign +1, we conclude that there are a
+positive odd integer k and v ∈ Z such that
+q := Q(a; u; v) = t + y2v = qr0k
+qr0
+and y | D(v) in Z:
+Consequently,
+A1(a; u) = 1 + eq2
+r0 = p2
+r0 and A2(a; u; v) = 1 + eq2
+r0q2 = p2
+r0k:
+
+===== PDF PAGE 15 =====
+13 UNKNOWNS AND LUCAS CONGRUENCES 15
+Lemma 2.2 for Z supplies j ∈ Z for which ΦK,n,R(a; u; v; j) = 0 .
+Conversely, suppose that ΦK,n,R(a; u; v; j) = 0 for (a; u; v; j) ∈ O n+3
+K , and set
+t = T (a); y = Y (a; u); q = Q(a; u; v);
+a1 = A1(a; u); a2 = A2(a; u; v):
+Lemma 2.2 for OK, ( 2.1), and ( 4.5) imply
+a1; a2 ∈ Sq(OK) and y | D(v) in OK:
+Note that y ̸= 0. Since a1; a2 ∈ Sq(OK), Theorem 3.5 yields
+y2; (yq)2 ∈ Z≥0:
+Since y = tR(a)u, one has t | y in OK. Set  = y2 ∈ Z>0 and write ti = i(t). By ( 4.3),
+we obtain t1; t2 > 7. Since t | y in OK, write y = tc with c ∈ O K \ {0}. Moreover,
+NK/Q(y)2 = N K/Q(y2) = N K/Q() = 2;
+so | NK/Q(y)| = . Hence
+ = | NK/Q(y)| = | NK/Q(t)| | NK/Q(c)| ≥ | NK/Q(t)|:
+Since t1; t2 > 7, we obtain
+ ≥ NK/Q(t) > 49:
+Moreover,
+NK/Q(t) − TrK/Q(t) = ( t1 − 1)(t2 − 1) − 1 > 35;
+and then
+ ≥ NK/Q(t) > TrK/Q(t) = t1 + t2 > 14:
+Therefore  ∤ TrK/Q(t) in Z, while
+|t1 − t2| < t 1 + t2 = TrK/Q(t) <  < 
+√
+d ≤ 
+√
+∆K:
+Since y2; (yq)2 ∈ Z≥0 and y ̸= 0 , we also have q2 = ( yq)2=y2 ∈ Q. Proposition 3.7,
+applied with q = t + v , yields t ∈ Z; hence W (a) = ( t − 1)=2 ∈ Q. Thus, a ∈ Zn by
+(4.4). Finally, y = tR(a)u ̸= 0 implies R(a) ̸= 0.
+The construction is effective. In the imaginary case, every polynomial above is given
+explicitly in terms of n and R. In the real case, one first finds a nontrivial solution
+of a2
+0 − db2
+0 = 1 by the continued-fraction algorithm and then performs the displayed
+polynomial constructions. Hence, ΦK,n,R is effectively constructible from (K; n; R). □
+Proof of Theorem 1.3. Set
+R =
+t∏
+j=1
+Rj;
+with R = 1 if t = 0. For (a; b) ∈ O r+m
+K , we have
+R(a; b) ̸= 0 ⇐ ⇒ Rj(a; b) ̸= 0 (1 ≤ j ≤ t):
+If s = 0, set P = 0. If s > 0 and K is real, set
+P =
+s∑
+i=1
+P 2
+i :
+
+===== PDF PAGE 16 =====
+16 GENG-RUI ZHANG
+If s > 0 and K = Q(
+√
+−d) is imaginary with d a positive squarefree integer, set E1 = P1
+and recursively
+Ei+1 = E2
+i + (d + 1)P 2
+i+1 (1 ≤ i < s );
+and set P = Es. In the imaginary case, Lemma 3.1 shows inductively that over OK,
+P = 0 is equivalent to P1 = · · · = Ps = 0 ; the corresponding equivalence in the real
+case is immediate.
+Apply Theorem 1.2 to the r + m unknowns (X; Y) and the polynomial R. Let
+I(X; Y; U; V; J) ∈ Z[X; Y; U; V; J]
+be the resulting integrality polynomial. Thus, for all (a; b) ∈ O r+m
+K ,
+∃u; v; j ∈ O K : I(a; b; u; v; j) = 0 ⇐ ⇒ (a; b) ∈ Zr+m and R(a; b) ̸= 0:
+If K is real, define H = P 2 + I 2; if K = Q(
+√
+−d) is imaginary, define H = P 2 + (d +
+1)I 2. In the real case, we have H = 0 is equivalent to P = I = 0 over OK, while in the
+imaginary case the same conclusion follows from Lemma 3.1. This gives the asserted
+equivalence with the 3 additional quantified unknowns U; V; J. Effectivity follows from
+Theorem 1.2 and the constructions above. □
+Remark 4.1. Theorems 1.2 and 1.3 remain valid if the input polynomial(s) are allowed
+to have coeﬀicients in OK. More precisely, in Theorem 1.2 one may take
+R(X) ∈ O K[X];
+and in Theorem 1.3 one may take
+P1; : : : ; Ps; R1; : : : ; Rt ∈ O K[X; Y]:
+In both cases, the resulting polynomial can still be constructed effectively from K and
+the input polynomial(s); in fact, it can still be taken to have coeﬀicients in Z.
+Indeed, let  denote the nontrivial automorphism of K=Q. For G ∈ O K[Z], where Z
+is any finite tuple of variables, define NG := G · Gσ, where  acts coeﬀicientwise. Then
+NG ∈ Z[Z]. Moreover, for every z ∈ Z#Z, one has NG(z) = G(z)G(z)σ = N K/Q
+(
+G(z)
+)
+,
+hence
+G(z) = 0 ⇐ ⇒ NG(z) = 0 and G(z) ̸= 0 ⇐ ⇒ NG(z) ̸= 0:
+Thus, for Theorem 1.2 (resp. Theorem 1.3), one applies the original theorem to NR
+(resp. NP1; : : : ; NPs; NR1; : : : ; NRt). Since coeﬀicientwise conjugation and multiplication
+in K are effective, the resulting polynomial is effectively constructible from K and the
+original input polynomial(s).
+4.2. Recursively enumerable relations.
+Theorem 4.2 (13-unknown representation) . Let K be a quadratic number field, let
+r ∈ Z>0, and let D ⊆ Zr be r.e. There is a polynomial
+HD(X1; : : : ; Xr; Y1; : : : ; Y13) ∈ Z[X; Y]
+such that, for every a ∈ O r
+K,
+a ∈ D ⇐ ⇒ ∃ b ∈ O 13
+K : HD(a; b) = 0 :
+The number 13 is independent of r and of D.
+
+===== PDF PAGE 17 =====
+13 UNKNOWNS AND LUCAS CONGRUENCES 17
+Proof. We first encode Zr in Z≥0 using polynomials. Define
+G0(T ) = 2 T 2 − T and C(U; V ) = ( U + V )2 + U:
+It is easy to verify G0(Z) ⊆ Z≥0 and C(Z2
+≥0) ⊆ Z≥0. Since
+G0(a) − G0(b) = ( a − b)(2a + 2b − 1);
+the map G0 : Z → Z≥0 is injective. The map C : Z2
+≥0 → Z≥0 is also injective: if
+s = u + v with u; v ∈ Z≥0, then s2 ≤ C(u; v) < (s + 1)2, so C(u; v) determines s, then
+u, and then v. Define J1 = G0 and recursively
+Jr+1(X1; : : : ; Xr+1) = C (Jr(X1; : : : ; Xr); G0(Xr+1)) :
+Then Jr : Zr → Z≥0 is an injective polynomial map.
+Set A = Jr(D). The set A is r.e. because D is r.e. Then Theorem 1.4 gives a
+polynomial
+QA(T; Z1; : : : ; Z10) ∈ Z[T; Z1; : : : ; Z10]
+such that for every a ∈ Z≥0,
+a ∈ A ⇐ ⇒ ∃ z1; : : : ; z9 ∈ Z ∃z10 ∈ Z \ {0} : QA(a; z1; : : : ; z10) = 0 :
+Hence, for a ∈ Zr,
+a ∈ D ⇐ ⇒ ∃ z ∈ Z10 : QA(Jr(a); z) = 0 ; z 10 ̸= 0:
+Apply Theorem 1.3 with (m; s; t) = (10 ; 1; 1) and
+P1(X; Z) = QA(Jr(X); Z); R 1(X; Z) = Z10:
+The resulting representation over OK has 10 + 3 = 13 unknowns. □
+Proof of Theorem 1.1. Fix a nonrecursive r.e. set A ⊆ Z≥0. Applying Theorem 4.2 with
+r = 1 gives, for every quadratic number field K, a polynomial
+HK,A(T; Y1; : : : ; Y13) ∈ Z[T; Y1; : : : ; Y13]
+such that, for every t ∈ O K,
+t ∈ A ⇐ ⇒ ∃ y ∈ O 13
+K : HK,A(t; y) = 0 :
+Since A is fixed, the polynomial QA given by Theorem 1.4 has fixed degree. In the
+proof of Theorem 4.2, we have r = 1 , so the encoding polynomial is J1 = G0, which
+has degree 2. We also apply Theorem 1.3 with (m; s; t) = (10 ; 1; 1) and R1 = Z10,
+which has degree 1. Thus, the numbers of variables and the exponents appearing in the
+transfer construction are fixed. It remains to check that the quadratic field K affects
+only the coeﬀicients, not the degrees. In the imaginary quadratic case, the squarefree
+integer d appears only in coeﬀicients such as d + 1. Thus, it does not affect the total
+degree. In the real quadratic case, d and the chosen solution (a0; b0) of a2
+0 − db2
+0 = 1
+enter only through the coeﬀicients a and e. Again, they do not affect the exponents in
+the defining polynomials. Therefore, the degrees arising from the construction depend
+only on deg(QA) and on whether K is real or imaginary. They do not depend on the
+particular quadratic field K. Taking the maximum of the two resulting degree bounds
+gives an integer D0 ≥ 1, independent of K, such that HK,A(t; Y1; : : : ; Y13) can always
+be chosen to have total degree at most D0.
+
+===== PDF PAGE 18 =====
+18 GENG-RUI ZHANG
+If the decision algorithm excluded by Theorem 1.1 exists for a fixed quadratic K,
+then on input t ∈ Z, one could apply it to the polynomial HK,A(t; Y1; : : : ; Y13) and
+decide membership in A, contrary to the assumption that A is nonrecursive. □
+4.3. Universal pairs. Theorem 1.1 gives a uniform degree bound, but not an explicit
+one. We now obtain an explicit bound at the cost of one additional quantified unknown.
+Let R be an integral domain of characteristic zero, and view Z ⊆ R. A pair (; ∆) ∈
+Z2
+>0 is called universal over R if, for every r.e. set A ⊆ Z≥0, there exists a polynomial
+PA(T; Y1; : : : ; Yν) ∈ Z[T; Y1; : : : ; Yν]
+of total degree at most ∆ such that, for every t ∈ Z≥0,
+t ∈ A ⇐ ⇒ ∃ b ∈ Rν : PA(t; b) = 0 :
+Thus, the parameter t is already restricted to Z≥0 in the definition; only the  quantified
+unknowns range over R.
+Bayer–David–Hassler–Matiyasevich–Schleicher [BDH+25], together with the formal
+verification of Bayer–David [ BD25], proved that (11; ∆Z) is universal over Z, where
+∆Z = 1681043235226619916301182624511918527834137733707408448335539840
+≈ 1:68105 · 1063:
+Bayer et al. [ BDH+25] also state a universal pair (11; ∆′
+Z) over Z with ∆′
+Z ≈ 9:50818 ·
+1053 ≪ ∆Z. However, the correctness of this smaller pair depends on a statement of
+Jones, which is not proved. See [ BDH+25, § 0.3] for details.
+Theorem 4.3 (Universal pair for quadratic integer rings) . For every quadratic number
+field K, the pair (14; 2∆Z) is universal over OK. Explicitly,
+2∆Z = 3362086470453239832602365249023837055668275467414816896671079680
+≈ 3:36209 · 1063:
+Proof. Let A ⊆ Z≥0 be r.e., and let PA(T; Y1; : : : ; Y11) be an integer-representation
+polynomial of degree at most ∆Z. Apply Theorem 1.2 with n = 11 and R = 1 to the 11
+quantified unknowns Y1; : : : ; Y11; the parameter T is not included because it is already
+restricted to Z≥0. Let
+I(Y1; : : : ; Y11; U; V; J) = Φ K,11,1(Y1; : : : ; Y11; U; V; J)
+be the resulting polynomial. Then for every a ∈ O 11
+K ,
+∃u; v; j ∈ O K : I(a; u; v; j) = 0 ⇐ ⇒ a ∈ Z11:
+Define
+HA =
+{
+P 2
+A + I 2; K real;
+P 2
+A + (d + 1)I 2; K = Q(
+√
+−d) with d positive and squarefree :
+For t ∈ Z≥0, the equation HA(t; ·) = 0 over OK is equivalent to PA(t; ·) = 0 having a
+solution in Z11.
+
+===== PDF PAGE 19 =====
+13 UNKNOWNS AND LUCAS CONGRUENCES 19
+It remains to verify that deg(HA) ≤ 2∆Z. In the imaginary construction in the proof
+of Theorem 1.2, with n = 11 and R = 1 , the degrees of L0; L1; L2; H; S; Y; B; C are
+respectively
+11; 121; 132; 506; 1; 507; 1014; 3044;
+and direct substitution into F gives deg I ≤ 6092. In the real construction, the degrees
+of M; W; T; Y; Q; A1; A2 are respectively
+22; 264; 264; 265; 531; 530; 1592;
+and deg I ≤ 4244. Therefore
+deg HA ≤ max{2∆Z; 2 deg I} = 2∆ Z;
+which proves the conclusion. □
+The universal pair has the following undecidable consequence:
+Corollary 4.4. For every quadratic number field K, there is no algorithm that, given a
+polynomial R(X) ∈ Z[X1; : : : ; X14] of total degree at most 2∆Z, decides whether R = 0
+has a solution in O14
+K .
+Proof. Choose a nonrecursive r.e. set A ⊆ Z≥0. By Theorem 4.3, there exists a polyno-
+mial
+HA(T; Y1; : : : ; Y14) ∈ Z[T; Y1; : : : ; Y14]
+of total degree at most 2∆Z such that, for every t ∈ Z≥0,
+t ∈ A ⇐ ⇒ ∃ y ∈ O 14
+K : HA(t; y) = 0 :
+If the asserted decision algorithm exists, then for an input t ∈ Z≥0, it would decide
+membership in A, contradicting the nonrecursiveness of A. □
+Thus, Theorem 1.1 gives 13 unknowns with a non-explicit uniform degree bound D0,
+while Corollary 4.4 gives the explicit degree bound 2∆Z with 14 unknowns.
+5. Lucas applications
+The fourth-order congruence used in the 3-unknown construction is the first nontriv-
+ial truncation of a classical Lucas multiplication formula. We present that polynomial
+explicitly for the norm-one family, then use its first nonzero terms to study the exact
+`-adic valuation of the deviation unk=un − k. Standard valuations of Lucas terms are
+classical; see, for example, [ San16, BW23]. The final results concern instead the lo-
+cal distribution of these deviations, which is related to, but distinct from, the p-adic
+quotient-set problem studied in [ AB23, AB25].
+5.1. Lucas expansions and deviations. Fix a ∈ Z. Define (un)n≥0; (vn)n≥0 by
+u0 = 0; u 1 = 1; u n+2 = aun+1 − un; v 0 = 2; v 1 = a; v n+2 = avn+1 − vn:
+Write Z 2 − aZ + 1 = ( Z − )(Z − ), where ;  ∈ Q. Then for n ≥ 0, we have
+un =
+n−1∑
+i=0
+n−1−ii; v n = n + n;
+
+===== PDF PAGE 20 =====
+20 GENG-RUI ZHANG
+and un = (n − n)=( − ) if  := a2 − 4 = (  − )2 ̸= 0. Note that v2
+n − u2
+n = 4 for
+n ≥ 0.
+The next proposition is a reformulation of the classical Lucas multiplication formula;
+see [ BW23, § 2.2].
+Proposition 5.1 (All-orders expansion) . Let k ≥ 1 be an odd integer, and set  =
+(k − 1)=2 ∈ Z≥0. For an integer 0 ≤ r ≤ , define
+cr(k) =
+k ∏r
+j=1 (k2 − (2j − 1)2)
+4r(2r + 1)! ;
+where c0(k) = k; then cr(k) ∈ Z>0. For every n ∈ Z>0 with un ̸= 0, one has
+unk
+un
+=
+θ∑
+r=0
+cr(k)ru2r
+n ;
+in particular, for every h ∈ Z>0, one has
+unk
+un
+≡
+min{h−1,θ}∑
+r=0
+cr(k)ru2r
+n (mod u2h
+n ):
+Proof. By the classical Lucas multiplication polynomial [ BW23, (2.35)], for every n ≥ 1
+with un ̸= 0, one has
+unk
+un
+= Λ k(vn);
+where
+Λk(Z) =
+θ∑
+r=0
+(−1)θ−r
+(k + r −  − 1
+ − r
+)
+Z 2r ∈ Z[Z]
+is an even integer-coeﬀicient polynomial depending only on k. Write
+Λk(Z) = Φ k(Z 2 − 4);
+where Φk(Z) ∈ Z[Z].
+Using the standard identities
+Λk(2 cosh t) = sinh(kt)
+sinh t and sinh(kt)
+sinh t =
+θ∑
+r=0
+4rcr(k) sinh2r t
+and substituting W = Z 2 − 4 alongside (Z; W ) = (2 cosh t; 4 sinh2 t) yield
+Φk(W ) =
+θ∑
+r=0
+cr(k)W r:
+So cr(k) ∈ Z>0 = Z ∩ Q>0 for 0 ≤ r ≤ . Since v2
+n − 4 = u2
+n, substitution yields the
+exact formula, and truncation shows the congruence. □
+The fourth-order formula is the first nonconstant truncation of this multiplication
+polynomial.
+
+===== PDF PAGE 21 =====
+13 UNKNOWNS AND LUCAS CONGRUENCES 21
+Corollary 5.2 (Fourth-order expansion). Let n ∈ Z>0 with un ̸= 0, and let k ∈ Z>0 be
+odd. Then un | unk and
+unk
+un
+≡ k + k(k2 − 1)
+24 u2
+n (mod u4
+n):
+Moreover, there are Ψk; Ψ∗
+k ∈ Z[W ] such that
+vnk = vnΨk(u2
+n) and Ψk(W ) = 1 + k2 − 1
+8 W + W 2Ψ∗
+k(W ):
+Proof. The first two assertions follow from Proposition 5.1 and
+c1(k) = k(k2 − 1)
+24 :
+The statement for (vnk; vn) can be proved as in the proof of Proposition 5.1. We omit
+the details. □
+For a prime `, let vℓ denote the usual `-adic valuation on Q, with vℓ(0) = ∞. The
+next corollary measures the exact valuation of the error after subtracting the linear
+term k.
+Corollary 5.3 (Exact deviation valuation) . Let n; k ∈ Z>0 with un ̸= 0 and k odd, and
+let ` ≥ 3 be a prime. Suppose that ` ∤  and ` | un. Set r = vℓ(un) ≥ 1. Define hℓ = 1
+if ` = 3, and hℓ = 0 otherwise.
+(1) Set  = vℓ(k(k2 − 1)). If  < 2r + hℓ, then
+vℓ
+( unk
+un
+− k
+)
+= 2r +  − hℓ and vℓ(unk − kun) = 3 r +  − hℓ:
+(2) Set  ′ = vℓ(k2 − 1). If  ′ < 2r, then vℓ(vnk − vn) = 2 r +  ′.
+Proof. (1). By Corollary 5.2,
+unk
+un
+− k = k(k2 − 1)
+24 u2
+n + u4
+nc
+for some c ∈ Z. The two terms in the right-hand side have `-adic valuations 2r +  − hℓ
+and at least 4r, respectively. The hypothesis  < 2r + hℓ shows 4r > 2r +  − hℓ. Hence,
+the first equality holds, and the second equality follows.
+(2). Likewise,
+vnk − vn = vn
+(k2 − 1)
+8 u2
+n + vnu4
+nc′
+for some c′ ∈ Z. Since v2
+n = 4 + u2
+n ≡ 4 (mod `) and ` ≥ 3, one has ` ∤ vn. The two
+terms in the right-hand side have valuations 2r +  ′ and at least 4r, respectively. Then
+the conclusion follows. □
+5.2. Wieferich deviations. Let ` ≥ 3 be a rational prime with ` ∤ , and suppose
+that ` divides some nonzero term of (un). Let ℓ ≥ 1 be the smallest index such that
+uρℓ ̸= 0 and ` | uρℓ. Define rℓ = vℓ(uρℓ). We call ` a Lucas–Wieferich prime for the
+sequence (un)n≥1 if rℓ ≥ 2. Set hℓ = 1 if ` = 3 , and hℓ = 0 otherwise. The following
+corollary shows that rℓ is recovered from the deviation of the multiplication formula
+from its linear term:
+
+===== PDF PAGE 22 =====
+22 GENG-RUI ZHANG
+Corollary 5.4 (Lucas–Wieferich deviation). With the preceding notation, we have
+vℓ(uℓρℓ − `uρℓ) = 3 rℓ + 1 − hℓ and vℓ(vℓρℓ − vρℓ) = 2 rℓ:
+Consequently,
+`2 | uρℓ ⇐ ⇒ `7−hℓ | uℓρℓ − `uρℓ ⇐ ⇒ `4 | vℓρℓ − vρℓ
+⇐ ⇒ `5−hℓ | uℓρℓ − `uρℓ ⇐ ⇒ `3 | vℓρℓ − vρℓ;
+and
+rℓ = vℓ(uℓρℓ − `uρℓ) + hℓ − 1
+3 = vℓ(vℓρℓ − vρℓ)
+2 :
+Proof. Applying Corollary 5.3 with (n; k) = ( ℓ; `) yields  = 1 and  ′ = 0 . Since
+1 ≤ rℓ < 2rℓ + hℓ and 0 < 2rℓ, the valuation conditions are satisfied, yielding the
+conclusion. □
+We now consider Fibonacci numbers. Let (fn)n≥0 be the Fibonacci sequence, and
+(n)n≥0 its Lucas companion:
+f0 = 0; f 1 = 1; f n+2 = fn+1 + fn;  0 = 2;  1 = 1;  n+2 = n+1 + n:
+Using the notation above with a = 3, one has
+un = f2n; v n = 2n;  = 5:
+For a prime `, let (`) be the period of the sequence (fn (mod `))n≥0 (it always
+exists), which is called the Pisano period modulo `. A rational prime ` is called a Wall–
+Sun–Sun prime if (`2) = (`); see [ Wal60, SS92, HJ23]. Let ℓ be the Fibonacci rank
+of apparition of `, i.e., the smallest index ℓ ≥ 1 such that ` | fαℓ. For an odd prime
+` ≥ 3, the classical properties of Fibonacci numbers imply
+(`2) = (`) ⇐ ⇒ `2 | fαℓ;
+see, for example, [ Wal60] and [ Vin63, Theorem 2].
+The following corollary expresses the Wall–Sun–Sun condition through the exact
+linearization deviations:
+Corollary 5.5 (Fibonacci deviation) . Suppose that ` is an odd prime with ` ̸= 5. Set
+ℓ = ℓ
+gcd(ℓ; 2) and rℓ = vℓ(fαℓ):
+Then
+vℓ (f2ℓρℓ − `f2ρℓ) = 3 rℓ + 1 − hℓ and vℓ (2ℓρℓ − 2ρℓ) = 2 rℓ:
+Therefore,
+` is a Wall–Sun–Sun prime ⇐ ⇒ `7−hℓ | f2ℓρℓ − `f2ρℓ ⇐ ⇒ `4 | 2ℓρℓ − 2ρℓ
+⇐ ⇒ `5−hℓ | f2ℓρℓ − `f2ρℓ ⇐ ⇒ `3 | 2ℓρℓ − 2ρℓ;
+and
+rℓ = vℓ(f2ℓρℓ − `f2ρℓ) + hℓ − 1
+3 = vℓ(2ℓρℓ − 2ρℓ)
+2 :
+
+===== PDF PAGE 23 =====
+13 UNKNOWNS AND LUCAS CONGRUENCES 23
+Proof. The least index n ≥ 1 with ` | f2n is ℓ. If ℓ is even, then 2ℓ = ℓ. If
+ℓ is odd, then the classical identities f2m = fmm and 2
+m − 5f 2
+m = 4( −1)m give
+vℓ(f2ρℓ) = vℓ(fαℓ) = rℓ. In either case, we have vℓ(f2ρℓ) = rℓ. Applying Corollary 5.4 to
+un = f2n implies the conclusion. □
+5.3. Local surjectivity. The expansions in § 5.1 also have a local consequence: the
+normalized second-order correction can be prescribed modulo every divisor of the base
+Lucas term.
+Theorem 5.6 (Local surjectivity) . Fix n ∈ Z>0 with un ̸= 0 . Let s ∈ Z \ {0} satisfy
+s | un, and let t ∈ Z be odd. Then, for every residue class c (mod s), there are infinitely
+many positive odd integers k such that
+k ≡ t (mod u2
+n) and unk=un − t
+u2
+n
+≡ c (mod s):
+Proof. For a positive odd integer k = t + u2
+nr (r ∈ Z), Corollary 5.2 gives
+unk=un − t
+u2
+n
+= r +  k(k2 − 1)
+24 + u2
+nbk
+for some bk ∈ Z.
+We claim that
+E :=  k(k2 − 1)
+24 −  t(t2 − 1)
+24 ≡ 0 (mod s):
+Observe that
+k(k2 − 1) − t(t2 − 1) = ( k − t)(k2 + kt + t2 − 1)
+and s2 | (k − t). Suppose vp(s) = e with p a prime and e ∈ Z>0. If p ≥ 3, then
+vp(E) ≥ vp(k − t) − vp(24) ≥ vp(s2) − 1 = 2 e − 1 ≥ e:
+Suppose now p = 2. If a is even, then v2() = v2(a2 − 4) ≥ 2, so
+v2(E) ≥ v2(k − t) + v2() − v2(24) ≥ v2(s2) + 2 − 3 = 2 e − 1 ≥ e:
+Suppose now that a is odd. As s; un are even, the recurrence for (uj)j≥0 modulo 2 yields
+3 | n. Since u3 = a2 − 1 ≡ 0 (mod 8) and u3 | un by [BW23, (2.35)], we conclude that
+r2 := v2(un) ≥ max{e; 3}:
+Hence
+v2(E) ≥ v2(k − t) − v2(24) ≥ 2r2 − 3 ≥ r2 ≥ e:
+From the claimed congruence, we deduce that
+unk=un − t
+u2
+n
+≡ r +  t(t2 − 1)
+24 (mod s):
+Taking r in the residue class
+r ≡ c −  t(t2 − 1)
+24 (mod s)
+implies
+unk=un − t
+u2
+n
+≡ c (mod s):
+
+===== PDF PAGE 24 =====
+24 GENG-RUI ZHANG
+The argument used in the proof of Proposition 2.4(2), with qn replaced by un, shows
+that this residue class contains infinitely many r ∈ Z for which
+k = t + u2
+nr
+is a positive odd integer. Therefore, there are infinitely many k satisfying both required
+congruences. □
+Corollary 5.7 (`-adic density). Let ` ≥ 3 be a prime with ` ∤ . Let n0 ∈ Z>0 satisfy
+un0 ̸= 0 and r0 := vℓ(un0) ≥ 1:
+Define Nj := n0`j for j ∈ Z≥0. Fix an odd integer t. Then, for every M ∈ Z>0, every
+residue class c (mod `M ), and every integer j ≥ max{0; M − r0}, one has
+#
+{
+k ∈ Z>0 : 2 ∤ k; k ≡ t (mod u2
+Nj ); uNj k=uNj − t
+u2
+Nj
+≡ c (mod `M )
+}
+= ∞:
+Proof. Note that  ̸= 0 because ` ∤ ; hence a ̸= ±2. If |a| ≤ 1, then every nonzero
+term um (m ≥ 0) is ±1, contrary to ` | un0. We conclude that |a| ≥ 3. Thus, [ San16,
+Corollary 1.6] applies and yields vℓ(uNj ) = r0 + j for j ≥ 0. Now let M ∈ Z>0,
+let c be a residue class modulo `M , and fix an integer j ≥ max{0; M − r0}. Then
+vℓ(uNj ) = r0+j ≥ M , and hence `M | uNj . Applying Theorem 5.6 with (n; s) = ( Nj; `M )
+implies the assertion. □
+Corollary 5.7 concerns normalized second-order corrections rather than ordinary quo-
+tient sets in Qℓ; compare [ AB23, AB25].
+AI Disclosure. The author used AI tools (ChatGPT by OpenAI and Gemini by
+Google) to analyze Sun’s paper [ Sun26], assist with calculations, conduct literature
+searches and reference checks, and polish the language. The author independently ver-
+ified and approved all mathematical proofs, conclusions, and the final text, who takes
+full responsibility for the paper’s content and correctness.
+References
+[ABH+26] Levent Alpöge, Manjul Bhargava, Wei Ho, and Ari Shnidman. Rank stability in quadratic
+extensions and Hilbert’s tenth problem for the ring of integers of a number field. Invent.
+Math., 243(3):1129–1139, 2026.
+[AB23] Deepa Antony and Rupam Barman. p-adic quotient sets: linear recurrence sequences. Bull.
+Aust. Math. Soc. , 108(1):19–28, 2023.
+[AB25] Deepa Antony and Rupam Barman. p-adic quotient sets: linear recurrence sequences with
+reducible characteristic polynomials. Canad. Math. Bull. , 68(1):177–186, 2025.
+[BD25] Jonas Bayer and Marco David. A formal proof of complexity bounds on Diophantine equa-
+tions. In 16th International Conference on Interactive Theorem Proving (ITP 2025) , Leib-
+niz International Proceedings in Informatics (LIPIcs), vol. 352, Art. No. 3, pp. 3:1–3:18,
+Schloss Dagstuhl–Leibniz-Zentrum für Informatik, 2025.
+[BDH+25] Jonas Bayer, Marco David, Malte Hassler, Yuri Matiyasevich, and Dierk Schle-
+icher. Diophantine equations over Z: universal bounds and parallel formalization.
+arXiv:2506.20909v2, 2025.
+[BW23] Christian J.-C. Ballot and Hugh C. Williams. The Lucas Sequences: Theory and Applica-
+tions. CMS/CAIMS Books in Math., vol. 8. Springer, Cham, 2023.
+
+===== PDF PAGE 25 =====
+13 UNKNOWNS AND LUCAS CONGRUENCES 25
+[Cut80] Nigel Cutland. Computability: an introduction to recursive function theory . Cambridge
+Univ. Press, Cambridge, 1980.
+[DDF21] Nicolas Daans, Philip Dittmann, and Arno Fehm. Existential rank and essential dimension
+of diophantine sets. arXiv:2102.06941v5, 2025.
+[Den75] Jan Denef. Hilbert’s tenth problem for quadratic rings. Proc. Amer. Math. Soc., 48:214–220,
+1975.
+[DL26] Yuchen Ding and Junfeng Li. An AI proof of 18-variable undecidability for Diophantine
+equations over Z[i]. arXiv:2606.12776v1, 2026.
+[HJ23] Joshua Harrington and Lenny Jones. A note on generalised Wall–Sun–Sun primes. Bull.
+Aust. Math. Soc. , 108(3):373–378, 2023.
+[Kha22] Sudesh Kaur Khanduja. A textbook of algebraic number theory , Unitext, vol. 135. Springer,
+Singapore, 2022.
+[KP26] Peter Koymans and Carlo Pagano. Hilbert’s tenth problem via additive combinatorics. J.
+Amer. Math. Soc. , 2026. Published online.
+[MS27] Yuri Matiyasevich and Zhi-Wei Sun. Undecidability on Diophantine equations over Z[i]
+with 20 unknowns. J. Number Theory , 290:210–219, 2027.
+[San16] Carlo Sanna. The p-adic valuation of Lucas sequences. Fibonacci Quart. , 54(2):118–124,
+2016.
+[Sie70] Wacław Sierpiński. 250 Problems in Elementary Number Theory . American Elsevier Pub-
+lishing Co., New York, 1970.
+[SS92] Zhi-Hong Sun and Zhi-Wei Sun. Fibonacci numbers and Fermat’s last theorem. Acta Arith.,
+60(4):371–388, 1992.
+[Sun21] Zhi-Wei Sun. Further results on Hilbert’s tenth problem. Sci. China Math. , 64(2):281–306,
+2021.
+[Sun26] Zhi-Wei Sun. On Diophantine equations over the integer rings of quadratic fields.
+arXiv:2608.03992v1, 2026.
+[Vin63] John Vinson. The relation of the period modulo m to the rank of apparition of m in the
+Fibonacci sequence. Fibonacci Quart., 1(2):37–45, 1963.
+[Wal60] D. D. Wall. Fibonacci series modulo m. Amer. Math. Monthly , 67(6):525–532, 1960.
+School of Mathematical Sciences, Peking University, Beijing 100871, China
+Email address : grzhang@stu.pku.edu.cn, chibasei@163.com

@@ -1,0 +1,115 @@
+\section{A source-faithful rational degree-one tripod realization}
+\label{sec:iut-rational-degree-one-source-realization}
+
+The shadow construction of
+Section~\ref{sec:iut-rational-tripod-shadow} can be compared directly with the
+source definitions in Mochizuki's \emph{Arithmetic Elliptic Curves in General
+Position}.  Put
+\[
+ P=\mathbb P^1_{\Q},\qquad C=\{0,1,\infty\},\qquad U=P\setminus C,
+ \qquad U_{(0,1)}(\Q)=\{x\in\Q:0<x<1\}.
+\]
+The map $j(x)=[x:1]$ is an injective map to $U(\Q)$.  Its points have minimal
+field of definition $\Q$, and hence exact degree one.  The recurrence in the
+abstract LANA height theory already forces
+\begin{equation}\label{eq:ptle-one-equals-pteq-one}
+                    \operatorname{ptLE}(X,1)=\operatorname{ptEQ}(X,1),
+\end{equation}
+because the degree-at-most-zero locus is empty.
+
+Let $h$ be the normalized logarithmic Weil height and let $n$ be the truncated
+count for the three marked points.  For the genuine arithmetic objects, one
+has
+\begin{equation}\label{eq:rational-source-normalizations}
+ \operatorname{ht}_{\omega_P(C)}\circ j\approx h,
+ \qquad \log\operatorname{-diff}_P\circ j=0,
+ \qquad \log\operatorname{-cond}_C\circ j\approx n.
+\end{equation}
+Indeed, $\omega_P(C)\cong\mathcal O_{\mathbb P^1}(1)$, and invariance of the
+height BD class under isomorphism gives the first comparison.  The different
+ideal of $\Q/\Q$ is the unit ideal, giving the middle equality.  Finally, if
+$x=m/r$ is reduced with $0<m<r$, pulling $0,1,\infty$ back to
+$\operatorname{Spec}\mathbb Z$ gives the divisors of $m,r-m,r$.  Reduction of
+the pullback divisor therefore gives
+\[
+ \log\operatorname{-cond}_C(j(x))
+   =\sum_{p\mid m(r-m)r}\log p=n(x)
+\]
+for the standard model.  Changing the proper flat model changes this function
+only by bounded discrepancy.
+
+For an abstract height theory $T$, call a map
+$j:U_{(0,1)}(\Q)\to T.\operatorname{Pt}(T.\operatorname{tripod})$ a
+source-faithful degree-one realization when it has exact-degree-one image and
+satisfies the three relations in \eqref{eq:rational-source-normalizations}
+after replacing the arithmetic functions by the corresponding fields of $T$.
+Write $H_T,D_T,N_T$ for the three pulled-back functions.  Define the restricted
+Statement~I by
+\begin{equation}\label{eq:rational-source-restricted-statement-i}
+ \forall\epsilon>0\ \exists C_\epsilon\ \forall x,\qquad
+ H_T(x)\le(1+\epsilon)(D_T(x)+N_T(x))+C_\epsilon.
+\end{equation}
+We denote this proposition by $\operatorname{RStmtI}(T,j)$.
+
+\begin{theorem}[Source-faithful degree-one transport]
+\label{thm:rational-source-restricted-iff-abc}
+For every source-faithful degree-one realization,
+\[
+ \operatorname{RStmtI}(T,j)
+ \quad\Longleftrightarrow\quad \mathrm{ABCConjecture}.
+\]
+Consequently, full $T.\mathrm{StatementI}$ together with such a realization
+implies the integer $abc$ conjecture.
+\end{theorem}
+
+\begin{proof}
+Choose uniform constants $A_+,A_-,B_+,B_-$ such that
+\[
+ H_T\le h+A_+,\quad h\le H_T+A_-,\qquad
+ N_T\le n+B_+,\quad n\le N_T+B_-.
+\]
+If \eqref{eq:rational-source-restricted-statement-i} holds, then, using
+$D_T=0$,
+\[
+ h(x)\le(1+\epsilon)n(x)+
+ C_\epsilon+A_-+(1+\epsilon)B_+.
+\]
+This is the uniform rational-tripod formulation of integer $abc$.  Conversely,
+that formulation gives
+\[
+ H_T(x)\le(1+\epsilon)N_T(x)+
+ C_\epsilon+A_++(1+\epsilon)B_-,
+\]
+which is \eqref{eq:rational-source-restricted-statement-i}.  Finally, full
+Statement~I restricts along $j$ because
+\eqref{eq:ptle-one-equals-pteq-one} puts every image point in its degree-one
+domain.
+\end{proof}
+
+This theorem closes the elementary source normalization but not the IUT
+argument.  At the pinned versions, \texttt{Genl.HeightTheory} is only an
+abstract record, no genuine arithmetic instance is constructed, and the pinned
+IUT repository has no connection to Statement~I.  A later public IUT snapshot
+has only a conditional connection that still takes the height theory, its proof
+package, and the IUT and analytic inputs as premises.
+
+The distinction cannot be erased by adding the abstract proof package.  The
+degree-empty, height-zero, and different-inflated pressure models all admit
+full \texttt{ProofPackage} instances.  They show respectively
+that this package does not force rational degree-one points, the canonical
+height normalization, or the rational different.  A separate
+conductor-inflated model preserves exact points, degree, height, and zero
+different while destroying every uniform upper conductor comparison.  These
+are full-premise countermodels to their precisely stated weakened extraction
+claims; they do not contradict the genuine computations above, IUT, or $abc$.
+For clarity, the first three models retain the abstract proof package.  The
+conductor-inflated model retains the height theory, Statement~I, and the stated
+point, degree, height, and different data, but no proof-package instance is
+claimed for it.
+
+The Lean companion proves the recurrence
+\eqref{eq:ptle-one-equals-pteq-one}, formalizes the abstract transport theorem,
+constructs the rational-shadow consistency witness, and checks the pressure
+models without placeholders or new axioms.  Constructing the genuine
+arithmetic height-theory instance and proving its Statement~I remain active
+upstream tasks.

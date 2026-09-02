@@ -1,0 +1,274 @@
+\section{Balanced Mersenne multiplier localization}
+\label{sec:mersenne-balanced-multiplier-depth}
+
+We refine Section~\ref{sec:mersenne-multiplier-index-two-arm} in two
+directions.  The one-copy multiplier cutoff can be moved closer to its
+critical harmonic scale, and a published pointwise $p$-adic logarithm bound
+removes a growing low-multiplier interval from the deep-valuation arm.  No
+density conjecture is used.
+
+For an odd prime $p$, retain
+\[
+ d_p=\ord_p(2),\qquad w_p=v_p(2^{d_p}-1),\qquad
+ r_p=\frac{p-1}{d_p},
+\]
+and let $a_d=\sum_{d_p=d}(w_p-1)\log p$.  Fix a positive integer $k$ and a
+real number $\eta>0$.  Put
+\begin{equation}\label{eq:balanced-multiplier-scales}
+ L_m=\log\log(3m),\qquad
+ F_{m,\eta}=\log(3m)L_m^{1+\eta},\qquad
+ H_{m,\eta}=\left\lfloor
+ \sqrt{\frac{\log(3m)}{L_m^{1+\eta}}}\right\rfloor.
+\end{equation}
+Split the one-copy repeated support into
+\begin{align*}
+ U_d^{(\eta)}(m)
+ &=\sum_{\substack{d_p=d,\ w_p\ge2\\
+          p\le d^2/F_{m,\eta}}}\log p,\\
+ B_d^{(\eta)}(m)
+ &=\sum_{\substack{d_p=d,\ w_p\ge2\\
+          p>d^2/F_{m,\eta}}}\log p,
+\end{align*}
+and split the deep excess by multiplier:
+\begin{align*}
+ V_d^{(\eta)}(m)
+ &=\sum_{\substack{d_p=d,\ w_p\ge3\\
+          r_p<H_{m,\eta}}}(w_p-2)\log p,\\
+ G_d^{(\eta)}(m)
+ &=\sum_{\substack{d_p=d,\ w_p\ge3\\
+          r_p\ge H_{m,\eta}}}(w_p-2)\log p.
+\end{align*}
+The four terms give the exact identity
+\begin{equation}\label{eq:balanced-multiplier-four-part}
+ a_d=U_d^{(\eta)}(m)+B_d^{(\eta)}(m)
+      +V_d^{(\eta)}(m)+G_d^{(\eta)}(m).
+\end{equation}
+
+\begin{proposition}[Adaptive one-copy cutoff]
+\label{prop:balanced-adaptive-one-copy}
+For fixed $k\ge1$ and $\eta>0$, eventually in $m$,
+\[
+ \sum_{\substack{d\mid m\\\log(m/d)<kL_m}}
+ U_d^{(\eta)}(m)
+ \le
+ \frac{2m\log m}{F_{m,\eta}}(1+kL_m)
+ =O_{k,\eta}\!\left(\frac{m}{L_m^\eta}\right)=o(m).
+\]
+\end{proposition}
+
+\begin{proof}
+Write $q=m/d$.  If $p$ occurs in $U_d^{(\eta)}(m)$, multiplier
+injectivity and $p=1+d r_p$ give
+\[
+ r_p<\frac p d\le\frac d{F_{m,\eta}}.
+\]
+There are therefore at most $d/F_{m,\eta}$ such primes.  Eventually
+$F_{m,\eta}\ge1$, so $p\le d^2\le m^2$ and
+\[
+ U_d^{(\eta)}(m)\le\frac{2d\log m}{F_{m,\eta}}.
+\]
+The window is $q<(\log(3m))^k$.  Hence
+\[
+ \sum U_d^{(\eta)}(m)
+ \le\frac{2m\log m}{F_{m,\eta}}
+    \sum_{\substack{q\mid m\\q<(\log(3m))^k}}\frac1q
+ \le\frac{2m\log m}{F_{m,\eta}}(1+kL_m).
+\]
+Dividing by $m$ gives
+$O_k((1+L_m)/L_m^{1+\eta})=O_k(L_m^{-\eta})$.
+\end{proof}
+
+Thus the exponent two on $L_m$ in the previous cutoff can be replaced by
+$1+\eta$ for every fixed positive $\eta$.  The endpoint $\eta=0$ is not
+claimed: the same calculation then gives only a bounded normalized error.
+Relative to the old cutoff this is strictly sharper for $0<\eta<1$, equal at
+$\eta=1$, and a valid but weaker localization for $\eta>1$.
+That limitation is not an arithmetic counterexample, so the critical cutoff
+remains an active route.
+
+The deep estimate uses Yamada's unconditional theorem
+\cite{Yamada2010}.  With
+\[
+                       C_Y=283\log3\log6,
+\]
+his Theorem~1.2, equation~(7), states for every prime $p$ that
+\begin{equation}\label{eq:yamada-base-two}
+ v_p(2^{p-1}-1)
+ \le\left\lfloor C_Y\frac{p-1}{(\log p)^2}\right\rfloor+4.
+\end{equation}
+
+\begin{lemma}[Exact-order Yamada envelope]
+\label{lem:exact-order-yamada-envelope}
+For an odd prime $p$, with $d=d_p$, $r=r_p$, and $w=w_p\ge2$,
+\[
+ (w-2)\log p\le C_Y\frac{dr}{\log p}+2\log p.
+\]
+If $d>1$ and $r<H$, then
+\begin{equation}\label{eq:yamada-multiplier-envelope}
+ (w-2)\log p
+ \le C_Y\frac{dr}{\log d}+2\log(1+dH).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Since $p-1=dr$ and $0<r<p$, one has $p\nmid r$.  LTE gives
+\[
+ v_p(2^{p-1}-1)=v_p((2^d)^r-1)
+ =v_p(2^d-1)+v_p(r)=w.
+\]
+Substitute this equality into \eqref{eq:yamada-base-two}, discard the floor,
+subtract two, and multiply by $\log p$.  The final assertion uses
+$p>d$ and $p=1+dr<1+dH$.
+\end{proof}
+
+\begin{lemma}[Triangular multiplier energy]
+\label{lem:triangular-multiplier-energy}
+If positive integral labels $r(x)<H$ are injective on a finite set $S$, then
+\[
+ |S|\le H-1,
+ \qquad
+ \sum_{x\in S}r(x)\le\frac{H(H-1)}2.
+\]
+Consequently, for $d>1$ and $H\ge2$,
+\begin{equation}\label{eq:finite-deep-multiplier-bound}
+ \sum_{\substack{d_p=d,\ w_p\ge3\\r_p<H}}(w_p-2)\log p
+ \le
+ \frac{C_Yd}{\log d}\frac{H(H-1)}2
+ +2(H-1)\log(1+dH).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The image of the labels lies in $\{1,\ldots,H-1\}$, proving both finite
+bounds.  Apply \eqref{eq:yamada-multiplier-envelope} prime by prime and use
+injectivity of $p\mapsto r_p$ in the exact-order fibre.
+\end{proof}
+
+\begin{theorem}[Low-multiplier deep mass is negligible]
+\label{thm:balanced-low-deep-negligible}
+For every fixed $k\ge1$ and $\eta>0$,
+\[
+ \sum_{\substack{d\mid m\\\log(m/d)<kL_m}}
+       V_d^{(\eta)}(m)=o(m).
+\]
+More precisely, if $Q_m=(\log(3m))^k$ and $H=H_{m,\eta}$, then eventually
+\begin{align}
+ \sum V_d^{(\eta)}(m)
+ \le{}&
+ \frac{C_YmH(H-1)}{2\log(m/Q_m)}(1+kL_m)
+ \notag\\
+ &+2HQ_m\log(1+mH).
+\label{eq:window-low-deep-bound}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+In the window $q=m/d<Q_m$, hence $d>m/Q_m$.  Sum
+\eqref{eq:finite-deep-multiplier-bound}.  The coefficient of the triangular
+term is bounded using
+\[
+ \sum_{\substack{q\mid m\\q<Q_m}}d
+ =m\sum_{\substack{q\mid m\\q<Q_m}}\frac1q
+ \le m(1+kL_m),
+\]
+and $1/\log d\le1/\log(m/Q_m)$.  There are fewer than $Q_m$ integral
+co-divisors, giving the second line of
+\eqref{eq:window-low-deep-bound}.  Finally
+\[
+ H^2\le\frac{\log(3m)}{L_m^{1+\eta}},
+ \qquad \log(m/Q_m)=\log m-kL_m\sim\log m.
+\]
+The first line divided by $m$ is $O_k(L_m^{-\eta})$, and the second line is
+polylogarithmic in $m$, hence $o(m)$.
+\end{proof}
+
+The same slack $L_m^\eta$ therefore balances the normalized losses in
+Proposition~\ref{prop:balanced-adaptive-one-copy} and
+Theorem~\ref{thm:balanced-low-deep-negligible}.
+
+\begin{theorem}[Balanced two-arm obstruction]
+\label{thm:balanced-high-multiplier-two-arm}
+Suppose the Mersenne endpoint $\log W_m=o(m)$ fails, and fix $\eta>0$.  Then
+there are fixed $k\ge1$, $\epsilon>0$, and an unbounded sequence $m_j$ such
+that for every fixed $0<\gamma<1/2$, after passage to a subsequence one same
+alternative holds for all large $j$:
+\begin{enumerate}
+\item
+\[
+ \sum_{\substack{d\mid m_j\\\log(m_j/d)<kL_{m_j}}}
+ G_d^{(\eta)}(m_j)\ge\gamma\epsilon m_j,
+\]
+and every counted prime has
+$r_p\ge H_{m_j,\eta}$ and $p\ge1+d_pH_{m_j,\eta}$;
+\item
+\[
+ \sum_{\substack{d\mid m_j\\\log(m_j/d)<kL_{m_j}}}
+ B_d^{(\eta)}(m_j)\ge\gamma\epsilon m_j,
+\]
+and every counted prime has
+\[
+ d_p<\sqrt{p\log(3m_j)L_{m_j}^{1+\eta}}.
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The fixed-window equivalence supplies a localized $a_d$-mass at least
+$\epsilon m_j$.  Sum \eqref{eq:balanced-multiplier-four-part} and use the two
+little-oh estimates above.  The $G^{(\eta)}$ and $B^{(\eta)}$ sums total
+$(\epsilon-o(1))m_j$, so one carries every fixed share below one half on a
+subsequence.  The displayed prime restrictions are respectively the
+definition of $G^{(\eta)}$ and the rearrangement
+$p>d_p^2/F_{m_j,\eta}$.
+\end{proof}
+
+Thus it now suffices to prove that the two surviving localized sums are
+$o(m)$ for one fixed $\eta>0$ and every fixed $k$.  The first concerns deep
+base-two lifts only after their order multiplier tends to infinity; the
+second lies within a factor
+$\sqrt{\log(3m)L_m^{1+\eta}}$ of the square-root order threshold.  Neither
+estimate follows from the global Erd\H{o}s--Murty theorem
+\cite{ErdosMurty1999} or the Murty--S\'eguin valuation dictionary
+\cite{MurtySeguin2019}.
+
+The exact scope of newer literature is also important.  Li--Zhao
+\cite{LiZhao2026} fix one prime ideal and prove eventual stabilization of
+successive prime-power order growth; their threshold depends on that prime
+ideal and therefore does not bound initial depths uniformly as $p$ varies.
+Large-sieve results for Fermat quotients such as Shparlinski
+\cite{ShparlinskiFermatQuotients2011} average over intervals of the base
+variable and do not specialize to fixed base two with the simultaneous
+exact-order, divisor-window, and square-divisibility restrictions.  The
+conditional non-Wieferich conclusions of Fellini--Murty
+\cite{FelliniMurty2026} likewise do not close either surviving arm.
+
+There are two exact sharpness boundaries.  For every integer $H\ge1$, the
+complete positive packet $S_H=\{1,\ldots,H-1\}$ satisfies
+\[
+ \sum_{r\in S_H}r=\frac{H(H-1)}2.
+\]
+For any fixed $C$, choosing an integer $H>2C+1$ gives
+$\sum_{r\in S_H}r>CH$; hence injectivity plus a pointwise linear envelope
+does not imply a uniform $O(H)$ energy bound.  The member $H=4$ already
+refutes the coefficient-one inequality.  At the two-arm level,
+$(R,U,V,G,B)=(2,0,0,1,1)$ defeats every coefficient greater than one half.
+Both are complete abstract counterexamples to the respective stronger
+finite inferences.  In actual arithmetic,
+\[
+ \ord_{3511}(2)=1755,\qquad
+ v_{3511}(2^{1755}-1)=2,\qquad
+ \frac{3511-1}{1755}=2,
+\]
+so the universal assertion that every repeated exact-order prime has
+multiplier at least three is also false with all premises present.  This
+finite depth-two row does not refute either asymptotic surviving arm.
+
+The companion Lean module formalizes triangular multiplier energy, the
+positive-label capacity, the exact LTE transport from $p-1$ to the canonical
+exact-order valuation, the affine weighted envelope and its realization on
+the actual exact-order fibre, the two-controlled/two-surviving finite ledger,
+the complete triangular sharpness family and the two-arm sharpness example,
+and the full $3511$ order,
+square-divisibility, and multiplier certificate.  Yamada's theorem and the
+real asymptotic summation above remain cited paper mathematics; no valuation,
+density, or abc assertion is introduced as a Lean axiom.

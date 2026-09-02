@@ -1,0 +1,229 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true verification/2026_09_01_source_multiplier_catalogue_lucas/axiom-audit.lean
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.evenPowerSum_append (U : ℤ) (as bs : List ℤ) :
+  evenPowerSum U (as ++ bs) = evenPowerSum U as + U ^ (2 * as.length) * evenPowerSum U bs
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.coprime_add_square_tail (U a h : ℤ) (ha : IsCoprime a U) :
+  IsCoprime (a + U ^ 2 * h) U
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.evenPowerSum_coprime_of_leading (U a : ℤ) (as : List ℤ)
+  (ha : IsCoprime a U) : IsCoprime (evenPowerSum U (a :: as)) U
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.support_not_dvd_normalized_tail (U a p : ℤ) (as : List ℤ)
+  (ha : IsCoprime a U) (hpU : p ∣ U) (hpOne : ¬p ∣ 1) : ¬p ∣ evenPowerSum U (a :: as)
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.prime_not_dvd_list_prod_of_small (p : ℕ) (hp : Nat.Prime p)
+  (fs : List ℕ) (hsmall : ∀ x ∈ fs, 0 < x ∧ x < p) : ¬p ∣ fs.prod
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.integral_coefficient_not_dvd_of_small_numerator
+  (p ell denominator c : ℕ) (fs : List ℕ) (hp : Nat.Prime p) (hell : 0 < ell ∧ ell < p)
+  (hsmall : ∀ x ∈ fs, 0 < x ∧ x < p) (hcoeff : denominator * c = ell * fs.prod) : ¬p ∣ c
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.paired_correction_modEq (U ell v W S c d : ℤ)
+  (hW : W ≡ c [ZMOD U ^ 2]) (hS : S ≡ v * d [ZMOD U ^ 2]) (hcoeff : ell * d = 3 * c) : ell * S ≡ 3 * v * W [ZMOD U ^ 2]
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.channel_square_divisors (U A B : ℤ) (hU : U = A * B) :
+  A ^ 2 ∣ U ^ 2 ∧ B ^ 2 ∣ U ^ 2
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.companion_mod_A (v A : ℤ) (hv : v = 4 * A ^ 2 + 2) :
+  v ≡ 2 [ZMOD A ^ 2]
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.companion_mod_B (v B : ℤ) (hv : v = 8 * B ^ 2 - 2) :
+  v ≡ -2 [ZMOD B ^ 2]
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.paired_correction_channel_splitter (U A B ell v W S : ℤ)
+  (hU : U = A * B) (hvA : v = 4 * A ^ 2 + 2) (hvB : v = 8 * B ^ 2 - 2) (hpair : ell * S ≡ 3 * v * W [ZMOD U ^ 2]) :
+  ell * S ≡ 6 * W [ZMOD A ^ 2] ∧ ell * S ≡ -6 * W [ZMOD B ^ 2]
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.cancel_coprime_factor_modEq (m c x y : ℤ) (hc : IsCoprime c m)
+  (h : c * x ≡ c * y [ZMOD m]) : x ≡ y [ZMOD m]
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.six_mul_tail_unit_mod_square (U W : ℤ) (h6 : IsCoprime 6 U)
+  (hW : IsCoprime W U) : IsCoprime (6 * W) (U ^ 2)
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.splitter_recovers_half_companion (U ell v W S Z Z0 : ℤ)
+  (hv : v = 2 * Z0) (hunit : IsCoprime (6 * W) (U ^ 2)) (hpair : ell * S ≡ 3 * v * W [ZMOD U ^ 2])
+  (hZ : 6 * W * Z ≡ ell * S [ZMOD U ^ 2]) : Z ≡ Z0 [ZMOD U ^ 2]
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.channel_signs_give_square_root (A B U Z : ℤ) (hU : U = A * B)
+  (hAB : IsCoprime A B) (hZA : Z ≡ 1 [ZMOD A ^ 2]) (hZB : Z ≡ -1 [ZMOD B ^ 2]) : Z ^ 2 ≡ 1 [ZMOD U ^ 2]
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.no_fixed_zero_of_full_local_surjectivity (s : ℤ)
+  (Admissible : ℤ → Prop) (corr : ℤ → ℤ) (hsurj : ∀ (c : ℤ), ∃ k, Admissible k ∧ corr k ≡ c [ZMOD s])
+  (hone : ¬1 ≡ 0 [ZMOD s]) : ¬∀ (k : ℤ), Admissible k → corr k ≡ 0 [ZMOD s]
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.lucasMatrix_firstColumn.{u_1} {R : Type u_1} [CommRing R] (n : ℕ) :
+  (lucasMatrix R ^ n) 0 0 = lucasU (n + 1) ∧ (lucasMatrix R ^ n) 1 0 = lucasU n
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.lucasMatrix_entry.{u_1} {R : Type u_1} [CommRing R] (n : ℕ) :
+  (lucasMatrix R ^ n) 1 0 = lucasU n
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.u7353_mod_214375_certificate : lucasU 7353 = 85785
+IUTThreeClosures.PellLucasAllOrderStaircase20260901.fixedZeroCounterexample_arithmetic :
+  2451 = 1 + 2 * 35 ^ 2 ∧ 0 < 2451 ∧ Odd 2451 ∧ 85785 = 35 * 2451 ∧ (2451 - 1) / 35 ^ 2 = 2 ∧ ¬2 ≡ 0 [ZMOD 5]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.divisorTripleCatalogueWeight_eq_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.small_add_large_eq_catalogue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.smallDivisorTripleWeight_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.product_le_largeWeight_add_threshold_mul_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.margin_le_largeDivisorTripleWeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.topLabelWeight_le_largeDivisorTripleWeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.sum_cube_le_cube_sum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.monotone_overlap_cubicEnergy_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.weightedIncidence_cube_le_weight_sq_mul_cubicEnergy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.weightedShiftedIncidence_cube_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.weightedIncidence_eq_catalogue_add_shifted' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.weightedIncidence_sub_catalogue_cube_le_shiftedEnergy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.weightedShiftedIncidence_cube_le_of_caps' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCatalogueWeightOverlap20260901.powerful_pairwiseCatalogue_tail_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.ptLE_one_eq_ptEQ_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.mem_ptLE_one_of_mem_ptEQ_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.RationalDegreeOneSourceRealization.point_mem_degreeAtMostOne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.RationalDegreeOneSourceRealization.restrictedStatementI_of_statementI' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.RationalDegreeOneSourceRealization.restrictedStatementI_iff_abc' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.RationalDegreeOneSourceRealization.abc_of_statementI' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.degreeEmpty_fullGenlPremise_countermodel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.heightZero_fullGenlPremise_countermodel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.conductorInflatedShadow_statementI' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.conductorInflatedShadow_degreeOne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.conductorInflatedShadow_height_exact' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.conductorInflatedShadow_different_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.conductorInflatedShadow_no_uniform_conductor_upper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.conductorInflatedShadow_fullPremise_countermodel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.differentInflatedShadow_fullPremise_countermodel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.counterexample_reverse_without_source_height_upper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901.counterexample_reverse_without_target_radical_upper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.sum_injective_labels_lt_le_triangular' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.card_le_pred_of_positive_injective_labels_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.weighted_mass_le_triangular_envelope' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.factorization_fermat_eq_exactOrder' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.lowMultiplierExactOrderPrimes_card_le_pred' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.lowMultiplierExactOrderPrimes_sum_multiplier_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.lowMultiplierExactOrderWeight_le_triangular_envelope' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.highDeep_or_balancedNearSquare_of_two_low_budgets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.one_half_is_sharp_after_two_controlled_arms' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.complete_positive_label_packet' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.no_uniform_nat_linear_bound_for_positive_injective_labels' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.triangular_energy_exceeds_coefficient_one_at_four' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.wieferich_3511_exact_order_multiplier_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901.repeated_exact_order_multiplier_ge_three_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.evenPowerSum_append' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.coprime_add_square_tail' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.evenPowerSum_coprime_of_leading' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.support_not_dvd_normalized_tail' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.prime_not_dvd_list_prod_of_small' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.integral_coefficient_not_dvd_of_small_numerator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.paired_correction_modEq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.channel_square_divisors' depends on axioms: [propext]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.companion_mod_A' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.companion_mod_B' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.channel_A_sign' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.channel_B_sign' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.paired_correction_channel_splitter' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.cancel_coprime_factor_modEq' depends on axioms: [propext]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.six_mul_tail_unit_mod_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.splitter_recovers_half_companion' depends on axioms: [propext]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.channel_signs_give_square_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.no_fixed_zero_of_full_local_surjectivity' does not depend on any axioms
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.lucasMatrix_firstColumn' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.lucasMatrix_entry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.u7353_mod_214375_certificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasAllOrderStaircase20260901.fixedZeroCounterexample_arithmetic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

@@ -1,0 +1,148 @@
+\section{Actual affine catalogue weight and cubic aggregation}
+\label{sec:affine-catalogue-weight-overlap}
+
+The ray-period argument reduces the remaining non-arm-level collinear term
+to the Euler-totient weight of the divisor labels that actually arise from
+canonical repeated kernels.  We now compute that weight and aggregate its
+cubic energy without assuming that different kernel catalogues are
+disjoint.
+
+For a positive kernel triple
+$d=(d_U,d_V,d_W)$ put $D(d)=d_Ud_Vd_W$ and
+\[
+ \mathcal D(d)=\{(e_U,e_V,e_W):e_Z\mid d_Z\},\qquad
+ w(e)=\varphi(e_U)\varphi(e_V)\varphi(e_W).
+\]
+For a threshold $T$, define
+\[
+ L_T(d)=\sum_{\substack{e\in\mathcal D(d)\\e_Ue_Ve_W>T}}w(e).
+\]
+
+\begin{theorem}[Actual catalogue weight and finite tail]
+\label{thm:affine-actual-catalogue-tail}
+For every positive triple $d$,
+\[
+ \sum_{e\in\mathcal D(d)}w(e)=D(d)
+\]
+and
+\[
+ D(d)\le L_T(d)+T\tau(d_U)\tau(d_V)\tau(d_W).
+\]
+Moreover, if $T<D(d)$, then the top label gives
+\[
+ \varphi(d_U)\varphi(d_V)\varphi(d_W)\le L_T(d).
+\]
+\end{theorem}
+
+\begin{proof}
+The three sums separate, and
+$\sum_{e\mid n}\varphi(e)=n$.  On the complementary range
+$e_Ue_Ve_W\le T$, one has
+$w(e)\le e_Ue_Ve_W\le T$, and there are at most
+$\tau(d_U)\tau(d_V)\tau(d_W)$ labels.  Finally, $e=d$ occurs in the large
+range whenever $T<D(d)$.
+\end{proof}
+
+At a canonical exceptional affine point let
+$d=(K(U),K(V),K(W))$, where $K$ retains the exact prime powers of exponent
+at least two.  With
+\[
+ M=\left\lfloor\frac{c^6}{4R}\right\rfloor,
+ \qquad N=M-1,
+\]
+the established arm and excess inequalities give
+\[
+ 27D(d)\le c^{20},\qquad
+ D(d)>\frac{Rc^{14}}{8192},\qquad
+ N^2<\frac{c^{12}}{16R^2}.
+\]
+The elementary bound $\tau(n)\ll_\epsilon n^\epsilon$, applied with
+$\epsilon=1/40$ to the three components, therefore yields uniformly
+\[
+ \frac{D(d)-L_{N^2}(d)}{D(d)}
+ \ll c^{-3/2}.
+\]
+Thus asymptotically all of the actual totient weight lies above the sharp
+box-square determinant threshold.
+
+Let $\mathcal K$ be the realized canonical kernel triples, and let
+$m_\kappa$ be the size of the corresponding class in the exceptional-set
+partition.  If $n(e)$ is the number of exceptional points whose canonical
+kernel is divisible componentwise by $e$, then
+\[
+       n(e)=\sum_{\kappa:e\mid\kappa}m_\kappa.
+\]
+
+\begin{theorem}[Monotone catalogue aggregation]
+\label{thm:affine-monotone-catalogue-aggregation}
+For the determinant-large part of the third-gcd energy,
+\[
+ \sum_{\kappa\in\mathcal K}m_\kappa^3L_T(\kappa)
+ \le
+ \sum_{\substack{e\\e_Ue_Ve_W>T}}w(e)n(e)^3.
+\]
+Consequently, at $T=N^2$ the right side is at least
+\[
+ \bigl(1-O(c^{-3/2})\bigr)
+ \sum_{\kappa\in\mathcal K}D(\kappa)m_\kappa^3.
+\]
+\end{theorem}
+
+\begin{proof}
+For each fixed label,
+\[
+ \sum_{\kappa:e\mid\kappa}m_\kappa^3
+ \le
+ \left(\sum_{\kappa:e\mid\kappa}m_\kappa\right)^3=n(e)^3.
+\]
+Multiply by $w(e)$, sum over $e$, and interchange the two finite sums.  The
+asymptotic consequence follows from Theorem~\ref{thm:affine-actual-catalogue-tail}.
+\end{proof}
+
+This theorem controls energy, including its diagonal part.  It does not by
+itself force two kernel classes to share a large label.  If every point
+introduces a new catalogue, all relevant occupancies may still be one.  A
+bound for deduplicated catalogue weight or singleton novelty remains
+necessary for a genuine reuse conclusion.
+
+The form best matched to ray capacities is shifted.  For nonnegative
+weights and integer occupancies put
+\[
+ W=\sum_iw_i,\qquad I=\sum_iw_in_i,\qquad
+ J=\sum_iw_i(n_i-1).
+\]
+Weighted H\"older gives
+\[
+ J^3\le W^2\sum_iw_i(n_i-1)^3.
+\]
+Since every occurring label has $n_i\ge1$, the termwise identity
+$n_i=1+(n_i-1)$ gives $I=W+J$.  Thus the same estimate is the explicit
+overlap inequality
+\[
+ (I-W)^3\le W^2\sum_iw_i(n_i-1)^3.
+\]
+Hence individual caps $(n_i-1)^3\le X_i$ imply
+\[
+                         J^3\le W^2\sum_iw_iX_i.
+\]
+Labels may use different supporting lines and different $X_i$; no raw
+number-of-rays factor occurs.  This also avoids the factor four used when
+the earlier paper converted shifted cubes to $n_i^3$.
+
+The finite tail cannot be strengthened by simply subtracting $T$.  The
+positive pairwise-coprime powerful triple
+$(d_U,d_V,d_W)=(9,25,1)$ at $T=5$ has total weight $225$, small-label weight
+$1+2+4=7$, and therefore
+\[
+                         L_5(d)=218<220=225-5.
+\]
+This is a complete counterexample only to $L_T(d)\ge D(d)-T$.  It leaves the
+correct divisor-count tail and the affine route intact.
+
+The Lean companion checks the exact catalogue identities, tail bounds,
+top-label baseline, cubic aggregation, polynomial and shifted weighted
+H\"older inequalities, and this precise counterexample.  The active next
+steps are a signed period/capture theorem for every non-arm-level supporting
+line, the two negative-slope arm-level caps, and an arithmetic bound on
+deduplicated catalogue novelty.  No full-premise counterexample to those
+corrected targets is known.

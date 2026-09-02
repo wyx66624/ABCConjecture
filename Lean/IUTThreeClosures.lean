@@ -658,6 +658,13 @@ import IUTThreeClosures.AffineCommonKernelTripleSelection20260901
 -- force degree realization or uniform normalization for an intended theory.
 import IUTThreeClosures.IUTRationalTripodShadowComparison20260901
 
+-- Genuine rational degree-one source realization for the open tripod.  The
+-- source height, different, and conductor are matched to the standard Weil
+-- height and truncated count, making the restricted Statement I exactly
+-- equivalent to integer abc.  Full-premise pressure models reject only
+-- weakened extractions that omit one of these semantic bridges.
+import IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901
+
 -- Multiplier-index compression in the actual base-two exact-order fibres.
 -- The injective multiplier (p-1)/d controls the localized low-prime mass;
 -- after that paper-level o(m) estimate, failure of the Mersenne endpoint has
@@ -665,11 +672,23 @@ import IUTThreeClosures.IUTRationalTripodShadowComparison20260901
 -- for either surviving arm is assumed.
 import IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901
 
+-- Balanced continuation of the exact-order multiplier route.  Yamada's
+-- pointwise valuation envelope and triangular multiplier energy make the
+-- low-multiplier deep arm negligible at every fixed positive log-log slack;
+-- the growing-multiplier deep arm and near-square-root arm remain open.
+import IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901
+
 -- Balancing-Pell squarefull continuation: cubic-square odd-kernel normal
 -- form, residue and Jacobi-character transport, and a third-order quotient
 -- ledger modulo 8*l^3.  The actual opposite-channel depth-three exclusion
 -- remains open; finite certified non-squarefull indices are not extrapolated.
 import IUTThreeClosures.PellOddKernelThirdOrderPacket20260901
+
+-- Norm-one Lucas splice for the two Pell channels.  Exact all-order tails
+-- have support-unit leading coefficients, while the paired companion
+-- correction recovers opposite square-root-of-one channel signs.  A kernel
+-- recurrence certificate refutes only a fixed-zero one-channel rigidity.
+import IUTThreeClosures.PellLucasAllOrderStaircase20260901
 
 -- Collinear continuation of the affine common-kernel route.  Exact reduced
 -- direction periods give cube-root occupancy and weighted cubic-energy bounds
@@ -677,3 +696,9 @@ import IUTThreeClosures.PellOddKernelThirdOrderPacket20260901
 -- direction under an individual arm cap.  The signed arm-level and global
 -- totient-catalogue transfers remain active.
 import IUTThreeClosures.AffineCollinearPeriodEnergy20260901
+
+-- Actual Euler-totient mass of the downward repeated-kernel catalogue and
+-- monotonicity of its cubic energy under overlapping sublabels.  The finite
+-- tail is exact up to the divisor-count term; positive pointwise mass alone
+-- does not force reuse, so signed line caps and novelty remain active gates.
+import IUTThreeClosures.AffineCatalogueWeightOverlap20260901

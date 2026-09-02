@@ -1,0 +1,316 @@
+{
+  "schema": "abc-source-multiplier-catalogue-lucas-validation-v1",
+  "status": "PASS",
+  "completedUtc": "2026-09-02T05:58:46.103929+00:00",
+  "gitHeadBeforeCheckpointCommit": "9ef5800b0ab52c878a0f10cc8f686c65ac99d49a",
+  "toolVersions": {
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "lake": "Lake version 5.0.0-src+8c9756b (Lean version 4.32.0)",
+    "lean": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)"
+  },
+  "validationDrivers": [
+    {
+      "path": "validate.py",
+      "bytes": 47949,
+      "sha256": "615595cab6f0b65af3f9eabef84dbb38a5099e10056c78516a80f97c8f10072e"
+    },
+    {
+      "path": "validate.ps1",
+      "bytes": 1527,
+      "sha256": "0e1f687e6b186b7073669d05d9f0926259f989558b5b0749feba4280b9be114d"
+    }
+  ],
+  "frozenInputs": {
+    "path": "Lean/verification/2026_09_01_source_multiplier_catalogue_lucas/input-manifest.json",
+    "entries": 561,
+    "sha256": "4f25c6d6b68ddc336c799d0295f26538078dadc5c0d577b0e6da9aace2d23090"
+  },
+  "lakeDependencies": {
+    "manifestPath": "Lean/lake-manifest.json",
+    "manifestSha256": "9c9ac0744b4579d6e2afa37150fc27263ff84e43753e5a6bdfc04f44ac96c8a8",
+    "packages": [
+      {
+        "name": "heights",
+        "directory": "heights",
+        "revision": "3539e2a12dd3470c057a4eb531dc3fd627d4c97b",
+        "url": "https://github.com/lana-agents/heights.git"
+      },
+      {
+        "name": "genl",
+        "directory": "genl",
+        "revision": "6e9a6543b46a2a02fd7fe7ec8ab203d878f32859",
+        "url": "https://github.com/LANA-Project/genl.git"
+      },
+      {
+        "name": "iut",
+        "directory": "iut",
+        "revision": "ddaddc274281adb5674d647e24fa478745ac6d40",
+        "url": "https://github.com/lana-agents/iut.git"
+      },
+      {
+        "name": "mathlib",
+        "directory": "mathlib",
+        "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+        "url": "https://github.com/leanprover-community/mathlib4"
+      },
+      {
+        "name": "«tate-curves-theta»",
+        "directory": "tate-curves-theta",
+        "revision": "90d7fac0e4ef2d6bf2a619326c30adb862d1b3de",
+        "url": "https://github.com/lana-agents/tate-curves-theta"
+      },
+      {
+        "name": "plausible",
+        "directory": "plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "url": "https://github.com/leanprover-community/plausible"
+      },
+      {
+        "name": "LeanSearchClient",
+        "directory": "LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "url": "https://github.com/leanprover-community/LeanSearchClient"
+      },
+      {
+        "name": "importGraph",
+        "directory": "importGraph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "url": "https://github.com/leanprover-community/import-graph"
+      },
+      {
+        "name": "proofwidgets",
+        "directory": "proofwidgets",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "url": "https://github.com/leanprover-community/ProofWidgets4"
+      },
+      {
+        "name": "aesop",
+        "directory": "aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "url": "https://github.com/leanprover-community/aesop"
+      },
+      {
+        "name": "Qq",
+        "directory": "Qq",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "url": "https://github.com/leanprover-community/quote4"
+      },
+      {
+        "name": "batteries",
+        "directory": "batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "url": "https://github.com/leanprover-community/batteries"
+      },
+      {
+        "name": "«formal-schemes»",
+        "directory": "formal-schemes",
+        "revision": "51aa935079537bf4dc580751a6e70727fb23ca93",
+        "url": "https://github.com/lana-agents/formal-schemes"
+      },
+      {
+        "name": "Cli",
+        "directory": "Cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "url": "https://github.com/leanprover/lean4-cli"
+      }
+    ]
+  },
+  "generatedAudit": {
+    "path": "Lean/verification/2026_09_01_source_multiplier_catalogue_lucas/axiom-audit.lean",
+    "bytes": 71114,
+    "sha256": "00a4dc3c0c02bbcdf74b581761929e504a8ca6c577289b167534da08a35ee0ce"
+  },
+  "inventory": {
+    "path": "Lean/verification/2026_09_01_source_multiplier_catalogue_lucas/declaration-inventory.json",
+    "sha256": "ee2c30b6cbf2c8f902933f975f9278ac71abad3b27d100e8bc8e0a33739d5b5d"
+  },
+  "modules": [
+    {
+      "module": "AffineCatalogueWeightOverlap20260901",
+      "path": "Lean/IUTThreeClosures/AffineCatalogueWeightOverlap20260901.lean",
+      "bytes": 17267,
+      "sha256": "49d3dc852e0a26b5daef040765a1167b654e22ccdcd06cd56815f6b0fe6e5c5a",
+      "counts": {
+        "theorem": 14,
+        "lemma": 0,
+        "def": 5,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 14,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "IUTRationalDegreeOneSourceRealization20260901",
+      "path": "Lean/IUTThreeClosures/IUTRationalDegreeOneSourceRealization20260901.lean",
+      "bytes": 19924,
+      "sha256": "c3dc1ac88fe628c8a0e13fd156e7398557dc6b86976a4374887f8de1524b4378",
+      "counts": {
+        "theorem": 17,
+        "lemma": 0,
+        "def": 10,
+        "abbrev": 0,
+        "structure": 1,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 17,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersenneBalancedMultiplierDepthLocalization20260901",
+      "path": "Lean/IUTThreeClosures/MersenneBalancedMultiplierDepthLocalization20260901.lean",
+      "bytes": 14353,
+      "sha256": "1cd9db53672e054acce5664ab47fdd4f3a0fd2313f6cd69d0b00cd2d1bc9cae9",
+      "counts": {
+        "theorem": 14,
+        "lemma": 0,
+        "def": 0,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 14,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "PellLucasAllOrderStaircase20260901",
+      "path": "Lean/IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean",
+      "bytes": 14268,
+      "sha256": "aa3d11800d8c9da76b84d5d8009bf2168bea4600fa8736e23f7794ac8cc2cf6d",
+      "counts": {
+        "theorem": 22,
+        "lemma": 0,
+        "def": 3,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 22,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "totals": {
+    "theorem": 67,
+    "lemma": 0,
+    "def": 18,
+    "abbrev": 0,
+    "structure": 1,
+    "class": 0,
+    "inductive": 0,
+    "instance": 0,
+    "countedDeclarations": 86,
+    "proofDeclarations": 67,
+    "privateProofDeclarations": 0,
+    "axiomReports": 67
+  },
+  "axiomUnion": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "directRuns": [
+    {
+      "name": "AffineCatalogueWeightOverlap20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_source_multiplier_catalogue_lucas/logs/AffineCatalogueWeightOverlap20260901-direct.log",
+      "logSha256": "4c1457eb13e170acd122aa0fd4bb94a415bde88eda85e693223db7b255ffbc66",
+      "warnings": 0
+    },
+    {
+      "name": "IUTRationalDegreeOneSourceRealization20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_source_multiplier_catalogue_lucas/logs/IUTRationalDegreeOneSourceRealization20260901-direct.log",
+      "logSha256": "3144f027fa2d2cc1c78d28cebab6658b40e95a65e0a41d2c81ee2425ba3a1f71",
+      "warnings": 0
+    },
+    {
+      "name": "MersenneBalancedMultiplierDepthLocalization20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_source_multiplier_catalogue_lucas/logs/MersenneBalancedMultiplierDepthLocalization20260901-direct.log",
+      "logSha256": "7ba0450c48a37759bcca54a708cdf99d371a8314a5626003964d0f9fc590bbba",
+      "warnings": 0
+    },
+    {
+      "name": "PellLucasAllOrderStaircase20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_source_multiplier_catalogue_lucas/logs/PellLucasAllOrderStaircase20260901-direct.log",
+      "logSha256": "a49fa78a2a76a5875de682c530f01a9db339255debc2771b6bb640d66c7a9364",
+      "warnings": 0
+    }
+  ],
+  "axiomAuditRun": {
+    "name": "axiom-audit",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_01_source_multiplier_catalogue_lucas/logs/axiom-audit.log",
+    "logSha256": "124897f831dc85023b98d127defa375753bdec89741eb3fe32f1b93d645c1da8",
+    "warnings": 0
+  },
+  "computationReplay": {
+    "name": "pell-lucas-replay",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_01_source_multiplier_catalogue_lucas/logs/pell-lucas-replay.log",
+    "logSha256": "7a16be8158f6c0ecfaaba6d06fc8bc55c00f93420457e08645759d71262c6185",
+    "output": "Lean/verification/2026_09_01_source_multiplier_catalogue_lucas/lucas-all-order-independent-verification.json",
+    "outputSha256": "9abb1c35d3668ff5d8b7529faf33d846a6871b90c2969a41616a22bfa6e9c00d",
+    "verified": {
+      "local_method": "binary powering in Z[T]/(T^2-6T+1)",
+      "local_rows": 5,
+      "sample_indices": [
+        3,
+        5,
+        7,
+        11
+      ],
+      "sample_method": "binary Binet and Pell powering",
+      "verification": "PASS"
+    },
+    "targetResidues": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "aggregateBuild": {
+    "name": "aggregate-lake-build",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_01_source_multiplier_catalogue_lucas/logs/aggregate-lake-build.log",
+    "logSha256": "f905787a5beca4e1a0db266dbea4500b8081ff21876db95a48fab29cf7adf89f",
+    "jobs": 9229,
+    "warnings": 301
+  },
+  "scope": {
+    "provesOrDisprovesStandardABC": false,
+    "finiteOrConditionalClaimsUpgraded": false
+  }
+}

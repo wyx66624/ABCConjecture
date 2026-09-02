@@ -5,18 +5,88 @@ abc conjecture. A route is not deleted merely because it is incomplete, has been
 superseded by a stronger implementation, or currently fails to compile against a
 newer interface.
 
-## Deletion rule
+## Retirement rule
 
-A research branch may be deleted only after one of the following has been recorded:
+A mathematical route is retired only after a concrete counterexample has been
+checked against every hypothesis of its defining claim.  The counterexample
+retires exactly that claim, not a corrected weakening, a parent strategy, or a
+neighbouring route.  A Lean derivation of `False` counts only when its premises
+are themselves realized and consistent; an abstract inconsistent interface is
+not a mathematical counterexample.  Implementation branches may be archived
+after their results are merged, but archival does not retire their mathematical
+routes.
 
-1. a concrete mathematical counterexample to its defining claim;
-2. a Lean theorem deriving `False` from the route's hypotheses without using the
-   public inconsistent total log-volume specification;
-3. a proof that every theorem unique to the branch is already present on `main`,
-   together with an archived immutable commit retaining the original route.
+Difficulty, a missing theorem, API drift, a build failure, lack of current
+community acceptance, and a finite counterexample search with no hit are not
+grounds for retirement.  Positive proof construction and counterexample search
+must therefore continue in parallel for every unrefuted route.
 
-Build failures, API drift, lack of a current inhabitant, or lack of community
-acceptance are not counterexamples and are not grounds for deleting a route.
+## September 1, 2026 source-realization, balanced-multiplier, catalogue-overlap, and all-order Lucas checkpoint
+
+Standard `ABCConjecture` remains open in both directions.  The four routes in
+this checkpoint remain active, and each recorded counterexample removes only
+the exact stronger subclaim whose full premises it satisfies.
+
+- **IUT rational degree-one source realization:** active.  The genuine
+  rational tripod is identified arithmetically with minimal field `Q` and
+  exact degree one.  Its height is in the standard Weil-height
+  bounded-discrepancy class, its different is exactly zero, and its conductor
+  equals the truncated conductor pointwise for the standard model and up to
+  bounded discrepancy for other permitted models.  In the abstract interface
+  its source-faithful restricted Statement I is equivalent to integer abc,
+  and a full source Statement I transfers to abc through an explicit
+  source-faithful realization and the proved comparison.
+  Abstract full-premise models delete only attempts to infer the necessary
+  degree, height, different, or conductor bridge from the bare generic
+  interface.  The source-level Statement I and its uniform comparison remain
+  the live gate.  Ledger and Lean core:
+  `../research/ABC_IUT_RATIONAL_DEGREE_ONE_SOURCE_REALIZATION_2026_09_01.md`
+  and
+  `IUTThreeClosures/IUTRationalDegreeOneSourceRealization20260901.lean`.
+- **Mersenne balanced multiplier-depth localization:** active.  Yamada's
+  pointwise valuation estimate, LTE, and triangular multiplier energy make the
+  low-multiplier deep arm `o(m)` at the balanced cutoff and localize any failed
+  endpoint into a high-multiplier deep arm or a near-square-root arm.  The
+  prime `3511` deletes only the assertion that every repeated exact-order
+  multiplier is at least three; its exact multiplier is two.  No bounded
+  no-hit is treated as a distribution theorem.  Ledger and Lean core:
+  `../research/ABC_MERSENNE_BALANCED_MULTIPLIER_DEPTH_LOCALIZATION_2026_09_01.md`
+  and
+  `IUTThreeClosures/MersenneBalancedMultiplierDepthLocalization20260901.lean`.
+- **Affine catalogue weight and overlap:** active.  The exact Euler-totient
+  catalogue mass, its divisor-count tail, monotonicity of cubic energy under
+  catalogue merging, and the shifted weighted-incidence inequality are now
+  proved.  The packet `(9,25,1)` at threshold five deletes only
+  `L_T >= D-T`; it does not delete the correct divisor-count tail.  Signed ray
+  caps, arm directions, and singleton novelty are the live gates.  Ledger and
+  Lean core:
+  `../research/ABC_AFFINE_CATALOGUE_WEIGHT_OVERLAP_2026_09_01.md` and
+  `IUTThreeClosures/AffineCatalogueWeightOverlap20260901.lean`.
+- **Pell/Lucas all-order staircase:** active.  The exact Pell identity,
+  all-order tail valuation, and companion channel splitter are proved and
+  independently replayed.  The `n=3`, multiplier `2451`, residue `2 mod 5`
+  example deletes only fixed-zero local rigidity.  The paired cancellation,
+  all-order, and squarefull-packet investigations remain active; the finite
+  absence of a squarefull packet is not a route failure.  Ledger and Lean core:
+  `../research/ABC_PELL_LUCAS_ALL_ORDER_STAIRCASE_2026_09_01.md` and
+  `IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean`.
+
+These modules add 67 theorems, 18 definitions, and one structure.  All four
+direct warning-as-error checks and the 9229-job aggregate build pass with the
+standard axiom union `Classical.choice`, `Quot.sound`, and `propext`; the
+five-row Pell/Lucas computation replay also passes.  These are local closure
+results and obstruction certificates, not an unconditional proof or
+disproof of abc.
+
+The permanent replay package is
+`verification/2026_09_01_source_multiplier_catalogue_lucas/`.  Its hard gates
+fix the four-module declaration inventory, the complete residue set modulo
+five in the Pell/Lucas witness table, all one-for-one axiom reports, and the
+9229-job aggregate build.  The current integrated ChatGPT manuscript is the
+182-page A4 artifact `../output/pdf/ChatGPT_ABC_Uniformity_2026.pdf`, with
+SHA-256
+`94168cdd83388ff58cf03008c120204debb21755b4be4f72c8914656456a1d15`;
+the adjacent `_QA` directory records structural and visual PASS evidence.
 
 ## September 1, 2026 determinant, totient-concentration, and refined-factor checkpoint
 
