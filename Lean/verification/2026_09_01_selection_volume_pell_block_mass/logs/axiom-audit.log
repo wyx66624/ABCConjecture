@@ -1,0 +1,324 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true verification/2026_09_01_selection_volume_pell_block_mass/axiom-audit.lean
+IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_norm (n : ℕ) :
+  (pellUnitPair n).1 ^ 2 - 2 * (pellUnitPair n).2 ^ 2 = (-1) ^ n
+IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_add_eight (n : ℕ) :
+  pellUnitPair (n + 8) =
+    (577 * (pellUnitPair n).1 + 816 * (pellUnitPair n).2, 408 * (pellUnitPair n).1 + 577 * (pellUnitPair n).2)
+IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_fst_odd_residues (k : ℕ) :
+  (pellUnitPair (8 * k + 1)).1 ≡ 1 [ZMOD 8] ∧
+    (pellUnitPair (8 * k + 3)).1 ≡ 7 [ZMOD 8] ∧
+      (pellUnitPair (8 * k + 5)).1 ≡ 1 [ZMOD 8] ∧ (pellUnitPair (8 * k + 7)).1 ≡ 7 [ZMOD 8]
+IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_snd_odd_residues (k : ℕ) :
+  (pellUnitPair (8 * k + 1)).2 ≡ 1 [ZMOD 8] ∧
+    (pellUnitPair (8 * k + 3)).2 ≡ 5 [ZMOD 8] ∧
+      (pellUnitPair (8 * k + 5)).2 ≡ 5 [ZMOD 8] ∧ (pellUnitPair (8 * k + 7)).2 ≡ 1 [ZMOD 8]
+IUTThreeClosures.PellResidueParityLocalization20260901.exists_odd_rho_of_product.{u_1} {G : Type u_1} [CommMonoid G]
+  (rho : G) (hrho : rho ^ 2 = 1) (hrho_ne : rho ≠ 1) (xs : List (G × ℕ)) (hclass : ∀ z ∈ xs, z.1 = 1 ∨ z.1 = rho)
+  (hprod : (List.map (fun z => z.1 ^ z.2) xs).prod = rho) : ∃ z ∈ xs, z.1 = rho ∧ Odd z.2
+IUTThreeClosures.PellResidueParityLocalization20260901.exists_depth_three_rho_of_product.{u_1} {G : Type u_1}
+  [CommMonoid G] (rho : G) (hrho : rho ^ 2 = 1) (hrho_ne : rho ≠ 1) (xs : List (G × ℕ))
+  (hclass : ∀ z ∈ xs, z.1 = 1 ∨ z.1 = rho) (hfull : ∀ z ∈ xs, 2 ≤ z.2)
+  (hprod : (List.map (fun z => z.1 ^ z.2) xs).prod = rho) : ∃ z ∈ xs, z.1 = rho ∧ Odd z.2 ∧ 3 ≤ z.2
+IUTThreeClosures.PellResidueParityLocalization20260901.zmodEight_exists_depth_three_seven (xs : List (ZMod 8 × ℕ))
+  (hclass : ∀ z ∈ xs, z.1 = 1 ∨ z.1 = 7) (hfull : ∀ z ∈ xs, 2 ≤ z.2)
+  (hprod : (List.map (fun z => z.1 ^ z.2) xs).prod = 7) : ∃ z ∈ xs, z.1 = 7 ∧ Odd z.2 ∧ 3 ≤ z.2
+IUTThreeClosures.PellResidueParityLocalization20260901.zmodEight_exists_depth_three_five (xs : List (ZMod 8 × ℕ))
+  (hclass : ∀ z ∈ xs, z.1 = 1 ∨ z.1 = 5) (hfull : ∀ z ∈ xs, 2 ≤ z.2)
+  (hprod : (List.map (fun z => z.1 ^ z.2) xs).prod = 5) : ∃ z ∈ xs, z.1 = 5 ∧ Odd z.2 ∧ 3 ≤ z.2
+IUTThreeClosures.PellResidueParityLocalization20260901.factorListPacket_forcedResidueDepthThree
+  (P : ResidueFactorListPacket) :
+  ((List.map (fun z => z.1 ^ z.2) (residueExponentList P.aFactors)).prod = 7 →
+      ∃ z ∈ P.aFactors, ↑z.p = 7 ∧ Odd z.exponent ∧ 3 ≤ z.exponent) ∧
+    ((List.map (fun z => z.1 ^ z.2) (residueExponentList P.bFactors)).prod = 5 →
+      ∃ z ∈ P.bFactors, ↑z.p = 5 ∧ Odd z.exponent ∧ 3 ≤ z.exponent)
+IUTThreeClosures.PellResidueParityLocalization20260901.exists_neg_one_of_sign_product (xs : List ℤ)
+  (hsign : ∀ x ∈ xs, x = 1 ∨ x = -1) (hprod : xs.prod = -1) : ∃ x ∈ xs, x = -1
+IUTThreeClosures.PellResidueParityLocalization20260901.factorListPacket_crossChannelNonresidue
+  (P : CrossFactorListPacket) :
+  ∃ z ∈ P.records, z.character = -1 ∧ Odd z.qExponent ∧ 3 ≤ z.qExponent ∧ Odd z.rExponent ∧ 3 ≤ z.rExponent
+IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_eleven : pellUnitPair 11 = (8119, 5741)
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_global_character : legendreSym 11 2 = -1
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_residue_witness : 252 ^ 2 = 353
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_nonresidue_euler_certificate : 14 ^ 11 = -1
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_twentyThree : legendreSym 5741 23 = -1
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_threeHundredFiftyThree :
+  legendreSym 5741 353 = 1
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_product :
+  legendreSym 5741 23 * legendreSym 5741 353 = -1
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_allPairsNonresidue_counterexample :
+  legendreSym 5741 23 * legendreSym 5741 353 = -1 ∧ ¬(legendreSym 5741 23 = -1 ∧ legendreSym 5741 353 = -1)
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_fullPremise_allPairsNonresidue_counterexample :
+  Nat.Prime 11 ∧
+    Odd 11 ∧
+      legendreSym 11 2 = -1 ∧
+        pellUnitPair 11 = (8119, 5741) ∧
+          8119 = 23 * 353 ∧
+            HasExponentOne 23 8119 ∧
+              HasExponentOne 353 8119 ∧
+                HasExponentOne 5741 5741 ∧
+                  legendreSym 5741 23 = -1 ∧
+                    legendreSym 5741 353 = 1 ∧
+                      legendreSym 5741 23 * legendreSym 5741 353 = -1 ∧
+                        ¬(legendreSym 5741 23 = -1 ∧ legendreSym 5741 353 = -1)
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.mem_labelFiber_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.exists_noncollinear_triple_of_side_lt_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.sameLabel_gives_adaptiveInterface' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.signedSupNorm_natCast_sub_eq_pairSupDist' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.fixedLabel_fiber_card_le_packing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.largeLabel_fiber_card_le_side' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.largeLabel_incidenceBudget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.largeLabel_incidenceMultiplicity_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.assignedLargeLabel_card_le_catalog_mul_side' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.sum_three_comm_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.ite_sum_zero' depends on axioms: [propext,
+ Quot.sound]
+'_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.threePointCommonGcd_pos' depends on axioms: [propext,
+ Quot.sound]
+'_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.mem_threePointCommonGcd_divisors_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.threePointCommonGcd_eq_totient_sum_over' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.predicateOccupancy_cube' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.point_thirdGcd_totient_expansion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.weighted_divisorTripleOccupancy_cube' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.thirdGcd_incidence_expansion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.radical_72' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.seed189_boxWideLargeCommonProduct_collinear_implication_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.abstract_pointwiseLargeProducts_no_tripleOverlap_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.carrier_ne_empty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.logVolume_eq_of_carrier_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.preimage_ne_of_shift_ne_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.logVolume_iterate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.iterate_ne_of_pos_of_shift_ne_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.iterate_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.not_finite_region' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.padicValuationBall_carrier_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.padicValuationBallAdmissibleModel_nonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.log_prime_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.padicValuationBall_region_not_finite' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.abcConjecture_of_statementI_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.StatementIIntegerComparison.toBridge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.uniformEpsilonBoundOn_empty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.uniformEpsilonBound_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.uniformEpsilonBound_nat_self' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.not_uniformEpsilonBound_nat_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_without_height_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_without_radical_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_without_domain_membership' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_with_nonuniform_height_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_with_nonuniform_radical_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogLocalizedBlockMass_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogFarBlockMass_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.divisorOrderBlockMassSum_eq_far_add_polylogLocalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogLocalizedBlockMass_le_total' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogFarBlockMass_le_cap_mul_polylogFarTotientMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.divisorOrderBlockMassSum_isLittleO_iff_all_fixedPolylogBlockMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.log_mersennePowerLoss_isLittleO_iff_all_fixedPolylogBlockMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.deep_or_transition_or_extreme_of_small_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogLocalizedBlockMass_threeArm_of_small_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.deep_or_transition_or_extreme_of_one_controlled_arm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.transition_card_lowerBound_of_share' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.transition_card_lowerBound_of_log_share' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.quarter_coefficient_is_sharp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.one_third_is_sharp_three_arm_ceiling' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_zero' does not depend on any axioms
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_succ' does not depend on any axioms
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_norm' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_add_eight' depends on axioms: [propext]
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_fst_add_eight_modEq' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_snd_add_eight_modEq' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_fst_eight_mul_add_modEq' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_snd_eight_mul_add_modEq' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_fst_odd_residues' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_snd_odd_residues' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.exists_odd_rho_of_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.exists_depth_three_rho_of_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.zmodEight_exists_depth_three_seven' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.zmodEight_exists_depth_three_five' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.ResidueFactorListPacket.existsASevenDepthThree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.ResidueFactorListPacket.existsBFiveDepthThree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.factorListPacket_forcedResidueDepthThree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.exists_neg_one_of_sign_product' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.factorListPacket_crossChannelNonresidue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_eleven' depends on axioms: [propext]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_A_factorization' depends on axioms: [propext]
+'IUTThreeClosures.PellResidueParityLocalization20260901.prime_eleven' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_odd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.prime_twentyThree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.prime_threeHundredFiftyThree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.prime_fiveThousandSevenHundredFortyOne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_twentyThree_exponentOne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_threeHundredFiftyThree_exponentOne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_fiveThousandSevenHundredFortyOne_exponentOne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_global_character' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_residue_witness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_nonresidue_euler_certificate' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_twentyThree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_threeHundredFiftyThree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_allPairsNonresidue_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_fullPremise_allPairsNonresidue_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

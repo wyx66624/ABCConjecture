@@ -1,0 +1,42 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true IUTThreeClosures/AffineCommonKernelTripleSelection20260901.lean
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.exists_noncollinear_triple_of_side_lt_card' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.sameLabel_gives_adaptiveInterface' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.mem_labelFiber_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.signedSupNorm_natCast_sub_eq_pairSupDist' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.fixedLabel_fiber_card_le_packing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.largeLabel_fiber_card_le_side' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.largeLabel_incidenceBudget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.largeLabel_incidenceMultiplicity_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.assignedLargeLabel_card_le_catalog_mul_side' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.threePointCommonGcd_eq_totient_sum_over' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.thirdGcd_incidence_expansion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.seed189_boxWideLargeCommonProduct_collinear_implication_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCommonKernelTripleSelection20260901.abstract_pointwiseLargeProducts_no_tripleOverlap_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

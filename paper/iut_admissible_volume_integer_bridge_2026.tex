@@ -1,0 +1,103 @@
+\section{An admissible log-volume model and an explicit integer bridge}
+\label{sec:iut-admissible-volume-integer-bridge}
+
+The empty-set obstruction in
+Section~\ref{sec:iut-current-concrete-implication} identifies a defect in one
+total real-valued interface, rather than in Haar scaling.  We give an explicit
+extensional repair and then state the exact comparison data that transfer the
+abstract general-position inequality to the repository's integer target.
+
+Fix $s:X\to X$ and $\delta\in\mathbb R$.  An admissible preimage log-volume
+consists of an inhabited region type $\mathcal R$, an injective carrier map
+$C:\mathcal R\to\mathcal P(X)$ with $C(U)\ne\varnothing$, a map
+$P:\mathcal R\to\mathcal R$, and $V:\mathcal R\to\mathbb R$ such that
+\begin{equation}\label{eq:admissible-volume-interface}
+ C(PU)=s^{-1}C(U),\qquad V(PU)=V(U)+\delta.
+\end{equation}
+Injectivity prevents assigning several volumes to the same underlying set;
+the typed operation $P$ supplies the required closure proof.
+
+\begin{theorem}[Valuation-ball model]
+\label{thm:padic-admissible-volume-model}
+For every rational prime $p$, the interface
+\eqref{eq:admissible-volume-interface} with $X=\mathbb Q_p$,
+$s(x)=px$, and $\delta=\log p$ is inhabited.
+\end{theorem}
+
+\begin{proof}
+For $k\in\mathbb Z$, let
+\[
+ B_k=\{x\in\mathbb Q_p:|x|_p\le p^{-k}\},\qquad
+ P(k)=k-1,\qquad V(k)=-k\log p.
+\]
+Every ball contains zero.  Since $|p|_p=p^{-1}$,
+$px\in B_k$ if and only if $x\in B_{k-1}$, proving carrier closure.
+The inclusions among these balls recover the integer index, so the carrier
+map is injective.  Finally
+$V(k-1)=-k\log p+\log p=V(k)+\log p$.
+\end{proof}
+
+The shift law also imposes an exact consistency condition.  Induction gives
+\begin{equation}\label{eq:admissible-volume-iterate}
+                      V(P^nU)=V(U)+n\delta.
+\end{equation}
+If $\delta\ne0$, no positive iterate can fix $U$; if $P^mU=P^nU$, applying
+$V$ and cancelling $\delta$ gives $m=n$.  Every orbit is therefore infinite.
+This supplies full-premise contradictions to proposed repairs with a fixed
+region, a positive-period cycle, or only finitely many regions.  The
+valuation lattice passes all three tests.  It is a model only of this local
+scaling layer, not a construction of LANA's tensor packets or of IUT.
+
+We next make the abstract-to-integer bridge non-tautological.  Let $T$ be a
+height theory, let $P_{abc}$ be the set of positive primitive triples, and put
+\[
+ H(a,b,c)=\log\max(a,b,c),\qquad
+ R(a,b,c)=\log\rad(abc).
+\]
+A uniform tripod comparison consists of an encoding
+$\iota:P_{abc}\to T.\mathrm{Pt}(T.\mathrm{tripod})$, membership of every
+$\iota(t)$ in the degree-at-most-one set, and constants $A_H,A_R\in\mathbb R$
+such that
+\begin{align}
+ H(t)&\le h_{\rm can}(\iota(t))+A_H,
+ \label{eq:iut-height-comparison}\\
+ \log\mathrm{Diff}(\iota(t))+\log\mathrm{Cond}(\iota(t))
+ &\le R(t)+A_R.
+ \label{eq:iut-radical-comparison}
+\end{align}
+
+\begin{theorem}[Bounded-discrepancy transfer]
+\label{thm:statementI-integer-transfer}
+If $T.\mathrm{StatementI}$ and a uniform tripod comparison are supplied,
+then the repository's exact \texttt{ABCConjecture} holds.
+\end{theorem}
+
+\begin{proof}
+Fix $\epsilon>0$.  Apply $T.\mathrm{StatementI}$ to the tripod, degree bound
+one, and $\epsilon$.  It supplies $C_\epsilon$ such that every encoded point
+satisfies
+\[
+ h_{\rm can}(\iota(t))\le(1+\epsilon)
+  (\log\mathrm{Diff}(\iota(t))+\log\mathrm{Cond}(\iota(t)))+C_\epsilon.
+\]
+Since $1+\epsilon>0$, the two comparisons give
+\[
+ H(t)\le(1+\epsilon)R(t)+
+   C_\epsilon+A_H+(1+\epsilon)A_R.
+\]
+The final three terms form one constant independent of $t$, which is exactly
+the required quantifier order.
+\end{proof}
+
+Each field is logically necessary at this level.  For example, on
+$\mathbb N$, $h=k=R=0$ and $H(n)=n$ satisfy the source inequality and radical
+comparison but refute every uniform target without the height comparison.
+Taking $h=k=H=n$ and $R=0$ does the same without the radical comparison.
+Restricting the source inequality to the empty set shows why degree
+membership is necessary, and replacing $A_H$ by the point-dependent error
+$A_H(n)=n$ destroys uniformity.  These are full-premise countermodels within
+this bare sequence-transfer schema to the corresponding weakened bridges.
+They are not abc counterexamples and do not retire the IUT/same-pilot research
+route.  Constructing the intended degree-one
+encoding and proving \eqref{eq:iut-height-comparison}--
+\eqref{eq:iut-radical-comparison} remain open arithmetic work.

@@ -1,0 +1,135 @@
+\section{Residue-parity localization in the balancing-Pell packet}
+\label{sec:pell-residue-parity-localization}
+
+Write
+\[
+ (1+\sqrt2)^n=A_n+B_n\sqrt2 .
+\]
+For odd $n$ these coprime coordinates satisfy
+$A_n^2-2B_n^2=-1$.  The preceding four-prime analysis proves that, at an
+odd prime index $\ell$, the odd-exponent prime sets $O_A,O_B$ obey
+\begin{equation}\label{eq:pell-cross-character-product-recalled}
+ \prod_{q\in O_A}\prod_{r\in O_B}
+       \left(\frac qr\right)=\left(\frac2\ell\right).
+\end{equation}
+We now localize the depth-three primes by congruence class.
+
+Multiplication by $1+\sqrt2$ gives
+\[
+ A_{n+1}=A_n+2B_n,\qquad B_{n+1}=A_n+B_n.
+\]
+Since
+\[
+ (1+\sqrt2)^8=577+408\sqrt2\equiv1\pmod8,
+\]
+the coordinate pair is periodic modulo eight.  Direct evaluation gives
+\begin{equation}\label{eq:pell-mod-eight-table}
+\begin{array}{c|cccc}
+n\pmod8&1&3&5&7\\ \hline
+A_n\pmod8&1&7&1&7\\
+B_n\pmod8&1&5&5&1.
+\end{array}
+\end{equation}
+If an odd prime $q$ divides $A_n$, the norm equation gives
+$2B_n^2\equiv1\pmod q$, whence $q\equiv1,7\pmod8$.  If an odd prime $r$
+divides $B_n$, then $A_n^2\equiv-1\pmod r$, whence
+$r\equiv1,5\pmod8$.
+
+We use the following finite-product observation.  If $\rho^2=1$ and
+$\rho\ne1$ in a commutative monoid, every $x_i$ is $1$ or $\rho$, and
+\[
+                       \prod_i x_i^{e_i}=\rho,
+\]
+then some $x_i=\rho$ has odd exponent.  Otherwise each nontrivial factor
+would occur to even exponent and the product would be one.  If every
+$e_i\ge2$, the selected exponent is at least three.
+
+\begin{theorem}[Forced-residue depth-three localization]
+\label{thm:pell-forced-residue-depth-three}
+Let $\ell$ be an odd prime and suppose $A_\ell B_\ell$ is squarefull.
+Then:
+\begin{enumerate}
+\item if $\ell\equiv3,7\pmod8$, some prime $q_A\mid A_\ell$ occurs to an
+odd exponent at least three and satisfies $q_A\equiv7\pmod8$;
+\item if $\ell\equiv3,5\pmod8$, some prime $q_B\mid B_\ell$ occurs to an
+odd exponent at least three and satisfies $q_B\equiv5\pmod8$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The residue table shows that both coordinates are odd.  Reduce the two
+prime-power factorizations modulo eight.  The allowed local
+classes are $\{1,7\}$ and $\{1,5\}$, respectively.  In the stated index
+classes, \eqref{eq:pell-mod-eight-table} makes the total product the
+nontrivial involution $7$ or $5$.  The finite-product observation selects an
+odd exponent.  Since $\gcd(A_\ell,B_\ell)=1$, squarefullness of
+$A_\ell B_\ell$ makes every positive exponent in either channel at least
+two, so the selected odd exponent is at least three.
+\end{proof}
+
+For $\ell\equiv3\pmod8$, both conclusions hold simultaneously.  Thus the
+two previously unspecified deep primes can be required to occupy the
+$7$-class in the $A$ channel and the $5$-class in the $B$ channel.
+
+The Lean statement uses an explicit factor-list packet interface.  Each
+entry stores a prime and its exponent; the packet records the allowed local
+classes and the squarefull lower bound.  If the $A$ residue product is $7$
+or the $B$ residue product is $5$, the corresponding list contains the
+prime and odd exponent asserted above.  Thus the formal theorem combines
+the residue-product hypothesis and the depth conclusion in one statement,
+while passage from an actual Pell factorization to that interface is the
+elementary argument in this proof.
+
+\begin{theorem}[A forced cross-channel nonresidue]
+\label{thm:pell-forced-cross-nonresidue}
+If $\ell\equiv3,5\pmod8$ and $A_\ell B_\ell$ is squarefull, then there are
+odd-exponent primes $q\mid A_\ell$ and $r\mid B_\ell$, each of exponent at
+least three, such that
+\[
+                            \left(\frac qr\right)=-1.
+\]
+\end{theorem}
+
+\begin{proof}
+Here $(2/\ell)=-1$.  Equation
+\eqref{eq:pell-cross-character-product-recalled} is a finite product of
+nonzero signs with value $-1$: coprimality of the two channels prevents a
+zero Legendre symbol.  Hence at least one factor is negative.  Membership in
+$O_A\times O_B$ gives odd exponents; squarefullness makes them at least
+three.
+\end{proof}
+
+Here too the Lean statement is combined rather than left as two unrelated
+lemmas: a flattened factor-list packet stores every pair in
+$O_A\times O_B$, its two odd squarefull exponents, and its actual Legendre
+symbol.  A negative product yields a stored pair with symbol $-1$ and both
+exponents at least three.
+
+The existential quantifier is sharp under the ordinary actual prime-index
+premises.  At $\ell=11$ one has
+\[
+ A_{11}=8119=23\cdot353,\qquad B_{11}=5741,
+\]
+with all three factors prime, while
+\[
+ \left(\frac{23}{5741}\right)=-1,
+ \qquad
+ \left(\frac{353}{5741}\right)=1.
+\]
+Indeed, $252^2\equiv353\pmod {5741}$, whereas quadratic reciprocity reduces
+the first symbol to $\left(\frac{14}{23}\right)=-1$.  The product is still
+$-1=\left(\frac2{11}\right)$ because $11\equiv3\pmod8$.  The factorization shows that
+$23,353\in O_A$ and $5741\in O_B$.  This is a full actual counterexample to
+the strengthening that every cross pair is a nonresidue.  It has three exponent-one factors,
+so it does not satisfy the squarefull premise and does not close the Pell
+route.
+
+The companion Lean module checks the integral recurrence and norm, the
+eight-step formula, all residue classes in
+\eqref{eq:pell-mod-eight-table}, the abstract odd-exponent and depth-three
+extraction, the two explicit factor-list packet theorems, and one combined
+index-eleven certificate containing the prime-index premise, global
+character, coordinates, factorization, exponent-one witnesses and Legendre
+values.  The open point remains an actual
+opposite-channel depth-three exclusion; the new residue and character
+conditions narrow that packet without yet making it inconsistent.

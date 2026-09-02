@@ -3088,3 +3088,58 @@ Step (xi-f) hull with an approximant of the same input pilot.  The exponent-tail
 shared-support, contact-depth, and IUT source-level uniform estimates remain
 open; no parameter-free abc theorem or abc counterexample is claimed.  See
 `verification/2026_09_01_cloud_integration/VALIDATION.md`.
+
+## 2026-09-01 selection, admissible-volume, Pell-residue, and block-mass checkpoint
+
+Four proof-and-counterexample continuations have been integrated without
+retiring any broad route merely because its remaining theorem is difficult.
+The companion reports give mathematical proofs before the corresponding Lean
+statements.
+
+- The affine common-kernel continuation proves the integer-line cap,
+  fixed-label fibre packing, catalogue and incidence-multiplicity bounds, and
+  the exact third-gcd/totient incidence-energy expansion.  The canonical
+  `(1,8,9)` example is a full-premise counterexample only to the added claim
+  that common-product size above the box square automatically produces a
+  noncollinear triple.  The abstract three-label example similarly refutes
+  only pointwise-size-to-triple-overlap.  Neither example meets or contradicts
+  the noncollinearity premise of the valid determinant theorem.  The route
+  remains active at the large-label multiplicity or collinear-energy gate.
+- The IUT continuation replaces the inconsistent total real-valued set-volume
+  schema by an inhabited extensional interface modeled by actual `Q_p`
+  valuation balls and proves its fixed-point, periodic-orbit and finite-region
+  constraints.  A supplied `T.StatementI` together with the explicit uniform
+  tripod comparison now implies the repository's exact integer
+  `ABCConjecture`.  Countermodels retire only four weakened bare
+  sequence-transfer schemas; they retain every other premise of the schema
+  under test.  Construction of the intended height theory, same-pilot input,
+  Corollary 3.12 package and uniform integer comparisons remains open and
+  active.
+- The Mersenne continuation proves the threshold-free equivalence between
+  `log W_m=o(m)` and negligible actual block mass in every fixed
+  polylogarithmic co-divisor window.  Failure forces, for every coefficient
+  below one third, a fixed localized deep-lift, transition-support or
+  extreme-small-order arm along a subsequence; one third is sharp for the
+  nonnegative abstract ledger.  An independent segmented-sieve replay checks
+  all 664,579 primes through `10^7`, finding only 1093 and 3511, both at depth
+  two.  This finite computation refutes stated finite strengthenings but has
+  no asymptotic consequence.  All three arithmetic arms remain active.
+- The Pell continuation proves the exact modulo-eight recurrence table,
+  forces an odd exponent of depth at least three in specified squarefull
+  channels, and forces an opposite-channel quadratic nonresidue through the
+  finite sign product.  The complete index-eleven certificate refutes only
+  the stronger all-pairs-nonresidue assertion; its actual prime exponents are
+  one, so it does not satisfy and cannot refute the squarefull premise.  Both
+  constructive searches for squarefull packets and positive attempts to
+  exclude the forced residue packet remain active.
+
+The four modules contain 92 theorem declarations, two lemmas, 22 definitions
+and eight structures.  A generated same-scope audit covers all 94 proofs,
+including eight private affine proofs; the exact axiom union is `propext`,
+`Classical.choice` and `Quot.sound`.  All direct compilations and the audit are
+warning-free, and `lake build IUTThreeClosures` completes 9220 jobs.  The
+sealed 491-input replay is in
+`verification/2026_09_01_selection_volume_pell_block_mass/`.  The ChatGPT
+paper now has 165 A4 pages and passed representative Poppler visual QA.  This
+checkpoint neither proves nor disproves the standard abc conjecture, and the
+unconditional `ABCConjecture` and its rigorous negation both remain open.

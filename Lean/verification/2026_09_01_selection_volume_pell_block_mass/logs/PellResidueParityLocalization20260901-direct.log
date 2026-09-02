@@ -1,0 +1,114 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true IUTThreeClosures/PellResidueParityLocalization20260901.lean
+IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_norm (n : ℕ) :
+  (pellUnitPair n).1 ^ 2 - 2 * (pellUnitPair n).2 ^ 2 = (-1) ^ n
+IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_add_eight (n : ℕ) :
+  pellUnitPair (n + 8) =
+    (577 * (pellUnitPair n).1 + 816 * (pellUnitPair n).2, 408 * (pellUnitPair n).1 + 577 * (pellUnitPair n).2)
+IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_fst_odd_residues (k : ℕ) :
+  (pellUnitPair (8 * k + 1)).1 ≡ 1 [ZMOD 8] ∧
+    (pellUnitPair (8 * k + 3)).1 ≡ 7 [ZMOD 8] ∧
+      (pellUnitPair (8 * k + 5)).1 ≡ 1 [ZMOD 8] ∧ (pellUnitPair (8 * k + 7)).1 ≡ 7 [ZMOD 8]
+IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_snd_odd_residues (k : ℕ) :
+  (pellUnitPair (8 * k + 1)).2 ≡ 1 [ZMOD 8] ∧
+    (pellUnitPair (8 * k + 3)).2 ≡ 5 [ZMOD 8] ∧
+      (pellUnitPair (8 * k + 5)).2 ≡ 5 [ZMOD 8] ∧ (pellUnitPair (8 * k + 7)).2 ≡ 1 [ZMOD 8]
+IUTThreeClosures.PellResidueParityLocalization20260901.exists_odd_rho_of_product.{u_1} {G : Type u_1} [CommMonoid G]
+  (rho : G) (hrho : rho ^ 2 = 1) (hrho_ne : rho ≠ 1) (xs : List (G × ℕ)) (hclass : ∀ z ∈ xs, z.1 = 1 ∨ z.1 = rho)
+  (hprod : (List.map (fun z => z.1 ^ z.2) xs).prod = rho) : ∃ z ∈ xs, z.1 = rho ∧ Odd z.2
+IUTThreeClosures.PellResidueParityLocalization20260901.exists_depth_three_rho_of_product.{u_1} {G : Type u_1}
+  [CommMonoid G] (rho : G) (hrho : rho ^ 2 = 1) (hrho_ne : rho ≠ 1) (xs : List (G × ℕ))
+  (hclass : ∀ z ∈ xs, z.1 = 1 ∨ z.1 = rho) (hfull : ∀ z ∈ xs, 2 ≤ z.2)
+  (hprod : (List.map (fun z => z.1 ^ z.2) xs).prod = rho) : ∃ z ∈ xs, z.1 = rho ∧ Odd z.2 ∧ 3 ≤ z.2
+IUTThreeClosures.PellResidueParityLocalization20260901.zmodEight_exists_depth_three_seven (xs : List (ZMod 8 × ℕ))
+  (hclass : ∀ z ∈ xs, z.1 = 1 ∨ z.1 = 7) (hfull : ∀ z ∈ xs, 2 ≤ z.2)
+  (hprod : (List.map (fun z => z.1 ^ z.2) xs).prod = 7) : ∃ z ∈ xs, z.1 = 7 ∧ Odd z.2 ∧ 3 ≤ z.2
+IUTThreeClosures.PellResidueParityLocalization20260901.zmodEight_exists_depth_three_five (xs : List (ZMod 8 × ℕ))
+  (hclass : ∀ z ∈ xs, z.1 = 1 ∨ z.1 = 5) (hfull : ∀ z ∈ xs, 2 ≤ z.2)
+  (hprod : (List.map (fun z => z.1 ^ z.2) xs).prod = 5) : ∃ z ∈ xs, z.1 = 5 ∧ Odd z.2 ∧ 3 ≤ z.2
+IUTThreeClosures.PellResidueParityLocalization20260901.factorListPacket_forcedResidueDepthThree
+  (P : ResidueFactorListPacket) :
+  ((List.map (fun z => z.1 ^ z.2) (residueExponentList P.aFactors)).prod = 7 →
+      ∃ z ∈ P.aFactors, ↑z.p = 7 ∧ Odd z.exponent ∧ 3 ≤ z.exponent) ∧
+    ((List.map (fun z => z.1 ^ z.2) (residueExponentList P.bFactors)).prod = 5 →
+      ∃ z ∈ P.bFactors, ↑z.p = 5 ∧ Odd z.exponent ∧ 3 ≤ z.exponent)
+IUTThreeClosures.PellResidueParityLocalization20260901.exists_neg_one_of_sign_product (xs : List ℤ)
+  (hsign : ∀ x ∈ xs, x = 1 ∨ x = -1) (hprod : xs.prod = -1) : ∃ x ∈ xs, x = -1
+IUTThreeClosures.PellResidueParityLocalization20260901.factorListPacket_crossChannelNonresidue
+  (P : CrossFactorListPacket) :
+  ∃ z ∈ P.records, z.character = -1 ∧ Odd z.qExponent ∧ 3 ≤ z.qExponent ∧ Odd z.rExponent ∧ 3 ≤ z.rExponent
+IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_eleven : pellUnitPair 11 = (8119, 5741)
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_global_character : legendreSym 11 2 = -1
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_residue_witness : 252 ^ 2 = 353
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_nonresidue_euler_certificate : 14 ^ 11 = -1
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_twentyThree : legendreSym 5741 23 = -1
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_threeHundredFiftyThree :
+  legendreSym 5741 353 = 1
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_product :
+  legendreSym 5741 23 * legendreSym 5741 353 = -1
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_allPairsNonresidue_counterexample :
+  legendreSym 5741 23 * legendreSym 5741 353 = -1 ∧ ¬(legendreSym 5741 23 = -1 ∧ legendreSym 5741 353 = -1)
+IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_fullPremise_allPairsNonresidue_counterexample :
+  Nat.Prime 11 ∧
+    Odd 11 ∧
+      legendreSym 11 2 = -1 ∧
+        pellUnitPair 11 = (8119, 5741) ∧
+          8119 = 23 * 353 ∧
+            HasExponentOne 23 8119 ∧
+              HasExponentOne 353 8119 ∧
+                HasExponentOne 5741 5741 ∧
+                  legendreSym 5741 23 = -1 ∧
+                    legendreSym 5741 353 = 1 ∧
+                      legendreSym 5741 23 * legendreSym 5741 353 = -1 ∧
+                        ¬(legendreSym 5741 23 = -1 ∧ legendreSym 5741 353 = -1)
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_norm' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_add_eight' depends on axioms: [propext]
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_fst_odd_residues' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_snd_odd_residues' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.exists_odd_rho_of_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.exists_depth_three_rho_of_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.zmodEight_exists_depth_three_seven' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.zmodEight_exists_depth_three_five' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.factorListPacket_forcedResidueDepthThree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.exists_neg_one_of_sign_product' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.factorListPacket_crossChannelNonresidue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_eleven' depends on axioms: [propext]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_global_character' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_residue_witness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_nonresidue_euler_certificate' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_twentyThree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_threeHundredFiftyThree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_allPairsNonresidue_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_fullPremise_allPairsNonresidue_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

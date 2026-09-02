@@ -1,0 +1,116 @@
+\section{Incidence budgets at the affine triple-selection gate}
+\label{sec:affine-common-kernel-triple-selection}
+
+The adaptive determinant theorem leaves one precise selection problem: an
+exceptional point may choose its own arm divisors, while the determinant bound
+needs three points with a large \emph{common} divisor product.  We record the
+finite geometry and the exact incidence budget available for this step.
+
+Let $S\subseteq[1,M]^2\cap\mathbb Z^2$, put $N=M-1$, and retain the affine
+arms $U,V,W$ of Section~\ref{sec:affine-adaptive-common-kernel}.  For a fixed
+actual arm-divisor label
+\[
+ \lambda=(d_U,d_V,d_W),\qquad D(\lambda)=d_Ud_Vd_W,
+\]
+define
+\[
+ F_\lambda=\{x\in S:d_U\mid U(x),\ d_V\mid V(x),\ d_W\mid W(x)\}.
+\]
+
+\begin{lemma}[Integer-line cap]\label{lem:affine-integer-line-cap}
+If every triple in $S$ is collinear, then $|S|\le M$.  Equivalently, more
+than $M$ points in the square contain a noncollinear triple.
+\end{lemma}
+
+\begin{proof}
+Choose distinct $p,q\in S$ when $|S|>1$.  If $p_1=q_1$, collinearity forces
+every point of $S$ to have that first coordinate, so projection to the second
+coordinate is injective and has at most $M$ values.  If $p_1\ne q_1$, and
+$r,s\in S$ have $r_1=s_1$, subtracting
+$\det(q-p,r-p)=\det(q-p,s-p)=0$ gives
+$(q_1-p_1)(r_2-s_2)=0$.  Hence $r=s$, so projection to the first coordinate
+is injective and again $|S|\le M$.
+\end{proof}
+
+\begin{theorem}[Large-label fibre and incidence bounds]
+\label{thm:affine-large-label-incidence}
+Assume the three arms are pairwise coprime at every point of $S$.  If
+$D(\lambda)>N^2$, then $|F_\lambda|\le M$.  Consequently, for every finite
+family $\mathcal L$ of such large labels,
+\[
+ \sum_{\lambda\in\mathcal L}|F_\lambda|\le M|\mathcal L|.
+\]
+If every $x$ in a set $E\subseteq S$ belongs to at least $\mu$ of these
+fibres, then
+\begin{equation}\label{eq:affine-large-label-multiplicity}
+                         \mu|E|\le M|\mathcal L|.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+If $|F_\lambda|>M$, Lemma~\ref{lem:affine-integer-line-cap} produces a
+noncollinear triple in the fibre.  Use the same label at all three points.
+Actual arm divisibility yields the six difference congruences, and
+pairwise coprimality of the arms makes $d_U,d_V,d_W$ pairwise coprime.  The
+adaptive determinant theorem then gives $D(\lambda)\le N^2$, a contradiction.
+Summing the fibre bound proves the first displayed incidence inequality.
+Double-counting
+$\{(x,\lambda):x\in E\cap F_\lambda\}$ proves
+\eqref{eq:affine-large-label-multiplicity}.
+\end{proof}
+
+The associated energy identity shows exactly what an analytic refinement
+must estimate.  For positive labels $d_Z(x)$, set
+\[
+ \mathcal E_3=\sum_{x,y,z\in S}
+   \prod_{Z\in\{U,V,W\}}\gcd(d_Z(x),d_Z(y),d_Z(z))
+\]
+and
+\[
+ n(e)=\#\{x\in S:e_U\mid d_U(x),\ e_V\mid d_V(x),\ e_W\mid d_W(x)\}.
+\]
+Then the divisor identity $m=\sum_{e\mid m}\varphi(e)$ gives, by expanding
+three finite sums,
+\begin{equation}\label{eq:affine-third-gcd-energy}
+ \mathcal E_3=
+ \sum_{e_U,e_V,e_W}\varphi(e_U)\varphi(e_V)\varphi(e_W)n(e)^3.
+\end{equation}
+Thus total energy alone is insufficient: one must place enough of it on
+$e_Ue_Ve_W>N^2$ and control the contribution of collinear triples.
+
+That collinear qualification cannot be removed.  For the canonical seed
+$(a,b,c)=(1,8,9)$, $R=6$ and $M=22143$.  At
+\[
+ (21480,282),\quad(21480,6211),\quad(21480,12140)
+\]
+use the common square label
+\[
+ (d_U,d_V,d_W)=(128881,49,121)=(359^2,7^2,11^2).
+\]
+The corresponding arm rows are
+\[
+\begin{array}{c|ccc}
+ &U&V&W\\ \hline
+1&128881&144109&142417\\
+2&128881&464275&427009\\
+3&128881&784441&711601.
+\end{array}
+\]
+The label divides every row, all canonical admissibility and coprimality
+conditions hold, and the vertical increment $5929=49\cdot121$ proves all
+six congruences.  Yet
+\[
+ 128881\cdot49\cdot121=764135449>22142^2
+ \quad\text{and}\quad \det(q-p,r-p)=0.
+\]
+This is a full-premise counterexample to the extra implication ``common
+product above the box square implies noncollinearity.''  It does not meet
+the noncollinearity premise of the valid determinant theorem and therefore
+does not retire the affine route.
+
+The remaining positive gate is now quantitative.  One may close this branch
+by constructing a finite family $\mathcal L$ and a multiplicity $\mu$ with
+$\mu|E|>M|\mathcal L|$, or by proving that the large-product part of
+\eqref{eq:affine-third-gcd-energy} exceeds every possible collinear
+contribution.  No full-premise counterexample to either conditional criterion
+is known.

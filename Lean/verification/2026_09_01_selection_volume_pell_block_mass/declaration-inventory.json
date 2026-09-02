@@ -1,0 +1,1411 @@
+{
+  "schema": "abc-selection-volume-pell-block-mass-inventory-v1",
+  "modules": [
+    {
+      "module": "AffineCommonKernelTripleSelection20260901",
+      "path": "Lean/IUTThreeClosures/AffineCommonKernelTripleSelection20260901.lean",
+      "bytes": 34031,
+      "sha256": "7616286b4920b3352d9c07db31e5c471663ac94969a8fac082547c759fce55e7",
+      "counts": {
+        "theorem": 21,
+        "lemma": 0,
+        "def": 9,
+        "abbrev": 0,
+        "structure": 1,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 31,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "mem_labelFiber_iff",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.mem_labelFiber_iff",
+          "private": false,
+          "protected": false,
+          "line": 62,
+          "reportedConstant": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.mem_labelFiber_iff",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "exists_noncollinear_triple_of_side_lt_card",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.exists_noncollinear_triple_of_side_lt_card",
+          "private": false,
+          "protected": false,
+          "line": 70,
+          "reportedConstant": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.exists_noncollinear_triple_of_side_lt_card",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "sameLabel_gives_adaptiveInterface",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.sameLabel_gives_adaptiveInterface",
+          "private": false,
+          "protected": false,
+          "line": 165,
+          "reportedConstant": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.sameLabel_gives_adaptiveInterface",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "signedSupNorm_natCast_sub_eq_pairSupDist",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.signedSupNorm_natCast_sub_eq_pairSupDist",
+          "private": false,
+          "protected": false,
+          "line": 199,
+          "reportedConstant": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.signedSupNorm_natCast_sub_eq_pairSupDist",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fixedLabel_fiber_card_le_packing",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.fixedLabel_fiber_card_le_packing",
+          "private": false,
+          "protected": false,
+          "line": 217,
+          "reportedConstant": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.fixedLabel_fiber_card_le_packing",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "largeLabel_fiber_card_le_side",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.largeLabel_fiber_card_le_side",
+          "private": false,
+          "protected": false,
+          "line": 271,
+          "reportedConstant": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.largeLabel_fiber_card_le_side",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "largeLabel_incidenceBudget",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.largeLabel_incidenceBudget",
+          "private": false,
+          "protected": false,
+          "line": 312,
+          "reportedConstant": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.largeLabel_incidenceBudget",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "largeLabel_incidenceMultiplicity_bound",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.largeLabel_incidenceMultiplicity_bound",
+          "private": false,
+          "protected": false,
+          "line": 336,
+          "reportedConstant": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.largeLabel_incidenceMultiplicity_bound",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "assignedLargeLabel_card_le_catalog_mul_side",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.assignedLargeLabel_card_le_catalog_mul_side",
+          "private": false,
+          "protected": false,
+          "line": 374,
+          "reportedConstant": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.assignedLargeLabel_card_le_catalog_mul_side",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "sum_three_comm_three",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.sum_three_comm_three",
+          "private": true,
+          "protected": false,
+          "line": 413,
+          "reportedConstant": "_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.sum_three_comm_three",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "ite_sum_zero",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.ite_sum_zero",
+          "private": true,
+          "protected": false,
+          "line": 428,
+          "reportedConstant": "_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.ite_sum_zero",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "threePointCommonGcd_pos",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.threePointCommonGcd_pos",
+          "private": true,
+          "protected": false,
+          "line": 434,
+          "reportedConstant": "_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.threePointCommonGcd_pos",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mem_threePointCommonGcd_divisors_iff",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.mem_threePointCommonGcd_divisors_iff",
+          "private": true,
+          "protected": false,
+          "line": 440,
+          "reportedConstant": "_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.mem_threePointCommonGcd_divisors_iff",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "threePointCommonGcd_eq_totient_sum_over",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.threePointCommonGcd_eq_totient_sum_over",
+          "private": false,
+          "protected": false,
+          "line": 451,
+          "reportedConstant": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.threePointCommonGcd_eq_totient_sum_over",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "predicateOccupancy_cube",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.predicateOccupancy_cube",
+          "private": true,
+          "protected": false,
+          "line": 474,
+          "reportedConstant": "_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.predicateOccupancy_cube",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "point_thirdGcd_totient_expansion",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.point_thirdGcd_totient_expansion",
+          "private": true,
+          "protected": false,
+          "line": 521,
+          "reportedConstant": "_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.point_thirdGcd_totient_expansion",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "weighted_divisorTripleOccupancy_cube",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.weighted_divisorTripleOccupancy_cube",
+          "private": true,
+          "protected": false,
+          "line": 542,
+          "reportedConstant": "_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.weighted_divisorTripleOccupancy_cube",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "thirdGcd_incidence_expansion",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.thirdGcd_incidence_expansion",
+          "private": false,
+          "protected": false,
+          "line": 579,
+          "reportedConstant": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.thirdGcd_incidence_expansion",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_72",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.radical_72",
+          "private": true,
+          "protected": false,
+          "line": 690,
+          "reportedConstant": "_private.verification.«2026_09_01_selection_volume_pell_block_mass».«axiom-audit».0.IUTThreeClosures.AffineCommonKernelTripleSelection20260901.radical_72",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "seed189_boxWideLargeCommonProduct_collinear_implication_counterexample",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.seed189_boxWideLargeCommonProduct_collinear_implication_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 700,
+          "reportedConstant": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.seed189_boxWideLargeCommonProduct_collinear_implication_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "abstract_pointwiseLargeProducts_no_tripleOverlap_counterexample",
+          "name": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.abstract_pointwiseLargeProducts_no_tripleOverlap_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 772,
+          "reportedConstant": "IUTThreeClosures.AffineCommonKernelTripleSelection20260901.abstract_pointwiseLargeProducts_no_tripleOverlap_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "IUTAdmissibleVolumeIntegerBridge20260901",
+      "path": "Lean/IUTThreeClosures/IUTAdmissibleVolumeIntegerBridge20260901.lean",
+      "bytes": 16645,
+      "sha256": "4e6a9518ad48900e6be88cab100214ad6bdb2933ec12ca103da436c2a584e748",
+      "counts": {
+        "theorem": 22,
+        "lemma": 0,
+        "def": 5,
+        "abbrev": 0,
+        "structure": 3,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 30,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "carrier_ne_empty",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.carrier_ne_empty",
+          "private": false,
+          "protected": false,
+          "line": 63,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.carrier_ne_empty",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "logVolume_eq_of_carrier_eq",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.logVolume_eq_of_carrier_eq",
+          "private": false,
+          "protected": false,
+          "line": 70,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.logVolume_eq_of_carrier_eq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "preimage_ne_of_shift_ne_zero",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.preimage_ne_of_shift_ne_zero",
+          "private": false,
+          "protected": false,
+          "line": 77,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.preimage_ne_of_shift_ne_zero",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "logVolume_iterate",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.logVolume_iterate",
+          "private": false,
+          "protected": false,
+          "line": 86,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.logVolume_iterate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "iterate_ne_of_pos_of_shift_ne_zero",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.iterate_ne_of_pos_of_shift_ne_zero",
+          "private": false,
+          "protected": false,
+          "line": 97,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.iterate_ne_of_pos_of_shift_ne_zero",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "iterate_injective",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.iterate_injective",
+          "private": false,
+          "protected": false,
+          "line": 108,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.iterate_injective",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "not_finite_region",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.not_finite_region",
+          "private": false,
+          "protected": false,
+          "line": 120,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.not_finite_region",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "padicValuationBall_carrier_injective",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.padicValuationBall_carrier_injective",
+          "private": false,
+          "protected": false,
+          "line": 134,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.padicValuationBall_carrier_injective",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "padicValuationBallAdmissibleModel_nonempty",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.padicValuationBallAdmissibleModel_nonempty",
+          "private": false,
+          "protected": false,
+          "line": 173,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.padicValuationBallAdmissibleModel_nonempty",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "log_prime_pos",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.log_prime_pos",
+          "private": false,
+          "protected": false,
+          "line": 182,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.log_prime_pos",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "padicValuationBall_region_not_finite",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.padicValuationBall_region_not_finite",
+          "private": false,
+          "protected": false,
+          "line": 189,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.padicValuationBall_region_not_finite",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "abcConjecture_of_statementI_comparison",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.abcConjecture_of_statementI_comparison",
+          "private": false,
+          "protected": false,
+          "line": 237,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.abcConjecture_of_statementI_comparison",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "StatementIIntegerComparison.toBridge",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.StatementIIntegerComparison.toBridge",
+          "private": false,
+          "protected": false,
+          "line": 282,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.StatementIIntegerComparison.toBridge",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "uniformEpsilonBoundOn_empty",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.uniformEpsilonBoundOn_empty",
+          "private": false,
+          "protected": false,
+          "line": 307,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.uniformEpsilonBoundOn_empty",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "uniformEpsilonBound_zero",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.uniformEpsilonBound_zero",
+          "private": false,
+          "protected": false,
+          "line": 314,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.uniformEpsilonBound_zero",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "uniformEpsilonBound_nat_self",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.uniformEpsilonBound_nat_self",
+          "private": false,
+          "protected": false,
+          "line": 320,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.uniformEpsilonBound_nat_self",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "not_uniformEpsilonBound_nat_zero",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.not_uniformEpsilonBound_nat_zero",
+          "private": false,
+          "protected": false,
+          "line": 329,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.not_uniformEpsilonBound_nat_zero",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "counterexample_without_height_comparison",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_without_height_comparison",
+          "private": false,
+          "protected": false,
+          "line": 340,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_without_height_comparison",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "counterexample_without_radical_comparison",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_without_radical_comparison",
+          "private": false,
+          "protected": false,
+          "line": 352,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_without_radical_comparison",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "counterexample_without_domain_membership",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_without_domain_membership",
+          "private": false,
+          "protected": false,
+          "line": 364,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_without_domain_membership",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "counterexample_with_nonuniform_height_error",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_with_nonuniform_height_error",
+          "private": false,
+          "protected": false,
+          "line": 374,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_with_nonuniform_height_error",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "counterexample_with_nonuniform_radical_error",
+          "name": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_with_nonuniform_radical_error",
+          "private": false,
+          "protected": false,
+          "line": 386,
+          "reportedConstant": "IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_with_nonuniform_radical_error",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersenneFixedPolylogBlockMassTriage20260901",
+      "path": "Lean/IUTThreeClosures/MersenneFixedPolylogBlockMassTriage20260901.lean",
+      "bytes": 15721,
+      "sha256": "e401ba9113917651114d67cc289d8a286aced1916d783a72216f69e349dcbcc0",
+      "counts": {
+        "theorem": 12,
+        "lemma": 2,
+        "def": 4,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 18,
+      "proofDeclarations": [
+        {
+          "kind": "lemma",
+          "shortName": "polylogLocalizedBlockMass_nonneg",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogLocalizedBlockMass_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 64,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogLocalizedBlockMass_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "polylogFarBlockMass_nonneg",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogFarBlockMass_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 71,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogFarBlockMass_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "divisorOrderBlockMassSum_eq_far_add_polylogLocalized",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.divisorOrderBlockMassSum_eq_far_add_polylogLocalized",
+          "private": false,
+          "protected": false,
+          "line": 78,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.divisorOrderBlockMassSum_eq_far_add_polylogLocalized",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "polylogLocalizedBlockMass_le_total",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogLocalizedBlockMass_le_total",
+          "private": false,
+          "protected": false,
+          "line": 93,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogLocalizedBlockMass_le_total",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "polylogFarBlockMass_le_cap_mul_polylogFarTotientMass",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogFarBlockMass_le_cap_mul_polylogFarTotientMass",
+          "private": false,
+          "protected": false,
+          "line": 107,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogFarBlockMass_le_cap_mul_polylogFarTotientMass",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "divisorOrderBlockMassSum_isLittleO_iff_all_fixedPolylogBlockMass",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.divisorOrderBlockMassSum_isLittleO_iff_all_fixedPolylogBlockMass",
+          "private": false,
+          "protected": false,
+          "line": 126,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.divisorOrderBlockMassSum_isLittleO_iff_all_fixedPolylogBlockMass",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "log_mersennePowerLoss_isLittleO_iff_all_fixedPolylogBlockMass",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.log_mersennePowerLoss_isLittleO_iff_all_fixedPolylogBlockMass",
+          "private": false,
+          "protected": false,
+          "line": 187,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.log_mersennePowerLoss_isLittleO_iff_all_fixedPolylogBlockMass",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "deep_or_transition_or_extreme_of_small_budget",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.deep_or_transition_or_extreme_of_small_budget",
+          "private": false,
+          "protected": false,
+          "line": 207,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.deep_or_transition_or_extreme_of_small_budget",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "polylogLocalizedBlockMass_threeArm_of_small_budget",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogLocalizedBlockMass_threeArm_of_small_budget",
+          "private": false,
+          "protected": false,
+          "line": 223,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogLocalizedBlockMass_threeArm_of_small_budget",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "deep_or_transition_or_extreme_of_one_controlled_arm",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.deep_or_transition_or_extreme_of_one_controlled_arm",
+          "private": false,
+          "protected": false,
+          "line": 272,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.deep_or_transition_or_extreme_of_one_controlled_arm",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "transition_card_lowerBound_of_share",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.transition_card_lowerBound_of_share",
+          "private": false,
+          "protected": false,
+          "line": 286,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.transition_card_lowerBound_of_share",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "transition_card_lowerBound_of_log_share",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.transition_card_lowerBound_of_log_share",
+          "private": false,
+          "protected": false,
+          "line": 299,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.transition_card_lowerBound_of_log_share",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "quarter_coefficient_is_sharp",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.quarter_coefficient_is_sharp",
+          "private": false,
+          "protected": false,
+          "line": 329,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.quarter_coefficient_is_sharp",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "one_third_is_sharp_three_arm_ceiling",
+          "name": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.one_third_is_sharp_three_arm_ceiling",
+          "private": false,
+          "protected": false,
+          "line": 353,
+          "reportedConstant": "IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.one_third_is_sharp_three_arm_ceiling",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "PellResidueParityLocalization20260901",
+      "path": "Lean/IUTThreeClosures/PellResidueParityLocalization20260901.lean",
+      "bytes": 21026,
+      "sha256": "cb71f25c335b65ab94a5cfb9ef3825788a2ccccbfb438e628b64c241c0682578",
+      "counts": {
+        "theorem": 37,
+        "lemma": 0,
+        "def": 4,
+        "abbrev": 0,
+        "structure": 4,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 45,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "pellUnitPair_zero",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_zero",
+          "private": false,
+          "protected": false,
+          "line": 41,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_zero",
+          "axioms": []
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pellUnitPair_succ",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_succ",
+          "private": false,
+          "protected": false,
+          "line": 43,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_succ",
+          "axioms": []
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pellUnitPair_norm",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_norm",
+          "private": false,
+          "protected": false,
+          "line": 48,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_norm",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pellUnitPair_add_eight",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_add_eight",
+          "private": false,
+          "protected": false,
+          "line": 63,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_add_eight",
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pellUnitPair_fst_add_eight_modEq",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_fst_add_eight_modEq",
+          "private": false,
+          "protected": false,
+          "line": 71,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_fst_add_eight_modEq",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pellUnitPair_snd_add_eight_modEq",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_snd_add_eight_modEq",
+          "private": false,
+          "protected": false,
+          "line": 79,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_snd_add_eight_modEq",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pellUnitPair_fst_eight_mul_add_modEq",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_fst_eight_mul_add_modEq",
+          "private": false,
+          "protected": false,
+          "line": 87,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_fst_eight_mul_add_modEq",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pellUnitPair_snd_eight_mul_add_modEq",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_snd_eight_mul_add_modEq",
+          "private": false,
+          "protected": false,
+          "line": 97,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_snd_eight_mul_add_modEq",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pellUnitPair_fst_odd_residues",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_fst_odd_residues",
+          "private": false,
+          "protected": false,
+          "line": 107,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_fst_odd_residues",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pellUnitPair_snd_odd_residues",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_snd_odd_residues",
+          "private": false,
+          "protected": false,
+          "line": 121,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_snd_odd_residues",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "exists_odd_rho_of_product",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.exists_odd_rho_of_product",
+          "private": false,
+          "protected": false,
+          "line": 135,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.exists_odd_rho_of_product",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "exists_depth_three_rho_of_product",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.exists_depth_three_rho_of_product",
+          "private": false,
+          "protected": false,
+          "line": 172,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.exists_depth_three_rho_of_product",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "zmodEight_exists_depth_three_seven",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.zmodEight_exists_depth_three_seven",
+          "private": false,
+          "protected": false,
+          "line": 188,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.zmodEight_exists_depth_three_seven",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "zmodEight_exists_depth_three_five",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.zmodEight_exists_depth_three_five",
+          "private": false,
+          "protected": false,
+          "line": 198,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.zmodEight_exists_depth_three_five",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "ResidueFactorListPacket.existsASevenDepthThree",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.ResidueFactorListPacket.existsASevenDepthThree",
+          "private": false,
+          "protected": false,
+          "line": 242,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.ResidueFactorListPacket.existsASevenDepthThree",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "ResidueFactorListPacket.existsBFiveDepthThree",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.ResidueFactorListPacket.existsBFiveDepthThree",
+          "private": false,
+          "protected": false,
+          "line": 266,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.ResidueFactorListPacket.existsBFiveDepthThree",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "factorListPacket_forcedResidueDepthThree",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.factorListPacket_forcedResidueDepthThree",
+          "private": false,
+          "protected": false,
+          "line": 290,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.factorListPacket_forcedResidueDepthThree",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "exists_neg_one_of_sign_product",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.exists_neg_one_of_sign_product",
+          "private": false,
+          "protected": false,
+          "line": 304,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.exists_neg_one_of_sign_product",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "factorListPacket_crossChannelNonresidue",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.factorListPacket_crossChannelNonresidue",
+          "private": false,
+          "protected": false,
+          "line": 352,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.factorListPacket_crossChannelNonresidue",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pellUnitPair_eleven",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_eleven",
+          "private": false,
+          "protected": false,
+          "line": 380,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.pellUnitPair_eleven",
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexEleven_A_factorization",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_A_factorization",
+          "private": false,
+          "protected": false,
+          "line": 385,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_A_factorization",
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "prime_eleven",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.prime_eleven",
+          "private": false,
+          "protected": false,
+          "line": 387,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.prime_eleven",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexEleven_odd",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_odd",
+          "private": false,
+          "protected": false,
+          "line": 389,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_odd",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "prime_twentyThree",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.prime_twentyThree",
+          "private": false,
+          "protected": false,
+          "line": 390,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.prime_twentyThree",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "prime_threeHundredFiftyThree",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.prime_threeHundredFiftyThree",
+          "private": false,
+          "protected": false,
+          "line": 391,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.prime_threeHundredFiftyThree",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "prime_fiveThousandSevenHundredFortyOne",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.prime_fiveThousandSevenHundredFortyOne",
+          "private": false,
+          "protected": false,
+          "line": 392,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.prime_fiveThousandSevenHundredFortyOne",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexEleven_twentyThree_exponentOne",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_twentyThree_exponentOne",
+          "private": false,
+          "protected": false,
+          "line": 402,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_twentyThree_exponentOne",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexEleven_threeHundredFiftyThree_exponentOne",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_threeHundredFiftyThree_exponentOne",
+          "private": false,
+          "protected": false,
+          "line": 405,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_threeHundredFiftyThree_exponentOne",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexEleven_fiveThousandSevenHundredFortyOne_exponentOne",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_fiveThousandSevenHundredFortyOne_exponentOne",
+          "private": false,
+          "protected": false,
+          "line": 409,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_fiveThousandSevenHundredFortyOne_exponentOne",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexEleven_global_character",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_global_character",
+          "private": false,
+          "protected": false,
+          "line": 413,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_global_character",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexEleven_residue_witness",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_residue_witness",
+          "private": false,
+          "protected": false,
+          "line": 417,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_residue_witness",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexEleven_nonresidue_euler_certificate",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_nonresidue_euler_certificate",
+          "private": false,
+          "protected": false,
+          "line": 422,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_nonresidue_euler_certificate",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexEleven_legendre_twentyThree",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_twentyThree",
+          "private": false,
+          "protected": false,
+          "line": 428,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_twentyThree",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexEleven_legendre_threeHundredFiftyThree",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_threeHundredFiftyThree",
+          "private": false,
+          "protected": false,
+          "line": 432,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_threeHundredFiftyThree",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexEleven_legendre_product",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_product",
+          "private": false,
+          "protected": false,
+          "line": 437,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_legendre_product",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexEleven_allPairsNonresidue_counterexample",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_allPairsNonresidue_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 442,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_allPairsNonresidue_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexEleven_fullPremise_allPairsNonresidue_counterexample",
+          "name": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_fullPremise_allPairsNonresidue_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 449,
+          "reportedConstant": "IUTThreeClosures.PellResidueParityLocalization20260901.indexEleven_fullPremise_allPairsNonresidue_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "totals": {
+    "theorem": 92,
+    "lemma": 2,
+    "def": 22,
+    "abbrev": 0,
+    "structure": 8,
+    "class": 0,
+    "inductive": 0,
+    "instance": 0,
+    "countedDeclarations": 124,
+    "proofDeclarations": 94,
+    "privateProofDeclarations": 8,
+    "axiomReports": 94
+  },
+  "axiomUnion": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ]
+}

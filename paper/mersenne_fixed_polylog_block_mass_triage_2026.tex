@@ -1,0 +1,121 @@
+\section{A threshold-free fixed-polylogarithmic Mersenne gate}
+\label{sec:mersenne-fixed-polylog-block-mass}
+
+Let $E_d$ be the canonical exact-order excess block and put
+$a_d=\log E_d$.  Previous sections prove
+\begin{equation}\label{eq:mersenne-block-cap-recalled}
+ 0\le a_d\le(\log3)\varphi(d),\qquad
+ \log W_m=o(m)\Longleftrightarrow
+ A(m):=\sum_{d\mid m}a_d=o(m).
+\end{equation}
+For $L_m=\log\log(3m)$ and a fixed positive integer $k$, define
+\[
+ P_k(m)=\sum_{\substack{d\mid m\\\log(m/d)<kL_m}}a_d,
+ \qquad
+ F_k(m)=\sum_{\substack{d\mid m\\kL_m\le\log(m/d)}}a_d.
+\]
+The strict and closed inequalities give the exact partition
+$A(m)=P_k(m)+F_k(m)$.
+
+\begin{theorem}[Actual fixed-window equivalence]
+\label{thm:mersenne-fixed-window-equivalence}
+One has
+\[
+ \log W_m=o(m)
+ \quad\Longleftrightarrow\quad
+ \text{for every fixed }k\ge1,\quad P_k(m)=o(m).
+\]
+\end{theorem}
+
+\begin{proof}
+The forward implication follows from $0\le P_k\le A$.  Conversely, the
+exact logarithmic-deficit moment and weighted Markov inequality provide an
+absolute $C_0$ such that, eventually and uniformly in $k\ge1$,
+\[
+ \sum_{\substack{d\mid m\\kL_m\le\log(m/d)}}\varphi(d)
+ \le \frac{C_0}{k}m.
+\]
+By \eqref{eq:mersenne-block-cap-recalled},
+$F_k(m)\le(\log3)C_0m/k$.  Given $\eta>0$, first fix $k$ so large that this
+upper bound is below $\eta m/2$, and only then use the fixed-$k$ hypothesis
+to make $P_k(m)<\eta m/2$.  Hence $A(m)=o(m)$, and
+\eqref{eq:mersenne-block-cap-recalled} finishes the proof.
+\end{proof}
+
+Inside this window, write the exact-order Wieferich decomposition
+\[
+ a_d=S_d+T_{d,\delta}+X_{d,\delta}+G_d,
+\]
+where $S_d$ contains one copy of primes $p\le
+Y_d=\varphi(d)^2/\log\log(3d)$, $T_{d,\delta}$ contains one copy for
+$Y_d<p\le d^{2+\delta}$, $X_{d,\delta}$ contains one copy for
+$p>d^{2+\delta}$, and
+\[
+ G_d=\sum_{\substack{\ord_p(2)=d\\v_p(2^d-1)\ge3}}
+       (v_p(2^d-1)-2)\log p.
+\]
+The proved bound $S_d=o(\varphi(d))$ and the fact that all window indices tend
+to infinity combine with
+\[
+ \sum_{d\mid m}\varphi(d)=m
+\]
+to show that the localized $S$-mass is $o(m)$.
+
+\begin{theorem}[Sharp fixed-window three-arm obstruction]
+\label{thm:mersenne-fixed-window-three-arm}
+Fix $\delta>0$.  If $\log W_m\ne o(m)$, then there are fixed $k\ge1$ and
+$\epsilon>0$, and an unbounded sequence $m_j$, for which
+$P_k(m_j)\ge\epsilon m_j$.  For every fixed $0<\gamma<1/3$, after passage
+to a subsequence one same alternative holds eventually:
+\begin{enumerate}
+\item the localized sum of $G_d$ is at least $\gamma\epsilon m_j$;
+\item at least
+\[
+ \frac{\gamma\epsilon m_j}{(2+\delta)\log m_j}
+\]
+distinct base-two Wieferich primes lie in the localized transition arm;
+\item the localized sum of $X_{d,\delta}$ is at least
+$\gamma\epsilon m_j$; each such prime satisfies
+$\ord_p(2)<p^{1/(2+\delta)}$.
+\end{enumerate}
+In particular, one may take $\gamma=1/4$.
+\end{theorem}
+
+\begin{proof}
+The contrapositive of
+Theorem~\ref{thm:mersenne-fixed-window-equivalence} fixes $k$ and a linear
+lower bound along a subsequence.  After subtracting the localized
+$o(m_j)$ small arm, the three remaining nonnegative masses total
+$(\epsilon-o(1))m_j$.  Because $3\gamma<1$, one carries at least
+$\gamma\epsilon m_j$ for all large $j$; infinite pigeonhole fixes the arm.
+In the transition range, $p\le d^{2+\delta}\le m_j^{2+\delta}$, so each
+summand is at most $(2+\delta)\log m_j$.  Exact-order prime sets are
+disjoint, yielding the cardinality bound.  The extreme-order inequality is
+the rearrangement of $p>d^{2+\delta}$.
+\end{proof}
+
+The constants are sharp at the stated algebraic level.  The full
+quarter-budget mass ledger
+\[
+ (R,S,G,T,X)=(4,1,1,1,1)
+\]
+refutes every uniform coefficient greater than $1/4$.  The ledger
+$(3,0,1,1,1)$ refutes every coefficient greater than $1/3$ when the small arm
+is zero.  These ledgers are not asserted to arise from Mersenne blocks.
+
+Actual finite pressure comes from the sealed exhaustive scan through
+$10^7$, independently rechecked by a segmented sieve.  Its only base-two
+Wieferich hits are
+\[
+ (p,\ord_p(2),v_p(2^{\ord_p(2)}-1))=(1093,364,2),
+ \quad(3511,1755,2).
+\]
+They refute the finite strengthenings that every localized block vanishes,
+or that every localized repeated prime must already be deep, transition, or
+extreme.  Two isolated indices do not refute any little-oh assertion, and
+the absence of depth at most $10^7$ has no asymptotic consequence.
+
+For any fixed $\delta>0$, closure now reduces to proving, for every fixed
+$k$, that the localized deep mass and extreme mass are $o(m)$ and that the
+transition support is $o(m/\log m)$.  No full-premise counterexample to these
+three arithmetic gates is known, so all three remain active.

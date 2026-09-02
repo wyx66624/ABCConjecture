@@ -1,0 +1,14 @@
+From the repository root:
+
+Lean/verification/2026_09_01_selection_volume_pell_block_mass/validate.ps1 -FreezeInputs
+Lean/verification/2026_09_01_selection_volume_pell_block_mass/validate.ps1 -Record
+Lean/verification/2026_09_01_selection_volume_pell_block_mass/validate.ps1 -SealPackage
+Lean/verification/2026_09_01_selection_volume_pell_block_mass/validate.ps1 -VerifyPackage
+
+Independent finite replay:
+
+python research/computation/2026_09_01_mersenne_super_wieferich_depth/verify_super_wieferich.py --input research/computation/2026_09_01_mersenne_super_wieferich_depth/scan_10m.json --output tmp/mersenne_block_verification.json
+
+Direct paper build from paper/:
+
+tectonic -X compile --outdir ../output/pdf --outfmt pdf --print --untrusted --reruns 2 --keep-intermediates --keep-logs ChatGPT_ABC_Uniformity_2026.tex

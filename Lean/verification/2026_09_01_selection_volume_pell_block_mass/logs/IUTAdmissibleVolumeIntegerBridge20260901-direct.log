@@ -1,0 +1,57 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true IUTThreeClosures/IUTAdmissibleVolumeIntegerBridge20260901.lean
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.carrier_ne_empty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.logVolume_eq_of_carrier_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.preimage_ne_of_shift_ne_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.logVolume_iterate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.iterate_ne_of_pos_of_shift_ne_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.iterate_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.AdmissiblePreimageLogVolume.not_finite_region' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.padicValuationBall_carrier_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.padicValuationBallAdmissibleModel_nonempty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.padicValuationBall_region_not_finite' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.abcConjecture_of_statementI_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.StatementIIntegerComparison.toBridge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_without_height_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_without_radical_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.uniformEpsilonBoundOn_empty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_without_domain_membership' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_with_nonuniform_height_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901.counterexample_with_nonuniform_radical_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

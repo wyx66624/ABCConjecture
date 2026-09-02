@@ -407,6 +407,12 @@ import IUTThreeClosures.PellPrimeRankCounterexamples20260901
 -- literature-level channel alternatives remain separately certified inputs.
 import IUTThreeClosures.PellFourPrimeCoupling20260901
 
+-- Modulo-eight refinement of the balancing-Pell packet.  Lean checks the
+-- exact coordinate residues, involution-product extraction of odd depth at
+-- least three under squarefullness, the forced cross-channel sign, and the
+-- index-eleven counterexample to an all-pairs nonresidue strengthening.
+import IUTThreeClosures.PellResidueParityLocalization20260901
+
 -- An independent Hall-family gate: primitive `X^3 + K = Y^2` data with
 -- squarefull `K` and `K^2 <= X` have exact radical slope below `11/12`.
 -- Existence of an unbounded family satisfying that premise is not asserted.
@@ -479,6 +485,13 @@ import IUTThreeClosures.IUTLanaSpecificationNoGo20260901
 -- and records the still-missing bridge from genl Statement I to the explicit
 -- integer abc statement; it does not pretend to import the newer actual type.
 import IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901
+
+-- Extensional nonempty-region repair of the total log-volume law, including
+-- a genuine Q_p valuation-ball model and exact fixed/periodic/finite no-go
+-- theorems.  An explicit uniform tripod comparison carries Statement I to
+-- the repository's integer ABCConjecture; construction of that comparison
+-- for the intended height theory remains open.
+import IUTThreeClosures.IUTAdmissibleVolumeIntegerBridge20260901
 
 -- Inhabited valuation-ball repair of the local log-volume interface, additive
 -- transport holonomy, rational-prime local cancellation, and full scalar
@@ -620,8 +633,20 @@ import IUTThreeClosures.UnitGapContactDegeneracy
 import IUTThreeClosures.UnitGapArithmeticDerivativeBarrier
 import IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901
 
+-- Threshold-free localization of the actual Mersenne block mass.  Every
+-- fixed-polylogarithmic window is little-oh exactly when the full endpoint is;
+-- failure forces one localized deep, transition, or extreme arm with every
+-- coefficient below one third.  No distribution premise is postulated.
+import IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901
+
 -- Sharp square-triangle determinants for three adaptive affine certificates,
 -- canonical factor-three arm bounds, long-arm square-excess selection, the
 -- factor-27 repeated-kernel support bound, and exact `(1,8,9)` degenerate
 -- pressure tests.  No adaptive common-kernel density statement is assumed.
 import IUTThreeClosures.AffineAdaptiveCommonKernel20260901
+
+-- Finite selection continuation for adaptive affine labels: an integer-line
+-- cap, large-label fibre and incidence-multiplicity bounds, and a canonical
+-- box-wide collinear counterexample to inferring noncollinearity from size.
+-- Shared-sublabel multiplicity or a collinear-energy bound remains open.
+import IUTThreeClosures.AffineCommonKernelTripleSelection20260901

@@ -1,0 +1,36 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true IUTThreeClosures/MersenneFixedPolylogBlockMassTriage20260901.lean
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.divisorOrderBlockMassSum_eq_far_add_polylogLocalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogLocalizedBlockMass_le_total' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogFarBlockMass_le_cap_mul_polylogFarTotientMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.divisorOrderBlockMassSum_isLittleO_iff_all_fixedPolylogBlockMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.log_mersennePowerLoss_isLittleO_iff_all_fixedPolylogBlockMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.deep_or_transition_or_extreme_of_small_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.polylogLocalizedBlockMass_threeArm_of_small_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.deep_or_transition_or_extreme_of_one_controlled_arm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.transition_card_lowerBound_of_log_share' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.quarter_coefficient_is_sharp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneFixedPolylogBlockMassTriage20260901.one_third_is_sharp_three_arm_ceiling' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0
