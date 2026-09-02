@@ -1,0 +1,128 @@
+\section{Odd kernels and a third-order balancing-Pell packet}
+\label{sec:pell-odd-kernel-third-order}
+
+Continue with
+$(1+\sqrt2)^n=A_n+B_n\sqrt2$ and an odd prime index $\ell$.  Suppose, for
+pressure testing, that both $A_\ell$ and $B_\ell$ are squarefull.  A finite
+squarefull factorization has the canonical form
+\[
+ N=D^3C^2,\qquad
+ D=\prod_{v_p(N)\text{ odd}}p.
+\]
+Indeed an even exponent is $2+2c$ and an odd exponent is $3+2c$.  The
+inherited perfect-power classifications force each exponent vector in a
+hypothetical packet to have gcd one, so both odd kernels are nontrivial:
+\begin{equation}\label{eq:pell-odd-kernel-normal-form}
+ A_\ell=D_A^3X^2,\qquad B_\ell=D_B^3Y^2,\qquad
+ D_A,D_B>1.
+\end{equation}
+Every kernel prime consequently occurs at depth at least three in its
+assigned channel.  The negative Pell equation becomes
+\[
+                   D_A^6X^4-2D_B^6Y^4=-1.
+\]
+
+Let $s_\ell=(2/\ell)$.  The rank congruences, sign product, and residue orbit
+from the preceding Pell sections give
+\begin{align}
+ D_A&\equiv1\pmod{2\ell},&
+ D_B&\equiv s_\ell\pmod{2\ell},
+ \label{eq:pell-kernel-rank}\\
+ X^2&\equiv1\pmod{2\ell},&Y^2&\equiv1\pmod{2\ell}.
+ \label{eq:pell-core-square}
+\end{align}
+Because $\ell$ is prime and the square cores are odd, each of $X,Y$ is
+congruent to one of $\pm1$ modulo $2\ell$.  The complete mod-eight data are
+\[
+\begin{array}{c|rrrr}
+\ell\bmod8&1&3&5&7\\ \hline
+D_A\bmod8&1&7&1&7\\
+D_B\bmod8&1&5&5&1.
+\end{array}
+\]
+Writing $d_A=(D_A-1)/(2\ell)$ and
+$d_B=(D_B-s_\ell)/(2\ell)$ further gives
+\[
+\begin{array}{c|rrrr}
+\ell\bmod8&1&3&5&7\\ \hline
+d_A\bmod4&0&1&0&1\\
+d_B\bmod4&0&1&3&0.
+\end{array}
+\]
+
+The two kernels also form a three-edge Jacobi-character triangle with the
+index:
+\[
+ \left(\frac{D_A}{D_B}\right)=s_\ell,\qquad
+ \left(\frac{\ell}{D_A}\right)=\left(\frac{-1}{\ell}\right),
+ \qquad
+ \left(\frac{\ell}{D_B}\right)=
+       \left(\frac{s_\ell}{\ell}\right).
+\]
+Thus the three signs, in the order displayed, are
+\[
+\begin{array}{c|rrrr}
+\ell\bmod8&1&3&5&7\\ \hline
+(D_A/D_B)&+1&-1&-1&+1\\
+(\ell/D_A)&+1&-1&+1&-1\\
+(\ell/D_B)&+1&-1&+1&+1.
+\end{array}
+\]
+In the $3\pmod8$ class all three aggregate edges are negative.  This does
+not assert that every individual cross pair is negative; an actual index-
+eleven factorization already refutes that stronger statement.
+
+One additional quotient digit can be retained.  For a finite list $T$, let
+$E_j(T)$ be its $j$th elementary symmetric sum.  The exact expansion
+\[
+ \prod_i(1+xt_i)\equiv
+ 1+xE_1(T)+x^2E_2(T)+x^3E_3(T)\pmod{x^4}
+\]
+follows by induction.  Repeat each $A$-channel quotient according to its
+valuation to form $T_A$, and repeat each signed $B$-channel quotient to form
+$T_B$.  Write $(K_A,C_A,H_A)=(E_1,E_2,E_3)(T_A)$ and similarly for $B$.
+For
+\[
+ a=\frac{A_\ell-1}{2\ell},\qquad
+ b=\frac{s_\ell B_\ell-1}{2\ell},
+\]
+cancellation of $2\ell$ gives
+\[
+ a\equiv K_A+2\ell C_A+4\ell^2H_A,\qquad
+ b\equiv K_B+2\ell C_B+4\ell^2H_B\pmod{8\ell^3}.
+\]
+Substitution into the exact identity
+$a-2b+\ell(a^2-2b^2)=0$ yields the necessary third-order ledger
+\begin{align*}
+0\equiv{}&K_A-2K_B+\ell(K_A^2-2K_B^2)+2\ell(C_A-2C_B)\\
+ &+4\ell^2(H_A-2H_B+K_AC_A-2K_BC_B)\\
+ &+4\ell^3(C_A^2-2C_B^2)\pmod{8\ell^3}.
+\end{align*}
+Its reduction modulo $4\ell^2$ recovers the preceding second-order ledger.
+The new congruence is a necessary condition and is not asserted to be a
+contradiction.
+
+A deterministic two-direction search examined all 668 odd prime indices
+$3\le\ell\le5000$ and all primes $q\le2{,}000{,}000$ in the necessary
+classes $q\equiv\pm1\pmod{2\ell}$.  It certified 481 indices with an actual
+exponent-one divisor of $A_\ell$ or $B_\ell$; 187 bounded-search rows remain
+open.  An independent verifier recomputed every witness modulo $q^2$, checked
+primality, and, for every odd prime $\ell\le191$, verified a simple divisor
+from the exact coordinates.  The largest such witness,
+\[
+        13558774610046711780701\parallel B_{59},
+\]
+is supported by a complete Pocklington certificate.  Hence
+\[
+ \boxed{A_\ell B_\ell\text{ is not squarefull for every odd prime }
+        \ell\le191.}
+\]
+This is a finite theorem.  It neither proves eventual simplicity nor treats
+an unresolved row as a squarefull packet.
+
+The Lean companion checks the cubic-square factor identity, residue
+transport, Jacobi reciprocity steps, arbitrary-list third-order expansion,
+quotient cancellation, and the coupled ledger.  The remaining positive gate
+is an actual opposite-channel depth-three exclusion satisfying all kernel,
+residue, character, and quotient constraints.  No full-premise packet
+counterexample was found, so this route remains active.

@@ -10,6 +10,81 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
+## September 1, 2026 period, rational-shadow, multiplier-index, and odd-kernel checkpoint
+
+The standard unconditional `ABCConjecture` remains unproved and
+undisproved.  Positive deductions and counterexample searches continue in
+parallel.  Difficulty, a missing estimate, and a finite no-hit do not retire a
+route.  Only the exact stronger statement contradicted by a full-premise
+counterexample is removed; the corrected arithmetic route stays active.
+
+- **Affine collinear-period route.**  On a fixed ray the exact label period is
+  `T = product (d_Z / gcd(d_Z,A_Z))`, the complementary capture is
+  `C = product gcd(d_Z,A_Z)`, and `T*C = D`.  This gives the exact ray
+  capacity and, for positive ambient scale, the cubic energy bound
+  `(n-1)^3 < (B+1)(C+1)N`.  A weighted version follows with the sharp
+  universal factor four; the vertical branch has its own quadratic bound.
+  The canonical `(1,8,9)` packet is a full counterexample to using the whole
+  product `D` as the period, and a one-point model is a full counterexample if
+  the hypothesis `N>0` is omitted.  These retire only those two strengthenings.
+  Signed nonconstant arms, supporting-ray aggregation, actual catalogue
+  weights, and the required overlap lower bound remain open and active.
+- **IUT rational-tripod shadow route.**  The actual rational tripod
+  `0<x<1`, with the standard Weil height and truncated counting function, is
+  installed as a degree-one `Genl.HeightTheory` with zero comparison error.
+  Its `StatementI` is proved equivalent to `ABCConjecture`.  This identifies
+  the exact semantic endpoint and is not an IUT proof.  Three full-premise
+  pressure models refute automatic degree realization and automatic uniform
+  height or radical normalization from the bare interface.  They do not
+  refute IUT; the intended source-level rational points, degree membership,
+  and uniform semantic comparisons remain the live construction problem.
+- **Mersenne multiplier-index route.**  For fixed exact order `d`, the
+  multiplier `(p-1)/d` is a positive injective index.  The exact-order loss is
+  split into a localized low-multiplier arm, a large-multiplier one-copy arm,
+  and deep prime-power excess.  Harmonic summation proves the low arm is
+  `o(m)` in every fixed near-diagonal window, so any failed endpoint forces
+  positive mass into the deep arm or primes with
+  `ord_p(2) < p^(1/2+o(1))`.  The abstract packet `(R,U,G,B)=(2,0,1,1)`
+  refutes coefficients above one half in the two-arm combinatorial lemma; it
+  is not an actual Mersenne packet.  Localized deep mass and the
+  large-multiplier arm remain active analytic targets.
+- **Pell odd-kernel route.**  A hypothetical squarefull prime-index packet is
+  compressed as `A_l=D_A^3 X^2`, `B_l=D_B^3 Y^2` with nontrivial squarefree
+  odd-exponent kernels.  Exact mod-eight, mod-`2*l`, Jacobi-reciprocity, and
+  mod-`8*l^3` third-order ledgers are proved before formalization.  The
+  independently replayed finite computation covers all 668 odd prime indices
+  through 5000, performs 648189 repeated-factor candidate tests, finds only
+  `13^2 || B_7` and no depth-three hit, and provides exact simple-divisor
+  certificates for all 42 odd prime indices through 191, including one
+  complete Pocklington certificate.  The other 187 bounded indices are
+  explicitly unresolved.  This finite result proves no eventual assertion
+  and does not retire the Pell route.
+
+The mathematical reports are
+`../research/ABC_AFFINE_COLLINEAR_PERIOD_ENERGY_2026_09_01.md`,
+`../research/ABC_IUT_RATIONAL_TRIPOD_SHADOW_COMPARISON_2026_09_01.md`,
+`../research/ABC_MERSENNE_MULTIPLIER_INDEX_TWO_ARM_2026_09_01.md`, and
+`../research/ABC_PELL_ODD_KERNEL_THIRD_ORDER_PACKET_2026_09_01.md`.
+Their four companion modules contain 83 theorem declarations, 40 definitions,
+two structures, and one instance, for 126 counted declarations.  The generated
+same-scope audit checks all 83 proof declarations, including three private
+proofs; the axiom union is exactly `Classical.choice`, `Quot.sound`, and
+`propext`.  All direct compilations are warning-free, the independent Pell
+certificate replay passes, and the aggregate build passes with exactly 9224
+jobs.  None of these modules contains an unconditional terminal term of
+`ABCConjecture` or its negation.
+
+The permanent replay package is
+`verification/2026_09_01_period_shadow_multiplier_odd_kernel/`.  It freezes
+the local Lean, report, source-note, computation, paper, and PDF inputs; records
+the declaration and axiom inventories; replays the Pell verifier; and supports
+post-seal verification.  The integrated English manuscript by ChatGPT is the
+172-page A4 artifact `../output/pdf/ChatGPT_ABC_Uniformity_2026.pdf`, with
+SHA-256
+`5d8f7ddc94b9b096b78df4a6d0d18a7f26c19cb3f62dbf698d6f7341433f58db`.
+Its compilation log has no undefined reference, undefined citation, or
+overfull-box warning; the retained underfull page-break warning is cosmetic.
+
 ## September 1, 2026 determinant, totient-concentration, and refined-factor checkpoint
 
 The standard unconditional `ABCConjecture` remains unproved and

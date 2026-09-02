@@ -1,0 +1,33 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true IUTThreeClosures/MersenneMultiplierIndexTwoArm20260901.lean
+'IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.exactOrder_prime_eq_one_add_mul_multiplier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.exactOrder_multiplier_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.exactOrder_multiplier_injectiveOn' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.card_le_of_injective_multiplier_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.lowMultiplierExactOrderPrimes_card_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.lowMultiplierExactOrderLogMass_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.deep_or_nearSquare_of_low_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.polylogLocalizedBlockMass_twoArm_of_low_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.deep_or_nearSquare_of_one_controlled_arm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.one_half_is_sharp_two_arm_ceiling' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

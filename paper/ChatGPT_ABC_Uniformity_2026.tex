@@ -52,41 +52,44 @@ imply $abc$.  In the opposite direction, explicit Pell, Hall, Danilov, and
 powerful-value constructions reduce a disproof to stated infinitude or
 radical-growth hypotheses; none of those hypotheses is presently proved.
 
-The newest results sharpen four active interfaces.  In a two-parameter
-primitive affine shear, point-dependent arm divisors have triplewise common
-moduli whose product divides the parameter-triangle determinant.  A sharp
-square bound gives $G\le(M-1)^2$ for every noncollinear triple.  More than
-$M$ points force such a triple, so every fixed label with product above the
-box square has a fibre of size at most $M$.  This yields exact catalogue and
-incidence-multiplicity budgets.  A canonical collinear example shows why the
-remaining proof must control line concentration rather than infer
-noncollinearity from divisor size.
+The newest results sharpen four active interfaces.  Along a nonconstant
+nonnegative affine ray, a common arm-divisor label has an exact reduced
+period.  The period and the direction-captured part multiply to the label
+product.  Above the square of the ambient span this gives a cube-root fibre
+cap and a weighted cubic-energy bound with optimal integer conversion
+constant four.  A canonical four-point example attains the correct period
+cap and refutes only the stronger assertion that the whole label product is
+itself a period.  Vertical and signed arm-level directions remain explicit
+separate gates.
 
-For the Mersenne endpoint, $\log W_m=o(m)$ is equivalent to requiring the
-actual logarithmic block mass to be $o(m)$ in every fixed window
-$m/d<\{\log(3m)\}^k$.  If the endpoint fails, then for every
-$\gamma<1/3$ one localized arithmetic arm carries at least
-$\gamma\epsilon m$ along a subsequence: deep lifts, a transition support of
-order $m/\log m$, or primes of extremely small multiplicative order.  The
-coefficient $1/3$ is sharp for the nonnegative three-arm ledger.  Certified
-finite Wieferich examples refute only stronger finite assertions and leave
-all three asymptotic arms active.
+For the Mersenne endpoint, an exact-order prime has the injective integral
+multiplier $(p-1)/\ord_p(2)$.  This controls all one-copy repeated-prime mass
+below $d^2/(\log(3m)(\log\log(3m))^2)$ in every fixed polylogarithmic divisor
+window.  Consequently a failed endpoint has only two remaining linear-mass
+alternatives: deep lifts or Wieferich-weighted primes whose order is below a
+moving $p^{1/2+o(1)}$ threshold.  Every coefficient below $1/2$ is forced,
+and $1/2$ is the sharp ceiling of the exact two-arm ledger.  Existing global
+almost-all order theorems do not supply the required localized weighted
+estimate.
 
-For the Pell packet, exact residues modulo eight force a depth-at-least-three
-prime in specified channels under squarefullness, and a sign product forces
-one opposite-channel quadratic nonresidue.  At index eleven an actual
-factorization refutes the stronger all-pairs nonresidue claim without meeting
-the squarefull premise.
+For a hypothetical squarefull balancing-Pell packet at odd prime index
+$\ell$, both coordinates compress to nontrivial squarefree odd-exponent
+kernels times squares.  The kernels satisfy complete mod-eight and
+mod-$2\ell$ tables, an index--kernel Jacobi triangle, and a new third-order
+quotient congruence modulo $8\ell^3$.  An independently replayed search gives
+simple-divisor certificates at every odd prime index through $191$, while
+all bounded unresolved rows remain open and are not extrapolated.
 
-Finally, the latest public LANA implication reaches an abstract height
-statement only conditionally.  Its current total real-valued volume law
-applied to the empty set forces $\log2=0$.  We construct a consistent
-extensional replacement using genuine $p$-adic valuation balls and prove an
-explicit uniform tripod-comparison theorem from abstract Statement~I to the
-integer \texttt{ABCConjecture}.  Constructing that comparison for the intended
-height theory remains open.  Lean companions verify all stated finite
-algebra, transfer theorems, and counterexamples without proof placeholders;
-unproved analytic and geometric inputs remain explicit.
+Finally, the rational tripod admits an exact degree-one shadow height theory
+whose height and radical comparisons have error zero.  Statement~I for this
+shadow is equivalent, in both directions, to the integer
+\texttt{ABCConjecture}; the construction therefore identifies the semantic
+target without proving it.  Three full-premise models show separately that
+the current bare interface does not force degree realization, a uniform
+height normalization, or a uniform radical normalization for an intended
+arithmetic theory.  Lean companions verify all stated finite algebra,
+transfer theorems, and counterexamples without proof placeholders; unproved
+analytic and geometric inputs remain explicit.
 
 \end{abstract}
 \maketitle
@@ -182,6 +185,10 @@ Section~\ref{sec:iut-admissible-volume-integer-bridge} gives an inhabited
 $p$-adic ball repair, proves its exact orbit constraints, and supplies the
 uniform comparison package that would carry abstract Statement~I to the
 integer target.
+Section~\ref{sec:iut-rational-tripod-shadow} realizes that package with zero
+error on the actual open rational tripod, proves that Statement~I for this
+shadow is exactly equivalent to integer $abc$, and uses full-premise models
+to separate the three semantic inputs still missing for an intended theory.
 Section~\ref{sec:affine-two-arm-crt} constructs a simultaneous two-arm CRT
 packet and tests the two necessary marginal excess gates against a complete
 canonical counterexample.
@@ -199,6 +206,10 @@ constants, and retains the unresolved common-kernel selection problem.
 Section~\ref{sec:affine-common-kernel-triple-selection} proves the line cap,
 large-label fibre and multiplicity bounds, and the third-gcd energy identity;
 an actual box-wide collinear example isolates the remaining overlap gate.
+Section~\ref{sec:affine-collinear-period-energy} extracts the exact arithmetic
+period on a ray, proves cube-root and weighted cubic-energy bounds away from
+constant-arm directions, and treats the vertical direction under an
+individual arm cap.
 Section~\ref{sec:mersenne-prime-layer} separates base order blocks from the
 LTE lifting remainder and proves unconditional radical bounds at prime
 Mersenne layers.
@@ -219,8 +230,14 @@ clustering, or extreme small order.
 Section~\ref{sec:mersenne-fixed-polylog-block-mass} removes the auxiliary
 exception threshold, localizes the actual block mass, and raises the
 three-arm coefficient to every value below the sharp algebraic ceiling
-$1/3$.  Section~\ref{sec:pell-residue-parity-localization} adds the exact
-modulo-eight and quadratic-character restrictions in the Pell packet.
+$1/3$.  Section~\ref{sec:mersenne-multiplier-index-two-arm} uses the injective
+exact-order multiplier to remove the localized low arm and raises the
+remaining two-arm coefficient to every value below $1/2$.
+Section~\ref{sec:pell-residue-parity-localization} adds the exact modulo-eight
+and quadratic-character restrictions in the Pell packet, while
+Section~\ref{sec:pell-odd-kernel-third-order} compresses a hypothetical
+squarefull packet into two odd-exponent kernels and retains a third quotient
+digit.
 No priority over existing literature is
 claimed for consequences of the cited classical theorems.
 
@@ -966,6 +983,7 @@ logarithmic-form methods to a different family.
 \input{iut_refined_factor_signature_2026}
 \input{iut_lana_current_concrete_implication_audit_2026}
 \input{iut_admissible_volume_integer_bridge_2026}
+\input{iut_rational_tripod_shadow_comparison_2026}
 
 \input{affine_two_arm_crt_2026}
 
@@ -974,8 +992,10 @@ logarithmic-form methods to a different family.
 \input{affine_determinant_layer_entropy_2026}
 \input{affine_adaptive_common_kernel_2026}
 \input{affine_common_kernel_triple_selection_2026}
+\input{affine_collinear_period_energy_2026}
 
 \input{pell_residue_parity_localization_2026}
+\input{pell_odd_kernel_third_order_packet_2026}
 
 \input{mersenne_prime_layer_radical_2026}
 
@@ -987,6 +1007,7 @@ logarithmic-form methods to a different family.
 \input{mersenne_polylog_codivisor_gate_2026}
 \input{mersenne_near_diagonal_global_triage_2026}
 \input{mersenne_fixed_polylog_block_mass_triage_2026}
+\input{mersenne_multiplier_index_two_arm_2026}
 
 \raggedbottom
 \section{Formal verification and remaining obligations}\label{sec:formal}
@@ -1244,6 +1265,23 @@ actual-mass window partition, the threshold-free little-oh equivalence,
 localized deep/transition/extreme selection for every coefficient below
 $1/3$, transition cardinality, and sharp full-premise mass-ledger
 counterexamples.\\[3pt]
+\texttt{AffineCollinearPeriod\allowbreak Energy20260901} & Exact reduced
+direction periods and capture factorization, actual ray divisibility,
+residue-class capacity, nonconstant-ray cube-root and weighted cubic-energy
+bounds, the vertical square-root bound under an arm cap, and two full-premise
+period counterexamples plus the ambient-positivity boundary model.\\[3pt]
+\texttt{IUTRationalTripodShadow\allowbreak Comparison20260901} & Actual open
+rational points, exact Weil-height and truncated-count conversions, the
+zero-error shadow comparison, the equivalence of its Statement~I with integer
+$abc$, and three full-premise semantic pressure models.\\[3pt]
+\texttt{MersenneMultiplierIndex\allowbreak TwoArm20260901} & Actual
+exact-order multiplier representation and injectivity, finite low-multiplier
+cardinality and log-mass bounds, two-arm finite-sum subtraction, and the sharp
+one-half mass-ledger counterexample.\\[3pt]
+\texttt{PellOddKernelThirdOrder\allowbreak Packet20260901} & Cubic-square
+odd-kernel factorization, congruence transport, Jacobi reciprocity rows,
+arbitrary finite third-order products, quotient cancellation, and the
+modulo-$8\ell^3$ two-channel ledger.\\[3pt]
 \bottomrule
 \end{longtable}
 
@@ -1422,6 +1460,20 @@ only the explicitly stated finite strengthenings; they do not convert any
 surviving asymptotic gate into an assumption or close the standard $abc$
 statement.
 
+The current direction-period, rational-shadow, multiplier-index, and
+odd-kernel checkpoint adds four modules with $83$ theorem declarations, $40$
+definitions, two structures, and one instance, for $126$ counted declarations.
+A generated same-scope audit covers all $83$ proofs, including three private
+affine helpers.  Its dependency union is exactly \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}; all four direct
+compilations and the audit are warning-free.  The aggregate target completes
+$9224$ jobs.  The independent Pell replay checks $648189$ bounded repeated-
+factor candidates, $42$ exact simple-divisor certificates covering every odd
+prime index through $191$, and one complete Pocklington certificate.  It
+records $187$ unresolved bounded-search indices as unresolved and makes no
+asymptotic inference.  These checks certify the stated formal reductions and
+narrow counterexamples, not the standard $abc$ conjecture or its negation.
+
 The formal scope is deliberately narrower than the full paper.
 Theorem~\ref{thm:tail} and Corollary~\ref{cor:carella} use Younis and classical
 smooth-number asymptotics in their mathematical proofs; those external
@@ -1544,25 +1596,40 @@ Theorem~\ref{thm:latest-local-theory-empty}.  The valuation-ball model of
 Theorem~\ref{thm:padic-admissible-volume-model} proves that an explicit
 extensional admissible-region replacement is consistent, and
 Theorem~\ref{thm:statementI-integer-transfer} removes the logical ambiguity
-from the final integer bridge.  The actual Corollary 3.12 premise and the
-construction of the degree-at-most-one encoding with its two uniform height
-comparisons remain to be proved for the intended theory.
+from the final integer bridge.  The rational shadow now realizes that bridge
+with zero error, but
+Theorem~\ref{thm:rational-tripod-shadow-iff-abc} shows exactly why this is not
+a proof: Statement~I for the shadow is equivalent to $abc$.  The actual
+Corollary 3.12 premise and the semantic identification of the intended points,
+degree locus, canonical height, different, and conductor with this rational
+target remain to be proved.  The three pressure models show that the current
+bare fields alone cannot manufacture those identifications.
 
 On the affine route, determinant divisibility now survives point-adaptive
 certificates.  Theorem~\ref{thm:affine-large-label-incidence} converts the
 selection problem into a catalogue-multiplicity inequality; alternatively,
 one may lower-bound the large-product part of
 \eqref{eq:affine-third-gcd-energy} beyond every collinear contribution.  The
-canonical vertical example proves that common-product size alone cannot
-supply noncollinearity.  On the Mersenne route, it is enough to work in every
-fixed-polylogarithmic co-divisor packet, but one must still control all three
-weighted mechanisms in
-Theorem~\ref{thm:mersenne-fixed-window-three-arm}.  Prime indices remain in
-the atomic branch, so the localization does not evade the fixed-base
-Wieferich problem.  No finite computation or current density theorem excludes
-the deep, transition, or extreme arm.  The Pell residue and character
-localization narrows the squarefull packet, but no known theorem excludes its
-forced depth-three primes.
+exact ray-period theorem now controls the previously unbounded nonconstant
+collinear occupancy by a weighted cubic-energy ceiling.  What remains is the
+total totient weight over all supporting rays, the signed constant-arm
+directions, and a lower transfer from actual exceptional-point certificates.
+The canonical vertical example proves that the label product itself cannot be
+used as a period and therefore cannot erase these residual terms.
+
+On the Mersenne route, multiplier injectivity removes the low one-copy arm in
+every fixed-polylogarithmic co-divisor packet.  The remaining gates are the
+localized deep-lift estimate and the localized Wieferich-weighted
+near-square-root order estimate in
+Theorem~\ref{thm:mersenne-multiplier-two-arm}.  The abstract coefficient
+ceiling rises from one third to one half, but no finite computation or current
+global density theorem proves either little-oh statement.
+
+The Pell packet now carries nontrivial odd kernels, a complete aggregate
+Jacobi triangle, and the third-order quotient ledger.  Certified simple
+divisors exclude every odd prime index through $191$; the finite boundary is
+kept literal.  No known theorem excludes or constructs a larger packet whose
+two channels satisfy all depth, residue, character, and quotient constraints.
 
 Constructing initial data, descending a determinant, localizing a divisor
 average, or eliminating Ind2 from a fixed $B$-module hull does not by itself

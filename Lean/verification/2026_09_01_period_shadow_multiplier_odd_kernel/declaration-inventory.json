@@ -1,0 +1,1266 @@
+{
+  "schema": "abc-period-shadow-multiplier-odd-kernel-inventory-v1",
+  "modules": [
+    {
+      "module": "AffineCollinearPeriodEnergy20260901",
+      "path": "Lean/IUTThreeClosures/AffineCollinearPeriodEnergy20260901.lean",
+      "bytes": 28748,
+      "sha256": "3ae5da06eda295eeb736deb7563a5ee1aa61843974c0ef6aa2da7c31a0c102ee",
+      "counts": {
+        "theorem": 27,
+        "lemma": 0,
+        "def": 6,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 33,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "reducedDirectionPeriod_pos",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.reducedDirectionPeriod_pos",
+          "private": false,
+          "protected": false,
+          "line": 51,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.reducedDirectionPeriod_pos",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "reducedDirectionPeriod_dvd_self",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.reducedDirectionPeriod_dvd_self",
+          "private": false,
+          "protected": false,
+          "line": 58,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.reducedDirectionPeriod_dvd_self",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "reducedDirectionPeriod_dvd_of_dvd_mul",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.reducedDirectionPeriod_dvd_of_dvd_mul",
+          "private": false,
+          "protected": false,
+          "line": 62,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.reducedDirectionPeriod_dvd_of_dvd_mul",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "directionPeriod_pos",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionPeriod_pos",
+          "private": false,
+          "protected": false,
+          "line": 73,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionPeriod_pos",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "directionPeriod_dvd_gap",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionPeriod_dvd_gap",
+          "private": false,
+          "protected": false,
+          "line": 81,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionPeriod_dvd_gap",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "directionPeriod_mul_capture",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionPeriod_mul_capture",
+          "private": false,
+          "protected": false,
+          "line": 111,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionPeriod_mul_capture",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "natAbs_natCast_sub_eq_dist",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.natAbs_natCast_sub_eq_dist",
+          "private": true,
+          "protected": false,
+          "line": 138,
+          "reportedConstant": "_private.verification.«2026_09_01_period_shadow_multiplier_odd_kernel».«axiom-audit».0.IUTThreeClosures.AffineCollinearPeriodEnergy20260901.natAbs_natCast_sub_eq_dist",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "nat_dvd_dist_mul_of_intCast_dvd_sub_mul",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.nat_dvd_dist_mul_of_intCast_dvd_sub_mul",
+          "private": true,
+          "protected": false,
+          "line": 149,
+          "reportedConstant": "_private.verification.«2026_09_01_period_shadow_multiplier_odd_kernel».«axiom-audit».0.IUTThreeClosures.AffineCollinearPeriodEnergy20260901.nat_dvd_dist_mul_of_intCast_dvd_sub_mul",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "sharedLabel_ray_directionDivisibilities",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.sharedLabel_ray_directionDivisibilities",
+          "private": false,
+          "protected": false,
+          "line": 158,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.sharedLabel_ray_directionDivisibilities",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "sharedLabel_ray_directionPeriod_dvd_dist",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.sharedLabel_ray_directionPeriod_dvd_dist",
+          "private": false,
+          "protected": false,
+          "line": 208,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.sharedLabel_ray_directionPeriod_dvd_dist",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "periodicIndexSet_card_le",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.periodicIndexSet_card_le",
+          "private": false,
+          "protected": false,
+          "line": 228,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.periodicIndexSet_card_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mem_rayLabelFiber_iff",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.mem_rayLabelFiber_iff",
+          "private": false,
+          "protected": false,
+          "line": 261,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.mem_rayLabelFiber_iff",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "rayLabelFiber_card_le_directionPeriod",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.rayLabelFiber_card_le_directionPeriod",
+          "private": false,
+          "protected": false,
+          "line": 270,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.rayLabelFiber_card_le_directionPeriod",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "directionCapture_nonconstant_le_cubic",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionCapture_nonconstant_le_cubic",
+          "private": false,
+          "protected": false,
+          "line": 293,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionCapture_nonconstant_le_cubic",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cubic_card_bound_of_period",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.cubic_card_bound_of_period",
+          "private": false,
+          "protected": false,
+          "line": 329,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.cubic_card_bound_of_period",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "rayLabelFiber_nonconstant_shiftedCube_lt",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.rayLabelFiber_nonconstant_shiftedCube_lt",
+          "private": false,
+          "protected": false,
+          "line": 389,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.rayLabelFiber_nonconstant_shiftedCube_lt",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "omitting_positive_ambient_breaks_cubic_card_bound",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.omitting_positive_ambient_breaks_cubic_card_bound",
+          "private": false,
+          "protected": false,
+          "line": 420,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.omitting_positive_ambient_breaks_cubic_card_bound",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cube_le_four_mul_of_shiftedCube_lt",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.cube_le_four_mul_of_shiftedCube_lt",
+          "private": false,
+          "protected": false,
+          "line": 443,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.cube_le_four_mul_of_shiftedCube_lt",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "factorThree_shiftedCube_counterexample",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.factorThree_shiftedCube_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 478,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.factorThree_shiftedCube_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "weightedCubicMoment_le_four",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.weightedCubicMoment_le_four",
+          "private": false,
+          "protected": false,
+          "line": 484,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.weightedCubicMoment_le_four",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "rayCatalogue_weightedCubicEnergy_le",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.rayCatalogue_weightedCubicEnergy_le",
+          "private": false,
+          "protected": false,
+          "line": 503,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.rayCatalogue_weightedCubicEnergy_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "directionCapture_vertical_le_quadratic",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionCapture_vertical_le_quadratic",
+          "private": false,
+          "protected": false,
+          "line": 535,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionCapture_vertical_le_quadratic",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "quadratic_card_bound_of_period",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.quadratic_card_bound_of_period",
+          "private": false,
+          "protected": false,
+          "line": 558,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.quadratic_card_bound_of_period",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "rayLabelFiber_vertical_shiftedSquare_lt",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.rayLabelFiber_vertical_shiftedSquare_lt",
+          "private": false,
+          "protected": false,
+          "line": 600,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.rayLabelFiber_vertical_shiftedSquare_lt",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "omitting_pairwise_breaks_directionPeriod_product",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.omitting_pairwise_breaks_directionPeriod_product",
+          "private": false,
+          "protected": false,
+          "line": 635,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.omitting_pairwise_breaks_directionPeriod_product",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_72",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.radical_72",
+          "private": true,
+          "protected": false,
+          "line": 666,
+          "reportedConstant": "_private.verification.«2026_09_01_period_shadow_multiplier_odd_kernel».«axiom-audit».0.IUTThreeClosures.AffineCollinearPeriodEnergy20260901.radical_72",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "seed189_productAsPeriod_fullPremise_counterexample",
+          "name": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.seed189_productAsPeriod_fullPremise_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 678,
+          "reportedConstant": "IUTThreeClosures.AffineCollinearPeriodEnergy20260901.seed189_productAsPeriod_fullPremise_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "IUTRationalTripodShadowComparison20260901",
+      "path": "Lean/IUTThreeClosures/IUTRationalTripodShadowComparison20260901.lean",
+      "bytes": 23896,
+      "sha256": "32c875d56fe9565afdca5350c53c07a4c551bfb3505046bdd6b723a773d00597",
+      "counts": {
+        "theorem": 28,
+        "lemma": 0,
+        "def": 21,
+        "abbrev": 0,
+        "structure": 1,
+        "class": 0,
+        "inductive": 0,
+        "instance": 1
+      },
+      "countedDeclarations": 51,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "openUnitHeight_nonneg",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitHeight_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 50,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitHeight_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "openUnitCounting_nonneg",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitCounting_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 55,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitCounting_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "openUnitHeight_coordinate",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitHeight_coordinate",
+          "private": false,
+          "protected": false,
+          "line": 77,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitHeight_coordinate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "openUnitCounting_coordinate",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitCounting_coordinate",
+          "private": false,
+          "protected": false,
+          "line": 85,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitCounting_coordinate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "logHeight_toPositivePrimitiveABCTriple",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.OpenUnitRational.logHeight_toPositivePrimitiveABCTriple",
+          "private": false,
+          "protected": false,
+          "line": 111,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.OpenUnitRational.logHeight_toPositivePrimitiveABCTriple",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "logRadical_toPositivePrimitiveABCTriple",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.OpenUnitRational.logRadical_toPositivePrimitiveABCTriple",
+          "private": false,
+          "protected": false,
+          "line": 123,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.OpenUnitRational.logRadical_toPositivePrimitiveABCTriple",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "openUnitCoordinate_toPositivePrimitiveABCTriple",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.OpenUnitRational.openUnitCoordinate_toPositivePrimitiveABCTriple",
+          "private": false,
+          "protected": false,
+          "line": 135,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.OpenUnitRational.openUnitCoordinate_toPositivePrimitiveABCTriple",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "nonempty_iff_statementIIntegerComparison",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.OpenUnitTripodComparison.nonempty_iff_statementIIntegerComparison",
+          "private": false,
+          "protected": false,
+          "line": 197,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.OpenUnitTripodComparison.nonempty_iff_statementIIntegerComparison",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "shadowPtLE_zero",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.shadowPtLE_zero",
+          "private": false,
+          "protected": false,
+          "line": 219,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.shadowPtLE_zero",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "shadowPtLE_succ",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.shadowPtLE_succ",
+          "private": false,
+          "protected": false,
+          "line": 222,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.shadowPtLE_succ",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "openUnitShadow_statementI_iff",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitShadow_statementI_iff",
+          "private": false,
+          "protected": false,
+          "line": 257,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitShadow_statementI_iff",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "rationalTripodShadow_statementI_iff_abc",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.rationalTripodShadow_statementI_iff_abc",
+          "private": false,
+          "protected": false,
+          "line": 311,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.rationalTripodShadow_statementI_iff_abc",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "openUnitHeight_unbounded",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitHeight_unbounded",
+          "private": false,
+          "protected": false,
+          "line": 330,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitHeight_unbounded",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "degreeEmptyHeightTheory_statementI",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.degreeEmptyHeightTheory_statementI",
+          "private": false,
+          "protected": false,
+          "line": 385,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.degreeEmptyHeightTheory_statementI",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "degreeEmptyHeightTheory_no_openUnitComparison",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.degreeEmptyHeightTheory_no_openUnitComparison",
+          "private": false,
+          "protected": false,
+          "line": 393,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.degreeEmptyHeightTheory_no_openUnitComparison",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "statementI_does_not_force_openUnitComparison",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.statementI_does_not_force_openUnitComparison",
+          "private": false,
+          "protected": false,
+          "line": 403,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.statementI_does_not_force_openUnitComparison",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "heightZeroShadow_statementI",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.heightZeroShadow_statementI",
+          "private": false,
+          "protected": false,
+          "line": 417,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.heightZeroShadow_statementI",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "heightZeroShadow_degree_mem",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.heightZeroShadow_degree_mem",
+          "private": false,
+          "protected": false,
+          "line": 428,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.heightZeroShadow_degree_mem",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "heightZeroShadow_radical_exact",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.heightZeroShadow_radical_exact",
+          "private": false,
+          "protected": false,
+          "line": 433,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.heightZeroShadow_radical_exact",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "heightZeroShadow_pointwise_height_error",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.heightZeroShadow_pointwise_height_error",
+          "private": false,
+          "protected": false,
+          "line": 440,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.heightZeroShadow_pointwise_height_error",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "heightZeroShadow_no_uniform_height_error",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.heightZeroShadow_no_uniform_height_error",
+          "private": false,
+          "protected": false,
+          "line": 447,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.heightZeroShadow_no_uniform_height_error",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "heightZeroShadow_fullPremise_countermodel",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.heightZeroShadow_fullPremise_countermodel",
+          "private": false,
+          "protected": false,
+          "line": 458,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.heightZeroShadow_fullPremise_countermodel",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radicalInflatedShadow_statementI",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.radicalInflatedShadow_statementI",
+          "private": false,
+          "protected": false,
+          "line": 490,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.radicalInflatedShadow_statementI",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radicalInflatedShadow_degree_mem",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.radicalInflatedShadow_degree_mem",
+          "private": false,
+          "protected": false,
+          "line": 517,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.radicalInflatedShadow_degree_mem",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radicalInflatedShadow_height_exact",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.radicalInflatedShadow_height_exact",
+          "private": false,
+          "protected": false,
+          "line": 522,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.radicalInflatedShadow_height_exact",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radicalInflatedShadow_pointwise_radical_error",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.radicalInflatedShadow_pointwise_radical_error",
+          "private": false,
+          "protected": false,
+          "line": 528,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.radicalInflatedShadow_pointwise_radical_error",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radicalInflatedShadow_no_uniform_radical_error",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.radicalInflatedShadow_no_uniform_radical_error",
+          "private": false,
+          "protected": false,
+          "line": 538,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.radicalInflatedShadow_no_uniform_radical_error",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radicalInflatedShadow_fullPremise_countermodel",
+          "name": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.radicalInflatedShadow_fullPremise_countermodel",
+          "private": false,
+          "protected": false,
+          "line": 555,
+          "reportedConstant": "IUTThreeClosures.IUTRationalTripodShadowComparison20260901.radicalInflatedShadow_fullPremise_countermodel",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersenneMultiplierIndexTwoArm20260901",
+      "path": "Lean/IUTThreeClosures/MersenneMultiplierIndexTwoArm20260901.lean",
+      "bytes": 10722,
+      "sha256": "2c6ca9afe4c7adbedcea604702730a15cdc11b24a1d822d369ddebc209e43d0c",
+      "counts": {
+        "theorem": 10,
+        "lemma": 0,
+        "def": 4,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 14,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "exactOrder_prime_eq_one_add_mul_multiplier",
+          "name": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.exactOrder_prime_eq_one_add_mul_multiplier",
+          "private": false,
+          "protected": false,
+          "line": 47,
+          "reportedConstant": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.exactOrder_prime_eq_one_add_mul_multiplier",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "exactOrder_multiplier_pos",
+          "name": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.exactOrder_multiplier_pos",
+          "private": false,
+          "protected": false,
+          "line": 66,
+          "reportedConstant": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.exactOrder_multiplier_pos",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "exactOrder_multiplier_injectiveOn",
+          "name": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.exactOrder_multiplier_injectiveOn",
+          "private": false,
+          "protected": false,
+          "line": 83,
+          "reportedConstant": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.exactOrder_multiplier_injectiveOn",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "card_le_of_injective_multiplier_lt",
+          "name": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.card_le_of_injective_multiplier_lt",
+          "private": false,
+          "protected": false,
+          "line": 97,
+          "reportedConstant": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.card_le_of_injective_multiplier_lt",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "lowMultiplierExactOrderPrimes_card_le",
+          "name": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.lowMultiplierExactOrderPrimes_card_le",
+          "private": false,
+          "protected": false,
+          "line": 118,
+          "reportedConstant": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.lowMultiplierExactOrderPrimes_card_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "lowMultiplierExactOrderLogMass_le",
+          "name": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.lowMultiplierExactOrderLogMass_le",
+          "private": false,
+          "protected": false,
+          "line": 136,
+          "reportedConstant": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.lowMultiplierExactOrderLogMass_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "deep_or_nearSquare_of_low_budget",
+          "name": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.deep_or_nearSquare_of_low_budget",
+          "private": false,
+          "protected": false,
+          "line": 165,
+          "reportedConstant": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.deep_or_nearSquare_of_low_budget",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "polylogLocalizedBlockMass_twoArm_of_low_budget",
+          "name": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.polylogLocalizedBlockMass_twoArm_of_low_budget",
+          "private": false,
+          "protected": false,
+          "line": 180,
+          "reportedConstant": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.polylogLocalizedBlockMass_twoArm_of_low_budget",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "deep_or_nearSquare_of_one_controlled_arm",
+          "name": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.deep_or_nearSquare_of_one_controlled_arm",
+          "private": false,
+          "protected": false,
+          "line": 218,
+          "reportedConstant": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.deep_or_nearSquare_of_one_controlled_arm",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "one_half_is_sharp_two_arm_ceiling",
+          "name": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.one_half_is_sharp_two_arm_ceiling",
+          "private": false,
+          "protected": false,
+          "line": 241,
+          "reportedConstant": "IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901.one_half_is_sharp_two_arm_ceiling",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "PellOddKernelThirdOrderPacket20260901",
+      "path": "Lean/IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean",
+      "bytes": 16647,
+      "sha256": "52191bc32defdb9e55738b6de1a45b4a0c6b91010990332224b8f7e63e336f3d",
+      "counts": {
+        "theorem": 18,
+        "lemma": 0,
+        "def": 9,
+        "abbrev": 0,
+        "structure": 1,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 28,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "factor_value_eq_kernel_cube_mul_core_square",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.factor_value_eq_kernel_cube_mul_core_square",
+          "private": false,
+          "protected": false,
+          "line": 56,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.factor_value_eq_kernel_cube_mul_core_square",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "packetValue_eq_oddKernel_cube_mul_squareCore_square",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.packetValue_eq_oddKernel_cube_mul_squareCore_square",
+          "private": false,
+          "protected": false,
+          "line": 70,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.packetValue_eq_oddKernel_cube_mul_squareCore_square",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "odd_depth_exponent_packet",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.odd_depth_exponent_packet",
+          "private": false,
+          "protected": false,
+          "line": 82,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.odd_depth_exponent_packet",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "oddKernel_modEq_one",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.oddKernel_modEq_one",
+          "private": false,
+          "protected": false,
+          "line": 92,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.oddKernel_modEq_one",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "oddKernel_modEq_oddSignProduct",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.oddKernel_modEq_oddSignProduct",
+          "private": false,
+          "protected": false,
+          "line": 116,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.oddKernel_modEq_oddSignProduct",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "squareCore_sq_modEq_one_of_signed_packet",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.squareCore_sq_modEq_one_of_signed_packet",
+          "private": false,
+          "protected": false,
+          "line": 136,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.squareCore_sq_modEq_one_of_signed_packet",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "jacobi_eq_one_of_mod_eq_one",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.jacobi_eq_one_of_mod_eq_one",
+          "private": false,
+          "protected": false,
+          "line": 160,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.jacobi_eq_one_of_mod_eq_one",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "jacobi_reverse_neg_of_both_three_mod_four",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.jacobi_reverse_neg_of_both_three_mod_four",
+          "private": false,
+          "protected": false,
+          "line": 169,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.jacobi_reverse_neg_of_both_three_mod_four",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "jacobi_reverse_eq_of_denominator_one_mod_four",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.jacobi_reverse_eq_of_denominator_one_mod_four",
+          "private": false,
+          "protected": false,
+          "line": 180,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.jacobi_reverse_eq_of_denominator_one_mod_four",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "three_negative_character_triangle",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.three_negative_character_triangle",
+          "private": false,
+          "protected": false,
+          "line": 186,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.three_negative_character_triangle",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "all_positive_character_triangle",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.all_positive_character_triangle",
+          "private": false,
+          "protected": false,
+          "line": 205,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.all_positive_character_triangle",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cross_only_negative_character_triangle",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.cross_only_negative_character_triangle",
+          "private": false,
+          "protected": false,
+          "line": 223,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.cross_only_negative_character_triangle",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "index_A_only_negative_character_triangle",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.index_A_only_negative_character_triangle",
+          "private": false,
+          "protected": false,
+          "line": 241,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.index_A_only_negative_character_triangle",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "product_one_add_thirdOrder",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.product_one_add_thirdOrder",
+          "private": false,
+          "protected": false,
+          "line": 270,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.product_one_add_thirdOrder",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "quotient_thirdOrder_of_product",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.quotient_thirdOrder_of_product",
+          "private": false,
+          "protected": false,
+          "line": 292,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.quotient_thirdOrder_of_product",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "thirdOrderCoupling_of_channelCongruences",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.thirdOrderCoupling_of_channelCongruences",
+          "private": false,
+          "protected": false,
+          "line": 321,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.thirdOrderCoupling_of_channelCongruences",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexSeven_thirdOrderCoefficientCertificate",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.indexSeven_thirdOrderCoefficientCertificate",
+          "private": false,
+          "protected": false,
+          "line": 360,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.indexSeven_thirdOrderCoefficientCertificate",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexSeven_thirdOrderCouplingCertificate",
+          "name": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.indexSeven_thirdOrderCouplingCertificate",
+          "private": false,
+          "protected": false,
+          "line": 369,
+          "reportedConstant": "IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.indexSeven_thirdOrderCouplingCertificate",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "totals": {
+    "theorem": 83,
+    "lemma": 0,
+    "def": 40,
+    "abbrev": 0,
+    "structure": 2,
+    "class": 0,
+    "inductive": 0,
+    "instance": 1,
+    "countedDeclarations": 126,
+    "proofDeclarations": 83,
+    "privateProofDeclarations": 3,
+    "axiomReports": 83
+  },
+  "axiomUnion": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ]
+}

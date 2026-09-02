@@ -650,3 +650,30 @@ import IUTThreeClosures.AffineAdaptiveCommonKernel20260901
 -- box-wide collinear counterexample to inferring noncollinearity from size.
 -- Shared-sublabel multiplicity or a collinear-energy bound remains open.
 import IUTThreeClosures.AffineCommonKernelTripleSelection20260901
+
+-- Exact arithmetic realization of the open rational tripod as a shadow
+-- HeightTheory: zero-error degree/height/radical comparison and the precise
+-- equivalence between Statement I for this shadow and integer abc.  Three
+-- full-premise models show that the current bare interface alone does not
+-- force degree realization or uniform normalization for an intended theory.
+import IUTThreeClosures.IUTRationalTripodShadowComparison20260901
+
+-- Multiplier-index compression in the actual base-two exact-order fibres.
+-- The injective multiplier (p-1)/d controls the localized low-prime mass;
+-- after that paper-level o(m) estimate, failure of the Mersenne endpoint has
+-- only deep-lift and near-square-root-order arms.  No distribution estimate
+-- for either surviving arm is assumed.
+import IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901
+
+-- Balancing-Pell squarefull continuation: cubic-square odd-kernel normal
+-- form, residue and Jacobi-character transport, and a third-order quotient
+-- ledger modulo 8*l^3.  The actual opposite-channel depth-three exclusion
+-- remains open; finite certified non-squarefull indices are not extrapolated.
+import IUTThreeClosures.PellOddKernelThirdOrderPacket20260901
+
+-- Collinear continuation of the affine common-kernel route.  Exact reduced
+-- direction periods give cube-root occupancy and weighted cubic-energy bounds
+-- on nonconstant rays, plus a square-root bound on the vertical exceptional
+-- direction under an individual arm cap.  The signed arm-level and global
+-- totient-catalogue transfers remain active.
+import IUTThreeClosures.AffineCollinearPeriodEnergy20260901

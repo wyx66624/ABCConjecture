@@ -1,0 +1,18 @@
+{
+  "schema": "pell-prime-index-squarefull-verification-v1",
+  "status": "PASS",
+  "input": "prime_index_squarefull_search.json",
+  "verified": {
+    "bounded_prime_indices": 668,
+    "bounded_hits": 481,
+    "bounded_unresolved": 187,
+    "bounded_repeated_candidate_tests": 648189,
+    "bounded_repeated_hits": 1,
+    "bounded_depth_three_hits": 0,
+    "all_prime_indices_through": 191,
+    "exact_simple_divisor_certificates": 42,
+    "pocklington_certificates": 1
+  },
+  "logical_boundary": "Every exact certificate refutes squarefullness only at its listed index; bounded unresolved indices remain open and no asymptotic claim is made.",
+  "errors": []
+}

@@ -1,0 +1,91 @@
+\section{The exact rational-tripod shadow and its semantic boundary}
+\label{sec:iut-rational-tripod-shadow}
+
+The comparison in
+Section~\ref{sec:iut-admissible-volume-integer-bridge} has an exact arithmetic
+realization on the open rational tripod
+\[
+                 U(\Q)=\{x\in\Q:0<x<1\}.
+\]
+For a positive primitive triple $t=(a,b,c)$, put $\lambda(t)=a/c$.  Conversely,
+if $x=m/n$ is reduced in $U(\Q)$, set $t(x)=(m,n-m,n)$.  These maps are
+inverse.  With $H_{\rm tr}$ the rational Weil height and $N_{\rm tr}$ the
+truncated counting function for the three marked points $0,1,\infty$, one has
+\begin{equation}\label{eq:rational-tripod-zero-error}
+ H_{\rm tr}(\lambda(t))=\log c=\log\max(a,b,c),\qquad
+ N_{\rm tr}(\lambda(t))=\log\rad(abc).
+\end{equation}
+The first identity follows because $a/c$ is reduced and $0<a<c$; the second
+follows because the supports of $a/c$ and $1-a/c=b/c$ have union exactly the
+prime support of $abc$.
+
+Define a one-curve shadow height theory $T_{\rm rat}$.  Its point set is
+$U(\Q)$; its degree-at-most-zero locus is empty and every point has exact
+degree one; and
+\[
+ h_{\rm can}=H_{\rm tr},\qquad \log\mathrm{Diff}=0,
+ \qquad \log\mathrm{Cond}=N_{\rm tr}.
+\]
+The remaining structural fields have elementary witnesses.  The identity
+map on $U(\Q)$ therefore gives a degree-one comparison, while
+\eqref{eq:rational-tripod-zero-error} gives both normalization errors equal
+to zero.
+
+\begin{theorem}[Exact shadow boundary]
+\label{thm:rational-tripod-shadow-iff-abc}
+Statement~I for $T_{\rm rat}$ is equivalent to the standard integer
+$abc$ conjecture:
+\[
+            T_{\rm rat}.\mathrm{StatementI}
+            \quad\Longleftrightarrow\quad
+            \mathrm{ABCConjecture}.
+\]
+\end{theorem}
+
+\begin{proof}
+The forward implication is the bounded-discrepancy transfer of
+Section~\ref{sec:iut-admissible-volume-integer-bridge}, with both errors zero.
+For the reverse implication, integer $abc$ transfers through the inverse
+reduced triple $t(x)$ to the uniform rational-tripod inequality.  Since the
+shadow has one curve, the degree-zero case is empty and every positive degree
+bound contains all of $U(\Q)$, that inequality is exactly its Statement~I.
+\end{proof}
+
+For an arbitrary height theory $T$, an open-rational tripod comparison is a
+map from $U(\Q)$ to the degree-at-most-one points of the distinguished tripod,
+together with uniform height and radical errors.  Composition with
+$t\mapsto a/c$ turns this into the integer comparison package.  Composition
+with $x\mapsto t(x)$ gives the converse, with the same constants.  Thus the
+rational and integer semantic comparison packages have exactly the same
+logical strength.
+
+Three full-premise models delimit what the current bare structural fields can
+prove.  First, a one-point theory with every degree locus empty satisfies
+Statement~I vacuously but admits no comparison from the nonempty set $U(\Q)$.
+Second, on the actual rational points take
+\[
+ h_{\rm can}=0,
+ \quad\log\mathrm{Diff}=0,
+ \quad\log\mathrm{Cond}=N_{\rm tr}.
+\]
+Statement~I, degree membership, and the radical identity all hold, but no
+uniform height error exists because $H_{\rm tr}(1/(n+1))=\log(n+1)$ is
+unbounded.  Third, take
+\[
+ h_{\rm can}=H_{\rm tr},
+ \quad\log\mathrm{Diff}=e^{2H_{\rm tr}},
+ \quad\log\mathrm{Cond}=N_{\rm tr}.
+\]
+Statement~I follows from $e^{2H}\ge1+2H\ge H$ for $H\ge0$, and the height
+comparison is exact, but a uniform radical error would bound
+$e^{2H_{\rm tr}}$, again impossible.
+
+These are counterexamples to automatic degree realization and to automatic
+uniform normalization from the present abstract fields.  They are not
+counterexamples to the intended arithmetic height theory, IUT, Statement~I
+for that theory, or $abc$.  The positive route remains the source-level
+construction of the rational point, its degree-one membership, and the two
+triple-independent normalization constants in the intended objects.  The
+Lean companion constructs the shadow, proves
+Theorem~\ref{thm:rational-tripod-shadow-iff-abc}, and verifies all three
+pressure models without placeholders or new axioms.

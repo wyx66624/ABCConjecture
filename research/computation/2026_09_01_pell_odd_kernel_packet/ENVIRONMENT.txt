@@ -1,0 +1,9 @@
+Date: 2026-09-01
+OS: Windows-11-10.0.22631-SP0
+Python: 3.13.5
+SymPy: 1.13.3
+Repository baseline commit: 76eb3e5a15a85b88415934428803fa03453cf847
+
+The verifier uses only the Python standard library.  SymPy is used solely by
+the producer to locate exact-coordinate factors in the finite certificate
+range; the verifier does not trust or import those factorizations.

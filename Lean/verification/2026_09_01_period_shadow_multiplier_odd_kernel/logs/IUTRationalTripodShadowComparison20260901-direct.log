@@ -1,0 +1,42 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true IUTThreeClosures/IUTRationalTripodShadowComparison20260901.lean
+'IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitHeight_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitCounting_coordinate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalTripodShadowComparison20260901.OpenUnitRational.openUnitCoordinate_toPositivePrimitiveABCTriple' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalTripodShadowComparison20260901.OpenUnitTripodComparison.nonempty_iff_statementIIntegerComparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalTripodShadowComparison20260901.shadowPtLE_succ' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitShadow_statementI_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalTripodShadowComparison20260901.rationalTripodShadowComparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalTripodShadowComparison20260901.rationalTripodShadowIntegerComparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalTripodShadowComparison20260901.rationalTripodShadow_statementI_iff_abc' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalTripodShadowComparison20260901.openUnitHeight_unbounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalTripodShadowComparison20260901.statementI_does_not_force_openUnitComparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalTripodShadowComparison20260901.heightZeroShadow_fullPremise_countermodel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTRationalTripodShadowComparison20260901.radicalInflatedShadow_fullPremise_countermodel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

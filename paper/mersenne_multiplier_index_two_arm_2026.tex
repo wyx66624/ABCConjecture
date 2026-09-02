@@ -1,0 +1,122 @@
+\section{Multiplier-index compression of the localized Mersenne loss}
+\label{sec:mersenne-multiplier-index-two-arm}
+
+We retain the notation of
+Section~\ref{sec:mersenne-fixed-polylog-block-mass}.  For an odd prime $p$ put
+\[
+ d_p=\ord_p(2),\qquad w_p=v_p(2^{d_p}-1),
+ \qquad r_p=\frac{p-1}{d_p}.
+\]
+Lagrange's theorem gives $d_p\mid p-1$, so $r_p$ is a positive integer and
+$p=1+d_pr_p$.  In particular, for fixed $d$, the multiplier $r_p$ determines
+$p$ injectively inside the exact-order fibre $d_p=d$.  This elementary
+observation removes one entire localized mass arm.
+
+Set
+\[
+ L_m=\log\log(3m),\qquad
+ \Lambda_m=\log(3m)L_m^2.
+\]
+For $d\mid m$, split the one-copy repeated-prime support as
+\begin{align*}
+ U_d(m)&=\sum_{\substack{d_p=d,\ w_p\ge2\\
+                         p\le d^2/\Lambda_m}}\log p,\\
+ B_d(m)&=\sum_{\substack{d_p=d,\ w_p\ge2\\
+                         p>d^2/\Lambda_m}}\log p,
+\end{align*}
+and retain the deep excess
+\[
+ G_d=\sum_{\substack{d_p=d\\w_p\ge3}}(w_p-2)\log p.
+\]
+Prime by prime, the canonical loss is exactly
+\begin{equation}\label{eq:multiplier-three-part-exact}
+                         a_d=U_d(m)+B_d(m)+G_d.
+\end{equation}
+
+\begin{proposition}[Uniform low-multiplier estimate]
+\label{prop:mersenne-low-multiplier-estimate}
+For every fixed positive integer $k$, and all sufficiently large $m$,
+\[
+ \sum_{\substack{d\mid m\\\log(m/d)<kL_m}}U_d(m)
+ \le \frac{2m\log m}{\Lambda_m}(1+kL_m)=o(m).
+\]
+\end{proposition}
+
+\begin{proof}
+If $p$ contributes to $U_d(m)$, then
+\[
+       dr_p=p-1<p\le d^2/\Lambda_m,
+       \qquad r_p<d/\Lambda_m.
+\]
+The positive integral multipliers are distinct, so this fibre has at most
+$d/\Lambda_m$ elements.  Since $p\le d^2\le m^2$ eventually,
+$U_d(m)\le2d\log m/\Lambda_m$.  Writing $q=m/d$ and enlarging the divisor sum
+to all positive integers $q<(\log(3m))^k$ gives
+\[
+ \sum U_d(m)
+ \le \frac{2m\log m}{\Lambda_m}
+      \sum_{q<(\log(3m))^k}\frac1q
+ \le \frac{2m\log m}{\Lambda_m}(1+kL_m).
+\]
+After division by $m$, the final expression is at most
+$2(1+kL_m)/L_m^2$, which tends to zero.
+\end{proof}
+
+\begin{theorem}[Two-arm near-square-root obstruction]
+\label{thm:mersenne-multiplier-two-arm}
+Suppose that the Mersenne endpoint $\log W_m=o(m)$ fails.  Then there are a
+fixed $k\ge1$, an $\epsilon>0$, and an unbounded sequence $m_j$ such that,
+for every fixed $0<\gamma<1/2$, after passage to a subsequence one same
+alternative holds for all large $j$:
+\begin{enumerate}
+\item the localized deep mass satisfies
+\[
+ \sum_{\substack{d\mid m_j\\\log(m_j/d)<kL_{m_j}}}G_d
+ \ge\gamma\epsilon m_j;
+\]
+\item the localized $B$-mass satisfies
+\[
+ \sum_{\substack{d\mid m_j\\\log(m_j/d)<kL_{m_j}}}B_d(m_j)
+ \ge\gamma\epsilon m_j,
+\]
+and every prime in this sum obeys
+\[
+              \ord_p(2)<\sqrt{p\Lambda_{m_j}}.
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The fixed-window equivalence supplies $k,\epsilon$ and $m_j$ for which the
+localized sum of $a_d$ is at least $\epsilon m_j$.  Sum
+\eqref{eq:multiplier-three-part-exact} and apply
+Proposition~\ref{prop:mersenne-low-multiplier-estimate}.  The two unresolved
+arms then total at least $(\epsilon-o(1))m_j$.  If both were smaller than
+$\gamma\epsilon m_j$, their sum would be smaller than
+$2\gamma\epsilon m_j$, contradicting $2\gamma<1$ for large $j$.  Infinite
+pigeonhole fixes an arm on a subsequence.  Finally,
+$p>d^2/\Lambda_{m_j}$ implies $d<\sqrt{p\Lambda_{m_j}}$.
+\end{proof}
+
+Thus this route closes if, for every fixed $k$, both localized sums of $G_d$
+and $B_d(m)$ are $o(m)$.  The coefficient $1/2$ is sharp at the exact
+nonnegative-ledger level: $(R,U,G,B)=(2,0,1,1)$ satisfies every displayed
+mass premise and defeats each coefficient greater than $1/2$.  This tuple is
+an abstract full-premise counterexample to the stronger ledger conclusion;
+it is not a Mersenne block.
+
+The exact-order lower bounds of Erd\H{o}s--Murty~\cite{ErdosMurty1999} are global
+and unweighted, and leave a genuine $p^{1/2-o(1)}$ to $p^{1/2+o(1)}$ band.
+The valuation dictionary of Murty--S\'eguin~\cite{MurtySeguin2019} and the
+cyclotomic description in Pomerance~\cite{PomeranceCyclotomic2025} justify
+the block language, but do not give the localized Wieferich-weighted estimate
+needed here.  The conditional alternatives in
+Fellini--Murty~\cite{FelliniMurty2026} likewise do not supply either remaining
+unconditional little-oh statement.  Hence both arms remain active.
+
+The formal companion proves the integral multiplier representation and
+injectivity, the finite cardinality and logarithmic-mass bounds, the exact
+two-arm subtraction, its fixed-window finite-sum form, and the sharp ledger
+counterexample.  The harmonic asymptotic and the realization of the three
+mass functions remain explicit paper mathematics; no distribution or
+squarefreeness hypothesis is installed as a Lean axiom.

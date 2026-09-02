@@ -1,0 +1,308 @@
+{
+  "schema": "abc-period-shadow-multiplier-odd-kernel-validation-v1",
+  "status": "PASS",
+  "completedUtc": "2026-09-02T03:24:47.797586+00:00",
+  "gitHeadBeforeCheckpointCommit": "76eb3e5a15a85b88415934428803fa03453cf847",
+  "toolVersions": {
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "lake": "Lake version 5.0.0-src+8c9756b (Lean version 4.32.0)",
+    "lean": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)"
+  },
+  "validationDrivers": [
+    {
+      "path": "validate.py",
+      "bytes": 40633,
+      "sha256": "377a8390449eed1dab9a8e2f03e84f96a4c4dc28a4178e3c1235a4c9a03d2483"
+    },
+    {
+      "path": "validate.ps1",
+      "bytes": 1527,
+      "sha256": "0e1f687e6b186b7073669d05d9f0926259f989558b5b0749feba4280b9be114d"
+    }
+  ],
+  "frozenInputs": {
+    "path": "Lean/verification/2026_09_01_period_shadow_multiplier_odd_kernel/input-manifest.json",
+    "entries": 502,
+    "sha256": "23f4327f0fbb2d7c7638a69ba6da0e6645ce7340e37656565a858bd5d040a465"
+  },
+  "lakeDependencies": {
+    "manifestPath": "Lean/lake-manifest.json",
+    "manifestSha256": "9c9ac0744b4579d6e2afa37150fc27263ff84e43753e5a6bdfc04f44ac96c8a8",
+    "packages": [
+      {
+        "name": "heights",
+        "directory": "heights",
+        "revision": "3539e2a12dd3470c057a4eb531dc3fd627d4c97b",
+        "url": "https://github.com/lana-agents/heights.git"
+      },
+      {
+        "name": "genl",
+        "directory": "genl",
+        "revision": "6e9a6543b46a2a02fd7fe7ec8ab203d878f32859",
+        "url": "https://github.com/LANA-Project/genl.git"
+      },
+      {
+        "name": "iut",
+        "directory": "iut",
+        "revision": "ddaddc274281adb5674d647e24fa478745ac6d40",
+        "url": "https://github.com/lana-agents/iut.git"
+      },
+      {
+        "name": "mathlib",
+        "directory": "mathlib",
+        "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+        "url": "https://github.com/leanprover-community/mathlib4"
+      },
+      {
+        "name": "«tate-curves-theta»",
+        "directory": "tate-curves-theta",
+        "revision": "90d7fac0e4ef2d6bf2a619326c30adb862d1b3de",
+        "url": "https://github.com/lana-agents/tate-curves-theta"
+      },
+      {
+        "name": "plausible",
+        "directory": "plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "url": "https://github.com/leanprover-community/plausible"
+      },
+      {
+        "name": "LeanSearchClient",
+        "directory": "LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "url": "https://github.com/leanprover-community/LeanSearchClient"
+      },
+      {
+        "name": "importGraph",
+        "directory": "importGraph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "url": "https://github.com/leanprover-community/import-graph"
+      },
+      {
+        "name": "proofwidgets",
+        "directory": "proofwidgets",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "url": "https://github.com/leanprover-community/ProofWidgets4"
+      },
+      {
+        "name": "aesop",
+        "directory": "aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "url": "https://github.com/leanprover-community/aesop"
+      },
+      {
+        "name": "Qq",
+        "directory": "Qq",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "url": "https://github.com/leanprover-community/quote4"
+      },
+      {
+        "name": "batteries",
+        "directory": "batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "url": "https://github.com/leanprover-community/batteries"
+      },
+      {
+        "name": "«formal-schemes»",
+        "directory": "formal-schemes",
+        "revision": "51aa935079537bf4dc580751a6e70727fb23ca93",
+        "url": "https://github.com/lana-agents/formal-schemes"
+      },
+      {
+        "name": "Cli",
+        "directory": "Cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "url": "https://github.com/leanprover/lean4-cli"
+      }
+    ]
+  },
+  "generatedAudit": {
+    "path": "Lean/verification/2026_09_01_period_shadow_multiplier_odd_kernel/axiom-audit.lean",
+    "bytes": 86498,
+    "sha256": "3e8eef2a073236ee55d5d12fb896f578bb675f6ec64a4e06fb3fac4d14308aed"
+  },
+  "inventory": {
+    "path": "Lean/verification/2026_09_01_period_shadow_multiplier_odd_kernel/declaration-inventory.json",
+    "sha256": "70e827d9de6cfb76c6a23635f18b5515e154b221de895b99f3aa1b1115c80bf4"
+  },
+  "modules": [
+    {
+      "module": "AffineCollinearPeriodEnergy20260901",
+      "path": "Lean/IUTThreeClosures/AffineCollinearPeriodEnergy20260901.lean",
+      "bytes": 28748,
+      "sha256": "3ae5da06eda295eeb736deb7563a5ee1aa61843974c0ef6aa2da7c31a0c102ee",
+      "counts": {
+        "theorem": 27,
+        "lemma": 0,
+        "def": 6,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 27,
+      "privateProofDeclarations": 3,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "IUTRationalTripodShadowComparison20260901",
+      "path": "Lean/IUTThreeClosures/IUTRationalTripodShadowComparison20260901.lean",
+      "bytes": 23896,
+      "sha256": "32c875d56fe9565afdca5350c53c07a4c551bfb3505046bdd6b723a773d00597",
+      "counts": {
+        "theorem": 28,
+        "lemma": 0,
+        "def": 21,
+        "abbrev": 0,
+        "structure": 1,
+        "class": 0,
+        "inductive": 0,
+        "instance": 1
+      },
+      "proofDeclarations": 28,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersenneMultiplierIndexTwoArm20260901",
+      "path": "Lean/IUTThreeClosures/MersenneMultiplierIndexTwoArm20260901.lean",
+      "bytes": 10722,
+      "sha256": "2c6ca9afe4c7adbedcea604702730a15cdc11b24a1d822d369ddebc209e43d0c",
+      "counts": {
+        "theorem": 10,
+        "lemma": 0,
+        "def": 4,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 10,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "PellOddKernelThirdOrderPacket20260901",
+      "path": "Lean/IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean",
+      "bytes": 16647,
+      "sha256": "52191bc32defdb9e55738b6de1a45b4a0c6b91010990332224b8f7e63e336f3d",
+      "counts": {
+        "theorem": 18,
+        "lemma": 0,
+        "def": 9,
+        "abbrev": 0,
+        "structure": 1,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 18,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "totals": {
+    "theorem": 83,
+    "lemma": 0,
+    "def": 40,
+    "abbrev": 0,
+    "structure": 2,
+    "class": 0,
+    "inductive": 0,
+    "instance": 1,
+    "countedDeclarations": 126,
+    "proofDeclarations": 83,
+    "privateProofDeclarations": 3,
+    "axiomReports": 83
+  },
+  "axiomUnion": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "directRuns": [
+    {
+      "name": "AffineCollinearPeriodEnergy20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_period_shadow_multiplier_odd_kernel/logs/AffineCollinearPeriodEnergy20260901-direct.log",
+      "logSha256": "b85cf7102946a839e282b94b6fed66012b65ca4d9c52b016bd62f8cf34faa3eb",
+      "warnings": 0
+    },
+    {
+      "name": "IUTRationalTripodShadowComparison20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_period_shadow_multiplier_odd_kernel/logs/IUTRationalTripodShadowComparison20260901-direct.log",
+      "logSha256": "18aa0f5e6a8527e60f7270f952656d683286a8dde04b0c592fb1fef8d3c4ac7e",
+      "warnings": 0
+    },
+    {
+      "name": "MersenneMultiplierIndexTwoArm20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_period_shadow_multiplier_odd_kernel/logs/MersenneMultiplierIndexTwoArm20260901-direct.log",
+      "logSha256": "c20dc0854bfa51edc89ad8d4dabbcb192b68fefbaf6c3d8f1beba0c014a09a8e",
+      "warnings": 0
+    },
+    {
+      "name": "PellOddKernelThirdOrderPacket20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_period_shadow_multiplier_odd_kernel/logs/PellOddKernelThirdOrderPacket20260901-direct.log",
+      "logSha256": "6e2841e3e7384ffe540f0b9ce92a7764ad248fda58bf9d3a842ef350c40e9f44",
+      "warnings": 0
+    }
+  ],
+  "axiomAuditRun": {
+    "name": "axiom-audit",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_01_period_shadow_multiplier_odd_kernel/logs/axiom-audit.log",
+    "logSha256": "435f731638f211a44c0761c7bbd7eceec6a14e3330a777485ba593cf2ea3d0c2",
+    "warnings": 0
+  },
+  "computationReplay": {
+    "name": "pell-odd-kernel-replay",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_01_period_shadow_multiplier_odd_kernel/logs/pell-odd-kernel-replay.log",
+    "logSha256": "119c759130956174ed0a16e454018c443923ed17a60dbff58b4bc88b4d799576",
+    "output": "Lean/verification/2026_09_01_period_shadow_multiplier_odd_kernel/pell-independent-verification.json",
+    "outputSha256": "9718625edef806bddf00e3e4db12864fbf71da4af4ef27f9300cbc643793a0ef",
+    "verified": {
+      "bounded_prime_indices": 668,
+      "bounded_hits": 481,
+      "bounded_unresolved": 187,
+      "bounded_repeated_candidate_tests": 648189,
+      "bounded_repeated_hits": 1,
+      "bounded_depth_three_hits": 0,
+      "all_prime_indices_through": 191,
+      "exact_simple_divisor_certificates": 42,
+      "pocklington_certificates": 1
+    }
+  },
+  "aggregateBuild": {
+    "name": "aggregate-lake-build",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_01_period_shadow_multiplier_odd_kernel/logs/aggregate-lake-build.log",
+    "logSha256": "d05bfdde3e22899c11e535d7466e7a933df8b8c4a66bae3ae62bb471f8a4a661",
+    "jobs": 9224,
+    "warnings": 301
+  },
+  "scope": {
+    "provesOrDisprovesStandardABC": false,
+    "finiteOrConditionalClaimsUpgraded": false
+  }
+}

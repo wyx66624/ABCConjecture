@@ -75,9 +75,10 @@ Access date for all network sources: 2026-09-01.
   Lecture Notes 19, American Mathematical Society, 1999, 87--97.
 - Author-hosted primary scan:
   <https://mast.queensu.ca/~murty/erdos-ram.pdf>
-- Relevant evidence: Theorem 1 gives the almost-all-prime lower bound
-  \(\operatorname{ord}_p(a)>p^{1/(2+\epsilon(p))}\) for every positive
-  \(\epsilon(p)\to0\).  It places the extreme large-prime arm of a failed
+- Relevant evidence: for each prescribed positive function
+  \(\epsilon(p)\to0\), Theorem 1 gives
+  \(\operatorname{ord}_p(a)\ge p^{1/(2+\epsilon(p))}\) outside
+  \(o(x/\log x)\) primes \(p\le x\).  It places the extreme large-prime arm of a failed
   exact-order estimate inside a zero-density exceptional prime set; it does
   not bound weighted mass on that set.
 

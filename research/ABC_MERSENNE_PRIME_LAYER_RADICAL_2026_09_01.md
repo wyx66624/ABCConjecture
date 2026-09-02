@@ -613,9 +613,9 @@ In the middle arm each summand is at most
 \((2+\delta)\log d_j\), so its mass lower bound gives (6.12).  In the last
 arm \(q>d_j^{2+\delta}\) implies
 \(d_j<q^{1/(2+\delta)}\), and \(d_j=\operatorname{ord}_q(2)\).  Erdős and
-Murty prove that for every positive \(\eta(q)\to0\), all but a zero-density
-set of primes satisfy
-\(\operatorname{ord}_q(2)>q^{1/(2+\eta(q))}\).  Taking
+Murty prove that, for each prescribed positive function
+\(\eta(q)\to0\), all but a zero-density set of primes satisfy
+\(\operatorname{ord}_q(2)\ge q^{1/(2+\eta(q))}\).  Taking
 \(\eta(q)<\delta\) for large \(q\) places the last arm in their exceptional
 set, without giving a weighted bound there. ∎
 

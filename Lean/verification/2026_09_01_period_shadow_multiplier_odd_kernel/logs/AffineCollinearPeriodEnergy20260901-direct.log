@@ -1,0 +1,72 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true IUTThreeClosures/AffineCollinearPeriodEnergy20260901.lean
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.reducedDirectionPeriod_pos' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.reducedDirectionPeriod_dvd_self' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.reducedDirectionPeriod_dvd_of_dvd_mul' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionPeriod_pos' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionPeriod_dvd_gap' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionPeriod_mul_capture' depends on axioms: [propext,
+ Quot.sound]
+'_private.IUTThreeClosures.AffineCollinearPeriodEnergy20260901.0.IUTThreeClosures.AffineCollinearPeriodEnergy20260901.natAbs_natCast_sub_eq_dist' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.IUTThreeClosures.AffineCollinearPeriodEnergy20260901.0.IUTThreeClosures.AffineCollinearPeriodEnergy20260901.nat_dvd_dist_mul_of_intCast_dvd_sub_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.sharedLabel_ray_directionDivisibilities' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.sharedLabel_ray_directionPeriod_dvd_dist' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.periodicIndexSet_card_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.mem_rayLabelFiber_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.rayLabelFiber_card_le_directionPeriod' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionCapture_nonconstant_le_cubic' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.cubic_card_bound_of_period' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.rayLabelFiber_nonconstant_shiftedCube_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.omitting_positive_ambient_breaks_cubic_card_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.cube_le_four_mul_of_shiftedCube_lt' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.factorThree_shiftedCube_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.weightedCubicMoment_le_four' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.rayCatalogue_weightedCubicEnergy_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.directionCapture_vertical_le_quadratic' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.quadratic_card_bound_of_period' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.rayLabelFiber_vertical_shiftedSquare_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.IUTThreeClosures.AffineCollinearPeriodEnergy20260901.0.IUTThreeClosures.AffineCollinearPeriodEnergy20260901.radical_72' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.omitting_pairwise_breaks_directionPeriod_product' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineCollinearPeriodEnergy20260901.seed189_productAsPeriod_fullPremise_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0
