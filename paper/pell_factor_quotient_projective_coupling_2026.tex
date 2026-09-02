@@ -1,0 +1,165 @@
+\section{Factor-quotient jets and Pell projective curvature}
+\label{sec:pell-factor-quotient-projective}
+
+Write
+\[
+ (1+\sqrt2)^n=A_n+B_n\sqrt2,\qquad
+ U=A_\ell B_\ell,\qquad v=2A_{2\ell},\qquad x=2\ell,
+\]
+where $\ell$ is an odd prime.  Put
+\[
+ a=\frac{A_\ell-1}{x},\qquad
+ b=\frac{s_\ell B_\ell-1}{x},\qquad
+ s_\ell=\left(\frac2\ell\right).
+\]
+For a prime factor $q\mid A_\ell$, write $q=1+xk_q$ and repeat $k_q$
+according to its valuation.  For $r\mid B_\ell$, write
+$r=s_r+xh_r=s_r(1+xs_rh_r)$ and repeat $s_rh_r$.  If the first three
+elementary symmetric functions of the two resulting lists are
+$(K_A,C_A,H_A)$ and $(K_B,C_B,H_B)$, respectively, exact finite-product
+expansion gives
+\[
+ a\equiv K_A+xC_A+x^2H_A\pmod{x^3},\qquad
+ b\equiv K_B+xC_B+x^2H_B\pmod{x^3}.                    \tag{\ref{sec:pell-factor-quotient-projective}.1}
+\]
+Three copies of one quotient $t$ have the exact fingerprint
+\[
+\begin{aligned}
+ E_1(t,t,t,R)&=3t+K_0,\\
+ E_2(t,t,t,R)&=3t^2+3tK_0+C_0,\\
+ E_3(t,t,t,R)&=t^3+3t^2K_0+3tC_0+H_0,
+\end{aligned}                                           \tag{\ref{sec:pell-factor-quotient-projective}.2}
+\]
+where $(K_0,C_0,H_0)$ is the residual triple.  A depth-three carrier is
+therefore visible in the third-order ledger even when its actual depth is
+larger.
+
+The factor quotients also determine a jet of the Lucas companion.
+
+\begin{theorem}[Two-channel companion jet]
+\label{thm:pell-two-channel-companion-jet}
+Define
+\[
+\begin{aligned}
+ V_A(K,C,H)&=6+8xK+x^2(8C+4K^2)+x^3(8H+8KC),\\
+ V_B(K,C,H)&=6+16xK+x^2(16C+8K^2)+x^3(16H+16KC).
+\end{aligned}
+\]
+Then
+\[
+ v\equiv V_A(K_A,C_A,H_A)\pmod{x^4},\qquad
+ v\equiv V_B(K_B,C_B,H_B)\pmod{x^4}.                  \tag{\ref{thm:pell-two-channel-companion-jet}.1}
+\]
+\end{theorem}
+
+\begin{proof}
+The negative Pell identity gives
+$v=4A_\ell^2+2=8B_\ell^2-2$.  Substitute
+$A_\ell=1+xa$ in the first expression and
+$s_\ell B_\ell=1+xb$ in the second.  Modulo $x^4$, the square of
+$K+xC+x^2H$ contributes only $K^2+2xKC$ after multiplication by $x^2$.
+The displayed polynomials follow by collecting coefficients.
+\end{proof}
+
+Let $\theta=(\ell-1)/2$ and let $\alpha_j,\beta_j$ be the correlated
+Lucas coefficients from the preceding section, satisfying
+\[
+ (2j+1)\alpha_j=\ell\beta_j,\qquad
+ \alpha_\theta=\beta_\theta=32^\theta.
+\]
+For the tail polynomials $E_j,F_j$, put $T_j=vF_j(U^2)$ and define
+\[
+ \Delta_{\rm top}=
+ T_{\theta-1}\ell E_\theta(U^2)
+ -T_\theta(\ell-2)E_{\theta-1}(U^2).
+\]
+
+\begin{theorem}[Exact endpoint curvature]
+\label{thm:pell-exact-endpoint-curvature}
+For every odd prime index,
+\[
+                 \Delta_{\rm top}=2v\,32^{\ell-1}U^2.                 \tag{\ref{thm:pell-exact-endpoint-curvature}.1}
+\]
+Moreover
+\[
+ \gcd(2v32^{\ell-1},U)=1,\qquad
+ v_p(\Delta_{\rm top})=2v_p(U)\quad(p\mid U).           \tag{\ref{thm:pell-exact-endpoint-curvature}.2}
+\]
+Thus $U^2$ always divides the determinant and $U^3$ never does.
+\end{theorem}
+
+\begin{proof}
+The two top tails are
+\[
+ E_{\theta-1}=\alpha_{\theta-1}+\alpha_\theta U^2,
+ \quad F_{\theta-1}=\beta_{\theta-1}+\alpha_\theta U^2,
+ \quad E_\theta=F_\theta=\alpha_\theta.
+\]
+After substituting $T_j=vF_j$, the constant part of the determinant is
+\[
+ v\alpha_\theta
+ \{\ell\beta_{\theta-1}-(\ell-2)\alpha_{\theta-1}\}=0
+\]
+by coefficient correlation.  Its $U^2$ coefficient is
+$2v\alpha_\theta^2=2v32^{\ell-1}$, proving the first identity.
+Odd-index Pell coordinates make $U$ odd, while
+\[
+                         v^2-32U^2=4.
+\]
+Every common odd divisor of $v$ and $U$ would divide four.  The quotient in
+the first identity is therefore a unit at every prime of $U$, proving the
+valuation statement and sharpness.
+\end{proof}
+
+With $\kappa_\ell=\Delta_{\rm top}/U^2=2v32^{\ell-1}$,
+Theorems~\ref{thm:pell-two-channel-companion-jet} and
+\ref{thm:pell-exact-endpoint-curvature} give the direct coupling
+\[
+ \kappa_\ell\equiv
+ 2\,32^{\ell-1}V_A(K_A,C_A,H_A)
+ \equiv2\,32^{\ell-1}V_B(K_B,C_B,H_B)\pmod{16\ell^4}.  \tag{\ref{thm:pell-exact-endpoint-curvature}.3}
+\]
+Thus the third-order factor-quotient ledger determines the
+$2\ell$-adic jet of the exact unit measuring failure of integral projective
+collinearity.  Since the rank theorem gives $\gcd(2\ell,U)=1$, the jet
+modulus and $U^2$ are coprime; the Chinese remainder theorem combines them
+without contradiction.  A closing argument must relate their values through
+reciprocity, height, or distribution.
+
+Two full-premise counterexamples delimit stronger local claims.  First, the
+local-only assertion that the forced depth-three quotient data and complete
+third-order ledger are inconsistent is false.  Take
+\[
+ \ell=3,\qquad q=7=1+6,\qquad r=797=-1+6\cdot133,
+\]
+and quotient lists $[1,1,1]$ and $[-133,-133,-133]$.  They satisfy the
+required congruence and character table, and the full ledger is divisible by
+$8\ell^3$.  The synthetic values are squarefull of depth three.  They do
+not satisfy the global Pell equation:
+\[
+ q^6-2r^6+1=-512601560592751008\ne0.
+\]
+This retires only the local inconsistency claim.
+
+Second, the genuine Pell index $\ell=7$ has
+\[
+ A_7=239,\quad B_7=169,\quad U=40391,\quad v=228486,
+\]
+and
+\[
+ \Delta_{\rm top}=800495088185894730989568,\qquad
+ \Delta_{\rm top}\bmod U^3=24354030047568\ne0.
+\]
+It is a complete counterexample to the proposed $U^3$ strengthening and an
+instance of the exact $U^2$ theorem.  Since $239\parallel A_7$, it is not a
+counterexample to a hypothetical squarefull Pell packet.
+
+Independent certificates exhibit a prime divisor of exponent one in
+$A_\ell B_\ell$ for every one of the $57$ odd prime indices
+$3\le\ell\le271$.  This proves finite nonsquarefullness in that range and
+nothing beyond it.  The active route must still rule out or construct an
+unbounded family satisfying simultaneously squarefullness, the opposite
+depth-three nonresidue pair, both factor-quotient jets, the complete
+third-order ledger, all correlated Lucas tails, exact endpoint curvature,
+and vertexwise character incidence.  No full-premise counterexample to that
+global statement is known.

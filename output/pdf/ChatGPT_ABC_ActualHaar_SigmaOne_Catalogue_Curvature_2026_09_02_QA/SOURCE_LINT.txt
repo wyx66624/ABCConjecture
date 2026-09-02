@@ -1,0 +1,11 @@
+PASS: no bare qquad/quad/pmod tokens in the four 2026-09-02 TeX fragments.
+
+Pattern (PCRE2): (?<!\\)\b(qquad|quad|pmod)\b
+
+Files:
+paper/iut_actual_haar_admissible_orbit_2026.tex
+paper/mersenne_sigma_one_exact_order_coupling_2026.tex
+paper/affine_inverse_period_catalogue_novelty_2026.tex
+paper/pell_factor_quotient_projective_coupling_2026.tex
+
+Repository whitespace/error audit: git diff --check PASS.

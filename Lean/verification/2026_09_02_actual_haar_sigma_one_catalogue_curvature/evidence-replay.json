@@ -1,0 +1,64 @@
+{
+  "affine": {
+    "canonicalTotals": {
+      "admissible_selected": 755322,
+      "kernel_classes": 3885,
+      "large_labels": 7641,
+      "nonarm_labels": 34,
+      "parameter_cases": 6,
+      "repeated_labels": 631
+    },
+    "generalEulerCases": 48400,
+    "occupancyBridgeCases": 10001,
+    "primePowerCases": 588,
+    "scriptRuns": 6,
+    "subcriticalPeriod": 1,
+    "subcriticalWeightOverD": "23392/23701",
+    "verificationSha256": "29ace952fd6b2feea116f1f65e0e78439feba54d2c20b047dff8c7fdc1dce10e"
+  },
+  "hashEntries": {
+    "affine": 19,
+    "iut": 3,
+    "mersenne": 6,
+    "pell": 15,
+    "total": 43
+  },
+  "iut": {
+    "normalizationRows": 20,
+    "normalizedPacketIdentity": true,
+    "rawResidueDegreeTwoCounterexample": true,
+    "verificationSha256": "e7404985aa91505a61d284e63dd3bd542897a3b449f853385032c2495605bda2"
+  },
+  "mersenne": {
+    "completeScanReplayed": true,
+    "exactLogWindowChecks": 16,
+    "factorProductEqualsPhi": true,
+    "scanHits": [
+      {
+        "d": 364,
+        "p": 1093,
+        "r": 3
+      },
+      {
+        "d": 1755,
+        "p": 3511,
+        "r": 2
+      }
+    ],
+    "scanLimit": 1000000000,
+    "scanPrimeCount": 50847534,
+    "verificationSha256": "ab4d3ae848cb5ab96d16a84e0b5fab1f86bc04db5853bb7cbae37ccab6992a69"
+  },
+  "pell": {
+    "actualSquarefullPackets": 0,
+    "endpointExactAndSharpRows": 57,
+    "exactSimpleWitnesses": 57,
+    "factorQuotientRows": 13,
+    "largestPrimeIndex": 271,
+    "localL3Counterexample": true,
+    "packetSha256": "c19ad636ad8f2cbd01e57b9a0141e3d56d46df194e85d3b29c48b462eedb59a9",
+    "verificationSha256": "796e85a61e049e5d9ec55cfc9ce146bcab928b516e007679350fa7c9e4731df5"
+  },
+  "schema": "abc-actual-haar-sigma-one-catalogue-curvature-evidence-v1",
+  "status": "PASS"
+}

@@ -1,0 +1,250 @@
+\section{Affine incidence cancellation and inverse-period catalogues}
+\label{sec:affine-inverse-period-catalogue}
+
+We refine the selected powerful-kernel catalogue without enlarging it to all
+arm divisors.  Let $\mathcal K$ be the finite set of kernel classes, let
+$m_\kappa$ be the number of selected points in class $\kappa$, and let
+\[
+ \mathcal L_N(\kappa)=
+ \{d=(d_U,d_V,d_W):d_Z\mid k_Z(\kappa),\ d_Ud_Vd_W>N^2\}.
+\]
+Give $d$ the weight
+$w_d=\varphi(d_U)\varphi(d_V)\varphi(d_W)$ and put
+\[
+ L_\kappa=\sum_{d\in\mathcal L_N(\kappa)}w_d.
+\]
+On the deduplicated union $\mathcal L$, write $n_d$ for the number of
+selected points supporting $d$, and define
+\[
+ I=\sum_{d\in\mathcal L}w_dn_d,\qquad
+ E=\sum_{d\in\mathcal L}w_dn_d^3,\qquad
+ E_{\rm sh}=\sum_{d\in\mathcal L}w_d(n_d-1)^3.
+\]
+
+\begin{proposition}[Exact point-label incidence]
+\label{prop:affine-exact-point-label-incidence}
+One has
+\[
+                     I=\sum_{\kappa\in\mathcal K}m_\kappa L_\kappa.
+ \tag{\ref{prop:affine-exact-point-label-incidence}.1}
+\]
+No disjointness assumption on the class tails is required.
+\end{proposition}
+
+\begin{proof}
+For every label,
+$n_d=\sum_{\kappa:d\in\mathcal L_N(\kappa)}m_\kappa$.  Substitute this
+identity in $I$ and interchange the two finite sums.  The inner sum for a
+fixed class is exactly $L_\kappa$.
+\end{proof}
+
+The preceding monotone-overlap theorem gives
+$\sum_\kappa m_\kappa^3L_\kappa\le E$.  The correct conversion of $E$
+uses the incidence $I$, rather than paying the deduplicated union weight as
+an unrelated error.
+
+\begin{lemma}[Optimal incidence shift]
+\label{lem:affine-optimal-six}
+For every $n\in\N$,
+\[
+                         n^3\le n+6(n-1)^3,             \tag{\ref{lem:affine-optimal-six}.1}
+\]
+where subtraction is in $\N$.  The coefficient six is optimal.
+\end{lemma}
+
+\begin{proof}
+The cases $n=0,1$ are equalities.  For $n\ge2$, write $a=n-1$; then
+\[
+ n+6a^3-n^3=a(a-1)(5a+2)\ge0.
+\]
+At $n=2$ equality reads $8=2+6$, so no smaller coefficient works.
+\end{proof}
+
+\begin{theorem}[Singleton cancellation]
+\label{thm:affine-singleton-cancellation}
+With
+\[
+ \Delta_{\rm mult}=
+ \sum_{\kappa\in\mathcal K}(m_\kappa^3-m_\kappa)L_\kappa,
+\]
+one has
+\[
+                         \Delta_{\rm mult}\le6E_{\rm sh}.              \tag{\ref{thm:affine-singleton-cancellation}.1}
+\]
+Every class of multiplicity one cancels exactly from the left side.
+For occupancy at least three, the coefficient six may be replaced by three;
+the two coefficients are separately sharp at occupancies two and three.
+\end{theorem}
+
+\begin{proof}
+Multiply Lemma~\ref{lem:affine-optimal-six} by $w_d$ and sum to obtain
+$E\le I+6E_{\rm sh}$.  Combine this with the monotone-overlap inequality
+and Proposition~\ref{prop:affine-exact-point-label-incidence}, then subtract
+the finite common incidence.  For $n\ge3$, the refinement follows from
+$n^3\le n+3(n-1)^3$; equality at $n=3$ proves sharpness.
+\end{proof}
+
+There are two distinct sources of shifted incidence.  Put
+\[
+ A_0=\sum_\kappa L_\kappa,\qquad
+ A_1=\sum_\kappa(m_\kappa-1)L_\kappa,\qquad
+ W=\sum_{d\in\mathcal L}w_d,\qquad \Omega=A_0-W.
+\]
+If $r_d$ is the number of supporting kernel classes, then
+$\Omega=\sum_dw_d(r_d-1)$.  Double counting gives
+\[
+ J:=\sum_dw_d(n_d-1)=A_1+\Omega.
+ \tag{\ref{thm:affine-singleton-cancellation}.2}
+\]
+Weighted H\"older therefore yields the exact normalized pressure inequality
+\[
+                  (A_1+\Omega)^3\le(A_0-\Omega)^2E_{\rm sh}.           \tag{\ref{thm:affine-singleton-cancellation}.3}
+\]
+The term $A_1$ records multiplicity inside one class; $\Omega$ records
+overlap of distinct class catalogues.  Neither can be deleted.
+
+We next retain the inverse period.  For two selected points write their
+difference as $q(s,t)$ with $(s,t)$ primitive, set
+\[
+ A_U=s,\qquad A_V=s+Ct,\qquad A_W=s+Bt,\qquad
+ L=\max(|s|,|t|),\quad qL\le N,
+\]
+and assume the direction is non-arm.  Let
+\[
+ g_Z=\gcd(k_Z(x),k_Z(y)),\quad c_Z=\gcd(g_Z,|A_Z|),
+ \quad G=\prod_Zg_Z,\quad C_g=\prod_Zc_Z,\quad
+ T_g=G/C_g.
+\]
+Pairwise coprimality of the three arms and cancellation of
+$R=\rad(BC)$ give
+\[
+                         T_g\mid q,\qquad G=T_gC_g\le qC_g.            \tag{\ref{thm:affine-singleton-cancellation}.4}
+\]
+
+For $k\ge1$ and $a\ge0$, define
+\[
+ F(k,a)=\sum_{d\mid k}\varphi(d)\frac{\gcd(d,a)^2}{d^2}.
+\]
+If $p^e\parallel k$ and $r=\min(e,v_p(a))$, with $r=e$ for $a=0$, a direct
+prime-power summation gives
+\[
+ F(p^e,a)=
+ \begin{cases}
+ p^e,&r=e,\\
+ p^r+p^{r-1}(1-p^{-(e-r)}),&r<e.
+ \end{cases}                                             \tag{\ref{thm:affine-singleton-cancellation}.5}
+\]
+Thus $F$ has an exact Euler product and
+$F(k,a)\le\gcd(k,a)\prod_{p\mid k}(1+p^{-1})$.
+
+Let $Q(x,y)$ be the sum of $w_d/T_d^2$ over all common labels with
+$d_Ud_Vd_W>N^2$, where
+$T_d=\prod_Zd_Z/\gcd(d_Z,|A_Z|)$.  Also put
+\[
+ H(k)=\sum_{d\mid k}\frac{\varphi(d)}d
+ =\prod_{p^e\parallel k}\left(1+e(1-p^{-1})\right).
+\]
+
+\begin{theorem}[Hybrid pair-catalogue bound]
+\label{thm:affine-hybrid-pair-catalogue}
+Every non-arm pair satisfies
+\[
+ Q(x,y)\le
+ \min\left\{
+   \prod_ZF(g_Z,|A_Z|),
+   \frac{C_g^2G}{N^4},
+   \frac{C_g^2H(G)}{N^2}
+ \right\}.                                               \tag{\ref{thm:affine-hybrid-pair-catalogue}.1}
+\]
+If $q_0$ and $P_0=\prod_Z|A_Z|^{(R)}$ denote the $R$-free parts, then the
+first term is at most $P_0q_0/\varphi(q_0)$ and $G\mid q_0P_0$.
+\end{theorem}
+
+\begin{proof}
+Dropping the large-product restriction makes the three divisor sums
+independent and gives the Euler-product term.  For a retained label,
+$D_d>N^2$ and $C_d\le C_g$, hence
+$T_d^{-2}<C_g^2/N^4$; summing all totient weights gives $G$.
+Alternatively,
+\[
+ \frac{w_d}{T_d^2}
+ =\frac{w_d}{D_d}\frac{C_d^2}{D_d}
+ <\frac{C_g^2}{N^2}\frac{w_d}{D_d},
+\]
+and the enlarged divisor sum is $H(G)$.  The $R$-free conclusions follow
+from $T_g\mid q_0$, $C_g\mid P_0$, and the local Euler factors.
+\end{proof}
+
+Because $G$ is powerful, the same pair also obeys a useful direction
+filter.  Writing $\mathfrak E(n)=n/\rad(n)$, one has
+\[
+             T_g\mathfrak E(P_0)>N,\qquad \mathfrak E(P_0)>L.          \tag{\ref{thm:affine-hybrid-pair-catalogue}.2}
+\]
+Indeed $G>N^2$ and powerfulness give
+$\mathfrak E(G)>N$, while
+$\mathfrak E(G)\le T_g\mathfrak E(C_g)\le T_g\mathfrak E(P_0)$;
+then use $T_g\mid q$ and $qL\le N$.  In the canonical branch $C=B+1$,
+the three $R$-free coefficients are pairwise coprime.  If one of them has
+powerful excess greater than $L^{1/3}$, then the corresponding original
+linear coefficient has at least that excess.  The original coefficient,
+rather than the operation of removing $R$-factors, is injective along each
+side of the direction square.  The elementary estimate
+\[
+ \#\{n\le X:\mathfrak E(n)>Y\}=O(X/\sqrt Y)
+\]
+follows by putting $m=\prod_pp^{\lfloor v_p(n)/2\rfloor}$: then
+$m^2\mid n$ and $m^2\ge\mathfrak E(n)>Y$, after which one sums
+$X/m^2$ over $m>\sqrt Y$.  On the shell
+$\max(|s|,|t|)=L$, this counts $O(CL^{5/6})$ eligible values on the
+nonconstant sides.  The exceptional vertical-side values of $s$ are summed
+by the same square-divisor estimate in dyadic blocks.  Summing the shells
+reduces the number of eligible primitive directions of scale at most $N$
+from $O(N^2)$ to $O(CN^{11/6})$.  This is a real saving, although it does
+not yet count the maximal powerful intersection tops on each direction.
+
+Finally, let $S_{\rm non}=\sum w_d/T_d^2$ over repeated non-arm labels.
+A label of occupancy $n_d$ occurs in exactly $\binom{n_d}{2}$ pair
+catalogues, so
+\[
+ \sum_{\{x,y\}}Q(x,y)
+ =\sum_{d\ {
+m repeated,nonarm}}\binom{n_d}{2}\frac{w_d}{T_d^2}.
+\]
+Choosing one loop for every class of multiplicity at least two and one edge
+for every relevant pair of singleton classes gives a smaller support
+skeleton $\mathcal E$ with
+\[
+                         S_{\rm non}\le\sum_{e\in\mathcal E}Q_e.       \tag{\ref{thm:affine-hybrid-pair-catalogue}.3}
+\]
+
+The inverse period cannot supply a uniform saving by itself.  In the actual
+canonical box
+\[
+ (B,C,R,M,N)=(8,9,6,22143,22142)
+\]
+the two admissible points $(3128,10183)$ and $(21897,11423)$ lie in distinct
+singleton kernel classes and share the sole large label
+\[
+ d=(137^2,173^2,1),\qquad D_d=561737401>N^2.
+\]
+Their primitive direction has coefficients
+$(18769,29929,28689)$, so $C_d=D_d$ and $T_d=1$.  Hence
+\[
+ Q_{\{x,y\}}=S_{\rm non}
+ =\varphi(137^2)\varphi(173^2)=554413792.               \tag{\ref{thm:affine-hybrid-pair-catalogue}.4}
+\]
+This full-premise example has $R<C$ and refutes any strict fractional saving
+deduced only from the subcritical branch, singleton support, or a positive
+period lower bound.  It does not refute the pair-skeleton theorem.
+
+The active normalized contradiction target is
+\[
+ (A_1+\Omega)^3>(A_0-\Omega)^2\left[
+ (B+1)(C+1)N\sum_{e\in\mathcal E}Q_e+
+ \frac1{N^3}\sum_\kappa L_\kappa
+ \left(k_U^3+\frac{k_V^3}{C^3}+\frac{k_W^3}{B^3}\right)
+ \right].                                               \tag{\ref{thm:affine-hybrid-pair-catalogue}.5}
+\]
+Proving this requires a global aggregation theorem for the
+divisibility-maximal powerful intersection tops.  No counterexample to that
+complete statement is known, so the affine route remains active.

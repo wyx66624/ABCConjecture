@@ -1,0 +1,31 @@
+import IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902
+
+/-! Dependency audit for the Pell--Lucas factor-quotient/projective coupling. -/
+
+open IUTThreeClosures
+open IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902
+
+#print axioms tripleCarrier_coefficients
+#print axioms positiveCarrier_minimal_coefficients
+#print axioms negativeCarrier_minimal_coefficients
+#print axioms companionJets_difference_exact
+#print axioms companionJets_modEq_of_completeThirdOrderLedger
+#print axioms completeThirdOrderLedger_modEllCube_of_companionJets
+#print axioms jetEquality_losesEight_counterexample
+#print axioms companionAJet_modEq
+#print axioms companionBJet_modEq
+#print axioms companionAJet_of_factorProduct
+#print axioms companionBJet_of_factorProduct
+#print axioms twoChannel_companionJets
+#print axioms endpointProjectiveCurvature_exact
+#print axioms endpointCurvature_modEq_of_companion
+#print axioms normIdentity_gives_companion_coprime
+#print axioms endpointCurvature_coprime
+#print axioms endpointProjectiveModulus_sharp
+#print axioms endpointProjectiveCurvature_and_sharpness
+#print axioms localLedgerCounterexample_arithmetic
+#print axioms localLedgerCounterexample_characterPowers
+#print axioms indexSeven_factorQuotientTriples
+#print axioms indexSeven_companionAndCurvatureJets
+#print axioms indexSeven_endpointDeterminant
+#print axioms indexSeven_refutes_endpointCubeDivisibility

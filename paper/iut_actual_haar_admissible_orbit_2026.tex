@@ -1,0 +1,150 @@
+\section{Actual Haar admissibility and packet normalization}
+\label{sec:iut-actual-haar-admissible-orbit}
+
+The preceding source audit leaves a concrete local question: can the repaired
+admissible-domain interface be realized by an actual measure, with the sign
+and coefficient required by the source?  Proposition~3.9(i) of
+\cite{IUT3} takes the nonarchimedean log-volume domain to be the nonempty
+compact open subsets, normalizes the integral structure to log-volume zero,
+and uses packet normalization so that multiplication by the local rational
+prime subtracts its logarithm.  We now construct the underlying Haar model
+and separate raw local volume from that packet normalization.
+
+Let $K$ be a nontrivially normed field with proper metric, let $\mu$ be a
+regular additive Haar measure, and let $a\in K^\times$.  The local fields
+used below have this properness property.  Write
+$m_a(x)=ax$ and let $\Delta_\mu:K^\times\to\R_{>0}$ be the distributive
+Haar character, so that
+\[
+                 \mu(aU)=\Delta_\mu(a)\mu(U).
+\]
+Define the finite-positive domain
+\[
+ \mathcal F_\mu=
+ \{U:U\text{ is measurable and }0<\mu(U)<\infty\},
+ \qquad L_\mu(U)=\log\mu(U).
+\]
+The conversion from an extended nonnegative measure to a real logarithm is
+made only after both inequalities in the definition of $\mathcal F_\mu$ have
+been proved.
+
+\begin{theorem}[Actual scalar-preimage law]
+\label{thm:actual-haar-scalar-preimage}
+For every $U\in\mathcal F_\mu$,
+\[
+ m_a^{-1}(U)=a^{-1}U\in\mathcal F_\mu,
+ \qquad
+ L_\mu(m_a^{-1}U)
+ =L_\mu(U)+\log\Delta_\mu(a^{-1}).
+ \tag{\ref{thm:actual-haar-scalar-preimage}.1}
+\]
+If $U$ is also compact and open, then $m_a^{-1}(U)$ is compact and open.
+\end{theorem}
+
+\begin{proof}
+The carrier identity follows in both directions from
+$ax\in U\Longleftrightarrow x=a^{-1}(ax)\in a^{-1}U$.  Multiplication by
+$a$ is a homeomorphism, so its inverse image preserves measurability,
+openness, and compactness.  The Haar change-of-variables identity gives
+\[
+ \mu(m_a^{-1}U)=\mu(a^{-1}U)
+ =\Delta_\mu(a^{-1})\mu(U).
+\]
+The character is finite and strictly positive.  The right side is therefore
+finite and positive, and taking real logarithms proves the formula.
+\end{proof}
+
+Suppose now that the valuation ring $\OO_K$ is a discrete valuation ring,
+the residue field has cardinality $q$, and $\mu(\OO_K)=1$.  Let $\pi$ be a
+uniformizer.
+
+\begin{theorem}[Uniformizer orbit and its obstruction]
+\label{thm:actual-haar-uniformizer-orbit}
+Put $B_n=\pi^{-n}\OO_K$ for $n\ge0$.  Every $B_n$ is a nonempty compact
+open member of $\mathcal F_\mu$, and
+\[
+ m_\pi^{-1}(B_n)=B_{n+1},
+ \qquad L_\mu(B_n)=n\log q.                 \tag{\ref{thm:actual-haar-uniformizer-orbit}.1}
+\]
+Consequently $n\mapsto B_n$ is injective, and no single
+$V\in\mathcal F_\mu$ contains every $B_n$.
+\end{theorem}
+
+\begin{proof}
+The $q$ additive cosets of $\pi\OO_K$ partition $\OO_K$.  Translation
+invariance and $\mu(\OO_K)=1$ imply
+$\mu(\pi\OO_K)=q^{-1}$, hence
+$\Delta_\mu(\pi)=q^{-1}$.  Theorem~\ref{thm:actual-haar-scalar-preimage}
+therefore adds $\log q$ under a uniformizer preimage.  The unit ball is a
+nonempty open ball; properness makes it compact, and scalar multiplication
+preserves these properties.  Induction gives the displayed identities.
+Since $q>1$, the log-volumes are strictly increasing, proving injectivity.
+If every $B_n$ lay in one finite-positive $V$, monotonicity would give
+$n\log q\le L_\mu(V)$ for every $n$, contrary to the Archimedean property.
+\end{proof}
+
+The last conclusion rules out only a bounded, finite, or periodic
+implementation of the complete preimage orbit.  It does not conflict with
+the least-hull construction for one fixed relatively compact region in
+Remark~3.9.5(i) of \cite{IUT3}, and it does not rule out the Haar/IUT route.
+
+The rational-prime coefficient requires one further normalization.  Let
+$K/\Q_p$ have ramification index $e$ and residue degree $f$.  Choose a unit
+$u$ with
+\[
+                  p=u\pi^e,\qquad q=p^f.
+\]
+Multiplication by $u$ preserves Haar measure.  Thus raw Haar log-volume
+changes under rational-prime preimage by
+\[
+ \log\Delta_\mu(p^{-1})=e\log q=ef\log p.   \tag{\ref{thm:actual-haar-uniformizer-orbit}.2}
+\]
+
+\begin{theorem}[Local-degree and packet normalization]
+\label{thm:iut-local-degree-packet-normalization}
+Define
+\[
+                  L^{\rm pkt}_\mu(U)=\frac{L_\mu(U)}{ef}.
+\]
+Then
+\[
+ L^{\rm pkt}_\mu(p^{-1}U)=L^{\rm pkt}_\mu(U)+\log p.
+ \tag{\ref{thm:iut-local-degree-packet-normalization}.1}
+\]
+For finitely many components, if $\sum_iw_i=1$, the weighted packet volume
+$\sum_iw_iL^{\rm pkt}_{\mu_i}(U_i)$ also changes by exactly $\log p$ under
+simultaneous rational-prime preimage.
+\end{theorem}
+
+\begin{proof}
+Divide the raw identity $ef\log p$ by the positive local degree $ef$.
+Every normalized component then has the same increment $\log p$, so the
+weighted increment is $(\sum_iw_i)\log p=\log p$.
+\end{proof}
+
+This two-stage calculation explains which coefficient has to be realized in
+the actual tensor components.  Ordinary weight normalization cannot perform
+the first stage.
+
+\begin{proposition}[Full-premise raw-volume counterexample]
+\label{prop:iut-raw-weight-counterexample}
+The condition $\sum_iw_i=1$ alone does not turn raw Haar log-volume into a
+$\log p$ rational-prime shift.
+\end{proposition}
+
+\begin{proof}
+Let $K/\Q_p$ be the unramified quadratic extension, take the one-element
+packet, and give it weight one.  Then $e=1$, $f=2$, $q=p^2$, and all local
+field, Haar, positivity, and weight premises hold.  The raw shift is
+$\log(p^2)=2\log p\ne\log p$.  Division by $ef=2$ restores the conclusion
+of Theorem~\ref{thm:iut-local-degree-packet-normalization}.
+\end{proof}
+
+Proposition~\ref{prop:iut-raw-weight-counterexample} retires exactly the
+weaker raw-volume claim.  The corrected route remains active.  It must still
+construct $p=u\pi^e$ and $q=p^f$ uniformly in every actual tensor component,
+identify the component functional with $L_\mu/(ef)$, transport the
+compact-open admissible class through the direct-sum and least-hull
+operations, and then prove the horizontal same-pilot and Ind3 comparison.
+None of these global requirements follows from a local change-of-variables
+formula.

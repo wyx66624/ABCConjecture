@@ -1,0 +1,390 @@
+{
+  "schema": "abc-actual-haar-sigma-one-catalogue-curvature-validation-v1",
+  "status": "PASS",
+  "completedUtc": "2026-09-02T13:37:23.628361+00:00",
+  "gitHeadBeforeCheckpointCommit": "cc76edcac222e9abcd308e8cc04d796d12076277",
+  "toolVersions": {
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "cxx": "g++.EXE (x86_64-win32-seh-rev0, Built by MinGW-Builds project) 15.1.0",
+    "lake": "Lake version 5.0.0-src+8c9756b (Lean version 4.32.0)",
+    "lean": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)"
+  },
+  "validationDrivers": [
+    {
+      "path": "replay_evidence.py",
+      "bytes": 16630,
+      "sha256": "fcce4348999610254f0179a3e0f193dbca421cc24d4f2bb60538636dc40e8dbd"
+    },
+    {
+      "path": "validate.py",
+      "bytes": 62039,
+      "sha256": "c86512e84221f9aff07ffe854f814e599e4859cb7d40c5c3aade86e988e06fc1"
+    },
+    {
+      "path": "validate.ps1",
+      "bytes": 1527,
+      "sha256": "0e1f687e6b186b7073669d05d9f0926259f989558b5b0749feba4280b9be114d"
+    }
+  ],
+  "frozenInputs": {
+    "path": "Lean/verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/input-manifest.json",
+    "entries": 872,
+    "sha256": "fc62b6f7bf6a16a40ddf4aab811d27963e6afb60ea11cc8f245f93eed8d43dbd"
+  },
+  "gitIndexByteCheck": {
+    "status": "PASS",
+    "entries": 872,
+    "byteMatches": 872,
+    "bytes": 72075451,
+    "objectIdLedgerSha256": "46945928dd05bb12a5c0a2fa09db6d9282ae083cfbb9355182c44123c74afa98"
+  },
+  "frozenTextHygiene": {
+    "status": "PASS",
+    "filesChecked": 629
+  },
+  "lakeDependencies": {
+    "manifestPath": "Lean/lake-manifest.json",
+    "manifestSha256": "9c9ac0744b4579d6e2afa37150fc27263ff84e43753e5a6bdfc04f44ac96c8a8",
+    "packages": [
+      {
+        "name": "heights",
+        "directory": "heights",
+        "revision": "3539e2a12dd3470c057a4eb531dc3fd627d4c97b",
+        "url": "https://github.com/lana-agents/heights.git"
+      },
+      {
+        "name": "genl",
+        "directory": "genl",
+        "revision": "6e9a6543b46a2a02fd7fe7ec8ab203d878f32859",
+        "url": "https://github.com/LANA-Project/genl.git"
+      },
+      {
+        "name": "iut",
+        "directory": "iut",
+        "revision": "ddaddc274281adb5674d647e24fa478745ac6d40",
+        "url": "https://github.com/lana-agents/iut.git"
+      },
+      {
+        "name": "mathlib",
+        "directory": "mathlib",
+        "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+        "url": "https://github.com/leanprover-community/mathlib4"
+      },
+      {
+        "name": "«tate-curves-theta»",
+        "directory": "tate-curves-theta",
+        "revision": "90d7fac0e4ef2d6bf2a619326c30adb862d1b3de",
+        "url": "https://github.com/lana-agents/tate-curves-theta"
+      },
+      {
+        "name": "plausible",
+        "directory": "plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "url": "https://github.com/leanprover-community/plausible"
+      },
+      {
+        "name": "LeanSearchClient",
+        "directory": "LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "url": "https://github.com/leanprover-community/LeanSearchClient"
+      },
+      {
+        "name": "importGraph",
+        "directory": "importGraph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "url": "https://github.com/leanprover-community/import-graph"
+      },
+      {
+        "name": "proofwidgets",
+        "directory": "proofwidgets",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "url": "https://github.com/leanprover-community/ProofWidgets4"
+      },
+      {
+        "name": "aesop",
+        "directory": "aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "url": "https://github.com/leanprover-community/aesop"
+      },
+      {
+        "name": "Qq",
+        "directory": "Qq",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "url": "https://github.com/leanprover-community/quote4"
+      },
+      {
+        "name": "batteries",
+        "directory": "batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "url": "https://github.com/leanprover-community/batteries"
+      },
+      {
+        "name": "«formal-schemes»",
+        "directory": "formal-schemes",
+        "revision": "51aa935079537bf4dc580751a6e70727fb23ca93",
+        "url": "https://github.com/lana-agents/formal-schemes"
+      },
+      {
+        "name": "Cli",
+        "directory": "Cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "url": "https://github.com/leanprover/lean4-cli"
+      }
+    ]
+  },
+  "generatedAudit": {
+    "path": "Lean/verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/axiom-audit.lean",
+    "bytes": 11976,
+    "sha256": "6f4891cf37de8bedc61cf2f80fd7e33581d0fc6a5add251ed026fc59d5dd73ee"
+  },
+  "inventory": {
+    "path": "Lean/verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/declaration-inventory.json",
+    "sha256": "38a5e55d77080d1a6fb19c438e5626815c4208776e7e12baaeaaeb72d0ae7c80"
+  },
+  "modules": [
+    {
+      "module": "IUTActualHaarAdmissibleOrbit20260902",
+      "path": "Lean/IUTThreeClosures/IUTActualHaarAdmissibleOrbit20260902.lean",
+      "bytes": 26099,
+      "sha256": "a960c7b51fe13389d8a5932e2c9f384220335a0fd3fef01421ba28ec37aca8ad",
+      "counts": {
+        "theorem": 33,
+        "lemma": 0,
+        "def": 8,
+        "abbrev": 0,
+        "structure": 1,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 33,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersenneSigmaOneExactOrderCoupling20260902",
+      "path": "Lean/IUTThreeClosures/MersenneSigmaOneExactOrderCoupling20260902.lean",
+      "bytes": 19078,
+      "sha256": "f090525756e4500785298ab9b340fb1e451e7f03eff5bebe282dc572b5157746",
+      "counts": {
+        "theorem": 19,
+        "lemma": 0,
+        "def": 6,
+        "abbrev": 1,
+        "structure": 1,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 19,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "AffineInversePeriodCatalogueNovelty20260902",
+      "path": "Lean/IUTThreeClosures/AffineInversePeriodCatalogueNovelty20260902.lean",
+      "bytes": 17481,
+      "sha256": "cff7d8c7bb9e39107b6eff6ebccd6949035e6cb3ee872490075defcb7c0ca57c",
+      "counts": {
+        "theorem": 26,
+        "lemma": 0,
+        "def": 0,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 26,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "PellLucasFactorQuotientProjectiveCoupling20260902",
+      "path": "Lean/IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean",
+      "bytes": 21466,
+      "sha256": "f09ad72d53d396dfb1e7e0f1f009e3243dd57145257bfc3f23cc0c6bbdb0559d",
+      "counts": {
+        "theorem": 24,
+        "lemma": 0,
+        "def": 4,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 24,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "totals": {
+    "theorem": 102,
+    "lemma": 0,
+    "def": 18,
+    "abbrev": 1,
+    "structure": 2,
+    "class": 0,
+    "inductive": 0,
+    "instance": 0,
+    "countedDeclarations": 123,
+    "proofDeclarations": 102,
+    "privateProofDeclarations": 0,
+    "axiomReports": 102
+  },
+  "axiomUnion": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "directRuns": [
+    {
+      "name": "IUTActualHaarAdmissibleOrbit20260902-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/logs/IUTActualHaarAdmissibleOrbit20260902-direct.log",
+      "logSha256": "fab8a1ae70f5c30ce286eba7a4e9894c6da8e7dc8570e9486c03644ede14b06e",
+      "warnings": 0
+    },
+    {
+      "name": "MersenneSigmaOneExactOrderCoupling20260902-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/logs/MersenneSigmaOneExactOrderCoupling20260902-direct.log",
+      "logSha256": "f44b74fc335672f5bec0ec471e5ae6348b9e7cc9205d6148af3ef2ddd39625a8",
+      "warnings": 0
+    },
+    {
+      "name": "AffineInversePeriodCatalogueNovelty20260902-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/logs/AffineInversePeriodCatalogueNovelty20260902-direct.log",
+      "logSha256": "f8a9684a216a0a187a19a070521a16f0e85f90e801852c4b2925e7fae6ddd4ea",
+      "warnings": 0
+    },
+    {
+      "name": "PellLucasFactorQuotientProjectiveCoupling20260902-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/logs/PellLucasFactorQuotientProjectiveCoupling20260902-direct.log",
+      "logSha256": "bca63e9a4a6e46c87c0ba22f26de666230356071f3817b6552c4c8269c59a19e",
+      "warnings": 0
+    }
+  ],
+  "axiomAuditRun": {
+    "name": "axiom-audit",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/logs/axiom-audit.log",
+    "logSha256": "6e04e40a68d658a77c2829857047a2095f77ccefc3e127503b24f2f8bbd5a640",
+    "warnings": 0
+  },
+  "computationReplay": {
+    "name": "four-route-evidence-replay",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/logs/four-route-evidence-replay.log",
+    "logSha256": "4ed4906015674163572cea70240ef58449153cb8a8ede0398d2877d85774053d",
+    "output": "Lean/verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/evidence-replay.json",
+    "outputSha256": "5aac742593b5a20151c6e89d1561b551d34beb8df5fbeeb13671c1f02de12c1d",
+    "verified": {
+      "affine": {
+        "canonicalTotals": {
+          "admissible_selected": 755322,
+          "kernel_classes": 3885,
+          "large_labels": 7641,
+          "nonarm_labels": 34,
+          "parameter_cases": 6,
+          "repeated_labels": 631
+        },
+        "generalEulerCases": 48400,
+        "occupancyBridgeCases": 10001,
+        "primePowerCases": 588,
+        "scriptRuns": 6,
+        "subcriticalPeriod": 1,
+        "subcriticalWeightOverD": "23392/23701",
+        "verificationSha256": "29ace952fd6b2feea116f1f65e0e78439feba54d2c20b047dff8c7fdc1dce10e"
+      },
+      "hashEntries": {
+        "affine": 19,
+        "iut": 3,
+        "mersenne": 6,
+        "pell": 15,
+        "total": 43
+      },
+      "iut": {
+        "normalizationRows": 20,
+        "normalizedPacketIdentity": true,
+        "rawResidueDegreeTwoCounterexample": true,
+        "verificationSha256": "e7404985aa91505a61d284e63dd3bd542897a3b449f853385032c2495605bda2"
+      },
+      "mersenne": {
+        "completeScanReplayed": true,
+        "exactLogWindowChecks": 16,
+        "factorProductEqualsPhi": true,
+        "scanHits": [
+          {
+            "d": 364,
+            "p": 1093,
+            "r": 3
+          },
+          {
+            "d": 1755,
+            "p": 3511,
+            "r": 2
+          }
+        ],
+        "scanLimit": 1000000000,
+        "scanPrimeCount": 50847534,
+        "verificationSha256": "ab4d3ae848cb5ab96d16a84e0b5fab1f86bc04db5853bb7cbae37ccab6992a69"
+      },
+      "pell": {
+        "actualSquarefullPackets": 0,
+        "endpointExactAndSharpRows": 57,
+        "exactSimpleWitnesses": 57,
+        "factorQuotientRows": 13,
+        "largestPrimeIndex": 271,
+        "localL3Counterexample": true,
+        "packetSha256": "c19ad636ad8f2cbd01e57b9a0141e3d56d46df194e85d3b29c48b462eedb59a9",
+        "verificationSha256": "796e85a61e049e5d9ec55cfc9ce146bcab928b516e007679350fa7c9e4731df5"
+      },
+      "schema": "abc-actual-haar-sigma-one-catalogue-curvature-evidence-v1",
+      "status": "PASS"
+    }
+  },
+  "gitDiffCheck": {
+    "name": "git-diff-check",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/logs/git-diff-check.log",
+    "logSha256": "62426851c253bc2553759564c475ecd4aabd0c81e465aab0e4152a0e1bf91894"
+  },
+  "gitCachedDiffCheck": {
+    "name": "git-cached-diff-check",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/logs/git-cached-diff-check.log",
+    "logSha256": "da2986c5e82e16b83b80076d9ffca6997b4ef20098bcecbbad26e3e0feb845c9"
+  },
+  "aggregateBuild": {
+    "name": "aggregate-lake-build",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/logs/aggregate-lake-build.log",
+    "logSha256": "6d634d1c3a401fcd3090ff20959700417421cab232548ad607ff74b50d14e1de",
+    "jobs": 9239,
+    "warnings": 301
+  },
+  "scope": {
+    "provesOrDisprovesStandardABC": false,
+    "finiteOrConditionalClaimsUpgraded": false
+  }
+}

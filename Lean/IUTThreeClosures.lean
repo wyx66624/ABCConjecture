@@ -730,3 +730,31 @@ import IUTThreeClosures.AffineCatalogueWeightOverlap20260901
 -- primitivity/coprimality, coefficient six, and deletion of catalogue
 -- membership.  The non-arm inverse-period sum remains open.
 import IUTThreeClosures.AffineSignedRayCanonicalCaps20260901
+
+-- Actual normalized additive-Haar realization of the corrected local IUT
+-- admissible domain.  Scalar preimages preserve finite-positive and
+-- compact-open regions; uniformizer balls form an injective unbounded orbit;
+-- local-degree normalization gives the rational-prime packet coefficient.
+-- Tensor/place realization and the horizontal same-pilot comparison remain
+-- open and are not assumed.
+import IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902
+
+-- Affine incidence cancellation and pairwise inverse-period catalogues.
+-- Exact point-label incidence improves the shifted cubic coefficient to six
+-- and removes singleton classes from the multiplicity deficit; actual
+-- period-one witnesses delimit stronger period-only savings.  The global
+-- maximal-powerful-intersection aggregation remains open.
+import IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902
+
+-- Factor-quotient jets for the correlated Pell--Lucas projective system and
+-- the exact endpoint curvature 2*v*32^(ell-1)*U^2.  The modulus U^2 is sharp
+-- even on actual Pell data; the unbounded global squarefull packet problem is
+-- retained.
+import IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902
+
+-- Critical sigma-one exact-order continuation for Mersenne blocks.  Lean
+-- checks common-index Farey identities, stable prime-power order layers,
+-- finite cutoff ledgers, and exact 1093/3511 certificates.  Weighted
+-- Brun--Titchmarsh, Yamada's theorem, and the surviving little-oh estimates
+-- remain explicitly paper-level or open.
+import IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902

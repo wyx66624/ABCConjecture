@@ -1,0 +1,1528 @@
+{
+  "schema": "abc-actual-haar-sigma-one-catalogue-curvature-inventory-v1",
+  "modules": [
+    {
+      "module": "IUTActualHaarAdmissibleOrbit20260902",
+      "path": "Lean/IUTThreeClosures/IUTActualHaarAdmissibleOrbit20260902.lean",
+      "bytes": 26099,
+      "sha256": "a960c7b51fe13389d8a5932e2c9f384220335a0fd3fef01421ba28ec37aca8ad",
+      "counts": {
+        "theorem": 33,
+        "lemma": 0,
+        "def": 8,
+        "abbrev": 0,
+        "structure": 1,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 42,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "preimage_mul_eq_inv_smul",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.preimage_mul_eq_inv_smul",
+          "private": false,
+          "protected": false,
+          "line": 41,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.preimage_mul_eq_inv_smul",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "coe_mulPreimageRegion",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.coe_mulPreimageRegion",
+          "private": false,
+          "protected": false,
+          "line": 84,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.coe_mulPreimageRegion",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mulPreimageRegion_measure",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.mulPreimageRegion_measure",
+          "private": false,
+          "protected": false,
+          "line": 91,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.mulPreimageRegion_measure",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mulPreimageRegion_logVolume",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.mulPreimageRegion_logVolume",
+          "private": false,
+          "protected": false,
+          "line": 105,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.mulPreimageRegion_logVolume",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "ext",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.HaarCompactOpenRegion.ext",
+          "private": false,
+          "protected": false,
+          "line": 143,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.HaarCompactOpenRegion.ext",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "coe_mulPreimage",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.HaarCompactOpenRegion.coe_mulPreimage",
+          "private": false,
+          "protected": false,
+          "line": 167,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.HaarCompactOpenRegion.coe_mulPreimage",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mulPreimage_logVolume",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.HaarCompactOpenRegion.mulPreimage_logVolume",
+          "private": false,
+          "protected": false,
+          "line": 175,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.HaarCompactOpenRegion.mulPreimage_logVolume",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "coe_unitScaledFinitePositiveRegion",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.coe_unitScaledFinitePositiveRegion",
+          "private": false,
+          "protected": false,
+          "line": 192,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.coe_unitScaledFinitePositiveRegion",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mulPreimageRegion_unitScaled",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.mulPreimageRegion_unitScaled",
+          "private": false,
+          "protected": false,
+          "line": 199,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.mulPreimageRegion_unitScaled",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "unitScaledFinitePositiveRegion_logVolume",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.unitScaledFinitePositiveRegion_logVolume",
+          "private": false,
+          "protected": false,
+          "line": 209,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.unitScaledFinitePositiveRegion_logVolume",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "unitScaledFinitePositiveRegion_closure_compact",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.unitScaledFinitePositiveRegion_closure_compact",
+          "private": false,
+          "protected": false,
+          "line": 230,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.unitScaledFinitePositiveRegion_closure_compact",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "unitScaledFinitePositiveRegion_isOpen",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.unitScaledFinitePositiveRegion_isOpen",
+          "private": false,
+          "protected": false,
+          "line": 241,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.unitScaledFinitePositiveRegion_isOpen",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "unitScaledFinitePositiveRegion_nonempty",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.unitScaledFinitePositiveRegion_nonempty",
+          "private": false,
+          "protected": false,
+          "line": 255,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.unitScaledFinitePositiveRegion_nonempty",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "unitScaledHaarCompactOpenRegion_toFinite",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.unitScaledHaarCompactOpenRegion_toFinite",
+          "private": false,
+          "protected": false,
+          "line": 273,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.unitScaledHaarCompactOpenRegion_toFinite",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "HaarCompactOpenRegion.mulPreimage_unitScaled",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.HaarCompactOpenRegion.mulPreimage_unitScaled",
+          "private": false,
+          "protected": false,
+          "line": 280,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.HaarCompactOpenRegion.mulPreimage_unitScaled",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "log_distribHaarChar_integerUnit_inv",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.log_distribHaarChar_integerUnit_inv",
+          "private": false,
+          "protected": false,
+          "line": 295,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.log_distribHaarChar_integerUnit_inv",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "distribHaarChar_eq_one_of_norm_eq_one",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.distribHaarChar_eq_one_of_norm_eq_one",
+          "private": false,
+          "protected": false,
+          "line": 308,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.distribHaarChar_eq_one_of_norm_eq_one",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "distribHaarChar_primeScalar",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.distribHaarChar_primeScalar",
+          "private": false,
+          "protected": false,
+          "line": 315,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.distribHaarChar_primeScalar",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "log_distribHaarChar_primeScalar_inv",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.log_distribHaarChar_primeScalar_inv",
+          "private": false,
+          "protected": false,
+          "line": 329,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.log_distribHaarChar_primeScalar_inv",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primeScalarPreimage_logVolume",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.primeScalarPreimage_logVolume",
+          "private": false,
+          "protected": false,
+          "line": 342,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.primeScalarPreimage_logVolume",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primeScalarPreimage_normalizedLogVolume",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.primeScalarPreimage_normalizedLogVolume",
+          "private": false,
+          "protected": false,
+          "line": 355,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.primeScalarPreimage_normalizedLogVolume",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "uniformizerExpandedBall_succ",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.uniformizerExpandedBall_succ",
+          "private": false,
+          "protected": false,
+          "line": 398,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.uniformizerExpandedBall_succ",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "uniformizerExpandedBall_logVolume",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.uniformizerExpandedBall_logVolume",
+          "private": false,
+          "protected": false,
+          "line": 408,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.uniformizerExpandedBall_logVolume",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "residueCard_one_lt",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.residueCard_one_lt",
+          "private": false,
+          "protected": false,
+          "line": 428,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.residueCard_one_lt",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "uniformizerExpandedBall_injective",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.uniformizerExpandedBall_injective",
+          "private": false,
+          "protected": false,
+          "line": 434,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.uniformizerExpandedBall_injective",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "uniformizerExpandedBall_no_finitePositive_envelope",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.uniformizerExpandedBall_no_finitePositive_envelope",
+          "private": false,
+          "protected": false,
+          "line": 449,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.uniformizerExpandedBall_no_finitePositive_envelope",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "product_uniformizerPreimage_logVolume",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.product_uniformizerPreimage_logVolume",
+          "private": false,
+          "protected": false,
+          "line": 484,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.product_uniformizerPreimage_logVolume",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "weighted_uniformizerPreimage_logVolume",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.weighted_uniformizerPreimage_logVolume",
+          "private": false,
+          "protected": false,
+          "line": 510,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.weighted_uniformizerPreimage_logVolume",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "weighted_residueDegree_shift_eq_log_prime",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.weighted_residueDegree_shift_eq_log_prime",
+          "private": false,
+          "protected": false,
+          "line": 535,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.weighted_residueDegree_shift_eq_log_prime",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "weighted_uniformizerPreimage_logVolume_eq_add_log_prime",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.weighted_uniformizerPreimage_logVolume_eq_add_log_prime",
+          "private": false,
+          "protected": false,
+          "line": 555,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.weighted_uniformizerPreimage_logVolume_eq_add_log_prime",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "weighted_normalized_primeScalarPreimage",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.weighted_normalized_primeScalarPreimage",
+          "private": false,
+          "protected": false,
+          "line": 577,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.weighted_normalized_primeScalarPreimage",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "weight_sum_one_not_sufficient",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.weight_sum_one_not_sufficient",
+          "private": false,
+          "protected": false,
+          "line": 621,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.weight_sum_one_not_sufficient",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "padic_residueCard",
+          "name": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.padic_residueCard",
+          "private": false,
+          "protected": false,
+          "line": 632,
+          "reportedConstant": "IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902.padic_residueCard",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersenneSigmaOneExactOrderCoupling20260902",
+      "path": "Lean/IUTThreeClosures/MersenneSigmaOneExactOrderCoupling20260902.lean",
+      "bytes": 19078,
+      "sha256": "f090525756e4500785298ab9b340fb1e451e7f03eff5bebe282dc572b5157746",
+      "counts": {
+        "theorem": 19,
+        "lemma": 0,
+        "def": 6,
+        "abbrev": 1,
+        "structure": 1,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 27,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "index_multiplier_eq_of_slope_eq",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.index_multiplier_eq_of_slope_eq",
+          "private": false,
+          "protected": false,
+          "line": 58,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.index_multiplier_eq_of_slope_eq",
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "endpointExactOrderRow_eq_of_slope_eq",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.endpointExactOrderRow_eq_of_slope_eq",
+          "private": false,
+          "protected": false,
+          "line": 76,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.endpointExactOrderRow_eq_of_slope_eq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "endpointSlopeCross_injective",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.endpointSlopeCross_injective",
+          "private": false,
+          "protected": false,
+          "line": 106,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.endpointSlopeCross_injective",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "aboveSizeCutoff_forces_highMultiplier",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.aboveSizeCutoff_forces_highMultiplier",
+          "private": false,
+          "protected": false,
+          "line": 117,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.aboveSizeCutoff_forces_highMultiplier",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexMultiplier_real_eq_fareySlope",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.indexMultiplier_real_eq_fareySlope",
+          "private": false,
+          "protected": false,
+          "line": 155,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.indexMultiplier_real_eq_fareySlope",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "endpointSlope_eq_primeSubOne_div_index",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.endpointSlope_eq_primeSubOne_div_index",
+          "private": false,
+          "protected": false,
+          "line": 168,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.endpointSlope_eq_primeSubOne_div_index",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "endpointFareyEnergy_eq_primeMoment_div_index",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.endpointFareyEnergy_eq_primeMoment_div_index",
+          "private": false,
+          "protected": false,
+          "line": 183,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.endpointFareyEnergy_eq_primeMoment_div_index",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "packetMass_le_mul_fareyEnergy_add_card",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.packetMass_le_mul_fareyEnergy_add_card",
+          "private": false,
+          "protected": false,
+          "line": 195,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.packetMass_le_mul_fareyEnergy_add_card",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "zmod_two_pow_eq_one_iff_dvd_mersenne",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.zmod_two_pow_eq_one_iff_dvd_mersenne",
+          "private": false,
+          "protected": false,
+          "line": 220,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.zmod_two_pow_eq_one_iff_dvd_mersenne",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mersennePrimePowerExactOrder_eq_of_layer",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.mersennePrimePowerExactOrder_eq_of_layer",
+          "private": false,
+          "protected": false,
+          "line": 247,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.mersennePrimePowerExactOrder_eq_of_layer",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mersennePrimePowerExactOrder_eq_iff_layer_le_depth",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.mersennePrimePowerExactOrder_eq_iff_layer_le_depth",
+          "private": false,
+          "protected": false,
+          "line": 274,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.mersennePrimePowerExactOrder_eq_iff_layer_le_depth",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "stableLiftLayer_count",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.stableLiftLayer_count",
+          "private": false,
+          "protected": false,
+          "line": 309,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.stableLiftLayer_count",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "weighted_stableLiftLayer_sum",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.weighted_stableLiftLayer_sum",
+          "private": false,
+          "protected": false,
+          "line": 327,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.weighted_stableLiftLayer_sum",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "weighted_stableLiftLayer_eq_second_add_deep",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.weighted_stableLiftLayer_eq_second_add_deep",
+          "private": false,
+          "protected": false,
+          "line": 348,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.weighted_stableLiftLayer_eq_second_add_deep",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "selectedHigherStableLayerMass_eq_depthExcessMass",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.selectedHigherStableLayerMass_eq_depthExcessMass",
+          "private": false,
+          "protected": false,
+          "line": 374,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.selectedHigherStableLayerMass_eq_depthExcessMass",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "criticalStableLayerMass_eq_twoArms",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.criticalStableLayerMass_eq_twoArms",
+          "private": false,
+          "protected": false,
+          "line": 394,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.criticalStableLayerMass_eq_twoArms",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "sigmaOne_highDeep_or_nearSquare",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.sigmaOne_highDeep_or_nearSquare",
+          "private": false,
+          "protected": false,
+          "line": 412,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.sigmaOne_highDeep_or_nearSquare",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "wieferich_1093_exactly_one_repeated_layer",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.wieferich_1093_exactly_one_repeated_layer",
+          "private": false,
+          "protected": false,
+          "line": 428,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.wieferich_1093_exactly_one_repeated_layer",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "wieferich_3511_exactly_one_repeated_layer",
+          "name": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.wieferich_3511_exactly_one_repeated_layer",
+          "private": false,
+          "protected": false,
+          "line": 441,
+          "reportedConstant": "IUTThreeClosures.MersenneSigmaOneExactOrderCoupling20260902.wieferich_3511_exactly_one_repeated_layer",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "AffineInversePeriodCatalogueNovelty20260902",
+      "path": "Lean/IUTThreeClosures/AffineInversePeriodCatalogueNovelty20260902.lean",
+      "bytes": 17481,
+      "sha256": "cff7d8c7bb9e39107b6eff6ebccd6949035e6cb3ee872490075defcb7c0ca57c",
+      "counts": {
+        "theorem": 26,
+        "lemma": 0,
+        "def": 0,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 26,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "cube_le_self_add_six_shiftedCube",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.cube_le_self_add_six_shiftedCube",
+          "private": false,
+          "protected": false,
+          "line": 27,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.cube_le_self_add_six_shiftedCube",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "factorFive_incidenceShift_counterexample",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.factorFive_incidenceShift_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 57,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.factorFive_incidenceShift_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "six_le_incidenceCoefficient_of_occupancyTwo",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.six_le_incidenceCoefficient_of_occupancyTwo",
+          "private": false,
+          "protected": false,
+          "line": 62,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.six_le_incidenceCoefficient_of_occupancyTwo",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cube_le_self_add_three_shiftedCube_of_three_le",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.cube_le_self_add_three_shiftedCube_of_three_le",
+          "private": false,
+          "protected": false,
+          "line": 71,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.cube_le_self_add_three_shiftedCube_of_three_le",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "factorTwo_incidenceShift_counterexample",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.factorTwo_incidenceShift_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 95,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.factorTwo_incidenceShift_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "three_le_incidenceCoefficient_of_occupancyThree",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.three_le_incidenceCoefficient_of_occupancyThree",
+          "private": false,
+          "protected": false,
+          "line": 100,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.three_le_incidenceCoefficient_of_occupancyThree",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cube_le_eight_shiftedCube_of_two_le",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.cube_le_eight_shiftedCube_of_two_le",
+          "private": false,
+          "protected": false,
+          "line": 109,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.cube_le_eight_shiftedCube_of_two_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "factorSeven_noSingleton_counterexample",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.factorSeven_noSingleton_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 128,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.factorSeven_noSingleton_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "eight_le_noSingletonCoefficient_of_occupancyTwo",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.eight_le_noSingletonCoefficient_of_occupancyTwo",
+          "private": false,
+          "protected": false,
+          "line": 133,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.eight_le_noSingletonCoefficient_of_occupancyTwo",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "weightedCubicEnergy_le_incidence_add_sixShifted",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.weightedCubicEnergy_le_incidence_add_sixShifted",
+          "private": false,
+          "protected": false,
+          "line": 142,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.weightedCubicEnergy_le_incidence_add_sixShifted",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "weightedCubicEnergy_le_incidence_add_sixCaps",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.weightedCubicEnergy_le_incidence_add_sixCaps",
+          "private": false,
+          "protected": false,
+          "line": 164,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.weightedCubicEnergy_le_incidence_add_sixCaps",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "weightedSupportIncidence_eq_classIncidence",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.weightedSupportIncidence_eq_classIncidence",
+          "private": false,
+          "protected": false,
+          "line": 179,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.weightedSupportIncidence_eq_classIncidence",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "classDiagonal_le_classIncidence_add_sixShifted",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.classDiagonal_le_classIncidence_add_sixShifted",
+          "private": false,
+          "protected": false,
+          "line": 211,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.classDiagonal_le_classIncidence_add_sixShifted",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "shiftedIncidence_eq_multiplicity_add_novelty",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.shiftedIncidence_eq_multiplicity_add_novelty",
+          "private": false,
+          "protected": false,
+          "line": 247,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.shiftedIncidence_eq_multiplicity_add_novelty",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "shiftedIncidence_eq_multiplicity_add_novelty_of_sub",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.shiftedIncidence_eq_multiplicity_add_novelty_of_sub",
+          "private": false,
+          "protected": false,
+          "line": 257,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.shiftedIncidence_eq_multiplicity_add_novelty_of_sub",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "weightedCoordinateMoment_le_ownerLargeTail",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.weightedCoordinateMoment_le_ownerLargeTail",
+          "private": false,
+          "protected": false,
+          "line": 266,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.weightedCoordinateMoment_le_ownerLargeTail",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pairCatalogue_doubleCount",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.pairCatalogue_doubleCount",
+          "private": false,
+          "protected": false,
+          "line": 283,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.pairCatalogue_doubleCount",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "targetCharge_le_pairCatalogue",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.targetCharge_le_pairCatalogue",
+          "private": false,
+          "protected": false,
+          "line": 307,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.targetCharge_le_pairCatalogue",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "inversePeriodWeight_eq_captureRatio",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.inversePeriodWeight_eq_captureRatio",
+          "private": false,
+          "protected": false,
+          "line": 337,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.inversePeriodWeight_eq_captureRatio",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "tripleInversePeriod_factorization",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.tripleInversePeriod_factorization",
+          "private": false,
+          "protected": false,
+          "line": 348,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.tripleInversePeriod_factorization",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "subcritical_periodOne_numeric_certificate",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.subcritical_periodOne_numeric_certificate",
+          "private": false,
+          "protected": false,
+          "line": 361,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.subcritical_periodOne_numeric_certificate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "subcritical_commonLabel_fibre_classification",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.subcritical_commonLabel_fibre_classification",
+          "private": false,
+          "protected": false,
+          "line": 379,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.subcritical_commonLabel_fibre_classification",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "subcritical_fibrePoints_arithmetic_certificate",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.subcritical_fibrePoints_arithmetic_certificate",
+          "private": false,
+          "protected": false,
+          "line": 401,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.subcritical_fibrePoints_arithmetic_certificate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "subcritical_periodOne_totientWeight",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.subcritical_periodOne_totientWeight",
+          "private": false,
+          "protected": false,
+          "line": 424,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.subcritical_periodOne_totientWeight",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "subcritical_weightRatio_certificate",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.subcritical_weightRatio_certificate",
+          "private": false,
+          "protected": false,
+          "line": 433,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.subcritical_weightRatio_certificate",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "reducedPeriodEulerCorrection_counterexample",
+          "name": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.reducedPeriodEulerCorrection_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 440,
+          "reportedConstant": "IUTThreeClosures.AffineInversePeriodCatalogueNovelty20260902.reducedPeriodEulerCorrection_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "PellLucasFactorQuotientProjectiveCoupling20260902",
+      "path": "Lean/IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean",
+      "bytes": 21466,
+      "sha256": "f09ad72d53d396dfb1e7e0f1f009e3243dd57145257bfc3f23cc0c6bbdb0559d",
+      "counts": {
+        "theorem": 24,
+        "lemma": 0,
+        "def": 4,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 28,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "tripleCarrier_coefficients",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.tripleCarrier_coefficients",
+          "private": false,
+          "protected": false,
+          "line": 36,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.tripleCarrier_coefficients",
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "positiveCarrier_minimal_coefficients",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.positiveCarrier_minimal_coefficients",
+          "private": false,
+          "protected": false,
+          "line": 52,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.positiveCarrier_minimal_coefficients",
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "negativeCarrier_minimal_coefficients",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.negativeCarrier_minimal_coefficients",
+          "private": false,
+          "protected": false,
+          "line": 61,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.negativeCarrier_minimal_coefficients",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "companionJets_difference_exact",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionJets_difference_exact",
+          "private": false,
+          "protected": false,
+          "line": 93,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionJets_difference_exact",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "companionJets_modEq_of_completeThirdOrderLedger",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionJets_modEq_of_completeThirdOrderLedger",
+          "private": false,
+          "protected": false,
+          "line": 105,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionJets_modEq_of_completeThirdOrderLedger",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "completeThirdOrderLedger_modEllCube_of_companionJets",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.completeThirdOrderLedger_modEllCube_of_companionJets",
+          "private": false,
+          "protected": false,
+          "line": 133,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.completeThirdOrderLedger_modEllCube_of_companionJets",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "jetEquality_losesEight_counterexample",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.jetEquality_losesEight_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 169,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.jetEquality_losesEight_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "companionAJet_modEq",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionAJet_modEq",
+          "private": false,
+          "protected": false,
+          "line": 178,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionAJet_modEq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "companionBJet_modEq",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionBJet_modEq",
+          "private": false,
+          "protected": false,
+          "line": 215,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionBJet_modEq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "companionAJet_of_factorProduct",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionAJet_of_factorProduct",
+          "private": false,
+          "protected": false,
+          "line": 253,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionAJet_of_factorProduct",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "companionBJet_of_factorProduct",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionBJet_of_factorProduct",
+          "private": false,
+          "protected": false,
+          "line": 267,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionBJet_of_factorProduct",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "twoChannel_companionJets",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.twoChannel_companionJets",
+          "private": false,
+          "protected": false,
+          "line": 280,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.twoChannel_companionJets",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "endpointProjectiveCurvature_exact",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointProjectiveCurvature_exact",
+          "private": false,
+          "protected": false,
+          "line": 299,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointProjectiveCurvature_exact",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "endpointCurvature_modEq_of_companion",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointCurvature_modEq_of_companion",
+          "private": false,
+          "protected": false,
+          "line": 318,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointCurvature_modEq_of_companion",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "normIdentity_gives_companion_coprime",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.normIdentity_gives_companion_coprime",
+          "private": false,
+          "protected": false,
+          "line": 326,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.normIdentity_gives_companion_coprime",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "endpointCurvature_coprime",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointCurvature_coprime",
+          "private": false,
+          "protected": false,
+          "line": 346,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointCurvature_coprime",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "endpointProjectiveModulus_sharp",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointProjectiveModulus_sharp",
+          "private": false,
+          "protected": false,
+          "line": 355,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointProjectiveModulus_sharp",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "endpointProjectiveCurvature_and_sharpness",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointProjectiveCurvature_and_sharpness",
+          "private": false,
+          "protected": false,
+          "line": 385,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointProjectiveCurvature_and_sharpness",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "localLedgerCounterexample_arithmetic",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.localLedgerCounterexample_arithmetic",
+          "private": false,
+          "protected": false,
+          "line": 411,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.localLedgerCounterexample_arithmetic",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "localLedgerCounterexample_characterPowers",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.localLedgerCounterexample_characterPowers",
+          "private": false,
+          "protected": false,
+          "line": 438,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.localLedgerCounterexample_characterPowers",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexSeven_factorQuotientTriples",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.indexSeven_factorQuotientTriples",
+          "private": false,
+          "protected": false,
+          "line": 445,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.indexSeven_factorQuotientTriples",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexSeven_companionAndCurvatureJets",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.indexSeven_companionAndCurvatureJets",
+          "private": false,
+          "protected": false,
+          "line": 453,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.indexSeven_companionAndCurvatureJets",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexSeven_endpointDeterminant",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.indexSeven_endpointDeterminant",
+          "private": false,
+          "protected": false,
+          "line": 461,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.indexSeven_endpointDeterminant",
+          "axioms": [
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "indexSeven_refutes_endpointCubeDivisibility",
+          "name": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.indexSeven_refutes_endpointCubeDivisibility",
+          "private": false,
+          "protected": false,
+          "line": 480,
+          "reportedConstant": "IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.indexSeven_refutes_endpointCubeDivisibility",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "totals": {
+    "theorem": 102,
+    "lemma": 0,
+    "def": 18,
+    "abbrev": 1,
+    "structure": 2,
+    "class": 0,
+    "inductive": 0,
+    "instance": 0,
+    "countedDeclarations": 123,
+    "proofDeclarations": 102,
+    "privateProofDeclarations": 0,
+    "axiomReports": 102
+  },
+  "axiomUnion": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ]
+}

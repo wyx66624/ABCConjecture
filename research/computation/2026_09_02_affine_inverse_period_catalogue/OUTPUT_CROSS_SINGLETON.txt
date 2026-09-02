@@ -1,0 +1,253 @@
+{
+  "parameters": {
+    "B": 3,
+    "C": 4,
+    "R": 6,
+    "M": 170,
+    "N": 169,
+    "N_squared": 28561
+  },
+  "full_box_admissible_points": 26399,
+  "common_label": [
+    1,
+    289,
+    121
+  ],
+  "common_product": 34969,
+  "fibre_points": [
+    [
+      37,
+      75
+    ],
+    [
+      138,
+      122
+    ]
+  ],
+  "arms": [
+    [
+      223,
+      2023,
+      1573
+    ],
+    [
+      829,
+      3757,
+      3025
+    ]
+  ],
+  "arm_factorizations": [
+    [
+      [
+        [
+          223,
+          1
+        ]
+      ],
+      [
+        [
+          7,
+          1
+        ],
+        [
+          17,
+          2
+        ]
+      ],
+      [
+        [
+          11,
+          2
+        ],
+        [
+          13,
+          1
+        ]
+      ]
+    ],
+    [
+      [
+        [
+          829,
+          1
+        ]
+      ],
+      [
+        [
+          13,
+          1
+        ],
+        [
+          17,
+          2
+        ]
+      ],
+      [
+        [
+          5,
+          2
+        ],
+        [
+          11,
+          2
+        ]
+      ]
+    ]
+  ],
+  "kernel_classes": [
+    [
+      1,
+      289,
+      121
+    ],
+    [
+      1,
+      289,
+      3025
+    ]
+  ],
+  "class_multiplicities": [
+    1,
+    1
+  ],
+  "primitive_direction": [
+    101,
+    47
+  ],
+  "direction_coefficients": [
+    101,
+    289,
+    242
+  ],
+  "L": 101,
+  "H": 1,
+  "capture_factors": [
+    1,
+    289,
+    121
+  ],
+  "capture": 34969,
+  "period": 1,
+  "class_large_catalogues": [
+    [
+      [
+        [
+          1,
+          289,
+          121
+        ],
+        29920
+      ]
+    ],
+    [
+      [
+        [
+          1,
+          17,
+          3025
+        ],
+        35200
+      ],
+      [
+        [
+          1,
+          289,
+          121
+        ],
+        29920
+      ],
+      [
+        [
+          1,
+          289,
+          275
+        ],
+        54400
+      ],
+      [
+        [
+          1,
+          289,
+          605
+        ],
+        119680
+      ],
+      [
+        [
+          1,
+          289,
+          3025
+        ],
+        598400
+      ]
+    ]
+  ],
+  "class_tails_L": [
+    29920,
+    837600
+  ],
+  "union_labels": [
+    {
+      "label": [
+        1,
+        17,
+        3025
+      ],
+      "weight": 35200,
+      "occupancy": 1
+    },
+    {
+      "label": [
+        1,
+        289,
+        121
+      ],
+      "weight": 29920,
+      "occupancy": 2
+    },
+    {
+      "label": [
+        1,
+        289,
+        275
+      ],
+      "weight": 54400,
+      "occupancy": 1
+    },
+    {
+      "label": [
+        1,
+        289,
+        605
+      ],
+      "weight": 119680,
+      "occupancy": 1
+    },
+    {
+      "label": [
+        1,
+        289,
+        3025
+      ],
+      "weight": 598400,
+      "occupancy": 1
+    }
+  ],
+  "W": 837600,
+  "W_singleton": 807680,
+  "W_repeated": 29920,
+  "I": 867520,
+  "J": 29920,
+  "E": 1047040,
+  "E_shifted": 29920,
+  "S_non": 29920,
+  "sum_D_m_ge_2": 0,
+  "sum_L_m_ge_2": 0,
+  "false_claims": {
+    "S_le_sum_D_over_classes_with_m_ge_2": false,
+    "S_le_sum_L_over_classes_with_m_ge_2": false,
+    "J_le_sum_D_times_m_minus_1": false,
+    "repeated_label_requires_a_class_with_m_ge_2": false
+  }
+}
+PASS: canonical M=170 cross-singleton repeated-label witness

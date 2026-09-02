@@ -21,6 +21,56 @@ community acceptance, and a finite counterexample search with no hit are not
 grounds for retirement.  Positive proof construction and counterexample search
 must therefore continue in parallel for every unrefuted route.
 
+## September 2, 2026 actual-Haar, sigma-one, catalogue-novelty, and endpoint-curvature checkpoint
+
+Standard `ABCConjecture` remains open in both directions.  Each parent route
+below is active.  Every listed witness retires only the stronger statement for
+which it satisfies all premises.
+
+- **IUT actual-Haar normalization:** active.  Genuine finite-positive Haar
+  regions, compact-open scalar preimages, the uniformizer orbit, and the exact
+  local-degree correction are constructed.  The unramified-quadratic witness
+  retires only raw ordinary-weight normalization.  Actual tensor/place
+  realization, Ind1--Ind3/theta transport, and same-pilot comparison are live.
+  Ledger and Lean core:
+  `../research/ABC_IUT_ACTUAL_HAAR_ADMISSIBLE_ORBIT_2026_09_02.md` and
+  `IUTThreeClosures/IUTActualHaarAdmissibleOrbit20260902.lean`.
+- **Mersenne sigma-one exact-order coupling:** active.  Weighted
+  Brun--Titchmarsh closes the low one-copy arm; Farey energy and stable lifting
+  isolate two exact endpoint estimates.  The fully certified `1093` and `3511`
+  windows retire pointwise arm domination and the all-`m` cutoff strengthening
+  only.  The finite scan through `10^9` does not retire either asymptotic gate.
+  Ledger and Lean core:
+  `../research/ABC_MERSENNE_SIGMA_ONE_EXACT_ORDER_COUPLING_2026_09_02.md` and
+  `IUTThreeClosures/MersenneSigmaOneExactOrderCoupling20260902.lean`.
+- **Affine inverse-period catalogue novelty:** active.  Sharp incidence
+  bridges, exact singleton cancellation, novelty/multiplicity exchange,
+  pairwise Euler structure, the powerful-excess filter, and the support
+  skeleton are retained.  Period-one witnesses retire only incidence-only
+  strict savings, deletion of the reduced-period Euler correction, and the
+  corresponding stronger singleton assertions.  Ownership-preserving maximal
+  powerful-subcatalogue aggregation is the live gate.  Ledger and Lean core:
+  `../research/ABC_AFFINE_INVERSE_PERIOD_CATALOGUE_NOVELTY_2026_09_02.md` and
+  `IUTThreeClosures/AffineInversePeriodCatalogueNovelty20260902.lean`.
+- **Pell--Lucas factor quotient/projective curvature:** active.  The complete
+  ledger reads the companion jet only in the proved direction, and the exact
+  endpoint determinant has sharp modulus `U^2`.  R3 retires the reverse jet
+  implication, L3 retires local-ledger inconsistency without global Pell
+  realization, and actual index seven retires universal `U^3` divisibility
+  without furnishing a squarefull packet.  The global negative-Pell,
+  squarefull, character-incidence coupling remains live.  Ledger and Lean core:
+  `../research/ABC_PELL_LUCAS_FACTOR_QUOTIENT_PROJECTIVE_COUPLING_2026_09_02.md`
+  and
+  `IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean`.
+
+The modules add 102 theorems, 18 definitions, two structures, and one
+abbreviation.  Their 102 one-for-one axiom queries use only `propext`,
+`Classical.choice`, and `Quot.sound`; every direct warning-as-error check and
+the 9,239-job aggregate build pass.  The replay package is
+`verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/`.  These
+are local closure and obstruction results, not an unconditional proof or
+disproof of abc.
+
 ## September 2, 2026 signed-ray, critical-slow-slack, correlated-Lucas, and admissible-index checkpoint
 
 Standard `ABCConjecture` remains open in both directions.  Each route below is

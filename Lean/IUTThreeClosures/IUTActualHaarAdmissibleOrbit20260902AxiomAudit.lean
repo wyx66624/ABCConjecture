@@ -1,0 +1,37 @@
+import IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902
+
+open IUTThreeClosures.IUTActualHaarAdmissibleOrbit20260902
+
+#print axioms preimage_mul_eq_inv_smul
+#print axioms mulPreimageRegion
+#print axioms mulPreimageRegion_measure
+#print axioms mulPreimageRegion_logVolume
+#print axioms unitMulPreimageScalingLaw
+#print axioms HaarCompactOpenRegion.mulPreimage
+#print axioms HaarCompactOpenRegion.mulPreimage_logVolume
+#print axioms mulPreimageRegion_unitScaled
+#print axioms unitScaledFinitePositiveRegion_logVolume
+#print axioms unitScaledFinitePositiveRegion_closure_compact
+#print axioms unitScaledFinitePositiveRegion_isOpen
+#print axioms unitScaledFinitePositiveRegion_nonempty
+#print axioms unitScaledHaarCompactOpenRegion
+#print axioms HaarCompactOpenRegion.mulPreimage_unitScaled
+#print axioms log_distribHaarChar_integerUnit_inv
+#print axioms distribHaarChar_eq_one_of_norm_eq_one
+#print axioms distribHaarChar_primeScalar
+#print axioms log_distribHaarChar_primeScalar_inv
+#print axioms primeScalarPreimage_logVolume
+#print axioms primeScalarPreimage_normalizedLogVolume
+#print axioms uniformizerPreimageScalingLaw
+#print axioms uniformizerExpandedBall_succ
+#print axioms uniformizerExpandedBall_logVolume
+#print axioms residueCard_one_lt
+#print axioms uniformizerExpandedBall_injective
+#print axioms uniformizerExpandedBall_no_finitePositive_envelope
+#print axioms product_uniformizerPreimage_logVolume
+#print axioms weighted_uniformizerPreimage_logVolume
+#print axioms weighted_residueDegree_shift_eq_log_prime
+#print axioms weighted_uniformizerPreimage_logVolume_eq_add_log_prime
+#print axioms weighted_normalized_primeScalarPreimage
+#print axioms weight_sum_one_not_sufficient
+#print axioms padic_residueCard

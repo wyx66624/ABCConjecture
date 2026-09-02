@@ -7,6 +7,55 @@ Arakelov--Vojta、Frey--Szpiro、S-unit 与算术微分等路线中的真实组�
 严格反例及剩余核心缺口均在
 [`Lean/RESEARCH_STATUS.md`](Lean/RESEARCH_STATUS.md) 中逐项区分。
 
+## 2026-09-02 最新四路线检查点：actual Haar、sigma-one、catalogue novelty 与 endpoint curvature
+
+标准、无条件的 `ABCConjecture` 仍未被证明或证伪。本检查点继续并行推进
+正向证明与完整前提反例搜索；路线困难和有限无命中不构成淘汰理由，反例只
+关闭它严格满足全部假设的具体命题。四条母路线均保持 active。统一数学账本见
+[`四路线综合报告`](research/ABC_MULTI_ROUTE_ACTUAL_HAAR_SIGMA_ONE_CATALOGUE_CURVATURE_2026_09_02.md)，
+两次独立对抗审计分别见
+[`总检查点审计`](research/ABC_CHECKPOINT_ADVERSARIAL_AUDIT_2026_09_02.md)和
+[`仿射/Pell 审计`](research/ABC_AFFINE_PELL_ADVERSARIAL_AUDIT_2026_09_02.md)。
+
+- **IUT actual-Haar 路线。** 已在真实非阿基米德加法 Haar 测度上证明
+  finite-positive 区域对所有非零标量逆像封闭，并构造 compact-open
+  uniformizer 的无限、单射、无有限正测度公共包络轨道。对有理素数的原始
+  位移是 `ef log p`；除以局部次数 `ef` 后才成为 `log p`。非分歧二次分量
+  完整否定“只令权重和为一便足够”的原始版本，但不否定修正后的分量归一化。
+  尚需实际 tensor/place 统一实现、Ind1--Ind3/theta 运输与 same-pilot 比较。
+- **Mersenne sigma-one 路线。** 加权 Brun--Titchmarsh 在论文层无条件关闭
+  endpoint 的低 one-copy 臂；另一低臂精确归约为 exact-order Farey energy
+  `E_k(m)=o(log m)`，两个剩余臂又由 stable prime-power layers 合并为一个
+  明确的公共质量目标。穷尽全部 50,847,534 个 `p≤10^9` 的素数只得到
+  `1093,3511` 两个 depth-two 命中；它们严格否定若干 pointwise 加强，不能
+  外推否定仍开放的渐近目标。
+- **Affine catalogue-novelty 路线。** 已证最优 incidence 常数 6、3、8，
+  singleton baseline 精确消去；建立 `J=A1+Ω`、pair-kernel Euler product、
+  三项 hybrid tail bound、powerful-excess filter 与 support skeleton。
+  一个满足 `R<C` 的实际双-singleton period-one packet 达到
+  `w/S=23392/23701`，否定只由 `R<C`、singleton 或 `T≥1` 推出严格节省。
+  剩余门是带 ownership 聚合 divisibility-maximal powerful-intersection tops。
+- **Pell--Lucas curvature 路线。** 伴随 jets 与三阶 ledger 的精确差公式显示
+  反向恢复会损失因子 8；端点 determinant 满足
+  `Delta_top=2v*32^(ell-1)*U^2` 且商与 `U` 互素，因此 `U^2` 严格最优。
+  系数反例、局部 `(ell,q,r)=(3,7,797)` 反例和实际 `ell=7` 反例只分别关闭
+  reverse-jet、local-inconsistency 与 `U^3` 加强。57 个奇素数指标至 271
+  有一次素因子证书，这只是有限非-squarefull 定理；全局 negative-Pell
+  realization 与完整 character packet 的耦合仍开放。
+
+四个新 Lean 模块含 102 个 theorem、18 个 definition、2 个 structure 与
+1 个 abbreviation，共 123 个声明。102 次一一对应的 `#print axioms` 依赖
+并集仅为 `Classical.choice`、`Quot.sound`、`propext`；全部直接
+`warningAsError` 编译通过，聚合目标完成 9,239 jobs。它们没有构造无条件
+`ABCConjecture` 或否定项。
+
+作者为 ChatGPT 的 202 页英文期刊稿已重新编译为
+[`output/pdf/ChatGPT_ABC_Uniformity_2026.pdf`](output/pdf/ChatGPT_ABC_Uniformity_2026.pdf)，
+SHA-256 为
+`cbe3693431fd9f969531fa8c7a0669e3afe1c8cd29aa36a2c1af497f1024451f`；
+完整编译、结构、文字与逐页视觉检查记录位于
+[`本轮 PDF QA 目录`](output/pdf/ChatGPT_ABC_ActualHaar_SigmaOne_Catalogue_Curvature_2026_09_02_QA/)。
+
 ## 2026-09-02 最新四路线检查点：signed-ray、critical slow-slack、correlated Lucas 与 admissible index
 
 标准、无条件的 `ABCConjecture` 仍未被证明或证伪。本检查点继续把正向证明

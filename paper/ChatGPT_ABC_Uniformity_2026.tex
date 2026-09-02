@@ -43,84 +43,44 @@ in Approaches to the $abc$ Conjecture}
 local lattices, formal verification}
 
 \begin{document}
-\begin{abstract}
-We develop and formally audit several proof and counterexample routes toward
-the standard $abc$ conjecture, which is neither proved nor disproved here.
-Exact prime-support identities, mixed-full radical formulas, and a
-subcritical-locus equivalence isolate uniform height estimates that would
-imply $abc$.  In the opposite direction, explicit Pell, Hall, Danilov, and
-powerful-value constructions reduce a disproof to stated infinitude or
-radical-growth hypotheses; none of those hypotheses is presently proved.
+\begin{abstract}\sloppy
+We develop proof reductions, obstruction theorems, and formally checked finite
+certificates for several routes toward the standard $abc$ conjecture.  The
+conjecture is neither proved nor disproved here.  Our common method is to
+separate a global uniformity statement from its local algebraic and
+combinatorial inputs, prove the latter before formalization, and test every
+proposed strengthening against all of its hypotheses.  Exact prime-support
+identities and radical formulas isolate sufficient height and counting gates;
+explicit Pell, affine, Mersenne, and local-field examples delimit claims that
+those gates alone can support.
 
-The newest results sharpen four active interfaces.  Along a nonconstant
-nonnegative affine ray, a common arm-divisor label has an exact reduced
-period.  The period and the direction-captured part multiply to the label
-product.  Above the square of the ambient span this gives a cube-root fibre
-cap and a weighted cubic-energy bound with optimal integer conversion
-constant four.  A canonical four-point example attains the correct period
-cap and refutes only the stronger assertion that the whole label product is
-itself a period.  Vertical and signed arm-level directions remain explicit
-separate gates.
+The newest results concern four active interfaces.  For a nonarchimedean local
+field, finite-positive additive-Haar regions are stable under scalar preimage,
+compact-open uniformizer balls form an injective unbounded orbit, and the raw
+rational-prime shift is $ef\log p$.  Division by the local degree $ef$ is
+therefore essential for a packet shift of $\log p$.  At the Mersenne endpoint
+$\sigma=1$, a weighted Brun--Titchmarsh argument makes the low one-copy
+exact-order mass $o(m)$; stable lifting and slope injection reduce the other
+contributions to an exact-order Farey-energy estimate and a common
+prime-power-mass estimate.  In the affine route, sharp incidence inequalities
+cancel singleton classes exactly, while pairwise inverse periods retain an
+explicit Euler product and a three-way tail bound.  In the Pell--Lucas route,
+factor-quotient jets read the third-order ledger in one direction, and the
+highest adjacent projective determinant is exactly
+$2v32^{\ell-1}U^2$ with quotient coprime to $U$, proving that the modulus
+$U^2$ is sharp.
 
-For the Mersenne endpoint, an exact-order prime has the injective integral
-multiplier $(p-1)/\ord_p(2)$.  This controls all one-copy repeated-prime mass
-below $d^2/(\log(3m)(\log\log(3m))^2)$ in every fixed polylogarithmic divisor
-window.  Consequently a failed endpoint has only two remaining linear-mass
-alternatives: deep lifts or Wieferich-weighted primes whose order is below a
-moving $p^{1/2+o(1)}$ threshold.  Every coefficient below $1/2$ is forced,
-and $1/2$ is the sharp ceiling of the exact two-arm ledger.  Existing global
-almost-all order theorems do not supply the required localized weighted
-estimate.
-
-For a hypothetical squarefull balancing-Pell packet at odd prime index
-$\ell$, both coordinates compress to nontrivial squarefree odd-exponent
-kernels times squares.  The kernels satisfy complete mod-eight and
-mod-$2\ell$ tables, an index--kernel Jacobi triangle, and a new third-order
-quotient congruence modulo $8\ell^3$.  An independently replayed search gives
-simple-divisor certificates at every odd prime index through $191$, while
-all bounded unresolved rows remain open and are not extrapolated.
-
-Finally, the rational tripod admits an exact degree-one shadow height theory
-whose height and radical comparisons have error zero.  Statement~I for this
-shadow is equivalent, in both directions, to the integer
-\texttt{ABCConjecture}; the construction therefore identifies the semantic
-target without proving it.  Three full-premise models show separately that
-the current bare interface does not force degree realization, a uniform
-height normalization, or a uniform radical normalization for an intended
-arithmetic theory.  Lean companions verify all stated finite algebra,
-transfer theorems, and counterexamples without proof placeholders; unproved
-analytic and geometric inputs remain explicit.
-
-The present continuation advances all four interfaces without identifying a
-terminal theorem.  The actual affine downward catalogue has total totient
-weight exactly equal to its kernel product, and identifying coincident divisor
-labels can only raise the cubic incidence energy; singleton novelty, signed
-ray caps, and arm-level bounds remain.  For Mersenne numbers, every fixed
-positive log-log slack gives a valid one-copy cutoff, strictly sharper than the preceding one
-when the slack is below one, while Yamada's pointwise valuation bound makes
-the deep mass below a growing multiplier threshold negligible.  In the Pell
-packet, Zhang's
-all-orders Lucas formula yields an exact support-unit valuation staircase and
-a paired companion splitter for the two channels.  A complete recurrence
-certificate refutes only fixed-zero one-channel rigidity.  Finally, the
-genuine rational degree-one source has the standard height and truncated
-conductor up to bounded discrepancy and zero different, so its restricted
-Statement~I is again exactly equivalent to $abc$; the required upstream
-Statement~I remains open.
-
-The September 2 continuation treats signed affine rays and all three
-constant-arm directions, reduces their global cubic energy to explicit
-catalogue moments and one inverse-period sum, compresses the Mersenne gate
-beyond every fixed positive log-log power, and correlates both Pell--Lucas
-staircases at every order; certified simple divisors exclude squarefull
-packets at every odd prime index through $271$ without extrapolation.  At the
-current Project LANA source, a
-new curve-input existence theorem is conditional on explicit providers.  The
-all-set volume shift is refuted by the empty set, while an admissible-domain
-repair compiles both upstream targets.  An exact congruence-order quotient
-retains the finite integral index.  Only the overbroad interfaces and named
-strengthenings are retired; every corrected parent route remains active.
-
+Full-premise counterexamples retire only raw weight normalization, several
+pointwise Mersenne and incidence-only affine strengthenings, the reverse
+jet-to-ledger implication, local-ledger inconsistency without global Pell
+realization, and universal $U^3$ determinant divisibility.  Exhaustive finite
+searches through $p\le10^9$ in the Mersenne packet and through odd prime index
+$271$ in the Pell packet are recorded without asymptotic extrapolation.  Lean
+companions check $102$ theorems in this checkpoint; one-for-one dependency
+audits use only \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}.  The remaining tensor comparison, Farey energy, affine
+intersection aggregation, and global squarefull Pell realization are stated
+explicitly and remain open.
 \end{abstract}
 \maketitle
 
@@ -298,6 +258,16 @@ incidence and certified finite exclusion through prime index $271$.
 Section~\ref{sec:iut-admissible-scaling-order-index} audits the current public
 IUT source, compiles an admissible-domain quantifier repair, and proves the
 exact finite index of a congruence order with surjective component projections.
+Section~\ref{sec:iut-actual-haar-admissible-orbit} realizes the repaired local
+domain with actual Haar measure, derives the local-degree packet coefficient,
+and isolates the still-unconstructed tensor and same-pilot steps.
+Section~\ref{sec:affine-inverse-period-catalogue} cancels the singleton
+incidence baseline and gives exact Euler and tail bounds for pairwise
+inverse-period catalogues.
+Section~\ref{sec:pell-factor-quotient-projective} joins the quotient ledger to
+the all-order Lucas system and computes its sharp endpoint curvature.
+Section~\ref{sec:mersenne-sigma-one-exact-order} closes one critical endpoint
+arm and identifies the exact-order Farey-energy obstruction for the other.
 No priority over existing literature is
 claimed for consequences of the cited classical theorems.
 
@@ -1046,6 +1016,7 @@ logarithmic-form methods to a different family.
 \input{iut_rational_tripod_shadow_comparison_2026}
 \input{iut_rational_degree_one_source_realization_2026}
 \input{iut_admissible_scaling_order_index_2026}
+\input{iut_actual_haar_admissible_orbit_2026}
 
 \input{affine_two_arm_crt_2026}
 
@@ -1057,11 +1028,13 @@ logarithmic-form methods to a different family.
 \input{affine_collinear_period_energy_2026}
 \input{affine_catalogue_weight_overlap_2026}
 \input{affine_signed_ray_canonical_caps_2026}
+\input{affine_inverse_period_catalogue_novelty_2026}
 
 \input{pell_residue_parity_localization_2026}
 \input{pell_odd_kernel_third_order_packet_2026}
 \input{pell_lucas_all_order_staircase_2026}
 \input{pell_lucas_correlated_all_order_exclusion_2026}
+\input{pell_factor_quotient_projective_coupling_2026}
 
 \input{mersenne_prime_layer_radical_2026}
 
@@ -1076,6 +1049,7 @@ logarithmic-form methods to a different family.
 \input{mersenne_multiplier_index_two_arm_2026}
 \input{mersenne_balanced_multiplier_depth_localization_2026}
 \input{mersenne_critical_slow_slack_2026}
+\input{mersenne_sigma_one_exact_order_coupling_2026}
 
 \raggedbottom
 \section{Formal verification and remaining obligations}\label{sec:formal}
@@ -1383,6 +1357,22 @@ multiplier certificate at $1093$.\\[3pt]
 coefficient correlation, exact weighted tail identity, coherent every-order
 splitters, cross-order determinant, sixth-power channel signs, negative-row
 extraction, and quartic-two power algebra.\\[3pt]
+\texttt{IUTActualHaarAdmissible\allowbreak Orbit20260902} & Actual normalized
+additive Haar preimages on finite-positive and compact-open regions,
+uniformizer orbit and no-envelope theorem, local-degree packet normalization,
+the raw-weight coefficient counterexample, and the $\Q_p$ residue cardinality.\\[3pt]
+\texttt{AffineInversePeriodCatalogue\allowbreak Novelty20260902} & Optimal
+incidence-plus-shift inequalities, exact finite class-incidence exchange,
+multiplicity/novelty identities, owner-tail and pair-catalogue double counts,
+inverse-period capture algebra, and complete finite period-one certificates.\\[3pt]
+\texttt{PellLucasFactorQuotientProjective\allowbreak Coupling20260902} &
+Depth-three quotient fingerprints, two companion jets, exact endpoint
+curvature and $U^2$ sharpness, together with the local-ledger and genuine
+index-seven counterexamples.\\[3pt]
+\texttt{MersenneSigmaOneExactOrder\allowbreak Coupling20260902} & Common-index
+slope injection, exact Farey first-moment identities, stable prime-power
+order layers, cutoff and two-arm ledgers, and the finite $1093$ and $3511$
+certificates; no analytic limit is asserted in Lean.\\[3pt]
 \bottomrule
 \end{longtable}
 
@@ -1607,6 +1597,22 @@ kernel catalogue union; the recorded $972{,}496>1{,}072$ witness prevents an
 invalid all-divisor enlargement.  No bounded no-hit, source-interface repair,
 or local formal theorem is promoted to an unconditional proof or disproof of
 $abc$.
+
+The actual-Haar, sigma-one, catalogue-novelty, and endpoint-curvature
+checkpoint adds four modules with $102$ theorem declarations, $18$
+definitions, two structures, and one abbreviation, for $123$ counted
+declarations.  Same-scope audits issue exactly $102$
+\texttt{\#print axioms} queries, one for every theorem; their dependency
+union is exactly \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}.  All four direct warning-as-error compilations and both
+separate audit modules pass, and the aggregate target completes $9239$ jobs.
+The finite replays check the actual local-degree normalization witness, all
+$50{,}847{,}534$ primes through $10^9$, six affine catalogue boxes and every
+recorded full-premise witness, and exponent-one certificates at all $57$ odd
+prime Pell indices through $271$.  The weighted Brun--Titchmarsh and
+Yamada-type analytic inputs, the tensor/same-pilot realization, the final
+affine intersection aggregation, and the global squarefull Pell exclusion
+remain outside Lean and are not introduced as axioms.
 
 The formal scope is deliberately narrower than the full paper.
 Theorem~\ref{thm:tail} and Corollary~\ref{cor:carella} use Younis and classical

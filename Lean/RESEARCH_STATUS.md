@@ -10,6 +10,67 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
+## September 2, 2026 actual-Haar, sigma-one, catalogue-novelty, and endpoint-curvature checkpoint
+
+The standard unconditional `ABCConjecture` remains unproved and undisproved.
+Positive proof construction and full-premise counterexample search continue in
+parallel.  Difficulty, an unavailable formalization, and finite no-hit data do
+not retire a route.  A counterexample retires only the exact statement whose
+complete hypotheses it satisfies; all four corrected parent routes remain
+active.
+
+- **IUT-facing actual Haar route:** active.  Finite-positive measurable regions
+  are closed under every nonzero scalar preimage with the exact logarithmic
+  Haar shift.  Compact-open uniformizer balls form an injective unbounded orbit
+  and admit no finite-positive common envelope.  At a rational prime the raw
+  shift is `e*f*log p`; component normalization by the local degree produces
+  `log p`.  An unramified quadratic component is a full arithmetic
+  counterexample only to ordinary weight normalization without this division.
+  Uniform tensor/place realization, the tensor admissible class, Ind1--Ind3 and
+  theta transport, and same-pilot comparison remain open.
+- **Mersenne exact-order endpoint at sigma one:** active.  Weighted
+  Brun--Titchmarsh closes the low one-copy arm at paper level.  The second low
+  arm is reduced to the exact-order Farey-energy estimate
+  `E_k(m)=o(log m)`, and stable prime-power lifting packages the two surviving
+  arms into one explicit common-mass target.  The exhaustive scan of all
+  50,847,534 primes through `10^9` finds only the depth-two rows `1093` and
+  `3511`.  Certified endpoint windows use them to retire pointwise domination
+  and an all-`m` multiplier-cutoff strengthening, not either asymptotic target.
+- **Affine incidence and inverse-period catalogues:** active.  Optimal
+  incidence constants six, three, and eight, exact singleton cancellation,
+  `J=A1+Omega`, the pair-kernel Euler product, a three-way hybrid tail bound,
+  the powerful-excess filter, and the class-support skeleton are proved at
+  their stated paper/Lean boundaries.  An actual `R<C` period-one two-singleton
+  packet reaches the exact common-tail skeleton mass and retires any strict
+  saving derived only from `R<C`, singleton support, or `T>=1`.  The live gate
+  is an ownership-preserving aggregation of divisibility-maximal powerful
+  intersection tops.
+- **Pell--Lucas factor quotients and endpoint curvature:** active.  The exact
+  jet/ledger difference proves a one-way readout and shows that the converse
+  loses a factor eight.  The endpoint determinant is exactly
+  `2*v*32^(ell-1)*U^2`, with quotient coprime to `U`, so `U^2` is sharp.  A
+  coefficient witness, the full local packet `(ell,q,r)=(3,7,797)`, and actual
+  Pell index `ell=7` retire only reverse-jet, local-ledger inconsistency, and
+  universal `U^3` divisibility.  The local packet is not a global Pell point;
+  the actual index-seven point is not squarefull.  Exponent-one certificates
+  prove finite nonsquarefullness at all 57 odd prime indices through 271 but
+  make no unbounded inference.
+
+The four modules contain 102 theorem declarations, 18 definitions, two
+structures, and one abbreviation, for 123 counted declarations.  Exactly 102
+same-scope `#print axioms` queries have dependency union `propext`,
+`Classical.choice`, and `Quot.sound`.  All direct warning-as-error compilations
+pass and `lake build IUTThreeClosures` completes 9,239 jobs.  The computation
+bundles replay the Haar normalization, the complete prime scan through `10^9`,
+all affine witnesses and six catalogue boxes, and the 57-index Pell table.
+External analytic inputs and the remaining global realization theorems are not
+inserted as axioms.  These results do not close abc in either direction.
+
+The mathematical ledger is
+`../research/ABC_MULTI_ROUTE_ACTUAL_HAAR_SIGMA_ONE_CATALOGUE_CURVATURE_2026_09_02.md`;
+the permanent replay package is
+`verification/2026_09_02_actual_haar_sigma_one_catalogue_curvature/`.
+
 ## September 2, 2026 signed-ray, critical-slow-slack, correlated-Lucas, and admissible-index checkpoint
 
 The standard unconditional `ABCConjecture` remains unproved and

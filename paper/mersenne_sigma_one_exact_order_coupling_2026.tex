@@ -1,0 +1,200 @@
+\section{Exact-order coupling at the Mersenne endpoint}
+\label{sec:mersenne-sigma-one-exact-order}
+
+We return to the fixed polylogarithmic co-divisor window.  Put
+\[
+ A_m=\log(3m),\qquad L_m=\log A_m,\qquad Q_m=A_m^k,
+\]
+where $k>0$ is fixed, and let
+\[
+ F_m=A_mL_m,\qquad
+ H_m=\left\lfloor\sqrt{A_m/L_m}\right\rfloor.
+\]
+For a prime $p$ of exact base-two order $d_p$, write
+\[
+ w_p=v_p(2^{d_p}-1),\qquad r_p=\frac{p-1}{d_p}.
+\]
+For $d\mid m$ with $q=m/d<Q_m$, split the repeated-prime mass as
+\[
+\begin{aligned}
+ U_d&=\sum_{\substack{d_p=d,\ w_p\ge2\\p\le d^2/F_m}}\log p,&
+ B_d&=\sum_{\substack{d_p=d,\ w_p\ge2\\p>d^2/F_m}}\log p,\\
+ V_d&=\sum_{\substack{d_p=d,\ w_p\ge3\\r_p<H_m}}(w_p-2)\log p,&
+ G_d&=\sum_{\substack{d_p=d,\ w_p\ge3\\r_p\ge H_m}}(w_p-2)\log p.
+\end{aligned}
+\tag{\ref{sec:mersenne-sigma-one-exact-order}.1}
+\]
+Their sum is exactly the logarithmic repeated-prime mass of the canonical
+$d$th exact-order block
+\[
+ E_d=\prod_{\ord_p(2)=d}p^{v_p(2^d-1)-1}.
+\]
+It need not equal the full radical loss of $2^d-1$, because that integer can
+also contain primes whose exact order properly divides $d$.  The
+earlier independent multiplier estimate reached only $O(m)$ when the slack
+parameter was set to one.  Summing primes with their congruence weights
+removes that endpoint loss.
+
+\begin{theorem}[The low one-copy arm at $\sigma=1$]
+\label{thm:mersenne-sigma-one-low-one-copy}
+For every fixed $k>0$,
+\[
+       \sum_{\substack{d\mid m\\m/d<Q_m}}U_d=o(m).
+\]
+\end{theorem}
+
+\begin{proof}
+For one divisor $d$, put $X=d^2/F_m$.  Every prime in $U_d$ is
+$1\pmod d$, hence
+\[
+ U_d\le\vartheta(X;d,1)
+ =\sum_{\substack{p\le X\\p\equiv1\pmod d}}\log p.
+\]
+The window gives $d>m/Q_m$.  Uniformly there, $d/F_m\to\infty$ and
+$F_m^2<d$ for sufficiently large $m$; the latter is equivalent to
+$d<X^{2/3}$.  The weighted Brun--Titchmarsh estimate
+\cite[Theorem~2.4]{MurtySeguin2019}, with the fixed exponent $2/3$, gives
+\[
+ \vartheta(X;d,1)
+ \le \frac{2X\log X}{\varphi(d)\log(X/d)}.
+\]
+Moreover $\log X\le2\log d$ and, uniformly in the window,
+$\log(X/d)=\log(d/F_m)\ge\tfrac12\log d$.  Consequently
+\[
+ U_d\ll\frac{d^2}{F_m\varphi(d)}.
+\]
+The uniform estimate $d/\varphi(d)\ll\log\log(3d)\ll L_m$ yields
+$U_d\ll d/A_m$.  On writing $d=m/q$ and enlarging the divisor sum to all
+positive integers $q<Q_m$, we obtain
+\[
+ \sum_{\substack{d\mid m\\m/d<Q_m}}U_d
+ \ll\frac m{A_m}\sum_{q<Q_m}\frac1q
+ \ll_k m\frac{L_m}{A_m}=o(m).
+\]
+\end{proof}
+
+The remaining low-multiplier deep arm must retain the common-index
+correlation.  Define $\mathcal S_k(m)$ to consist of triples $(q,r,p)$ such
+that
+\[
+ q\mid m,\quad q<Q_m,\quad d=m/q=\ord_p(2),\quad
+ w_p\ge3,\quad p=1+dr,\quad 1\le r<H_m,
+\]
+and put
+\[
+ E_k(m)=\sum_{(q,r,p)\in\mathcal S_k(m)}\frac rq,
+ \qquad N_k(m)=|\mathcal S_k(m)|.
+\]
+
+\begin{proposition}[Cross-fibre injection and first moment]
+\label{prop:mersenne-farey-first-moment}
+Distinct rows of $\mathcal S_k(m)$ have distinct rational values
+$r/q$, and
+\[
+ E_k(m)=\frac1m\sum_{(q,r,p)\in\mathcal S_k(m)}(p-1).
+ \tag{\ref{prop:mersenne-farey-first-moment}.1}
+\]
+\end{proposition}
+
+\begin{proof}
+If $r_1/q_1=r_2/q_2$, then
+$d_1r_1=(m/q_1)r_1=(m/q_2)r_2=d_2r_2$.  Thus $p_1=p_2$.
+The order of two modulo a fixed prime is unique, so $d_1=d_2$, whence
+$q_1=q_2$ and $r_1=r_2$.  For each row,
+$r/q=dr/(dq)=(p-1)/m$; summation proves the identity.
+\end{proof}
+
+Using Yamada's published pointwise valuation estimate in the form
+\[
+ (w_p-2)\log p
+ \le C_Y\frac{d_pr_p}{\log p}+2\log p,
+ \tag{\ref{prop:mersenne-farey-first-moment}.2}
+\]
+one obtains the following correlation-preserving transfer.
+
+\begin{theorem}[Farey-energy reduction]
+\label{thm:mersenne-farey-energy-reduction}
+For fixed $k$ and all sufficiently large $m$,
+\[
+ \sum_{\substack{d\mid m\\m/d<Q_m}}V_d
+ \le \frac{C_Ym}{\log(m/Q_m)}E_k(m)
+       +2N_k(m)\log(1+mH_m),                 \tag{\ref{thm:mersenne-farey-energy-reduction}.1}
+\]
+where $N_k(m)\le H_mQ_m$ and the second term is $o(m)$.  Hence
+\[
+                    E_k(m)=o(\log m)          \tag{\ref{thm:mersenne-farey-energy-reduction}.2}
+\]
+is sufficient for the entire low-multiplier deep arm to be $o(m)$.
+Equivalently, the missing condition is
+\[
+ \sum_{(q,r,p)\in\mathcal S_k(m)}(p-1)=o(m\log m).
+\]
+\end{theorem}
+
+\begin{proof}
+On a row, $d_pr_p=m(r_p/q)$,
+$\log p\ge\log d_p\ge\log(m/Q_m)$, and
+$p=1+d_pr_p\le1+mH_m$.  Substitution into the pointwise estimate and
+summation gives the displayed bound.  There are fewer than $Q_m$ possible
+$q$ and fewer than $H_m$ possible $r$, and the preceding injection forbids
+duplicate rows.  Therefore
+\[
+ N_k(m)\le H_mQ_m,\qquad
+ H_mQ_m\log(1+mH_m)
+ =O_k(A_m^{k+3/2}L_m^{-1/2})=o(m).
+\]
+Finally $\log(m/Q_m)\sim\log m$, which proves the implication.
+\end{proof}
+
+The condition in
+Theorem~\ref{thm:mersenne-farey-energy-reduction} is not inferred from
+distinct slopes alone.  Indeed the reduced Farey box
+$\{(q,r):q,r\le N,(q,r)=1\}$ has distinct slopes but total energy
+asymptotic to $(3/\pi^2)N^2\log N$.  This pressure example omits the common
+divisibility, primality, exact-order, and depth-three premises, so it refutes
+only that abstract inference and leaves the arithmetic route active.
+
+There is also an exact prime-power interpretation.  If
+$d=\ord_p(2)$ and $w=v_p(2^d-1)$, then for every $j\ge1$,
+\[
+             \ord_{p^j}(2)=d\quad\Longleftrightarrow\quad j\le w.
+ \tag{\ref{thm:mersenne-farey-energy-reduction}.3}
+\]
+One direction follows from $p^j\mid2^d-1$; in the other, the order modulo
+$p^j$ divides $d$, while reduction modulo $p$ makes $d$ divide it.  Thus
+$B+G$ is exactly the logarithmic mass of the selected stable exact-order
+prime-power layers: layer two above the size cutoff, together with layers
+$j\ge3$ above the multiplier cutoff.  The elementary implication
+\[
+ dH_m\le d^2/F_m,\quad p=1+dr>d^2/F_m
+ \quad\Longrightarrow\quad r\ge H_m
+\]
+holds for every sufficiently large $m$ in the fixed window.  Hence both
+surviving arms eventually lie on a common high-multiplier support.
+
+Two complete arithmetic witnesses delimit stronger pointwise claims.  For
+$p=1093$, $d=364$, $q=10^{12}$, $m=dq$, and $k=8$, one has
+\[
+ \Phi_{364}(2)=1093^2\cdot4733\cdot8861085190774909
+ \cdot556338525912325157.
+\]
+All four factors have exact order $364$, only $1093$ has depth two, and the
+endpoint inequalities put its mass in $B_{364}$ with
+$U_{364}=V_{364}=G_{364}=0$.  This refutes $B=0$, every universal
+fibrewise inequality $B\le CG$, and the assertion that every repeated
+high-multiplier row is deep.  For $p=3511$, $d=1755$, $q=10^{71}$, and
+$k=32$, the row lies in $B$ but has $r=2<H_m=5$.  It refutes a finite
+pointwise implication $B\Rightarrow r\ge H_m$, while the sufficiently-large
+window theorem remains intact.
+
+An exhaustive sieve of all $50{,}847{,}534$ primes through $10^9$ finds
+only the two repeated-order carriers $1093$ and $3511$, both of depth two.
+This is a finite certificate and has no asymptotic consequence.  The exact
+active targets are still
+\[
+ E_k(m)=o(\log m),
+ \qquad
+ \sum_{(d,p,j,q)\in\mathcal C_k(m)}\log p=o(m),
+\]
+where $\mathcal C_k(m)$ is the stable high-multiplier layer packet described
+above.  Neither target has a counterexample or a proof at this checkpoint.

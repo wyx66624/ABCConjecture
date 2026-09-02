@@ -1,0 +1,39 @@
+Mersenne sigma-one exact-order coupling replay
+Date: 2026-09-02
+
+Environment
+  OS shell: PowerShell on Windows x86_64
+  C++: g++.exe (MinGW-Builds) 15.1.0
+  Python: 3.13.5
+  Lean: 4.32.0, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35
+  Lake: 5.0.0-src+8c9756b
+
+Full finite scan replay
+  g++ -O3 -std=c++20 scan.cpp -o <temporary>/mersenne_sigma_one_scan_replay.exe
+  <temporary>/mersenne_sigma_one_scan_replay.exe 1000000000 > <temporary>/mersenne_sigma_one_scan_1b_replay.json
+  exit code: 0
+  replay SHA256: B1FDC1854D0936BE526FEE6B8E9DF27E3D3DB7DC8E312F2FC25CC57C8D1FA7E1
+  archived SHA256: B1FDC1854D0936BE526FEE6B8E9DF27E3D3DB7DC8E312F2FC25CC57C8D1FA7E1
+  exact byte match: PASS
+  prime_count: 50847534
+  hits: (1093,364,3), (3511,1755,2)
+
+Exact witness verifier
+  python verify_witnesses.py
+  exit code: 0
+  exact rational logarithmic-window certificate: PASS
+  complete Phi_364(2) factorization and Lucas certificates: PASS
+  exact-order and p^2/p^3 depth residues: PASS
+  scan_1b.json schema/content crosscheck: PASS
+
+Lean replay (run from repository Lean directory)
+  lake env lean IUTThreeClosures/MersenneSigmaOneExactOrderCoupling20260902.lean -DwarningAsError=true
+  exit code: 0
+  warnings promoted to errors: PASS
+  printed axioms: propext, Classical.choice, Quot.sound only
+  sorryAx: absent
+
+Logical boundary
+  The p<=10^9 no-depth-three result is finite only.
+  It is not evidence for an asymptotic little-oh theorem.
+

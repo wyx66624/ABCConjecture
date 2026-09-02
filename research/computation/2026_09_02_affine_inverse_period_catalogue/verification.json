@@ -1,0 +1,191 @@
+{
+  "exhaustive_identities": {
+    "general_euler_cases": 48400,
+    "occupancy_bridge_cases": 10001,
+    "optimal_constants": {
+      "incidence_all": 6,
+      "incidence_n_ge_3": 3,
+      "no_singleton": 8
+    },
+    "prime_power_cases": 588
+  },
+  "q_factor_boundary": {
+    "G_Cg_Tg_P0": [
+      1323,
+      441,
+      3,
+      441
+    ],
+    "arms": [
+      [
+        1541,
+        11221,
+        10341
+      ],
+      [
+        3191,
+        27391,
+        25191
+      ]
+    ],
+    "coefficients": [
+      5,
+      49,
+      45
+    ],
+    "false_F_le_Cg": false,
+    "false_G_dvd_P0": false,
+    "full_euler_mass": "539",
+    "hybrid_bounds": {
+      "Cg2G_over_N4": "257298363/707281",
+      "Cg2H_over_N2": "1583631/841",
+      "q0P0_cubed_over_N4": "257298363/707281"
+    },
+    "kernels": [
+      [
+        1,
+        49,
+        27
+      ],
+      [
+        1,
+        49,
+        81
+      ]
+    ],
+    "large_tail_labels": 1,
+    "large_tail_mass": "84",
+    "parameters": [
+      10,
+      11,
+      110,
+      30,
+      29
+    ],
+    "points": [
+      [
+        14,
+        8
+      ],
+      [
+        29,
+        20
+      ]
+    ],
+    "q_s_t": [
+      3,
+      5,
+      4
+    ],
+    "top": [
+      1,
+      49,
+      27
+    ]
+  },
+  "schema": "affine-inverse-period-catalogue-v1",
+  "subcritical_cross_singleton_boundary": {
+    "D": 561737401,
+    "L": 18769,
+    "N_squared": 490268164,
+    "N_times_L": 415583198,
+    "arm_factorizations": [
+      [
+        {
+          "137": 2
+        },
+        {
+          "19": 1,
+          "173": 2
+        },
+        {
+          "47": 1,
+          "10799": 1
+        }
+      ],
+      [
+        {
+          "7": 1,
+          "137": 2
+        },
+        {
+          "5": 2,
+          "173": 2
+        },
+        {
+          "19": 1,
+          "83": 1,
+          "431": 1
+        }
+      ]
+    ],
+    "arms": [
+      [
+        18769,
+        568651,
+        507553
+      ],
+      [
+        131383,
+        748225,
+        679687
+      ]
+    ],
+    "capture": 561737401,
+    "class_multiplicities_in_selected_subset": [
+      1,
+      1
+    ],
+    "coefficients": [
+      18769,
+      29929,
+      28689
+    ],
+    "common_large_tail_count": 1,
+    "common_large_tail_inverse_mass": "554413792",
+    "false_T_ge_2": false,
+    "false_strict_saving_against_common_tail": false,
+    "fibre_points": [
+      [
+        3128,
+        10183
+      ],
+      [
+        21897,
+        11423
+      ]
+    ],
+    "kernel_classes": [
+      [
+        18769,
+        29929,
+        1
+      ],
+      [
+        18769,
+        748225,
+        1
+      ]
+    ],
+    "label": [
+      18769,
+      29929,
+      1
+    ],
+    "parameters": {
+      "B": 8,
+      "C": 9,
+      "M": 22143,
+      "N": 22142,
+      "R": 6,
+      "R_lt_C": true
+    },
+    "period": 1,
+    "primitive_direction": [
+      18769,
+      1240
+    ],
+    "weight_and_S_non": 554413792,
+    "weight_over_D": "23392/23701"
+  }
+}

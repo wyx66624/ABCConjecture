@@ -1,0 +1,195 @@
+{
+  "parameters": {
+    "B": 5,
+    "C": 6,
+    "R": 30,
+    "M": 388,
+    "N": 387,
+    "N_squared": 149769
+  },
+  "full_box_admissible_points": 143159,
+  "fibre_points": [
+    [
+      12,
+      283
+    ],
+    [
+      373,
+      363
+    ]
+  ],
+  "arms": [
+    [
+      361,
+      51301,
+      42811
+    ],
+    [
+      11191,
+      76531,
+      65641
+    ]
+  ],
+  "arm_factorizations": [
+    [
+      [
+        [
+          19,
+          2
+        ]
+      ],
+      [
+        [
+          29,
+          2
+        ],
+        [
+          61,
+          1
+        ]
+      ],
+      [
+        [
+          31,
+          1
+        ],
+        [
+          1381,
+          1
+        ]
+      ]
+    ],
+    [
+      [
+        [
+          19,
+          2
+        ],
+        [
+          31,
+          1
+        ]
+      ],
+      [
+        [
+          7,
+          1
+        ],
+        [
+          13,
+          1
+        ],
+        [
+          29,
+          2
+        ]
+      ],
+      [
+        [
+          41,
+          1
+        ],
+        [
+          1601,
+          1
+        ]
+      ]
+    ]
+  ],
+  "powerful_kernels": [
+    [
+      361,
+      841,
+      1
+    ],
+    [
+      361,
+      841,
+      1
+    ]
+  ],
+  "label": [
+    361,
+    841,
+    1
+  ],
+  "label_product": 303601,
+  "primitive_direction": [
+    361,
+    80
+  ],
+  "direction_coefficients": [
+    361,
+    841,
+    761
+  ],
+  "direction_scale_L": 361,
+  "index_span_H": 1,
+  "capture_factors": [
+    361,
+    841,
+    1
+  ],
+  "capture": 303601,
+  "reduced_periods": [
+    1,
+    1,
+    1
+  ],
+  "period": 1,
+  "totient_weight": 277704,
+  "large_catalogue": [
+    [
+      [
+        361,
+        841,
+        1
+      ],
+      277704
+    ]
+  ],
+  "class_multiplicity": 2,
+  "class_tail_L": 277704,
+  "W": 277704,
+  "W_singleton": 0,
+  "W_repeated": 277704,
+  "I": 555408,
+  "E": 2221632,
+  "E_shifted": 277704,
+  "S_non": 277704,
+  "owner_mass_sum_D": 303601,
+  "strict_capture_squeeze": {
+    "lhs_N_times_L": 139707,
+    "rhs_capture": 303601
+  },
+  "false_claims": {
+    "S_le_owner_mass_div_N": false,
+    "S_le_owner_mass_div_sqrt_N_squared_form": false,
+    "S_le_nine_tenths_owner_mass": false,
+    "S_le_half_owner_mass": false,
+    "singleton_deducted_coefficient_7": false
+  },
+  "integer_failure_certificates": {
+    "N_times_S_gt_owner_mass": [
+      107471448,
+      303601
+    ],
+    "N_times_S_squared_gt_owner_mass_squared": [
+      29845250995392,
+      92173567201
+    ],
+    "ten_S_gt_nine_owner_mass": [
+      2777040,
+      2732409
+    ],
+    "two_S_gt_owner_mass": [
+      555408,
+      303601
+    ],
+    "E_gt_7_Eshift_after_singleton_deduction": [
+      2221632,
+      1943928
+    ]
+  }
+}
+PASS: canonical M=388 T=1 non-arm witness and full selected catalogue
