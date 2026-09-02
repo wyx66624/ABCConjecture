@@ -1,0 +1,894 @@
+{
+  "schema": "abc-adaptive-polylog-current-iut-inventory-v1",
+  "modules": [
+    {
+      "module": "AffineAdaptiveCommonKernel20260901",
+      "path": "Lean/IUTThreeClosures/AffineAdaptiveCommonKernel20260901.lean",
+      "bytes": 37892,
+      "sha256": "7be7bb202f5f6b428ff348bcfa6a8ad7ed7185784100a94a2030e8107002d2ae",
+      "counts": {
+        "theorem": 29,
+        "lemma": 0,
+        "def": 10,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 39,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "natTriangleDet_natAbs_le_boxSq_of_first_sorted",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_natAbs_le_boxSq_of_first_sorted",
+          "private": false,
+          "protected": false,
+          "line": 33,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_natAbs_le_boxSq_of_first_sorted",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "natTriangleDet_swap_last",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_swap_last",
+          "private": false,
+          "protected": false,
+          "line": 102,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_swap_last",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "natTriangleDet_swap_first",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_swap_first",
+          "private": false,
+          "protected": false,
+          "line": 108,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_swap_first",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "natTriangleDet_rotate",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_rotate",
+          "private": false,
+          "protected": false,
+          "line": 114,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_rotate",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "natTriangleDet_natAbs_le_boxSq",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_natAbs_le_boxSq",
+          "private": false,
+          "protected": false,
+          "line": 120,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_natAbs_le_boxSq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "natTriangleDet_natAbs_le_positiveBoxSq",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_natAbs_le_positiveBoxSq",
+          "private": false,
+          "protected": false,
+          "line": 165,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_natAbs_le_positiveBoxSq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "signedPairDet_natPointDiff",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.signedPairDet_natPointDiff",
+          "private": false,
+          "protected": false,
+          "line": 202,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.signedPairDet_natPointDiff",
+          "axioms": []
+        },
+        {
+          "kind": "theorem",
+          "shortName": "adaptive_commonModulusProduct_le_boxSq_of_noncollinear",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.adaptive_commonModulusProduct_le_boxSq_of_noncollinear",
+          "private": false,
+          "protected": false,
+          "line": 209,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.adaptive_commonModulusProduct_le_boxSq_of_noncollinear",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "canonical_three_mul_affineU_le",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_three_mul_affineU_le",
+          "private": false,
+          "protected": false,
+          "line": 251,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_three_mul_affineU_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "canonical_three_mul_affineV_le",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_three_mul_affineV_le",
+          "private": false,
+          "protected": false,
+          "line": 274,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_three_mul_affineV_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "canonical_three_mul_affineW_le",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_three_mul_affineW_le",
+          "private": false,
+          "protected": false,
+          "line": 317,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_three_mul_affineW_le",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "canonical_threeArm_bounds",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_threeArm_bounds",
+          "private": false,
+          "protected": false,
+          "line": 328,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_threeArm_bounds",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "longArm_excessProduct_lower",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.longArm_excessProduct_lower",
+          "private": false,
+          "protected": false,
+          "line": 346,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.longArm_excessProduct_lower",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "longArm_squareExcess_dichotomy",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.longArm_squareExcess_dichotomy",
+          "private": false,
+          "protected": false,
+          "line": 371,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.longArm_squareExcess_dichotomy",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "canonical_longArm_squareExcess_dichotomy",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_longArm_squareExcess_dichotomy",
+          "private": false,
+          "protected": false,
+          "line": 400,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_longArm_squareExcess_dichotomy",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "longArm_radicalSupport_sq",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.longArm_radicalSupport_sq",
+          "private": false,
+          "protected": false,
+          "line": 414,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.longArm_radicalSupport_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "actualLongArm_radicalSupport_sq",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.actualLongArm_radicalSupport_sq",
+          "private": false,
+          "protected": false,
+          "line": 445,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.actualLongArm_radicalSupport_sq",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "canonicalKernel_radicalSupport_factor27",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonicalKernel_radicalSupport_factor27",
+          "private": false,
+          "protected": false,
+          "line": 456,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonicalKernel_radicalSupport_factor27",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "threePointCommonGcd_dvd_left",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.threePointCommonGcd_dvd_left",
+          "private": false,
+          "protected": false,
+          "line": 517,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.threePointCommonGcd_dvd_left",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "threePointCommonGcd_dvd_middle",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.threePointCommonGcd_dvd_middle",
+          "private": false,
+          "protected": false,
+          "line": 521,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.threePointCommonGcd_dvd_middle",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "threePointCommonGcd_dvd_right",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.threePointCommonGcd_dvd_right",
+          "private": false,
+          "protected": false,
+          "line": 525,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.threePointCommonGcd_dvd_right",
+          "axioms": [
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "triplePoint_armDivisorGcds_give_adaptiveInterface",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.triplePoint_armDivisorGcds_give_adaptiveInterface",
+          "private": false,
+          "protected": false,
+          "line": 529,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.triplePoint_armDivisorGcds_give_adaptiveInterface",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_72",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.radical_72",
+          "private": true,
+          "protected": false,
+          "line": 609,
+          "reportedConstant": "_private.verification.«2026_09_01_adaptive_polylog_current_iut».«axiom-audit».0.IUTThreeClosures.AffineAdaptiveCommonKernel20260901.radical_72",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_121",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.radical_121",
+          "private": true,
+          "protected": false,
+          "line": 619,
+          "reportedConstant": "_private.verification.«2026_09_01_adaptive_polylog_current_iut».«axiom-audit».0.IUTThreeClosures.AffineAdaptiveCommonKernel20260901.radical_121",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "radical_961",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.radical_961",
+          "private": true,
+          "protected": false,
+          "line": 625,
+          "reportedConstant": "_private.verification.«2026_09_01_adaptive_polylog_current_iut».«axiom-audit».0.IUTThreeClosures.AffineAdaptiveCommonKernel20260901.radical_961",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "seed189_zeroFirstDirection_counterexample",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.seed189_zeroFirstDirection_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 710,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.seed189_zeroFirstDirection_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "seed189_collinearLocalCubic_counterexample",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.seed189_collinearLocalCubic_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 746,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.seed189_collinearLocalCubic_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "seed189_zeroFirstDirection_fullPremise_counterexample",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.seed189_zeroFirstDirection_fullPremise_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 793,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.seed189_zeroFirstDirection_fullPremise_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "seed189_diameterCubic_fullPremise_counterexample",
+          "name": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.seed189_diameterCubic_fullPremise_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 841,
+          "reportedConstant": "IUTThreeClosures.AffineAdaptiveCommonKernel20260901.seed189_diameterCubic_fullPremise_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersennePolylogCodivisorGate20260901",
+      "path": "Lean/IUTThreeClosures/MersennePolylogCodivisorGate20260901.lean",
+      "bytes": 15527,
+      "sha256": "cf9d8af69ed8fff45ea4f5ca838de93cef638f1a57667fa47438013b1d5eb4b7",
+      "counts": {
+        "theorem": 10,
+        "lemma": 4,
+        "def": 4,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 18,
+      "proofDeclarations": [
+        {
+          "kind": "lemma",
+          "shortName": "logLogScale_pos",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.logLogScale_pos",
+          "private": false,
+          "protected": false,
+          "line": 62,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.logLogScale_pos",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "fixedPolylogScale_pos",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.fixedPolylogScale_pos",
+          "private": false,
+          "protected": false,
+          "line": 67,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.fixedPolylogScale_pos",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "polylogFarTotientMass_nonneg",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.polylogFarTotientMass_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 72,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.polylogFarTotientMass_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "lemma",
+          "shortName": "polylogLocalizedExceptionalMass_nonneg",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.polylogLocalizedExceptionalMass_nonneg",
+          "private": false,
+          "protected": false,
+          "line": 77,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.polylogLocalizedExceptionalMass_nonneg",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientExceptionalDivisorMass_eq_far_add_polylogLocalized",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.totientExceptionalDivisorMass_eq_far_add_polylogLocalized",
+          "private": false,
+          "protected": false,
+          "line": 85,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.totientExceptionalDivisorMass_eq_far_add_polylogLocalized",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "polylogLocalizedExceptionalMass_le_total",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.polylogLocalizedExceptionalMass_le_total",
+          "private": false,
+          "protected": false,
+          "line": 100,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.polylogLocalizedExceptionalMass_le_total",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "farExceptionalMass_le_polylogFarTotientMass",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.farExceptionalMass_le_polylogFarTotientMass",
+          "private": false,
+          "protected": false,
+          "line": 110,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.farExceptionalMass_le_polylogFarTotientMass",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientExceptionalDivisorMass_le_polylogLocalized_add_far",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.totientExceptionalDivisorMass_le_polylogLocalized_add_far",
+          "private": false,
+          "protected": false,
+          "line": 124,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.totientExceptionalDivisorMass_le_polylogLocalized_add_far",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fixedPolylogScale_mul_polylogFarTotientMass_le_moment",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.fixedPolylogScale_mul_polylogFarTotientMass_le_moment",
+          "private": false,
+          "protected": false,
+          "line": 146,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.fixedPolylogScale_mul_polylogFarTotientMass_le_moment",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "polylogFarTotientMass_le_constant_div",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.polylogFarTotientMass_le_constant_div",
+          "private": false,
+          "protected": false,
+          "line": 155,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.polylogFarTotientMass_le_constant_div",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "isLittleO_natCast_of_all_fixed_approximants",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.isLittleO_natCast_of_all_fixed_approximants",
+          "private": false,
+          "protected": false,
+          "line": 189,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.isLittleO_natCast_of_all_fixed_approximants",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "exists_uniform_polylogFarTotientMass_bound",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.exists_uniform_polylogFarTotientMass_bound",
+          "private": false,
+          "protected": false,
+          "line": 237,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.exists_uniform_polylogFarTotientMass_bound",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "totientExceptionalDivisorMass_isLittleO_iff_all_fixedPolylogLocalized",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.totientExceptionalDivisorMass_isLittleO_iff_all_fixedPolylogLocalized",
+          "private": false,
+          "protected": false,
+          "line": 266,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.totientExceptionalDivisorMass_isLittleO_iff_all_fixedPolylogLocalized",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "log_mersennePowerLoss_isLittleO_iff_all_fixedPolylogLocalized",
+          "name": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.log_mersennePowerLoss_isLittleO_iff_all_fixedPolylogLocalized",
+          "private": false,
+          "protected": false,
+          "line": 308,
+          "reportedConstant": "IUTThreeClosures.MersennePolylogCodivisorGate20260901.log_mersennePowerLoss_isLittleO_iff_all_fixedPolylogLocalized",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersenneNearDiagonalGlobalTriage20260901",
+      "path": "Lean/IUTThreeClosures/MersenneNearDiagonalGlobalTriage20260901.lean",
+      "bytes": 8193,
+      "sha256": "4bb7d1579f5a4bda969a71381bdaeac4b766d3e70d8a9763ae613de312a2be4c",
+      "counts": {
+        "theorem": 8,
+        "lemma": 0,
+        "def": 1,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 9,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "deep_or_transition_or_extreme_of_two_controlled_arms",
+          "name": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.deep_or_transition_or_extreme_of_two_controlled_arms",
+          "private": false,
+          "protected": false,
+          "line": 30,
+          "reportedConstant": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.deep_or_transition_or_extreme_of_two_controlled_arms",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "aggregate_near_diagonal_trichotomy",
+          "name": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.aggregate_near_diagonal_trichotomy",
+          "private": false,
+          "protected": false,
+          "line": 51,
+          "reportedConstant": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.aggregate_near_diagonal_trichotomy",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "aggregate_transition_card_lowerBound",
+          "name": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.aggregate_transition_card_lowerBound",
+          "private": false,
+          "protected": false,
+          "line": 96,
+          "reportedConstant": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.aggregate_transition_card_lowerBound",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "aggregate_transition_card_lowerBound_of_log_bound",
+          "name": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.aggregate_transition_card_lowerBound_of_log_bound",
+          "private": false,
+          "protected": false,
+          "line": 114,
+          "reportedConstant": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.aggregate_transition_card_lowerBound_of_log_bound",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "finite_five_arm_closure",
+          "name": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.finite_five_arm_closure",
+          "private": false,
+          "protected": false,
+          "line": 132,
+          "reportedConstant": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.finite_five_arm_closure",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "deep_disjunct_has_full_premise_counterexample",
+          "name": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.deep_disjunct_has_full_premise_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 164,
+          "reportedConstant": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.deep_disjunct_has_full_premise_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "transition_disjunct_has_full_premise_counterexample",
+          "name": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.transition_disjunct_has_full_premise_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 176,
+          "reportedConstant": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.transition_disjunct_has_full_premise_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "extreme_disjunct_has_full_premise_counterexample",
+          "name": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.extreme_disjunct_has_full_premise_counterexample",
+          "private": false,
+          "protected": false,
+          "line": 189,
+          "reportedConstant": "IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.extreme_disjunct_has_full_premise_counterexample",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "IUTLanaCurrentConcreteImplicationAudit20260901",
+      "path": "Lean/IUTThreeClosures/IUTLanaCurrentConcreteImplicationAudit20260901.lean",
+      "bytes": 4737,
+      "sha256": "a559452c199de1841f43d2ea720aaca8f2aacf8f7a461fb917f47004f0c67555",
+      "counts": {
+        "theorem": 5,
+        "lemma": 0,
+        "def": 1,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 6,
+      "proofDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "false_of_forall_prime_preimage_translation",
+          "name": "IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.false_of_forall_prime_preimage_translation",
+          "private": false,
+          "protected": false,
+          "line": 40,
+          "reportedConstant": "IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.false_of_forall_prime_preimage_translation",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "not_forall_prime_preimage_translation",
+          "name": "IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.not_forall_prime_preimage_translation",
+          "private": false,
+          "protected": false,
+          "line": 59,
+          "reportedConstant": "IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.not_forall_prime_preimage_translation",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pinned_public_logVolumeData_noGo",
+          "name": "IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.pinned_public_logVolumeData_noGo",
+          "private": false,
+          "protected": false,
+          "line": 76,
+          "reportedConstant": "IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.pinned_public_logVolumeData_noGo",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "abcConjecture_of_statementI_and_bridge",
+          "name": "IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.abcConjecture_of_statementI_and_bridge",
+          "private": false,
+          "protected": false,
+          "line": 91,
+          "reportedConstant": "IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.abcConjecture_of_statementI_and_bridge",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        {
+          "kind": "theorem",
+          "shortName": "statementIToIntegerABCBridge_iff",
+          "name": "IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.statementIToIntegerABCBridge_iff",
+          "private": false,
+          "protected": false,
+          "line": 100,
+          "reportedConstant": "IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.statementIToIntegerABCBridge_iff",
+          "axioms": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        }
+      ],
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "totals": {
+    "theorem": 52,
+    "lemma": 4,
+    "def": 16,
+    "abbrev": 0,
+    "structure": 0,
+    "class": 0,
+    "inductive": 0,
+    "instance": 0,
+    "countedDeclarations": 72,
+    "proofDeclarations": 56,
+    "privateProofDeclarations": 3,
+    "axiomReports": 56
+  },
+  "axiomUnion": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ]
+}

@@ -1,0 +1,138 @@
+\section{Audit of the current concrete IUT implication}
+\label{sec:iut-current-concrete-implication}
+
+After the preceding packet work was completed, the public LANA IUT
+repository added a conditional implication strand.  We audited commit
+\href{https://github.com/lana-agents/iut/tree/6e963070c73c5defd1012320deccc777e2555d22}
+{\texttt{6e963070}}.  Its main declaration has
+the schematic type
+\begin{equation}\label{eq:lana-concrete-conditional-type}
+\begin{split}
+ &\mathsf P(T)\to(\forall K,d,\ \mathsf C_{22}(T,K,d))\to\\
+ &\quad(\forall K,d,\ \mathsf E(K,d))\to
+ \mathsf{Cheb}\to\mathsf{PNT}\to\\
+ &\quad(\forall D,LT,TL,QI,\ \mathsf C_{312}(D,LT,TL,QI))\to\\
+ &\quad \texttt{ABC}(T),
+\end{split}
+\end{equation}
+Here $\mathsf P(T)$ abbreviates \texttt{T.ProofPackage},
+$\mathsf C_{22}(T,K,d)$ abbreviates \texttt{Corollary22Inputs}$(T,K,d)$,
+and $\mathsf{Cheb},\mathsf{PNT}$ denote the two stated prime bounds.  The
+remaining abbreviations are
+\[
+\begin{aligned}
+ \mathsf E(K,d)&:=
+   \texttt{ConcreteThetaDataExistence}(I(K,d)),\\
+ \mathsf C_{312}(D,LT,TL,QI)&:=
+   \texttt{Corollary312Variant}\bigl(\\[-2pt]
+ &\hspace{35mm}\texttt{concreteVariantData}(D,LT,TL,QI)\bigr).
+\end{aligned}
+\]
+Here $LT:\texttt{LocalTheory}(D.K_t)$ and
+$TL:\texttt{ThetaLocalData}(D,LT)$.  Moreover,
+\[
+                \texttt{ABC}(T):=T.\texttt{StatementI}.
+\]
+Thus \eqref{eq:lana-concrete-conditional-type} is a proved conditional
+implication, not a construction of its inputs and not a closed proof of the
+integer statement \eqref{eq:abc}.
+
+The proof graph is nevertheless useful.  Concrete theta-data existence is
+converted to theta-data existence restricted by a predicate; its invariants,
+certificate and local estimate enter Theorem~1.10; the assumed Corollary
+3.12 variant and the prime bounds yield Corollary~2.2; finite exceptional
+sets are absorbed to prove $T.\texttt{StatementII}$; finally the
+\texttt{genl} proof package proves
+\[
+        T.\texttt{StatementII}\Longrightarrow T.\texttt{StatementI}.
+\]
+Every source assumption remains visible in the type.
+
+The new concrete interface has, however, a complete elementary
+counterexample.  Its local log-volume field requires, for every finite label
+type $\iota$, every prime $p$, every place tuple $c$, and every set $U$ in
+the tensor packet,
+\begin{equation}\label{eq:latest-local-theory-total-shift}
+ V\bigl((x\mapsto px)^{-1}U\bigr)=V(U)+\log p,
+ \qquad V:\mathcal P(A)\longrightarrow\R.
+\end{equation}
+
+\begin{theorem}[Empty-set obstruction to the current \texttt{LocalTheory}]
+\label{thm:latest-local-theory-empty}
+At the audited commit, \texttt{LocalTheory}$(K)$ is empty for every number
+field $K$.
+\end{theorem}
+
+\begin{proof}
+Take the empty finite label type, its unique place tuple, $p=2$, and
+$U=\varnothing$.  The preimage of the empty set under every function is
+empty, so \eqref{eq:latest-local-theory-total-shift} becomes
+\[
+                        V(\varnothing)=V(\varnothing)+\log2.
+\]
+As $V(\varnothing)$ is a finite real number, subtraction gives
+$\log2=0$, contradicting $\log2>0$.
+\end{proof}
+
+This counterexample satisfies every premise of the displayed volume law.
+It therefore rejects that exact total-real-valued specification.  It does
+not reject the Haar scaling identity on nonempty measurable sets of finite
+positive measure.  The upstream change that adds nonemptiness to the
+packet-product combination law does not repair
+\eqref{eq:latest-local-theory-total-shift}, where $U$ remains unrestricted.
+Each nonvacuous witness requested by
+\texttt{ConcreteThetaDataExistence} contains a term of
+\texttt{LocalTheory}; consequently the advertised concrete branch cannot
+currently be instantiated.  The definition is implication-valued and may
+still hold vacuously in a degenerate model with no qualifying input point,
+which is not the intended theta-data construction.
+
+There is a second independent boundary.  The repository target
+\texttt{ABCConjecture} is the explicit integer inequality
+\eqref{eq:abc}, whereas $T.\texttt{StatementI}$ is an abstract
+bounded-discrepancy inequality for hyperbolic curves.  No checked
+declaration in the audited upstream snapshot proves
+\begin{equation}\label{eq:missing-statementI-integer-bridge}
+                 T.\texttt{StatementI}\Longrightarrow
+                 \texttt{ABCConjecture}.
+\end{equation}
+A proof of \eqref{eq:missing-statementI-integer-bridge} must construct the
+intended height theory, send every primitive positive triple to a
+degree-one tripod point, compare the canonical height with
+$\log\max(a,b,c)$, compare log-different plus log-conductor with
+$\log\rad(abc)$, and unpack bounded discrepancy into one uniform additive
+constant.
+
+We therefore retain the reproducible pin
+\texttt{ddaddc274281adb5674d647e24fa478745ac6d40}.  A direct update would
+also change packet summands from fields to commutative rings, integral
+subrings to sets, and nonzero hull scales to units.  The refined-factor
+signature then needs an explicit equivalence of each tensor packet with a
+finite product of fields.  A successful compilation after an immediate pin
+change would not cure the empty-set contradiction.
+
+The constructive continuation is precise:
+\begin{enumerate}
+\item restrict logarithmic volume to a proof-carrying domain of measurable
+finite positive-volume regions, and prove closure under the scaling
+preimages;
+\item construct an inhabited local theory on that corrected domain;
+\item provide the finite-product-of-fields decomposition needed by the
+refined zero-aware coordinates;
+\item construct the compatible $2\ell$-th Tate-parameter roots and the
+remaining concrete theta data;
+\item prove the actual Corollary 3.12 statement; and
+\item prove the integer bridge \eqref{eq:missing-statementI-integer-bridge}.
+\end{enumerate}
+Difficulty of these steps does not eliminate the corrected IUT route.
+
+The companion Lean audit proves the universal empty-set theorem for any
+real-valued set-volume with the unrestricted prime-preimage law, specializes
+the already pinned public no-go, and introduces the honest proposition
+\[
+ \texttt{StatementIToIntegerABCBridge}(T):=
+ T.\texttt{StatementI}\to\texttt{ABCConjecture}.
+\]
+It proves only that a supplied term of this bridge consumes a supplied term
+of $T.\texttt{StatementI}$.  No bridge or IUT premise is populated by a
+hidden axiom.

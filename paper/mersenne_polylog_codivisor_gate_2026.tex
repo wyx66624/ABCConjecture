@@ -1,0 +1,139 @@
+\section{Fixed-polylogarithmic co-divisors at the Mersenne endpoint}
+\label{sec:mersenne-polylog-codivisor}
+
+The squared-loglog localization in
+Corollary~\ref{cor:localized-exact-mersenne-gate} can be sharpened without
+assuming a stronger concentration theorem.  The sharpening proved here is a
+family of fixed windows with a quantified outer limit.  The present moment
+argument does not show that the complement of one fixed window is negligible.
+
+Retain $a_d=\log E_d$ and put
+\[
+ B_\epsilon(m)=
+   \sum_{\substack{d\mid m\\a_d>\epsilon\varphi(d)}}\varphi(d),
+ \qquad \Lambda_m=\log\log(3m).
+\]
+For a fixed positive integer $k$, define
+\[
+ B^{\mathrm{poly}}_{\epsilon,k}(m)=
+ \sum_{\substack{d\mid m\\
+       \log(m/d)<k\Lambda_m\\a_d>\epsilon\varphi(d)}}\varphi(d).
+\]
+Writing $q=m/d$, its support is the genuinely polylogarithmic range
+\[
+             q<\exp(k\Lambda_m)=\{\log(3m)\}^{k}.
+\]
+
+Let
+\[
+ \Delta(m)=\frac1m\sum_{d\mid m}\varphi(d)\log\frac md.
+\]
+The exact moment formula in
+Section~\ref{sec:mersenne-totient-concentration}, together with the
+elementary Chebyshev bound, supplies constants $C_0>0$ and $m_0$ such that
+ $\Delta(m)\le C_0\Lambda_m$ for $m\ge m_0$.  Finite weighted Markov therefore
+gives, for every fixed $k\ge1$,
+\begin{equation}\label{eq:fixed-polylog-far-tail}
+ \sum_{\substack{d\mid m\\k\Lambda_m\le\log(m/d)}}\varphi(d)
+ \le \frac{C_0}{k}m.
+\end{equation}
+Consequently
+\begin{equation}\label{eq:polylog-exceptional-approximation}
+ 0\le B_\epsilon(m)-B^{\mathrm{poly}}_{\epsilon,k}(m)
+ \le\frac{C_0}{k}m.
+\end{equation}
+The right side is uniform in $m$, but it is not $o(m)$ for one fixed $k$.
+
+\begin{theorem}[Fixed-polylogarithmic co-divisor gate]
+\label{thm:fixed-polylog-mersenne-gate}
+For the actual canonical Mersenne blocks,
+\[
+ \log W_m=o(m)
+ \quad\Longleftrightarrow\quad
+ \text{for every $\epsilon>0$ and every fixed $k\ge1$,}\quad
+ B^{\mathrm{poly}}_{\epsilon,k}(m)=o(m).
+\]
+The same equivalence holds when $k$ ranges over all fixed positive real
+numbers.
+\end{theorem}
+
+\begin{proof}
+The cyclotomic bound
+$0\le a_d\le(\log3)\varphi(d)$ and the exceptional-mass criterion give
+\[
+ \log W_m=o(m)
+ \quad\Longleftrightarrow\quad
+ B_\epsilon(m)=o(m)\quad\hbox{for every }\epsilon>0.
+\]
+The forward implication follows by restricting a nonnegative sum.  For the
+reverse implication, fix $\epsilon>0$ and a requested normalized error
+$\eta>0$.  First choose one integer $k>2C_0/\eta$.  This $k$ is now fixed,
+so the hypothesis eventually gives
+$B^{\mathrm{poly}}_{\epsilon,k}(m)<\eta m/2$.  Equation
+\eqref{eq:polylog-exceptional-approximation} then gives
+$B_\epsilon(m)<\eta m$.  Letting $\eta$ vary proves the required little-oh
+statement.  Integer windows imply the real-window formulation, while the
+converse follows by specialization.
+\end{proof}
+
+The order of quantifiers in the proof is essential:
+\[
+ \forall\eta>0\ \exists k=k(\eta)\ \forall m\ge m_0(\eta,k).
+\]
+An abstract primorial divisor model shows that, for general
+totient-bounded masses, the far tail for a single fixed $k$ need not be
+$o(m)$.  Thus the Markov and moment estimates alone cannot replace the
+theorem by a one-window assertion.  This model is not the actual Mersenne
+mass $\log E_d$ and does not refute a future Mersenne-specific one-window
+strengthening.
+
+There is a useful dichotomy in the negation.  If the endpoint fails, then
+for some fixed $\epsilon,\eta,k>0$ and an unbounded sequence $m_j$,
+\begin{equation}\label{eq:polylog-failure-packet}
+ \sum_{\substack{q\mid m_j\\q<\{\log(3m_j)\}^{k}\\
+   \log E_{m_j/q}>\epsilon\varphi(m_j/q)}}
+ \frac{\varphi(m_j/q)}{m_j}\ge\eta.
+\end{equation}
+Let $\mathcal Q_j$ be the set of co-divisors counted in
+\eqref{eq:polylog-failure-packet}, and let $M_j$ be its largest summand.
+After passage to a subsequence, exactly one of the following pressure
+regimes remains.
+\begin{enumerate}
+\item If $M_j\ge\tau>0$, then
+$\varphi(m_j/q)/m_j\le1/q$ forces $q\le1/\tau$; a further subsequence fixes
+$q=q_0$.  With $d_j=m_j/q_0$ one obtains
+\[
+ \frac{\varphi(d_j)}{d_j}\ge q_0\tau,\qquad
+ \frac{\log E_{d_j}}{d_j}>\epsilon q_0\tau.
+\]
+This is the atomic, fixed-co-divisor obstruction and still contains the
+prime-index problem.
+\item If $M_j\to0$, the packet contains at least $\eta/M_j\to\infty$
+exceptional co-divisors, and
+\[
+             \sum_{q\in\mathcal Q_j}\log E_{m_j/q}
+             >\epsilon\eta m_j.
+\]
+This is the diffuse multi-fibre obstruction.
+\end{enumerate}
+The transition, extreme-order, and deep-lift decomposition of
+Section~\ref{sec:mersenne-near-diagonal-triage} applies inside the same
+fixed-polylogarithmic packet.
+
+The prime-index test confirms that no core difficulty has been hidden: for
+$m=\ell$ prime, $q=1$ lies in every window with weight
+$(\ell-1)/\ell$, so the theorem still requires $\log E_\ell=o(\ell)$.
+The certified occurrences $1093\mid E_{364}$ and $3511\mid E_{1755}$
+refute small universal pointwise constants but are finite and do not refute
+the eventual gate.  Conversely, the sparse primorial model from the earlier
+totient audit satisfies every fixed-$k$ gate while its pointwise normalized
+blocks need not converge to zero.  These tests verify both directions of the
+quantifier boundary and produce no full-premise counterexample to the actual
+Mersenne endpoint.
+
+The Lean companion proves the exact exceptional-set partition, the finite
+$C_0/k$ estimate, a general uniform-in-fixed-index transfer theorem, and the
+displayed equivalence for the repository's actual
+\texttt{mersennePowerLoss}.  All moment and cyclotomic estimates are reused
+from previously checked theorems; no distribution hypothesis enters the
+kernel.

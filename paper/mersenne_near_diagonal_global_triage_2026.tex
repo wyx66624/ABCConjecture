@@ -1,0 +1,151 @@
+\section{Global near-diagonal triage of the Mersenne excess}
+\label{sec:mersenne-near-diagonal-triage}
+
+The localized gate of
+Corollary~\ref{cor:localized-exact-mersenne-gate} identifies the moving
+divisor range on which an obstruction can survive.  We now combine that
+localization with the exact-order Wieferich decomposition.  The result does
+not estimate the remaining mass, but it proves that a failure cannot be
+distributed among unspecified cyclotomic effects: one of three explicit
+mechanisms must carry a positive linear logarithmic mass.
+
+For an odd prime $q$, put
+\[
+ d_q=\operatorname{ord}_q(2),\qquad
+ w_q=v_q(2^{d_q}-1),
+\]
+and, for $d\ge1$, let
+\[
+ \mathcal W_d=\{q:d_q=d,\ w_q\ge2\},\qquad
+ D_d=\prod_{\substack{d_q=d\\w_q\ge3}}q^{w_q-2}.
+\]
+Fix $\delta>0$ and set
+\[
+ Y_d=\frac{\varphi(d)^2}{\log\log(3d)}.
+\]
+The logarithm of the canonical excess block has the exact four-layer
+decomposition
+\begin{equation}\label{eq:four-layer-mersenne-block}
+ \log E_d=S_d+T_{d,\delta}+X_{d,\delta}+G_d,
+\end{equation}
+where
+\[
+\begin{aligned}
+ S_d&=\sum_{\substack{q\in\mathcal W_d\\q\le Y_d}}\log q,
+&T_{d,\delta}&=\sum_{\substack{q\in\mathcal W_d\\
+      Y_d<q\le d^{2+\delta}}}\log q,\\
+ X_{d,\delta}&=\sum_{\substack{q\in\mathcal W_d\\
+      q>d^{2+\delta}}}\log q,
+&G_d&=\log D_d.
+\end{aligned}
+\]
+Indeed, the exponent of $q$ in $E_d$ is
+$w_q-1=1+(w_q-2)$.  Moreover, LTE gives
+\[
+ v_q(2^{q-1}-1)=v_q(2^{d_q}-1)=w_q,
+\]
+so $\mathcal W_d$ consists precisely of base-two Wieferich primes of exact
+order $d$.
+
+Put
+\[
+ H(m)=\{\log\log(3m)\}^2,
+ \qquad
+ \mathcal N_m=\{d\mid m:d>m e^{-H(m)}\}.
+\]
+The cyclotomic cap $E_d\le3^{\varphi(d)}$ and the exact logarithmic-deficit
+moment prove
+\begin{equation}\label{eq:far-mersenne-mass-small}
+ \sum_{\substack{d\mid m\\d\notin\mathcal N_m}}\log E_d=o(m).
+\end{equation}
+The uniform Brun--Titchmarsh argument for primes $q\equiv1\pmod d$ below
+$Y_d$ gives $S_d=o(\varphi(d))$.  Since the least member of
+$\mathcal N_m$ tends to infinity and
+$\sum_{d\mid m}\varphi(d)=m$, this pointwise uniform estimate sums to
+\begin{equation}\label{eq:near-small-wieferich-mass}
+                     \sum_{d\in\mathcal N_m}S_d=o(m).
+\end{equation}
+
+\begin{theorem}[Global three-arm obstruction]
+\label{thm:global-mersenne-three-arm-obstruction}
+Suppose that, for some $\epsilon>0$ and an unbounded sequence $m_j$,
+\[
+                 \sum_{d\mid m_j}\log E_d\ge\epsilon m_j.
+\]
+After passage to a subsequence, one fixed alternative holds for every
+sufficiently large $j$:
+\begin{enumerate}
+\item
+$\sum_{d\in\mathcal N_{m_j}}G_d\ge\epsilon m_j/6$;
+\item there are at least
+\[
+ \frac{\epsilon m_j}{6(2+\delta)\log m_j}
+\]
+distinct base-two Wieferich primes $q$ such that
+\[
+ d_q\mid m_j,\quad d_q>m_je^{-H(m_j)},\quad
+ Y_{d_q}<q\le d_q^{2+\delta};
+\]
+\item
+$\sum_{d\in\mathcal N_{m_j}}X_{d,\delta}\ge\epsilon m_j/6$.
+Every prime counted in the last alternative satisfies
+$\operatorname{ord}_q(2)<q^{1/(2+\delta)}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By \eqref{eq:far-mersenne-mass-small} and
+\eqref{eq:near-small-wieferich-mass}, the far mass and the near-small mass
+are each at most $\epsilon m_j/4$ after deleting finitely many indices.
+Summing \eqref{eq:four-layer-mersenne-block} therefore gives
+\[
+ \sum_{d\in\mathcal N_{m_j}}
+   (G_d+T_{d,\delta}+X_{d,\delta})\ge\frac{\epsilon m_j}{2}.
+\]
+One of the three sums is at least $\epsilon m_j/6$; infinite pigeonhole
+fixes the same arm on a subsequence.  In the transition case each summand is
+at most $(2+\delta)\log m_j$.  Exact-order prime sets for different $d$ are
+disjoint, so division by this cap proves the asserted cardinality.  The
+extreme inequality $q>d_q^{2+\delta}$ gives the final order bound.
+\end{proof}
+
+\begin{corollary}[Three sufficient aggregate gates]
+\label{cor:three-aggregate-mersenne-gates}
+For one fixed $\delta>0$, assume
+\[
+ \sum_{d\in\mathcal N_m}G_d=o(m),\qquad
+ \#\{\text{transition primes at }m\}=o(m/\log m),
+ \qquad
+ \sum_{d\in\mathcal N_m}X_{d,\delta}=o(m).
+\]
+Then $\log W_m=o(m)$.
+\end{corollary}
+
+\begin{proof}
+The transition sum is at most $(2+\delta)\log m$ times its support size.
+Adding the three hypotheses to
+\eqref{eq:far-mersenne-mass-small} and
+\eqref{eq:near-small-wieferich-mass} yields
+$\sum_{d\mid m}\log E_d=o(m)$.  The exact factorization
+$W_m=L_m\prod_{d\mid m}E_d$, with $L_m\mid m$, finishes the proof.
+\end{proof}
+
+None of the three disjuncts can be deleted by positivity alone.  On a
+one-point near set, take target mass one, far and small masses zero, and
+respectively
+\[
+       (G,T,X)=(1,0,0),\quad(0,1,0),\quad(0,0,1).
+\]
+These are complete counterexamples to each corresponding two-disjunct
+ordered-ring strengthening.  They are abstract mass ledgers rather than
+Mersenne blocks, so they do not eliminate an arithmetic arm.
+
+The companion Lean module checks the finite near/far subtraction, the
+$1/6$ trichotomy, the transition-cardinality lower bound, the five-arm
+closure inequality, and all three full-premise counterexamples.  Its
+analytic inputs remain the proved and cited statements above; no
+distribution assertion is inserted as a formal axiom.  Present results on
+primitive cyclotomic factors and generalized Wieferich congruences
+\cite{GranvillePrimitive2012,FelliniMurty2026,FalkHarringtonJones2026}
+do not bound any one of the three weighted moving arms.  All three routes
+therefore remain active.

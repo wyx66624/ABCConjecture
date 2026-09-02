@@ -474,6 +474,12 @@ import IUTThreeClosures.IUTClosedRayApproximationBridge20260901
 -- not an IUT or abc conclusion.
 import IUTThreeClosures.IUTLanaSpecificationNoGo20260901
 
+-- Read-through of the newer, unpinned LANA concrete implication snapshot.
+-- The current kernel checks only the snapshot-independent empty-set no-go
+-- and records the still-missing bridge from genl Statement I to the explicit
+-- integer abc statement; it does not pretend to import the newer actual type.
+import IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901
+
 -- Inhabited valuation-ball repair of the local log-volume interface, additive
 -- transport holonomy, rational-prime local cancellation, and full scalar
 -- counterexamples over real weights.  This is a necessary same-pilot ledger,
@@ -570,6 +576,7 @@ import IUTThreeClosures.MersenneWeightedOrderTail20260901
 -- exact-order cyclotomic divisibility gives the actual uniform cap.  The
 -- residual near-diagonal exceptional estimate remains the active gate.
 import IUTThreeClosures.MersenneTotientDivisorConcentration20260901
+import IUTThreeClosures.MersennePolylogCodivisorGate20260901
 
 -- Integrated cloud arithmetic core, v26--v29.  These modules retain the
 -- square/cube and affine-residual reductions from current main, then add the
@@ -611,3 +618,10 @@ import IUTThreeClosures.PositiveRightContactClosure
 import IUTThreeClosures.SquareCollapseDescentLedger
 import IUTThreeClosures.UnitGapContactDegeneracy
 import IUTThreeClosures.UnitGapArithmeticDerivativeBarrier
+import IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901
+
+-- Sharp square-triangle determinants for three adaptive affine certificates,
+-- canonical factor-three arm bounds, long-arm square-excess selection, the
+-- factor-27 repeated-kernel support bound, and exact `(1,8,9)` degenerate
+-- pressure tests.  No adaptive common-kernel density statement is assumed.
+import IUTThreeClosures.AffineAdaptiveCommonKernel20260901

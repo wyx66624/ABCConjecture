@@ -1,0 +1,289 @@
+{
+  "schema": "abc-adaptive-polylog-current-iut-validation-v1",
+  "status": "PASS",
+  "completedUtc": "2026-09-02T00:43:00.706305+00:00",
+  "gitHeadBeforeCheckpointCommit": "bb2b1629a8605e317597fa4ab8199fbd1afdaa14",
+  "toolVersions": {
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "lake": "Lake version 5.0.0-src+8c9756b (Lean version 4.32.0)",
+    "lean": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)"
+  },
+  "validationDrivers": [
+    {
+      "path": "validate.py",
+      "bytes": 36251,
+      "sha256": "3af8f887b8789d02c37a57fbb0a5cd7e90afb9fbceed50b3f0b0ec1d4db43e80"
+    },
+    {
+      "path": "validate.ps1",
+      "bytes": 1527,
+      "sha256": "0e1f687e6b186b7073669d05d9f0926259f989558b5b0749feba4280b9be114d"
+    }
+  ],
+  "frozenInputs": {
+    "path": "Lean/verification/2026_09_01_adaptive_polylog_current_iut/input-manifest.json",
+    "entries": 473,
+    "sha256": "b961cfff524332d90d4c835ff7624951847cf89183038a16417a083479373817"
+  },
+  "lakeDependencies": {
+    "manifestPath": "Lean/lake-manifest.json",
+    "manifestSha256": "9c9ac0744b4579d6e2afa37150fc27263ff84e43753e5a6bdfc04f44ac96c8a8",
+    "packages": [
+      {
+        "name": "heights",
+        "directory": "heights",
+        "revision": "3539e2a12dd3470c057a4eb531dc3fd627d4c97b",
+        "url": "https://github.com/lana-agents/heights.git"
+      },
+      {
+        "name": "genl",
+        "directory": "genl",
+        "revision": "6e9a6543b46a2a02fd7fe7ec8ab203d878f32859",
+        "url": "https://github.com/LANA-Project/genl.git"
+      },
+      {
+        "name": "iut",
+        "directory": "iut",
+        "revision": "ddaddc274281adb5674d647e24fa478745ac6d40",
+        "url": "https://github.com/lana-agents/iut.git"
+      },
+      {
+        "name": "mathlib",
+        "directory": "mathlib",
+        "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+        "url": "https://github.com/leanprover-community/mathlib4"
+      },
+      {
+        "name": "«tate-curves-theta»",
+        "directory": "tate-curves-theta",
+        "revision": "90d7fac0e4ef2d6bf2a619326c30adb862d1b3de",
+        "url": "https://github.com/lana-agents/tate-curves-theta"
+      },
+      {
+        "name": "plausible",
+        "directory": "plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "url": "https://github.com/leanprover-community/plausible"
+      },
+      {
+        "name": "LeanSearchClient",
+        "directory": "LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "url": "https://github.com/leanprover-community/LeanSearchClient"
+      },
+      {
+        "name": "importGraph",
+        "directory": "importGraph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "url": "https://github.com/leanprover-community/import-graph"
+      },
+      {
+        "name": "proofwidgets",
+        "directory": "proofwidgets",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "url": "https://github.com/leanprover-community/ProofWidgets4"
+      },
+      {
+        "name": "aesop",
+        "directory": "aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "url": "https://github.com/leanprover-community/aesop"
+      },
+      {
+        "name": "Qq",
+        "directory": "Qq",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "url": "https://github.com/leanprover-community/quote4"
+      },
+      {
+        "name": "batteries",
+        "directory": "batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "url": "https://github.com/leanprover-community/batteries"
+      },
+      {
+        "name": "«formal-schemes»",
+        "directory": "formal-schemes",
+        "revision": "51aa935079537bf4dc580751a6e70727fb23ca93",
+        "url": "https://github.com/lana-agents/formal-schemes"
+      },
+      {
+        "name": "Cli",
+        "directory": "Cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "url": "https://github.com/leanprover/lean4-cli"
+      }
+    ]
+  },
+  "generatedAudit": {
+    "path": "Lean/verification/2026_09_01_adaptive_polylog_current_iut/axiom-audit.lean",
+    "bytes": 71110,
+    "sha256": "4d927392c03ef17e1d0dd59f5481b4e24b96b3d07ff31ff64c9fb88edc065409"
+  },
+  "inventory": {
+    "path": "Lean/verification/2026_09_01_adaptive_polylog_current_iut/declaration-inventory.json",
+    "sha256": "8272418edddf1020279812a9eaaf8758e3afa924fe1aa4f732ab871b650f0da2"
+  },
+  "modules": [
+    {
+      "module": "AffineAdaptiveCommonKernel20260901",
+      "path": "Lean/IUTThreeClosures/AffineAdaptiveCommonKernel20260901.lean",
+      "bytes": 37892,
+      "sha256": "7be7bb202f5f6b428ff348bcfa6a8ad7ed7185784100a94a2030e8107002d2ae",
+      "counts": {
+        "theorem": 29,
+        "lemma": 0,
+        "def": 10,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 29,
+      "privateProofDeclarations": 3,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersennePolylogCodivisorGate20260901",
+      "path": "Lean/IUTThreeClosures/MersennePolylogCodivisorGate20260901.lean",
+      "bytes": 15527,
+      "sha256": "cf9d8af69ed8fff45ea4f5ca838de93cef638f1a57667fa47438013b1d5eb4b7",
+      "counts": {
+        "theorem": 10,
+        "lemma": 4,
+        "def": 4,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 14,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersenneNearDiagonalGlobalTriage20260901",
+      "path": "Lean/IUTThreeClosures/MersenneNearDiagonalGlobalTriage20260901.lean",
+      "bytes": 8193,
+      "sha256": "4bb7d1579f5a4bda969a71381bdaeac4b766d3e70d8a9763ae613de312a2be4c",
+      "counts": {
+        "theorem": 8,
+        "lemma": 0,
+        "def": 1,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 8,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "IUTLanaCurrentConcreteImplicationAudit20260901",
+      "path": "Lean/IUTThreeClosures/IUTLanaCurrentConcreteImplicationAudit20260901.lean",
+      "bytes": 4737,
+      "sha256": "a559452c199de1841f43d2ea720aaca8f2aacf8f7a461fb917f47004f0c67555",
+      "counts": {
+        "theorem": 5,
+        "lemma": 0,
+        "def": 1,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 5,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "totals": {
+    "theorem": 52,
+    "lemma": 4,
+    "def": 16,
+    "abbrev": 0,
+    "structure": 0,
+    "class": 0,
+    "inductive": 0,
+    "instance": 0,
+    "countedDeclarations": 72,
+    "proofDeclarations": 56,
+    "privateProofDeclarations": 3,
+    "axiomReports": 56
+  },
+  "axiomUnion": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "directRuns": [
+    {
+      "name": "AffineAdaptiveCommonKernel20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_adaptive_polylog_current_iut/logs/AffineAdaptiveCommonKernel20260901-direct.log",
+      "logSha256": "0ebe8537025b33a0e3e84084485bbdec114f32ab4db4b103cc97484e63dca8e0",
+      "warnings": 0
+    },
+    {
+      "name": "MersennePolylogCodivisorGate20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_adaptive_polylog_current_iut/logs/MersennePolylogCodivisorGate20260901-direct.log",
+      "logSha256": "e0d1234050493d1f65545f809fde55934f12a4fddf2290f797d4e17e574bee65",
+      "warnings": 0
+    },
+    {
+      "name": "MersenneNearDiagonalGlobalTriage20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_adaptive_polylog_current_iut/logs/MersenneNearDiagonalGlobalTriage20260901-direct.log",
+      "logSha256": "2c972b2ed3c1bdbf7d84a59fe66b52d5ef3bd8dd171a02355617cb0515199d70",
+      "warnings": 0
+    },
+    {
+      "name": "IUTLanaCurrentConcreteImplicationAudit20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_01_adaptive_polylog_current_iut/logs/IUTLanaCurrentConcreteImplicationAudit20260901-direct.log",
+      "logSha256": "a8a4c03b4ea42c58d111b37593d3c6cb589086750bcd16dc6e823983a72242ae",
+      "warnings": 0
+    }
+  ],
+  "axiomAuditRun": {
+    "name": "axiom-audit",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_01_adaptive_polylog_current_iut/logs/axiom-audit.log",
+    "logSha256": "d674b2c20b8bf41f987d4e1a69454b4dae65468e90aba908467f6645457acd72",
+    "warnings": 0
+  },
+  "aggregateBuild": {
+    "name": "aggregate-lake-build",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_01_adaptive_polylog_current_iut/logs/aggregate-lake-build.log",
+    "logSha256": "ae378b92330e1a0375f9ca904af7f5333dd0bc138d864129409379216748affd",
+    "jobs": 9216,
+    "warnings": 300
+  },
+  "scope": {
+    "provesOrDisprovesStandardABC": false,
+    "finiteOrConditionalClaimsUpgraded": false
+  }
+}

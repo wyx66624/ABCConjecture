@@ -44,78 +44,42 @@ local lattices, formal verification}
 
 \begin{document}
 \begin{abstract}
-We develop and formally audit several arithmetic routes toward the standard
-$abc$ conjecture, which remains unproved and undisproved here.  Exact
-prime-support classifications, mixed-full radical identities, and a
-subcritical-locus equivalence isolate the uniform height statements that a
-successful proof must supply.  For counterexample searches, an unbounded
-squarefull subsequence on an explicit Pell orbit, and analogous Hall and
-Danilov upgrades, would disprove $abc$ under stated arithmetic premises; the
-premises remain open.  A two-parameter primitive affine shear gives large
-fibres and sharp exceptional-set upper bounds, but still lacks a matching
-lower theorem for simultaneous powerful values.
+We develop and formally audit several proof and counterexample routes toward
+the standard $abc$ conjecture, which is neither proved nor disproved here.
+Exact prime-support identities, mixed-full radical formulas, and a
+subcritical-locus equivalence isolate uniform height estimates that would
+imply $abc$.  In the opposite direction, explicit Pell, Hall, Danilov, and
+powerful-value constructions reduce a disproof to stated infinitude or
+radical-growth hypotheses; none of those hypotheses is presently proved.
 
-One preceding continuation advances four independent interfaces.  A
-primorial-multiple family refutes the global high-$\omega$ hypothesis printed
-in a 2026 proposed disproof, while retaining the broader sufficient target
-$\rad(c)\le X^{\sigma+o(1)}$ with
-$\sigma<2/5-1/k$ near $X=p^k$.  A complete prime/unit coordinate reconstructs
-rational and actual $p$-adic packet entries; fixed labels make the vector
-signature faithful and lift signature-image containment to region
-containment before volume is taken.  Three exact examples refute only
-exponent-only, residue-truncated, and unordered aggregate interfaces.  For
-the minimal affine shear, a diagonal CRT theorem prescribes independent
-square divisors in the two long arms.  An exact canonical packet contains
-$318322715$ points satisfying both necessary marginal gates, while its first
-point is a complete counterexample to the claim that those gates are
-sufficient for a three-quarter exception.  For the remaining full-strength
-affine certificates, a cubic-product lattice argument removes the previously
-uncontrolled large-modulus boundary: one fixed template contains fewer than
-$12c^4/\rad(abc)^2$ canonical parameters.  A matching lower bound therefore
-forces at least a constant multiple of
-$\rad(abc)^{4/3}c^\eta$ distinct templates.  An exact example refutes only
-the strengthening that discards the individual modulus caps.  Finally, every composite
-odd-prime Mersenne layer has a quadratic radical carrier, strengthened to a
-polynomial saving by the Erd\H{o}s--Shorey largest-factor theorem.  The global
-order-block product requires an LTE lifting factor dividing the index; the
-case $m=6$ exactly refutes its omission.  The surviving Mersenne target is
-$\log E_d=o(\varphi(d))$ for the base exact-order mass.  At the first
-classical base-two Wieferich prime, Lean verifies $1093\mid E_{364}$; this
-refutes only the strengthening that every canonical block is one.  The
-cyclotomic classification identifies
-$E_d=\Phi_d(2)/\rad(\Phi_d(2))$.  Brun--Titchmarsh controls the logarithmic
-mass of repeated exact-order primes up to
-$\varphi(d)^2/\log\log(3d)$; any failure of the
-surviving little-oh target must therefore come from deep lifts, a
-positive-proportion cluster in the near-quadratic support budget, or a
-weighted sequence of exceptional small-order primes.
-The exact endpoint is weaker than this pointwise target: it is equivalent to
-$\sum_{d\mid m}\log E_d=o(m)$.  A finite layer-cake identity separates the
-super-Wieferich contribution into one-copy support and a moving high-depth
-tail, yielding a still weaker divisor-average sufficient gate.  The prime
-$3511$ has odd exact order $1755$ and canonical depth two; it refutes only the
-auxiliary assertion that every base-two Wieferich prime has even exact order.
+The newest results sharpen three active interfaces.  In a two-parameter
+primitive affine shear, point-dependent arm divisors have triplewise common
+moduli whose product divides the parameter-triangle determinant.  A sharp
+square bound gives $G\le(M-1)^2$ for every noncollinear triple.  Canonical
+arm estimates also yield a long-arm square-excess alternative and a
+factor-$27$ repeated-kernel support bound.  Exact points for the seed
+$(1,8,9)$ refute only two local strengthenings that delete zero-direction or
+collinearity alternatives; they do not refute the box-wide theorem.
 
-The current checkpoint adds three further reductions.  A zero-aware
-prime/unit signature refines each generic finite-stage packet into every
-primitive field factor and is covariant under explicit factor equivalences;
-constructing the actual all-place IUT instance remains open.  Three affine
-congruences force their product modulus to divide every determinant, so the
-canonical range is collinear and a matching exceptional lower bound requires
-on the order of $\rad(abc)^{2/3}c^{2+\eta}$ distinct repeated-kernel triples.
-At the Mersenne endpoint, the exact totient-weighted logarithmic deficit is
-$O(\log\log(3m))$, the actual block satisfies
-$E_d\mid\Phi_d(2)\le3^{\varphi(d)}$, and the unresolved average is confined
-to $d>m\exp(-\{\log\log(3m)\}^2)$.  No corresponding near-diagonal
-exceptional-mass estimate or full-premise counterexample is known.
+For the Mersenne endpoint, $\log W_m=o(m)$ is equivalent to requiring, for
+every $\epsilon>0$ and every fixed $k\ge1$, that the exceptional totient mass
+inside $q=m/d<\{\log(3m)\}^k$ be $o(m)$.  Failure splits into an atomic
+fixed-co-divisor obstruction or a diffuse multi-fibre obstruction.  A
+near-diagonal decomposition further proves that linear mass must survive in
+deep lifts, in a transition arm containing $\gg m/\log m$ primes, or among
+primes of extremely small multiplicative order.  Abstract countermodels
+test the logical sharpness of these alternatives but are not asserted to be
+the actual Mersenne sequence.
 
-Lean verifies the elementary algebra, finite arithmetic, reconstruction
-bridges, complete counterexamples, the corrected Mersenne order-block
-decomposition, the cyclotomic cap, and moving-window concentration without assuming
-$abc$, IUT, or the open arithmetic families.  Published analytic and
-Diophantine inputs and the surviving global hypotheses are stated outside the
-kernel.  Every broad route without a full-premise counterexample remains
-active.
+Finally, the latest public LANA implication reaches an abstract height
+statement only conditionally.  Its current total real-valued
+\texttt{LocalTheory} volume law applied to the empty set forces $\log2=0$,
+and no checked bridge identifies its target with the integer
+\texttt{ABCConjecture}.  This rejects that exact interface while leaving a
+corrected IUT route open.  Lean companions verify the stated finite algebra,
+inequalities, and counterexamples without proof placeholders; analytic and
+geometric inputs not yet formalized are identified explicitly.
+
 \end{abstract}
 \maketitle
 
@@ -202,6 +166,10 @@ complete counterexamples to three weaker coordinate interfaces.
 Section~\ref{sec:iut-refined-factor-signature} splits a generic fixed-stage
 packet into primitive field factors, restores zero to the signature, and
 states the exact source-level covariance still needed for IUT.
+Section~\ref{sec:iut-current-concrete-implication} audits the newest LANA
+conditional implication, proves the empty-set obstruction to its current
+local-volume interface, and isolates the missing abstract-to-integer abc
+bridge.
 Section~\ref{sec:affine-two-arm-crt} constructs a simultaneous two-arm CRT
 packet and tests the two necessary marginal excess gates against a complete
 canonical counterexample.
@@ -213,6 +181,9 @@ Section~\ref{sec:affine-determinant-layer-entropy} combines all three affine
 congruences in the determinant, forces canonical collinearity, and derives
 the stronger repeated-kernel entropy requirement with its exact boundary
 counterexamples.
+Section~\ref{sec:affine-adaptive-common-kernel} proves the sharp determinant
+bound for three point-adaptive certificates, improves the canonical support
+constants, and retains the unresolved common-kernel selection problem.
 Section~\ref{sec:mersenne-prime-layer} separates base order blocks from the
 LTE lifting remainder and proves unconditional radical bounds at prime
 Mersenne layers.
@@ -225,6 +196,11 @@ odd-order counterexample at $3511$ without closing the surviving route.
 Section~\ref{sec:mersenne-totient-concentration} proves the exact divisor
 moment, its $O(\log\log(3m))$ moving localization, the actual cyclotomic cap,
 and the resulting near-diagonal exceptional-mass equivalence.
+Section~\ref{sec:mersenne-polylog-codivisor} replaces that moving range by
+the exact family of fixed-polylogarithmic co-divisor gates, with its atomic
+and diffuse failure alternatives.  Section~\ref{sec:mersenne-near-diagonal-triage}
+then reduces every surviving linear mass to deep lifts, transition
+clustering, or extreme small order.
 No priority over existing literature is
 claimed for consequences of the cited classical theorems.
 
@@ -968,20 +944,24 @@ logarithmic-form methods to a different family.
 \input{iut_prime_unit_label_vector_2026}
 
 \input{iut_refined_factor_signature_2026}
+\input{iut_lana_current_concrete_implication_audit_2026}
 
 \input{affine_two_arm_crt_2026}
 
 \input{affine_template_entropy_2026}
 
 \input{affine_determinant_layer_entropy_2026}
+\input{affine_adaptive_common_kernel_2026}
 
 \input{mersenne_prime_layer_radical_2026}
 
 \input{mersenne_weighted_order_tail_2026}
 
-\input{mersenne_totient_divisor_concentration_2026}
-
 \input{mersenne_super_wieferich_depth_section_2026}
+
+\input{mersenne_totient_divisor_concentration_2026}
+\input{mersenne_polylog_codivisor_gate_2026}
+\input{mersenne_near_diagonal_global_triage_2026}
 
 \raggedbottom
 \section{Formal verification and remaining obligations}\label{sec:formal}
@@ -1193,15 +1173,32 @@ Zero-aware reconstruction on each primitive field factor, faithful dependent
 products, generic fixed-stage finite-etale packet composition once its
 instances are supplied, and covariance under explicit refined field
 transport.\\[3pt]
+\texttt{IUTLanaCurrentConcrete\allowbreak ImplicationAudit20260901} &
+The universal empty-set obstruction to total real log-volume translation,
+the pinned public specialization, and the explicit missing bridge from
+abstract \texttt{StatementI} to integer \texttt{ABCConjecture}.\\[3pt]
 \texttt{AffineDeterminantLayer\allowbreak Entropy20260901} & Product-modulus
 determinant divisibility, forced collinearity, one-dimensional capacity
 interfaces, canonical scale constants, fractional covers, and two exact
 arithmetic counterexamples plus the zero-density logical counterexample.\\[3pt]
+\texttt{AffineAdaptiveCommon\allowbreak Kernel20260901} & Sharp square
+triangle-determinant bounds, the derivation from actual pointwise arm divisors
+and triplewise gcds to six difference congruences, factor-three arm caps, the
+long-arm square-excess alternative, factor-$27$ support bounds, and two exact
+full-premise local counterexamples.\\[3pt]
 \texttt{MersenneTotientDivisor\allowbreak Concentration20260901} & Exact
 exceptional-totient criteria, logarithmic-deficit factorization,
 $O(\log\log(3m))$ moment and moving-window concentration, unconditional
 cyclotomic cap for the actual blocks, the resulting near-diagonal Mersenne
 equivalence, and the finite power-of-two weight witness.\\[3pt]
+\texttt{MersennePolylogCodivisor\allowbreak Gate20260901} & Exact partition
+into fixed-polylogarithmic co-divisor windows, the uniform $C/k$ tail,
+uniform-in-fixed-index transfer, and the actual Mersenne endpoint
+equivalence.\\[3pt]
+\texttt{MersenneNearDiagonalGlobal\allowbreak Triage20260901} & Aggregate
+near/far subtraction, the deep/transition/extreme $1/6$ trichotomy,
+transition-cardinality control, five-arm closure, and three full-premise
+one-point counterexamples to deleting a disjunct.\\[3pt]
 \bottomrule
 \end{longtable}
 
@@ -1346,6 +1343,25 @@ are warning-free, and the aggregate $9212$-job target succeeds.  The sealed
 replay freezes $469$ local Lean and Lake inputs and explicitly records that
 these checks do not close the standard $abc$ conjecture.
 
+The present adaptive-kernel, fixed-polylogarithmic, near-diagonal, and
+current-IUT audit adds four modules with $52$ theorem declarations, four
+lemma declarations, and sixteen definitions, for $72$ declarations in all;
+three of the affine theorems are private implementation lemmas.  A generated
+same-scope audit issues one \texttt{\#print axioms} query for each of the $56$
+proof declarations, including the private proofs; their union is exactly
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+All four direct compilations are warning-free.  The aggregate target
+completes $9216$ jobs with no errors; its warning diagnostics are inherited
+from historical imports and none arises in these modules.  A code-only scan
+finds no proof placeholder, declaration-style axiom, native evaluation,
+unsafe definition, or opaque declaration, and \texttt{git diff --check}
+succeeds.  This aggregate build retains the pinned LANA commit
+\texttt{ddaddc2}.  Separately, against a
+detached checkout of commit \texttt{6e963070}, the public \texttt{Iut}
+target builds and an additional audit theorem proves
+\texttt{LocalTheory}$(K)\to\texttt{False}$.  Successful construction of the
+library therefore does not provide an inhabitant of that structure.
+
 The formal scope is deliberately narrower than the full paper.
 Theorem~\ref{thm:tail} and Corollary~\ref{cor:carella} use Younis and classical
 smooth-number asymptotics in their mathematical proofs; those external
@@ -1434,7 +1450,7 @@ Fellini--Murty prime-order/Siegel argument and its rank-tower descent remain
 paper proofs.  The Fibonacci cyclotomic correction, rank-of-apparition
 valuation transfer, Carmichael--Yabuta primitive-divisor theorem, and Hong's
 large-prime theorem are cited mathematical inputs rather than Lean axioms.
-The pinned LANA no-go proves only that the current low-resolution record is
+The pinned LANA no-go proves only that the pinned low-resolution record is
 uninhabited; no corrected Haar-volume interface or object-level pointed
 same-pilot diagram has been constructed.  Thus none of these formal modules
 turns the surviving Pell, Fibonacci--Danilov, affine, or IUT obligations into
@@ -1462,8 +1478,27 @@ same measured set and reference. The canonical local membership of
 one fixed base branch is now supplied by
 Theorem~\ref{thm:uim-base-membership}; it does not settle these
 remaining comparisons.
-Constructing initial data, descending a determinant, or eliminating Ind2
-from a fixed $B$-module hull does not supply that comparison.
+The newest public conditional implication does not bypass this gate: its
+current local-volume interface is empty by
+Theorem~\ref{thm:latest-local-theory-empty}, and even a corrected inhabitant
+would still leave the actual Corollary 3.12 premise and the bridge
+\eqref{eq:missing-statementI-integer-bridge} to prove.
+
+On the affine route, determinant divisibility now survives point-adaptive
+certificates.  Closure requires a triple-selection theorem that forces a
+noncollinear exceptional triple with common-kernel product exceeding
+$(M-1)^2$; the two degenerate examples show why zero directions and
+collinear packets must be retained.  On the Mersenne route, it is enough to
+work in every fixed-polylogarithmic co-divisor packet, but one must still
+control all three weighted mechanisms in
+Theorem~\ref{thm:global-mersenne-three-arm-obstruction}.  Prime indices
+remain in the atomic branch, so the localization does not evade the fixed
+base Wieferich problem.  No finite computation or current density theorem
+excludes the deep, transition, or extreme arm.
+
+Constructing initial data, descending a determinant, localizing a divisor
+average, or eliminating Ind2 from a fixed $B$-module hull does not by itself
+supply the missing global comparison or distribution estimate.
 No unconditional closed term
 of type \texttt{ABCConjecture}, or of its negation, is produced by this work.
 

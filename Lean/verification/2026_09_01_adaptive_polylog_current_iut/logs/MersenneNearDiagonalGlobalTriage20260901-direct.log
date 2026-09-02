@@ -1,0 +1,27 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean IUTThreeClosures/MersenneNearDiagonalGlobalTriage20260901.lean
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.deep_or_transition_or_extreme_of_two_controlled_arms' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.aggregate_near_diagonal_trichotomy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.aggregate_transition_card_lowerBound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.aggregate_transition_card_lowerBound_of_log_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.finite_five_arm_closure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.deep_disjunct_has_full_premise_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.transition_disjunct_has_full_premise_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.extreme_disjunct_has_full_premise_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

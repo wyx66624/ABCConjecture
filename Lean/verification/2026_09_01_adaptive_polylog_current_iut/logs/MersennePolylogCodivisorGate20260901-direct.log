@@ -1,0 +1,27 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean IUTThreeClosures/MersennePolylogCodivisorGate20260901.lean
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.totientExceptionalDivisorMass_eq_far_add_polylogLocalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.totientExceptionalDivisorMass_le_polylogLocalized_add_far' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.fixedPolylogScale_mul_polylogFarTotientMass_le_moment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.polylogFarTotientMass_le_constant_div' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.isLittleO_natCast_of_all_fixed_approximants' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.exists_uniform_polylogFarTotientMass_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.totientExceptionalDivisorMass_isLittleO_iff_all_fixedPolylogLocalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.log_mersennePowerLoss_isLittleO_iff_all_fixedPolylogLocalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

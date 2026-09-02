@@ -1,0 +1,160 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean verification/2026_09_01_adaptive_polylog_current_iut/axiom-audit.lean
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_natAbs_le_boxSq_of_first_sorted' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_swap_last' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_swap_first' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_rotate' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_natAbs_le_boxSq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.natTriangleDet_natAbs_le_positiveBoxSq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.signedPairDet_natPointDiff' does not depend on any axioms
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.adaptive_commonModulusProduct_le_boxSq_of_noncollinear' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_three_mul_affineU_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_three_mul_affineV_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_three_mul_affineW_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_threeArm_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.longArm_excessProduct_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.longArm_squareExcess_dichotomy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonical_longArm_squareExcess_dichotomy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.longArm_radicalSupport_sq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.actualLongArm_radicalSupport_sq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.canonicalKernel_radicalSupport_factor27' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.threePointCommonGcd_dvd_left' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.threePointCommonGcd_dvd_middle' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.threePointCommonGcd_dvd_right' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.triplePoint_armDivisorGcds_give_adaptiveInterface' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.verification.«2026_09_01_adaptive_polylog_current_iut».«axiom-audit».0.IUTThreeClosures.AffineAdaptiveCommonKernel20260901.radical_72' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.verification.«2026_09_01_adaptive_polylog_current_iut».«axiom-audit».0.IUTThreeClosures.AffineAdaptiveCommonKernel20260901.radical_121' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'_private.verification.«2026_09_01_adaptive_polylog_current_iut».«axiom-audit».0.IUTThreeClosures.AffineAdaptiveCommonKernel20260901.radical_961' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.seed189_zeroFirstDirection_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.seed189_collinearLocalCubic_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.seed189_zeroFirstDirection_fullPremise_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineAdaptiveCommonKernel20260901.seed189_diameterCubic_fullPremise_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.logLogScale_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.fixedPolylogScale_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.polylogFarTotientMass_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.polylogLocalizedExceptionalMass_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.totientExceptionalDivisorMass_eq_far_add_polylogLocalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.polylogLocalizedExceptionalMass_le_total' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.farExceptionalMass_le_polylogFarTotientMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.totientExceptionalDivisorMass_le_polylogLocalized_add_far' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.fixedPolylogScale_mul_polylogFarTotientMass_le_moment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.polylogFarTotientMass_le_constant_div' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.isLittleO_natCast_of_all_fixed_approximants' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.exists_uniform_polylogFarTotientMass_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.totientExceptionalDivisorMass_isLittleO_iff_all_fixedPolylogLocalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersennePolylogCodivisorGate20260901.log_mersennePowerLoss_isLittleO_iff_all_fixedPolylogLocalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.deep_or_transition_or_extreme_of_two_controlled_arms' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.aggregate_near_diagonal_trichotomy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.aggregate_transition_card_lowerBound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.aggregate_transition_card_lowerBound_of_log_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.finite_five_arm_closure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.deep_disjunct_has_full_premise_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.transition_disjunct_has_full_premise_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneNearDiagonalGlobalTriage20260901.extreme_disjunct_has_full_premise_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.false_of_forall_prime_preimage_translation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.not_forall_prime_preimage_translation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.pinned_public_logVolumeData_noGo' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.abcConjecture_of_statementI_and_bridge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.statementIToIntegerABCBridge_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

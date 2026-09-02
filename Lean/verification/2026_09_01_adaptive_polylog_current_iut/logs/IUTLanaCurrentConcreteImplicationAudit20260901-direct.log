@@ -1,0 +1,18 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean IUTThreeClosures/IUTLanaCurrentConcreteImplicationAudit20260901.lean
+'IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.false_of_forall_prime_preimage_translation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.not_forall_prime_preimage_translation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.pinned_public_logVolumeData_noGo' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.abcConjecture_of_statementI_and_bridge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTLanaCurrentConcreteImplicationAudit20260901.statementIToIntegerABCBridge_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

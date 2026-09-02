@@ -1,0 +1,171 @@
+\section{Adaptive three-point kernels in the affine shear}
+\label{sec:affine-adaptive-common-kernel}
+
+The fixed-template argument of
+Section~\ref{sec:affine-determinant-layer-entropy} does not allow the three
+arm certificates to vary from point to point.  We now isolate the part of
+the determinant mechanism that survives completely adaptive choices.
+
+Retain the minimal-radical shear
+\[
+ U(h,k)=1+Rh,\qquad
+ V(h,k)=1+R(h+ck),\qquad
+ W(h,k)=1+R(h+bk),
+\]
+and let $p,q,r$ be three admissible parameters in $[1,M]^2$.  At each point
+$s$ choose arbitrary divisors
+\[
+ d_U(s)\mid U(s),\qquad d_V(s)\mid V(s),\qquad d_W(s)\mid W(s).
+\]
+Define the triplewise common moduli
+\[
+ g_Z=\gcd(d_Z(p),d_Z(q),d_Z(r))\quad(Z=U,V,W),\qquad
+ G=g_Ug_Vg_W.
+\]
+
+\begin{lemma}[Sharp square-triangle determinant]
+\label{lem:sharp-square-triangle}
+If three points lie in an axis-parallel square of side $N$, then
+\[
+                 |\det(q-p,r-p)|\le N^2.
+\]
+The constant is sharp.
+\end{lemma}
+
+\begin{proof}
+Translate the square to $[0,N]^2$ and order the three first coordinates as
+$x_1,x_1+s,x_1+s+t$, where $s,t\ge0$ and $s+t\le N$.  If the corresponding
+second coordinates are $Y_1,Y_2,Y_3$, translation gives
+\[
+ D=tY_1-(s+t)Y_2+sY_3.
+\]
+The positive contribution and the absolute value of the negative
+contribution are each at most $(s+t)N\le N^2$.  A permutation changes only
+the sign.  Three corners attain equality.
+\end{proof}
+
+At any one admissible point the three arms are pairwise coprime and each is
+coprime to $R$.  For a difference vector $(x,y)$ between two of the points,
+cancellation of $R$ therefore gives
+\[
+ g_U\mid x,\qquad g_V\mid x+cy,\qquad g_W\mid x+by.
+\]
+Applying this to both $q-p$ and $r-p$ and using
+\[
+ \det((x,y),(x',y'))
+ =(x+cy)y'-y(x'+cy')
+ =(x+by)y'-y(x'+by')
+\]
+shows that every $g_Z$ divides the determinant.  The three moduli are
+pairwise coprime, hence their product divides it.
+
+\begin{theorem}[Adaptive common-kernel determinant bound]
+\label{thm:adaptive-common-kernel-box}
+If $p,q,r\in[1,M]^2$ are noncollinear, then
+\[
+                            G\le(M-1)^2.
+\]
+\end{theorem}
+
+\begin{proof}
+The preceding congruences give
+$G\mid\det(q-p,r-p)$.  Noncollinearity makes the determinant nonzero, so
+$G$ is at most its absolute value.  Apply
+Lemma~\ref{lem:sharp-square-triangle} to the square of side $M-1$.
+\end{proof}
+
+This theorem allows unrelated certificates at all three points.  What it
+does not provide is a density theorem forcing a triple whose three
+triplewise gcds have large product.  That is now the precise positive
+selection problem.
+
+There are also useful canonical constant improvements.  Put
+\[
+ M=\left\lfloor\frac{c^6}{4R}\right\rfloor,\qquad c\ge9,
+ \qquad E(n)=\frac n{\rad(n)}.
+\]
+For every $(h,k)\in[1,M]^2$,
+\begin{equation}\label{eq:canonical-factor-three-arms}
+                 3U\le c^6,\qquad 3V\le c^7,\qquad 3W\le c^7.
+\end{equation}
+Indeed, $4RM\le c^6$.  The short-arm estimate follows from
+$12+12Rh\le12+3c^6\le4c^6$.  For a long arm,
+\[
+ 4(3V)\le12+3c^6(c+1)\le4c^7,
+\]
+where the last inequality is $12\le(c-3)c^6$; $b\le c$ gives the same
+bound for $W$.
+
+Suppose the affine point meets the necessary exceptional threshold
+\begin{equation}\label{eq:adaptive-excess-threshold}
+              Rc^{14}<8192E(U)E(V)E(W).
+\end{equation}
+Since $3E(U)\le c^6$, cancellation gives
+\[
+                   3Rc^8<8192E(V)E(W).
+\]
+Thus at least one long arm $Z\in\{V,W\}$ satisfies
+\begin{equation}\label{eq:long-arm-square-excess}
+                   3Rc^8<8192E(Z)^2.
+\end{equation}
+Combining $Z=\rad(Z)E(Z)$, $3Z\le c^7$, and
+\eqref{eq:long-arm-square-excess} yields
+\begin{equation}\label{eq:long-arm-radical-square-support}
+             27R\rad(Z)^2<8192c^6.
+\end{equation}
+
+For the full repeated kernel
+\[
+ K(n)=\prod_{p^e\parallel n,\ e\ge2}p^e,\qquad
+ K=K(U)K(V)K(W),
+\]
+pairwise coprimality gives
+\[
+ K=\rad(K)E(U)E(V)E(W).
+\]
+Moreover, \eqref{eq:canonical-factor-three-arms} gives
+$27K\le27UVW\le c^{20}$.  Multiplying
+\eqref{eq:adaptive-excess-threshold} by $27\rad(K)$ and cancelling
+$c^{14}$ proves the improved support bound
+\begin{equation}\label{eq:full-kernel-factor-27-support}
+                 27R\rad(K)<8192c^6.
+\end{equation}
+
+The geometric alternatives have been tested on actual parameters.  For
+the primitive seed $(a,b,c)=(1,8,9)$ one has $R=6$ and $M=22143$.
+The admissible points $(20,1)$ and $(20,2)$ have arm triples
+\[
+ (121,175,169),\qquad(121,229,217).
+\]
+They share $K(U)=121$, have distance one and vertical difference, while
+\[
+       121>(b+1)(c+1)=90,\qquad121>(c+1)^2=100.
+\]
+Taking divisor certificates $(121,25,169)$ and $(121,1,1)$ gives common
+gcds $(121,1,1)$ and product $121$.  Thus this is a full-premise in-box
+counterexample to the precise local implication that deletes the
+zero-first-coordinate branch and concludes
+$G\le(c+1)^2\lVert p-q\rVert_\infty^3=100$.
+
+Likewise $(160,1),(160,2),(160,3)$ are admissible, collinear and share
+$U=K(U)=961$.  Their diameter is two and
+\[
+                    961>(c+1)^2 2^3=800.
+\]
+Choosing certificates $(961,1,1)$ at every point gives triplewise gcds
+$(961,1,1)$ and satisfies all six difference congruences.  Hence the precise
+full-premise local cubic implication to noncollinearity is false.  This is
+not a counterexample to Theorem~\ref{thm:adaptive-common-kernel-box}, nor to
+its numerical box-wide conclusion: $961<(22143-1)^2$.  It refutes only the
+local diameter-scale strengthening and the invalid step from divisibility
+to a size bound when the determinant may be zero.
+
+Lean verifies the sharp determinant lemma for every point order, the
+derivation of the adaptive congruence interface from actual pointwise arm
+divisors and triplewise gcds, all three bounds in
+\eqref{eq:canonical-factor-three-arms}, the long-arm dichotomy,
+\eqref{eq:long-arm-radical-square-support},
+the arithmetic seam of \eqref{eq:full-kernel-factor-27-support}, and the
+negations of both exact local implications.  No adaptive common-kernel density
+input is assumed.  The affine route therefore remains active at the
+triple-selection gate.
