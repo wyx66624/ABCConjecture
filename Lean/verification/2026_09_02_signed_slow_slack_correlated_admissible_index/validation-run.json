@@ -1,0 +1,375 @@
+{
+  "schema": "abc-signed-slow-correlated-admissible-validation-v1",
+  "status": "PASS",
+  "completedUtc": "2026-09-02T10:36:13.378667+00:00",
+  "gitHeadBeforeCheckpointCommit": "2afb39ad1c71727d705db80a9d7370e61fc5d7c4",
+  "toolVersions": {
+    "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "lake": "Lake version 5.0.0-src+8c9756b (Lean version 4.32.0)",
+    "lean": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)"
+  },
+  "validationDrivers": [
+    {
+      "path": "replay_evidence.py",
+      "bytes": 10138,
+      "sha256": "52c824b489dfcc5fb58431ca8e59ae84e781f957322f4b36a3415135325324a7"
+    },
+    {
+      "path": "validate.py",
+      "bytes": 47946,
+      "sha256": "7c4fd28343772879ac55dc96e18bcef513a2e45bf95b8d0375c76cabdc01d459"
+    },
+    {
+      "path": "validate.ps1",
+      "bytes": 1527,
+      "sha256": "0e1f687e6b186b7073669d05d9f0926259f989558b5b0749feba4280b9be114d"
+    }
+  ],
+  "frozenInputs": {
+    "path": "Lean/verification/2026_09_02_signed_slow_slack_correlated_admissible_index/input-manifest.json",
+    "entries": 594,
+    "sha256": "a6f335acc10fcf15cfdc40836557e6dbf08ccfdd51da04d6758233cdd017dbed"
+  },
+  "lakeDependencies": {
+    "manifestPath": "Lean/lake-manifest.json",
+    "manifestSha256": "9c9ac0744b4579d6e2afa37150fc27263ff84e43753e5a6bdfc04f44ac96c8a8",
+    "packages": [
+      {
+        "name": "heights",
+        "directory": "heights",
+        "revision": "3539e2a12dd3470c057a4eb531dc3fd627d4c97b",
+        "url": "https://github.com/lana-agents/heights.git"
+      },
+      {
+        "name": "genl",
+        "directory": "genl",
+        "revision": "6e9a6543b46a2a02fd7fe7ec8ab203d878f32859",
+        "url": "https://github.com/LANA-Project/genl.git"
+      },
+      {
+        "name": "iut",
+        "directory": "iut",
+        "revision": "ddaddc274281adb5674d647e24fa478745ac6d40",
+        "url": "https://github.com/lana-agents/iut.git"
+      },
+      {
+        "name": "mathlib",
+        "directory": "mathlib",
+        "revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+        "url": "https://github.com/leanprover-community/mathlib4"
+      },
+      {
+        "name": "«tate-curves-theta»",
+        "directory": "tate-curves-theta",
+        "revision": "90d7fac0e4ef2d6bf2a619326c30adb862d1b3de",
+        "url": "https://github.com/lana-agents/tate-curves-theta"
+      },
+      {
+        "name": "plausible",
+        "directory": "plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62",
+        "url": "https://github.com/leanprover-community/plausible"
+      },
+      {
+        "name": "LeanSearchClient",
+        "directory": "LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+        "url": "https://github.com/leanprover-community/LeanSearchClient"
+      },
+      {
+        "name": "importGraph",
+        "directory": "importGraph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12",
+        "url": "https://github.com/leanprover-community/import-graph"
+      },
+      {
+        "name": "proofwidgets",
+        "directory": "proofwidgets",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93",
+        "url": "https://github.com/leanprover-community/ProofWidgets4"
+      },
+      {
+        "name": "aesop",
+        "directory": "aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3",
+        "url": "https://github.com/leanprover-community/aesop"
+      },
+      {
+        "name": "Qq",
+        "directory": "Qq",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc",
+        "url": "https://github.com/leanprover-community/quote4"
+      },
+      {
+        "name": "batteries",
+        "directory": "batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff",
+        "url": "https://github.com/leanprover-community/batteries"
+      },
+      {
+        "name": "«formal-schemes»",
+        "directory": "formal-schemes",
+        "revision": "51aa935079537bf4dc580751a6e70727fb23ca93",
+        "url": "https://github.com/lana-agents/formal-schemes"
+      },
+      {
+        "name": "Cli",
+        "directory": "Cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94",
+        "url": "https://github.com/leanprover/lean4-cli"
+      }
+    ]
+  },
+  "generatedAudit": {
+    "path": "Lean/verification/2026_09_02_signed_slow_slack_correlated_admissible_index/axiom-audit.lean",
+    "bytes": 82320,
+    "sha256": "b12aa958883112c69ec4b9e983889b2efe3f0eaeacf462b6df5d5b9986a1a24a"
+  },
+  "inventory": {
+    "path": "Lean/verification/2026_09_02_signed_slow_slack_correlated_admissible_index/declaration-inventory.json",
+    "sha256": "9e77f317c4eb378e6631d20c95569939dddb963dc3c5f286020e5c9cc17e2243"
+  },
+  "modules": [
+    {
+      "module": "AffineSignedRayCanonicalCaps20260901",
+      "path": "Lean/IUTThreeClosures/AffineSignedRayCanonicalCaps20260901.lean",
+      "bytes": 35925,
+      "sha256": "539a484e5b5535940b037ff077de385630966f0fa08c700167b760ce8e88548e",
+      "counts": {
+        "theorem": 41,
+        "lemma": 0,
+        "def": 4,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 41,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "IUTAdmissibleScalingOrderIndex20260901",
+      "path": "Lean/IUTThreeClosures/IUTAdmissibleScalingOrderIndex20260901.lean",
+      "bytes": 6523,
+      "sha256": "7eada4b65ab30a95a81af79805c569f0d0d2dd7b27e01acf4bb913d730dce33b",
+      "counts": {
+        "theorem": 11,
+        "lemma": 0,
+        "def": 2,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 11,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "MersenneCriticalSlowSlackGate20260901",
+      "path": "Lean/IUTThreeClosures/MersenneCriticalSlowSlackGate20260901.lean",
+      "bytes": 14374,
+      "sha256": "44d1f66df3d174347a827105cdb86ba2db729254b16fe2b783a67ef9b6a908e2",
+      "counts": {
+        "theorem": 16,
+        "lemma": 0,
+        "def": 4,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 16,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "module": "PellLucasCorrelatedAllOrderExclusion20260901",
+      "path": "Lean/IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean",
+      "bytes": 18577,
+      "sha256": "743d282f7c9f9869e3a578d02df9c7ec462899533de81427df4dc9f51cc54bde",
+      "counts": {
+        "theorem": 22,
+        "lemma": 0,
+        "def": 6,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "proofDeclarations": 22,
+      "privateProofDeclarations": 0,
+      "axiomUnion": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "totals": {
+    "theorem": 90,
+    "lemma": 0,
+    "def": 16,
+    "abbrev": 0,
+    "structure": 0,
+    "class": 0,
+    "inductive": 0,
+    "instance": 0,
+    "countedDeclarations": 106,
+    "proofDeclarations": 90,
+    "privateProofDeclarations": 0,
+    "axiomReports": 90
+  },
+  "axiomUnion": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "directRuns": [
+    {
+      "name": "AffineSignedRayCanonicalCaps20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_02_signed_slow_slack_correlated_admissible_index/logs/AffineSignedRayCanonicalCaps20260901-direct.log",
+      "logSha256": "92be5bb84a9a4da059f2d328869aa1806f567e518c78333151c5042e6d158254",
+      "warnings": 0
+    },
+    {
+      "name": "IUTAdmissibleScalingOrderIndex20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_02_signed_slow_slack_correlated_admissible_index/logs/IUTAdmissibleScalingOrderIndex20260901-direct.log",
+      "logSha256": "822fc15ffcc34cba408507468d724ff458fcce68892384ef1036c7dd791b7710",
+      "warnings": 0
+    },
+    {
+      "name": "MersenneCriticalSlowSlackGate20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_02_signed_slow_slack_correlated_admissible_index/logs/MersenneCriticalSlowSlackGate20260901-direct.log",
+      "logSha256": "ac6da6c19acff4c836da215d583611b09c17ced419d2c6076d73f6cd411233bb",
+      "warnings": 0
+    },
+    {
+      "name": "PellLucasCorrelatedAllOrderExclusion20260901-direct",
+      "exitCode": 0,
+      "log": "Lean/verification/2026_09_02_signed_slow_slack_correlated_admissible_index/logs/PellLucasCorrelatedAllOrderExclusion20260901-direct.log",
+      "logSha256": "789e9bc4192cbefcb7b2aed608691ff9ed1bcbe63621c7fe4eecf37a8d75bbaf",
+      "warnings": 0
+    }
+  ],
+  "axiomAuditRun": {
+    "name": "axiom-audit",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_02_signed_slow_slack_correlated_admissible_index/logs/axiom-audit.log",
+    "logSha256": "b27f2f920316d96a3678f3525f3f48e5e69fb167ce3ff4a293fcd24279bc3b97",
+    "warnings": 0
+  },
+  "computationReplay": {
+    "name": "four-route-evidence-replay",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_02_signed_slow_slack_correlated_admissible_index/logs/four-route-evidence-replay.log",
+    "logSha256": "ca998fb5a13b1fdb338d3093d53f69ce04787c18fbf0486bc7662f0b2aad8aff",
+    "output": "Lean/verification/2026_09_02_signed_slow_slack_correlated_admissible_index/evidence-replay.json",
+    "outputSha256": "45a0eafdf29cb2a01cc1d7769fba8667dc69fbf044be4d8daff28fb9272f1569",
+    "verified": {
+      "affine": {
+        "armCaptures": 43403,
+        "catalogueDeletion": {
+          "allDivisorWeight": 972496,
+          "ownerMass": 1072
+        },
+        "cubicLedgers": 1776807,
+        "directions": 15840,
+        "quadraticLedgers": 2390018,
+        "selectedM10Large": 110,
+        "selectedM10Repeated": 12,
+        "stressLarge": 113,
+        "stressNonarm": 1,
+        "stressRepeated": 9,
+        "verificationSha256": "4bf54f7fad2a50fd16bd1be56f844da1e8d2e1f8536ec3bcd2d806fea96cf60b"
+      },
+      "hashEntries": {
+        "affine": 6,
+        "iut": 15,
+        "mersenneComputationAndSource": 6,
+        "pell": 14,
+        "total": 41
+      },
+      "iut": {
+        "buildJobs": 8767,
+        "commit": "c65b28c9f9631635e742294c3a5df15759e7c74c",
+        "frozenEntries": 13,
+        "patchFiles": 3,
+        "sealEntries": 15
+      },
+      "mersenne": {
+        "characterIdentity": true,
+        "oddPrimeCount": 9591,
+        "primeCount": 9592,
+        "retirementWitness": 1093,
+        "scanLimit": 100000,
+        "wieferichRows": [
+          {
+            "depth": 2,
+            "multiplier": 3,
+            "order": 364,
+            "prime": 1093
+          },
+          {
+            "depth": 2,
+            "multiplier": 2,
+            "order": 1755,
+            "prime": 3511
+          }
+        ]
+      },
+      "pell": {
+        "coefficientPairs": 138675,
+        "depthThreeHits": 0,
+        "indexElevenMixedSigns": true,
+        "largestPrimeIndex": 271,
+        "polynomialChecks": 228,
+        "primeCandidateTests": 527352,
+        "primeIndices": 57,
+        "repeatedHits": [
+          {
+            "channel": "B",
+            "depth": "exactly_2",
+            "index": 7,
+            "prime": 13
+          }
+        ],
+        "verificationSha256": "1c2d884f3ca05b04f7724823fd517d86de9a8d791e1bd815fe3ab79f8ad2e82d"
+      },
+      "schema": "abc-signed-slow-correlated-admissible-evidence-v1",
+      "status": "PASS"
+    }
+  },
+  "aggregateBuild": {
+    "name": "aggregate-lake-build",
+    "exitCode": 0,
+    "log": "Lean/verification/2026_09_02_signed_slow_slack_correlated_admissible_index/logs/aggregate-lake-build.log",
+    "logSha256": "72d3b0a68afadd921f6182619e90cd707f4b1bb7a6a376a86eea1447f226436b",
+    "jobs": 9233,
+    "warnings": 301
+  },
+  "scope": {
+    "provesOrDisprovesStandardABC": false,
+    "finiteOrConditionalClaimsUpgraded": false
+  }
+}

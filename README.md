@@ -7,6 +7,46 @@ Arakelov--Vojta、Frey--Szpiro、S-unit 与算术微分等路线中的真实组�
 严格反例及剩余核心缺口均在
 [`Lean/RESEARCH_STATUS.md`](Lean/RESEARCH_STATUS.md) 中逐项区分。
 
+## 2026-09-02 最新四路线检查点：signed-ray、critical slow-slack、correlated Lucas 与 admissible index
+
+标准、无条件的 `ABCConjecture` 仍未被证明或证伪。本检查点继续把正向证明
+与反例搜索置于同等地位：困难、形式化尚未完成或有限搜索无命中均不关闭
+路线；只有满足一个精确命题全部前提的反例才淘汰该命题。四条母路线全部
+保持 active。统一账本见
+[`四路线综合报告`](research/ABC_MULTI_ROUTE_SIGNED_SLOW_CORRELATED_ADMISSIBLE_2026_09_02.md)。
+
+- **IUT admissible/index 路线。** 对 2026-09-02 观察到的 LANA `iut`
+  提交 `c65b28c` 做了逐文件来源封存与补丁重放。空集完整否定“对所有集合
+  都有非零逆像体积平移”，全集又完整否定只加非空条件的版本；修正后的
+  admissible-domain 接口已在上游快照的 `Iut` 与 `Iut4Sec1` 全目标中完成
+  8,767-job 构建。Lean 还证明差映射核对应的整阶商群指数恰为 `n`，即使
+  两个坐标投影都满射。它没有把 LANA 仓库或 IUT 说成已验证；实际局部
+  Haar 体积、各 place 的 tensor-order index、horizontal/Ind3 covariance 与
+  pointed q-pilot 识别仍是开放门。
+- **Mersenne critical slow-slack 路线。** 以任意缓慢发散的
+  `sigma(m)` 取代固定正 `log log` 幂后，已控制两条低臂，并把失败集中到
+  高 multiplier 深提升或近平方根 one-copy 臂；Euler 判别给出精确的
+  multiplier 模 8 过滤。实际素数 `1093` 具有
+  `ord_1093(2)=364`、深度 2、奇 multiplier 3，完整否定“所有重复
+  exact-order multiplier 都为偶数”，但不触及 `sigma=1` 的算术端点。
+- **Pell--Lucas correlated all-order 路线。** 第二条 staircase 的系数从
+  原始奇因子乘积独立推导，并证明与第一条 staircase 的逐系数微分相关；
+  每阶 splitter、cross-order determinant 与顶点互反符号保持相容。57 个
+  素指标至 `271` 均有一次素因子，这是严格有限排除；527,352 次候选扫描
+  只见 `13^2 || B_7` 且无 depth-three 命中，不被外推为无界定理。
+  `ell=11` 的混合符号行只淘汰“负行每条边都负”的加强命题。
+- **Affine signed-ray/catalogue 路线。** 对任意 primitive signed ray 已证
+  `aNL<C_lambda`、非臂 `a^3 T^2<(B+1)(C+1)N`，以及三条 canonical arm
+  的精确线性 cap；`n^3<=1+7(n-1)^3` 中常数 7 最优。owner 全局能量界
+  只对 selected powerful-kernel catalogue union 成立；实际
+  `972496>1072` 完整否定删除该 membership 的推广。剩余门是控制
+  `S_non` 并与 singleton/class multiplicity 下界比较。
+
+四个新 Lean 模块共含 90 个 theorem 与 16 个 definition，直接
+`warningAsError` 编译全部通过，聚合目标完成 9,233 jobs；公理并集仅为
+`Classical.choice`、`Quot.sound` 与 `propext`。它们证明的是上述局部闭合与
+精确淘汰边界，不构造无条件 `ABCConjecture` 或其否定项。
+
 ## 2026-09-01 最新四路线检查点：全局 omega、prime/unit/label、双臂 CRT 与 Mersenne order block
 
 标准、无条件的 `ABCConjecture` 仍未被证明或证伪。本检查点同时推进正向

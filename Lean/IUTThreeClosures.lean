@@ -665,6 +665,13 @@ import IUTThreeClosures.IUTRationalTripodShadowComparison20260901
 -- weakened extractions that omit one of these semantic bridges.
 import IUTThreeClosures.IUTRationalDegreeOneSourceRealization20260901
 
+-- Current-source IUT interface audit.  A nonzero preimage shift quantified
+-- over every set is ruled out by the empty set, and nonempty-only repair is
+-- ruled out by the whole set.  The exact congruence-order quotient has index
+-- n despite surjective coordinate projections.  The corrected admissible,
+-- index-aware same-pilot route remains open.
+import IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901
+
 -- Multiplier-index compression in the actual base-two exact-order fibres.
 -- The injective multiplier (p-1)/d controls the localized low-prime mass;
 -- after that paper-level o(m) estimate, failure of the Mersenne endpoint has
@@ -678,6 +685,12 @@ import IUTThreeClosures.MersenneMultiplierIndexTwoArm20260901
 -- the growing-multiplier deep arm and near-square-root arm remain open.
 import IUTThreeClosures.MersenneBalancedMultiplierDepthLocalization20260901
 
+-- Critical slow-slack continuation: both controlled Mersenne arms remain
+-- little-oh for an arbitrarily slowly divergent slack, and the exact Euler
+-- character filters multiplier residues.  The 1093 certificate retires only
+-- the overstrong universal even-multiplier assertion; sigma=1 stays open.
+import IUTThreeClosures.MersenneCriticalSlowSlackGate20260901
+
 -- Balancing-Pell squarefull continuation: cubic-square odd-kernel normal
 -- form, residue and Jacobi-character transport, and a third-order quotient
 -- ledger modulo 8*l^3.  The actual opposite-channel depth-three exclusion
@@ -689,6 +702,12 @@ import IUTThreeClosures.PellOddKernelThirdOrderPacket20260901
 -- correction recovers opposite square-root-of-one channel signs.  A kernel
 -- recurrence certificate refutes only a fixed-zero one-channel rigidity.
 import IUTThreeClosures.PellLucasAllOrderStaircase20260901
+
+-- Companion all-order Pell--Lucas staircase, coefficientwise differential
+-- correlation, coherent every-order splitters, and vertexwise opposite-sign
+-- incidence.  Certified finite exclusion through prime index 271 is not
+-- extrapolated; the squarefull packet route remains open.
+import IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901
 
 -- Collinear continuation of the affine common-kernel route.  Exact reduced
 -- direction periods give cube-root occupancy and weighted cubic-energy bounds
@@ -702,3 +721,12 @@ import IUTThreeClosures.AffineCollinearPeriodEnergy20260901
 -- tail is exact up to the divisor-count term; positive pointwise mass alone
 -- does not force reuse, so signed line caps and novelty remain active gates.
 import IUTThreeClosures.AffineCatalogueWeightOverlap20260901
+
+-- Signed-direction completion of the affine collinear route: strict period
+-- capture, exact ceilings on all three canonical arms, the optimal shifted
+-- cubic coefficient seven, and owner-weighted global energy for the
+-- deduplicated selected powerful-kernel catalogue.  Full-premise pressure
+-- models reject only closed thresholds, extra period factors, omitted
+-- primitivity/coprimality, coefficient six, and deletion of catalogue
+-- membership.  The non-arm inverse-period sum remains open.
+import IUTThreeClosures.AffineSignedRayCanonicalCaps20260901

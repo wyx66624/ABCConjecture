@@ -1,0 +1,27 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true IUTThreeClosures/IUTAdmissibleScalingOrderIndex20260901.lean
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.shift_eq_zero_of_all_sets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.shift_eq_zero_of_all_nonempty_sets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.differenceMod_ker' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.congruenceOrderQuotientEquiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.congruenceOrder_index' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.congruenceOrder_ne_top_of_one_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.congruenceOrder_index_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.congruenceOrder_log_index_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

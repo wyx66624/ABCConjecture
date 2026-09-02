@@ -1,0 +1,106 @@
+{
+  "retrieved": "2026-09-02",
+  "projectLana": {
+    "repository": "https://github.com/lana-agents/iut.git",
+    "mainCommit": "c65b28c9f9631635e742294c3a5df15759e7c74c",
+    "originalFiles": [
+      {
+        "role": "official current status and remaining-input table",
+        "url": "https://github.com/lana-agents/iut/blob/c65b28c9f9631635e742294c3a5df15759e7c74c/README.md",
+        "path": "original/README.md",
+        "bytes": 15839,
+        "sha256": "0a2925254b9855ede89b51892aaa78db0983b6fb0040417e40d6642df6b0dc30"
+      },
+      {
+        "role": "new construction of initial theta data from curves and explicit providers",
+        "url": "https://github.com/lana-agents/iut/blob/c65b28c9f9631635e742294c3a5df15759e7c74c/Iut/Concrete/Existence.lean",
+        "path": "original/Iut/Concrete/Existence.lean",
+        "bytes": 25993,
+        "sha256": "374eb52ec463512d76a9dde9233ee1f83b69812097bb6e669933b1e510541cd2"
+      },
+      {
+        "role": "current concrete implication and explicit existence premise",
+        "url": "https://github.com/lana-agents/iut/blob/c65b28c9f9631635e742294c3a5df15759e7c74c/Iut/Concrete/Main.lean",
+        "path": "original/Iut/Concrete/Main.lean",
+        "bytes": 4875,
+        "sha256": "8a357972e406e3515f5c4afdbf2510b6f308cdd837acb7a3fcc37bfab996287a"
+      },
+      {
+        "role": "current total-set local log-volume law and local admissible class",
+        "url": "https://github.com/lana-agents/iut/blob/c65b28c9f9631635e742294c3a5df15759e7c74c/Iut/Concrete/LocalTheory.lean",
+        "path": "original/Iut/Concrete/LocalTheory.lean",
+        "bytes": 16403,
+        "sha256": "c17556fcd325f1ebb5c01d682509a04fa0c0761f59db42e51f5dc40548012b71"
+      },
+      {
+        "role": "current total-set packet-component log-volume law",
+        "url": "https://github.com/lana-agents/iut/blob/c65b28c9f9631635e742294c3a5df15759e7c74c/Iut/Cor312/LogVolume.lean",
+        "path": "original/Iut/Cor312/LogVolume.lean",
+        "bytes": 11346,
+        "sha256": "1d23907c3012ae2323aeb13baa0bda5321fc4f9964d65cdf7525d4e3924bb196"
+      },
+      {
+        "role": "concrete transport of LocalTheory volume data into LogVolumeData",
+        "url": "https://github.com/lana-agents/iut/blob/c65b28c9f9631635e742294c3a5df15759e7c74c/Iut/Concrete/Container.lean",
+        "path": "original/Iut/Concrete/Container.lean",
+        "bytes": 13741,
+        "sha256": "262dbfba1d7db2206569eb561e9aad41c34b47b1060272fe3360ef042ba051a8"
+      }
+    ],
+    "patchedFiles": [
+      {
+        "role": "admissible LocalTheory scaling interface",
+        "path": "patched/Iut/Concrete/LocalTheory.lean",
+        "bytes": 16795,
+        "sha256": "78e82903310a2e941dd2700d2c15f3b5f94e69549167a2377d08a768049dd47d"
+      },
+      {
+        "role": "admissible packet-component LogVolumeData interface",
+        "path": "patched/Iut/Cor312/LogVolume.lean",
+        "bytes": 12251,
+        "sha256": "d421d8d2540cbd2e059e61737999b3b0e1a96233ffecd5b352e6056223be1081"
+      },
+      {
+        "role": "concrete transport of admissibility and the restricted law",
+        "path": "patched/Iut/Concrete/Container.lean",
+        "bytes": 14029,
+        "sha256": "6123dcd4773d8170e0636c2e9cc069b9317c614d0643568cf098d562ce0c1db3"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "role": "source-level admissible-scaling patch",
+      "path": "iut-c65b28c-admissible-scaling.patch",
+      "bytes": 6460,
+      "sha256": "904f4f0754bcc5bce7c1b868452c8dbe9d35e701b5a0354e20d53a82e799cc37"
+    },
+    {
+      "role": "patched full-target build log",
+      "path": "logs/patched-c65b28c-build.log",
+      "bytes": 516,
+      "sha256": "2559c14129e126bf7d3da8bc2e6f0a8ee80ac1aad59635515182d437631d758f"
+    }
+  ],
+  "papers": [
+    {
+      "title": "Inter-universal Teichmuller Theory III: Canonical Splittings of the Log-theta-lattice",
+      "author": "Shinichi Mochizuki",
+      "version": "May 2020 author PDF",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20III.pdf",
+      "path": "../uniform_gate_2026_08_30/Mochizuki_IUT_III_May2020.pdf",
+      "bytes": 1307865,
+      "sha256": "9a7ee3c77b1c7717210c0613eb39b6844649d0040dc3d9e1be7d544f8f91a0b9"
+    },
+    {
+      "title": "LANA formalization report, July 2026",
+      "author": "LANA contributors",
+      "url": "https://github.com/katobungen/LANA_report_202607/blob/main/LANA_report_202607.tex",
+      "path": "../iut_lana_2026_09_01/LANA_report_202607.tex",
+      "bytes": 189256,
+      "sha256": "13c60b0669644b0e5dea72adfdb55b1dad367ff91f5b11fadf75e48ac0e66f51"
+    }
+  ],
+  "scope": "The patch repairs one inconsistent interface quantifier and preserves compilation. It does not provide LocalTheory, AnabelianExistence, Corollary312Variant, same-pilot, IUT, or abc."
+}
+

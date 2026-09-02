@@ -21,6 +21,62 @@ community acceptance, and a finite counterexample search with no hit are not
 grounds for retirement.  Positive proof construction and counterexample search
 must therefore continue in parallel for every unrefuted route.
 
+## September 2, 2026 signed-ray, critical-slow-slack, correlated-Lucas, and admissible-index checkpoint
+
+Standard `ABCConjecture` remains open in both directions.  Each route below is
+active.  The listed counterexamples retire only the exact stronger subclaims
+whose complete premises they satisfy.
+
+- **IUT admissible scaling and product-order index:** active.  Empty- and
+  whole-set witnesses retire the all-set and nonempty-only nonzero shift laws.
+  The exact congruence-order quotient retires the inference that surjective
+  component projections imply product index one.  A narrow admissible-domain
+  repair compiles against the frozen public LANA `iut` snapshot at `c65b28c`,
+  whose own README still states that it does not verify IUT.  Constructing the
+  actual admissible Haar-volume family, placewise order indices, horizontal
+  and Ind3 covariance, and the pointed q-pilot comparison remains active.
+  Ledger and Lean core:
+  `../research/ABC_IUT_ADMISSIBLE_SCALING_ORDER_INDEX_2026_09_02.md` and
+  `IUTThreeClosures/IUTAdmissibleScalingOrderIndex20260901.lean`.
+- **Mersenne critical slow slack:** active.  Arbitrarily slowly divergent
+  slack controls the two inherited low arms and leaves high-multiplier deep
+  mass and the near-square-root one-copy arm.  The exact `1093` row retires
+  only universal even multiplier; a saturated abstract family retires only a
+  pointwise-envelope proof of the `sigma=1` little-oh estimate.  Neither is an
+  arithmetic counterexample to the surviving endpoint.  Ledger and Lean core:
+  `../research/ABC_MERSENNE_CRITICAL_SLOW_SLACK_GATE_2026_09_01.md` and
+  `IUTThreeClosures/MersenneCriticalSlowSlackGate20260901.lean`.
+- **Pell--Lucas correlated all-order route:** active.  Product-derived
+  coefficients, their differential correlation, every-order splitters,
+  cross-order determinants, and character incidence are proved.  Exponent-one
+  witnesses exclude squarefull packets only for the 57 prime indices through
+  `271`; the bounded no-depth-three scan is not extrapolated.  The index `11`
+  mixed-sign row retires only all-negative-edge rigidity.  The open gate is a
+  uniform coupling of factor quotients to the correlated projective system.
+  Ledger and Lean core:
+  `../research/ABC_PELL_LUCAS_CORRELATED_ALL_ORDER_EXCLUSION_2026_09_01.md`
+  and
+  `IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean`.
+- **Affine signed-ray selected-catalogue route:** active.  Strict signed
+  capture, the non-arm inverse-period cap, exact three-arm ceilings, optimal
+  shifted coefficient seven, and selected-owner global energy are proved.
+  The actual inequality `972496>1072` retires only deletion of selected
+  catalogue membership.  Other explicit witnesses retire the closed
+  threshold, extra period factors, nonprimitive/uncoprime arm versions,
+  coefficient six, and a smaller non-arm constant.  Control of the non-arm
+  inverse-period sum and the singleton/class-multiplicity comparison remains
+  active.  Ledger and Lean core:
+  `../research/ABC_AFFINE_SIGNED_RAY_CANONICAL_CAPS_2026_09_01.md` and
+  `IUTThreeClosures/AffineSignedRayCanonicalCaps20260901.lean`.
+
+These modules add 90 theorems and 16 definitions.  Their direct
+warning-as-error compilations and the 9,233-job aggregate build pass with only
+the standard axiom union `Classical.choice`, `Quot.sound`, and `propext`.
+The replay package is
+`verification/2026_09_02_signed_slow_slack_correlated_admissible_index/`.
+These are local closure results and obstruction certificates, not an
+unconditional proof or disproof of abc.
+
 ## September 1, 2026 source-realization, balanced-multiplier, catalogue-overlap, and all-order Lucas checkpoint
 
 Standard `ABCConjecture` remains open in both directions.  The four routes in

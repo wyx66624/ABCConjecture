@@ -1,0 +1,116 @@
+{
+  "schema": "pell-lucas-correlated-all-order-verification-v1",
+  "status": "PASS",
+  "errors": [],
+  "verified": {
+    "prime_indices_with_exact_simple_witness": 57,
+    "all_prime_indices_through": 271,
+    "candidate_prime_tests": 527352,
+    "repeated_hits": [
+      {
+        "index": 7,
+        "prime": 13,
+        "channel": "B",
+        "depth": "exactly_2"
+      }
+    ],
+    "depth_three_hit_count": 0,
+    "coefficient_pairs": 138675,
+    "polynomial_checks": 228,
+    "incidence_rows": [
+      {
+        "index": 3,
+        "A_odd_kernel_size": 1,
+        "B_odd_kernel_size": 1,
+        "edge_count": 1,
+        "global_sign": -1
+      },
+      {
+        "index": 5,
+        "A_odd_kernel_size": 1,
+        "B_odd_kernel_size": 1,
+        "edge_count": 1,
+        "global_sign": -1
+      },
+      {
+        "index": 7,
+        "A_odd_kernel_size": 1,
+        "B_odd_kernel_size": 0,
+        "edge_count": 0,
+        "global_sign": 1
+      },
+      {
+        "index": 11,
+        "A_odd_kernel_size": 2,
+        "B_odd_kernel_size": 1,
+        "edge_count": 2,
+        "global_sign": -1
+      },
+      {
+        "index": 13,
+        "A_odd_kernel_size": 2,
+        "B_odd_kernel_size": 1,
+        "edge_count": 2,
+        "global_sign": -1
+      },
+      {
+        "index": 17,
+        "A_odd_kernel_size": 2,
+        "B_odd_kernel_size": 2,
+        "edge_count": 4,
+        "global_sign": 1
+      },
+      {
+        "index": 19,
+        "A_odd_kernel_size": 1,
+        "B_odd_kernel_size": 2,
+        "edge_count": 2,
+        "global_sign": -1
+      },
+      {
+        "index": 23,
+        "A_odd_kernel_size": 2,
+        "B_odd_kernel_size": 2,
+        "edge_count": 4,
+        "global_sign": 1
+      },
+      {
+        "index": 29,
+        "A_odd_kernel_size": 1,
+        "B_odd_kernel_size": 1,
+        "edge_count": 1,
+        "global_sign": -1
+      },
+      {
+        "index": 31,
+        "A_odd_kernel_size": 2,
+        "B_odd_kernel_size": 3,
+        "edge_count": 6,
+        "global_sign": 1
+      },
+      {
+        "index": 37,
+        "A_odd_kernel_size": 3,
+        "B_odd_kernel_size": 3,
+        "edge_count": 9,
+        "global_sign": -1
+      },
+      {
+        "index": 41,
+        "A_odd_kernel_size": 3,
+        "B_odd_kernel_size": 1,
+        "edge_count": 3,
+        "global_sign": 1
+      },
+      {
+        "index": 43,
+        "A_odd_kernel_size": 3,
+        "B_odd_kernel_size": 2,
+        "edge_count": 6,
+        "global_sign": -1
+      }
+    ],
+    "index_eleven_row_has_both_signs": true
+  },
+  "claim_boundary": "The exact witnesses exclude squarefull packets only at prime indices <=271.  The bounded absence of depth-three hits does not imply an unbounded exclusion."
+}

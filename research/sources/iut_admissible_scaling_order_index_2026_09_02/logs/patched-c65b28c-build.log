@@ -1,0 +1,8 @@
+⚠ [8756/8767] Replayed Iut4Sec1.Real.LogError
+warning: Iut4Sec1/Real/LogError.lean:72:0: `nonarchimedean_logError_sum_le` does not use the following hypothesis in its type:
+  • [DecidableEq ι] (#2)
+
+Consider removing this hypothesis and using `classical` in the proof instead. For terms, consider using `open scoped Classical in` at the term level (not the command level).
+
+Note: This linter can be disabled with `set_option linter.unusedDecidableInType false`
+Build completed successfully (8767 jobs).

@@ -1,0 +1,89 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true IUTThreeClosures/AffineSignedRayCanonicalCaps20260901.lean
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.shiftedCard_mul_period_le' depends on axioms: [propext]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.shiftedCard_mul_ambient_mul_scale_lt_capture' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.shiftedCard_square_mul_period_scaleSq_lt_capture' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.shiftedCard_square_mul_period_lt_of_capture_le_quadratic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.shiftedCard_cube_mul_periodSq_scaleCube_lt_capture_mul_ambient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.shiftedCard_physicalPeriod_cube_lt_labelProduct_mul_ambient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedDirectionCapture_le_product' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedDirectionPeriod_dvd_gap' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.actualSignedLine_directionPeriod_dvd_gap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedDirectionProduct_le_sharp_cubic' depends on axioms: [propext]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedDirectionProduct_one_one_is_sharp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedNonarm_shifted_mul_ambient_scale_lt_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedNonarm_shiftedCube_mul_periodSq_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedNonarm_smallDirection_is_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.directionCapture_zeroU_eq' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.directionCapture_zeroV_eq' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.directionCapture_zeroW_eq' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.zeroU_shifted_mul_ambient_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.zeroV_shifted_mul_ambient_scale_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.zeroW_shifted_mul_ambient_scale_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.cube_le_one_add_seven_shiftedCube' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.weightedCubicEnergy_le_catalogue_add_sevenShifted' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.weightedShiftedEnergy_mul_scaledAmbientCube_le_armMoment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.weightedCoordinateMoment_le_ownerCatalogue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.weightedCoordinateMoment_le_ownerCatalogue_of_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.weightedCatalogue_le_ownerMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.weightedCubicEnergy_le_ownerMass_add_sevenCharges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.closedLargeThreshold_breaks_captureSqueeze' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.extraPeriodFactor_cubic_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.extraPeriodFactor_square_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.missingCoefficientCoprimality_breaks_all_armCaptures' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.nonprimitiveDirection_breaks_all_exact_armCaptures' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

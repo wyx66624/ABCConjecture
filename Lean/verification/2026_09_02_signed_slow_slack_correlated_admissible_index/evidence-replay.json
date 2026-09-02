@@ -1,0 +1,73 @@
+{
+  "affine": {
+    "armCaptures": 43403,
+    "catalogueDeletion": {
+      "allDivisorWeight": 972496,
+      "ownerMass": 1072
+    },
+    "cubicLedgers": 1776807,
+    "directions": 15840,
+    "quadraticLedgers": 2390018,
+    "selectedM10Large": 110,
+    "selectedM10Repeated": 12,
+    "stressLarge": 113,
+    "stressNonarm": 1,
+    "stressRepeated": 9,
+    "verificationSha256": "4bf54f7fad2a50fd16bd1be56f844da1e8d2e1f8536ec3bcd2d806fea96cf60b"
+  },
+  "hashEntries": {
+    "affine": 6,
+    "iut": 15,
+    "mersenneComputationAndSource": 6,
+    "pell": 14,
+    "total": 41
+  },
+  "iut": {
+    "buildJobs": 8767,
+    "commit": "c65b28c9f9631635e742294c3a5df15759e7c74c",
+    "frozenEntries": 13,
+    "patchFiles": 3,
+    "sealEntries": 15
+  },
+  "mersenne": {
+    "characterIdentity": true,
+    "oddPrimeCount": 9591,
+    "primeCount": 9592,
+    "retirementWitness": 1093,
+    "scanLimit": 100000,
+    "wieferichRows": [
+      {
+        "depth": 2,
+        "multiplier": 3,
+        "order": 364,
+        "prime": 1093
+      },
+      {
+        "depth": 2,
+        "multiplier": 2,
+        "order": 1755,
+        "prime": 3511
+      }
+    ]
+  },
+  "pell": {
+    "coefficientPairs": 138675,
+    "depthThreeHits": 0,
+    "indexElevenMixedSigns": true,
+    "largestPrimeIndex": 271,
+    "polynomialChecks": 228,
+    "primeCandidateTests": 527352,
+    "primeIndices": 57,
+    "repeatedHits": [
+      {
+        "channel": "B",
+        "depth": "exactly_2",
+        "index": 7,
+        "prime": 13
+      }
+    ],
+    "verificationSha256": "1c2d884f3ca05b04f7724823fd517d86de9a8d791e1bd815fe3ab79f8ad2e82d"
+  },
+  "schema": "abc-signed-slow-correlated-admissible-evidence-v1",
+  "status": "PASS"
+}

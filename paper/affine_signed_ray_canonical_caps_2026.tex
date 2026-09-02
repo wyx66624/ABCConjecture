@@ -1,0 +1,261 @@
+\section{Signed ray capture and exact canonical arm ceilings}
+\label{sec:affine-signed-ray-canonical-caps}
+
+We close the signed-direction and constant-arm losses left by
+Sections~\ref{sec:affine-collinear-period-energy} and
+\ref{sec:affine-catalogue-weight-overlap}.  Retain the three affine arms
+\[
+ U(h,k)=1+Rh,\qquad
+ V(h,k)=1+R(h+Ck),\qquad
+ W(h,k)=1+R(h+Bk),\qquad 0<B<C.
+\]
+A line through at least two lattice points has a primitive signed direction
+$(s,t)$ and a parametrization $(h_0+js,k_0+jt)$.  Put
+\begin{equation}\label{eq:affine-signed-coefficients}
+ A_U=s,\qquad A_V=s+Ct,\qquad A_W=s+Bt,\qquad
+ L=\max(|s|,|t|).
+\end{equation}
+If the index interval has length $H$ inside a square of side difference $N$,
+then $HL\le N$.
+
+For a positive pairwise-coprime divisor label
+$\lambda=(d_U,d_V,d_W)$, set
+\begin{equation}\label{eq:affine-signed-period-capture}
+ r_Z=\frac{d_Z}{\gcd(d_Z,|A_Z|)},\qquad
+ T_\lambda=r_Ur_Vr_W,\qquad
+ C_\lambda=\prod_Z\gcd(d_Z,|A_Z|),\qquad
+ D_\lambda=d_Ud_Vd_W.
+\end{equation}
+
+\begin{theorem}[Signed period and strict capture squeeze]
+\label{thm:affine-signed-capture-squeeze}
+Suppose $\lambda$ occurs $n_\lambda$ times on the segment, and put
+$a_\lambda=n_\lambda-1$.  Then
+\begin{equation}\label{eq:affine-period-capacity}
+ T_\lambda\mid |i-j|\quad\hbox{for two occurrence indices},\qquad
+ T_\lambda C_\lambda=D_\lambda,\qquad
+ a_\lambda T_\lambda L\le N.
+\end{equation}
+If $N>0$ and $D_\lambda>N^2$, then
+\begin{align}
+ a_\lambda NL&<C_\lambda,
+ \label{eq:affine-linear-capture-squeeze}\\
+ a_\lambda^2T_\lambda L^2&<C_\lambda,\qquad
+ a_\lambda^3T_\lambda^2L^3<C_\lambda N,
+ \label{eq:affine-higher-capture-squeeze}\\
+ (a_\lambda T_\lambda L)^3&<D_\lambda N.
+ \label{eq:affine-physical-period-cube}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+Subtract the two arm divisibilities.  Actual occurrence makes every $d_Z$
+coprime to $R$, so cancellation gives
+$d_Z\mid(i-j)A_Z$.  Dividing by the gcd in
+\eqref{eq:affine-signed-period-capture} gives $r_Z\mid|i-j|$.
+The $r_Z$ remain pairwise coprime, hence their product divides the gap; the
+factorization of $D_\lambda$ is immediate.  All occurrence indices lie in
+one residue class modulo $T_\lambda$, so
+$a_\lambda T_\lambda\le H$ and then
+$a_\lambda T_\lambda L\le N$.
+
+Now
+\[
+ a_\lambda T_\lambda LN\le N^2
+       <T_\lambda C_\lambda.
+\]
+Cancel $T_\lambda$ to obtain
+\eqref{eq:affine-linear-capture-squeeze}.  Squaring the period capacity and
+using the same strict inequality gives
+$a_\lambda^2T_\lambda L^2<C_\lambda$; multiplication by the capacity proves
+the cubic inequality.  Multiplying once more by $T_\lambda$ gives
+\eqref{eq:affine-physical-period-cube}.
+\end{proof}
+
+This theorem includes all signs and all zero coefficients.  For a non-arm
+direction none of $A_U,A_V,A_W$ vanishes.  With
+\begin{equation}\label{eq:affine-signed-direction-product}
+ P(s,t)=|s|\,|s+Ct|\,|s+Bt|,\qquad K=(B+1)(C+1),
+\end{equation}
+one has
+\begin{equation}\label{eq:affine-signed-product-bound}
+ C_\lambda\le P(s,t)\le KL^3.
+\end{equation}
+The constant is sharp at $s=t=1$.  Consequently every repeated large
+non-arm label obeys
+\begin{equation}\label{eq:affine-nonarm-caps}
+ a_\lambda NL<P(s,t),\qquad
+ a_\lambda^3T_\lambda^2<KN,\qquad KL^2>N.
+\end{equation}
+The last condition follows because $KL^2\le N$ would contradict the first
+inequality as soon as $a_\lambda\ge1$.  Thus non-arm repetitions are confined
+to large primitive directions and retain an inverse-square period saving.
+
+The canonical relation is $C=B+1$.  There are then three zero-coefficient
+primitive directions, up to sign.
+
+\begin{theorem}[Exact canonical arm capture]
+\label{thm:affine-exact-three-arm-capture}
+For the constant $U,V,W$ directions, respectively, the absolute coefficient
+triples, scales, and captures are
+\[
+\begin{array}{c|c|c|c}
+\text{constant arm}&(|A_U|,|A_V|,|A_W|)&L&C_\lambda\\ \hline
+U&(0,C,B)&1&d_U\\
+V&(C,0,1)&C&d_V\\
+W&(B,1,0)&B&d_W.
+\end{array}
+\]
+Hence a large occurring label satisfies the three respective linear caps
+\begin{equation}\label{eq:affine-linear-three-arm-caps}
+ a_\lambda N<d_U,\qquad
+ a_\lambda NC<d_V,\qquad
+ a_\lambda NB<d_W.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Each component of an actual label divides an arm value congruent to one
+modulo $R=\rad(BC)$, and is therefore coprime to $B$ and $C$.
+For the $U$ direction,
+\[
+ C_\lambda
+ =\gcd(d_U,0)\gcd(d_V,C)\gcd(d_W,B)
+ =d_U.
+\]
+For the $V$ direction the coefficients are $(C,0,C-B)=(C,0,1)$, giving
+\(C_\lambda=d_V\).  The $W$ direction is $(B,-1,0)$ and gives
+\(C_\lambda=d_W\).  Substitution into
+\eqref{eq:affine-linear-capture-squeeze} proves
+\eqref{eq:affine-linear-three-arm-caps}.
+\end{proof}
+
+With the preceding canonical point bounds
+$3d_U\le C^6$ and $3d_V,3d_W\le C^7$, this gives
+\[
+ 3a_\lambda N<C^6,\qquad
+ 3a_\lambda NC<C^7,\qquad
+ 3a_\lambda NB<C^7.
+\]
+These are linear in the relevant label component and improve the former
+square-root treatment of the vertical direction.
+
+We next pass from a shifted occupancy to the full cubic energy.  For every
+$n\in\N$, with truncated $a=n-1$,
+\begin{equation}\label{eq:affine-optimal-shifted-cube}
+                         n^3\le1+7a^3.
+\end{equation}
+For $n\ge2$, the difference of the right side and $(a+1)^3$ is
+$3a(a-1)(2a+1)\ge0$; the cases $n=0,1$ are immediate.  Equality at $n=2$
+shows that seven is optimal.
+
+Let $\mathcal K$ be the realized selected canonical kernel triples
+$\kappa=(k_U,k_V,k_W)$, with $D_\kappa=k_Uk_Vk_W$.  Define
+$\mathcal L$ as the deduplicated union of their downward divisor catalogues,
+then retain only labels whose coordinate product exceeds $N^2$.  Let
+$n_\lambda$ be the number of selected canonical points realizing the label
+$\lambda$.  For
+\[
+ w_\lambda=\varphi(d_U)\varphi(d_V)\varphi(d_W),\qquad
+ W_0=\sum_{\lambda\in\mathcal L}w_\lambda,\qquad
+ E=\sum_{\lambda\in\mathcal L}w_\lambda n_\lambda^3,\qquad
+ E_{\rm sh}=\sum_{\lambda\in\mathcal L}w_\lambda(n_\lambda-1)^3,
+\]
+equation \eqref{eq:affine-optimal-shifted-cube} gives
+\begin{equation}\label{eq:affine-global-shifted-bridge}
+                         E\le W_0+7E_{\rm sh}.
+\end{equation}
+This charges a singleton once and introduces no number-of-lines factor.
+
+Choose one owner $o(\lambda)\in\mathcal K$ for every deduplicated label.
+Euler's divisor identity gives, for each coordinate $Z$,
+\begin{equation}\label{eq:affine-owner-third-moment}
+ \sum_{\lambda\in\mathcal L}w_\lambda d_Z(\lambda)^3
+ \le\sum_{\kappa\in\mathcal K}D_\kappa k_Z(\kappa)^3,
+ \qquad
+ W_0\le\sum_{\kappa\in\mathcal K}D_\kappa.
+\end{equation}
+Indeed, labels owned by $\kappa$ form a subset of its full downward
+catalogue, whose total totient weight is $D_\kappa$, and
+$d_Z^3\le k_Z^3$.
+
+Partition repeated labels into non-arm labels and the three arm directions.
+Let
+\[
+ \mathcal S_{\rm non}
+ =\sum_{\substack{\lambda\text{ repeated}\\
+                   \lambda\text{ non-arm}}}
+   \frac{w_\lambda}{T_\lambda^2}.
+\]
+
+\begin{theorem}[Global signed affine energy ceiling]
+\label{thm:affine-global-signed-energy-ceiling}
+In the canonical setup,
+\begin{align}
+ E\le{}&\sum_{\kappa\in\mathcal K}D_\kappa
+       +7KN\mathcal S_{\rm non}\notag\\
+ &+\frac7{N^3}\sum_{\kappa\in\mathcal K}D_\kappa
+   \left(k_U^3+\frac{k_V^3}{C^3}+\frac{k_W^3}{B^3}\right).
+\label{eq:affine-global-signed-energy-ceiling}
+\end{align}
+Every term in $\mathcal S_{\rm non}$ is supported on $KL^2>N$.
+\end{theorem}
+
+\begin{proof}
+The non-arm cubic cap in \eqref{eq:affine-nonarm-caps} gives
+$E_{\rm non}\le KN\mathcal S_{\rm non}$.  Cubing
+\eqref{eq:affine-linear-three-arm-caps}, multiplying by $w_\lambda$, and
+summing gives the three coordinate moments divided by
+$N^3,N^3C^3,N^3B^3$.  Enlarge each arm subset to all labels and apply
+\eqref{eq:affine-owner-third-moment}.  Add the terms and use
+\eqref{eq:affine-global-shifted-bridge}.
+\end{proof}
+
+The arm-level contribution is therefore explicit.  The remaining affine
+upper-bound task is the non-arm inverse-period sum
+$\mathcal S_{\rm non}$, together with the comparison of the singleton
+baseline against catalogue-class multiplicities.  These are active gates.
+
+Several complete pressure tests determine the exact boundary.  Replacing
+$N^2<D_\lambda$ by $N^2\le D_\lambda$ fails at
+$(n,H,T,C_\lambda,D,N,L)=(2,1,1,1,1,1,1)$.  The tuple
+\[
+ (n,H,T,C_\lambda,D,N,K,L)=(2,3,3,6,18,3,6,1)
+\]
+satisfies the period, span,
+factorization, strict-threshold,
+and capture premises, but refutes adding one more factor of $T$ to either
+higher capture inequality.  Scaling a primitive arm direction by five gives
+full-premise examples showing why primitivity is required, and four separate
+primitive examples show why each coefficient-coprimality premise is required.
+At occupancy two, coefficient six in
+\eqref{eq:affine-optimal-shifted-cube} fails.  These witnesses retire only
+the stated strengthenings; actual canonical labels retain the strictness,
+primitivity, and coprimality premises.
+
+Catalogue membership is also essential.  In the actual box
+$(B,C,M,N,R)=(1,2,10,9,2)$, with $82$ admissible points, the totient weight
+of all arm-divisor labels above $N^2$ is $972{,}496$, whereas the owner mass
+of the twelve distinct powerful-kernel triples is only $1{,}072$.  Thus
+deleting membership in the
+selected downward-catalogue union would assert the false inequality
+$972{,}496\le1{,}072$.  This full-premise counterexample retires precisely
+that enlarged owner statement, while leaving the selected-catalogue theorem
+unchanged.
+
+An independent exact-integer audit checks $15{,}840$ signed directions,
+$1{,}776{,}807$ cubic ledgers, $2{,}390{,}018$ normalized quadratic ledgers,
+$43{,}403$ exact arm-capture cases, and four actual canonical boxes.  Those
+boxes contain $4{,}307$ distinct local large labels and $259$ repeated
+labels, testing every ray-level identity.  The selected powerful-kernel
+subcatalogues for $M=10$ contain $110$ large labels and $12$ repeated labels.
+A separate $(B,C,M)=(4,5,30)$ stress box contains $113$ selected large labels,
+nine repeated labels, and one repeated non-arm label.  All owner and global
+energy checks pass.  These finite audits are pressure tests and supply no
+asymptotic inference.
+
+The Lean companion kernel-checks the signed period/capture algebra, all three
+canonical arm identities, the sharp constant $K$, the optimal coefficient
+seven, the finite weighted owner bounds, the global shifted-energy interface,
+and the full-premise boundary countermodels.  It assumes no exceptional-point
+lower bound, no catalogue novelty theorem, and no $abc$ statement.

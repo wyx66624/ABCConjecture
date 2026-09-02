@@ -1,0 +1,50 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true IUTThreeClosures/MersenneCriticalSlowSlackGate20260901.lean
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.highMultiplierSupport_anti' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.aboveSizeSupport_anti' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.highMultiplierMass_anti' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.aboveSizeMass_anti' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.twoSurvivorMass_anti' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.slowSlack_cutoff_mul_multiplierScaleSq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.slowSlackSizeCutoff_mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.slowSlackMultiplierScaleSq_anti' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.slowSlack_scale_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.criticalHigh_or_criticalNearSquare_of_enlarged_low_budgets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.exactOrder_eulerPower_eq_negOnePow_multiplier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.exactOrder_legendreTwo_cast_eq_negOnePow_multiplier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.exactOrderPrimeFiber_eulerPower_eq_negOnePow_multiplier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.critical_packet_refutes_every_fixed_linear_energy_coefficient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.wieferich_1093_exact_order_multiplier_three_odd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.repeated_exact_order_multiplier_even_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+EXIT_CODE: 0

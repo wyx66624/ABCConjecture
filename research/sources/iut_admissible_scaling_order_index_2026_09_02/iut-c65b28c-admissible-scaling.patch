@@ -1,0 +1,100 @@
+diff --git a/Iut/Concrete/Container.lean b/Iut/Concrete/Container.lean
+index 0cdccc6..3af5560 100644
+--- a/Iut/Concrete/Container.lean
++++ b/Iut/Concrete/Container.lean
+@@ -260,8 +260,13 @@ noncomputable def vol : LogVolumeData (LT.container n) where
+   weight_pos := LT.weight_pos
+   weight_sum_one := LT.weight_sum_one
+   componentVol i vQ c U := LT.componentVol vQ (LT.tuple vQ c) U
++  componentAdmissible i vQ c U := LT.admissible vQ (LT.tuple vQ c) U
++  componentAdmissible_nonempty i vQ c U hU :=
++    LT.admissible_nonempty vQ (LT.tuple vQ c) U hU
++  componentAdmissible_prime_preimage i p c U hU :=
++    LT.admissible_prime_preimage p (LT.tuple (.finite p) c) U hU
+   componentVol_integral_nonarch i p c := LT.componentVol_integral _ _
+-  componentVol_prime_preimage i p c U := LT.componentVol_prime_preimage p _ U
++  componentVol_prime_preimage i p c U hU := LT.componentVol_prime_preimage p _ U hU
+   archBall i c := LT.integral .infinite (LT.tuple .infinite c)
+   componentVol_archBall i c := LT.componentVol_integral _ _
+   packetVol i vQ U := ∑ c : (LT.container n).Components i vQ,
+diff --git a/Iut/Concrete/LocalTheory.lean b/Iut/Concrete/LocalTheory.lean
+index 0e7d3a2..c787616 100644
+--- a/Iut/Concrete/LocalTheory.lean
++++ b/Iut/Concrete/LocalTheory.lean
+@@ -181,12 +181,24 @@ structure LocalTheory extends LocalTensor.{u, v} K where
+   Proposition 1.4(i); IUT III, Proposition 3.9). -/
+   componentVol : ∀ {ι : Type} [Fintype ι] (vQ : RationalPlace) (c : ι → Place K),
+     Set (Tensor vQ c) → ℝ
++  /-- The **admissible class** for the local log-volume: finite, nonzero-volume
++  regions on which change-of-variables laws are asserted. -/
++  admissible : ∀ {ι : Type} [Fintype ι] (vQ : RationalPlace) (c : ι → Place K),
++    Set (Set (Tensor vQ c))
++  /-- Admissible regions are nonempty. -/
++  admissible_nonempty : ∀ {ι : Type} [Fintype ι] (vQ : RationalPlace) (c : ι → Place K)
++    (U : Set (Tensor vQ c)), U ∈ admissible vQ c → U.Nonempty
++  /-- Prime preimages preserve the finite, nonzero-volume regime. -/
++  admissible_prime_preimage : ∀ {ι : Type} [Fintype ι] (p : Nat.Primes)
++    (c : ι → Place K) (U : Set (Tensor (.finite p) c)), U ∈ admissible (.finite p) c →
++    (fun x => ((p : ℕ) : Tensor (.finite p) c) * x) ⁻¹' U ∈ admissible (.finite p) c
+   /-- `μ^log((R_I)^∼) = 0`. -/
+   componentVol_integral : ∀ {ι : Type} [Fintype ι] (vQ : RationalPlace) (c : ι → Place K),
+     componentVol vQ c (integral vQ c) = 0
+-  /-- `μ^log(p⁻¹·U) = μ^log(U) + log p`. -/
++  /-- `μ^log(p⁻¹·U) = μ^log(U) + log p` in the finite,
++  nonzero-volume regime. -/
+   componentVol_prime_preimage : ∀ {ι : Type} [Fintype ι] (p : Nat.Primes) (c : ι → Place K)
+-    (U : Set (Tensor (.finite p) c)),
++    (U : Set (Tensor (.finite p) c)), U ∈ admissible (.finite p) c →
+     componentVol (.finite p) c ((fun x => ((p : ℕ) : Tensor (.finite p) c) * x) ⁻¹' U) =
+       componentVol (.finite p) c U + Real.log p
+   /-- Monotonicity of the log-volume between hull regions `a·O ⊆ b·O` (`a`, `b` units). -/
+@@ -198,13 +210,6 @@ structure LocalTheory extends LocalTensor.{u, v} K where
+   componentVol_arch_scale : ∀ {ι : Type} [Fintype ι] (c : ι → Place K) (t : ℝ), 0 < t →
+     componentVol .infinite c (algebraMap ℝ (Tensor .infinite c) t • integral .infinite c) =
+       Real.log t
+-  /-- The **admissible class** of the holomorphic hull (IUT III, Remark 3.9.5(i)):
+-  nonempty relatively compact regions of finite nonzero log-volume. -/
+-  admissible : ∀ {ι : Type} [Fintype ι] (vQ : RationalPlace) (c : ι → Place K),
+-    Set (Set (Tensor vQ c))
+-  /-- Admissible regions are nonempty. -/
+-  admissible_nonempty : ∀ {ι : Type} [Fintype ι] (vQ : RationalPlace) (c : ι → Place K)
+-    (U : Set (Tensor vQ c)), U ∈ admissible vQ c → U.Nonempty
+   /-- Admissible regions are relatively compact. -/
+   admissible_relCompact : ∀ {ι : Type} [Fintype ι] (vQ : RationalPlace) (c : ι → Place K)
+     (U : Set (Tensor vQ c)), U ∈ admissible vQ c → IsCompact (closure U)
+diff --git a/Iut/Cor312/LogVolume.lean b/Iut/Cor312/LogVolume.lean
+index 451db10..2c0ec39 100644
+--- a/Iut/Cor312/LogVolume.lean
++++ b/Iut/Cor312/LogVolume.lean
+@@ -84,14 +84,29 @@ structure LogVolumeData (D : LargeVolumeContainerData.{u₁, u₂, v} ι V) :
+   /-- The local log-volume on regions of each direct-summand field of each packet. -/
+   componentVol : ∀ (i : Fin D.proc.length) (vQ : RationalPlace)
+     (c : D.Components i vQ), Set ((D.packet i vQ).Summand c) → ℝ
++  /-- The finite, nonzero-volume component regions on which local
++  change-of-variables laws are asserted. -/
++  componentAdmissible : ∀ (i : Fin D.proc.length) (vQ : RationalPlace)
++    (c : D.Components i vQ), Set (Set ((D.packet i vQ).Summand c))
++  /-- Component-admissible regions are nonempty. -/
++  componentAdmissible_nonempty : ∀ i vQ (c : D.Components i vQ)
++    (U : Set ((D.packet i vQ).Summand c)), componentAdmissible i vQ c U → U.Nonempty
++  /-- A prime preimage of an admissible component region remains admissible. -/
++  componentAdmissible_prime_preimage : ∀ i (p : Nat.Primes)
++    (c : D.Components i (.finite p)) (U : Set ((D.packet i (.finite p)).Summand c)),
++    componentAdmissible i (.finite p) c U →
++      componentAdmissible i (.finite p) c
++        ((fun x => ((p : ℕ) : _) * x) ⁻¹' U)
+   /-- Nonarchimedean normalization: the holomorphic integral structure has
+   log-volume `0`. -/
+   componentVol_integral_nonarch : ∀ i (p : Nat.Primes) (c : D.Components i (.finite p)),
+     componentVol i (.finite p) c ((D.packet i (.finite p)).integral c) = 0
+-  /-- Nonarchimedean normalization: the preimage under multiplication by the residue
+-  characteristic `p` (that is, scaling by `p⁻¹`) adds `log p` to the log-volume. -/
++  /-- Nonarchimedean normalization in the finite, nonzero-volume regime: the
++  preimage under multiplication by the residue characteristic `p` (that is,
++  scaling by `p⁻¹`) adds `log p` to the log-volume. -/
+   componentVol_prime_preimage : ∀ i (p : Nat.Primes) (c : D.Components i (.finite p))
+     (U : Set ((D.packet i (.finite p)).Summand c)),
++    componentAdmissible i (.finite p) c U →
+     componentVol i (.finite p) c ((fun x => ((p : ℕ) : _) * x) ⁻¹' U) =
+       componentVol i (.finite p) c U + Real.log p
+   /-- The designated Hermitian unit ball of each archimedean summand

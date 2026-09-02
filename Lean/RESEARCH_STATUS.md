@@ -10,6 +10,83 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
+## September 2, 2026 signed-ray, critical-slow-slack, correlated-Lucas, and admissible-index checkpoint
+
+The standard unconditional `ABCConjecture` remains unproved and
+undisproved.  Proof construction and counterexample search continue in
+parallel.  Difficulty, an unavailable formalization, and finite no-hit data
+do not retire a route.  Only a counterexample satisfying every hypothesis of
+an exact statement retires that statement; all four corrected parent routes
+remain active.
+
+- **IUT admissible scaling and order index:** active.  The public LANA `iut`
+  snapshot observed on September 2 at commit `c65b28c` still describes its
+  Corollary 3.12 endpoint as conditional and explicitly says that the
+  repository does not verify IUT.  A shift law over all sets is contradicted
+  by the empty set, and restricting only to nonempty sets is contradicted by
+  the whole set.  A narrow admissible-domain patch replays exactly and builds
+  the upstream `Iut` and `Iut4Sec1` targets in 8,767 jobs.  Independently, the
+  congruence order in `Z^2` has exact quotient index `n` even though both
+  coordinate projections are surjective.  These full-premise witnesses
+  retire only the two over-quantified volume interfaces and the inference
+  from component surjectivity to product index one.  Actual local Haar
+  volumes, every-place tensor-order indices, horizontal/Ind3 covariance, and
+  pointed q-pilot identification remain open.
+- **Mersenne critical slow slack:** active.  For any slowly divergent slack
+  `sigma`, the cutoff `F=log(3m)L sigma` and
+  `H=floor(sqrt(log(3m)/(L sigma)))` make the already controlled low arms
+  `o(m)` and localize a failed endpoint into the high-multiplier deep arm or
+  the near-square-root one-copy arm.  The exact Euler-character table filters
+  multiplier classes.  The prime `1093` has exact order `364`, valuation two,
+  and odd multiplier three, so it retires only the assertion that every
+  repeated exact-order multiplier is even.  A saturated abstract label model
+  retires only the inference of the `sigma=1` little-oh estimate from
+  positivity, injectivity, and the pointwise affine envelope; the arithmetic
+  `sigma=1` target remains open.
+- **Pell--Lucas correlated all-order exclusion:** active.  The companion
+  staircase is derived from its original odd-factor product and proved
+  coefficientwise correlated with the first staircase.  Coherent every-order
+  splitters, cross-order determinants, sixth-power channel signs, and the
+  vertexwise reciprocity graph are compatible.  Every odd prime index through
+  `271` has a certified exponent-one divisor, proving finite nonsquarefullness
+  in that range.  The 527,352-candidate bounded depth scan finds only
+  `13^2 || B_7` and no depth-three pair; this is not extrapolated.  The mixed
+  sign row at index `11` retires only the stronger claim that every edge of a
+  negative row is negative.  Coupling factor quotients to the all-order
+  projective line remains open.
+- **Affine signed rays and selected catalogues:** active.  Primitive signed
+  directions satisfy the strict capture squeeze `a*N*L<C`, the non-arm cap
+  `a^3*T^2<(B+1)(C+1)N`, and exact linear ceilings on all three canonical
+  arms.  The bridge `n^3<=1+7(n-1)^3` has optimal coefficient seven.  Owner
+  moments give the global cubic-energy ceiling on the deduplicated union of
+  selected powerful-kernel downward catalogues.  In the actual
+  `(B,C,M)=(1,2,10)` box, all-arm-divisor weight `972496` exceeds selected
+  owner mass `1072`; this full-premise witness retires exactly the owner claim
+  with catalogue membership deleted.  The closed threshold, extra period
+  factors, nonprimitive arms, omitted coefficient coprimality, coefficient
+  six, and a smaller universal non-arm constant are likewise retired only by
+  their recorded complete witnesses.  The non-arm inverse-period sum and its
+  comparison with singleton/class multiplicity remain open.
+
+The four new companion modules contain 90 theorem declarations and 16
+definitions, for 106 counted declarations.  All direct warning-as-error
+compilations pass; `lake build IUTThreeClosures` completes 9,233 jobs.  The
+axiom union is exactly `Classical.choice`, `Quot.sound`, and `propext`.
+Independent replays cover 1,776,807 affine cubic ledgers, 2,390,018 quadratic
+ledgers, 15,840 signed directions, 43,403 arm captures, the exact Mersenne
+character packet, 57 Pell prime indices, 138,675 product-derived coefficient
+pairs, 527,352 bounded depth candidates, and exact IUT patch/source hashes.
+None of these finite or local results is upgraded to an unconditional proof
+or disproof of abc.
+
+The permanent replay package is
+`verification/2026_09_02_signed_slow_slack_correlated_admissible_index/`.
+It freezes the modules, mathematical reports, computation and source bundles,
+integrated English manuscript by ChatGPT, delivery PDF, and complete visual
+QA; it regenerates one same-scope axiom query for every theorem and replays all
+four evidence routes.  This package certifies the stated boundary and closes
+no remaining abc gate.
+
 ## September 1, 2026 source-realization, balanced-multiplier, catalogue-overlap, and all-order Lucas checkpoint
 
 The standard unconditional `ABCConjecture` remains unproved and

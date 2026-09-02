@@ -1,0 +1,80 @@
+{
+  "all_odd_primes_satisfy_character_identity": true,
+  "allowed_multiplier_residues_mod_8": {
+    "0": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "1": [
+      0,
+      6
+    ],
+    "2": [
+      0,
+      1,
+      4,
+      5
+    ],
+    "3": [
+      0,
+      2
+    ],
+    "4": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "5": [
+      0,
+      6
+    ],
+    "6": [
+      0,
+      3,
+      4,
+      7
+    ],
+    "7": [
+      0,
+      2
+    ]
+  },
+  "asymptotic_inference": "finite no-hit beyond the two rows is not used",
+  "odd_prime_count": 9591,
+  "prime_count": 9592,
+  "retired_exact_claim": "every repeated base-two exact-order prime has even multiplier",
+  "retirement_witness": 1093,
+  "scan_limit": 100000,
+  "schema": "mersenne-critical-slow-slack-v1",
+  "wieferich_hits": [
+    {
+      "canonical_depth": 2,
+      "cube_divides": false,
+      "d_mod_8": 4,
+      "exact_order": 364,
+      "legendre_two": -1,
+      "multiplier": 3,
+      "p": 1093,
+      "r_mod_8": 3,
+      "square_divides": true
+    },
+    {
+      "canonical_depth": 2,
+      "cube_divides": false,
+      "d_mod_8": 3,
+      "exact_order": 1755,
+      "legendre_two": 1,
+      "multiplier": 2,
+      "p": 3511,
+      "r_mod_8": 2,
+      "square_divides": true
+    }
+  ]
+}

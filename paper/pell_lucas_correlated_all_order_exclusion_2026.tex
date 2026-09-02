@@ -1,0 +1,240 @@
+\section{Correlated Pell--Lucas staircases and opposite-channel incidence}
+\label{sec:pell-lucas-correlated-all-order}
+
+We continue the norm-one splice of
+Section~\ref{sec:pell-lucas-all-order-staircase}.  For a norm-one Lucas pair
+write
+\[
+ u_n=\frac{\alpha^n-\beta^n}{\alpha-\beta},
+ \qquad v_n=\alpha^n+\beta^n,
+ \qquad \alpha\beta=1,
+\]
+and let $\delta=(\alpha-\beta)^2$.  For a positive odd integer
+$k=2\theta+1$, define
+\begin{equation}\label{eq:companion-polynomial-coefficients}
+ d_j(k)=\binom{\theta+j}{2j},
+ \qquad
+ \Psi_k(W)=\sum_{j=0}^{\theta}d_j(k)W^j.
+\end{equation}
+
+\begin{proposition}[Exact companion multiplication polynomial]
+\label{prop:exact-companion-multiplication-polynomial}
+For every $n\ge1$,
+\begin{equation}\label{eq:exact-companion-multiplication-polynomial}
+ v_{nk}=v_n\Psi_k(\delta u_n^2).
+\end{equation}
+Thus the notation $v_{nk}/v_n$ below denotes an exact integer identity and
+does not assume division in a residue ring.
+\end{proposition}
+
+\begin{proof}
+In a splitting ring put $x=\alpha^n$ and
+$W=(x-x^{-1})^2=\delta u_n^2$.  No quotient in the splitting ring is
+needed.  Put $S_m=x^{2m+1}+x^{-(2m+1)}$.  The exact Laurent-polynomial
+recurrence is $S_{m+1}=(W+2)S_m-S_{m-1}$, with
+$S_0=x+x^{-1}$ and $S_1=(x+x^{-1})(1+W)$.  The polynomials
+$P_m(W)=\sum_{j=0}^m\binom{m+j}{2j}W^j$ have the same recurrence and
+initial values, by Pascal's identity.  Induction therefore gives the exact
+factorization $S_m=(x+x^{-1})P_m(W)$ without cancelling a possibly nonunit
+factor.  Taking $m=\theta$ is
+\eqref{eq:exact-companion-multiplication-polynomial}; being symmetric in
+$x,x^{-1}$, it descends to the integer identity.
+\end{proof}
+
+Let $\Phi_k(W)=\sum c_j(k)W^j$ be the first-sequence multiplication
+polynomial from \cite[Proposition~5.1]{ZhangLucas2026}, where
+\[
+ c_j(k)=\frac{k\prod_{h=1}^j(k^2-(2h-1)^2)}
+              {4^j(2j+1)!}.
+\]
+
+\begin{theorem}[Coefficientwise companion correlation]
+\label{thm:pell-lucas-coefficient-correlation}
+For $0\le j\le\theta$,
+\begin{equation}\label{eq:pell-lucas-coefficient-correlation}
+             (2j+1)c_j(k)=k d_j(k).
+\end{equation}
+Consequently
+\begin{equation}\label{eq:pell-lucas-differential-polynomials}
+                 \Phi_k(W)+2W\Phi_k'(W)=k\Psi_k(W).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Since $k=2\theta+1$,
+\[
+ \frac1{4^j}\prod_{h=1}^j(k^2-(2h-1)^2)
+ =\frac{(\theta+j)!}{(\theta-j)!}.
+\]
+Substitution gives
+$c_j(k)=\frac{k}{2j+1}\binom{\theta+j}{2j}$, proving
+\eqref{eq:pell-lucas-coefficient-correlation}.  Coefficient comparison then
+proves \eqref{eq:pell-lucas-differential-polynomials}.
+\end{proof}
+
+Specialize to the balancing-Pell pair at an odd prime index $\ell$:
+\[
+ A=A_\ell,\qquad B=B_\ell,\qquad U=AB=u_\ell,\qquad
+ v_\ell=2A_{2\ell},\qquad \delta=32.
+\]
+Put $\theta=(\ell-1)/2$, $a_j=32^jc_j(\ell)$,
+$b_j=32^jd_j(\ell)$ and, for
+$0\le s\le(\ell-1)/2$, define
+\[
+ \mathcal E_s(X)=\sum_{j=s}^{\theta}a_jX^{j-s},\qquad
+ \mathcal F_s(X)=\sum_{j=s}^{\theta}b_jX^{j-s},\qquad
+ E_s=\mathcal E_s(U^2),\quad F_s=\mathcal F_s(U^2).
+\]
+
+\begin{theorem}[Paired all-order support-unit staircase]
+\label{thm:pell-lucas-correlated-staircase}
+Removing the first $s$ terms from either multiplication polynomial leaves
+respectively $U^{2s}E_s$ and $U^{2s}F_s$.  Moreover
+\begin{equation}\label{eq:pell-lucas-tail-units-and-correlation}
+ \gcd(E_s,U)=\gcd(F_s,U)=1,
+ \qquad
+ (2s+1)\mathcal E_s(X)+2X\mathcal E_s'(X)
+       =\ell\mathcal F_s(X),
+\end{equation}
+and in particular
+\begin{equation}\label{eq:pell-lucas-tail-mod-correlation}
+                         (2s+1)E_s\equiv\ell F_s\pmod{U^2}.
+\end{equation}
+If $p\mid U$ and $e_p=v_p(U)$, both unnormalized tails have exact valuation
+$2se_p$ at $p$.
+\end{theorem}
+
+\begin{proof}
+The tail factorizations are exact by construction.  Every support prime
+$p\mid U$ satisfies $p\ge2\ell-1>\ell$.  All factorial arguments in
+$d_s(\ell)=\binom{(\ell-1)/2+s}{2s}$ are therefore below $p$, so $d_s$ is a
+$p$-adic unit.  The first-sequence support-unit argument from the preceding
+section makes $c_s$ a $p$-adic unit, and $p\nmid32$.  Hence the leading terms
+$a_s,b_s$, and thus $E_s,F_s$ modulo $U^2$, are units at every support prime.
+
+Apply \eqref{eq:pell-lucas-coefficient-correlation} term by term.  The
+coefficient of $X^{j-s}$ on the left of the differential identity is
+$(2s+1+2(j-s))a_j=(2j+1)a_j=\ell b_j$.  This proves
+\eqref{eq:pell-lucas-tail-units-and-correlation} and its reduction
+\eqref{eq:pell-lucas-tail-mod-correlation} after setting $X=U^2$.  The exact
+valuations follow from the unit leading tails.
+\end{proof}
+
+Set $T_s=v_\ell F_s$ and $Z_0=v_\ell/2=A_{2\ell}$.
+
+\begin{theorem}[Coherent every-order channel splitters]
+\label{thm:pell-lucas-every-order-splitters}
+For every $s$, the congruence
+\begin{equation}\label{eq:pell-lucas-every-order-reconstruction}
+ 2(2s+1)E_s Z_s\equiv\ell T_s\pmod{U^2}
+\end{equation}
+has the unique solution
+$Z_s\equiv Z_0\pmod{U^2}$.  Consequently
+\begin{equation}\label{eq:pell-lucas-every-order-signs}
+ Z_s\equiv1\pmod{A^2},\qquad
+ Z_s\equiv-1\pmod{B^2},\qquad Z_s^2\equiv1\pmod{U^2}.
+\end{equation}
+For two levels $s,t$ one has
+\begin{equation}\label{eq:pell-lucas-cross-order-determinant}
+ (2t+1)E_tT_s\equiv(2s+1)E_sT_t\pmod{U^2}.
+\end{equation}
+If $q^3\mid A$ and $r^3\mid B$, every $Z_s$ satisfies
+\begin{equation}\label{eq:pell-lucas-opposite-depth-six}
+                 Z_s\equiv1\pmod{q^6},\qquad
+                 Z_s\equiv-1\pmod{r^6}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Multiplying \eqref{eq:pell-lucas-tail-mod-correlation} by $v_\ell$ gives
+\[
+ \ell T_s\equiv(2s+1)v_\ell E_s
+              =2(2s+1)E_sZ_0\pmod{U^2}.
+\]
+Every prime divisor of $U$ exceeds $\ell$, so
+$2(2s+1)E_s$ is invertible modulo $U^2$.  This proves uniqueness and
+identifies $Z_s$.  The Pell identities
+$A_{2\ell}=2A^2+1=4B^2-1$ give the two signs; coprimality of $A,B$ combines
+them modulo $U^2$.  Cross-multiplication at levels $s,t$ and cancellation of
+$\ell$, which is coprime to $U$, proves
+\eqref{eq:pell-lucas-cross-order-determinant}.  Finally $q^3\mid A$ and
+$r^3\mid B$ imply $q^6\mid A^2$ and $r^6\mid B^2$.
+\end{proof}
+
+The splitters therefore form one coherent projective line; higher orders are
+not independent tests.  The character information can nevertheless be
+resolved vertex by vertex.  In a hypothetical squarefull packet write
+\[
+ A=D_A^3X^2,\qquad B=D_B^3Y^2,
+\]
+with $D_A,D_B$ squarefree, and let $O_A,O_B$ be their prime supports.
+
+\begin{theorem}[Vertexwise character incidence]
+\label{thm:pell-lucas-vertexwise-incidence}
+For $r\in O_B$ and $q\in O_A$ one has
+\begin{equation}\label{eq:pell-lucas-row-column-laws}
+ \prod_{q\in O_A}\left(\frac qr\right)=\left(\frac2r\right),
+ \qquad
+ \prod_{r\in O_B}\left(\frac qr\right)=\left(\frac Bq\right).
+\end{equation}
+Both total products equal $(2/\ell)$.  If $q\equiv1\pmod8$, the second
+endpoint is the quartic-two sign $2^{(q-1)/4}\pmod q$.
+For $\ell\equiv3$ or $5\pmod8$, there exist $q\in O_A,r\in O_B$ such that
+\begin{equation}\label{eq:pell-lucas-forced-opposite-pair}
+ v_q(A)\ge3,\quad v_r(B)\ge3,\quad
+ \left(\frac qr\right)=-1,\quad 2\ell\mid q+r,
+\end{equation}
+and the every-order signs \eqref{eq:pell-lucas-opposite-depth-six} hold at
+this same pair.
+\end{theorem}
+
+\begin{proof}
+For $r\mid B$, the Pell equation gives $A^2\equiv-1\pmod r$.  Every
+$B$-channel prime is $1\pmod4$, so Euler's criterion yields
+$(A/r)=(2/r)$.  Removing the square core from
+$A=D_A^3X^2$ proves the first product.  Removing the square core from $B$ and
+using quadratic reciprocity, whose sign is trivial because $r\equiv1\pmod4$,
+proves the second.  Multiplying all rows or all columns gives the same edge
+product, and the inherited kernel ledger evaluates it as $(2/\ell)$.
+
+If $q\equiv1\pmod8$, the congruence $2B^2\equiv1\pmod q$ implies
+$(B/q)=2^{(q-1)/4}$ because this quarter-power is a sign.  Finally, in the
+two stated index classes the inherited table gives $D_B\equiv5\pmod8$.
+Thus some $r\in O_B$ is $5\pmod8$ and its row product is negative; one edge
+$(q/r)$ is negative.  The rank congruences are
+$q\equiv1\pmod{2\ell}$ and $r\equiv-1\pmod{2\ell}$, proving the last
+divisibility.  Squarefull odd exponents are at least three, and
+Theorem~\ref{thm:pell-lucas-every-order-splitters} supplies the depth-six
+signs.
+\end{proof}
+
+This necessary packet is highly constrained but has not been contradicted.
+An independently replayed computation proves a separate finite theorem:
+for every one of the $57$ odd prime indices $3\le\ell\le271$, at least one
+of $A_\ell,B_\ell$ has a certified prime divisor of exponent exactly one.
+Hence $A_\ell B_\ell$ is not squarefull throughout that range.  The verifier
+checks each divisor, its primality, and the coordinate modulo its square; the
+large witness at $\ell=59$ uses a complete Pocklington certificate.  It also
+checks $138{,}675$ coefficient pairs, $228$ recurrence evaluations, and the
+incidence graphs at all $13$ prime indices through $43$.
+
+A bounded search of $527{,}352$ candidate primes up to $2\cdot10^6$ finds
+$13^2\parallel B_7$ but no depth-three opposite pair.  This is only a finite
+no-hit and retires no assertion.  At index $11$, the row at $r=5741$ contains
+both $(23/r)=-1$ and $(353/r)=+1$, a full-premise counterexample to the
+stronger claim that every edge of a negative row is negative.  It is not a
+squarefull packet and therefore does not refute the active exclusion route.
+
+Any surviving packet must simultaneously satisfy the earlier third-order
+congruence modulo $8\ell^3$, both support-unit staircases, every cross-order
+determinant, the depth-six signs, and the vertexwise incidence laws.  The
+missing theorem must couple the prime-factor quotients in the third-order
+ledger to this all-order projective line.  Its current absence is a difficult
+open gate, not evidence against the route.
+
+The Lean companion checks the rational coefficient identity, exact weighted
+list identity, normalized-tail congruence, every-order recovery, cross-order
+determinant, sixth-power propagation, negative-row extraction, and the
+quartic-two power algebra.  The Lucas multiplication theorem, rank theorem,
+finite factor certificates, and the open uniform exclusion are kept at their
+stated mathematical or computational boundaries and are not added as axioms.

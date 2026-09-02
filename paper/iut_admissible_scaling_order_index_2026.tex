@@ -1,0 +1,154 @@
+\section{Admissible scaling at the current IUT interface and an exact order index}
+\label{sec:iut-admissible-scaling-order-index}
+
+We now compare the preceding source-faithful bridge with Project LANA commit
+\texttt{c65b28c} \cite{LANAleanCurrent}.  This snapshot contains a genuine
+positive advance: \path{Iut/Concrete/Existence.lean} constructs the previously
+abstract \texttt{ConcreteThetaData\allowbreak Existence} datum from an elliptic
+curve and its
+arithmetic, Tate, representation-theoretic, and anabelian inputs.  The new
+theorem \path{CurveInputs.concreteThetaDataExistence} therefore removes one
+assembly gap.  The endpoint
+\path{cor312Variant_implies_abc_curves}, however, remains conditional.  Its
+hypotheses still include
+\begin{itemize}
+\item the height-theory proof package
+  \path{Genl.HeightTheory.ProofPackage} and the curve inputs;
+\item anabelian existence, together with providers for local theory,
+  theta-local data, and tower arithmetic; and
+\item the analytic prime bounds and the concrete Corollary~3.12 comparison.
+\end{itemize}
+It is therefore not an unconditional proof of Statement~I or of integer
+$abc$.
+
+The same snapshot retains a logically impossible quantifier in its local
+log-volume interface.  Abstract the issue as follows.  Let $s:X\to X$, let
+$V:\mathcal P(X)\to\R$, and fix $\delta\in\R$.
+
+\begin{theorem}[Total-set and nonempty-set obstructions]
+\label{thm:iut-total-set-scaling-no-go}
+If
+\begin{equation}\label{eq:iut-total-set-shift}
+             V(s^{-1}U)=V(U)+\delta
+             \qquad(U\subseteq X),
+\end{equation}
+then $\delta=0$.  If $X$ is nonempty, the same conclusion holds when
+\eqref{eq:iut-total-set-shift} is required only for nonempty $U$.
+More generally, the conclusion holds on any asserted domain containing a set
+$U$ with $s^{-1}U=U$.
+\end{theorem}
+
+\begin{proof}
+For the total law take $U=\varnothing$; its preimage is again empty and
+additive cancellation gives $\delta=0$.  Under the nonempty restriction take
+$U=X$, whose preimage is $X$.  The last assertion is the same cancellation
+with the stated fixed set.
+\end{proof}
+
+In the current \texttt{LocalTheory.componentVol\_prime\_preimage} field one
+has $\delta=\log p$ for a prime $p$.  Since $p\ge2$, this shift is positive,
+so no inhabitant of the literal all-set structure can exist.  Merely appending
+\texttt{U.Nonempty} would move the contradiction from the empty set to the
+whole set and would not repair it.
+
+The source-level repair used in our audit makes the domain explicit.  It adds
+a predicate $\mathcal A$ of admissible finite, nonzero-volume regions and
+requires
+\begin{equation}\label{eq:iut-admissible-shift}
+ U\in\mathcal A\Longrightarrow U\ne\varnothing,\qquad
+ U\in\mathcal A\Longrightarrow s^{-1}U\in\mathcal A,\qquad
+ U\in\mathcal A\Longrightarrow V(s^{-1}U)=V(U)+\log p.
+\end{equation}
+The predicate is transported from \texttt{LocalTheory} to
+\texttt{LogVolumeData} and through \path{Concrete.Container.vol}.  No
+numeric equality is imposed on sets outside its domain.  This is the minimal
+quantifier correction suggested by the finite, nonzero-volume regime of
+IUT~III, Proposition~3.9 and Remark~3.9.5 \cite{IUT3}.
+
+\begin{proposition}[Admissible orbit law]
+\label{prop:iut-admissible-orbit-law}
+Assume \eqref{eq:iut-admissible-shift}.  For $U\in\mathcal A$ and $r\ge0$,
+\[
+                    V(s^{-r}U)=V(U)+r\log p.
+\]
+If $\log p\ne0$, the admissible preimage orbit of $U$ is injective and in
+particular is not periodic.
+\end{proposition}
+
+\begin{proof}
+Induction on $r$ proves the formula: closure under preimage supplies the
+admissibility hypothesis needed at each successor step.  If
+$s^{-r}U=s^{-t}U$, the formula gives
+$(r-t)\log p=0$, whence $r=t$.
+\end{proof}
+
+The patched versions of the three affected source files compile together
+with both upstream targets \texttt{Iut} and \texttt{Iut4Sec1}; the build
+finishes all $8767$ tasks.  This verifies that the repaired dependency shape
+is compatible with the current source tree.  It does not construct the local
+Haar volume or prove the comparison theorem.
+
+There is a second accounting seam at the passage from an integral tensor
+order to the product of maximal factor orders.  For $n\in\N$ put
+\begin{equation}\label{eq:iut-congruence-order}
+ \mathcal O_n=\{(a,b)\in\Z^2:n\mid a-b\},\qquad
+ \delta_n(a,b)=a-b\pmod n.
+\end{equation}
+
+\begin{theorem}[Exact congruence-order quotient]
+\label{thm:iut-congruence-order-index}
+The map $\delta_n:\Z^2\to\Z/n\Z$ is a surjective additive homomorphism with
+kernel $\mathcal O_n$.  Consequently
+\[
+       \Z^2/\mathcal O_n\simeq\Z/n\Z,
+       \qquad [\Z^2:\mathcal O_n]=n.
+\]
+For $n>1$, $\mathcal O_n$ is a proper finite-index subring of $\Z^2$, although
+both coordinate projections $\mathcal O_n\to\Z$ are surjective.
+\end{theorem}
+
+\begin{proof}
+Additivity is immediate, and every residue class is the image of $(a,0)$.
+Moreover $\delta_n(a,b)=0$ exactly when $n\mid a-b$, so the first isomorphism
+theorem gives the quotient.  The kernel is a subring: it contains $(0,0)$
+and $(1,1)$, is additively closed, and for two of its elements
+\[
+                    ac-bd=a(c-d)+d(a-b),
+\]
+so it is closed under componentwise multiplication.  Its quotient
+cardinality is $n$.  If $n>1$, the point
+$(1,0)$ is absent, proving properness; every $(z,z)$ is present, proving both
+projection statements.
+\end{proof}
+
+The theorem includes $n=0$ under the \texttt{Nat.card} index convention:
+both the quotient and $\Z/0\Z\cong\Z$ are infinite and their recorded natural
+cardinality is zero.  For positive $m,n$, exactness also gives
+\begin{equation}\label{eq:iut-order-index-log-additivity}
+ [\Z^2:\mathcal O_{mn}]
+ =[\Z^2:\mathcal O_m][\Z^2:\mathcal O_n],
+ \qquad
+ \log[\Z^2:\mathcal O_{mn}]
+ =\log[\Z^2:\mathcal O_m]+\log[\Z^2:\mathcal O_n].
+\end{equation}
+Thus a finite integral-order defect contributes an additive logarithmic term.
+Identifying the actual IUT tensor-order quotient with a local different or
+conductor exponent is a further arithmetic theorem, not a consequence of
+this model.
+
+The empty and whole sets are full-premise counterexamples to the two stated
+overbroad volume laws.  The orders $\mathcal O_n$, $n>1$, are full-premise
+counterexamples to the assertion that surjective component projections force
+the product order.  These witnesses retire precisely those shortcuts.  They
+do not satisfy the premises of an admissible, index-aware same-pilot theorem,
+so that corrected route remains active.  Its unresolved obligations are to
+construct the actual admissible Haar regions, calculate the tensor-order
+indices at every factor and place, prove covariance through the horizontal
+link and Ind3, and establish the concrete Corollary~3.12 comparison.
+
+The Lean companion proves the two no-go theorems, identifies the exact kernel
+and quotient in \eqref{eq:iut-congruence-order}, proves the index and its
+logarithmic multiplication law, and verifies properness together with both
+surjective projections.  The source ledger separately freezes the upstream
+commit, exact patch replay, and complete build log.  No same-pilot theorem,
+Statement~I, or $abc$ consequence is introduced as a formal assumption.

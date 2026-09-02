@@ -37,7 +37,7 @@
 \title[Uniformity and prime support in $abc$ research]{Uniformity, Prime Support, and Reachable Lattices\\
 in Approaches to the $abc$ Conjecture}
 \author{ChatGPT}
-\date{September 1, 2026}
+\date{September 2, 2026}
 \subjclass[2020]{11D75, 11N25, 11G05, 11J86, 68V15}
 \keywords{abc conjecture, smooth numbers, prime support, effective integral points,
 local lattices, formal verification}
@@ -107,6 +107,19 @@ genuine rational degree-one source has the standard height and truncated
 conductor up to bounded discrepancy and zero different, so its restricted
 Statement~I is again exactly equivalent to $abc$; the required upstream
 Statement~I remains open.
+
+The September 2 continuation treats signed affine rays and all three
+constant-arm directions, reduces their global cubic energy to explicit
+catalogue moments and one inverse-period sum, compresses the Mersenne gate
+beyond every fixed positive log-log power, and correlates both Pell--Lucas
+staircases at every order; certified simple divisors exclude squarefull
+packets at every odd prime index through $271$ without extrapolation.  At the
+current Project LANA source, a
+new curve-input existence theorem is conditional on explicit providers.  The
+all-set volume shift is refuted by the empty set, while an admissible-domain
+repair compiles both upstream targets.  An exact congruence-order quotient
+retains the finite integral index.  Only the overbroad interfaces and named
+strengthenings are retired; every corrected parent route remains active.
 
 \end{abstract}
 \maketitle
@@ -235,6 +248,10 @@ Section~\ref{sec:affine-catalogue-weight-overlap} computes the actual
 Euler-totient catalogue mass and proves that coincident divisor labels can
 only increase its cubic energy, while preserving the separate singleton-
 novelty and signed-line gates.
+Section~\ref{sec:affine-signed-ray-canonical-caps} treats arbitrary signed
+primitive directions, proves the strict capture squeeze and exact linear
+caps on all three canonical arm levels, and reduces the remaining global
+energy to one non-arm inverse-period sum and a singleton baseline.
 Section~\ref{sec:mersenne-prime-layer} separates base order blocks from the
 LTE lifting remainder and proves unconditional radical bounds at prime
 Mersenne layers.
@@ -261,6 +278,10 @@ remaining two-arm coefficient to every value below $1/2$.
 Section~\ref{sec:mersenne-balanced-multiplier-depth} moves the one-copy cutoff
 to every fixed positive log-log slack and removes the growing low-multiplier
 part of the deep arm using Yamada's pointwise valuation bound.
+Section~\ref{sec:mersenne-critical-slow-slack} replaces every fixed positive
+power by an arbitrarily slowly divergent factor, adds the exact multiplier
+character table, and records the precise arithmetic and abstract endpoint
+counterexample boundaries.
 Section~\ref{sec:pell-residue-parity-localization} adds the exact modulo-eight
 and quadratic-character restrictions in the Pell packet, while
 Section~\ref{sec:pell-odd-kernel-third-order} compresses a hypothetical
@@ -270,6 +291,13 @@ Section~\ref{sec:pell-lucas-all-order-staircase} splices both Pell channels
 into a norm-one Lucas sequence, proves the exact support-unit staircase at
 every multiplication order, and recovers the opposite channel signs from a
 paired companion correction.
+Section~\ref{sec:pell-lucas-correlated-all-order} constructs the companion
+staircase in closed form, proves its coefficientwise differential correlation,
+and combines coherent every-order splitters with vertexwise character
+incidence and certified finite exclusion through prime index $271$.
+Section~\ref{sec:iut-admissible-scaling-order-index} audits the current public
+IUT source, compiles an admissible-domain quantifier repair, and proves the
+exact finite index of a congruence order with surjective component projections.
 No priority over existing literature is
 claimed for consequences of the cited classical theorems.
 
@@ -280,7 +308,7 @@ not external journal peer review. Classical published
 theorems may be used in the paper, but are not silently represented as
 proved Lean declarations. The formal scope is specified in
 Section~\ref{sec:formal}. The literature and public-repository cutoff is
-September 1, 2026.
+September 2, 2026.
 
 \section{Prime support in short intervals}\label{sec:smooth}
 
@@ -1017,6 +1045,7 @@ logarithmic-form methods to a different family.
 \input{iut_admissible_volume_integer_bridge_2026}
 \input{iut_rational_tripod_shadow_comparison_2026}
 \input{iut_rational_degree_one_source_realization_2026}
+\input{iut_admissible_scaling_order_index_2026}
 
 \input{affine_two_arm_crt_2026}
 
@@ -1027,10 +1056,12 @@ logarithmic-form methods to a different family.
 \input{affine_common_kernel_triple_selection_2026}
 \input{affine_collinear_period_energy_2026}
 \input{affine_catalogue_weight_overlap_2026}
+\input{affine_signed_ray_canonical_caps_2026}
 
 \input{pell_residue_parity_localization_2026}
 \input{pell_odd_kernel_third_order_packet_2026}
 \input{pell_lucas_all_order_staircase_2026}
+\input{pell_lucas_correlated_all_order_exclusion_2026}
 
 \input{mersenne_prime_layer_radical_2026}
 
@@ -1044,6 +1075,7 @@ logarithmic-form methods to a different family.
 \input{mersenne_fixed_polylog_block_mass_triage_2026}
 \input{mersenne_multiplier_index_two_arm_2026}
 \input{mersenne_balanced_multiplier_depth_localization_2026}
+\input{mersenne_critical_slow_slack_2026}
 
 \raggedbottom
 \section{Formal verification and remaining obligations}\label{sec:formal}
@@ -1335,6 +1367,22 @@ and the complete multiplier-two certificate at $3511$.\\[3pt]
 coprimality, coefficient-support exclusion, paired companion congruences,
 channel-square reconstruction, local-surjectivity logic, and the kernel
 recurrence certificate refuting fixed-zero rigidity.\\[3pt]
+\texttt{IUTAdmissibleScalingOrder\allowbreak Index20260901} & Empty- and
+whole-set obstructions to overbroad volume shifts, exact congruence-order
+kernel and quotient, additive index, properness, and surjective coordinate
+projections.\\[3pt]
+\texttt{AffineSignedRayCanonical\allowbreak Caps20260901} & Signed direction
+period and capture, strict large-label squeeze, all three exact arm captures,
+optimal shifted cubic bridge, weighted owner-catalogue bounds, and exact
+countermodels to stronger threshold, period, and premise deletions.\\[3pt]
+\texttt{MersenneCriticalSlowSlack\allowbreak Gate20260901} & Nested survivor
+supports and masses, exact cutoff balance, two-arm subtraction, Euler
+half-power character on actual exact-order fibres, and the complete odd-
+multiplier certificate at $1093$.\\[3pt]
+\texttt{PellLucasCorrelatedAllOrder\allowbreak Exclusion20260901} & Rational
+coefficient correlation, exact weighted tail identity, coherent every-order
+splitters, cross-order determinant, sixth-power channel signs, negative-row
+extraction, and quartic-two power algebra.\\[3pt]
 \bottomrule
 \end{longtable}
 
@@ -1541,6 +1589,25 @@ counterexample, and checks the full coefficient staircase and companion
 splitter at $\ell=3,5,7,11$.  Its finite no-hit results are pressure tests,
 not an asymptotic exclusion or a proof of $abc$.
 
+The signed-ray, critical-slow-slack, correlated-Lucas, and admissible-index
+checkpoint adds four modules with $90$ theorem declarations and $16$
+definitions, for $106$ counted declarations.  A generated same-scope audit
+issues one \texttt{\#print axioms} query for every theorem.  The dependency
+union is exactly \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}; all four direct warning-as-error compilations and the
+generated audit pass.  The aggregate target completes $9233$ jobs.  Exact
+replays cover $1{,}776{,}807$ affine cubic ledgers, $2{,}390{,}018$ quadratic
+ledgers, $15{,}840$ signed directions, $43{,}403$ arm captures, the complete
+Mersenne character packet, all $57$ Pell prime indices through $271$,
+$138{,}675$ product-derived coefficient pairs, and $527{,}352$ bounded depth
+candidates.  The current-source IUT patch replays byte for byte and the
+patched upstream \texttt{Iut} and \texttt{Iut4Sec1} targets build all $8767$
+jobs.  The owner-energy theorem is audited only on the selected powerful-
+kernel catalogue union; the recorded $972{,}496>1{,}072$ witness prevents an
+invalid all-divisor enlargement.  No bounded no-hit, source-interface repair,
+or local formal theorem is promoted to an unconditional proof or disproof of
+$abc$.
+
 The formal scope is deliberately narrower than the full paper.
 Theorem~\ref{thm:tail} and Corollary~\ref{cor:carella} use Younis and classical
 smooth-number asymptotics in their mathematical proofs; those external
@@ -1677,6 +1744,19 @@ Corollary~3.12 comparison.  The full-premise pressure models show that the
 current abstract record and proof package cannot manufacture those semantic
 identifications.
 
+The public source at commit \texttt{c65b28c9f9631635e742294c3a5df15759e7c74c}
+now constructs the old concrete theta-data existence interface from curve
+data and explicit providers.  This closes one assembly seam but retains the
+anabelian, local-theory, tower, analytic, height-package, and Corollary~3.12
+premises.  The all-set log-volume law makes a literal local-theory provider
+impossible; Theorem~\ref{thm:iut-total-set-scaling-no-go} gives the exact
+counterexample, and the patched admissible interface compiles throughout the
+current upstream tree.  Theorem~\ref{thm:iut-congruence-order-index} also
+shows that componentwise surjectivity cannot erase an integral-order index.
+The active IUT gate is therefore an admissible, index-aware construction of
+the actual local volumes followed by the full horizontal and Ind3 covariance
+and the concrete comparison theorem.
+
 On the affine route, determinant divisibility now survives point-adaptive
 certificates.  Theorem~\ref{thm:affine-large-label-incidence} converts the
 selection problem into a catalogue-multiplicity inequality; alternatively,
@@ -1686,31 +1766,45 @@ exact ray-period theorem now controls the previously unbounded nonconstant
 collinear occupancy by a weighted cubic-energy ceiling.  The actual downward
 catalogue now has total totient weight exactly equal to the canonical kernel
 product, asymptotically all above the determinant threshold, and coincident
-sublabels only increase the cubic energy.  What remains is a signed ray cap,
-the three constant-arm directions, and an upper bound for deduplicated
-catalogue weight or singleton novelty.  The canonical vertical example proves
-that the label product itself cannot be used as a period, while the
-$(9,25,1)$ catalogue disproves only the stronger subtraction-one tail.
+sublabels only increase the cubic energy.  The signed-direction capture
+squeeze now handles all primitive rays and gives exact linear caps for the
+three constant-arm directions.  The global ceiling
+\eqref{eq:affine-global-signed-energy-ceiling} leaves one non-arm
+inverse-square-period sum, supported only on large directions, and the
+comparison of the singleton baseline with catalogue multiplicities.  These
+are the active gates.  The canonical vertical example proves that the label
+product itself cannot be used as a period, while the $(9,25,1)$ catalogue and
+the new exact pressure tuples disprove only their stated stronger inferences.
 
 On the Mersenne route, multiplier injectivity removes the low one-copy arm in
 every fixed-polylogarithmic co-divisor packet.  The remaining gates are the
 high-multiplier deep-lift estimate and the localized Wieferich-weighted
 near-square-root order estimate.  The balanced cutoff works with every fixed
-$\eta>0$, and Yamada's pointwise bound makes the low-multiplier part of the
-deep arm negligible.  The abstract coefficient ceiling remains one half, but
-no finite computation or current global density theorem proves either of the
-two surviving little-oh statements.  The exact prime $3511$ refutes only the
-finite claim that every repeated exact-order multiplier is at least three.
+$\eta>0$, and the critical slow-slack theorem now works for any divergent
+$\sigma$ with $L_m\sigma=o(\log m)$; the explicit
+$\sigma=\log(3+L_m)$ narrows both surviving regions beyond every fixed
+positive log-log power.  The Euler-character identity filters the exact
+multiplier residues, but its $d\equiv4\pmod8$ row is unrestricted.  No finite
+computation or current global density theorem proves either surviving
+little-oh statement at the arithmetic endpoint $\sigma=1$.  The exact primes
+$3511$ and $1093$ refute only the stated multiplier-at-least-three and
+even-multiplier strengthenings.
 
 The Pell packet now carries nontrivial odd kernels, a complete aggregate
 Jacobi triangle, the third-order quotient ledger, and an all-order norm-one
 Lucas staircase.  The paired companion correction recovers opposite signs on
-the two channel squares, so the remaining exclusion must respect their
-correlation.  Certified simple divisors exclude every odd prime index through
-$191$; the finite boundary is kept literal.  The $k=2451$ recurrence witness
-refutes only fixed-zero one-channel rigidity.  No known theorem excludes or
-constructs a larger packet whose two channels satisfy all depth, residue,
-character, staircase, and quotient constraints.
+the two channel squares.  The companion staircase is now explicit and
+coefficientwise correlated with the first; every order recovers the same
+splitter, and all cross-order determinants vanish modulo $U^2$.  For a
+hypothetical squarefull packet, vertexwise character laws force a nonresidue
+opposite pair with depth at least three when $\ell\equiv3,5\pmod8$.
+Certified simple divisors now exclude squarefull packets at every odd prime
+index through $271$; the finite boundary is kept literal.  The $k=2451$
+recurrence witness and the mixed-sign row at index $11$ refute only fixed-zero
+one-channel rigidity and the assertion that all edges of a negative row are
+negative.  No known theorem excludes or constructs an unbounded packet whose
+two channels satisfy all depth, residue, character, staircase, cross-order,
+and third-order quotient constraints.
 
 Constructing initial data, descending a determinant, localizing a divisor
 average, or eliminating Ind2 from a fixed $B$-module hull does not by itself
@@ -2013,6 +2107,13 @@ Project LANA,
 public repository at commit
 \href{https://github.com/lana-agents/iut/tree/ddaddc274281adb5674d647e24fa478745ac6d40}{ddaddc2},
 July 27, 2026.
+
+\bibitem{LANAleanCurrent}
+Project LANA,
+\emph{Lean 4 formalization of IUT: current concrete existence and
+Corollary 3.12 interfaces}, public repository at commit
+\href{https://github.com/lana-agents/iut/tree/c65b28c9f9631635e742294c3a5df15759e7c74c}{c65b28c},
+September 2, 2026.
 
 \bibitem{IUT3}
 S.~Mochizuki, Inter-universal Teichm\"uller Theory III:

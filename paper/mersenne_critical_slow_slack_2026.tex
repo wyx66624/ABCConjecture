@@ -1,0 +1,203 @@
+\section{Critical slow-slack compression in the Mersenne route}
+\label{sec:mersenne-critical-slow-slack}
+
+The balanced multiplier argument of
+Section~\ref{sec:mersenne-balanced-multiplier-depth} can be pushed below every
+fixed positive power of $\log\log m$.  For an odd prime $p$, retain
+\[
+ d_p=\ord_p(2),\qquad w_p=v_p(2^{d_p}-1),\qquad
+ r_p=\frac{p-1}{d_p},\qquad L_m=\log\log(3m).
+\]
+Call a positive function $\sigma$ \emph{slow-admissible} when
+\begin{equation}\label{eq:slow-admissible}
+ \sigma(m)\longrightarrow\infty,
+ \qquad \frac{L_m\sigma(m)}{\log(3m)}\longrightarrow0.
+\end{equation}
+Set
+\begin{equation}\label{eq:critical-slow-scales}
+ F_{m,\sigma}=\log(3m)L_m\sigma(m),
+ \qquad
+ H_{m,\sigma}=\left\lfloor
+ \sqrt{\frac{\log(3m)}{L_m\sigma(m)}}\right\rfloor.
+\end{equation}
+The latter tends to infinity.  For $d\mid m$, split the repeated one-copy
+mass and the deep excess as
+\begin{align*}
+ U_d^{(\sigma)}(m)
+ &=\sum_{\substack{d_p=d,\ w_p\ge2\\p\le d^2/F_{m,\sigma}}}\log p,&
+ B_d^{(\sigma)}(m)
+ &=\sum_{\substack{d_p=d,\ w_p\ge2\\p>d^2/F_{m,\sigma}}}\log p,\\
+ V_d^{(\sigma)}(m)
+ &=\sum_{\substack{d_p=d,\ w_p\ge3\\r_p<H_{m,\sigma}}}
+       (w_p-2)\log p,&
+ G_d^{(\sigma)}(m)
+ &=\sum_{\substack{d_p=d,\ w_p\ge3\\r_p\ge H_{m,\sigma}}}
+       (w_p-2)\log p.
+\end{align*}
+These four nonnegative terms still sum exactly to the block mass $a_d$.
+
+\begin{theorem}[Critical slow-slack removal]
+\label{thm:mersenne-critical-slow-removal}
+Let $\sigma$ satisfy \eqref{eq:slow-admissible}.  For every fixed positive
+integer $k$,
+\begin{equation}\label{eq:slow-two-negligible-arms}
+ \sum_{\substack{d\mid m\\\log(m/d)<kL_m}}U_d^{(\sigma)}(m)=o(m),
+ \qquad
+ \sum_{\substack{d\mid m\\\log(m/d)<kL_m}}V_d^{(\sigma)}(m)=o(m).
+\end{equation}
+If also $\sigma(m)=o(L_m^\eta)$ for every fixed $\eta>0$, both surviving
+cutoff regions are eventually contained in the corresponding fixed-$\eta$
+regions of Section~\ref{sec:mersenne-balanced-multiplier-depth}.
+\end{theorem}
+
+\begin{proof}
+Write $q=m/d$ and $Q_m=(\log(3m))^k$.  In the displayed divisor window,
+$q<Q_m$.  If $p$ occurs in $U_d^{(\sigma)}$, then
+\[
+ 0<r_p=\frac{p-1}{d}<\frac p d\le\frac d{F_{m,\sigma}}.
+\]
+The integral multipliers are distinct on a fixed exact-order fibre.  Hence
+there are at most $d/F_{m,\sigma}$ such primes, each at most $d^2\le m^2$,
+and
+\begin{equation}\label{eq:slow-one-copy-bound}
+ \sum U_d^{(\sigma)}(m)
+ \le \frac{2m\log m}{F_{m,\sigma}}
+       \sum_{q<Q_m}\frac1q
+ \le \frac{2m\log m}{F_{m,\sigma}}(1+kL_m)=o(m).
+\end{equation}
+The last step uses only $\sigma(m)\to\infty$.
+
+For the deep term, Yamada's pointwise theorem \cite{Yamada2010} and
+exact-order LTE give, for $d>1$ and $H\ge2$,
+\[
+ \sum_{\substack{d_p=d,\ w_p\ge3\\r_p<H}}(w_p-2)\log p
+ \le \frac{C_Yd}{\log d}\frac{H(H-1)}2
+       +2(H-1)\log(1+dH),
+ \qquad C_Y=283\log3\log6.
+\]
+Summing with $H=H_{m,\sigma}$ and $d>m/Q_m$ gives
+\begin{align*}
+ \sum V_d^{(\sigma)}(m)
+ \le{}&\frac{C_YmH(H-1)}{2\log(m/Q_m)}(1+kL_m)\\
+      &+2HQ_m\log(1+mH).
+\end{align*}
+Since $H^2\le\log(3m)/(L_m\sigma(m))$, the first line divided by $m$ is
+$O_k(\sigma(m)^{-1})$; the second is polylogarithmic and hence $o(m)$.
+
+Finally,
+\[
+ \frac{F_{m,\sigma}}{F_{m,\eta}}
+   =\frac{\sigma(m)}{L_m^\eta}\longrightarrow0,
+ \qquad
+ \frac{\sqrt{\log(3m)/(L_m\sigma(m))}}
+      {\sqrt{\log(3m)/L_m^{1+\eta}}}
+   =\sqrt{\frac{L_m^\eta}{\sigma(m)}}\longrightarrow\infty.
+\]
+Thus the near-square survivor threshold rises and the high-multiplier
+threshold rises in the required directions.  Taking floors preserves the
+second strict inequality eventually because both raw scales diverge.
+\end{proof}
+
+The explicit choice
+\begin{equation}\label{eq:critical-explicit-sigma}
+                         \sigma_*(m)=\log(3+L_m)
+\end{equation}
+satisfies every hypothesis.  It replaces every fixed $L_m^\eta$ loss by one
+further iterated logarithm.  The cutoff regions are strictly nested as real
+intervals; for a particular finite $m$ the actual prime sets may coincide if
+the removed band happens to contain no prime.
+
+\begin{theorem}[Critical two-arm alternative]
+\label{thm:mersenne-critical-two-arm}
+If the Mersenne endpoint
+\[
+        \log\frac{2^m-1}{\rad(2^m-1)}=o(m)
+\]
+fails, then for any slow-admissible $\sigma$ there are fixed $k\ge1$,
+$\epsilon>0$, and an unbounded sequence $m_j$ such that, after passage to a
+subsequence, one of the following carries at least
+$\gamma\epsilon m_j$ for every fixed $0<\gamma<1/2$:
+\begin{enumerate}
+\item the deep excess with $r_p\ge H_{m_j,\sigma}$;
+\item the repeated one-copy mass with
+\[
+ d_p<\sqrt{p\log(3m_j)L_{m_j}\sigma(m_j)}.
+\]
+\end{enumerate}
+The same alternative occurs for all sufficiently large indices of the chosen
+subsequence.
+\end{theorem}
+
+\begin{proof}
+The fixed-window equivalence supplies $k,\epsilon$ and a localized total
+block mass at least $\epsilon m_j$.  Subtract the two $o(m_j)$ terms in
+\eqref{eq:slow-two-negligible-arms}.  The $G$ and $B$ masses then total
+$(\epsilon-o(1))m_j$.  If both were below $\gamma\epsilon m_j$, their sum
+would be below $2\gamma\epsilon m_j$, a contradiction for large $j$.
+Infinite pigeonhole fixes one arm on a subsequence.  The order bound is the
+rearrangement $p>d_p^2/F_{m_j,\sigma}$.
+\end{proof}
+
+Exact order also gives a useful filter that is independent of the asymptotic
+argument.
+
+\begin{proposition}[Euler character of the exact-order multiplier]
+\label{prop:mersenne-euler-multiplier-character}
+For an odd prime $p$, if $d=\ord_p(2)$ and $p-1=dr$, then
+\[
+                         \left(\frac2p\right)=(-1)^r.
+\]
+The allowed residue classes modulo eight are
+\[
+\begin{array}{c|c}
+d\bmod8&r\bmod8\\ \hline
+0&0,2,4,6\\
+1&0,6\\
+2&0,1,4,5\\
+3&0,2\\
+4&0,1,2,3,4,5,6,7\\
+5&0,6\\
+6&0,3,4,7\\
+7&0,2
+\end{array}
+\]
+\end{proposition}
+
+\begin{proof}
+If $d$ is odd, the even number $p-1=dr$ forces $r$ even, and Euler's
+half-power is one.  If $d$ is even, exactness implies
+$2^{d/2}\not\equiv1\pmod p$, while its square is one; hence it is $-1$ and
+$2^{(p-1)/2}\equiv(-1)^r$.  Euler's criterion gives the identity.  Combining
+it with the supplementary law for $(2/p)$ and $p\equiv1+dr\pmod8$ yields the
+table by the $64$ residue checks.
+\end{proof}
+
+The exact arithmetic row
+\[
+ p=1093,\qquad d_p=364,\qquad w_p=2,\qquad r_p=3
+\]
+has $1093^2\mid2^{364}-1$ and $1093^3\nmid2^{364}-1$.  It is therefore a
+full-premise counterexample to the proposed assertion that every repeated
+base-two exact-order prime has even multiplier.  That assertion is retired.
+It lies on the unrestricted $d\equiv4\pmod8$ row and does not refute the
+character theorem or either slow-slack estimate.  A deterministic scan of all
+primes through $10^5$ recovers only the known depth-two rows $1093$ and $3511$;
+this finite no-hit statement has no asymptotic consequence.
+
+There is a separate abstract endpoint boundary.  Labels
+$r=1,\ldots,H-1$ with weights $x_r=r$ satisfy positivity, injectivity, the
+cutoff $r<H$, and the pointwise affine envelope, but have total
+$H(H-1)/2$.  With co-divisors $q\le Q$, weights $x_{q,r}=r/q$ attain one half
+of $H(H-1)\sum_{q\le Q}1/q$.  This refutes the inference of a subquadratic
+energy bound from those abstract premises alone.  It is not an arithmetic
+prime packet, so the critical arithmetic target $\sigma\equiv1$ remains
+active.  Current order and Wieferich literature, including the exact
+valuation dictionary of Murty--S\'eguin \cite{MurtySeguin2019}, supplies no
+localized weighted estimate that closes it.
+
+The Lean companion checks support monotonicity, nonnegative survivor-mass
+monotonicity, the exact cutoff balance, the finite two-arm ledger, the Euler
+half-power identity on actual exact-order fibres, and the full $1093$
+certificate.  The real asymptotic estimates and Yamada's theorem remain
+paper mathematics with explicit citations; no density statement or $abc$
+consequence is introduced as a Lean axiom.

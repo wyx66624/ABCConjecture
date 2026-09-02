@@ -1,0 +1,282 @@
+WORKDIR: Lean
+COMMAND: C:\Users\Admin\.elan\bin\lake.EXE env lean -DwarningAsError=true verification/2026_09_02_signed_slow_slack_correlated_admissible_index/axiom-audit.lean
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.rational_coefficient_correlation (ell theta j : ℕ) :
+  ↑(2 * j + 1) * firstCoeffQ ell theta j = ↑ell * companionCoeffQ theta j
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.product_firstCoeff_eq_closedForm (theta j : ℕ)
+  (hj : j ≤ theta) : productFirstCoeffQ (2 * theta + 1) j = firstCoeffQ (2 * theta + 1) theta j
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.product_coefficient_correlation (theta j : ℕ)
+  (hj : j ≤ theta) : ↑(2 * j + 1) * productFirstCoeffQ (2 * theta + 1) j = ↑(2 * theta + 1) * companionCoeffQ theta j
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.scaled_rational_coefficient_correlation (ell theta j : ℕ)
+  (scale : ℚ) : ↑(2 * j + 1) * (scale * firstCoeffQ ell theta j) = ↑ell * (scale * companionCoeffQ theta j)
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.scaled_product_coefficient_correlation (theta j : ℕ)
+  (hj : j ≤ theta) (scale : ℚ) :
+  ↑(2 * j + 1) * (scale * productFirstCoeffQ (2 * theta + 1) j) = ↑(2 * theta + 1) * (scale * companionCoeffQ theta j)
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.weightedEvenPowerSum_eq_mul (ell start U : ℤ)
+  (as bs : List ℤ) (hcorr : CorrelatedFrom ell start as bs) :
+  weightedEvenPowerSum start U as = ell * PellLucasAllOrderStaircase20260901.evenPowerSum U bs
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.normalized_tail_correlation (U ell weight a b : ℤ)
+  (as bs : List ℤ) (hcoeff : weight * a = ell * b) :
+  weight * PellLucasAllOrderStaircase20260901.evenPowerSum U (a :: as) ≡
+    ell * PellLucasAllOrderStaircase20260901.evenPowerSum U (b :: bs) [ZMOD U ^ 2]
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.everyOrderPairedCorrection (U ell weight v E F T : ℤ)
+  (hEF : weight * E ≡ ell * F [ZMOD U ^ 2]) (hT : T = v * F) : ell * T ≡ weight * v * E [ZMOD U ^ 2]
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.everyOrderDenominatorUnit (U weight E : ℤ)
+  (h2 : IsCoprime 2 U) (hweight : IsCoprime weight U) (hE : IsCoprime E U) : IsCoprime (2 * weight * E) (U ^ 2)
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.everyOrderSplitter_recovers_halfCompanion
+  (U ell weight v E T Z Z0 : ℤ) (hv : v = 2 * Z0) (hunit : IsCoprime (2 * weight * E) (U ^ 2))
+  (hpair : ell * T ≡ weight * v * E [ZMOD U ^ 2]) (hZ : 2 * weight * E * Z ≡ ell * T [ZMOD U ^ 2]) : Z ≡ Z0 [ZMOD U ^ 2]
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.crossOrderDeterminant_zero (U ell v wr ws Er Es Tr Ts : ℤ)
+  (hell : IsCoprime ell (U ^ 2)) (hr : ell * Tr ≡ wr * v * Er [ZMOD U ^ 2]) (hs : ell * Ts ≡ ws * v * Es [ZMOD U ^ 2]) :
+  Tr * (ws * Es) ≡ Ts * (wr * Er) [ZMOD U ^ 2]
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.cube_dvd_channel_gives_sixth_dvd_square (q A : ℤ)
+  (h : q ^ 3 ∣ A) : q ^ 6 ∣ A ^ 2
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.positiveChannel_depthSix (q A Z : ℤ) (hq : q ^ 3 ∣ A)
+  (hZ : Z ≡ 1 [ZMOD A ^ 2]) : Z ≡ 1 [ZMOD q ^ 6]
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.negativeChannel_depthSix (r B Z : ℤ) (hr : r ^ 3 ∣ B)
+  (hZ : Z ≡ -1 [ZMOD B ^ 2]) : Z ≡ -1 [ZMOD r ^ 6]
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.recoveredHalfCompanion_channelSigns (A B U Z Z0 : ℤ)
+  (hU : U = A * B) (hZU : Z ≡ Z0 [ZMOD U ^ 2]) (hA : Z0 = 2 * A ^ 2 + 1) (hB : Z0 = 4 * B ^ 2 - 1) :
+  Z ≡ 1 [ZMOD A ^ 2] ∧ Z ≡ -1 [ZMOD B ^ 2]
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.recoveredHalfCompanion_oppositeDepthSix
+  (q r A B U Z Z0 : ℤ) (hU : U = A * B) (hZU : Z ≡ Z0 [ZMOD U ^ 2]) (hA : Z0 = 2 * A ^ 2 + 1) (hB : Z0 = 4 * B ^ 2 - 1)
+  (hq : q ^ 3 ∣ A) (hr : r ^ 3 ∣ B) : Z ≡ 1 [ZMOD q ^ 6] ∧ Z ≡ -1 [ZMOD r ^ 6]
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.exists_negative_of_sign_product (xs : List ℤ)
+  (hsign : ∀ x ∈ xs, x = 1 ∨ x = -1) (hprod : xs.prod = -1) : ∃ x ∈ xs, x = -1
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.negativeRow_forces_oppositeCongruence (ell r : ℤ)
+  (qs : List ℤ) (chi : ℤ → ℤ) (hsign : ∀ q ∈ qs, chi q = 1 ∨ chi q = -1) (hprod : (List.map chi qs).prod = -1)
+  (hq : ∀ q ∈ qs, q ≡ 1 [ZMOD 2 * ell]) (hr : r ≡ -1 [ZMOD 2 * ell]) : ∃ q ∈ qs, chi q = -1 ∧ 2 * ell ∣ q + r
+IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.halfUnit_power_product.{u_1} {R : Type u_1} [CommMonoid R]
+  (two B : R) (n : ℕ) (hhalf : two * B ^ 2 = 1) : B ^ (2 * n) * two ^ n = 1
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.shiftedCard_mul_period_le' depends on axioms: [propext]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.shiftedCard_mul_ambient_mul_scale_lt_capture' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.shiftedCard_square_mul_period_scaleSq_lt_capture' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.shiftedCard_square_mul_period_lt_of_capture_le_quadratic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.shiftedCard_cube_mul_periodSq_scaleCube_lt_capture_mul_ambient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.shiftedCard_physicalPeriod_cube_lt_labelProduct_mul_ambient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedDirectionPeriod_pos' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedDirectionPeriod_mul_capture' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedDirectionPeriod_dvd_gap' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.nat_dvd_gap_mul_natAbs_of_intCast_dvd' depends on axioms: [propext]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.actualSignedLine_directionPeriod_dvd_gap' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedDirectionCapture_le_product' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedDirectionProduct_le_sharp_cubic' depends on axioms: [propext]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedDirectionProduct_one_one_is_sharp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedDirectionScale_pos' depends on axioms: [propext]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedNonarm_shifted_mul_ambient_scale_lt_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedNonarm_shiftedCube_mul_periodSq_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.signedNonarm_smallDirection_is_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.directionCapture_zeroU_eq' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.directionCapture_zeroV_eq' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.directionCapture_zeroW_eq' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.zeroU_shifted_mul_ambient_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.zeroV_shifted_mul_ambient_scale_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.zeroW_shifted_mul_ambient_scale_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.zeroU_three_mul_shifted_ambient_lt_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.zeroV_three_mul_shifted_ambient_scale_lt_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.zeroW_three_mul_shifted_ambient_scale_lt_power' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.cube_le_one_add_seven_shiftedCube' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.factorSix_singletonShift_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.weightedCubicEnergy_le_catalogue_add_sevenShifted' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.weightedCubicEnergy_le_catalogue_add_caps' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.weightedShiftedEnergy_mul_scaledAmbientCube_le_armMoment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.weightedCoordinateMoment_le_ownerCatalogue' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.weightedCoordinateMoment_le_ownerCatalogue_of_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.weightedCatalogue_le_ownerMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.weightedCubicEnergy_le_ownerMass_add_sevenCharges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.closedLargeThreshold_breaks_captureSqueeze' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.extraPeriodFactor_cubic_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.extraPeriodFactor_square_counterexample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.missingCoefficientCoprimality_breaks_all_armCaptures' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.AffineSignedRayCanonicalCaps20260901.nonprimitiveDirection_breaks_all_exact_armCaptures' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.shift_eq_zero_of_all_sets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.shift_eq_zero_of_all_nonempty_sets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.differenceMod_apply' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.differenceMod_surjective' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.differenceMod_ker' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.congruenceOrder_index' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.congruenceOrder_ne_top_of_one_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.congruenceOrder_fst_surjective' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.congruenceOrder_snd_surjective' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.congruenceOrder_index_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.IUTAdmissibleScalingOrderIndex20260901.congruenceOrder_log_index_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.highMultiplierSupport_anti' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.aboveSizeSupport_anti' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.highMultiplierMass_anti' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.aboveSizeMass_anti' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.twoSurvivorMass_anti' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.slowSlack_cutoff_mul_multiplierScaleSq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.slowSlackSizeCutoff_mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.slowSlackMultiplierScaleSq_anti' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.slowSlack_scale_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.criticalHigh_or_criticalNearSquare_of_enlarged_low_budgets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.exactOrder_eulerPower_eq_negOnePow_multiplier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.exactOrder_legendreTwo_cast_eq_negOnePow_multiplier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.exactOrderPrimeFiber_eulerPower_eq_negOnePow_multiplier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.critical_packet_refutes_every_fixed_linear_energy_coefficient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.wieferich_1093_exact_order_multiplier_three_odd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.MersenneCriticalSlowSlackGate20260901.repeated_exact_order_multiplier_even_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.rational_coefficient_correlation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.centeredFactorProduct_eq_descFactorial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.lucasOddFactorProductQ_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.product_firstCoeff_eq_closedForm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.product_coefficient_correlation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.scaled_rational_coefficient_correlation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.scaled_product_coefficient_correlation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.weightedEvenPowerSum_eq_mul' depends on axioms: [propext]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.evenPowerSum_cons_modEq' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.normalized_tail_correlation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.everyOrderPairedCorrection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.everyOrderDenominatorUnit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.everyOrderSplitter_recovers_halfCompanion' depends on axioms: [propext]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.crossOrderDeterminant_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.cube_dvd_channel_gives_sixth_dvd_square' depends on axioms: [propext]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.positiveChannel_depthSix' depends on axioms: [propext]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.negativeChannel_depthSix' depends on axioms: [propext]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.recoveredHalfCompanion_channelSigns' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.recoveredHalfCompanion_oppositeDepthSix' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.exists_negative_of_sign_product' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.negativeRow_forces_oppositeCongruence' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.halfUnit_power_product' depends on axioms: [propext]
+EXIT_CODE: 0
