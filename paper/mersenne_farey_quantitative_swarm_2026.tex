@@ -1,0 +1,167 @@
+\section{A quantitative kernel for the Mersenne Farey swarm}
+\label{sec:mersenne-farey-quantitative-swarm}
+
+This section turns the finite denominator split of
+Section~\ref{sec:mersenne-farey-denominator-entropy} into a kernel-checked
+quantitative and subsequential statement.  It also records a sharp
+counterexample boundary.  No estimate for the distribution of base-two
+super-Wieferich primes is inserted.
+
+Retain the notation
+\[
+ \mathcal H_T=\sum_{q=1}^{T}\frac1q,
+ \qquad C_H=\sum_{r=1}^{H-1}r,
+\]
+and write $E_{\le T}$ and $E_{>T}$ for the two pieces of the Farey energy.
+
+\begin{proposition}[Harmonic and square prefix bounds]
+\label{prop:mersenne-harmonic-square-prefix}
+For every $T\ge1$,
+\[
+ \mathcal H_T\le1+\log T.
+\]
+If every denominator fibre is contained in $\{1,\ldots,H-1\}$, then
+\[
+ E_{\le T}\le H^2(1+\log T).
+\]
+\end{proposition}
+
+\begin{proof}
+The first sum is the classical harmonic number.  Isolating its first term
+and comparing the remaining decreasing summand with the integral of $1/x$
+gives the first inequality.  The exact denominator split gives
+$E_{\le T}\le C_H\mathcal H_T$, while
+$C_H=H(H-1)/2\le H^2$.
+\end{proof}
+
+The common-index scale itself also admits an unconditional formal bracket.
+For $M_n=\operatorname{lcm}(1,\ldots,n)$,
+\[
+ n\log2-\log(n+1)\le\log M_n\le(\log4+4)n.
+\]
+Indeed, Mathlib identifies $\log M_n$ with Chebyshev's function $\psi(n)$.
+The lower bound follows from $2^n\le(n+1)M_n$, and the upper bound is the
+explicit elementary Chebyshev estimate for $\psi$.  This proves the correct
+linear scale without the prime number theorem; the sharper ratio
+$\log M_n/n\to1$ is not claimed.
+
+\begin{theorem}[Cleared quantitative swarm]
+\label{thm:mersenne-cleared-quantitative-swarm}
+Let $T>0$.  Suppose the prefix fibres lie in
+$\{1,\ldots,H-1\}$, all tail numerators are at most $H$, and
+\[
+ \varepsilon A\le E\le E_{\le T}+E_{>T},
+ \qquad H^2(1+\log T)\le\kappa A.
+\]
+Then
+\[
+ T(\varepsilon-\kappa)A\le N_{>T}H.
+\]
+\end{theorem}
+
+\begin{proof}
+Proposition~\ref{prop:mersenne-harmonic-square-prefix} bounds the prefix by
+$\kappa A$.  The tail must therefore carry at least
+$(\varepsilon-\kappa)A$.  Since every tail row contributes at most $H/T$,
+multiplication by $T$ proves the assertion.
+\end{proof}
+
+For $X\ge0$, put
+\[
+ \mathcal W_3(X)=\{p\le X:p\text{ prime and }p^3\mid2^{p-1}-1\}.
+\]
+
+\begin{proposition}[Finite exact-order row transport]
+\label{prop:mersenne-finite-row-super-wieferich}
+Fix a common index $m$ and a finite set $S$ of actual exact-order endpoint
+rows.  If every $x\in S$ satisfies
+\[
+ p_x\text{ prime},\qquad p_x^3\mid2^{d_x}-1,
+ \qquad p_x\le X,
+\]
+then
+\[
+ |S|\le|\mathcal W_3(X)|.
+\]
+\end{proposition}
+
+\begin{proof}
+Exact order gives $d_x=\operatorname{ord}_{p_x}(2)$, so the depth transport
+theorem yields $p_x^3\mid2^{p_x-1}-1$.  Hence the prime-coordinate map lands
+in $\mathcal W_3(X)$.  The same exact-order identity makes that coordinate
+map injective on endpoint rows.  Restricting the injection to $S$ proves the
+finite cardinality inequality.
+\end{proof}
+
+This statement closes the finite row-to-prime bookkeeping only for rows
+whose primality, exact-order and depth premises have been proved.  It neither
+turns arbitrary Farey rows into actual endpoint rows nor estimates the size
+of $\mathcal W_3(X)$.
+
+For a predicate $P_m$, write $\operatorname{Freq}(P_m)$ when
+$\forall N\,\exists m\ge N:P_m$.
+
+\begin{proposition}[Exact failure witness for little-oh]
+\label{prop:mersenne-not-little-o-frequent}
+If $f,g:\mathbb N\to\mathbb R_{\ge0}$, then
+\[
+ f\ne o(g)
+ \quad\Longleftrightarrow\quad
+ \exists\varepsilon>0:\operatorname{Freq}(\varepsilon g(m)<f(m)).
+\]
+\end{proposition}
+
+\begin{proof}
+The definition of $f=o(g)$ says that for every positive $\varepsilon$ the
+inequality $|f(m)|\le\varepsilon|g(m)|$ holds eventually.  Nonnegativity
+removes the absolute values.  Negating the two quantifiers gives precisely
+the displayed frequent strict reverse inequality.
+\end{proof}
+
+\begin{corollary}[Frequent quantitative swarm]
+\label{cor:mersenne-frequent-quantitative-swarm}
+Suppose $E_m,A_m\ge0$, $E\ne o(A)$, and the finite packet conditions hold
+eventually.  If for every $\delta>0$ one eventually has
+\[
+ H_m^2(1+\log T_m)\le\frac{\delta}{2}A_m,
+\]
+then for some fixed $\varepsilon>0$,
+\[
+ \operatorname{Freq}\left(
+ T_m\frac{\varepsilon}{2}A_m\le N_{>T_m}(m)H_m
+ \right).
+\]
+\end{corollary}
+
+\begin{proof}
+Proposition~\ref{prop:mersenne-not-little-o-frequent} supplies one fixed
+$\varepsilon>0$ and a frequent set on which
+$\varepsilon A_m<E_m$.  Intersect it with the eventual structural set and
+apply Theorem~\ref{thm:mersenne-cleared-quantitative-swarm} with
+$\kappa=\varepsilon/2$.
+\end{proof}
+
+The coefficient of the exact prefix estimate cannot be uniformly reduced.
+Indeed, take the full fibres $R_q=\{1,\ldots,H-1\}$.  Then
+\[
+ E_{\le T}=C_H\mathcal H_T.
+\]
+For $T=1$ and $H=2$, all three quantities equal one.  Hence any proposed
+constant $c<1$ satisfying
+$E_{\le T}\le cC_H\mathcal H_T$ for every admissible packet would force
+$1\le c$, a contradiction.  This full-premise example deletes only that
+strict universal improvement.  It leaves the arithmetic route intact:
+future gain must use primality, exact order, depth, or cross-fibre
+correlation.
+
+The Lean module
+\texttt{MersenneFareyQuantitativeSwarm20260903} proves all statements in
+this section at their displayed quantifiers.  Its theorem-level dependency
+union is only \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}.  The critical upper bound
+\[
+ \limsup_{x\to\infty}
+ \frac{\log\max\{1,W_3(x)\}}{\log\log x}\le\frac12
+\]
+remains an open arithmetic input, so neither the Mersenne endpoint nor the
+abc conjecture is proved here.

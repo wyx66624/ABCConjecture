@@ -10,6 +10,102 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
+## September 3, 2026 status synchronization
+
+The standard unconditional `ABCConjecture` remains unproved and
+undisproved.  The following is the authoritative current boundary for the
+five updated routes.  It supersedes only stale open-subgate descriptions in
+the dated September 2 sections; it does not erase their historical results.
+Every parent route remains active unless an exact full-premise statement is
+explicitly retired below.
+
+- **Pell P-I1B: partially closed.**
+  `PellFixedTwoTransversality20260903` proves, at every odd prime index, the
+  matrix Frobenius anchor and derivative transversality for every actual
+  support prime of both fixed `T=2` Pell coordinates.  Thus the former
+  scale-unit/support-transversality premise is no longer open.  The global
+  prime-index squarefull exclusion remains open, equivalently the exclusion
+  of simultaneous zero first Hensel displacement at every support prime.
+  The full-premise `ell=7`, `q=13` witness retires only the stronger
+  no-individual-zero-displacement claim; the opposite coordinate contains
+  the exponent-one prime `239`.
+- **Mersenne M-I1: partially closed.**
+  `MersenneFareyQuantitativeSwarm20260903` kernel-checks the harmonic-number
+  identification and logarithmic bound, the finite cleared and divided swarm
+  inequalities, the exact frequent/eventual quantifier transfer, unconditional
+  Chebyshev brackets for the lcm scale, and the injection of any finite packet
+  of already actual prime/exact-order/depth-three rows into the base-two
+  super-Wieferich counting set.  The remaining arithmetic gates are to supply
+  such actual rows from the abstract Farey tail and to prove the critical
+  global estimate
+  `limsup log(max(1,W3(x)))/log(log x) <= 1/2`.  Full numerator fibres retire
+  only a universal strict coefficient `<1` in the prefix bound.
+- **Steinberg S-I4C: algebraic boundary bridge closed; existence and costs
+  open.**  `SteinbergFiveTermBoundaryBridge20260903` defines the free divisor
+  symbol chain, the algebraic and positively realized five-term generated
+  submodules, proves the inclusions of both submodules in the genuine
+  exterior-boundary kernel, and
+  converts positive generated equivalence into the exact boundary required by
+  `FiniteRationalCellChain.boundary_le_calibratedCost`.  It supplies a
+  common-denominator realization family and an infinite odd-denominator
+  subfamily.  It does not construct a positive generated filling for every
+  abc target.  Gate VF still requires, for every `epsilon>0`, uniform
+  constants and a filling satisfying
+  `R(Gamma)<=epsilon*Q(Gamma)+K_epsilon*H` and
+  `Q(Gamma)<=2*H*rho+L_epsilon*H`.  The positive reduced
+  `(x,y)=(1/2,1/6)` witness retires literal free-chain cancellation and
+  boundary injectivity only; it leaves the quotient relation and route intact.
+- **Synchronized divisor packets: active new route.**
+  `ABCSynchronizedDivisorPackets20260903` proves the finite exact layer:
+  packet coprimality and nonemptiness, `abc | D(Q) <= B(Q) <= T(Q)^6`, the
+  synchronization-index exact-gap criterion and family, odd-prime channel
+  algebra, and canonical-orientation rigidity.  It also defines
+  `standardQuality`, `packetEnergy`, and `minimumPacketEnergy` with the actual
+  squarefree radical and `Real.log`, and proves
+  `standardQuality_le_packetEnergy` and
+  `standardQuality_le_minimumPacketEnergy`.  The global gate is to find, for
+  every `epsilon>0` and all but finitely many nonunit primitive triples, a
+  packet with `B(Q)<=rad(abc)^(1+epsilon)`.  Full-premise packets refute
+  uniqueness of the full corner, universal cubic and quartic bounds,
+  `(xyz)^2`, the constant-one fifth-power bound, and every exponent below
+  five without a compensating constant.  They do not refute the proved
+  sixth-power envelope or a possible constant-times-fifth-power bound.
+- **Alternative-quality packing: active new route.**
+  `AlternativeQualityPackingBridge20260903` proves the positive transfer
+  equivalence from `q_std=eta*q_DGM`, the AM--GM one-sided comparison, a
+  clustered-log lower bound for `eta`, and an exact abstract countermodel.
+  The countermodel `eta_n=1/(n+1)`, `q_DGM,n=n+1`, `q_std,n=1` retires only
+  the metric-only inference from unbounded alternative quality and
+  `0<eta<=1` to large standard quality.  It is not a family of integer abc
+  triples.  The live arithmetic gate is a packing-efficiency lower bound or
+  a correlated `eta*q_DGM` estimate on actual primitive abc triples.
+
+The corresponding reports are
+`../research/ABC_PELL_FIXED_TWO_TRANSVERSALITY_2026_09_03.md`,
+`../research/ABC_MERSENNE_FAREY_QUANTITATIVE_SWARM_2026_09_03.md`,
+`../research/ABC_STEINBERG_FIVE_TERM_BOUNDARY_BRIDGE_2026_09_03.md`,
+`../research/ABC_SYNCHRONIZED_DIVISOR_PACKET_SPECTRUM_2026_09_03.md`, and
+`../research/ABC_ALTERNATIVE_QUALITY_PACKING_AUDIT_2026_09_03.md`.
+None of these results proves or disproves standard abc.
+
+The five new principal modules contain exactly 169 theorem declarations, 79
+definitions, one abbreviation, seven structures, and two named instances, for
+258 counted declarations.  The generated audit issues one `#print axioms`
+query for every declaration.  The five principal modules, five handwritten
+audits, and generated audit all pass direct compilation with warnings as
+errors; the dependency union is exactly `propext`, `Classical.choice`, and
+`Quot.sound`.  The umbrella build completes 9,265 jobs.  Formal compilation,
+evidence replay, source-cache integrity, and artifact checks are frozen in
+`verification/2026_09_03_quantitative_transversality_generated_packets/`.
+
+The current ChatGPT paper is
+`../output/pdf/ChatGPT_ABC_Uniformity_2026.pdf`: 237 A4 pages, 1,534,968 bytes,
+SHA256
+`02d7e2d53bd77490e6ba0c6352750ec0779f430b6537a5b7ff54c77c4963f335`.
+Its final compiler log, structural render audit, 15 all-page contact sheets,
+and selected original-resolution checks pass in
+`../output/pdf/ChatGPT_ABC_Quantitative_Transversality_Generated_Packets_2026_09_03_QA/`.
+
 ## September 2, 2026 refined-Haar, Farey-entropy, ownership, Hensel, and contact checkpoint
 
 The standard unconditional `ABCConjecture` remains unproved and undisproved.

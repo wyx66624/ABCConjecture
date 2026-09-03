@@ -1,0 +1,38 @@
+import IUTThreeClosures.PellFixedTwoTransversality20260903
+
+/-! Dependency audit for the fixed-parameter Pell transversality checkpoint. -/
+
+open IUTThreeClosures
+open IUTThreeClosures.PellFixedTwoTransversality20260903
+
+#print axioms stepMatrix
+#print axioms sqrtMatrix
+#print axioms step_eq_one_add
+#print axioms sqrt_sq
+#print axioms two_matrix
+#print axioms sqrt_pow_odd
+#print axioms two_matrix_pow
+#print axioms sqrt_pow_odd_explicit
+#print axioms sqrt_pow_odd_first_col
+#print axioms freshman_remainder_first_col
+#print axioms step_mul_first_col
+#print axioms step_pow_first_col
+#print axioms prime_index_coordinate_expansion
+#print axioms prime_index_not_dvd_coordinates
+#print axioms sqrtTwoOrbit_mod_two
+#print axioms odd_index_coordinates_odd
+#print axioms sqrtTwoOrbit_fst_add_two
+#print axioms sqrtTwoOrbit_snd_add_two
+#print axioms pellFValue_two_eq_sqrtTwoOrbit_snd
+#print axioms pellLValue_two_eq_two_mul_sqrtTwoOrbit_fst
+#print axioms fixed_two_lucas_all_support_transverse
+#print axioms fixed_two_fibonacci_all_support_transverse
+#print axioms fixed_two_lucas_support_scale_unit
+#print axioms FixedPrimeIndexAllZeroDisplacements
+#print axioms fixed_two_squarefull_iff_all_zero_displacements
+#print axioms FixedPrimeIndexZeroDisplacementExclusion
+#print axioms FixedPrimeIndexSquarefullExclusion
+#print axioms fixed_zero_displacement_exclusion_iff_squarefull_exclusion
+#print axioms FixedNoIndividualZeroDisplacement
+#print axioms index_seven_fibonacci_zero_displacement
+#print axioms not_fixedNoIndividualZeroDisplacement

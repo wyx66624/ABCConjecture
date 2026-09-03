@@ -1,0 +1,516 @@
+{
+  "schema": "abc-quantitative-transversality-generated-packets-validation-v1",
+  "status": "PASS",
+  "scope": {
+    "provesStandardABC": false,
+    "disprovesStandardABC": false,
+    "finiteSearchUpgradedToAsymptotic": false,
+    "paperOnlyBridgeCountedAsLean": false,
+    "steinbergGeneratedSubmoduleEqualsBoundaryKernel": false,
+    "steinbergGeneratedSubmoduleContainedInBoundaryKernel": true,
+    "synchronizedRealLogMinimumQualityBridgeFormalized": true
+  },
+  "inventoryTotals": {
+    "theorem": 169,
+    "lemma": 0,
+    "def": 79,
+    "abbrev": 1,
+    "structure": 7,
+    "class": 0,
+    "inductive": 0,
+    "instance": 2,
+    "countedDeclarations": 258,
+    "proofDeclarations": 169,
+    "auditedDeclarations": 258
+  },
+  "moduleCount": 5,
+  "sourceScanner": {
+    "regressionFixtures": 7,
+    "wrappedDeclarationTokenBalance": "exact",
+    "unexpectedUntrackedLeanSources": 0
+  },
+  "axiomAudit": {
+    "reports": 258,
+    "allowed": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "unexpected": []
+  },
+  "aggregateBuildJobs": 9265,
+  "hashManifests": {
+    "manifests": 8,
+    "entries": 102,
+    "paths": [
+      "output/pdf/ChatGPT_ABC_Quantitative_Transversality_Generated_Packets_2026_09_03_QA/SHA256SUMS",
+      "research/computation/2026_09_03_fixed_pell_transversality/INPUT_SHA256SUMS.txt",
+      "research/computation/2026_09_03_fixed_pell_transversality/SHA256SUMS.txt",
+      "research/computation/2026_09_03_root_route_cross_audit/INPUT_SHA256SUMS.txt",
+      "research/computation/2026_09_03_root_route_cross_audit/SHA256SUMS.txt",
+      "research/computation/2026_09_03_steinberg_five_term_boundary_bridge/manifest.sha256",
+      "research/computation/2026_09_03_synchronized_divisor_packets/SHA256SUMS",
+      "research/sources/alternative_quality_metrics_2026_09_03/SHA256SUMS"
+    ]
+  },
+  "textAudit": {
+    "utf8TextFiles": 668,
+    "authoredTextFiles": 37,
+    "authoredControlCharacters": 0,
+    "archivedExtractionControlCharacters": 0,
+    "isolatedCarriageReturns": 0,
+    "bareQquadCommands": 0,
+    "trailingWhitespaceLines": 0
+  },
+  "pdfQA": {
+    "status": "PASS",
+    "pdfSha256": "02d7e2d53bd77490e6ba0c6352750ec0779f430b6537a5b7ff54c77c4963f335",
+    "pdfBytes": 1534968,
+    "pages": 237,
+    "rasterPages": 237,
+    "contactSheets": 15,
+    "blankRasterPages": 0,
+    "borderContactPages": 0,
+    "lowTextPages": 0,
+    "contentAnchorPages": {
+      "quantitativeswarm": [
+        200,
+        201,
+        228
+      ],
+      "alternativequalitymetrics": [
+        3,
+        201,
+        236
+      ],
+      "pellfixedtwotransversality20260903": [
+        228
+      ],
+      "steinbergfivetermboundarybridge20260903": [
+        215,
+        228
+      ],
+      "synchronizeddivisorpackets": [
+        202,
+        205,
+        228
+      ],
+      "minimumpacketenergy": [
+        205
+      ],
+      "258counteddeclarations": [
+        232
+      ]
+    },
+    "finalTeXDiagnostics": 0,
+    "qaManifestFiles": 21
+  },
+  "evidence": {
+    "alternativeQualitySource": {
+      "status": "PASS",
+      "arxiv": "2606.08416v1",
+      "declaredPages": 24
+    },
+    "rootRouteCrossAudit": {
+      "status": "PASS",
+      "criticalErrors": [],
+      "finiteBoundary": "Cluster samples and exact witness samples are finite checks only.  They do not prove an asymptotic prime theorem or any abc statement."
+    },
+    "pellFixedTwo": {
+      "candidatePrimeTests": 3091963,
+      "repeatedHits": 1,
+      "depthAtLeast3Hits": 0,
+      "oppositeChannelRepeatedIndices": 0,
+      "individualZeroDisplacementWitness": {
+        "index": 7,
+        "prime": 13,
+        "channel": "B",
+        "valuation": "exactly_2"
+      },
+      "globalSquarefullExclusion": "OPEN"
+    },
+    "steinbergFiveTerm": {
+      "status": "PASS",
+      "finiteScanMatchesFrozenJson": true,
+      "formalScope": "generated submodule is contained in the boundary kernel"
+    },
+    "synchronizedDivisorPackets": {
+      "primitiveTriples": 3795230,
+      "enumeratedFibres": 151244,
+      "packets": 151711,
+      "properPackets": 467,
+      "exactGapPackets": 105,
+      "counterexampleWitnesses": {
+        "corner": [
+          [
+            3,
+            5,
+            8
+          ],
+          [
+            3,
+            5,
+            2
+          ]
+        ],
+        "cubic": [
+          [
+            5,
+            7,
+            12
+          ],
+          [
+            5,
+            7,
+            2
+          ]
+        ],
+        "quartic": [
+          [
+            5,
+            16,
+            21
+          ],
+          [
+            5,
+            2,
+            3
+          ]
+        ],
+        "productSquare": [
+          [
+            5,
+            16,
+            21
+          ],
+          [
+            5,
+            2,
+            3
+          ]
+        ],
+        "quintic": [
+          [
+            385,
+            527,
+            912
+          ],
+          [
+            7,
+            31,
+            24
+          ]
+        ]
+      },
+      "canonicalOrientationFiniteFailure": null,
+      "familyFirstFailure": null,
+      "finiteEvidenceUpgradedToAsymptotic": false
+    }
+  },
+  "stdoutAudit": {
+    "normalization": "strict UTF-8 with CRLF/CR mapped to LF",
+    "comparisons": [
+      {
+        "command": "evidence-alternative-source",
+        "frozen": "research/sources/alternative_quality_metrics_2026_09_03/verification_output.json",
+        "comparison": "semantic JSON equality after strict UTF-8-sig decoding",
+        "canonicalSha256": "22e680f7810e931e69af3b1f65bc1db4ba14bc8491071c48c3c0d4f22a12bfe1"
+      },
+      {
+        "command": "evidence-root-cross-audit",
+        "frozen": "research/computation/2026_09_03_root_route_cross_audit/cross_audit.json",
+        "comparison": "semantic JSON equality after strict UTF-8-sig decoding",
+        "canonicalSha256": "6ca01ca18625d84ad334fb732d41bca1d6e19525de1b04ea7e39e5b009ba2339"
+      },
+      {
+        "command": "evidence-pell-producer",
+        "frozen": "research/computation/2026_09_03_fixed_pell_transversality/producer_stdout.txt",
+        "normalizedSha256": "57185c2587c897f9ce2445451eedd7a05af17b0c6d71a804887292eb534c2994"
+      },
+      {
+        "command": "evidence-pell-independent-verifier",
+        "frozen": "research/computation/2026_09_03_fixed_pell_transversality/verifier_stdout.txt",
+        "normalizedSha256": "b08084a2016580e0cb980437da989155d5a6b68974d753d5b6ef5ae4a65f812b"
+      },
+      {
+        "command": "evidence-steinberg-five-term",
+        "frozen": "research/computation/2026_09_03_steinberg_five_term_boundary_bridge/validation.json",
+        "comparison": "semantic JSON equality after strict UTF-8-sig decoding",
+        "canonicalSha256": "e558f45b68114ac6eddff948bf2adf1d2af516cc665d5d56635c37d738896b77"
+      },
+      {
+        "command": "evidence-synchronized-packets",
+        "frozen": "research/computation/2026_09_03_synchronized_divisor_packets/RUN.log",
+        "normalizedSha256": "cc91856f1285ba438aac6ec73a050560751480aa21a97746f3309ac90a61b6aa"
+      }
+    ]
+  },
+  "commands": [
+    {
+      "name": "lake-build-IUTThreeClosures",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "build",
+        "IUTThreeClosures"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lake-build-IUTThreeClosures.log",
+      "logSha256": "bbadcf7a2caf06b9a9557da404899adadfd887182e57cbaa18dcf6a29ca27975"
+    },
+    {
+      "name": "lean-MersenneFareyQuantitativeSwarm20260903",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/MersenneFareyQuantitativeSwarm20260903.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-MersenneFareyQuantitativeSwarm20260903.log",
+      "logSha256": "7468783492bcdfe9a05543e1d16379578f5132f62adead5f92488d06b91d752c"
+    },
+    {
+      "name": "lean-MersenneFareyQuantitativeSwarm20260903-handwritten-audit",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/MersenneFareyQuantitativeSwarm20260903AxiomAudit.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-MersenneFareyQuantitativeSwarm20260903-handwritten-audit.log",
+      "logSha256": "7468783492bcdfe9a05543e1d16379578f5132f62adead5f92488d06b91d752c"
+    },
+    {
+      "name": "lean-AlternativeQualityPackingBridge20260903",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/AlternativeQualityPackingBridge20260903.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-AlternativeQualityPackingBridge20260903.log",
+      "logSha256": "79fef4dfb797b6a8e1be069fa3f51a82cdf2fb9a96509e923def0dc03d9ef719"
+    },
+    {
+      "name": "lean-AlternativeQualityPackingBridge20260903-handwritten-audit",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/AlternativeQualityPackingBridge20260903AxiomAudit.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-AlternativeQualityPackingBridge20260903-handwritten-audit.log",
+      "logSha256": "79fef4dfb797b6a8e1be069fa3f51a82cdf2fb9a96509e923def0dc03d9ef719"
+    },
+    {
+      "name": "lean-PellFixedTwoTransversality20260903",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/PellFixedTwoTransversality20260903.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-PellFixedTwoTransversality20260903.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "lean-PellFixedTwoTransversality20260903-handwritten-audit",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/PellFixedTwoTransversality20260903AxiomAudit.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-PellFixedTwoTransversality20260903-handwritten-audit.log",
+      "logSha256": "90e59d397eb7fb6852c8a6401c5bfeecfae36e6ed1704ec07ae4929eef460e49"
+    },
+    {
+      "name": "lean-SteinbergFiveTermBoundaryBridge20260903",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/SteinbergFiveTermBoundaryBridge20260903.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-SteinbergFiveTermBoundaryBridge20260903.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "lean-SteinbergFiveTermBoundaryBridge20260903-handwritten-audit",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/SteinbergFiveTermBoundaryBridge20260903AxiomAudit.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-SteinbergFiveTermBoundaryBridge20260903-handwritten-audit.log",
+      "logSha256": "8df10f54baa54939ba26d375e5e28b8eff3a1f4bcc5b48509e12c4c7bb7c085f"
+    },
+    {
+      "name": "lean-ABCSynchronizedDivisorPackets20260903",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/ABCSynchronizedDivisorPackets20260903.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-ABCSynchronizedDivisorPackets20260903.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "lean-ABCSynchronizedDivisorPackets20260903-handwritten-audit",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/ABCSynchronizedDivisorPackets20260903AxiomAudit.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-ABCSynchronizedDivisorPackets20260903-handwritten-audit.log",
+      "logSha256": "d9da9280a6dbbacbaa82c82421e40892eddbce100976df0290ec169a86ff6207"
+    },
+    {
+      "name": "generated-axiom-audit",
+      "exitCode": 0,
+      "log": "logs/axiom-audit.log",
+      "logSha256": "8c61ba71289acd5ad1af6302ce495f4b38ea167e7fe5ecb6a4437128550e16dc"
+    },
+    {
+      "name": "evidence-alternative-source",
+      "command": [
+        "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "verify_source.py"
+      ],
+      "cwd": "research/sources/alternative_quality_metrics_2026_09_03",
+      "exitCode": 0,
+      "log": "logs/evidence-alternative-source.log",
+      "logSha256": "8d66171c63b7212ef8b4c4dbb76fdcc231aeca0119df0fc7bab2228ed016d531"
+    },
+    {
+      "name": "evidence-root-cross-audit",
+      "command": [
+        "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "verify_cross_audit.py"
+      ],
+      "cwd": "research/computation/2026_09_03_root_route_cross_audit",
+      "exitCode": 0,
+      "log": "logs/evidence-root-cross-audit.log",
+      "logSha256": "96ff15ef8df0dd74dd04daaf26f35b082758c49c63f2e45891757d7d1658655d"
+    },
+    {
+      "name": "evidence-pell-producer",
+      "command": [
+        "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "produce_fixed_two_search.py"
+      ],
+      "cwd": "research/computation/2026_09_03_fixed_pell_transversality",
+      "exitCode": 0,
+      "log": "logs/evidence-pell-producer.log",
+      "logSha256": "57185c2587c897f9ce2445451eedd7a05af17b0c6d71a804887292eb534c2994"
+    },
+    {
+      "name": "evidence-pell-independent-verifier",
+      "command": [
+        "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "verify_fixed_two_search.py"
+      ],
+      "cwd": "research/computation/2026_09_03_fixed_pell_transversality",
+      "exitCode": 0,
+      "log": "logs/evidence-pell-independent-verifier.log",
+      "logSha256": "b08084a2016580e0cb980437da989155d5a6b68974d753d5b6ef5ae4a65f812b"
+    },
+    {
+      "name": "evidence-steinberg-five-term",
+      "command": [
+        "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "validate.py"
+      ],
+      "cwd": "research/computation/2026_09_03_steinberg_five_term_boundary_bridge",
+      "exitCode": 0,
+      "log": "logs/evidence-steinberg-five-term.log",
+      "logSha256": "312b30e7e9deedd5dd244781baaa612955b78df27cc12e6f366664d1e41898dc"
+    },
+    {
+      "name": "evidence-synchronized-packets",
+      "command": [
+        "C:\\Users\\Admin\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "search_synchronized_packets.py",
+        "--limit",
+        "5000",
+        "--exhaustive",
+        "1000",
+        "--top-quality",
+        "200",
+        "--quality-threshold",
+        "1.0",
+        "--family-limit",
+        "100000",
+        "--output",
+        "OUTPUT.json"
+      ],
+      "cwd": "research/computation/2026_09_03_synchronized_divisor_packets",
+      "exitCode": 0,
+      "log": "logs/evidence-synchronized-packets.log",
+      "logSha256": "cc91856f1285ba438aac6ec73a050560751480aa21a97746f3309ac90a61b6aa"
+    },
+    {
+      "name": "git-diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": ".",
+      "exitCode": 0,
+      "log": "logs/git-diff-check.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "git-diff-cached-check",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "cwd": ".",
+      "exitCode": 0,
+      "log": "logs/git-diff-cached-check.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

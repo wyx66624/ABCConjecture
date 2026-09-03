@@ -1,0 +1,1529 @@
+{
+  "candidate_audit": {
+    "canonical_orientation_rigidity_first_counterexample": null,
+    "corner_uniqueness_first_counterexample": {
+      "abc": [
+        3,
+        5,
+        8
+      ],
+      "cubic_bound_holds": true,
+      "gap_product_quotient": 14,
+      "gaps": [
+        21,
+        5,
+        16
+      ],
+      "max_power_needed": 2.9746358687061645,
+      "packet": [
+        3,
+        5,
+        2
+      ],
+      "pair_max_bound": 5625,
+      "pair_max_ratio": 46.875,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    },
+    "cubic_bound_first_counterexample": {
+      "abc": [
+        5,
+        7,
+        12
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 54,
+      "gaps": [
+        45,
+        21,
+        24
+      ],
+      "max_power_needed": 3.10407688361654,
+      "packet": [
+        5,
+        7,
+        2
+      ],
+      "pair_max_bound": 60025,
+      "pair_max_ratio": 142.91666666666666,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    },
+    "product_square_bound_first_counterexample": {
+      "abc": [
+        5,
+        16,
+        21
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        5,
+        16,
+        21
+      ],
+      "max_power_needed": 4.614374381901725,
+      "packet": [
+        5,
+        2,
+        3
+      ],
+      "pair_max_bound": 5625,
+      "pair_max_ratio": 3.3482142857142856,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    "proved_pair_max_and_sixth_power_bounds_checked": true,
+    "quartic_bound_first_counterexample": {
+      "abc": [
+        5,
+        16,
+        21
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        5,
+        16,
+        21
+      ],
+      "max_power_needed": 4.614374381901725,
+      "packet": [
+        5,
+        2,
+        3
+      ],
+      "pair_max_bound": 5625,
+      "pair_max_ratio": 3.3482142857142856,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    }
+  },
+  "exact_gap_packet_count": 105,
+  "explicit_family": {
+    "checked_t_range": [
+      2,
+      100000
+    ],
+    "first_failure": null,
+    "formula": [
+      "2*t+1",
+      "t*(3*t+2)",
+      "(t+1)*(3*t+1)"
+    ],
+    "packet": [
+      "2*t+1",
+      "t",
+      "t+1"
+    ]
+  },
+  "first_exact_gap_packets": [
+    {
+      "abc": [
+        5,
+        16,
+        21
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        5,
+        16,
+        21
+      ],
+      "max_power_needed": 4.614374381901725,
+      "packet": [
+        5,
+        2,
+        3
+      ],
+      "pair_max_bound": 5625,
+      "pair_max_ratio": 3.3482142857142856,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        7,
+        33,
+        40
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        7,
+        33,
+        40
+      ],
+      "max_power_needed": 4.6925584765919055,
+      "packet": [
+        7,
+        3,
+        4
+      ],
+      "pair_max_bound": 38416,
+      "pair_max_ratio": 4.157575757575757,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        16,
+        39,
+        55
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        16,
+        39,
+        55
+      ],
+      "max_power_needed": 5.022253977462303,
+      "packet": [
+        8,
+        3,
+        5
+      ],
+      "pair_max_bound": 102400,
+      "pair_max_ratio": 2.983682983682984,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        9,
+        56,
+        65
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        9,
+        56,
+        65
+      ],
+      "max_power_needed": 4.731862025033257,
+      "packet": [
+        9,
+        4,
+        5
+      ],
+      "pair_max_bound": 164025,
+      "pair_max_ratio": 5.006868131868132,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        32,
+        45,
+        77
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        32,
+        45,
+        77
+      ],
+      "max_power_needed": 5.286762188190387,
+      "packet": [
+        2,
+        9,
+        7
+      ],
+      "pair_max_bound": 321489,
+      "pair_max_ratio": 2.899431818181818,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        40,
+        51,
+        91
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        40,
+        51,
+        91
+      ],
+      "max_power_needed": 5.268671559746991,
+      "packet": [
+        10,
+        3,
+        7
+      ],
+      "pair_max_bound": 490000,
+      "pair_max_ratio": 2.6395173453996983,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        11,
+        85,
+        96
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        11,
+        85,
+        96
+      ],
+      "max_power_needed": 4.756210519338855,
+      "packet": [
+        11,
+        5,
+        6
+      ],
+      "pair_max_bound": 527076,
+      "pair_max_ratio": 5.872058823529412,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        55,
+        57,
+        112
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        55,
+        57,
+        112
+      ],
+      "max_power_needed": 5.325037948575914,
+      "packet": [
+        11,
+        3,
+        8
+      ],
+      "pair_max_bound": 937024,
+      "pair_max_ratio": 2.668671679197995,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        40,
+        77,
+        117
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        40,
+        77,
+        117
+      ],
+      "max_power_needed": 5.335870567789073,
+      "packet": [
+        2,
+        11,
+        9
+      ],
+      "pair_max_bound": 1185921,
+      "pair_max_ratio": 3.290934065934066,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        24,
+        95,
+        119
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        24,
+        95,
+        119
+      ],
+      "max_power_needed": 5.034818598166412,
+      "packet": [
+        12,
+        5,
+        7
+      ],
+      "pair_max_bound": 1016064,
+      "pair_max_ratio": 3.744891640866873,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        13,
+        120,
+        133
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        13,
+        120,
+        133
+      ],
+      "max_power_needed": 4.7731118717219845,
+      "packet": [
+        13,
+        6,
+        7
+      ],
+      "pair_max_bound": 1399489,
+      "pair_max_ratio": 6.745175438596491,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        65,
+        88,
+        153
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        65,
+        88,
+        153
+      ],
+      "max_power_needed": 5.3342815389178515,
+      "packet": [
+        13,
+        4,
+        9
+      ],
+      "pair_max_bound": 2313441,
+      "pair_max_ratio": 2.6434491978609627,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        69,
+        91,
+        160
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        69,
+        91,
+        160
+      ],
+      "max_power_needed": 5.38807512364508,
+      "packet": [
+        3,
+        13,
+        10
+      ],
+      "pair_max_bound": 2856100,
+      "pair_max_ratio": 2.8429089026915113,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        56,
+        115,
+        171
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        56,
+        115,
+        171
+      ],
+      "max_power_needed": 5.27155936306592,
+      "packet": [
+        14,
+        5,
+        9
+      ],
+      "pair_max_bound": 3111696,
+      "pair_max_ratio": 2.825629290617849,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        15,
+        161,
+        176
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        15,
+        161,
+        176
+      ],
+      "max_power_needed": 4.7857083874774435,
+      "packet": [
+        15,
+        7,
+        8
+      ],
+      "pair_max_bound": 3240000,
+      "pair_max_ratio": 7.6228119706380575,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        75,
+        112,
+        187
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        75,
+        112,
+        187
+      ],
+      "max_power_needed": 5.406133258865564,
+      "packet": [
+        3,
+        14,
+        11
+      ],
+      "pair_max_bound": 4648336,
+      "pair_max_ratio": 2.9592156862745096,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        32,
+        175,
+        207
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        32,
+        175,
+        207
+      ],
+      "max_power_needed": 5.036174517332913,
+      "packet": [
+        16,
+        7,
+        9
+      ],
+      "pair_max_bound": 5308416,
+      "pair_max_ratio": 4.579378881987577,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        104,
+        105,
+        209
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        104,
+        105,
+        209
+      ],
+      "max_power_needed": 5.4063567563499255,
+      "packet": [
+        4,
+        15,
+        11
+      ],
+      "pair_max_bound": 6125625,
+      "pair_max_ratio": 2.6839936379410063,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        56,
+        165,
+        221
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        56,
+        165,
+        221
+      ],
+      "max_power_needed": 5.365284535803587,
+      "packet": [
+        2,
+        15,
+        13
+      ],
+      "pair_max_bound": 8555625,
+      "pair_max_ratio": 4.189744079449961,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        17,
+        208,
+        225
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        17,
+        208,
+        225
+      ],
+      "max_power_needed": 4.7955625560163835,
+      "packet": [
+        17,
+        8,
+        9
+      ],
+      "pair_max_bound": 6765201,
+      "pair_max_ratio": 8.50326923076923,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": false
+    }
+  ],
+  "highest_quality_proper_packets": [
+    {
+      "abc": [
+        7,
+        9,
+        16
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 110,
+      "gaps": [
+        77,
+        45,
+        32
+      ],
+      "max_power_needed": 3.147481381723626,
+      "packet": [
+        7,
+        9,
+        2
+      ],
+      "pair_max_bound": 321489,
+      "pair_max_ratio": 318.9375,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    },
+    {
+      "abc": [
+        25,
+        27,
+        52
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1334,
+      "gaps": [
+        725,
+        621,
+        104
+      ],
+      "max_power_needed": 3.175508022683854,
+      "packet": [
+        25,
+        27,
+        2
+      ],
+      "pair_max_bound": 332150625,
+      "pair_max_ratio": 9462.98076923077,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    },
+    {
+      "abc": [
+        243,
+        245,
+        488
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 119054,
+      "gaps": [
+        60021,
+        59045,
+        976
+      ],
+      "max_power_needed": 3.123764492057322,
+      "packet": [
+        243,
+        245,
+        2
+      ],
+      "pair_max_bound": 212753583905625,
+      "pair_max_ratio": 7322926.997950819,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    },
+    {
+      "abc": [
+        79,
+        81,
+        160
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 12782,
+      "gaps": [
+        6557,
+        6237,
+        320
+      ],
+      "max_power_needed": 3.1492162806477726,
+      "packet": [
+        79,
+        81,
+        2
+      ],
+      "pair_max_bound": 268654585761,
+      "pair_max_ratio": 262398.99375,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    },
+    {
+      "abc": [
+        241,
+        243,
+        484
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 117110,
+      "gaps": [
+        59045,
+        58077,
+        968
+      ],
+      "max_power_needed": 3.123930700675395,
+      "packet": [
+        241,
+        243,
+        2
+      ],
+      "pair_max_bound": 202515924794481,
+      "pair_max_ratio": 7144806.997933884,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    },
+    {
+      "abc": [
+        33,
+        800,
+        833
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        33,
+        800,
+        833
+      ],
+      "max_power_needed": 4.835154117101521,
+      "packet": [
+        33,
+        16,
+        17
+      ],
+      "pair_max_bound": 342731169,
+      "pair_max_ratio": 15.584923469387755,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        32,
+        175,
+        207
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        32,
+        175,
+        207
+      ],
+      "max_power_needed": 5.036174517332913,
+      "packet": [
+        16,
+        7,
+        9
+      ],
+      "pair_max_bound": 5308416,
+      "pair_max_ratio": 4.579378881987577,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        32,
+        175,
+        207
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 27,
+      "gaps": [
+        96,
+        525,
+        621
+      ],
+      "max_power_needed": 4.337924613963741,
+      "packet": [
+        2,
+        25,
+        23
+      ],
+      "pair_max_bound": 206640625,
+      "pair_max_ratio": 178.26140873015873,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        245,
+        459,
+        704
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        245,
+        459,
+        704
+      ],
+      "max_power_needed": 5.518199934092074,
+      "packet": [
+        5,
+        27,
+        22
+      ],
+      "pair_max_bound": 257217444,
+      "pair_max_ratio": 3.2489945978391357,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        245,
+        459,
+        704
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 27,
+      "gaps": [
+        735,
+        1377,
+        2112
+      ],
+      "max_power_needed": 4.67315687355674,
+      "packet": [
+        49,
+        17,
+        32
+      ],
+      "pair_max_bound": 5903156224,
+      "pair_max_ratio": 74.5646266587443,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        287,
+        289,
+        576
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 165870,
+      "gaps": [
+        83517,
+        82365,
+        1152
+      ],
+      "max_power_needed": 3.120488014371201,
+      "packet": [
+        287,
+        289,
+        2
+      ],
+      "pair_max_bound": 574586164657729,
+      "pair_max_ratio": 12026878.998263888,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    },
+    {
+      "abc": [
+        17,
+        208,
+        225
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        17,
+        208,
+        225
+      ],
+      "max_power_needed": 4.7955625560163835,
+      "packet": [
+        17,
+        8,
+        9
+      ],
+      "pair_max_bound": 6765201,
+      "pair_max_ratio": 8.50326923076923,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        63,
+        65,
+        128
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 8174,
+      "gaps": [
+        4221,
+        3965,
+        256
+      ],
+      "max_power_needed": 3.154846785582507,
+      "packet": [
+        63,
+        65,
+        2
+      ],
+      "pair_max_bound": 70849130625,
+      "pair_max_ratio": 135166.9921875,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    },
+    {
+      "abc": [
+        3,
+        5,
+        8
+      ],
+      "cubic_bound_holds": true,
+      "gap_product_quotient": 14,
+      "gaps": [
+        21,
+        5,
+        16
+      ],
+      "max_power_needed": 2.9746358687061645,
+      "packet": [
+        3,
+        5,
+        2
+      ],
+      "pair_max_bound": 5625,
+      "pair_max_ratio": 46.875,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    },
+    {
+      "abc": [
+        47,
+        49,
+        96
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 4590,
+      "gaps": [
+        2397,
+        2205,
+        192
+      ],
+      "max_power_needed": 3.16209771999568,
+      "packet": [
+        47,
+        49,
+        2
+      ],
+      "pair_max_bound": 12734445409,
+      "pair_max_ratio": 57598.989583333336,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    },
+    {
+      "abc": [
+        23,
+        25,
+        48
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1134,
+      "gaps": [
+        621,
+        525,
+        96
+      ],
+      "max_power_needed": 3.1767522601229685,
+      "packet": [
+        23,
+        25,
+        2
+      ],
+      "pair_max_bound": 206640625,
+      "pair_max_ratio": 7486.979166666667,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    },
+    {
+      "abc": [
+        49,
+        575,
+        624
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 27,
+      "gaps": [
+        147,
+        1725,
+        1872
+      ],
+      "max_power_needed": 4.2865136181586365,
+      "packet": [
+        49,
+        23,
+        26
+      ],
+      "pair_max_bound": 3897005476,
+      "pair_max_ratio": 221.65753623188405,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        5,
+        16,
+        21
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1,
+      "gaps": [
+        5,
+        16,
+        21
+      ],
+      "max_power_needed": 4.614374381901725,
+      "packet": [
+        5,
+        2,
+        3
+      ],
+      "pair_max_bound": 5625,
+      "pair_max_ratio": 3.3482142857142856,
+      "product_square_bound_holds": false,
+      "proper": true,
+      "quartic_bound_holds": false
+    },
+    {
+      "abc": [
+        223,
+        225,
+        448
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 100334,
+      "gaps": [
+        50621,
+        49725,
+        896
+      ],
+      "max_power_needed": 3.12550804988578,
+      "packet": [
+        223,
+        225,
+        2
+      ],
+      "pair_max_bound": 127449987890625,
+      "pair_max_ratio": 5669886.997767857,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    },
+    {
+      "abc": [
+        27,
+        29,
+        56
+      ],
+      "cubic_bound_holds": false,
+      "gap_product_quotient": 1550,
+      "gaps": [
+        837,
+        725,
+        112
+      ],
+      "max_power_needed": 3.174204146705128,
+      "packet": [
+        27,
+        29,
+        2
+      ],
+      "pair_max_bound": 515607849,
+      "pair_max_ratio": 11758.982142857143,
+      "product_square_bound_holds": true,
+      "proper": true,
+      "quartic_bound_holds": true
+    }
+  ],
+  "highest_quality_triples": [
+    {
+      "abc": [
+        3,
+        125,
+        128
+      ],
+      "dgm_quality": 1.5113122386943112,
+      "eta_times_dgm_quality": 1.4265653296335432,
+      "minimum_pair_max_bound": 4194304000000,
+      "minimum_synchronization_energy": 8.54544599116421,
+      "omega": 3,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.9439249501916397,
+      "proper_packet_count": 0,
+      "radical": 30,
+      "standard_quality": 1.4265653296335432
+    },
+    {
+      "abc": [
+        625,
+        2048,
+        2673
+      ],
+      "dgm_quality": 1.5066975486593412,
+      "eta_times_dgm_quality": 1.3607226485800983,
+      "minimum_pair_max_bound": 214119262883848126464,
+      "minimum_synchronization_energy": 8.072480925247326,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.9031159901938306,
+      "proper_packet_count": 0,
+      "radical": 330,
+      "standard_quality": 1.3607226485800983
+    },
+    {
+      "abc": [
+        5,
+        1024,
+        1029
+      ],
+      "dgm_quality": 1.3954163966421649,
+      "eta_times_dgm_quality": 1.2972139976589063,
+      "minimum_pair_max_bound": 1175604967014137856,
+      "minimum_synchronization_energy": 7.781462092450599,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.9296250214491056,
+      "proper_packet_count": 0,
+      "radical": 210,
+      "standard_quality": 1.297213997658906
+    },
+    {
+      "abc": [
+        10,
+        2187,
+        2197
+      ],
+      "dgm_quality": 1.444722126422543,
+      "eta_times_dgm_quality": 1.2897517290221443,
+      "minimum_pair_max_bound": 111434018900187826089,
+      "minimum_synchronization_energy": 7.736981061527151,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.8927334228734073,
+      "proper_packet_count": 0,
+      "radical": 390,
+      "standard_quality": 1.2897517290221443
+    },
+    {
+      "abc": [
+        13,
+        243,
+        256
+      ],
+      "dgm_quality": 1.4786927964393717,
+      "eta_times_dgm_quality": 1.272790462954353,
+      "minimum_pair_max_bound": 253613523861504,
+      "minimum_synchronization_energy": 7.612818295640126,
+      "omega": 3,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.8607538131105916,
+      "proper_packet_count": 0,
+      "radical": 78,
+      "standard_quality": 1.2727904629543532
+    },
+    {
+      "abc": [
+        125,
+        2187,
+        2312
+      ],
+      "dgm_quality": 1.4185813907433715,
+      "eta_times_dgm_quality": 1.2424379096229239,
+      "minimum_pair_max_bound": 136662350200104259584,
+      "minimum_synchronization_energy": 7.436796675788508,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.8758312478439153,
+      "proper_packet_count": 0,
+      "radical": 510,
+      "standard_quality": 1.2424379096229239
+    },
+    {
+      "abc": [
+        81,
+        1250,
+        1331
+      ],
+      "dgm_quality": 1.3735607960228189,
+      "eta_times_dgm_quality": 1.2404847183915741,
+      "minimum_pair_max_bound": 4903794338626562500,
+      "minimum_synchronization_energy": 7.421254237259072,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.9031159901938306,
+      "proper_packet_count": 0,
+      "radical": 330,
+      "standard_quality": 1.2404847183915741
+    },
+    {
+      "abc": [
+        11,
+        3125,
+        3136
+      ],
+      "dgm_quality": 1.3324798913328242,
+      "eta_times_dgm_quality": 1.2112895508449888,
+      "minimum_pair_max_bound": 944504995840000000000,
+      "minimum_synchronization_energy": 7.266679943396119,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.9090490285998885,
+      "proper_packet_count": 0,
+      "radical": 770,
+      "standard_quality": 1.2112895508449888
+    },
+    {
+      "abc": [
+        49,
+        576,
+        625
+      ],
+      "dgm_quality": 1.2951125040496045,
+      "eta_times_dgm_quality": 1.2039689893561185,
+      "minimum_pair_max_bound": 50625000000000000,
+      "minimum_synchronization_energy": 7.193276308616976,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.9296250214491056,
+      "proper_packet_count": 0,
+      "radical": 210,
+      "standard_quality": 1.2039689893561185
+    },
+    {
+      "abc": [
+        243,
+        1805,
+        2048
+      ],
+      "dgm_quality": 1.3829977705271563,
+      "eta_times_dgm_quality": 1.2015530913851162,
+      "minimum_pair_max_bound": 57315781937358438400,
+      "minimum_synchronization_energy": 7.169510684068087,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.8688033466077976,
+      "proper_packet_count": 0,
+      "radical": 570,
+      "standard_quality": 1.2015530913851162
+    },
+    {
+      "abc": [
+        169,
+        343,
+        512
+      ],
+      "dgm_quality": 1.374899759810243,
+      "eta_times_dgm_quality": 1.1987541523594218,
+      "minimum_pair_max_bound": 8084777718513664,
+      "minimum_synchronization_energy": 7.038568856079832,
+      "omega": 3,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.8718847638207953,
+      "proper_packet_count": 0,
+      "radical": 182,
+      "standard_quality": 1.198754152359422
+    },
+    {
+      "abc": [
+        1024,
+        1377,
+        2401
+      ],
+      "dgm_quality": 1.3594235505187238,
+      "eta_times_dgm_quality": 1.1845653987192404,
+      "minimum_pair_max_bound": 63013923408006974529,
+      "minimum_synchronization_energy": 6.938167616686616,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.87137330986155,
+      "proper_packet_count": 0,
+      "radical": 714,
+      "standard_quality": 1.1845653987192404
+    },
+    {
+      "abc": [
+        32,
+        49,
+        81
+      ],
+      "dgm_quality": 1.2848495899376482,
+      "eta_times_dgm_quality": 1.1757189916348774,
+      "minimum_pair_max_bound": 103355177121,
+      "minimum_synchronization_energy": 6.785360881243156,
+      "omega": 3,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.9150635224874324,
+      "proper_packet_count": 0,
+      "radical": 42,
+      "standard_quality": 1.1757189916348774
+    },
+    {
+      "abc": [
+        8,
+        1323,
+        1331
+      ],
+      "dgm_quality": 1.3098927784314263,
+      "eta_times_dgm_quality": 1.1724569695043712,
+      "minimum_pair_max_bound": 5493282202197691209,
+      "minimum_synchronization_energy": 7.032776666502297,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.8950785810945289,
+      "proper_packet_count": 0,
+      "radical": 462,
+      "standard_quality": 1.1724569695043712
+    },
+    {
+      "abc": [
+        23,
+        2025,
+        2048
+      ],
+      "dgm_quality": 1.3614309475615947,
+      "eta_times_dgm_quality": 1.1664339478657648,
+      "minimum_pair_max_bound": 72138957898383360000,
+      "minimum_synchronization_energy": 6.995148114463294,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.8567705545073135,
+      "proper_packet_count": 0,
+      "radical": 690,
+      "standard_quality": 1.1664339478657648
+    },
+    {
+      "abc": [
+        128,
+        2997,
+        3125
+      ],
+      "dgm_quality": 1.3870553803462893,
+      "eta_times_dgm_quality": 1.1476122716785004,
+      "minimum_pair_max_bound": 856591129302978515625,
+      "minimum_synchronization_energy": 6.8737449913939415,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.8273730724378071,
+      "proper_packet_count": 0,
+      "radical": 1110,
+      "standard_quality": 1.1476122716785004
+    },
+    {
+      "abc": [
+        139,
+        2048,
+        2187
+      ],
+      "dgm_quality": 1.6488620164661065,
+      "eta_times_dgm_quality": 1.1433272621761754,
+      "minimum_pair_max_bound": 95952222101012742144,
+      "minimum_synchronization_energy": 6.84043792457321,
+      "omega": 3,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.6934038450510194,
+      "proper_packet_count": 0,
+      "radical": 834,
+      "standard_quality": 1.1433272621761756
+    },
+    {
+      "abc": [
+        25,
+        704,
+        729
+      ],
+      "dgm_quality": 1.258612739982082,
+      "eta_times_dgm_quality": 1.136673290939488,
+      "minimum_pair_max_bound": 139976597152567296,
+      "minimum_synchronization_energy": 6.80800497470642,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.9031159901938306,
+      "proper_packet_count": 0,
+      "radical": 330,
+      "standard_quality": 1.1366732909394883
+    },
+    {
+      "abc": [
+        32,
+        343,
+        375
+      ],
+      "dgm_quality": 1.1923473324923324,
+      "eta_times_dgm_quality": 1.1084359145429683,
+      "minimum_pair_max_bound": 2326554931640625,
+      "minimum_synchronization_energy": 6.6172533084379275,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.9296250214491056,
+      "proper_packet_count": 0,
+      "radical": 210,
+      "standard_quality": 1.1084359145429683
+    },
+    {
+      "abc": [
+        375,
+        3721,
+        4096
+      ],
+      "dgm_quality": 1.3879606149195907,
+      "eta_times_dgm_quality": 1.1072533652194176,
+      "minimum_pair_max_bound": 3897257773014445981696,
+      "minimum_synchronization_energy": 6.617956419293989,
+      "omega": 4,
+      "packet_count": 1,
+      "packing_efficiency_eta": 0.7977556087090876,
+      "proper_packet_count": 0,
+      "radical": 1830,
+      "standard_quality": 1.1072533652194176
+    }
+  ],
+  "packets_found": 151711,
+  "parameters": {
+    "exhaustive": 1000,
+    "family_limit": 100000,
+    "limit": 5000,
+    "quality_threshold": 1.0,
+    "top_quality": 200
+  },
+  "primitive_triples_scanned": 3795230,
+  "proper_packets_found": 467,
+  "same_prime_support_different_packet_spectrum": [
+    {
+      "abc": [
+        2,
+        3,
+        5
+      ],
+      "packet_count": 1,
+      "proper_packet_count": 0,
+      "radical": 30
+    },
+    {
+      "abc": [
+        3,
+        5,
+        8
+      ],
+      "packet_count": 2,
+      "proper_packet_count": 1,
+      "radical": 30
+    }
+  ],
+  "script_sha256": "55a322658e930587fda58d07dd3c84ee3c42b5795da3c2a94be6d58e980cb28e",
+  "triples_packet_enumerated": 151244,
+  "worst_observed_max_power_needed": {
+    "abc": [
+      385,
+      527,
+      912
+    ],
+    "cubic_bound_holds": false,
+    "gap_product_quotient": 1,
+    "gaps": [
+      385,
+      527,
+      912
+    ],
+    "max_power_needed": 5.543434712872652,
+    "packet": [
+      7,
+      31,
+      24
+    ],
+    "pair_max_bound": 531948096,
+    "pair_max_ratio": 2.8747698122311127,
+    "product_square_bound_holds": false,
+    "proper": true,
+    "quartic_bound_holds": false
+  }
+}

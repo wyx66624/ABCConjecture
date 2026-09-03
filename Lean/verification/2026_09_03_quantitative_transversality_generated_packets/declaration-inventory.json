@@ -1,0 +1,1923 @@
+{
+  "modules": [
+    {
+      "module": "MersenneFareyQuantitativeSwarm20260903",
+      "path": "Lean/IUTThreeClosures/MersenneFareyQuantitativeSwarm20260903.lean",
+      "bytes": 12716,
+      "sha256": "6a243f964fcecc9507a2472b798b74aa2ea4f4cedf8ec3cf3f0733cfae484721",
+      "counts": {
+        "theorem": 17,
+        "lemma": 0,
+        "def": 3,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 20,
+      "proofDeclarations": 17,
+      "auditedDeclarations": [
+        {
+          "kind": "theorem",
+          "shortName": "log_lcmUpto_lower",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.log_lcmUpto_lower",
+          "private": false,
+          "line": 38
+        },
+        {
+          "kind": "theorem",
+          "shortName": "log_lcmUpto_upper",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.log_lcmUpto_upper",
+          "private": false,
+          "line": 45
+        },
+        {
+          "kind": "theorem",
+          "shortName": "harmonicPrefix_eq_harmonic",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.harmonicPrefix_eq_harmonic",
+          "private": false,
+          "line": 51
+        },
+        {
+          "kind": "theorem",
+          "shortName": "harmonicPrefix_le_one_add_log",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.harmonicPrefix_le_one_add_log",
+          "private": false,
+          "line": 57
+        },
+        {
+          "kind": "theorem",
+          "shortName": "triangularCapacity_le_square",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.triangularCapacity_le_square",
+          "private": false,
+          "line": 62
+        },
+        {
+          "kind": "theorem",
+          "shortName": "triangularCapacity_nonneg",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.triangularCapacity_nonneg",
+          "private": false,
+          "line": 71
+        },
+        {
+          "kind": "theorem",
+          "shortName": "prefixFareyEnergy_le_square_mul_one_add_log",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.prefixFareyEnergy_le_square_mul_one_add_log",
+          "private": false,
+          "line": 76
+        },
+        {
+          "kind": "theorem",
+          "shortName": "quantitativeSwarm_cleared",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.quantitativeSwarm_cleared",
+          "private": false,
+          "line": 93
+        },
+        {
+          "kind": "theorem",
+          "shortName": "quantitativeSwarm_count_lower",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.quantitativeSwarm_count_lower",
+          "private": false,
+          "line": 114
+        },
+        {
+          "kind": "def",
+          "shortName": "superWieferichPrimesUpTo",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.superWieferichPrimesUpTo",
+          "private": false,
+          "line": 132
+        },
+        {
+          "kind": "theorem",
+          "shortName": "mem_superWieferichPrimesUpTo",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.mem_superWieferichPrimesUpTo",
+          "private": false,
+          "line": 136
+        },
+        {
+          "kind": "theorem",
+          "shortName": "endpointPrime_mem_superWieferichPrimesUpTo",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.endpointPrime_mem_superWieferichPrimesUpTo",
+          "private": false,
+          "line": 143
+        },
+        {
+          "kind": "theorem",
+          "shortName": "endpointRows_card_le_superWieferichPrimesUpTo",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.endpointRows_card_le_superWieferichPrimesUpTo",
+          "private": false,
+          "line": 154
+        },
+        {
+          "kind": "def",
+          "shortName": "fullNumeratorRows",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.fullNumeratorRows",
+          "private": false,
+          "line": 168
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fullNumeratorRows_prefix_eq",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.fullNumeratorRows_prefix_eq",
+          "private": false,
+          "line": 170
+        },
+        {
+          "kind": "def",
+          "shortName": "UniformStrictPrefixImprovement",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.UniformStrictPrefixImprovement",
+          "private": false,
+          "line": 184
+        },
+        {
+          "kind": "theorem",
+          "shortName": "not_uniformStrictPrefixImprovement",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.not_uniformStrictPrefixImprovement",
+          "private": false,
+          "line": 191
+        },
+        {
+          "kind": "theorem",
+          "shortName": "not_isLittleO_iff_exists_frequently_gt",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.not_isLittleO_iff_exists_frequently_gt",
+          "private": false,
+          "line": 203
+        },
+        {
+          "kind": "theorem",
+          "shortName": "frequent_quantitativeSwarm_cleared",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.frequent_quantitativeSwarm_cleared",
+          "private": false,
+          "line": 225
+        },
+        {
+          "kind": "theorem",
+          "shortName": "notLittleO_forces_frequentSwarm_of_negligiblePrefix",
+          "name": "IUTThreeClosures.MersenneFareyQuantitativeSwarm20260903.notLittleO_forces_frequentSwarm_of_negligiblePrefix",
+          "private": false,
+          "line": 255
+        }
+      ]
+    },
+    {
+      "module": "AlternativeQualityPackingBridge20260903",
+      "path": "Lean/IUTThreeClosures/AlternativeQualityPackingBridge20260903.lean",
+      "bytes": 4730,
+      "sha256": "ed64212542270226f0383c9dde399b2807a281a41e28163c3ee89e18d3ff37fd",
+      "counts": {
+        "theorem": 9,
+        "lemma": 0,
+        "def": 4,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 13,
+      "proofDeclarations": 9,
+      "auditedDeclarations": [
+        {
+          "kind": "def",
+          "shortName": "PackingIdentity",
+          "name": "IUTThreeClosures.AlternativeQualityPackingBridge20260903.PackingIdentity",
+          "private": false,
+          "line": 25
+        },
+        {
+          "kind": "theorem",
+          "shortName": "packing_bound_iff",
+          "name": "IUTThreeClosures.AlternativeQualityPackingBridge20260903.packing_bound_iff",
+          "private": false,
+          "line": 30
+        },
+        {
+          "kind": "theorem",
+          "shortName": "standard_nonneg_and_le_dgm",
+          "name": "IUTThreeClosures.AlternativeQualityPackingBridge20260903.standard_nonneg_and_le_dgm",
+          "private": false,
+          "line": 44
+        },
+        {
+          "kind": "theorem",
+          "shortName": "clustered_efficiency_lower",
+          "name": "IUTThreeClosures.AlternativeQualityPackingBridge20260903.clustered_efficiency_lower",
+          "private": false,
+          "line": 57
+        },
+        {
+          "kind": "def",
+          "shortName": "dgmWitness",
+          "name": "IUTThreeClosures.AlternativeQualityPackingBridge20260903.dgmWitness",
+          "private": false,
+          "line": 70
+        },
+        {
+          "kind": "def",
+          "shortName": "efficiencyWitness",
+          "name": "IUTThreeClosures.AlternativeQualityPackingBridge20260903.efficiencyWitness",
+          "private": false,
+          "line": 72
+        },
+        {
+          "kind": "def",
+          "shortName": "standardWitness",
+          "name": "IUTThreeClosures.AlternativeQualityPackingBridge20260903.standardWitness",
+          "private": false,
+          "line": 74
+        },
+        {
+          "kind": "theorem",
+          "shortName": "witness_packing_identity",
+          "name": "IUTThreeClosures.AlternativeQualityPackingBridge20260903.witness_packing_identity",
+          "private": false,
+          "line": 76
+        },
+        {
+          "kind": "theorem",
+          "shortName": "witness_efficiency_pos",
+          "name": "IUTThreeClosures.AlternativeQualityPackingBridge20260903.witness_efficiency_pos",
+          "private": false,
+          "line": 82
+        },
+        {
+          "kind": "theorem",
+          "shortName": "witness_efficiency_le_one",
+          "name": "IUTThreeClosures.AlternativeQualityPackingBridge20260903.witness_efficiency_le_one",
+          "private": false,
+          "line": 86
+        },
+        {
+          "kind": "theorem",
+          "shortName": "witness_dgm_pos",
+          "name": "IUTThreeClosures.AlternativeQualityPackingBridge20260903.witness_dgm_pos",
+          "private": false,
+          "line": 92
+        },
+        {
+          "kind": "theorem",
+          "shortName": "witness_dgm_unbounded",
+          "name": "IUTThreeClosures.AlternativeQualityPackingBridge20260903.witness_dgm_unbounded",
+          "private": false,
+          "line": 96
+        },
+        {
+          "kind": "theorem",
+          "shortName": "exists_unboundedDGM_constantStandard",
+          "name": "IUTThreeClosures.AlternativeQualityPackingBridge20260903.exists_unboundedDGM_constantStandard",
+          "private": false,
+          "line": 105
+        }
+      ]
+    },
+    {
+      "module": "PellFixedTwoTransversality20260903",
+      "path": "Lean/IUTThreeClosures/PellFixedTwoTransversality20260903.lean",
+      "bytes": 14994,
+      "sha256": "65b2b70336dc7b1e7b82f787218d36f11db07ac0da14a1237e9115321604369c",
+      "counts": {
+        "theorem": 25,
+        "lemma": 0,
+        "def": 6,
+        "abbrev": 0,
+        "structure": 0,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 31,
+      "proofDeclarations": 25,
+      "auditedDeclarations": [
+        {
+          "kind": "def",
+          "shortName": "stepMatrix",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.stepMatrix",
+          "private": false,
+          "line": 43
+        },
+        {
+          "kind": "def",
+          "shortName": "sqrtMatrix",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.sqrtMatrix",
+          "private": false,
+          "line": 44
+        },
+        {
+          "kind": "theorem",
+          "shortName": "step_eq_one_add",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.step_eq_one_add",
+          "private": false,
+          "line": 46
+        },
+        {
+          "kind": "theorem",
+          "shortName": "sqrt_sq",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.sqrt_sq",
+          "private": false,
+          "line": 50
+        },
+        {
+          "kind": "theorem",
+          "shortName": "two_matrix",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.two_matrix",
+          "private": false,
+          "line": 55
+        },
+        {
+          "kind": "theorem",
+          "shortName": "sqrt_pow_odd",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.sqrt_pow_odd",
+          "private": false,
+          "line": 59
+        },
+        {
+          "kind": "theorem",
+          "shortName": "two_matrix_pow",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.two_matrix_pow",
+          "private": false,
+          "line": 65
+        },
+        {
+          "kind": "theorem",
+          "shortName": "sqrt_pow_odd_explicit",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.sqrt_pow_odd_explicit",
+          "private": false,
+          "line": 79
+        },
+        {
+          "kind": "theorem",
+          "shortName": "sqrt_pow_odd_first_col",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.sqrt_pow_odd_first_col",
+          "private": false,
+          "line": 88
+        },
+        {
+          "kind": "theorem",
+          "shortName": "freshman_remainder_first_col",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.freshman_remainder_first_col",
+          "private": false,
+          "line": 94
+        },
+        {
+          "kind": "theorem",
+          "shortName": "step_mul_first_col",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.step_mul_first_col",
+          "private": false,
+          "line": 109
+        },
+        {
+          "kind": "theorem",
+          "shortName": "step_pow_first_col",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.step_pow_first_col",
+          "private": false,
+          "line": 115
+        },
+        {
+          "kind": "theorem",
+          "shortName": "prime_index_coordinate_expansion",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.prime_index_coordinate_expansion",
+          "private": false,
+          "line": 127
+        },
+        {
+          "kind": "theorem",
+          "shortName": "prime_index_not_dvd_coordinates",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.prime_index_not_dvd_coordinates",
+          "private": false,
+          "line": 151
+        },
+        {
+          "kind": "theorem",
+          "shortName": "sqrtTwoOrbit_mod_two",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.sqrtTwoOrbit_mod_two",
+          "private": false,
+          "line": 183
+        },
+        {
+          "kind": "theorem",
+          "shortName": "odd_index_coordinates_odd",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.odd_index_coordinates_odd",
+          "private": false,
+          "line": 192
+        },
+        {
+          "kind": "theorem",
+          "shortName": "sqrtTwoOrbit_fst_add_two",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.sqrtTwoOrbit_fst_add_two",
+          "private": false,
+          "line": 199
+        },
+        {
+          "kind": "theorem",
+          "shortName": "sqrtTwoOrbit_snd_add_two",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.sqrtTwoOrbit_snd_add_two",
+          "private": false,
+          "line": 206
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pellFValue_two_eq_sqrtTwoOrbit_snd",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.pellFValue_two_eq_sqrtTwoOrbit_snd",
+          "private": false,
+          "line": 213
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pellLValue_two_eq_two_mul_sqrtTwoOrbit_fst",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.pellLValue_two_eq_two_mul_sqrtTwoOrbit_fst",
+          "private": false,
+          "line": 223
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fixed_two_lucas_all_support_transverse",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.fixed_two_lucas_all_support_transverse",
+          "private": false,
+          "line": 233
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fixed_two_fibonacci_all_support_transverse",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.fixed_two_fibonacci_all_support_transverse",
+          "private": false,
+          "line": 259
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fixed_two_lucas_support_scale_unit",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.fixed_two_lucas_support_scale_unit",
+          "private": false,
+          "line": 291
+        },
+        {
+          "kind": "def",
+          "shortName": "FixedPrimeIndexAllZeroDisplacements",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.FixedPrimeIndexAllZeroDisplacements",
+          "private": false,
+          "line": 301
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fixed_two_squarefull_iff_all_zero_displacements",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.fixed_two_squarefull_iff_all_zero_displacements",
+          "private": false,
+          "line": 307
+        },
+        {
+          "kind": "def",
+          "shortName": "FixedPrimeIndexZeroDisplacementExclusion",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.FixedPrimeIndexZeroDisplacementExclusion",
+          "private": false,
+          "line": 323
+        },
+        {
+          "kind": "def",
+          "shortName": "FixedPrimeIndexSquarefullExclusion",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.FixedPrimeIndexSquarefullExclusion",
+          "private": false,
+          "line": 328
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fixed_zero_displacement_exclusion_iff_squarefull_exclusion",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.fixed_zero_displacement_exclusion_iff_squarefull_exclusion",
+          "private": false,
+          "line": 332
+        },
+        {
+          "kind": "def",
+          "shortName": "FixedNoIndividualZeroDisplacement",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.FixedNoIndividualZeroDisplacement",
+          "private": false,
+          "line": 347
+        },
+        {
+          "kind": "theorem",
+          "shortName": "index_seven_fibonacci_zero_displacement",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.index_seven_fibonacci_zero_displacement",
+          "private": false,
+          "line": 354
+        },
+        {
+          "kind": "theorem",
+          "shortName": "not_fixedNoIndividualZeroDisplacement",
+          "name": "IUTThreeClosures.PellFixedTwoTransversality20260903.not_fixedNoIndividualZeroDisplacement",
+          "private": false,
+          "line": 370
+        }
+      ]
+    },
+    {
+      "module": "SteinbergFiveTermBoundaryBridge20260903",
+      "path": "Lean/IUTThreeClosures/SteinbergFiveTermBoundaryBridge20260903.lean",
+      "bytes": 38733,
+      "sha256": "55a2c1d359358e130f6a9c5f6291c6dfe888714a43152a3873d45b55a8ba9eb0",
+      "counts": {
+        "theorem": 66,
+        "lemma": 0,
+        "def": 41,
+        "abbrev": 1,
+        "structure": 5,
+        "class": 0,
+        "inductive": 0,
+        "instance": 0
+      },
+      "countedDeclarations": 113,
+      "proofDeclarations": 66,
+      "auditedDeclarations": [
+        {
+          "kind": "structure",
+          "shortName": "DivisorSymbol",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.DivisorSymbol",
+          "private": false,
+          "line": 41
+        },
+        {
+          "kind": "theorem",
+          "shortName": "DivisorSymbol.ext",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.DivisorSymbol.ext",
+          "private": false,
+          "line": 45
+        },
+        {
+          "kind": "abbrev",
+          "shortName": "DivisorSymbolChain",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.DivisorSymbolChain",
+          "private": false,
+          "line": 53
+        },
+        {
+          "kind": "def",
+          "shortName": "symbolBoundary",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.symbolBoundary",
+          "private": false,
+          "line": 56
+        },
+        {
+          "kind": "def",
+          "shortName": "chainBoundary",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.chainBoundary",
+          "private": false,
+          "line": 60
+        },
+        {
+          "kind": "def",
+          "shortName": "chainAugmentation",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.chainAugmentation",
+          "private": false,
+          "line": 64
+        },
+        {
+          "kind": "theorem",
+          "shortName": "chainBoundary_single",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.chainBoundary_single",
+          "private": false,
+          "line": 67
+        },
+        {
+          "kind": "theorem",
+          "shortName": "chainAugmentation_single",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.chainAugmentation_single",
+          "private": false,
+          "line": 71
+        },
+        {
+          "kind": "def",
+          "shortName": "fiveTermChain",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermChain",
+          "private": false,
+          "line": 76
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fiveTermChain_augmentation",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermChain_augmentation",
+          "private": false,
+          "line": 85
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fiveTermChain_ne_zero",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermChain_ne_zero",
+          "private": false,
+          "line": 92
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fiveTermChain_boundary",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermChain_boundary",
+          "private": false,
+          "line": 101
+        },
+        {
+          "kind": "def",
+          "shortName": "fiveTermGenerators",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermGenerators",
+          "private": false,
+          "line": 119
+        },
+        {
+          "kind": "def",
+          "shortName": "fiveTermRelation",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermRelation",
+          "private": false,
+          "line": 124
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fiveTermGenerator_mem",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermGenerator_mem",
+          "private": false,
+          "line": 127
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fiveTermRelation_ne_bot",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermRelation_ne_bot",
+          "private": false,
+          "line": 136
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fiveTermRelation_le_ker",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermRelation_le_ker",
+          "private": false,
+          "line": 146
+        },
+        {
+          "kind": "def",
+          "shortName": "FiveTermEquivalent",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.FiveTermEquivalent",
+          "private": false,
+          "line": 154
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fiveTermEquivalent_refl",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermEquivalent_refl",
+          "private": false,
+          "line": 157
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fiveTermEquivalent_symm",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermEquivalent_symm",
+          "private": false,
+          "line": 161
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fiveTermEquivalent_trans",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermEquivalent_trans",
+          "private": false,
+          "line": 167
+        },
+        {
+          "kind": "theorem",
+          "shortName": "chainBoundary_eq_of_fiveTermEquivalent",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.chainBoundary_eq_of_fiveTermEquivalent",
+          "private": false,
+          "line": 175
+        },
+        {
+          "kind": "def",
+          "shortName": "cellSymbol",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.cellSymbol",
+          "private": false,
+          "line": 187
+        },
+        {
+          "kind": "def",
+          "shortName": "cellChain",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.cellChain",
+          "private": false,
+          "line": 194
+        },
+        {
+          "kind": "theorem",
+          "shortName": "chainBoundary_cellChain",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.chainBoundary_cellChain",
+          "private": false,
+          "line": 199
+        },
+        {
+          "kind": "def",
+          "shortName": "encodedCellSum",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.encodedCellSum",
+          "private": false,
+          "line": 206
+        },
+        {
+          "kind": "theorem",
+          "shortName": "chainBoundary_encodedCellSum",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.chainBoundary_encodedCellSum",
+          "private": false,
+          "line": 211
+        },
+        {
+          "kind": "structure",
+          "shortName": "AlgebraicallyGeneratedRationalFilling",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.AlgebraicallyGeneratedRationalFilling",
+          "private": false,
+          "line": 222
+        },
+        {
+          "kind": "theorem",
+          "shortName": "boundary",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.AlgebraicallyGeneratedRationalFilling.boundary",
+          "private": false,
+          "line": 233
+        },
+        {
+          "kind": "def",
+          "shortName": "toFiniteRationalCellChain",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.AlgebraicallyGeneratedRationalFilling.toFiniteRationalCellChain",
+          "private": false,
+          "line": 242
+        },
+        {
+          "kind": "theorem",
+          "shortName": "boundary_le_calibratedCost",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.AlgebraicallyGeneratedRationalFilling.boundary_le_calibratedCost",
+          "private": false,
+          "line": 251
+        },
+        {
+          "kind": "structure",
+          "shortName": "PositiveFiveTermRealization",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositiveFiveTermRealization",
+          "private": false,
+          "line": 269
+        },
+        {
+          "kind": "def",
+          "shortName": "realizedChain",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositiveFiveTermRealization.realizedChain",
+          "private": false,
+          "line": 294
+        },
+        {
+          "kind": "theorem",
+          "shortName": "realizedChain_eq_fiveTermChain",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositiveFiveTermRealization.realizedChain_eq_fiveTermChain",
+          "private": false,
+          "line": 298
+        },
+        {
+          "kind": "theorem",
+          "shortName": "realizedChain_mem_fiveTermRelation",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositiveFiveTermRealization.realizedChain_mem_fiveTermRelation",
+          "private": false,
+          "line": 305
+        },
+        {
+          "kind": "theorem",
+          "shortName": "realized_surface_boundary",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositiveFiveTermRealization.realized_surface_boundary",
+          "private": false,
+          "line": 313
+        },
+        {
+          "kind": "def",
+          "shortName": "fillerCell",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositiveFiveTermRealization.fillerCell",
+          "private": false,
+          "line": 323
+        },
+        {
+          "kind": "def",
+          "shortName": "fillerCoefficient",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositiveFiveTermRealization.fillerCoefficient",
+          "private": false,
+          "line": 328
+        },
+        {
+          "kind": "theorem",
+          "shortName": "encodedFiller_eq",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositiveFiveTermRealization.encodedFiller_eq",
+          "private": false,
+          "line": 331
+        },
+        {
+          "kind": "def",
+          "shortName": "toAlgebraicallyGeneratedRationalFilling",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositiveFiveTermRealization.toAlgebraicallyGeneratedRationalFilling",
+          "private": false,
+          "line": 340
+        },
+        {
+          "kind": "theorem",
+          "shortName": "generatedFilling_boundary",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositiveFiveTermRealization.generatedFilling_boundary",
+          "private": false,
+          "line": 358
+        },
+        {
+          "kind": "def",
+          "shortName": "positiveFiveTermGenerators",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.positiveFiveTermGenerators",
+          "private": false,
+          "line": 369
+        },
+        {
+          "kind": "def",
+          "shortName": "positiveFiveTermRelation",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.positiveFiveTermRelation",
+          "private": false,
+          "line": 373
+        },
+        {
+          "kind": "theorem",
+          "shortName": "positiveFiveTermGenerator_mem",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.positiveFiveTermGenerator_mem",
+          "private": false,
+          "line": 376
+        },
+        {
+          "kind": "theorem",
+          "shortName": "positiveFiveTermRelation_le_algebraic",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.positiveFiveTermRelation_le_algebraic",
+          "private": false,
+          "line": 383
+        },
+        {
+          "kind": "theorem",
+          "shortName": "positiveFiveTermRelation_le_ker",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.positiveFiveTermRelation_le_ker",
+          "private": false,
+          "line": 391
+        },
+        {
+          "kind": "def",
+          "shortName": "PositiveFiveTermEquivalent",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositiveFiveTermEquivalent",
+          "private": false,
+          "line": 396
+        },
+        {
+          "kind": "theorem",
+          "shortName": "chainBoundary_eq_of_positiveFiveTermEquivalent",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.chainBoundary_eq_of_positiveFiveTermEquivalent",
+          "private": false,
+          "line": 399
+        },
+        {
+          "kind": "structure",
+          "shortName": "PositivelyGeneratedRationalFilling",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositivelyGeneratedRationalFilling",
+          "private": false,
+          "line": 410
+        },
+        {
+          "kind": "theorem",
+          "shortName": "boundary",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositivelyGeneratedRationalFilling.boundary",
+          "private": false,
+          "line": 419
+        },
+        {
+          "kind": "def",
+          "shortName": "toFiniteRationalCellChain",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositivelyGeneratedRationalFilling.toFiniteRationalCellChain",
+          "private": false,
+          "line": 427
+        },
+        {
+          "kind": "theorem",
+          "shortName": "boundary_le_calibratedCost",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositivelyGeneratedRationalFilling.boundary_le_calibratedCost",
+          "private": false,
+          "line": 434
+        },
+        {
+          "kind": "def",
+          "shortName": "toPositivelyGeneratedRationalFilling",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.PositiveFiveTermRealization.toPositivelyGeneratedRationalFilling",
+          "private": false,
+          "line": 450
+        },
+        {
+          "kind": "theorem",
+          "shortName": "finiteValuationDivisor_one",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.finiteValuationDivisor_one",
+          "private": false,
+          "line": 468
+        },
+        {
+          "kind": "theorem",
+          "shortName": "finiteValuationDivisor_mul",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.finiteValuationDivisor_mul",
+          "private": false,
+          "line": 472
+        },
+        {
+          "kind": "structure",
+          "shortName": "CommonDenominatorFiveTermData",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData",
+          "private": false,
+          "line": 484
+        },
+        {
+          "kind": "theorem",
+          "shortName": "a_pos",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.a_pos",
+          "private": false,
+          "line": 499
+        },
+        {
+          "kind": "theorem",
+          "shortName": "c_pos",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.c_pos",
+          "private": false,
+          "line": 502
+        },
+        {
+          "kind": "theorem",
+          "shortName": "b_lt_c",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.b_lt_c",
+          "private": false,
+          "line": 505
+        },
+        {
+          "kind": "theorem",
+          "shortName": "c_sub_a_pos",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.c_sub_a_pos",
+          "private": false,
+          "line": 508
+        },
+        {
+          "kind": "theorem",
+          "shortName": "c_sub_b_pos",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.c_sub_b_pos",
+          "private": false,
+          "line": 511
+        },
+        {
+          "kind": "theorem",
+          "shortName": "a_sub_b_pos",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.a_sub_b_pos",
+          "private": false,
+          "line": 514
+        },
+        {
+          "kind": "def",
+          "shortName": "firstCell",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.firstCell",
+          "private": false,
+          "line": 518
+        },
+        {
+          "kind": "def",
+          "shortName": "secondCell",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.secondCell",
+          "private": false,
+          "line": 528
+        },
+        {
+          "kind": "def",
+          "shortName": "thirdCell",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.thirdCell",
+          "private": false,
+          "line": 538
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fourth_sum",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.fourth_sum",
+          "private": false,
+          "line": 547
+        },
+        {
+          "kind": "def",
+          "shortName": "fourthCell",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.fourthCell",
+          "private": false,
+          "line": 559
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fifth_sum",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.fifth_sum",
+          "private": false,
+          "line": 568
+        },
+        {
+          "kind": "def",
+          "shortName": "fifthCell",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.fifthCell",
+          "private": false,
+          "line": 574
+        },
+        {
+          "kind": "def",
+          "shortName": "xDivisor",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.xDivisor",
+          "private": false,
+          "line": 585
+        },
+        {
+          "kind": "def",
+          "shortName": "oneSubXDivisor",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.oneSubXDivisor",
+          "private": false,
+          "line": 588
+        },
+        {
+          "kind": "def",
+          "shortName": "yDivisor",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.yDivisor",
+          "private": false,
+          "line": 591
+        },
+        {
+          "kind": "def",
+          "shortName": "oneSubYDivisor",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.oneSubYDivisor",
+          "private": false,
+          "line": 594
+        },
+        {
+          "kind": "def",
+          "shortName": "xSubYDivisor",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.xSubYDivisor",
+          "private": false,
+          "line": 597
+        },
+        {
+          "kind": "theorem",
+          "shortName": "firstCell_symbol",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.firstCell_symbol",
+          "private": false,
+          "line": 600
+        },
+        {
+          "kind": "theorem",
+          "shortName": "secondCell_symbol",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.secondCell_symbol",
+          "private": false,
+          "line": 604
+        },
+        {
+          "kind": "theorem",
+          "shortName": "thirdCell_symbol",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.thirdCell_symbol",
+          "private": false,
+          "line": 608
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fourthCell_symbol",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.fourthCell_symbol",
+          "private": false,
+          "line": 617
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fifthCell_symbol",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.fifthCell_symbol",
+          "private": false,
+          "line": 633
+        },
+        {
+          "kind": "def",
+          "shortName": "toPositiveFiveTermRealization",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.toPositiveFiveTermRealization",
+          "private": false,
+          "line": 645
+        },
+        {
+          "kind": "theorem",
+          "shortName": "actual_fiveTerm_surface_boundary",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.actual_fiveTerm_surface_boundary",
+          "private": false,
+          "line": 663
+        },
+        {
+          "kind": "def",
+          "shortName": "toAlgebraicallyGeneratedRationalFilling",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.toAlgebraicallyGeneratedRationalFilling",
+          "private": false,
+          "line": 671
+        },
+        {
+          "kind": "def",
+          "shortName": "toPositivelyGeneratedRationalFilling",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.CommonDenominatorFiveTermData.toPositivelyGeneratedRationalFilling",
+          "private": false,
+          "line": 677
+        },
+        {
+          "kind": "def",
+          "shortName": "oddDenominatorFiveTermData",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.oddDenominatorFiveTermData",
+          "private": false,
+          "line": 687
+        },
+        {
+          "kind": "theorem",
+          "shortName": "oddDenominator_actual_fiveTerm_surface_boundary",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.oddDenominator_actual_fiveTerm_surface_boundary",
+          "private": false,
+          "line": 714
+        },
+        {
+          "kind": "def",
+          "shortName": "oneHalfCell",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.oneHalfCell",
+          "private": false,
+          "line": 724
+        },
+        {
+          "kind": "def",
+          "shortName": "oneSixthCell",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.oneSixthCell",
+          "private": false,
+          "line": 734
+        },
+        {
+          "kind": "def",
+          "shortName": "oneThirdCell",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.oneThirdCell",
+          "private": false,
+          "line": 744
+        },
+        {
+          "kind": "def",
+          "shortName": "oneFifthCell",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.oneFifthCell",
+          "private": false,
+          "line": 754
+        },
+        {
+          "kind": "def",
+          "shortName": "threeFifthsCell",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.threeFifthsCell",
+          "private": false,
+          "line": 764
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cellSymbol_oneHalf",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.cellSymbol_oneHalf",
+          "private": false,
+          "line": 773
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cellSymbol_oneSixth",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.cellSymbol_oneSixth",
+          "private": false,
+          "line": 781
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cellSymbol_oneThird",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.cellSymbol_oneThird",
+          "private": false,
+          "line": 796
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cellSymbol_oneFifth",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.cellSymbol_oneFifth",
+          "private": false,
+          "line": 805
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cellSymbol_threeFifths",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.cellSymbol_threeFifths",
+          "private": false,
+          "line": 819
+        },
+        {
+          "kind": "def",
+          "shortName": "halfSixthRealization",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.halfSixthRealization",
+          "private": false,
+          "line": 829
+        },
+        {
+          "kind": "theorem",
+          "shortName": "halfSixth_surface_boundary",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.halfSixth_surface_boundary",
+          "private": false,
+          "line": 855
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cellSymbol_oneHalf_ne_oneSixth",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.cellSymbol_oneHalf_ne_oneSixth",
+          "private": false,
+          "line": 860
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cellSymbol_oneHalf_ne_oneThird",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.cellSymbol_oneHalf_ne_oneThird",
+          "private": false,
+          "line": 867
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cellSymbol_oneHalf_ne_oneFifth",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.cellSymbol_oneHalf_ne_oneFifth",
+          "private": false,
+          "line": 874
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cellSymbol_oneHalf_ne_threeFifths",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.cellSymbol_oneHalf_ne_threeFifths",
+          "private": false,
+          "line": 881
+        },
+        {
+          "kind": "theorem",
+          "shortName": "halfSixth_realizedChain_apply_oneHalf",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.halfSixth_realizedChain_apply_oneHalf",
+          "private": false,
+          "line": 890
+        },
+        {
+          "kind": "theorem",
+          "shortName": "halfSixth_realizedChain_ne_zero",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.halfSixth_realizedChain_ne_zero",
+          "private": false,
+          "line": 899
+        },
+        {
+          "kind": "theorem",
+          "shortName": "positive_realizedChain_not_always_zero",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.positive_realizedChain_not_always_zero",
+          "private": false,
+          "line": 909
+        },
+        {
+          "kind": "theorem",
+          "shortName": "halfSixth_realizedChain_mem_positiveFiveTermRelation",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.halfSixth_realizedChain_mem_positiveFiveTermRelation",
+          "private": false,
+          "line": 915
+        },
+        {
+          "kind": "theorem",
+          "shortName": "positiveFiveTermRelation_ne_bot",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.positiveFiveTermRelation_ne_bot",
+          "private": false,
+          "line": 921
+        },
+        {
+          "kind": "def",
+          "shortName": "zeroSymbol",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.zeroSymbol",
+          "private": false,
+          "line": 932
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fiveTermChain_all_zero_eq_single",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermChain_all_zero_eq_single",
+          "private": false,
+          "line": 936
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fiveTermChain_all_zero_ne_zero",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermChain_all_zero_ne_zero",
+          "private": false,
+          "line": 941
+        },
+        {
+          "kind": "theorem",
+          "shortName": "not_all_fiveTermChains_eq_zero",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.not_all_fiveTermChains_eq_zero",
+          "private": false,
+          "line": 946
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fiveTermChain_all_zero_equivalent_zero",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermChain_all_zero_equivalent_zero",
+          "private": false,
+          "line": 951
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fiveTermEquivalent_does_not_imply_chain_equality",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.fiveTermEquivalent_does_not_imply_chain_equality",
+          "private": false,
+          "line": 956
+        },
+        {
+          "kind": "theorem",
+          "shortName": "chainBoundary_not_injective",
+          "name": "IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903.chainBoundary_not_injective",
+          "private": false,
+          "line": 965
+        }
+      ]
+    },
+    {
+      "module": "ABCSynchronizedDivisorPackets20260903",
+      "path": "Lean/IUTThreeClosures/ABCSynchronizedDivisorPackets20260903.lean",
+      "bytes": 29526,
+      "sha256": "61a81a41c242b684b7e6ee571ec53b9ac0ef0557e4d639a4299fc441a3a85712",
+      "counts": {
+        "theorem": 52,
+        "lemma": 0,
+        "def": 25,
+        "abbrev": 0,
+        "structure": 2,
+        "class": 0,
+        "inductive": 0,
+        "instance": 2
+      },
+      "countedDeclarations": 81,
+      "proofDeclarations": 52,
+      "auditedDeclarations": [
+        {
+          "kind": "structure",
+          "shortName": "PrimitiveABC",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.PrimitiveABC",
+          "private": false,
+          "line": 27
+        },
+        {
+          "kind": "theorem",
+          "shortName": "coprime_ac",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.PrimitiveABC.coprime_ac",
+          "private": false,
+          "line": 39
+        },
+        {
+          "kind": "theorem",
+          "shortName": "coprime_bc",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.PrimitiveABC.coprime_bc",
+          "private": false,
+          "line": 45
+        },
+        {
+          "kind": "theorem",
+          "shortName": "c_pos",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.PrimitiveABC.c_pos",
+          "private": false,
+          "line": 51
+        },
+        {
+          "kind": "theorem",
+          "shortName": "a_lt_c",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.PrimitiveABC.a_lt_c",
+          "private": false,
+          "line": 57
+        },
+        {
+          "kind": "theorem",
+          "shortName": "b_lt_c",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.PrimitiveABC.b_lt_c",
+          "private": false,
+          "line": 63
+        },
+        {
+          "kind": "theorem",
+          "shortName": "c_lt_mul_ab",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.PrimitiveABC.c_lt_mul_ab",
+          "private": false,
+          "line": 69
+        },
+        {
+          "kind": "def",
+          "shortName": "squareGap",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.squareGap",
+          "private": false,
+          "line": 89
+        },
+        {
+          "kind": "theorem",
+          "shortName": "squareGap_comm",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.squareGap_comm",
+          "private": false,
+          "line": 92
+        },
+        {
+          "kind": "theorem",
+          "shortName": "squareGap_pos",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.squareGap_pos",
+          "private": false,
+          "line": 96
+        },
+        {
+          "kind": "theorem",
+          "shortName": "squareGap_le_max_sq",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.squareGap_le_max_sq",
+          "private": false,
+          "line": 101
+        },
+        {
+          "kind": "theorem",
+          "shortName": "squareGap_of_le",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.squareGap_of_le",
+          "private": false,
+          "line": 105
+        },
+        {
+          "kind": "structure",
+          "shortName": "SynchronizedPacket",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket",
+          "private": false,
+          "line": 110
+        },
+        {
+          "kind": "theorem",
+          "shortName": "ext",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.ext",
+          "private": false,
+          "line": 129
+        },
+        {
+          "kind": "theorem",
+          "shortName": "coprime_xy",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.coprime_xy",
+          "private": false,
+          "line": 136
+        },
+        {
+          "kind": "theorem",
+          "shortName": "coprime_xz",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.coprime_xz",
+          "private": false,
+          "line": 140
+        },
+        {
+          "kind": "theorem",
+          "shortName": "coprime_yz",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.coprime_yz",
+          "private": false,
+          "line": 144
+        },
+        {
+          "kind": "theorem",
+          "shortName": "x_ne_y",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.x_ne_y",
+          "private": false,
+          "line": 148
+        },
+        {
+          "kind": "theorem",
+          "shortName": "x_ne_z",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.x_ne_z",
+          "private": false,
+          "line": 156
+        },
+        {
+          "kind": "theorem",
+          "shortName": "y_ne_z",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.y_ne_z",
+          "private": false,
+          "line": 164
+        },
+        {
+          "kind": "def",
+          "shortName": "gapProduct",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.gapProduct",
+          "private": false,
+          "line": 172
+        },
+        {
+          "kind": "def",
+          "shortName": "pairMaxBound",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.pairMaxBound",
+          "private": false,
+          "line": 176
+        },
+        {
+          "kind": "def",
+          "shortName": "height",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.height",
+          "private": false,
+          "line": 180
+        },
+        {
+          "kind": "theorem",
+          "shortName": "modulusProduct_dvd_gapProduct",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.modulusProduct_dvd_gapProduct",
+          "private": false,
+          "line": 184
+        },
+        {
+          "kind": "theorem",
+          "shortName": "gapProduct_pos",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.gapProduct_pos",
+          "private": false,
+          "line": 193
+        },
+        {
+          "kind": "theorem",
+          "shortName": "modulusProduct_le_gapProduct",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.modulusProduct_le_gapProduct",
+          "private": false,
+          "line": 199
+        },
+        {
+          "kind": "theorem",
+          "shortName": "gapProduct_le_pairMaxBound",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.gapProduct_le_pairMaxBound",
+          "private": false,
+          "line": 203
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pairMax_le_height",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.pairMax_le_height",
+          "private": false,
+          "line": 210
+        },
+        {
+          "kind": "theorem",
+          "shortName": "pairMaxBound_le_height_pow_six",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.pairMaxBound_le_height_pow_six",
+          "private": false,
+          "line": 227
+        },
+        {
+          "kind": "theorem",
+          "shortName": "modulusProduct_le_pairMaxBound",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.modulusProduct_le_pairMaxBound",
+          "private": false,
+          "line": 238
+        },
+        {
+          "kind": "theorem",
+          "shortName": "modulusProduct_le_height_pow_six",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.modulusProduct_le_height_pow_six",
+          "private": false,
+          "line": 242
+        },
+        {
+          "kind": "def",
+          "shortName": "synchronizationIndex",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.synchronizationIndex",
+          "private": false,
+          "line": 246
+        },
+        {
+          "kind": "theorem",
+          "shortName": "synchronizationIndex_pos",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.synchronizationIndex_pos",
+          "private": false,
+          "line": 250
+        },
+        {
+          "kind": "theorem",
+          "shortName": "modulusProduct_mul_synchronizationIndex",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.modulusProduct_mul_synchronizationIndex",
+          "private": false,
+          "line": 257
+        },
+        {
+          "kind": "theorem",
+          "shortName": "synchronizationIndex_eq_one_iff",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.synchronizationIndex_eq_one_iff",
+          "private": false,
+          "line": 262
+        },
+        {
+          "kind": "theorem",
+          "shortName": "exactGaps_of_synchronizationIndex_eq_one",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.exactGaps_of_synchronizationIndex_eq_one",
+          "private": false,
+          "line": 276
+        },
+        {
+          "kind": "theorem",
+          "shortName": "synchronizationIndex_eq_one_of_exactGaps",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.synchronizationIndex_eq_one_of_exactGaps",
+          "private": false,
+          "line": 304
+        },
+        {
+          "kind": "theorem",
+          "shortName": "synchronizationIndex_eq_one_iff_exactGaps",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.synchronizationIndex_eq_one_iff_exactGaps",
+          "private": false,
+          "line": 313
+        },
+        {
+          "kind": "def",
+          "shortName": "CanonicallyOriented",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.CanonicallyOriented",
+          "private": false,
+          "line": 322
+        },
+        {
+          "kind": "theorem",
+          "shortName": "coordinate_bounds",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.coordinate_bounds",
+          "private": false,
+          "line": 328
+        },
+        {
+          "kind": "theorem",
+          "shortName": "canonicalOrientation_rigid",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.canonicalOrientation_rigid",
+          "private": false,
+          "line": 334
+        },
+        {
+          "kind": "def",
+          "shortName": "finiteCoordinates",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.finiteCoordinates",
+          "private": false,
+          "line": 359
+        },
+        {
+          "kind": "theorem",
+          "shortName": "finiteCoordinates_injective",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.SynchronizedPacket.finiteCoordinates_injective",
+          "private": false,
+          "line": 366
+        },
+        {
+          "kind": "instance",
+          "shortName": "synchronizedPacketFintype",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.synchronizedPacketFintype",
+          "private": false,
+          "line": 377
+        },
+        {
+          "kind": "theorem",
+          "shortName": "finite_synchronizedPacket",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.finite_synchronizedPacket",
+          "private": false,
+          "line": 383
+        },
+        {
+          "kind": "def",
+          "shortName": "fullPacket",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.fullPacket",
+          "private": false,
+          "line": 387
+        },
+        {
+          "kind": "theorem",
+          "shortName": "fullPacket_canonicallyOriented",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.fullPacket_canonicallyOriented",
+          "private": false,
+          "line": 417
+        },
+        {
+          "kind": "instance",
+          "shortName": "synchronizedPacketNonempty",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.synchronizedPacketNonempty",
+          "private": false,
+          "line": 428
+        },
+        {
+          "kind": "def",
+          "shortName": "abcRadical",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.abcRadical",
+          "private": false,
+          "line": 432
+        },
+        {
+          "kind": "theorem",
+          "shortName": "abcRadical_gt_one",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.abcRadical_gt_one",
+          "private": false,
+          "line": 436
+        },
+        {
+          "kind": "def",
+          "shortName": "standardQuality",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.standardQuality",
+          "private": false,
+          "line": 446
+        },
+        {
+          "kind": "def",
+          "shortName": "packetEnergy",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.packetEnergy",
+          "private": false,
+          "line": 450
+        },
+        {
+          "kind": "theorem",
+          "shortName": "standardQuality_le_packetEnergy",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.standardQuality_le_packetEnergy",
+          "private": false,
+          "line": 455
+        },
+        {
+          "kind": "def",
+          "shortName": "minimumPacketEnergy",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.minimumPacketEnergy",
+          "private": false,
+          "line": 475
+        },
+        {
+          "kind": "theorem",
+          "shortName": "standardQuality_le_minimumPacketEnergy",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.standardQuality_le_minimumPacketEnergy",
+          "private": false,
+          "line": 479
+        },
+        {
+          "kind": "theorem",
+          "shortName": "primePower_orientation_channel",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.primePower_orientation_channel",
+          "private": false,
+          "line": 487
+        },
+        {
+          "kind": "theorem",
+          "shortName": "coprime_channel_allocation",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.coprime_channel_allocation",
+          "private": false,
+          "line": 498
+        },
+        {
+          "kind": "def",
+          "shortName": "familyA",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.familyA",
+          "private": false,
+          "line": 503
+        },
+        {
+          "kind": "def",
+          "shortName": "familyB",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.familyB",
+          "private": false,
+          "line": 506
+        },
+        {
+          "kind": "def",
+          "shortName": "familyC",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.familyC",
+          "private": false,
+          "line": 509
+        },
+        {
+          "kind": "theorem",
+          "shortName": "family_sum",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.family_sum",
+          "private": false,
+          "line": 512
+        },
+        {
+          "kind": "theorem",
+          "shortName": "family_coprime",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.family_coprime",
+          "private": false,
+          "line": 517
+        },
+        {
+          "kind": "theorem",
+          "shortName": "family_exact_gaps",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.family_exact_gaps",
+          "private": false,
+          "line": 541
+        },
+        {
+          "kind": "def",
+          "shortName": "familyDatum",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.familyDatum",
+          "private": false,
+          "line": 571
+        },
+        {
+          "kind": "def",
+          "shortName": "familyPacket",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.familyPacket",
+          "private": false,
+          "line": 588
+        },
+        {
+          "kind": "theorem",
+          "shortName": "familyPacket_y_ne_full",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.familyPacket_y_ne_full",
+          "private": false,
+          "line": 615
+        },
+        {
+          "kind": "def",
+          "shortName": "cornerCounterexampleDatum",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.cornerCounterexampleDatum",
+          "private": false,
+          "line": 627
+        },
+        {
+          "kind": "def",
+          "shortName": "cornerCounterexamplePacket",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.cornerCounterexamplePacket",
+          "private": false,
+          "line": 637
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cornerCounterexamplePacket_ne_full",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.cornerCounterexamplePacket_ne_full",
+          "private": false,
+          "line": 653
+        },
+        {
+          "kind": "def",
+          "shortName": "cubicCounterexampleDatum",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.cubicCounterexampleDatum",
+          "private": false,
+          "line": 660
+        },
+        {
+          "kind": "def",
+          "shortName": "cubicCounterexamplePacket",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.cubicCounterexamplePacket",
+          "private": false,
+          "line": 670
+        },
+        {
+          "kind": "theorem",
+          "shortName": "cubicCounterexamplePacket_fails_height_pow_three",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.cubicCounterexamplePacket_fails_height_pow_three",
+          "private": false,
+          "line": 686
+        },
+        {
+          "kind": "def",
+          "shortName": "quarticCounterexampleDatum",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.quarticCounterexampleDatum",
+          "private": false,
+          "line": 693
+        },
+        {
+          "kind": "def",
+          "shortName": "quarticCounterexamplePacket",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.quarticCounterexamplePacket",
+          "private": false,
+          "line": 703
+        },
+        {
+          "kind": "theorem",
+          "shortName": "quarticCounterexamplePacket_exactGaps",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.quarticCounterexamplePacket_exactGaps",
+          "private": false,
+          "line": 719
+        },
+        {
+          "kind": "theorem",
+          "shortName": "quarticCounterexamplePacket_fails_height_pow_four",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.quarticCounterexamplePacket_fails_height_pow_four",
+          "private": false,
+          "line": 729
+        },
+        {
+          "kind": "theorem",
+          "shortName": "quarticCounterexamplePacket_fails_coordinateProduct_sq",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.quarticCounterexamplePacket_fails_coordinateProduct_sq",
+          "private": false,
+          "line": 736
+        },
+        {
+          "kind": "def",
+          "shortName": "quinticCounterexampleDatum",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.quinticCounterexampleDatum",
+          "private": false,
+          "line": 744
+        },
+        {
+          "kind": "def",
+          "shortName": "quinticCounterexamplePacket",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.quinticCounterexamplePacket",
+          "private": false,
+          "line": 754
+        },
+        {
+          "kind": "theorem",
+          "shortName": "quinticCounterexamplePacket_exactGaps",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.quinticCounterexamplePacket_exactGaps",
+          "private": false,
+          "line": 770
+        },
+        {
+          "kind": "theorem",
+          "shortName": "quinticCounterexamplePacket_fails_height_pow_five",
+          "name": "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903.quinticCounterexamplePacket_fails_height_pow_five",
+          "private": false,
+          "line": 780
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "theorem": 169,
+    "lemma": 0,
+    "def": 79,
+    "abbrev": 1,
+    "structure": 7,
+    "class": 0,
+    "inductive": 0,
+    "instance": 2,
+    "countedDeclarations": 258,
+    "proofDeclarations": 169,
+    "auditedDeclarations": 258
+  }
+}

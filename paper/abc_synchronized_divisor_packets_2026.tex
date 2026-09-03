@@ -1,0 +1,385 @@
+% Directly inputtable paper section. Author: ChatGPT.
+\section{Synchronized divisor packets and orientation rigidity}
+\label{sec:synchronized-divisor-packets}
+
+\noindent\textbf{Author: ChatGPT.}
+This section extracts a finite incidence structure directly from the equation
+$a+b=c$.  Its points are triples of divisors whose squares collide modulo the
+opposite arms.  The construction records exponent caps, the allocation of
+primes among the three arms, and local square-root signs.  It is therefore
+different from a scalar reweighting of the usual radical.  We prove the
+finite algebraic statements first and state the Lean boundary only after the
+traditional proofs.  No form of the $abc$ conjecture is assumed or proved.
+
+\subsection{The packet spectrum}
+
+Let
+\begin{equation}
+ a,b,c\in\mathbf Z_{>0},\qquad a+b=c,\qquad (a,b)=1,
+ \qquad a>1,\quad b>1.
+ \label{eq:sdp-primitive-data}
+\end{equation}
+For positive integers $r,s$, write
+\[
+ \Delta(r,s)=|r^2-s^2|.
+\]
+
+\begin{definition}[Synchronized divisor packet]
+\label{def:sdp-packet}
+A synchronized divisor packet for $(a,b,c)$ is a triple $Q=(x,y,z)$
+satisfying
+\begin{equation}
+\begin{gathered}
+ x,y,z>1,\qquad x\mid a,\quad y\mid b,\quad z\mid c,\\
+ a\mid\Delta(y,z),\qquad
+ b\mid\Delta(x,z),\qquad
+ c\mid\Delta(x,y).
+\end{gathered}
+\label{eq:sdp-packet-conditions}
+\end{equation}
+The finite set of all packets is denoted by $\mathcal S(a,b,c)$.  A packet
+is proper if it differs from $(a,b,c)$.  We attach to a packet the quantities
+\begin{align}
+ D(Q)&=\Delta(y,z)\Delta(x,z)\Delta(x,y),
+ \label{eq:sdp-gap-product}\\
+ B(Q)&=\max(y,z)^2\max(x,z)^2\max(x,y)^2,
+ \label{eq:sdp-pair-bound}\\
+ T(Q)&=\max(x,y,z).
+ \label{eq:sdp-height}
+\end{align}
+\end{definition}
+
+The restriction $a,b>1$ removes unit-arm degeneracies from this section.
+It is a stated scope restriction and does not remove unit-arm triples from
+the $abc$ conjecture.
+
+\begin{proposition}[Nonempty finite spectrum]
+\label{prop:sdp-nonempty}
+The coordinates of every packet are pairwise coprime and pairwise distinct.
+Moreover, $(a,b,c)\in\mathcal S(a,b,c)$, so the spectrum is finite and
+nonempty.
+\end{proposition}
+
+\begin{proof}
+The equation and $(a,b)=1$ give
+\[
+ (a,c)=(a,a+b)=1,
+ \qquad
+ (b,c)=(b,a+b)=1.
+\]
+Common divisors of packet coordinates divide the corresponding pairs of
+arms, so $(x,y)=(x,z)=(y,z)=1$.  The coordinates exceed one and are therefore
+distinct.
+
+For the full packet, the congruences
+\[
+ c\equiv b\pmod a,
+ \qquad c\equiv a\pmod b,
+ \qquad a\equiv-b\pmod c
+\]
+give the three square congruences in
+\eqref{eq:sdp-packet-conditions}.  Finally, each arm has finitely many
+divisors.
+\end{proof}
+
+\begin{theorem}[Product divisibility and height envelope]
+\label{thm:sdp-height-envelope}
+Every $Q\in\mathcal S(a,b,c)$ satisfies
+\begin{equation}
+ abc\mid D(Q),
+ \qquad
+ abc\le D(Q)\le B(Q)\le T(Q)^6.
+ \label{eq:sdp-height-envelope}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The packet congruences give positive integers $\alpha,\beta,\gamma$ with
+\[
+ \Delta(y,z)=a\alpha,
+ \qquad
+ \Delta(x,z)=b\beta,
+ \qquad
+ \Delta(x,y)=c\gamma.
+\]
+Their product proves $abc\mid D(Q)$.  The coordinate gaps are nonzero by
+Proposition~\ref{prop:sdp-nonempty}, so a positive multiple of $abc$ is at
+least $abc$.  For every pair $r,s$,
+\[
+ \Delta(r,s)=\max(r,s)^2-\min(r,s)^2\le\max(r,s)^2.
+\]
+Multiplication yields $D(Q)\le B(Q)$, and each pair maximum is at most
+$T(Q)$.
+\end{proof}
+
+The pair-max term in \eqref{eq:sdp-height-envelope} is the exact output of
+the argument.  Passing immediately to $T^6$ loses anisotropic information.
+
+\subsection{Index one and an infinite exact-gap stratum}
+
+The divisibility in Theorem~\ref{thm:sdp-height-envelope} defines the
+positive integer
+\begin{equation}
+ \kappa(Q)=\frac{D(Q)}{abc}.
+ \label{eq:sdp-index}
+\end{equation}
+
+\begin{proposition}[Index-one gap rigidity]
+\label{prop:sdp-index-one}
+One has $\kappa(Q)=1$ if and only if
+\begin{equation}
+ \Delta(y,z)=a,
+ \qquad
+ \Delta(x,z)=b,
+ \qquad
+ \Delta(x,y)=c.
+ \label{eq:sdp-exact-gaps}
+\end{equation}
+In that case $z$ lies strictly between $x$ and $y$.
+\end{proposition}
+
+\begin{proof}
+Using the positive quotients $\alpha,\beta,\gamma$ from the preceding proof,
+we have $\kappa(Q)=\alpha\beta\gamma$.  A product of positive integers is one
+exactly when every factor is one.  Under
+\eqref{eq:sdp-exact-gaps}, the equation $c=a+b$ becomes
+\[
+ |x^2-y^2|=|y^2-z^2|+|x^2-z^2|.
+\]
+Equality in the triangle inequality on the real line places $z^2$ between
+$x^2$ and $y^2$.  Positivity then places $z$ between $x$ and $y$.
+\end{proof}
+
+\begin{proposition}[Parametric exact-gap packets]
+\label{prop:sdp-family}
+For every integer $t\ge2$, put
+\begin{equation}
+\begin{aligned}
+ a_t&=2t+1,&
+ b_t&=t(3t+2),&
+ c_t&=(t+1)(3t+1),\\
+ x_t&=2t+1,& y_t&=t,& z_t&=t+1.
+\end{aligned}
+\label{eq:sdp-family}
+\end{equation}
+Then $(a_t,b_t,c_t)$ satisfies
+\eqref{eq:sdp-primitive-data}, and $(x_t,y_t,z_t)$ is a proper packet of
+index one.
+\end{proposition}
+
+\begin{proof}
+Expansion gives
+\[
+ a_t+b_t=3t^2+4t+1=(t+1)(3t+1)=c_t.
+\]
+We have $(2t+1,t)=1$, while
+\[
+ 2(3t+2)-3(2t+1)=1;
+\]
+hence $(a_t,b_t)=1$.  The three coordinate divisibilities in
+\eqref{eq:sdp-packet-conditions} are visible in
+\eqref{eq:sdp-family}.  Finally,
+\begin{align*}
+ (t+1)^2-t^2&=2t+1=a_t,\\
+ (2t+1)^2-(t+1)^2&=t(3t+2)=b_t,\\
+ (2t+1)^2-t^2&=(t+1)(3t+1)=c_t.
+\end{align*}
+Thus the gaps are exact and
+Proposition~\ref{prop:sdp-index-one} applies.  The packet is proper because
+$b_t>y_t$ and $c_t>z_t$.
+\end{proof}
+
+In this family $a_tb_tc_t\asymp18t^5$ and $T(Q_t)=2t+1\asymp2t$.
+Consequently no exponent strictly smaller than five can replace six in a
+universal estimate with constant one.  The proposition is a square-difference
+identity and overlaps familiar quadratic constructions.  Its role here is to
+exhibit an exact stratum of the finite packet spectrum; it is not presented as
+a renamed independent discovery.
+
+\subsection{Prime-power orientations and a rigid global sign}
+
+For an odd prime power $p^e\Vert a$, the first square congruence factors as
+\[
+ p^e\mid(y-z)(y+z).
+\]
+The prime $p$ cannot divide both factors: otherwise it divides $2y$ and
+$2z$, and oddness together with $(y,z)=1$ gives a contradiction.  The whole
+prime power therefore occupies exactly one of the channels
+\begin{equation}
+ p^e\mid y-z
+ \qquad\hbox{or}\qquad
+ p^e\mid y+z.
+ \label{eq:sdp-orientation-channel}
+\end{equation}
+The same statement holds cyclically on the other arms.  Different prime
+powers on one composite arm may choose different signs.  At the unique
+possible even arm the factors need not be coprime, so the $2$-primary branch
+must be retained separately.
+
+\begin{definition}[Canonical orientation]
+\label{def:sdp-canonical-orientation}
+A packet is canonically oriented when
+\begin{equation}
+ y\equiv z\pmod a,
+ \qquad
+ x\equiv z\pmod b,
+ \qquad
+ x\equiv-y\pmod c.
+ \label{eq:sdp-canonical-orientation}
+\end{equation}
+\end{definition}
+
+These are the three whole-arm signs used by the full packet.
+
+\begin{theorem}[Canonical-orientation rigidity]
+\label{thm:sdp-canonical-rigidity}
+A canonically oriented packet is the full packet $(a,b,c)$.
+\end{theorem}
+
+\begin{proof}
+The divisor conditions give $x\le a$, $y\le b$, and $z\le c$.  The final
+congruence in \eqref{eq:sdp-canonical-orientation} says $c\mid x+y$.
+Because $x+y>0$,
+\[
+ c\le x+y\le a+b=c.
+\]
+It follows that $x+y=a+b$; the two coordinate inequalities then force
+$x=a$ and $y=b$.
+
+We claim that $c<ab$.  Since $a,b>1$, the product
+$(a-1)(b-1)$ is positive.  If it were one, then $a=b=2$, contradicting
+$(a,b)=1$.  Hence $(a-1)(b-1)\ge2$, which is equivalent to $a+b<ab$.
+
+After substituting $x=a$ and $y=b$, the first two congruences say that $z$
+and $c=a+b$ have the same residue modulo both $a$ and $b$.  The coprime
+Chinese remainder theorem yields $z\equiv c\pmod{ab}$.  But
+$0<z\le c<ab$, so $z=c$.
+\end{proof}
+
+Every proper packet therefore has an actual orientation defect.  On odd
+prime powers it changes or fragments at least one of the canonical signs;
+the possible even arm carries the separate $2$-adic ambiguity.
+
+\subsection{Connection with radical, height, and quality}
+
+Let
+\[
+ R=\operatorname{rad}(abc),
+ \qquad
+ q_s(a,b,c)=\frac{\log c}{\log R}.
+\]
+The spectrum is finite and nonempty, so one may define
+\begin{equation}
+ \mathcal E_{\mathrm{sync}}(a,b,c)
+ =\min_{Q\in\mathcal S(a,b,c)}
+ \frac{\log B(Q)}{\log R}.
+ \label{eq:sdp-energy}
+\end{equation}
+
+\begin{corollary}[Packet-energy majorant]
+\label{cor:sdp-energy-majorant}
+For every triple in the present scope,
+\[
+ q_s(a,b,c)\le\mathcal E_{\mathrm{sync}}(a,b,c).
+\]
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:sdp-height-envelope} gives $c\le abc\le B(Q)$ for every
+packet.  Take logarithms, divide by the positive number $\log R$, and then
+take the minimum.
+\end{proof}
+
+The precise missing global statement is now visible.  If, for each
+$\varepsilon>0$ and all but finitely many primitive nonunit triples, one
+could produce a packet with
+\begin{equation}
+ B(Q)\le R^{1+\varepsilon},
+ \label{eq:sdp-open-gate}
+\end{equation}
+then Corollary~\ref{cor:sdp-energy-majorant} would imply the usual
+$abc$ inequality.  No estimate of the form
+\eqref{eq:sdp-open-gate} is established here.  The full packet gives no
+radical saving, and the finite data described below frequently finds no
+proper packet for high-quality triples.
+
+For comparison, Sankaran's alternative-quality construction
+\cite{Sankaran2026AlternativeQuality} assigns to the distinct primes
+$p_1,\ldots,p_\omega$ dividing $abc$ the arithmetic and geometric means
+\[
+ A=\frac1\omega\sum_i\log p_i,
+ \qquad
+ G=\left(\prod_i\log p_i\right)^{1/\omega},
+ \qquad
+ \eta=G/A,
+\]
+and proves the exact factorization
+\[
+ q_s=\eta q_{\mathrm{DGM}},
+ \qquad
+ q_{\mathrm{DGM}}=\frac{\log c}{\omega G}.
+\]
+The packet spectrum is not this scalar factorization under another name.
+It depends on exponent caps, arm assignment, simultaneous modular incidence,
+and orientation channels.  For example, $(2,3,5)$ and $(3,5,8)$ have the
+same radical $30$ and hence the same $\eta$, but the first has one packet
+and the second has the additional proper packet $(3,5,2)$.
+
+\subsection{Counterexample and finite-search audit}
+
+The following complete-premise examples eliminate tempting stronger claims:
+\begin{center}
+\begin{tabular}{c|c|c}
+$(a,b,c)$ & packet $(x,y,z)$ & eliminated claim\\ \hline
+$(3,5,8)$ & $(3,5,2)$ & uniqueness of the full packet\\
+$(5,7,12)$ & $(5,7,2)$ & $abc\le T^3$\\
+$(5,16,21)$ & $(5,2,3)$ & $abc\le T^4$ and $abc\le(xyz)^2$\\
+$(385,527,912)$ & $(7,31,24)$ & $abc\le T^5$
+\end{tabular}
+\end{center}
+In the last two rows the three gaps equal $(a,b,c)$ exactly.  In particular,
+\[
+ 385\cdot527\cdot912=185040240>31^5=28629151.
+\]
+These counterexamples do not touch the pair-max/sixth-power theorem.
+
+A deterministic integer search scanned all $3{,}795{,}230$ normalized
+primitive triples with $c\le5000$.  It enumerated every packet for
+$c\le1000$, for the top 200 standard-quality triples through $c=5000$, and
+for every triple in that range with $q_s\ge1$.  Across 151,244 enumerated
+triples it found 151,711 packets, including 467 proper packets and 105
+index-one packets.  Exact assertions checked the three packet congruences,
+the product divisibility, and both bounds in
+\eqref{eq:sdp-height-envelope}.  The family in
+Proposition~\ref{prop:sdp-family} was separately checked for
+$2\le t\le100000$.  Floating-point logarithms were used only for ranking.
+
+The twenty highest-quality triples in the finite range had only their full
+packet.  This is adverse evidence for the open gate
+\eqref{eq:sdp-open-gate}, but a finite range neither proves eventual packet
+rigidity nor refutes an all-but-finitely-many assertion.
+
+\subsection{Lean boundary and audit}
+
+The independent Lean companion formalizes the exact finite core: the
+primitive data, synchronized divisor packets, inherited coprimality, product
+divisibility, pair-max and sixth-power bounds, canonical-orientation rigidity,
+and generic channel lemmas.  It also defines the actual squarefree radical,
+standard quality, packet energy, and the minimum over the finite nonempty
+packet spectrum, and proves the quality majorant in
+Corollary~\ref{cor:sdp-energy-majorant}.  Each counterexample in the preceding table is
+an explicit Lean datum and packet satisfying all packet premises.  The
+deterministic computation and the open radical estimate
+\eqref{eq:sdp-open-gate} are absent from the formalization; in particular no
+upper bound on the minimum packet energy is assumed.  A separate axiom audit
+lists all dependencies.
+
+Thus the output of this route is a finite structural invariant and a sharp
+statement of the remaining radical-control problem.  It is not a proof or a
+claimed breakthrough on the $abc$ conjecture.
+
+% Suggested bibliography entry for a host paper:
+% \bibitem{Sankaran2026AlternativeQuality}
+% A. Sankaran, \emph{Variants on the $abc$-Conjecture using Alternative
+% Quality Metrics}, arXiv:2606.08416v1, 2026.
+

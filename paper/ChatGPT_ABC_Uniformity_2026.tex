@@ -37,7 +37,7 @@
 \title[Uniformity and prime support in $abc$ research]{Uniformity, Prime Support, and Reachable Lattices\\
 in Approaches to the $abc$ Conjecture}
 \author{ChatGPT}
-\date{September 2, 2026}
+\date{September 3, 2026}
 \subjclass[2020]{11D75, 11N25, 11G05, 11J86, 68V15}
 \keywords{abc conjecture, smooth numbers, prime support, effective integral points,
 local lattices, formal verification}
@@ -277,16 +277,34 @@ Section~\ref{sec:pell-all-index-formalization} kernel-checks the all-index
 polynomial identities, the all-support displacement equivalence under
 explicit scale-unit and transversality hypotheses, finite CRT steering, and
 the complete moving-parameter witness.
+Section~\ref{sec:pell-fixed-two-transversality} proves those transversality
+premises for every actual support prime at the fixed coefficient two and
+identifies the still-open simultaneous-displacement gate with the prime-index
+squarefull exclusion.
 Section~\ref{sec:mersenne-farey-denominator-entropy} converts endpoint energy
 into a quantitative depth-three row swarm under an explicitly open global
 counting hypothesis.
+Section~\ref{sec:mersenne-farey-quantitative-swarm} kernel-checks the harmonic
+prefix budget, frequent-subsequence quantifiers, and finite injection of
+actual depth-three exact-order rows into the super-Wieferich prime count.
+Section~\ref{sec:alternative-quality-packing} audits the latest alternative
+quality metrics, proves their exact packing-coordinate transfer, and gives an
+abstract full-premise countermodel to divergence transfer without claiming an
+arithmetic counterexample.
+Section~\ref{sec:synchronized-divisor-packets} introduces a three-arm divisor
+packet spectrum directly on primitive abc triples, proves its exact product,
+height and orientation laws, and isolates a radical-energy gate that remains
+open.
 Section~\ref{sec:steinberg-contact-surface} develops the divisor-contact
 five-term complex, proves the surviving calibrated filling reduction, and
 uses primitive Pythagorean squares to retire only its single-cell gates.
 Section~\ref{sec:steinberg-integer-finite-chain} constructs the integer
 exponent-gcd split and the actual finite-support divisor norm, then
 instantiates the filling inequality under an explicit surface-boundary
-equality while retaining the open five-term-generation problem.
+equality.
+Section~\ref{sec:steinberg-five-term-boundary-bridge} constructs the algebraic
+and positive generated five-term relations and proves their boundary bridge;
+arbitrary-target filling existence and the two Gate VF costs remain open.
 Section~\ref{sec:quadratic-veronese-peeling} analyzes the exact quadratic
 five-term move, proves its valuation-layer flag, and delimits three fixed
 one-move policies without rejecting arbitrary fillings.
@@ -300,9 +318,9 @@ not external journal peer review. Classical published
 theorems may be used in the paper, but are not silently represented as
 proved Lean declarations. The formal scope is specified in
 Section~\ref{sec:formal}. The literature and public-repository cutoff is
-September 2, 2026.
+September 3, 2026.
 
-Four recent primary sources are useful for locating the boundary.  Letendre's
+Five recent primary sources are useful for locating the boundary.  Letendre's
 short-interval bounds for $\omega$ assume a new abc-type Conjecture~1 that the
 paper presents as stronger than abc \cite{Letendre2026ABCRevisited}; they are
 therefore test interfaces rather than unconditional inputs here.  Zhou's
@@ -316,11 +334,21 @@ depth-three packet.  Laniewski's 29 August 2026 preprint reduces Mersenne
 transgression to aggregate ordinary-Wieferich order--defect growth, while
 explicitly leaving that growth open; it likewise supplies no critical count
 for the fixed-base depth-three packet \cite{Laniewski2026RadicalDefects}.
+Sankaran's DGM and power-mean quality metrics have an unconditional divergent
+alternative-quality family, but the packing-efficiency formula
+$q_{\rm std}=\eta q_{\rm DGM}$ shows that this is not a proof or disproof of
+standard abc; the paper's Theorem~4.15 is an exact reformulation whose missing
+content is control of $\eta$ on actual triples
+\cite{Sankaran2026AlternativeQuality}.
+\begin{sloppypar}
 Versioned PDFs, extracted text, metadata, and SHA-256 checksums for Letendre,
 Zhou, and Falk--Harrington--Jones are archived under
 \path{research/sources/latest_abc_proposals_2026_09_02/}; the Laniewski
 source record is archived under
-\path{research/sources/mersenne_farey_denominator_entropy_2026_09_02/}.
+\path{research/sources/mersenne_farey_denominator_entropy_2026_09_02/}, and
+the Sankaran record under
+\path{research/sources/alternative_quality_metrics_2026_09_03/}.
+\end{sloppypar}
 
 \section{Prime support in short intervals}\label{sec:smooth}
 
@@ -1081,6 +1109,7 @@ logarithmic-form methods to a different family.
 \input{pell_factor_quotient_projective_coupling_2026}
 \input{pell_polynomial_hensel_specialization_2026}
 \input{pell_polynomial_all_index_formalization_2026}
+\input{pell_fixed_two_transversality_2026}
 
 \input{mersenne_prime_layer_radical_2026}
 
@@ -1097,9 +1126,14 @@ logarithmic-form methods to a different family.
 \input{mersenne_critical_slow_slack_2026}
 \input{mersenne_sigma_one_exact_order_coupling_2026}
 \input{mersenne_farey_denominator_entropy_2026}
+\input{mersenne_farey_quantitative_swarm_2026}
+
+\input{alternative_quality_packing_audit_2026}
+\input{abc_synchronized_divisor_packets_2026}
 
 \input{steinberg_valuation_contact_surface_2026}
 \input{steinberg_integer_finite_chain_2026}
+\input{steinberg_five_term_boundary_bridge_2026}
 \input{quadratic_veronese_peeling_2026}
 
 \section{Formal verification and remaining obligations}\label{sec:formal}
@@ -1458,6 +1492,29 @@ inequality conditional on an explicit integral surface-boundary equality.\\[3pt]
 five-term peeling, primitive Pythagorean specialization, layer expansion, and
 full-premise failures of three fixed one-move policies; arbitrary multi-move
 fillings remain open.\\[3pt]
+\texttt{MersenneFareyQuantitative\allowbreak Swarm20260903} & Classical
+harmonic identification and logarithmic prefix control, cleared and divided
+finite swarm inequalities, exact frequent-subsequence quantifiers, and the
+finite injection of actual exact-order depth-three rows into the bounded
+super-Wieferich set.\\[3pt]
+\texttt{AlternativeQualityPacking\allowbreak Bridge20260903} & Exact packing
+coordinate equivalence, the AM--GM comparison, a clustered-coordinate lower
+bound, and an abstract full-premise example in which DGM quality is unbounded
+while standard quality is constant.\\[3pt]
+\texttt{PellFixedTwoTransversality\allowbreak 20260903} & Matrix Frobenius
+congruences at prime indices, unconditional derivative transversality at every
+actual fixed-$T=2$ support prime, the exact squarefull/simultaneous-displacement
+equivalence, and the individual $(7,13)$ collision boundary.\\[3pt]
+\texttt{SteinbergFiveTermBoundary\allowbreak Bridge20260903} & Algebraic and
+positive-realization-generated five-term submodules, their inclusion in the
+boundary kernel, conversion to calibrated finite chains, realization families, and
+nonzero-cycle counterexamples to literal cancellation and boundary
+injectivity.\\[3pt]
+\texttt{ABCSynchronizedDivisor\allowbreak Packets20260903} & Actual primitive
+nonunit abc packet data, finite nonemptiness, product and sixth-power bounds,
+positive synchronization index, canonical-orientation rigidity, the real-log
+minimum-energy majorant, an infinite proper exact-gap family, and actual
+finite packets refuting the recorded stronger height candidates.\\[3pt]
 \bottomrule
 \end{longtable}
 
@@ -1712,12 +1769,31 @@ warning-as-error compilation, and the aggregate target completes $9255$
 jobs.  Deterministic replays cover the refined tensor-weight identities, the
 finite Mersenne denominator certificates, two independent affine checks, the
 Pell producer/verifier and bounded moving-parameter scan, and the quadratic
-peeling producer/verifier.  The fixed-$D=2$ Pell transversality and rank gate,
+peeling producer/verifier.  At the date of that checkpoint, the fixed-$D=2$
+Pell transversality and rank gate,
 critical Mersenne count, affine catalogue sparsity, source-level IUT transport,
 five-term generated-move boundary theorem, and two Gate~VF cost estimates
 remain open and are not inserted as axioms.  Thus this checkpoint supplies
 neither a term of \texttt{ABCConjecture} nor a term of its negation.
 \end{sloppypar}
+
+The September 3 quantitative-transversality and generated-packet checkpoint
+adds five modules with $169$ theorem declarations, $79$ definitions, one
+abbreviation, seven structures, and two named instances, for $258$ counted
+declarations.  The generated audit issues one \texttt{\#print axioms} query
+for every declaration.  Its dependency union is contained in
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}; every
+module, hand-written audit, and generated audit passes direct
+warning-as-error compilation, and the umbrella target completes $9265$ jobs.
+The fixed-$T=2$ Pell support-transversality premise and the algebraic
+five-term boundary bridge are now closed.  The Mersenne harmonic and
+quantifier seams, the synchronized-packet finite energy majorant, and all
+recorded full-premise local counterexamples are also kernel checked.  The
+global Pell squarefull exclusion, actual Mersenne row supply and critical
+count, arbitrary-target positive five-term filling with its two costs, and
+synchronized radical-scale compression remain open.  None is inserted as an
+axiom, and the abstract alternative-quality countermodel is not an integer
+$abc$ family.  Thus the standard conjecture remains open in both directions.
 
 The formal scope is deliberately narrower than the full paper.
 Theorem~\ref{thm:tail} and Corollary~\ref{cor:carella} use Younis and classical
@@ -2100,6 +2176,29 @@ R.~Laniewski,
 Radical defects, Wieferich primes, and the $abc$ conjecture,
 \href{https://arxiv.org/abs/2609.00039v1}{arXiv:2609.00039v1},
 August 29, 2026.
+
+\bibitem{Sankaran2026AlternativeQuality}
+A.~Sankaran,
+Variants on the $abc$-conjecture using alternative quality metrics,
+\href{https://arxiv.org/abs/2606.08416v1}{arXiv:2606.08416v1},
+June 7, 2026.
+
+\bibitem{DupontSah1982}
+J.~L. Dupont and C.-H. Sah,
+Scissors congruences, II,
+\emph{J. Pure Appl. Algebra} \textbf{25} (1982), 159--195.
+\href{https://doi.org/10.1016/0022-4049(82)90035-4}%
+{doi:10.1016/0022-4049(82)90035-4}.
+
+\bibitem{Suslin1991}
+A.~A. Suslin,
+$K_3$ of a field and the Bloch group,
+\emph{Proc. Steklov Inst. Math.} \textbf{183} (1991), 217--239.
+
+\bibitem{GoetteZickert2007}
+S.~Goette and C.~Zickert,
+The extended Bloch group and the Cheeger--Chern--Simons class,
+\emph{Geom. Topol.} \textbf{11} (2007), 1623--1635.
 
 \bibitem{Zhou2025IUTRationals}
 Z.-P.~Zhou,

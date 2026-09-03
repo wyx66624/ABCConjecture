@@ -7,7 +7,70 @@ Arakelov--Vojta、Frey--Szpiro、S-unit 与算术微分等路线中的真实组�
 严格反例及剩余核心缺口均在
 [`Lean/RESEARCH_STATUS.md`](Lean/RESEARCH_STATUS.md) 中逐项区分。
 
-## 2026-09-02 最新多路线检查点：refined Haar、Farey entropy、ownership、Hensel 与 contact
+## 2026-09-03 当前状态同步：Pell、Mersenne、Steinberg 与两条新增路线
+
+标准、无条件的 `ABCConjecture` 仍未被证明或证伪。以下更新只关闭已由
+数学证明和 Lean 核验覆盖的精确子门；全局命题继续 active，困难或有限扫描
+无命中不构成退役理由。
+
+- **Pell/P-I1B。** 固定 `T=2`、奇素数指标处两个实际 Pell 坐标的全部
+  支撑素数横截性已经关闭：每个支撑素数都是相应多项式在 `T=2` 的简单根。
+  但全局 prime-index squarefull 排除，等价地“所有支撑素数的一阶 Hensel
+  位移不可能同时为零”，仍开放。`ell=7,q=13` 只反驳“任何单个支撑素数
+  都不能有零位移”，因为另一通道仍含指数一素数 `239`。
+- **Mersenne/M-I1。** harmonic 上界、有限 quantitative swarm、little-oh
+  失败的 frequent 量词转换、无条件 lcm/Chebyshev 尺度括号，以及已满足
+  prime/exact-order/depth-three 前提的有限行到实际超 Wieferich 素数集合的
+  单射都已 Lean 关闭。尚未证明的是从抽象 Farey 尾部供应这些真实算术行，
+  以及临界全局计数
+  `limsup log(max(1,W3(x)))/log(log x) <= 1/2`。满 prefix fibre 只反驳把
+  prefix 系数统一改成 `<1` 的加强。
+- **Steinberg/S-I4C。** 五项生成元的真实 exterior boundary、实际正有理
+  五项移动生成子模包含于 boundary kernel，以及生成链到旧有限链定理的转换
+  已经关闭。任意 abc
+  目标的正有理 generated filling 尚未构造；Gate VF 的两项统一成本界
+  `R(Gamma)<=epsilon Q(Gamma)+K_epsilon H` 与
+  `Q(Gamma)<=2H rho+L_epsilon H` 仍开放。`x=1/2,y=1/6` 证明的是自由链中
+  五项生成元并不字面等于零，不反驳商关系或五项路线。
+- **Synchronized divisor packets：active。** 已 Lean 证明 packet 非空有限、
+  `abc | D(Q) <= B(Q) <= T(Q)^6`、一个无限 exact-gap 族、canonical
+  orientation rigidity，以及使用真实 squarefree radical 与 `Real.log` 的
+  `standardQuality_le_packetEnergy` 和有限谱最小值版
+  `standardQuality_le_minimumPacketEnergy`。活跃门是对几乎所有非单位 primitive triples 找到
+  `B(Q)<=rad(abc)^(1+epsilon)` 的 packet。完整前提例子分别否定 full corner
+  唯一性、统一三次/四次界、`(xyz)^2` 界、常数一五次界及所有指数 `<5` 的
+  无常数加强；它们不否定已证六次界或带常数五次界。
+- **Alternative-quality packing：active。** 已核验
+  `q_std=eta*q_DGM` 及其正效率等价转换。抽象序列
+  `eta_n=1/(n+1), q_DGM,n=n+1, q_std,n=1` 完整否定“alternative quality
+  发散仅凭 `0<eta<=1` 就迫使标准 quality 超过一”的 metric-only 推断；它
+  不是整数 abc 三元组。剩余门是在实际 primitive abc triples 上证明
+  packing efficiency 的下界或与 `q_DGM` 增长相匹配的相关性估计。
+
+详细证明、反例边界和形式化范围见
+[`固定 T=2 Pell 横截性`](research/ABC_PELL_FIXED_TWO_TRANSVERSALITY_2026_09_03.md)、
+[`Mersenne quantitative swarm`](research/ABC_MERSENNE_FAREY_QUANTITATIVE_SWARM_2026_09_03.md)、
+[`Steinberg 五项边界桥`](research/ABC_STEINBERG_FIVE_TERM_BOUNDARY_BRIDGE_2026_09_03.md)、
+[`synchronized divisor packets`](research/ABC_SYNCHRONIZED_DIVISOR_PACKET_SPECTRUM_2026_09_03.md) 与
+[`alternative-quality packing`](research/ABC_ALTERNATIVE_QUALITY_PACKING_AUDIT_2026_09_03.md)。
+
+五个新 Lean 主模块严格计得 169 个 theorem、79 个 definition、1 个
+abbreviation、7 个 structure 和 2 个 named instance，共 258 个声明。逐声明
+生成的 `#print axioms`、五个手写审计模块和聚合目标均在
+`warningAsError` 下通过；依赖并集只有 `Classical.choice`、`Quot.sound` 与
+`propext`，聚合构建完成 9,265 jobs。形式化、计算重放、原始文献缓存和 PDF
+封印入口位于
+[`本轮验证包`](Lean/verification/2026_09_03_quantitative_transversality_generated_packets/)。
+这些计数不含任何开放全局门、`ABCConjecture` 或其否定项。
+
+作者为 ChatGPT 的英文期刊稿现为 237 页 A4 PDF：
+[`output/pdf/ChatGPT_ABC_Uniformity_2026.pdf`](output/pdf/ChatGPT_ABC_Uniformity_2026.pdf)，
+SHA-256 为
+`02d7e2d53bd77490e6ba0c6352750ec0779f430b6537a5b7ff54c77c4963f335`。
+最终 Tectonic 日志、237 页结构扫描、15 张全页接触表及重点页原分辨率复核见
+[`本轮 PDF QA 目录`](output/pdf/ChatGPT_ABC_Quantitative_Transversality_Generated_Packets_2026_09_03_QA/)。
+
+## 2026-09-02 多路线检查点：refined Haar、Farey entropy、ownership、Hensel 与 contact
 
 标准、无条件的 `ABCConjecture` 仍未被证明或证伪。正向构造与完整前提
 反例搜索继续并行；路线困难、尚未 Lean 化或有限搜索无命中都不构成淘汰

@@ -1,0 +1,17 @@
+{
+  "schema": "fixed-two-pell-transversality-verification-v1",
+  "status": "PASS",
+  "algorithm": "independent 2x2 matrix binary powering",
+  "verified_counts": {
+    "prime_indices": 2261,
+    "candidate_prime_tests": 3091963,
+    "support_hits": 2373,
+    "indices_with_bounded_simple_witness": 1472,
+    "bounded_unresolved_indices": 789,
+    "repeated_hits": 1,
+    "depth_at_least_3_hits": 0,
+    "opposite_channel_repeated_indices": 0
+  },
+  "errors": [],
+  "logical_boundary": "The replay decides only the displayed finite rectangle.  Unresolved indices and support primes above the bound remain open; no abc or global squarefull exclusion follows."
+}

@@ -2,8 +2,38 @@
 
 **Author:** ChatGPT
 **Date:** 2 September 2026
+**Status updated:** 3 September 2026
 **Review mode:** independent mathematical, quantifier, counterexample, and
 Lean-boundary audit
+
+## 3 September 2026 status addendum
+
+This dated review remains an audit of the five 2 September checkpoints.  The
+following later modules and reports now control the affected route boundaries;
+the standard abc conjecture remains open and none of these updates proves or
+disproves it.
+
+* P-I1B is partially closed: for the actual specialization `T=2`, the scale
+  unit and support-prime derivative transversality are proved at every odd
+  prime index.  Global prime-index squarefull exclusion, equivalently
+  exclusion of simultaneous zero first Hensel displacements, remains open.
+* M-I1's harmonic, quantifier, Chebyshev-bracket, and finite-injection gaps are
+  closed.  The arithmetic supply of actual prime/exact-order/depth-three rows
+  and the critical global super-Wieferich count remain open.
+* S-I4C's generator boundary, generated-submodule inclusion in the boundary
+  kernel, and finite integer chain conversion are closed.  Positive filling of an arbitrary abc target
+  rational and both uniform Gate VF cost bounds remain open.
+* The synchronized-divisor-packet route and alternative-quality-packing route
+  are active.  Their exact no-go boundaries are recorded in the finding and
+  retirement ledgers below; those counterexamples retire only the stated
+  strengthenings, not either parent route.
+
+The controlling reports are
+`ABC_PELL_FIXED_TWO_TRANSVERSALITY_2026_09_03.md`,
+`ABC_MERSENNE_FAREY_QUANTITATIVE_SWARM_2026_09_03.md`,
+`ABC_STEINBERG_FIVE_TERM_BOUNDARY_BRIDGE_2026_09_03.md`,
+`ABC_SYNCHRONIZED_DIVISOR_PACKET_SPECTRUM_2026_09_03.md`, and
+`ABC_ALTERNATIVE_QUALITY_PACKING_AUDIT_2026_09_03.md`.
 
 ## 1. Executive verdict
 
@@ -46,9 +76,11 @@ The principal conclusions are these.
   report also gives a canonical signed normalization for the broader rational
   domain and total conventions on unit legs.  Its former third open estimate
   is now Proposition 8.1 and is formalized as a finite-coordinate weighted
-`l^1` theorem.  The two analytic Gate-VF estimates---residual domination and
-calibrated-boundary control---remain open; separately, the generated-move
-relation and its boundary bridge remain the formalization item S-I4C.
+`l^1` theorem.  The later five-term boundary-bridge module proves the
+generator boundary, generated-submodule inclusion in the boundary kernel, and
+finite-chain conversion.
+The remaining S-I4C gates are arbitrary-target positive filling and the two
+uniform Gate-VF cost estimates.
 
 The direct commands
 
@@ -79,9 +111,9 @@ review was finalized.
 | S-B1 | **RESOLVED during audit** | Steinberg | Gate VF originally lacked scalar data for general signed rational auxiliary cells and a scale-free positive-cell convention. | The revised text assigns every reduced rational `m/n` its primitive signed triple, makes unit-leg data total, and permits the gate to be read in the `0<y<x<1` positive subcomplex, where all five cells have unique reduced positive triples. |
 | A-R1 | **RESOLVED during audit** | Affine | Theorem 6.2 originally stated only `1<=B<C`, although the proof used `C-B=1`. | Already repaired by explicitly imposing `C=B+1` in every affected statement. Retain this condition in the paper fragment and Lean version of any future concrete count. |
 | P-I1A | **RESOLVED after audit** | Pell | The original Hensel module left the all-index polynomial identities, full Taylor lemma, conditional squarefull equivalence, and simultaneous CRT steering on paper. | The supplemental module `PellPolynomialAllIndexFormalization20260902` defines both recurrences and proves all-index norm/derivative identities, arbitrary-polynomial Taylor--Hensel, the all-support algebraic equivalence under explicit scale-unit/transversality premises, and finite-list CRT steering at those stated quantifiers. |
-| P-I1B | **IMPORTANT** | Pell | The supplemental all-support theorem assumes the scale-unit and derivative-transversality conditions.  It does not derive those conditions for every support prime of the actual fixed `T=2` Pell coordinates from an unconditional Lucas-rank theorem. | Prove the actual all-support transversality/rank input and instantiate the conditional equivalence, or continue to list the fixed-Pell instance as an open arithmetic obligation. |
+| P-I1B | **PARTIALLY RESOLVED 2026-09-03** | Pell | `PellFixedTwoTransversality20260903` proves the actual fixed-`T=2` scale unit and derivative transversality for every support prime at an odd prime index. | Prove global prime-index squarefull exclusion, equivalently exclude simultaneous zero first Hensel displacements.  The exact witness `F_7(2)=13^2` retires only the stronger no-individual-zero assertion. |
 | P-I2 | **RESOLVED after audit** | Pell | The original `IndexThreeMovingPacket` did not bundle every premise of paper claim `H-global-move`. | `HGlobalMoveWitness` now includes the prime index, simple roots, lifted residues, repeated factors, all factorizations and primality certificates, squarefree positive coefficient, global norm, and exponent-one checks; `not_FullHGlobalMoveExclusion` uses the inhabited structure. |
-| M-I1 | **IMPORTANT** | Mersenne | The denominator split is formalized, but the asymptotic swarm theorem, the critical limsup corollary, and the common-index asymptotic are paper-only. | Either formalize the harmonic and lcm asymptotics and the sequence quantifiers or continue to label these results explicitly as paper-only in every umbrella status table. |
+| M-I1 | **PARTIALLY RESOLVED 2026-09-03** | Mersenne | The harmonic identity and bound, finite quantitative swarm, frequent/eventual quantifier bridge, unconditional Chebyshev brackets, and finite injection from already-realized arithmetic rows are closed. | Supply actual prime/exact-order/depth-three rows from the Farey tail and prove the critical global super-Wieferich bound `limsup log max(1,W3(x))/log log x <= 1/2`. |
 | A-I1 | **IMPORTANT** | Affine | Lean proves the abstract poset/owner/energy skeleton, not the concrete maximal-cover construction, period divisibility, Euler envelopes, shell counts, or full canonical counterexample premises. | Do not count the analytic affine propositions as Lean-closed; formalize the concrete label type and the ten items already listed in Section 10.1 before making that claim. |
 | I-I1 | **RESOLVED during audit** | IUT | “The exact Project-LANA prime coefficient” was stronger wording than the established interface. | The revised title says “the exact prime coefficient in the corrected Haar model” and keeps the source capsule/order/different comparison explicitly open. |
 | I-I2 | **IMPORTANT** | IUT | The quadratic factor-count and copied-weight witnesses remain paper-level local-field/tensor constructions; Lean checks their scalar logarithm consequences. | The report now labels them accurately as “coefficient-level counterexamples.”  Formalize the quadratic local fields and `K tensor K = K x K` only if a field-level Lean counterexample is required. |
@@ -90,20 +122,23 @@ review was finalized.
 | S-I3 | **RESOLVED after audit** | Steinberg | The quantified Gate SC refutation originally had no matching Lean proposition. | `UniformSingleCellSkeletonGate` now records the complete quantifier block, and `not_uniformSingleCellSkeletonGate` refutes it at the fixed admissible value `epsilon=1/10` on the same primitive Pythagorean-square family. |
 | S-I4A | **RESOLVED after audit** | Steinberg | The original module did not define the actual finitely supported divisor lattice or prove its exact weighted norm identity. | The supplemental module defines `Finsupp` divisor and exterior-coordinate objects, canonical positive rational cells, the six-block absolute-value formula, and the exact weighted norm/mixed-area identity. |
 | S-I4B | **RESOLVED after audit, conditional at its displayed premise** | Steinberg | The abstract finite-coordinate inequality had not been instantiated for canonical divisor cells. | `FiniteRationalCellChain.boundary_le_calibratedCost` now gives the concrete instantiation for every finite signed canonical-cell chain carrying the exact integral surface-boundary equality. |
-| S-I4C | **IMPORTANT** | Steinberg | Lean still does not define the inductive relation generated by the permitted positive rational five-term moves or prove that every generated chain satisfies the exact surface-boundary equality. | Define the move constructors and closure relation, prove each generator has zero boundary, and transport that equality through the generated closure.  Do not count existence of a useful filling or either Gate VF cost estimate as proved. |
+| S-I4C | **RESOLVED at original algebraic scope 2026-09-03** | Steinberg | The new boundary-bridge module defines the permitted positive rational generators, proves each has zero boundary, proves the generated submodules are contained in the boundary kernel, and converts a positive generated relation to a finite integer five-term chain. | Keep arbitrary-target positive rational filling and the two uniform Gate VF cost bounds open; the algebraic closure does not supply them. |
 | S-M1 | **RESOLVED during audit** | Steinberg | The original “pre-Bloch boundary” wording could obscure that the bivector is standard and is not a new `K_2` invariant. | The revised text calls it the image under `wedge^2 d` of the standard Bloch boundary `delta([x])=x wedge (1-x)` and explicitly denies a new nonzero Milnor-`K_2` invariant. |
 | S-M2 | **RESOLVED during audit** | Steinberg | Section numbering and the VF display terminator were malformed. | The final sections are now numbered 8--10 and the two-line VF display is syntactically repaired. |
+| N-SDP | **ACTIVE 2026-09-03** | Synchronized divisor packets | Finite packet algebra, `abc \mid D(Q) <= B(Q) <= T(Q)^6`, synchronization-gap families, odd-prime channel algebra, and canonical orientation rigidity are established.  The actual-radical `standardQuality`, real-log `packetEnergy`, finite `minimumPacketEnergy`, and both quality-to-energy inequalities are Lean-closed.  Full-corner uniqueness and the unqualified cubic, quartic, squared-product, constant-one fifth-power, and every exponent-below-five envelope have exact counterexamples. | Prove an all-but-finitely packet choice with `B(Q) <= rad(abc)^(1+epsilon)`.  The no-go examples do not refute the sixth-power theorem or a compensated fifth-power estimate. |
+| N-AQP | **ACTIVE 2026-09-03** | Alternative-quality packing | The identity `q_std=eta*q_DGM`, transfer equivalence, and upper-side AM--GM bounds are proved.  The abstract sequence `eta_n=1/(n+1)`, `q_DGM,n=n+1`, `q_std,n=1` refutes inference from unbounded `q_DGM` and `0<eta<=1` alone. | Establish an arithmetic lower bound or correlation for `eta*q_DGM` on actual integer abc triples.  The abstract sequence is not an abc-triple counterexample. |
 
 No current `BLOCKER` remains in these five checkpoints.  The former Steinberg
 blocker S-B1 and affine blocker A-R1 were fixed during the review.  Those
 repairs do not prove their open gates, but they do remove the respective
 statement defects and do not justify retiring either route.
 
-The still-open `IMPORTANT` items are P-I1B, M-I1, A-I1, I-I2, and S-I4C.
-Each is a precisely identified mathematical or paper-to-Lean completion
-task.  None is a counterexample to its route, and the revised source reports
-now disclose the relevant boundaries rather than counting them as formal
-closures.
+The unchanged open `IMPORTANT` items A-I1 and I-I2 remain.  P-I1B and M-I1
+are now split between the closed statements listed above and their exact open
+arithmetic gates.  Original algebraic item S-I4C is closed, while
+arbitrary-target positive filling and its two uniform cost bounds remain open.
+N-SDP and N-AQP are active.  None of these open items is a counterexample to
+its parent route, and difficulty alone does not justify retirement.
 
 ## 3. Pell polynomial and Hensel specialization
 
@@ -213,10 +248,14 @@ every `e>=1`, the all-prime two-channel squarefull/displacement equivalence
 under explicit hypotheses, and finite-list simultaneous steering and
 uniqueness.  Its `HGlobalMoveWitness` places all premises and all primality
 and exponent-one certificates in one inhabited object.  This resolves the
-algebraic part P-I1A and the premise-bundling item P-I2.  P-I1B remains: the
-actual fixed `T=2` all-support transversality and the resulting exclusion of
-simultaneous zero displacements are open arithmetic inputs.  Their absence is
-neither a counterexample nor grounds to retire the Pell route.
+algebraic part P-I1A and the premise-bundling item P-I2.  The later
+`PellFixedTwoTransversality20260903` module closes the actual fixed-`T=2`
+scale-unit and support-prime derivative-transversality hypotheses at every odd
+prime index.  What remains of P-I1B is global prime-index squarefull exclusion,
+equivalently exclusion of simultaneous zero first Hensel displacements.  The
+example `F_7(2)=13^2` has a nonzero derivative modulo `13` and refutes only the
+stronger assertion that an individual zero displacement cannot occur; it does
+not retire the parent Pell route.
 
 ## 4. Mersenne Farey denominator entropy
 
@@ -300,10 +339,13 @@ Lean proves a deliberately looser finite tail inequality with `r<=H` and
 `T<=q`; this safely implies the needed estimate on rows satisfying the
 paper's strict cutoffs.  It also proves depth transport, row injectivity,
 the cleared short-window inequality, and the two exact depth-two witnesses.
-The asymptotic choices, harmonic estimates, lcm prime-number-theorem
-asymptotic, and limsup contradiction are absent and are acknowledged as
-such.  M-I1 records the remaining gap relative to the requested
-proposition-by-proposition formalization.
+The later quantitative-swarm module closes the harmonic identification and
+bound, the finite quantitative swarm, the frequent/eventual quantifier bridge,
+unconditional Chebyshev brackets, and the finite injection from rows that
+already satisfy the prime, exact-order, and depth-three conditions.  It does
+not manufacture those actual arithmetic rows from the Farey tail.  M-I1 now
+records precisely that row-supply problem and the critical open global bound
+`limsup log max(1,W3(x))/log log x <= 1/2`.
 
 ## 5. Affine ownership and maximal intersections
 
@@ -741,10 +783,13 @@ the supplied cell split.  This resolves S-I1.  The supplemental module
 divisor lattice, proves the exact weighted norm identity for canonical
 positive rational cells, and instantiates the inequality for a finite signed
 chain carrying the displayed integral surface-boundary equality.  These are
-S-I4A and S-I4B.  It does not yet define the inductive relation generated by
-the permitted rational five-term moves or prove that generated chains carry
-that equality; this precise remainder is S-I4C.  The genuinely open VF
-content is exactly
+S-I4A and S-I4B.  The later five-term boundary-bridge module defines the
+permitted positive rational generators, proves their exact boundary identity,
+proves the generated submodules are contained in the boundary kernel, and
+converts a positive generated relation into a finite integer
+five-term chain.  This closes original algebraic item S-I4C without assuming
+the target filling.  The genuinely open VF content is positive filling of an
+arbitrary abc target rational together with exactly
 
 \[
  \mathcal R(\Gamma)\le\varepsilon\mathcal Q(\Gamma)+K_\varepsilon H,
@@ -782,7 +827,9 @@ The user's retirement rule is satisfied only at the following exact levels.
 | Envelope-only Ind3 admissibility and unpointed pilot comparison | **RETIRE** | The real-line and finite-group examples satisfy all weakened premises. |
 | Refined-degree Haar and pointed same-pilot route | **RETAIN** | The missing source maps/inclusion are open, not contradicted. |
 | Universal coefficient-one contact and single-cell Gates MC/SC | **RETIRE** | `9+16=25` and the infinite primitive Pythagorean-square family meet all exact premises. |
-| Veronese-calibrated five-term filling route | **RETAIN** | Its definition and automatic boundary inequality are repaired; the two genuine analytic bounds remain open and no full-premise counterexample is known. |
+| Veronese-calibrated five-term filling route | **RETAIN** | Generator boundary and finite-chain conversion are closed; arbitrary-target positive filling and both uniform cost bounds remain open.  A nonzero free-chain zero-boundary example refutes only literal free-chain cancellation, not the generated relation. |
+| Synchronized divisor packets | **RETAIN** | Exact examples retire full-corner uniqueness and the unqualified cubic, quartic, squared-product, constant-one fifth-power, and every exponent-below-five envelope.  They do not refute `B(Q)<=T(Q)^6`, a compensated fifth-power estimate, or the open all-but-finitely radical gate. |
+| Alternative-quality packing | **RETAIN** | The abstract `eta_n*q_DGM,n=1` sequence retires only the metric-only inference from unbounded `q_DGM` and `0<eta<=1`; it is not a sequence of integer abc triples.  Arithmetic control of `eta*q_DGM` remains open. |
 | Standard abc conjecture | **OPEN** | None of these witnesses violates its quantified height/radical inequality, and no unconditional proof is present. |
 
 This ledger should be copied into any umbrella status document without

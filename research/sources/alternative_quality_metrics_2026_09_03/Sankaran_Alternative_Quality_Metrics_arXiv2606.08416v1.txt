@@ -1,0 +1,1506 @@
+Variants on theabc-Conjecture using Alternative Quality Metrics 1
+Akilan Sankaran 2
+Harvard University, Cambridge, MA 02138
+June 9, 2026
+ABSTRACT
+Theabc-conjecture (Masser and Oesterl´ e) has remained open for decades. By measuringabc-triples using a
+particularquality metric, the conjecture seeks the asymptotic distribution of triples of sufficient quality. We
+create new classes of quality metrics to develop variants on theabc-conjecture, with each metric based upon
+the doubly geometric mean of the prime factors of triples. We investigate the behavior of the resulting class
+of quality metrics; by determining families of triples that yield high quality, we establish several asymptotic
+results that are analogous to theabc-conjecture for our metrics. We also establish sharp phase transitions for
+the behavior of families of such quality metrics within specified parametrizations for smoothness of primes
+inabc-triples, using heuristics from the Szpiro ratio for associated Frey curves. Finally, we implement
+algorithms to determine triples with high qualities with sub-linear runtime, an asymptotic speedup over
+na¨ ıve approaches. Our analysis offers robust variations of, and connections to, theabc-conjecture that offer
+independent questions of analytical interest.
+1.Introduction
+Theabc-conjecture, introduced by Joseph Oesterl´ e [1] and David Masser [2] in the 1980s, has remained
+an active conjecture in number theory. The conjecture asserts an asymptotic result on what we denote the
+qualityq(·) of triples (a, b, c) witha+b=c, for coprimea, b, c; such triples are denotedabc-triples. The
+significance of theabc-conjecture extends far beyond an isolated statement; a proof would immediately
+imply Fermat’s Last Theorem forn≥6 [3, 4], the Fermat–Catalan and Beal conjectures, and Szpiro’s
+conjecture on elliptic curves [4], while also shedding light on the distribution of prime gaps. Outside pure
+mathematics, deeper understanding of prime structure underlies cryptographic primitives (e.g. RSA), effi-
+cient integer factorization (the General Number Field Sieve depends on the abundance of smooth numbers
+[5]), and even biological phenomena – such as the prime-numbered life cycles of cicadas.
+Several recent works have established theoretical results that provide insight towards the conjecture
+itself [6] and developed computer algorithms to find high-quality triples quickly [7, 8, 9]. Nitaj character-
+ized several of the relevant methodologies for triple searches [10]; van der Horst introduced an algorithm
+using elliptic curves [11]; and Elkies illustrated connections to other unsolved problems in number theory
+[12]. Given the intractable nature of determining high-quality triples under the standardquality metricto
+evaluate the suitability ofabc-triples as measured by the conjecture, a natural strategy is to pursuealter-
+nativequality metrics that preserve the conjecture’s qualitative content while being more tractable from
+analytic standpoints. This approach is the focus of the ensuing manuscript; we note that previous variants
+of the quality used in theabc-conjecture can be found in ratios involving conductors and discriminants of
+associated elliptic curves, as well as minor algebraic variations [4, 11, 13]. Our metrics, which are based on
+the Doubly Geometric Mean of the primes dividingabcfor each suchabc-triple (a, b, c), assume a distinct
+approach by directly penalizing the numberωof distinct prime divisors ofabc.
+The main contributions of this work are as follows:
+(1) We define several new quality metrics (Definitions 3.2, 4.1) in the same spirit as the standard
+quality for theabc-conjecture, which (i) penalize the number of distinct prime divisors ofabc, and
+(ii) incorporate roundness of anabc-triple.
+(2) We analyze all variant quality metrics by constructing families of high-quality triples and investigat-
+ing asymptotic growth rates (Theorems 3.5, 3.6, 3.8.) We develop an analogue of theabc-conjecture
+1May 2026 update to mss. includes Theorems 3.11–4.15. Results in Sec. 3 were formulated in 2023.
+2Correspondence: akilansankaran@college.harvard.edu. I am grateful for the guidance of Dr. David Metzler at Albuquerque
+Academy throughout this effort.
+1
+arXiv:2606.08416v1  [math.GM]  7 Jun 2026
+
+2
+(Theorem 3.9) and prove it conditionally on the infinitude of twin primes or Mersenne primes (The-
+orem 3.10), andunconditionallythrough Chen’s theorem (Theorem 3.12).
+(3) We also prove results on analogues of transition phases with respect to asymptotic behavior for
+parametrized families of quality metrics in Theorems 4.4, 4.7, and 4.8 – and develop connections
+to elliptic curves and theabc-conjecture itself in Theorems 4.10, 4.13, 4.15, and 4.16.
+(4) We show an asymptotic improvement on the brute force algorithm (Algorithm 1) via constructive
+enumerations of high-quality triples (Algorithms 3, 4), enabling scalable, sublinear-time computa-
+tion of high-quality triples under our alternative quality metrics.
+2.Background
+We first offer a brief description of the frame of reference from which we approach theabc-conjecture,
+as a manner of motivating our discussions in Section 3.
+2.1.From Mason-Stothers to the Standard Quality.Theabc-conjecture arises as the integer ana-
+logue of the Mason–Stothers Theorem [14, 15]. The latter result asserts that if there exist noncon-
+stant polynomialsx(t), y(t), z(t)∈C[t] sharing no common roots, such thatx(t) +y(t) =z(t), then
+max{degx,degy,degz}<|{µ∈C: (xyz)(µ) = 0}|. The integer analogue of this conjecture thereby
+replaces the degree deg by the absolute value, and the count of distinct rootsµof (xyz)(t) by theradical
+of a given triple. The following definitions arise.
+Definition 2.1(abc-triple).A triple(a, b, c)∈(Z +)3 is anabc-tripleif, and only if,a+b=cand
+gcd(a, b) = gcd(b, c) = gcd(a, c) = 1.
+Definition 2.2(Radical).Theradicalof an integern∈Z + is given byrad(n) := Q
+p|n, p∈P p.
+A first attempt at a quality metric is therefore of the formq test(a, b, c) =c/rad(abc), which measures
+theroundnessof the triple (a, b, c) as per the size of the largest entry,c. However, since the family
+(1,2 p(p−1)n −1,2 p(p−1)n) forp∈P,n∈Z + has rad(abc)<2c/p(by Fermat’s Little Theorem), it follows
+thatq test may become arbitrarily large. To produce a more analytically interesting metric, one might
+reduce the growth rate of the quality by introducing a logarithmic term in the numerator, developing the
+following.3
+Definition 2.3(Standard Quality).For anabc-triple(a, b, c), the standard quality is
+qs(a, b, c) = ln(c)
+ln(rad(abc)) .
+To our knowledge, the tightest uniform bound on the asymptotics of the qualityq s(·) for large triples is
+the following.
+Theorem 2.4(Stewart and Yu, 2001 [16]).There exists some fixedC 0 such thatc <exp
+ 
+C0
+3
+p
+rad(abc) (ln rad(abc))3 
+for allabc-triples.
+Taking exponentials reveals the boundq s(a, b, c)≤C 0(rad(abc))1/3(ln(rad(abc))1/3, which implies that
+the quality is bounded above by a sublinear function in the radical rad(abc).
+Only 241 triples withq s >1.4 are known [7], with the highest quality obtained beingq s ≈1.6299
+(due to Ressyat, per continued fractions [4, 11]). See Table 1 for a few such examples. We denote triples
+with qualityq s >1 to beabc-hits; those withq s >1.4 arehigh-quality, per the classification given by
+the standard quality. We note, additionally, that the triple with fifth-highest known quality,q s, is of the
+form (7 3,3 10,2 11 ·29); this triple utilizes a remarkably smaller number of primes than the other highest-
+ranking triples, under the standard quality [17]. This principle of prioritizing few primes in the coupled
+factorization ofabcmotivates our alternative metrics in Section 3.
+3We designate this quality as thestandard qualitysince it has been analyzed extensively and is the focal point of the
+conjecture itself [4, 7, 11, 13]. We restrict toabc-triples (witha, b, ccoprime); otherwise triples of the form (2 h,2 h,2 h+1) have
+unbounded quality.
+
+3
+a b c Qualityq s Creator
+2 310 ·109 235 1.6299 Ressyat [4]
+112 32 ·5 6 ·7 3 221 ·23 1.6260 de Weger [17]
+19·1307 7·29 2 ·31 8 28 ·3 22 ·5 4 1.6235 Browkin, Brzezinski [18]
+283 511 ·13 2 28 ·3 8 ·17 3 1.5808 Browkin, Brzezinski, Nitaj [8, 18]
+1 2·3 7 54 ·7 1.5679 de Weger [17]
+73 310 211 ·29 1.5471 de Weger [17]
+72 ·41 2 ·311 3 1116 ·13 2 ·79 2·3 3 ·5 23 ·953 1.5444 Nitaj [8]
+Table 1.Several of the known high-quality triples under the standard qualityq s (see
+Definition 2.3).
+2.2.Theabc-Conjecture.Having motivated the standard quality metricq s(a, b, c) itself, we now present
+the statement of theabc-conjecture.
+Conjecture 2.5(abc-conjecture [1, 2]).For any realε >0, there exist only finitely manyabc-triples
+(a, b, c)with qualityq s(a, b, c)>1 +ε. Equivalently,lim sup c→∞ qs(a, b, c) = 1.
+Via the previously described family ofabc-triples
+(1,2 p(p−1)n −1,2 p(p−1)n), forpprime, it is known that the qualityq s satisfiesq s(a, b, c)>1 for infinitely
+many suchabc-triples ([4]). However, the lim sup criterion remains open; additionally, it remains to be
+established that
+qs(a, b, c)≤2 over all such triples. This bound – which corresponds to theε= 1 case in Conjecture 2.5
+above – is known to imply Fermat’s Last Theorem forn≥6, for a primitive solution to the Diophantine
+equationx n
+0 +y n
+0 =z n
+0 would yieldq s ≥n/3, contradictingq s ≤2 [3, 4].
+We may also view the standard quality metric as an effective geometric mean of the primes dividingabc,
+when each prime is provided with the corresponding weight.
+For instance, we may write the prime factorization ofabcwith distinct primesp 1, . . . , pω, such thatωis
+the number of primes dividingabc. Manipulation yields
+qs(a, b, c) =
+P
+pi|c ei ln(pi)
+Pω
+i=1 ln(pi) ,(1)
+where we writec= Q pei
+i for all such primesp i dividingc. Recognizing the resultingω-th root as a
+geometric mean, we observe
+qs(a, b, c) = ln(c)
+ln
+ 
+ω
+pQω
+i=1 pω
+i
+  = ln(c)
+ln
+ 
+GM{pω
+i }
+  ,(2)
+where GM(·) denotes the geometric mean of the given entities. Thus, it follows that the standard quality
+is a comparison of the benchmark size measure ln(c) to the size measure provided by the geometric mean
+of the primes dividingabc, each weighted by the correspondingω. Thus, one might seek to define a quality
+metric that seeks to penalize thenumberof primes much more harshly than their size, effectively selecting
+againstsmoothness ofabc-triples. This effort is the task of the following section.
+3.DGM Quality Metric
+3.1.Motivation and Definition.Observe, in Table 1, that many high-quality triples (for instance, the
+third highest-quality triple of (19·1307,7·29 2 ·31 8,2 8 ·3 22 ·5 4)) use significantly more primes than those
+of the first, fifth, and sixth highest quality triples. Notably, the characterization of the standard quality
+in Definition 2.3 guarantees that quality metrics that may use a large number of primes, yet ensure that
+the radical rad(abc) remains small through comparatively large exponents on primes of small magnitude,
+might be prioritized over triples that utilize a small number of (possibly large) primes. Thus, we seek a
+metric that aggressively privileges a smalloverallnumber of primes within the factorization ofabc. 4
+4For instance, the cardinality of the solution set to some Diophantine equations may be bounded specifically with respect
+to a function of the number of prime factors of a given integer in consideration. Explicitly, the Thue equationF(x, y) =m
+
+4
+Our solution invokes the doubly geometric mean of such primes dividingabcin eachabc-triple. As
+motivation, consider the sequence of means with progressively strongertamingof large values; that is, if
+we write the sequence of means as
+AM(xi) := 1
+k
+kX
+i=1
+xi,
+GM(xi) := exp
+ 
+AM{lnx i}
+ 
+,
+DGM(xi) := exp
+ 
+exp(AM{ln lnxi})
+ 
+,
+then each step progressively adds an inner logarithmic factor and an outer exponential, which rescales
+such that all three means agree when thex i are all identical. For instance, on the set{2,3,5,7,1009}, the
+arithmetic mean 205.2 is dominated by the single large prime 1009 (for removing it drops the AM to 4.25),
+while the GM is 24 and the DGM is 5.04≈5. Thus, the DGM rewards triples that avoid many primes in
+their factorizations with lower prioritization of size, which isolatesω(the number of primes dividingabc)
+as the dominant parameter, to a greater extent than the partial role ofωin the standard quality metric
+[17]. Explicitly, we have the following.
+Definition 3.1(Doubly Geometric Mean).For a setS={x 1, . . . , xk} ⊂R >0, we evaluate
+DGM(S) := exp
+ 
+exp
+ 
+1
+k
+kX
+i=1
+ln ln(xi)
+  
+.
+Using the DGM metric, the resultingDGM Qualitymay be defined in the natural extension of equation
+(2).
+Definition 3.2(DGM Quality).Over all(a, b, c)∈(Z +)3 anabc-triple, andωbeing the number of primes
+dividingabc, withP ω ={p ω :p∈P, p|abc}, we define the qualityq DGM : (Z+)3 7→R + by
+qDGM(a, b, c) := ln(c)
+ln(DGM(Pω)) .
+Using Definition 3.1, the DGM quality may be rewritten in a suggestive manner. For a givenabc-triple
+(a, b, c) with corresponding setP ω as given in Definition 3.2 above, we have
+qDGM(a, b, c) = ln(c)
+exp
+  1
+ω
+P
+i ln ln(pω
+i )
+ 
+= ln(c)
+exp
+ 
+lnω+ 1
+ω
+P
+i ln lnpi
+  ,
+which may be rewritten as
+qDGM(a, b, c) = ln(c)
+ω· ω
+pQω
+i=1 ln(pi)
+.(3)
+We remark, upon comparing equation (3) with that of (1), that while both effectively involve a geometric
+mean of the prime divisors ofabcas apenaltyfor each triple, the qualityq DGM includes an explicit
+multiplicative contribution of 1/ω. Thus, the DGM quality penalizes triples with many prime divisors
+overall with a linearly dependent penalty onω. Additionally, the contribution of each prime towards the
+geometric mean islogarithmic, rather than a contribution ofp ω
+i within the standard quality. Thus, the
+DGM quality directly prioritizes triples with a smaller overall number of primes in their factorizations.
+3.2.Elementary Bounds and Families of High-Quality Triples.We begin by establishing a series
+of straightforward bounds on the DGM Quality, to contextualize later results on asymptotics. We begin
+by establishing the following lemma.
+(for a homogeneous formF, irreducible overQwith degreedgreater than 3) has solutions bounded byO(d ω(m)+1), where
+ω(m) is the number of primes in the factorization ofm. Ifmrepresentsabcin our case, an analogy may be drawn.
+
+5
+Figure 1.q DGM evaluated on allabc-triples (a, b, c) withc≤100. Red “x”s are DGM-hits,
+and black “x”s give the highest-quality triples for a validabc-triples upon a given value of
+c.
+Lemma 3.3.For any fixed integers∈Z + with distinct prime divisors of the formp 1, . . . , pωs, we must
+have that Pωs
+i=1 ln(pi)≤ln(s), with equality if, and only if,sis a squarefree integer.
+Proof.Write the prime factorization ofsas Qωs
+i=1 pei
+i , with all exponentse i satisfyinge i ≥1. Then, it
+follows that ln(s) = Pωs
+i=1 ei ln(pi). Hence, we must have that lns= P ei lnp i ≥ P lnp i since all the
+ei ≥1. □
+Therefore, if we are able to convert the expression in equation (3) to one involving asumof the logarithm
+of the primes dividingabc, the above result guarantees an upper bound on the denominator. The AM-GM
+inequality provides precisely this tool.
+Theorem 3.4.For everyabc-triple,q DGM(a, b, c)> 1
+3.
+Proof.Let (a, b, c) anabc-triple, withωdefined as before. We apply the AM-GM inequality on equation
+(3):
+qDGM(a, b, c)≥ ln(c)
+ω· 1
+ω
+Pω
+i=1 ln(pi) ≥ ln(c)
+ln(abc) ,
+where the second inequality invokes Lemma 3.3. Sincea, b < c, we have
+qDGM(a, b, c)> ln(c)
+ln(c3) = 1
+3 .
+□
+As in the case for the standard quality, we state that anabc-triple is aDGM hitif we haveq DGM(a, b, c)>
+1; per Definition 3.2, this is equivalent to the condition DGM(P ω)< c. Figure 1 showsq DGM evaluated on
+allabc-triples withc≤100, with DGM hits isolated.
+For any positive integerc, we define the sequences c := max{qDGM(a, b, c) : (a, b, c) is anabc-triple}at
+fixedc. We now seek to investigate lim sups c via various families of triples; this is suggested by certain
+subsets of triples in Figure 1 that appear to ascend roughly logarithmically in the size ofc.
+Upon inspection many of the high-quality triples (a, b, c) in Figure 1 utilize components ina, bwith
+maximally simple factorization – for instance, powers of 2 or 3. For instance, we may seta= 2 i andb= 3 j
+
+6
+for indicesi, j; if we have thatc=a+bis prime, thenω= 3. Consequently, equation (3) immediately
+gives
+qDGM(2i,3 j, c) = lnc
+3(ln 2·ln 3·lnc) 1/3
+= (lnc) 2/3 · 1
+3
+3√
+ln 2·ln 3
+,
+which diverges asymptotically as a function ofc. We designate these triples to constitute thepower of 2,
+3family; the asymptotic distribution of triples of this form influences the behavior of the DGM quality,
+as follows.
+Theorem 3.5.If there exist infinitely many pairs(i, j)⊂(Z +)2 such thatc= 2 i + 3j is prime, then
+lim supc→∞ sc =∞.
+Proof.LetN∈Z +, and pickc 0 >exp(3N
+√
+3N). Then, by the above bound,s c ≥q DGM(a, b, c)>
+1
+3 ·(ln(c 0))2/3 > Nfor allpower of 2, 3triples (a, b, c) withc > c 0.□
+This method may be extended to establish the following theorem in greater generality, with a slight
+modification of the relevant bound.
+Theorem 3.6.For distinct primesp, q, if there are infinitely many pairs(i, j)withc=p i +q j prime,
+thenq DGM(pi, qj, c) = (lnc) 2/3/ 3√3 lnplnq→ ∞, such thatlim sups c =∞.
+The previous two constructions are special cases of the following general theorem, which allows the
+integersa, bin anabc-triple to be more general products of powers overfixedsets of primes.
+Theorem 3.7(Fixed sequence of primes).For fixed primesa 1, . . . , an andb 1, . . . , bm and exponents
+i1, . . . , in, j1, . . . , jm inZ +, leta= Qn
+k=1 aik
+k ,b= Qm
+k=1 bjk
+k ,c=a+b. If there are infinitely many
+tuples(i 1, . . . , in, j1, . . . , jm)such thatcis prime, thenlim sup c→∞ sc =∞.
+Proof.Let
+ Qn
+k=1 aik
+k ,Qm
+k=1 bjk
+k , c
+ 
+be such a validabc-triple. For such triples, we haveω=m+n+ 1, and
+equation (3) gives
+qDGM(a, b, c) = lnc
+(m+n+1)
+ 
+ln(c)· Qm+n
+i=1 (ln(pi))
+ 1/m+n+1
+= (lnc) 1− 1
+m+n+1 ·K,
+whereK= 1
+m+n+1
+ Qm+n
+i=1 lnp i
+ −1/(m+n+1) is independent of the choice of exponentsi 1, . . . , in, j1, . . . , jm.
+Since 1−1/(m+n+ 1)>0, the logarithmic term, and henceq DGM → ∞, diverge along the infinite family
+ofabc-triples asc→ ∞. □
+Theorems 3.5 and 3.6 thereby give the casesm=n= 1 for the above result, with the rate of growth
+decreasing as more primes are admitted (andm, ngrow).
+Such methods of searching for triples with concise factorizations also yield other families of the form
+(1, c−1, c) for various special choices ofc. For instance, for a given Fermat primep= 2 n + 1, aFermat
+tripleof the form (1,2 n,2 n+1) may be formed, such thatω= 2. An analogous derivation to Thm. 3.5 for
+this value ofωgivesq DGM (1,2 n,2 n+1)≥ √n/2 for all such triples. Hence, divergent asymptotic behavior
+occurs, conditionally on the infinitude of Fermat primes, but only five such primes are known [19]).
+3.2.1.Mersenne Triples.A natural extension of this approach, however, is to invoke Mersenne primes (of
+the form 2 n −1) rather than Fermat primes. For all primes of the form 2 n −1, we must have thatnitself
+is prime, creatingMersenne triplesof the form (1,2 n −1,2 n) for suitable primen,2 n −1 [20]. There are
+51 known Mersenne primes; the largest known prime overall is Mersenne, withn= 82,589,933 [21]. In an
+analogous manner to the Fermat triple case, a bound onq DGM may be established for Mersenne triples.
+Theorem 3.8.For all Mersenne triples(1,2 n −1,2 n),q DGM(a, b, c) = √n/2.
+
+7
+Proof.Let (1,2 n −1,2 n) be a Mersenne triple, such thatn,2 n −1 are both prime. Then, we must have
+thatω= 2, and hence, applying (3),
+qDGM = lnc
+2
+√
+ln 2·lnc
+=
+√
+nln 2· 1
+2
+√
+ln 2
+=
+√n
+2 .□
+Thus, for the largest known Mersenne prime, which corresponds ton m = 82,589,933, we have
+qDGM(1,2 nm −1,2 nm) =
+√82,589,933
+2 ≈4543.95,
+which is the triple corresponding to the highest DGM quality that we found using the Mersenne method.
+Therefore, upon the Lenstra-Pomerance-Wagstaff conjecture that there exist an infinitude of Mersenne
+primes (with distribution such that the number of such primes below exponentnis approximated by
+exp(γ)·log(log(n))) for Euler-Mascheroni constantγ), it follows from Theorem 3.8 that lim sup c→∞ sc =∞
+[22]. Conversely, ifs c is bounded above, then it follows that the conjecture that there exist infinitely many
+Mersenne primes fails.
+These results motivate the following analogue of theabc-conjecture for the DGM quality; although this
+analogue is not quite as interesting as the conjecture itself, since we establish that the quality isunbounded
+asymptotically, it nonetheless lends itself to modifications that will be of interest in Section 4.
+Theorem 3.9(DGM Quality Asymptotics).We have thatlim sup c→∞ sc =∞.
+We remark that Theorem 3.9 follows from either (i) the infinitude of Mersenne primes, (ii) the infinitude
+of Fermat primes, (iii) the infinite of primes of the formp i +q j for fixed primesp, q, or (iv) any case covered
+by Theorem 3.7. These observations follow from Theorems 3.5, 3.6, 3.7, and 3.8.
+3.2.2.Alternative Conditional Proof through Twin Primes.The constructions in Theorems 3.5-3.8 all share
+the structural property that at most one of the entries of theabc-triple (a, b, c) remains a prime, such that
+ω(abc) remains invariant over the resulting families. We now give a distinct conditional route in which two
+such primes grow with the size ofc, such that the constraint is provided by twin primes. This yields a new
+family of triples whose existence is not subsumed by Theorems 3.5–3.8, since two entries of the triple vary
+(rather than being drawn from a fixed prime set). 5
+Theorem 3.10(Twin-prime approach to Theorem 3.9).All triples of the form(a, b, c) = (2, p, p+ 2)for
+pprime satisfy
+qDGM(2, p, p+ 2)∈ O
+ 
+(lnc) 1/3
+3 (ln 2)1/3
+!
+asc→ ∞, and hence if the twin prime conjecture holds,lim sup c→∞ sc =∞, establishing Theorem 3.9.
+Proof.Accordingly, all such triples (a, b, c) = (2, p, p+ 2) areabc-triples, sincepis odd and bothp, p+ 2
+are primes. Thus,ω= 3 results, with all three primes being distinct sincep≥3 is required of a twin prime
+pair.
+Thus, applying equation (3), we have
+qDGM(2, p, p+ 2) = ln(p+ 2)
+3 (ln 2·ln(p)·ln(p+ 2)) 1/3 .
+For largep, we may invoke the approximation that ln(p+ 2) = lnp+ ln(1 + 2/p) = lnp+O(1/p), and
+hence lnp·ln(p+ 2) = (lnp) 2(1 +o(1)), yielding the result that
+(ln 2·lnp·ln(p+ 2)) 1/3 = (ln 2)1/3(lnp) 2/3(1 +o(1)).
+5While this method is less computationally efficient, it motivates the result in section 3.2.3 that gives an unconditional
+proof of Theorem 3.9.
+
+8
+Substitution yields
+qDGM(a, b, c) = ln(c)
+3 (ln 2)1/3(ln(c))2/3(1 +o(1))
+∈ O
+ 
+(ln(c))1/3
+3 (ln 2)1/3
+!
+for triples of this form. Therefore, up to constant scaling, the DGM quality grows proportionately to
+(ln(c))1/3 along this family; thus, if the twin-prime family is infinite, then there are infinite such triples of
+the form (2, p, p+ 2), and we have lim sup c→∞ sc =∞.□
+We remark that Theorem 3.10 is structurally distinct from the strategy of Mersenne primes or fixed
+families of primes, since the twin prime direction yields a quality metric that grows slightlyslowerin ln(c)
+asymptotically, and harnesses an entirely disjoint family of triples, yet nonetheless gives a divergent result
+fors c.6
+3.2.3.Implications of Chen’s Theorem.All preceding routes to establish Theorem 3.9 are conditional on
+conjectures (for instance, the Twin-Prime or Lenstra-Pomerance-Wagstaff conjectures). We now demon-
+strate that, upon coupling the twin-prime construction provided by Theorem 3.10 with a slight weakening
+involving numbers that are the products of exactly two primes (P 2 numbers), then the theorem holds
+unconditionally. To establish this, we invoke the following result [24].
+Theorem 3.11(Chen [24]).There exist infinitely many primespsuch thatp+ 2is either (i) prime, or
+(ii) a product of two primes – i.e., aP 2 number.
+Let the setSbe the set of primesp∈Z + such thatp+ 2 lies inP∪P 2. Then, by the above theorem,
+we know|S|=∞. Harnessing this result gives the following.
+Theorem 3.12(Unconditional proof of Theorem 3.9).We havelim sup c→∞ sc =∞per the following
+family: for allp∈S, the triple(a, b, c) = (2, p, p+ 2)satisfies
+qDGM(a, b, c)≥ (ln(c))1/4
+4 (ln(2)/4)1/4 .
+Proof.Fix somep∈Swithp≥3; Theorem 3.11 guarantees infinitely many suchp. Note that eitherp+ 2
+lies inP, or it is aP 2 number. In either case, sincep, p+ 2 are odd, the elements 2, p, p+ 2 are pairwise
+coprime, such that (a, b, c) := (2, p, p+ 2) is anabc-triple. We now split into two cases.
+The first case is whenp+ 2 is prime. In this case, we simply apply the argument of Theorem 3.10 since
+ω= 3 in this case, we have
+qDGM(a, b, c)≥ (lnc) 1/3
+3 (ln(2))1/3 ≥ ln(c)1/4
+4(ln(2)/4)1/4 ,
+where the latter inequality holds for sufficiently largec.
+In the latter case, we have thatp+ 2∈P 2, and hencep+ 2 =qrforq, rprime and, without loss of
+generality,q≤r. Note that sincep+ 2 is odd, bothq, rare odd; additionally, we havep∤p+ 2, since
+p≥3, and hencepdoes not lie in the set{q, r}. Therefore, the primes dividingabc= 2pqrare exactly
+{2, p, q, r}, which giveω= 4. We note that the subcaseq=rcollapses toω= 3 and gives an even stronger
+bound than the twin prime case above, so we assumeq < rfor the remainder of the derivation. Applying
+(3) gives
+qDGM(a, b, c) = lnc
+4(ln 2·lnp·lnq·lnr) 1/4 .
+6By the Hardy-Littlewood primek-tuples heuristic (which remains unproven), the density of twin primes belowNasymp-
+totically approaches 2C2N/(lnN) 2 withC 2 the twin-prime constant, so this family is heuristically far denser than the Mersenne
+family, which may be advantageous for future computational methods on the DGM quality [23].
+
+9
+Figure 2.Comparative attainment of high-quality triples through distinct methods, enu-
+merated in Section 3.2. The Mersenne method yields significantly higher quality triples due
+toknownenumerated Mersenne primes.
+Noting that ln(q) + ln(r) = ln(qr) = ln(c), AM-GM applied to ln(q),ln(r) gives
+p
+ln(q) ln(r)≤ln(c)/2.
+Hence, together withp < c, we have
+ln(2)·ln(p)·ln(q)·ln(r)≤ ln(2)
+4 (ln(c))3.
+Therefore, taking fourth roots,
+qDGM(a, b, c)≥ ln(c)
+4 (ln(2)/4)1/4(ln(c))3/4 = (ln(c))1/4
+4 (ln(2)/4)1/4 ,
+and the desired inequality holds in either case. Since|S|=∞,c=p+ 2 is unbounded along such triples
+corresponding top∈S, so the right-hand side tends to∞. Thus, lim sup c→∞ sc =∞and Theorem 3.9
+holds. □
+We remark briefly on the exponent in this proof. Our exponent on the logarithmic term is 1/4, which
+derives from the AM-GM usage; however, the proof of Chen’s theorem implies that the small prime factor
+qin the proof above satisfies that log(q)/log(p+ 2) is bounded above by 1/2 +o(1). 7 Under such size
+control ofq, the bound improves toq DGM(a, b, c)∼(ln(c)) 1/3−ε along this family, which matches those of
+the twin prime family. We leave a fully unconditional refinement of the critical exponent of divergence of
+the DGM quality as an open problem. 8
+3.3.Selected Experimental Observations.Figure 2 demonstrates the evaluation ofq DGM on the
+classes of triples in the previous section, with the highest value being 4543.95 from the Mersenne fam-
+ily. Table 2 lists all triples (1, b, c) withc≤140,000 andq DGM ≥1.6; we note that the maximumωis
+4, such that triples with small overall numbers of prime divisors are prioritized. Table 3, comparatively,
+evaluates the known triples corresponding to arg max (a,b,c) qs(a, b, c) for the standard quality underq DGM:
+all are DGM-hits, butnoneare of extremely high DGM quality.
+4.DGM Quality Class
+4.1.Motivation and Definition.Noting that the DGM Quality asymptotically tends to infinity, while
+the standard quality conjecturally tends to 1 in a lim sup fashion, we produce tunable variants of the DGM
+quality using parametersα, β, as follows.
+7This follows from asymptotics under the requirementp 1/10 < q≤p 1/2 ≤r≤p 0.9 [24].
+8One might define arunning averager(c 0) := P
+x∈A qDGM (x)/|A|, whereA={triples (a, b, c) :c≤c 0}; this experimentally
+tends to a constant near 0.528 asc→ ∞.
+
+10
+a b c ω qDGM
+1 4374 4375 4 1.68658
+1 8191 8192 2 1.80279
+1 13121 13122 3 1.63528
+1 23327 23328 3 1.70077
+1 52488 52489 3 1.79101
+1 59048 59049 4 1.6593
+1 62207 62208 3 1.80963
+1 65536 65537 2 2 (rd.)
+1 73727 73728 3 1.82815
+1 131071 131072 2 2.06155
+1 139967 139968 3 1.8972
+1 139968 139969 3 1.8972
+Table 2.Selected triples withq DGM ≥1.6,a= 1,c≤140,000. Blue triples correspond to
+Mersenne triples, and the red triple is the largest known Fermat triple.
+a b c Standard Quality DGM Quality ω
+2 310 ·109 235 1.6299 2.1424 4
+112 32 ·5 6 ·7 3 221 ·23 1.6260 1.8226 6
+19·1307 7·29 2 ·31 8 28 ·3 22 ·5 4 1.6235 2.0388 8
+283 511 ·13 2 28 ·3 8 ·17 3 1.5808 1.9809 6
+1 2·3 7 54 ·7 1.5679 1.6866 4
+73 310 211 ·29 1.5471 1.8386 4
+72 ·41 2 ·311 3 1116 ·13 2 ·79 2·3 3 ·5 23 ·953 1.5444 1.9180 10
+Table 3.Bestq s triples underq DGM. The seventh-highestq s triple has surprisingly low
+qDGM due to largeω.
+Definition 4.1(DGM Quality Class).For specificα≥0,β >0andU={p ωα
+i :p i |abc, p i ∈P}, we set
+qC(a, b, c;α, β) := ln(c)
+ 
+ln(DGM(U))
+ β .
+Note thatq C(·; 1,1) reduces toq DGM, and henceαcorresponds to a finer influence ofωitself, whereas
+βcontrols overall growth of the denominator.
+Fixα, βas above. By noting that
+ln(DGM(U)) = exp
+  1
+ω
+P
+i ln ln(pωα
+i )
+ 
+= exp
+ 
+αlnω+ 1
+ω
+P
+i ln lnpi
+ 
+=ω α · ω
+qQ
+i lnp i,
+it follows that
+qC(a, b, c;α, β) = lnc
+ 
+ωα · ω
+pQω
+i=1 lnp i
+ β(4)
+over allabc-triples (a, b, c), per a similar rewriting of our DGM quality. Therefore, an analogous result to
+Theorem 3.4 may be established.
+Theorem 4.2.For allabc-triples andα∈[0,1],β >0,
+qC(a, b, c;α, β)> ln(c)
+(ωα−1 ln(abc))β ≥ 1
+3(ωα−1)β > 1
+3 .
+Proof.We apply AM-GM, such that ω
+pQ lnp i ≤ 1
+ω
+P lnp i; Lemma 3.3 gives thatq C(a, b, c;α, β)>
+ln(c)/((ωα−1 ln(abc))β). This bound holds independent of the restriction onα. Additionally, substituting
+ln(abc)<3 ln(c) andω α−1 ≤1 forα≤1, we have the desired inequality.□
+
+11
+We may also establish a few elementary results with respect to the variation ofαwhileβis fixed. Indeed,
+for 0≤α 1 < α 2 and some fixedβ >0, we have thatq C(·;α 1, β)> q C(·;α 2, β), since the denominator of
+equation (4) is smaller forα 1 whileβis held constant. Indeed, for the extreme caseα= 0, we observe
+qC(a, b, c; 0,1) =ω·q DGM. In this case, we observe that the qualityqC(a, b, c; 0,1) diverges (as a consequence
+of Theorem 3.9) and is bounded below by 1 (independently resolving the casesω≥3, where we apply
+Theorem 3.4;ω= 2, where we note that Theorem 4.2 withα= 0 yieldsq C(a, b, c; 0,1)> ω/2 = 1; and
+ω= 1, which gives a single triple). Additionally, a natural extension of Theorem 3.8 givesq C(a, b, c; 0,1)≥√nfor Mersenne triples, and similarly for triples of the form in Theorem 3.12, such that divergence is
+guaranteed.
+We may also consider the variation ofβunder fixed values ofα. We note that the increase ofβslows
+growth of the quality metric monotonically. That is,β= 2 keepsq C(·; 1,2)≤2 for all examined triples;
+the high-quality triples forβ= 2 thereby form a refined subset of those forβ= 1. Thus, the asymptotic
+control ofβlends itself to the following conjecture.
+Conjecture 4.3.For everyα≥0, there existsβ=β(α)>0such that
+lim sup
+c→∞
+max{qC(a, b, c;α, β) : (a, b, c)abc-triple}=L
+for some finite, nonzeroL.
+4.2.Phase Transitions in DGM Parameter Regimes.Conjecture 4.3 asserts that, for eachα, there
+exists someβgiving a finite, nonzero limit. We investigate partial justifications of this claim through
+variants with respect to specific values ofβthat givephase transitionsin the asymptotic behavior of the
+DGM quality class. We harness explicit families from Section 3.2, identifying acriticalβfrom which the
+asymptotic quality transitions from divergence to convergence to a finite value.
+LetFbe a family ofabc-triples such thatω(abc) =ωis constant (motivated by Section 4), andkof the
+ωprimes used grow on the order of Θ(c), such that the otherω−kprimes are uniformly bounded. Call
+this the (ω, k)-condition. For instance, Mersenne triples have (ω, k) = (2,1); twin-prime triples (2, p, p+ 2)
+satisfy (ω, k) = (3,2); and power of 2,3 triples (withcprime) have (ω, k) = (3,1). We utilize this principle
+to establish the following.
+Theorem 4.4(Phase transition forq C Class).Suppose there exists an infinite familyFofabc-triples
+satisfying the(ω, k)-condition, for fixedω, k. Then, it follows that the critical exponent isβ 0 =ω/k, such
+that
+lim
+c→∞,(a,b,c)∈F
+qC =
+
+
+
+∞β < ω/k,
+1
+ωαω/k ·K 1/k β=ω/k,
+0β > ω/k,
+for a finite constantK.
+Proof.Let (a, b, c)∈ F, and write the primes dividingabcas{p 1, . . . , pω−k, q1, . . . , qk}, such that the primes
+pi are all bounded and we have that ln(q j) = ln(c)·(1 +o(1)) for eachj∈ {1, . . . , k}. SetK:= Qω−k
+i=1 lnp i,
+which is constant with respect to (a, b, c). Applying (4) gives
+qC(a, b, c;α, β) = ln(c)
+ 
+ωα ω
+qQ
+i ln(pi)· Q
+j ln(qj)
+ β .
+Since lnq j = lnc·(1 +o(1)) forj= 1, . . . , k, the inner product factors as Q
+i ln(pi)Q
+j ln(qj) =K·(ln(c)) k ·
+(1 +o(1)). Substitution gives
+qC(a, b, c;α, β) = ln(c)
+ωαβ
+ Qω−k
+i=1 lnp i
+ β/ω
+(ln(c))kβ/ω(1 +o(1))
+=ω −αβK−β/ω(ln(c))1−kβ/ω(1 +o(1)).
+Noting that all terms but the ln(c) term are constant in the resulting expression, it follows that sgn(1−kβ/ω)
+determines the asymptotic behavior ofq C(·;α, β) on such triples. Indeed, atβ=ω/k, ln(c) vanishes and
+
+12
+the limit equalsω −αω/kK−1/k, as desired. Note that, assuming this result, the resulting lim supq C(a, b, c0)
+over triples (a, b, c0), asc 0 → ∞, must tend to∞forβ < ω/kand must be bounded below byω −αω/kK−1/k
+atβ=ω/k. □
+Corollary 4.5.At the criticalβ 0 =ω/k, the (conditional) limit values along specified families are as
+follows:
+Family ω k βc limc qC atβ 0
+Mersenne Triple 2 1 2 1/(22α ln(2))
+Power of 2,3 Triples 3 1 3 1/(33α ln(2) ln(3))
+Twin primes (2, p, p+2) 3 2 3/2 1/(33α/2(ln(2))1/2)
+The above corollary follows from direct substitution into Theorem 4.4 under appropriate choices ofK.
+Thus, the DGM Quality class provides a parametrized tuning with respect to the families in Section 3,
+such that for suitableβ, the analogue of Conjecture 4.3 appears to hold. The significance of Theorem 4.4
+is therefore as follows: the criticalβ 0 effectively gives us asaturation conditionfor the relevant families
+of triples, comparing the number of primesusedfor the family (ω) to the number that grow (k). As
+βis increased, families progressively saturate in a manner of pruning the highest-quality triples; indeed,
+crossingβ≥β 0 =ω/kfor the corresponding family ensures that such a family is not considered within
+the corresponding lim supc→∞ qC(·, c;·, β) in Conjecture 4.3.
+Although this result does not establish Conjecture 4.3, it provides a lower bound ons c for each such
+family; extending this result to a complete proof would require control ofω(abc) for all triples, perhaps
+through Evertse’s S-unit equation theorem [6]. In the restricted case ofω= 2, however, an upper bound
+may be demonstrated. We now establish this lim sup result in this case for the DGM Class, invoking
+Milailescu’s Theorem, as follows.
+Theorem 4.6(ω= 2 Situation).Forα≥0, lets (2)
+c (α, β) := sup{qC(a, b, c;α, β) :ω(abc) = 2};then,
+lim sup
+c→∞
+s(2)
+c (α, β) =
+
+
+
++∞β <2
+1
+22α ln 2 β= 2
+0β >2;
+the cases are conditional on the infinitude of Mersenne primes (or, equivalently, of Fermat primes).
+Proof.We first discuss the structure of triples withω= 2. If (a, b, c) is such a triple, then let the two primes
+be of the form{p 1, p2},p 1 ̸=p 2. Sincea, bare coprime, we may writea=p i
+1 andb=p j
+2 for somei, j≥0
+up to relabeling. Hence, we havec=p i
+1 +p j
+2, which must be of the formc=p m
+1 pn
+2 for somem, n≥0.
+Additionally, the coprime constraint guarantees that eitherc= 1, which is impossible (asa, b≥1), or
+that one ofa, bmust be 1. In the latter case, assume thata= 1, forcing the equation 1 +p j
+2 =p m
+1 pn
+2.
+Thus, eitherj= 0, giving the triple (1,1,2), orn= 0 by coprimality. In then= 0 situation, we have
+b=p m
+1 −1 =p j
+2, such thatp j
+2 + 1 =p m
+1 . By Mihailescu’s theorem, the only solution to this equation with
+indicesm, j≥2 is given by (p 1, m, p2, j) = (2,3,3,2), corresponding to (a, b, c) = (1,8,9) [25]. The case
+j= 1 gives Mersenne triples by parity considerations, such thatp 1 = 2 andp 2 = 2m −1. Moreover, the
+casem= 1 gives Fermat triples by parity onp 2, such thatp 2 = 2 andp 1 = 2j + 1. The situation where
+b= 1 gives identical triples up to symmetry ina, b. Hence, the full class of triples of this form are Fermat
+triples and Mersenne triples, with the exception of (1,1,2).
+Therefore, an infinite sequence ofabc-triples withω= 2 andc→ ∞must contain an infinite subsequence
+drawn from either Mersenne triples or Fermat triples. In either case, the primes dividingabclie in{2, p}
+wherep∼c(up to±1). Thus, by equation (4),
+qC(a, b, c) = ln(c)
+ 
+2αp
+ln(2)·ln(p)
+ β = (ln(c))1−β/2
+2αβ(ln(2))β/2(1 +o(1)) ,
+by ln(p) = ln(c)(1 +o(1)). Thus, we have a trichotomy dependent on sgn (1−β/2): ifβ <2, then
+qC(a, b, c;α, β)→ ∞along this family, if it is indeed infinite; ifβ= 2, thenq C →1/(2 2α ln 2) along this
+family; and ifβ >2, thenq C(a, b, c;α, β)→ c→∞ 0. All three results are conditional on infinitude of this
+
+13
+family. Moreover, in the caseβ <2, lim sup c→∞ sc ≥lim sup c→∞ s(2)
+c forces that lim sup c→∞ sc =∞,
+conditionally, in this case. □
+We note thatβ 0 = 2 in the DGM Class thereby behaves in a functionally analogous manner to the critical
+value ofε→0 in the standard formulation of the conjecture (Conjecture 2.5), such that the statement
+that finitely many triples exceed the critical value corresponds to the conjecture itself.
+Theω-restriction in Theorem 4.6 is essential; in particular, a bound that is uniform inallωon a quality
+that is functionally similar to the standard quality is essentially equivalent to the conjecture itself [4, 6].
+However, to make progress onunconditionallyestablishing boundedness claims, we appeal to the results
+established through Chen’s Theorem and in Theorem 3.12, as well as boundedness conditions that invoke
+abcitself. 9
+Theorem 4.7(Unconditional lower bound).For everyα≥0and allβ <4/3,
+lim sup
+c→∞
+sc =∞,
+wheres c0 = supabctriples(a,b,c 0){qC(a, b, c;α, β)}.
+Proof.We apply the second family used in the proof of Theorem 3.12, which is an infinite family of triples
+(2, p, qr) withω= 4, such that three of the primes used grow as Θ(c), Θ( √c),Θ( √c). Applying the bound
+in this theorem for such triples andω= 4, we have
+qC(a, b, c;α, β)≥ (ln(c))1−3β/4
+4αβ (ln(2)/4)β/4 .
+Forβ <4/3, we have 1−3β/4>0, so the (ln(c))1−3β/4
+4αβ (ln(2)/4)β/4 → ∞asc=p+ 2→ ∞along the infinite setS
+from Chen’s Theorem. □
+We remark that, under the twin prime conjecture, the threshold of Theorem 4.7 tightens toβ <3/2.
+We now invoke a conditional upper bound onq C that derives from theabc-conjecture itself.
+Theorem 4.8(Upper bound, assumingabc).Assume Conjecture 2.5, and fixω 0 ≥2. Then, for allε >0,
+α≥0,β≥ω 0, andabc-triples withω(abc) =ω 0,
+lim sup
+c→∞, ω=ω0
+qC(a, b, c;α, β)≤(1 +ε) β/ω0 ωβ/ω0−αβ
+0 K(β, ω 0),
+whereK(β, ω 0) := (ln(2)) −β(1−1/ω0). Thus,lim sup c→∞ qC(a, b, c;α, β)<∞forβ=ω 0 and vanishes for
+allβ > ω 0.
+Proof.Let (a, b, c) satisfyω(abc) =ω 0. Letp 1, . . . , pω0 be the prime divisors ofabc, withp m := max{pi}ω0
+i=1.
+Since rad(abc) = Qω0
+i=1 pi ≤p ω0
+m , we have ln(p m)≥ ln(rad(abc))
+ω0
+. Letε >0. Theabc-conjecture gives
+lnc≤(1 +ε) ln(rad(abc)) forcgreater than somec 0; hence, lnp m ≥lnc/((1 +ε)ω 0) for suchc > c 0.
+Combining this result with ln(p i)≥ln(2) for the remaining primes, we have
+Qω0
+i=1 ln(pi)≥(ln(2)) ω0−1 · ln(c)
+(1+ε)ω0
+,
+such that if we letG= ( Qω0
+i=1 ln(pi))1/ω, it follows that
+G≥(ln 2) 1−1/ω0 ·
+ 
+(1 +ε)ω 0
+ −1/ω0
+(lnc) 1/ω0.
+Substituting intoq C(a, b, c;α, β) = ln(c)/(ω α
+0 ·G) β,
+qC(a, b, c;α, β)≤ (1 +ε) β/ω0 ωβ/ω0−αβ
+0
+(ln(2))β(1−1/ω0) (ln(c)) 1−β/ω0
+Hence, forβ=ω 0, the exponent 1−β/ω 0 ≤0, such that the right-hand side is bounded; moreover, the
+right-hand bound vanishes whenβ > ω 0.□
+Theorems 4.6, 4.7, and 4.8 give the following phase diagram with respect to the value ofβ:
+9We remark that Vojta’s conjecture would settle the uniform case unconditionally if established [26].
+
+14
+Region lim supc→∞ sc
+β <4/3 ∞unconditionally (Thm 4.7)
+4/3≤β <2 ∞if∃inf. Mersenne primes
+β=ω 0, forω(abc) =ω 0 finite, givenabc(Thm 4.8)
+β > ω 0, forω(abc) =ω 0 0, givenabc(Thm 4.8)
+We note that, even assuming theabc-conjecture, there does not exist a bound on lim sup c→∞ sc that is
+uniform, since the criticalβ 0 =ω/kfor a family of triples (a, b, c) withkprimes growing as Θ(c) primes
+grows linearly withωand thereby unbounded asω→ ∞. That is, a uniform bound on lim sup c→∞ qC
+would be a statement strictly stronger than theabc-conjecture itself.
+An additional bound may be established viasmoothnessconsiderations on the relevantabc-triples.
+Theorem 4.9(Smooth-Prime Bound).For fixedω 0 ≥3,A >0, letT ω0,A comprise ofabc-triples with
+ω(abc) =ω 0 andP(abc)≤c A, whereP(n)is the largest prime dividingn. Then for allα≥0, β≥ω 0,
+lim sup
+(a,b,c)∈Tω0,A,c→∞
+qC(a, b, c;α, β)<∞.
+Proof.Let (a, b, c)∈ T ω0,A; the prime factors dividingabclie in the setS:={p 1, . . . , pω0}. Sincea+b=c
+with gcd(a, b) = 1, the pair (u, v) = (a/c, b/c) satisfies anS-unit equationu+v= 1, sincea/c, b/care
+S-units. By a result due to Gy¨ ory, there exists a constantC(ω 0), depending only onω 0, such that
+(5) lnc≤C(ω 0)
+ω0Y
+i=1
+ln(pi) =C(ω 0)G ω0,
+whereG:=
+ Qω0
+i=1 lnp i
+ 1/ω0
+[27]. Applyingp i ≤P(abc)≤c A for eachigivesG≤Alnc. By (5), we have
+lnc≤C(ω 0) (Alnc) ω0 =C(ω 0)A ω0(lnc) ω0, and hence (lnc) 1−ω0 ≤C(ω 0)Aω0, or, equivalently,
+(6)G≤Alnc≤A·
+ 
+C(ω 0)Aω0
+  1
+ω0−1 =:K(ω 0, A),
+a constant depending only onω 0 andA. Substituting equation (5) into (4) gives that
+qC = lnc
+ωαβ
+0 Gβ
+≤ C(ω 0)
+ωαβ
+0
+Gω0−β;
+sinceG≤K(ω 0, A) is a constant depending only onω 0 andA, which are both fixed with respect to triples,
+andω 0 −β≤0 forβ≥ω 0, the right side is bounded above byC(ω 0)ω −αβ
+0 K(ω 0, A)ω0−β, which is finite.
+Hence, lim supc→∞ qC on this family is bounded above for allβ≥ω 0, as desired.□
+4.3.Mapping Principles for Phase Transitions.We now progress from phase transition results for
+constantωto asymptotics ofq C without restrictions on fixedω. As intuition, we define a mapρ: (Z +)3 →
+Efrom triples to the set of semistable elliptic curvesEby mapping eachabc-triple to a corresponding
+semistable Frey elliptic curve, given in Weierstrass form [28, 29]:
+ρ(a, b, c)7→E a,b,c :y 2 =x(x−a)(x+b)
+Additionally, we use invariants ofEa,b,c to evaluateq C, including the minimal discriminant ∆E = 2−8(abc)2
+and the conductorN E, which equals rad(abc) = Qω
+i=1 pi.
+Moreover, it must be noted that the Szpiro ratioL= ln|∆ E|/lnN E satisfiesL= 2 ln(abc)+O(1)
+lnN ≈ 2 lnc
+lnN =
+2qs(a, b, c) [30]. Szpiro’s conjecture assertsL≤6 +εfor all semistable elliptic curves overQ, which would
+implyq s ≲3; more generally, boundingL≤2σis equivalent to ln(c)≲σln(N) [6, 30]. This motivates
+the parametrized result below; we include a correction−λωlnωthat arises from the gap between ln(abc)
+and lnc. That is, the bound on the Szpiro ratioL≤2σgives 2 lnc≤2σlnN−2 ln(ab) +O(1). To
+estimate ln(ab), we use a heuristic given by the prime number theorem: if theωprimes dividingabcare
+typical primes near their median size, lnN= Pω
+i=1 lnp i ∼ωln
+  lnc
+ω
+ 
+=ωln(ln(c))−ωln(ω); this gives
+ln(ab)≤ωlnP(abc)∼ωln lncand suggests the correction is of orderωlnω. We thus impose the heuristic
+ansatz
+ln(c)≤σln(N)−λωln(ω),
+
+15
+for positiveλ, noting that this is implied by Szpiro’s conjecture whenσ= 3 andλis an absolute constant. 10
+Theorem 4.10(Szpiro-Parametrized Phase Transition).LetF={(a n, bn, cn)}∞
+n=1 be a sequence ofabc-
+triples withc n → ∞, and letω n =ω(a nbncn). Assume thatlnc n ≤σlnN n −λω n lnω n, for constantsσ≥1
+andλ≥0, with the Szpiro boundL≈2σ. Ifω n ∼δ·(lnc n)γ for constantsδ >0and0< γ <1, then we
+have
+lim sup
+(an,bn,cn)∈F,c n→∞
+qC =
+( 1
+δ1/γ (ln(2))β αβ= 1/γ
+0αβ >1/γ.
+Before evaluating this asymptotic behavior, we establish a lower bound on the denominator ofq C, as
+follows.
+Lemma 4.11.LetN= Qω
+i=1 pi squarefree, withω≥2distinct prime factors. Then,G:= ( Qω
+i=1 lnp i)1/ω
+satisfies
+G≥(ln(2)) 1−1/ω
+ ln(N)
+ω
+ 1/ω
+.
+Proof.Consider such anN, and write 2≤p 1 < p 2 < . . . < p ω upon ordering. Sincep i ≥2, the firstω−1
+terms giveQω
+i=1 ln(pi)≥(ln(2)) ω−1. Additionally, the maximal prime factor satisfiesp ω ≥N 1/ω, such that
+ln(pω)≥ln(N)/ω; combining these results gives Qω
+i=1 ln(pi) = ln(p ω)Qω−1
+i=1 ln(pi)≥ln(2) ω−1(ln(N)/ω);
+the result follows. □
+We now utilize this result to establish the proof of the finer lim sup condition onq C.
+Proof of Theorem 4.10.Let (a n, bn, cn)∈ F, and suppose the desired conditions regardingc n andω n are
+satisfied. Substituting the bound provided by Lemma 4.11 into equation (4) gives
+qC(an, bn, cn;α, β)≤ ln(cn)
+ωαβ
+n
+ 
+(ln 2)1−1/ωn
+ 
+lnN n
+ωn
+ 1/ωn
+ β
+= ωβ/ωn−αβ
+n
+(ln(2))β(1−1/ωn) · ln(cn)
+(ln(Nn))β/ωn
+.
+By the bound on ln(c n), rearrangement gives lnN n ≥ ln(cn)−λωn ln(ωn)
+σ , such that
+qC ≤ σβ/ωn
+(ln(2))β(1−1/ωn)ωαβ−β/ω n
+n
+· ln(cn)
+(lnc n −λω n ln(ωn))β/ωn
+.
+Let us now evaluate the asymptotic limit of this bound asn→ ∞under the assumptionω n ∼δ(lnc n)γ as
+n→ ∞.
+We firstly handle the constant factors. Sinceγ >0, we haveω n → ∞asn→ ∞, such that lim n→∞
+β
+ωn =
+0. Hence, the constant terms satisfy lim n→∞ σβ/ωn = 1 and lim n→∞(ln 2)β(1−1/ωn) = (ln 2)β.
+The rightmost quotient requires more careful analysis. Rewriting the compensatory scaling as
+(lnc n −λω n lnω n)β/ωn = exp
+  β
+ωn
+ln(lnc n −λω n lnω n)
+ 
+,
+we note that sinceγ <1, the value ofω n lnω n ∼δγ(lnc n)γ ln(ln(cn)) is sub-linear relative to ln(cn). Hence,
+ln(lnc n −λω n lnω n)∼ln lnc n. Thus, we have
+lim
+n→∞
+βln lnc n
+δ(lnc n)γ = 0,
+10Note: the correction term iso(lnc n) wheneverω n ∈o(lnc n/ln(ln(c n))), which holds under the assumptionω n ∼δ(lnc n)κ
+withκ <1, as noted in the theorem itself.
+
+16
+such that the scaling of the entire quotient, asn→ ∞, satisfies ln(cn)
+(lnc n−λωn ln(ωn))β/ωn →ln(c n)(1 +o(1)).
+Combining these results, we evaluate
+qC(an, bn, cn;α, β)≲ 1
+(ln 2)β · 1
+(δ(lnc n)γ)αβ ·ln(c n)
+= 1
+δαβ(ln 2)β (ln(cn))1−γαβ ,
+with the bound being sharp asn→ ∞(due to theo(1) term). Hence, whenαβ= 1/γ, the ln(c n)
+term vanishes, such that the lim sup equals the constant term 1
+δ1/γ (ln(2))β . The result follows quickly for
+αβ >1/γ. □
+We remark that theαβ <1/γcase is less straightforward, since our derivation solely provides an
+upper bound. However, if there exists a subsequence ofFsuch that the firstω n primes are as small
+as possible, then thei-th prime in the expansion satisfies ln(p i)∼ln(iln(i))∼ln(i), such thatG n :=
+(Qωn
+i=1 ln(pi))1/ωn ∼(Qω
+i=1 ln(i))1/ωn ∼ln(ω n) as a heuristic11. Thus, sinceω n ∼δ·(ln(c n))γ by assumption,
+Gn ∼ln(ln(c n)), which gives
+qC ≳ ln(cn)
+δαβ(ln(cn))γαβ(ln(ln(cn)))β = ln(cn)1−γαβ
+δαβ(ln(ln(cn)))β ,
+which diverges. Hence, if such a suitable family exists, the result may be extended to this domain as per
+intuition.
+We now seek to invoke this trichotomy to establish a connection between thestandardquality (Def. 2.3)
+and the metrics of our DGM class (Def. 4.1). To do so, we first invoke a lemma that relates the geometric
+and arithmetic means of distinct primes, which studies the effect of an outlier in the geometricpackingof
+the primes.
+Lemma 4.12(Packing Primes).LetN= Qω
+i=1 pi for primesp i, corresponding to the conductor of the
+Frey curveE a,b,c, withω≥2. LetA:= 1
+ω
+Pω
+i=1 ln(pi), G:= (Qω
+i=1 lnp i)1/ω. Defining thepacking efficiency
+asη= G
+A, we have0< η <1; additionally, if the conductor satisfiesN=P·N 0, wherePsatisfiesP→ ∞
+whileN 0 remains invariant, thenηdecays at the same rate:η=O
+ 
+(lnP)
+1
+ω −1
+ 
+, and vanishes asP→ ∞.
+Proof.We note that the notationA, Gderives from the arithmetic and geometric mean of the logarithmic
+primes. As such, the bound 0< η <1 follows from the AM-GM inequality (with equality not being
+satisfied since the primesp i are distinct).
+Let us now writeN=P·N 0 by assumption. LetG 0 be the geometric mean of the logarithms of the
+ω−1 primes dividingN 0. Then, we may writeA= ln(N)
+ω = ln(P)+ln(N 0)
+ω , extracting the role ofP, and,
+similarly,G= (lnP) 1/ω ·G 1−1/ω
+0 . Substituting these into the definition ofηyields:
+η= ω·G 1−1/ω
+0 ·(lnP) 1/ω
+ln(P) + ln(N0) =
+ 
+ω·G 1−1/ω
+0
+ 
+· (ln(P)) 1/ω−1
+1 + ln(N0)
+lnP
+BecauseN 0 andωare bounded, the prefactor is constant, and the denominator limits to 1 asP→ ∞.
+Hence,η=O
+ 
+(ln(P))
+1
+ω −1
+ 
+. Sinceω≥2,η→0 asP→ ∞.□
+Motivated by thispacking efficiencyas a comparative between the two metrics, we establish the following.
+Theorem 4.13(Factorization ofq s).LetF={(a n, bn, cn)}∞
+n=1 be a sequence ofabc-triples, and let
+Nn := rad(anbncn). For anyα >0, the standard qualityq s,n := ln(cn)
+ln(Nn) satisfies
+qs,n =q C(an, bn, cn;α,1)·ω α−1
+n ·η n
+11Note that 1
+ωn
+Pωn
+i=1 ln(ln(i))∼ 1
+ωn
+R ωn
+2 ln(ln(x))dx. Integration and approximation of the
+R ωn
+2 1/ln(x)dxterm as li(ω n)∼
+ωn/ln(ω n) by the prime number theorem gives 1
+ωn
+Pωn
+i=1 ln(ln(i))∼ln lnω n, and exponentiation gives the desired relationship.
+
+17
+Consequently, if the sequence occupies the boundary domain, such thatω n ∼δ(lnc n)γ withα= 1/γ, we
+have
+lim sup
+n→∞
+qs,n ≤
+  1
+δ1/γ ln(2)
+ 
+·lim sup
+n→∞
+ 
+ω
+1−γ
+γ
+n ·η n
+ 
+Proof.Since the DGM quality class satisfiesq C(an, bn, cn;α,1) = lnc n
+ωαn Gn , per our definition ofG n, rearrange-
+ment gives lnc n =q C(an, bn, cn;α,1)·ω α
+n ·G n. Therefore, by the definition ofA n as in Lemma 4.12, we
+have lnN n =ω nAn. Substitution into the standard quality in Def. 2.3 gives
+qs,n = ln(cn)
+ln(Nn) = qC(an, bn, cn;α,1)·ω α
+n ·G n
+ωn ·A n
+Hence, substitution of the packing efficiencyη n immediately gives
+qs,n =q C(·;α,1)·ω α−1
+n ·η n.
+In the critical boundary, we assume that the prime count scales asω n =δ(lnc n)γ 
+1 +o(1)
+ 
+, such that
+α= 1/γ. By Theorem 4.10, the limit supremum ofq C(an, bn, cn; 1/γ,1) converges exactly to the boundary
+constant 1
+δ1/γ ln 2. Hence, we have
+lim sup
+n→∞
+qs,n ≤
+  1
+δ1/γ ln 2
+ 
+·lim sup
+n→∞
+ 
+ω1/γ−1
+n ·η n
+ 
+,
+as desired.
+As an extension, if, additionally, the largest prime factorP n :=P(N n) satisfies lnP n ∈O(lnc n) (i.e.,
+Pn ∼c κ
+n for someκ >0), then by Lemma 4.12, we haveη n =O
+ 
+(lnc n)1/ωn−1 
+,and henceω
+1−γ
+γ
+n ·η n =
+O
+ 
+(lnc n)1/ωn−γ 
+→0 asn→ ∞, sinceγ >0. Consequently, we must have lim sup n→∞ qs,n = 0.□
+Hence, our phase transitions build towards a correspondence between thestandardquality and the DGM
+quality class, mediated by the primes appearing in the factorization of families of triples.
+4.4.Sharp Packing Bounds.The factorization of Theorem 4.13 reduces atα= 1 to the exact identity
+qs =η q DGM, withη=G/Athe packing efficiency of Lemma 4.12. Sinceq DGM diverges (Theorem 3.9)
+whileq s is boundedconjecturally, the resulting comparison is governed by the decay ofη; thus, extracting
+analytic content from this bound requires a lower bound onη– which, in principle, serves as a reverse
+AM-GM inequality. We supply such a bound via the Specht ratio, which gives a restatement of the
+abc-conjecture in terms of the DGM quality.
+Lemma 4.14(Specht Implications).Let(a, b, c)be anabc-triple withω≥2and maximal prime divisor
+P, and seth:= ln(P)/ln(2)andS(h) = (h−1)h 1/(h−1)
+elnh as the Specht ratio, forh >1; we defineS(1) = 1.
+Then,q s(·) =η q DGM(·)with1/S(h)≤η≤1, and therefore
+qs(a, b, c)≤q DGM(a, b, c)≤S(h)q s(a, b, c).
+ObserveS(h) = h
+elnh ·(1 +o(1))for largeh.
+Proof.The identityq s =η q DGM is the caseα= 1 of Theorem 4.13, sinceq C(·; 1,1) =q DGM(·). The upper
+boundη≤1 is given by the AM-GM inequality, as noted in Lemma 4.12. For the lower bound, we apply
+Specht’s inequality to the positive realsℓ i := lnp i, which lie in (ln 2,lnP) with maximal comparative ratio
+being bounded by ln(P)/ln(2) =hby monotonicity [31]. The arithmetic (A) and geometric (G) means of
+theℓ i satisfyA/G≤S(h), such thatη=G/A≥1/S(h). Substitutingη∈(1/S(h),1) intoq s =η q DGM
+givesq s ≤q DGM ≤S(h)q s. □
+Theorem 4.15(Packing-efficiency formulation ofabc).Theabc-conjecture (Conjecture 2.5) is equivalent
+to the assertion that, for everyε >0,
+qDGM(a, b, c)≤ 1 +ε
+η(a, b, c)
+for all but finitely manyabc-triples.
+
+18
+Thus, theabc-conjecture implies that for everyε >0and all but finitely many triples,
+qDGM(a, b, c)≤(1 +ε)S
+ 
+ln(P)
+ln(2)
+ 
+= (1 +ε) ln(P)
+eln(2)·ln lnP (1 +o(1)),
+so thatq DGM ∈ O
+ 
+lnP(abc)/ln lnP(abc)
+ 
+.
+Proof.By Lemma 4.14,q s =η q DGM exactly; thus, the inequalitiesq s ≤1 +εandq DGM ≤(1 +ε)/ηare
+equivalent over eachabc-triple. The former inequality holds for all but finitely many triples precisely when
+lim supc→∞ qs(a, b, c)≤1, which establishes the equivalence. Now, let us assumeabc. Then for all but
+finitely many triples,q s(a, b, c)≤1 +ε, and usingη≥1/S(h) from Lemma 4.14,
+qDGM(a, b, c) = qs(a, b, c)
+η(a, b, c) ≤ 1 +ε
+η(a, b, c) ≤(1 +ε)S(h),
+with the asymptotic result following from the bound onS(h) for largeh. SinceP≤cforces lnP≤lnc,
+the boundq DGM ∈ O(lnP/ln lnP) follows.□
+4.5.Power-Mean Interpolation.As a last piece of analysis on the DGM quality itself, we note that
+the standard qualityq s and the DGM qualityq DGM are the endpoints of a one-parameter family that is
+obtained by replacing the geometric mean in the denominator ofq DGM with a generalized power mean
+(effectively, ap-norm). Indeed, fort∈[0,1], let us setκ= 1−tand letM κ be the power mean of the set
+{lnp i}ω
+i=1, such that
+Mκ({lnp i}) =
+(  1
+ω
+P
+i(lnp i)κ 1/κ 0< κ≤1
+ω
+pQ
+i lnp i κ= 0,
+such that
+qt(a, b, c) = lnc
+ω·M 1−t({lnp i}) .
+satisfies thatq 0 =q s andq 1 =q DGM (sinceM 1 recovers the arithmetic mean, andM 0 recovers the geometric
+mean). By Maclaurin’s inequality,M κ is non-decreasing inκ, henceq t is non-decreasing inton every triple;
+this establishesq s ≤q DGM pointwise.
+We note, briefly, that for our (ω, k)-families, as defined in Section 4.2, specific bounds may be generated
+on the limiting value ofq t on these families. Indeed, fort∈[0,1), the same methods as in Section
+4.2 give thatq t(an, bn, cn)→2 1/(1−t)/2 on Mersenne triplesa n, bn, cn (which have (ω, k) = (2,1)), and
+qt(an, bn, cn)→(3/2) 1/(1−t)/3 on twin prime triples (which have (ω, k) = (3,2)). In general, we have
+qt(an, bn, cn)→(ω/k) 1/(1−t)/ωfor all suchω, k, t, and corresponding families. 12 Hence, divergence only
+occurs ast→1 from below; this occurs since, forκ >0,M κ is dominated by the largest term (ln(c)) κ,
+except atκ= 0.
+One might consider the question of when lim sup c→∞ qt(a, b, c) is attainable for specifict∈(0,1) and
+choices of triples. To attain this, we may consider triples (1, p−1, p), such that the number of primes
+ωdiverges while the primes dividingp−1 themselves grow slowly. For instance, for triples on which
+ω(p−1)∼ln lnpandP(p−1) is bounded byp δ(p) for some functionδ, the formulation ofq t(·) gives
+qt(1, p−1, p) = ω1/(1−t)−1
+ 
+(ω−1)δ(p) 1−t + 1
+ 1/(1−t)(1 +o(1))
+;
+thus, ifδgrows asO(ω −1/(1−t)), we haveq t ∼(ln lnp) t/(1−t), which diverges asp→ ∞. The former
+condition requiresδ(p)→0 at the rateδ(p) = (ln lnp) −1/(1−t)(1 +o(1)), which appears to be beyond the
+strongest known unconditional results, which yieldP(p−1)≤p 0.5366 withωbounded [32].
+On the other hand, theabc-conjecture itself givesupperbounds onq t, for fixedω.
+Theorem 4.16.Assuming theabc-conjecture, for everyε >0,t∈[0,1),ω 0 ≥2, andabc-triple with
+ω(abc) =ω 0, we have
+lim sup
+c→∞, ω=ω0
+qt(a, b, c)≤(1 +ε)·ω t/(1−t)
+0 .
+12Explicitly, this occurs since we havekprimes growing as Θ(ln(c)) while the otherω−kprimes are bounded, such that
+(Mκ(ln({pi}))κ = 1/ω(k(ln(c)) κ +O(1)), andM κ(ln({pi}))∼(k/ω) 1/κ ln(c). Substitution intoq t(·) yields the limiting form.
+
+19
+Figure 3.Illustration ofq C(a, b, c;α,1) forα= 0,0.5,1, with highest-qualities for a given
+cinterpolated.
+b c qC(·; 0,1) qC(·; 0.5,1) qC(·; 1,1)
+8 9 2.518 1.792 1.259
+80 81 4.106 2.678 1.369
+242 243 4.494 3.017 1.498
+512 513 4.768 3.239 1.589
+4374 4375 6.746 4.253 1.687
+8191 8192 — — 1.803
+62207 62208 — — 1.810
+65536 65537 — — 2.000
+131071 131072 — — 2.062
+Table 4.Record-setting triples (1, b, c)forc≤200000 andβ= 1; triples that are no-longer
+record-setters are —.
+Proof.Fixε >0,t∈(0,1). Then, we knowq t(a, b, c) =q s(a, b, c)·(M 1/(M1−t)) by definition. Additionally,
+we haveM 1/M1−t ≤ω t/(1−t)
+0 , since applying the (ℓ 1 −ℓ 1−t)-norm inequality to the vector (lnp 1, . . . ,lnp ω0)
+gives
+ω0X
+i=1
+lnp i ≤ω t/(1−t)
+0
+ ω0X
+i=1
+(lnp i)1−t
+!1/(1−t)
+;
+dividing both sides byω 0 yieldsM 1 ≤ω t/(1−t)
+0 M1−t. Therefore, combined with theabc-conjecture giving
+qs ≤1+ε, the boundq t ≤(1+ε)·ω t/(1−t)
+0 follows. Note that, in particular, for boundedω,q t(·) is bounded
+by an explicit function oft, increasing pointwise ast→1.□
+4.6.Experimental Evaluation.We present selected experimental results corresponding to the DGM
+quality class. Figure 3 comparesq C(·;α,1) forα∈ {0,0.5,1}. Starred points are triples (a, b, c 0;·) with
+higher quality than any others with the samec 0 entry. We noteα= 0.5 privileges triples of moderate
+roundness. Table 4 demonstratesrecord-setting triples(1, b, c 0); that is, triples with strictly larger quality
+than any triples withc < c 0. We note that decreasingαempirically gives strictly smaller record-setting
+triples. Finally, Table 5 demonstrates that increasingβproduces nested subsets of record-setting triples,
+when restricted to the form (1, b, c).
+
+20
+b c β= 0.75 β= 1 β= 1.25 β= 1.5 β= 1.75 β= 2 β= 3
+2 3 1.217 1.259 1.303 1.348 1.394 1.443 1.653
+8 9 2.434 2.518 2.605 2.695 2.789 2.885 3.307
+80 81 4.177 4.106 4.037 3.970 3.903 3.837 3.586
+675 676 5.257 4.894 4.556 4.241 3.948 — —
+2400 2401 6.613 6.264 5.932 5.619 5.322 5.040 4.056
+4374 4375 7.123 6.746 6.390 6.052 5.732 5.429 4.369
+71874 71875 8.015 7.172 6.418 — — — —
+Table 5.Record-setting triples (1, b, c),c≤200,000, for varyingβatα= 1. Largerβ
+yields strictly smaller record-setting sets of triples, as triples that are no longer record-
+setters are given —.
+Algorithm 1Brute Force Method
+1:forc= 3 tohdo
+2:fora= 1 to⌊c/2⌋with gcd(a, c) = 1do
+3:b←c−a
+4:primes← S
+i∈{a,b,c} primefact(i)
+5:Computeq DGM(a, b, c) via (3)
+6:Determine ifq DGM(a, b, c)≥q min
+7:end for
+8:end for
+Algorithm 2Power ofp, qMethod
+1:i max ← ⌈log p(h/2)⌉,j max ← ⌈log q(h/2)⌉
+2:fori= 1 toi max,j= 1 toj max do
+3:a←p i,b←q j,c←a+b
+4:ifIsPrime(c)then
+5:Computeq DGM(a, b, c) using (3)
+6:Determine ifq DGM ≥q min
+7:end if
+8:end for
+5.Triple-Finding Algorithms
+Within this section, we briefly present approaches to the calculation of high-quality triples for the DGM
+quality; we hope that our methods, particularly in Section 5.4, might generalize to other manners of
+determining high-quality triples computationally for variant quality measures. We set the maximum value
+ofcfor triples (a, b, c) to beh, such that its digits are bounded asd=⌊log 10(h)⌋+ 1.
+5.1.Brute Force Algorithm.The na¨ ıve approach enumerates allabc-triples withc≤handa≤ ⌊c/2⌋;
+computing the resulting prime factorizations allows for the determination ofq DGM(a, b, c).
+For eachc 0 ≥3, the number of triples (a, b, c 0) witha≤ ⌊c 0/2⌋isφ(c 0)/2. Summing via the totient
+summatory function Φ(n) = Pn
+k=1 φ(k)∼n 2/(2ζ(2)) = 3n 2/π2, the total triple count is (Φ(h)−2)/2>
+0.15h2, asymptotically [33]. Each triple requires three prime factorizations; hence, even with sieve methods
+for factorization, the algorithm is Ω(10 d). Our implementation struggled to find triples withq DGM >
+1.6489, withh >O(10 6) being infeasible. Hence,familiesof triples provide significantly more tractable
+methodologies, as below.
+5.2.Power ofp, qAlgorithm.Motivated by the power of 2,3 family in Section 3, we introduce the
+following algorithm.
+The total number of triples considered in this manner isi max ·j max =O(log 2 h) =O(d 2), which is
+polynomial ind; however, each triple requires a factorization ofcto compute the quality, which remains
+exponential ind. The algorithm remains costly, since testing with the AKS primality test remainsO(d 6);
+
+21
+Algorithm 3Mersenne Prime Algorithm
+1:n max ←log 2(h)
+2:MersenneList←precomputed
+3:foreachn∈MersenneList withn≤n max do
+4:b←2 n −1;c←2 n
+5:q DGM ← √n/2▷Theorem 3.8
+6:ifq DGM ≥q min then return(1, b, c, q DGM)
+7:end if
+8:end for
+Algorithm 4Cyclotomic Algorithm
+Input:h, base listB⊆ {2,3,5,6,7, . . .} ⊂Z− P.
+1:forb∈Bdo
+2:n max ← ⌊log b h⌋
+3:T b ←CunninghamTable(b)▷knownω(b n −1)
+4:fornwith 1≤n≤n max andn∈T b do
+5:a←1;b ′ ←b n −1;c←b n
+6:{ω,primes} ←T b[n]▷ O(1) lookup
+7:Computeq DGM via (3)
+8:ifq DGM ≥q min then
+9:return (1, b n −1, b n, qDGM)
+10:end if
+11:end for
+12:end for
+we observed thath= 10 9 remains tractable, such that triples withq DGM(a, b, c)>10 may be determined
+[34].
+5.3.Mersenne Prime Algorithm.Motivated by the consideration of families of triples, Algorithm 3
+uses the 51 known Mersenne primes; by Theorem 3.8, no factorizations are required [21].
+This algorithm remainsO(d), and finds Mersenne triples with up to 24 million digits and qualities of
+up to≈4543.95, as motivated by the high-quality considerations. Our methodology, however, can be
+generalized using the cyclotomic methodology that follows.
+5.4.Cyclotomic Algorithm.A theoretical limitation of Algorithm 3 is that it restricts to a single, highly
+restricted family. However, Theorem 4.4 predicts that there exists an infinite family exhibiting distinct
+asymptotics with respect to critical exponentβ 0, each for a corresponding (ω, k); thus, we may replace the
+baseb= 2 in the Mersenne prime construction with another baseb∈ {2,3,5,6,7,10,11, . . .}=Z− P,
+wherePis the subset of prime powers inZ. We now present a new algorithm that exploits this, motivated
+by the cyclotomic structure ofZ bn−1.
+The theoretical basis of our algorithm is as follows. For any baseb≥2,b n −1 = Q
+d|n Φd(b), where
+Φd is thed-th cyclotomic polynomial. By Zsigmondy’s theorem, for everyn >1 (with the exception of
+b= 2, n= 6) the factor Φ n(b) has a primitive prime divisor (that is,psuch thatpdoes not divideb m −1
+for anym < n). Consequently,ω(b n −1)≥ |{d:d|n,Φ d(b)>1}≳τ(n), for the divisor functionτ(n).
+Thus, triples of the form (1, b n −1, b n) that minimizeωarise whennhas few divisors; thus, the minimum
+is attained when Φ n(b) is itself prime andn∈P(so thatb n −1 = (b−1)Φ n(b)). Forb >2, this yields
+the set ofgeneralized repunit primes(b n −1)/(b−1) that are given in the Cunningham project [21]. Since
+the Cunningham project provides precomputed factorizations ofb n ±1 for thousands of exponentsnand
+b̸= 12, which give the values ofω(b n −1) inO(1) time, the per-triple cost of evaluatingq DGM isO(1),
+identically to Algorithm 3. Thus, the asymptotic complexity of this algorithm remainsO(d), althoughb
+may itself vary 33.
+
+22
+Property Alg. 1 (Brute) Alg. 2 (p, q) Alg. 3 (Mers.) Alg. 4 (Cyclo.)
+Highestq DGM 1.6849 10.0424 4543.9502 14060
+Digits ofcin largest triple 5 9 24,000,000 1,068,673
+Largest computedc 10,000 924,291,401 282,589,933 71,264,699
+Median time of execution 16.41 s 0.77 s 0.00168 s 0.005 s
+Fact. (F)/primality test. (P) C·10 2d(F) C·d 2(P) 0 0
+Complexity O(10d) O(dτ), τ≤8 O(d) O(|B|d)
+Table 6.Algorithm performance comparison (executed on Python 3.8.2 with a 1.1 GHz
+CPU).
+We note that, forb= 2, Algorithm 4 reproduces Algorithm 3; however, forb= 3, the analogous family
+corresponds to base-3 generalized repunit primes (OEIS A028491). By Theorem 4.4 with (ω, k) = (3,1),
+these triples are critical atβ 0 = 3 and give high-quality triples in the regime where Mersenne triples have
+already saturated, due to a larger value ofω/k. More generally, every baseb∈ {3,5,6,7,10,11, . . .}in the
+Cunningham project (OEIS A028491, A004061, A004062, A004063, A004023, A005808) yields a single-
+large-prime family withω∈ {3,4}andk= 1, for whichq DGM grows asymptotically asq DGM(a, b, c)∼
+O((lnc) (ω−1)/ω), which is strictly greater than the
+√
+lnc/2 rate for Mersenne triples (which correspond to
+ω= 2). Thus, with respect to optimizing for the DGM QualityClass, Algorithm 4 populates a strictly larger
+portion of the (α, β)-plane with high-quality DGM triples, at the sameO(d) asymptotic cost. Evaluating
+qDGM on the largest currently known generalized-repunit prime in OEIS A004063 – that is, baseb= 7 at
+n= 1,264,699, withω= 4 and (ω−1)/ω= 3/4 – yieldsq DGM ≈14,060, exceeding the largest Mersenne
+quality √82,589,933/2≈4,544, despite using a triple (a, b, c) withchaving roughly 65 times fewer digits.
+To corroborate the (ω, k)-phase transition analogy, we also may evaluate the behavior of the quality
+metric on such families forα= 1, β= 2. Given Theorem 4.4, the Mersenne family saturates precisely at
+this choice, sinceω/k= 2 for all triples in this family; henceq C(a, b, c; 1,2) limits to 1/(4 ln(2))≈0.36 for
+triples in the Mersenne family. However, using base 6 in Algorithm 4 (withω= 3,such thatβ 0 = 3 as in
+Theorem 4.4) gives triples withq C(a, b, c; 1,2)≈62.4, base 7 gives triples of quality≈80.4; the empirical
+growth of the latter family isq C(a, b, c; 1,2)∼ O(n 1/2).
+In Table 6, we summarize the performance of all four algorithms. TheO(d) complexity of the Mersenne
+and cyclotomic methods, together with the pure number of Mersenne triples and known generalized repunit
+primes, generate an advantage over Algorithms 1,2, with arg max (a,b,c) qDGM(a, b, c) over our triples of
+consideration resulting from the base-7 triple discussed previously.
+5.5.Parametric Hulls over the DGM Class.As extensional material, we observe that the DGM class
+from Section 4 provides a continuum of metrics indexed by (α, β), such that the highest-quality triples
+depend onwherein this continuum of metrics the current choice ofq C(·;α, β) lies. For instance, a triple
+(a0, b0, c0) of particularly high-quality – and potentially higher-quality than any triples (a, b, c) withc < c 0
+- atβ= 1 need not be so atβ= 2, as the nested record sets of Tables 4-5 demonstrate. Hence, rather than
+rescanning the pool of triples at each parameter value, we determine high-quality triples using a structural
+feature of the DGM class. We writeG= ( Q
+i lnp i)1/ω as in Section 4 and invoke equation (4), such that
+ln(qC(a, b, c;α, β)) = ln(ln(c))−βln(G)−(αβ) lnω,
+which, in the coordinates (u, v) := (β, αβ), is a bilinear map in (α, β) with intercept ln(ln(c)) and gradient
+(−lnG,−lnω). Thus, for a fixed triple (a, b, c) (which fixω, G), variation of the parametersα, βover
+α≥0, β >0 gives a plane determined the corresponding parameters{u >0, v≥0}(the image of the set
+{β >0, α≥0}under the bijectionα←v/u, β←u). If such a plane is embedded in a space homeomorphic
+toR 3 with theheightof a point on the plane corresponding to the value of ln(q C(a, b, c;α, β)) for fixed
+(a, b, c) and varyingα, β, then comparing two triples at a specific (α, β) amounts to comparing the vertical
+heights of the resulting planes.
+Determiningoptimalchoices of triples for each set of parameters (α, β) follows from this geometric
+construction. Since maximizingq C is functionally equivalent to maximizing ln(q C), the highest attainable
+
+23
+log-quality over a setT:={T i}ofn abc-triples (a i, bi, ci) is the pointwise maximum
+F(u, v) := max
+i
+ 
+ln(ln(ci))−ulnG i −vlnω i
+ 
+,
+which is precisely the upper envelope of thenplanes. The triple that realizes such a maximum at the point
+(u, v) is therefore arecord-setterfor the DGM quality (i.e., its quality is higher than that of any triple
+with smallerc) for such an (α, β) pair. A triple whose plane lies below the envelope everywhere is never
+optimal, since if the tripleT i is maximized at no choice of parameter, then for every (α, β) someT j ∈T
+satisfies ln(qC(Tj;α, β))>ln(q C(Ti;α, β)), soT i is dominated within the class. The record-setting triples
+are therefore exactly those contributing a face to the broad envelope; equivalently, such triples form the
+vertices of the lower convex hull of the points (lnG i,ln(ω i),ln lnc i). This method generates a complete set
+of record-setters that supersedes the case-by-case analysis exhibited in scenarios such as Tables 4–5.
+Moreover we observe that projecting such a record-setting envelope onto the (u, v)-plane partitions the
+parameter region into convex domains, one per record-setting triple, across which theoptimaltriple to
+maximize the resultingq C(·, u, v) remains constant. We note that the boundaries of each domain are the
+precise loci at which such a record changes; these boundaries are the counterpart of the transitions in
+Tables 4–5. For triplesi, j, the boundary between the corresponding region in the (u, v) domain is given
+byT i andT j is the implicit form
+ln lnci −ln lnc j =u(ln(G i)−ln(G j)) +v(ln(ω i)−ln(ω j)),
+which corresponds to a hyperbola in the (α, β)-plane. Finally, we note that the regions mirror the phase
+transitions from Thm. 4.4. Along an (ω, k)-family, the asymptoticsG∼K 1/ω(lnc) k/ω from the result give
+lnq C(a, b, c;α, β) =
+ 
+1− kβ
+ω
+ 
+ln(ln(c))−αβln(ω)− β
+ω ln(K),
+such that the phase of the family has a critical exponentβ 0 =ω/kis precisely the parameter at which the
+corresponding plane for the (ω, k)-family drops out of the upper envelope in the geometric picture.
+Computationally, the upper envelope ofnplanes has combinatorial complexityO(n) and is obtained in
+O(nlogn) time as a three-dimensional convex hull, after which the record-setter for each (α, β) or (u, v)
+follows by planar point location inO(logn) [35]. A single such computation resolves the entire parameter
+plane at once, whereas a naive sweep costsO(n) per parameter value. We emphasize that this formalism is
+solely an organizingprinciplerather than a generator of high-quality triples, as it consumes the output of
+any of Algorithms 2-4 and returns the complete, exact record structure of the triples over (α, β), together
+with the minimal set of triples that are themselves optimal.
+6.Conclusion
+We defined novel quality metrics that prioritize triples with smallω, using the Doubly Geometric Mean
+(Def. 3.2). We analyzed the resulting quality metric to determine high-quality triples and asymptotics, de-
+veloping characterizations of families yielding high-quality triples, including the Mersenne family (Theorem
+3.8), the twin prime family (Theorem 3.10), and fixed sequences of primes (Theorem 3.7). We also invoked
+Chen’s Theorem (Thm. 3.11) to develop a proof of the asymptotic analogue of theabc-conjecture for our
+quality metric (Theorem 3.12). We also developed linear-time algorithms for determination of high-quality
+triples (Algs. 3, 4).
+We extended our quality metrics via a parametrization through the DGM quality class in Sec. 4 to
+modulate asymptotic behavior. Upon establishing phase transition results that determined asymptotics
+with respect to to parameterβ(Theorems 4.4, 4.6, 4.7, 4.8), with various degrees of control on families of
+abc-triples andωitself, we extended such results to develop asymptotics motivated by Szpiro bounds and
+relationships to the standard quality in theabc-conjecture itself (Theorems 4.10, 4.13). A full proof of 4.3
+remains open, and finer results regarding bounds on the classq C(·, α, β) may even offer insight towards
+proofs of the conjecture itself, given the asymptotic bounds in Theorem 4.13.
+Our unconditional resolution of theabc-analogue via Chen’s theorem (Theorem 3.12) illustrates a princi-
+ple that the DGM modification brings the analogue of the conjecture within reach of existing sieve methods,
+suggesting that the standardabc-conjecture itself may lie on a continuum of quality metrics whose more
+tractable members can be unconditionally settled, via the criticalβ 0 =ω/kmeasuring the exact damping
+
+24
+required for each family. We view our phase-transition framework as evidence that families of modified
+quality metrics may be the natural objects of study, such that finer analysis of phase-space parameters
+(α, β), with the relevant factorization of the standard qualityq s, may yield further progress toward the
+abc-conjecture itself.
+References
+[1] Joseph Oesterl´ e. Nouvelles approches du “th´ eoreme” de Fermat.Ast´ erisque, 161-162:165–186, 1988.
+[2] David W Masser. Open problems. InProceedings of the symposium on Analytic Number Theory, London, 1985. Imperial
+College, 1985.
+[3] Andrew Wiles. Modular elliptic curves and Fermat’s last theorem.Annals of mathematics, 141(3):443–551, 1995.
+[4] Michel Waldschmidt. Lecture on theabcconjecture and some of its consequences. InMathematics in the 21st Century:
+6th World Conference, Lahore, March 2013, pages 211–230. Springer, 2015.
+[5] Joe P Buhler, Hendrik W Lenstra, and Carl Pomerance. Factoring integers with the number field sieve. InThe development
+of the number field sieve, pages 50–94. Springer, 1993.
+[6] Andrew Granville and Thomas Tucker. It’s as easy asabc.Notices of the AMS, 49(10):1224–1231, 2002.
+[7] Bart de Smit. ABC Triples.https://pub.math.leidenuniv.nl/ ~smitbde/abc/, 2020.
+[8] Abderrahmane Nitaj. Algorithms for finding good examples for theabcand Szpiro conjectures.Experimental Mathematics,
+2(3):223–230, 1993.
+[9] Abderrahmane Nitaj. An algorithm for finding goodabc-examples.Comptes rendus de l’Acad´ emie des sciences. S´ erie 1,
+Math´ ematique, 317(9):811–815, 1993.
+[10] Abderrahmane Nitaj. Theabcconjecture home page, 2010.
+[11] J van der Horst.Finding ABC-triples using elliptic curves. Masters thesis, Universiteit Leiden, 2010.
+[12] Noam D Elkies. The ABC’s of number theory.The Harvard College Mathematics Review, 1(1):57–76, 2007.
+[13] Greg Martin and Winnie Miao.abctriples.Functiones et Approximatio Commentarii Mathematici, 55(2):145–176, 2016.
+[14] Richard C Mason.Diophantine equations over function fields, volume 96. Cambridge University Press, 1984.
+[15] W Wilson Stothers. Polynomial identities and Hauptmoduln.The Quarterly Journal of Mathematics, 32(3):349–370, 1981.
+[16] Cameron L Stewart and Kunrui Yu. On theabcconjecture, II.Duke Mathematical Journal, 108(1):169–181, 2001.
+[17] Benne MM De Weger. Algorithms for Diophantine equations.CWI tracts, 65, 1989.
+[18] Jerzy Browkin and Juliusz Brzezi´ nski. Some remarks on theabc-conjecture.Mathematics of Computation, 62(206):931–
+939, 1994.
+[19] Cindy Tsang and William Stein. Fermat numbers.University of Washington, 2010.
+[20] Chris K Caldwell. Mersenne primes: History, theorems and lists.Prime Pages, 2014.
+[21] Great Internet Mersenne Prime Search (GIMPS). List Of Known Mersenne Prime Numbers, 2022.
+[22] Carl Pomerance. Recent developments in primality testing.The Mathematical Intelligencer, 3(3):97–105, 1981.
+[23] Godfrey H. Hardy and John E. Littlewood. Some problems of ‘partitio numerorum’; iii: On the expression of a number
+as a sum of primes.Acta Mathematica, 44(1):1–70, 1923.
+[24] Jing Run Chen. On the representation of a large even integer as the sum of a prime and the product of at most two
+primes.Scientia Sinica, 16:157–176, 1973.
+[25] Preda Mih˘ ailescu. Primary cyclotomic units and a proof of Catalan’s conjecture.Journal f¨ ur die reine und angewandte
+Mathematik (Crelles Journal), 2004(572):167–195, 2004.
+[26] Paul Vojta.Diophantine approximations and value distribution theory, volume 1239 ofLecture Notes in Mathematics.
+Springer-Verlag, Berlin, New York, 1987.
+[27] K´ alm´ an Gy˝ ory. Explicit upper bounds for the solutions of some Diophantine equations.Publicationes Mathematicae
+Debrecen, 26(1-2):119–132, 1979.
+[28] Joseph H. Silverman.The Arithmetic of Elliptic Curves, volume 106 ofGraduate Texts in Mathematics. Springer, Dor-
+drecht, 2nd edition, 2009.
+[29] Gerhard Frey. Links between stable elliptic curves and certain Diophantine equations.Annales Universitatis Saraviensis.
+Series Mathematicae, 1(1):1–40, 1986.
+[30] Lucien Szpiro. Propri´ et´ es num´ eriques du faisceau dualisant relatif.Ast´ erisque, 86:44–78, 1981.
+[31] Wilhelm Specht. Zur theorie der elementaren mittel.Mathematische Zeitschrift, 74(1):91–98, 1960.
+[32] Roger C. Baker and Glyn Harman. Shifted primes without large prime factors.Acta Arithmetica, 83(4):331–361, 1998.
+[33] Godfrey Harold Hardy, Edward Maitland Wright, et al.An introduction to the theory of numbers. Oxford university press,
+1979.
+[34] Manindra Agrawal, Neeraj Kayal, and Nitin Saxena. Primes is in p.Annals of Mathematics, pages 781–793, 2004.
+[35] Mark de Berg, Otfried Cheong, Marc van Kreveld, and Mark Overmars.Computational Geometry: Algorithms and
+Applications. Springer, Berlin, Heidelberg, 3rd edition, 2008.

@@ -21,6 +21,65 @@ community acceptance, and a finite counterexample search with no hit are not
 grounds for retirement.  Positive proof construction and counterexample search
 must therefore continue in parallel for every unrefuted route.
 
+## September 3, 2026 authoritative route update
+
+Standard `ABCConjecture` remains open in both directions.  The current route
+boundaries are:
+
+- **P-I1B, fixed-`T=2` Pell:** the scale unit and support-prime derivative
+  transversality statements are closed at every odd prime index.  The parent
+  route remains active because global prime-index squarefull exclusion,
+  equivalently exclusion of simultaneous zero first Hensel displacements,
+  remains open.  The exact example `F_7(2)=13^2` refutes only the stronger
+  assertion that no individual displacement can vanish.
+- **M-I1, Mersenne--Farey:** the harmonic identification and bound, the finite
+  quantitative injection, the frequent/eventual quantifier bridge, and the
+  unconditional Chebyshev brackets have been closed.  Supplying actual
+  prime/exact-order/depth-three rows from the Farey tail and proving the
+  critical global super-Wieferich count remain open.
+- **S-I4C, Steinberg five-term boundary bridge:** the generator boundary
+  identity, inclusion of the generated submodules in the boundary kernel, and
+  conversion of a
+  positive generated relation to a finite integer five-term chain have been
+  closed.  Positive filling of an arbitrary abc target rational and the two
+  uniform Gate VF cost bounds remain open.
+- **Synchronized divisor packets:** active.  Exact finite packet algebra,
+  the sixth-power envelope, synchronization-index gap families, and
+  orientation rigidity are established.  The actual-radical real-log
+  `standardQuality`, `packetEnergy`, and finite `minimumPacketEnergy` are
+  defined, and both quality-to-energy inequalities are Lean-closed.
+  Counterexamples rule out full-corner
+  uniqueness and the unqualified cubic, quartic, squared-product, constant-one
+  fifth-power, and every exponent-below-five envelope; they do not refute the
+  sixth-power theorem or a compensated fifth-power estimate.  The global
+  all-but-finitely packet radical bound remains open.
+- **Alternative-quality packing:** active.  The exact identity
+  `q_std = eta * q_DGM`, its transfer equivalence, and its AM--GM upper-side
+  consequences are established.  An abstract sequence with unbounded `q_DGM`
+  but constant `q_std` refutes only the metric-only inference from
+  `0 < eta <= 1`; it is not a sequence of integer abc triples.  An arithmetic
+  lower bound or correlation for `eta * q_DGM` remains open.
+
+These statuses are documented in
+`../research/ABC_PELL_FIXED_TWO_TRANSVERSALITY_2026_09_03.md`,
+`../research/ABC_MERSENNE_FAREY_QUANTITATIVE_SWARM_2026_09_03.md`,
+`../research/ABC_STEINBERG_FIVE_TERM_BOUNDARY_BRIDGE_2026_09_03.md`,
+`../research/ABC_SYNCHRONIZED_DIVISOR_PACKET_SPECTRUM_2026_09_03.md`, and
+`../research/ABC_ALTERNATIVE_QUALITY_PACKING_AUDIT_2026_09_03.md`.  Difficulty alone does
+not retire any of their surviving parent routes.
+
+The dated replay package is
+`verification/2026_09_03_quantitative_transversality_generated_packets/`.
+It audits 258 declarations in the five new principal modules, with dependency
+union exactly `propext`, `Classical.choice`, and `Quot.sound`; the umbrella
+target completes 9,265 jobs.  The corresponding ChatGPT paper is
+`../output/pdf/ChatGPT_ABC_Uniformity_2026.pdf`: 237 A4 pages, 1,534,968 bytes,
+SHA256
+`02d7e2d53bd77490e6ba0c6352750ec0779f430b6537a5b7ff54c77c4963f335`.
+Its final-log and all-page render audit is retained in the adjacent
+`../output/pdf/ChatGPT_ABC_Quantitative_Transversality_Generated_Packets_2026_09_03_QA/`
+directory.
+
 ## September 2, 2026 refined-Haar, Farey-entropy, ownership, Hensel, and contact checkpoint
 
 Standard `ABCConjecture` remains open in both directions.  The exact route

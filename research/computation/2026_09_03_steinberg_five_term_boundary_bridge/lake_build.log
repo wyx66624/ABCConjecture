@@ -1,0 +1,60 @@
+⚠ [8743/8755] Replayed IUTThreeClosures.ABCStatement
+warning: IUTThreeClosures/ABCStatement.lean:35:20: '' starts on column 20, but all commands should start at the beginning of the line.
+
+Note: This linter can be disabled with `set_option linter.style.whitespace false`
+⚠ [8748/8755] Replayed IUTThreeClosures.ABCPointLegendreCurve
+warning: IUTThreeClosures/ABCPointLegendreCurve.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+warning: IUTThreeClosures/ABCPointLegendreCurve.lean:130:20: '' starts on column 20, but all commands should start at the beginning of the line.
+
+Note: This linter can be disabled with `set_option linter.style.whitespace false`
+⚠ [8749/8755] Replayed IUTThreeClosures.LegendreArithmetic
+warning: IUTThreeClosures/LegendreArithmetic.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+⚠ [8750/8755] Replayed IUTThreeClosures.ABCFreyCurve
+warning: IUTThreeClosures/ABCFreyCurve.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:45:48: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:45:48: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:49:44: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:57:44: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:78:47: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:78:47: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:82:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: IUTThreeClosures/ABCFreyCurve.lean:90:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [8751/8755] Replayed IUTThreeClosures.FreyDiscriminantConductor
+warning: IUTThreeClosures/FreyDiscriminantConductor.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+⚠ [8753/8755] Replayed IUTThreeClosures.SteinbergValuationContactSurface20260902
+warning: IUTThreeClosures/SteinbergValuationContactSurface20260902.lean:7:7: Files in mathlib cannot import the whole `Mathlib.Tactic` folder. Doing so would cause imports to be unnecessarily slow.
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+Build completed successfully (8755 jobs).

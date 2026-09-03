@@ -1,0 +1,218 @@
+﻿{
+  "schema": "abc-root-route-cross-audit-v1",
+  "status": "PASS",
+  "critical_errors": [],
+  "source_capsule": {
+    "metadata_files": [
+      {
+        "file": "Sankaran_Alternative_Quality_Metrics_arXiv2606.08416v1.pdf",
+        "expected": "94eb7424ac297b62e6b2c526b3ddcf571860d7da112f97ce1bb7490f374cdd0a",
+        "actual": "94eb7424ac297b62e6b2c526b3ddcf571860d7da112f97ce1bb7490f374cdd0a",
+        "pass": true
+      },
+      {
+        "file": "Sankaran_Alternative_Quality_Metrics_arXiv2606.08416v1.txt",
+        "expected": "f792b8ce8ac22d5bfe085fa3a33f7934257701628d39736f9378daa39df85c41",
+        "actual": "f792b8ce8ac22d5bfe085fa3a33f7934257701628d39736f9378daa39df85c41",
+        "pass": true
+      }
+    ],
+    "manifest_files": [
+      {
+        "file": "README.md",
+        "expected": "83a2bc46c0c8d85d694691e76d481f64ec2a7b85f0b1cb1f89675df5236e7b64",
+        "actual": "83a2bc46c0c8d85d694691e76d481f64ec2a7b85f0b1cb1f89675df5236e7b64",
+        "pass": true
+      },
+      {
+        "file": "Sankaran_Alternative_Quality_Metrics_arXiv2606.08416v1.pdf",
+        "expected": "94eb7424ac297b62e6b2c526b3ddcf571860d7da112f97ce1bb7490f374cdd0a",
+        "actual": "94eb7424ac297b62e6b2c526b3ddcf571860d7da112f97ce1bb7490f374cdd0a",
+        "pass": true
+      },
+      {
+        "file": "Sankaran_Alternative_Quality_Metrics_arXiv2606.08416v1.txt",
+        "expected": "f792b8ce8ac22d5bfe085fa3a33f7934257701628d39736f9378daa39df85c41",
+        "actual": "f792b8ce8ac22d5bfe085fa3a33f7934257701628d39736f9378daa39df85c41",
+        "pass": true
+      },
+      {
+        "file": "source-metadata.json",
+        "expected": "c5b683d73aae1fc00708c46d469eab06ccce35ecabf84270a77d01819be8ed8f",
+        "actual": "c5b683d73aae1fc00708c46d469eab06ccce35ecabf84270a77d01819be8ed8f",
+        "pass": true
+      },
+      {
+        "file": "verify_source.py",
+        "expected": "cfe53361102e4eaa6543c50c0aab95530cb68d850a2bb885d0739aebe45b9ef5",
+        "actual": "cfe53361102e4eaa6543c50c0aab95530cb68d850a2bb885d0739aebe45b9ef5",
+        "pass": true
+      },
+      {
+        "file": "verification_output.json",
+        "expected": "be5ca328842468471552d258c4d28c94be70f5bf474fbf2238f9132c3ca7a536",
+        "actual": "be5ca328842468471552d258c4d28c94be70f5bf474fbf2238f9132c3ca7a536",
+        "pass": true
+      }
+    ],
+    "pdf_header": true
+  },
+  "source_scope_anchors": {
+    "lemma_4_12": true,
+    "fixed_complement": true,
+    "bounded_complement_and_omega": true,
+    "theorem_4_13": true,
+    "extension_invokes_lemma": true,
+    "theorem_4_15": true
+  },
+  "lean_theorem_audit": {
+    "mersenne": {
+      "theorem_count": 17,
+      "audit_count": 17,
+      "theorem_level_coverage": "exact",
+      "forbidden_proof_tokens": []
+    },
+    "alternative_quality": {
+      "theorem_count": 9,
+      "audit_count": 9,
+      "theorem_level_coverage": "exact",
+      "forbidden_proof_tokens": []
+    }
+  },
+  "recorded_runs": {
+    "exit_codes": {
+      "mersenne_main": 0,
+      "mersenne_audit": 0,
+      "alternative_main": 0,
+      "alternative_audit": 0,
+      "source_verifier": 0
+    },
+    "axiom_outputs": {
+      "mersenne_audit": {
+        "reports": 17,
+        "union": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "alternative_audit": {
+        "reports": 9,
+        "union": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "source_verifier_status": "PASS"
+  },
+  "report_boundaries": {
+    "mersenne_counting_gate_open": true,
+    "mersenne_counterexample_auxiliary_only": true,
+    "mersenne_divided_form_kernel_checked": true,
+    "alternative_extension_scope_warning": true,
+    "alternative_cluster_width_positive": true,
+    "alternative_big_o_non_equivalence_recorded": true,
+    "alternative_theorem_4_10_caution_recorded": true,
+    "alternative_next_gate_exact": true,
+    "alternative_cluster_not_abc_triples": true,
+    "alternative_abstract_counterexample_only": true
+  },
+  "exact_countermodels": {
+    "mersenne_full_fibre": {
+      "T": 1,
+      "H": 2,
+      "triangular_capacity": 1,
+      "harmonic_prefix": "1",
+      "prefix_energy": "1"
+    },
+    "alternative_metric_witness_samples": [
+      {
+        "n": 0,
+        "efficiency": "1",
+        "dgm": "1",
+        "standard": "1"
+      },
+      {
+        "n": 1,
+        "efficiency": "1/2",
+        "dgm": "2",
+        "standard": "1"
+      },
+      {
+        "n": 2,
+        "efficiency": "1/3",
+        "dgm": "3",
+        "standard": "1"
+      },
+      {
+        "n": 10,
+        "efficiency": "1/11",
+        "dgm": "11",
+        "standard": "1"
+      },
+      {
+        "n": 100,
+        "efficiency": "1/101",
+        "dgm": "101",
+        "standard": "1"
+      }
+    ]
+  },
+  "clustered_prime_samples_C_log_2": [
+    {
+      "X": 100,
+      "prime_count": 21,
+      "lower_bound": 0.8691759793521874,
+      "eta": 0.9990052675370803
+    },
+    {
+      "X": 1000,
+      "prime_count": 135,
+      "lower_bound": 0.9088072522638707,
+      "eta": 0.9996242393658558
+    },
+    {
+      "X": 10000,
+      "prime_count": 1033,
+      "lower_bound": 0.930009789290598,
+      "eta": 0.9997874398159928
+    },
+    {
+      "X": 100000,
+      "prime_count": 8392,
+      "lower_bound": 0.9432129235431207,
+      "eta": 0.9998611200130333
+    },
+    {
+      "X": 1000000,
+      "prime_count": 70435,
+      "lower_bound": 0.9522252717617384,
+      "eta": 0.9999023872264708
+    }
+  ],
+  "resolved_during_audit": [
+    "The PNT cluster sentence now explicitly assumes a fixed width C > 0.",
+    "The divided Mersenne inequality (3.2) now has the theorem quantitativeSwarm_count_lower and AxiomAudit coverage.",
+    "The report now records that ln(P_n)=O(ln(c_n)) is not equivalent to P_n~c_n^kappa.",
+    "The next packing gate now uses the exact product inequality eta*q_DGM > 1+delta."
+  ],
+  "source_level_cautions": [
+    "Sankaran Lemma 4.12 is fixed-complement; its rate cannot be imported into the growing-complement extension after Theorem 4.13.",
+    "The displayed proof of Sankaran Theorem 4.10 establishes an upper estimate, not the claimed exact boundary limsup constant."
+  ],
+  "audited_input_sha256": {
+    "research/ABC_MERSENNE_FAREY_QUANTITATIVE_SWARM_2026_09_03.md": "22b5182178a9a0fa678066a0f4ef01e6e5552286107f254e10f3a2a87b1ddefd",
+    "Lean/IUTThreeClosures/MersenneFareyQuantitativeSwarm20260903.lean": "6a243f964fcecc9507a2472b798b74aa2ea4f4cedf8ec3cf3f0733cfae484721",
+    "Lean/IUTThreeClosures/MersenneFareyQuantitativeSwarm20260903AxiomAudit.lean": "da7616f607e51b9122cae2def5e41189861b3ce94ae2b5c2f7aecf6f1d08dee6",
+    "research/ABC_ALTERNATIVE_QUALITY_PACKING_AUDIT_2026_09_03.md": "12098e572567327710bc4e5bb7da6adab20d3e00714c2b1793cdb257fed6a890",
+    "Lean/IUTThreeClosures/AlternativeQualityPackingBridge20260903.lean": "ed64212542270226f0383c9dde399b2807a281a41e28163c3ee89e18d3ff37fd",
+    "Lean/IUTThreeClosures/AlternativeQualityPackingBridge20260903AxiomAudit.lean": "951dfb26b65e16d356cb0355d08fab3ce0284180c5f23fcf1cd11bdb652b55f8",
+    "research/sources/alternative_quality_metrics_2026_09_03/Sankaran_Alternative_Quality_Metrics_arXiv2606.08416v1.pdf": "94eb7424ac297b62e6b2c526b3ddcf571860d7da112f97ce1bb7490f374cdd0a",
+    "research/sources/alternative_quality_metrics_2026_09_03/Sankaran_Alternative_Quality_Metrics_arXiv2606.08416v1.txt": "f792b8ce8ac22d5bfe085fa3a33f7934257701628d39736f9378daa39df85c41",
+    "research/sources/alternative_quality_metrics_2026_09_03/source-metadata.json": "c5b683d73aae1fc00708c46d469eab06ccce35ecabf84270a77d01819be8ed8f",
+    "research/sources/alternative_quality_metrics_2026_09_03/SHA256SUMS": "fca5421f5edb4278ef63103efccf37e25bb7e7c51013c61943f0f6809940e492"
+  },
+  "finite_boundary": "Cluster samples and exact witness samples are finite checks only.  They do not prove an asymptotic prime theorem or any abc statement."
+}

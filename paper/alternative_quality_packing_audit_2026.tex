@@ -1,0 +1,92 @@
+\section{Alternative quality metrics and the packing boundary}
+\label{sec:alternative-quality-packing}
+
+Sankaran's 2026 preprint introduces doubly geometric mean (DGM) and
+power-mean qualities and proves unconditional divergence for an alternative
+quality using Chen's theorem \cite{Sankaran2026AlternativeQuality}.  For the
+standard and DGM qualities it identifies the exact packing factor
+\[
+ \eta=\frac GA,
+ \qquad q_{\mathrm{std}}=\eta q_{\mathrm{DGM}},     \tag{AQ.1}
+\]
+where $G$ and $A$ are the geometric and arithmetic means of the logarithms
+of the distinct primes dividing $abc$.
+
+\begin{proposition}[Exact packing-coordinate transfer]
+\label{prop:alternative-quality-packing-transfer}
+If $q_s=\eta q_D$ and $\eta>0$, then, for every real $B$,
+\[
+ q_s\le B\quad\Longleftrightarrow\quad q_D\le B/\eta.
+\]
+If also $0\le\eta\le1$ and $q_D\ge0$, then
+$0\le q_s\le q_D$.
+\end{proposition}
+
+\begin{proof}
+The equivalence follows by dividing $\eta q_D\le B$ by the positive factor
+$\eta$.  Nonnegativity gives the second lower bound, and multiplication of
+$\eta\le1$ by $q_D\ge0$ gives the upper bound.
+\end{proof}
+
+Consequently, the inequality
+$q_{\mathrm{DGM}}\le(1+\varepsilon)/\eta$ is an exact rewriting of the
+standard abc quality bound.  It becomes a proof tool only after an
+independent estimate for the reciprocal packing efficiency is supplied.
+Alternative-quality divergence alone has no such force.
+
+\begin{proposition}[Clustered-logarithm lower bound]
+\label{prop:alternative-quality-clustered-logs}
+If $L>0$, $C\ge0$, and $L\le G\le A\le L+C$, then
+\[
+ \frac GA\ge\frac{L}{L+C}.
+\]
+\end{proposition}
+
+\begin{proof}
+The factor $L/(L+C)$ is nonnegative, so $A\le L+C$ gives
+$LA/(L+C)\le L\le G$.  Divide by $A>0$.
+\end{proof}
+
+For distinct primes in $[X,e^CX]$ with fixed $C>0$, this lower bound tends to
+one as $X\to\infty$, regardless of the number of selected primes.  This identifies
+a scope mismatch in the extension following Theorem~4.13 of the source:
+the decay part of its Lemma~4.12 fixes both the number of primes and the
+complementary product while one prime grows, whereas the later application
+allows the prime count and complementary product to vary.  The claimed decay
+does not follow from the displayed largest-prime condition alone.  Moreover,
+$\log P_n=O(\log c_n)$ is only a power upper bound and is not equivalent to
+$P_n\sim c_n^\kappa$.  The critical-boundary proof of Theorem~4.10 also
+derives an upper estimate before calling its limiting constant exact; the
+limsup use in Theorem~4.13 needs only the upper estimate.  These issues do not
+affect the exact packing identity or the Chen-based alternative-quality
+divergence result, and a cluster of prime coordinates is not asserted to be
+realized by additive $abc$ triples.
+
+\begin{proposition}[Exact abstract no-go for divergence transfer]
+\label{prop:alternative-quality-divergence-no-go}
+There are positive sequences $\eta_n,q_{D,n},q_{s,n}$ with
+$0<\eta_n\le1$ and $q_{s,n}=\eta_nq_{D,n}$ such that $q_D$ is unbounded
+above while $q_{s,n}=1$ for every $n$.
+\end{proposition}
+
+\begin{proof}
+Take $q_{D,n}=n+1$, $\eta_n=(n+1)^{-1}$ and $q_{s,n}=1$.  The product
+identity and all positivity conditions are exact.  The Archimedean property
+shows that $q_D$ is unbounded, whereas $q_s$ is constant.
+\end{proof}
+
+This witness satisfies every premise of the metric-only implication it
+refutes.  It is not a sequence of integer $abc$ triples, so it neither
+refutes the standard conjecture nor invalidates the arithmetic search.  It
+locates the surviving gate: on actual triples one must control the
+correlation between growth of $q_{\mathrm{DGM}}$ and decay of $\eta$.
+
+The source PDF and verification capsule are archived at
+\begin{center}
+\path{research/sources/alternative_quality_metrics_2026_09_03/}.
+\end{center}
+The Lean companion module
+\begin{center}
+\texttt{AlternativeQualityPackingBridge20260903}
+\end{center}
+checks the displayed algebra and the abstract countermodel.

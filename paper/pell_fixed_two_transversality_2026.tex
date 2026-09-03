@@ -1,0 +1,116 @@
+\section{A matrix Frobenius anchor at the fixed Pell parameter}
+\label{sec:pell-fixed-two-transversality}
+
+Write
+\[
+ (1+\sqrt2)^n=A_n+B_n\sqrt2,
+ \qquad F_n(2)=B_n,\qquad L_n(2)=2A_n.
+\]
+The preceding Hensel section left derivative transversality at all actual
+support primes as an explicit premise.  It can be discharged without using
+a rank-of-apparition theorem.
+
+Set
+\[
+ M=\begin{pmatrix}1&2\\1&1\end{pmatrix},\qquad
+ K=\begin{pmatrix}0&2\\1&0\end{pmatrix}.
+\]
+Then $M=I+K$, $K^2=2I$, and the first column of $M^n$ is
+$(A_n,B_n)^t$.  If $\ell=2m+1$ is prime, the intermediate binomial
+coefficients are divisible by $\ell$, so for an integral matrix $R$,
+\[
+ M^\ell=I+K^\ell+\ell KR
+       =I+2^mK+\ell KR.
+\]
+Taking the first column proves the following statement.
+
+\begin{theorem}[Prime-index Frobenius anchor]
+\label{thm:fixed-two-frobenius-anchor}
+For every odd prime $\ell=2m+1$ there are integers $r_A,r_B$ such that
+\[
+ A_\ell=1+\ell r_A,
+ \qquad B_\ell=2^m+\ell r_B.
+\]
+In particular $\ell\nmid A_\ell B_\ell$.
+\end{theorem}
+
+\begin{proof}
+Only the last assertion remains.  Divisibility of the first coordinate by
+$\ell$ would give $\ell\mid1$.  Divisibility of the second would give
+$\ell\mid2^m$, hence $\ell=2$, contrary to oddness.
+\end{proof}
+
+The all-index differential identities specialize to
+\[
+ L_\ell'(2)=\ell B_\ell,
+ \qquad 4F_\ell'(2)+B_\ell=\ell A_\ell.
+\]
+
+\begin{theorem}[All-support transversality at $T=2$]
+\label{thm:fixed-two-all-support-transverse}
+If $q\mid A_\ell$ is prime, then
+$\gcd(L_\ell'(2),q)=1$.  If $p\mid B_\ell$ is prime, then
+$\gcd(F_\ell'(2),p)=1$.
+\end{theorem}
+
+\begin{proof}
+The coordinates are coprime.  In the first channel, $q$ divides neither
+$\ell$ nor $B_\ell$, so the first differential identity proves the claim.
+In the second, $p$ divides neither $\ell$ nor $A_\ell$ and is odd.  Reducing
+the second identity modulo $p$ gives
+$4F_\ell'(2)\equiv\ell A_\ell\not\equiv0\pmod p$.
+\end{proof}
+
+For a simple support root let $Z_1(f,t,p)$ mean that
+$p\mid f(t)$, $gcd(f'(t),p)=1$, and $p^2\mid f(t)$.  The one-digit Hensel
+law identifies this with zero first displacement.
+
+\begin{theorem}[Exact fixed-parameter gate]
+\label{thm:fixed-two-exact-gate}
+For every odd prime $\ell$,
+\[
+ A_\ell B_\ell\text{ is squarefull}
+ \quad\Longleftrightarrow\quad
+ \begin{cases}
+ Z_1(L_\ell,2,q)&(q\mid A_\ell),\\
+ Z_1(F_\ell,2,p)&(p\mid B_\ell),
+ \end{cases}
+\]
+where both quantifiers range over all rational support primes.
+\end{theorem}
+
+\begin{proof}
+The preceding theorem supplies simplicity at every support prime.  The
+factor $2$ in $L_\ell(2)=2A_\ell$ is a unit at every such prime, and the two
+coordinates are coprime.  Thus the square divisibilities in $Z_1$ are
+exactly the defining square divisibilities for squarefullness of the two
+coordinates.
+\end{proof}
+
+This theorem instantiates the earlier conditional all-support statement; it
+does not prove either side.  The universal exclusion of simultaneous zero
+displacements is exactly the still-open prime-index squarefull exclusion.
+
+The stronger assertion that no individual support displacement vanishes is
+false.  At $\ell=7$,
+\[
+ A_7=239,\qquad B_7=169=13^2,
+ \qquad F_7'(2)=376\equiv-1\pmod {13}.
+\]
+Hence $Z_1(F_7,2,13)$ holds with every premise.  This does not refute the
+all-support exclusion because $239$ has exponent one.
+
+An independent bounded replay examined all odd prime
+$\ell\le20000$ and all primes $q\le10^7$ in the necessary classes
+$q=\pm1\pmod{2\ell}$.  Its $3{,}091{,}963$ candidate tests found only the
+same valuation-two hit $(7,13,B)$, no valuation-three hit, and no
+opposite-channel repeated pair.  The 789 indices without an in-bound simple
+certificate remain unresolved, as do all larger support primes.  The
+finite no-hit is not an asymptotic theorem.
+
+Lean proves Theorems~\ref{thm:fixed-two-frobenius-anchor}--
+\ref{thm:fixed-two-exact-gate}.  It also proves that the surviving
+zero-displacement exclusion is equivalent to squarefull exclusion, together
+with the complete index-seven refutation of the stronger local assertion.
+The standard abc conjecture and the fixed-Pell squarefull exclusion both
+remain open.

@@ -1,0 +1,175 @@
+{
+  "common_denominator_box": {
+    "c_bound": 100,
+    "first_distinct": {
+      "a_b_c": [
+        2,
+        1,
+        5
+      ],
+      "arguments": [
+        "2/5",
+        "1/5",
+        "1/2",
+        "3/8",
+        "3/4"
+      ]
+    },
+    "first_valid": {
+      "a_b_c": [
+        2,
+        1,
+        3
+      ],
+      "arguments": [
+        "2/3",
+        "1/3",
+        "1/2",
+        "1/4",
+        "1/2"
+      ]
+    },
+    "odd_denominator_subfamily_verified_in_box": true,
+    "valid_reduced_data": 29691,
+    "valid_with_five_distinct_arguments": 28170
+  },
+  "positive_rational_box": {
+    "best_score": [
+      6,
+      21,
+      3,
+      8,
+      2
+    ],
+    "best_x": "1/2",
+    "best_y": "1/6",
+    "denominator_search_bound": 20,
+    "five_arguments": [
+      "1/2",
+      "1/6",
+      "1/3",
+      "1/5",
+      "3/5"
+    ],
+    "five_distinct_argument_pairs": 7858,
+    "formal_symbols_pairwise_distinct": true,
+    "ordered_pairs_checked": 8001,
+    "prime_coordinates_checked": [
+      2,
+      3,
+      5
+    ],
+    "signed_surface": {
+      "2,2": 0,
+      "2,3": 0,
+      "2,5": 0,
+      "3,2": 0,
+      "3,3": 0,
+      "3,5": 0,
+      "5,2": 0,
+      "5,3": 0,
+      "5,5": 0
+    },
+    "surface_failures": 0
+  },
+  "schema": "steinberg-five-term-boundary-scan-v1",
+  "scope_warning": "Finite exhaustive evidence only; universal claims are proved in Lean.",
+  "status": "PASS",
+  "vector_box": {
+    "boundary_failures": 0,
+    "coordinate_box": [
+      -1,
+      0,
+      1
+    ],
+    "dimension": 2,
+    "first_robust_witness": {
+      "individual_wedges": [
+        -1,
+        1,
+        -1,
+        -4,
+        -1
+      ],
+      "inputs": {
+        "U": [
+          -1,
+          0
+        ],
+        "V": [
+          0,
+          -1
+        ],
+        "X": [
+          -1,
+          -1
+        ],
+        "Y": [
+          -1,
+          0
+        ],
+        "Z": [
+          0,
+          0
+        ]
+      },
+      "signed_boundary_sum": 0,
+      "symbols": [
+        [
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            -1,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            -1,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ]
+    },
+    "nonzero_formal_chains": 59049,
+    "pairwise_distinct_symbol_tuples": 55392,
+    "pairwise_distinct_with_all_individual_boundaries_nonzero": 5784,
+    "tuples_checked": 59049
+  }
+}
