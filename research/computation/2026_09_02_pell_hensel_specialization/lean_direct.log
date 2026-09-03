@@ -1,0 +1,95 @@
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.pow_succ_dvd_scaled_iff (p c : ℤ) (e : ℕ) (hp : p ≠ 0) :
+  p ^ (e + 1) ∣ p ^ e * c ↔ p ∣ c
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.linearized_hensel_dvd_iff (p c fp h : ℤ) (e : ℕ)
+  (hp : p ≠ 0) : p ^ (e + 1) ∣ p ^ e * c + p ^ e * h * fp ↔ p ∣ c + h * fp
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.hensel_digit_dvd_iff (p f c fp h : ℤ) (e : ℕ) (hp : p ≠ 0)
+  (hf : f = p ^ e * c) : p ^ (e + 1) ∣ f + p ^ e * h * fp ↔ p ∣ c + h * fp
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.fixed_representative_persists_iff (p f c : ℤ) (e : ℕ)
+  (hp : p ≠ 0) (hf : f = p ^ e * c) : p ^ (e + 1) ∣ f ↔ p ∣ c
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.hensel_digit_unique_mod (p c fp h₁ h₂ : ℤ)
+  (hcop : IsCoprime fp p) (h₁root : p ∣ c + h₁ * fp) (h₂root : p ∣ c + h₂ * fp) : h₁ ≡ h₂ [ZMOD p]
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.fibonacci_derivative_transverse (p ell A B Fprime : ℤ)
+  (hcop : IsCoprime p (ell * A)) (hB : p ∣ B) (hread : 4 * Fprime + B = ell * A) : IsCoprime p Fprime
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.lucas_derivative_transverse (p ell B Lprime : ℤ)
+  (hcop : IsCoprime p (ell * B)) (hread : Lprime = ell * B) : IsCoprime p Lprime
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.F3_taylor_mod_square (p t h : ℤ) :
+  F3 (t + p * h) ≡ F3 t + p * h * F3prime t [ZMOD p ^ 2]
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.L3_taylor_mod_square (p t h : ℤ) :
+  L3 (t + p * h) ≡ L3 t + p * h * L3prime t [ZMOD p ^ 2]
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_base_and_digits :
+  L3 2 = 14 ∧
+    L3prime 2 = 15 ∧
+      F3 2 = 5 ∧
+        F3prime 2 = 4 ∧ 7 ∣ L3 (2 + 7 * 5) ∧ 7 ^ 2 ∣ L3 (2 + 7 * 5) ∧ 5 ∣ F3 (2 + 5 * 1) ∧ 5 ^ 2 ∣ F3 (2 + 5 * 1)
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_crt_residue :
+  282 ≡ 37 [ZMOD 49] ∧ 282 ≡ 7 [ZMOD 25] ∧ 282 ≡ 2 [ZMOD 35]
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_global_moving_counterexample :
+  F3 282 = 79525 ∧
+    L3 282 = 22426614 ∧
+      79525 = 5 ^ 2 * 3181 ∧
+        11213307 = 3 ^ 2 * 7 ^ 2 * 47 * 541 ∧
+          19882 = 2 * 9941 ∧
+            7 ^ 2 ∣ 11213307 ∧
+              5 ^ 2 ∣ 79525 ∧ 11213307 ^ 2 - 19882 * 79525 ^ 2 = -1 ∧ 22426614 ^ 2 - (282 ^ 2 + 4) * 79525 ^ 2 = -4
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_moving_point_not_full_packet :
+  ¬47 ^ 2 ∣ 11213307 ∧ ¬3181 ^ 2 ∣ 79525
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.moving_coefficient_large_factor_prime : Nat.Prime 9941
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.moving_coefficient_squarefree : Squarefree 19882
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.not_indexThreeMovingExclusion : ¬IndexThreeMovingExclusion
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_seven_transverse_collision :
+  F7 2 = 169 ∧ F7prime 2 = 376 ∧ 13 ^ 2 ∣ F7 2 ∧ ¬13 ^ 3 ∣ F7 2 ∧ ¬13 ∣ F7prime 2
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_seven_next_hensel_digit :
+  F7 171 = 25006385400373 ∧ 13 ^ 3 ∣ F7 171 ∧ ¬13 ^ 4 ∣ F7 171
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_bounded_single_channel_squarefull :
+  F3 682 = 465125 ∧
+    465125 = 5 ^ 3 * 61 ^ 2 ∧
+      L3 682 = 317216614 ∧
+        158608307 = 11 * 13 * 31 * 37 * 967 ∧
+          ¬11 ^ 2 ∣ 158608307 ∧ 116282 = 2 * 53 * 1097 ∧ 158608307 ^ 2 - 116282 * 465125 ^ 2 = -1
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_bounded_coefficient_squarefree :
+  Squarefree 116282
+IUTThreeClosures.PellPolynomialHenselSpecialization20260902.not_indexSevenSimpleRootForcesNoSquare :
+  ¬IndexSevenSimpleRootForcesNoSquare
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.pow_succ_dvd_scaled_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.linearized_hensel_dvd_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.hensel_digit_dvd_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.fixed_representative_persists_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.hensel_digit_unique_mod' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.fibonacci_derivative_transverse' depends on axioms: [propext]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.lucas_derivative_transverse' depends on axioms: [propext]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.F3_taylor_mod_square' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.L3_taylor_mod_square' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_base_and_digits' depends on axioms: [propext]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_crt_residue' depends on axioms: [propext]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_global_moving_counterexample' depends on axioms: [propext]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_moving_point_not_full_packet' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.moving_coefficient_large_factor_prime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.moving_coefficient_squarefree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.not_indexThreeMovingExclusion' depends on axioms: [propext]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_seven_transverse_collision' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_seven_next_hensel_digit' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_bounded_single_channel_squarefull' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_bounded_coefficient_squarefree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.not_indexSevenSimpleRootForcesNoSquare' depends on axioms: [propext,
+ Quot.sound]

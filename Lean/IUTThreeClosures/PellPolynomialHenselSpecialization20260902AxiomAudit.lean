@@ -1,0 +1,28 @@
+import IUTThreeClosures.PellPolynomialHenselSpecialization20260902
+
+/-! Dependency audit for the Pell polynomial/Hensel specialization route. -/
+
+open IUTThreeClosures
+open IUTThreeClosures.PellPolynomialHenselSpecialization20260902
+
+#print axioms pow_succ_dvd_scaled_iff
+#print axioms linearized_hensel_dvd_iff
+#print axioms hensel_digit_dvd_iff
+#print axioms fixed_representative_persists_iff
+#print axioms hensel_digit_unique_mod
+#print axioms fibonacci_derivative_transverse
+#print axioms lucas_derivative_transverse
+#print axioms F3_taylor_mod_square
+#print axioms L3_taylor_mod_square
+#print axioms index_three_base_and_digits
+#print axioms index_three_crt_residue
+#print axioms index_three_global_moving_counterexample
+#print axioms index_three_moving_point_not_full_packet
+#print axioms moving_coefficient_large_factor_prime
+#print axioms moving_coefficient_squarefree
+#print axioms not_indexThreeMovingExclusion
+#print axioms index_seven_transverse_collision
+#print axioms index_seven_next_hensel_digit
+#print axioms index_three_bounded_single_channel_squarefull
+#print axioms index_three_bounded_coefficient_squarefree
+#print axioms not_indexSevenSimpleRootForcesNoSquare

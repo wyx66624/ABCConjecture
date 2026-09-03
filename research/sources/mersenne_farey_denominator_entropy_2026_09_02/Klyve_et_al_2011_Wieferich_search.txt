@@ -1,0 +1,568 @@
+23 11
+Article 11.9.2
+Journal of Integer Sequences, Vol. 14 (2011),2
+3
+6
+1
+47
+A Wieferich Prime Search up to 6. 7 × 1015
+Fran¸ cois G. Dorais
+Department of Mathematics
+University of Michigan
+530 Church Street
+Ann Arbor, MI 48109
+USA
+dorais@umich.edu
+Dominic Klyve
+Department of Mathematics
+Central Washington University
+400 E. University Way
+Ellensburg, W A 98926
+USA
+klyved@cwu.EDU
+Abstract
+A Wieferich prime is a prime p such that 2 p− 1 ≡ 1 (mod p2). Despite several
+intensive searches, only two Wieferich primes are known: p = 1093 and p = 3511. This
+paper describes a new search algorithm for Wieferich primes using double-precision
+Montgomery arithmetic and a memoryless sieve, which runs si gniﬁcantly faster than
+previously published algorithms, allowing us to report tha t there are no other Wieferich
+primes p < 6.7 × 1015. Furthermore, our method allowed for the eﬃcent collection of
+statistical data on Fermat quotients, leading to a strong em pirical conﬁrmation of a
+conjecture of Crandall, Dilcher, and Pomerance. Our method s proved ﬂexible enough
+to search for new solutions of ap− 1 ≡ 1 (mod p2) for other small values of a, and to
+extend the search for Fibonacci-Wieferich primes. We conclu de, among other things,
+that there are no Fibonacci-Wieferich primes less than p < 9.7 × 1014.
+1
+1 Introduction
+During the 19th and 20th centuries, several diﬀerent classes of p rime numbers were identiﬁed
+and studied because of their relationship to Fermat’s Last Theor em (FLT). Most notable
+among these are Fibonacci-Wieferich primes, Wilson primes, and Wieferich primes. For
+example, if the ﬁrst case of Fermat’s Last Theorem holds for a pri me p, then p must be a
+Fibonacci-Wieferich prime [
+22]. Similarly, any exponent p which permits a solution to the
+FLT equation xp + yp = zp, while being coprime to x, y , and z, is a Wieferich prime. The
+relationship between Wilson primes and FLT is more complex; see [13]. Although it no
+longer makes sense to search for a solution to the equation in Ferm at’s Last Theorem, the
+questions inspired by these classes of primes still remain, and we c an now turn our attention
+to the study of these primes for their own sake.
+Of the three above-mentioned classes of primes, Wieferich prim es are perhaps the simplest
+to deﬁne. Deﬁne the Fermat quotient of 2 mod p to be
+q2(p) = ap− 1 − 1
+p .
+It is known from Fermat’s little theorem that for any prime p, 2 p− 1 − 1 is always divisible
+by p, and therefore q2(p) is always an integer. If q2(p) vanishes modulo p (that is, if 2 p− 1 − 1
+is divisible by p2), p is said to be Wieferich. These primes were ﬁrst studied by Arthur
+Wieferich, who in 1909 related them to Fermat’s Last Theorem [ 23].
+Although Wieferich himself found no example of such a prime, W. M eissner [ 15] in 1913
+found that 1093 was Wieferich, and in 1922 N. G. W. H. Beeger [ 1] showed that 3511 was
+Wieferich, also. Since 1922, however, no new examples have be en found.
+2 Previous Searches
+Exhaustive searches for new Wieferich primes began with Beege r, and continue today. The
+last eighty years have seen ﬁrst computers, then new algorithmic techniques, and ﬁnally
+distributed computing applied to the search for Wieferich pri mes. Because we have been
+unable to ﬁnd a comprehensive summary of the history of these searc hes in the literature,
+one has been compiled in Table
+1.
+The most recent of these searches, that of Knauer and Richstein, use d a distributed
+approach, and incorporated more than 250 client computers d uring the course of their search,
+but in order to include as many computers as possible they were u nable to use many of the
+standard optimizations sometimes used in a search for Wieferich primes. Notably, their code
+assumed only a 32-bit processor on client machines.
+3 Improved Search Methods
+Our search employed a number of new algorithmic enhancements not used in previous
+searches. For computations modulo p2, we used a new “double-precision” variant Mont-
+gomery arithmetic. Finally, we used a new type of “memoryless” si eve to quickly eliminate
+composites.
+2
+Table 1: Previous Wieferich prime searches
+Search bound Author Year
+16000 Beeger [ 2] 1940
+50000 Fr¨ oberg [ 7] unknown
+100000 Kravitz [ 11] 1960
+200183 Pearson [ 18] 1964
+500000 Riesel [ 20] 1964
+3× 107 Fr¨ oberg [8] 1968
+3× 109 Brillhart, Tonascia, and Weinberger [ 3] 1971
+6× 109 Lehmer [ 12] 1981
+6. 1× 1010 Clark c. 1996
+4× 1012 Crandall, Dilcher, and Pomerance [ 5] 1997
+4. 6× 1013 Brown and McIntosh [ 4] 2001
+2× 1014 Crump [ 6] 2002
+1. 25× 1015 Knauer and Richstein [ 10] 2005
+3.1 Faster Arithmetic
+Our ﬁrst task was to reduce the time for computing Fermat quotie nts to about 1 µs (for the
+machines we had at hand). This was accomplished by using double-precision Montgomery
+arithmetic.
+The idea behind (single-precision) Montgomery arithmetic mo dulo p is that instead of
+the ring Z/p Z, we can choose a parameter r coprime to p, and use the isomorphic ring
+M(p, r ) = ( {0, 1, . . . , p − 1}, 0, e, ⊖ , ⊕ , ⊗ )
+with the usual negation ⊖ x = ( − x) mod p, addition x ⊕ y = ( x + y) mod p and additive
+identity 0, but where multiplication is deﬁned by x ⊗ y = xyr− 1 mod p and, consequently,
+the multiplicative identity is deﬁned by e = r mod p.
+The advantage of this is that, by choosing r wisely, it is possible to arrange that the
+product x⊗ y can always be computed without resorting to division by p. When the modulus
+p is odd, one such choice is r = 2 n > p , which corresponds to the original idea of P. L.
+Montgomery [
+16]. For double-precision Montgomery arithmetic, we use the same choice for
+r, but the modulus is now p2. We also use a double-precision representation for the elements
+of M(p2, 2n), which consists in representing x ∈ {0, 1, . . . , p 2 − 1} as an ordered pair ( x0, x 1)
+where x = x0 + px1 and 0 ≤ x0, x 1 ≤ p − 1. Addition and subtraction of such pairs is
+straightforward. Multiplication is not so obvious, but it can st ill be done using without
+resorting to division.
+The following result shows how to multiply two double-precisio n elements of M(p2, 2n)
+using only multiplication, addition, and subtraction of nonn egative n-bit integers.
+Lemma 1. Given two odd numbers p, q such that 0 < p, q < 2n and pq ≡ 1 (mod 2 n)
+as parameters. The product of two double-precision element s of M(p2, 2n) can be computed
+using at most 7 multiplications and 8 additions/subtractio ns of nonnegative n-bit integers.
+3
+The square of a double-precision element of M(p2, 2n) can be computed using at most 6
+multiplications and 8 additions/subtractions of nonnegat ive n-bit integers.
+Proof. Let x0 + x1p and y0 + y1p be double-precision elements of M(p2, 2n). Thus 0 ≤
+x0, x 1, y 0, y 1 ≤ p − 1.
+First compute:
+t0 + t12n := x0y0, where 0 ≤ t0 ≤ 2n − 1;
+u0 + u12n := qt0, where 0 ≤ u0 ≤ 2n − 1;
+v0 + v12n := pu0, where 0 ≤ v0 ≤ 2n − 1.
+This requires 3 multiplications. Note that t0 = v0 since pq ≡ 1 (mod 2 n), and so
+x0y0 − pu0 = 2 n(t1 − v1). (1)
+Furthermore, note that 0 ≤ t1, v 1 ≤ p − 1.
+Next compute:
+t′
+0 + t′
+12n := x0y1 + x1y0 + u0, where 0 ≤ t′
+0 ≤ 2n − 1;
+u′
+0 + u′
+12n := qt′
+0, where 0 ≤ u′
+0 ≤ 2n − 1;
+v′
+0 + v′
+12n := pu′
+0, where 0 ≤ v′
+0 ≤ 2n − 1.
+This requires 4 multiplications and 3 additions (with carry ). Again, t′
+0 = v′
+0 since pq ≡ 1
+(mod 2 n), and so
+(x0y1 + x1y0 + u0) − pu′
+0 = 2 n(t′
+1 − v′
+1). (2)
+Furthermore, note that 0 ≤ t′
+1 ≤ 2p − 1 and 0 ≤ v′
+1 ≤ p − 1.
+Combining (
+1) and ( 2), we ﬁnd that
+(x0 + x1p)(y0 + y1p) ≡ x0y0 + (x0y1 + x1y0)p (mod p2)
+≡ 2n(t1 − v1) + 2n(t′
+1 − v′
+1)p
+Since − p < t 1 − v1 < p and − p < t ′
+1 − v′
+1 < 2p, with at most 5 more additions/subtractions,
+we can ﬁnd z0, z 1 such that
+(x0 + x1p)(y0 + y1p) ≡ 2n(z0 + z1p) (mod p)
+and 0 ≤ z0, z 1 ≤ p − 1.
+In total, this process requires at most 7 multiplications and 8 additions (possibly with
+carry). For squaring, we have x0y1 = x1y0, so we can save 1 multiplication by computing
+this product only once.
+For comparison, single-precision Montgomery multiplication in M(p2, 22n) requires 3 multi-
+plications and up to 2 additions/subtractions of nonnegative 2n-bit integers. For small n,
+multiplication of 2 n-bit integers takes at least 3 times as long as multiplication of n-bit inte-
+gers, and addition of 2 n-bit integers takes 2 times as long as addition of n-bit integers. Since
+4
+multiplication is usually much slower than addition, double- precision Montgomery squaring
+results in approximately 30% improvement over single-precisi on Montgomery squaring.
+To test whether p is a Wieferich prime, we need to check whether 2 p− 1 ≡ 1 (mod p2)
+or, equivalently, whether 2 (p− 1)/2 ≡ ± 1 (mod p2), as suggested by Crandall, et al. [ 5]. Our
+implementation used a standard binary powering ladder to acco mplish this.
+Theorem 2. Given a n-bit prime number p (n ≥ 4), we can test whether 2(p− 1)/2 ≡
+± 1 (mod p2) using at most 6n + 2 lg(n) − 10 multiplications and 12n + lg( n) − 13 addi-
+tions/subtractions of nonnegative n-bit integers.
+Proof. We do the computations using double-precision Montgomery ari thmetic in M(p2, 2n).
+To get started, we need to compute the auxiliary parameter q such that pq ≡ 1 (mod 2 n).
+This can be done in many ways; our implementation used a Newton it eration that requires
+2 lg(n) − 4 multiplications and lg( n) − 2 subtractions (of ≤ n/ 2-bit integers).
+To get started with the binary powering ladder, we need to comp ute the double-precision
+representation of the multiplicative unit 2 n. Since p has n-bits, this can be done with only
+1 subtraction.
+Finally, the (left-to-right) binary powering ladder with t he (n − 1)-bit exponent ( p − 1)/ 2
+requires n − 1 squarings and at most n − 1 doublings. Each squaring uses 6 multiplications
+and 8 additions/subtractions and each doubling uses up to 4 addi tions/subtractions. In
+total, this gives 6 n − 6 multiplications and up to 12 n − 12 additions/subtractions.
+3.2 Faster Sieving
+Previous searches of Wieferich primes employed a segmented sie ve of Eratosthenes to com-
+pletely sieve an interval for primes before testing those prime s for being Wieferich. Using the
+testing methods described above, we found that testing a single n umber for being Wieferich
+was quite fast (about 1 µs), and that therefore much of our computing time would be spent
+sieving.
+For traditional sieves, most of the sieving time is spent sieving sma ll primes. Indeed,
+sieving an interval of length ℓ for the prime p requires about ℓ/p memory write operations. So,
+for example, it takes about as much time to sieve an interval fo r the six primes 2 , 3, 5, 7, 11, 13
+as it takes to sieve the same interval for the primes 17 , 19, 23, . . . , 82139. With this in mind,
+we began to look for better ways to sieve out multiples of very sm all primes. Since memory
+operations are usually much more costly than elementary arith metic operations, we looked
+for sieves that require little or no memory.
+3.2.1 The Magic Sieve
+Sieving for a few small primes p1, . . . , p k amounts to enumerating the elements of the unit
+group modulo M = p1 · · ·pk. Our ﬁrst idea was to make better use of the structure of the
+unit group ( Z/M Z)∗. After a few experiments, we found a special number that we ended up
+calling the Magic Modulus :
+M = 2 · 3 · 5 · 7 · 11 · 17 · 23 · 29 · 47 · 53 · 59 · 83 = 319514496269430 .
+5
+This number was chosen because of the simple structure of the unit group mod M . Indeed,
+the group ( Z/M Z)∗ has a large cyclic factor of order 6569843280, generated by 3 1, and a
+second factor of order 8192 = 2 13. The integers in the interval [ kM + 1, (k + 1)M ] that are
+coprime to M can be listed in a rectangular array
+xij = kM + (ai · 31j mod M ) (0 ≤ i < 8192, 0 ≤ j < 6569843280)
+where the numbers ai are chosen representatives of the cosets of the cyclic group ⟨31⟩ in
+(Z/M Z)∗. Given a coset representative ai, listing the integers xij (0 ≤ j < 6569843280) only
+involves multiplying by 31, which can be accomplished by ﬁve d oubling and one subtraction
+operation modulo M and essentially no memory access.
+While the Magic Sieve is somewhat less eﬃcient than the Spin Sie ve (described below), it
+has the advantage that it is easy to implement and requires essen tially no memory storage.
+In fact, our implementation used only 104 bytes of data to be sto red in memory. The
+performance of the Magic Sieve was adequate for our purposes — we only had to compute
+Fermat quotients for 16 . 8% of the integers in an interval.
+3.2.2 The Spin Sieve
+For optimal results, a sieve should use the ﬁrst few primes 2 , 3, . . . , p k. A weakness of the
+Magic Sieve is that it is sometimes preferable to omit a few smal l primes so that the unit
+group has a large cyclic factor. The Spin Sieve does away with the reliance on the structure
+of the unit group, while, like the Magic Sieve, requiring ver y little memory storage.
+The Spin Sieve was inspired by Pritchard’s Wheel Sieve [
+19]. A similar idea was in-
+dependently discovered by Sorenson [ 21], from whom we borrowed some implementation
+ideas.
+The idea behind the Spin Sieve is to ﬁnd a simple bijection betw een the set of k-tuples
+Tk = {1} × {1, 2} × {1, 2, 3, 4} × · · · × {1, . . . , p k − 1}
+and the set
+Ak = {x : 0 < x < M k, (x, M k) = 1 }
+where Mk = 2 · 3 · 5 · · ·pk. This bijection sk : Tk → Ak is deﬁned recursively by s1(1) = 1,
+and
+sk(t1, . . . , t k) = sk− 1(t1, . . . , t k− 1) + Mk− 1((rk(t1, . . . , t k− 1) + tk) mod pk)
+where rk : Tk− 1 → { 0, . . . , p k − 1} satisﬁes
+sk− 1(t1, . . . , t k− 1) + Mk− 1rk(t1, . . . , t k− 1) ≡ 0 (mod pk).
+While the deﬁnition of sk is somewhat unwieldy, it is rather simple to compute the values
+of sk in succession with the lexicographic ordering of Tk. This “spinning” operation is the
+origin of the name of the sieve.
+There are many ways to use the values of sk. In our implementation, for each value
+of s10, we further sieve (in the traditional way) the arithmetic pro gression s10(t1, . . . , t 10)
+(mod M10) for the primes 31 , . . . , 65521 and compute the Fermat quotients of the remaining
+values. On average, less than 15 . 8% of numbers survive the Spin Sieve, then about 32% of
+the remaining numbers survive the second sieve, so we only comput e Fermat quotients for
+approximately 5% of the numbers in a given interval.
+6
+4 Other applications
+4.1 Base- a Wieferich Primes
+The deﬁnition of Wieferich prime uses base 2 for historical reaso ns, but mathematically there
+is no particular reason why we can’t consider other bases as well . In an analogy to the base-2
+case, deﬁne the Fermat coeﬃcient base-a of p to be
+qa(p) = ap− 1 − 1
+p .
+Primes for which qa(p) vanishes modulo p are sometimes called base-a Wieferich primes.
+Using the methods described above, we searched for solutions to th is equation of a = 3 , 5,
+and 7. For each of these bases, we looked for solutions up to about 9 . 7 × 1014 (or, more
+precisely, solutions not greater than (2 · 3 · 5 · 7 · 11 · 13 · 17 · 19 · 23 · 29) · 1. 5 × 105). The
+previous record for searches with a = 3 and a = 5 was held by Keller and Richstein [ 9], who
+searched to 10 11. The previous record for a = 7 belonged to Montgomery [ 17], who searched
+to 2 32. We found no new base- a Wieferich primes for any of these bases, and therefore there
+are still only two known solutions for each base 2 , 3, and 7, and six solutions for base 5. We
+do not know whether there is any signiﬁcance to larger number o f base-5 solutions; this may
+be simply a statistical aberration. We also found 203 primes p with base-3 Fermat quotients
+less than 100, 179 with base-5, and 212 for base-7. These values, to gether with near-misses
+of larger Fermat quotient, are also available on the project w eb page, while primes with small
+relative Fermat coeﬃcients base- a are reported in Tables 5–7.
+4.2 Fibonacci-Wieferich primes
+Another class of primes initially deﬁned because of Fermat’s La st Theorem are the Fibonacci-
+Wieferich primes, sometimes called Wall-Sun-Sun primes. Let Fu denotes the uth Fibonacci
+number, and
+( p
+5
+)
+denotes the Legendre symbol; that is,
+( p
+5
+)
+=
+
+
+
+
+
+1, if p ≡ ± 1 (mod 5);
+− 1, if p ≡ ± 2 (mod 5);
+0, if p ≡ 0 (mod 5) .
+Then although for any prime p,
+Fp− ( p
+5 ) ≡ 0 (mod p),
+there are no known solutions to
+Fp− ( p
+5 ) ≡ 0 (mod p2). (3)
+Any solution to (3) is a Fibonacci-Wieferich prime. Previous searches for Fibo nacci-Wieferich
+primes these primes have extended as far as to 2 . 0 × 1014 [14] by McIntosh and Roettger. By
+modifying the methods described above, we were also able to use o ur code in the search for
+7
+these primes. We were able to search to about 9 . 7 × 1014 (or, more precisely, solutions not
+greater than (2 ·3·5·7·11·13·17·19·23·29)·1. 5× 105), in which space no Fibonacci-Wieferich
+primes were found. We did, however, ﬁnd several new “near misses” – those primes for which
+Fp− ( p
+5 ) is small (mod p2). These are reported in Table 8. A more extensive list of near-
+misses for Fibonacci-Wieferich primes, together with the near misses for Wieferich primes
+of each base we studied, will be available on the project web pag e. After we completed this
+work, we discovered that McIntosh and Roettger had extended th e search described their
+search [14] to 10 15. Our values match theirs precisely. Because their new values h ave not yet
+been published, we include them here.
+4.3 Computational considerations with Fibonacci-Wieferich p rimes
+Searching for Fibonacci-Wieferich primes involves calcul ating Fp− ( p
+5 ) (mod p2), for (fairly)
+large p. Naturally space and memory considerations keep us from comput ing Fp− ( p
+5 ) directly.
+Instead we do these calculations by recalling a well-known ide ntity, namely that
+( 1 1
+1 0
+) n
+=
+( Fn+1 Fn
+Fn Fn− 1
+)
+.
+By doing all these computations modulo n2 for some n, and the same type of binary ladder
+that we used above, we can compute our values quite quickly. In fact, we can save even more
+time by noting that all of our matrix calculations involve ei ther squaring, or multiplying
+by
+( 1 1
+1 0
+)
+. Although naively multiplying two 2 × 2 matrices requires eight multiplications
+and four additions, squaring a symmetric matrix requires only t hree squares a2, b 2, c 2, one
+product ( a + c) · b, and 3 additions:
+( a b
+b c
+) 2
+=
+( a2 + b2 (a + c) · b
+(a + c) · b b 2 + c2
+)
+.
+After implementing this algorithm, a test for a Fibonacci-Wie ferich prime runs about four
+times slower than testing a Wieferich prime. In practice, since some of the multiplications
+can be done in parallel, the test takes a bit less than four times the time for Wieferich primes.
+5 The Computation
+The largest part of our computation was the search for Wieferic h primes to 6 . 7 × 1015. This
+was performed on DISCOVERY cluster at Dartmouth College, a clu ster of (at the time)
+about 500 AMD Opteron nodes with 64-bit processors. We ran our cod e on 24 processors for
+a period of about 200 days. For short periods of low cluster load, we utilized more processors,
+once reaching a total of 96. At other times, our computation wa s tabled for higher priority
+tasks. Altogether, the search used approximately 12000 CPU days, a value that compares
+well with that of the previous record search, which used (based o n the information provided
+by Knauer and Richstein) used roughly 50000 CPU days – although on slower computers.
+8
+The searches for base-3, 5, and 7 Wieferich primes, along with th e search for Fibonacci-
+Wieferich primes, were performed on the Condor cluster in the D artmouth College Math-
+ematics Department during low-load times over a period of ma ny months. We used be-
+tween one and eighteen 64-bit Linux machines of various arch itectures. Computation times
+were carefully recorded for these runs. In the following table , the times are recorded:
+For (base-2) Wieferich primes, the total time taken for the com putation [ N, 6. 7 × 1015],
+and for all other primes, the time taken for computing the rang e [ N, 150000N ], where
+N = 2 · 3 · 5 · 7 · 11 · 13 · 17 · 19 · 23 · 29 = 6469693230. (Computations of the range
+[0, N ] were very short, and were implemented with unsophisticated me thods.)
+Table 2: Time used in CPU days for calculations (Range values a re approximate; see dis-
+cussion above for precise values)
+Search Range CPU Days
+Wieferich primes [6 . 5 × 109, 6. 7 × 1015] 12907.97
+Base-3 Wieferich [6 . 5 × 109, 9. 7 × 1014] 714.54
+Base-5 Wieferich [6 . 5 × 109, 9. 7 × 1014] 812.14
+Base-7 Wieferich [6 . 5 × 109, 9. 7 × 1014] 916.67
+Fibonacci-Wieferich [6 . 5 × 109, 9. 7 × 1014] 1978.49
+6 Results
+6.1 Wieferich and near-Wieferich primes
+As we stated earlier, no new (base-2) Wieferich primes were foun d. It has become standard
+practice to report “near-Wieferich” primes; that is, those p for which 2 (p− 1)/2 ≡ ± 1 + Ap
+(mod p2), where |A| ≤ 100. However, as the magnitude of the primes under considerati on
+grows, the density of the near-Wieferich primes diminishes, and there are fewer to report. We
+propose, therefore, a new deﬁnition: a near-Wieferich prime is one for which the value of A/p
+is small; say less than 10 − 13. Table
+4 gives all such primes not greater than 6 . 7 × 1015. For
+base-3 Wieferich primes, such a deﬁnition excludes some 200 prev iously unreported primes
+with |A|< 100, and simliar numbers are excluded for base-5 and base-7 prim es. Rather than
+give a table of all these primes here, their values will be give n on the project webpage.
+We might well ask whether our results were to be expected: that i s, should we expect to
+ﬁnd any Wieferich primes in the region [1 . 25 × 1015, 6. 7 × 1015]? Certainly A = A(p) can take
+on any of p values (mod p). Assuming that A takes these values randomly, the “probability”
+that A takes any particular value (say, 0) is 1 /p . From this, a heuristic is given in [ 5] that
+the expected number of Wieferich primes in the interval [ x, y ] is
+∑
+x≤ p≤ y
+1
+p ≈ log
+( log y
+log x
+)
+= log log y − log log x. (4)
+From this we would conclude that the expected number of Wiefe rich primes in our interval
+is . 0472, and therefore the lack of such primes there is not surprisi ng.
+9
+Because our program recorded all p with “small” A (that is, all those for which |A|<
+224), we compiled a large data set which can be used to give more rigo rous (experimental)
+conﬁrmation of this conjecture. Indeed, our program record ed more than 2.1 million primes
+p for which A < 224. Using this data, we checked the following conjecture, which f ollows
+from the same heuristic as does equation ( 4):
+Conjecture 3 (Crandall, Dilcher, and Pomerance) . The number of prime p ∈ [a, b ] for which
+A ∈ [K, L ] is asymptotically
+(L − K) · (log log b − log log a).
+The table below presents a small snapshot of our experimental resu lts conﬁrming this
+conjecture. Complete data will be available on our webpage. In Table 3, the values in row
+i, column k reﬂect the number of p ∈ [i × 1014, (i + 1) × 1014] with A ∈ [4(k − 1) × 106, 4k ×
+106). Overall, the conjecture holds up very well. Indeed, in the strip given by k = 2,
+Table 3:
+i k = 1 k = 2 k = 3 k = 4 k = 5 k = 6 k = 7 k = 8 Expected
+15 7451 7473 7435 7315 7511 7356 7361 7423 7380.8
+16 6779 6897 6999 6862 6858 6942 6879 6941 6920.8
+17 6449 6448 6545 6480 6391 6497 6420 6622 6514.2
+18 6000 6135 6099 6028 6071 6080 6256 6146 6152.1
+19 6053 5887 5839 5866 5854 5752 5911 5831 5827.7
+the relative error between the conjectured and experimenta l values is never greater than
+5. 5%. Furthermore, we can plot conjectured and actual numbers of near-Wieferich primes
+for diﬀerent values of i. The result is a graph that looks remarkably like a straight lin e. Let
+xi be the expected number primes p in the ith interval [ i × 1014, (i + 1) × 1014) for which
+A < 4 × 106, and let yi be the actual number of such p in the same interval (the values in
+column 1). We expect from Conjecture 3 that for any i, yi ≈ xi. In fact, linear regression
+on the two data sets returns a best ﬁt equation of
+y = 0. 999958129x + 9. 7
+(with R2 = . 9992), giving strong experimental agreement with the conjec tured value. Similar
+tests using diﬀerent parts of our data show no meaningful disagre ement between the values
+of A and what is expected heuristically. A data set of all near misses w ith Fermat quotients
+less than 2 24 (comprising roughly 2 million primes) is available on the proj ect web page.
+7 Acknowledgments
+We would like to acknowledge the scientiﬁc support received fr om the Research Computing
+group at Dartmouth College and the generous amount of comput ational resources we were
+given on the DISCOVERY cluster. We thank Carl Pomerance, Giuli o Genovese, and Chris
+Hall for valuable discussions which improved this work.
+10
+Table 4: Primes p < 6. 7 × 1015 for which 2 p− 1 ≡ 1 + Ap (mod p2), with |A/p |< 10− 13.
+(Values of |A/p |are given in multiples of 10 − 14.)
+p A |A/p | p A |A/p |
+1093 0 0
+3511 0 0
+765760560131939 − 76 9 . 925 3723113065138349 − 36 0 . 967
+993048728162299 +81 8 . 157 3925342714781797 − 139 3 . 541
+1302848719581529 +76 5 . 833 3948546628939699 − 186 4 . 711
+1515362530042687 +149 9 . 833 4032459967159163 − 172 4 . 265
+1680898792774051 − 96 5 . 711 4143792274787999 +216 5 . 213
+1865546314599557 +75 4 . 020 4150209531584437 +48 1 . 157
+1885825033325021 +158 8 . 378 5109286219780877 − 79 1 . 546
+2276306935816523 +6 0 . 264 5131427559624857 − 36 0 . 702
+2576594157291871 − 123 4 . 774 5294488110626977 − 31 0 . 586
+2718566561783551 +203 7 . 467 5367369195612269 +318 5 . 925
+2849352392161111 +255 8 . 949 5464249230405811 +426 7 . 796
+3167939147662997 − 17 0 . 537 5539428831517831 +230 4 . 152
+3383577137448533 +331 9 . 783 5592905052127597 +353 6 . 312
+3411159925463651 +176 5 . 160 5625021395769599 − 413 7 . 342
+3544715971857451 +127 3 . 583 5683778474515027 +332 5 . 841
+3660747680296367 − 211 5 . 764 5755502459289463 +476 8 . 270
+3690728733648797 − 334 9 . 050 6227907715670981 − 379 6 . 086
+3692386431182551 +277 7 . 502 6517506365514181 +58 0 . 890
+6521780305210439 − 595 9 . 123
+Table 5: Primes p < 9. 7 × 1014 for which 3 p− 1 ≡ 1 + Ap (mod p2), with |A/p |< 10− 13.
+(Values of |A/p |are given in multiples of 10 − 14.)
+p A |A/p |
+1006003 0 0 . 0
+39433103646379 − 1 2 . 536
+61629351935149 +2 3 . 245
+191293826264479 +19 9 . 932
+229887238986217 +11 4 . 785
+431096201990017 +12 2 . 784
+481589141680567 +13 2 . 699
+566967768385507 +12 2 . 117
+631564776981199 − 59 9 . 342
+638096726480497 +40 6 . 269
+11
+Table 6: Primes p < 9. 7 × 1014 for which 5 p− 1 ≡ 1 + Ap (mod p2), with |A/p |< 10− 13.
+(Values of |A/p |are given in multiples of 10 − 14.)
+p A |A/p |
+53471161 0 0 . 0
+1645333507 0 0 . 0
+6692367337 0 0 . 0
+188748146801 0 0 . 0
+319072335276077 +2 0 . 627
+419207873154803 +26 6 . 202
+817486743201059 − 59 7 . 21724
+Table 7: Primes p < 9. 7 × 1014 for which 7 p− 1 ≡ 1 + Ap (mod p2), with |A/p |< 10− 13.
+(Values of |A/p |are given in multiples of 10 − 14.)
+p A |A/p |
+87121568306639 +8 9 . 1826
+Table 8: New primes for which Fp− ( p
+5 ) ≡ Ap (mod p2) satisﬁes |A|< 100 (mod p2) (for
+examples with p < 2 × 1014, see [ 14]).
+p A
+267927950960309 − 9
+276225896955847 6
+299920665662731 − 49
+321208072276457 − 98
+331961404795379 − 98
+399729951985657 − 38
+481154641312217 31
+548865911671993 − 92
+549413206041731 62
+585297174492313 11
+635696842671829 52
+732698387434649 − 75
+12
+References
+[1] N. Beeger, On a new case of the congruence 2 p− 1 ≡ 1 (mod p2), Messenger of Mathe-
+matics 51 (1922), 149–150.
+[2] N. G. W. H. Beeger, On the congruence 2 p− 1 ≡ 1 (mod p2) and Fermat’s last theorem,
+Nieuw Arch. Wiskunde 20 (1939), 51–54.
+[3] J. Brillhart, J. Tonascia, and P. Weinberger, On the Ferma t quotient, Computers in
+Number Theory, Proc. Sci. Res. Council Atlas Sympos., No. 2, Academic Press, 1971 ,
+pp. 213–222.
+[4] R. Brown and R. McIntosh,
+http://www.loaria.fr/~zimmerma/records/Wieferich.status, 2001.
+[5] Richard Crandall, Karl Dilcher, and Carl Pomerance, A sea rch for Wieferich and Wilson
+primes, Math. Comp. 66 (1997), 433–449.
+[6] J. Crump, reported at http://www.spacefire.com/numbertheory/Wieferich.htm;
+website was not functioning at time of publication of this art icle, 2001.
+[7] C. E. Fr¨ oberg, Some computations with Wilson and Fermat r emainders, Math. Tables
+Aids Comput. 12 (1958), 281.
+[8] C. E. Fr¨ oberg, On some number-theoretical problems trea ted with computers, in Com-
+puters in Mathematical Research , North-Holland, 1968, pp. 84–88.
+[9] Wilfrid Keller and J¨ org Richstein, Solutions of the congruence ap− 1 ≡ 1 (mod pr), Math.
+Comp. 74 (2005), 927–936.
+[10] Joshua Knauer and J¨ org Richstein, The continuing search f or Wieferich primes, Math.
+Comp. 74 (2005), 1559–1563.
+[11] Sidney Kravitz, The congruence 2 p− 1 ≡ 1 (mod p2) for p < 100, 000, Math. Comp. 14
+(1960), 378.
+[12] D. H. Lehmer, On Fermat’s quotient, base two, Math. Comp. 36 (1981), 289–290.
+[13] Emma Lehmer, On congruences involving Bernoulli numbe rs and the quotients of Fer-
+mat and Wilson, Ann. of Math. (2) 39 (1938), 350–360.
+[14] R. J. McIntosh and E. L. Roettger, A search for Fibonacci-W ieferich and Wolstenholme
+primes, Math. Comp. 76 (2007), 2087–2094.
+[15] W. Meissner, ¨Uber die Teilbarkeit von 2 p− 2 durch das Quadrat der Primzahl p = 1093,
+Sitzungsberichte der Akademie der Wissenschaften, Berlin 35 (1913), 663–667.
+[16] Peter L. Montgomery, Modular multiplication without t rial division, Math. Comp. 44
+(1985), 519–521.
+13
+[17] Peter L. Montgomery, New solutions of ap− 1 ≡ 1 (mod p2), Math. Comp. 61 (1993),
+361–363.
+[18] Erna H. Pearson, On the congruences ( p − 1)! ≡ − 1 and 2 p− 1 ≡ 1 (mod p2), Math.
+Comp. 17 (1964), 194–195.
+[19] Paul Pritchard, A sublinear additive sieve for ﬁnding pri me numbers, Comm. ACM 24
+(1981), 18–23.
+[20] Hans Riesel, Note on the congruence ap− 1 ≡ 1 (mod p2), Math. Comp. 18 (1964),
+149–150.
+[21] Jonathan P. Sorenson, The pseudosquares prime sieve, in Algorithmic Number Theory ,
+Lecture Notes in Comput. Sci., vol. 4076, Springer, 2006, pp. 193–207.
+[22] Zhi Hong Sun and Zhi Wei Sun, Fibonacci numbers and Fermat ’s last theorem, Acta
+Arith. 60 (1992), 371–388.
+[23] A. Wieferich, Zum letzten Fermat’schen Theorem, J. Reine Angew. Math. 136 (1909),
+293–302.
+2010 Mathematics Subject Classiﬁcation : Primary 11A41; Secondary 11Y16, 11Y11.
+Keywords: Wieferich prime, Fibonacci-Wieferich prime, Wall-Sun-Su n prime, wheel sieve,
+magic sieve, Montgomery arithmetic.
+(Concerned with sequences
+A001220, A014127, A123692, and A123693.)
+Received June 30 2011; revised version received September 12 2 011. Published in Journal of
+Integer Sequences, October 16 2011.
+Return to Journal of Integer Sequences home page .
+14

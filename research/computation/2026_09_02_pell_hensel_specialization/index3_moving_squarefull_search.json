@@ -1,0 +1,35 @@
+{
+  "F3_squarefull_candidate_count": 1,
+  "F3_squarefull_candidates": [
+    {
+      "F3": 465125,
+      "F3_factorization": {
+        "5": 3,
+        "61": 2
+      },
+      "T": 682,
+      "half_L3": 158608307,
+      "half_L3_factorization": {
+        "11": 1,
+        "13": 1,
+        "31": 1,
+        "37": 1,
+        "967": 1
+      },
+      "half_L3_is_squarefull": false,
+      "powerful_representation_a": 61,
+      "powerful_representation_b": 5,
+      "s": 341
+    }
+  ],
+  "full_two_channel_squarefull_hits": [],
+  "method": "unique powerful representation n=a^2*b^3 with squarefree b",
+  "parameter_scope": {
+    "T_equals_2s": true,
+    "s_max": 10000000,
+    "s_min": 1
+  },
+  "policy": "The bounded absence of a two-channel hit is not an unbounded theorem.",
+  "powerful_representations_tested": 43355470,
+  "schema": "index3-moving-squarefull-search-v1"
+}

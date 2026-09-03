@@ -1,0 +1,439 @@
+GENERALIZED WIEFERICH PRIMES
+AND MONOGENIC TRINOMIALS
+AMY FALK, JOSHUA HARRINGTON, AND LENNY JONES
+Abstract.Letb≥2 be an integer and letp≥3 be a prime. We say thatp
+is ageneralized Wieferich prime baseb, or more succinctly, abase-bWieferich
+prime,ifb p−1 ≡1 (modp 2). Whenb= 2,pis also known simply as a
+Wieferich prime. Letf(x)∈Z[x] be a monic polynomial of degreeN≥2. We
+say thatf(x) is monogenic iff(x) is irreducible overQand{1, θ, θ 2, . . . , θN−1 }
+is a basis for the ring of integers ofQ(θ), wheref(θ) = 0. Recently, the third
+author proved thatx 2p+2x p+2 is monogenic if and only ifpis not a Wieferich
+prime. In this article, we generalize this result tox 2n +bx n +bwith certain
+restrictions onb≥2 andn≥3.
+1.Introduction
+For an integerb≥2 and a primep≥3, we say thatpis ageneralized Wieferich
+prime baseb, or more succinctly, abase-bWieferich prime, ifb p−1 ≡1 (modp 2) [2].
+Whenb= 2, the primepis also known simply as aWieferich prime. Base-b
+Wieferich primes are quite scarce. For example, the only known Wieferich primes
+are 1093 and 3511, while there are no known base-47 Wieferich primes [2,7].
+Letf(x)∈Z[x] be a monic polynomial of degreeN≥2. We say thatf(x) is
+monogeniciff(x) is irreducible overQand{1, θ, θ 2, . . . , θN−1 }is a basis for the
+ring of integers ofQ(θ), wheref(θ) = 0. It is well known [1] that
+(1.1) ∆(f) = [Z K :Z[θ]] 2 ∆(K),
+where ∆(f) and ∆(K) denote the discriminants overQ, respectively, off(x) and
+the number fieldK. We refer to [Z K :Z[θ]] as theindexoff(x), and we denote it
+index(f). Thus, from (1.1),f(x) is monogenic if and only if the index(f)=1.
+Recently, the third author [4] proved that
+(1.2)x 2p + 2xp + 2 is not monogenic if and only if 2 p−1 ≡1 (modp 2).
+Motivated by (1.2), the authors pondered whether (1.2) could be generalized to
+trinomials of the formx 2p +bx p +b, whereb≥3 is an integer andpis an odd
+prime. One might surmise that the generalization could be thatx 2p +bx p +bis
+not monogenic if and only ifb p−1 ≡1 (modp 2). While this intuition turns out to
+be correct forb= 3, it fails to be true whenb≥5, where the situation is more
+complicated. An analysis of the approach used in [4] regarding the monogenicity
+ofx 2p + 2xp + 2 reveals that the setting for an appropriate generalization of (1.2)
+should require that bothbandb−4 be squarefree. Otherwise, whenx 2p +bx p +b
+is irreducible overQ, it is never monogenic, regardless of whetherpis, or is not, a
+Date: August 3, 2026.
+2020Mathematics Subject Classification.Primary 11A41, 11R04; Secondary 11A07, 11R09.
+Key words and phrases.Wieferich prime, monogenic, trinomial, Lucas sequence.
+1
+arXiv:2607.29329v1  [math.NT]  31 Jul 2026
+
+2 AMY F ALK, JOSHUA HARRINGTON, AND LENNY JONES
+base-bWieferich prime. Therefore, to avoid this muddled situation, we assume in
+the sequel that
+(1.3)
+b≥2 is an integer such thatbandb−4 are squarefree,
+and we letD:=b 2 −4b.
+In this article, we use methods that differ from [4] to establish a generalization of
+(1.2) that holds for allb≥2, subject to (1.3), and consequently, we provide a new
+proof of (1.2).
+We also use the following definitions and notation.
+Definition 1.1.Letf(x)∈Z[x] andg(x)∈Z[x] be monic with respective degrees
+ofmandn. Then, theresultantoff(x) andg(x) is
+Res(f, g) = (−1) mn
+mY
+i=1
+g(λi),
+whereλ 1, λ2, . . . , λm are the zeros off(x).
+It is easy to see from Definition 1.1 thatf(x) andg(x) have a zero in common if
+and only ifRes(f, g) = 0.
+Definition 1.2.Define the Lucas sequence of the second kind (V n)n≥−1 by
+V−1 :=−1, V 0 = 2, V 1 =−band
+Vn =−bV n−1 −bV n−2 forn≥2.
+Then the characteristic polynomial of (V n)n≥−1 is
+G(x) :=x 2 +bx+b,
+with zerosαandβ, so thatα+β=−b,αβ=bandV n =α n +β n.
+Definition 1.3.Letp≥3 be a prime and define
+Gp,b(x) :=G(x p) =x 2p +bx p +b.
+Note, sinceb≥2 is squarefree, it follows thatG p,b(x) is Eisenstein with respect to
+every prime divisor ofb, and thusG p,b(x) is irreducible overQ.
+Definition 1.4.For a primep≥3, we letδdenote the Legendre symbol ( D
+p ).
+Our main results are as follows.
+Theorem 1.5.LetbandDbe as described in(1.3), and letp≥3be a prime.
+(1) Ifδ= 0, thenG p,b(x)is monogenic.
+(2) Ifδ= 1, thenG p,b(x)is not monogenic if and only if
+(2Vp +b p +b) 2 −D(b p−1 −1) 2 ≡0 (modp 3);
+(3) Ifδ=−1, thenG p,b(x)is not monogenic if and only if
+Vp ≡ −b(modp 2)andb p−1 ≡1 (modp 2).
+Corollary 1.6.LetbandDbe as described in(1.3), and letp≥3be a prime such
+thatD̸≡0 (modp). If
+Vp ≡ −b(modp 2)andb p−1 ≡1 (modp 2),
+thenG p,b(x)is not monogenic.
+
+GENERALIZED WIEFERICH PRIMES AND MONOGENIC TRINOMIALS 3
+The following corollary indicates that Theorem 1.5 can be refined in the special
+cases ofb∈ {2,3}.
+Corollary 1.7.Letb∈ {2,3}, and letp≥3be a prime such thatD̸≡0 (modp).
+The trinomialG p,b(x)is not monogenic if and only ifb p−1 ≡1 (modp 2).
+The next theorem gives an extension of Theorem 1.5.
+Theorem 1.8.LetbandDbe as described in(1.3), and letn≥3be an integer.
+Define
+Gn,b(x) :=x 2n +bx n +b.
+ThenG n,b(x)is monogenic if and only ifG p,b(x)is monogenic for every prime
+divisorpofn.
+Highlighting the obvious, the casep= 2 (andn= 2) has been excluded from the
+previously stated results. One reason for this omission is that determining whether
+2 is a base-bWieferich prime is simply an immediate consequence of the definition.
+Indeed, 2 is a base-bWieferich prime if and only ifb≡1 (mod 4). Regardless of
+this triviality, and for the sake of completeness, we present the following theorem
+that addresses the relationship between the monogenicity ofG 2,b(x) and whether 2
+is a base-bWieferich prime. We point out that this theorem is not a new result. In
+fact, it is merely a corollary of [5, Theorem 2.6], and so we do not supply a proof
+here.
+Theorem 1.9.LetbandDbe as described in(1.3). ThenG 2,b(x)is not monogenic
+if and only if2is a base-bWieferich prime.
+2.Preliminaries
+Using a theorem due to Swan [8], we have
+(2.1) ∆(G p,b) =p 2pb2p−1(b−4) p.
+A standard tool used to determine the monogenicity of a monic irreducible polyno-
+mialf(x) is known as Dedekind’s Index Theorem [1], which can determine whether
+a prime divisor of ∆(f) divides the index(f). However, for trinomials in particu-
+lar, Jakhar, Khanduja and Sangwan [3] have given a more streamlined version of
+Dedekind’s theorem. In light of (1.3), Definition 1.3 and (2.1), it turns out that
+an application of the theorem of Jakhar et al. to our specific trinomialsG p,b(x)
+reveals that the monogenicity ofG p,b(x) is determined completely by whether the
+single primepdivides the index(G p,b). More precisely, this application produces
+the following very concise theorem.
+Theorem 2.1.The trinomialG p,b(x)is not monogenic if and only if
+G(x)andH(x) := bxp +b+ (−bx−b) p
+p
+are not coprime inF p[x].
+The following refinement of Theorem 2.1 will be a useful tool.
+Corollary 2.2.The trinomialG p,b(x)is not monogenic if and only if
+Gp,b(θ)≡0 (modp 2)for someθ∈ {α, β}.
+
+4 AMY F ALK, JOSHUA HARRINGTON, AND LENNY JONES
+Proof.By Theorem 2.1,G p,b(x) is not monogenic if and only ifpH(θ)≡0 (modp 2)
+for someθ∈ {α, β}. SinceG(θ)≡0 (modp), we have that−bθ−b=θ 2 +pkfor
+somek∈Z. Consequently,
+pH(θ) =bθ p +b+ (−bθ−b) p ≡bθ p +b+ (θ 2 +pk) p ≡ G p,b(θ) (modp 2).□
+The next theorem, due to Kaur, Kumar and Remete [6], addresses the mono-
+genicity of compositions, and plays a crucial role in the proof of Theorem 1.8.
+Theorem 2.3.Letf(x)∈Z[x]be monic, and letk≥2be an integer such that
+F(x) :=f(x k)is irreducible overQ. ThenF(x)is monogenic if and only if all of
+the following conditions are true:
+(1)f(x)is monogenic,
+(2)pdoes not divide theindex(F) for every prime divisorpofk,
+(3)f(0)is squarefree.
+Lemma 2.4.G p,b(α)≡ G p,b(β) (modp 2)if and only ifV p +b≡0 (modp 2).
+Proof.Observe that
+Gp,b(β)− G p,b(α) = (βp −α p)(αp +β p +b).
+SinceD̸≡0 (modp), it follows thatβ p −α p ̸≡0 (modp 2). Therefore,
+Gp,b(α)≡ G p,b(β) (modp 2)
+if and only if
+αp +β p +b=V p +b≡0 (modp 2).□
+The next result gives us some information regardingG p,b(θ) modulop 2, where
+θ∈ {α, β}, according to whenDis, or is not, a nonzero square modulop.
+Corollary 2.5.Suppose thatG p,b(θ)≡0 (modp 2)for someθ∈ {α, β}, so that
+Gp,b(x)is not monogenic by Corollary 2.2.
+(1) Ifδ= 1, thenG p,b(−θ−b)≡0 (modp 2)if and only ifV p +b≡0 (modp 2).
+(2) Ifδ=−1, thenG p,b(−θ−b)≡0 (modp 2)andV p +b≡0 (modp 2).
+Proof.Item (1) follows immediately from Lemma 2.4. For item (2), ifδ=−1,
+thenG(x) is irreducible inF p[x]. LetR= (Z/p 2Z)[x]/(G(x)), and letσbe the
+unique automorphism ofRthat fixes pointwise the elements ofZ/p 2Zand mapsθ
+to−θ−b. Then
+Gp,b(−θ−b)≡σ(G p,b(θ))≡σ(0)≡0 (modp 2),
+andV p +b≡0 (modp 2) by Lemma 2.4.□
+Lemma 2.6.The trinomialG p,b(x)is not monogenic if and only if
+Res(G,G p,b)≡
+(
+0 (modp 4)ifδ=−1
+0 (modp 3)ifδ= 1.
+Proof.By Definition 1.1, we have that
+(2.2)Res(G,G p,b) =G p,b(α)Gp,b(β) = (α2p +bα p +b)(β 2p +bβ p +b).
+Note that each factor in (2.2) is divisible bypsinceG(α)≡G(β)≡0 (modp). By
+Corollary 2.2,G p,b(x) is not monogenic if and only if at least one factor of (2.2)
+is divisible byp 2. Corollary 2.5 tells us that whenδ=−1, thenG p,b(x) is not
+monogenic if and only if both factors in (2.2) are zero modulop 2 in the ringR.□
+
+GENERALIZED WIEFERICH PRIMES AND MONOGENIC TRINOMIALS 5
+The next lemma provides a more useful form forRes(G,G p,b).
+Lemma 2.7.
+Res(G,G p,b) = b
+4
+ 
+(2Vp +b p +b) 2 −D(b p−1 −1) 2
+.
+Proof.We use the definitions in Section 1 and (2.2) to get thatV 2p =V 2
+p −2b p and
+Res(G,G p,b) =G p,b(α)Gp,b(β)
+= (α2p +bα p +b)(β 2p +bβ p +b)
+= (αβ)2p +b(αβ) p(αp +β p) +b(α 2p +β 2p)
++b 2(αβ)p +b 2(αp +β p) +b 2
+=b 2p +b p+1Vp +bV 2p +b p+2 +b 2Vp +b 2
+=b
+ 
+V 2
+p + (bp +b)V p +b 2p−1 +b p+1 −2b p +b
+
+= b
+4
+ 
+(2Vp +b p +b) 2 −(b 2 −4b)(b p−1 −1) 2
+.□
+3.The Proof of Theorem 1.5
+Proof.Suppose first thatδ= 0, so thatpdividesD. Thus, eitherpdividesborp
+dividesb−4. The first possibility thatpdividesbmakes no sense when considering
+base-bWieferich primes. Notwithstanding, we can still investigate the monogenicity
+ofG p,b(x) in this case. SinceG(x)≡x 2 (modp), we can appeal to Corollary 2.2
+and examineG p,b(0) modulop 2, which is clearly never zero sincebis squarefree.
+Hence,G p,b(x) is always monogenic in this situation. The second possibility is when
+pdividesb−4, but notb, so that
+G(x)≡x 2 + 4x+ 4≡(x+ 2) 2 (modp).
+Using Corollary 2.2 in this situation, we must examine
+Gp,b(−2) = (−2)2p +b(−2) p +b
+modulop 2. We claim thatG p,b(−2)̸≡0 (modp 2). Assume, by way of contradic-
+tion, thatG p,b(−2)≡0 (modp 2). Then, a little algebra shows that
+(b−4)(2 p −1)≡(2 p −2) 2 (modp 2).
+Since 2p −2≡0 (modp) and 2 p −1̸≡0 (modp), it follows thatb−4≡0 (modp 2),
+which contradicts the fact thatb−4 is squarefree. Thus, the claim is established,
+and we conclude thatG p,b(x) is always monogenic, which proves item (1).
+For items (2) and (3), let
+(3.1)A:= 2V p +b p +bandB:=b p−1 −1.
+Letθ∈ {α, β}. Then
+Gp,b(θ) =G(θ p)≡G(θ) p ≡0 (modp),
+
+6 AMY F ALK, JOSHUA HARRINGTON, AND LENNY JONES
+and sinceα̸≡β(modp), we get that
+A≡2(V p +b) (modp)
+≡2(α p +β p +b) (modp)
+≡ 2(αp −β p)(αp +β p +b)
+αp −β p (modp)
+≡ 2 (Gp,b(α)− G p,b(β))
+αp −β p (modp)
+≡0 (modp).
+Note also thatB≡0 (modp) by Fermat’s Little theorem.
+Then, from Corollary 2.5, Lemma 2.6 and Lemma 2.7, we have that
+Gp,b(x) is not monogenic
+if and only if
+A2 −DB 2 =
+
+A−B
+√
+D
+
+A+B
+√
+D
+
+≡
+(
+0 (modp 3) ifδ= 1
+0 (modp 4) ifδ=−1,
+(3.2)
+where
+A−B
+√
+D≡0 (modp 2) orA+B
+√
+D≡0 (modp 2) ifδ= 1
+and
+A−B
+√
+D≡0 (modp 2) andA+B
+√
+D≡0 (modp 2) ifδ=−1.
+Furthermore, ifδ=−1, then
+Gp,b(x) is not monogenic
+if and only if
+A≡0 (modp 2) andB≡0 (modp 2).
+(3.3)
+Thus, ifB=b p−1 −1≡0 (modp 2), it follows that
+2(Vp +b) = 2V p +b+b≡2V p +b p +b=A(modp 2),
+which completes the proof of the theorem.□
+4.The Proof of Corollary 1.6
+Proof.Ifδ=−1, then the corollary follows immediately from item (3) of Theorem
+1.5. So, suppose thatδ= 1. Observe that
+2Vp +b p +b≡2(−b) +b+b≡0 (modp 2),
+sinceV p ≡ −b(modp 2) andb p−1 ≡1 (modp 2). Hence, the corollary then follows
+from item (2) of Theorem 1.5.□
+5.The Proof of Corollary 1.7
+Proof.To establish this corollary, we need to conduct a more-detailed analysis of
+(3.2) and (3.3) whenb∈ {2,3}. For integersrandmwithm≥2, we let the
+notation “rmodm” denote the unique integerz∈ {0,1,2, . . . , m−1}such that
+r≡z(modm). That is,rmodm=z.
+Straightforward induction arguments show that
+(5.1)V n = (−1)
+n2 +7
+8 2
+n+1
+2 ,
+
+GENERALIZED WIEFERICH PRIMES AND MONOGENIC TRINOMIALS 7
+whenb= 2 andn≡1 (mod 2), and that
+(5.2)V n =
+(
+−3
+n+1
+2 ifnmod 12∈ {1,11}
+3
+n+1
+2 ifnmod 12∈ {5,7},
+whenb= 3. The unique structure of|V n|being a power ofb, as given in (5.1) and
+(5.2), is the driving force behind the refinement of Theorem 1.5 whenb∈ {2,3}.
+One way to see that this phenomenon does not occur whenb≥5 is to examine
+V7 =−b 4v(b), wherev(b) =b 3 −7b 2 + 14b−7. It is easy to see that the equation
+v(b) =−1 has only the integer solutionb= 3, while the equationv(b) = 1 has
+exactly the three solutionsb∈ {1,2,4}. Using the Rational Zero theorem, we
+confirm, whenk≥1, that the equationv(b) =−b k has no integer solutions, and
+that the equationv(b) =b k has only the integer solutionb= 1.
+Since all possibilities for (p, b), whereb∈ {2,3}andpis a prime not dividingD,
+can be addressed in a similar manner, we provide details only for the caseb= 3.
+Suppose first thatB= 3 p−1 −1≡0 (modp 2). Then
+(5.3) 3
+p+1
+2 ≡
+(
+3 (modp 2) ifpmod 12∈ {1,11}
+−3 (modp 2) ifpmod 12∈ {5,7},
+by Euler’s criterion and quadratic reciprocity. Thus, in any case ofpmod 12, we
+see from (3.1), (5.2) and (5.3) thatV p ≡ −3 (modp 2), which implies that
+A≡2(−3) + 3 + 3≡0 (modp 2).
+Hence,G p,3(x) is not monogenic from Theorem 1.5.
+Conversely, suppose thatG p,3(x) is not monogenic. Ifpmod 12∈ {5,11}, then
+δ=−1 sinceD=−3, and we have thatB≡0 (modp 2) from item (3) of Theorem
+1.5. So, supposepmod 12∈ {1,7}so thatδ= 1. By item (2) of Theorem 1.5, it
+follows that
+(A−B
+√
+D)(A+B
+√
+D)≡0 (modp 3),
+where
+A−B
+√
+D≡0 (modp 2) orA+B
+√
+D≡0 (modp 2).
+Suppose that
+(5.4)A−B
+√
+D≡0 (modp 2).
+Solving the congruence (5.4) forByields
+B≡ A√
+D
+≡ 2Vp + 3p + 3√
+D
+(modp 2).
+Thus,
+B≡
+
+
+
+2
+
+−3
+p+1
+2
+
++ 3p + 3
+√
+D
+≡
+3
+
+3
+p−1
+2 −1
+2
+√
+D
+≡0 (modp 2) ifpmod 12 = 1
+2
+
+3
+p+1
+2
+
++ 3p + 3
+√
+D
+≡
+3
+
+3
+p−1
+2 + 1
+2
+√
+D
+≡0 (modp 2) ifpmod 12 = 7.
+IfA+B
+√
+D≡0 (modp 2), we arrive at the same conclusion.□
+
+8 AMY F ALK, JOSHUA HARRINGTON, AND LENNY JONES
+6.The Proof of Theorem 1.8
+Proof.Sincebandb−4 are squarefree, it follows thatD/gcd(2, b) 2 is squarefree
+and thatbmod 4 = 2 ifbis even. Thus,G(x) is monogenic by [5, Theorem 2.2].
+SinceG(0) =bis squarefree andG n,b(x) =G(x n), we conclude from Theorem 2.3
+thatG n,b(x) is monogenic if and only ifG(x p) =G p,b(x) is monogenic for every
+prime divisorpofn.□
+7.Examples
+WithAandBas defined in (3.1), andV p as defined in Definition (1.2), Table 1
+illustrates Theorem 1.5 for pairs (p, b) by giving the values for
+δ,( A, B, Vp +b) and (A 2 −DB 2) modp N ,
+along with the monogenicity ofG p,b(x), where ∗is∗modp 2 andN= (7−δ)/2.
+(p, b)δ( A, B, Vp +b) (A 2 −DB 2) modp N Gp,b(x) is monogenic
+(5,7) 1 (5,0,15) 25 Yes
+(11,6) 1 (88,55,0) 726 Yes
+(13,170) 1 (0,0,0) 0 No
+(37,7) 1 (629,1110,1221) 0 No
+(71,11) 1 (3266,0,1633) 287337 Yes
+(5,3)−1 (0,5,5) 450 Yes
+(5,11)−1 (10,15,10) 25 Yes
+(5,23)−1 (20,15,0) 450 Yes
+(5,26)−1 (0,0,0) 0 No
+(5,93)−1 (15,0,20) 600 Yes
+(11,3)−1 (0,0,0) 0 No
+(31,115)−1 (0,0,0) 0 No
+Table 1.Data for pairs (p, b) and the monogenicity ofG p,b(x)
+References
+[1] H. Cohen,A Course in Computational Algebraic Number Theory, Springer-Verlag, 2000.
+[2] K. Conrad,https://kconrad.math.uconn.edu/blurbs/ugradnumthy/wieferich-primes.
+pdf.
+[3] A. Jakhar, S. Khanduja and N. Sangwan,Characterization of primes dividing the index of a
+trinomial, Int. J. Number Theory13(2017), no. 10, 2505–2514.
+[4] L. Jones,Wieferich primes and monogenic trinomials, Bull. Aust. Math. Soc. (to appear).
+[5] L. Jones,Characterizing monogenic trinomialsx 12 +ax 6 +baccording to their Galois groups,
+New York J. Math. (to appear).
+[6] S. Kaur, S. Kumar and L. Remete,On the index of power compositional polynomials, Finite
+Fields Appl.107(2025), Paper No. 102642, 20 pp.
+[7] OEIS Foundation Inc. (2026),Entry A174422 in The On-Line Encyclopedia of Integer Se-
+quences, https://oeis.org/A174422.
+[8] R. Swan,Factorization of polynomials over finite fields, Pacific J. Math.12(1962), 1099–
+1106.
+
+GENERALIZED WIEFERICH PRIMES AND MONOGENIC TRINOMIALS 9
+Department of Mathematics, Cedar Crest College, Allentown, Pennsylvania 18104,
+USA
+Email address, Amy Falk:A.Falk341@cedarcrest.edu
+Department of Mathematics, Cedar Crest College, Allentown, Pennsylvania 18104,
+USA
+Email address, Joshua Harrington:joshua.harrington@cedarcrest.edu, ORCID: 0000-0001-7433-3666
+Professor Emeritus, Department of Mathematics, Shippensburg University, Shippens-
+burg, Pennsylvania 17257, USA
+Email address, Lenny Jones:doctorlennyjones@gmail.com, ORCID: 0000-0001-7661-4226

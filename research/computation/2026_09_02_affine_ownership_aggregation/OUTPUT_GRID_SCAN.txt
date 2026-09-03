@@ -1,0 +1,6294 @@
+DONE B 1
+DONE B 2
+DONE B 3
+DONE B 4
+DONE B 5
+DONE B 6
+DONE B 7
+DONE B 8
+DONE B 9
+DONE B 10
+DONE B 11
+DONE B 12
+RESULT_JSON
+{
+  "status": "PASS",
+  "scan": {
+    "B": [
+      1,
+      12
+    ],
+    "M_values": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      90,
+      100,
+      120,
+      140,
+      160,
+      180,
+      200,
+      225,
+      250,
+      254,
+      300,
+      350,
+      388,
+      400
+    ],
+    "modes": [
+      "full",
+      "singleton"
+    ],
+    "cases": 2208,
+    "nonzero_top_cases": 642,
+    "errors": [],
+    "exact_skeleton_all_pair_maximal_system_equalities": 2208
+  },
+  "first_hits_ordered_by_M_then_B": {
+    "sumQ_gt_A1": {
+      "B": 1,
+      "M": 90,
+      "N": 89,
+      "mode": "full",
+      "points": 6596,
+      "classes": 215,
+      "A0": 18186176,
+      "A1": 5292,
+      "W": 18146972,
+      "Omega": 39204,
+      "J": 44496,
+      "E_non": 6552,
+      "Esh": 44496,
+      "K": 6,
+      "c": 534,
+      "S_non": "6552",
+      "raw_distinct_tops": 1,
+      "maximal_tops": 1,
+      "lines_with_tops": 1,
+      "directions_with_tops": 1,
+      "max_tops_per_line": 1,
+      "max_tops_per_direction": 1,
+      "max_tops_contained_in_one_class": 1,
+      "max_support_intersection": 0,
+      "sum_Q_maximal": "6552",
+      "sumQ_over_S": "1",
+      "sumQ_over_A0": "819/2273272",
+      "sumQ_over_A1": "26/21",
+      "sumQ_over_Omega": "182/1089",
+      "sumQ_over_J": "91/618",
+      "sumQ_over_Enon": "1",
+      "sumQ_over_Esh": "91/618",
+      "H3": "6552",
+      "H3_over_W": "1638/4536743",
+      "H3_over_J": "91/618",
+      "normalized_c2H3_over_theta3W": "14835758706641247739/2124261288",
+      "max_beta": "1",
+      "max_tops_per_label": 1,
+      "overlap_graph_edges": 0,
+      "overlap_graph_degeneracy": 0,
+      "exact_owner_minmax_load": "6552",
+      "owner_assignment_states": 1,
+      "tops": [
+        {
+          "top": [
+            1,
+            169,
+            49
+          ],
+          "line": [
+            27,
+            71,
+            4105
+          ],
+          "Q": "6552",
+          "weight": 6552,
+          "beta": "1",
+          "labels": 1,
+          "coeff": [
+            27,
+            169,
+            98
+          ],
+          "catalogue": [
+            [
+              [
+                1,
+                169,
+                49
+              ],
+              "6552",
+              1
+            ]
+          ],
+          "support_classes": 2,
+          "support_points": 2,
+          "support_kernels": [
+            {
+              "kernel": [
+                1,
+                169,
+                343
+              ],
+              "points": [
+                [
+                  89,
+                  82
+                ]
+              ]
+            },
+            {
+              "kernel": [
+                125,
+                169,
+                49
+              ],
+              "points": [
+                [
+                  62,
+                  11
+                ]
+              ]
+            }
+          ],
+          "origin_classes": 2,
+          "origin_kernels": [
+            [
+              1,
+              169,
+              343
+            ],
+            [
+              125,
+              169,
+              49
+            ]
+          ],
+          "generator_pairs": [
+            [
+              [
+                62,
+                11
+              ],
+              [
+                89,
+                82
+              ]
+            ]
+          ],
+          "kinds": [
+            "pair"
+          ]
+        }
+      ],
+      "classes_in_multiple_tops": [],
+      "labels_in_multiple_tops": [],
+      "largest_support_intersections": []
+    },
+    "two_tops": {
+      "B": 10,
+      "M": 14,
+      "N": 13,
+      "mode": "full",
+      "points": 171,
+      "classes": 26,
+      "A0": 1151878,
+      "A1": 22072,
+      "W": 1134050,
+      "Omega": 17828,
+      "J": 39900,
+      "E_non": 504,
+      "Esh": 124572,
+      "K": 132,
+      "c": 1716,
+      "S_non": "504",
+      "raw_distinct_tops": 2,
+      "maximal_tops": 2,
+      "lines_with_tops": 2,
+      "directions_with_tops": 2,
+      "max_tops_per_line": 1,
+      "max_tops_per_direction": 1,
+      "max_tops_contained_in_one_class": 1,
+      "max_support_intersection": 0,
+      "sum_Q_maximal": "504",
+      "sumQ_over_S": "1",
+      "sumQ_over_A0": "36/82277",
+      "sumQ_over_A1": "63/2759",
+      "sumQ_over_Omega": "126/4457",
+      "sumQ_over_J": "6/475",
+      "sumQ_over_Enon": "1",
+      "sumQ_over_Esh": "6/1483",
+      "H3": "504",
+      "H3_over_W": "252/567025",
+      "H3_over_J": "6/475",
+      "normalized_c2H3_over_theta3W": "252468798832536/8402275",
+      "max_beta": "1",
+      "max_tops_per_label": 1,
+      "overlap_graph_edges": 0,
+      "overlap_graph_degeneracy": 0,
+      "exact_owner_minmax_load": "252",
+      "owner_assignment_states": 1,
+      "tops": [
+        {
+          "top": [
+            1,
+            9,
+            49
+          ],
+          "line": [
+            1,
+            -5,
+            -20
+          ],
+          "Q": "252",
+          "weight": 252,
+          "beta": "1",
+          "labels": 1,
+          "coeff": [
+            1,
+            -54,
+            -49
+          ],
+          "catalogue": [
+            [
+              [
+                1,
+                9,
+                49
+              ],
+              "252",
+              1
+            ]
+          ],
+          "support_classes": 2,
+          "support_points": 2,
+          "support_kernels": [
+            {
+              "kernel": [
+                1,
+                9,
+                343
+              ],
+              "points": [
+                [
+                  3,
+                  5
+                ]
+              ]
+            },
+            {
+              "kernel": [
+                1,
+                12321,
+                49
+              ],
+              "points": [
+                [
+                  2,
+                  10
+                ]
+              ]
+            }
+          ],
+          "origin_classes": 2,
+          "origin_kernels": [
+            [
+              1,
+              9,
+              343
+            ],
+            [
+              1,
+              12321,
+              49
+            ]
+          ],
+          "generator_pairs": [
+            [
+              [
+                2,
+                10
+              ],
+              [
+                3,
+                5
+              ]
+            ]
+          ],
+          "kinds": [
+            "pair"
+          ]
+        },
+        {
+          "top": [
+            1,
+            49,
+            9
+          ],
+          "line": [
+            5,
+            4,
+            16
+          ],
+          "Q": "252",
+          "weight": 252,
+          "beta": "1",
+          "labels": 1,
+          "coeff": [
+            5,
+            49,
+            45
+          ],
+          "catalogue": [
+            [
+              [
+                1,
+                49,
+                9
+              ],
+              "252",
+              1
+            ]
+          ],
+          "support_classes": 2,
+          "support_points": 2,
+          "support_kernels": [
+            {
+              "kernel": [
+                1,
+                49,
+                27
+              ],
+              "points": [
+                [
+                  14,
+                  8
+                ]
+              ]
+            },
+            {
+              "kernel": [
+                1,
+                343,
+                9
+              ],
+              "points": [
+                [
+                  9,
+                  4
+                ]
+              ]
+            }
+          ],
+          "origin_classes": 2,
+          "origin_kernels": [
+            [
+              1,
+              49,
+              27
+            ],
+            [
+              1,
+              343,
+              9
+            ]
+          ],
+          "generator_pairs": [
+            [
+              [
+                9,
+                4
+              ],
+              [
+                14,
+                8
+              ]
+            ]
+          ],
+          "kinds": [
+            "pair"
+          ]
+        }
+      ],
+      "classes_in_multiple_tops": [],
+      "labels_in_multiple_tops": [],
+      "largest_support_intersections": []
+    },
+    "class_in_two_tops": {
+      "B": 5,
+      "M": 254,
+      "N": 253,
+      "mode": "full",
+      "points": 61393,
+      "classes": 472,
+      "A0": 35286856104,
+      "A1": 6237744,
+      "W": 35277519108,
+      "Omega": 9336996,
+      "J": 15574740,
+      "E_non": 367024,
+      "Esh": 152100780,
+      "K": 42,
+      "c": 10626,
+      "S_non": "367024",
+      "raw_distinct_tops": 2,
+      "maximal_tops": 2,
+      "lines_with_tops": 2,
+      "directions_with_tops": 2,
+      "max_tops_per_line": 1,
+      "max_tops_per_direction": 1,
+      "max_tops_contained_in_one_class": 2,
+      "max_support_intersection": 1,
+      "sum_Q_maximal": "367024",
+      "sumQ_over_S": "1",
+      "sumQ_over_A0": "45878/4410857013",
+      "sumQ_over_A1": "22939/389859",
+      "sumQ_over_Omega": "91756/2334249",
+      "sumQ_over_J": "3164/134265",
+      "sumQ_over_Enon": "1",
+      "sumQ_over_Esh": "91756/38025195",
+      "H3": "367024",
+      "H3_over_W": "91756/8819379777",
+      "H3_over_J": "3164/134265",
+      "normalized_c2H3_over_theta3W": "1029173091410574649297381550928/75391204195523875",
+      "max_beta": "1",
+      "max_tops_per_label": 1,
+      "overlap_graph_edges": 0,
+      "overlap_graph_degeneracy": 0,
+      "exact_owner_minmax_load": "277704",
+      "owner_assignment_states": 1,
+      "tops": [
+        {
+          "top": [
+            1,
+            841,
+            121
+          ],
+          "line": [
+            151,
+            115,
+            -16964
+          ],
+          "Q": "89320",
+          "weight": 89320,
+          "beta": "1",
+          "labels": 1,
+          "coeff": [
+            151,
+            841,
+            726
+          ],
+          "catalogue": [
+            [
+              [
+                1,
+                841,
+                121
+              ],
+              "89320",
+              1
+            ]
+          ],
+          "support_classes": 2,
+          "support_points": 2,
+          "support_kernels": [
+            {
+              "kernel": [
+                1,
+                841,
+                121
+              ],
+              "points": [
+                [
+                  35,
+                  139
+                ]
+              ]
+            },
+            {
+              "kernel": [
+                1,
+                841,
+                43681
+              ],
+              "points": [
+                [
+                  186,
+                  254
+                ]
+              ]
+            }
+          ],
+          "origin_classes": 2,
+          "origin_kernels": [
+            [
+              1,
+              841,
+              121
+            ],
+            [
+              1,
+              841,
+              43681
+            ]
+          ],
+          "generator_pairs": [
+            [
+              [
+                35,
+                139
+              ],
+              [
+                186,
+                254
+              ]
+            ]
+          ],
+          "kinds": [
+            "pair"
+          ]
+        },
+        {
+          "top": [
+            1,
+            841,
+            361
+          ],
+          "line": [
+            127,
+            119,
+            -10124
+          ],
+          "Q": "277704",
+          "weight": 277704,
+          "beta": "1",
+          "labels": 1,
+          "coeff": [
+            127,
+            841,
+            722
+          ],
+          "catalogue": [
+            [
+              [
+                1,
+                841,
+                361
+              ],
+              "277704",
+              1
+            ]
+          ],
+          "support_classes": 2,
+          "support_points": 2,
+          "support_kernels": [
+            {
+              "kernel": [
+                1,
+                841,
+                361
+              ],
+              "points": [
+                [
+                  59,
+                  135
+                ]
+              ]
+            },
+            {
+              "kernel": [
+                1,
+                841,
+                43681
+              ],
+              "points": [
+                [
+                  186,
+                  254
+                ]
+              ]
+            }
+          ],
+          "origin_classes": 2,
+          "origin_kernels": [
+            [
+              1,
+              841,
+              361
+            ],
+            [
+              1,
+              841,
+              43681
+            ]
+          ],
+          "generator_pairs": [
+            [
+              [
+                59,
+                135
+              ],
+              [
+                186,
+                254
+              ]
+            ]
+          ],
+          "kinds": [
+            "pair"
+          ]
+        }
+      ],
+      "classes_in_multiple_tops": [
+        {
+          "kernel": [
+            1,
+            841,
+            43681
+          ],
+          "points": [
+            [
+              186,
+              254
+            ]
+          ],
+          "top_ids": [
+            0,
+            1
+          ]
+        }
+      ],
+      "labels_in_multiple_tops": [],
+      "largest_support_intersections": [
+        {
+          "size": 1,
+          "top_ids": [
+            0,
+            1
+          ],
+          "kernels": [
+            [
+              1,
+              841,
+              43681
+            ]
+          ]
+        }
+      ]
+    },
+    "beta_gt_1": {
+      "B": 11,
+      "M": 3,
+      "N": 2,
+      "mode": "full",
+      "points": 9,
+      "classes": 4,
+      "A0": 96,
+      "A1": 24,
+      "W": 96,
+      "Omega": 0,
+      "J": 24,
+      "E_non": 24,
+      "Esh": 24,
+      "K": 156,
+      "c": 312,
+      "S_non": "24",
+      "raw_distinct_tops": 1,
+      "maximal_tops": 1,
+      "lines_with_tops": 1,
+      "directions_with_tops": 1,
+      "max_tops_per_line": 1,
+      "max_tops_per_direction": 1,
+      "max_tops_contained_in_one_class": 1,
+      "max_support_intersection": 0,
+      "sum_Q_maximal": "24",
+      "sumQ_over_S": "1",
+      "sumQ_over_A0": "1/4",
+      "sumQ_over_A1": "1",
+      "sumQ_over_Omega": null,
+      "sumQ_over_J": "1",
+      "sumQ_over_Enon": "1",
+      "sumQ_over_Esh": "1",
+      "H3": "24",
+      "H3_over_W": "1/4",
+      "H3_over_J": "1",
+      "normalized_c2H3_over_theta3W": "1557504",
+      "max_beta": "6/5",
+      "max_tops_per_label": 1,
+      "overlap_graph_edges": 0,
+      "overlap_graph_degeneracy": 0,
+      "exact_owner_minmax_load": "24",
+      "owner_assignment_states": 1,
+      "tops": [
+        {
+          "top": [
+            1,
+            25,
+            1
+          ],
+          "line": [
+            1,
+            2,
+            3
+          ],
+          "Q": "24",
+          "weight": 20,
+          "beta": "6/5",
+          "labels": 2,
+          "coeff": [
+            1,
+            25,
+            23
+          ],
+          "catalogue": [
+            [
+              [
+                1,
+                5,
+                1
+              ],
+              "4",
+              1
+            ],
+            [
+              [
+                1,
+                25,
+                1
+              ],
+              "20",
+              1
+            ]
+          ],
+          "support_classes": 1,
+          "support_points": 2,
+          "support_kernels": [
+            {
+              "kernel": [
+                1,
+                25,
+                1
+              ],
+              "points": [
+                [
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  3
+                ]
+              ]
+            }
+          ],
+          "origin_classes": 1,
+          "origin_kernels": [
+            [
+              1,
+              25,
+              1
+            ]
+          ],
+          "generator_pairs": [
+            [
+              [
+                2,
+                1
+              ],
+              [
+                3,
+                3
+              ]
+            ]
+          ],
+          "kinds": [
+            "loop"
+          ]
+        }
+      ],
+      "classes_in_multiple_tops": [],
+      "labels_in_multiple_tops": [],
+      "largest_support_intersections": []
+    },
+    "sumQ_eq_Esh": {
+      "B": 10,
+      "M": 3,
+      "N": 2,
+      "mode": "full",
+      "points": 8,
+      "classes": 4,
+      "A0": 54,
+      "A1": 0,
+      "W": 48,
+      "Omega": 6,
+      "J": 6,
+      "E_non": 6,
+      "Esh": 6,
+      "K": 132,
+      "c": 264,
+      "S_non": "6",
+      "raw_distinct_tops": 1,
+      "maximal_tops": 1,
+      "lines_with_tops": 1,
+      "directions_with_tops": 1,
+      "max_tops_per_line": 1,
+      "max_tops_per_direction": 1,
+      "max_tops_contained_in_one_class": 1,
+      "max_support_intersection": 0,
+      "sum_Q_maximal": "6",
+      "sumQ_over_S": "1",
+      "sumQ_over_A0": "1/9",
+      "sumQ_over_A1": null,
+      "sumQ_over_Omega": "1",
+      "sumQ_over_J": "1",
+      "sumQ_over_Enon": "1",
+      "sumQ_over_Esh": "1",
+      "H3": "6",
+      "H3_over_W": "1/8",
+      "H3_over_J": "1",
+      "normalized_c2H3_over_theta3W": "4460544",
+      "max_beta": "1",
+      "max_tops_per_label": 1,
+      "overlap_graph_edges": 0,
+      "overlap_graph_degeneracy": 0,
+      "exact_owner_minmax_load": "6",
+      "owner_assignment_states": 1,
+      "tops": [
+        {
+          "top": [
+            1,
+            1,
+            9
+          ],
+          "line": [
+            1,
+            -1,
+            -4
+          ],
+          "Q": "6",
+          "weight": 6,
+          "beta": "1",
+          "labels": 1,
+          "coeff": [
+            1,
+            -10,
+            -9
+          ],
+          "catalogue": [
+            [
+              [
+                1,
+                1,
+                9
+              ],
+              "6",
+              1
+            ]
+          ],
+          "support_classes": 2,
+          "support_points": 2,
+          "support_kernels": [
+            {
+              "kernel": [
+                1,
+                1,
+                9
+              ],
+              "points": [
+                [
+                  2,
+                  2
+                ]
+              ]
+            },
+            {
+              "kernel": [
+                1,
+                1,
+                27
+              ],
+              "points": [
+                [
+                  3,
+                  1
+                ]
+              ]
+            }
+          ],
+          "origin_classes": 2,
+          "origin_kernels": [
+            [
+              1,
+              1,
+              9
+            ],
+            [
+              1,
+              1,
+              27
+            ]
+          ],
+          "generator_pairs": [
+            [
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                1
+              ]
+            ]
+          ],
+          "kinds": [
+            "pair"
+          ]
+        }
+      ],
+      "classes_in_multiple_tops": [],
+      "labels_in_multiple_tops": [],
+      "largest_support_intersections": []
+    }
+  },
+  "finite_no_hits": [
+    "two_same_line",
+    "two_same_direction",
+    "label_in_two_tops",
+    "overlap_edge",
+    "degeneracy_two",
+    "sumQ_gt_A0",
+    "sumQ_gt_Omega",
+    "sumQ_gt_J",
+    "beta_gt_2"
+  ],
+  "maxima": {
+    "maximal_tops": {
+      "value": "15",
+      "case": {
+        "B": 7,
+        "M": 350,
+        "N": 349,
+        "mode": "full",
+        "points": 101493,
+        "classes": 1060,
+        "A0": 8817444140,
+        "A1": 22370432,
+        "W": 8771358528,
+        "Omega": 46085612,
+        "J": 68456044,
+        "E_non": 1689096,
+        "Esh": 427961620,
+        "K": 72,
+        "c": 25128,
+        "S_non": "1500168",
+        "raw_distinct_tops": 15,
+        "maximal_tops": 15,
+        "lines_with_tops": 15,
+        "directions_with_tops": 15,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 2,
+        "max_support_intersection": 1,
+        "sum_Q_maximal": "1500168",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "375042/2204361035",
+        "sumQ_over_A1": "187521/2796304",
+        "sumQ_over_Omega": "375042/11521403",
+        "sumQ_over_J": "375042/17114011",
+        "sumQ_over_Enon": "62507/70379",
+        "sumQ_over_Esh": "375042/106990405",
+        "H3": "1500168",
+        "H3_over_W": "62507/365473272",
+        "H3_over_J": "375042/17114011",
+        "normalized_c2H3_over_theta3W": "1138700460547945754670156825526272/5012511942887080383331",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "173052",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              169,
+              9,
+              125
+            ],
+            "line": [
+              338,
+              41,
+              -40744
+            ],
+            "Q": "93600",
+            "weight": 93600,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              338,
+              666,
+              625
+            ],
+            "catalogue": [
+              [
+                [
+                  169,
+                  9,
+                  125
+                ],
+                "93600",
+                1
+              ]
+            ],
+            "support_classes": 1,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  169,
+                  9,
+                  125
+                ],
+                "points": [
+                  [
+                    12,
+                    122
+                  ],
+                  [
+                    350,
+                    163
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 1,
+            "origin_kernels": [
+              [
+                169,
+                9,
+                125
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  12,
+                  122
+                ],
+                [
+                  350,
+                  163
+                ]
+              ]
+            ],
+            "kinds": [
+              "loop"
+            ]
+          },
+          {
+            "top": [
+              169,
+              1089,
+              1
+            ],
+            "line": [
+              169,
+              115,
+              -13154
+            ],
+            "Q": "102960",
+            "weight": 102960,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              169,
+              1089,
+              974
+            ],
+            "catalogue": [
+              [
+                [
+                  169,
+                  1089,
+                  1
+                ],
+                "102960",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  169,
+                  1089,
+                  1
+                ],
+                "points": [
+                  [
+                    350,
+                    316
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  169,
+                  9801,
+                  1
+                ],
+                "points": [
+                  [
+                    12,
+                    86
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                169,
+                1089,
+                1
+              ],
+              [
+                169,
+                9801,
+                1
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  12,
+                  86
+                ],
+                [
+                  350,
+                  316
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              169,
+              1,
+              841
+            ],
+            "line": [
+              169,
+              96,
+              -20311
+            ],
+            "Q": "126672",
+            "weight": 126672,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              169,
+              937,
+              841
+            ],
+            "catalogue": [
+              [
+                [
+                  169,
+                  1,
+                  841
+                ],
+                "126672",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  169,
+                  1,
+                  841
+                ],
+                "points": [
+                  [
+                    12,
+                    127
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  169,
+                  1,
+                  24389
+                ],
+                "points": [
+                  [
+                    181,
+                    223
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                169,
+                1,
+                841
+              ],
+              [
+                169,
+                1,
+                24389
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  12,
+                  127
+                ],
+                [
+                  181,
+                  223
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              243,
+              841,
+              1
+            ],
+            "line": [
+              81,
+              95,
+              4859
+            ],
+            "Q": "14616",
+            "weight": 131544,
+            "beta": "1/9",
+            "labels": 1,
+            "coeff": [
+              81,
+              841,
+              746
+            ],
+            "catalogue": [
+              [
+                [
+                  243,
+                  841,
+                  1
+                ],
+                "14616",
+                3
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  243,
+                  841,
+                  1
+                ],
+                "points": [
+                  [
+                    295,
+                    286
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  729,
+                  841,
+                  1
+                ],
+                "points": [
+                  [
+                    52,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                243,
+                841,
+                1
+              ],
+              [
+                729,
+                841,
+                1
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  52,
+                  1
+                ],
+                [
+                  295,
+                  286
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              243,
+              625,
+              1
+            ],
+            "line": [
+              81,
+              68,
+              -7237
+            ],
+            "Q": "9000",
+            "weight": 81000,
+            "beta": "1/9",
+            "labels": 1,
+            "coeff": [
+              81,
+              625,
+              557
+            ],
+            "catalogue": [
+              [
+                [
+                  243,
+                  625,
+                  1
+                ],
+                "9000",
+                3
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  243,
+                  625,
+                  1
+                ],
+                "points": [
+                  [
+                    295,
+                    337
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  729,
+                  15625,
+                  1
+                ],
+                "points": [
+                  [
+                    52,
+                    133
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                243,
+                625,
+                1
+              ],
+              [
+                729,
+                15625,
+                1
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  52,
+                  133
+                ],
+                [
+                  295,
+                  337
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              243,
+              1,
+              625
+            ],
+            "line": [
+              243,
+              -124,
+              -43384
+            ],
+            "Q": "81000",
+            "weight": 81000,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              243,
+              -749,
+              -625
+            ],
+            "catalogue": [
+              [
+                [
+                  243,
+                  1,
+                  625
+                ],
+                "81000",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  243,
+                  169,
+                  625
+                ],
+                "points": [
+                  [
+                    295,
+                    28
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  729,
+                  1,
+                  15625
+                ],
+                "points": [
+                  [
+                    52,
+                    152
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                243,
+                169,
+                625
+              ],
+              [
+                729,
+                1,
+                15625
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  52,
+                  152
+                ],
+                [
+                  295,
+                  28
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              1,
+              243,
+              625
+            ],
+            "line": [
+              103,
+              -104,
+              -21689
+            ],
+            "Q": "81000",
+            "weight": 81000,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              103,
+              -729,
+              -625
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  243,
+                  625
+                ],
+                "81000",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  243,
+                  625
+                ],
+                "points": [
+                  [
+                    162,
+                    47
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  243,
+                  15625
+                ],
+                "points": [
+                  [
+                    59,
+                    151
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                243,
+                625
+              ],
+              [
+                1,
+                243,
+                15625
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  59,
+                  151
+                ],
+                [
+                  162,
+                  47
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              1,
+              169,
+              729
+            ],
+            "line": [
+              83,
+              -116,
+              -35192
+            ],
+            "Q": "75816",
+            "weight": 75816,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              83,
+              -845,
+              -729
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  169,
+                  729
+                ],
+                "75816",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  169,
+                  729
+                ],
+                "points": [
+                  [
+                    83,
+                    308
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  169,
+                  2187
+                ],
+                "points": [
+                  [
+                    249,
+                    76
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                169,
+                729
+              ],
+              [
+                1,
+                169,
+                2187
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  83,
+                  308
+                ],
+                [
+                  249,
+                  76
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              121,
+              9,
+              169
+            ],
+            "line": [
+              121,
+              31,
+              -13148
+            ],
+            "Q": "102960",
+            "weight": 102960,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              121,
+              369,
+              338
+            ],
+            "catalogue": [
+              [
+                [
+                  121,
+                  9,
+                  169
+                ],
+                "102960",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1331,
+                  27,
+                  169
+                ],
+                "points": [
+                  [
+                    95,
+                    133
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  3025,
+                  9,
+                  169
+                ],
+                "points": [
+                  [
+                    216,
+                    164
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1331,
+                27,
+                169
+              ],
+              [
+                3025,
+                9,
+                169
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  95,
+                  133
+                ],
+                [
+                  216,
+                  164
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              81,
+              169,
+              25
+            ],
+            "line": [
+              81,
+              -158,
+              -48878
+            ],
+            "Q": "168480",
+            "weight": 168480,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              81,
+              -1183,
+              -1025
+            ],
+            "catalogue": [
+              [
+                [
+                  81,
+                  169,
+                  25
+                ],
+                "168480",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  81,
+                  169,
+                  25
+                ],
+                "points": [
+                  [
+                    133,
+                    344
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  243,
+                  169,
+                  625
+                ],
+                "points": [
+                  [
+                    295,
+                    28
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                81,
+                169,
+                25
+              ],
+              [
+                243,
+                169,
+                625
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  133,
+                  344
+                ],
+                [
+                  295,
+                  28
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              1,
+              529,
+              243
+            ],
+            "line": [
+              185,
+              43,
+              -9185
+            ],
+            "Q": "81972",
+            "weight": 81972,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              185,
+              529,
+              486
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  529,
+                  243
+                ],
+                "81972",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  12167,
+                  2187
+                ],
+                "points": [
+                  [
+                    165,
+                    88
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  169,
+                  529,
+                  243
+                ],
+                "points": [
+                  [
+                    350,
+                    131
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                12167,
+                2187
+              ],
+              [
+                169,
+                529,
+                243
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  165,
+                  88
+                ],
+                [
+                  350,
+                  131
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              121,
+              1369,
+              1
+            ],
+            "line": [
+              121,
+              156,
+              23653
+            ],
+            "Q": "146520",
+            "weight": 146520,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              121,
+              1369,
+              1213
+            ],
+            "catalogue": [
+              [
+                [
+                  121,
+                  1369,
+                  1
+                ],
+                "146520",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  121,
+                  1369,
+                  1
+                ],
+                "points": [
+                  [
+                    337,
+                    239
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  3025,
+                  12321,
+                  1
+                ],
+                "points": [
+                  [
+                    216,
+                    83
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                121,
+                1369,
+                1
+              ],
+              [
+                3025,
+                12321,
+                1
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  216,
+                  83
+                ],
+                [
+                  337,
+                  239
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              25,
+              9,
+              841
+            ],
+            "line": [
+              50,
+              113,
+              13508
+            ],
+            "Q": "97440",
+            "weight": 97440,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              50,
+              954,
+              841
+            ],
+            "catalogue": [
+              [
+                [
+                  25,
+                  9,
+                  841
+                ],
+                "97440",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  25,
+                  27,
+                  841
+                ],
+                "points": [
+                  [
+                    266,
+                    331
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  3025,
+                  9,
+                  24389
+                ],
+                "points": [
+                  [
+                    216,
+                    218
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                25,
+                27,
+                841
+              ],
+              [
+                3025,
+                9,
+                24389
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  216,
+                  218
+                ],
+                [
+                  266,
+                  331
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              1,
+              961,
+              169
+            ],
+            "line": [
+              33,
+              116,
+              23193
+            ],
+            "Q": "145080",
+            "weight": 145080,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              33,
+              961,
+              845
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  961,
+                  169
+                ],
+                "145080",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  961,
+                  169
+                ],
+                "points": [
+                  [
+                    219,
+                    67
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  24025,
+                  169
+                ],
+                "points": [
+                  [
+                    252,
+                    183
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                961,
+                169
+              ],
+              [
+                1,
+                24025,
+                169
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  219,
+                  67
+                ],
+                [
+                  252,
+                  183
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              1,
+              361,
+              529
+            ],
+            "line": [
+              61,
+              218,
+              54547
+            ],
+            "Q": "173052",
+            "weight": 173052,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              61,
+              1805,
+              1587
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  361,
+                  529
+                ],
+                "173052",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  361,
+                  529
+                ],
+                "points": [
+                  [
+                    335,
+                    303
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  361,
+                  12167
+                ],
+                "points": [
+                  [
+                    274,
+                    85
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                361,
+                529
+              ],
+              [
+                1,
+                361,
+                12167
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  274,
+                  85
+                ],
+                [
+                  335,
+                  303
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [
+          {
+            "kernel": [
+              243,
+              169,
+              625
+            ],
+            "points": [
+              [
+                295,
+                28
+              ]
+            ],
+            "top_ids": [
+              5,
+              9
+            ]
+          }
+        ],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": [
+          {
+            "size": 1,
+            "top_ids": [
+              5,
+              9
+            ],
+            "kernels": [
+              [
+                243,
+                169,
+                625
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "max_tops_per_line": {
+      "value": "1",
+      "case": {
+        "B": 10,
+        "M": 3,
+        "N": 2,
+        "mode": "full",
+        "points": 8,
+        "classes": 4,
+        "A0": 54,
+        "A1": 0,
+        "W": 48,
+        "Omega": 6,
+        "J": 6,
+        "E_non": 6,
+        "Esh": 6,
+        "K": 132,
+        "c": 264,
+        "S_non": "6",
+        "raw_distinct_tops": 1,
+        "maximal_tops": 1,
+        "lines_with_tops": 1,
+        "directions_with_tops": 1,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "6",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "1/9",
+        "sumQ_over_A1": null,
+        "sumQ_over_Omega": "1",
+        "sumQ_over_J": "1",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "1",
+        "H3": "6",
+        "H3_over_W": "1/8",
+        "H3_over_J": "1",
+        "normalized_c2H3_over_theta3W": "4460544",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "6",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              1,
+              9
+            ],
+            "line": [
+              1,
+              -1,
+              -4
+            ],
+            "Q": "6",
+            "weight": 6,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              1,
+              -10,
+              -9
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  1,
+                  9
+                ],
+                "6",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  1,
+                  9
+                ],
+                "points": [
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  1,
+                  27
+                ],
+                "points": [
+                  [
+                    3,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                1,
+                9
+              ],
+              [
+                1,
+                1,
+                27
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "max_tops_per_direction": {
+      "value": "1",
+      "case": {
+        "B": 10,
+        "M": 3,
+        "N": 2,
+        "mode": "full",
+        "points": 8,
+        "classes": 4,
+        "A0": 54,
+        "A1": 0,
+        "W": 48,
+        "Omega": 6,
+        "J": 6,
+        "E_non": 6,
+        "Esh": 6,
+        "K": 132,
+        "c": 264,
+        "S_non": "6",
+        "raw_distinct_tops": 1,
+        "maximal_tops": 1,
+        "lines_with_tops": 1,
+        "directions_with_tops": 1,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "6",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "1/9",
+        "sumQ_over_A1": null,
+        "sumQ_over_Omega": "1",
+        "sumQ_over_J": "1",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "1",
+        "H3": "6",
+        "H3_over_W": "1/8",
+        "H3_over_J": "1",
+        "normalized_c2H3_over_theta3W": "4460544",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "6",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              1,
+              9
+            ],
+            "line": [
+              1,
+              -1,
+              -4
+            ],
+            "Q": "6",
+            "weight": 6,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              1,
+              -10,
+              -9
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  1,
+                  9
+                ],
+                "6",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  1,
+                  9
+                ],
+                "points": [
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  1,
+                  27
+                ],
+                "points": [
+                  [
+                    3,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                1,
+                9
+              ],
+              [
+                1,
+                1,
+                27
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "max_tops_contained_in_one_class": {
+      "value": "2",
+      "case": {
+        "B": 5,
+        "M": 254,
+        "N": 253,
+        "mode": "full",
+        "points": 61393,
+        "classes": 472,
+        "A0": 35286856104,
+        "A1": 6237744,
+        "W": 35277519108,
+        "Omega": 9336996,
+        "J": 15574740,
+        "E_non": 367024,
+        "Esh": 152100780,
+        "K": 42,
+        "c": 10626,
+        "S_non": "367024",
+        "raw_distinct_tops": 2,
+        "maximal_tops": 2,
+        "lines_with_tops": 2,
+        "directions_with_tops": 2,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 2,
+        "max_support_intersection": 1,
+        "sum_Q_maximal": "367024",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "45878/4410857013",
+        "sumQ_over_A1": "22939/389859",
+        "sumQ_over_Omega": "91756/2334249",
+        "sumQ_over_J": "3164/134265",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "91756/38025195",
+        "H3": "367024",
+        "H3_over_W": "91756/8819379777",
+        "H3_over_J": "3164/134265",
+        "normalized_c2H3_over_theta3W": "1029173091410574649297381550928/75391204195523875",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "277704",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              841,
+              121
+            ],
+            "line": [
+              151,
+              115,
+              -16964
+            ],
+            "Q": "89320",
+            "weight": 89320,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              151,
+              841,
+              726
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  841,
+                  121
+                ],
+                "89320",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  841,
+                  121
+                ],
+                "points": [
+                  [
+                    35,
+                    139
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  841,
+                  43681
+                ],
+                "points": [
+                  [
+                    186,
+                    254
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                841,
+                121
+              ],
+              [
+                1,
+                841,
+                43681
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  35,
+                  139
+                ],
+                [
+                  186,
+                  254
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              1,
+              841,
+              361
+            ],
+            "line": [
+              127,
+              119,
+              -10124
+            ],
+            "Q": "277704",
+            "weight": 277704,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              127,
+              841,
+              722
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  841,
+                  361
+                ],
+                "277704",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  841,
+                  361
+                ],
+                "points": [
+                  [
+                    59,
+                    135
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  841,
+                  43681
+                ],
+                "points": [
+                  [
+                    186,
+                    254
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                841,
+                361
+              ],
+              [
+                1,
+                841,
+                43681
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  59,
+                  135
+                ],
+                [
+                  186,
+                  254
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [
+          {
+            "kernel": [
+              1,
+              841,
+              43681
+            ],
+            "points": [
+              [
+                186,
+                254
+              ]
+            ],
+            "top_ids": [
+              0,
+              1
+            ]
+          }
+        ],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": [
+          {
+            "size": 1,
+            "top_ids": [
+              0,
+              1
+            ],
+            "kernels": [
+              [
+                1,
+                841,
+                43681
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "max_support_intersection": {
+      "value": "1",
+      "case": {
+        "B": 5,
+        "M": 254,
+        "N": 253,
+        "mode": "full",
+        "points": 61393,
+        "classes": 472,
+        "A0": 35286856104,
+        "A1": 6237744,
+        "W": 35277519108,
+        "Omega": 9336996,
+        "J": 15574740,
+        "E_non": 367024,
+        "Esh": 152100780,
+        "K": 42,
+        "c": 10626,
+        "S_non": "367024",
+        "raw_distinct_tops": 2,
+        "maximal_tops": 2,
+        "lines_with_tops": 2,
+        "directions_with_tops": 2,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 2,
+        "max_support_intersection": 1,
+        "sum_Q_maximal": "367024",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "45878/4410857013",
+        "sumQ_over_A1": "22939/389859",
+        "sumQ_over_Omega": "91756/2334249",
+        "sumQ_over_J": "3164/134265",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "91756/38025195",
+        "H3": "367024",
+        "H3_over_W": "91756/8819379777",
+        "H3_over_J": "3164/134265",
+        "normalized_c2H3_over_theta3W": "1029173091410574649297381550928/75391204195523875",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "277704",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              841,
+              121
+            ],
+            "line": [
+              151,
+              115,
+              -16964
+            ],
+            "Q": "89320",
+            "weight": 89320,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              151,
+              841,
+              726
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  841,
+                  121
+                ],
+                "89320",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  841,
+                  121
+                ],
+                "points": [
+                  [
+                    35,
+                    139
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  841,
+                  43681
+                ],
+                "points": [
+                  [
+                    186,
+                    254
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                841,
+                121
+              ],
+              [
+                1,
+                841,
+                43681
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  35,
+                  139
+                ],
+                [
+                  186,
+                  254
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              1,
+              841,
+              361
+            ],
+            "line": [
+              127,
+              119,
+              -10124
+            ],
+            "Q": "277704",
+            "weight": 277704,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              127,
+              841,
+              722
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  841,
+                  361
+                ],
+                "277704",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  841,
+                  361
+                ],
+                "points": [
+                  [
+                    59,
+                    135
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  841,
+                  43681
+                ],
+                "points": [
+                  [
+                    186,
+                    254
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                841,
+                361
+              ],
+              [
+                1,
+                841,
+                43681
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  59,
+                  135
+                ],
+                [
+                  186,
+                  254
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [
+          {
+            "kernel": [
+              1,
+              841,
+              43681
+            ],
+            "points": [
+              [
+                186,
+                254
+              ]
+            ],
+            "top_ids": [
+              0,
+              1
+            ]
+          }
+        ],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": [
+          {
+            "size": 1,
+            "top_ids": [
+              0,
+              1
+            ],
+            "kernels": [
+              [
+                1,
+                841,
+                43681
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "max_tops_per_label": {
+      "value": "1",
+      "case": {
+        "B": 10,
+        "M": 3,
+        "N": 2,
+        "mode": "full",
+        "points": 8,
+        "classes": 4,
+        "A0": 54,
+        "A1": 0,
+        "W": 48,
+        "Omega": 6,
+        "J": 6,
+        "E_non": 6,
+        "Esh": 6,
+        "K": 132,
+        "c": 264,
+        "S_non": "6",
+        "raw_distinct_tops": 1,
+        "maximal_tops": 1,
+        "lines_with_tops": 1,
+        "directions_with_tops": 1,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "6",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "1/9",
+        "sumQ_over_A1": null,
+        "sumQ_over_Omega": "1",
+        "sumQ_over_J": "1",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "1",
+        "H3": "6",
+        "H3_over_W": "1/8",
+        "H3_over_J": "1",
+        "normalized_c2H3_over_theta3W": "4460544",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "6",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              1,
+              9
+            ],
+            "line": [
+              1,
+              -1,
+              -4
+            ],
+            "Q": "6",
+            "weight": 6,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              1,
+              -10,
+              -9
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  1,
+                  9
+                ],
+                "6",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  1,
+                  9
+                ],
+                "points": [
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  1,
+                  27
+                ],
+                "points": [
+                  [
+                    3,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                1,
+                9
+              ],
+              [
+                1,
+                1,
+                27
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "overlap_graph_edges": {
+      "value": "0",
+      "case": {
+        "B": 1,
+        "M": 3,
+        "N": 2,
+        "mode": "full",
+        "points": 8,
+        "classes": 3,
+        "A0": 12,
+        "A1": 6,
+        "W": 12,
+        "Omega": 0,
+        "J": 6,
+        "E_non": 0,
+        "Esh": 6,
+        "K": 6,
+        "c": 12,
+        "S_non": "0",
+        "raw_distinct_tops": 0,
+        "maximal_tops": 0,
+        "lines_with_tops": 0,
+        "directions_with_tops": 0,
+        "max_tops_per_line": 0,
+        "max_tops_per_direction": 0,
+        "max_tops_contained_in_one_class": 0,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "0",
+        "sumQ_over_S": null,
+        "sumQ_over_A0": "0",
+        "sumQ_over_A1": "0",
+        "sumQ_over_Omega": null,
+        "sumQ_over_J": "0",
+        "sumQ_over_Enon": null,
+        "sumQ_over_Esh": "0",
+        "H3": "0",
+        "H3_over_W": "0",
+        "H3_over_J": "0",
+        "normalized_c2H3_over_theta3W": "0",
+        "max_beta": "0",
+        "max_tops_per_label": 0,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "0",
+        "owner_assignment_states": 1,
+        "tops": [],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "overlap_graph_degeneracy": {
+      "value": "0",
+      "case": {
+        "B": 1,
+        "M": 3,
+        "N": 2,
+        "mode": "full",
+        "points": 8,
+        "classes": 3,
+        "A0": 12,
+        "A1": 6,
+        "W": 12,
+        "Omega": 0,
+        "J": 6,
+        "E_non": 0,
+        "Esh": 6,
+        "K": 6,
+        "c": 12,
+        "S_non": "0",
+        "raw_distinct_tops": 0,
+        "maximal_tops": 0,
+        "lines_with_tops": 0,
+        "directions_with_tops": 0,
+        "max_tops_per_line": 0,
+        "max_tops_per_direction": 0,
+        "max_tops_contained_in_one_class": 0,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "0",
+        "sumQ_over_S": null,
+        "sumQ_over_A0": "0",
+        "sumQ_over_A1": "0",
+        "sumQ_over_Omega": null,
+        "sumQ_over_J": "0",
+        "sumQ_over_Enon": null,
+        "sumQ_over_Esh": "0",
+        "H3": "0",
+        "H3_over_W": "0",
+        "H3_over_J": "0",
+        "normalized_c2H3_over_theta3W": "0",
+        "max_beta": "0",
+        "max_tops_per_label": 0,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "0",
+        "owner_assignment_states": 1,
+        "tops": [],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "sumQ_over_A0": {
+      "value": "1/4",
+      "case": {
+        "B": 11,
+        "M": 3,
+        "N": 2,
+        "mode": "full",
+        "points": 9,
+        "classes": 4,
+        "A0": 96,
+        "A1": 24,
+        "W": 96,
+        "Omega": 0,
+        "J": 24,
+        "E_non": 24,
+        "Esh": 24,
+        "K": 156,
+        "c": 312,
+        "S_non": "24",
+        "raw_distinct_tops": 1,
+        "maximal_tops": 1,
+        "lines_with_tops": 1,
+        "directions_with_tops": 1,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "24",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "1/4",
+        "sumQ_over_A1": "1",
+        "sumQ_over_Omega": null,
+        "sumQ_over_J": "1",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "1",
+        "H3": "24",
+        "H3_over_W": "1/4",
+        "H3_over_J": "1",
+        "normalized_c2H3_over_theta3W": "1557504",
+        "max_beta": "6/5",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "24",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              25,
+              1
+            ],
+            "line": [
+              1,
+              2,
+              3
+            ],
+            "Q": "24",
+            "weight": 20,
+            "beta": "6/5",
+            "labels": 2,
+            "coeff": [
+              1,
+              25,
+              23
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  5,
+                  1
+                ],
+                "4",
+                1
+              ],
+              [
+                [
+                  1,
+                  25,
+                  1
+                ],
+                "20",
+                1
+              ]
+            ],
+            "support_classes": 1,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  25,
+                  1
+                ],
+                "points": [
+                  [
+                    2,
+                    1
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 1,
+            "origin_kernels": [
+              [
+                1,
+                25,
+                1
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  3
+                ]
+              ]
+            ],
+            "kinds": [
+              "loop"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "sumQ_over_A1": {
+      "value": "871/203",
+      "case": {
+        "B": 8,
+        "M": 120,
+        "N": 119,
+        "mode": "full",
+        "points": 13144,
+        "classes": 277,
+        "A0": 17375433920,
+        "A1": 16240,
+        "W": 17375231632,
+        "Omega": 202288,
+        "J": 218528,
+        "E_non": 69680,
+        "Esh": 432224,
+        "K": 90,
+        "c": 10710,
+        "S_non": "69680",
+        "raw_distinct_tops": 4,
+        "maximal_tops": 4,
+        "lines_with_tops": 4,
+        "directions_with_tops": 4,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "69680",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "67/16707148",
+        "sumQ_over_A1": "871/203",
+        "sumQ_over_Omega": "4355/12643",
+        "sumQ_over_J": "4355/13658",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "335/2078",
+        "H3": "69680",
+        "H3_over_W": "4355/1085951977",
+        "H3_over_J": "4355/13658",
+        "normalized_c2H3_over_theta3W": "147274769016548955060419014875/636944121578",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "18600",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              841,
+              25
+            ],
+            "line": [
+              22,
+              91,
+              3489
+            ],
+            "Q": "16240",
+            "weight": 16240,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              22,
+              841,
+              750
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  841,
+                  25
+                ],
+                "16240",
+                1
+              ]
+            ],
+            "support_classes": 1,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  841,
+                  25
+                ],
+                "points": [
+                  [
+                    41,
+                    11
+                  ],
+                  [
+                    63,
+                    102
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 1,
+            "origin_kernels": [
+              [
+                1,
+                841,
+                25
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  41,
+                  11
+                ],
+                [
+                  63,
+                  102
+                ]
+              ]
+            ],
+            "kinds": [
+              "loop"
+            ]
+          },
+          {
+            "top": [
+              25,
+              841,
+              1
+            ],
+            "line": [
+              50,
+              -99,
+              -10496
+            ],
+            "Q": "16240",
+            "weight": 16240,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              50,
+              -841,
+              -742
+            ],
+            "catalogue": [
+              [
+                [
+                  25,
+                  841,
+                  1
+                ],
+                "16240",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  25,
+                  841,
+                  1
+                ],
+                "points": [
+                  [
+                    54,
+                    103
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  625,
+                  841,
+                  1
+                ],
+                "points": [
+                  [
+                    104,
+                    4
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                25,
+                841,
+                1
+              ],
+              [
+                625,
+                841,
+                1
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  54,
+                  103
+                ],
+                [
+                  104,
+                  4
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              1,
+              961,
+              25
+            ],
+            "line": [
+              38,
+              -111,
+              -11994
+            ],
+            "Q": "18600",
+            "weight": 18600,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              38,
+              -961,
+              -850
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  961,
+                  25
+                ],
+                "18600",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  961,
+                  25
+                ],
+                "points": [
+                  [
+                    68,
+                    117
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  49,
+                  961,
+                  25
+                ],
+                "points": [
+                  [
+                    106,
+                    6
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                961,
+                25
+              ],
+              [
+                49,
+                961,
+                25
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  68,
+                  117
+                ],
+                [
+                  106,
+                  6
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              25,
+              961,
+              1
+            ],
+            "line": [
+              25,
+              104,
+              7991
+            ],
+            "Q": "18600",
+            "weight": 18600,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              25,
+              961,
+              857
+            ],
+            "catalogue": [
+              [
+                [
+                  25,
+                  961,
+                  1
+                ],
+                "18600",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  25,
+                  961,
+                  1
+                ],
+                "points": [
+                  [
+                    79,
+                    9
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  625,
+                  961,
+                  1
+                ],
+                "points": [
+                  [
+                    104,
+                    113
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                25,
+                961,
+                1
+              ],
+              [
+                625,
+                961,
+                1
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  79,
+                  9
+                ],
+                [
+                  104,
+                  113
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "sumQ_over_J": {
+      "value": "1",
+      "case": {
+        "B": 10,
+        "M": 3,
+        "N": 2,
+        "mode": "full",
+        "points": 8,
+        "classes": 4,
+        "A0": 54,
+        "A1": 0,
+        "W": 48,
+        "Omega": 6,
+        "J": 6,
+        "E_non": 6,
+        "Esh": 6,
+        "K": 132,
+        "c": 264,
+        "S_non": "6",
+        "raw_distinct_tops": 1,
+        "maximal_tops": 1,
+        "lines_with_tops": 1,
+        "directions_with_tops": 1,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "6",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "1/9",
+        "sumQ_over_A1": null,
+        "sumQ_over_Omega": "1",
+        "sumQ_over_J": "1",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "1",
+        "H3": "6",
+        "H3_over_W": "1/8",
+        "H3_over_J": "1",
+        "normalized_c2H3_over_theta3W": "4460544",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "6",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              1,
+              9
+            ],
+            "line": [
+              1,
+              -1,
+              -4
+            ],
+            "Q": "6",
+            "weight": 6,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              1,
+              -10,
+              -9
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  1,
+                  9
+                ],
+                "6",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  1,
+                  9
+                ],
+                "points": [
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  1,
+                  27
+                ],
+                "points": [
+                  [
+                    3,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                1,
+                9
+              ],
+              [
+                1,
+                1,
+                27
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "sumQ_over_Esh": {
+      "value": "1",
+      "case": {
+        "B": 10,
+        "M": 3,
+        "N": 2,
+        "mode": "full",
+        "points": 8,
+        "classes": 4,
+        "A0": 54,
+        "A1": 0,
+        "W": 48,
+        "Omega": 6,
+        "J": 6,
+        "E_non": 6,
+        "Esh": 6,
+        "K": 132,
+        "c": 264,
+        "S_non": "6",
+        "raw_distinct_tops": 1,
+        "maximal_tops": 1,
+        "lines_with_tops": 1,
+        "directions_with_tops": 1,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "6",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "1/9",
+        "sumQ_over_A1": null,
+        "sumQ_over_Omega": "1",
+        "sumQ_over_J": "1",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "1",
+        "H3": "6",
+        "H3_over_W": "1/8",
+        "H3_over_J": "1",
+        "normalized_c2H3_over_theta3W": "4460544",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "6",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              1,
+              9
+            ],
+            "line": [
+              1,
+              -1,
+              -4
+            ],
+            "Q": "6",
+            "weight": 6,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              1,
+              -10,
+              -9
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  1,
+                  9
+                ],
+                "6",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  1,
+                  9
+                ],
+                "points": [
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  1,
+                  27
+                ],
+                "points": [
+                  [
+                    3,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                1,
+                9
+              ],
+              [
+                1,
+                1,
+                27
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "H3_over_W": {
+      "value": "1/4",
+      "case": {
+        "B": 11,
+        "M": 3,
+        "N": 2,
+        "mode": "full",
+        "points": 9,
+        "classes": 4,
+        "A0": 96,
+        "A1": 24,
+        "W": 96,
+        "Omega": 0,
+        "J": 24,
+        "E_non": 24,
+        "Esh": 24,
+        "K": 156,
+        "c": 312,
+        "S_non": "24",
+        "raw_distinct_tops": 1,
+        "maximal_tops": 1,
+        "lines_with_tops": 1,
+        "directions_with_tops": 1,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "24",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "1/4",
+        "sumQ_over_A1": "1",
+        "sumQ_over_Omega": null,
+        "sumQ_over_J": "1",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "1",
+        "H3": "24",
+        "H3_over_W": "1/4",
+        "H3_over_J": "1",
+        "normalized_c2H3_over_theta3W": "1557504",
+        "max_beta": "6/5",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "24",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              25,
+              1
+            ],
+            "line": [
+              1,
+              2,
+              3
+            ],
+            "Q": "24",
+            "weight": 20,
+            "beta": "6/5",
+            "labels": 2,
+            "coeff": [
+              1,
+              25,
+              23
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  5,
+                  1
+                ],
+                "4",
+                1
+              ],
+              [
+                [
+                  1,
+                  25,
+                  1
+                ],
+                "20",
+                1
+              ]
+            ],
+            "support_classes": 1,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  25,
+                  1
+                ],
+                "points": [
+                  [
+                    2,
+                    1
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 1,
+            "origin_kernels": [
+              [
+                1,
+                25,
+                1
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  3
+                ]
+              ]
+            ],
+            "kinds": [
+              "loop"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "H3_over_J": {
+      "value": "1",
+      "case": {
+        "B": 10,
+        "M": 3,
+        "N": 2,
+        "mode": "full",
+        "points": 8,
+        "classes": 4,
+        "A0": 54,
+        "A1": 0,
+        "W": 48,
+        "Omega": 6,
+        "J": 6,
+        "E_non": 6,
+        "Esh": 6,
+        "K": 132,
+        "c": 264,
+        "S_non": "6",
+        "raw_distinct_tops": 1,
+        "maximal_tops": 1,
+        "lines_with_tops": 1,
+        "directions_with_tops": 1,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "6",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "1/9",
+        "sumQ_over_A1": null,
+        "sumQ_over_Omega": "1",
+        "sumQ_over_J": "1",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "1",
+        "H3": "6",
+        "H3_over_W": "1/8",
+        "H3_over_J": "1",
+        "normalized_c2H3_over_theta3W": "4460544",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "6",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              1,
+              9
+            ],
+            "line": [
+              1,
+              -1,
+              -4
+            ],
+            "Q": "6",
+            "weight": 6,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              1,
+              -10,
+              -9
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  1,
+                  9
+                ],
+                "6",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  1,
+                  9
+                ],
+                "points": [
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  1,
+                  27
+                ],
+                "points": [
+                  [
+                    3,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                1,
+                9
+              ],
+              [
+                1,
+                1,
+                27
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "normalized_c2H3_over_theta3W": {
+      "value": "36824256405406516135109445426422850/2636452231148759",
+      "case": {
+        "B": 9,
+        "M": 254,
+        "N": 253,
+        "mode": "singleton",
+        "points": 465,
+        "classes": 465,
+        "A0": 5157796091696,
+        "A1": 0,
+        "W": 5157787153528,
+        "Omega": 8938168,
+        "J": 8938168,
+        "E_non": 484068,
+        "Esh": 32893024,
+        "K": 110,
+        "c": 27830,
+        "S_non": "484068",
+        "raw_distinct_tops": 4,
+        "maximal_tops": 4,
+        "lines_with_tops": 4,
+        "directions_with_tops": 4,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "484068",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "121017/1289449022924",
+        "sumQ_over_A1": null,
+        "sumQ_over_Omega": "121017/2234542",
+        "sumQ_over_J": "121017/2234542",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "121017/8223256",
+        "H3": "484068",
+        "H3_over_W": "4173/44463682358",
+        "H3_over_J": "121017/2234542",
+        "normalized_c2H3_over_theta3W": "36824256405406516135109445426422850/2636452231148759",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "207792",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              121,
+              1,
+              1369
+            ],
+            "line": [
+              242,
+              -179,
+              -60732
+            ],
+            "Q": "146520",
+            "weight": 146520,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              242,
+              -1548,
+              -1369
+            ],
+            "catalogue": [
+              [
+                [
+                  121,
+                  1,
+                  1369
+                ],
+                "146520",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  121,
+                  1,
+                  1369
+                ],
+                "points": [
+                  [
+                    246,
+                    69
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  121,
+                  1,
+                  67081
+                ],
+                "points": [
+                  [
+                    4,
+                    248
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                121,
+                1,
+                1369
+              ],
+              [
+                121,
+                1,
+                67081
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  4,
+                  248
+                ],
+                [
+                  246,
+                  69
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              1,
+              169,
+              529
+            ],
+            "line": [
+              67,
+              -125,
+              -14896
+            ],
+            "Q": "78936",
+            "weight": 78936,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              67,
+              -1183,
+              -1058
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  169,
+                  529
+                ],
+                "78936",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  169,
+                  529
+                ],
+                "points": [
+                  [
+                    5,
+                    213
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  28561,
+                  25921
+                ],
+                "points": [
+                  [
+                    72,
+                    88
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                169,
+                529
+              ],
+              [
+                1,
+                28561,
+                25921
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  5,
+                  213
+                ],
+                [
+                  72,
+                  88
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              1,
+              169,
+              1369
+            ],
+            "line": [
+              1,
+              152,
+              15419
+            ],
+            "Q": "207792",
+            "weight": 207792,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              1,
+              1521,
+              1369
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  169,
+                  1369
+                ],
+                "207792",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  169,
+                  67081
+                ],
+                "points": [
+                  [
+                    103,
+                    237
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  28561,
+                  1369
+                ],
+                "points": [
+                  [
+                    102,
+                    85
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                169,
+                67081
+              ],
+              [
+                1,
+                28561,
+                1369
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  102,
+                  85
+                ],
+                [
+                  103,
+                  237
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              49,
+              1331,
+              1
+            ],
+            "line": [
+              49,
+              -138,
+              -26083
+            ],
+            "Q": "50820",
+            "weight": 50820,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              49,
+              -1331,
+              -1193
+            ],
+            "catalogue": [
+              [
+                [
+                  49,
+                  1331,
+                  1
+                ],
+                "50820",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  49,
+                  1331,
+                  1
+                ],
+                "points": [
+                  [
+                    129,
+                    169
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  49,
+                  14641,
+                  1
+                ],
+                "points": [
+                  [
+                    178,
+                    31
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                49,
+                1331,
+                1
+              ],
+              [
+                49,
+                14641,
+                1
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  129,
+                  169
+                ],
+                [
+                  178,
+                  31
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "max_beta": {
+      "value": "13/9",
+      "case": {
+        "B": 10,
+        "M": 80,
+        "N": 79,
+        "mode": "full",
+        "points": 5481,
+        "classes": 142,
+        "A0": 479320568,
+        "A1": 3931446,
+        "W": 477261108,
+        "Omega": 2059460,
+        "J": 5990906,
+        "E_non": 132768,
+        "Esh": 4023949478,
+        "K": 132,
+        "c": 10428,
+        "S_non": "132768",
+        "raw_distinct_tops": 2,
+        "maximal_tops": 2,
+        "lines_with_tops": 2,
+        "directions_with_tops": 2,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "132768",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "16596/59915071",
+        "sumQ_over_A1": "22128/655241",
+        "sumQ_over_Omega": "33192/514865",
+        "sumQ_over_J": "66384/2995453",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "66384/2011974739",
+        "H3": "132768",
+        "H3_over_W": "3688/13257253",
+        "H3_over_J": "66384/2995453",
+        "normalized_c2H3_over_theta3W": "411071683355355377778029392896/26877416982870824677",
+        "max_beta": "13/9",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "118404",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              49,
+              1,
+              361
+            ],
+            "line": [
+              49,
+              -41,
+              -3055
+            ],
+            "Q": "14364",
+            "weight": 14364,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              49,
+              -402,
+              -361
+            ],
+            "catalogue": [
+              [
+                [
+                  49,
+                  1,
+                  361
+                ],
+                "14364",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  343,
+                  1,
+                  361
+                ],
+                "points": [
+                  [
+                    53,
+                    18
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  441,
+                  1,
+                  361
+                ],
+                "points": [
+                  [
+                    4,
+                    59
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                343,
+                1,
+                361
+              ],
+              [
+                441,
+                1,
+                361
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  4,
+                  59
+                ],
+                [
+                  53,
+                  18
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          },
+          {
+            "top": [
+              1,
+              529,
+              243
+            ],
+            "line": [
+              56,
+              43,
+              -1169
+            ],
+            "Q": "118404",
+            "weight": 81972,
+            "beta": "13/9",
+            "labels": 3,
+            "coeff": [
+              56,
+              529,
+              486
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  529,
+                  27
+                ],
+                "9108",
+                1
+              ],
+              [
+                [
+                  1,
+                  529,
+                  81
+                ],
+                "27324",
+                1
+              ],
+              [
+                [
+                  1,
+                  529,
+                  243
+                ],
+                "81972",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  529,
+                  243
+                ],
+                "points": [
+                  [
+                    77,
+                    80
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  529,
+                  729
+                ],
+                "points": [
+                  [
+                    21,
+                    37
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                529,
+                243
+              ],
+              [
+                1,
+                529,
+                729
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  21,
+                  37
+                ],
+                [
+                  77,
+                  80
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "sumQ_over_Omega": {
+      "value": "1",
+      "case": {
+        "B": 10,
+        "M": 3,
+        "N": 2,
+        "mode": "full",
+        "points": 8,
+        "classes": 4,
+        "A0": 54,
+        "A1": 0,
+        "W": 48,
+        "Omega": 6,
+        "J": 6,
+        "E_non": 6,
+        "Esh": 6,
+        "K": 132,
+        "c": 264,
+        "S_non": "6",
+        "raw_distinct_tops": 1,
+        "maximal_tops": 1,
+        "lines_with_tops": 1,
+        "directions_with_tops": 1,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "6",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "1/9",
+        "sumQ_over_A1": null,
+        "sumQ_over_Omega": "1",
+        "sumQ_over_J": "1",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "1",
+        "H3": "6",
+        "H3_over_W": "1/8",
+        "H3_over_J": "1",
+        "normalized_c2H3_over_theta3W": "4460544",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "6",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              1,
+              9
+            ],
+            "line": [
+              1,
+              -1,
+              -4
+            ],
+            "Q": "6",
+            "weight": 6,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              1,
+              -10,
+              -9
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  1,
+                  9
+                ],
+                "6",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  1,
+                  9
+                ],
+                "points": [
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  1,
+                  27
+                ],
+                "points": [
+                  [
+                    3,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                1,
+                9
+              ],
+              [
+                1,
+                1,
+                27
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "sumQ_over_S": {
+      "value": "1",
+      "case": {
+        "B": 10,
+        "M": 3,
+        "N": 2,
+        "mode": "full",
+        "points": 8,
+        "classes": 4,
+        "A0": 54,
+        "A1": 0,
+        "W": 48,
+        "Omega": 6,
+        "J": 6,
+        "E_non": 6,
+        "Esh": 6,
+        "K": 132,
+        "c": 264,
+        "S_non": "6",
+        "raw_distinct_tops": 1,
+        "maximal_tops": 1,
+        "lines_with_tops": 1,
+        "directions_with_tops": 1,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "6",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "1/9",
+        "sumQ_over_A1": null,
+        "sumQ_over_Omega": "1",
+        "sumQ_over_J": "1",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "1",
+        "H3": "6",
+        "H3_over_W": "1/8",
+        "H3_over_J": "1",
+        "normalized_c2H3_over_theta3W": "4460544",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "6",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              1,
+              9
+            ],
+            "line": [
+              1,
+              -1,
+              -4
+            ],
+            "Q": "6",
+            "weight": 6,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              1,
+              -10,
+              -9
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  1,
+                  9
+                ],
+                "6",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  1,
+                  9
+                ],
+                "points": [
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  1,
+                  27
+                ],
+                "points": [
+                  [
+                    3,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                1,
+                9
+              ],
+              [
+                1,
+                1,
+                27
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    },
+    "sumQ_over_Enon": {
+      "value": "1",
+      "case": {
+        "B": 10,
+        "M": 3,
+        "N": 2,
+        "mode": "full",
+        "points": 8,
+        "classes": 4,
+        "A0": 54,
+        "A1": 0,
+        "W": 48,
+        "Omega": 6,
+        "J": 6,
+        "E_non": 6,
+        "Esh": 6,
+        "K": 132,
+        "c": 264,
+        "S_non": "6",
+        "raw_distinct_tops": 1,
+        "maximal_tops": 1,
+        "lines_with_tops": 1,
+        "directions_with_tops": 1,
+        "max_tops_per_line": 1,
+        "max_tops_per_direction": 1,
+        "max_tops_contained_in_one_class": 1,
+        "max_support_intersection": 0,
+        "sum_Q_maximal": "6",
+        "sumQ_over_S": "1",
+        "sumQ_over_A0": "1/9",
+        "sumQ_over_A1": null,
+        "sumQ_over_Omega": "1",
+        "sumQ_over_J": "1",
+        "sumQ_over_Enon": "1",
+        "sumQ_over_Esh": "1",
+        "H3": "6",
+        "H3_over_W": "1/8",
+        "H3_over_J": "1",
+        "normalized_c2H3_over_theta3W": "4460544",
+        "max_beta": "1",
+        "max_tops_per_label": 1,
+        "overlap_graph_edges": 0,
+        "overlap_graph_degeneracy": 0,
+        "exact_owner_minmax_load": "6",
+        "owner_assignment_states": 1,
+        "tops": [
+          {
+            "top": [
+              1,
+              1,
+              9
+            ],
+            "line": [
+              1,
+              -1,
+              -4
+            ],
+            "Q": "6",
+            "weight": 6,
+            "beta": "1",
+            "labels": 1,
+            "coeff": [
+              1,
+              -10,
+              -9
+            ],
+            "catalogue": [
+              [
+                [
+                  1,
+                  1,
+                  9
+                ],
+                "6",
+                1
+              ]
+            ],
+            "support_classes": 2,
+            "support_points": 2,
+            "support_kernels": [
+              {
+                "kernel": [
+                  1,
+                  1,
+                  9
+                ],
+                "points": [
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              },
+              {
+                "kernel": [
+                  1,
+                  1,
+                  27
+                ],
+                "points": [
+                  [
+                    3,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "origin_classes": 2,
+            "origin_kernels": [
+              [
+                1,
+                1,
+                9
+              ],
+              [
+                1,
+                1,
+                27
+              ]
+            ],
+            "generator_pairs": [
+              [
+                [
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  1
+                ]
+              ]
+            ],
+            "kinds": [
+              "pair"
+            ]
+          }
+        ],
+        "classes_in_multiple_tops": [],
+        "labels_in_multiple_tops": [],
+        "largest_support_intersections": []
+      }
+    }
+  },
+  "directed_beta_witnesses": [
+    {
+      "B": 351,
+      "M": 2,
+      "N": 1,
+      "mode": "full",
+      "points": 4,
+      "classes": 4,
+      "A0": 272,
+      "A1": 0,
+      "W": 248,
+      "Omega": 24,
+      "J": 24,
+      "E_non": 24,
+      "Esh": 24,
+      "K": 124256,
+      "c": 124256,
+      "S_non": "24",
+      "raw_distinct_tops": 1,
+      "maximal_tops": 1,
+      "lines_with_tops": 1,
+      "directions_with_tops": 1,
+      "max_tops_per_line": 1,
+      "max_tops_per_direction": 1,
+      "max_tops_contained_in_one_class": 1,
+      "max_support_intersection": 0,
+      "sum_Q_maximal": "24",
+      "sumQ_over_S": "1",
+      "sumQ_over_A0": "3/34",
+      "sumQ_over_A1": null,
+      "sumQ_over_Omega": "1",
+      "sumQ_over_J": "1",
+      "sumQ_over_Enon": "1",
+      "sumQ_over_Esh": "1",
+      "H3": "24",
+      "H3_over_W": "3/31",
+      "H3_over_J": "1",
+      "normalized_c2H3_over_theta3W": "14837410948096/9",
+      "max_beta": "6/5",
+      "max_tops_per_label": 1,
+      "overlap_graph_edges": 0,
+      "overlap_graph_degeneracy": 0,
+      "exact_owner_minmax_load": "24",
+      "owner_assignment_states": 1,
+      "tops": [
+        {
+          "top": [
+            1,
+            1,
+            25
+          ],
+          "line": [
+            1,
+            -1,
+            -3
+          ],
+          "Q": "24",
+          "weight": 20,
+          "beta": "6/5",
+          "labels": 2,
+          "coeff": [
+            1,
+            -351,
+            -350
+          ],
+          "catalogue": [
+            [
+              [
+                1,
+                1,
+                5
+              ],
+              "4",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                25
+              ],
+              "20",
+              1
+            ]
+          ],
+          "support_classes": 2,
+          "support_points": 2,
+          "support_kernels": [
+            {
+              "kernel": [
+                1,
+                1,
+                25
+              ],
+              "points": [
+                [
+                  1,
+                  2
+                ]
+              ]
+            },
+            {
+              "kernel": [
+                1,
+                1,
+                125
+              ],
+              "points": [
+                [
+                  2,
+                  1
+                ]
+              ]
+            }
+          ],
+          "origin_classes": 2,
+          "origin_kernels": [
+            [
+              1,
+              1,
+              25
+            ],
+            [
+              1,
+              1,
+              125
+            ]
+          ],
+          "generator_pairs": [
+            [
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                1
+              ]
+            ]
+          ],
+          "kinds": [
+            "pair"
+          ]
+        }
+      ],
+      "classes_in_multiple_tops": [],
+      "labels_in_multiple_tops": [],
+      "largest_support_intersections": []
+    },
+    {
+      "B": 55123,
+      "M": 3,
+      "N": 2,
+      "mode": "full",
+      "points": 8,
+      "classes": 4,
+      "A0": 93657366,
+      "A1": 0,
+      "W": 93602244,
+      "Omega": 55122,
+      "J": 55122,
+      "E_non": 55122,
+      "Esh": 55122,
+      "K": 3038710500,
+      "c": 6077421000,
+      "S_non": "55122",
+      "raw_distinct_tops": 1,
+      "maximal_tops": 1,
+      "lines_with_tops": 1,
+      "directions_with_tops": 1,
+      "max_tops_per_line": 1,
+      "max_tops_per_direction": 1,
+      "max_tops_contained_in_one_class": 1,
+      "max_support_intersection": 0,
+      "sum_Q_maximal": "55122",
+      "sumQ_over_S": "1",
+      "sumQ_over_A0": "9187/15609561",
+      "sumQ_over_A1": null,
+      "sumQ_over_Omega": "1",
+      "sumQ_over_J": "1",
+      "sumQ_over_Enon": "1",
+      "sumQ_over_Esh": "1",
+      "H3": "55122",
+      "H3_over_W": "9187/15600374",
+      "H3_over_J": "1",
+      "normalized_c2H3_over_theta3W": "8988943790126832224849146116000000/84400969",
+      "max_beta": "9187/4200",
+      "max_tops_per_label": 1,
+      "overlap_graph_edges": 0,
+      "overlap_graph_degeneracy": 0,
+      "exact_owner_minmax_load": "55122",
+      "owner_assignment_states": 1,
+      "tops": [
+        {
+          "top": [
+            1,
+            1,
+            55125
+          ],
+          "line": [
+            2,
+            1,
+            -1
+          ],
+          "Q": "55122",
+          "weight": 25200,
+          "beta": "9187/4200",
+          "labels": 34,
+          "coeff": [
+            2,
+            55126,
+            55125
+          ],
+          "catalogue": [
+            [
+              [
+                1,
+                1,
+                5
+              ],
+              "4",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                7
+              ],
+              "6",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                9
+              ],
+              "6",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                15
+              ],
+              "8",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                21
+              ],
+              "12",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                25
+              ],
+              "20",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                35
+              ],
+              "24",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                45
+              ],
+              "24",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                49
+              ],
+              "42",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                63
+              ],
+              "36",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                75
+              ],
+              "40",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                105
+              ],
+              "48",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                125
+              ],
+              "100",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                147
+              ],
+              "84",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                175
+              ],
+              "120",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                225
+              ],
+              "120",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                245
+              ],
+              "168",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                315
+              ],
+              "144",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                375
+              ],
+              "200",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                441
+              ],
+              "252",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                525
+              ],
+              "240",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                735
+              ],
+              "336",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                875
+              ],
+              "600",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                1125
+              ],
+              "600",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                1225
+              ],
+              "840",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                1575
+              ],
+              "720",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                2205
+              ],
+              "1008",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                2625
+              ],
+              "1200",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                3675
+              ],
+              "1680",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                6125
+              ],
+              "4200",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                7875
+              ],
+              "3600",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                11025
+              ],
+              "5040",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                18375
+              ],
+              "8400",
+              1
+            ],
+            [
+              [
+                1,
+                1,
+                55125
+              ],
+              "25200",
+              1
+            ]
+          ],
+          "support_classes": 2,
+          "support_points": 2,
+          "support_kernels": [
+            {
+              "kernel": [
+                1,
+                1,
+                275625
+              ],
+              "points": [
+                [
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "kernel": [
+                1,
+                1,
+                46690875
+              ],
+              "points": [
+                [
+                  3,
+                  2
+                ]
+              ]
+            }
+          ],
+          "origin_classes": 2,
+          "origin_kernels": [
+            [
+              1,
+              1,
+              275625
+            ],
+            [
+              1,
+              1,
+              46690875
+            ]
+          ],
+          "generator_pairs": [
+            [
+              [
+                1,
+                1
+              ],
+              [
+                3,
+                2
+              ]
+            ]
+          ],
+          "kinds": [
+            "pair"
+          ]
+        }
+      ],
+      "classes_in_multiple_tops": [],
+      "labels_in_multiple_tops": [],
+      "largest_support_intersections": []
+    }
+  ],
+  "scope_note": "Finite no-hit entries are observations, not proofs."
+}

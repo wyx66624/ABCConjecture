@@ -1,0 +1,82 @@
+{
+  "schema": "affine-ownership-primary-sources-v1",
+  "retrieved_utc_date": "2026-09-02",
+  "artifacts": [
+    {
+      "file": "saxton_thomason_hypergraph_containers_arxiv_1204.6595.pdf",
+      "source_url": "https://arxiv.org/pdf/1204.6595",
+      "bytes": 607736,
+      "sha256": "23dd1542e20d1513b7021828cb4e4153a5091774117616727791272357622437"
+    },
+    {
+      "file": "balogh_morris_samotij_independent_sets_arxiv_1204.6530.pdf",
+      "source_url": "https://arxiv.org/pdf/1204.6530",
+      "bytes": 559753,
+      "sha256": "2e2a7973b172bdb6e539d1cd541c0d8640fcb72f07f58b7816e94854dceb47fe"
+    },
+    {
+      "file": "szemeredi_trotter_extremal_discrete_geometry_author_copy.pdf",
+      "source_url": "https://trotter.math.gatech.edu/papers/38.pdf",
+      "bytes": 578712,
+      "sha256": "17aa8309ecc9098f3c806c9490ba706f7ff3c023fa1872de295ecd897f585fcc"
+    },
+    {
+      "file": "rosser_schoenfeld_approximate_formulas_1962_mirror.pdf",
+      "source_url": "https://denisevellachemla.eu/Rosser-Schoenfeld-1962.pdf",
+      "bytes": 2520753,
+      "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556"
+    }
+  ],
+  "roles": {
+    "direct_theorem_input": [
+      "rosser_schoenfeld_approximate_formulas_1962_mirror.pdf: Mertens prime-product upper bound used in (5.10); only its big-O consequence is used."
+    ],
+    "background_comparison_only": [
+      "saxton_thomason_hypergraph_containers_arxiv_1204.6595.pdf",
+      "balogh_morris_samotij_independent_sets_arxiv_1204.6530.pdf",
+      "szemeredi_trotter_extremal_discrete_geometry_author_copy.pdf",
+      "Bateman--Grosswald, DOI 10.1215/ijm/1255380836 (official Project Euclid endpoint was bot-blocked at retrieval).",
+      "Golomb, DOI 10.2307/2317020 / publisher DOI 10.1080/00029890.1970.11992598 (paywalled; citation metadata only)."
+    ],
+    "self_contained_or_standard_inputs": [
+      "The square-divisor excess estimate (6.3) is proved in the report.",
+      "The bound tau(n)=O_epsilon(n^epsilon) is used as the standard elementary divisor bound.",
+      "No container theorem and no Szemeredi--Trotter estimate is invoked in a proof."
+    ]
+  },
+  "citation_metadata": [
+    {
+      "authors": "D. Saxton; A. Thomason",
+      "title": "Hypergraph containers",
+      "arxiv": "1204.6595",
+      "doi": "10.1007/s00222-014-0562-8"
+    },
+    {
+      "authors": "J. Balogh; R. Morris; W. Samotij",
+      "title": "Independent sets in hypergraphs",
+      "arxiv": "1204.6530",
+      "doi": "10.1090/S0894-0347-2014-00816-X"
+    },
+    {
+      "authors": "E. Szemeredi; W. T. Trotter",
+      "title": "Extremal problems in discrete geometry",
+      "doi": "10.1007/BF02579194"
+    },
+    {
+      "authors": "P. T. Bateman; E. Grosswald",
+      "title": "On a theorem of Erdos and Szekeres",
+      "doi": "10.1215/ijm/1255380836"
+    },
+    {
+      "authors": "S. W. Golomb",
+      "title": "Powerful numbers",
+      "doi": "10.2307/2317020",
+      "publisher_doi": "10.1080/00029890.1970.11992598"
+    },
+    {
+      "authors": "J. Barkley Rosser; Lowell Schoenfeld",
+      "title": "Approximate formulas for some functions of prime numbers",
+      "doi": "10.1215/ijm/1255631807"
+    }
+  ]
+}

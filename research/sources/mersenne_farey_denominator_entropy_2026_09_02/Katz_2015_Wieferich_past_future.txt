@@ -1,0 +1,797 @@
+WIEFERICH P AST AND FUTURE
+NICHOLAS M. KATZ
+1. The early history
+Fermat’s Last Theorem (FLT) is the assertion that for n ≥ 3, the equation
+Xn +yn =Zn has no solutions in integers X,Y,Z with XYZ ̸= 0. It was proven
+by Fermat for n = 4 and by Euler for n = 3, cf. [Weil, page 104]. To prove it in
+general, then, it suﬃces to prove it when n is any prime p≥ 5. For ﬁxed p, the
+”ﬁrst case” of FLT is the assertion that there are no integer solutions with XYZ
+prime to p.
+In 1909, Arthur Wieferich, then a 25 year old student at Munster, astounded the
+mathematical world with the following theorem.
+Theorem 1.1. (Wieferich) Letp≥ 5 be a prime. If the ﬁrst case of FLT is false,
+then the following congruence holds:
+2p−1≡ 1 mod p2.
+A prime p for which this congruence holds is called a Wieferich prime (later, a
+Wieferich prime to the base 2). It wasn’t until 1913 that the ﬁrst Wieferich prime,
+1093, was found, by Meissner. The second, 3511, was found by Beeger in 1922.
+Computer search so far shows that the next one, if there is a next one, exceeds
+6.7× 1015, cf. [Do-Kl].
+The very next year, 1910, Mirimanoﬀ showed that one could replace 2 by 3.
+Theorem 1.2. (Mirimanoﬀ) Letp≥ 5 be a prime. If the ﬁrst case of FLT is false,
+then the following congruence holds:
+3p−1≡ 1 mod p2.
+A primep for which this congruence holds is called a Wieferich prime to the base
+3. The ﬁrst one is 11, the next, found by Kloss in 1965, cf. [Son, 3.2], is 1006003,
+and the next one, if it exists, exceeds 9.7×1014, cf. [Do-Kl]. At this point, the race
+was on.
+In 1914, Vandiver showed that one could replace 2 or 3 by 5.
+Theorem 1.3. (Vandiver) Letp≥ 7 be a prime. If the ﬁrst case of FLT is false,
+then the following congruence holds:
+5p−1≡ 1 mod p2.
+There are now six known Wieferich primes to the base 5, namely
+20771, 40487, 53471161, 1645333507, 6692367337, 188748146801.
+The ﬁrst two of these were found in 1961, the last in 2005. If there is a next one,
+it exceeds 9.7× 1014, cf. [Do-Kl].
+In 1917, Pollaczek claimed one could replace 2 by any prime ≤ 31, cf. [Gr-Mo].
+The current record, set is 1994 by Suzuki, is that one can replace 2 by any prime
+1
+2 NICHOLAS M. KATZ
+≤ 113. [At this point, Wiles and Taylor-Wiles had proven FLT in general, so the
+motivation for going further disappeared.]
+2. The Crandall-Dilcher-Pomerance model
+For a nonzero integer a and a prime p not dividing a, we form the “Fermat
+quotient”
+qa(p) := ap−1− 1
+p mod p.
+For ﬁxedp, the map
+{a∈ Z|p ∤a}↦→ qa(p)
+deﬁnes a surjective homomorphism from ( Z/p2Z)× to Fp. The Crandall-Dilcher-
+Pomerance model [Cr-Di-Po, &3. Statistical Considerations] proposes that if we
+ﬁx an integer a̸= 0,±1 and view the resulting sequence {qa(p)}p∤a in the product∏
+p∤a Fp, then we get a “random” element of this product, for its Haar measure of
+total mass one.
+To see what this implies, we apply the strong law of large numbers, cf. [Ito, Thm.
+4.5.1]. For each primep ∤a, we have the functionfp on Fp which is the characteristic
+function of A mod p. These functions are independent, the expectation of fp is
+E(fp) = 1/p, and its variance is bounded by Var (fp)≤ 2/p. So for any real ϵ> 0
+the series ∑
+pVar (fp)/(log logp)1+ϵ≤ ∑
+p 2/p(log logp)1+ϵ converges. The strong
+law of large numbers then asserts that the sequence of functions∑
+p≤X,p∤a(fp− 1/p)
+(log logX)
+1+ϵ
+2
+converges to zero on a set of measure one. In other words, the set of elements
+{xp}p∤a in ∏
+p∤a Fp for which we have the asymptotic formula
+#{p≤X,p ∤a,xp =A mod p}∼= log logX +o((log logX)
+1+ϵ
+2 )
+as X→∞ is a set of measure one.
+If the particular sequence {qa(p)}p∤a shares this measure one property, we get
+the prediction that as X→∞ , we haveqa(p) =A mod p for about log logX of the
+primes p ∤a,p≤X.
+Whena is itself prime, and we takeA = 0, we get the prediction that asX→∞ ,
+the number of Wieferich primes to the basea is asymptotic to log logX. This model
+then predicts both that there are inﬁnitely many Wieferich primes to the base a,
+and that no computer experiment will ever convince us of it.
+3. Another point of view: the Wieferich Conjecture, first version
+The Crandall-Dilcher-Pomerance prediction is analogous to the Lang-Trotter
+conjecture [L-T] for an elliptic curve E over Q, say with good reduction at primes
+p ∤ N; this conjecture predicts, for each integer A, an asymptotic formula for the
+number of primes p≤X,p ∤N, for which p + 1− #E(Fp) =A, cf. [Ka-LTR].
+The Sato-Tate conjecture (now a theorem), on the other hand, concerns the
+distribution in the closed interval [−2, 2] of the sequence, indexed by primes p ∤N,
+of normalized (Hasse bound) quantities
+p + 1− #E(Fp)√p .
+WIEFERICH PAST AND FUTURE 3
+Its natural analogue is then the following conjecture, which we call the Wieferich
+Conjecture. To formulate it, we deﬁne, for a nonzero integer a and a prime p not
+dividing a, the “Wieferich quotient”
+Wa(p) := ap−1− 1
+p2 ∈ (1/p)Z/Z⊂ Q/Z⊂ R/Z.
+As p varies, all the Wieferich quotients Wa(p) lie in the same 1 compact group,
+namely R/Z.
+Recall that given a compact space Y together with a Borel probability measure
+µ on Y , a sequence of points yn,n ≥ 1 in Y is said to be equidistributed for the
+measureµ if, for any continuous C-valued functionf onY , we have the integration
+formula ∫
+Y
+f(y)dµ = lim
+M→∞
+(1/M)
+M∑
+i=1
+f(yi).
+Conjecture 3.1. (Wieferich Conjecture, ﬁrst form) For any integera̸= 0,±1, the
+sequence of its Wieferich quotientsWa(p), indexed by primesp ∤a, is equidistributed
+in R/Z for its Haar measure of total mass one. Equivalently, the sequence of points
+exp(2πiWa(p)), indexed by primes p ∤a, is equidistributed in the unit circle S1 for
+its Haar measure of total mass one: for any continuous C-valued function f onS1,
+we have the integration formula
+(1/2π)
+∫ 2π
+0
+f(θ)dθ = lim
+X→∞
+(1/#{p≤X,p ∤a})
+∑
+p≤X,p∤a
+f(Wa(p)).
+4. the general setting for a conjecture of Wieferich type
+Suppose we are given an integer N ≥ 1 and a smooth group scheme G over
+Z[1/N] with geometrically connected ﬁbres of dimension d≥ 1. We have Lie(G), a
+free Z[1/N]-module of rank d. We choose a free Z-module Lie(G) together with an
+isomorphism Lie(G)∼= Lie(G)⊗Z Z[1/N]. For each prime p ∤ N, we have a short
+exact sequence of ﬁnite groups
+0→ Lie(G)⊗Z (pZ/p2Z)→G(Z/p2Z)→G(Fp)→ 0.
+If we are given in addition a point P∈G(Z[1/N]), we can play the following game.
+For each prime p ∤N, deﬁne
+np := #G(Fp),
+and denote by Pp2 the image of P inG(Z/p2Z). Then npPp2 lies in G(Z/p2Z) and
+dies in G(Fp), so lies in Lie(G)⊗Z (pZ/p2Z). Given this data
+(G/Z[1/N],P ∈G(Z[1/N]), Lie(G)),
+we then deﬁne, for each prime p ∤N, the Wieferich quotient
+WP (p) := npPp2
+p2 ∈ (1/p)Lie(G)/Lie(G)⊂ Lie(G)⊗Z (Q/Z)⊂ Lie(G)⊗Z (R/Z).
+When we start with an integera̸= 0,±1 and view it as a point P∈ Gm(Z[1/a]),
+then with G := Gm/Z[1/a] = Spec ( Z[1/a][t, 1/t]), N = a, and with Lie(G) :=
+1However, one should remember that Wa(p) lies in (1 /p)Z/Z, so for odd p, Wa(p)̸= 1 /2 in
+R/Z. Thus for p odd, Wa(p) has a unique representative in the open interval (−1/2, 1/2).
+4 NICHOLAS M. KATZ
+Lie(Gm/Z)∼= Z, with basis dual todt/t, then this “fancy”WP (p) is just the earlier
+Wiefeich fraction Wa(p) of the previous section.
+In the general case of data
+(G/Z[1/N],P ∈G(Z[1/N]), Lie(G)),
+when “should” we expect the sequence of Wieferich fractions WP (p), indexed by
+primesp ∤N, to be equidistributed in the compact groupLie(G)⊗Z(R/Z)∼= (R/Z)d
+for its Haar measure of total mass one?
+We will answer this in a series of lemmas.
+Lemma 4.1. Suppose (G/Z[1/N],P ∈G(Z[1/N]), Lie(G)) is a situation for which
+the sequence of Wieferich fractions WP (p) is equidistributed in Lie(G)⊗Z (R/Z).
+Then for any integer m̸= 0, the sequence of Wieferich fractions WmP (p) is equidis-
+tributed in Lie(G)⊗Z (R/Z).
+Proof. By the Weyl criterion, equidistribution of the sequence of Wieferich fractions
+WP (p) holds if and only if, for every nontrivial continuous character
+χ : Lie(G)⊗Z (R/Z)→S1,
+we have, writing π(X,N ) for #{p≤X,p ∤N},
+lim
+X→∞
+(1/π(X,N ))
+∑
+p≤X,p∤N
+χ(WP (p)) = 0.
+For each p, we have WmP (p) = mWP (p), so the Weyl criterion still holds, simply
+because the character group of Lie(G)⊗Z (R/Z) is torsion free. □
+Lemma 4.2. Suppose (G/Z[1/N],P ∈G(Z[1/N]), Lie(G)) is a situation for which
+the sequence of Wieferich fractions is equidistributed in Lie(G)⊗Z (R/Z). Then G
+is commutative, and the cyclic subgroup generated by P is Zariski dense in GQ (or
+equivalently is Zariski dense in GC).
+Proof. We ﬁrst prove the Zariski density statement. Denote by H⊂G the Zariski
+closure of the cyclic subgroup generated by P . Replacing if necessary P by a
+nonzero multiple mP , we replace HC by its identity component, but we keep the
+equidistribution, thanks to the lemma above. So we may assume that HC is con-
+nected. Inverting ﬁnitely many more primes if necessary, we may further assume
+that H/Z[1/N] is a smooth group scheme with geometrically connected ﬁbres of
+some dimension d0≥ 0. If d0 = d, then H = G. A fortiori, the (larger) cyclic
+subgroup generated by the original point P is Zariski dense in G. Once G has a
+Zariski dense abelian subgroup, G is commutative.
+Ifd0 <d , thenLie(H)Q is a proper subspace ofLie(G)Q. Let us deﬁne Lie(H) :=
+Lie(G)∩Lie(H)Q, intersection inside Lie(G)Q. After possibly inverting ﬁnitely
+many primes, Lie(H) is a Z form of Lie(H). Now all the Wieferich fractions
+WP (p) lie in Lie(H)⊗Z (R/Z), which is a close set of measure zero in the larger
+group Lie(G)⊗Z (R/Z), so cannot be equidistributed in that larger group. □
+Lemma 4.3. If G/Z[1/N] is commutative, and we choose a lattice Lie(G), then
+for each prime p ∤N, the maps
+G(Z[1/N])→G(Z/p2Z)
+and
+G(Z/p2Z)→ (1/p)Lie(G)/Lie(G)⊂ Lie(G)⊗Z R/Z, P ↦→wP (p),
+WIEFERICH PAST AND FUTURE 5
+are group homomorphisms.
+Proof. The ﬁrst map is always a homomorphism, whether or notG is commutative.
+For the second, it is simply the fact that when G is commutative, multiplication by
+an integer, here np, is a group homomorphism. In our case, it maps G(Z/p2Z) to
+Ker(G(Z/p2Z) ↠G(Fp))∼= Lie(G)⊗ (pZ/p2Z)
+1/p2
+∼= (1/p)Lie(G)/Lie(G).
+□
+Lemma 4.4. Suppose (G/Z[1/N],P ∈G(Z[1/N]), Lie(G)) is a situation for which
+the sequence of Wieferich fractions is equidistributed in Lie(G)⊗Z (R/Z). Suppose
+H is a group scheme over Z[1/N] with geometrically connected ﬁbres of dimension
+d1≥ 1, and we are given a homomorphism
+φ :G ↠H
+which is surjective on C-valued points. Deﬁne Lie(H) to be the image of Lie(G) in
+Lie(HQ). Then after possibly inverting ﬁnitely many primes, Lie(H) is a Z form of
+Lie(H), and the situation (H/Z[1/N],φ (P )∈ H(Z[1/N]), Lie(H)) has Wieferich
+equidistribution.
+Proof. We have a surjective homomorphism of free Z modules
+Lie(G) ↠ Lie(H)
+and homomorphisms of ﬁnite groups
+G(Z/p2Z)→H(Z/p2Z),
+G(Fp)→H(Fp).
+Under the induced map
+Lie(G)⊗Z (R/Z) ↠ Lie(H)⊗Z (R/Z),
+the Wieferich fractions are related by
+Wφ(P )(p) =φ(WP (p)).
+Any nontrivial character of the quotient group Lie(H)⊗Z (R/Z) gives, by compo-
+sition with φ, a nontrivial character of Lie(G)⊗Z (R/Z), so the statement results
+from the Weyl criterion. □
+Lemma 4.5. If G/Z[1/N] is Ga, the additive group, then Wieferich equidistribu-
+tion fails for any choice of P∈G(Z[1/N]) = Z[1/N] and any choice of Lie(G).
+Proof. We argue by contradiction. Suppose Wieferich equidistribution holds for a
+choice of P∈G(Z[1/N]) = Z[1/N] and a choice of Lie(G)
+WriteP as a fraction a/b, with integers a,b ,b≥ 1,b dividing some power of N.
+Denote bye0 the Z-basis of the “standard” choice of Lie(G) as Ga itself. Then our
+Z-form Lie(G) has basis eitherce0 ore0/c, for some nonzero integerc which divides
+a power of N. Using the basis ce0 and P =a/b is the same as using a/bc and the
+standard basis e0. Using the basis e0/c andP =a/b is the same as using ca/b and
+the standard basis e0. So we may assume we have Wieferich equidistribution for
+some P and the standard choice of Lie(G).
+Now we apply Lemma 4.1 to clear the denominator, if any, ofP , to reduce further
+to the case when P = a is an integer. As np = p, we have WP (p) = a/p∈ R/Z.
+6 NICHOLAS M. KATZ
+But this sequence {a/p}p tends to 0, so averaging a continuous function f over it
+computes f(0), not its integral over R/Z for Haar measure. □
+Proposition 4.6. Suppose (G/Z[1/N],P ∈ G(Z[1/N]), Lie(G)) is a situation in
+which Wieferich equidistribution holds. If G is an aﬃne algebraic group, then GQ
+is a torus.
+Proof. Say G⊂ GL(d). Then GQ is the Zariski closure of the cyclic subgroup
+generated by some element P ∈ GL(d, Q). Use Jordan decomposition to write
+P = su = us with s∈ G(Q)⊂ GL(d, Q) semi simple, u∈ G(Q)⊂ GL(d, Q)
+unipotent. Denote by S and U the Zariski closures in GL(d)Q of the cyclic groups
+generated by s and u respectively. Then S ⊂ GQ has identity component S0 a
+torus,U⊂GQ is a unipotent group, S andT are commuting subgroups ofGQ, and
+GQ is the product S×U. [As GQ is geometrically connected, we see a posteriori
+that S =S0.] Thus we have a surjective homomorphism GQ ↠U. If U is trivial,
+we are done. If not, then U has a Ga quotient, and hence GQ has a Ga quotient.
+Then Lemma 4.3 gives the Wieferich equidistribution for the image of P in this Ga
+quotient, and this contradicts Lemma 4.4. □
+Conjecture 4.7. (Robust Wieferich Conjecture, aﬃne case) Let G/Z[1/N] be a
+torus, and P ∈ G(Z[1/N]) a point such that the cyclic group generated by P
+is Zariski dense in GQ. Then for any Z-form Lie(G)) of Lie(G), the situation
+(G/Z[1/N],P ∈G(Z[1/N]), Lie(G)) has Wieferich equidistribution.
+5. Interlude: The question of robustness
+Suppose we have a situation ( G/Z[1/N],P ∈ G(Z[1/N]), Lie(G)) for which
+Wieferich equidistribution holds. Is it true that for any other choice Lie1(G)
+of lattice in Lie(G), the modiﬁed situation ( G/Z[1/N],P ∈ G(Z[1/N]), Lie1(G))
+also has Wieferich equidistribution.We do not know how to prove this. Moreover,
+as an “abstract” statement about equidistribution, it is false.
+Here is a cautionary counterexample, due to Deligne. Suppose that we have
+a sequence of fractions ap/p, 0≤ ap ≤ p− 1, indexed by odd primes p, which
+is equidistributed in Z⊗Z R/Z (for Haar measure). If we change the choice of
+lattice from Z to 2Z, then we are asking about the equidistribution in R/Z of the
+sequence dp/p, 0≤dp≤p− 1, with dp deﬁned by the congruence 2dp =ap mod p.
+Imagine that in our original sequence, each ap is even, say ap = 2bp, with 0≤bp≤
+(p− 1)/2. Then for each p we have dp =bp, and visibly this sequence bp/p is not
+equidistributed in R/Z, as each term lies in the interval [0 , 1/2].
+How do we know there exist sequences {ap/p, 0≤ ap≤ p− 1}odd p which are
+equidistributed in R/Z in which everyap is even? In the product space ∏
+odd p R/Z
+with the product measure, the set of sequences{xp}odd p which are equidistributed
+in R/Z for Haar measure has measure one. So there exist such sequences. Take
+one, and replace, term by term, xp by the nearest fraction of the form 2 bp/p, 0≤
+bp≤ (p− 1)/2; break ties arbitrarily. The distance (say measured in S1 as arc
+length) betweenxp and 2bp/p is at most 2π/p, so tends to zero as p grows. Because
+continuous functions on a compact metric space are uniformly continuous, if the
+sequencexp is equidistributed, then so is any sequenceyp for whichdist(xp,yp)→ 0.
+In particular, our sequence {2bp/p} is equidistributed.
+On the other hand, if we have Wieferich equidistribution for ( G/Z[1/N],P ∈
+G(Z[1/N]), Lie(G)), then for any choice of larger lattice Lie(G)⊂ Lie1(G), we will
+WIEFERICH PAST AND FUTURE 7
+also have Wieferich equidistribution for (G/Z[1/N],P ∈G(Z[1/N]), Lie1(G)). This
+results from the following lemma, a slight generalization of Lemma 4.1.
+Lemma 5.1. Let VR be a ﬁnite dimensional R vector space, L1⊂ VR a lattice,
+and L ⊂ L1 a subgroup of ﬁnite index. Suppose xn is a sequence of points in
+L⊗Z R/Z = VR/L which is equidistributed for Haar measure. Then its image in
+the quotient group L1⊗Z R/Z =VR/L1 is equidistributed for Haar measure.
+Proof. This resuits from the Weyl criterion. For some integer m≥ 1, we have
+mL1⊂ L⊂ L1. The character group of VR/L1 is torsion free, so any nontrivial
+character remains nontrivial when pulled back to VR/mL1, and a fortiori remains
+nontrivial when pulled back to VR/L. □
+6. The framed Wieferich conjecture
+In this section, we propose a way to avoid questions of robustness. Given a
+smooth group scheme G/Z[1/N], we deﬁne a framing of G/Z[1/N] to be a pair
+(G1,φ ) consisting of a smooth group scheme G1/Z and an injective homomorphism
+of smooth group schemes over Z[1/N], φ :G⊂G1⊗Z Z[1/N].
+A framing gives rise to a Z form Lie(G) of Lie(G), as follows. We have
+Lie(G/Z[1/N])⊂Lie(G1/Z)⊗Z Z[1/N]⊂Lie(G1/Z),
+and we deﬁne
+Lie(G) :=Lie(G/Z[1/N])∩Lie(G1/Z).
+Here are two extreme examples of framings. If G is an aﬃne algebraic group,
+embed it in some GL(d), and take G1 to be that GL(d). If G/Z[1N] extends to
+a smooth group scheme G1/Z, use G1. For example, if L is a Z-algebra which
+is a free, ﬁnitely generated Z-module, then L×, the group scheme over Z whose
+A-valued points, for variable Z-algebras A, are (A⊗ZL)×, is smooth over Z.
+Here is an intermediate example. Take for D any nonzero nonsquare integer,
+and take the quadratic orderR := Z+ Z
+√
+D. As in the paragraph above, the group
+schemeR× overZ is smooth over Z. The subgroup G⊂R× deﬁned byNorm = 1,
+whoseA-valued points are the elementsx+y
+√
+D,x,y∈A, satisfyingx2−Dy2 = 1,
+is smooth over Z[1/2], but not over Z. So here we might take G1 to be R×. Then
+Lie(R×) = R and we get Lie(G)) = Z
+√
+D, the elements in R having trace zero.
+[On the other hand, ifD is squarefree and is 1 mod 4, then theNorm = 1 subgroup
+ofO× forO := Z+ Zδ,δ := (1+
+√
+D)/2, is itself smooth over Z, and itsLie consists
+of the elements inO of trace zero.]
+Conjecture 6.1. (Framed Wieferich Conjecture, aﬃne case) Let G/Z[1/N] be a
+torus, P ∈ G(Z[1/N]) a point which generates a Zariski dense subgroup of GQ,
+(G1,φ ) a framing ofG/Z[1/N] and Lie(G)) the resulting lattice. Then the situation
+(G/Z[1/N],P ∈G(Z[1/N]), Lie(G)) has Wieferich equidistribution.
+7. The case of elliptic curves and products thereof
+Let us begin with an elliptic curve E/Q. We choose a Weierstrass equation
+y2 +a1xy +a3y =x3 +a2x2 +a4x +a6
+with all coeﬃcients ai∈ Z. Following Silverman [Si, IV, Thm. 5.3], we denote by
+W⊂ P2
+Z the closed subscheme deﬁned by the corresponding projective equation
+Y 2Z +a1XYZ +a3YZ 2 =X 3 +a2X 2Z +a4XZ 2 +a6Z 3
+8 NICHOLAS M. KATZ
+One knows[Si, IV, Thm. 5.3] that the open set Wsm⊂W whereW is smooth
+over Z is a smooth group scheme. Its Lie algebra is the free Z-moduleH 1(W,OW),
+the Z dual of the free Z module spanned by the invariant diﬀerentialdx/(2y +a1x).
+Concretely, this means that we takex/y as a uniformizing parameter along the zero
+section “∞”, and view the Lie algebra as the free Z-module on x/y (viewed as a
+basis of I/I 2, for I the ideal sheaf deﬁning the zero section. Over some Z[1/N],W
+is smooth, and is (necessarily) the Neron model over Z[1/N] of E/Q. The group
+schemeWsm/Z sits inside the identity component of the Neron model over Z of
+E/Q, but is equal to it if and only if the chosen Weierstrass equation is minimal.
+Conjecture 7.1. (Ellliptic Wieferich Conjecture) Given an integer Weierstrass
+equation
+y2 +a1xy +a3y =x3 +a2x2 +a4x +a6
+of an elliptic curve over Q, with good reduction over Z[1/N], and a point P ∈
+E(Q) =W(Z[1/N]) which is not of ﬁnite order (i.e., P generates a Zariski dense
+subgroup of EQ), then (W/Z[1/N],P ∈ W(Z[1/N),Lie (Wsm/Z)) has Wieferich
+equidistribution.
+Bombieri has written a computer program to compute the Wieferich fractions in
+this case. Computer experiments so far give results compatible with the conjecture.
+Remark 7.2. In the elliptic case, each integer Weierstrass equation has its Wsm
+a subgroup scheme of the Neron model N/Z of E/Q. So we have an inclusion
+Lie(Wsm/Z)⊂ Lie(N/Z). In view of Lemma 5.1, Wieferich equidistribution for
+(W/Z[1/N],P ∈W (Z[1/N),Lie (Wsm/Z)) implies Wieferich equidistribution for
+the “terminal” situation (N/Z[1/N],P ∈N (Z[1/N),Lie (N/Z)).
+Suppose we are given a product of elliptic curves, say E1,...,E n over Q, and in
+eachEi(Q) a pointPi which is not of ﬁnite order. If we suppose that for i̸=j,Ei is
+not geometrically (i.e., over C) isogenous toEj, then the point (P1,...,P n) generates
+a Zariski dense subgroup of (E1×Q...×QEn)Q. [To see this, use Goursat’s Lemma
+[Rib, 5.2.1] to treat the case n = 2, then proceed by induction, applying Goursat
+to the product of E1 with ∏
+i≥2Ei.] Then we have the following conjecture.
+Conjecture 7.3. For any choice of integral Weierstrass models Wi of the Ei,
+using ∏
+iLie(Wsm
+i /Z) as our model for Lie, the sequence of n-tuples of Wieferich
+fractions (wP1(p),...wPn(p)), indexed by primes p ∤ N, is equidistributed in the n-
+fold self product of R/Z with itself.
+Or suppose we have a single elliptic curve E/Q, whose Mordell Weil rank (the
+Q-dimension of E(Q)⊗Z Q) is an integer n≥ 2. Let P1,...,P n∈ E(Q) form a
+Z-basis of E(Q)/(torsion). Suppose further that E is geometrically not CM (i.e.,
+that End(EC) = Z), then the point (P1,...,P n) generates a Zariski dense subgroup
+ofEn
+Q := (E×Q...×QE)Q. [Use Goursat’s Lemma, just as in the paragraph above.]
+We have the following conjecture.
+Conjecture 7.4. For any choice of integer Weierstrass equation for E, using∏
+iLie(Wsm/Z), as our model for Lie, the sequence of n-tuples of Wieferich frac-
+tions (wP1(p),...wPn(p)), indexed by primes p ∤ N, is equidistributed in the n-fold
+self product of R/Z with itself.
+Using the Weyl criterion, we see that this conjecture is equivalent to the truth of
+the elliptic Wiefericn conjecture for E, with lattice Lie(Wsm/Z), for all nontrivial
+WIEFERICH PAST AND FUTURE 9
+linear combinations ∑
+iniPi of the Pi (or equivalently, for E, Lie(Wsm/Z), and
+every2 nontorsion point in E(Q)).
+8. The case of abelian varieties
+We begin with an abelian variety A/Q, and denote by A/Z its Neron model.
+We suppose that over Z[1/N],A is an abelian scheme (i.e., our A/Q extends to an
+abelian scheme over Z[1/N]).
+Conjecture 8.1. (Wieferich Conjecture for Abelian varieties) Suppose given P ∈
+A(Z[1/N]) = A(Q) which generates a Zariski dense subgroup of AQ. Then the
+situation (A/Z[1/N],P ∈A (Z[1/N]),Lie (A/Z)) has Wieferich equidistribution.
+Unlike the case of elliptic curves, we do not in general know how to specify any
+explicit smooth extension of A/Q to a smooth group scheme over Z other than the
+Neron model, nor do we have an explicit (i.e., suitable for computer experiment)
+description of the Neron model. However, there are cases where we can be more
+explicit.
+We can use Raynaud’s theorem [Bo-Lu-Ra, Thm. 1 in 9.5] that if X is a reg-
+ular scheme which is projective and ﬂat over Z with geometrically reduced and
+irreducible ﬁbres of dimension one, with XQ a smooth curve over Q, then Pic 0
+X/Z
+is the Neron model N of the Jacobian JacXQ/Q of the generic ﬁbre. In this case
+we haveLie(Pic 0
+X/Z/Z) =H 1(X,OX), which is certainly explicit. In the next two
+sections are some examples of such an X/Z.
+9. CM examples
+Fix an odd prime ℓ. Deﬁne ϵ to be 1 if ℓ is 1 mod 4, and to be −1 ifℓ is−1 mod
+4. In other words, ϵ is that choice of sign for which ϵℓ is 1 mod 4. Take for X the
+curve whose aﬃne equation is
+y2 +y =xℓ + ϵℓ− 1
+4 ,
+with its section ∞ tacked on. Then X is lisse over p = 2 (Artin-Schreier). If we
+invert 2, we can complete the square to write this as
+(y + 1/2)2 =xℓ +ϵℓ/4,
+i.e., we get the equation (in new variables Y = (y + 1/2),x )
+Y 2 =xℓ +ϵℓ/4.
+This is lisse over Z[1/2ℓ], so all in all our X is lisse over Z[1/ℓ]. The second form
+of the equation shows that X is regular over Zℓ.
+Its Jacobian, even over C, is simple. Indeed, we have the following (presumably
+well known) lemma.
+Lemma 9.1. For any odd prime ℓ, and any a∈ C×, the Jacobian of the curve
+C :y2 =xℓ +a is a simple abelian variety.
+2In taking nontrivial sums of the Pi, we get every point of the form (a point of inﬁnite order)
++ (a torsion point). But for primes p not dividing either N or the order of the torsion point,
+the Wieferich fraction attached to the torsion point vanishes, as for such a prime p, np kills the
+torsion point in E(Q) =W(Z[1/N), so a fortiori kills it in W(Z/p2Z).
+10 NICHOLAS M. KATZ
+Proof. The action of ζ∈ µℓ on C given by (x,y )↦→ (ζx,y ) makes the Jacobian a
+CM abelian variety with CM by the cyclotomic ring Z[ζℓ]. The diﬀerentials of the
+ﬁrst kind onC have basis the one-formsxidx/y,i = 0 to (ℓ−3)/2. So the CM type
+is the subset Φ :={1, 2,..., (ℓ− 1)/2} of F×
+ℓ . The simplicity of this CM Jacobian is
+equivalent to the statement that in F×
+ℓ , the only element b such that multiplication
+by b maps the subset Φ to itself is b = 1, cf. [Shim-Tan, Prop. 26, page 69] for
+this equivalence. Let b be such an element. Then b itself must lie in Φ, because
+1 lies in Φ. If b̸= 1, think of b as an integer in the range 2 ≤ b≤ (ℓ− 1)/2, and
+deﬁne the integer c by 1 ≤ c < b, p≡ c mod b. Then ( p−c)/b lies in Φ, but
+b× (p−c)/b =p−c>p −b≥p− (p− 1)/2> (p− 1)/2 does not lie in Φ,. □
+Let us denote by Jℓ the Jacobian of our curve Cℓ : y2 = 4xℓ +ϵℓ. To test the
+Wieferich conjecture, we need a rational point P on Jℓ which is of inﬁnite order.
+To do this, we look for a rational point Q on the curve Cℓ, such that the divisor
+class of Q−∞ is not a torsion point on Jℓ. If we ﬁnd such a Q, we take P to be
+the class of Q−∞ .
+Here is one (empirical) approach. Take for ℓ a prime which can be written as
+ℓ = 4 +n2
+for some integer n. [Conjecturally, there are inﬁnitely many such ℓ, cf. [Ha-Wr,
+Conj. F] and [Ba-Ho].] The ﬁrst few are
+5 = 4 + 1, 13 = 4 + 32, 29 = 4 + 53, 53 = 4 + 72.
+Any such ℓ is 1 mod 4, and Q := (x =−1,y =n) is a point on y2 = 4xℓ +ℓ. For
+each of these ﬁrst four ℓ, namely 5, 13, 29, 53, the point Q−∞ has inﬁnite order in
+Jℓ. We show this as follows. The polynomial 4 xℓ +ℓ is Q-irreducible (because it is
+Eisenstein atℓ), soJℓ(Q) has no nontrivial points of order 2. The torsion subgroup
+Jℓ(Q)torsof Jℓ(Q) is thus of odd order. It injects into Jℓ(Fp) for each odd prime p
+of good reduction (i.e. for each odd prime p̸=ℓ), cf. [Ka-Gal, Appendix]. So the
+order of the torsion subgroup divides the odd part of the gcd of the orders of the
+groupsJℓ(Fpi) for any ﬁnite list of odd primes pi̸=ℓ. Taking respectively the pairs
+of primes (3, 11) for 5, and (3, 5) for each of 13, 29, 53, we see that in each case the
+odd part of the gcd is ℓ. So the group Jℓ(Q)tors is either trivial or has order ℓ, in
+each of these four cases. If the torsion subgroup is trivial, then our nontrivial point
+P := Q−∞ is necessarily of inﬁnite order. If the torsion subgroup has order ℓ,
+it suﬃces to show that the point P := Q−∞ is not of order ℓ. This is a special
+case of the following lemma (where we go back to the y2 = xℓ +ϵℓ/4 form of the
+equation).
+Lemma 9.2. Let ℓ be an odd prime, a∈ C× any number not of the form 1 +ℓB
+for any B∈ Z[1/2]. On the Jacobian of the complex curve y2 =xℓ +a, neither of
+the points (x =−1,y =±(a− 1)1/2)−∞ has order ℓ.
+Proof. We argue by contradiction. Suppose these points have order ℓ. This means
+there is a function on the curve with zero of orderℓ atQ = (x =−1,y = (a−1)1/2),
+a pole of order ℓ at∞, and no other zeroes or poles. The functions holomorphic
+outside∞ have unique representations as C[x] +yC[x]. Remember that x has a
+double pole at ∞, while y has a pole of order ℓ at∞. So our function must be of
+the formR(x)−y withR(x)∈ C[x] of degree≤ (ℓ− 1)/2. If it has a zero of order ℓ
+at Q = (x =−1,y = (a− 1)1/2), then its image under the hyperelliptic involution,
+WIEFERICH PAST AND FUTURE 11
+namely R(x) +y, has a zero of order ℓ at−Q = (x =−1,y =−(a− 1)1/2). Hence
+their product (R(x)−y)(R(x) +y) =R(x)2− (xℓ +a) must be a scalar multiple of
+(x + 1)ℓ, the function whose divisor is ℓ[Q] +ℓ[−Q]− 2ℓ[∞].
+ThusR(x)2−a =α(x + 1)ℓ +xℓ for some α∈ C×. Because R(x)2 has degree at
+most ℓ− 1, we must have α =−1. Changing R(x) to iR(x), we have the equation
+(x + 1)ℓ−xℓ =R(x)2 +a, deg(R)≤ (ℓ− 1)/2.
+Dividing by ℓ and replacing R(x) by R(x)/
+√
+ℓ, the equation becomes
+((x + 1)ℓ−xℓ)/ℓ =R(x)2 +a/ℓ, deg(R)≤ (ℓ− 1)/2.
+The left hand side is of the form
+(monic integer poly. without constant term, degree ℓ− 1) + 1/ℓ.
+We now use Lemma 9.3 below, applied to f(x) := ((x + 1)ℓ−xℓ)/ℓ.
+With this lemma in hand, we now conclude the proof of Lemma 8.3. In view of
+the uniqueness, ﬁrst withA =B = C, then withA = Z[1/2] andB = C, we see ﬁrst
+that g(x) = R(x), hence that R(x) lies in Z[1/2][x], and we see that h(x) = a/ℓ.
+Equating the constant terms in the equality
+((x + 1)ℓ−xℓ)/ℓ =R(x)2 +a/ℓ,
+and remembering that R(0)∈ Z[1/2], we get the equality
+1/ℓ =R(0)2 +a/ℓ,
+which shows that a lies in 1 +ℓZ[1/2]. □
+Lemma 9.3. (cf.[Sh, &3]) Let A⊂ B be rings in which 2 is invertible. Suppose
+f(x)∈B[x] is a monic polynomial of even degree 2n, such that the coeﬃcients of xi
+for all i≥n lie in the subring A. Then there exist unique polynomials g(x)∈A[x]
+and h(x)∈B[x], both of degree≤n− 1, such that
+f(x) = (xn +g(x))2 +h(x).
+Proof. Let us write
+f(x) =x2n +
+n∑
+i=1
+aix2n−i +
+n−1∑
+i=0
+b2n−ixi.
+Divide by x2n, and set T := 1/x. Then we are trying to write
+1 +
+n∑
+i=1
+aiTi +
+2n∑
+i=n+1
+biTi = (1 +G(T ))2 +H(T ),
+with G(T )∈ T C[T ] of degree ≤ n, and with H(T )∈ Tn+1C[T ] of degree ≤ 2n.
+Looking mod Tn+1, we see that 1+G(T ) is the mod Tn+1 truncation of the unique
+square root of 1 + ∑n
+i=1aiTi with constant term one. As the ai lie inA, the square
+root lies in 1 + TA [[T ]], and hence G(T ) lies in TA [T ].
+The polynomial H(T ) is simply the error. This gives existence. For uniqueness,
+suppose f(x) = (xn +g(x))2 +h(x) = (xn +g1(x))2 +h1(x). Then
+h1(x)−h(x) = (xn +g(x))2− (xn +g1(x))2 =
+= ((xn +g(x))− (xn +g1(x)))((xn +g(x)) + (xn +g1(x))).
+The second product has degree 2 n, while h1(x)−h(x) has degree≤n− 1. So the
+ﬁrst product must vanish, so g =g1 and h =h1. □
+12 NICHOLAS M. KATZ
+The upshot of this discussion is that in the four example curves y2 = 4xℓ +ℓ,
+forℓ = 5, 13, 29, 53,we have a point P := (−1,n ),n such that ℓ = 4 +n2, such that
+P−∞ generates a Zariski dense subgroup of the Jacobian.
+10. Big monodromy examples
+According to a marvelous theorem of Zarhin, if f(x)∈ Q[x] is a polynomial of
+degreen≥ 5 whose Galois group is eitherAn orSn, the Jacobian of the hyperelliptic
+curvey2 =f(x), whose genusg is (n−1)/2 forn odd and is (n−2)/2 forn even, has
+monodromy “as big as possible”, in the sense that for every primeℓ, the image of the
+Galois representation on its ℓ-adic Tate module Vℓ is open in the group Gsp(2g) of
+symplectic similitudes. In particular, the Galois representation remains irreducible
+when restricted to any open subgroup of Gal(Q/Q), and hence the Jacobian, even
+over C, is simple.
+Here are some ad hoc examples. For odd n ≥ 5, we take for X the curve
+y2−y =xn− 2x, with its section at ∞ tacked on, viewed as a scheme over Z. It
+is proper over Z, with geometrically reduced and irreducible ﬁbres (because n is
+odd). It visibly has good reduction at p = 2. Over Z[1/2], we complete the square
+to get the equation y2 = xn− 2x + 1/4. Because n is odd, the geometric ﬁbres
+of X/Z are all geometrically reduced and irreducible. According to Magma, the
+polynomial xn− 2x + 1/4 has galois group Sn for each odd n≤ 111. According to
+Mathematica, for each odd n≤ 35, the discriminant of 4 xn− 8x + 1 has its odd
+part square free.
+Lemma 10.1. Forn odd, 5≤n≤ 35, the scheme X is regular.
+Proof. We have already remarked that X/Z is lisse over p = 2, and hence over
+Z[1/N] for some odd N, which we may take to be the odd part of the discriminant
+of 4xn− 8x + 1. The regularity now results from the following lemma, which is
+surely well known.
+Lemma 10.2. Let p be an odd prime, k a perfect ﬁeld of characteristic p, W =
+W (k) the Witt vectors, and f(x)∈ W [x] a monic polynomial whose discriminant
+∆ has ordp(∆) = 1. For any integer d≥ 2 prime to p, in particular for d = 2, the
+W -scheme yd =f(x) is regular.
+Proof. Regularity is invariant under completion and under ﬁnite etale base change,
+so we may enlarge the ﬁeld k and reduce to the case when f(x)∈ k[x] factors
+completely. Our scheme is lisse over W [1/p], so what we must show is that the
+complete local ring at any singular point of the special ﬁbre is regular. A singular
+point of the special ﬁbre is a point (x =a,y = 0) witha∈k a multiple zero off(x).
+Making an additive translation, we may assume a = 0 is a multiple root of f(x).
+Factorf(x) as xrh(x) with h(0)̸= 0 in k, and r≥ 2. By Hensel’s Lemma, we may
+lift this to a factorization of f(x) as h(x)g(x) with g andh monic,g(0)∈W×, and
+h(x) =xr + ∑r
+i=1paixr−i. The discriminant ∆(f) is then, up to sign, the product
+∆(g)∆(h)g((h))2. Since g andh are relatively prime, the term g((h)) is a unit. As
+∆(f) has ordp = 1, while ∆( h) has ordp≥ 1, it follows that ∆( g) is a unit, and
+ordp(∆(h)) = 1. The discriminant of h(x) =xr + ∑r
+i=1paixr−i is a Z-polynomial
+in the quantities pai,i = 1,...,r which is isobaric of weightr(r− 1) with pai having
+weighti. If r≥ 3, ∆(h) has ordp≥ 2. Thus r = 2, h(x) = x2 +pa1x +pa2, and
+∆(h) = p2a2
+1− 4pa2, which has ordp = 1 precisely when a2 is a unit. Thus the
+WIEFERICH PAST AND FUTURE 13
+constant term of h(x) has ordp = 1. Because g(0) is a unit, the constant term of
+f(x) hasordp = 1. So the equation has the form−yn+(elt. in (x))+p(elt. in W×).
+So the complete local ring at this singular point is W [[x,y ]]/(eqn.), in which x,y
+generate the maximal ideal. □
+□
+Lemma 10.3. Forn odd, 3≤n≤ 35, the Jacobian J of the curve y2−y =xn−2x
+has J(Q) torsion free.
+Proof. Over Z[1/2], we may write this curve as y2 = 4xn− 8x + 1. It (with its ∞
+section tacked on) is smooth over Z[1/2∆] for ∆ the discriminant of 4xn− 8x + 1.
+For each odd prime p not dividing ∆, For each prime p≥ 3 of good reduction, the
+reduction mod p map from J(Q)tors = J(Z[1/2∆])tors to J(Fp) is injective. On
+the other hand, the polynomial 4xn− 8x + 1 is Q-irreducible, so J(Q)tors has odd
+order. So it suﬃces to exhibit, for each n in our range, a short list of good primespi
+such that the gcd of the #J(Fpi) is a power of 2. We computed #J(Fp) in Magma
+using the command
+P< x>:= PolynomialRing(GF (p));f := 4∗xn−8∗x+1; J := Jacobian(HyperellipticCurve(f)); #J;
+for various values of p and n. Here is such a list:
+n = 3,use 3, 7.
+n = 5,use 5, 7.
+n = 7,use 3, 7.
+n = 9,use 3, 5
+n = 11,use 5, 7.
+n = 13,use 3, 5.
+n = 15,use 3, 5.
+n = 17,use 7, 17.
+n = 19,use 3, 5.
+n = 21,use 3, 19.
+n = 23,use 7, 37.
+n = 25,use 3, 5.
+n = 27,use 3, 7.
+n = 29,use 5, 7.
+n = 31,use 3, 5.
+n = 33,use 3, 5.
+n = 35,use 5, 11.
+□
+The upshot of this discussion, is that for n odd, 5 ≤ n≤ 35, the divisor class
+(0, 1)−∞ on the Jacobian ofy2 = 4xn−8x+1 generates a Zariski dense subgroup,
+and we have the explicit model H 1(X,OX) for the Lie algebra of its Neron model,
+X nowy2−y =xn− 2x with its∞ section as scheme ove Z.
+14 NICHOLAS M. KATZ
+11. other Jacobians with big monodromy
+By a theorem of Osada [Osada], apparently discovered earlier by Nart and Vila
+[Na-Vi], the polynomial xn−x− 1 has Galois group Sn for all n≥ 2. Moreover, its
+discriminant is squarefree forn≤ 51 (though not for alln; for example,n = 130 has
+its discriminant divisible by 83 2, and each of n = 257, 487, 528 has its discriminant
+divisible by 59 2). With a bit of attention to the prime 2, one ﬁnds
+Lemma 11.1. Supposen≥ 3 is odd and the discriminant ofxn−x−1 is squarefree.
+Then the curve y2 =xn−x− 1, with its section at ∞ tacked on, as a scheme over
+Z is regular.
+Unfortunately, this curve does not have a visible rational point P other than∞.
+If we consider instead the curve y2 = 1 +x−xn, its quadratic twist by−1, then we
+have six visible rational points ( x = 0, 1,−1, y =±1) other than ∞, but we lose
+regularity over Z2. The Jacobian of both the original curve and of its quadratic
+twist curve has J(Q) torsion free for all n in the range 3 ≤ n≤ 72 (again using
+Magma and computing a gcd).
+It is however not a general phenomenon that for a hyperelliptic curve of the form
+y2 =f(x) with f(x)∈ Q[x] a polynomial of degree n≥ 5 whose galois group is An
+or Sn, its J(Q) is torsion free. Here are some examples. We begin by explaining
+the idea. Fix an odd integer n≥ 5.Take a polynomialA(x)∈ Q[x] of degree<n/ 2,
+and consider the polynomial fn,A(x) =xn +A(x)2. If fn,A is squarefree, we have a
+hyperelliptic curvey2 =fn,A(x). On this curve, call it Cn,A, functions holomorphic
+except at∞ can be written uniquely as g(x) +yh(x), with g(x),h (x)∈ Q[x]. Here
+x has a double pole at∞, and y has a pole of odd order n at∞. If such a function
+g(x) +yh(x) has an odd order pole at∞, then its order of pole is n + 2 deg(h)≥n.
+Now consider the point P := (x = 0,y =A(0)) on Cn,A. The function A(x)−y
+is easily seen to have divisor n([P ]− [∞]), simply because (A(x)−y)(A(x) +y) =
+A(x)2−fn,A(x) =−xn. Thus [ P ]− [∞] is a nontrivial Q-point on the Jacobian
+Jn,A, of order dividing n. Its order cannot be any proper divisor of n, by the
+previous paragraph (which indeed shows that any nontrivial C-point of odd order
+in the JacobianJn,A of the form [Q]−[∞] withQ∈Cn,A(C) must have order≥n).
+It remains only to write down examples of A(x) for which fn,A(x) =xn +A(x)2
+has galois group Sn. We tried A(x) =x + 1. According to Magma, with this choice
+of A, fn,A(x) = xn + (x + 1)2 has galois group Sn for each odd n in the range
+5≤n≤ 29.
+Remark 11.2. Our reluctance to use the curve y2 = 1 +x−xn, with its visible
+points is only because we do not know an explicit description of the Lie algebra of
+its Neron model over Z. Other families of candidates which are disqualiﬁed by this
+ignorance of an explicit model are the Schur families
+y2 =n!(
+n∑
+i=0
+(xi/i!),
+and the Osada families
+y2 =xn−x− 1
+but now with n even. Schur proved that the truncated exponential polynomials
+have galois group An if 4|n, and Sn otherwise, cf. [Coleman] for a beautiful expo-
+sition. Because n is even, there are two “points at inﬁnity”, and their diﬀerence,
+WIEFERICH PAST AND FUTURE 15
+∞+−∞−, is a candidate divisor class to generate a Zariski dense subgroup of the
+Jacobian. Again, numerical experiments show that these Jacobians, for low values
+of n, have no nontrivial rational torsion.
+12. A variant lattice for Lie of Jacobians
+Suppose we are given X/Z which is proper, with ﬁbres of dimension one, and
+which over Z[1/N] is smooth, with geometrically connected ﬁbres of genus g≥ 1.
+So over Z[1/N],Lie of the Neron model of the Jacobian, i.e. of Pic 0
+XZ[1/N]/Z[1/N], is
+H 1(X,OX)⊗Z Z[1/N]. We may not know Lie of the Neron model; e.g., X may not
+be regular with geometrically reduced and irreducible ﬁbres. One way around this
+ignorance is to use H 1(X,OX)/(torsion) as Lie to formulate a variant Wieferich
+conjecture for Jacobians. As we write this, the biggest obstacle to carrying out
+any sort of computer experiment is the computational diﬃculty of dealing with
+Jacobians when g≥ 2. The question of which lattice to use for Lie seems minor
+compared to this.
+13. The case of semiabelian varieties
+A semiabelian variety is an extension of an abelian variety by a torus. One knows
+[Bo-Lu-Ra] that given B/Z[1/N] a semiabelian variety, it has a Neron model B/Z.
+Conjecture 13.1. (Wieferich Conjecture for semiabelian varieties) Suppose given
+P∈B (Z[1/N]) =B(Q) which generates a Zariski dense subgroup of BQ. Then the
+situation (B/Z[1/N],P ∈B (Z[1/N]),Lie (B/Z)) has Wieferich equidistribution.
+The case when B is the product of an abelian variety A with a torus T is as
+amenable (or not amenable) to testing as are the separate cases of A and of T ; the
+ﬁrst problematic, the second straightforward.
+But already in the case of a nontrivial extension of an abelian variety by Gm, it
+is not clear how to proceed. Recall [Se-GACC, VII, &16] that such an extension, a
+nonzero element ofH 1(A, Gm) =Pic (A) which is primitive, is precisely an element
+ofPic 0(A). More explicitly, given an invertible sheafL onA which lies inPic 0(A),
+one considers the “theta group” Θ(L), whose S-valued points are the pairs ( φ,R )
+withR∈A(S) andφ an isomorphism of line bundles on AS fromL to its translate
+byR. This theta group is the corresponding extension of A by Gm. But from this
+general perspective, it is hard to see how to test conjectures.
+Here is another way to obtain extensions of a Jacobian by Gm. Start with a
+curve C/Q of genus g≥ 1, and two distinct points P and Q in C(Q). Consider
+the generalized Jacobian Jm with modulus m =P +Q, classifying line bundles L
+of degree zero on C together with trivializations at both P and Q. The obvious
+map Jm → J, “forget the trivializations”, makes Jm an extension of J by Gm.
+A key fact is that this extension is nontrivial, cf. [Ro, Thm. 13]. Its extension
+class is a point in Pic 0(J). Which point is it? For a base point 0 ∈ C(Q), and
+φ :C→J the embedding R↦→ [R]− [0], the pullback map on line bundles gives an
+isomorphism Pic 0(J)∼= Pic 0(C), cf. [La-AV, VI, &3, Thm.3]. [The isomorphism
+does not depend on the choice of base point 0 ∈C(Q).] Thus the extension class of
+Jm gives, under φ⋆, an element of Pic 0(C). This element is, up to sign, the class
+of the invertible sheaf I(P )⊗I−1(Q) on C, cf. [Se-MU, &1, Thm. 1 and Exemple]
+or [Ram, part (ii) of Prop., page 9]. The “up to sign” proviso comes from fact that
+16 NICHOLAS M. KATZ
+“the” Gm in the extension is intrinsically the quotient ( Gm× Gm)/(diagonal Gm),
+which has two isomorphisms to Gm.
+Let us denote by L∈ J(Q) the class of the invertible sheaf I(P )⊗I−1(Q) on
+C. Choose any element Lm in Jm which maps to L, i.e., choose trivializations at
+both P and Q of I(P )⊗I−1(Q). We claim that if L∈ J(Q) generates a Zariski
+dense subgroup of J, then Lm generates a Zariski dense subgroup of Jm. To see
+this, consider the Zariski closure Z of the subgroup of Jm generated by Lm. Its
+identity component Z 0 maps onto J. So the dimension of Z 0 is either g + 1 or
+g + 1. In the former case, Z 0 must be Jm, and so Z is Jm. In the latter case, we
+get a contradiction as follows. Z 0 is itself a g-dimensional connected groupscheme
+which maps ontoJ, so Z 0 is an abelian variety inside Jm and its projection onto J
+is an isogeny, call it π. The pullback by π of the extension becomes trivial. There
+is a map ρ ofJ to Z 0 such that πρ is multiplication by some integer d≥ 1. So the
+extension class of Jm in Ext1(J, Gm) is killed by d. But the extension class is the
+class of L in J, which is not of ﬁnite order (because L generates a Zariski dense
+subgroup of J).
+Again in this Jm case, there is a brutal way to construct a Z-form of Lie(Jm).
+Suppose that our curve is the generic ﬁbre of a proper smooth C/Z[1/N], and that
+the two points P and Q, which by properness extend to sections over Z[1/N],
+are disjoint. Then Jm is a smooth group scheme over Z[1/N], whose Lie al-
+gebra Lie(Jm/Z[1/N]) is H 1(C,I (P )⊗ I(Q)). For any proper X/Z extending
+C/Z[1/N], and any coherent sheaf F onX extending I(P )⊗I(Q)), we can take
+H 1(X,F)/(torsion) as a Z-form of Lie. The arguably simplest choice of such an F
+on a givenX is I(P )⊗I(Q). Much remains to be done.
+References
+[Ba-Ho] Bateman, P., and Horn, R., A heuristic asymptotic formula concerning the distribution
+of prime numbers,Math. Comp. 17, no. 84 (1963), 445-447.
+[Bo-Lu-Ra] Bosch, S., L¨ utkebohmert, W., and Raynaud, M., N´ eron models. Ergebnisse der Math-
+ematik und ihrer Grenzgebiete (3), 21. Springer-Verlag, Berlin, 1990. x+325 pp.
+[Coleman] Coleman, R., On the Galois groups of the exponential Taylor polynomials. Enseign.
+Math. (2) 33 (1987), no. 3-4, 183-189.
+[Cr-Di-Po] Crandall, R., Dilcher, K., and Pomerance, C., A search for Wieferich and Wilson
+primes. Math. Comp. 66 (1997), no. 217, 433-449.
+[Do-Kl] Dorais, F. G., and Klyve, D., A Wieferich prime search up to 6.7?1015.
+J. Integer Seq. 14 (2011), no. 9, Article 11.9.2, 14 pp., available at
+http://www.cs.uwaterloo.ca/journals/JIS/VOL14/Klyve/klyve3.html.
+[Gr-Mo] Granville, A., and Monagan, M. B., The ﬁrst case of Fermat’s last theorem is true for
+all prime exponents up to 714,591,416,091,389. Trans. Amer. Math. Soc. 306 (1988), no. 1,
+329-359.
+[Ha-Wr] Hardy, G.H., and Littlewood, J.E., Some Problems of ’Partitio Numerorum’; III:On the
+expression of a number as a sum of primes. Acta Math. 44 (1923), 1-70.
+[Ito] Ito, K., Introduction to probability theory. Cambridge University Press, Cambridge, 1984.
+x+213 pp.
+[Ka-Gal] Katz, N., Galois properties of torsion points on abelian varieties. Invent. Math. 62 (1981),
+no. 3, 481-502.
+[Ka-LTR] Katz, N.,Lang-Trotter revisited. Bull. Amer. Math. Soc. (N.S.) 46 (2009), no. 3, 413-
+457.
+WIEFERICH PAST AND FUTURE 17
+[La-AV] Lang, S., Abelian Varieties, Springer Science+Business Media, New York, 1983, x+256pp.
+[L-T] Lang, S., and Trotter, H., Frobenius distributions in GL2-extensions, Springer Lecture Notes
+in Mathematics 504, 1976.
+[Na-Vi] Nart, E. and Vila, N. Equations of the type X n + aX + b with absolute Galois group
+Sn. Proceedings of the sixth conference of Portuguese and Spanish mathematicians, Part II
+(Santander, 1979). Rev. Univ. Santander No. 2, part 2 (1979), 821-825.
+[Osada] Osada, H., The Galois groups of the polynomials X n + aX ℓ + b. J. Number Th. 25 (1987),
+230-238.
+[Ram] Ramachandran, N., From Jacobians to one-motives: exposition of a conjecture of Deligne.
+The arithmetic and geometry of algebraic cycles (Banﬀ, AB, 1998), 215-234, CRM Proc.
+Lecture Notes, 24, Amer. Math. Soc., Providence, RI, 2000.
+[Rib] Ribet, K., Galois action on division points of Abelian varieties with real multiplications.
+Amer. J. Math. 98 (1976), no. 3, 751-804
+[Ro] Rosenlicht, M., Generalized Jacobian Varieties. Ann. Math., Second Series 59 (1954), no. 3,
+505-530.
+[Shim-Tan] Shimura, G., and Taniyama, Y., Complex multiplication of abelian varieties and its
+applications to number theory. Publications of the Mathematical Society of Japan, 6, Tokyo,
+1961. xi+159 pp.
+[Se-GACC] Serre, J.-P., Groupes alg´ ebriques et corps de classes. Publications de l’institut de
+math´ ematique de l’universit´ e de Nancago, VII. Hermann, Paris, 1959. 202 pp.
+[Se-MU] Serre, J.-P., Morphismes universels et diﬀ´ erentielles de troisi` eme esp` ece, S´ eminaire
+Claude Chevalley, tome 4(1958-59), exp. n ◦ 11, 1-8.
+[Sh] Shioda, T., Constructing Curves with High Rank via Symmetry. Amer. J. Math 120, no. 3,
+551-566.
+[Si] Silverman, J., Advanced topics in the arithmetic of elliptic curves. Graduate Texts in Math-
+ematics, 151. Springer-Verlag, New York, 1994. xiv+525 pp.
+[Son] Sondow, J.,Lerch Quotients, Lerch Primes, Fermat-Wilson Quotients, and the Wieferich-
+non-Wilson Primes 2, 3, 14771. http://arxiv.org/pdf/1110.3113.pdf
+[Weil] Weil, A., Number theory. An approach through history. From Hammurapi to Legendre.
+Birkh¨ auser Boston, Inc., Boston, MA, 1984. xxi+375 pp.
+[Zarhin] Zarhin, Yuri G., Very simple 2-adic representations and hyperelliptic Jacobians,
+Mosc.Math. J. 2 (2002), no. 2, 403-431.
+Princeton University, Mathematics, Fine Hall, NJ 08544-1000, USA
+E-mail address : nmk@math.princeton.edu

@@ -1,0 +1,294 @@
+% Directly inputtable paper section. Author: ChatGPT.
+\section{Quadratic Veronese peeling and valuation-layer flags}
+\label{sec:quadratic-veronese-peeling}
+
+\noindent\textbf{Author: ChatGPT.}
+This section isolates the specialization $y=x^2$ of the five-term contact
+relation, transports it to primitive integer triples, and audits the
+resulting one-move policy on a full-premise Pythagorean-square family.  The
+fixed policy fails three necessary uniform estimates.  The unrestricted
+multi-move contact-complex route remains open.
+
+For $z\in\mathbf Q\setminus\{0,1\}$, let
+\[
+ \Omega(z)=d(z)\wedge d(1-z),
+ \qquad d:\mathbf Q^\times\longrightarrow
+   \bigoplus_p\mathbf Z[p].
+\]
+Recall the five-term identity
+\begin{equation}
+ \Omega(x)-\Omega(y)+\Omega(y/x)
+ -\Omega\!\left(\frac{y(1-x)}{x(1-y)}\right)
+ +\Omega\!\left(\frac{1-x}{1-y}\right)=0.
+ \label{eq:qvp-five-term}
+\end{equation}
+
+\begin{theorem}[Quadratic Veronese peeling]
+\label{thm:qvp-peeling}
+The specialization $y=x^2$ is admissible in
+\eqref{eq:qvp-five-term} exactly when
+$x\notin\{0,1,-1\}$.  On this domain,
+\begin{equation}
+ \Omega(x^2)=2\Omega(x)
+ -2\Omega\!\left(\frac{x}{1+x}\right).
+ \label{eq:qvp-peeling}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The five-term domain says that $x,x^2$ are nonzero, different from one, and
+different from each other.  Since
+$x^2-1=(x-1)(x+1)$ and $x^2-x=x(x-1)$, this is equivalent to the three
+stated exclusions.  Direct field algebra then gives
+\[
+ \frac{x^2}{x}=x,
+ \quad
+ \frac{x^2(1-x)}{x(1-x^2)}=\frac{x}{1+x},
+ \quad
+ \frac{1-x}{1-x^2}=\frac1{1+x}.
+\]
+The final two arguments are complementary.  Alternation gives
+$\Omega(1-z)=-\Omega(z)$, so substitution in
+\eqref{eq:qvp-five-term} proves \eqref{eq:qvp-peeling}.  No sign condition on
+$x$ is required, since $d(-1)=0$ for finite-prime divisors.
+\end{proof}
+
+Writing $X=d(x)$, $U=d(1-x)$, and $W=d(1+x)$ exposes the coefficientwise
+identity behind the proof:
+\begin{equation}
+ (2X)\wedge(U+W)
+ =2X\wedge U-2(X-W)\wedge(-W).
+ \label{eq:qvp-vector}
+\end{equation}
+
+\subsection{Primitive integer transport}
+
+Let $(a,b,c)$ be a positive pairwise-coprime triple with $a+b=c$ and put
+$x=a/c$.
+
+\begin{proposition}[Quadratic transform]
+\label{prop:qvp-integer-transform}
+The triple
+\[
+ T_2(a,b,c)=\bigl(a^2,b(a+c),c^2\bigr)
+\]
+is positive, pairwise coprime, and satisfies
+$a^2+b(a+c)=c^2$.  Moreover,
+\begin{equation}
+ \Omega\bigl(a^2,b(a+c),c^2\bigr)
+ =2\Omega(a,b,c)-2\Omega(a,c,a+c).
+ \label{eq:qvp-integer}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The sum identity follows from $b=c-a$:
+$a^2+(c-a)(a+c)=c^2$.  A common prime of $a^2$ and $b(a+c)$ would divide
+$a$ and either $b$ or $a+c$, contradicting the original pairwise
+coprimality.  The same argument applies to $b(a+c)$ and $c^2$, while
+$a^2$ and $c^2$ are coprime directly.  Equation
+\eqref{eq:qvp-integer} is Theorem~\ref{thm:qvp-peeling} with $x=a/c$.
+\end{proof}
+
+For $t\geq1$, set
+\[
+ X=2t+1,\qquad Y=2t(t+1),\qquad Z=2t^2+2t+1.
+\]
+Then
+\[
+ X^2+Y^2=Z^2,\qquad Z-Y=1,\qquad Y+Z=X^2,
+\]
+and $X,Y,Z$ are pairwise coprime.  Taking $x=Y/Z$ in
+\eqref{eq:qvp-peeling} yields the full-premise identity
+\begin{equation}
+ \boxed{\displaystyle
+ \Omega(Y^2,X^2,Z^2)
+ =2\Omega(Y,1,Z)-2\Omega(Y,Z,X^2).\ }
+ \label{eq:qvp-pythagorean}
+\end{equation}
+Thus the first auxiliary cell has no nontrivial middle divisor, and only the
+third leg of the second auxiliary cell retains a visible square.
+
+\subsection{Exact positive-cost redistribution}
+
+Put
+\[
+ u=\log X,\quad v=\log Y,\quad w=\log Z,
+\]
+and
+\[
+ \beta=\log\operatorname{rad}(X),\quad
+ \alpha=\log\operatorname{rad}(Y),\quad
+ \gamma=\log\operatorname{rad}(Z).
+\]
+Write
+$\delta_X=u-\beta$, $\delta_Y=v-\alpha$, and
+$\delta_Z=w-\gamma$.  For the declared outer-square decomposition, the
+full, coherent, and residual costs of the squared cell are
+\begin{align}
+ \Phi_{\mathrm{sq}}&=4(uv+uw+vw),\nonumber\\
+ V_{\mathrm{sq}}&=\Phi_{\mathrm{sq}},\nonumber\\
+ R_{\mathrm{sq}}&=2\{\delta_Y(u+w)+\delta_X(v+w)
+                         +\delta_Z(u+v)\}.
+ \label{eq:qvp-square-costs}
+\end{align}
+After weighting both right-hand cells in
+\eqref{eq:qvp-pythagorean} by the absolute coefficient two, their costs are
+\begin{align}
+ \Phi_{\mathrm{peel}}&=2vw+2\{vw+2u(v+w)\},\nonumber\\
+ V_{\mathrm{peel}}&=2u(v+w),\nonumber\\
+ R_{\mathrm{peel}}&=4\delta_Y(u+w)+2\delta_X(v+w)
+                         +4\delta_Z(u+v).
+ \label{eq:qvp-peeled-costs}
+\end{align}
+
+\begin{proposition}[Conservation and redistribution]
+\label{prop:qvp-cost-redistribution}
+One has
+\begin{align}
+ \Phi_{\mathrm{peel}}&=\Phi_{\mathrm{sq}},
+ \label{eq:qvp-area-conservation}\\
+ V_{\mathrm{peel}}&<\tfrac12V_{\mathrm{sq}},
+ \label{eq:qvp-veronese-drop}\\
+ R_{\mathrm{peel}}-R_{\mathrm{sq}}
+ &=2\delta_Y(u+w)+2\delta_Z(u+v)\geq0.
+ \label{eq:qvp-residual-rise}
+\end{align}
+In addition,
+$V_{\mathrm{peel}}/V_{\mathrm{sq}}\to1/4$ as $t\to\infty$.
+\end{proposition}
+
+\begin{proof}
+Expansion of \eqref{eq:qvp-peeled-costs} proves
+\eqref{eq:qvp-area-conservation}.  The difference between half the old
+coherent cost and the new coherent cost is $2vw>0$.  Direct subtraction
+proves \eqref{eq:qvp-residual-rise}.  Finally
+$u\sim\log t$ and $v,w\sim2\log t$, which gives the stated limit.
+\end{proof}
+
+For calibrated cost $Q=M+V=2\Phi-R$, the same computation gives
+\begin{equation}
+ Q_{\mathrm{peel}}-Q_{\mathrm{sq}}
+ =-2\delta_Y(u+w)-2\delta_Z(u+v).
+ \label{eq:qvp-q-drop}
+\end{equation}
+The coherent improvement has therefore been transferred to residual cost;
+the total $Q+R=2\Phi$ has not decreased.
+
+\subsection{The primewise valuation-layer flag}
+
+For $k\geq1$, define
+\[
+ R_k(n)=\prod_{p:\,v_p(n)\geq k}p,
+ \qquad \lambda_k(n)=\log R_k(n).
+\]
+Then
+\begin{equation}
+ \log n=\sum_{k\geq1}\lambda_k(n),\qquad
+ \log\operatorname{rad}(n)=\lambda_1(n),\qquad
+ \log\frac{n}{\operatorname{rad}(n)}
+ =\sum_{k\geq2}\lambda_k(n).
+ \label{eq:qvp-layer-cake}
+\end{equation}
+This filtration sees repeated prime mass even when the gcd of all exponents
+is one; $2s^2$ with $s$ odd is the basic example.  Bilinearity gives the
+exact layer-pair expansion
+\begin{equation}
+ \Phi(a,b,c)=\sum_{k,l\geq1}
+ \bigl(\lambda_k(a)\lambda_l(b)
+      +\lambda_k(b)\lambda_l(c)
+      +\lambda_k(c)\lambda_l(a)\bigr).
+ \label{eq:qvp-layer-pairs}
+\end{equation}
+Squaring duplicates every layer:
+\begin{equation}
+ R_{2j-1}(n^2)=R_{2j}(n^2)=R_j(n).
+ \label{eq:qvp-layer-duplication}
+\end{equation}
+Consequently the square-cell layer-pair area is replicated four times, and
+the layer ledger recovers the conservation law
+\eqref{eq:qvp-area-conservation}.
+
+The flag also rules out a naive uniform depth cutoff.  With $t=2^m$,
+$v_2(Y^2)=2m+2$, so the prime $2$ occupies arbitrarily high layers inside
+the genuine primitive cells $(Y^2,X^2,Z^2)$.  Weighted layer decay and
+primewise matching across several five-term moves are not refuted by this
+example.
+
+\subsection{Three fixed-policy no-go theorems}
+
+The first no-go is immediate from
+\eqref{eq:qvp-area-conservation}.  If some $\eta>0$ and $K$ satisfied
+\[
+ \Phi_{\mathrm{peel}}
+ \leq(1-\eta)\Phi_{\mathrm{sq}}+K(2w)
+\]
+for all $t$, then $\eta\Phi_{\mathrm{sq}}\leq2Kw$.  But $Z=Y+1\leq2Y$
+and $Y\geq4$, so $w\leq3v/2$ and
+\[
+ \frac{\Phi_{\mathrm{sq}}}{2w}\geq\frac43u\longrightarrow\infty.
+\]
+Thus no positive one-step area contraction exists.
+
+For the calibrated-boundary coefficient, expansion gives
+\begin{align}
+ Q_{\mathrm{peel}}={}&2u(v+w)+4\alpha(u+w)+4\gamma(u+v)
+                         +2\beta(v+w),
+ \label{eq:qvp-q-formula}\\
+ Q_{\mathrm{peel}}-2H\rho={}&2u(v+w)+4\alpha u
+   +4\gamma(u+v-w)+2\beta(v-w),
+ \label{eq:qvp-boundary-excess}
+\end{align}
+where $H=2w$ and $\rho=\alpha+\beta+\gamma$.  Since $Y<Z\leq XY$,
+$0\leq\beta\leq u$, and $\alpha,\gamma\geq0$, the last display implies
+\begin{equation}
+ Q_{\mathrm{peel}}-2H\rho\geq4uv.
+ \label{eq:qvp-boundary-lower}
+\end{equation}
+Dividing by $H$ and using $w\leq3v/2$ shows that the excess is an unbounded
+multiple of height.  Hence the fixed chain cannot satisfy
+$Q_{\mathrm{peel}}\leq2H\rho+LH$ for any constant $L$.
+
+Finally, the policy requiring the following bound for every
+$\varepsilon>0$ is false:
+\[
+ R_{\mathrm{peel}}\leq
+ \varepsilon Q_{\mathrm{peel}}+K_\varepsilon H
+\]
+with a uniform $K_\varepsilon$.  Set $t=2^m$ and
+$L_m=\log t$.  For $m\geq2$,
+\[
+ L_m\leq u\leq2L_m,
+ \quad 2L_m\leq v,w\leq3L_m,
+ \quad \delta_Y\geq L_m.
+\]
+Thus
+\[
+ R_{\mathrm{peel}}\geq12L_m^2,
+ \qquad \Phi_{\mathrm{sq}}\leq84L_m^2,
+ \qquad H\leq6L_m.
+\]
+As $Q_{\mathrm{peel}}\leq2\Phi_{\mathrm{sq}}$, at
+$\varepsilon=1/100$ one obtains
+\[
+ R_{\mathrm{peel}}-\frac1{100}Q_{\mathrm{peel}}
+ \geq\frac{258}{25}L_m^2,
+\]
+which cannot be absorbed into any uniform $K_{1/100}H$.  Thus the single
+admissible value $\varepsilon=1/100$ already refutes the universal-in-
+$\varepsilon$ policy; no assertion is made here that every positive
+$\varepsilon$ fails.  This theorem concerns the
+declared outer-square split.  It does not claim that the same subsequence
+refutes the maximal common-exponent residual.
+
+All triples used above satisfy positivity, the sum equation, and pairwise
+coprimality.  These counterexamples retire the exact one-move policies only.
+Gate VF permits arbitrary additional five-term moves and remains open.  The
+abc conjecture also remains open.
+
+The Lean companion
+\texttt{QuadraticVeronesePeeling20260902.lean} formalizes the exact domain,
+integer transport, valuation-layer identities, and all three quantified
+fixed-policy no-go theorems.  Its separate axiom audit covers all 53 public
+theorem declarations.  A deterministic computation checks 20,000
+consecutive parameters and a power-of-two subsequence through $2^{18}$.

@@ -1,0 +1,30 @@
+/-
+Copyright (c) 2026 ChatGPT. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: ChatGPT
+-/
+import IUTThreeClosures.IUTRefinedTensorHaarThetaSamePilot20260902
+
+namespace IUTThreeClosures.IUTRefinedTensorHaarThetaSamePilot20260902
+
+#print axioms refinedProductCompactOpenRegion
+#print axioms mixedChar_prime_eq_unit_mul_uniformizer_pow_ramificationIndex
+#print axioms mixedChar_ramification_mul_residueDegree
+#print axioms mixedChar_residueField_natCard
+#print axioms refinedProduct_primePreimage_normalizedLogVolume
+#print axioms dimensionWeighted_factorFormula
+#print axioms sum_refinedFactorWeight_eq_one
+#print axioms factorCount_normalization_counterexample
+#print axioms finiteHomeomorphOrbitCompactOpenRegion
+#print axioms boundedOpenOrbitRegion
+#print axioms possibleUnionFinitePositiveRegion
+#print axioms native_logVolume_le_possibleUnion
+#print axioms samePilot_bound
+#print axioms envelope_preservation_not_enough_for_ind3_admissibility
+#print axioms unpointed_finitePositive_bound_counterexample
+#print axioms refinedFactor_prime_factorization
+#print axioms refinedFactor_localDegree_eq
+#print axioms refinedFactor_residueField_natCard
+#print axioms tuple_finrank_eq_sum_refined_localDegrees
+
+end IUTThreeClosures.IUTRefinedTensorHaarThetaSamePilot20260902

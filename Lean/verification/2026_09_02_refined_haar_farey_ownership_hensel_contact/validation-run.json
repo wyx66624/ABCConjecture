@@ -1,0 +1,364 @@
+{
+  "schema": "abc-refined-haar-farey-ownership-hensel-contact-validation-v1",
+  "status": "PASS",
+  "scope": {
+    "provesStandardABC": false,
+    "disprovesStandardABC": false,
+    "finiteSearchUpgradedToAsymptotic": false,
+    "paperOnlyBridgeCountedAsLean": false
+  },
+  "inventoryTotals": {
+    "theorem": 297,
+    "lemma": 0,
+    "def": 113,
+    "abbrev": 5,
+    "structure": 4,
+    "class": 0,
+    "inductive": 0,
+    "instance": 2,
+    "countedDeclarations": 421,
+    "proofDeclarations": 297,
+    "auditedDeclarations": 421
+  },
+  "moduleCount": 8,
+  "axiomAudit": {
+    "reports": 421,
+    "allowed": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "unexpected": []
+  },
+  "aggregateBuildJobs": 9255,
+  "hashManifests": {
+    "manifests": 13,
+    "entries": 156
+  },
+  "textAudit": {
+    "utf8TextFiles": 698,
+    "authoredTextFiles": 46,
+    "authoredControlCharacters": 0,
+    "archivedExtractionControlCharacters": 304,
+    "isolatedCarriageReturns": 0,
+    "bareQquadCommands": 0,
+    "trailingWhitespaceLines": 0
+  },
+  "stdoutAudit": {
+    "normalization": "strict UTF-8 with CRLF/CR mapped to LF",
+    "comparisons": [
+      {
+        "command": "evidence-iut",
+        "frozen": "research/computation/2026_09_02_iut_refined_tensor_haar_theta_same_pilot/verification_output.json",
+        "normalizedSha256": "800e3e07bcdf37a4e59664fa5d14d4607bd3bdfbd8d75959362049eb21ce9441"
+      },
+      {
+        "command": "evidence-mersenne",
+        "frozen": "research/computation/2026_09_02_mersenne_farey_denominator_entropy/verification_output.json",
+        "normalizedSha256": "08a2764416940bd2ea9a6ca2b4ae2c52a67389914332a1f76246c64fee2ea4d2"
+      },
+      {
+        "command": "evidence-mersenne-sigma-one",
+        "frozen": "research/computation/2026_09_02_mersenne_sigma_one/verify_witnesses_output.json",
+        "normalizedSha256": "ab4d3ae848cb5ab96d16a84e0b5fab1f86bc04db5853bb7cbae37ccab6992a69"
+      },
+      {
+        "command": "evidence-affine-grid",
+        "frozen": "research/computation/2026_09_02_affine_ownership_aggregation/OUTPUT_GRID_SCAN.txt",
+        "normalizedSha256": "993e6158e672c13d7ff5e619d7890a8c86c744a04553e135e8b7eec055b43880"
+      },
+      {
+        "command": "evidence-affine-independent",
+        "frozen": "research/computation/2026_09_02_affine_ownership_aggregation/INDEPENDENT_REPLAY.txt",
+        "normalizedSha256": "d0584030741ffcb6c5772377cb658d853cae813a1be7d7df45b174a3bacc39e7"
+      },
+      {
+        "command": "evidence-pell-producer",
+        "frozen": "research/computation/2026_09_02_pell_hensel_specialization/producer_stdout.txt",
+        "normalizedSha256": "515461037fdf8e6966ca838def8485ea6f1142cad3d90503ad1e703e35ffd338"
+      },
+      {
+        "command": "evidence-pell-verifier",
+        "frozen": "research/computation/2026_09_02_pell_hensel_specialization/verifier_stdout.txt",
+        "normalizedSha256": "f4b399c6d144f55866141d81227988ff12e168f8d8b5729c3e223bbbbf17eb6b"
+      },
+      {
+        "command": "evidence-pell-search",
+        "frozen": "research/computation/2026_09_02_pell_hensel_specialization/index3_search_stdout.txt",
+        "normalizedSha256": "4e7ac133b4e25fcd1c57ab97d857deebb64ed8ca86ac24e5cccb27a9dc2fba8c"
+      }
+    ]
+  },
+  "commands": [
+    {
+      "name": "lake-build-IUTThreeClosures",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "build",
+        "IUTThreeClosures"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lake-build-IUTThreeClosures.log",
+      "logSha256": "0cb886f9ec5540b253ea2c65b7ac2d3fa1ec969fd9d259305a2e13cc2294c89e"
+    },
+    {
+      "name": "lean-IUTRefinedTensorHaarThetaSamePilot20260902",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/IUTRefinedTensorHaarThetaSamePilot20260902.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-IUTRefinedTensorHaarThetaSamePilot20260902.log",
+      "logSha256": "0202e1959672d2752601ca02aee9c32f1186f12c24cd740256c61176123fb2ed"
+    },
+    {
+      "name": "lean-MersenneFareyDenominatorEntropy20260902",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/MersenneFareyDenominatorEntropy20260902.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-MersenneFareyDenominatorEntropy20260902.log",
+      "logSha256": "82efb1457d02001ea4658cdd3734ec49739d3852caf1f78fd3a994a0876f1373"
+    },
+    {
+      "name": "lean-AffineOwnershipMaximalIntersectionAggregation20260902",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/AffineOwnershipMaximalIntersectionAggregation20260902.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-AffineOwnershipMaximalIntersectionAggregation20260902.log",
+      "logSha256": "7b8f7e013c30a985842ec5a29f73ad7ef86fe53c441d93c2889cbf38675874ff"
+    },
+    {
+      "name": "lean-PellPolynomialHenselSpecialization20260902",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-PellPolynomialHenselSpecialization20260902.log",
+      "logSha256": "2b91df2d5492f20b29df2b29fe1316adc80940f2ad94828347fd52f8040d3f3c"
+    },
+    {
+      "name": "lean-PellPolynomialAllIndexFormalization20260902",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/PellPolynomialAllIndexFormalization20260902.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-PellPolynomialAllIndexFormalization20260902.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "lean-SteinbergValuationContactSurface20260902",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/SteinbergValuationContactSurface20260902.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-SteinbergValuationContactSurface20260902.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "lean-SteinbergIntegerFiniteChain20260902",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/SteinbergIntegerFiniteChain20260902.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-SteinbergIntegerFiniteChain20260902.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "lean-QuadraticVeronesePeeling20260902",
+      "command": [
+        "C:\\Users\\Admin\\.elan\\bin\\lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/QuadraticVeronesePeeling20260902.lean"
+      ],
+      "cwd": "Lean",
+      "exitCode": 0,
+      "log": "logs/lean-QuadraticVeronesePeeling20260902.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "generated-axiom-audit",
+      "exitCode": 0,
+      "log": "logs/axiom-audit.log",
+      "logSha256": "0c811c971ea05b4e9c6d46a7e9ed4d5da7dd1f8f98129442c679dc7973897d21"
+    },
+    {
+      "name": "evidence-iut",
+      "command": [
+        "D:\\anaconda3\\python.exe",
+        "verify_refined_tensor_normalization.py"
+      ],
+      "cwd": "research/computation/2026_09_02_iut_refined_tensor_haar_theta_same_pilot",
+      "exitCode": 0,
+      "log": "logs/evidence-iut.log",
+      "logSha256": "800e3e07bcdf37a4e59664fa5d14d4607bd3bdfbd8d75959362049eb21ce9441"
+    },
+    {
+      "name": "evidence-mersenne",
+      "command": [
+        "D:\\anaconda3\\python.exe",
+        "verify.py"
+      ],
+      "cwd": "research/computation/2026_09_02_mersenne_farey_denominator_entropy",
+      "exitCode": 0,
+      "log": "logs/evidence-mersenne.log",
+      "logSha256": "08a2764416940bd2ea9a6ca2b4ae2c52a67389914332a1f76246c64fee2ea4d2"
+    },
+    {
+      "name": "evidence-iut-source-metadata",
+      "command": [
+        "D:\\anaconda3\\python.exe",
+        "verify_source_metadata.py"
+      ],
+      "cwd": "research/sources/iut_admissible_scaling_order_index_2026_09_02",
+      "exitCode": 0,
+      "log": "logs/evidence-iut-source-metadata.log",
+      "logSha256": "c0686ae1f25018854288bed54296c637be3bb22399b12d2f2d6263beb741091b"
+    },
+    {
+      "name": "evidence-mersenne-sigma-one",
+      "command": [
+        "D:\\anaconda3\\python.exe",
+        "verify_witnesses.py"
+      ],
+      "cwd": "research/computation/2026_09_02_mersenne_sigma_one",
+      "exitCode": 0,
+      "log": "logs/evidence-mersenne-sigma-one.log",
+      "logSha256": "ab4d3ae848cb5ab96d16a84e0b5fab1f86bc04db5853bb7cbae37ccab6992a69"
+    },
+    {
+      "name": "evidence-affine-grid",
+      "command": [
+        "D:\\anaconda3\\python.exe",
+        "canonical_grid_scan.py"
+      ],
+      "cwd": "research/computation/2026_09_02_affine_ownership_aggregation",
+      "exitCode": 0,
+      "log": "logs/evidence-affine-grid.log",
+      "logSha256": "993e6158e672c13d7ff5e619d7890a8c86c744a04553e135e8b7eec055b43880"
+    },
+    {
+      "name": "evidence-affine-independent",
+      "command": [
+        "D:\\anaconda3\\python.exe",
+        "independent_replay.py"
+      ],
+      "cwd": "research/computation/2026_09_02_affine_ownership_aggregation",
+      "exitCode": 0,
+      "log": "logs/evidence-affine-independent.log",
+      "logSha256": "d0584030741ffcb6c5772377cb658d853cae813a1be7d7df45b174a3bacc39e7"
+    },
+    {
+      "name": "evidence-pell-producer",
+      "command": [
+        "D:\\anaconda3\\python.exe",
+        "produce_pell_hensel_specialization.py"
+      ],
+      "cwd": "research/computation/2026_09_02_pell_hensel_specialization",
+      "exitCode": 0,
+      "log": "logs/evidence-pell-producer.log",
+      "logSha256": "515461037fdf8e6966ca838def8485ea6f1142cad3d90503ad1e703e35ffd338"
+    },
+    {
+      "name": "evidence-pell-verifier",
+      "command": [
+        "D:\\anaconda3\\python.exe",
+        "verify_pell_hensel_specialization.py"
+      ],
+      "cwd": "research/computation/2026_09_02_pell_hensel_specialization",
+      "exitCode": 0,
+      "log": "logs/evidence-pell-verifier.log",
+      "logSha256": "f4b399c6d144f55866141d81227988ff12e168f8d8b5729c3e223bbbbf17eb6b"
+    },
+    {
+      "name": "evidence-pell-search",
+      "command": [
+        "D:\\anaconda3\\python.exe",
+        "search_index3_moving_squarefull.py"
+      ],
+      "cwd": "research/computation/2026_09_02_pell_hensel_specialization",
+      "exitCode": 0,
+      "log": "logs/evidence-pell-search.log",
+      "logSha256": "4e7ac133b4e25fcd1c57ab97d857deebb64ed8ca86ac24e5cccb27a9dc2fba8c"
+    },
+    {
+      "name": "evidence-quadratic-producer",
+      "command": [
+        "D:\\anaconda3\\python.exe",
+        "quadratic_veronese_peeling_scan.py",
+        "--output",
+        "scan_results.json"
+      ],
+      "cwd": "research/computation/quadratic_veronese_peeling_2026_09_02",
+      "exitCode": 0,
+      "log": "logs/evidence-quadratic-producer.log",
+      "logSha256": "81d518a16f26466f07c945712d05840866471f5f75697546d18bb7cdc1a9e24b"
+    },
+    {
+      "name": "evidence-quadratic-verifier",
+      "command": [
+        "D:\\anaconda3\\python.exe",
+        "verify_quadratic_veronese_peeling.py"
+      ],
+      "cwd": "research/computation/quadratic_veronese_peeling_2026_09_02",
+      "exitCode": 0,
+      "log": "logs/evidence-quadratic-verifier.log",
+      "logSha256": "51b4675cfd0ee10055a3eb5ce75cf2835fa2fb87d28080b0f7b2f84756ca818d"
+    },
+    {
+      "name": "git-diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": ".",
+      "exitCode": 0,
+      "log": "logs/git-diff-check.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

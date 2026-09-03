@@ -1,0 +1,170 @@
+\section{Transverse Hensel specialization in the Pell--Lucas packet}
+\label{sec:pell-polynomial-hensel}
+
+Let
+\[
+ F_0(T)=0,\quad F_1(T)=1,\quad
+ F_{n+2}(T)=T F_{n+1}(T)+F_n(T)
+\]
+and
+\[
+ L_0(T)=2,\quad L_1(T)=T,\quad
+ L_{n+2}(T)=T L_{n+1}(T)+L_n(T).
+\]
+For $(1+\sqrt2)^n=A_n+B_n\sqrt2$ one has
+$F_n(2)=B_n$ and $L_n(2)=2A_n$.  Recent work on powerful
+Fibonacci and Horadam polynomials clarifies polynomial multiplicities
+\cite{BatesEtAl2026PowerfulFibonacci}, while primitive-divisor theory over
+polynomial rings supplies a complementary global context
+\cite{CeraDaConceicao2025PrimitiveDivisors}.  Polynomial squarefreeness does
+not, by itself, control the valuation of a specialized integer.  The results
+below make that distinction exact.
+
+Put $\Delta=T^2+4$.  The Binet formulas in the quadratic extension of
+$\mathbb Q(T)$ give
+\begin{equation}
+ L_n(T)^2-\Delta F_n(T)^2=4(-1)^n,
+ \qquad L_n'(T)=nF_n(T),
+ \label{eq:pell-polynomial-norm-derivative}
+\end{equation}
+and
+\begin{equation}
+ \Delta F_n'(T)=nL_n(T)-TF_n(T).
+ \label{eq:pell-polynomial-second-derivative}
+\end{equation}
+Indeed, for
+$\alpha=(T+\sqrt\Delta)/2$ and $\beta=(T-\sqrt\Delta)/2$, one has
+$\alpha\beta=-1$,
+$F_n=(\alpha^n-\beta^n)/(\alpha-\beta)$, and
+$L_n=\alpha^n+\beta^n$; subtraction and differentiation prove the three
+identities.  At $T=2$ they become
+\[
+ L_n'(2)=nB_n,\qquad 4F_n'(2)=nA_n-B_n.
+\]
+Consequently, if $\ell$ is an odd prime and an odd support prime
+$p\nmid\ell$ divides $B_\ell$, then $F_\ell'(2)\not\equiv0\pmod p$.
+Likewise, if $q\nmid\ell$ divides $A_\ell$, then
+$L_\ell'(2)\not\equiv0\pmod q$.  Coprimality of $A_\ell$ and $B_\ell$
+is the only additional input.  Thus every actual repeated support factor is
+a transverse specialization coincidence rather than a multiple root of the
+polynomial.
+
+\begin{lemma}[One-digit Hensel displacement]
+\label{lem:pell-hensel-displacement}
+Let $f\in\mathbb Z[T]$, let $p$ be prime, and suppose $p^e\mid f(t)$ with
+$e\ge1$.  Then
+\[
+ \frac{f(t+p^eh)}{p^e}\equiv
+ \frac{f(t)}{p^e}+h f'(t)\pmod p.
+\]
+If $p\nmid f'(t)$, there is a unique $h\pmod p$ for which
+$p^{e+1}\mid f(t+p^eh)$, namely
+\[
+ h\equiv-\frac{f(t)}{p^e}f'(t)^{-1}\pmod p.
+\]
+The old representative $t$ persists precisely when
+$p^{e+1}\mid f(t)$.
+\end{lemma}
+
+\begin{proof}
+The integral Taylor expansion has the form
+$f(t+z)=f(t)+zf'(t)+z^2G(t,z)$.  Substituting $z=p^eh$ and using
+$2e\ge e+1$ gives the congruence after division by $p^e$.  Its right-hand
+side is affine with nonzero slope modulo $p$, proving existence and
+uniqueness of the displayed digit.  Taking $h=0$ proves the final assertion.
+\end{proof}
+
+For a simple support root write
+\[
+ \lambda_{f,p,e}(t)=
+ -\frac{f(t)}{p^e}f'(t)^{-1}\pmod p.
+\]
+The product $A_\ell B_\ell$ is squarefull exactly when every level-one
+displacement at the fixed parameter $T=2$ vanishes in both channels.  A
+support factor of exponent at least three also has zero level-two
+displacement.  This is an exact reformulation, not a proof of the required
+global exclusion: the remaining problem is to prevent one fixed integer
+$T=2$ from agreeing simultaneously with all of the relevant lifted roots.
+
+Local Hensel conditions cannot supply that global prohibition when the
+parameter is allowed to move.  For distinct primes $p_i$ and simple roots
+$p_i\mid f_i(t_0)$, Lemma~\ref{lem:pell-hensel-displacement} gives one class
+modulo $p_i^2$ for each lifted root, and the Chinese remainder theorem gives
+a unique simultaneous class modulo $\prod_i p_i^2$.  At index three this
+construction is completely explicit:
+\[
+ F_3(T)=T^2+1,\qquad L_3(T)=T^3+3T.
+\]
+The lifts of the $F$-channel prime $5$ and the $L$-channel prime $7$ from
+$T=2$ meet at $T=282\pmod{1225}$.  At the least positive representative,
+\[
+ F_3(282)=79525=5^2\cdot3181,
+\]
+\[
+ \frac{L_3(282)}2=11213307
+ =3^2\cdot7^2\cdot47\cdot541,
+\]
+and $D=(282^2+4)/4=19882=2\cdot9941$ is squarefree.  Specializing
+\eqref{eq:pell-polynomial-norm-derivative} yields the genuine global point
+\[
+ 11213307^2-19882\,79525^2=-1.
+\]
+This is a full counterexample to the precise claim that simple opposite
+channel roots cannot both become repeated while the parameter moves and the
+Pell coefficient remains squarefree.  It has coefficient $19882$, and both
+coordinates retain exponent-one factors, so it is neither a counterexample
+to the fixed coefficient-two packet nor to the abc conjecture.
+
+There is also an actual fixed-parameter collision:
+\[
+ F_7(T)=T^6+5T^4+6T^2+1,
+\]
+\[
+ F_7(2)=169=13^2,
+ \qquad F_7'(2)=376\equiv-1\pmod{13}.
+\]
+The next Hensel digit is one and
+\[
+ 13^3\mid F_7(171)=25006385400373,
+ \qquad 13^4\nmid F_7(171).
+\]
+Thus a simple polynomial root can specialize to an integer with exponent
+two.  This refutes exactly the stronger specialization claim; it does not
+give a squarefull Pell packet because $A_7=239$ occurs only to the first
+power.
+
+Finally, an exhaustive external search over positive even $T=2s$ with
+$s\le10^7$ uses the unique representation $N=x^2y^3$ of a positive
+squarefull integer with $y$ squarefree.  It checks $43{,}355{,}470$
+canonical representations.  The sole squarefull value in the full
+$F_3$ channel is
+\[
+ F_3(682)=465125=5^3\cdot61^2,
+\]
+whereas
+\[
+ \frac{L_3(682)}2=158608307
+ =11\cdot13\cdot31\cdot37\cdot967
+\]
+is not squarefull.  Independent Python and C++ implementations agree.  Lean
+checks the singleton identities, the nonsquarefull witness, the Pell norm,
+and squarefreeness of $116282=2\cdot53\cdot1097$; the entire
+$43$-million-case enumeration is not yet replayed in the kernel and is
+therefore reported as an external finite computation.
+
+The original formal companion proves the integer Hensel divisibility core,
+supplied derivative readouts, index-three Taylor and CRT certificates, and the
+displayed numerical points.  At that stage the all-index identities, general
+Taylor and simultaneous-CRT theorems, all-support squarefull equivalence, and
+one bundled moving witness were paper-level obligations.  The supplemental
+Section~\ref{sec:pell-all-index-formalization} now proves those exact items in
+Lean under their displayed hypotheses.  It does not supply the fixed-$T=2$
+all-support transversality or the global exclusion described below.
+
+The fixed $D=2$ route remains open.  Its smallest surviving target is to
+prove that every odd prime index has a support prime with nonzero level-one
+displacement at $T=2$, or more narrowly to exclude the opposite-channel
+level-one/level-two packet after imposing the previously proved rank,
+character, factor-quotient, all-order-tail, and endpoint-curvature
+constraints.  No counterexample meeting those complete premises is known,
+so difficulty does not retire the route.

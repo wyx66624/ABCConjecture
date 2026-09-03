@@ -1,0 +1,348 @@
+% Directly inputtable paper section.  Author: ChatGPT.
+\section{Steinberg valuation contact surfaces and a Veronese obstruction}
+\label{sec:steinberg-contact-surface}
+
+\noindent\textbf{Author: ChatGPT.}
+This section constructs a two-dimensional valuation invariant of a primitive
+abc point, proves its affine and five-term identities, and audits two proposed
+closure estimates against full-premise counterexamples.  No form of the abc
+conjecture, Vojta's conjecture, or an IUT comparison is assumed.
+
+\subsection{The divisor triangle}
+
+Let
+\[
+  \operatorname{Div}_{\mathbf Q}=\bigoplus_{p\ \mathrm{prime}}\mathbf Z[p],
+  \qquad d(q)=\sum_pv_p(q)[p].
+\]
+For a positive primitive equation $a+b=c$, put $A=d(a)$, $B=d(b)$,
+$C=d(c)$, and $x=a/c$.  Since $1-x=b/c$, define the oriented valuation
+contact surface
+\begin{equation}
+  \Omega(A,B,C)=(A-C)\wedge(B-C)=d(x)\wedge d(1-x).
+  \label{eq:contact-surface}
+\end{equation}
+
+\begin{proposition}[Three-leg expansion and affine covariance]
+\label{prop:contact-three-leg}
+One has
+\[
+ \Omega(A,B,C)=A\wedge B+B\wedge C+C\wedge A.
+\]
+Moreover, for every divisor vector $T$, integer $m$, and permutation
+$\sigma\in S_3$,
+\[
+\begin{split}
+ \Omega(A+T,B+T,C+T)&=\Omega(A,B,C),\\
+ \Omega(mA,mB,mC)&=m^2\Omega(A,B,C),\\
+ \Omega(A_{\sigma(1)},A_{\sigma(2)},A_{\sigma(3)})
+   &=\operatorname{sgn}(\sigma)\Omega(A,B,C).
+\end{split}
+\]
+\end{proposition}
+
+\begin{proof}
+Bilinearity and alternation give
+\[
+ (A-C)\wedge(B-C)=A\wedge B-A\wedge C-C\wedge B.
+\]
+This is the displayed three-leg sum.  Translation cancels in both
+differences, scaling factors from both exterior arguments, cyclic
+permutations preserve the three-leg sum, and a transposition reverses it.
+\end{proof}
+
+Primitivity makes the prime supports $S_a,S_b,S_c$ pairwise disjoint.  If
+$w_p\geq0$ and $L_w(A)=\sum_{p\in S_a}v_p(a)w_p$, define
+\[
+ \left\|\sum_{p<q}z_{pq}[p]\wedge[q]\right\|_{1,w}
+   =\sum_{p<q}|z_{pq}|w_pw_q.
+\]
+
+\begin{proposition}[Exact mixed contact area]
+\label{prop:contact-area}
+For a primitive abc point,
+\[
+ \|\Omega(A,B,C)\|_{1,w}
+ =L_w(A)L_w(B)+L_w(B)L_w(C)+L_w(C)L_w(A).
+\]
+\end{proposition}
+
+\begin{proof}
+The three terms of Proposition~\ref{prop:contact-three-leg} lie on the
+disjoint rectangles $S_a\times S_b$, $S_b\times S_c$, and
+$S_c\times S_a$.  On each rectangle the absolute coefficient is a product
+of its two positive valuation coefficients.  The double sum therefore
+factors, and the three rectangle norms add.
+\end{proof}
+
+With $w_p=\log p$, write
+\begin{equation}
+ \Phi=\log a\log b+\log b\log c+\log c\log a.
+ \label{eq:full-contact-area}
+\end{equation}
+If $r_a=\log\operatorname{rad}(a)$ and similarly for the other legs, the
+radical skeleton area is
+\[
+ \Psi=r_ar_b+r_br_c+r_cr_a,
+ \qquad 3\Psi\leq(r_a+r_b+r_c)^2.
+\]
+Writing $\log a=r_a+\delta_a$ and cyclically gives the exact positive excess
+\begin{align*}
+ \Phi-\Psi={}&r_a\delta_b+\delta_ar_b+\delta_a\delta_b
+ +r_b\delta_c+\delta_br_c+\delta_b\delta_c\\
+ &+r_c\delta_a+\delta_cr_a+\delta_c\delta_a.
+\end{align*}
+
+\subsection{Five-term gluing before the Milnor quotient}
+
+For rational $x,y$ in the domain of the following expressions, set
+\[
+ z_1=x,\quad z_2=y,\quad z_3=y/x,\quad
+ z_4=\frac{y(1-x)}{x(1-y)},\quad
+ z_5=\frac{1-x}{1-y}.
+\]
+
+\begin{theorem}[Five-term contact relation]
+\label{thm:contact-five-term}
+\[
+ \Omega(z_1)-\Omega(z_2)+\Omega(z_3)-\Omega(z_4)+\Omega(z_5)=0.
+\]
+\end{theorem}
+
+\begin{proof}
+Put $X=d(x)$, $U=d(1-x)$, $Y=d(y)$, $V=d(1-y)$, and
+$Z=d(x-y)$.  Multiplicativity of divisors and $d(-1)=0$ give the five pairs
+\[
+ (X,U),\ (Y,V),\ (Y-X,Z-X),\
+ (Y+U-X-V,Z-X-V),\ (U-V,Z-V).
+\]
+After inserting the alternating signs, bilinear expansion cancels every
+basis wedge.
+\end{proof}
+
+The terminology is deliberate.  Equation~\eqref{eq:contact-surface} is the
+image under $\bigwedge^2 d$ of the standard Bloch boundary
+$\delta([x])=x\wedge(1-x)$.  It is not a new nonzero Milnor $K_2$ invariant:
+the Milnor quotient imposes $\{x,1-x\}=0$.  We work before that quotient.
+Theorem~\ref{thm:contact-five-term}
+allows one contact cell to be replaced by four auxiliary cells and exposes
+the new divisor $d(x-y)$.
+
+\begin{proposition}[Quadratic Veronese peeling]
+\label{prop:quadratic-peeling}
+For $x\in\mathbf Q\setminus\{0,1,-1\}$,
+\[
+ \Omega(x^2)=2\Omega(x)-2\Omega\!\left(\frac{x}{1+x}\right).
+\]
+If $x=X/Z$ with $0<X<Z$ and $\gcd(X,Z)=1$, this becomes
+\[
+ \Omega(X^2,Z^2-X^2,Z^2)
+ =2\Omega(X,Z-X,Z)-2\Omega(X,Z,X+Z).
+\]
+\end{proposition}
+\begin{proof}
+Set $y=x^2$ in Theorem~\ref{thm:contact-five-term}.  The five arguments are
+$x,x^2,x,x/(1+x),1/(1+x)$.  The last is the complement of the fourth, and
+$\Omega(1-z)=-\Omega(z)$.  Substitution and rearrangement give the first
+identity.  The second follows by putting $x=X/Z$ in lowest terms.
+\end{proof}
+
+This exact oriented identity replaces a coherent square cell by two cells
+whose entries are linear in $X,Z$.  It exposes primes of $Z-X$ and $Z+X$
+to the filling cost, and explains why a single-cell square obstruction does
+not rule out every five-term filling policy.
+
+\subsection{A non-circular gate, and why it is false}
+
+Put $h_a=\log a$, $h_b=\log b$, $H=\log c$, and
+$\rho=r_a+r_b+r_c=\log\operatorname{rad}(abc)$.  Define the mixed
+polarization
+\[
+ \mathcal M=h_ar_b+r_ah_b+h_br_c+r_bH+Hr_a+r_ch_a.
+\]
+Consider the uniform single-cell assertion
+\begin{equation}
+ \Phi\leq\frac{1+\epsilon}{2}\mathcal M+C_\epsilon H.
+ \label{eq:gate-mc}
+\end{equation}
+
+\begin{proposition}[The gate would imply abc]
+\label{prop:mc-implies-abc}
+If \eqref{eq:gate-mc} holds for every $\epsilon>0$ with one constant valid
+for all primitive points, then the logarithmic abc conjecture holds.
+\end{proposition}
+
+\begin{proof}
+Every leg height is at most $H$, so $\mathcal M\leq2H\rho$.  Also
+$c\leq2ab$, whence $H-\log2\leq h_a+h_b$ and
+$\Phi\geq H(H-\log2)$.  Substitute these two estimates in
+\eqref{eq:gate-mc} and cancel $H>0$ to obtain
+\[
+ H\leq(1+\epsilon)\rho+C_\epsilon+\log2.
+\]
+\end{proof}
+
+This implication is non-circular: the premise compares a quadratic
+two-vector norm with a one-sided radical polarization.  It is nevertheless
+false.
+
+\begin{theorem}[Primitive Pythagorean-square obstruction]
+\label{thm:pyth-square-obstruction}
+Gate \eqref{eq:gate-mc} fails with all of its quantifiers and all primitive
+abc premises satisfied.
+\end{theorem}
+
+\begin{proof}
+For $t\geq1$, let
+\[
+ x=2t+1,\qquad y=2t(t+1),\qquad z=2t^2+2t+1.
+\]
+Expansion gives $x^2+y^2=z^2$.  The odd number $x$ is coprime to $2$, $t$,
+and $t+1$, so $\gcd(x,y)=1$; the equation gives pairwise coprimality of
+$x,y,z$.  Thus $(x^2,y^2,z^2)$ is a primitive abc point.
+
+For every $u>0$,
+\[
+ \log\operatorname{rad}(u^2)\leq\log u
+       =\tfrac12\log(u^2).
+\]
+Consequently $\mathcal M\leq\Phi$.  But
+\[
+ \frac{\Phi}{H}\geq\log(y^2)=2\log(2t(t+1))\longrightarrow\infty.
+\]
+Taking $\epsilon=1/2$ in \eqref{eq:gate-mc} would imply
+$\Phi\leq(3/4)\Phi+C_{1/2}H$, or $\Phi\leq4C_{1/2}H$, a contradiction.
+\end{proof}
+
+The same family refutes the direct skeleton gate
+$\Phi\leq3(1+\epsilon)^2\Psi+K_\epsilon^2$ for sufficiently small positive
+$\epsilon$, since $\Psi\leq\Phi/4$ and $\Phi$ is unbounded.  The finite
+primitive point $9+16=25$ separately refutes coefficient-one thinness: its
+$[3]\wedge[2]$ coefficient has absolute value $8$, while the radical
+coefficient is $1$.  None of these is an abc counterexample.
+
+\subsection{Veronese correction and open route}
+
+For $n>1$, put $g(n)=\gcd_{p\mid n}v_p(n)$ and write $n=u^{g(n)}$.
+If $h=\log n$, $r=\log\operatorname{rad}(n)$, and $u_h=h/g$, then
+\begin{equation}
+ h-r=(g-1)u_h+(u_h-r).
+ \label{eq:veronese-residual}
+\end{equation}
+For a unit leg we set $g(1)=1$ and $h=r=u_h=0$, so both defect
+components vanish.  Thus the definitions remain total on auxiliary
+primitive cells.
+The first summand is coherent Veronese-ray thickness; the second is the
+residual thickness of a base whose prime exponents have gcd one.  Polarizing
+\eqref{eq:veronese-residual} on all three legs gives
+\[
+ 2\Phi-\mathcal M=\mathcal V+\mathcal R,
+\]
+where, with $u_i=h_i/g_i$,
+\[
+ \nu_i=(g_i-1)u_i,\qquad \sigma_i=u_i-r_i,
+\]
+\[
+ \mathcal V=\sum_{i<j}(\nu_i h_j+\nu_j h_i),\qquad
+ \mathcal R=\sum_{i<j}(\sigma_i h_j+\sigma_j h_i).
+\]
+These coherent and residual contact losses are nonnegative and total on
+unit legs.  The coherent Veronese term $\mathcal V$ alone is already large
+enough to supply the square-family obstruction.  This does not assert that
+$\mathcal R=0$ and does not refute separate control of $\mathcal R$.
+
+For a rational cell, write $z=m/n$ in lowest terms with $n>0$ and
+$m(n-m)\ne0$.  We use the signed relation $m+(n-m)=n$ for orientation and
+the pairwise-coprime absolute legs $|m|,|n-m|,n$ for valuations, heights,
+radicals, and exponent gcds.  Thus every scalar cell has a canonical
+normalization, even when an auxiliary argument lies outside $(0,1)$.
+One may instead work in the conservative positive subcomplex
+$0<y<x<1$: all five arguments then lie in $(0,1)$ and have unique reduced
+positive primitive triples.  The quadratic move $y=x^2$ is in this domain
+for $0<x<1$.
+
+For a five-term-equivalent chain $\Gamma=\sum_jn_j[z_j]$, define
+\[
+ \mathcal Q(\Gamma)=\sum_j|n_j|(\mathcal M_j+\mathcal V_j),
+ \qquad
+ \mathcal R(\Gamma)=\sum_j|n_j|\mathcal R_j.
+\]
+
+\begin{proposition}[Automatic filling-boundary inequality]
+\label{prop:filling-triangle}
+Every finite five-term-equivalent chain satisfies
+\[
+ \Phi(a,b,c)\leq\tfrac12\bigl(\mathcal Q(\Gamma)
+                                      +\mathcal R(\Gamma)\bigr).
+\]
+\end{proposition}
+\begin{proof}
+Five-term equivalence gives the exact oriented relation
+$\Omega_0=\sum_jn_j\Omega_j$.  The weighted $\ell^1$ triangle inequality
+and the cellwise identity
+$2\Phi_j=\mathcal M_j+\mathcal V_j+\mathcal R_j$ give
+\[
+ \Phi_0=\|\Omega_0\|_{1,\log}
+ \leq\sum_j|n_j|\|\Omega_j\|_{1,\log}
+ =\frac12\sum_j|n_j|(\mathcal M_j+\mathcal V_j+\mathcal R_j).
+\]
+Only finitely many prime coordinates occur.
+\end{proof}
+
+The surviving open target is to construct, uniformly, a chain satisfying
+\begin{align}
+ \mathcal R(\Gamma)&\leq\epsilon\mathcal Q(\Gamma)+K_\epsilon H,\notag\\
+ \mathcal Q(\Gamma)&\leq2H\rho+L_\epsilon H.
+ \label{eq:gate-vf}
+\end{align}
+Together with Proposition~\ref{prop:filling-triangle}, these estimates give
+\[
+ \Phi\leq(1+\epsilon)H\rho
+ +\tfrac12\bigl((1+\epsilon)L_\epsilon+K_\epsilon\bigr)H.
+\]
+The lower bound $\Phi\geq H(H-\log2)$ therefore implies abc.  Gate
+\eqref{eq:gate-vf} is not a renamed height inequality: it requires an actual
+five-term filling and separate control of its coherent and
+primitive-residual costs.  It remains open.
+The Pythagorean-square family eliminates the uncalibrated one-cell policy,
+but it does not eliminate every auxiliary-cell filling.
+
+The exponent triple also defines a generalized Fermat signature with
+$\chi_{\rm orb}=1/g_a+1/g_b+1/g_c-1$.  Results for a fixed hyperbolic
+signature do not provide the uniform estimate over varying signatures that
+\eqref{eq:gate-vf} requires.
+
+\paragraph{Primary-source boundary.}
+The relevant primary sources have sharply different arithmetic settings:
+\begin{itemize}
+\item Ru--Wang, \emph{Vojta's abc conjecture for entire curves in toric
+varieties highly ramified over the boundary},
+\url{https://arxiv.org/abs/2410.19395v2}, is a complex entire-curve theorem.
+\item Pasten, \emph{On the arithmetic case of Vojta's conjecture with
+truncated counting functions},
+\url{https://arxiv.org/abs/2205.07841v3}, proves arithmetic approximation
+inequalities and bounds toward abc.
+\item Gasbarri--Guo--Wang, \emph{Campana conjecture for coverings of toric
+varieties over function fields},
+\url{https://arxiv.org/abs/2401.13186v2}, works over function fields.
+\end{itemize}
+None is an unconditional integer abc theorem over $\mathbf Q$.  Cached
+primary PDFs and SHA-256 metadata are stored under
+\path{research/sources/steinberg_contact_surface_2026_09_02/}.
+
+\paragraph{Formal status.}
+The Lean modules
+\texttt{SteinbergValuationContactSurface20260902.lean} and its axiom audit
+formalize the exterior coefficient identities, five-term relation, scalar
+area identities, quadratic Veronese peeling, MC$\Rightarrow$abc, the
+coefficient-one audit, the complete Gate-MC Pythagorean-square obstruction,
+the abstract scalar Veronese/residual split for supplied data, and the
+finite-coordinate filling-boundary inequality.  The integer exponent-gcd
+construction, actual finite-support cell norm, and conditional exact-boundary
+chain instantiation are supplied by the supplemental
+Section~\ref{sec:steinberg-integer-finite-chain}.  What remains unformalized
+is the inductive relation generated by the permitted rational five-term
+moves and the proof that generated chains satisfy that exact boundary.
+The quantified Gate-SC obstruction is formalized at the fixed admissible
+value $\epsilon=1/10$.  These modules do not inhabit Gate VF or close
+\texttt{ABCConjecture}.

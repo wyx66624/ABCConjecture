@@ -1,0 +1,181 @@
+\section{Denominator entropy at the Mersenne Farey endpoint}
+\label{sec:mersenne-farey-denominator-entropy}
+
+We continue with the exact-order endpoint support
+\[
+ \mathcal S_k(m)=
+ \left\{(q,r,p):
+ \begin{aligned}
+   &q\mid m,\quad q<A_m^k,\quad d=m/q,\\
+   &\operatorname{ord}_p(2)=d,\quad p=1+dr,\\
+   &1\le r<H_m,\quad v_p(2^d-1)\ge3
+ \end{aligned}
+ \right\},
+\]
+where
+\[
+ A_m=\log(3m),\qquad L_m=\log A_m,
+ \qquad H_m=\left\lfloor\sqrt{A_m/L_m}\right\rfloor.
+\]
+The surviving low-multiplier energy is
+\[
+ E_k(m)=\sum_{(q,r,p)\in\mathcal S_k(m)}\frac rq.
+\]
+The preceding reduction needs $E_k(m)=o(\log m)$.  We do not prove that
+estimate here.  We instead show that any failure forces a polynomial swarm
+of distinct base-two super-Wieferich primes, improving the direct
+cardinality reduction by a fixed power of $\log m$.
+
+Define
+\[
+ W_3(x)=\#\{p\le x:p\text{ prime and }p^3\mid2^{p-1}-1\}.
+\]
+For $1\le T<A_m^k$, let
+\[
+ \Delta_3(m;T)=\#\left\{p:\ p\text{ prime},\quad
+ \frac m{A_m^k}<p<1+\frac{mH_m}{T},\quad
+ p^3\mid2^{p-1}-1\right\}.
+\]
+
+\begin{proposition}[Depth transport]
+Every row of $\mathcal S_k(m)$ is a base-two super-Wieferich prime, and the
+map from rows to their primes is injective.  Moreover $p\le1+mH_m$.
+\end{proposition}
+
+\begin{proof}
+For a row, $p-1=dr$ and $p^3\mid2^d-1$.  Hence
+\[
+ 2^d-1\mid2^{dr}-1=2^{p-1}-1.
+\]
+If two rows carry the same prime, uniqueness of the exact order gives the
+same $d$, after which $q=m/d$ and $r=(p-1)/d$ agree.  Finally
+$p=1+(m/q)r\le1+mH_m$.
+\end{proof}
+
+For an integer $1\le T<A_m^k$, let
+\[
+ N_{>T}(m)=\#\{(q,r,p)\in\mathcal S_k(m):q>T\},
+ \qquad \mathcal H_T=\sum_{q\le T}\frac1q.
+\]
+
+\begin{theorem}[Denominator-entropy inequality]
+\label{thm:mersenne-denominator-entropy}
+One has
+\[
+ E_k(m)\le
+ \frac{H_m(H_m-1)}2\mathcal H_T
+ +\frac{H_m}{T}N_{>T}(m).
+\]
+\end{theorem}
+
+\begin{proof}
+For fixed $q\le T$, the pair $(q,r)$ determines
+$p=1+(m/q)r$, so the fibre contains each $1\le r<H_m$ at most once.  Its
+energy is at most $H_m(H_m-1)/(2q)$.  If $q>T$, each row has
+$r/q<H_m/T$.  Summing the two estimates proves the assertion.
+\end{proof}
+
+\begin{theorem}[Super-Wieferich swarm forced by endpoint failure]
+\label{thm:mersenne-super-wieferich-swarm}
+Fix $k>0$.  If, for some $\varepsilon>0$ and infinitely many $m$,
+\[
+ E_k(m)\ge\varepsilon A_m,
+\]
+then, with
+\[
+ \eta=\min\{\varepsilon/4,k/2\}>0,
+\]
+one has along that sequence
+\[
+ \Delta_3(m;\lfloor A_m^\eta\rfloor)
+ \gg_\varepsilon A_m^{1/2+\eta}L_m^{1/2},
+\]
+and therefore
+\[
+ W_3(1+mH_m)\gg_\varepsilon
+ A_m^{1/2+\eta}L_m^{1/2}.
+\]
+\end{theorem}
+
+\begin{proof}
+Set $T=\lfloor A_m^\eta\rfloor$.  The prefix in
+Theorem~\ref{thm:mersenne-denominator-entropy} is at most
+\[
+ \frac{A_m}{2L_m}(1+\log T)
+ =\frac\eta2A_m+o(A_m)
+ \le\frac\varepsilon8A_m+o(A_m).
+\]
+It is therefore at most $\varepsilon A_m/4$ for all sufficiently large
+$m$.  The tail must contribute at least $3\varepsilon A_m/4$, whence
+\[
+ N_{>T}(m)\ge\frac{3\varepsilon}{4}\frac{A_mT}{H_m}
+ \gg_\varepsilon A_m^{1/2+\eta}L_m^{1/2}.
+\]
+For every tail row, $q>A_m^\eta$ and $q<A_m^k$ give
+\[
+ \frac m{A_m^k}<p<1+\frac{mH_m}{A_m^\eta};
+\]
+depth transport and injectivity therefore give the localized assertion and
+then the global one.
+\end{proof}
+
+\begin{corollary}[Critical counting exponent one half]
+\label{cor:mersenne-super-wieferich-half}
+If
+\[
+ \limsup_{x\to\infty}
+ \frac{\log\max\{1,W_3(x)\}}{\log\log x}\le\frac12,
+\]
+then $E_k(m)=o(\log m)$ for every fixed $k>0$.
+\end{corollary}
+
+\begin{proof}
+A failure would give Theorem~\ref{thm:mersenne-super-wieferich-swarm}
+for a fixed $\eta>0$.  Since
+\[
+ \log\log(1+mH_m)=L_m+o(1),
+\]
+the resulting lower bound makes the displayed limsup at least
+$1/2+\eta$, a contradiction.
+\end{proof}
+
+The hypothesis of Corollary~\ref{cor:mersenne-super-wieferich-half} is open.
+It is weaker than finiteness of super-Wieferich primes and also weaker than
+the direct sufficient bound
+$W_3(x)=o(\sqrt{\log x\log\log x})$.  Current multiplicative-order,
+Brun--Titchmarsh, and Fermat-quotient large-sieve results
+\cite{ErdosMurty1999,MurtySeguin2019,Yamada2010,ShparlinskiFermatQuotients2011}
+do not provide it for the fixed base $2$.  The recent conditional results
+\cite{FelliniMurty2026,LiZhao2026} likewise do not upper-bound this packet
+unconditionally.
+
+There is a sharp combinatorial warning.  Let
+$m_n=\operatorname{lcm}(1,\ldots,n)$ and take all reduced pairs
+\[
+ q\le n/2,\qquad 1\le r<H_{m_n},\qquad (q,r)=1.
+\]
+Then $q\mid m_n$, the integers $1+(m_n/q)r$ exist, and the slopes are
+distinct.  Standard totient summation gives
+\[
+ \sum\frac rq=\left(\frac3{\pi^2}+o(1)\right)A_{m_n}.
+\]
+Thus common divisibility and Farey injectivity alone do not give a
+little-oh.  These abstract labels need not be prime, have the prescribed
+exact order, or have depth three, so this is not a counterexample to the
+Mersenne route.
+
+The exact computation bundle constructs these common-index models through
+$n=10000$ and obtains energy ratio $0.2961553070\ldots$, while checking the
+denominator inequality with rational arithmetic.  It also replays the
+exhaustive scan of all $50{,}847{,}534$ primes through $10^9$: the only
+base-two Wieferich primes are $1093$ and $3511$, and both have depth exactly
+two.  The published Dorais--Klyve search gives the corresponding ordinary
+Wieferich exclusion through $6.7\times10^{15}$.  These are finite boundaries,
+not asymptotic evidence inserted into the proof.
+
+Lean formalizes the finite prefix and tail inequalities, the resulting lower
+bound for the number of tail rows, depth transport, and the two exact
+depth-two witnesses.  Its theorem-level dependency union is only
+\texttt{Classical.choice}, \texttt{Quot.sound}, and \texttt{propext}.  The
+critical counting estimate and every analytic limit remain outside the
+kernel.

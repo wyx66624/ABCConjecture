@@ -1,0 +1,39 @@
+/-
+Copyright (c) 2026 ChatGPT. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: ChatGPT
+-/
+import IUTThreeClosures.SteinbergValuationContactSurface20260902
+
+/-! Declaration-level axiom audit for the Steinberg contact-surface route. -/
+
+open IUTThreeClosures
+open IUTThreeClosures.SteinbergValuationContactSurface20260902
+
+#print axioms contactCoefficient_threeLeg
+#print axioms contactCoefficient_translate
+#print axioms contactCoefficient_scale
+#print axioms contactCoefficient_cyclic
+#print axioms contactCoefficient_swap_vertices
+#print axioms steinberg_fiveTerm_surface
+#print axioms quadraticVeronese_peeling
+#print axioms fullContactArea_sub_radicalSkeletonArea
+#print axioms two_fullContactArea_sub_mixedRadicalContactArea
+#print axioms three_mul_radicalSkeletonArea_le_perimeter_sq
+#print axioms radicalPerimeter_eq_conductor
+#print axioms height_mul_height_sub_log_two_le_fullLogContactArea
+#print axioms mixedLogRadicalContactArea_le_two_height_conductor
+#print axioms abcConjecture_of_uniformSingleCellMixedAreaGate
+#print axioms nineSixteenTwentyFive_not_thin
+#print axioms pythagorean_identity
+#print axioms pythagoreanX_coprime_pythagoreanY
+#print axioms pythagoreanSquares_pairwise
+#print axioms pythagoreanSquare_fullArea_over_height_unbounded
+#print axioms not_uniformSingleCellMixedAreaGate
+#print axioms four_mul_radicalSkeletonArea_le_fullContactArea_of_half
+#print axioms four_mul_pythagoreanSquare_skeletonArea_le_fullArea
+#print axioms one_lt_pythagoreanSquare_height
+#print axioms not_uniformSingleCellSkeletonGate
+#print axioms exponentDefect_veronese_residual
+#print axioms contactLoss_veronese_residual_split
+#print axioms finiteFilling_boundary_le_calibratedCost

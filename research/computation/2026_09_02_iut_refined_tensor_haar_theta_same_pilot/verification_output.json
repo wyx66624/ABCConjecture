@@ -1,0 +1,71 @@
+{
+  "arithmetic": "fractions.Fraction (exact)",
+  "bounds": {
+    "factor_count": [
+      1,
+      4
+    ],
+    "ramification_index": [
+      1,
+      5
+    ],
+    "residue_degree": [
+      1,
+      5
+    ],
+    "parent_weights": [
+      "1/11",
+      "2/11",
+      "3/11",
+      "4/11",
+      "5/11",
+      "6/11",
+      "7/11",
+      "8/11",
+      "9/11",
+      "10/11"
+    ]
+  },
+  "positive_results": {
+    "packets_checked": 406900,
+    "total_degree_normalization_checks": 406900,
+    "relative_weight_sum_checks": 406900,
+    "dimension_weighted_factor_formula_checks": 406900,
+    "parent_weight_conservation_checks": 4069000
+  },
+  "full_premise_formula_countersearch": {
+    "factor_count_normalization_failures": 406896,
+    "first_factor_count_failure": {
+      "local_pairs": [
+        [
+          1,
+          2
+        ]
+      ],
+      "local_degrees": [
+        2
+      ],
+      "wrong_coefficient": "2",
+      "correct_coefficient": "1"
+    },
+    "copied_parent_weight_failures": 4068750,
+    "first_copied_parent_weight_failure": {
+      "factor_count": 2,
+      "parent_weight": "1/11",
+      "copied_total": "2/11",
+      "correct_refined_total": "1/11"
+    },
+    "quadratic_galois_tensor_example": {
+      "local_degrees": [
+        2,
+        2
+      ],
+      "correct_relative_weights": [
+        "1/2",
+        "1/2"
+      ],
+      "copied_weights_total": "2"
+    }
+  },
+  "scope": "Finite algebraic audit only; no source-level theta transport, Ind3 openness, horizontal same-pilot theorem, IUT, or abc conclusion."
+}

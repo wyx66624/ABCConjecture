@@ -1,0 +1,253 @@
+% Directly inputtable paper section. Author: ChatGPT.
+\section{Integer exponent gcds and finite-support Steinberg chains}
+\label{sec:steinberg-integer-finite-chain}
+
+\noindent\textbf{Author: ChatGPT.}
+This section supplies two algebraic bridges needed by the valuation-contact
+route.  First, it constructs the canonical common-exponent decomposition of
+every positive integer and separates its coherent and primitive residual
+defects.  Second, it realizes contact surfaces in an actual finite-support
+coordinate module and proves the exact weighted cell norm and a conditional
+finite-chain estimate.  No form of the $abc$ conjecture and no analytic
+filling estimate is assumed.
+
+\subsection{The canonical common-exponent decomposition}
+
+For $n>1$, write
+\[
+ n=\prod_{p\in S(n)}p^{e_p},
+ \qquad e_p>0,
+\]
+where $S(n)$ is nonempty, and put
+\begin{equation}
+ g(n)=\gcd_{p\in S(n)}e_p,
+ \qquad
+ u(n)=\prod_{p\in S(n)}p^{e_p/g(n)}.
+ \label{eq:sifc-gcd-base}
+\end{equation}
+For the unit we adopt the convention
+\begin{equation}
+ g(1)=1,\qquad u(1)=1.
+ \label{eq:sifc-unit-convention}
+\end{equation}
+The second convention does not turn the gcd of an empty exponent family
+into one; it only defines the decomposition at the unit.
+
+\begin{proposition}[Integer exponent-gcd decomposition]
+\label{prop:sifc-integer-decomposition}
+For every positive integer $n$,
+\[
+ g(n)>0,\qquad n=u(n)^{g(n)},\qquad u(n)>0,
+ \qquad \operatorname{rad}(u(n))=\operatorname{rad}(n).
+\]
+If $n>1$, then $u(n)$ has the same nonempty prime support as $n$ and
+\[
+ \gcd_{p\mid u(n)}v_p(u(n))=1.
+\]
+The last assertion is deliberately restricted to $n>1$.
+\end{proposition}
+
+\begin{proof}
+The assertions at $n=1$ follow from
+\eqref{eq:sifc-unit-convention}.  Suppose $n>1$.  Its finite prime support
+is nonempty, so the gcd $g(n)$ of its positive exponents is positive and
+divides every $e_p$.  Consequently
+\[
+ g(n)\frac{e_p}{g(n)}=e_p
+\]
+for every supported prime, and unique factorization gives
+\[
+ u(n)^{g(n)}
+ =\prod_{p\in S(n)}p^{g(n)(e_p/g(n))}
+ =\prod_{p\in S(n)}p^{e_p}=n.
+\]
+Every quotient $e_p/g(n)$ is positive.  Thus no supported prime disappears
+and no new prime appears, proving support and radical equality.  Dividing a
+finite nonzero family by its gcd makes the gcd of the quotient family one,
+which proves the final assertion.
+\end{proof}
+
+Set
+\[
+ h(n)=\log n,\qquad h_u(n)=\log u(n),\qquad
+ r(n)=\log\operatorname{rad}(n),
+\]
+and define
+\begin{equation}
+ \nu(n)=(g(n)-1)h_u(n),\qquad
+ \sigma(n)=h_u(n)-r(n).
+ \label{eq:sifc-thicknesses}
+\end{equation}
+
+\begin{proposition}[Coherent--residual defect split]
+\label{prop:sifc-defect-split}
+For every positive integer $n$,
+\begin{equation}
+ h(n)=g(n)h_u(n),\qquad
+ h(n)-r(n)=\nu(n)+\sigma(n),\qquad
+ \nu(n),\sigma(n)\geq0.
+ \label{eq:sifc-defect-identity}
+\end{equation}
+At $n=1$, the three heights $h,h_u,r$ and both thicknesses
+$\nu,\sigma$ vanish (while the convention gives $g(1)=1$).
+\end{proposition}
+
+\begin{proof}
+Proposition~\ref{prop:sifc-integer-decomposition} and the logarithm of a
+positive integral power give $h(n)=g(n)h_u(n)$.  Since $g(n)\geq1$ and
+$h_u(n)\geq0$, one has $\nu(n)\geq0$.  The equality of radicals and the
+elementary inequality $\operatorname{rad}(u(n))\leq u(n)$ give
+$\sigma(n)\geq0$.  Finally,
+\[
+ g(n)h_u(n)-r(n)
+ =(g(n)-1)h_u(n)+(h_u(n)-r(n)).
+\]
+The unit statement follows directly from the convention.
+\end{proof}
+
+\subsection{An actual finite-support contact module}
+
+Let
+\[
+ \mathcal D=\mathbb N\to_0\mathbb Z,
+ \qquad
+ \mathcal E=(\mathbb N\times\mathbb N)\to_0\mathbb Z,
+\]
+where $\to_0$ denotes finitely supported functions.  For $X,Y\in\mathcal D$
+define
+\[
+ (X\otimes Y)_{p,q}=X_pY_q,\qquad
+ X\wedge Y=X\otimes Y-Y\otimes X,
+\]
+and set
+\[
+ \Omega(A,B,C)=(A-C)\wedge(B-C)\in\mathcal E.
+\]
+This ordered-pair model stores both orientations of each alternating
+coordinate.  For effective divisors $A,B,C:\mathbb N\to_0\mathbb N$, a
+finite set $S$, and nonnegative weights $w_p$, put
+\[
+ L_{S,w}(A)=\sum_{p\in S}A_pw_p,
+ \qquad
+ \|\Omega\|_{S,w}
+ =\frac12\sum_{p,q\in S}|\Omega_{p,q}|w_pw_q.
+\]
+
+\begin{proposition}[Exact finite-support mixed area]
+\label{prop:sifc-finite-mixed-area}
+If the supports of $A,B,C$ are pairwise disjoint, then
+\begin{equation}
+ \|\Omega(A,B,C)\|_{S,w}
+ =L_{S,w}(A)L_{S,w}(B)
+  +L_{S,w}(B)L_{S,w}(C)
+  +L_{S,w}(C)L_{S,w}(A).
+ \label{eq:sifc-finite-mixed-area}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The three-leg expansion gives
+\[
+ \Omega_{p,q}
+ =A_pB_q-A_qB_p+B_pC_q-B_qC_p+C_pA_q-C_qA_p.
+\]
+At any coordinate at most one of $A_p,B_p,C_p$ is nonzero.  Applying this
+observation at $p$ and at $q$ gives the pointwise identity
+\begin{align*}
+ |\Omega_{p,q}|={}&A_pB_q+B_pA_q+B_pC_q+C_pB_q\\
+                  &+C_pA_q+A_pC_q.
+\end{align*}
+After multiplication by $w_pw_q$ and finite summation, each directed
+rectangle factors.  For example,
+\[
+ \sum_{p,q\in S}A_pB_qw_pw_q=L_{S,w}(A)L_{S,w}(B).
+\]
+Every cross-leg rectangle occurs in both orientations; the prefactor
+$1/2$ removes this duplication and yields
+\eqref{eq:sifc-finite-mixed-area}.
+\end{proof}
+
+A canonical positive rational cell is a triple $P=(a,b,c)$ of positive
+integers such that
+\[
+ a+b=c,\qquad \gcd(a,b)=1.
+\]
+It represents $a/c\in(0,1)$.  The sum relation also gives
+$\gcd(a,c)=\gcd(b,c)=1$, so the three valuation divisors have pairwise
+disjoint prime supports.  Let $S(P)$ be their finite union and take
+$w_p=\log p$.  Unique factorization and
+Proposition~\ref{prop:sifc-finite-mixed-area} give
+\begin{equation}
+ \Phi(P):=\|\Omega(P)\|_{S(P),\log}
+ =\log a\log b+\log b\log c+\log c\log a.
+ \label{eq:sifc-cell-norm}
+\end{equation}
+
+Let $M(P)$ be the one-sided radical polarization of the three leg heights.
+Let $V(P)$ be the bilinear contact loss formed from the three coherent
+thicknesses $\nu$, and let $R(P)$ be the corresponding loss formed from the
+three residual thicknesses $\sigma$.  Polarizing
+Proposition~\ref{prop:sifc-defect-split} in
+\eqref{eq:sifc-cell-norm} proves the exact identity
+\begin{equation}
+ 2\Phi(P)=M(P)+V(P)+R(P).
+ \label{eq:sifc-cell-split}
+\end{equation}
+No estimate is used in \eqref{eq:sifc-cell-split}.
+
+\subsection{Finite chains with an exact boundary}
+
+Let $I$ be finite, let $P_0$ and $P_j$ be canonical positive rational
+cells, and let $n_j\in\mathbb Z$.  Assume the exact equality in the integral
+finite-support module
+\begin{equation}
+ \Omega(P_0)=\sum_{j\in I}n_j\Omega(P_j).
+ \label{eq:sifc-exact-boundary}
+\end{equation}
+
+\begin{theorem}[Concrete exact-boundary filling estimate]
+\label{thm:sifc-exact-boundary}
+Under \eqref{eq:sifc-exact-boundary},
+\begin{equation}
+ \Phi(P_0)\leq\frac12\biggl(
+   \sum_{j\in I}|n_j|\bigl(M(P_j)+V(P_j)\bigr)
+   +\sum_{j\in I}|n_j|R(P_j)
+ \biggr).
+ \label{eq:sifc-calibrated-bound}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Take the finite union $S$ of every prime support occurring in the target
+and the chain.  Evaluate \eqref{eq:sifc-exact-boundary} at each
+$(p,q)\in S\times S$, cast to the reals, and multiply by
+$\frac12\log p\log q$.  The triangle inequality gives
+\[
+ \Phi(P_0)\leq\sum_{j\in I}|n_j|\Phi(P_j).
+\]
+Substitute \eqref{eq:sifc-cell-split} for each cell and separate the two
+sums.  This is exactly \eqref{eq:sifc-calibrated-bound}.
+\end{proof}
+
+Theorem~\ref{thm:sifc-exact-boundary} is conditional only on the displayed
+finite-support equality.  The inductively generated equivalence relation
+from the permitted rational five-term moves remains \emph{open and
+unformalized}: this section neither defines all generators and closure
+operations nor proves that every generated chain satisfies
+\eqref{eq:sifc-exact-boundary}.  It also proves neither of the two analytic
+bounds required by Gate VF.
+
+\subsection{Lean realization and formal boundary}
+
+The companion Lean module listed in Section~\ref{sec:formal}
+formalizes Propositions~\ref{prop:sifc-integer-decomposition} and
+\ref{prop:sifc-defect-split}, the actual finite-support types
+\texttt{FiniteDivisor} and \texttt{FiniteExteriorSurface},
+Proposition~\ref{prop:sifc-finite-mixed-area}, the canonical rational-cell
+specialization \eqref{eq:sifc-cell-norm}, the split
+\eqref{eq:sifc-cell-split}, and
+Theorem~\ref{thm:sifc-exact-boundary}.  Its final namespace theorem
+instantiates the earlier abstract finite-coordinate triangle inequality.
+The companion axiom audit
+uses no project-specific axiom, and direct compilation with warnings treated
+as errors succeeds.

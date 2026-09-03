@@ -1,0 +1,481 @@
+ℹ [8655/8659] Replayed IUTThreeClosures.PellLucasAllOrderStaircase20260901
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:349:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.evenPowerSum_append (U : ℤ) (as bs : List ℤ) :
+  evenPowerSum U (as ++ bs) = evenPowerSum U as + U ^ (2 * as.length) * evenPowerSum U bs
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:350:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.coprime_add_square_tail (U a h : ℤ) (ha : IsCoprime a U) :
+  IsCoprime (a + U ^ 2 * h) U
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:351:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.evenPowerSum_coprime_of_leading (U a : ℤ) (as : List ℤ)
+  (ha : IsCoprime a U) : IsCoprime (evenPowerSum U (a :: as)) U
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:352:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.support_not_dvd_normalized_tail (U a p : ℤ) (as : List ℤ)
+  (ha : IsCoprime a U) (hpU : p ∣ U) (hpOne : ¬p ∣ 1) : ¬p ∣ evenPowerSum U (a :: as)
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:353:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.prime_not_dvd_list_prod_of_small (p : ℕ) (hp : Nat.Prime p)
+  (fs : List ℕ) (hsmall : ∀ x ∈ fs, 0 < x ∧ x < p) : ¬p ∣ fs.prod
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:354:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.integral_coefficient_not_dvd_of_small_numerator
+  (p ell denominator c : ℕ) (fs : List ℕ) (hp : Nat.Prime p) (hell : 0 < ell ∧ ell < p)
+  (hsmall : ∀ x ∈ fs, 0 < x ∧ x < p) (hcoeff : denominator * c = ell * fs.prod) : ¬p ∣ c
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:355:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.paired_correction_modEq (U ell v W S c d : ℤ)
+  (hW : W ≡ c [ZMOD U ^ 2]) (hS : S ≡ v * d [ZMOD U ^ 2]) (hcoeff : ell * d = 3 * c) : ell * S ≡ 3 * v * W [ZMOD U ^ 2]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:356:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.channel_square_divisors (U A B : ℤ) (hU : U = A * B) :
+  A ^ 2 ∣ U ^ 2 ∧ B ^ 2 ∣ U ^ 2
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:357:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.companion_mod_A (v A : ℤ) (hv : v = 4 * A ^ 2 + 2) :
+  v ≡ 2 [ZMOD A ^ 2]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:358:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.companion_mod_B (v B : ℤ) (hv : v = 8 * B ^ 2 - 2) :
+  v ≡ -2 [ZMOD B ^ 2]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:359:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.paired_correction_channel_splitter (U A B ell v W S : ℤ)
+  (hU : U = A * B) (hvA : v = 4 * A ^ 2 + 2) (hvB : v = 8 * B ^ 2 - 2) (hpair : ell * S ≡ 3 * v * W [ZMOD U ^ 2]) :
+  ell * S ≡ 6 * W [ZMOD A ^ 2] ∧ ell * S ≡ -6 * W [ZMOD B ^ 2]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:360:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.cancel_coprime_factor_modEq (m c x y : ℤ) (hc : IsCoprime c m)
+  (h : c * x ≡ c * y [ZMOD m]) : x ≡ y [ZMOD m]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:361:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.six_mul_tail_unit_mod_square (U W : ℤ) (h6 : IsCoprime 6 U)
+  (hW : IsCoprime W U) : IsCoprime (6 * W) (U ^ 2)
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:362:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.splitter_recovers_half_companion (U ell v W S Z Z0 : ℤ)
+  (hv : v = 2 * Z0) (hunit : IsCoprime (6 * W) (U ^ 2)) (hpair : ell * S ≡ 3 * v * W [ZMOD U ^ 2])
+  (hZ : 6 * W * Z ≡ ell * S [ZMOD U ^ 2]) : Z ≡ Z0 [ZMOD U ^ 2]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:363:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.channel_signs_give_square_root (A B U Z : ℤ) (hU : U = A * B)
+  (hAB : IsCoprime A B) (hZA : Z ≡ 1 [ZMOD A ^ 2]) (hZB : Z ≡ -1 [ZMOD B ^ 2]) : Z ^ 2 ≡ 1 [ZMOD U ^ 2]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:364:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.no_fixed_zero_of_full_local_surjectivity (s : ℤ)
+  (Admissible : ℤ → Prop) (corr : ℤ → ℤ) (hsurj : ∀ (c : ℤ), ∃ k, Admissible k ∧ corr k ≡ c [ZMOD s])
+  (hone : ¬1 ≡ 0 [ZMOD s]) : ¬∀ (k : ℤ), Admissible k → corr k ≡ 0 [ZMOD s]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:365:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.lucasMatrix_firstColumn.{u_1} {R : Type u_1} [CommRing R] (n : ℕ) :
+  (lucasMatrix R ^ n) 0 0 = lucasU (n + 1) ∧ (lucasMatrix R ^ n) 1 0 = lucasU n
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:366:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.lucasMatrix_entry.{u_1} {R : Type u_1} [CommRing R] (n : ℕ) :
+  (lucasMatrix R ^ n) 1 0 = lucasU n
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:367:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.u7353_mod_214375_certificate : lucasU 7353 = 85785
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:368:0: IUTThreeClosures.PellLucasAllOrderStaircase20260901.fixedZeroCounterexample_arithmetic :
+  2451 = 1 + 2 * 35 ^ 2 ∧ 0 < 2451 ∧ Odd 2451 ∧ 85785 = 35 * 2451 ∧ (2451 - 1) / 35 ^ 2 = 2 ∧ ¬2 ≡ 0 [ZMOD 5]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:370:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.evenPowerSum_append' depends on axioms: [propext, Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:371:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.coprime_add_square_tail' depends on axioms: [propext, Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:372:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.evenPowerSum_coprime_of_leading' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:373:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.support_not_dvd_normalized_tail' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:374:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.prime_not_dvd_list_prod_of_small' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:375:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.integral_coefficient_not_dvd_of_small_numerator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:376:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.paired_correction_modEq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:377:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.channel_square_divisors' depends on axioms: [propext]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:378:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.companion_mod_A' depends on axioms: [propext, Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:379:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.companion_mod_B' depends on axioms: [propext, Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:380:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.paired_correction_channel_splitter' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:381:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.cancel_coprime_factor_modEq' depends on axioms: [propext]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:382:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.six_mul_tail_unit_mod_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:383:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.splitter_recovers_half_companion' depends on axioms: [propext]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:384:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.channel_signs_give_square_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:385:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.no_fixed_zero_of_full_local_surjectivity' does not depend on any axioms
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:386:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.lucasMatrix_firstColumn' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:387:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.lucasMatrix_entry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:388:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.u7353_mod_214375_certificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasAllOrderStaircase20260901.lean:389:0: 'IUTThreeClosures.PellLucasAllOrderStaircase20260901.fixedZeroCounterexample_arithmetic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8656/8659] Replayed IUTThreeClosures.PellOddKernelThirdOrderPacket20260901
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:379:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.packetValue_eq_oddKernel_cube_mul_squareCore_square
+  (fs : List SquarefullFactor) : packetValue fs = oddKernel fs ^ 3 * squareCore fs ^ 2
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:380:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.factor_value_eq_kernel_cube_mul_core_square
+  (f : SquarefullFactor) : f.base ^ f.exponent = f.kernelTerm ^ 3 * f.coreTerm ^ 2
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:381:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.odd_depth_exponent_packet (f : SquarefullFactor)
+  (hodd : f.oddDepth = true) : Odd f.exponent ∧ 3 ≤ f.exponent
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:382:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.oddKernel_modEq_one (m : ℤ) (fs : List SquarefullFactor)
+  (hbase : ∀ f ∈ fs, f.base ≡ 1 [ZMOD m]) : oddKernel fs ≡ 1 [ZMOD m]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:383:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.oddKernel_modEq_oddSignProduct (m : ℤ)
+  (sign : SquarefullFactor → ℤ) (fs : List SquarefullFactor) (hbase : ∀ f ∈ fs, f.base ≡ sign f [ZMOD m]) :
+  oddKernel fs ≡ oddSignProduct sign fs [ZMOD m]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:384:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.squareCore_sq_modEq_one_of_signed_packet (m s : ℤ)
+  (fs : List SquarefullFactor) (hsign : s = 1 ∨ s = -1) (hkernel : oddKernel fs ≡ s [ZMOD m])
+  (hvalue : packetValue fs ≡ s [ZMOD m]) : squareCore fs ^ 2 ≡ 1 [ZMOD m]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:385:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.jacobi_eq_one_of_mod_eq_one (a b : ℕ) (hmod : a % b = 1) :
+  J(↑a | b) = 1
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:386:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.jacobi_reverse_neg_of_both_three_mod_four (ell D : ℕ)
+  (hell : ell % 4 = 3) (hD : D % 4 = 3) (hforward : J(↑D | ell) = 1) : J(↑ell | D) = -1
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:387:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.jacobi_reverse_eq_of_denominator_one_mod_four (ell D : ℕ)
+  (hellOdd : Odd ell) (hD : D % 4 = 1) : J(↑ell | D) = J(↑D | ell)
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:388:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.three_negative_character_triangle (ell DA DB : ℕ)
+  (hell3 : ell % 4 = 3) (hDA3 : DA % 4 = 3) (hDB1 : DB % 4 = 1) (hellOdd : Odd ell) (hDAForward : J(↑DA | ell) = 1)
+  (hDBForward : J(↑DB | ell) = -1) (hCross : J(↑DA | DB) = -1) :
+  J(↑DA | DB) = -1 ∧ J(↑ell | DA) = -1 ∧ J(↑ell | DB) = -1
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:389:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.all_positive_character_triangle (ell DA DB : ℕ)
+  (hell1 : ell % 4 = 1) (hDAOdd : Odd DA) (hDB1 : DB % 4 = 1) (hellOdd : Odd ell) (hDAForward : J(↑DA | ell) = 1)
+  (hDBForward : J(↑DB | ell) = 1) (hCross : J(↑DA | DB) = 1) : J(↑DA | DB) = 1 ∧ J(↑ell | DA) = 1 ∧ J(↑ell | DB) = 1
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:390:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.cross_only_negative_character_triangle (ell DA DB : ℕ)
+  (hell1 : ell % 4 = 1) (hDAOdd : Odd DA) (hDB1 : DB % 4 = 1) (hellOdd : Odd ell) (hDAForward : J(↑DA | ell) = 1)
+  (hDBForward : J(↑DB | ell) = 1) (hCross : J(↑DA | DB) = -1) : J(↑DA | DB) = -1 ∧ J(↑ell | DA) = 1 ∧ J(↑ell | DB) = 1
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:391:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.index_A_only_negative_character_triangle (ell DA DB : ℕ)
+  (hell3 : ell % 4 = 3) (hDA3 : DA % 4 = 3) (hDB1 : DB % 4 = 1) (hellOdd : Odd ell) (hDAForward : J(↑DA | ell) = 1)
+  (hDBForward : J(↑DB | ell) = 1) (hCross : J(↑DA | DB) = 1) : J(↑DA | DB) = 1 ∧ J(↑ell | DA) = -1 ∧ J(↑ell | DB) = 1
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:392:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.product_one_add_thirdOrder (x : ℤ) (ts : List ℤ) :
+  (List.map (fun t ↦ 1 + x * t) ts).prod ≡
+    1 + x * ts.sum + x ^ 2 * pairCoefficient ts + x ^ 3 * tripleCoefficient ts [ZMOD x ^ 4]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:393:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.quotient_thirdOrder_of_product (x a : ℤ) (ts : List ℤ)
+  (hx : x ≠ 0) (hprod : 1 + x * a = (List.map (fun t ↦ 1 + x * t) ts).prod) :
+  a ≡ ts.sum + x * pairCoefficient ts + x ^ 2 * tripleCoefficient ts [ZMOD x ^ 3]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:394:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.thirdOrderCoupling_of_channelCongruences
+  (ell a b KA KB CA CB HA HB : ℤ) (ha : a ≡ KA + 2 * ell * CA + 4 * ell ^ 2 * HA [ZMOD 8 * ell ^ 3])
+  (hb : b ≡ KB + 2 * ell * CB + 4 * ell ^ 2 * HB [ZMOD 8 * ell ^ 3])
+  (hExact : a - 2 * b + ell * (a ^ 2 - 2 * b ^ 2) = 0) :
+  KA - 2 * KB + ell * (KA ^ 2 - 2 * KB ^ 2) + 2 * ell * (CA - 2 * CB) +
+        4 * ell ^ 2 * (HA - 2 * HB + KA * CA - 2 * KB * CB) +
+      4 * ell ^ 3 * (CA ^ 2 - 2 * CB ^ 2) ≡
+    0 [ZMOD 8 * ell ^ 3]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:395:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.indexSeven_thirdOrderCoefficientCertificate :
+  ([17].sum, pairCoefficient [17], tripleCoefficient [17], [-1, -1].sum, pairCoefficient [-1, -1],
+      tripleCoefficient [-1, -1]) =
+    (17, 0, 0, -2, 1, 0)
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:396:0: IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.indexSeven_thirdOrderCouplingCertificate :
+  17 - 2 * -2 + 7 * (17 ^ 2 - 2 * (-2) ^ 2) + 2 * 7 * (0 - 2 * 1) + 4 * 7 ^ 2 * (0 - 2 * 0 + 17 * 0 - 2 * -2 * 1) +
+      4 * 7 ^ 3 * (0 ^ 2 - 2 * 1 ^ 2) ≡
+    0 [ZMOD 8 * 7 ^ 3]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:398:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.packetValue_eq_oddKernel_cube_mul_squareCore_square' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:399:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.factor_value_eq_kernel_cube_mul_core_square' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:400:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.odd_depth_exponent_packet' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:401:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.oddKernel_modEq_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:402:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.oddKernel_modEq_oddSignProduct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:403:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.squareCore_sq_modEq_one_of_signed_packet' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:404:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.jacobi_eq_one_of_mod_eq_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:405:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.jacobi_reverse_neg_of_both_three_mod_four' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:406:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.jacobi_reverse_eq_of_denominator_one_mod_four' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:407:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.three_negative_character_triangle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:408:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.all_positive_character_triangle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:409:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.cross_only_negative_character_triangle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:410:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.index_A_only_negative_character_triangle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:411:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.product_one_add_thirdOrder' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:412:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.quotient_thirdOrder_of_product' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:413:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.thirdOrderCoupling_of_channelCongruences' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:414:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.indexSeven_thirdOrderCoefficientCertificate' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellOddKernelThirdOrderPacket20260901.lean:415:0: 'IUTThreeClosures.PellOddKernelThirdOrderPacket20260901.indexSeven_thirdOrderCouplingCertificate' depends on axioms: [propext,
+ Quot.sound]
+ℹ [8657/8659] Replayed IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:409:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.rational_coefficient_correlation (ell theta j : ℕ) :
+  ↑(2 * j + 1) * firstCoeffQ ell theta j = ↑ell * companionCoeffQ theta j
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:410:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.product_firstCoeff_eq_closedForm (theta j : ℕ)
+  (hj : j ≤ theta) : productFirstCoeffQ (2 * theta + 1) j = firstCoeffQ (2 * theta + 1) theta j
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:411:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.product_coefficient_correlation (theta j : ℕ)
+  (hj : j ≤ theta) : ↑(2 * j + 1) * productFirstCoeffQ (2 * theta + 1) j = ↑(2 * theta + 1) * companionCoeffQ theta j
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:412:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.scaled_rational_coefficient_correlation (ell theta j : ℕ)
+  (scale : ℚ) : ↑(2 * j + 1) * (scale * firstCoeffQ ell theta j) = ↑ell * (scale * companionCoeffQ theta j)
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:413:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.scaled_product_coefficient_correlation (theta j : ℕ)
+  (hj : j ≤ theta) (scale : ℚ) :
+  ↑(2 * j + 1) * (scale * productFirstCoeffQ (2 * theta + 1) j) = ↑(2 * theta + 1) * (scale * companionCoeffQ theta j)
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:414:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.weightedEvenPowerSum_eq_mul (ell start U : ℤ)
+  (as bs : List ℤ) (hcorr : CorrelatedFrom ell start as bs) :
+  weightedEvenPowerSum start U as = ell * PellLucasAllOrderStaircase20260901.evenPowerSum U bs
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:415:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.normalized_tail_correlation (U ell weight a b : ℤ)
+  (as bs : List ℤ) (hcoeff : weight * a = ell * b) :
+  weight * PellLucasAllOrderStaircase20260901.evenPowerSum U (a :: as) ≡
+    ell * PellLucasAllOrderStaircase20260901.evenPowerSum U (b :: bs) [ZMOD U ^ 2]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:416:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.everyOrderPairedCorrection (U ell weight v E F T : ℤ)
+  (hEF : weight * E ≡ ell * F [ZMOD U ^ 2]) (hT : T = v * F) : ell * T ≡ weight * v * E [ZMOD U ^ 2]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:417:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.everyOrderDenominatorUnit (U weight E : ℤ)
+  (h2 : IsCoprime 2 U) (hweight : IsCoprime weight U) (hE : IsCoprime E U) : IsCoprime (2 * weight * E) (U ^ 2)
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:418:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.everyOrderSplitter_recovers_halfCompanion
+  (U ell weight v E T Z Z0 : ℤ) (hv : v = 2 * Z0) (hunit : IsCoprime (2 * weight * E) (U ^ 2))
+  (hpair : ell * T ≡ weight * v * E [ZMOD U ^ 2]) (hZ : 2 * weight * E * Z ≡ ell * T [ZMOD U ^ 2]) : Z ≡ Z0 [ZMOD U ^ 2]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:419:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.crossOrderDeterminant_zero (U ell v wr ws Er Es Tr Ts : ℤ)
+  (hell : IsCoprime ell (U ^ 2)) (hr : ell * Tr ≡ wr * v * Er [ZMOD U ^ 2]) (hs : ell * Ts ≡ ws * v * Es [ZMOD U ^ 2]) :
+  Tr * (ws * Es) ≡ Ts * (wr * Er) [ZMOD U ^ 2]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:420:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.cube_dvd_channel_gives_sixth_dvd_square (q A : ℤ)
+  (h : q ^ 3 ∣ A) : q ^ 6 ∣ A ^ 2
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:421:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.positiveChannel_depthSix (q A Z : ℤ) (hq : q ^ 3 ∣ A)
+  (hZ : Z ≡ 1 [ZMOD A ^ 2]) : Z ≡ 1 [ZMOD q ^ 6]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:422:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.negativeChannel_depthSix (r B Z : ℤ) (hr : r ^ 3 ∣ B)
+  (hZ : Z ≡ -1 [ZMOD B ^ 2]) : Z ≡ -1 [ZMOD r ^ 6]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:423:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.recoveredHalfCompanion_channelSigns (A B U Z Z0 : ℤ)
+  (hU : U = A * B) (hZU : Z ≡ Z0 [ZMOD U ^ 2]) (hA : Z0 = 2 * A ^ 2 + 1) (hB : Z0 = 4 * B ^ 2 - 1) :
+  Z ≡ 1 [ZMOD A ^ 2] ∧ Z ≡ -1 [ZMOD B ^ 2]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:424:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.recoveredHalfCompanion_oppositeDepthSix
+  (q r A B U Z Z0 : ℤ) (hU : U = A * B) (hZU : Z ≡ Z0 [ZMOD U ^ 2]) (hA : Z0 = 2 * A ^ 2 + 1) (hB : Z0 = 4 * B ^ 2 - 1)
+  (hq : q ^ 3 ∣ A) (hr : r ^ 3 ∣ B) : Z ≡ 1 [ZMOD q ^ 6] ∧ Z ≡ -1 [ZMOD r ^ 6]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:425:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.exists_negative_of_sign_product (xs : List ℤ)
+  (hsign : ∀ x ∈ xs, x = 1 ∨ x = -1) (hprod : xs.prod = -1) : ∃ x ∈ xs, x = -1
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:426:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.negativeRow_forces_oppositeCongruence (ell r : ℤ)
+  (qs : List ℤ) (chi : ℤ → ℤ) (hsign : ∀ q ∈ qs, chi q = 1 ∨ chi q = -1) (hprod : (List.map chi qs).prod = -1)
+  (hq : ∀ q ∈ qs, q ≡ 1 [ZMOD 2 * ell]) (hr : r ≡ -1 [ZMOD 2 * ell]) : ∃ q ∈ qs, chi q = -1 ∧ 2 * ell ∣ q + r
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:427:0: IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.halfUnit_power_product.{u_1} {R : Type u_1} [CommMonoid R]
+  (two B : R) (n : ℕ) (hhalf : two * B ^ 2 = 1) : B ^ (2 * n) * two ^ n = 1
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:429:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.rational_coefficient_correlation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:430:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.product_firstCoeff_eq_closedForm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:431:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.product_coefficient_correlation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:432:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.scaled_rational_coefficient_correlation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:433:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.scaled_product_coefficient_correlation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:434:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.weightedEvenPowerSum_eq_mul' depends on axioms: [propext]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:435:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.normalized_tail_correlation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:436:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.everyOrderPairedCorrection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:437:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.everyOrderDenominatorUnit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:438:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.everyOrderSplitter_recovers_halfCompanion' depends on axioms: [propext]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:439:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.crossOrderDeterminant_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:440:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.cube_dvd_channel_gives_sixth_dvd_square' depends on axioms: [propext]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:441:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.positiveChannel_depthSix' depends on axioms: [propext]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:442:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.negativeChannel_depthSix' depends on axioms: [propext]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:443:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.recoveredHalfCompanion_channelSigns' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:444:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.recoveredHalfCompanion_oppositeDepthSix' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:445:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.exists_negative_of_sign_product' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:446:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.negativeRow_forces_oppositeCongruence' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellLucasCorrelatedAllOrderExclusion20260901.lean:447:0: 'IUTThreeClosures.PellLucasCorrelatedAllOrderExclusion20260901.halfUnit_power_product' depends on axioms: [propext]
+ℹ [8658/8659] Replayed IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:503:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.tripleCarrier_coefficients (t : ℤ) (rest : List ℤ) :
+  ((t :: t :: t :: rest).sum, pairCoefficient (t :: t :: t :: rest), tripleCoefficient (t :: t :: t :: rest)) =
+    (3 * t + rest.sum, 3 * t ^ 2 + 3 * t * rest.sum + pairCoefficient rest,
+      t ^ 3 + 3 * t ^ 2 * rest.sum + 3 * t * pairCoefficient rest + tripleCoefficient rest)
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:504:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.positiveCarrier_minimal_coefficients (k : ℤ) :
+  ([k, k, k].sum, pairCoefficient [k, k, k], tripleCoefficient [k, k, k]) = (3 * k, 3 * k ^ 2, k ^ 3)
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:505:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.negativeCarrier_minimal_coefficients (h : ℤ) :
+  ([-h, -h, -h].sum, pairCoefficient [-h, -h, -h], tripleCoefficient [-h, -h, -h]) = (-3 * h, 3 * h ^ 2, -h ^ 3)
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:506:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionJets_difference_exact
+  (ell KA KB CA CB HA HB : ℤ) :
+  companionAJet (2 * ell) KA CA HA - companionBJet (2 * ell) KB CB HB =
+    16 * ell * completeThirdOrderLedger ell KA KB CA CB HA HB - 64 * ell ^ 4 * (CA ^ 2 - 2 * CB ^ 2)
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:507:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionJets_modEq_of_completeThirdOrderLedger
+  (ell KA KB CA CB HA HB : ℤ) (hledger : completeThirdOrderLedger ell KA KB CA CB HA HB ≡ 0 [ZMOD 8 * ell ^ 3]) :
+  companionAJet (2 * ell) KA CA HA ≡ companionBJet (2 * ell) KB CB HB [ZMOD (2 * ell) ^ 4]
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:508:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.completeThirdOrderLedger_modEllCube_of_companionJets
+  (ell KA KB CA CB HA HB : ℤ) (hell : ell ≠ 0)
+  (hjets : companionAJet (2 * ell) KA CA HA ≡ companionBJet (2 * ell) KB CB HB [ZMOD (2 * ell) ^ 4]) :
+  completeThirdOrderLedger ell KA KB CA CB HA HB ≡ 0 [ZMOD ell ^ 3]
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:509:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.jetEquality_losesEight_counterexample :
+  completeThirdOrderLedger 3 27 0 0 0 0 0 = 2214 ∧
+    companionAJet 6 27 0 0 ≡ companionBJet 6 0 0 0 [ZMOD 6 ^ 4] ∧
+      ¬completeThirdOrderLedger 3 27 0 0 0 0 0 ≡ 0 [ZMOD 8 * 3 ^ 3]
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:510:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionAJet_modEq (x a A v K C H : ℤ)
+  (hA : A = 1 + x * a) (hv : v = 4 * A ^ 2 + 2) (ha : a ≡ K + x * C + x ^ 2 * H [ZMOD x ^ 3]) :
+  v ≡ companionAJet x K C H [ZMOD x ^ 4]
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:511:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionBJet_modEq (x b B v K C H : ℤ)
+  (hBsq : B ^ 2 = (1 + x * b) ^ 2) (hv : v = 8 * B ^ 2 - 2) (hb : b ≡ K + x * C + x ^ 2 * H [ZMOD x ^ 3]) :
+  v ≡ companionBJet x K C H [ZMOD x ^ 4]
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:512:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionAJet_of_factorProduct (x a A v : ℤ)
+  (ts : List ℤ) (hx : x ≠ 0) (hA : A = 1 + x * a) (hprod : 1 + x * a = (List.map (fun t ↦ 1 + x * t) ts).prod)
+  (hv : v = 4 * A ^ 2 + 2) : v ≡ companionAJet x ts.sum (pairCoefficient ts) (tripleCoefficient ts) [ZMOD x ^ 4]
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:513:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.companionBJet_of_factorProduct (x b B v : ℤ)
+  (ts : List ℤ) (hx : x ≠ 0) (hBsq : B ^ 2 = (1 + x * b) ^ 2)
+  (hprod : 1 + x * b = (List.map (fun t ↦ 1 + x * t) ts).prod) (hv : v = 8 * B ^ 2 - 2) :
+  v ≡ companionBJet x ts.sum (pairCoefficient ts) (tripleCoefficient ts) [ZMOD x ^ 4]
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:514:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.twoChannel_companionJets
+  (x a b A B v KA KB CA CB HA HB : ℤ) (hA : A = 1 + x * a) (hBsq : B ^ 2 = (1 + x * b) ^ 2) (hvA : v = 4 * A ^ 2 + 2)
+  (hvB : v = 8 * B ^ 2 - 2) (ha : a ≡ KA + x * CA + x ^ 2 * HA [ZMOD x ^ 3])
+  (hb : b ≡ KB + x * CB + x ^ 2 * HB [ZMOD x ^ 3]) : companionAJet x KA CA HA ≡ companionBJet x KB CB HB [ZMOD x ^ 4]
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:515:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointProjectiveCurvature_exact
+  (ell U v aPrev aTop bPrev TPrev TTop : ℤ) (hPrev : (ell - 2) * aPrev = ell * bPrev)
+  (hTPrev : TPrev = v * (bPrev + aTop * U ^ 2)) (hTTop : TTop = v * aTop) :
+  TPrev * (ell * aTop) - TTop * ((ell - 2) * (aPrev + aTop * U ^ 2)) = endpointCurvature v aTop * U ^ 2
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:516:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointCurvature_modEq_of_companion (x v top V : ℤ)
+  (hv : v ≡ V [ZMOD x ^ 4]) : endpointCurvature v top ≡ 2 * top ^ 2 * V [ZMOD x ^ 4]
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:517:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.normIdentity_gives_companion_coprime (U v : ℤ)
+  (h2 : IsCoprime 2 U) (hnorm : v ^ 2 - 32 * U ^ 2 = 4) : IsCoprime v U
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:518:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointCurvature_coprime (U v top : ℤ)
+  (h2 : IsCoprime 2 U) (hv : IsCoprime v U) (htop : IsCoprime top U) : IsCoprime (endpointCurvature v top) U
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:519:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointProjectiveModulus_sharp
+  (U curvature delta : ℤ) (hU0 : U ≠ 0) (hUnonunit : ¬U ∣ 1) (hcop : IsCoprime curvature U)
+  (hdelta : delta = curvature * U ^ 2) : U ^ 2 ∣ delta ∧ ¬U ^ 3 ∣ delta
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:520:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.endpointProjectiveCurvature_and_sharpness
+  (ell U v aPrev aTop bPrev TPrev TTop delta : ℤ) (hPrev : (ell - 2) * aPrev = ell * bPrev)
+  (hTPrev : TPrev = v * (bPrev + aTop * U ^ 2)) (hTTop : TTop = v * aTop)
+  (hdelta : delta = TPrev * (ell * aTop) - TTop * ((ell - 2) * (aPrev + aTop * U ^ 2))) (hU0 : U ≠ 0)
+  (hUnonunit : ¬U ∣ 1) (h2 : IsCoprime 2 U) (hnorm : v ^ 2 - 32 * U ^ 2 = 4) (htop : IsCoprime aTop U) :
+  delta = endpointCurvature v aTop * U ^ 2 ∧ U ^ 2 ∣ delta ∧ ¬U ^ 3 ∣ delta
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:521:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.localLedgerCounterexample_arithmetic :
+  Nat.Prime 3 ∧
+    Nat.Prime 7 ∧
+      Nat.Prime 797 ∧
+        7 = 1 + 6 * 1 ∧
+          797 = -1 + 6 * 133 ∧
+            7 % 8 = 7 ∧
+              797 % 8 = 5 ∧
+                1 % 4 = 1 ∧
+                  133 % 4 = 1 ∧
+                    3 - 2 * -399 + 3 * (3 ^ 2 - 2 * (-399) ^ 2) + 2 * 3 * (3 - 2 * 53067) +
+                            4 * 3 ^ 2 * (1 - 2 * -2352637 + 3 * 3 - 2 * -399 * 53067) +
+                          4 * 3 ^ 3 * (3 ^ 2 - 2 * 53067 ^ 2) ≡
+                        0 [ZMOD 8 * 3 ^ 3] ∧
+                      7 ^ 6 - 2 * 797 ^ 6 + 1 = -512601560592751008
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:522:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.localLedgerCounterexample_characterPowers :
+  7 ^ 398 = -1 ∧ 3 ^ 3 = -1 ∧ 3 ^ 398 = -1
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:523:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.indexSeven_factorQuotientTriples :
+  ([17].sum, pairCoefficient [17], tripleCoefficient [17], [-1, -1].sum, pairCoefficient [-1, -1],
+      tripleCoefficient [-1, -1]) =
+    (17, 0, 0, -2, 1, 0)
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:524:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.indexSeven_companionAndCurvatureJets :
+  companionAJet 14 17 0 0 ≡ 228486 [ZMOD 14 ^ 4] ∧
+    companionBJet 14 (-2) 1 0 ≡ 228486 [ZMOD 14 ^ 4] ∧ endpointCurvature 228486 32768 ≡ 26416 [ZMOD 14 ^ 4]
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:525:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.indexSeven_endpointDeterminant :
+  have U := 40391;
+  have v := 228486;
+  have aPrev := 7168;
+  have aTop := 32768;
+  have bPrev := 5120;
+  have EPrev := aPrev + aTop * U ^ 2;
+  have FPrev := bPrev + aTop * U ^ 2;
+  have TPrev := v * FPrev;
+  have TTop := v * aTop;
+  EPrev = 53458792651776 ∧
+    FPrev = 53458792649728 ∧
+      TPrev = 12214585697365751808 ∧
+        TTop = 7487029248 ∧ TPrev * (7 * aTop) - TTop * (5 * EPrev) = 800495088185894730989568
+info: IUTThreeClosures/PellLucasFactorQuotientProjectiveCoupling20260902.lean:526:0: IUTThreeClosures.PellLucasFactorQuotientProjectiveCoupling20260902.indexSeven_refutes_endpointCubeDivisibility :
+  have U := 40391;
+  have curvature := 490669948796928;
+  have delta := 800495088185894730989568;
+  delta = curvature * U ^ 2 ∧ IsCoprime curvature U ∧ U ^ 2 ∣ delta ∧ ¬U ^ 3 ∣ delta ∧ delta % U ^ 3 = 24354030047568
+ℹ [8659/8659] Built IUTThreeClosures.PellPolynomialHenselSpecialization20260902 (6.2s)
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:276:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.pow_succ_dvd_scaled_iff (p c : ℤ) (e : ℕ) (hp : p ≠ 0) :
+  p ^ (e + 1) ∣ p ^ e * c ↔ p ∣ c
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:277:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.linearized_hensel_dvd_iff (p c fp h : ℤ) (e : ℕ)
+  (hp : p ≠ 0) : p ^ (e + 1) ∣ p ^ e * c + p ^ e * h * fp ↔ p ∣ c + h * fp
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:278:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.hensel_digit_dvd_iff (p f c fp h : ℤ) (e : ℕ) (hp : p ≠ 0)
+  (hf : f = p ^ e * c) : p ^ (e + 1) ∣ f + p ^ e * h * fp ↔ p ∣ c + h * fp
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:279:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.fixed_representative_persists_iff (p f c : ℤ) (e : ℕ)
+  (hp : p ≠ 0) (hf : f = p ^ e * c) : p ^ (e + 1) ∣ f ↔ p ∣ c
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:280:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.hensel_digit_unique_mod (p c fp h₁ h₂ : ℤ)
+  (hcop : IsCoprime fp p) (h₁root : p ∣ c + h₁ * fp) (h₂root : p ∣ c + h₂ * fp) : h₁ ≡ h₂ [ZMOD p]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:281:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.fibonacci_derivative_transverse (p ell A B Fprime : ℤ)
+  (hcop : IsCoprime p (ell * A)) (hB : p ∣ B) (hread : 4 * Fprime + B = ell * A) : IsCoprime p Fprime
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:282:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.lucas_derivative_transverse (p ell B Lprime : ℤ)
+  (hcop : IsCoprime p (ell * B)) (hread : Lprime = ell * B) : IsCoprime p Lprime
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:283:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.F3_taylor_mod_square (p t h : ℤ) :
+  F3 (t + p * h) ≡ F3 t + p * h * F3prime t [ZMOD p ^ 2]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:284:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.L3_taylor_mod_square (p t h : ℤ) :
+  L3 (t + p * h) ≡ L3 t + p * h * L3prime t [ZMOD p ^ 2]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:285:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_base_and_digits :
+  L3 2 = 14 ∧
+    L3prime 2 = 15 ∧
+      F3 2 = 5 ∧
+        F3prime 2 = 4 ∧ 7 ∣ L3 (2 + 7 * 5) ∧ 7 ^ 2 ∣ L3 (2 + 7 * 5) ∧ 5 ∣ F3 (2 + 5 * 1) ∧ 5 ^ 2 ∣ F3 (2 + 5 * 1)
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:286:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_crt_residue :
+  282 ≡ 37 [ZMOD 49] ∧ 282 ≡ 7 [ZMOD 25] ∧ 282 ≡ 2 [ZMOD 35]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:287:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_global_moving_counterexample :
+  F3 282 = 79525 ∧
+    L3 282 = 22426614 ∧
+      79525 = 5 ^ 2 * 3181 ∧
+        11213307 = 3 ^ 2 * 7 ^ 2 * 47 * 541 ∧
+          19882 = 2 * 9941 ∧
+            7 ^ 2 ∣ 11213307 ∧
+              5 ^ 2 ∣ 79525 ∧ 11213307 ^ 2 - 19882 * 79525 ^ 2 = -1 ∧ 22426614 ^ 2 - (282 ^ 2 + 4) * 79525 ^ 2 = -4
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:288:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_moving_point_not_full_packet :
+  ¬47 ^ 2 ∣ 11213307 ∧ ¬3181 ^ 2 ∣ 79525
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:289:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.moving_coefficient_large_factor_prime : Nat.Prime 9941
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:290:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.moving_coefficient_squarefree : Squarefree 19882
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:291:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.not_indexThreeMovingExclusion : ¬IndexThreeMovingExclusion
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:292:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_seven_transverse_collision :
+  F7 2 = 169 ∧ F7prime 2 = 376 ∧ 13 ^ 2 ∣ F7 2 ∧ ¬13 ^ 3 ∣ F7 2 ∧ ¬13 ∣ F7prime 2
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:293:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_seven_next_hensel_digit :
+  F7 171 = 25006385400373 ∧ 13 ^ 3 ∣ F7 171 ∧ ¬13 ^ 4 ∣ F7 171
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:294:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_bounded_single_channel_squarefull :
+  F3 682 = 465125 ∧
+    465125 = 5 ^ 3 * 61 ^ 2 ∧
+      L3 682 = 317216614 ∧
+        158608307 = 11 * 13 * 31 * 37 * 967 ∧
+          ¬11 ^ 2 ∣ 158608307 ∧ 116282 = 2 * 53 * 1097 ∧ 158608307 ^ 2 - 116282 * 465125 ^ 2 = -1
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:295:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_bounded_coefficient_squarefree :
+  Squarefree 116282
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:296:0: IUTThreeClosures.PellPolynomialHenselSpecialization20260902.not_indexSevenSimpleRootForcesNoSquare :
+  ¬IndexSevenSimpleRootForcesNoSquare
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:298:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.pow_succ_dvd_scaled_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:299:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.linearized_hensel_dvd_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:300:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.hensel_digit_dvd_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:301:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.fixed_representative_persists_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:302:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.hensel_digit_unique_mod' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:303:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.fibonacci_derivative_transverse' depends on axioms: [propext]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:304:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.lucas_derivative_transverse' depends on axioms: [propext]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:305:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.F3_taylor_mod_square' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:306:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.L3_taylor_mod_square' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:307:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_base_and_digits' depends on axioms: [propext]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:308:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_crt_residue' depends on axioms: [propext]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:309:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_global_moving_counterexample' depends on axioms: [propext]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:310:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_moving_point_not_full_packet' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:311:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.moving_coefficient_large_factor_prime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:312:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.moving_coefficient_squarefree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:313:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.not_indexThreeMovingExclusion' depends on axioms: [propext]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:314:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_seven_transverse_collision' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:315:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_seven_next_hensel_digit' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:316:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_bounded_single_channel_squarefull' depends on axioms: [propext,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:317:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.index_three_bounded_coefficient_squarefree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/PellPolynomialHenselSpecialization20260902.lean:318:0: 'IUTThreeClosures.PellPolynomialHenselSpecialization20260902.not_indexSevenSimpleRootForcesNoSquare' depends on axioms: [propext,
+ Quot.sound]
+Build completed successfully (8659 jobs).

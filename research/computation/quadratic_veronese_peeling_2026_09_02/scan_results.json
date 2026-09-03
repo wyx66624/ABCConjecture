@@ -1,0 +1,863 @@
+{
+  "all_checks": true,
+  "checked_full_premise_parameters": 20000,
+  "interpretation": {
+    "abc_conjecture": "open",
+    "arbitrary_multi_move_gate_VF": "open",
+    "fixed_boundary_policy": "refuted analytically; lower margin checked",
+    "fixed_total_area_contraction": "refuted analytically; exact area conservation checked",
+    "maximal_exponent_residual": "not refuted by the outer-square proof",
+    "outer_square_residual_policy": "refuted analytically at epsilon=0.01",
+    "proved_by_scan": "finite replay only"
+  },
+  "last_parameter": {
+    "X": 40001,
+    "Y": 800040000,
+    "Z": 800040001,
+    "boundary_excess_over_height": 55.005472224535,
+    "boundary_margin_over_4uv": 1386.30991386689,
+    "gXYZ": [
+      1,
+      1,
+      1
+    ],
+    "max_layer_depth_square": 12,
+    "maximal_residual_ratio": 0.177687592423,
+    "maximal_veronese_ratio": 0.254156207309,
+    "outer_epsilon_001_gap_over_height": 23.746471631787,
+    "outer_residual_ratio": 0.177687592423,
+    "outer_veronese_ratio": 0.254156207309,
+    "phi_square": 3418.895056201206,
+    "t": 20000
+  },
+  "limit": 20000,
+  "min_boundary_margin_over_4uv": 8.682050349868,
+  "power_k_max": 18,
+  "power_of_two_subsequence": [
+    {
+      "X": 9,
+      "Y": 40,
+      "Z": 41,
+      "boundary_excess_over_height": 11.442358245719,
+      "boundary_margin_over_4uv": 52.56285751941,
+      "gXYZ": [
+        2,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 6,
+      "maximal_residual_ratio": 0.158390884078,
+      "maximal_veronese_ratio": 0.358467334779,
+      "outer_epsilon_001_gap_over_height": 6.346258399504,
+      "outer_residual_ratio": 0.257206443851,
+      "outer_veronese_ratio": 0.271408595092,
+      "phi_square": 119.855072449275,
+      "t": 4
+    },
+    {
+      "X": 17,
+      "Y": 144,
+      "Z": 145,
+      "boundary_excess_over_height": 13.351200671888,
+      "boundary_margin_over_4uv": 76.568576339919,
+      "gXYZ": [
+        1,
+        2,
+        1
+      ],
+      "max_layer_depth_square": 8,
+      "maximal_residual_ratio": 0.053910799625,
+      "maximal_veronese_ratio": 0.534950597676,
+      "outer_epsilon_001_gap_over_height": 9.649041026205,
+      "outer_residual_ratio": 0.306395499895,
+      "outer_veronese_ratio": 0.266287012741,
+      "phi_square": 211.656509392792,
+      "t": 8
+    },
+    {
+      "X": 33,
+      "Y": 544,
+      "Z": 545,
+      "boundary_excess_over_height": 17.8940993161,
+      "boundary_margin_over_4uv": 137.39647887465,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 10,
+      "maximal_residual_ratio": 0.193581081758,
+      "maximal_veronese_ratio": 0.26303606903,
+      "outer_epsilon_001_gap_over_height": 8.176959694315,
+      "outer_residual_ratio": 0.193581081758,
+      "outer_veronese_ratio": 0.26303606903,
+      "phi_square": 334.973595124163,
+      "t": 16
+    },
+    {
+      "X": 65,
+      "Y": 2112,
+      "Z": 2113,
+      "boundary_excess_over_height": 21.264934618585,
+      "boundary_margin_over_4uv": 197.776634551409,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 12,
+      "maximal_residual_ratio": 0.200936732572,
+      "maximal_veronese_ratio": 0.260827446439,
+      "outer_epsilon_001_gap_over_height": 10.177834161196,
+      "outer_residual_ratio": 0.200936732572,
+      "outer_veronese_ratio": 0.260827446439,
+      "phi_square": 490.094945310192,
+      "t": 32
+    },
+    {
+      "X": 129,
+      "Y": 8320,
+      "Z": 8321,
+      "boundary_excess_over_height": 24.680159500154,
+      "boundary_margin_over_4uv": 270.085997682112,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 14,
+      "maximal_residual_ratio": 0.205763114712,
+      "maximal_veronese_ratio": 0.259243883964,
+      "outer_epsilon_001_gap_over_height": 12.174102609511,
+      "outer_residual_ratio": 0.205763114712,
+      "outer_veronese_ratio": 0.259243883964,
+      "phi_square": 676.845096832246,
+      "t": 64
+    },
+    {
+      "X": 257,
+      "Y": 33024,
+      "Z": 33025,
+      "boundary_excess_over_height": 26.4024408327,
+      "boundary_margin_over_4uv": 318.48353532344,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 16,
+      "maximal_residual_ratio": 0.299328131873,
+      "maximal_veronese_ratio": 0.258058667567,
+      "outer_epsilon_001_gap_over_height": 19.152850106832,
+      "outer_residual_ratio": 0.299328131873,
+      "outer_veronese_ratio": 0.258058667567,
+      "phi_square": 894.961830079736,
+      "t": 128
+    },
+    {
+      "X": 513,
+      "Y": 131584,
+      "Z": 131585,
+      "boundary_excess_over_height": 31.570370725108,
+      "boundary_margin_over_4uv": 450.039172735243,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 18,
+      "maximal_residual_ratio": 0.282055727242,
+      "maximal_veronese_ratio": 0.25714055991,
+      "outer_epsilon_001_gap_over_height": 20.598899732943,
+      "outer_residual_ratio": 0.282055727242,
+      "outer_veronese_ratio": 0.25714055991,
+      "phi_square": 1144.224865424955,
+      "t": 256
+    },
+    {
+      "X": 1025,
+      "Y": 525312,
+      "Z": 525313,
+      "boundary_excess_over_height": 32.715220733918,
+      "boundary_margin_over_4uv": 496.583571328482,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 20,
+      "maximal_residual_ratio": 0.365881291475,
+      "maximal_veronese_ratio": 0.256409330709,
+      "outer_epsilon_001_gap_over_height": 28.177661663291,
+      "outer_residual_ratio": 0.365881291475,
+      "outer_veronese_ratio": 0.256409330709,
+      "phi_square": 1424.479531625243,
+      "t": 512
+    },
+    {
+      "X": 2049,
+      "Y": 2099200,
+      "Z": 2099201,
+      "boundary_excess_over_height": 36.803048657903,
+      "boundary_margin_over_4uv": 627.492137471757,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 22,
+      "maximal_residual_ratio": 0.279286396526,
+      "maximal_veronese_ratio": 0.255813572621,
+      "outer_epsilon_001_gap_over_height": 25.097414596925,
+      "outer_residual_ratio": 0.279286396526,
+      "outer_veronese_ratio": 0.255813572621,
+      "phi_square": 1735.626384253172,
+      "t": 1024
+    },
+    {
+      "X": 4097,
+      "Y": 8392704,
+      "Z": 8392705,
+      "boundary_excess_over_height": 41.951947200322,
+      "boundary_margin_over_4uv": 807.217232708549,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 24,
+      "maximal_residual_ratio": 0.216649272492,
+      "maximal_veronese_ratio": 0.255318989512,
+      "outer_epsilon_001_gap_over_height": 22.1342497175,
+      "outer_residual_ratio": 0.216649272492,
+      "outer_veronese_ratio": 0.255318989512,
+      "phi_square": 2077.604722409678,
+      "t": 2048
+    },
+    {
+      "X": 8193,
+      "Y": 33562624,
+      "Z": 33562625,
+      "boundary_excess_over_height": 42.068111190438,
+      "boundary_margin_over_4uv": 833.383996614614,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 26,
+      "maximal_residual_ratio": 0.329827236212,
+      "maximal_veronese_ratio": 0.254901893081,
+      "outer_epsilon_001_gap_over_height": 34.00805920616,
+      "outer_residual_ratio": 0.329827236212,
+      "outer_veronese_ratio": 0.254901893081,
+      "phi_square": 2450.378734343047,
+      "t": 4096
+    },
+    {
+      "X": 16385,
+      "Y": 134234112,
+      "Z": 134234113,
+      "boundary_excess_over_height": 48.880080636403,
+      "boundary_margin_over_4uv": 1103.136533819616,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 28,
+      "maximal_residual_ratio": 0.218709802505,
+      "maximal_veronese_ratio": 0.254545425437,
+      "outer_epsilon_001_gap_over_height": 26.115206586293,
+      "outer_residual_ratio": 0.218709802505,
+      "outer_veronese_ratio": 0.254545425437,
+      "phi_square": 2853.927792801658,
+      "t": 8192
+    },
+    {
+      "X": 32769,
+      "Y": 536903680,
+      "Z": 536903681,
+      "boundary_excess_over_height": 52.344747057421,
+      "boundary_margin_over_4uv": 1268.404756199083,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 30,
+      "maximal_residual_ratio": 0.239837964233,
+      "maximal_veronese_ratio": 0.254237275488,
+      "outer_epsilon_001_gap_over_height": 30.324635971512,
+      "outer_residual_ratio": 0.239837964233,
+      "outer_veronese_ratio": 0.254237275488,
+      "phi_square": 3288.240226354012,
+      "t": 16384
+    },
+    {
+      "X": 65537,
+      "Y": 2147549184,
+      "Z": 2147549185,
+      "boundary_excess_over_height": 54.675568510496,
+      "boundary_margin_over_4uv": 1396.471294078018,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 32,
+      "maximal_residual_ratio": 0.24931718398,
+      "maximal_veronese_ratio": 0.253968248422,
+      "outer_epsilon_001_gap_over_height": 33.460141954832,
+      "outer_residual_ratio": 0.24931718398,
+      "outer_veronese_ratio": 0.253968248422,
+      "phi_square": 3753.309521242365,
+      "t": 32768
+    },
+    {
+      "X": 131073,
+      "Y": 8590065664,
+      "Z": 8590065665,
+      "boundary_excess_over_height": 59.27463216782,
+      "boundary_margin_over_4uv": 1633.542743377084,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 34,
+      "maximal_residual_ratio": 0.220872267166,
+      "maximal_veronese_ratio": 0.253731340832,
+      "outer_epsilon_001_gap_over_height": 32.085571496368,
+      "outer_residual_ratio": 0.220872267166,
+      "outer_veronese_ratio": 0.253731340832,
+      "phi_square": 4249.132081817052,
+      "t": 65536
+    },
+    {
+      "X": 262145,
+      "Y": 34360000512,
+      "Z": 34360000513,
+      "boundary_excess_over_height": 62.739744937161,
+      "boundary_margin_over_4uv": 1833.410023180072,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 36,
+      "maximal_residual_ratio": 0.221430242202,
+      "maximal_veronese_ratio": 0.253521125669,
+      "outer_epsilon_001_gap_over_height": 34.075510763138,
+      "outer_residual_ratio": 0.221430242202,
+      "outer_veronese_ratio": 0.253521125669,
+      "phi_square": 4775.705940939126,
+      "t": 131072
+    },
+    {
+      "X": 524289,
+      "Y": 137439477760,
+      "Z": 137439477761,
+      "boundary_excess_over_height": 66.204934091476,
+      "boundary_margin_over_4uv": 2044.80872528923,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 38,
+      "maximal_residual_ratio": 0.221928625628,
+      "maximal_veronese_ratio": 0.253333332844,
+      "outer_epsilon_001_gap_over_height": 36.065384134078,
+      "outer_residual_ratio": 0.221928625628,
+      "outer_veronese_ratio": 0.253333332844,
+      "phi_square": 5333.030030402057,
+      "t": 262144
+    }
+  ],
+  "schema": "quadratic-veronese-peeling-audit-v1",
+  "top_maximal_residual_ratios": [
+    {
+      "X": 2057,
+      "Y": 2115624,
+      "Z": 2115625,
+      "boundary_excess_over_height": 33.500593314709,
+      "boundary_margin_over_4uv": 531.401453614598,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 10,
+      "maximal_residual_ratio": 0.514033301008,
+      "maximal_veronese_ratio": 0.255810534149,
+      "outer_epsilon_001_gap_over_height": 39.7130460478,
+      "outer_residual_ratio": 0.514033301008,
+      "outer_veronese_ratio": 0.255810534149,
+      "phi_square": 1737.463682324295,
+      "t": 1028
+    },
+    {
+      "X": 12943,
+      "Y": 83760624,
+      "Z": 83760625,
+      "boundary_excess_over_height": 43.174493325338,
+      "boundary_margin_over_4uv": 884.365976287308,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 8,
+      "maximal_residual_ratio": 0.468262082135,
+      "maximal_veronese_ratio": 0.254660741136,
+      "outer_epsilon_001_gap_over_height": 46.417400949078,
+      "outer_residual_ratio": 0.468262082135,
+      "outer_veronese_ratio": 0.254660741136,
+      "phi_square": 2713.176275311398,
+      "t": 6471
+    },
+    {
+      "X": 2943,
+      "Y": 4330624,
+      "Z": 4330625,
+      "boundary_excess_over_height": 35.846963215794,
+      "boundary_margin_over_4uv": 607.355057203722,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 14,
+      "maximal_residual_ratio": 0.463148657217,
+      "maximal_veronese_ratio": 0.255544185379,
+      "outer_epsilon_001_gap_over_height": 38.720411035274,
+      "outer_residual_ratio": 0.463148657217,
+      "outer_veronese_ratio": 0.255544185379,
+      "phi_square": 1910.494588400514,
+      "t": 1471
+    },
+    {
+      "X": 251,
+      "Y": 31500,
+      "Z": 31501,
+      "boundary_excess_over_height": 24.783853086629,
+      "boundary_margin_over_4uv": 284.486244374976,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 6,
+      "maximal_residual_ratio": 0.39066538216,
+      "maximal_veronese_ratio": 0.258094236544,
+      "outer_epsilon_001_gap_over_height": 23.440649628812,
+      "outer_residual_ratio": 0.39066538216,
+      "outer_veronese_ratio": 0.258094236544,
+      "phi_square": 886.98312685476,
+      "t": 125
+    },
+    {
+      "X": 1025,
+      "Y": 525312,
+      "Z": 525313,
+      "boundary_excess_over_height": 32.715220733918,
+      "boundary_margin_over_4uv": 496.583571328482,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 20,
+      "maximal_residual_ratio": 0.365881291475,
+      "maximal_veronese_ratio": 0.256409330709,
+      "outer_epsilon_001_gap_over_height": 28.177661663291,
+      "outer_residual_ratio": 0.365881291475,
+      "outer_veronese_ratio": 0.256409330709,
+      "phi_square": 1424.479531625243,
+      "t": 512
+    },
+    {
+      "X": 8749,
+      "Y": 38272500,
+      "Z": 38272501,
+      "boundary_excess_over_height": 41.866158881584,
+      "boundary_margin_over_4uv": 828.061398930142,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 14,
+      "maximal_residual_ratio": 0.348563834412,
+      "maximal_veronese_ratio": 0.254865743467,
+      "outer_epsilon_001_gap_over_height": 35.763935956901,
+      "outer_residual_ratio": 0.348563834412,
+      "outer_veronese_ratio": 0.254865743467,
+      "phi_square": 2487.290530281744,
+      "t": 4374
+    },
+    {
+      "X": 4375,
+      "Y": 9570312,
+      "Z": 9570313,
+      "boundary_excess_over_height": 41.979978105714,
+      "boundary_margin_over_4uv": 810.545319148813,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 14,
+      "maximal_residual_ratio": 0.348291625666,
+      "maximal_veronese_ratio": 0.25527645799,
+      "outer_epsilon_001_gap_over_height": 32.960241483822,
+      "outer_residual_ratio": 0.348291625666,
+      "outer_veronese_ratio": 0.25527645799,
+      "phi_square": 2111.600260137883,
+      "t": 2187
+    },
+    {
+      "X": 1057,
+      "Y": 558624,
+      "Z": 558625,
+      "boundary_excess_over_height": 32.174111813448,
+      "boundary_margin_over_4uv": 482.9530492697,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 10,
+      "maximal_residual_ratio": 0.344876316508,
+      "maximal_veronese_ratio": 0.256380311702,
+      "outer_epsilon_001_gap_over_height": 27.051143225635,
+      "outer_residual_ratio": 0.344876316508,
+      "outer_veronese_ratio": 0.256380311702,
+      "phi_square": 1437.637912840138,
+      "t": 528
+    },
+    {
+      "X": 13311,
+      "Y": 88591360,
+      "Z": 88591361,
+      "boundary_excess_over_height": 45.526012611641,
+      "boundary_margin_over_4uv": 971.095381529807,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 20,
+      "maximal_residual_ratio": 0.34079379875,
+      "maximal_veronese_ratio": 0.254646725677,
+      "outer_epsilon_001_gap_over_height": 36.802201030641,
+      "outer_residual_ratio": 0.34079379875,
+      "outer_veronese_ratio": 0.254646725677,
+      "phi_square": 2729.723860051083,
+      "t": 6655
+    },
+    {
+      "X": 193,
+      "Y": 18624,
+      "Z": 18625,
+      "boundary_excess_over_height": 24.420113805445,
+      "boundary_margin_over_4uv": 273.234394856756,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 12,
+      "maximal_residual_ratio": 0.336999587189,
+      "maximal_veronese_ratio": 0.258512136976,
+      "outer_epsilon_001_gap_over_height": 19.915976407216,
+      "outer_residual_ratio": 0.336999587189,
+      "outer_veronese_ratio": 0.258512136976,
+      "phi_square": 800.643215991539,
+      "t": 96
+    },
+    {
+      "X": 4801,
+      "Y": 11524800,
+      "Z": 11524801,
+      "boundary_excess_over_height": 39.481366848753,
+      "boundary_margin_over_4uv": 732.617856893746,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 12,
+      "maximal_residual_ratio": 0.333209533275,
+      "maximal_veronese_ratio": 0.255217411969,
+      "outer_epsilon_001_gap_over_height": 32.207430725886,
+      "outer_residual_ratio": 0.333209533275,
+      "outer_veronese_ratio": 0.255217411969,
+      "phi_square": 2160.186204826835,
+      "t": 2400
+    },
+    {
+      "X": 8193,
+      "Y": 33562624,
+      "Z": 33562625,
+      "boundary_excess_over_height": 42.068111190438,
+      "boundary_margin_over_4uv": 833.383996614614,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 26,
+      "maximal_residual_ratio": 0.329827236212,
+      "maximal_veronese_ratio": 0.254901893081,
+      "outer_epsilon_001_gap_over_height": 34.00805920616,
+      "outer_residual_ratio": 0.329827236212,
+      "outer_veronese_ratio": 0.254901893081,
+      "phi_square": 2450.378734343047,
+      "t": 4096
+    }
+  ],
+  "top_outer_residual_ratios": [
+    {
+      "X": 239,
+      "Y": 28560,
+      "Z": 28561,
+      "boundary_excess_over_height": 22.424069614759,
+      "boundary_margin_over_4uv": 235.383963899647,
+      "gXYZ": [
+        1,
+        1,
+        4
+      ],
+      "max_layer_depth_square": 8,
+      "maximal_residual_ratio": 0.081287812935,
+      "maximal_veronese_ratio": 0.637264123722,
+      "outer_epsilon_001_gap_over_height": 29.4344707687,
+      "outer_residual_ratio": 0.5464642242,
+      "outer_veronese_ratio": 0.258169009027,
+      "phi_square": 870.550822684398,
+      "t": 119
+    },
+    {
+      "X": 7,
+      "Y": 24,
+      "Z": 25,
+      "boundary_excess_over_height": 7.913900339113,
+      "boundary_margin_over_4uv": 26.210896153099,
+      "gXYZ": [
+        1,
+        1,
+        2
+      ],
+      "max_layer_depth_square": 6,
+      "maximal_residual_ratio": 0.187455318249,
+      "maximal_veronese_ratio": 0.539929391278,
+      "outer_epsilon_001_gap_over_height": 9.386587318268,
+      "outer_residual_ratio": 0.514435141132,
+      "outer_veronese_ratio": 0.274452418024,
+      "phi_square": 90.710443934059,
+      "t": 3
+    },
+    {
+      "X": 2057,
+      "Y": 2115624,
+      "Z": 2115625,
+      "boundary_excess_over_height": 33.500593314709,
+      "boundary_margin_over_4uv": 531.401453614598,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 10,
+      "maximal_residual_ratio": 0.514033301008,
+      "maximal_veronese_ratio": 0.255810534149,
+      "outer_epsilon_001_gap_over_height": 39.7130460478,
+      "outer_residual_ratio": 0.514033301008,
+      "outer_veronese_ratio": 0.255810534149,
+      "phi_square": 1737.463682324295,
+      "t": 1028
+    },
+    {
+      "X": 99,
+      "Y": 4900,
+      "Z": 4901,
+      "boundary_excess_over_height": 20.200858807228,
+      "boundary_margin_over_4uv": 187.122495958981,
+      "gXYZ": [
+        1,
+        2,
+        1
+      ],
+      "max_layer_depth_square": 4,
+      "maximal_residual_ratio": 0.166555072281,
+      "maximal_veronese_ratio": 0.53153630593,
+      "outer_epsilon_001_gap_over_height": 22.717570991733,
+      "outer_residual_ratio": 0.48770794882,
+      "outer_veronese_ratio": 0.259797226323,
+      "phi_square": 601.163592613152,
+      "t": 49
+    },
+    {
+      "X": 12943,
+      "Y": 83760624,
+      "Z": 83760625,
+      "boundary_excess_over_height": 43.174493325338,
+      "boundary_margin_over_4uv": 884.365976287308,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 8,
+      "maximal_residual_ratio": 0.468262082135,
+      "maximal_veronese_ratio": 0.254660741136,
+      "outer_epsilon_001_gap_over_height": 46.417400949078,
+      "outer_residual_ratio": 0.468262082135,
+      "outer_veronese_ratio": 0.254660741136,
+      "phi_square": 2713.176275311398,
+      "t": 6471
+    },
+    {
+      "X": 2943,
+      "Y": 4330624,
+      "Z": 4330625,
+      "boundary_excess_over_height": 35.846963215794,
+      "boundary_margin_over_4uv": 607.355057203722,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 14,
+      "maximal_residual_ratio": 0.463148657217,
+      "maximal_veronese_ratio": 0.255544185379,
+      "outer_epsilon_001_gap_over_height": 38.720411035274,
+      "outer_residual_ratio": 0.463148657217,
+      "outer_veronese_ratio": 0.255544185379,
+      "phi_square": 1910.494588400514,
+      "t": 1471
+    },
+    {
+      "X": 577,
+      "Y": 166464,
+      "Z": 166465,
+      "boundary_excess_over_height": 27.610144732682,
+      "boundary_margin_over_4uv": 358.138650438989,
+      "gXYZ": [
+        1,
+        2,
+        1
+      ],
+      "max_layer_depth_square": 12,
+      "maximal_residual_ratio": 0.139073874504,
+      "maximal_veronese_ratio": 0.530046827076,
+      "outer_epsilon_001_gap_over_height": 29.776996361611,
+      "outer_residual_ratio": 0.444758071925,
+      "outer_veronese_ratio": 0.25700482015,
+      "phi_square": 1189.664786605074,
+      "t": 288
+    },
+    {
+      "X": 6859,
+      "Y": 23522940,
+      "Z": 23522941,
+      "boundary_excess_over_height": 43.271050365833,
+      "boundary_margin_over_4uv": 869.19244784264,
+      "gXYZ": [
+        3,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 6,
+      "maximal_residual_ratio": 0.258069895433,
+      "maximal_veronese_ratio": 0.363250892709,
+      "outer_epsilon_001_gap_over_height": 39.217293906497,
+      "outer_residual_ratio": 0.408713465555,
+      "outer_veronese_ratio": 0.255002488222,
+      "phi_square": 2351.854502316388,
+      "t": 3429
+    },
+    {
+      "X": 251,
+      "Y": 31500,
+      "Z": 31501,
+      "boundary_excess_over_height": 24.783853086629,
+      "boundary_margin_over_4uv": 284.486244374976,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 6,
+      "maximal_residual_ratio": 0.39066538216,
+      "maximal_veronese_ratio": 0.258094236544,
+      "outer_epsilon_001_gap_over_height": 23.440649628812,
+      "outer_residual_ratio": 0.39066538216,
+      "outer_veronese_ratio": 0.258094236544,
+      "phi_square": 886.98312685476,
+      "t": 125
+    },
+    {
+      "X": 243,
+      "Y": 29524,
+      "Z": 29525,
+      "boundary_excess_over_height": 27.941242901194,
+      "boundary_margin_over_4uv": 349.038595279359,
+      "gXYZ": [
+        5,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 10,
+      "maximal_residual_ratio": 0.203936477262,
+      "maximal_veronese_ratio": 0.385124436067,
+      "outer_epsilon_001_gap_over_height": 22.587750661732,
+      "outer_residual_ratio": 0.374851656934,
+      "outer_veronese_ratio": 0.25814352142,
+      "phi_square": 876.100979436225,
+      "t": 121
+    },
+    {
+      "X": 1025,
+      "Y": 525312,
+      "Z": 525313,
+      "boundary_excess_over_height": 32.715220733918,
+      "boundary_margin_over_4uv": 496.583571328482,
+      "gXYZ": [
+        1,
+        1,
+        1
+      ],
+      "max_layer_depth_square": 20,
+      "maximal_residual_ratio": 0.365881291475,
+      "maximal_veronese_ratio": 0.256409330709,
+      "outer_epsilon_001_gap_over_height": 28.177661663291,
+      "outer_residual_ratio": 0.365881291475,
+      "outer_veronese_ratio": 0.256409330709,
+      "phi_square": 1424.479531625243,
+      "t": 512
+    },
+    {
+      "X": 41,
+      "Y": 840,
+      "Z": 841,
+      "boundary_excess_over_height": 17.035192235152,
+      "boundary_margin_over_4uv": 129.430234388091,
+      "gXYZ": [
+        1,
+        1,
+        2
+      ],
+      "max_layer_depth_square": 6,
+      "maximal_residual_ratio": 0.08218566236,
+      "maximal_veronese_ratio": 0.532847980489,
+      "outer_epsilon_001_gap_over_height": 14.329505343971,
+      "outer_residual_ratio": 0.352065274113,
+      "outer_veronese_ratio": 0.262236786165,
+      "phi_square": 381.444307490282,
+      "t": 20
+    }
+  ]
+}

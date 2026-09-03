@@ -1,0 +1,69 @@
+{
+  "schema": "affine-ownership-maximal-intersection-aggregation-v1",
+  "status": "PASS",
+  "lean": {
+    "module": "IUTThreeClosures.AffineOwnershipMaximalIntersectionAggregation20260902",
+    "axiom_audit_module": "IUTThreeClosures.AffineOwnershipMaximalIntersectionAggregation20260902AxiomAudit",
+    "theorem_declarations": 24,
+    "inline_print_axioms": 24,
+    "separate_audit_print_axioms": 24,
+    "custom_axioms": 0,
+    "sorry_or_admit": 0,
+    "native_decide": 0,
+    "axiom_dependency_union": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "warning_as_error": "PASS for both modules",
+    "target_build": "PASS (8776 jobs)"
+  },
+  "finite_certificates": {
+    "canonical_boundary_replay": "PASS",
+    "abstract_sharpness_replay": "PASS",
+    "beta_inflation_replay": "PASS",
+    "canonical_grid_scan": {
+      "status": "PASS",
+      "B_range": [1, 12],
+      "M_values": 92,
+      "modes": ["full", "singleton"],
+      "cases": 2208,
+      "nonzero_top_cases": 642,
+      "errors": 0,
+      "skeleton_all_pair_maximal_system_equalities": 2208,
+      "scope": "Finite no-hit observations are not theorems."
+    },
+    "independent_second_implementation": "PASS"
+  },
+  "canonical_refutations": {
+    "owned_period_monotonicity": "B=7,C=8,M=400,N=399: T_lambda=1<T_mu=3 with every maximal-owner and exact-catalogue premise replayed.",
+    "unique_maximal_support_membership": "B=5,C=6,M=254,N=253: one singleton kernel class belongs to two incomparable maximal supports meeting in exactly one point.",
+    "raw_pair_ownership": "B=4,C=5,M=390,N=389: three exact pairs collapse to one maximal top and the cubic Cauchy step is equality-sharp.",
+    "universal_factor_two_catalogue_cap": "B=55123,C=55124,M=3,N=2: 34 period-one terms, Q=55122, w_mu=25200, Q/w_mu=9187/4200>2, and explicit cap/w_mu=35/16>2."
+  },
+  "abstract_refutation": "The K4 edge-prime-square ledger satisfies maximality, ownership, cap coverage, support size at least two, and codegree one, with S=E=H3=371; it is not asserted to be a canonical affine configuration.",
+  "tex_fragment": {
+    "status": "PASS",
+    "compiler": "bundled Tectonic 0.17.0",
+    "pages": 5,
+    "errors": 0,
+    "overfull_boxes": 0,
+    "underfull_boxes": 0,
+    "expected_external_unresolved_references": 2
+  },
+  "primary_sources": {
+    "seal": "research/sources/affine_ownership_aggregation_2026_09_02/SHA256SUMS.txt",
+    "direct_paper_input": "Rosser--Schoenfeld Mertens prime-product bound only",
+    "background_only": [
+      "Saxton--Thomason",
+      "Balogh--Morris--Samotij",
+      "Szemeredi--Trotter",
+      "Bateman--Grosswald",
+      "Golomb"
+    ],
+    "container_or_incidence_theorem_used": false
+  },
+  "report_control_characters": 0,
+  "manifest": "SHA256SUMS.txt excludes itself and is recomputed after all deliverables are frozen.",
+  "remaining_gate": "For every hypothetical exceptional selected set, prove (A1+Omega)^3 > (A0-Omega)^2 [min{KN Qhat_dir,(KN)^2 H3}+A_arm], or produce an actual standard abc counterexample. The unresolved positive input is canonical low-support supersaturation/catalogue sparsity."
+}

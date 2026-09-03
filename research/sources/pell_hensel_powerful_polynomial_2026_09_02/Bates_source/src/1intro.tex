@@ -1,0 +1,50 @@
+\section{Introduction}
+\label{sec:intro}
+
+
+Fibonacci numbers $F_n$ and Lucas numbers $L_n$ are among the most widely studied objects in mathematics. They are defined recursively by
+\begin{align*}
+F_0 = 0, &\quad F_1 = 1,\quad F_{n} = F_{n-1} + F_{n-2} \quad(n \ge 2), \\
+L_0 = 2, &\quad L_1 = 1,\quad L_{n} = L_{n-1} + L_{n-2} \quad(n \ge 2).
+\end{align*}
+Many authors have studied various arithmetic properties of these sequences.
+For example, Brillhart--Montgomery--Silverman \cite{brillhart1988tables} studied factorizations of Fibonacci and Lucas numbers for small $n$. Dubner--Keller \cite{dubner1999new} studied Fibonacci and Lucas numbers that are prime, and it remains open whether there are infinitely many such numbers.
+Some works are also interested in determining all perfect powers in the Fibonacci and Lucas sequences.
+For instance, Cohn \cite{cohn1964square} gave an elementary proof showing that $F_0 = 0$, $F_1 = F_2 = 1$, and $F_{12} = 144$ are the only squares.
+Bugeaud, Mignotte, and Siksek \cite{bugeaud2006classical} showed that $0$, $1$, $8$, and $144$ are the only perfect powers appearing in the Fibonacci sequence (see Section \ref{subsec:prelim_diophantine}).
+
+An analogue of this problem can be formulated for \emph{Fibonacci polynomials} $F_n(T) \in \bZ[T]$, the polynomial analogues of Fibonacci numbers, defined by
+\begin{equation}
+\label{eqn:fibo_poly}
+    F_0(T) = 0, \quad F_1(T) = 1, \quad F_{n}(T) = T F_{n-1}(T) + F_{n-2}(T).
+\end{equation}
+For example, several authors have studied the irreducibility of Fibonacci polynomials. Webb and Parberry showed that $F_n(T)$ is irreducible over $\bQ$ if and only if $n$ is prime \cite{webb1969divisibility}.
+Bergum and Hoggatt considered the analogous problem for Lucas polynomials and their generalizations in \cite{bergum1974irreducibility}.
+In \cite{kitayama2017irreducibility}, Kitayama and Shiomi studied irreducibility over finite fields, giving necessary and sufficient conditions for these polynomials to be irreducible over $\bF_q$.
+
+In this paper, we study Fibonacci polynomials over finite fields that are perfect powers, analogous to the work of Cohn \cite{cohn1964square} and Bugeaud--Mignotte--Siksek \cite{bugeaud2006classical}.
+In particular, we give a complete characterization of perfect powers.
+\begin{theorem}
+\label{thm:mainFn}
+    Let $j > 1$. Let $p$ be an odd prime number coprime to \(2j\), $q$ be a power of $p$, and let $a = \mathrm{ord}_{2j}(p)$ denote the order of $p$ in $\left( \mathbb{Z}/2j\mathbb{Z} \right)^\times$. For $n > 0$, $F_n(T)$ is a perfect $j$-th power in $\mathbb{F}_q[T]$ if and only if $n = p^{ak}$ for some $k \in \mathbb{N}$.
+\end{theorem}
+Similar result is available for \(p = 2\) as well (Theorem \ref{thm:mainFnp2}).
+Moreover, we give a characterization of Fibonacci polynomials that are \emph{powerful}, i.e. multiplicities of each irreducible factor are at least two.\footnote{Although we will mostly focus on nonconstant polynomials, constant polynomials will also be considered powerful, since they have no non-unit irreducible prime factors.}
+\begin{theorem}
+    \label{thm:mainFnpowerful}
+    Let $p > 3$ be a prime and $\bF_q$ be a finite field of characteristic $p$.
+    Then \(F_n(T)\) is powerful in \(\bF_q[T]\) if and only if \(p \mid n\).
+\end{theorem}
+Similar result holds for $p = 2$ and $p = 3$ as well (Corollary \ref{cor:powerfulp2} and \ref{cor:powerfulp3}).
+
+These results contrast to the case of the original Fibonacci sequence.
+There are only finitely many Fibonacci numbers that are perfect powers or powerful, where the second assertion is true under the ABC conjecture \cite{ribenboim1999abc,yabuta2007abc}.
+
+In fact, we prove similar characterizations for certain \emph{generalized Lucas polynomial sequences} of Horadam \cite{Horadam1996}, which generalize both Fibonacci polynomials and Lucas polynomials (see Definition \ref{lucassq}).
+The proofs of these characterizations are based on the polynomial analogue of Binet's formula and the discriminant formula of Florez, Higuita, and Ramirez \cite{florez2019resultant}, except that certain small characteristic cases need separate considerations.
+We also provide explicit factorizations of these polynomials for certain $p$'s, where the accompanying code can be found in \href{https://github.com/seewoo5/sage-function-field}{github.com/seewoo5/sage-function-field}.
+
+\subsection*{Acknowledgements}
+
+This work was completed during the 2025 Berkeley Math REU program and supported by NSF RTG grant DMS-2342225, MPS Scholars, and the Gordon and Betty Moore Foundation.
+We thank Tony Feng for organizing the REU.

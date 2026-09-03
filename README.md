@@ -7,6 +7,65 @@ Arakelov--Vojta、Frey--Szpiro、S-unit 与算术微分等路线中的真实组�
 严格反例及剩余核心缺口均在
 [`Lean/RESEARCH_STATUS.md`](Lean/RESEARCH_STATUS.md) 中逐项区分。
 
+## 2026-09-02 最新多路线检查点：refined Haar、Farey entropy、ownership、Hensel 与 contact
+
+标准、无条件的 `ABCConjecture` 仍未被证明或证伪。正向构造与完整前提
+反例搜索继续并行；路线困难、尚未 Lean 化或有限搜索无命中都不构成淘汰
+理由。统一证明与淘汰边界见
+[`本轮多路线账本`](research/ABC_MULTI_ROUTE_REFINED_HAAR_FAREY_OWNERSHIP_HENSEL_CONTACT_2026_09_02.md)，
+前五条原始路线的逐前提复核见
+[`五路线对抗审计`](research/ABC_FIVE_ROUTE_ADVERSARIAL_REVIEW_2026_09_02.md)；
+补充的
+[`all-index Pell`](research/ABC_PELL_ALL_INDEX_FORMALIZATION_2026_09_02.md)
+、
+[`Steinberg integer/finite-chain`](research/ABC_STEINBERG_INTEGER_GCD_FINITE_CHAIN_CLOSURE_2026_09_02.md)
+与
+[`quadratic peeling`](research/ABC_QUADRATIC_VERONESE_PEELING_ANALYSIS_2026_09_02.md)
+各自列出完整量词和 Lean 边界，最终八模块交叉审计由本轮验证包记录。
+
+- **IUT-facing refined Haar。** 已从 primitive local factors 推出
+  `ef` 系数、总次数 product-Haar 归一化与 pointed same-pilot 数值夹逼。
+  factor-count、复制 parent weight、envelope-only 与 unpointed 版本均有
+  精确反例；实际 IPL/SHE/APT、Ind3 与同一对象的 pointed inclusion 仍开放。
+- **Mersenne Farey entropy。** 精确 prefix/tail 分母分解证明：若临界
+  endpoint energy 线性增长，就必须出现多项式数量的 depth-three
+  exact-order 行。临界计数指数 `1/2` 仍未证明；抽象 common-index 模型缺少
+  prime、exact-order 与 depth-three 前提，因此不反驳算术路线。
+- **Affine ownership。** divisibility-maximal intersection tops 的唯一支撑与
+  Cauchy 聚合给出 `S_non^2<=E_non H_3`，并与 strict non-arm ray bound
+  结合。计数定理已补全必要条件 `C=B+1`；剩余门是 canonical
+  low-support catalogue-sparsity/supersaturation。
+- **Pell polynomial Hensel。** 任意指标的 norm/derivative 多项式恒等式和
+  任意整系数多项式的一位 Hensel 定律已证明并形式化；`T=282` 的 simple
+  roots、双 repeated carriers、squarefree coefficient 与负 Pell 恒等式已
+  打包成一个完整 Lean witness。它只否定 moving-parameter exclusion；固定
+  `D=2` 的无界 squarefull 排除继续开放。
+- **Steinberg contact 与 quadratic peeling。** 标准 Bloch boundary 的
+  divisor exterior image 满足五项消去；primitive Pythagorean squares 完整
+  否定两个 single-cell gates。`y=x^2` 的剥离严格降低 visible coherent
+  square cost，却守恒 positive area 并使 residual 上升，因此只淘汰固定
+  one-move policies。任意 multi-move calibrated filling 的两个成本估计没有
+  被反例推翻，继续 active；valuation-layer flag 保留其深素数幂信息。
+
+本轮八个 Lean 模块含 297 个 theorem、113 个 definition、5 个
+abbreviation、4 个 structure 与 2 个具名 instance，共 421 个声明。生成式
+交叉审计对 421 个声明逐一运行 `#print axioms`，依赖并集仅为
+`propext`、`Classical.choice` 与 `Quot.sound`；八模块和审计均通过直接
+`warningAsError` 编译，聚合目标完成 9,255 jobs。确定性重放覆盖 refined
+tensor 权重、Mersenne 分母与 sigma-one 证书、IUT 来源补丁、两套 affine
+核验、Pell 生成/复核/有限扫描及 quadratic peeling。验证入口与内部完整性
+封印位于
+[`本轮验证包`](Lean/verification/2026_09_02_refined_haar_farey_ownership_hensel_contact/)。
+这些计数不包含任何开放估计、IUT source bridge、`ABCConjecture` 或其否定项。
+
+作者为 ChatGPT 的英文期刊稿现为 224 页 A4 PDF，文件为
+[`output/pdf/ChatGPT_ABC_Uniformity_2026.pdf`](output/pdf/ChatGPT_ABC_Uniformity_2026.pdf)，
+SHA-256 是
+`50f47f03ac88bf1f0bee03b4ae8548b0cf42accd64a47db29207d445df358aa2`。
+最终 TeX 日志、文字/边界检测、全部 14 张逐页 contact sheet 与关键原始页
+人工复核记录位于
+[`本轮 PDF QA 目录`](output/pdf/ChatGPT_ABC_Refined_Haar_Farey_Ownership_Hensel_Contact_2026_09_02_QA/)。
+
 ## 2026-09-02 最新四路线检查点：actual Haar、sigma-one、catalogue novelty 与 endpoint curvature
 
 标准、无条件的 `ABCConjecture` 仍未被证明或证伪。本检查点继续并行推进

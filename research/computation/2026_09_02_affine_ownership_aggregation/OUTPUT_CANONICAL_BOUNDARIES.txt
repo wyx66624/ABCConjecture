@@ -1,0 +1,388 @@
+{
+  "period_direction": {
+    "B": 7,
+    "C": 8,
+    "M": 400,
+    "N": 399,
+    "points": [
+      [
+        349,
+        301
+      ],
+      [
+        358,
+        73
+      ]
+    ],
+    "arms": [
+      [
+        4887,
+        38599,
+        34385
+      ],
+      [
+        5013,
+        13189,
+        12167
+      ]
+    ],
+    "kernels": [
+      [
+        27,
+        1331,
+        529
+      ],
+      [
+        9,
+        121,
+        12167
+      ]
+    ],
+    "all_pair_tops": 1,
+    "maximal_tops": 1,
+    "pair_budget": 1,
+    "repeated_nonarm_labels": 2,
+    "S_non": "445280/3",
+    "E_non": "445280",
+    "H3_exact_full_caps": "445280/3",
+    "direction_envelope": "445280/3",
+    "c": 28728,
+    "tops": [
+      {
+        "top": [
+          9,
+          121,
+          529
+        ],
+        "line": [
+          3,
+          -76,
+          -27427
+        ],
+        "coefficient": [
+          3,
+          -605,
+          -529
+        ],
+        "support": [
+          0,
+          1
+        ],
+        "r": 2,
+        "owned_labels": [
+          [
+            3,
+            121,
+            529
+          ],
+          [
+            9,
+            121,
+            529
+          ]
+        ],
+        "S_owned": "445280/3",
+        "E_owned": "445280",
+        "Q_exact": "445280/3",
+        "F_full": "704099/3",
+        "beta_exact": "4/9"
+      }
+    ],
+    "envelopes": [
+      {
+        "direction": [
+          3,
+          -76
+        ],
+        "lcm_top": [
+          9,
+          121,
+          529
+        ],
+        "formal_labels": 2,
+        "actual_mass": "445280/3",
+        "envelope_mass": "445280/3"
+      }
+    ]
+  },
+  "three_pair_collapse": {
+    "B": 4,
+    "C": 5,
+    "M": 390,
+    "N": 389,
+    "points": [
+      [
+        240,
+        248
+      ],
+      [
+        289,
+        166
+      ],
+      [
+        387,
+        2
+      ]
+    ],
+    "arms": [
+      [
+        2401,
+        14801,
+        12321
+      ],
+      [
+        2891,
+        11191,
+        9531
+      ],
+      [
+        3871,
+        3971,
+        3951
+      ]
+    ],
+    "kernels": [
+      [
+        2401,
+        361,
+        12321
+      ],
+      [
+        49,
+        361,
+        27
+      ],
+      [
+        49,
+        361,
+        9
+      ]
+    ],
+    "all_pair_tops": 1,
+    "maximal_tops": 1,
+    "pair_budget": 3,
+    "repeated_nonarm_labels": 1,
+    "S_non": "86184",
+    "E_non": "689472",
+    "H3_exact_full_caps": "10773",
+    "direction_envelope": "86184",
+    "c": 11670,
+    "tops": [
+      {
+        "top": [
+          49,
+          361,
+          9
+        ],
+        "line": [
+          49,
+          -82,
+          -31832
+        ],
+        "coefficient": [
+          49,
+          -361,
+          -279
+        ],
+        "support": [
+          0,
+          1,
+          2
+        ],
+        "r": 3,
+        "owned_labels": [
+          [
+            49,
+            361,
+            9
+          ]
+        ],
+        "S_owned": "86184",
+        "E_owned": "689472",
+        "Q_exact": "86184",
+        "F_full": "159201",
+        "beta_exact": "1"
+      }
+    ],
+    "envelopes": [
+      {
+        "direction": [
+          49,
+          -82
+        ],
+        "lcm_top": [
+          49,
+          361,
+          9
+        ],
+        "formal_labels": 1,
+        "actual_mass": "86184",
+        "envelope_mass": "86184"
+      }
+    ]
+  },
+  "one_class_two_tops": {
+    "B": 5,
+    "C": 6,
+    "M": 254,
+    "N": 253,
+    "points": [
+      [
+        35,
+        139
+      ],
+      [
+        59,
+        135
+      ],
+      [
+        186,
+        254
+      ]
+    ],
+    "arms": [
+      [
+        1051,
+        26071,
+        21901
+      ],
+      [
+        1771,
+        26071,
+        22021
+      ],
+      [
+        5581,
+        51301,
+        43681
+      ]
+    ],
+    "kernels": [
+      [
+        1,
+        841,
+        121
+      ],
+      [
+        1,
+        841,
+        361
+      ],
+      [
+        1,
+        841,
+        43681
+      ]
+    ],
+    "all_pair_tops": 2,
+    "maximal_tops": 2,
+    "pair_budget": 2,
+    "repeated_nonarm_labels": 2,
+    "S_non": "367024",
+    "E_non": "367024",
+    "H3_exact_full_caps": "367024",
+    "direction_envelope": "367024",
+    "c": 10626,
+    "tops": [
+      {
+        "top": [
+          1,
+          841,
+          121
+        ],
+        "line": [
+          151,
+          115,
+          -16964
+        ],
+        "coefficient": [
+          151,
+          841,
+          726
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "r": 2,
+        "owned_labels": [
+          [
+            1,
+            841,
+            121
+          ]
+        ],
+        "S_owned": "89320",
+        "E_owned": "89320",
+        "Q_exact": "89320",
+        "F_full": "101761",
+        "beta_exact": "1"
+      },
+      {
+        "top": [
+          1,
+          841,
+          361
+        ],
+        "line": [
+          127,
+          119,
+          -10124
+        ],
+        "coefficient": [
+          127,
+          841,
+          722
+        ],
+        "support": [
+          1,
+          2
+        ],
+        "r": 2,
+        "owned_labels": [
+          [
+            1,
+            841,
+            361
+          ]
+        ],
+        "S_owned": "277704",
+        "E_owned": "277704",
+        "Q_exact": "277704",
+        "F_full": "303601",
+        "beta_exact": "1"
+      }
+    ],
+    "envelopes": [
+      {
+        "direction": [
+          127,
+          119
+        ],
+        "lcm_top": [
+          1,
+          841,
+          361
+        ],
+        "formal_labels": 1,
+        "actual_mass": "277704",
+        "envelope_mass": "277704"
+      },
+      {
+        "direction": [
+          151,
+          115
+        ],
+        "lcm_top": [
+          1,
+          841,
+          121
+        ],
+        "formal_labels": 1,
+        "actual_mass": "89320",
+        "envelope_mass": "89320"
+      }
+    ]
+  }
+}
+PASS canonical ownership/maximality boundaries

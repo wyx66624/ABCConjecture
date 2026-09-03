@@ -1,0 +1,3790 @@
+RADICAL DEFECTS, WIEFERICH PRIMES, AND THEabcCONJECTURE
+R. LANIEWSKI
+Abstract.For coprimea+b=c, the parity class in whichaandbare odd andcis even admits
+an exact treatment. Triples are measured by the radical excessEε = logc−(1 +ε) log rad(abc),
+and called transgressive at fixedε >0when it is non-negative. Theabcconjecture asserts that such
+triples are finite in number. The excess is written exactly in terms of the defect, the mass of repeated
+primes the radical discards, and rearranges into a linear threshold in which the smaller summand
+s= min{a, b}appears explicitly. Eithersstays bounded along a subsequence, or the defect must
+overshoot the threshold and rejoin it at an amplified exponent.
+For the Mersenne familyVm = (1,2 m −1,2 m)transgression atε= 0holds precisely when2 m −1
+fails to be squarefree, on a set of exponents of density47/210. The defect obeys the exact law
+∆m = Ωm + logG m, whereΩ m collects the Wieferich primes dividing2m −1andG m is the largest
+divisor ofmwhose prime factors divide2 m −1. This divisor is trivial on prime-power exponents
+and largest onm k = lcm(1, . . . , k), where the marginq(Vmk)−1≥(1−o(1)) logm k/(mk log 2)is
+the most any Wieferich-free mechanism can give. Anabccounterexample family along the Mersenne
+line would require infinitely many Wieferich primes with exponential order–defect growth.
+A final section separates two elliptic curves attached to the class: the Frey curve, whose minimal
+discriminant expresses the total defect with a bounded correction at2, and a congruent-number
+Jacobian, whose Szpiro quotient stays below3.
+Contents
+1. Introduction 2
+1.1. The Mersenne criterion 3
+1.2. The class and the defect identities 4
+1.3. The curves attached to the class 4
+1.4. Position within the literature 5
+2. The parity class 6
+3. Linear and total defects 7
+4. Threshold certificates and concentration 9
+4.1. Square extraction 12
+4.2. Prime-power concentration 15
+4.3. Concentration of the total defect 16
+4.4. Two recurrence families near the defect threshold 18
+5. The Mersenne line 22
+5.1. The exact Mersenne criterion 22
+Date: September 2, 2026.
+2020Mathematics Subject Classification.11D75, 11A25, 11N25.
+Key words and phrases.abcconjecture, radical, squarefull integer, parity class, radical defect, Pell equation,
+Mersenne number, Wieferich prime, squarefree part, primitive divisor, least common multiple, exceptional set.
+1
+arXiv:2609.00039v1  [math.GM]  29 Aug 2026
+
+2 R. LANIEWSKI
+5.2. An infinite family above quality one 23
+5.3. Fixed primes give only logarithmic defect 24
+5.4. Squarefull and prime-power conditions 26
+6. Wieferich primes and the asymptotic Mersenne criterion 27
+6.1. The exact defect law 27
+6.2. The normalized defect criterion 30
+6.3. Order–defect data 32
+6.4. Exact defect laws on every fixed even base 34
+6.5. A complete classification of the crossings of quality one 37
+6.6. Prime-power exponents and the prime subline 38
+6.7. Order-closed exponents and an extremal family 41
+6.8. Order cores and the bounded order-cofactor 44
+6.9. The finite case 51
+6.10. The infinite case 53
+7. Exceptional sets and current benchmarks 55
+8. Explicit parity descent curves 57
+8.1. The oriented parity Frey curve 57
+8.2. The genus-one intersection 60
+8.3. The Jacobian and its square-class reduction 61
+8.4. Height and kernel compression 63
+8.5. Separate local conditions at265
+8.6. Arithmetic content of the descent 66
+9. Interpretation of the boundary reduction 66
+10. The parity class under the negation 67
+References 69
+1.Introduction
+Leta+b=cwitha, b, c∈Z >0 pairwise coprime. Such a triple is subject at once to an additive
+constraint and a multiplicative one, and the two are not readily compared. Theabcconjecture of
+Masser and Oesterlé [Oes88] states how weakly they interact: for everyε >0, only finitely many
+coprime triples satisfy
+c≥rad(abc) 1+ε.
+Exactly one class among the coprime solutions hasceven. Writingc= 2Kanda, b=K∓Mturns
+the additive relation into the identityab=K 2 −M 2, and the odd parts ofK,K−MandK+M
+are pairwise coprime. The radical then separates into three independent pieces and the excess above
+theabcthreshold can be computed rather than estimated.
+A coprime triple(a, b, c)satisfyinga+b=cis calledtransgressive at exponentεifc≥rad(abc) 1+ε,
+or equivalently if the qualityq(a, b, c) = logc/log rad(abc)satisfiesq(a, b, c)≥1+ε. Theabcconjecture
+asserts that for every fixedε >0, the set of transgressive triples is finite.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 3
+This paper asks under which arithmetic conditions an explicit one-parameter family can contain
+infinitely many transgressive triples. For the family of Mersenne triples
+Vm = (1,2 m −1,2 m)
+the condition can be written as an exact criterion involving the order and defect structure of Wieferich
+primes.
+1.1.The Mersenne criterion.Writeθ ε =ε/(1 +ε). Theorem 5.3 answers a weak form of the
+question. Its triplesV 6n all have quality greater than one. The Mersenne line thus carries infinitely
+many triples above the critical quality, though with an excess that decays away. Theorem 6.19 gives a
+complete description. The quality ofVm exceeds one exactly when2m −1fails to be squarefree, and
+the indices at which this happens have lower density at least47/210by Corollary 6.20. For the size
+of the excess, Theorem 6.32 gives, on the exponentsmk = lcm(1, . . . , k),
+q(Vmk)−1≥(1−o(1)) logm k
+mk log 2.
+The growth estimate used in the proof is Nair’s elementary lower boundlcm(1, . . . , k)≥2k−1 [Nai82].
+Theorem 6.33 shows the margin to be extremal. The part of the Mersenne defect free of Wieferich
+primes never exceedslogm.
+The question of whether the line carries infinitely many triples transgressive at one fixed exponent
+lies deeper. Section 5 shows this to hold precisely when
+2m −1
+rad(2m −1) ≥2(1−2 −m) 2θεm
+for infinitely many integersm. The left side is the repeated-prime mass of2m −1, and the criterion
+asks that this mass grow at a fixed exponential rate inm.
+By the lifting-the-exponent identity, the contribution of a fixed prime to the defect of2m −1is
+logarithmic inmunless the prime is aWieferich prime, that is, a primepwith2 p−1 ≡1 (modp 2).
+Theorem 6.3 in Section 6 gives
+∆m = Ωm + logG m.
+HereΩ m is the intrinsic contribution of the Wieferich primes dividing2m −1, andG m is the largest
+divisor ofmall of whose prime factors divide2m −1. On prime-power exponentsG m = 1, so quality
+above one can occur on that subline only through a Wieferich prime of prime-power order, a prime at
+present undiscovered (Corollary 6.24). The order-closed exponents behave differently. Among them
+are the numberslcm(1, . . . , k), whereGm contains the whole odd part ofmand yields the quantitative
+margin recalled above. Every fixed even baseggives a line of parity-class triples(1, gm −1, g m)on
+which the same identity holds, by Theorem 6.15.
+For a Wieferich primep, letd p = ord p(2)andA p =v p(2dp −1). For a finite setSof Wieferich
+primes put
+D(S) = lcm p∈S dp andB(S) =
+Y
+p∈S
+pAp−1.
+Theorems 6.7 and 6.11 then give the following equivalence. An infinite Mersenne family transgressive
+at some fixed positive exponent exists precisely when there are a constantκ >0and finite setsSj of
+Wieferich primes with
+D(Sj)− → ∞andB(S j)≥2 κD(Sj ).
+Whether such growth occurs is not known.
+
+4 R. LANIEWSKI
+WritingD m =D(W(m))for the order core of the exponent, Theorem 6.42 bounds the quotient
+m/Dm by the integers below⌈1 + 1/ε⌉at every sufficiently large transgressive exponent. By The-
+orem 6.39, any infinite transgressive family at a given exponent may be replaced by one for which
+that quotient equals one. On prime exponentsℓthe condition takes a simpler form, since every prime
+dividing2 ℓ −1then has order exactlyℓ(Theorem 6.26).
+Theorem 6.46 shows that the infinitude of the Wieferich primes is necessary for anabccounterex-
+ample family on the Mersenne line. IfWis finite, the Mersenne defect is at mostlogm+O(1)and
+the line carries only finitely many transgressive triples. An explicit ceiling for the surviving indices
+is supplied by Theorem 6.48. Infinitude alone would not suffice. The criterion asks the ordersdp to
+stay small against the accumulated weightsAp, and the joint distribution of these two quantities has
+not been investigated. The heuristic count of Wieferich primes belowx, of orderlog logx, falls short
+of theexp(κℓ)growth inB(W(ℓ))that Theorem 6.7 would require.
+1.2.The class and the defect identities.The proofs proceed inside the parity class whereaand
+bare odd andcis even. Writing
+K= a+b
+2 andM= b−a
+2
+one hasa=K−M,b=K+M, andc= 2K. The pair(a, b)corresponds bijectively to a pair of
+coprime integers(K, M)of opposite parity withK >|M| ≥0. The advantage of the class is that the
+identityab=K 2 −M 2 holds inZ, that the odd prime supports ofK,K−M, andK+Mare pairwise
+disjoint, and that the height is exactlylog(2K), so that the radical factors into three pairwise coprime
+parts, and the estimates below rest upon that factorization.
+These three properties are all that the identities of Sections 3 and 4 require. Proposition 3.4
+expresses the excess through the defect, Proposition 4.2 evaluates what remains through the smaller
+summands= min{a, b}, and Theorem 4.3 reads the result as a threshold upon the linear defect. The
+two regimes announced above are the two ways in which a sequence may meet that threshold, and
+Theorem 10.5 separates them.
+A transgressive triple is constrained locally as well. Its total defect concentrates on a single prime
+within one summand (Theorem 4.20), and at least two distinct primes must appear with multiplicity at
+least two inabc(Theorem 4.26). Along any transgressive sequence, the squarefull parts, the relative
+quotients, and the total defects diverge at explicit rates (Theorem 10.4). The kernel congruence
+modulo8is the complete local obstruction at2for the residual quadratic equation (Proposition 4.15),
+and a positive proportion of all kernel pairs satisfies it (Proposition 4.17).
+Subsection 4.4 presents two families that approach these thresholds to within an absolute constant.
+A Pell recurrence and a dyadic norm recurrence each produce an infinite family of parity-class triples
+whose total defect lies within an absolute constant of the principal threshold. The constraints of
+Section 4 are thus sharp up to bounded error. On the Pell family the sign of the residual margin
+can be read off. Its quality exceeds one exactly when the productxnyn of the two Pell coordinates
+fails to be squarefree (Theorem 4.31), and a divisibility that propagates along the recurrence gives a
+progression of indices, of density1/7, on which this comes to pass.
+1.3.The curves attached to the class.The class carries its own elliptic curves, and they differ
+from the Frey curve in the treatment of the prime2and in the rigidity of the family obtained. The
+construction of Frey attaches to a coprime triple the curvey2 =x(x−a)(x+b), after a choice of
+orderingofthesummandsgovernedbyacongruencemodulo4, andthepassagefromtheabcconjecture
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 5
+to the conjecture of Szpiro [Szp90] is then made through inequalities in which the power of2dividing
+the conductor is carried as a bounded but unspecified factor. Definition 8.1 fixes the orientation of
+the pair(α, β)by the two-adic valuation ofc, a choice the parity class makes available becausecis
+the even member. Proposition 8.3 determines the minimal model at2for each of the three ranges
+1≤v 2(c)≤3,v 2(c) = 4, andv 2(c)≥5, together with the reduction type in each, and Corollary 8.5
+turns the Szpiro quotient into the identity
+log|∆min(ET )|= 2δ tot(T) + 2 log rad(abc) +κ 2(T) log 2
+whereκ 2 takes only the two values4and−8. The total defect appears in the minimal discriminant
+as an equality, with a two-adic correction of at most8 log 2, and the arithmetic of Sections 3 and 6
+may therefore be read upon the curve itself. On the Mersenne line every term becomes explicit.
+Corollary 8.6 expresses the Szpiro quotient ofEVm throughΩ m andlogG m, so that the Wieferich
+decomposition of Theorem 6.3 is recovered from the curve without loss.
+The genus-one intersection of Definition 8.7 answers a separate concern. A descent conducted
+upon a Frey curve opens with the question of local solubility, whereas the two quadrics assembled
+from the squarefree kernelsd a andd b carry the distinguished rational pointP T = (u a :u b : 1 :
+1), supplied by the square extraction and demanding no local–global argument (Corollary 8.10).
+Transgression then constrains two quantities in opposite directions. The heightH ×(PT ) =u aub
+is bounded below by
+
+s(T)R K(T)
+1/2
+(2K) θε/2, while the productd adb of the kernels is bounded
+above by
+
+2K−s(T)
+
+RK(T)(2K) θε, the same factor(2K)θε governing both (Proposition 8.16 and
+Theorem 8.17). The Jacobian retains none of this, since it depends only upon the square class of
+ΓT =d adbKM, and its Szpiro quotient stays below3for every triple of the class (Corollary 8.13).
+Section 8 therefore treats the two constructions separately.
+A second difference concerns rigidity. A Frey curve varies with its triple, itsj-invariant taking a
+fresh value each time and its reduction at the odd primes being of typeI2vp(abc), so that the family
+ranges over the moduli of elliptic curves as the triple varies. Theorem 8.11 placesJT instead within a
+single isomorphism class up to quadratic twist, that of the congruent-number curveY2 =X 3 −γ 2
+T X,
+with constantj-invariant1728, full rational2-torsion, and complex multiplication byZ[i]overQ(i).
+Proposition 8.12 gives the conductor as2 5γ2
+T forγ T odd and2 4γ2
+T forγ T even, with no case left
+undetermined. Every parity-class triple therefore yields a member of one quadratic-twist family,
+the family of the congruent-number problem, whoseL-functions, Heegner points, and Selmer groups
+carry an established literature. A generic Frey curve admits no such reference class. The Jacobian
+retains only the single parameterγT, which Theorem 8.17 bounds from above whenever the triple is
+transgressive.
+1.4.Position within the literature.The strongest unconditional pointwise estimates remain log-
+arithmic inc, whereas the conjecture asserts a bound polynomial inrad(abc). Stewart and Yu proved
+that only finitely many triples satisfyrad(abc)<(logc) 3−η for a fixedη >0[SY01]. Pasten obtained
+sharper subexponential estimates under additional restrictions, among them the hypothesis that one
+summand be bounded above by a fixed power ofcsmaller thancitself [Pas24]. In the opposite
+direction Bright proved that infinitely many coprime triples satisfy
+c >rad(abc) exp
+ 
+6.563
+s
+logc
+log logc
+!
+
+6 R. LANIEWSKI
+which refines the earlier constants of Stewart and Tijdeman and of van Frankenhuysen [ST86, vF00].
+Examples of this kind fix a lower-bound scale for whatever strength a refinement of the conjecture
+might hope to possess [Bri24].
+Silverman proved that theabcconjecture implies the existence of infinitely many non-Wieferich
+primes [Sil88]. In the reverse direction it has long been known that a single Wieferich prime forces
+low-radical triples along a Mersenne sub-line, as in the family of Granville and Tucker [GT02]. On the
+line(1,2 m −1,2 m), the present paper establishes an exact identity for the radical defect (Theorem 6.3),
+and an equivalence that ties an infinite family transgressive at a fixed exponent to the order–defect
+growth of the Wieferich primes (Theorems 6.7 and 6.11).
+Progress has also been made in counting the triples whose radical is too small. For fixed0< λ <1,
+letN λ(X)count the coprime triples in[1, X] 3 satisfyinga+b=candrad(abc)< c λ. An argument
+resting upon work of de Bruijn gives
+Nλ(X)≪ λ,η X 2λ/3+η
+for everyη >0[dB62]. The first power saving over this bound is due to Bernert, Browning, Lichtman,
+and Teräväinen, who obtained, for every fixed0< λ≤2and everyη >0,
+Nλ(X)≪ λ,η X (23λ+3)/40+η
+and, sharper asλ→1, the estimate
+Nλ(X)≪ λ,η X 3/5+η
+for every fixed0< λ <1and everyη >0[BBLT26, Theorems 1.2 and 1.3]. Lichtman has since
+shown the conjecture to hold outside a sparse exceptional set [Lic25]. The sparsity falls short of the
+finiteness predicted by the conjecture. Section 7 sets these estimates beside the pointwise constraints
+obtained here.
+2.The parity class
+Definition 2.1(Parity-class triple).Aparity-class tripleis a tripleT= (a, b, c)of pairwise coprime
+positive integers satisfying
+a+b=c
+whereaandbare odd andcis even.
+Every pairwise coprime solution ofa+b=chas exactly one even member. Definition 2.1 keeps the
+class in which that member isc, and the class in which the even member isaorbis not considered
+here.
+Definition 2.2(Class coordinates).For a parity-class tripleT, define
+K=K(T) := a+b
+2 andM=M(T) := b−a
+2 .
+Then
+a=K−M b=K+M c= 2K.
+Lemma 2.3(Coprimality of the class coordinates).For every parity-class triple one has
+gcd(K, M) = 1.
+Proof.Every common divisor ofKandMdividesK−M=aandK+M=b. Sincegcd(a, b) = 1,
+the common divisor is1.□
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 7
+Lemma 2.4(Disjoint odd supports).No odd prime divides two of the three integers
+K, K−M, K+M.
+Proof.Suppose that an odd primepdivides two of these integers. Their sum or difference then shows
+thatpdivides the third, and in particularpdivides bothKandM. This contradicts Lemma 2.3.□
+Definition 2.5(Odd radical of the center).Define
+RK(T) :=
+Y
+p|K
+podd
+p
+and
+tK(T) := logR K(T).
+Proposition 2.6(Exact radical separation).For every parity-class triple,
+rad(abc) = 2RK(T) rad(a) rad(b).
+It follows that
+log rad(abc) = log 2 +tK(T) + log rad(a) + log rad(b).
+Proof.The prime2dividescand does not divideaorb. Lemma 2.4 shows that the odd primes
+dividingK,a, andbform three disjoint sets. Multiplication over these sets gives the identity.□
+3.Linear and total defects
+Definition 3.1(Radical excess and quality).Forε >0, define theradical excess
+Eε(T) := logc−(1 +ε) log rad(abc).
+Define thequality
+q(T) := logc
+log rad(abc).
+Thus
+Eε(T)≥0⇐ ⇒q(T)≥1 +ε.
+A triple satisfying these equivalent inequalities is calledtransgressive at exponentε.
+Since the conjecture forbids only the infinitude of such triples at a fixed exponent, a transgressive
+triple does not by itself refute it.
+Conjecture 3.2(abcin the parity class).For everyε >0, only finitely many parity-class triples
+satisfy
+Eε(T)≥0.
+Failure of Conjecture 3.2 would imply failure of the fullabcconjecture. The converse need not
+follow, since Conjecture 3.2 concerns only the parity class in whichcis even.
+Definition 3.3(Linear defect).Thelinear defectis
+δlin(T) := log
+ ab
+rad(a) rad(b)
+
+.
+Equivalently,
+δlin(T) =
+X
+p|a
+
+vp(a)−1
+
+logp+
+X
+p|b
+
+vp(b)−1
+
+logp.
+
+8 R. LANIEWSKI
+The linear defect is non-negative, and it vanishes precisely whenaandbare squarefree.
+Proposition 3.4(Exact radical-excess identity).Put
+r(T) := |M|
+K .
+Then0≤r(T)<1, and
+Eε(T) =−(1 + 2ε) logK−(1 +ε)t K(T) + (1 +ε)δ lin(T)
+−(1 +ε) log
+
+1−r(T) 2
+−εlog 2.
+Proof.Since
+ab= (K−M)(K+M) =K 2
+1−r(T) 2
+Definition 3.3 gives
+log rad(a) + log rad(b) = 2 logK+ log
+
+1−r(T) 2
+−δ lin(T).
+Substitution into Proposition 2.6 and then into Definition 3.1 proves the identity.□
+The term involvingr(T)measures the asymmetry betweenaandb, and it is of orderlog(c/s(T))
+once one summand is small against the other. In Section 4 this term is evaluated exactly through the
+smaller summand, and the identity then becomes a threshold.
+Definition 3.5(Center defect and total defect).Define the odd center defect by
+δK(T) :=
+X
+p|K
+podd
+
+vp(K)−1
+
+logp.
+Define the two-adic defect by
+δ2(T) :=v 2(K) log 2.
+Sincec= 2Kgivesv 2(c) =v 2(K) + 1, an equivalent form is
+δ2(T) =
+
+v2(c)−1
+
+log 2.
+This exhibitsδ2 as the two-adic multiplicity discarded by the radical inc, the single factor of2retained
+byrad(c)accounting for the subtracted unit. Thetotal defectis
+δtot(T) :=δ 2(T) +δ K(T) +δ lin(T).
+Lemma 3.6(Total defect identity).For every parity-class triple,
+δtot(T) = log
+ abc
+rad(abc)
+
+.
+Proof.The three summands of Definition 3.5 are the logarithmic multiplicities discarded by the radical
+inc, in the odd part ofK, and in the two odd summands. Lemma 2.4 permits their addition without
+overlap. □
+Proposition 3.7(Total radical-excess identity).For everyε >0,
+Eε(T) = (1 +ε)
+
+δtot(T)−log(ab)
+
+−εlog(2K).
+In particular,
+logc−log rad(abc) =δ tot(T)−log(ab).
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 9
+Proof.Lemma 3.6 gives
+log rad(abc) = log(ab) + log(2K)−δ tot(T).
+Substitutionintotheradicalexcessprovesthefirstidentity. Thesecondfollowsfromthesamealgebraic
+identity atε= 0. □
+Theorem 3.8(Exact total-defect criterion).Put
+θε := ε
+1 +ε .
+Then
+Eε(T)<0⇐ ⇒δ tot(T)<log(ab) +θ ε log(2K).
+Hence ifE ε(T)≥0, then
+δtot(T)≥log(ab) +θ ε log(2K).
+Corollary 3.9(Quality through the total defect).For every parity-class triple,
+q(T) = 1 + δtot(T)−log(ab)
+log rad(abc) .
+4.Threshold certificates and concentration
+Lemma 4.1(Minimal product).Suppose thatK >1. Then
+ab≥2K−1.
+Equivalently,
+1−r(T) 2 ≥ 2K−1
+K 2 .
+Proof.The positive odd integersaandbhave sum2K. Their product is smallest when the pair is1
+and2K−1. The second inequality follows fromab=K 2(1−r(T) 2).□
+Proposition 4.2(Exact boundary identity).Let
+s(T) := min{a, b}.
+Then, for every parity-class triple,
+Eε(T) = (1 +ε)
+
+δlin(T)−t K(T)
+
++ logK
+−(1 +ε) log
+
+s(T) (2K−s(T))
+
+−εlog 2.
+Proof.The larger summand equals2K−s(T), so that
+ab=s(T)
+
+2K−s(T)
+
+=K 2
+1−r(T) 2
+.
+Substitute this expression into the identity of Proposition 3.4. The coefficient oflogKbecomes
+−(1 + 2ε) + 2(1 +ε) = 1.□
+Theorem 4.3(Exact linear threshold).Suppose thatK >1and puts=s(T). Then
+Eε(T)≥0⇐ ⇒δ lin(T)≥t K(T) +θ ε log(2K) + log
+
+s
+
+2− s
+K
+
+.
+The boundary term satisfies
+log
+
+2− 1
+K
+
+≤log
+
+s
+
+2− s
+K
+
+≤log(2s)
+and it is an increasing function ofson[1, K], so that its least value occurs on the liness= 1.
+
+10 R. LANIEWSKI
+Proof.Division of the identity of Proposition 4.2 by1 +εshows thatEε(T)≥0holds precisely when
+δlin(T)−t K(T)≥log
+
+s(2K−s)
+
+− logK
+1 +ε +θ ε log 2.
+Since2K−s=K(2−s/K),
+log
+
+s(2K−s)
+
+= logK+ logs+ log
+
+2− s
+K
+
+and the right side equalsθε log(2K) + log(s(2−s/K)).
+For the range of the boundary term, putg(x) =x(2−x/K)on[1, K]. Theng ′(x) = 2−2x/K≥0,
+so thatgincreases, withg(1) = 2−1/Kat one end andg(s)≤2sthroughout.□
+Whensis comparable toK, the boundary termlog(s(2−s/K))in Theorem 4.3 approaches
+logK. The threshold in Theorem 4.3 then exceeds the boundary-free lower bound of Theorem 4.4 by
+approximatelylogK, leading to the interior divergence described in Theorem 10.5 and the exponent
+amplification of Proposition 4.8.
+Theorem 4.4(Boundary-free certificate).Suppose thatK >1. If
+δlin(T)< t K(T) +θ ε log(2K)
+then
+Eε(T)<0.
+Conversely, ifE ε(T)≥0, then
+δlin(T)≥t K(T) +θ ε log(2K).
+Proof.ForK >1the boundary term of Theorem 4.3 is at leastlog(2−1/K)>0. Ifδ lin(T)<
+tK(T) +θ ε log(2K), then the threshold of that theorem fails, andEε(T)<0. The second assertion is
+the contrapositive. □
+Corollary 4.5(Exact criterion on a fixed line).Fix an odd integers0 ≥1, and consider the parity-
+class triples withmin{a, b}=s 0, that is, the triples(s0,2K−s 0,2K)withK > s 0 andgcd(s 0,2K) = 1.
+On this line,
+Eε(T)≥0⇐ ⇒δ lin(T)≥t K(T) +θ ε log(2K) + log
+
+s0
+
+2− s0
+K
+
+.
+Moreover, every transgressive triple on the line satisfies
+log
+ 2K−s 0
+rad(2K−s 0)
+
+≥t K(T) +θ ε log(2K) + log rad(s0).
+Proof.ForK > s 0 the smaller summand iss 0, and the first equivalence is Theorem 4.3. For the
+second assertion, the linear defect on the line decomposes as
+δlin(T) = log
+ s0
+rad(s0)
+
++ log
+ 2K−s 0
+rad(2K−s 0)
+
+.
+The threshold gives
+log
+ 2K−s 0
+rad(2K−s 0)
+
+≥t K(T) +θ ε log(2K) + logs 0 −log
+ s0
+rad(s0)
+
++ log
+
+2− s0
+K
+
+and the claim follows fromlogs0 −log(s 0/rad(s 0)) = log rad(s0)together withlog(2−s 0/K)>0.□
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 11
+The boundary-free certificate of Theorem 4.4 differs from the exact threshold in Theorem 4.3 solely
+by the non-negative termlog(s(2−s/K)). On the boundary liness= 1, this term is bounded
+betweenlog(2−1/K)andlog 2, whereas for interior sequences withs→ ∞it diverges aslogs.
+Section 5 examines the cases= 1, where Corollary 4.5 yields an explicit single-variable criterion on
+the Mersenne line.
+Definition 4.6(Relative linear quotient).Define
+Dlin(T) := ab
+rad(a) rad(b)
+and
+Qrel(T) := Dlin(T)
+RK(T) .
+Then
+logQ rel(T) =δ lin(T)−t K(T).
+Corollary 4.7(Quotient certificate).Suppose thatK >1. If
+Qrel(T)<(2K) θε
+thenE ε(T)<0. IfE ε(T)≥0, then
+Qrel(T)≥s(T) (2K) θε
+and so
+s(T)≤ Qrel(T)
+(2K) θε
+.
+Proof.The first assertion follows upon exponentiating Theorem 4.4. For the second, Theorem 4.3
+gives
+δlin(T)−t K(T)≥θ ε log(2K) + logs(T) + log
+
+2− s(T)
+K
+
+≥θ ε log(2K) + logs(T)
+since2−s(T)/K≥1. Exponentiation proves the bound, and the final estimate is its rearrangement.
+□
+Proposition 4.8(Exponent amplification in the interior).Suppose thatK >1, that0≤α≤1, and
+that
+s(T)≥K α.
+IfE ε(T)≥0, then
+δlin(T)≥t K(T) + (θ ε +α) log(2K)−log 2.
+Suppose in addition thatθε +α <1, and defineε ′ by
+θε′ =θ ε +αthat isε ′ = θε +α
+1−θ ε −α .
+Then the triple satisfies, within the additive constantlog 2, the necessary condition of Theorem 4.4 at
+the amplified exponentε′.
+Proof.Theorem 4.3 together with2−s(T)/K≥1gives
+δlin(T)−t K(T)≥θ ε log(2K) +αlogK= (θ ε +α) log(2K)−αlog 2
+andαlog 2≤log 2proves the first claim. The mapε7→θ ε carries(0,∞)bijectively onto(0,1), so the
+statedε ′ exists, and the first claim then reads
+δlin(T)≥t K(T) +θ ε′ log(2K)−log 2
+
+12 R. LANIEWSKI
+which is the necessary condition of Theorem 4.4 at exponentε′ withinlog 2.□
+Corollary 4.9(Squarefree summands).Suppose thatK >1. Ifaandbare squarefree, then
+Eε(T)<0
+for everyε >0.
+Proof.The squarefree hypothesis givesδ lin(T) = 0, andt K(T)≥0. Theorem 4.4 applies.□
+4.1.Square extraction.
+Definition 4.10(Largest square divisor).For a positive integer
+N=
+Y
+p
+pep
+define
+sq(N) :=
+Y
+p
+p⌊ep/2⌋.
+Thensq(N) 2 is the largest square dividingN.
+Put
+ua = sq(a)andu b = sq(b).
+Lemma 4.11(Linear defect and square divisors).For every parity-class triple,
+Dlin(T)≤(u aub)2.
+Equivalently,
+δlin(T)≤2 log(u aub).
+Proof.For every integere≥1one has
+e−1≤2⌊e/2⌋
+since the two sides agree wheneis odd and differ by one wheneis even. Apply this inequality to
+each prime exponent inaandb, every such exponent being at least one.□
+Theorem 4.12(Large square forced by transgression).Suppose thatK >1andE ε(T)≥0. Then
+max{u2
+a, u2
+b} ≥u aub ≥
+
+s(T)R K(T)
+1/2
+(2K) θε/2
+whereu a = sq(a)andu b = sq(b)are the square roots of the largest square divisors of the two sum-
+mands.
+Proof.Corollary 4.7 gives
+Dlin(T)≥s(T)R K(T) (2K) θε .
+Lemma 4.11 gives(uaub)2 ≥D lin(T), and taking square roots boundsuaub from below by the stated
+quantity. The remaining step ismax{ua, ub}2 ≥u aub.□
+Write
+a=d au2
+a andb=d bu2
+b
+whered a andd b are squarefree.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 13
+Corollary 4.13(Residual quadratic equation).The extracted variables satisfy
+dau2
+a +d bu2
+b = 2K.
+IfE ε(T)≥0, then the productu aub satisfies the lower bound in Theorem 4.12.
+Lemma 4.14(Two-adic congruence of the squarefree kernels).Write
+a=d au2
+a andb=d bu2
+b
+withd a andd b squarefree. Thend a andd b are odd and coprime, and
+da +d b ≡2K(mod 8).
+The residues ofda andd b modulo8then determine the two-adic valuation ofc, according to the three
+cases below.
+(1)v 2(c) = 1precisely whend a +d b ≡2or6 (mod 8).
+(2)v 2(c) = 2precisely whend a +d b ≡4 (mod 8).
+(3)v 2(c)≥3precisely whend a ≡ −d b (mod 8).
+Proof.The summandsaandbare odd. Sincea=d au2
+a andb=d bu2
+b, every one ofda,u a,d b, andu b
+divides an odd number and is therefore odd itself. Every divisor common toda andd b divides both
+aandb, whencegcd(d a, db) = 1. The square of an odd integer is congruent to1modulo8, so that
+a≡d a andb≡d b (mod 8).
+Addition gives2K=a+b≡d a +d b (mod 8).
+The sumda +d b is even. The congruence2K≡2or6 (mod 8)holds precisely whenKis odd, that
+is, whenv 2(c) = 1. The congruence2K≡4 (mod 8)holds precisely whenv 2(K) = 1, that is, when
+v2(c) = 2. The congruence2K≡0 (mod 8)holds precisely whenv 2(K)≥2, that is, whenv 2(c)≥3.
+These three cases exhaust the even residues modulo8.□
+Proposition 4.15(Two-adic completeness of the kernel congruence).Letd a andd b be odd positive
+integers, and let2Kbe an even positive integer. Then the equation
+daX 2 +d bY 2 = 2K
+has a solution withXandYin the unit groupZ ×
+2 of the ringZ2 of two-adic integers precisely when
+da +d b ≡2K(mod 8).
+Proof.The square of a two-adic unit lies in1 + 8Z2, and conversely every element of1 + 8Z2 is the
+square of a two-adic unit. The direct half is the congruence for odd squares. For the converse half,
+letα∈1 + 8Z 2 and putf(X) =X 2 −α. Thenv 2(f(1)) =v 2(1−α)≥3andv 2(f ′(1)) = 1, so that
+v2(f(1))>2v 2(f ′(1)), and Hensel’s lemma furnishes a root offinZ2, necessarily a unit.
+Suppose first that unitsXandYsolve the equation. Reduction modulo8gives2K≡d aX 2 +
+dbY 2 ≡d a +d b (mod 8).
+Suppose now that the congruence holds. TakeY= 1and put
+α= 2K−d b
+da
+.
+The numerator is odd and the denominator is a two-adic unit, so thatα∈Z ×
+2 . The congruence
+gives2K−d b ≡d a (mod 8), and multiplication byd−1
+a , together withd−1
+a ≡d a (mod 8)andd 2
+a ≡1
+
+14 R. LANIEWSKI
+(mod 8), givesα≡1 (mod 8). By the first paragraph,αis the square of a unitX, and the pair(X,1)
+solves the equation. □
+Remark 4.16(Local filters and size conditions).For fixed odd squarefree integersd a andd b, the
+equation
+dau2
+a +d bu2
+b = 2K
+admits direct local tests at every prime dividing2Kdadb. At an odd prime, reduction gives quadratic-
+residue conditions which may exclude a candidate pair of kernels. At the prime2, Proposition 4.15
+gives the exact unit criterion
+da +d b ≡2K(mod 8).
+These tests can only exclude candidates. They neither produce coprime integral values ofua andu b
+nor give the lower bound
+uaub ≥
+
+s(T)R K(T)
+1/2
+(2K) θε/2
+required by Theorem 4.12. Local solubility and the integral size demanded of the solution remain
+separate questions.
+Proposition 4.17(Equidistribution of squarefree kernels modulo8).For each odd residuermodulo
+8,
+#
+
+d≤x:dsquarefree, d≡r(mod 8)
+	
+= x
+π2 +O( √x).
+Proof.By Möbius inversion over square divisors,
+#
+
+d≤x:dsquarefree, d≡r(mod 8)
+	
+=
+X
+e≤√x
+µ(e) #
+
+f≤x/e 2 :e 2f≡r(mod 8)
+	
+.
+For evenethe congruencee 2f≡r(mod 8)has no solution, sincee 2fis even whileris odd. For
+oddeone hase 2 ≡1 (mod 8), the congruence readsf≡r(mod 8), and the inner count equals
+x/(8e2) +O(1). The sum therefore equals
+x
+8
+X
+eodd
+µ(e)
+e2 +O( √x)
+and the Euler products
+X
+eodd
+µ(e)
+e2 =
+Y
+p>2
+
+1− 1
+p2
+
+= 6/π2
+1−1/4 = 8
+π2
+complete the evaluation.□
+Proposition 4.17 shows that odd squarefree integers are equidistributed among the four reduced
+residue classes modulo8. For a fixed even residue2Kmodulo8, exactly4of the16residue pairs
+(da, db)modulo8satisfyd a +d b ≡2K(mod 8). One fourth of all squarefree pairs therefore meets the
+two-adic condition of Proposition 4.15, leaving the size bound of Theorem 4.12 and the coprimality
+of the extracted variables still to be met.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 15
+4.2.Prime-power concentration.For each primep|abc, letN p denote the unique member of
+{a, b, c}divisible byp. This member exists and is unique because the three supports are pairwise
+disjoint by Lemma 2.4. Put
+ep :=v p(Np)−1andx p :=e p logp.
+Definition 4.18(Linear support data).Define
+ωlin(T) :=ω(a) +ω(b) =ω(ab).
+The second equality holds becausegcd(a, b) = 1places the two prime supports in disjoint sets. When
+K >1, letP lin(T)be the largest prime dividingab.
+Lemma 4.19(Weighted maximum over a prime support).LetPbe a finite non-empty set of primes,
+and let(e p)p∈P be non-negative integers. Then
+max
+p∈P
+ep ≥
+P
+p∈P ep logpP
+p∈P logp .
+Since the left member is an integer, one has moreover
+max
+p∈P
+ep ≥
+&P
+p∈P ep logpP
+p∈P logp
+'
+.
+Proof.PutE= max p∈P ep. For eachp∈ Pone haslogp >0, whencee p logp≤Elogp. Summation
+overPgives X
+p∈P
+ep logp≤E
+X
+p∈P
+logp
+and division by the positive quantityP
+p∈P logpproves the first inequality. The second follows from
+the integrality ofE. □
+SinceP
+p|ab logp= log rad(ab), Lemma 4.19 bounds the maximum valuationvp(N)−1from below
+by the average defect per logarithmic prime mass. Division of the defect bylog rad(ab), or else by
+log rad(abc), bounds the largest single-prime extraction from below, and the exponents being integers,
+that bound may be raised to its ceiling.
+Theorem 4.20(Weighted concentration in one summand).Suppose thatK >1andE ε(T)≥0.
+Then some primepdividing a summandN∈ {a, b}satisfies
+vp(N)−1≥ tK(T) +θ ε log(2K)
+log rad(ab) .
+In particular,
+vp(N)−1≥ tK(T) +θ ε log(2K)
+ωlin(T) logP lin(T) .
+Proof.For each primep|abone hasN p ∈ {a, b}, and
+δlin(T) =
+X
+p|ab
+ep logp.
+Since X
+p|ab
+logp= log rad(ab)
+
+16 R. LANIEWSKI
+and sinceK >1givesab≥2K−1>1, the set of primes dividingabis non-empty. Lemma 4.19,
+applied to that set, shows that the largest value among theep is at least
+δlin(T)
+log rad(ab).
+Theorem 4.4 gives
+δlin(T)≥t K(T) +θ ε log(2K)
+which proves the first inequality. The second follows from
+log rad(ab)≤ω lin(T) logP lin(T).
+□
+Corollary 4.21(Few small primes).Fixδ 0 >0and an integerk≥1. Suppose thatK >1, that
+every prime dividingabis at mostK δ0, and thatω lin(T)≤k. IfE ε(T)≥0, then some primep|ab
+satisfies
+vp(ab)−1≥ θε
+δ0k .
+Proof.Apply Theorem 4.20, discard the non-negative termt K(T), uselog(2K)≥logK, and use
+logP lin(T)≤δ 0 logK. □
+4.3.Concentration of the total defect.Withx p =e p logpas above, now taken over every prime
+dividingabc,
+δtot(T) =
+X
+p|abc
+xp.
+Definition 4.22(Total support data).Define
+ωtot(T) :=ω(abc)
+and letP tot(T)be the largest prime dividingabc.
+Theorem 4.23(Weighted total concentration).Suppose thatK >1andE ε(T)≥0. Then some
+primep|abcsatisfies
+vp(Np)−1≥ log(2K−1) +θ ε log(2K)
+log rad(abc) .
+In particular,
+vp(Np)−1≥ log(2K−1) +θ ε log(2K)
+ωtot(T) logP tot(T) .
+Proof.For each primep|abc, put
+ep :=v p(Np)−1.
+Then
+δtot(T) =
+X
+p|abc
+ep logp.
+Since X
+p|abc
+logp= log rad(abc)
+Lemma 4.19, applied to the set of primes dividingabc, shows that some primepsatisfies
+ep ≥ δtot(T)
+log rad(abc).
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 17
+Theorem 3.8 and Lemma 4.1 give
+δtot(T)≥log(2K−1) +θ ε log(2K).
+This proves the first inequality. The second follows from
+log rad(abc)≤ω tot(T) logP tot(T).
+□
+Corollary 4.24(Scale-independent total floor).Fixδ 0 >0and an integerk≥1. Suppose that every
+prime dividingabcis at mostK δ0 and thatω tot(T)≤k. IfE ε(T)≥0, then some primep|abc
+satisfies
+vp(Np)−1≥ 1 +θ ε
+δ0k .
+Proof.The numerator of Theorem 4.23 is at least(1+θε) logK. The denominator is at mostδ0klogK.
+□
+Asεtends to zero the lower bound of Corollary 4.24 tends to1/(δ0k). So long as the carrier count
+and the prime scale are held fixed, a positive floor for the total concentration persists.
+Every lower bound in Theorems 4.20 and 4.23 may be replaced by its ceiling, sincevp(N)−1and
+vp(Np)−1are integers, which is the second form of Lemma 4.19. The exact logarithmic support
+masses appear in the first inequalities of those two theorems, while the coarser consequences replace
+those masses by the worst-case quantitiesωlin logP lin andω tot logP tot. Both forms weaken asωtot(T)
+grows, the guaranteed multiplicity at a single prime falling off likeδ tot(T)/log rad(abc), and the
+exceptional-set estimates of Section 7 draw upon such configurations. Whereωtot(T)stays bounded
+the opposite holds, and a large total defect forces a large multiplicity at one prime or at a few. Any
+stronger pointwise conclusion would have to know more of the way multiplicity distributes itself across
+the prime support.
+Proposition 4.25(Every defect share is at mostlogK).Suppose thatK >1. Then
+xp ≤logK
+for every primep|abc.
+Proof.Forp= 2one hasN 2 =c= 2K, so thatx 2 =v 2(K) log 2, which is the two-adic defectδ2(T)
+of Definition 3.5, and2v2(K) |Kgivesx 2 ≤logK.
+For an odd primep|c,
+xp ≤logc−logp≤log(2K)−log 3<logK.
+Suppose finally thatpdividesaorb. The corresponding summandN p is at most2K−1andp≥3,
+whence
+xp ≤log(2K−1)−log 3<logK
+the last inequality resting on2K−1<3K. Thusx p ≤logKin every case.□
+Theorem 4.26(Two repeated primes).Suppose thatK >1andE ε(T)≥0. Then at least two
+distinct primesp|abcsatisfy
+vp(Np)≥2.
+
+18 R. LANIEWSKI
+More precisely, for every primep|abcone has
+δtot(T)−x p ≥log
+
+2− 1
+K
+
++θ ε log(2K).
+Proof.Theorem 3.8 and Lemma 4.1 give
+δtot(T)≥log(2K−1) +θ ε log(2K).
+Fix any primep|abc. Proposition 4.25 givesx p ≤logK, and hence
+δtot(T)−x p ≥log(2K−1)−logK+θ ε log(2K)
+= log
+
+2− 1
+K
+
++θ ε log(2K).
+SinceK >1, the right-hand side is strictly positive.
+Suppose, to the contrary, that a single primep0 satisfiesv p0(Np0)≥2. The sharesx p = (vp(Np)−
+1) logpattached to the remaining primes then vanish, so thatδtot(T) =x p0 andδ tot(T)−x p0 = 0,
+against the strict positivity just established. At least two distinct primes therefore carry positive
+defect shares. □
+4.4.Tworecurrencefamiliesnearthedefectthreshold.Thethresholdsestablishedaboveadmit
+no improvement beyond a bounded additive amount. The two recurrences below keep the total defect
+within an absolute constant of the principal thresholdlog(ab)of Theorem 3.8.
+4.4.1.A Pell family.
+Lemma 4.27(Pell recurrence).Define
+(x1, y1) = (1,1)
+and
+xn+1 = 3xn + 4yn yn+1 = 2xn + 3yn.
+Then
+x2
+n −2y 2
+n =−1
+for everyn≥1. The integersx n andy n are positive, odd, and coprime.
+Proof.A direct calculation gives
+(3x+ 4y) 2 −2(2x+ 3y) 2 =x 2 −2y 2.
+The quadratic identity follows by induction. Positivity and oddness are preserved by the recurrence.
+Every common divisor ofxn andy n dividesx 2
+n −2y 2
+n =−1.□
+Proposition 4.28(Pell triples).Forn≥2, define
+Pn :=
+
+1, x2
+n,2y 2
+n
+
+.
+ThenP n is a parity-class triple and
+rad(abc)≤2x nyn <
+√
+2c.
+One therefore has
+δtot(Pn)−log(ab)>− 1
+2 log 2.
+Moreover,
+δlin(Pn)≥logx n.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 19
+Proof.ThePellidentitygives1+x 2
+n = 2y2
+n. CoprimalityfollowsfromLemma4.27. Sincerad(x 2
+n)≤x n
+andrad(y 2
+n)≤y n, one hasrad(abc)≤2x nyn. The inequalityxn <
+√
+2y n gives the stated comparison
+withc= 2y 2
+n. Proposition 3.7 at exponent zero gives the total-defect bound. For the final assertion,
+each primep|x n contributes(2v p(xn)−1) logp≥v p(xn) logpto the linear defect.□
+Example 4.29.The fourth Pell pair is(x4, y4) = (239,169). It gives
+1 + 2392 = 2·169 2
+in which the second coordinate is the squarey4 = 132. The radical of the product is2·239·13 = 6214,
+whilec= 57122, so this triple has quality greater than one.
+The non-squarefree factor iny 4 = 13 2 propagates along the recurrence via algebraic divisibility,
+yielding an infinite sequence of triples with quality strictly greater than one.
+Lemma4.30(DivisibilitypropagationinthePellfamily).Let(x n, yn)be the sequence of Lemma 4.27.
+If2n−1 =t(2r−1)for positive integersn, r, t, thentis odd,x r |x n, andy r |y n.
+Proof.Put
+α= 1 +
+√
+2andβ= 1−
+√
+2.
+The recurrence of Lemma 4.27 is multiplication byα2 = 3 + 2
+√
+2, and hence
+xn +y n
+√
+2 =α 2n−1 andx n −y n
+√
+2 =β 2n−1.
+Seth= 2r−1,A=α h, andB=β h. Since both2n−1andhare odd, the quotienttis odd. The
+two expressions
+At −B t
+A−B and At +B t
+A+B
+are algebraic integers. For oddtthey are symmetric inAandB, so they are fixed by conjugation and
+are therefore rational integers. The identities
+2
+√
+2y n =A t −B t and2x n =A t +B t
+together with
+2
+√
+2y r =A−Band2x r =A+B
+givey r |y n andx r |x n. □
+Theorem 4.31(An infinite Pell family above quality one).For everyn≥2,
+q(Pn)>1⇐ ⇒x nyn is not squarefree.
+In particular,
+q(P7j+4)>1 (j≥0).
+More quantitatively,
+q(P7j+4)−1> log(13/
+√
+2)
+log
+
+2y2
+7j+4
+ .
+The progressionn≡4 (mod 7)therefore yields
+lim inf
+X→∞
+#{n≤X:q(P n)>1}
+X ≥ 1
+7 .
+
+20 R. LANIEWSKI
+Proof.Lemma 4.27 givesgcd(x n, yn) = 1with both coordinates odd, and therefore
+rad
+
+1·x 2
+n ·2y 2
+n
+
+= 2 rad(xn) rad(yn).
+Define
+Hn := xnyn
+rad(xn) rad(yn) .
+Then
+c
+rad(abc) = 2y2
+n
+2 rad(xn) rad(yn) =H n
+yn
+xn
+.
+Forn≥2the Pell identityx 2
+n = 2y2
+n −1gives
+1< xn
+yn
+<
+√
+2.
+Ifx nyn is squarefree, thenH n = 1, so thatc/rad(abc) =y n/xn <1. Ifx nyn is not squarefree, then
+an odd prime occurs to exponent at least two in one ofxn andy n, and henceHn ≥3. It follows that
+c
+rad(abc) > 3√
+2 >1.
+This proves the equivalence, and shows in addition that quality one itself never occurs forn≥2.
+Example 4.29 givesy4 = 169 = 132. Forn= 7j+ 4one has
+2n−1 = 7(2j+ 1)
+so that Lemma 4.30, applied withr= 4, givesy4 |y n. Thus13 2 |y n andH n ≥13. It follows that
+c
+rad(abc) =H n
+yn
+xn
+> 13√
+2 .
+Sincerad(abc)< con this subsequence, and sincec= 2y 2
+n,
+q(Pn)−1 = log
+
+c/rad(abc)
+
+log rad(abc)
+> log(13/
+√
+2)
+log
+
+2y2n
+
+which is the asserted estimate. The progressionn≡4 (mod 7)has density1/7.□
+Theorem 4.31 provides an explicit one-parameter family with infinitely many triples of quality
+q >1, of the same kind as the Mersenne family in Theorem 5.3. In both cases the excessq−1decays
+to zero as the height grows, so neither family contains infinitely many triples transgressive at any
+fixed exponentε >0.
+4.4.2.A dyadic norm family.
+Lemma 4.32(A dyadic recurrence).Suppose thatm≥3and thatx, yare odd coprime positive
+integers satisfying
+x2 + 7y2 = 2m.
+Define
+(x′, y′) =
+
+
+
+ x+ 7y
+2 , |x−y|
+2
+
+x̸≡y(mod 4)
+ |x−7y|
+2 , x+y
+2
+
+x≡y(mod 4).
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 21
+Thenx ′ andy ′ are odd coprime positive integers satisfying
+x′2 + 7y′2 = 2m+1.
+Proof.For either compatible choice of signs, one has
+ x±7y
+2
+2
++ 7
+ x∓y
+2
+2
+= (x±7y) 2 + 7(x∓y) 2
+4
+= 2(x2 + 7y2).
+Thus the transformed pair satisfies
+x′2 + 7y′2 = 2m+1.
+It remains to verify the parity of the quotients. Suppose first thatx̸≡y(mod 4). Sincexandy
+are odd, one is congruent to1modulo4and the other is congruent to3modulo4. Hence
+x−y≡2 (mod 4).
+Moreover,
+x+ 7y= (x−y) + 8y≡2 (mod 4).
+Therefore both(x+ 7y)/2and|x−y|/2are odd integers.
+Suppose now thatx≡y(mod 4). Since both integers are odd, one has
+x+y≡2 (mod 4).
+One also has
+x−7y= (x+y)−8y≡2 (mod 4).
+Therefore both|x−7y|/2and(x+y)/2are odd integers.
+Every common divisor ofx′ andy ′ is odd and divides
+x′2 + 7y′2 = 2m+1.
+It must therefore equal1. The transformed coordinates are positive. Indeed, suppose thatx=y.
+Then the identityx2 +7y 2 = 2m gives8x 2 = 2m, which withxodd occurs only for the seed(x, y, m) =
+(1,1,3). In this case the second branch gives the positive pair(3,1). Suppose thatx= 7y. Then7
+dividesx 2 + 7y2 = 2m, which is impossible. This completes the proof.□
+Starting with(x 3, y3) = (1,1), Lemma 4.32 gives a pair(xm, ym)for everym≥3.
+Proposition 4.33(Dyadic triples).Form≥4, letD m have odd summandsx2
+m and7y 2
+m and let
+c= 2 m.
+ThenD m is a parity-class triple withK= 2m−1, and
+rad(abc)≤14x mym ≤
+√
+7c.
+Hence
+δtot(Dm)−log(ab)≥ − 1
+2 log 7.
+The two-adic defect is
+δ2(Dm) = logK.
+
+22 R. LANIEWSKI
+Proof.The summands are odd and coprime, and their sum is2m. The arithmetic-geometric mean
+inequality gives
+x2
+m + 7y2
+m ≥2
+√
+7x mym.
+Thus14x mym ≤
+√
+7 2m. The total-defect inequality follows from Proposition 3.7 at exponent zero.
+Sincec= 2 m andK= 2 m−1, the last identity follows from Definition 3.5.□
+Example 4.34.Atm= 6, the recurrence gives(x 6, y6) = (1,3). The associated triple is
+1 + 63 = 64.
+Its radical is42, and its quality is greater than one.
+Propositions 4.28 and 4.33 keep the total defect within an absolute constant of the principal thresh-
+oldlog(ab). For the Pell family the sign of what remains is settled by Theorem 4.31. For the dyadic
+family it is undetermined, since the recurrence of Lemma 4.32 controls neither the squarefree parts of
+xm andy m nor the balance between the two summands.
+5.The Mersenne line
+On the line
+1 + (2m −1) = 2 m
+the whole defect ofclies at the prime2, and what remains to be understood is the squarefull part of
+the Mersenne number2m −1, so that the obstruction becomes a question in the single variablem.
+5.1.The exact Mersenne criterion.
+Definition 5.1(Mersenne triple and defect).Form≥2, define
+Vm :=
+
+1,2 m −1,2 m
+.
+Define
+∆m := log
+ 2m −1
+rad(2m −1)
+
+and
+Lm := exp(∆m) = 2m −1
+rad(2m −1) .
+ForV m one has
+K= 2 m−1 tK(Vm) = 0δ lin(Vm) = ∆m
+and
+δtot(Vm) = (m−1) log 2 + ∆ m.
+Proposition 5.2(Exact Mersenne transgression criterion).Letε >0andm≥2. Then
+Eε(Vm)≥0
+holds precisely when
+∆m ≥θ εmlog 2 + log
+
+2(1−2 −m)
+
+.
+Equivalently,
+Eε(Vm)≥0
+holds precisely when
+Lm ≥2(1−2 −m) 2θεm.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 23
+The quality satisfies
+q(Vm)>1
+precisely when
+∆m >log
+
+2(1−2 −m)
+
+.
+Proof.Theorem 3.8 gives
+(m−1) log 2 + ∆ m ≥log(2 m −1) +θ εmlog 2.
+Since
+log(2m −1) =mlog 2 + log(1−2 −m)
+rearrangement proves the first equivalence. Exponentiation proves the second. The quality-one crite-
+rion follows from the sign oflogc−log rad(abc).□
+Proposition 5.2 is the exact linear threshold specialized. ForV m one hass= 1,t K = 0, and
+2K= 2 m, so the boundary term of Theorem 4.3 equals
+log
+
+2− 1
+K
+
+= log
+
+2(1−2 −m)
+
+.
+The Mersenne line thus realizes the least possible boundary term, and the distance between the exact
+threshold and the certificate of Theorem 4.4 stays bounded along it. That same distance diverges like
+logsalong an interior sequence.
+5.2.An infinite family above quality one.
+Theorem 5.3(Infinite Mersenne triples above quality one).For every integern≥1, the triple
+V6n =
+
+1,2 6n −1,2 6n
+has quality greater than one.
+Proof.Since2 6 ≡1 (mod 9), one has
+9|2 6n −1.
+The prime3therefore contributes at least a factor3toL 6n, so
+L6n ≥3.
+On the other hand,
+2(1−2 −6n)<2.
+Proposition 5.2 now givesq(V6n)>1.□
+The same argument applies to any odd prime lifted to a higher power. Wheneverph |2 d −1with
+h≥2, the entire arithmetic progression of multiples ofdyields triples with quality strictly greater
+than one. Theorem 6.19 characterizes the union of all such arithmetic progressions as the full set of
+indices whereq(V m)>1.
+Theorem5.3givesinfinitelymanytripleswithq >1. Atnofixedε >0doesitgiveq≥1+εinfinitely
+often. Proposition 5.2 requires∆m to grow linearly inmfor a fixed exponent. Theorem 6.32 strength-
+ens the present statement to a quantitative margin of orderlogm/mon the exponentslcm(1, . . . , k),
+and Theorem 6.33 shows that margin to be extremal among the mechanisms free of Wieferich primes.
+
+24 R. LANIEWSKI
+5.3.Fixed primes give only logarithmic defect.
+Lemma 5.4(Lifting a fixed prime, by lifting the exponent).Letpbe an odd prime. Define
+dp = ordp(2)andA p =v p(2dp −1).
+Then
+p|2 m −1⇐ ⇒d p |m.
+Ifd p |m, then
+vp(2m −1) =A p +v p
+ m
+dp
+
+.
+Proof.Every prime dividing2 m −1is odd, so that the restriction to oddploses nothing of the prime
+support. The first equivalence is the definition of the multiplicative order. Suppose thatdp |m, and
+write
+m=d pr.
+Sincep≥3is odd andp|2 dp −1, no exceptional case arises, those being confined top= 2, and the
+lifting-the-exponent identity, whose classical form for the divisors ofan −b n goes back to Lucas and
+to Birkhoff and Vandiver [Luc78, BV04], gives
+vp(2m −1) =v p
+
+(2dp)r −1
+
+=v p(2dp −1) +v p(r)
+=A p +v p
+ m
+dp
+
+.
+□
+Definition 5.5(Defect on a finite prime set).For a finite setSof odd primes, define
+∆m,S :=
+X
+p∈S
+p|2m−1
+
+vp(2m −1)−1
+
+logp.
+Proposition 5.6(Finite-prime bound).LetSbe a finite set of odd primes, and put
+CS :=
+X
+p∈S
+(Ap −1) logp.
+Then
+∆m,S ≤#Slogm+C S
+for everym≥2.
+Proof.Put
+S(m) :=
+
+p∈S:p|2 m −1
+	
+so that Definition 5.5 reads
+∆m,S =
+X
+p∈S(m)
+
+vp(2m −1)−1
+
+logp.
+Letp∈S(m). Lemma 5.4 givesd p |mand
+
+vp(2m −1)−1
+
+logp= (A p −1) logp+v p
+ m
+dp
+
+logp.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 25
+The integerm/d p dividesm, whencep vp(m/dp) dividesmand
+vp
+ m
+dp
+
+logp= logp vp(m/dp) ≤logm.
+Summation overS(m)therefore yields
+∆m,S ≤
+X
+p∈S(m)
+
+(Ap −1) logp+ logm
+
+=
+X
+p∈S(m)
+(Ap −1) logp+ #S(m) logm.
+Every term(A p −1) logpis non-negative, sinceA p ≥1for every odd primep. Extension of the first
+sum fromS(m)toScan therefore only increase it, and it givesC S. The inclusionS(m)⊆Sgives
+#S(m)≤#S, andlogm≥0form≥2. Hence
+∆m,S ≤C S + #Slogm
+as asserted. □
+Corollary 5.7(Remainder after a finite prime set).Fixε >0. Suppose that(m j)is an increasing
+sequence satisfying
+Eε(Vmj)≥0.
+Then, for every finite setSof odd primes,
+∆mj −∆ mj ,S ≥θ εmj log 2 + log
+
+2(1−2 −mj)
+
+−#Slogm j −C S.
+In particular,
+lim inf
+j→∞
+∆mj −∆ mj ,S
+mj log 2 ≥θ ε.
+Proof.Subtract Proposition 5.6 from the lower bound in Proposition 5.2. Divide bymj log 2and pass
+to the lower limit. □
+Example 5.8(The prime3).For
+m= 6·3 k
+Lemma 5.4 gives
+v3(2m −1) =k+ 2.
+The contribution of3to∆ m is
+(k+ 1) log 3 = log
+ m
+2
+
+.
+This is logarithmic inm, and falls far short of the quantity linear inmthat transgression at a fixed
+exponent would require.
+
+26 R. LANIEWSKI
+5.4.Squarefull and prime-power conditions.
+Definition 5.9(Mersenne threshold).Define
+Aε(m) := 2(1−2 −m) 2θεm.
+Then Proposition 5.2 reads
+Eε(Vm)≥0⇐ ⇒L m ≥ A ε(m).
+Proposition 5.10(A single-prime condition).Fixε >0andm≥2. Suppose that an odd primep
+and an integere≥2satisfy
+pe |2 m −1
+and
+pe−1 ≥ A ε(m).
+Then
+Eε(Vm)≥0.
+Moreover,
+e >1 +ε.
+Proof.The divisibility gives
+Lm ≥p e−1.
+Definition 5.9 gives the transgression. Since
+pe <2 m
+and
+pe−1 >2 θεm
+one obtains e−1
+e > θ ε.
+This is equivalent toe >1 +ε.□
+Corollary 5.11(A fixed prime cannot meet the threshold).Letpbe a fixed odd prime. Whenever
+p|2 m −1, one has
+pvp(2m−1)−1 ≤p Ap−1m.
+An infinite family satisfying Proposition 5.10 must therefore use primes escaping every fixed finite set.
+Proof.Lemma 5.4 gives
+pvp(2m−1)−1 =p Ap−1pvp(m/dp) ≤p Ap−1m.
+For fixedp, this bound is linear inm, whileAε(m)is exponential inm.□
+Proposition 5.12(Squarefull bounds).Put
+um = sq(2m −1).
+Then
+um ≤L m ≤u 2
+m.
+Thus ifE ε(Vm)≥0, then
+um ≥ A ε(m)1/2.
+If
+um ≥ A ε(m)
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 27
+then
+Eε(Vm)≥0.
+Proof.Write
+2m −1 =
+Y
+p
+pep .
+For everyep ≥1, j ep
+2
+k
+≤e p −1≤2
+j ep
+2
+k
+.
+Multiplication over the prime factors givesum ≤L m ≤u 2
+m. The implications follow from Defini-
+tion 5.9. □
+Theorem 5.13(Sufficient conditions for a Mersenne counterexample family).Fixε >0. Suppose
+that there is an infinite setMof positive integers satisfying
+sq(2m −1)≥ A ε(m)
+for everym∈ M. Then 
+Vm :m∈ M
+	
+is an infinite family violating Conjecture 3.2 at exponentε.
+The same conclusion follows if, for everym∈ M, there are an odd primepm and an integerem ≥2
+satisfying
+pem
+m |2 m −1
+and
+pem−1
+m ≥ A ε(m).
+Proof.The first assertion follows from Proposition 5.12 and the second from Proposition 5.10, the
+triples being pairwise distinct because distinct indices give distinct values ofc= 2m.□
+Theorem 5.3 gives an infinite family above quality one, and Theorem 5.13 supplies mechanisms
+sufficient for a fixed positive exponent. An exact asymptotic criterion in terms of Wieferich primes is
+proved in Section 6.
+6.Wieferich primes and the asymptotic Mersenne criterion
+The Mersenne line depends on the growth ofLm. Beyond a divisor of the exponent, that growth
+comes from the primes Wieferich described in 1909 [Wie09]. Theorem 6.3 states that division exactly.
+6.1.The exact defect law.
+Definition 6.1(Wieferich prime).An odd primepis aWieferich primewhen
+2p−1 ≡1 (modp 2).
+The set of Wieferich primes is writtenW.
+Only two members ofWare known, namely1093and3511. Extensive computation has produced
+no third example, and it is not known whetherWis finite or infinite. The following lemma explains
+the relevance of this question to the Mersenne line.
+
+28 R. LANIEWSKI
+Lemma 6.2(Wieferich primes and the lifting constant).Letpbe an odd prime, and let
+dp = ordp(2)andA p =v p(2dp −1)
+be as in Lemma 5.4. Then
+Ap ≥2⇐ ⇒p∈ W.
+Proof.Suppose first thatA p ≥2. Thenp 2 divides2 dp −1, soord p2(2)dividesd p. Reduction modulo
+pgives the reverse divisibility. Hence the two orders coincide. Sincedp dividesp−1, one obtains
+p2 |2 p−1 −1.
+Thusplies inW.
+Suppose now thatp∈ W. Lemma 5.4, applied withm=p−1, gives
+vp(2p−1 −1) =A p +v p
+ p−1
+dp
+
+.
+The primepdoes not divide(p−1)/d p, so the second term vanishes. Therefore
+Ap =v p(2p−1 −1)≥2.
+□
+The constantA p therefore exceeds one precisely for the Wieferich primes. It measures the power
+ofppresent in2 m −1at the first exponent that admits the prime at all. Every other prime enters
+2m −1to the first power at that exponent, and only the factorvp(m/dp)of Lemma 5.4 can lift it
+further.
+Theorem 6.3(Exact defect law).Form≥2put
+W(m) :=
+
+p∈ W:p|2 m −1
+	
+and
+Ωm :=
+X
+p∈W(m)
+(Ap −1) logp.
+The convention adopted is that the empty sum equals0, so that
+Ωm = 0wheneverW(m) =∅.
+Define
+Gm :=
+Y
+p|2m−1
+pvp(m).
+ThenG m is the largest divisor ofmall of whose prime factors divide2m −1, it divides the odd part
+ofm, and
+∆m = Ωm + logG m.
+Proof.Letpbe a prime dividing2 m −1. Thenpis odd, and Lemma 5.4 givesd p |mtogether with
+vp(2m −1)−1 = (A p −1) +v p
+ m
+dp
+
+.
+The orderd p dividesp−1(hencep∤d p), and therefore
+vp
+ m
+dp
+
+=v p(m)−v p(dp) =v p(m).
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 29
+Summation over the primes dividing2m −1yields
+∆m =
+X
+p|2m−1
+(Ap −1) logp+
+X
+p|2m−1
+vp(m) logp.
+By Lemma 6.2, the terms of the first sum vanish outsideW(m), so that the first sum equalsΩm, and
+the second sum equalslogGm by the definition ofGm.
+It remains to identifyGm. Every prime factor ofGm divides2 m −1and is therefore odd, andG m
+dividesQ
+p pvp(m) =m, whenceG m divides the odd part ofm. Conversely, letgbe a divisor ofm
+all of whose prime factors divide2m −1. Thenv p(g)≤v p(m)for every such prime, whencegdivides
+Gm. ThusG m is the largest divisor of the stated kind.□
+Corollary 6.4(Two-sided Wieferich decomposition).For everym≥2,
+Ωm ≤∆ m ≤Ω m + log
+ m
+2v2(m)
+
+≤Ω m + logm.
+Equivalently, Y
+p∈W(m)
+pAp−1 ≤L m ≤m
+Y
+p∈W(m)
+pAp−1.
+Proof.The divisorG m of Theorem 6.3 satisfies1≤G m ≤m2 −v2(m) ≤m, since it divides the odd
+part ofm. The additive bounds follow from the exact law, and exponentiation gives the multiplicative
+form. □
+The estimate of Corollary 6.4 improves upon the finite-prime bound of Proposition 5.6, the single
+termlogmaccounting at once for every non-Wieferich prime, however numerous these may be, and
+Theorem 6.3 goes further in naming the remainder as the divisorGm ofm. The defect therefore
+separates into an intrinsic Wieferich partΩm and a part bounded by the arithmetic of the exponent
+alone. SinceG m dividesm, the second part islogG m ≤logm=o(m), and linear growth in∆ m,
+should it occur, can come only fromΩm.
+In the cyclotomic factorization2m −1 = Q
+d|m Φd(2)the prime divisors are grouped by their order.
+A prime rises above the first power in2m −1either through the intrinsic constantAp ≥2, which places
+pwithinW, or through the divisibilityp|m, whose whole contribution the divisorG m measures and
+whose smallest instance is32 |2 6 −1, with3outsideW. From this dichotomy Theorem 6.19 draws
+the complete description of the crossings of quality one.
+In its classical form the Wieferich–Mersenne connection is a construction. A single Wieferich prime
+pforces a square factor into2p(p−1) −1, yielding the low-radical triple(1,2p(p−1) −1,2 p(p−1))and its
+prime-power iterates, as constructed by Granville and Tucker [GT02]. Transgressive triples arise in
+such a family, and the exact law gives the full defect at each exponent together with its variation from
+one exponent to the next.
+Remark 6.5(General bases).Nothing in the proof of Theorem 6.3 is peculiar to the base2. The
+lifting identity of Lemma 5.4 holds for the divisors ofam −b m with coprime integersa > b≥1,
+the multiplicative order ofa/bmoduloptaking the place of the order of2, and the primitive-divisor
+theorem of Bang extends to this generality in the form given it by Zsigmondy and by Birkhoff and
+Vandiver [Zsi92, BV04, Ban86]. The exact law therefore transfers verbatim. The defect ofam −b m
+equals an intrinsic sum over the base-a/bWieferich primes together with the logarithm of the largest
+divisor ofmwhose prime factors divideam −b m. The sole adjustments are the exclusion of the primes
+dividingaband the replacement of the exceptional pair(2,6)in Proposition 6.35 by the exceptional
+cases of the general theorem.
+
+30 R. LANIEWSKI
+The parity class accommodates a whole family of such lines. For every fixed eveng≥2the two
+summands1andg m −1are odd whileg m is even, so that(1, gm −1, g m)is a parity-class triple whose
+smaller summand is1. The two-adic part of the defect along such a line is
+δ2
+
+1, gm −1, g m
+=
+
+mv2(g)−1
+
+log 2
+by Definition 3.5. This grows linearly inmfor every eveng, the base entering only through the
+constantv 2(g), and atg= 2it returns the value(m−1) log 2of the Mersenne line. Subsection 6.4
+carries the exact law and its normalized criterion along every one of these lines. The exposition stays
+centered upong= 2, where the odd radical of the center vanishes and the arithmetic of2m −1is the
+most fully documented.
+6.2.The normalized defect criterion.
+Definition 6.6(Normalized Wieferich defect density).WithΩ m as in Theorem 6.3, define
+ρW := lim sup
+m→∞
+Ωm
+mlog 2 .
+Then
+0≤ρ W ≤1.
+Indeed, Corollary 6.4 gives
+0≤∆ m −Ω m ≤logm
+while
+∆m = log
+ 2m −1
+rad(2m −1)
+
+< mlog 2.
+Theorem 6.7(Sharp density criterion on the Mersenne line).Letε >0and put
+θε = ε
+1 +ε .
+Then the three assertions below hold.
+(1)Ifθ ε < ρ W, thenE ε(Vm)≥0for infinitely many integersm.
+(2)Ifθ ε > ρ W, thenE ε(Vm)≥0for only finitely many integersm.
+(3)There existε >0and infinitely manymsatisfyingE ε(Vm)≥0if and only ifρ W >0.
+At the boundaryθε =ρ W, the normalized density alone yields no conclusion.
+Proof.Suppose first thatθ ε < ρ W. Chooseη >0such that
+θε +η < ρ W .
+There are infinitely manymfor which
+Ωm ≥(θ ε +η)mlog 2.
+For all sufficiently large suchm, one has
+ηmlog 2>log
+
+2(1−2 −m)
+
+.
+Since∆ m ≥Ω m, it follows that
+∆m ≥θ εmlog 2 + log
+
+2(1−2 −m)
+
+.
+Proposition 5.2 now givesEε(Vm)≥0.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 31
+Suppose next thatθε > ρ W. Chooseη >0such that
+ρW +η < θ ε.
+For all sufficiently largem, one has
+Ωm ≤(ρ W +η)mlog 2.
+By Corollary 6.4,
+∆m ≤(ρ W +η)mlog 2 + logm.
+The linear gap betweenθ εmlog 2and(ρ W +η)mlog 2eventually dominateslogm. Hence, for all
+sufficiently largem,
+∆m < θ εmlog 2 + log
+
+2(1−2 −m)
+
+.
+Proposition 5.2 givesEε(Vm)<0.
+Suppose now thatρW >0. Choose0< θ < ρ W and put
+ε= θ
+1−θ .
+The first assertion gives infinitely many transgressions. Conversely, suppose that infinitely many
+transgressions occur at some fixedε. Then Proposition 5.2 and Corollary 6.4 give
+Ωm ≥θ εmlog 2 + log
+
+2(1−2 −m)
+
+−logm
+along an infinite sequence. Therefore
+ρW ≥θ ε >0.
+□
+Corollary 6.8(Critical quality of the Mersenne line).One has
+lim sup
+m→∞
+q(Vm) =
+
+
+
+1
+1−ρ W
+0≤ρ W <1
++∞ρ W = 1.
+One may therefore define
+ε∗
+V := sup{ε >0 :E ε(Vm)≥0for infinitely manym}
+where the supremum of the empty set is taken to be0. Then
+ε∗
+V =
+
+
+
+ρW
+1−ρ W
+0≤ρ W <1
++∞ρ W = 1.
+Proof.For the Mersenne triple,
+log rad(abc) = (m+ 1) log 2 + log(1−2 −m)−∆ m.
+It follows that
+q(Vm) =
+
+1 + 1
+m + log(1−2 −m)
+mlog 2 − ∆m
+mlog 2
+−1
+.
+Corollary 6.4 gives
+lim sup
+m→∞
+∆m
+mlog 2 =ρ W .
+The asserted quality formula follows. The formula forε∗
+V follows from Theorem 6.7.□
+
+32 R. LANIEWSKI
+6.3.Order–defect data.The densityρ W can be expressed entirely through finite collections of
+Wieferich primes and the orders of2modulo those primes.
+Definition 6.9(Order–defect data).For a finite setS⊆ W, define
+D(S) := lcmp∈S dp
+and
+B(S) :=
+Y
+p∈S
+pAp−1.
+The conventions adopted are
+D(∅) = 1andB(∅) = 1.
+A sequence(S j)of finite subsets ofWis calledadmissiblewhenD(S j)→ ∞. Define
+σW := sup
+(Sj ) admissible
+lim sup
+j→∞
+logB(S j)
+D(Sj) log 2.
+Should no admissible sequence exist, then the value is taken to be0.
+Remark 6.10(The datumD m divides the exponent).For a Mersenne indexm, every primep
+dividing2 m −1has orderd p |m, whence the datumD m =D(W(m))of Proposition 6.12 is itself a
+divisor ofm. The division becomes proper as soon asmcarries a prime factor shared by none of the
+ordersd p. The passage fromDm to the exponentmin that proposition rests on this divisibility alone.
+Theorem 6.11(Order–defect criterion).One has
+ρW =σ W .
+Thus an infinite Mersenne family transgressive at some fixed positive exponent exists if and only if
+there are a constantκ >0and finite setsS j ⊆ Wsuch that
+D(Sj)− → ∞
+and
+logB(S j)≥κD(S j) log 2
+for infinitely manyj. Equivalently,
+B(Sj)≥2 κD(Sj ).
+Proof.LetS⊆ Wbe finite and putD=D(S). For everyp∈S, one hasd p |D, and Lemma 5.4
+gives
+vp(2D −1) =A p +v p
+ D
+dp
+
+≥A p.
+It follows that
+ΩD ≥
+X
+p∈S
+(Ap −1) logp= logB(S).
+Pass to sequences for whichD(S)→ ∞. This gives
+ρW ≥σ W .
+Suppose thatρ W >0, and choose a sequencemj such that
+Ωmj
+mj log 2 − →ρW .
+Put
+Sj =W(m j)andD j =D(S j).
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 33
+Then
+Dj |m j
+and
+logB(S j) = Ωmj .
+Moreover,D j → ∞. Suppose otherwise. Then, along a subsequence, all primes inS j would have
+orders dividing one of finitely many bounded integers. Such primes divide one of finitely many integers
+2d −1. The sets of possible primes and the quantitiesB(Sj)would therefore be bounded. This would
+contradict the positive limiting density.
+SinceD j ≤m j, one has
+logB(S j)
+Dj log 2 = Ωmj
+Dj log 2 ≥ Ωmj
+mj log 2.
+Therefore
+σW ≥ρ W .
+Suppose thatρ W = 0. Then the previously proved inequality
+ρW ≥σ W ≥0
+gives equality in this case as well.
+The final assertion follows from Theorem 6.7. It may also be seen directly. Suppose thatθε < κ.
+Then, for all sufficiently largej,
+logB(S j)≥θ εD(Sj) log 2 + log
+
+2(1−2 −D(Sj ))
+
+.
+Since
+∆D(Sj ) ≥logB(S j)
+Proposition 5.2 applies. □
+Proposition 6.12(Order obstruction at a transgressive exponent).Letε >0, and suppose that
+Eε(Vm)≥0.
+Put
+Sm =W(m)D m =D(S m)B m =B(S m).
+Then
+Bm ≥ 2(1−2 −m)
+m 2θεm.
+Moreover, writinglog 2 for the logarithm to the base2, the symbollogbeing reserved throughout for
+the natural logarithm,
+Dm > θ εm−log 2 m+ log 2
+
+2(1−2 −m)
+
+.
+In particular,
+Dm ≥
+
+θε −o(1)
+
+m
+along every infinite sequence transgressive at exponentε.
+Proof.Proposition 5.2 and Corollary 6.4 give
+logB m = Ωm ≥∆ m −logm
+≥θ εmlog 2 + log
+
+2(1−2 −m)
+
+−logm.
+Exponentiation proves the first assertion.
+
+34 R. LANIEWSKI
+Everyp∈S m satisfiesd p |D m. Hence
+Bm ≤L Dm <2 Dm.
+Combining this inequality with the lower bound forB m and taking base-2logarithms proves the
+second assertion. □
+Corollary 6.13(Two quantitative alternatives).Two statements hold.
+(1)For every fixedε >0, only finitely many Mersenne triples are transgressive at exponentεif
+and only if
+logB(S j) =o
+
+D(Sj)
+
+along every admissible sequence of finite setsSj ⊆ W.
+(2)Suppose that there areκ >0and finite setsS j ⊆ Wsuch that
+D(Sj)→ ∞andB(S j)≥2 κD(Sj ).
+Then, for everyε >0satisfyingθ ε < κ, the triplesVD(Sj ) form an infinite transgressive family
+once finitely many repeated indices and finitely many initial terms have been discarded.
+Proof.The first assertion follows from the equalityρW =σ W together with Theorem 6.7. The second
+follows from the final assertion of Theorem 6.11. The conditionD(Sj)→ ∞ensures that infinitely
+many resulting exponents are distinct.□
+The condition that reaches theabcthreshold is the positive exponential growth ofB(S)relative to
+D(S), and this requires in particular that the Wieferich primes be infinite. Subsection 6.8 converts
+the asymptotic lower bound of Proposition 6.12 for the order datum into an integrality constraint on
+the quotientm/D m, and gives a reduction that normalizes any infinite transgressive family.
+6.4.Exact defect laws on every fixed even base.Remark 6.5 admits a strengthening within the
+parity class itself. Each fixed even base gives a boundary line of the class, along which the Mersenne
+argument runs with the same normalized conclusion.
+Definition 6.14(Even-base exponential data).Fix an even integerg≥2. Form≥2, define
+V (g)
+m :=
+
+1, gm −1, g m
+together with
+Rg := rad(g)and∆ (g)
+m := log
+ gm −1
+rad(gm −1)
+
+.
+For every primep∤g, put
+dg,p := ordp(g)andA g,p :=v p(gdg,p −1)
+and define the set of base-gWieferich primes by
+Wg :=
+
+p∤g:g p−1 ≡1 (modp 2)
+	
+.
+Finally, put
+Wg(m) :=
+
+p∈ W g :d g,p |m
+	
+and
+Ω(g)
+m :=
+X
+p∈Wg(m)
+(Ag,p −1) logpandG (g)
+m :=
+Y
+p|gm−1
+pvp(m).
+Forg= 2these data reduce to those of Definition 5.1 and Theorem 6.3.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 35
+Theorem 6.15(Exact even-base threshold and defect law).For every eveng≥2and everym≥2,
+the tripleV (g)
+m lies in the parity class. Moreover,
+Eε(V (g)
+m ) = (1 +ε)∆ (g)
+m −εmlogg
+−(1 +ε) log
+
+Rg(1−g −m)
+
+.
+Thus
+Eε(V (g)
+m )≥0
+holds precisely when
+∆(g)
+m ≥θ εmlogg+ log
+
+Rg(1−g −m)
+
+.
+The defect admits the exact decomposition
+∆(g)
+m = Ω(g)
+m + logG (g)
+m
+in whichG (g)
+m is the largest divisor ofmall of whose prime factors dividegm −1. In particular,
+0≤∆ (g)
+m −Ω (g)
+m ≤log
+ m
+2v2(m)
+
+≤logm.
+Proof.Sincegis even, the two summands1andg m −1are odd whileg m is even, and the three entries
+are pairwise coprime. Also
+rad
+
+gm(gm −1)
+
+=R g rad(gm −1).
+Since
+log rad(gm −1) =mlogg+ log(1−g −m)−∆ (g)
+m
+substitution into Definition 3.1 gives the first identity and its threshold form.
+Letp|g m −1. Thenpis odd, one hasd g,p |m, and the lifting identity gives
+vp(gm −1) =A g,p +v p
+ m
+dg,p
+
+.
+Hence
+vp
+ m
+dg,p
+
+=v p(m)
+(sinced g,p |p−1, sop∤d g,p). The same calculation at the exponentp−1shows that
+Ag,p =v p(gp−1 −1)
+so thatA g,p ≥2precisely whenp∈ W g. Summing over the primes dividinggm −1gives
+∆(g)
+m =
+X
+p|gm−1
+(Ag,p −1) logp+
+X
+p|gm−1
+vp(m) logp
+= Ω(g)
+m + logG (g)
+m .
+The description and the bounds forG(g)
+m follow exactly as in Theorem 6.3, the primes dividinggm −1
+being coprime togand therefore odd.□
+Remark 6.16(The law is free of the exceptional cases).The exact decomposition∆ (g)
+m = Ω (g)
+m +
+logG (g)
+m is independent of the theory of primitive divisors. Its proof uses the lifting identity, the
+divisibilityd g,p |p−1, and Definition 6.14, all of which hold at every primep∤g. The exceptional
+cases of Bang, Birkhoff, and Vandiver are used only in the lower bounds forrad(2m −1), namely in
+Proposition 6.35 and Lemma 6.40. Forgd −1the theorem fails only whend= 1withg−1 = 1, when
+d= 2withg+ 1a power of two, and at the single pair(g, d) = (2,6)[Ban86, BV04]. An even base
+leavesg+ 1odd, so the second case would requireg+ 1 = 1and never arises, while the first requires
+
+36 R. LANIEWSKI
+g= 2. The excluded set{1,6}of Proposition 6.35 therefore belongs to the base2alone, and for every
+eveng≥4the product may be taken over all divisors ofmwithout exception.
+Definition 6.17(Even-base order–defect density).Define
+ρW,g := lim sup
+m→∞
+Ω(g)
+m
+mlogg .
+For a finite setS⊆ W g, put
+Dg(S) := lcmp∈S dg,p andB g(S) :=
+Y
+p∈S
+pAg,p−1
+withD g(∅) =B g(∅) = 1, and define
+σW,g := sup
+(Sj )
+Dg(Sj )→∞
+lim sup
+j→∞
+logB g(Sj)
+Dg(Sj) logg .
+If no such sequence exists, then the supremum is taken to be zero.
+Theorem 6.18(Even-base density criterion).For every fixed eveng≥2,
+ρW,g =σ W,g .
+For everyε >0the four assertions below hold.
+(1)Ifθ ε < ρ W,g, then
+Eε(V (g)
+m )≥0
+for infinitely manym.
+(2)Ifθ ε > ρ W,g, then the same inequality holds for only finitely manym.
+(3)Some fixed positive exponent is attained infinitely often on the base-gline if and only ifρW,g >
+0.
+(4)Equivalently, this occurs if and only if there are a constantκ >0and finite setsS j ⊆ W g
+such that
+Dg(Sj)− → ∞andB g(Sj)≥g κDg(Sj )
+for infinitely manyj.
+Atθ ε =ρ W,g the density alone yields no conclusion.
+Proof.Theorem 6.15 gives
+0≤∆ (g)
+m −Ω (g)
+m ≤logm
+while the exact transgression threshold differs fromθεmloggby a bounded term. The arguments of
+Theorem 6.7 therefore prove statements (1)–(3).
+LetS⊆ W g be finite and putD=D g(S). Everyp∈Sdividesg D −1with valuation at leastA g,p,
+so that
+Ω(g)
+D ≥logB g(S).
+Passage to sequences withDg(Sj)→ ∞gives
+ρW,g ≥σ W,g .
+Conversely, suppose thatρW,g >0and choosem j → ∞with
+Ω(g)
+mj
+mj logg − →ρW,g .
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 37
+Put
+Sj =W g(mj)andD j =D g(Sj).
+ThenD j |m j and
+logB g(Sj) = Ω(g)
+mj .
+Moreover,D j → ∞. Suppose otherwise. Then the primes of all the setsS j would divide one of
+finitely many fixed integersgd −1, and the quantitieslogB g(Sj)would remain bounded, against the
+positivity of the limiting density. Therefore
+logB g(Sj)
+Dj logg ≥ Ω(g)
+mj
+mj logg
+which gives the reverse inequality. IfρW,g = 0, then the first inequality forcesσW,g = 0on its own.
+Statement (4) follows from the positivity of this common density.□
+Atg= 2one hasR 2 = 2. Theorem 6.15 then returns Proposition 5.2 together with Theorem 6.3,
+and Theorem 6.18 returns Theorems 6.7 and 6.11. Passage to a general even base adds to the threshold
+only the supplementlog(R g/2), a quantity independent ofm, and the criterion for a fixed positive
+exponent is therefore insensitive to the base. The arithmetic ofWg changes withg. As little is known
+about it as aboutW.
+6.5.A complete classification of the crossings of quality one.For quality greater than one
+the exact law yields a description far simpler than anything transgression at a fixed exponent would
+require.
+Theorem 6.19(Squarefreeness criterion on the Mersenne line).For everym≥2the five conditions
+below are equivalent.
+(1)q(V m)>1.
+(2)2 m −1is not squarefree.
+(3)L m >1.
+(4)W(m)̸=∅orG m >1.
+(5)There is an odd primepsuch that
+dp |mand
+
+p|morp∈ W
+
+.
+In particular,q(V m)̸= 1for everym≥2. If
+H :={m≥2 :q(V m)>1}
+then
+H=
+
+
+[
+pprime
+podd
+p dp N
+
+ ∪
+
+[
+p∈W
+dp N
+
+ .
+Proof.The numberL m is a positive odd integer, since it divides2m −1. Proposition 5.2 at quality
+one gives
+q(Vm)>1⇐ ⇒L m >2(1−2 −m).
+Form≥2one has
+1<2(1−2 −m)<2.
+The last inequality therefore holds precisely whenLm ≥3, which is equivalent toLm >1and to the
+failure of squarefreeness of2m −1.
+
+38 R. LANIEWSKI
+Theorem 6.3 gives
+Lm =B(W(m))G m.
+Both factors are positive odd integers, so thatLm >1precisely whenW(m)is non-empty orG m >1.
+Finally, ifp|2 m −1, thend p |mand
+vp(2m −1) =A p +v p(m).
+This valuation is at least two precisely whenAp ≥2orp|m. By Lemma 6.2, the first alternative
+readsp∈ W. Sincep∤d p, the simultaneous conditionsp|mandd p |mamount topd p |m. This
+proves the final description.□
+Corollary 6.20(A positive-density supply of crossings).One has
+lim inf
+X→∞
+#{m≤X:q(V m)>1}
+X ≥ 47
+210 .
+Moreover, everym∈Hsatisfies
+q(Vm)−1> log(3/2)
+(m+ 1) log 2.
+Proof.The orders
+d3 = 2d 5 = 4d 7 = 3
+together with Theorem 6.19 show thatHcontains every multiple of6, of20, and of21. Their union
+has density
+1
+6 + 1
+20 + 1
+21 − 1
+60 − 1
+42 − 1
+420 + 1
+420
+= 47
+210 .
+Ifm∈H, thenL m ≥3. The exact quality identity is
+q(Vm)−1 = logL m −log
+
+2(1−2 −m)
+
+log rad
+
+2m(2m −1)
+ .
+Its numerator exceedslog(3/2), while its denominator is smaller than(m+ 1) log 2. The claimed
+estimate follows. □
+Remark 6.21(Margins available without Wieferich primes).Of the two mechanisms separated by
+Theorem 6.19, the divisibilityp|mis the one that operates in the absence of Wieferich primes, and
+every elementary instance ofq(Vm)>1belongs to it,3 2 |2 6 −1among them. It yields margins of
+order1/macross a set of positive lower density by Corollary 6.20, and of orderlogm/mupon the
+least common multiples by Theorem 6.32. A uniform marginε >0holding for infinitely manymlies
+beyond it.
+6.6.Prime-power exponents and the prime subline.The exact law of Theorem 6.3 splits the
+Mersenne line according to the arithmetic of the exponent. On the prime powers the divisorGm is
+trivial, and the defect is purely Wieferich there.
+Lemma 6.22(Orders over a prime-power exponent).Letℓbe an odd prime and letf≥1. Thenℓ
+does not divide2ℓf
+−1. Moreover, every primepdividing2 ℓf
+−1satisfies
+dp =ℓ i for somei∈ {1, . . . , f}andp≡1 (mod 2ℓ i)
+and in particularp≥2ℓ+ 1. In particularG ℓf = 1.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 39
+Proof.Fermat’s little theorem gives2ℓ ≡2 (modℓ), and induction onfgives2 ℓf
+≡2 (modℓ). Since
+ℓis odd,2̸≡1 (modℓ), soℓdoes not divide2 ℓf
+−1.
+Letpdivide2 ℓf
+−1. Lemma 5.4 givesd p |ℓ f, andd p >1since2 1 −1 = 1, whenced p =ℓ i with
+1≤i≤f. The orderd p dividesp−1, andp−1is even, so that2ℓ i dividesp−1andp≥2ℓ i+1≥2ℓ+1.
+No prime factor ofℓf divides2 ℓf
+−1, so the divisorGℓf of Theorem 6.3 equals1.□
+Theorem 6.23(Exact decomposition on prime-power exponents).Letm=ℓ f withℓan odd prime
+andf≥1. Then
+∆m = Ωm andL m =
+Y
+p∈W(m)
+pAp−1 =B(W(m)).
+Thus
+Eε(Vm)≥0⇐ ⇒B(W(m))≥ A ε(m).
+Proof.Theorem 6.3 together with the identityG ℓf = 1of Lemma 6.22 gives the equalities, and
+Proposition 5.2 converts the transgression condition into the stated comparison.□
+Corollary 6.24(Quality on the prime-power subline).Letm=ℓ f ≥3withℓan odd prime. Then
+q(Vm)>1⇐ ⇒ W(m)̸=∅
+andq(V m)<1wheneverW(m) =∅.
+Proof.Suppose thatW(m)contains a primep. Lemma 6.22 givesp≥2ℓ+ 1≥7, so that
+Lm =B(W(m))≥p Ap−1 ≥p≥7>2>2(1−2 −m)
+and Proposition 5.2 givesq(V m)>1. Suppose thatW(m)is empty. ThenL m = 1<2(1−2 −m)
+form≥2, and the same criterion givesq(V m)<1. Both implications are also the caseG m = 1of
+Theorem 6.19. □
+Remark 6.25(Known Wieferich primes and prime-power exponents).The orders of the two known
+Wieferich primes are
+d1093 = 364 = 22 ·7·13andd 3511 = 1755 = 33 ·5·13.
+Neither of these is a power of an odd prime, so neither known Wieferich prime divides any number
+2ℓf
+−1. On presently known arithmetic, Corollary 6.24 accordingly places every prime-power exponent
+below quality one. Were a single Mersenne triple of prime-power exponent to have quality above one,
+it would exhibit a Wieferich prime, at present undiscovered, whose order is a power of an odd prime.
+The composite exponents of Theorem 5.3 behave differently, reaching quality above one through the
+lifting of the fixed prime3and without any Wieferich prime. That route is unavailable on the prime
+powers, sinceG m is trivial there and the second source of repetition fails with it.
+Theorem 6.26(The order datum on prime exponents).Letℓbe an odd prime. Then every primep
+dividing2 ℓ −1satisfiesd p =ℓandp≡1 (mod 2ℓ), and
+∆ℓ = Ωℓ together withD(W(ℓ)) =ℓwheneverW(ℓ)̸=∅.
+Define
+ρpr
+W := lim sup
+ℓ→∞
+Ωℓ
+ℓlog 2
+
+40 R. LANIEWSKI
+whereℓruns through the odd primes. Then, for every fixedε >0, the prime-exponent family(V ℓ)
+contains infinitely many triples transgressive at exponentεprecisely when infinitely many primesℓ
+satisfy
+B(W(ℓ))≥ A ε(ℓ)
+and such anε >0exists precisely whenρ pr
+W >0.
+Proof.Letpdivide2 ℓ −1. Lemma 6.22 withf= 1givesd p =ℓandp≡1 (mod 2ℓ), and the
+identity∆ ℓ = Ω ℓ is the casef= 1of Theorem 6.23. Every order over the exponentℓequalsℓ, so
+D(W(ℓ)) =ℓwhenever the set is non-empty. The first equivalence is that of Theorem 6.23 read along
+prime exponents.
+Suppose thatρ pr
+W >0. Chooseθ >0andη >0withθ+η < ρ pr
+W, and putε=θ/(1−θ). Infinitely
+many primesℓsatisfyΩ ℓ ≥(θ+η)ℓlog 2, and for all large suchℓone hasηℓlog 2>log(2(1−2 −ℓ)),
+whence∆ ℓ = Ωℓ attains the threshold of Proposition 5.2 at exponentε. Conversely, transgression at
+a fixed exponentεalong infinitely many primesℓgives
+Ωℓ = ∆ℓ ≥θ εℓlog 2 + log
+
+2(1−2 −ℓ)
+
+whenceρ pr
+W ≥θ ε >0. □
+The condition of Theorem 6.11 takes a sharp form on the prime subline. The admissible sets are
+the full setsW(ℓ), the order datumDcollapses to the exponent itself, and the defect identity carries
+no error term. The requirement on the Wieferich primes then reads as follows. For one fixedκ >0,
+infinitely many primesℓmust satisfyB(W(ℓ))≥2 κℓ, every contributing prime being congruent to1
+modulo2ℓ.
+Proposition 6.27(A certificate from one Wieferich prime of prime order).Suppose thatpis a
+Wieferich prime whose orderdp is an odd primeℓ. Then
+Eε(Vℓ)≥0
+for everyε >0satisfying
+2(1−2 −ℓ) 2θεℓ ≤p Ap−1
+and in particular for everyεwith
+θε ≤ (Ap −1) log 2 p−1
+ℓ .
+Herep≡1 (mod 2ℓ)andp Ap ≤2 ℓ −1.
+Proof.The hypothesis givesp Ap |2 dp −1 = 2 ℓ −1withA p ≥2, whenceL ℓ ≥p Ap−1 andp Ap ≤2 ℓ −1,
+while Theorem 6.26 givesp≡1 (mod 2ℓ). The first sufficiency is Proposition 5.2. For the second,
+suppose thatθ εℓ≤(A p −1) log 2 p−1. Then
+2(1−2 −ℓ) 2θεℓ <2 1+θεℓ ≤p Ap−1
+and the first sufficiency applies.□
+The orders364and1755of the two known Wieferich primes are composite, so that the proposition
+is for the present without an unconditional instance. Its unconditional counterpart at the composite
+order364is Proposition 6.53 below.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 41
+6.7.Order-closed exponents and an extremal family.Consider now the exponents whose odd
+prime divisors contain their own multiplicative orders modulo2.
+Definition 6.28(Order-closed exponent).An integerm≥2is calledorder-closedifd p |mfor every
+odd primep|m.
+Lemma 6.29(Order closure and the divisorGm).For everym≥2,
+Gm ≤ m
+2v2(m)
+with equality precisely whenmis order-closed. In that case
+∆m = Ωm + log
+ m
+2v2(m)
+
+.
+Proof.The divisorG m of Theorem 6.3 divides the odd part ofm, which gives the inequality. Equality
+holds precisely whenvp(Gm) =v p(m)for every odd primepdividingm, that is, precisely when every
+such prime divides2 m −1. By Lemma 5.4 this last condition holds precisely whendp |mfor every
+odd primepdividingm. The displayed identity is then Theorem 6.3.□
+Lemma 6.29 givesGm equal to the entire odd part ofmon an order-closed exponent, against the
+trivial value it takes on the prime powersℓf of Lemma 6.22. The least common multiplesm k are
+order-closed, and the divisor attains there its greatest size.
+Proposition 6.30(Order saturation of the least common multiples).Fork≥1put
+mk := lcm(1,2, . . . , k).
+Then every odd primep≤kdivides2 mk −1, the exponentm k is order-closed, and
+∆mk = Ωmk + log
+ mk
+2v2(mk)
+
+with2 v2(mk) ≤k.
+Proof.Letp≤kbe an odd prime. The orderd p dividesp−1and is therefore at mostk−1. Every
+positive integer not exceedingkdividesm k, whenced p |m k, and Lemma 5.4 givesp|2 mk −1.
+Every odd prime dividingmk is at mostk, so the first paragraph shows thatmk is order-closed,
+and Lemma 6.29 gives the identity. Finally,2v2(mk) is the largest power of2not exceedingk, whence
+2v2(mk) ≤k. □
+Lemma 6.31(An elementary lower bound formk).For everyk≥1,
+mk ≥2 k−1.
+Proof.Fork≥7this is the inequality of Nair, whose proof proceeds through the integrals
+R 1
+0 xm−1(1−
+x)n−m dxand elementary divisibility alone [Nai82]. The cases1≤k≤6are verified directly from the
+values1,2,6,12,60,60.□
+Theorem 6.32(A quantitative margin on the least common multiples).For everyk≥3,
+q(Vmk)>1.
+Moreover,
+∆mk ≥logm k −log log 2(2mk)
+and, for everyk≥4,
+q(Vmk)≥1 + logm k −log log 2(2mk)−log 2
+(mk + 1) log 2 .
+
+42 R. LANIEWSKI
+In particular,
+q(Vmk)−1≥
+
+1−o(1)
+ logm k
+mk log 2
+ask→ ∞, and therefore asm k → ∞, the exponentsm k = lcm(1, . . . , k)being strictly increasing in
+k.
+Proof.Fork≥3the odd part ofm k is divisible by3, so Proposition 6.30 gives
+∆mk ≥log
+ mk
+2v2(mk)
+
+≥log 3>log
+
+2(1−2 −mk)
+
+and Proposition 5.2 givesq(Vmk)>1.
+Lemma 6.31 givesk≤log 2 mk + 1 = log2(2mk), and2 v2(mk) ≤kthen gives
+∆mk ≥logm k −logk≥logm k −log log 2(2mk).
+For everym≥2one has the identity
+q(Vm)−1 = ∆m −log
+
+2(1−2 −m)
+
+log rad
+
+2m(2m −1)
+
+whose denominator equals(m+ 1) log 2 + log(1−2 −m)−∆ m and is therefore at most(m+ 1) log 2.
+The mapx7→logx−log log 2(2x)increases forx≥1, so fork≥4one hasm k ≥12and
+∆mk −log 2≥logm k −log log 2(2mk)−log 2≥log 12−log log 2(24)−log 2>0.
+Since the numerator of the quality identity is at least∆mk −log 2, it follows that
+q(Vmk)−1≥ ∆mk −log 2
+(mk + 1) log 2 ≥ logm k −log log 2(2mk)−log 2
+(mk + 1) log 2 .
+Sincelog log 2(2mk) =o(logm k)andm k → ∞, the final estimate follows.□
+One haslogm k =ψ(k), the Chebyshev function, and by entirely elementary means the estimates
+of Chebyshev giveψ(k)≍k[Tch52]. Along the family the margin of Theorem 6.32 therefore has the
+exact orderlogm/m. Lemma 6.31 supplies the one inequality the argument needs, in place of the
+prime number theorem. The exponentsmk are multiples of6fork≥3, so this family is a subfamily
+of the one in Theorem 5.3. Measured against the heightc= 2mk, the margin has orderlog logc/logc,
+well beneath the scale(logclog logc) −1/2 of Bright recalled in Remark 7.5.
+Theorem 6.33(Extremality among the mechanisms free of Wieferich primes).For everym≥2,
+∆m −Ω m = logG m ≤log
+ m
+2v2(m)
+
+≤logm
+while
+∆mk −Ω mk ≥logm k −log log 2(2mk)
+for everyk≥1. If a sequence(m j)satisfies
+∆mj −logm j − → ∞
+thenΩ mj → ∞. The part of the Mersenne defect free of Wieferich primes is confined to the scale
+logm, attained by the exponentsmk within the correctionlog log2(2mk).
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 43
+Proof.The equality and the first two inequalities are Theorem 6.3 and Lemma 6.29. The lower
+bound along the exponentsm k is the second display of Theorem 6.32 together with∆mk −Ω mk =
+log(mk2−v2(mk))≥log(m k/k). For the final claim,
+Ωmj = ∆mj −logG mj ≥∆ mj −logm j − → ∞.
+□
+Corollary 6.34(Quality margins beyond the extremal scale).Let(m j)be an increasing sequence
+with
+lim inf
+j→∞
+mj
+
+q(Vmj)−1
+
+log 2
+logm j
+>1.
+ThenΩ mj → ∞. A Mersenne quality margin beyond the extremal scale of Theorem 6.32 therefore
+requires an unbounded Wieferich contribution, while the margin of that theorem itself is produced with
+none.
+Proof.ChooseCwith1< C <lim inf j mj(q(Vmj)−1) log 2/logm j andη∈(0,1)withC(1−η)>1.
+As in the proof of Theorem 6.32, write
+q(Vm)−1 = ∆m −log
+
+2(1−2 −m)
+
+(m+ 1) log 2 + log(1−2 −m)−∆ m
+.
+Letjbe large, and abbreviatem=m j, so that(q(V m)−1)mlog 2≥Clogm. Suppose first that
+∆m ≥ηmlog 2. Theorem 6.33 then givesΩm ≥ηmlog 2−logm. Suppose instead that∆ m < ηmlog 2.
+Form≥2one haslog(1−2 −m)≥log(3/4), so the denominator above exceeds(1−η)mlog 2, whence
+∆m ≥
+
+q(Vm)−1
+
+(1−η)mlog 2≥C(1−η) logm
+and Theorem 6.33 givesΩm ≥
+
+C(1−η)−1
+
+logm. In either caseΩ mj → ∞.□
+Proposition 6.35(A divisor ceiling from primitive prime divisors).For everym≥2,
+rad(2m −1)≥
+Y
+d|m
+d /∈{1,6}
+(d+ 1)
+and hence
+Ωm ≤∆ m ≤mlog 2−
+X
+d|m
+d /∈{1,6}
+log(d+ 1).
+The empty product is read as1and the empty sum as0, which covers the divisor sets reduced by the
+two exclusions.
+Proof.By the theorem of Bang, proved independently by Zsigmondy foran −b n and recovered by
+Birkhoff and Vandiver, the number2d −1possesses for everyd /∈ {1,6}aprimitiveprime divisorp d,
+that is, a prime dividing2d −1and no2 d′
+−1with1≤d ′ < d[Ban86, Zsi92, BV04]. For the base2
+such primes are commonly called Zsigmondy primes. The two excluded divisors are the exceptions of
+the theorem itself, for21 −1 = 1has no prime divisor at all, while26 −1 = 63 = 3 2 ·7has none that
+is primitive, since3divides2 2 −1and7divides2 3 −1. For the base2these are the only exceptions,
+d= 6being the sole nontrivial one.
+The order of2modulop d equalsd, since a primitive divisor divides no smaller2d′
+−1. Ifd̸=d ′ then
+ordpd(2) =d̸=d ′ = ord pd′ (2), and since a prime has only one order modulo which2is considered,
+the primesp d attached to distinct divisors are pairwise distinct. Their product therefore divides the
+radical without repetition, andd|p d −1givesp d ≥d+ 1.
+
+44 R. LANIEWSKI
+For everyd|mthe primep d divides2 d −1, which divides2 m −1. Multiplication over the divisors
+ofmother than1and6gives the first inequality. The second follows from
+∆m = log(2m −1)−log rad(2 m −1)≤mlog 2−log rad(2 m −1)
+together with Corollary 6.4.□
+The whole defect, Wieferich part included, is bounded in Proposition 6.35 by a quantity that
+diminishes as the divisor countτ(m)grows. On a prime exponentℓthis yields only the weak constraint
+∆ℓ ≤ℓlog 2−log(ℓ+ 1), whereas on highly composite exponents the subtracted divisor sum grows
+with the number of divisors. The estimate is unconditional and elementary, and it has no bearing
+upon the density criterion of Theorem 6.7. The elementary divisor boundτ(m) =m o(1) shows the
+subtracted sum to bemo(1) logm, which iso(m).
+6.8.Order cores and the bounded order-cofactor.As Remark 6.10 observes, every prime
+p|2 m −1has orderd p |m, so that the least common multiple of the orders of the Wieferich
+primes occurring atmdivides the exponent. This divisibility singles out a canonical core within each
+transgressive exponent, bounds the quotient by that core by a finite range of integers, and lets every
+infinite transgressive family be taken down to the exponents that coincide with their own cores.
+Definition 6.36(Order core and order-cofactor).Form≥2, put
+Dm :=D(W(m)) = lcm p∈W(m) dp andB m :=B(W(m)) =
+Y
+p∈W(m)
+pAp−1.
+The conventions of Definition 6.9 giveDm =B m = 1whenW(m) =∅. SinceD m |m, define the
+order-cofactor
+fm := m
+Dm
+∈Z ≥1.
+An exponentmis calledWieferich-supportedwhenW(m)̸=∅, andorder-saturatedwhenD m =m,
+equivalently whenf m = 1.
+IfW(m)is empty, the conventions giveD m = 1and hencef m =m. The value is a convention,
+adopted so thatm=f mDm holds for everym. It carries no arithmetic information.
+Lemma 6.37(Idempotence of the order core).Ifmis Wieferich-supported, then
+W(D m) =W(m)D Dm =D m BDm =B m.
+In particular,D m is order-saturated.
+Proof.Letp∈ W(m). By the definition ofD m, its orderd p dividesD m, so thatp∈ W(D m).
+Conversely, ifp∈ W(D m), then
+dp |D m |m
+and hencep∈ W(m). Thus the two Wieferich sets are equal. Taking the least common multiple of
+their orders and the product of their intrinsic defect contributions gives the remaining identities.□
+Proposition 6.38(Defect and radical bounds at the order core).Letε >0, and suppose thatmis
+Wieferich-supported and
+Eε(Vm)≥0.
+Write
+D=D m f=f m m=f D.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 45
+Then
+Bm ≥ 2(1−2 −f D)
+f D 2θεf D andB m ≤L D.
+From these one obtains
+logB m
+Dlog 2 ≥f θ ε − log2(f D)−log 2
+
+2(1−2 −f D)
+
+D
+and
+rad(2D −1)≤ f D
+2
+1−2 −D
+1−2 −f D 2(1−f θε)D.
+Iff θ ε = 1, thenf >1and the last estimate becomes
+rad(2D −1)< f D
+2 .
+Proof.The first inequality is Proposition 6.12, rewritten withm=f D.
+For everyp∈ W(m)one hasd p |D, and Lemma 5.4 gives
+vp(2D −1) =A p +v p
+ D
+dp
+
+≥A p.
+It follows that Y
+p∈W(m)
+pAp−1 divides 2D −1
+rad(2D −1)
+and henceB m ≤L D. Taking logarithms in the first inequality gives the normalized defect estimate.
+Combining the lower bound forBm with
+Bm ≤L D = 2D −1
+rad(2D −1)
+gives
+rad(2D −1)≤ (2D −1)f D
+2(1−2 −f D)2θεf D
+= f D
+2
+1−2 −D
+1−2 −f D 2(1−f θε)D.
+Iff θ ε = 1, thenf >1, since0< θ ε <1. In this casef D > D, so that
+1−2 −D <1−2 −f D
+which gives the strict final bound.□
+Theorem 6.39(Reduction to the order core).Letε >0, and suppose thatmis Wieferich-supported
+and
+Eε(Vm)≥0.
+PutD=D m. IfD=m, then the exponent is order-saturated and no reduction is required. IfD < m
+and
+2θε(m−D) ≥m 1−2 −D
+1−2 −m
+then
+Eε(VD)≥0.
+In particular, the simpler condition
+2θε(m−D) ≥m
+is sufficient.
+The two statements below are then equivalent, for every fixedε >0.
+
+46 R. LANIEWSKI
+(1)There are infinitely manymsuch that
+Eε(Vm)≥0.
+(2)There are infinitely many order-saturatednsuch that
+Eε(Vn)≥0.
+Thus any infinite transgressive Mersenne family may be replaced, at the same exponentε, by an infinite
+family satisfyingD n =n.
+Proof.Proposition 6.38 gives
+LD ≥B m ≥ 2(1−2 −m)
+m 2θεm.
+Under the displayed hypothesis,
+LD ≥2(1−2 −m)2θεD 2θε(m−D)
+m
+≥2(1−2 −D)2θεD.
+Proposition 5.2 therefore givesEε(VD)≥0. SinceD < mgives
+1−2 −D
+1−2 −m <1
+the simpler condition is sufficient.
+Suppose now that infinitely many indicesmare transgressive at exponentε. These indices are
+unbounded, and Proposition 6.12 gives
+Dm > θ εm−log 2 m+ log 2
+
+2(1−2 −m)
+
+so thatD m → ∞along the transgressive indices. In particular, all sufficiently large such indices are
+Wieferich-supported.
+Iff m = 1, thenD m =mand no reduction is needed. Iff m ≥2, then
+Dm ≤ m
+2 and hencem−D m ≥ m
+2 .
+For all sufficiently largemone has
+2θεm/2 ≥m
+so that the sufficient condition applies andVDm is transgressive at the same exponent. The values
+Dm are unbounded, and Lemma 6.37 shows every resulting core to be order-saturated. This proves
+(1)⇒(2), while the reverse implication is immediate.□
+From an infinite family the endpointf θε = 1may be excluded by an elementary radical estimate.
+Lemma 6.40(Superlinear radical growth for Mersenne numbers).For every integern >36,
+rad(2n −1)> n 3/2.
+Proof.Suppose first thatnis composite. Letqbe its least prime divisor and put
+d= n
+q .
+Thenq≤ √n, and therefore √n≤d < n.
+Sincen >36, one hasd >6, so that bothnanddlie outside the exceptional set{1,6}of the
+primitive-divisor theorem employed in Proposition 6.35. Hence2n −1and2 d −1possess primitive
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 47
+prime divisorsp n andp d, whose orders arenanddrespectively, so that the two primes are distinct
+and
+pn ≥n+ 1andp d ≥d+ 1.
+Both divide2 n −1, since2 d −1divides2 n −1, and therefore
+rad(2n −1)≥(n+ 1)(d+ 1)> n 3/2.
+Suppose next thatnis prime. By Theorem 6.26, every primep|2 n −1has order exactlyn, and
+therefore
+p≡1 (mod 2n).
+Observe first that2n −1cannot be a proper prime power. Suppose that
+2n −1 =p a (a≥2).
+Ifais even, thenp a is an odd square and hence congruent to1modulo8, whereas2n −1≡7 (mod 8).
+Thusais odd and at least three. Then
+2n =p a + 1 = (p+ 1)
+
+pa−1 −p a−2 +· · · −p+ 1
+
+.
+The second factor is a sum of an odd number of odd terms, hence odd, and it exceeds one. This
+contradicts the fact that the product is a power of two. The two congruence arguments above settle
+the case without appeal to Catalan’s theorem.
+If2 n −1is prime, then
+rad(2n −1) = 2 n −1> n 2.
+If it is composite, then it carries two distinct prime divisorsp1 < p 2. Each is congruent to1modulo2n,
+hence of the form1 + 2nkwithk≥1, and distinctness forces distinct values ofk, so thatp1 ≥2n+ 1
+andp 2 ≥4n+ 1. It follows that
+rad(2n −1)≥p 1p2 ≥(2n+ 1)(4n+ 1)>8n 2.
+In either case the asserted estimate follows.□
+Corollary 6.41(Exclusion of the critical cofactor).Fixε >0and an integerf≥2satisfying
+f θε = 1.
+Ifm=f Dis transgressive at exponentεandD=D m, then
+D≤36orD < f 2
+4 .
+In particular, no infinite transgressive sequence can carry a fixed cofactorfsatisfyingf θε = 1.
+Proof.Proposition 6.38 gives
+rad(2D −1)< f D
+2 .
+IfD >36, then Lemma 6.40 gives
+D3/2 < f D
+2 .
+Division byD >0leaves
+√
+D < f
+2
+and squaring givesD < f 2/4. The two alternatives confineD, and therefore confinem=f D, to a
+finite range depending uponfalone.□
+
+48 R. LANIEWSKI
+Theorem 6.42(Rigid bound on the order-cofactor).Fixε >0, and recall from Proposition 6.12 the
+base-2logarithmlog 2. For a transgressive indexm, define
+rε(m) :=θ εm−log 2 m+ log 2
+
+2(1−2 −m)
+
+.
+Wheneverr ε(m)>0, one has the exact bound
+fm < m
+rε(m)
+and therefore
+fm ≤
+ m
+rε(m)
+
+−1.
+More explicitly, put
+Nε :=
+ 1
+θε
+
+andδ ε :=θ ε − 1
+Nε + 1 >0
+together with
+M (0)
+ε :=
+
+max
+
+4, N ε + 1, 2
+δε
+log2
+ 2
+δε
+
+.
+Every transgressive indexm≥M (0)
+ε satisfiesf m ≤N ε.
+The endpoint may be removed. Define
+Fε :=
+ 1
+θε
+
+−1 =
+
+1 + 1
+ε
+
+−1.
+If1/θ ε /∈Z, then putMε =M (0)
+ε . If1/θ ε =N ε ∈Z, then put
+Cε := max
+
+36, N 2
+ε
+4
+
+andM ε := max
+n
+M (0)
+ε ,⌊N εCε⌋+ 1
+o
+.
+Then everym≥M ε satisfying
+Eε(Vm)≥0
+obeys the strict integral constraint
+1≤f m ≤F ε < 1
+θε
+.
+In particular, every suchmis Wieferich-supported.
+Proof.Throughout,mis transgressive at exponentε, andf m =m/D m is the order-cofactor of
+Definition 6.36, so thatm=f mDm holds whether or notW(m)is empty.
+The exact bound.Proposition 6.12 givesD m > r ε(m). Ifr ε(m)>0, then dividing bymyields
+1
+fm
+= Dm
+m > rε(m)
+m >0.
+Both sides being positive, taking reciprocals reverses the inequality and givesfm < m/r ε(m). Since
+fm is an integer, it is at most the largest integer strictly belowm/rε(m), which is⌈m/rε(m)⌉ −1.
+The bound byNε.Sinceθ ε =ε/(1 +ε)<1, one has1/θ ε >1and thereforeN ε ≥1. The floor in the
+definition ofNε placesθ ε strictly above1/(Nε + 1), so thatδε >0, and fromθ ε ≤1/N ε it follows that
+0< δ ε ≤ 1
+Nε
+− 1
+Nε + 1 ≤ 1
+2 .
+Put
+y= 2
+δε
+andx 0 =ylog 2 y.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 49
+Thenδ ε ≤1/2givesy≥4, hencelog 2 y≥2andx 0 ≥8. Sincelog 2 y≥1,
+log2 x0 = log2 y+ log 2 log2 y
+≤2 log 2 y=δ εx0
+the middle step usinglog2 log2 y≤log 2 y, valid sincey≥4.
+The mapx7→(log 2 x)/xis decreasing forx≥e, and the definition ofM (0)
+ε givesM (0)
+ε ≥x 0 ≥8.
+Hence, for everym≥M (0)
+ε ,
+log2 m
+m ≤ log2 x0
+x0
+≤δ ε
+the second inequality being the display above divided byx0. Moreover
+log2
+
+2(1−2 −m)
+
+>0
+for everym≥2, since2(1−2 −m)≥3/2>1there. Dividing the second assertion of Proposition 6.12
+bymand discarding this positive term,
+1
+fm
+= Dm
+m > θ ε − log2 m
+m
+≥θ ε −δ ε = 1
+Nε + 1.
+It follows thatfm < N ε + 1, and the integrality offm givesf m ≤N ε.
+Removal of the endpoint.If1/θ ε is not an integer, thenFε =⌈1/θ ε⌉ −1 =N ε andM ε =M (0)
+ε , so
+the preceding estimate is itself the assertion. Suppose instead that
+1
+θε
+=N ε ∈Z
+in which caseF ε =N ε −1and the one value remaining to exclude isf m =N ε. Hereθ ε <1forces
+Nε ≥2.
+Suppose thatf m =N ε for somem≥M ε satisfyingE ε(Vm)≥0. Then
+fmθε = 1andD m = m
+Nε
+.
+The definition ofMε givesM ε ≥ ⌊N εCε⌋+ 1> N εCε, and therefore
+Dm = m
+Nε
+≥ Mε
+Nε
+> C ε = max
+
+36, N 2
+ε
+4
+
+.
+Corollary 6.41, applied withf=N ε ≥2andD=D m, givesD m ≤36orD m < N 2
+ε /4, and each
+alternative contradicts the display above. Thereforefm ̸=N ε, and with the bound of the preceding
+part,
+fm ≤N ε −1 =F ε.
+Wieferich support and the strict inequality.In both casesM ε ≥M (0)
+ε ≥N ε + 1> F ε. IfW(m)
+were empty for some transgressivem≥M ε, then Definition 6.36 would giveDm = 1andf m =m≥
+Mε > F ε, against the bound just proved. HenceW(m)̸=∅. The lower boundf m ≥1is part of
+Definition 6.36, sinceD m |m. FinallyF ε =⌈1/θ ε⌉ −1<1/θ ε, since⌈x⌉ −1< xfor everyx >0,
+which is the strict inequality closing the displayed chain.□
+
+50 R. LANIEWSKI
+Corollary 6.43(The order-cofactor and exponent amplification).Fixε >0, and let(m j)be an
+increasing sequence satisfying
+Eε(Vmj)≥0.
+After finitely many terms have been discarded,
+fmj ∈ {1,2, . . . , F ε}.
+There are then an integerf∈ {1,2, . . . , F ε}and an infinite subsequence, again written(m j), such
+that
+mj =f D j andD j =D mj − → ∞.
+Along this subsequence,
+W(D j) =W(m j)andlim inf
+j→∞
+logB mj
+Dj log 2 ≥f θ ε
+withf θ ε <1. For everyε ′ >0satisfying
+θε′ < f θε
+the core triplesVDj are transgressive at exponentε′ for all sufficiently largej. In particular,
+lim inf
+j→∞
+q(VDj)≥ 1
+1−f θ ε
+.
+Iff >1, then the core reduction amplifies the original exponent, since one may chooseε′ > ε.
+Proof.The finite range forf mj is Theorem 6.42, and an infinite subsequence with constant cofactor
+follows from the pigeonhole principle. Sincem j → ∞andm j =f D j, one hasD j → ∞, and
+Lemma 6.37 gives the equality of the Wieferich sets.
+Proposition 6.38 gives
+logB mj
+Dj log 2 ≥f θ ε − log2(f Dj)−log 2
+
+2(1−2 −f Dj)
+
+Dj
+whose final quotient tends to zero. Moreover,
+f≤F ε < 1
+θε
+so thatf θ ε <1.
+Now fixε ′ withθ ε′ < f θ ε. The positive linear gap between these two quantities dominates the
+logarithmic correction above, so that for all sufficiently largej,
+logB mj ≥θ ε′Dj log 2 + log
+
+2(1−2 −Dj)
+
+.
+SinceL Dj ≥B mj, Proposition 5.2 givesEε′(VDj)≥0. Lettingθ ε′ increase tof θ ε proves the quality
+estimate. Iff >1, then
+θε < f θε <1
+so that the monotonicity ofε7→θ ε permits a choiceε′ > ε.□
+The amplification of Corollary 6.43 cannot be repeated indefinitely. Its limits give the cofactor at
+once on the upper half of the transgressive range.
+Corollary 6.44(Saturation near the critical exponent).Fixε >0satisfying
+θε > ρW
+2 .
+Then all but finitely many indicesmwithE ε(Vm)≥0are order-saturated.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 51
+Proof.Suppose that infinitely many transgressive indices satisfyfm ≥2. Theorem 6.42 confines their
+cofactors to{2, . . . , Fε}once finitely many indices have been discarded, so that one valuef≥2recurs
+infinitely often. Corollary 6.43 then furnishes, for everyε′ withθ ε′ < f θ ε, infinitely many distinct
+indices transgressive at exponentε′, and Theorem 6.7 givesθε′ ≤ρ W. Passage to the supremum over
+these exponents gives
+f θε ≤ρ W
+whenceθ ε ≤ρ W /2, against the hypothesis.□
+The range of the hypothesis is the window
+ρW
+2 < θ ε ≤ρ W
+together with everything above it. The transgressive indices may be infinite in number on the window
+itself, and the corollary makes them order-saturated from some point onward. Above the window,
+and in particular at everyε >0whenρ W = 0, Theorem 6.7 leaves only finitely many transgressive
+indices, so the saturation concerns a finite set.
+Remark 6.45(Significance of the cofactor bound).Theorem 6.42 refines the asymptotic inequality
+Dm ≥(θ ε −o(1))mof Proposition 6.12 into the exact finite constraintfm ∈ {1,2, . . . , F ε}. The critical
+valuef m = 1/θε is excluded because it would forcerad(2D −1)< f D/2, contradicting the superlinear
+radical growth of Lemma 6.40. For instance:
+•Atε= 1, one hasθ 1 = 1/2andF 1 =⌈2⌉ −1 = 1, so every sufficiently large transgressive
+index is order-saturated (m=Dm).
+•Atε= 1/40, one hasθ 1/40 = 1/41andF 1/40 = 40, givingf m ≤40. The transgressive index
+m= 364in Proposition 6.53 satisfiesD 364 = 364and thus belongs to the saturated stratum
+f= 1.
+On the prime subline (Theorem 6.26), every Wieferich-supported exponentℓsatisfiesD ℓ =ℓand
+fℓ = 1.
+6.9.The finite case.IfWis finite, the intrinsic defectΩ m is uniformly bounded, which precludes
+transgressive Mersenne triples for any fixedε >0.
+Theorem 6.46(Finiteness ofWimplies finiteness of transgressive triples).Suppose thatWis finite,
+and put
+CW :=
+X
+p∈W
+(Ap −1) logp.
+Then∆ m ≤logm+C W andL m ≤e CW mfor everym≥2. Thus, for everyε >0, the set of integers
+msatisfyingE ε(Vm)≥0is finite.
+Proof.SinceW(m)⊆ W, one hasΩ m ≤C W. Corollary 6.4 gives the two displayed bounds. Fix
+ε >0. Proposition 5.2 shows thatE ε(Vm)≥0forces
+eCW m≥L m ≥2(1−2 −m) 2θεm ≥2 θεm
+form≥2. Sinceθ ε >0, the right-hand side grows exponentially while the left-hand side grows
+linearly. The inequality can therefore hold for at most finitely manym.□
+
+52 R. LANIEWSKI
+A prime dividing2 m −1contributes to the defect quotientL m in two ways. There is the lifting
+constantA p, intrinsic to the prime and indifferent tom, and there isvp(m/dp), which depends upon
+mand whose aggregate is bounded bym. A lifting constant greater than one belongs to the Wieferich
+primes alone. Suppose these to be finitely many. An absolute constant then bounds the intrinsic
+contribution, and the whole growth ofLm falls to the second factor, which can never overtake the
+exponential thresholdA ε(m).
+Remark 6.47(The two known Wieferich primes).Forp= 1093one hasd p = 364andA p = 2. For
+p= 3511one hasd p = 1755andA p = 2. Suppose that these are the only Wieferich primes. Then
+Theorem 6.46 gives
+Lm ≤1093·3511·m= 3 837 523m
+for everym≥2. Unconditionally nothing of the kind can be asserted, the finiteness ofWbeing
+unknown.
+The closure asserted in Theorem 6.46 may be made effective in quantity.
+Theorem 6.48(Effective bound from a bounded intrinsic defect).Fixε >0and put
+λε :=θ ε log 2.
+LetC≥0. If
+Eε(Vm)≥0andΩ m ≤C
+then
+m≤ 2
+λε
+
+C+ log 2
+λε
+
+.
+In particular, ifWis finite, then every transgressive Mersenne index satisfies
+m≤ 2
+θε log 2
+
+CW + log 2
+θε log 2
+
+withC W as in Theorem 6.46.
+Proof.Corollary 6.4 and the hypothesis give
+∆m ≤C+ logm.
+On the other hand, Proposition 5.2 gives
+∆m ≥λ εm+ log
+
+2(1−2 −m)
+
+.
+The final logarithm is positive form≥2, and hence
+λεm < C+ logm.
+Put
+H=C+ log 2
+λε
+.
+Sinceθ ε <1, one hasλ ε <log 2<2, so thatH >0. Suppose thatm >2H/λ ε, and set
+x= λεm
+2 .
+Thenx > H, while
+C+ logm=C+ log 2x
+λε
+=H+ logx
+< x+x=λ εm
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 53
+wherelogx < xfor everyx >0. This contradicts the necessary inequality established above.□
+Corollary 6.49(Explicit form under the two-known-primes hypothesis).Assume that
+W={1093,3511}
+and that both primes have lifting constant two, as in Remark 6.47. Then everymsatisfyingEε(Vm)≥0
+obeys
+m≤ 2
+θε log 2 log
+7 675 046
+θε log 2
+
+.
+Proof.Under the stated hypothesis,
+CW = log(1093·3511) = log(3 837 523).
+Substitution of this value into Theorem 6.48, together with2·3 837 523 = 7 675 046, gives the bound.
+□
+Remark 6.50(The probabilistic model).WereWfinite, the standard probabilistic model of the
+Fermat quotient would be contradicted. Under the heuristic that
+2p−1 −1
+p modp
+is distributed as a random residue, the probability that a given primeplies inWis approximately
+1/p. Mertens’ theorem then predicts
+#
+
+p∈ W:p≤x
+	
+∼log logx.
+One expectsWto be infinite, then, and extremely sparse. A proof of finiteness would show this
+probabilistic model to fail for Fermat quotients.
+Remark 6.51(The first case of Fermat’s last theorem).Wieferich’s original theorem states that if
+the first case of Fermat’s last theorem fails for a prime exponentp, thenplies inW[Wie09]. Were
+Wfinite, the first case could have failed for finitely many exceptional primes only. The consequence
+keeps a historical interest of its own, and it shows once more how the conditionp2 |2 p−1 −1returns
+across several Diophantine questions.
+6.10.Theinfinitecase.IfWisinfinite, theMersennecriterionofProposition5.2remainsapplicable.
+Theorem 6.11 requires positive exponential order–defect growth.
+Proposition 6.52(The Wieferich obstruction along a transgressive sequence).Fixε >0and let
+m≥2satisfy
+Eε(Vm)≥0.
+Then Y
+p∈W(m)
+pAp−1 ≥ 2(1−2 −m)
+m 2θεm.
+In particular,W(m)is non-empty for every sufficiently large suchm. If the set of suchmis infinite,
+thenWis infinite.
+Proof.Proposition 5.2 gives
+Lm ≥2(1−2 −m) 2θεm.
+Corollary 6.4 gives
+Lm ≤m
+Y
+p∈W(m)
+pAp−1.
+
+54 R. LANIEWSKI
+Combining the two proves the inequality.
+For the non-emptiness, note thatθε >0, so the displayed right-hand side grows exponentially and
+exceeds1for everymbeyond somem 0(ε). The product overW(m)then exceeds1, while an empty
+product would equal1, soW(m)is non-empty.
+Suppose thatWis finite. Then Theorem 6.46 permits only finitely many suchm.□
+Letp 1, . . . , pk be Wieferich primes, each with lifting constant equal to2, as happens for the two
+known examples. Their combined intrinsic contribution toLm is at mostp 1 · · ·p k, and it is present
+only when everypi divides2 m −1, which requires
+lcm(dp1 , . . . , dpk)|m.
+Proposition 6.52 then asks the productp1 · · ·p k to be exponentially large inm, the factormapart,
+whilemmustatthesametimebeamultipleoftheleastcommonmultipleoftheorders. Nomechanism
+is known that would keep this least common multiple small against the logarithm of the product of
+the primes.
+Proposition 6.53(A transgressive triple from1093).The Mersenne triple
+V364 =
+
+1,2 364 −1,2 364
+satisfies
+E1/40(V364)>0.
+Equivalently,
+q(V364)> 41
+40 .
+Proof.As stated in Remark 6.47, one has
+d1093 = 364andA 1093 = 2.
+Thus
+10932 |2 364 −1
+and therefore
+L364 ≥1093.
+Forε= 1/40, one has
+θε = 1
+41 .
+The Mersenne threshold satisfies
+A1/40(364) = 2(1−2 −364) 2364/41
+<2 1+364/41 = 2405/41
+<2 10 = 1024<1093.
+Proposition 5.2 gives the result.□
+Proposition 6.53 gives a single transgressive triple at a fixed exponent. An infinite family at one
+fixed exponent would requireρW >0, and whether this density vanishes is not known.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 55
+Remark 6.54(Relation to Silverman’s theorem).The infinitude of Wieferich primes is consistent
+with theabcconjecture. Silverman proved that theabcconjecture implies the existence of infinitely
+many non-Wieferich primes, at leastclogxof them up tox[Sil88]. Under the heuristic of Remark 6.50,
+non-Wieferich primes have natural density one, whileWhas density zero despite being infinite.
+Silverman’s theorem bounds the non-Wieferich set from below, while anabcviolation on the
+Mersenne line would bear on the multiplicative orders withinW. Individual Wieferich primes yield
+isolated low-radical triples, as in the construction of Granville and Tucker [GT02]. Theorems 6.7
+and 6.11 give a two-sided equivalence – an infinite transgressive family at a fixed exponentε >0
+exists on the Mersenne line if and only if the order–defect densityσW is strictly positive.
+Remark 6.55(Heuristic expectations versus positive density).The standard probabilistic model of
+Remark 6.50 predicts that the number of Wieferich primes up toxis of orderlog logx. For the
+Mersenne number2 m −1, takingx= 2 m indicates that
+#W(m)≤#{p∈ W:p≤2 m} ≪logm
+meaning that the intrinsic defectΩm is distributed over at mostO(logm)primes.
+The condition in Theorem 6.11, however, requires the stronger boundB(S)≥2κD(S) for some fixed
+κ >0. If every Wieferich prime satisfiesA p = 2(as is the case for1093and3511), and if the setS
+contains at mostO(logD)elements, then some primep∈Smust satisfy
+logp≥ κDlog 2
+#S ≫ D
+logD .
+Becaused p |Dandp|2 dp −1, this impliesd p ≫D/logD. Under the additional assumption that
+the multiplicative orderdp typically has sizep1−o(1), one would obtainD(S)≥max p∈S dp ≥P 1−o(1)
+(whereP= maxS), whereaslogB(S)≤(log logP)(logP). The ratiologB(S)/D(S)would then tend
+to zero asP→ ∞, yieldingσ W = 0andρ W = 0.
+This heuristic deduction relies on the hypothesis that the lifting constantsAp remain bounded,
+or grow more slowly thanlogp. If there exist Wieferich primes with large valuationsA p, or with
+anomalously small multiplicative ordersdp ≪logp, the densityσ W could be strictly positive.
+Remark 6.56(The Mersenne reduction).Non-Wieferich mechanisms account for quality margins
+up tologm/(mlog 2)(Theorem 6.33). A uniform excess at a fixed exponentε >0would require an
+infinite, exponentially dense family of Wieferich primes, and by Theorem 6.39 the exponents in any
+such family may be taken to be order-saturated.
+7.Exceptional sets and current benchmarks
+Definition 7.1(Exceptional counting quantity).For0< λ <1andX≥1, letN λ(X)be the number
+of pairwise coprime positive triples(a, b, c)∈[1, X] 3 satisfying
+a+b=c
+and
+rad(abc)< c λ.
+LetN par
+λ (X)count only the parity-class triples among them.
+Theorem 7.2(Classical exceptional-set bound).For every fixed0< λ <1and everyη >0,
+Nλ(X)≪ λ,η X 2λ/3+η.
+
+56 R. LANIEWSKI
+Proof.This follows from the radical-counting estimate of de Bruijn and the observation that at least
+one ofrad(ab),rad(ac), andrad(bc)is at mostrad(abc) 2/3. See [dB62, Lic25].□
+Theorem 7.3(Recent power saving).Let0< λ <1be fixed. For everyη >0,
+Nλ(X)≪ λ,η X 3/5+η.
+The same bound holds for
+N par
+λ (X)≪ λ,η X 3/5+η.
+Proof.The first assertion is Theorem 1.3 of Bernert, Browning, Lichtman, and Teräväinen [BBLT26],
+which givesN λ(X)≪ λ,η X 0.6+η =X 3/5+η for every fixed0< λ <1. Their Theorem 1.2 gives
+Nλ(X)≪ λ,η X (23λ+3)/40+η on the wider range0< λ≤2. The bound improves on Theorem 7.2
+precisely forλ >9/10. The second assertion follows because the parity-class triples form a subset of
+the triples counted byNλ(X).□
+Remark 7.4(Pointwise constraints and counting bounds).Theorem 7.3 bounds the spatial density
+of exceptional triples across large boxes[1, X]3 by analytic and counting means, whereas the defect
+identities of Sections 3 and 4 constrain each transgressive triple taken singly. The two kinds of
+statement meet at the prime support.
+Theorem 4.23 produces a primep|abcwith
+vp(Np)−1≥ log(2K−1) +θ ε log(2K)
+ωtot(T) logP tot(T)
+so that a triple can keep every multiplicity small only by spreading its defect over a support with
+ω(abc)large. The counting estimates draw their strength from that same regime, a radical small
+againstcbeing most easily arranged by numerous primes each entering to a modest power, which
+is the configuration the smooth-number estimates of de Bruijn behind Theorem 7.2 are designed to
+count. A triple whose support stays bounded falls outside that regime, and Corollary 4.24 then forces
+upon it a multiplicity of at least(1 +θε)/(δ0k), independently of the height.
+An infinite transgressive family could take either of two forms, and neither has been excluded.
+Along such a familyω(abc)may grow, in which case the family lies inside a set the spatial estimates
+show to be sparse. Or the support may stay bounded, and then the individual multiplicities diverge
+at the rates of Theorem 10.4. The counting theorems bound the exceptions in aggregate, whereas the
+defect identities constrain each exception individually.
+Remark 7.5(Lower-bound benchmarks).The Mersenne family of Theorem 5.3 is explicit and lies
+within the parity class, but its excessq−1decays to zero asm→ ∞. Among unrestricted triples,
+Bright proved the existence of infinitely many coprime triples satisfying
+log
+ c
+rad(abc)
+
+>6.563
+s
+logc
+log logc .
+Earlier subexponential bounds of the formc >rad(abc) exp(C
+p
+logc/log logc), with smaller constants
+C, were established by Stewart and Tijdeman and by van Frankenhuysen [ST86, vF00]. While these
+lower bounds grow faster than any power oflogc, they remaino(logc)and do not produce a fixed
+positive margin in quality.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 57
+8.Explicit parity descent cur ves
+The square extraction of Subsection 4.1 yields two elliptic constructions, and they retain different
+parts of the arithmetic. The first is an oriented Frey curve, whose minimal discriminant retains the
+whole multiplicity discarded by the radical. The second is the intersection of two quadrics formed
+from the squarefree kernels. Its Jacobian depends only upon the square class ofΓT, so that every
+square divisor of that parameter is lost, while the point on the intersection retains the large square
+divisors forced by transgression. Remark 8.14 returns to this division.
+8.1.The oriented parity Frey curve.
+Definition 8.1(Oriented parity Frey curve).LetT= (a, b, c)be a parity-class triple. When4|c,
+letαbe the unique member of{a, b}satisfying
+α≡1 (mod 4)
+and letβbe the other member. When4∤c, retain the given ordering and put
+(α, β) = (a, b).
+Thus
+α+β=candαβ=ab.
+Define theoriented parity Frey curveby
+ET :y 2 =x(x−α)(x+β).
+The orientation has no effect at odd primes. Its role is confined to the integral model at2.
+Proposition 8.2(Invariants of the oriented Frey curve).The model of Definition 8.1 has invariants
+c4 = 16
+
+α2 +αβ+β 2
+and
+c6 =−32(β−α)
+
+2(β−α) 2 + 9αβ
+
+.
+Its discriminant is
+∆0(ET ) = 16(αβc)2 = 16(abc)2.
+The curve has full rational2-torsion, with nonzero points
+(0,0) (α,0) (−β,0).
+Proof.Expansion gives
+y2 =x 3 + (β−α)x 2 −αβx
+so that
+a1 =a 3 =a 6 = 0a 2 =β−α a 4 =−αβ.
+The standard polynomial expressions forc4 andc 6 give the first two identities. The roots of the cubic
+are0,α, and−β, with pairwise differencesα,β, andc=α+β. The discriminant identity follows,
+and the three roots give the displayed points of order two.□
+
+58 R. LANIEWSKI
+Proposition 8.3(Minimal discriminant and conductor).Let
+n=v 2(c)
+and write
+f2(T) :=v 2(NET ).
+Then the following assertions hold:
+(1)At every odd primep|abc, the model of Definition 8.1 is minimal and has multiplicative
+reduction of typeI2vp(abc), so that
+vp(NET ) = 1.
+(2)If1≤n≤3, the displayed model is minimal at2and has additive reduction there, with
+∆min(ET ) = 16(abc)2 and2≤f 2(T)≤8.
+(3)Ifn≥4, the change of variables
+x= 4X+α y= 8Y+ 4X
+gives the integral model
+Y 2 +XY=X 3 + α+c−1
+4 X 2 + αc
+16 X
+which is minimal and has discriminant
+∆min(ET ) = (abc)2
+28 .
+(4)Ifn= 4, the reduction at2is good andf 2(T) = 0. Ifn≥5, it is multiplicative andf 2(T) = 1.
+Consequently,
+NET = 2f2(T)−1 rad(abc)
+and
+1
+2 rad(abc)≤N ET ≤2 7 rad(abc).
+Proof.Letpbe an odd prime dividingabc. Pairwise coprimality shows thatpdivides exactly one of
+α,β, andc. Ifp|α, then
+α2 +αβ+β 2 ≡β 2 ̸≡0 (modp)
+and the casesp|βandp|care the same. Hencev p(c4) = 0, the model is minimal, its reduction is
+multiplicative, and
+vp(∆min) = 2vp(abc).
+This proves the first assertion.
+Sinceαandβare odd, the quantityα 2 +αβ+β 2 is odd, whence
+v2(c4) = 4andv 2(∆0) = 4 + 2n.
+For1≤n≤3this last valuation is smaller than12. An integral change lowering the discriminant
+would lower its valuation by a positive multiple of12, which is impossible, so the model is minimal.
+Neither its discriminant norc4 is a unit, so the reduction is additive, and the finite branches of Tate’s
+algorithm give
+2≤f 2(T)≤8
+as tabulated, for instance, in [Coh93].
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 59
+Suppose now thatn≥4. Then16|c, and the orientation of Definition 8.1 givesα≡1 (mod 4).
+Substitution of
+x= 4X+α y= 8Y+ 4X
+into the defining equation gives
+(8Y+ 4X) 2 = (4X+α)(4X)(4X+c)
+and division by64gives the displayed integral model. Its discriminant is the original discriminant
+divided by2 12, that is,
+∆ = 16(abc)2
+212 = (abc)2
+28
+and itsc 4-invariant is the odd quantityα2 +αβ+β 2. The model is therefore minimal at2. When
+n= 4its discriminant is a2-adic unit, giving good reduction. Whenn≥5the discriminant has
+positive valuation whilec 4 remains a unit, giving multiplicative reduction. The conductor formula
+follows from the odd-prime calculation together with the single occurrence of2inrad(abc).□
+Definition 8.4(Szpiro quotient).For an elliptic curveE/Qwith minimal discriminant∆min(E)and
+conductorN E >1, define
+Szp(E) := log|∆min(E)|
+logN E
+.
+Corollary 8.5(Total defect in the Szpiro quotient).Put
+R(T) := rad(abc)
+and define
+κ2(T) :=
+
+
+
+4 1≤v 2(c)≤3
+−8v 2(c)≥4.
+Then
+log|∆min(ET )|= 2δ tot(T) + 2 logR(T) +κ 2(T) log 2
+and
+logN ET = logR(T) +
+
+f2(T)−1
+
+log 2
+so that
+Szp(ET ) = 2δtot(T) + 2 logR(T) +κ 2(T) log 2
+logR(T) +
+
+f2(T)−1
+
+log 2 .
+IfE ε(T)≥0, then
+δtot(T)≥log(ab) +εlogR(T)
+and therefore
+Szp(ET )≥ 2(1 +ε) logR(T) + 2 log(ab) +κ 2(T) log 2
+logR(T) +
+
+f2(T)−1
+
+log 2 .
+Along a transgressive sequence withR(T)→ ∞, this gives
+Szp(ET )≥2 + 2ε+O
+ 1
+logR(T)
+
+with an absolute implied constant.
+
+60 R. LANIEWSKI
+Proof.Lemma 3.6 gives
+log(abc) =δ tot(T) + logR(T).
+Substitution into the two cases of Proposition 8.3 gives the discriminant identity, and the conductor
+identity is the final assertion of that proposition. If the triple is transgressive, then
+logc≥(1 +ε) logR(T)
+whence
+δtot(T) = log(ab) + logc−logR(T)
+≥log(ab) +εlogR(T).
+The remaining assertions follow by substitution, the2-adic terms being bounded independently of the
+triple. □
+Corollary 8.6(The Mersenne Frey curve).Letm≥5. The oriented Frey curve attached toV m has
+conductor
+NEVm = 2 rad(2m −1)
+and minimal discriminant
+∆min(EVm) = 22m−8(2m −1) 2.
+Its Szpiro quotient satisfies the exact identity
+Szp(EVm) = 2 + 2(m−1) log 2 + 2Ω m + 2 logGm −8 log 2
+log
+
+2 rad(2m −1)
+ .
+Proof.ForV m the oriented summands are
+α= 1β= 2 m −1.
+Sincem≥5, Proposition 8.3 gives the conductor and the minimal discriminant. Moreover
+δtot(Vm) = (m−1) log 2 + ∆ m
+and Theorem 6.3 gives∆m = Ωm + logG m. Substitution into Corollary 8.5 proves the identity.□
+8.2.The genus-one intersection.Retain the square extraction
+a=d au2
+a b=d bu2
+b
+whered a andd b are positive odd squarefree integers. The triple(1,1,2)is the sole parity-class triple
+withM= 0, and it is excluded from the construction below.
+Definition 8.7(Parity descent curve).LetT ̸= (1,1,2)be a parity-class triple. DefineD T ⊂
+P3
+(U:V:W:T) by
+DT :
+
+
+
+daU 2 +d bV 2 = 2KW 2
+dbV 2 −d aU 2 = 2M T2.
+Put
+ΓT :=d adbKM.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 61
+Lemma 8.8(The pencil of quadrics).LetQ0 andQ 1 be the two diagonal quadrics definingDT. Then
+det(Q0 +λQ 1) = 4ΓT λ(1−λ 2).
+The roots of the determinant polynomial are
+0 1−1∞
+and they are distinct. HenceDT is a smooth complete intersection of two quadrics and has genus one.
+Proof.The diagonal entries ofQ 0 +λQ 1 are
+da(1−λ)d b(1 +λ)−2K−2λM
+and their product gives the determinant. SinceT ̸= (1,1,2), one hasM̸= 0and thereforeΓ T ̸= 0,
+so the determinant has four distinct roots. For a pencil of two quadrics inP3, this separability is
+equivalent to smoothness of the intersection. A smooth complete intersection of two quadrics inP3
+has degree four and trivial canonical sheaf, hence genus one.□
+Proposition 8.9(The distinguished rational point).The point
+PT := (ua :u b : 1 : 1)
+lies onD T (Q). The defining equations may equivalently be written
+daU 2 =KW 2 −M T 2 andd bV 2 =KW 2 +M T 2
+and atP T these reduce to
+dau2
+a =K−M=aandd bu2
+b =K+M=b.
+Proof.The identitiesa=K−Mandb=K+Mgive
+dau2
+a +d bu2
+b =a+b= 2Kandd bu2
+b −d au2
+a =b−a= 2M.
+ThusP T lies on both quadrics, and adding and subtracting the two defining equations gives the
+equivalent diagonal form.□
+Corollary 8.10(Witnessed local solubility).For every primep, the pointP T gives an explicitly
+displayed point inDT (Qp), and it gives a real point. The local solubility of the descent curve attached
+to an actual parity-class triple therefore requires no local–global argument.
+8.3.The Jacobian and its square-class reduction.
+Theorem 8.11(Jacobian of the parity descent curve).The Jacobian ofDT has the model
+JT :y 2 =x 3 −16Γ 2
+T x.
+Let
+hT := sq
+
+|ΓT |
+
+and define the positive squarefree integer
+γT := |ΓT |
+h2
+T
+.
+ThenJ T is isomorphic overQto
+CγT :Y 2 =X 3 −γ 2
+T X
+so thatj(J T ) = 1728. The curve has full rational2-torsion, and overQit has complex multiplication
+byZ[i].
+
+62 R. LANIEWSKI
+Proof.The determinant construction for a smooth intersection of two quadrics gives the Jacobian as
+the smooth projective model of
+Z 2 = 4ΓT λ(1−λ 2).
+Writingc T =−4Γ T this becomes
+Z 2 =c T (λ3 −λ)
+and the change
+x=c T λ y=c T Z
+gives
+y2 =x 3 −c 2
+T x=x 3 −16Γ 2
+T x.
+Now write|Γ T |=h 2
+T γT. The change
+x= 4h 2
+T X y= 8h 3
+T Y
+gives
+Y 2 =X 3 −γ 2
+T X
+whose nonzero rational points of order two are
+(0,0) (γ T ,0) (−γ T ,0).
+The displayed equation hasj-invariant1728, and the map
+(X, Y)7− →(−X, iY)
+overQ(i)gives the stated complex multiplication.□
+Proposition 8.12(Conductor of the descent Jacobian).Letγbe a positive squarefree integer and
+put
+Cγ :Y 2 =X 3 −γ 2X.
+Then the displayed equation is globally minimal, with
+∆min(Cγ) = 26γ6
+and conductor
+NCγ =
+
+
+
+25γ2 γodd
+24γ2 γeven.
+At every odd primep|γone hasv p(NCγ) = 2, while at2,
+v2(NCγ) =
+
+
+
+5γodd
+6γeven.
+Proof.ForY 2 =X 3 −γ 2Xthe invariants are
+c4 = 48γ2 c6 = 0 ∆ = 2 6γ6.
+If an odd primepdoes not divideγ, the discriminant is ap-adic unit and the reduction is good. Let
+pbe an odd prime dividingγ. Sinceγis squarefree,v p(γ2) = 2, the model is minimal atp, and the
+finite Tate algorithm gives conductor exponent two. At2the same finite algorithm has two branches.
+Whenγis odd, the minimal discriminant has valuation six and the conductor exponent is five. When
+γis even and squarefree, the minimal discriminant has valuation twelve and the conductor exponent
+is six. These calculations are instances of Tate’s algorithm as presented in [Coh93]. Multiplication of
+the local conductor factors gives the displayed formula.□
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 63
+Corollary 8.13(Uniform Szpiro ceiling for the descent Jacobian).For every parity-class tripleT ̸=
+(1,1,2)one has
+Szp(JT )<3.
+More precisely, writingγ=γ T,
+Szp(JT ) =
+
+
+
+3− 9 log 2
+2 logγ+ 5 log 2 γodd
+3− 6 log 2
+2 logγ+ 4 log 2 γeven.
+Proof.Theorem 8.11 and Proposition 8.12 give
+log|∆min(JT )|= 6 logγ+ 6 log 2.
+Ifγis odd, then
+logN JT = 2 logγ+ 5 log 2
+and ifγis even, then
+logN JT = 2 logγ+ 4 log 2.
+Division gives the two formulas.□
+Remark 8.14(What the Jacobian retains).The Frey curve and the descent Jacobian retain different
+parts of the defect. Corollary 8.5 places the total defect in the minimal discriminant of the Frey curve,
+whereas Theorem 8.11 replaces
+ΓT =d adbKM
+by its squarefree partγ T, so that every square divisor ofΓ T disappears. The uniform ceiling of
+Corollary 8.13 measures that loss. The defect forced by transgression is therefore better studied
+through the pointPT and the kernelsda, db than through the Szpiro quotient ofJT. Against this the
+Jacobian is rigid, the whole family lying within the single square class of curves withj= 1728and
+complex multiplication byZ[i].
+8.4.Height and kernel compression.
+Definition 8.15(Descent heights).For the distinguished pointP T = (ua :u b : 1 : 1), define
+H×(PT ) :=u aub andH ∞(PT ) := max{ua, ub}.
+Proposition 8.16(Exact height and kernel identity).For every parity-class triple,
+dadbH×(PT )2 =ab=s(T)
+
+2K−s(T)
+
+and
+H∞(PT )2 ≥H ×(PT ).
+IfK >1andE ε(T)≥0, then
+H×(PT )≥
+
+s(T)R K(T)
+1/2
+(2K) θε/2
+and
+H∞(PT )≥
+
+s(T)R K(T)
+1/4
+(2K) θε/4.
+
+64 R. LANIEWSKI
+Proof.The square extraction givesab=d adb(uaub)2, and the identity
+ab=s(T)
+
+2K−s(T)
+
+is Proposition 4.2. The elementary inequalitymax{ua, ub}2 ≥u aub gives the second assertion. The
+transgressive lower bound forH × is Theorem 4.12, and taking its square root gives the bound for
+H∞. □
+Theorem 8.17(Compression of the squarefree kernels).Suppose thatK >1andE ε(T)≥0, and
+puts=s(T). Then
+dadb ≤ 2K−s
+RK(T)(2K) θε
+.
+Furthermore
+|ΓT |=d adbK(K−s)
+and therefore both|ΓT |and the squarefree twist parameterγT are at most
+K(K−s)(2K−s)
+RK(T)(2K) θε
+.
+Proof.Proposition 8.16 gives
+dadb = s(2K−s)
+H×(PT )2
+and the transgressive height floor gives
+H×(PT )2 ≥sR K(T)(2K) θε .
+Division proves the kernel bound. Sinces=K− |M|, one has|M|=K−sand hence
+|ΓT |=d adbK(K−s).
+The remaining bounds follow by substitution together withγT ≤ |Γ T |.□
+Corollary 8.18(A kernel certificate).Suppose thatK >1. If
+RK(T)(2K) θε >2K−s(T)
+thenE ε(T)<0.
+Proof.Were the triple transgressive, Theorem 8.17 would gived adb <1, which is impossible for
+positive integers. □
+Corollary 8.19(Conductor bound for the descent Jacobian).Suppose thatK >1andE ε(T)≥0,
+and puts=s(T). Then
+NJT ≤32
+ K(K−s)(2K−s)
+RK(T)(2K) θε
+2
+.
+Proof.Proposition 8.12 givesN JT ≤32γ 2
+T. Apply Theorem 8.17.□
+Transgression forces the point upward and the squarefree kernels downward, and this is the part of
+the descent that remains sensitive to it. The Jacobian, having passed to the square class, no longer
+reflects that multiplicity.
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 65
+8.5.Separate local conditions at2.
+Definition 8.20(Residual conics).Define the two residual conics
+CK :d aU 2 +d bV 2 = 2KW 2
+and
+CM :d bV 2 −d aU 2 = 2M T2.
+Their intersection inP3 isD T.
+Proposition 8.21(Unit criteria for the two residual conics).Letd a andd b be odd. The conicC K
+has a point withU, V, W∈Z ×
+2 precisely when
+da +d b ≡2K(mod 8)
+and the conicCM has a point withU, V, T∈Z ×
+2 precisely when
+db −d a ≡2M(mod 8).
+Proof.Every square inZ ×
+2 is congruent to1modulo8, so the two congruences are necessary. Suppose
+thatd a +d b ≡2K(mod 8). TakeV=W= 1and put
+η= 2K−d b
+da
+.
+The numerator and denominator are odd, and the congruence givesη≡1 (mod 8). Every element of
+1 + 8Z2 is the square of a2-adic unit, as in the proof of Proposition 4.15, soU2 =ηhas a solution in
+Z×
+2 . Suppose now thatdb −d a ≡2M(mod 8). TakeU=T= 1and put
+ξ= 2M+d a
+db
+.
+Againξ≡1 (mod 8), so there is a unitV∈Z ×
+2 satisfyingV 2 =ξ.□
+Corollary 8.22(Congruences supplied by square extraction).For an actual parity-class triple,
+da ≡a(mod 8)andd b ≡b(mod 8)
+whence
+da +d b ≡2K(mod 8)andd b −d a ≡2M(mod 8).
+Each residual conic therefore has a2-adic unit point.
+Proof.The integersu a andu b are odd, sou2
+a ≡u 2
+b ≡1 (mod 8). The identitiesa=d au2
+a andb=d bu2
+b
+give the first two congruences, and addition and subtraction give the remaining ones.□
+Proposition 8.23(The exact condition on the distinguished affine fiber).Let
+D ◦
+T :=D T ∩ {W=T= 1}.
+ThenD ◦
+T (Z×
+2 ×Z ×
+2 )̸=∅precisely when
+a
+da
+∈1 + 8Z 2 and b
+db
+∈1 + 8Z 2
+that is, precisely when
+a≡d a (mod 8)andb≡d b (mod 8).
+For the squarefree kernels extracted from a parity-class triple, the pair(ua, ub)is an integral solution
+on this affine fiber.
+
+66 R. LANIEWSKI
+Proof.On the affine fiberW=T= 1the equations are
+daU 2 +d bV 2 = 2Kandd bV 2 −d aU 2 = 2M
+and adding and subtracting them gives
+daU 2 =K−M=aandd bV 2 =K+M=b.
+Hence a unit solution exists precisely whena/da andb/d b are squares inZ ×
+2 , and a2-adic unit is
+a square precisely when it is congruent to1modulo8. The extracted integersu a, ub give the final
+assertion. □
+Remark 8.24(Compatibility of the two conics).Proposition 8.21 gives the complete unit condition
+for each residual conic separately, while their simultaneous compatibility requires the same values of
+UandVin both equations. On the distinguished affine fiber that compatibility is expressed by the
+stronger pair
+a≡d a (mod 8)andb≡d b (mod 8)
+of Proposition 8.23, of which the two summed congruences are the projections onto the two conics.
+The summed congruences do not by themselves describe every2-adic point of the full projective
+intersection.
+8.6.Arithmetic content of the descent.
+Proposition 8.25(Explicit descent packet).For every parity-class tripleT ̸= (1,1,2), the data
+da db ua ub ΓT γT
+are obtained by finite integer operations, and they determine the following objects and bounds:
+(1)The pointP T = (ua :u b : 1 : 1)on the genus-one curveD T.
+(2)The JacobianJ T ≃C γT :Y 2 =X 3 −γ 2
+T X.
+(3)The exact minimal discriminant and conductor ofCγT.
+(4)The two unit congruences for the residual conics.
+(5)Under transgression, the height floor of Proposition 8.16 and the kernel compression of The-
+orem 8.17.
+Proof.The squarefree kernels and square divisors are obtained from the prime factorizations ofa
+andb, and the parametersΓ T andγ T then follow by multiplication and square extraction. Every
+remaining assertion is given by the displayed formulas of this section.□
+9.Interpretation of the boundary reduction
+The equivalence between an infinite transgressive family on the Mersenne line and a positive order–
+defect densityσW is exact, so as a statement of difficulty it is a reformulation, though not an arbitrary
+one. The boundary lines are the configurations on which several independent estimates take their most
+permissive form, and the reduction identifies the arithmetic quantity that remains once those estimates
+are saturated.
+On a general boundary line the linear threshold of Theorem 4.3 contains the term
+log
+
+s
+
+2− s
+K
+
+whose minimum is attained ats= 1. An interior sequence withsj → ∞must meet a larger threshold,
+the certificate acquiring a supplement of orderlogsj, and fors j ≥K α
+j Proposition 4.8 transfers the
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 67
+certificate to the larger parameterθε+α. The exponential boundary lines, among them(1,2m −1,2 m),
+are therefore the lines on which a fixed positive excess imposes the weakest arithmetic conditions.
+That advantage does not produce counterexamples on its own. The defect law
+∆m = Ωm + logG m
+of Theorem 6.3 separates the possible sources. The quantitylogG m measures every non-Wieferich
+repetition and is at mostlogm. The highly composite exponentsm k = lcm(1, . . . , k)come close to
+that bound, and the quality margin they yield decays likelogm/(mlog 2). Corollary 6.34 is sharper,
+forcingΩ m → ∞for any uniform marginε >0. Ordinary prime lifting, multiplicity, and exponent
+divisibility are thus absorbed by a logarithmic term, and the intrinsic growth of the Wieferich order–
+defect data is the one parameter that remains.
+A proof of the fullabcconjecture would imply the finiteness of the boundary families, hence by
+Theorems 6.11 and 6.18
+σW,g = 0
+for every even baseg≥2. In finite form it would exclude all admissible sequences of Wieferich sets
+with
+Bg(Sj)≥g κDg(Sj ).
+Theorem 6.42 gives the parent transgressive sequence a bounded order-cofactor, and Theorem 6.39
+together with Lemma 6.37 allows a strictly order-saturated representative to be substituted when the
+condition is tested, one for whichDn =nand the order-cofactor is identically1. This is the canonical
+form in which the lower bound should be evaluated, and it removes any ambiguity about cofactor
+growth in the boundary data. The consequences are necessary ones only, and they might also be
+reached without isolating the Wieferich primes, since a global bound on the radical could make the
+exponential threshold unreachable.
+The counting methods of Section 7 offer a contrast. They are strongest in the interior regime, where
+ωtot(T)grows without bound and no single prime power carries a positive proportion of the defect.
+The boundary lines can reverse those priorities, the number of prime factors staying bounded while
+the defect concentrates in a few large prime powers, as in Theorem 10.4. Analytic estimates are not
+designed to detect whether a congruence such as2p−1 ≡1 (modp 2)occurs with an unusually small
+multiplicative order. The boundary reduction separates that algebraic question and states exactly
+what remains of the problem once the available logarithmic estimates have been applied.
+10.The parity class under the negation
+Definition 10.1(Critical quality).ForB≥1, define
+Σ(B) := sup
+
+q(T) :Tis a parity-class triple andK(T)≥B
+	
+.
+Thecritical qualityof the parity class is
+q∗ := inf
+B≥1
+Σ(B).
+Theorem 5.3 shows that triples of quality greater than one occur beyond every height, and Theo-
+rem 4.31 gives a second family of the same kind. Hence
+q∗ ≥1.
+Neither family contradicts Conjecture 3.2, since along both the marginq−1tends to0, and the
+conjecture forbids infinitude only at a fixedε >0. A crossing of quality one is therefore not a
+
+68 R. LANIEWSKI
+counterexample, and Proposition 10.2 places the whole question in the value ofq∗ rather than in the
+existence of such crossings.
+Proposition 10.2(Critical-quality equivalence).Conjecture 3.2 holds precisely when
+q∗ = 1.
+Proof.Suppose first that Conjecture 3.2 holds. For everyε >0, the finitely many triples withq≥1+ε
+lie below some height, so thatq∗ ≤1 +ε. Sinceq ∗ ≥1, passage toε→0 + givesq ∗ = 1.
+Suppose now thatq ∗ = 1. For everyε >0, there is a heightBwithΣ(B)<1 +ε. Hence every
+triple withq≥1 +εsatisfiesK < B, and there are only finitely many such triples.□
+Definition 10.3(Transgressive sequence).Fixε >0. Atransgressive sequenceis a sequence of
+distinct parity-class triples(Tj)satisfying
+Eε(Tj)≥0
+for everyj.
+The existence of a transgressive sequence at one fixed exponent is precisely the failure of Conjec-
+ture 3.2.
+Theorem 10.4(Growth along a transgressive sequence).Let(T j)be a transgressive sequence at
+exponentε, and writeK j =K(T j). ThenK j is unbounded, and so are the total defectδtot(Tj), the
+relative quotientQ rel(Tj), and the largest square divisormax{sq(aj)2,sq(b j)2}. More precisely, one
+has
+δtot(Tj)≥log(2K j −1) +θ ε log(2Kj).
+One has
+Qrel(Tj)≥s(T j) (2Kj)θε .
+Finally, writingu aj = sq(aj)andu bj = sq(bj)for the square roots of the largest square divisors of the
+two summands, Theorem 4.12 gives
+max{sq(aj)2,sq(b j)2} ≥u aj ubj ≥
+
+s(Tj)R K(Tj)
+1/2
+(2Kj)θε/2.
+Every member withKj >1contains at least two repeated primes amongaj,b j, andc j.
+Proof.Each fixed height contains finitely many parity-class triples, so the heights in a sequence of dis-
+tinct triples are unbounded. The displayed bounds are Theorem 3.8, Corollary 4.7, and Theorem 4.12,
+the last in the chained form given there. The final assertion is Theorem 4.26.□
+Theorem 10.5(Two regimes for transgressive sequences).Let(T j)be a transgressive sequence at
+exponentε, and puts j =s(T j)andK j =K(T j). Then(T j)contains a subsequence falling into
+exactly one of the following two mutually exclusive regimes:
+(1)Bounded smaller summand. There is a fixed odd integers 0 such thats j =s 0 along the
+subsequence. The subsequence lies on the affine line
+
+(s0,2K−s 0,2K) :K > s 0,gcd(s 0,2K) = 1
+	
+withK j → ∞, and Corollary 4.5 gives
+log
+ 2Kj −s 0
+rad(2Kj −s 0)
+
+≥t K(Tj) +θ ε log(2Kj) + log rad(s0).
+
+DEFECT IDENTITIES FOR THEabcCONJECTURE 69
+(2)Unbounded smaller summand. One hass j → ∞along the subsequence, and
+δlin(Tj)−t K(Tj)−θ ε log(2Kj)≥logs j − → ∞.
+Ifs j ≥K α
+j for a fixedα∈(0,1]withθ ε +α <1, then Proposition 4.8 applies, and the
+subsequence satisfies the linear threshold at the amplified exponentθε′ =θ ε +αup to the
+additive constantlog 2.
+Proof.The smaller summandss j are positive odd integers. Suppose first that some subsequence of
+(sj)is bounded. Along it the values lie in a finite set, so one values0 recurs infinitely often, and
+the corresponding triples lie on the stated line. The heights along a sequence of distinct triples are
+unbounded, soK j → ∞there, and the displayed bound is the second assertion of Corollary 4.5.
+Suppose instead that no subsequence of(sj)is bounded. Thens j → ∞, and the displayed interior
+bound follows from Theorem 4.3 together with2−sj/Kj ≥1. A subsequence cannot fall under both
+headings, sinces j cannot be constant and tend to infinity. The final claim is Proposition 4.8.□
+Remark 10.6(Boundary lines and the Mersenne line).Along a subsequence wheres j =s 0 is
+constant, the triples take the form(s0,2K−s 0,2K). In this case, the lower bound in Corollary 4.5
+shifts by the fixed additive constantlog rad(s0), and the required defect must come almost entirely
+from the larger summand2K−s 0. The choices 0 = 1with2K= 2 m gives the Mersenne line, where
+the factorization of2 m −1can be examined explicitly. Along a subsequence wheres j → ∞, the
+threshold increases bylogs j, requiring a strictly larger defect than on the boundary.
+Remark 10.7(Structural constraints on putative counterexamples).Any infinite transgressive se-
+quence must exhibit squarefull parts that grow as a positive power of the heightc. Such growth cannot
+be generated by squarefree summands, by bounded defects, or by lifting a fixed finite set of primes (as
+shown in Corollary 5.7). By Theorem 10.5, any transgressive sequence must either remain on a fixed
+line(s 0,2K−s 0,2K)or satisfy a linear defect that grows faster than the boundary-free threshold by
+an additive termlogs j → ∞.
+Along the Mersenne line, Theorem 6.11 and Theorem 6.39 further require that the underlying
+Wieferich primes satisfyB(S j)≥2 κD(Sj ) along an order-saturated sequence withD(Sj)→ ∞. No
+known arithmetic mechanism produces repetition on that scale.
+References
+[Ban86]A. S. Bang– “Taltheoretiske Undersøgelser”,Tidsskrift for Mathematik (5)4(1886),
+p. 70–80, 130–137.
+[BBLT26]C. Bernert, T. Browning, J. D. Lichtman&J. Teräväinen– “Bounds on the
+exceptional set in theabcconjecture”,preprint arXiv:2410.12234v2(2026), Version 2, 9
+May 2026; see Theorems 1.2 and 1.3.https://arxiv.org/abs/2410.12234v2.
+[Bri24]C. Bright– “A new lower bound in theabcconjecture”,Canadian Mathematical Bulletin
+67(2024), no. 2, p. 369–378.
+[BV04]G. D. Birkhoff&H. S. V andiver– “On the integral divisors ofa n −b n”,Annals of
+Mathematics5(1904), no. 4, p. 173–180.
+[Coh93]H. Cohen–A course in computational algebraic number theory, Graduate Texts in Math-
+ematics, vol. 138, Springer-Verlag, Berlin, 1993.
+[dB62]N. G. de Bruijn– “On the number of integers≤xwhose prime factors dividen”,Illinois
+Journal of Mathematics6(1962), no. 1, p. 137–141.
+
+70 R. LANIEWSKI
+[GT02]A. Granville&T. J. Tucker– “It’s as easy asabc”,Notices of the American Mathe-
+matical Society49(2002), no. 10, p. 1224–1231.
+[Lic25]J. D. Lichtman– “Theabcconjecture is true almost always”,preprint arXiv:2505.13991
+(2025),https://arxiv.org/abs/2505.13991.
+[Luc78]É. Lucas– “Théorie des fonctions numériques simplement périodiques”,American Journal
+of Mathematics1(1878), no. 3, p. 184–240, 289–321.
+[Nai82]M. Nair– “On Chebyshev-type inequalities for primes”,The American Mathematical
+Monthly89(1982), no. 2, p. 126–129.
+[Oes88]J. Oesterlé– “Nouvelles approches du “théorème” de Fermat”,Astérisque161–162
+(1988), p. 165–186, Séminaire Bourbaki, Vol. 1987/88, Exp. No. 694.
+[Pas24]H. Pasten– “The largest prime factor ofn2 + 1and improvements on subexponential
+ABC”,Inventiones mathematicae236(2024), no. 1, p. 373–385.
+[Sil88]J. H. Sil verman– “Wieferich’s criterion and theabc-conjecture”,Journal of Number
+Theory30(1988), no. 2, p. 226–237.
+[ST86]C. L. Stew art&R. Tijdeman– “On the Oesterlé–Masser conjecture”,Monatshefte für
+Mathematik102(1986), no. 3, p. 251–257.
+[SY01]C. L. Stew art&K. Yu– “On theabcconjecture, II”,Duke Mathematical Journal108
+(2001), no. 1, p. 169–181.
+[Szp90]L. Szpiro– “Discriminant et conducteur des courbes elliptiques”, inSéminaire sur les
+pinceaux arithmétiques: la conjecture de Mordell, Astérisque, vol. 183, Société Mathéma-
+tique de France, Paris, 1990, p. 7–18.
+[Tch52]P. L. Tchebychef– “Mémoire sur les nombres premiers”,Journal de Mathématiques
+Pures et Appliquées (1)17(1852), p. 366–390.
+[vF00]M. v an Frankenhuysen– “A lower bound in theabcconjecture”,Journal of Number
+Theory82(2000), no. 1, p. 91–95.
+[Wie09]A. Wieferich– “Zum letzten Fermatschen Theorem”,Journal für die reine und ange-
+wandte Mathematik136(1909), p. 293–302.
+[Zsi92]K. Zsigmondy– “Zur Theorie der Potenzreste”,Monatshefte für Mathematik und Physik
+3(1892), no. 1, p. 265–284.

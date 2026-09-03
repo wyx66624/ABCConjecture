@@ -1,0 +1,280 @@
+\section{Maximal-intersection ownership aggregation}
+\label{sec:affine-ownership-maximal-intersection}
+
+We continue the affine catalogue notation of
+Section~\ref{sec:affine-inverse-period-catalogue}.  This section proves an
+unconditional compression theorem for the non-arm catalogue.  It does not
+prove the \(abc\) conjecture: the final strict comparison isolated below
+remains open.
+
+Let \(X\) be the selected canonical parameter points in a square of side
+difference \(N\).  Write \(\kappa(x)=(k_U(x),k_V(x),k_W(x))\) for the
+powerful-kernel triple of \(x\), and order triples by coordinatewise
+divisibility.  For distinct \(x,y\in X\), set
+\[
+ \gamma(x,y)=\gcd_{\rm coord}(\kappa(x),\kappa(y)).
+\]
+Let \(\Gamma\) be the distinct values \(\gamma(x,y)\) having coordinate
+product greater than \(N^2\) and a non-arm supporting line, and let
+\(\mathcal M\) be the divisibility-maximal elements of \(\Gamma\).  Put
+\[
+ \operatorname{Supp}(\mu)=\{x\in X:\mu\preceq\kappa(x)\},\qquad
+ r_\mu=|\operatorname{Supp}(\mu)|.
+\]
+
+\begin{proposition}[Maximal supports and the reduced skeleton]
+\label{prop:affine-maximal-support-skeleton}
+Every repeated non-arm large label divides a maximal top on the same unique
+non-arm line.  For \(\mu\in\mathcal M\), one has \(r_\mu\ge2\), and every
+pair of distinct points in \(\operatorname{Supp}(\mu)\) has exact top
+\(\mu\).  Consequently distinct maximal supports meet in at most one point
+and
+\[
+ \sum_{\mu\in\mathcal M}\binom{r_\mu}{2}\le\binom{|X|}{2}.
+ \tag{\ref{prop:affine-maximal-support-skeleton}.1}
+\]
+Moreover, the reduced class skeleton consisting of one loop for every
+kernel class of multiplicity at least two and one edge for every pair of
+singleton classes is cofinal in \(\Gamma\), and hence has exactly the same
+maximal top values.
+\end{proposition}
+
+\begin{proof}
+A repeated label is contained in the exact gcd top of any two of its
+support points.  Finiteness supplies a maximal top above it.  The top is
+itself a large label, so large-label line uniqueness keeps every comparable
+top on the original non-arm line.  If two points support a maximal top
+\(\mu\), their exact top lies above \(\mu\) and on that line; maximality
+forces equality.  Two common points of distinct maximal supports would
+therefore have two different exact tops, proving the intersection and pair
+count assertions.
+
+For cofinality, consider an exact pair top omitted by the reduced skeleton.
+At least one endpoint belongs to a class \(\kappa\) of multiplicity at least
+two.  Its retained loop has top \(\kappa\), which dominates the omitted gcd.
+Every point in this class supports the omitted large label, so the loop is
+on the same unique non-arm line and is eligible.  A cofinal subset of a
+finite poset has the same maximal elements: dominate a whole-poset maximum
+by a subset element, and dominate any whole-poset extension of a subset
+maximum once more inside the subset; antisymmetry then gives equality.
+\end{proof}
+
+Fix a total order on \(\mathcal M\), and assign every repeated non-arm label
+\(\lambda\) to the first maximal top \(o(\lambda)\) divisible by it.  Define
+\[
+ \mathcal O_\mu=\{\lambda:o(\lambda)=\mu\},\qquad
+ S_\mu=\sum_{\lambda\in\mathcal O_\mu}\frac{w_\lambda}{T_\lambda^2},\qquad
+ E_\mu=\sum_{\lambda\in\mathcal O_\mu}w_\lambda(n_\lambda-1)^3.
+\]
+These are exact partitions of \(S_{\rm non}\) and \(E_{\rm non}\).  If
+\(\lambda\in\mathcal O_\mu\), then
+\[
+ n_\lambda\ge r_\mu,\qquad T_\lambda\mid T_\mu.
+ \tag{\ref{prop:affine-maximal-support-skeleton}.2}
+\]
+The second relation is in this direction: for \(d\mid m\),
+\(d/\gcd(d,a)\mid m/\gcd(m,a)\) coordinatewise.  It does not permit
+\(T_\lambda^{-2}\) to be bounded above by \(T_\mu^{-2}\).
+
+On the line of \(\mu\), let
+\[
+ Q(\mu)=\sum_{\substack{d\preceq\mu\\D_d>N^2}}\frac{w_d}{T_d^2},\qquad
+ B_\mu\ge S_\mu,\qquad
+ \mathcal H_3=\sum_{\mu\in\mathcal M}\frac{B_\mu}{(r_\mu-1)^3}.
+\]
+One valid owner-independent choice has
+\[
+ B_\mu=\min\left\{F(\mu,A_\mu),\frac{C_\mu^2G_\mu}{N^4},
+              \frac{C_\mu^2H(G_\mu)}{N^2}\right\},\qquad
+ S_\mu\le Q(\mu)\le B_\mu,
+ \tag{\ref{prop:affine-maximal-support-skeleton}.3}
+\]
+with the notation of Theorem~\ref{thm:affine-hybrid-pair-catalogue}.
+
+\begin{theorem}[Ownership Cauchy inequality and strict ray closure]
+\label{thm:affine-ownership-cauchy}
+One has
+\[
+ S_{\rm non}^2\le E_{\rm non}\mathcal H_3.
+ \tag{\ref{thm:affine-ownership-cauchy}.1}
+\]
+Writing \(K=(B+1)(C+1)\), the nonempty non-arm domain satisfies the strict
+bounds
+\[
+ S_{\rm non}<KN\mathcal H_3,\qquad
+ E_{\rm non}<(KN)^2\mathcal H_3.
+ \tag{\ref{thm:affine-ownership-cauchy}.2}
+\]
+For an empty domain the corresponding weak inequalities hold with both
+sides zero.
+\end{theorem}
+
+\begin{proof}
+For each maximal top, catalogue coverage and support containment give
+\[
+ S_\mu\le B_\mu,\qquad
+ S_\mu\le\sum_{\lambda\in\mathcal O_\mu}w_\lambda
+       \le\frac{E_\mu}{(r_\mu-1)^3}.
+\]
+Multiplication and Cauchy--Schwarz over the finite index set
+\(\mathcal M\), rather than over labels or point pairs, prove the first
+claim.  The signed-ray theorem gives termwise
+\((n_\lambda-1)^3T_\lambda^2<KN\).  Positivity of
+\(w_\lambda/T_\lambda^2\) makes the summed inequality
+\(E_{\rm non}<KN S_{\rm non}\) strict whenever the exact summation domain is
+nonempty.  In that case \(S_{\rm non}>0\), and the owner cap of the nonempty
+owner set also gives \(\mathcal H_3>0\).  Combining the two inequalities and
+dividing by \(S_{\rm non}\) proves the strict conclusions.
+\end{proof}
+
+\begin{proposition}[Full-catalogue multiplicity is paid by energy]
+\label{prop:affine-catalogue-multiplicity-energy}
+The maximal-top catalogues satisfy
+\[
+ \sum_{\mu\in\mathcal M}Q(\mu)\le E_{\rm non}.
+ \tag{\ref{prop:affine-catalogue-multiplicity-energy}.1}
+\]
+Thus the exact choice \(B_\mu=Q(\mu)\) gives
+\(\mathcal H_3\le\sum_\mu Q(\mu)\le E_{\rm non}\).
+\end{proposition}
+
+\begin{proof}
+For a repeated non-arm label \(\lambda\), let
+\(m_\lambda=\#\{\mu\in\mathcal M:\lambda\preceq\mu\}\).  Every divisor term
+of \(Q(\mu)\) is an actual repeated label on the same unique line, so finite
+summation gives the exact identity
+\[
+ \sum_{\mu\in\mathcal M}Q(\mu)=
+ \sum_{\lambda\ {\rm repeated,nonarm}}
+       \frac{w_\lambda}{T_\lambda^2}m_\lambda.
+\]
+Choose one realizing pair for every top counted by \(m_\lambda\).  These
+pairs lie in the \(n_\lambda\)-point support and are distinct, because one
+pair has one exact gcd top.  Hence
+\(m_\lambda\le\binom{n_\lambda}{2}\).  For \(n_\lambda\ge2\) and
+\(T_\lambda\ge1\),
+\[
+ \frac1{T_\lambda^2}\binom{n_\lambda}{2}\le(n_\lambda-1)^3.
+\]
+Multiplying by \(w_\lambda\) and summing proves the claim.  Finally
+\(r_\mu\ge2\), so the cubic support denominator only decreases \(Q(\mu)\).
+\end{proof}
+
+Let \(\mathcal A_{\rm arm}\) denote the three proved arm caps and let
+\(\widehat Q_{\rm dir}\) be the sum of the pairwise-coprime direction-lcm
+envelopes.  Exact label containment in those envelopes and the preceding
+theorem give
+\[
+ E_{\rm sh}\le
+ \min\{KN\widehat Q_{\rm dir},(KN)^2\mathcal H_3\}
+ +\mathcal A_{\rm arm}.
+ \tag{\ref{thm:affine-ownership-cauchy}.3}
+\]
+Since \(J=A_1+\Omega\), \(W=A_0-\Omega\), and
+\(J^3\le W^2E_{\rm sh}\), every selected configuration with \(W>0\) obeys
+\[
+ \left(\frac{A_1+\Omega}{A_0-\Omega}\right)^3
+ \le\min\left\{KN\frac{\widehat Q_{\rm dir}}{A_0-\Omega},
+  (KN)^2\frac{\mathcal H_3}{A_0-\Omega}\right\}
+ +\frac{\mathcal A_{\rm arm}}{A_0-\Omega}.
+ \tag{\ref{thm:affine-ownership-cauchy}.4}
+\]
+This is the ownership-preserving normalized gate.
+
+For completeness, in the canonical consecutive-coefficient setting
+\(1\le B\), \(C=B+1\), the arithmetic divisor enumeration gives, for every
+\(\varepsilon>0\),
+\[
+ \begin{aligned}
+ |\mathcal M|&\ll_\varepsilon(CN)^\varepsilon
+        \min\{N^2,CN^{11/6}\},\\
+ \sum_{\mu\in\mathcal M}B_\mu&\ll_\varepsilon
+ K(CN)^\varepsilon\min\{N^5,CN^{29/6}\},
+ \end{aligned}
+ \tag{\ref{thm:affine-ownership-cauchy}.5}
+\]
+provided \(S_\mu\le B_\mu\le F(\mu,A_\mu)\).  On
+\(r_\mu-1\ge R_0\ge1\), the pressure has the further factor \(R_0^{-4}\).
+Indeed a closest support pair has step \(q_\mu\) satisfying
+\(q_\mu(r_\mu-1)L\le N\); the fixed-direction candidates divide the three
+integers \(q_\mu|A_Z|\); and the original, before \(R\)-free reduction,
+coefficient is finite-to-one on each side of the direction square.  Here the
+three direction coefficients are pairwise coprime after removing the primes
+of \(\operatorname{rad}(BC)\): their pairwise gcds divide \(B\), \(C\), and
+\(C-B=1\).  The square-divisor excess estimate then gives
+\(O(CL^{5/6})\) ordinary
+directions on shell \(L\), and summation gives the displayed exponents.
+
+\paragraph{Certified boundaries.}
+The following statements are refuted only with the premises stated here.
+All examples are exact finite certificates.
+\begin{enumerate}
+\item The implication \(T_\lambda\ge T_\mu\) for every owned label is false
+under canonical admissibility, non-arm maximal ownership, and full catalogue
+containment.  At \(B=7,C=8,M=400,N=399\), the unique top
+\(\mu=(9,121,529)\) has \(T_\mu=3\), while its proper owned label
+\((3,121,529)\) has period one; the exact catalogue has two terms and
+\(Q(\mu)=445280/3\).
+\item The assertion that one kernel class belongs to at most one maximal top
+is false under canonical admissibility and global divisibility maximality.
+At \(B=5,C=6,M=254,N=253\), the singleton class
+\((1,841,43681)\) lies in the two incomparable maximal supports with tops
+\((1,841,121)\) and \((1,841,361)\), whose intersection is exactly that one
+point.
+\item Raw pair enumeration is not ownership preserving.  At
+\(B=4,C=5,M=390,N=389\), all three pairs of three canonical points have the
+same top \((49,361,9)\).  Its support has size three, its period-one
+catalogue has mass \(86184\), and equality holds in the local cubic Cauchy
+bound after the single top is deduplicated.
+\item Neither \(Q(\mu)\le w_\mu\) nor \(Q(\mu)\le2w_\mu\) follows from
+canonical admissibility, non-arm maximal ownership, and full catalogue
+coverage.  At \(B=55123,C=55124,M=3,N=2\), the two-point top
+\(\mu=(1,1,55125)\) has 34 period-one terms,
+\[
+ Q(\mu)=55122,\qquad w_\mu=25200,\qquad
+ \frac{Q(\mu)}{w_\mu}=\frac{9187}{4200}>2.
+\]
+The explicit three-term cap equals \(55125\), with inflation \(35/16>2\).
+\item Maximality, ownership, cap coverage, \(r_\mu\ge2\), and linear support
+alone imply neither a strict Cauchy saving nor a linear number of tops.  The
+abstract four-vertex construction assigns an edge-specific prime square to
+each pair, realizes all six pair tops, and has
+\(S_{\rm non}=E_{\rm non}=\mathcal H_3\).  This item is an abstract ledger
+certificate and does not claim canonical affine realizability.
+\end{enumerate}
+The first four examples are canonical admissible local selections, but they
+are not asserted to satisfy the exceptional-point inequality.  They refute
+the listed local implications and no stronger statement that adds
+exceptional-point geometry.  The fifth omits the affine divisibility and
+powerful-excess filters.  None of these certificates closes the affine
+route.
+
+\paragraph{Open gate.}
+The unresolved task is to prove the strict reverse of
+\[
+ (A_1+\Omega)^3\le(A_0-\Omega)^2
+ \left[\min\{KN\widehat Q_{\rm dir},(KN)^2\mathcal H_3\}
+       +\mathcal A_{\rm arm}\right]
+ \tag{\ref{thm:affine-ownership-cauchy}.6}
+\]
+for every hypothetical exceptional selection, or to obtain an actual
+standard \(abc\) counterexample.  This requires a canonical low-support
+supersaturation or catalogue-sparsity theorem coupling the normalized
+incidence, \(\mathcal H_3\), and the arm term.  The finite scan found no
+same-line or same-direction multiplicity in its tested range, but these are
+explicitly finite no-hit observations and are not used as theorems.
+
+\paragraph{Formalization boundary.}
+The companion Lean module proves 24 finite or algebraic theorems and prints
+the axiom dependencies of all 24.  It formalizes finite-poset cofinality,
+abstract maximal-support and codegree arguments, owner sums, Cauchy
+aggregation, strict-ray closure, the polynomial normalized gate, abstract
+tree subtraction, and the numerical cores of the boundary certificates.
+It does not formalize the affine realization of the maximal cover, the
+general period-divisibility lemma, the exact catalogue double count and its
+support-pair injection, the direction Euler products and tails, the
+spanning-tree realization, the closest-pair shell counts, the arm and
+weighted H\"older instantiations, or the complete canonical-kernel
+verification of the finite examples.  The analytic bounds above remain
+paper proofs; the complete finite canonical premises are independently
+replayed by the accompanying Python certificate.

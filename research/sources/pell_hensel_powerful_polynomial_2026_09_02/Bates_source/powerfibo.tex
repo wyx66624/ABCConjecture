@@ -1,0 +1,73 @@
+% --- Set document class and font size ---
+
+\documentclass[letterpaper, 10pt]{article}
+
+\input{preamble}
+% --- Document starts here ---
+
+\begin{document}
+
+% --- Main title and subtitle ---
+
+\title{Powerful Fibonacci polynomials over finite fields}
+
+% --- Author and date of last update ---
+
+\author{Graeme Bates, Ryan Jesubalan, Seewoo Lee, Jane Lu, and Hyewon Shim}
+% \date{\normalsize\vspace{-1ex} Last updated: \today}
+\date{}
+
+% --- Add title and table of contents ---
+
+\maketitle
+
+
+% --- Abstracts ---
+
+% \tableofcontents\label{sec:contents}
+\begin{abstract}
+    Bugeaud, Mignotte, and Siksek proved that the only perfect powers in Fibonacci sequence are 0, 1, 8, and 144.
+    In this paper, we study the polynomial analogue of the problem. Especially, we give a complete characterization of the Fibonacci polynomials that are perfect powers or powerful over finite fields, where there are infinitely many of them.
+    We also give similar characterizations for some of Horadam's generalized Lucas polynomial sequences, which include Fibonacci, Lucas, Chebyshev, and Jacobsthal polynomials.
+\end{abstract}
+
+% --- Main content: import lectures as subfiles ---
+\input{src/1intro}
+\input{src/2preliminary}
+\input{src/3main}
+\input{src/4lucas}
+% \input{src/appendix}
+
+
+
+
+
+% --- Bibliography ---
+
+% Start a bibliography with one item.
+% Citation example: "\cite{williams}".
+\newpage
+\bibliographystyle{acm} % We choose the "plain" reference style
+\bibliography{refs} % Entries are in the refs.bib file
+
+\medskip
+
+{Department of Mathematics, University of California---Berkeley, Berkeley, CA 94720, USA}
+
+Graeme Bates \href{mailto:graemebates@berkeley.edu}{graemebates@berkeley.edu}
+
+Ryan Jesubalan \href{mailto:rpj@berkeley.edu}{rpj@berkeley.edu}
+
+Seewoo Lee \href{mailto:seewoo5@berkeley.edu}{seewoo5@berkeley.edu}
+
+Jane Lu \href{mailto:zijun@berkeley.edu}{zijun@berkeley.edu}
+
+Hyewon Shim \href{mailto:shmhywn@berkeley.edu}{shmhywn@berkeley.edu}
+
+
+% --- Document ends here ---
+
+
+
+\end{document}
+

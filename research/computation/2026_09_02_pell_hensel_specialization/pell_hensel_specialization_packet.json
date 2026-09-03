@@ -1,0 +1,117 @@
+{
+  "counterexample_matrix": {
+    "either_example_disproves_abc": false,
+    "index_3_moving_point_has_both_channels_squarefull": false,
+    "index_3_moving_point_has_fixed_pell_coefficient_2": false,
+    "index_3_moving_point_has_squarefree_pell_coefficient": true,
+    "index_3_moving_point_refutes_global_moving_opposite_repeat_exclusion": true,
+    "index_7_is_full_squarefull_packet": false,
+    "index_7_refutes_simple_polynomial_root_implies_simple_integer_valuation": true
+  },
+  "index_seven_collision": {
+    "F7_at_2": 169,
+    "F7_at_next_parameter": 25006385400373,
+    "F7_derivative_at_2": 376,
+    "level_two_exit_digit": 1,
+    "next_parameter": 171,
+    "valuation_at_2": 2,
+    "valuation_at_next_parameter": 3
+  },
+  "index_three_simultaneous_steering": {
+    "F3_factorization": {
+      "3181": 1,
+      "5": 2
+    },
+    "F3_value": 79525,
+    "F_first_digit": 1,
+    "F_lift_mod_25": 7,
+    "F_prime": 5,
+    "L_first_digit": 5,
+    "L_lift_mod_49": 37,
+    "L_prime": 7,
+    "base_parameter": 2,
+    "crt_parameter_mod_1225": 282,
+    "global_norm_residual": -4,
+    "half_L3_factorization": {
+      "3": 2,
+      "47": 1,
+      "541": 1,
+      "7": 2
+    },
+    "half_L3_value": 11213307,
+    "negative_pell_residual": -1,
+    "pell_coefficient": 19882,
+    "pell_coefficient_factorization": {
+      "2": 1,
+      "9941": 1
+    }
+  },
+  "policy": "Only a counterexample satisfying every premise retires its exact claim; finite no-hits and moving-parameter examples do not retire the fixed Pell route.",
+  "polynomials": {
+    "F3_coefficients_low_to_high": [
+      1,
+      0,
+      1
+    ],
+    "F7_coefficients_low_to_high": [
+      1,
+      0,
+      6,
+      0,
+      5,
+      0,
+      1
+    ],
+    "F7_derivative_coefficients_low_to_high": [
+      0,
+      12,
+      0,
+      20,
+      0,
+      6
+    ],
+    "L3_coefficients_low_to_high": [
+      0,
+      3,
+      0,
+      1
+    ]
+  },
+  "rare_depth_two_exit_digits": [
+    {
+      "channel": "F/B",
+      "coordinate_mod_p3": 169,
+      "coordinate_over_p2_mod_p": 1,
+      "derivative_mod_p": 12,
+      "level_two_exit_digit": 1,
+      "prime": 13,
+      "rank": 7
+    },
+    {
+      "channel": "L/A",
+      "coordinate_mod_p3": 15376,
+      "coordinate_over_p2_mod_p": 16,
+      "derivative_mod_p": 29,
+      "level_two_exit_digit": 8,
+      "prime": 31,
+      "rank": 15
+    },
+    {
+      "channel": "L/A",
+      "coordinate_mod_p3": 1519816675750447655,
+      "coordinate_over_p2_mod_p": 635495,
+      "derivative_mod_p": 326969,
+      "level_two_exit_digit": 400849,
+      "prime": 1546463,
+      "rank": 773231
+    }
+  ],
+  "sanity": {
+    "displayed_factor_products": {
+      "D": 19882,
+      "F3": 79525,
+      "half_L3": 11213307
+    }
+  },
+  "schema": "pell-polynomial-hensel-specialization-v1"
+}

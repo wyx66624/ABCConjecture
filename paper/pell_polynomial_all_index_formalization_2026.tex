@@ -1,0 +1,219 @@
+% Directly inputtable article fragment.
+% Required preamble packages: amsmath, amssymb, amsthm.
+% Author: ChatGPT, 2 September 2026.
+
+\section{All-index Pell polynomials and complete Hensel steering}
+\label{sec:pell-all-index-formalization}
+
+\noindent\textbf{Author: ChatGPT.}\quad
+This section closes the algebraic formalization gaps left in
+Section~\ref{sec:pell-polynomial-hensel}.  It does not prove the fixed
+coefficient-two squarefull exclusion and does not prove or disprove the
+$abc$ conjecture.  Its purpose is to put the all-index identities, the full
+polynomial Hensel law, the all-support equivalence, finite simultaneous
+steering, and the complete moving counterexample under one exact interface.
+
+Let $F_n,L_n\in\mathbb Z[T]$ be defined by
+\[
+ F_0=0,\quad F_1=1,\quad F_{n+2}=TF_{n+1}+F_n,
+\]
+\[
+ L_0=2,\quad L_1=T,\quad L_{n+2}=TL_{n+1}+L_n.
+\]
+
+\begin{theorem}[All-index polynomial identities]
+\label{thm:pell-all-index-polynomial}
+For every $n\geq0$,
+\begin{align}
+ L_n^2-(T^2+4)F_n^2&=4(-1)^n,\label{eq:pell-all-index-norm}\\
+ L_n'&=nF_n,\label{eq:pell-all-index-L-derivative}\\
+ (T^2+4)F_n'&=nL_n-TF_n.\label{eq:pell-all-index-F-derivative}
+\end{align}
+Evaluation at any $t\in\mathbb Z$ preserves the two recurrences and all
+three identities.
+\end{theorem}
+
+\begin{proof}
+Two-step induction gives
+\begin{equation}\label{eq:pell-companion-relations}
+ L_n=2F_{n+1}-TF_n,
+ \qquad L_{n+1}=TF_{n+1}+2F_n.
+\end{equation}
+Ordinary induction in the $F$ recurrence gives Cassini's identity
+\[
+ F_{n+1}^2-TF_{n+1}F_n-F_n^2=(-1)^n.
+\]
+Substitution of the first equality in
+\eqref{eq:pell-companion-relations} proves
+\eqref{eq:pell-all-index-norm}.  Differentiating the $L$ recurrence and
+using the second equality in \eqref{eq:pell-companion-relations} proves
+\eqref{eq:pell-all-index-L-derivative} by two-step induction.  For the
+remaining formula, differentiate the $F$ recurrence and use its two
+preceding instances together with
+\[
+ (T^2+4)F_{n+1}=TL_{n+1}+2L_n,
+\]
+which follows from \eqref{eq:pell-companion-relations}.  Polynomial
+evaluation is a ring homomorphism, so it transports every displayed equality.
+\end{proof}
+
+\begin{theorem}[Polynomial Taylor--Hensel law]
+\label{thm:pell-full-polynomial-hensel}
+Let $f\in\mathbb Z[T]$, let $p,t,c,h\in\mathbb Z$, and let $e\geq1$.
+For every fixed $z\in\mathbb Z$ there is an integer
+$G=G(f,t,z)$ such that
+\[
+ f(t+z)=f(t)+zf'(t)+z^2G.
+\]
+In particular,
+\[
+ f(t+p^eh)\equiv f(t)+p^ehf'(t)\pmod {p^{e+1}}.
+\]
+If $p\neq0$ and $f(t)=p^ec$, then
+\begin{equation}\label{eq:pell-hensel-divisibility-iff}
+ p^{e+1}\mid f(t+p^eh)
+ \quad\Longleftrightarrow\quad
+ p\mid c+hf'(t).
+\end{equation}
+If moreover $\gcd(f'(t),p)=1$, a digit satisfying
+\eqref{eq:pell-hensel-divisibility-iff} exists and is
+unique modulo $p$.
+\end{theorem}
+
+\begin{proof}
+The integral Taylor expansion gives the first formula.  Substitution of
+$z=p^eh$ and the inequality $e+1\leq2e$ give the congruence.  After writing
+$f(t)=p^ec$, cancellation of the nonzero factor $p^e$ gives
+\eqref{eq:pell-hensel-divisibility-iff}.
+B\'ezout's identity supplies an admissible digit, and subtracting two
+admissible affine congruences proves uniqueness.
+\end{proof}
+
+Call $N\in\mathbb N$ squarefull when every prime $p\mid N$ satisfies
+$p^2\mid N$.  For a polynomial $f$, an integer $t$, and a support prime
+$p$, define zero first displacement to mean
+\begin{equation}\label{eq:pell-zero-first-displacement}
+ p\mid f(t),\qquad \gcd(f'(t),p)=1,
+ \qquad p^2\mid f(t).
+\end{equation}
+By Theorem~\ref{thm:pell-full-polynomial-hensel}, the final condition is
+equivalent to the unique next Hensel digit being zero.
+
+\begin{proposition}[All-support two-channel equivalence]
+\label{prop:pell-all-support-equivalence}
+Let $A,B\in\mathbb N$ be coprime, let
+$f_A(t)=u_AA$ and $f_B(t)=u_BB$, and suppose that each scale $u_A,u_B$ is
+coprime to every prime in the corresponding support.  Assume also that all
+support roots of $f_A,f_B$ at $t$ are simple.  Then $AB$ is squarefull if
+and only if \eqref{eq:pell-zero-first-displacement} holds at every support
+prime in both channels.
+
+In particular, this applies formally to
+\[
+ f_A=L_\ell,\quad u_A=2,\quad
+ f_B=F_\ell,\quad u_B=1,\quad t=2,
+\]
+once the odd-support scale condition and both all-support transversality
+conditions have been proved.
+\end{proposition}
+
+\begin{proof}
+For coprime $A,B$, Euclid's lemma gives
+\[
+ AB\text{ squarefull}
+ \quad\Longleftrightarrow\quad
+ A\text{ and }B\text{ squarefull}.
+\]
+In each channel, a support prime square divides $u_AN$ if and only if it
+divides $N$, since it is coprime to the scale.  The asserted equivalence now
+follows directly from \eqref{eq:pell-zero-first-displacement}.
+\end{proof}
+
+\begin{theorem}[Finite simultaneous Hensel steering]
+\label{thm:pell-finite-indexed-steering}
+Let $f_1,\ldots,f_m\in\mathbb Z[T]$, let $p_1,\ldots,p_m$ be distinct
+primes, and suppose
+\[
+ p_i\mid f_i(t_0),\qquad p_i\nmid f_i'(t_0)
+ \quad(1\leq i\leq m).
+\]
+There is a unique residue class
+\[
+ t\pmod{\prod_{i=1}^m p_i^2}
+\]
+such that
+\[
+ t\equiv t_0\pmod {p_i},\qquad p_i^2\mid f_i(t)
+ \quad(1\leq i\leq m).
+\]
+\end{theorem}
+
+\begin{proof}
+Theorem~\ref{thm:pell-full-polynomial-hensel} gives one and only one local
+class modulo $p_i^2$.  The square moduli are pairwise coprime, so the integer
+Chinese remainder theorem gives a joint class and uniqueness modulo their
+product.  Polynomial evaluation respects congruence.  Conversely, any
+integer satisfying the displayed base and divisibility conditions lies in
+each unique local class, hence in the joint CRT class.
+\end{proof}
+
+At index three the recurrence gives
+\[
+ F_3(T)=T^2+1,\qquad L_3(T)=T^3+3T.
+\]
+The selected roots at $t_0=2$ are
+\[
+ 7\mid L_3(2),\quad 7\nmid L_3'(2),\qquad
+ 5\mid F_3(2),\quad 5\nmid F_3'(2).
+\]
+Their lifted classes are $t\equiv37\pmod {49}$ and
+$t\equiv7\pmod {25}$; the explicit joint representative used below is $282$.
+
+\begin{proposition}[Complete moving witness]
+\label{prop:pell-complete-moving-witness}
+Put
+\[
+ t=282,\quad A=11213307,\quad B=79525,\quad D=19882.
+\]
+Then
+\[
+ 2A=L_3(t),\qquad B=F_3(t),\qquad 4D=t^2+4,
+\]
+\[
+ A=3^2\,7^2\,47\,541,\qquad
+ B=5^2\,3181,\qquad D=2\,9941,
+\]
+all displayed factors are prime, $D$ is positive and squarefree, and
+\[
+ A^2-DB^2=-1.
+\]
+The selected factors satisfy $7^2\mid A$ and $5^2\mid B$, while
+\[
+ 47^2\nmid A,\qquad541^2\nmid A,
+ \qquad3181^2\nmid B.
+\]
+Thus this tuple satisfies every premise of the moving-parameter exclusion
+and refutes that exact strengthening.  It is not a squarefull two-channel
+packet and has $D\neq2$.
+\end{proposition}
+
+\begin{proof}
+All evaluations and factorizations are direct integer identities.  Trial
+division proves the primality assertions; in particular $9941$ is prime,
+so $D=2\cdot9941$ is squarefree.  The global norm is the specialization of
+\eqref{eq:pell-all-index-norm}, divided by four.  The three failed square
+divisibilities certify the stated non-squarefull scope.
+\end{proof}
+
+The companion Lean module checks each result above.  Its structure
+\texttt{HGlobalMoveWitness} contains the prime-index,
+base-root, simple-derivative, lifted-residue, repeated-divisibility,
+factorization, primality, positivity, squarefree-coefficient, global-norm,
+and non-squarefull fields in one object.  The associated axiom audit reports
+only the standard Mathlib principles \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}.
+
+The arithmetic route remains open at a precise point: one must discharge the
+all-support transversality premises for the actual fixed Pell packet and then
+exclude simultaneous zero displacements at $T=2$.  No counterexample meeting
+those full fixed-parameter premises has been found, so the route is retained.

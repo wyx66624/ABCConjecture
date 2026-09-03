@@ -1,0 +1,111 @@
+\section{Preliminaries}
+\label{sec:prelim}
+
+
+\subsection{Diophantine equations with Fibonacci numbers}
+\label{subsec:prelim_diophantine}
+
+Diophantine equations involving Fibonacci numbers have been widely studied.
+One such equation asks to find all perfect powers in the Fibonacci sequence, i.e. solutions for the equation
+\begin{equation}
+\label{eqn:Fnpower}    
+F_n = y^p
+\end{equation}
+for prime \(p\).
+Cohn \cite{cohn1964square} proved that the only solutions for \(p = 2\) are \(F_0 = 0^2, F_1 = F_2 = 1^2\) and \(F_{12} = 12^2\) by only using  elementary arguments, and a similar method was used to find all squares in the Lucas sequence \cite{cohn1965lucas}.
+Subsequent papers studied \eqref{eqn:Fnpower} for larger \(p\), such as \(p = 3\) \cite{london1969fibonacci,petho1983full}, \(p = 5\) \cite{petho1981perfect}, and \(p < 5.1 \cdot 10^{17}\) \cite{petho2001diophantine}.
+In \cite{bugeaud2006classical}, Bugeaud, Mignotte, and Siksek finally proved that these are all such numbers, using the modular method \cite{wiles1995modular,taylor1995ring} and Baker's theorem of linear forms \cite{shorey1986exponential}.
+\begin{theorem}[{\cite[Theorem 1, Theorem 2]{bugeaud2006classical}}]
+    The only perfect powers in the Fibonacci sequence are \(F_0 = 0, F_1 = 1, F_2 = 1, F_6 = 8,\) and \(F_{12} = 144\).
+    Also, the only perfect powers in the Lucas sequence are \(L_1 = 1\) and \(L_3 = 4\).
+\end{theorem}
+
+
+More generally, one can ask to characterize Fibonacci numbers that are \emph{powerful}, i.e. the multiplicities of each prime factors are at least two.
+Assuming ABC conjecture, it was shown that there are only finitely many powerful numbers in Fibonacci sequence \cite{ribenboim1999abc,yabuta2007abc}.
+
+
+\subsection{Fibonacci polynomials}
+\label{subsec:prelim_fibonaccipoly}
+
+Fibonacci polynomials (over any ring) are polynomial analogues of Fibonacci numbers, which are recursively defined as in \eqref{eqn:fibo_poly}.
+The first few Fibonacci polynomials are:
+\[
+F_0(T) = 0, \quad F_1(T) = 1, \quad F_2(T) = T, \quad F_3(T) = T^2 + 1, \quad F_4(T) = T^3 + 2T, \quad\dots
+\]
+These polynomials satisfy the following analogue of the \emph{Binet's formula}.
+\begin{proposition}[{\cite[Lemma 3.1]{kitayama2017irreducibility}}]
+    Let $\alpha(T), \beta(T)$ be the roots of $X^2 - TX - 1$.
+    Then
+    \begin{equation}
+    \label{eqn:FnBinet}
+        F_n(T) = \frac{\alpha(T)^n - \beta(T)^n}{\alpha(T) - \beta(T)}.
+    \end{equation}
+\end{proposition}
+
+Over a characteristic $\ne 2$ ring, we can write
+    \[
+        \alpha(T) = \frac{T + \sqrt{T^2 + 4}}{2}, \quad \beta(T) = \frac{T - \sqrt{T^2 + 4}}{2}
+    \]
+    and
+    \begin{equation}
+    \label{eqn:FnBinet2}
+        F_{n}(T) = \frac{\left(\frac{1}{2}T + \frac{1}{2}\sqrt{T^2 + 4}\right)^{n} - \left(\frac{1}{2}T - \frac{1}{2}\sqrt{T^2 + 4}\right)^{n}}{\sqrt{T^2 + 4}} \text{.}
+    \end{equation}
+
+It is known that the Fibonacci polynomial factors as \cite[p. 478]{koshy}
+\begin{equation}
+    \label{eqn:fibo_factor}
+    F_n(T) = \prod_{k=1}^{n-1} \left(T - 2 i \cos \left(\frac{k\pi}{n}\right)\right) = \prod_{k=1}^{n-1} (T - i (\zeta_{2n}^{k} + \zeta_{2n}^{-k}))
+\end{equation}
+for $n \ge 2$, so the zeros of $F_n(T)$ in $\bC$ are given by
+\begin{equation}
+\label{eqn:fibo_zeros}
+2i \cos \left(\frac{k\pi}{n}\right) = i(\zeta_{2n}^{k} + \zeta_{2n}^{-k}), \quad 1 \le k \le n - 1
+\end{equation}
+which are all algebraic integers.
+
+
+\subsection{Lucas polynomial sequence} 
+We can consider more general families of polynomials by replacing the coefficient polynomials and initial terms in \eqref{eqn:fibo_poly} by others, which are studied by Horadam \cite{Horadam1996}.
+
+\begin{definition}[{\cite[Horadam]{Horadam1996}}]\label{lucassq}
+    Let $f(T)$ and $g(T)$ be monomials of degree 0 or 1 (over some ring R).
+    Define the following recurrence relation:
+    \begin{equation}
+       \mathcal{W}_n(T) = f(T) \mathcal{W}_{n - 1} (T) + g(T) \mathcal{W}_{n - 2}(T) \text{ for } n > 1 \text{,} \label{eqn:lucas_sequence}
+    \end{equation}
+    letting $\mathcal{W}_0(T)$ be a constant in $R$ and $\mathcal{W}_1(T) \in R[T]$ be a monomial of degree 0 or 1.
+    
+    Let $W_n(T)$ and $w_n(T)$ be polynomial sequences satisfying the recurrence relation of $\mathcal{W}_n(T)$ and the initial conditions:
+    \begin{align*}
+        W_0(T) = 0, &\quad W_1(T) = 1, \\
+        w_0(T) = 2, &\quad w_1(T) = f(T) \text{.}
+    \end{align*}
+\end{definition}
+These families are also called as \emph{Fibonacci-type} and \emph{Lucas-type}, respectively (which are denoted as $\mathcal{F}_n(T)$ and $\mathcal{L}_n(T)$ in \cite{florez2019resultant}). For the remainder of this section, let $f(T)$ and $g(T)$ be monomials of degree $0$ or $1$ in $\bQ[T]$ of choice (for the most of the cases, they will be in $\bZ[T]$) and let the sequences $W_n(T)$ and $w_n(T)$ be determined by $f(T)$ and $g(T)$.
+
+Continuing, \cite{Horadam1996} observes the \emph{Binet forms}:
+\begin{align}
+    W_n(T) &= \frac{\alpha(T)^n - \beta(T)^n}{\Delta(T)} \label{eqn:Wnbinet} \\
+    w_n(T) &= \alpha(T)^n + \beta(T)^n \label{eqn:wnbinet}
+\end{align}
+where
+\begin{align}
+    \alpha(T) &:= \frac{f(T) + \sqrt{f(T)^2 + 4 g(T)}}{2} \label{eqn:lucas_alpha} \\
+    \beta(T) &:= \frac{f(T) - \sqrt{f(T)^2 + 4 g(T)}}{2} \label{eqn:lucas_beta} \\
+    \Delta(T) &:= \alpha(T) - \beta(T) = \sqrt{f(T)^2 + 4 g(T)} \label{eqn:lucas_delta} \text{.}
+\end{align}
+
+
+When we work over characteristic 2, the equations \eqref{eqn:lucas_alpha} and \eqref{eqn:lucas_beta} need to be replaced by $\alpha(T) = f(T)$ and $\beta(T) = 0$.
+
+This recurrence relation generalizes many of the known polynomial sequences.
+For example, when $f(T) = 2T$ and $g(T) = -1$ (resp. $f(T) = 1$ and $g(T) = 2T$), the polynomial $W_n(T)$ becomes the Chebyshev polynomial of the second kind $U_{n-1}(T)$ (resp. Jacobsthal polynomial $J_n(T)$ \cite{horadam1997jacobsthal}).
+When $f(T) = T$ and $g(T) = 1$, the polynomial $w_n(T)$ becomes the \emph{Lucas polynomial} $L_n(T)$, i.e.
+\begin{equation}
+    \label{eqn:lucas_poly}
+    L_0(T) = 2, \quad L_1(T) = T, \quad L_n(T) = T L_{n-1}(T) + L_{n-2}(T)
+\end{equation}
+which is the polynomial analogue of the Lucas numbers.
+See also \cite[Table 1]{Horadam1996} for more examples.

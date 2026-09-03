@@ -21,6 +21,50 @@ community acceptance, and a finite counterexample search with no hit are not
 grounds for retirement.  Positive proof construction and counterexample search
 must therefore continue in parallel for every unrefuted route.
 
+## September 2, 2026 refined-Haar, Farey-entropy, ownership, Hensel, and contact checkpoint
+
+Standard `ABCConjecture` remains open in both directions.  The exact route
+decisions are:
+
+- **Refined total-degree Haar and pointed same-pilot:** retain.  Bad
+  factor-count, copied-weight, envelope-only, and unpointed interfaces are
+  retired by full-premise examples; the source-level pointed interface has
+  no counterexample.
+- **Mersenne arithmetic depth-three endpoint:** retain.  The common-index
+  Farey model retires only a reduced combinatorial inference because it lacks
+  prime, exact-order, and depth-three premises.
+- **Affine maximal-intersection ownership:** retain.  Reversed period
+  monotonicity and owner-free strengthenings are retired; the canonical
+  low-support catalogue estimate remains open.  The corrected counting
+  statements require `C=B+1`.
+- **Fixed-coefficient Pell squarefull exclusion:** retain.  `T=282` retires a
+  moving-coefficient two-channel exclusion and `F_7(2)=13^2` retires a naive
+  specialization rule, but neither realizes the fixed `D=2` squarefull
+  packet.
+- **Single-cell contact gates and fixed quadratic one-move policies:** retire.
+  Primitive Pythagorean squares satisfy every positive, sum, coprimality, and
+  uniform-quantifier premise.
+- **Calibrated arbitrary multi-cell five-term filling:** retain.  The
+  weighted `l1` boundary inequality is proved for concrete finite-support
+  chains carrying an explicit exact surface-boundary equality.  The
+  generated-move relation and its boundary bridge, together with two uniform
+  cost estimates, remain open and unrefuted.
+
+Ledger and original five-route audit:
+`../research/ABC_MULTI_ROUTE_REFINED_HAAR_FAREY_OWNERSHIP_HENSEL_CONTACT_2026_09_02.md`
+and `../research/ABC_FIVE_ROUTE_ADVERSARIAL_REVIEW_2026_09_02.md`.  Missing
+formalization or a difficult estimate is listed as work, never as retirement.
+The eight-module reproducibility package is
+`verification/2026_09_02_refined_haar_farey_ownership_hensel_contact/`: 297
+theorems, 113 definitions, five abbreviations, four structures, and two named
+instances give 421 declarations, all covered by generated `#print axioms`
+queries.  The exact dependency union is `propext`, `Classical.choice`, and
+`Quot.sound`; direct warning-as-error checks pass and the integrated target
+builds 9,255 jobs.  The package also replays every designated finite evidence
+bundle and freezes the integrated paper artifact.  It certifies the stated
+component results and counterexample scopes, not standard abc in either
+direction.
+
 ## September 2, 2026 actual-Haar, sigma-one, catalogue-novelty, and endpoint-curvature checkpoint
 
 Standard `ABCConjecture` remains open in both directions.  Each parent route

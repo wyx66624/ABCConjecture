@@ -1,0 +1,827 @@
+arXiv:1104.3909v1  [math.NT]  20 Apr 2011
+Fermat quotients:
+Exponential sums, value set and primitive
+roots
+Igor E. Shparlinski
+Department of Computing, Macquarie University
+Sydney, NSW 2109, Australia
+igor.shparlinski@mq.edu.au
+August 22, 2018
+Abstract
+For a prime p and an integer u with gcd(u, p) = 1, we deﬁne Fermat
+quotients by the conditions
+qp(u) ≡ up−1 − 1
+p (mod p), 0 ≤ qp(u) ≤ p − 1.
+D. R. Heath-Brown has given a bound of exponential sums with N
+consecutive Fermat quotients that is nontrivial for N ≥ p1/2+ε for any
+ﬁxed ε > 0. We use a recent idea of M. Z. Garaev together with a
+form of the large sieve inequality due to S. Baier and L. Zhao, to show
+that on average over p one can obtain a nontrivial estimate for much
+shorter sums starting with N ≥ pε. We also obtain lower bounds on
+the image size of the ﬁrst N consecutive Fermat quotients and use it
+to prove that there is a positive integer n ≤ p3/4+o(1) such that qp(n)
+is a primitive root modulo p.
+Keywords: Fermat quotient, exponential and character sum, large sieve
+inequality, primitive root
+Mathematics Subject Classiﬁcation (2010): 11A07, 11L40, 11N35
+1
+1 Introduction
+1.1 Previous results
+For a prime p and an integer u with gcd( u, p ) = 1 the Fermat quotient qp(u)
+is deﬁned as the unique integer with
+qp(u) ≡ up−1 − 1
+p (mod p), 0 ≤ qp(u) ≤ p − 1.
+Fermat quotients appear and play a very important role in a variety o f
+problems, see [8, 11, 12, 15, 19, 21] and references therein.
+In particular, Heath-Brown [14] has considered the exponential s ums
+Sp(a; N) =
+N∑
+n=1
+gcd(n,p)=1
+ep(aqp(n)), a ∈ Z,
+where for an integer r ≥ 1 and a real z we deﬁne er(z) = exp(2 πiaz/r ),
+and noticed that using the P´ olya-Vinogradov and Burgess bounds (see [16,
+Theorems 12.5 and 12.6]) leads to the estimate
+max
+gcd(a,p)=1
+|Sp(a; N)| ≤ N 1−1/ν p(ν+1)/2ν2+o(1) (1)
+with any ﬁxed integer ν ≥ 1 (in fact in [14, Theorem 2] it is presented only
+with ν = 2 but the argument applies to any ν, see also [8, Section 4]). It is
+easy to see that (1) is nontrivial for N ≥ p1/2+ε with an arbitrary ﬁxed ε > 0,
+but becomes trivial for N ≤ p1/2. For longer intervals of length N ≥ p1+ε, a
+nontrivial bound of exponential sums with linear combinations of s ≥ 1 con-
+secutive values qp(u), . . . , q p(u + s − 1) has been given in [21], see also [7] for a
+generalisation. Several one-dimensional and bilinear multiplicative ch aracter
+sums, as well as sums over primes, with Fermat quotients have rece ntly been
+estimated in [22, 23]. In particular, by [22, Theorem 3.1], for any nont rivial
+multiplicative character η modulo p, we have
+⏐
+⏐
+⏐
+⏐
+⏐
+⏐
+⏐
+N∑
+n=1
+gcd(n,p)=1
+η(qp(n))
+⏐
+⏐
+⏐
+⏐
+⏐
+⏐
+⏐
+≤ N 1−1/νp(5ν+1)/4ν2+o(1) (2)
+2
+with any ﬁxed integer ν ≥ 1. Furthermore, Gomez and Winterhof [10]
+have estimated multiplicative character sums with the s-fold products qp(n +
+d1) . . . q p(n + ds) over intervals of length N ≥ p3/2+ε for any ﬁxed ε > 0. In
+turn, the bound of [10] has been used by Aly and Winterhof [1] to stu dy
+some Boolean functions associated with Fermat quotients.
+The image size
+Ip(N) = # {qp(n) : 1 ≤ n ≤ N, gcd(n, p ) = 1 }
+of the ﬁrst N Fermat quotients, has also been studied. We note that since
+qp(1) = 0, the smallest N with Ip(N) > 1, that is frequently denoted by ℓp,
+corresponds to the smallest nonzero Fermat quotient and has bee n studied
+in a number of works, see [4, 11, 12, 15, 19]. It is also shown in [24] t hat for
+any ﬁxed ε > 0 and suﬃciently large p, we have Ip(N) = p for N ≥ p463/252+ε
+and Ip(N) = p + o(p) for N ≥ p3/2+ε.
+Most of these above results depend on the following well-known prop erty
+of Fermat quotients:
+qp(uv) ≡ qp(u) + qp(v) (mod p), (3)
+see, for example, [8, Equation (3)], which is also used here.
+1.2 Our results
+Here we show that on average over primes p one can obtain a stronger bound
+than (1), which is nontrivial for N ≥ pε. This result is based on a com-
+bination of the idea of Heath-Brown [14] to interpret the sums Sp(a; N) as
+multiplicative character sums with the approach of Garaev [9] of es timating
+the maximal value of such sums via the large sieve inequality. However , here
+instead of the classical form of the large sieve inequality, used in [9], w e use
+the version of Baier and Zhao [3], where the averaging is taken over s quare
+moduli. Our proof follows quite close to that of [9, Theorem 3] howev er we
+allow the length of the corresponding sums to vary with the modulus. In
+fact our argument gives a bound on the sums with arbitrary primitive char-
+acters modulo p2, not necessary of order p as in the case of Fermat quotients,
+see (10) below.
+However here we use some ideas of [21] to obtain new lower bounds on the
+image size Ip(N). More precisely, we study the values of N for which Ip(N)
+grows as a power of p. So our results somewhat interpolate between those
+3
+of [4], where the case Ip(N) > 1 has been studied, and of [24] addressing case
+of very large values of Ip(N). In turn these estimates are used to estimate
+the smallest primitive root in the sequence of Fermat quotients.
+We note that the bound (2), taken with a suﬃciently large ν, implies
+that there exists a positive integer n ≤ p5/4+o(1) such that qp(n) is a primitive
+root modulo p. Here we use our lower bounds on Ip(N) and also bounds of
+double character sums to improve this estimate (and replace expon ent 5 / 4
+with 3 / 4).
+1.3 Notation
+Throughout the paper, p always denotes a prime number, while k, m and n
+(in both the upper and lower cases) denote positive integer number s.
+The implied constants in the symbols ‘ O’, ‘ ≪ ’ and ‘ ≫ ’ may occasionally
+depend on the integer parameter ν ≥ 1 and the t real parameter ε > 0, and
+are absolute otherwise. We recall that the notations U = O(V ), U ≪ V and
+V ≫ U are all equivalent to the assertion that the inequality |U| ≤ cV holds
+for some constant c > 0.
+Finally, the notation z ∼ Z means that z must satisfy the inequality
+Z < z ≤ 2Z.
+2 Preparations
+2.1 Basics on exponential and character sums
+We recall, that for any integers z and r ≥ 1, we have the orthogonality
+relation ∑
+−r/2≤b<r/2
+er(bz) =
+{
+r, if z ≡ 0 (mod r),
+0, if z ̸≡ 0 (mod r), (4)
+see [16, Section 3.1].
+We also need the bound
+K+L∑
+n=K+1
+er(bn) ≪ min
+{
+L, r
+|b|
+}
+, (5)
+which holds for any integers b, K and L ≥ 1 with 0 < |b| ≤ r/ 2, see [16,
+Bound (8.6)].
+4
+We also refer to [16, Chapter 3] for a background on multiplicative ch ar-
+acters.
+The link between multiplicative characters and exponential sums is giv en
+by the following well-known identity (see [16, Equation (3.12)]) involving
+Gauss sums
+τr(χ ) =
+r∑
+v=1
+χ (v) er(v)
+deﬁned for a character χ modulo an integer r ≥ 1:
+Lemma 1. For any multiplicative character χ modulo r and an integer b
+with gcd(b, r ) = 1 , we have
+χ (b)τr(
+χ ) =
+r∑
+v=1
+χ (v) er(bv),
+where χ is the complex conjugate character to χ .
+By [16, Lemma 3.1] we also have:
+Lemma 2. For any primitive multiplicative character χ modulo r we have
+|τr(χ )|= r1/2.
+As usual, we use µ(d) and ϕ (d) to denote the M¨ obius and the Euler
+functions of an integer d ≥ 1, respectively. We now mention the following
+well-known characterisation of primitive roots modulo p which follows from
+the inclusion-exclusion principle and the orthogonality property of c haracters
+(see, for example, [20, Excercise 5.14]).
+Lemma 3. For any integer a, we have
+p − 1
+ϕ (p − 1)
+∑
+d|p−1
+µ(d)
+ϕ (d)
+∑
+ord η=d
+η(a) =
+{
+1, if a is a primitive root modulo p,
+0, otherwise,
+where the inner sum is taken over all ϕ (d) multiplicative characters modulo
+p of order d.
+5
+2.2 Double sums of multiplicative characters
+We now recall a result of A. A. Karatsuba, see [17] or [18, Chapter VIII,
+Problem 9].
+Lemma 4. For any nontrivial character η modulo p, and arbitrary sets
+A, B ⊆ { 0, 1, . . . , p − 1}, we have
+⏐
+⏐
+⏐
+⏐
+⏐
+∑
+a∈A
+∑
+b∈B
+η(a + b)
+⏐
+⏐
+⏐
+⏐
+⏐ ≪ (#A)1−1/2ν#Bp1/4ν + (#A)1−1/2ν(#B)1/2p1/2ν
+with any ﬁxed integer ν ≥ 1.
+2.3 Sums Sp(a; N ) and multiplicative character sums
+Heath-Brown [14] has noticed that (3) implies that the sums Sp(a; N) are
+essentially sums of multiplicative characters:
+Lemma 5. For any integer a with gcd(a, p ) = 1 there is a primitive multi-
+plicative character χ modulo p2 such that
+Sp(a; N) =
+N∑
+n=1
+χ (n).
+We note that the character χ of Lemma 5 is of order p, however we do
+not use this property.
+2.4 Large sieve for square moduli
+We make use of the following version of the large sieve inequality for sq uare
+moduli which is due to Baier and Zhao [3, Theorem 1]:
+Lemma 6. Let α 1, . . . , α K be an arbitrary sequence of complex numbers and
+let
+A =
+K∑
+k=1
+|α n|2 and T (u) =
+K∑
+k=1
+α n exp(2πiku ).
+Then, for any ﬁxed ε > 0 and arbitrary R ≥ 1, we have
+∑
+1≤r≤R
+r2
+∑
+a=1
+gcd(a,r)=1
+⏐
+⏐T (a/r 2)
+⏐
+⏐2
+≪ (RK)ε (
+R3 + K + min{KR 1/2, K 1/2R2}
+)
+A.
+6
+2.5 Ratios of small height in multiplicative subgroups
+of residue rings
+Let G be a multiplicative subgroup of the group of units in the residue ring
+modulo an integer m ≥ 1. Also, for a real Z, let N(m, G, Z ) be the number
+of solutions to the congruence
+wx ≡ y (mod m), where 0 < |x|, |y| ≤ Z, w ∈ G .
+We now recall [5, Theorem 1] which gives an upper bound on N(m, G, Z ).
+We note that the proof given in [5] works only for Z ≥ m1/2 (which is always
+satisﬁed in the present paper); however it is shown in [6] that the r esult holds
+without this condition too, exactly as it is formulated in [5].
+Lemma 7. Let ν ≥ 1 be a ﬁxed integer and let m → ∞ . Assume #G = t ≫√
+m. Then for any positive number Z we have
+N(m, G, Z ) ≤ Zt (2ν+1)/2ν(ν+1)m−1/2(ν+1)+o(1) + Z 2t1/νm−1/ν+o(1).
+3 Main Results
+3.1 Bound of exponential sums on average
+Let P and N ≤ P 2 be two suﬃciently large positive integers. Assume that
+for every p ∼ P we are given an integer Np ∼ N.
+Theorem 8. For every ﬁxed integer ν ≥ 1, we have
+∑
+p∼P
+max
+gcd(a,p)=1
+|Sp(a, N p)|2ν ≤
+(
+P 3 + N ν + min{N νP 1/2, N ν/2P 2}
+)
+N νP o(1)
+for any sequence Np ∼ N, as P → ∞ .
+Proof. We follow the ideas of Garaev [9, Theorem 3].
+Using Lemma 5, for each p ∼ N we choose a multiplicative character χ p
+modulo p2 such that
+max
+gcd(a,p)=1
+|Sp(a; Np)|=
+⏐
+⏐
+⏐
+⏐
+⏐
+Np∑
+n=1
+χ p(n)
+⏐
+⏐
+⏐
+⏐
+⏐ . (6)
+7
+Let M = 2N. Using (4), for Np ∼ N we write
+Np∑
+n=1
+χ p(n) =
+M∑
+m=1
+χ p(m) 1
+M
+Np∑
+n=1
+N −1∑
+b=−N
+eM (b(m − n))
+= 1
+M
+N −1∑
+b=−N
+Np∑
+n=1
+eM (− bn)
+M∑
+m=1
+χ p(m) eM (bm).
+Recalling (5), we derive
+⏐
+⏐
+⏐
+⏐
+⏐
+Np∑
+n=1
+χ p(n)
+⏐
+⏐
+⏐
+⏐
+⏐ ≪
+N −1∑
+b=−N
+1
+|b|+ 1
+⏐
+⏐
+⏐
+⏐
+⏐
+M∑
+m=1
+χ p(m) eM (bm)
+⏐
+⏐
+⏐
+⏐
+⏐ .
+Therefore, writing |b| = |b|(2ν−1)/2ν |b|1/2ν, the H¨ older inequality yields the
+bound
+⏐
+⏐
+⏐
+⏐
+⏐
+Np∑
+n=1
+χ p(n)
+⏐
+⏐
+⏐
+⏐
+⏐
+2ν
+≪ (log N)2ν−1
+N −1∑
+b=−N
+1
+|b|+ 1
+⏐
+⏐
+⏐
+⏐
+⏐
+M∑
+m=1
+χ p(m) eM (bm)
+⏐
+⏐
+⏐
+⏐
+⏐
+2ν
+.
+Thus, by (6) we obtain
+∑
+p∼P
+max
+gcd(a,p)=1
+|Sp(a, N p)|2ν ≪ (log N)2ν−1
+N −1∑
+b=−N
+1
+|b|+ 1 Ub, (7)
+where
+Ub =
+∑
+p∼P
+⏐
+⏐
+⏐
+⏐
+⏐
+M∑
+m=1
+χ p(m) eM (bm)
+⏐
+⏐
+⏐
+⏐
+⏐
+2ν
+.
+We now note that
+( M∑
+m=1
+χ p(m) eM (bm)
+) ν
+=
+K∑
+k=1
+ρb,ν(k)χ p(k),
+where K = M ν and
+ρb,ν(k) =
+M∑
+m1,...,mν =1
+m1...mν =k
+eM (b(m1 + . . . + mν)).
+8
+Using Lemma 1, we write
+( M∑
+m=1
+χ p(m) eM (bm)
+) ν
+=
+K∑
+k=1
+ρb,ν(k) 1
+τp2(χ p)
+p2
+∑
+v=1
+χ p(v) ep2(kv).
+Changing the order of summation, by Lemma 2 and the Cauchy inequa lity,
+we obtain,
+⏐
+⏐
+⏐
+⏐
+⏐
+M∑
+m=1
+χ p(m) eM (bm)
+⏐
+⏐
+⏐
+⏐
+⏐
+2ν
+≤
+p2
+∑
+v=1
+⏐
+⏐
+⏐
+⏐
+⏐
+K∑
+k=1
+ρb,ν(k) ep2(kv)
+⏐
+⏐
+⏐
+⏐
+⏐
+2
+.
+Therefore
+Ub =
+∑
+p∼P
+p2
+∑
+v=1
+⏐
+⏐
+⏐
+⏐
+⏐
+K∑
+k=1
+ρb,ν(k) ep2(kv)
+⏐
+⏐
+⏐
+⏐
+⏐
+2
+.
+Using the standard bounds on the divisor function, see [16, Bound (1.81)] we
+conclude that
+|ρb,ν(k)| ≤
+∑
+m1...mν =k
+1 = ko(1)
+as k → ∞ . Hence, we now derive from Lemma 6
+Ub ≤
+(
+P 3 + N ν + min{N νP 1/2, N ν/2P 2}
+)
+N νP o(1),
+which after substitution in (7) concludes the proof. ⊓ ⊔
+In particular, taking a suﬃciently large ν, we obtain a nontrivial bound
+on average of very short sums.
+Corollary 9. For any ﬁxed ε > 0 and δ > 0 there exists κ > 0 such that for
+all p ∼ P except for O(P 1/2+δ) of them, we have
+max
+gcd(a,p)=1
+|Sp(a, N p)| ≤ Npp−κ,
+for any sequence Np ∼ N, with some N ≥ P ε.
+Proof. Taking ν = ⌈3/ε ⌉, we obtain from Theorem 8
+∑
+p∼P
+max
+gcd(a,p)=1
+|Sp(a, N p)|2ν ≤ N 2νP 1/2+o(1).
+9
+So for κ = 0. 9δ/ν , we see that the inequality
+max
+gcd(a,p)=1
+|Sp(a, N p)|> N pp−κ
+holds for at most P 1/2+νκ+o(1) = O(P 1/2+δ) primes p ∼ P . ⊓ ⊔
+Furthermore, taking ν = 3 we derive
+Corollary 10. For any ﬁxed ε > 0 there exists δ > 0 such that for all p ∼ P
+except for O(P 1−δ) of them, we have
+max
+gcd(a,p)=1
+|Sp(a, N p)| ≤ Npp−1/12+ε,
+for any sequence Np ∼ N, with some N ≥ P 5/6.
+We note that the bound of Corollary 10 is stronger than that of (1) for
+N ≤ p10/11.
+3.2 Image size
+Here we give some lower bounds on the image size Ip(N).
+First we consider the case of large values of N, for which use an argument
+of the proof of [21, Theorem 13].
+Theorem 11. For every p and N < p , we have
+Ip(N) ≥ (1 + o(1)) N 2
+p(log N)2 .
+Proof. Let Qp(N, a ) be the number of primes ℓ ∈ { 1, . . . , N } with qp(ℓ) = a.
+Clearly, by the prime number theorem
+p−1∑
+a=0
+Qp(N, a ) = (1 + o(1)) N
+log N .
+We now use the trivial estimate
+p−1∑
+a=0
+Qp(N, a )2 ≤
+p−1∑
+a=0
+Qp(p − 1, a )2
+10
+and recall that by [21, Bound (17)] the last sum is O(p).
+Since by the Cauchy inequality we have
+( p−1∑
+a=0
+Qp(N, a )
+) 2
+≤ Ip(N)
+p−1∑
+a=0
+Qp(N, a )2,
+the result now follows. ⊓ ⊔
+For small values of N we use an argument similar to that of the proof
+of [21, Theorem 11].
+Theorem 12. For every p and arbirary ﬁxed ε > 0 there exists some δ > 0
+such that for pε < N < p we have
+Ip(N) ≥ pδ.
+Proof. Let
+Wp(N) = {(u, v ) : 1 ≤ u, v ≤ N, q p(u) = qp(v)}.
+We see from (3) that if ( u, v ) ∈ W p(N) then for
+w ≡ u/v (mod p2) (8)
+we have
+qp(w) ≡ qp(u) − qp(v) ≡ 0 (mod p).
+Since all values of w with qp(w) ≡ 0 (mod p) and gcd( w, p ) = 1 satisfy
+wp−1 ≡ 1 (mod p2),
+they are elements of the group Gp of the pth power residues modulo p2. Thus
+we see from (8) that
+#W(p) ≤ N(p2, Gp, N ),
+where N(m, G, Z ) is as in Section 2.5. In particular, using Lemma 7 gives
+#W(p) ≤ N p1/2ν(ν+1)+o(1) + N 2p−1/ν+o(1).
+Taking ν as the smallest integer that satisﬁes the inequality,
+1
+2ν(ν + 1) ≤ ε
+2 ,
+11
+we obtain for this ν,
+#W(p) ≤ N 3/2+o(1) + N 2p−1/ν+o(1).
+Since
+p−1∑
+a=0
+Rp(N, a ) = N and
+p−1∑
+a=0
+Rp(N, a )2 = #W(p),
+where Rp(N, a ) is the the number of positive integers n ≤ N with qp(n) = a,
+as in the proof of Theorem 11, using the Cauchy inequality we derive t he
+desired result. ⊓ ⊔
+3.3 Smallest primitive roots
+Our bound on the smallest primitive roots among the values of the Fer mat
+quotients is based on the congruence (3), Lemma 4 and the results of Sec-
+tions 3.2
+Theorem 13. For every p, there exists n ≤ p3/4+o(1) such that qp(n) is a
+primitive root modulo p.
+Proof. Let us ﬁx some ε > 0 and put
+U =
+⌈
+p3/4+ε⌉
+and V = ⌈pε⌉ .
+By Theorem 11 and Theorem 12, we have
+Ip(U) ≥ p1/2+δ and Ip(V ) ≥ pδ,
+respectively. Furthermore, let U ⊆ { 1, . . . , U } and V ⊆ { 1, . . . , V } satisfy
+#U = # {qp(u) : u ∈ U } = Ip(U) and # V = # {qp(v) : v ∈ V} = Ip(V ),
+respectively.
+Taking a suﬃciently large ν in Lemma 4 we obtain that there is some
+κ > 0 depending only on δ (and thus only on ε) such that for any nontrivial
+character η modulo p, we have
+∑
+u∈U
+∑
+v∈V
+η (qp(u) + qp(v)) ≪ #U#Vp−κ. (9)
+12
+Let T be the number of primitive roots of the form qp(u) + qp(v) with u ∈ U
+and v ∈ V . By Lemma 3, we have
+T = p − 1
+ϕ (p − 1)
+∑
+u∈U
+∑
+v∈V
+∑
+d|p−1
+µ(d)
+ϕ (d)
+∑
+ord η=d
+η (qp(u) + qp(v))
+= p − 1
+ϕ (p − 1)
+∑
+d|p−1
+µ(d)
+ϕ (d)
+∑
+ord η=d
+∑
+u∈U
+∑
+v∈V
+η (qp(u) + qp(v)) .
+Separating the contribution ( p − 1)#U#V/ϕ (p − 1) of the principal character
+and using (9), we derive
+T = (p − 1)#U#V
+ϕ (p − 1)
+
+ 1 + p−κ
+∑
+d|p−1
+1
+
+ .
+Recalling the well-known estimates on the divisor function
+∑
+d|s
+1 = so(1)
+as s → ∞ , see [13, Theorem 317], we obtain that T > 0. Thus there are
+u ∈ U and v ∈ V such that qp(u) + qp(v) is a primitive root modulo p.
+Recalling (3) we see that for n = uv ≤ U V ≤ 2p3/4+2ε the Fermat quotient
+qp(n) is a primitive root modulo p.
+Since ε is arbitrary, the result now follows. ⊓ ⊔
+In particular, we see that for any d | p − 1 there is a small dth power
+nonresidue modulo p (that is, an integer which is not a dth power modulo p)
+among Fermat quotients.
+Corollary 14. For every p and positive integer d | p − 1 there exists n ≤
+p3/4+o(1) such that qp(n) is a dth power nonresidue modulo p.
+4 Comments
+We remark that a full analogue of (1) also holds for sums over shifte d intervals
+[L + 1, L + N] uniformly over L. However, the method of proof of Theorem 8
+applies only to initial intervals.
+13
+We also notice that taking ν slowly growing with p and estimating ρb,ν(k)
+more carefully, as in [9], one can obtain bounds on average of even sh orter
+sums than in Corollary 9. Also as in [9], one can estimate short exponen tial
+sums of Fermat quotients taken over primes ℓ rather than over consecutive
+integers. Note that no “individual” bound of such sums is known.
+Clearly, our results apply to sums of arbitrary primitive characters modulo
+p2 giving, for every ﬁxed integer ν ≥ 1, the bound
+∑
+p∼P
+max
+χ∈X ∗p
+⏐
+⏐
+⏐
+⏐
+⏐
+Np∑
+n=1
+χ (n)
+⏐
+⏐
+⏐
+⏐
+⏐
+2ν
+≤
+(
+P 3 + N ν + min{N νP 1/2, N ν/2P 2}
+)
+N νP o(1), (10)
+where X ∗
+p is the set of primitive multiplicative characters modulo p2, for any
+sequence Np ∼ N, as p → ∞ . Using the results of [2] one can also obtain
+similar (albeit weaker) estimates modulo pk with an arbitrary ﬁxed k ≥ 2.
+Furthermore, it has been conjectured by Zhao [25] (see also [3]) th at the
+bound of Lemma 6 holds in the form
+∑
+1≤r≤R
+r2
+∑
+a=1
+gcd(a,r)=1
+⏐
+⏐T (a/r 2)
+⏐
+⏐2
+≪ (RK)ε (
+R3 + K
+)
+A
+(which corresponds to shape of the classical large sieve inequality) . In this
+case we obtain that for any ﬁxed ε > 0 there exists δ > 0 such that for all
+p ∼ P except for O(P 1−δ) the bound
+max
+gcd(a,p)=1
+|Sp(a, N p)| ≤ N 1/2p1/3+ε,
+holds for any sequence Np ∼ N, with some N ≥ p, which is stronger than (1).
+Finally, we notice that although Theorem 13 shows the existence of s mall
+primitive roots modulo p, the only known bound of multiplicative character
+sums (2) is nontrivial only for N ≥ p5/4+ε. Estimating shorter sums, either
+for every p or on average over p, is an interesting open question.
+Acknowledgement
+The author is grateful to Arne Winterhof for the careful reading of the
+manuscript and many useful discussions.
+During the preparation of this paper, the author was supported in part
+by the Australian Research Council Grant DP1092835.
+14
+References
+[1] H. Aly and A. Winterhof, ‘Boolean functions derived from Fermat q uo-
+tients’, Cryptography and Communications , (to appear).
+[2] S. Baier and L. Zhao, ‘Large sieve inequality with characters for p owerful
+moduli’, Intern. J. Number Theory , 1 (2005) 265–280.
+[3] S. Baier and L. Zhao, ‘An improvement for the large sieve for squa re
+moduli’, J. Number Theory , 128 (2008), 154–174.
+[4] J. Bourgain, K. Ford, S. V. Konyagin and I. E. Shparlinski, ‘On the
+divisibility of Fermat quotients’, Michigan Math. J. , 59 (2010), 313–
+328.
+[5] J. Bourgain, S. V. Konyagin and I. E. Shparlinski, ‘Product sets o f
+rationals, multiplicative translates of subgroups in residue rings and
+ﬁxed points of the discrete logarithm’, Intern. Math. Research Notices ,
+2008 (2008), Article ID rnn090, 1–29.
+[6] J. Bourgain, S. V. Konyagin and I. E. Shparlinski, ‘Corrigenda to: Prod-
+uct sets of rationals, multiplicative translates of subgroups in resid ue
+rings and ﬁxed points of the discrete logarithm’, Intern. Math. Research
+Notices, 2009 (2009), 3146-3147.
+[7] Z. Chen, A. Ostafe and A. Winterhof, ‘Structure of pseudoran dom
+numbers derived from Fermat quotients’, Lect. Notes in Comp. Sci. ,
+vol. 6087, Springer-Verlag, Berlin, 2010, 73–85.
+[8] R. Ernvall and T. Mets¨ ankyl¨ a, ‘On the p-divisibility of Fermat quo-
+tients’, Math. Comp. , 66 (1997), 1353–1365.
+[9] M. Z. Garaev, ‘Character sums in short intervals and the multiplica tion
+table modulo a large prime’, Monat. Math. , 148 (2006), 127–138.
+[10] D. Gomez and A. Winterhof, ‘Multiplicative character sums of Fer mat
+quotients and pseudorandom sequences’, Period. Math. Hungar. , (to ap-
+pear).
+[11] A. Granville, ‘Some conjectures related to Fermat’s Last Theor em’,
+Number Theory , W. de Gruyter, NY, 1990, 177–192.
+15
+[12] A. Granville, ‘On pairs of coprime integers with no large prime facto rs’,
+Expos. Math., 9 (1991), 335–350.
+[13] G. H. Hardy and E. M. Wright, An introduction to the theory of numbers ,
+Oxford Univ. Press, Oxford, 1979.
+[14] D. R. Heath-Brown, ‘An estimate for Heilbronn’s exponential su m’,
+Analytic Number Theory: Proc. Conf. in honor of Heini Halber stam,
+Birkh¨ auser, Boston, 1996, 451–463.
+[15] Y. Ihara, ‘On the Euler-Kronecker constants of global ﬁelds a nd primes
+with small norms’, Algebraic Geometry and Number Theory , Progress in
+Math., Vol. 850, Birkh¨ auser, Boston, Cambridge, MA, 2006, 407– 451.
+[16] H. Iwaniec and E. Kowalski, Analytic number theory , Amer. Math. Soc.,
+Providence, RI, 2004.
+[17] A. A. Karatsuba, ‘The distribution of values of Dirichlet charact ers on
+additive sequences’, Doklady Acad. Sci. USSR , 319 (1991), 543–545 (in
+Russian).
+[18] A. A. Karatsuba, Basic analytic number theory , Springer-Verlag, 1993.
+[19] H. W. Lenstra, ‘Miller’s primality test’, Inform. Process. Lett., 8 (1979),
+86–88.
+[20] R. Lidl and H. Niederreiter, Finite Fields , Addison-Wesley, 1983.
+[21] A. Ostafe and I. E. Shparlinski, ‘Pseudorandomness and dynam ics of
+Fermat quotients’, SIAM J. Discr. Math. , 25 (2011), 50–71.
+[22] I. E. Shparlinski, ‘Character sums with Fermat quotients’, Quart. J.
+Math., (to appear).
+[23] I. E. Shparlinski, ‘Bounds of multiplicative character sums with Fe rmat
+quotients of primes’, Bull. Aust. Math. Soc. , (to appear).
+[24] I. E. Shparlinski, ‘On the value set of Fermat quotients’, Proc. Amer.
+Math. Soc. , (to appear).
+[25] L. Zhao, ‘Large sieve inequality for characters to square modu li’, Acta
+Arith., 112 (2004), 297–308.
+16

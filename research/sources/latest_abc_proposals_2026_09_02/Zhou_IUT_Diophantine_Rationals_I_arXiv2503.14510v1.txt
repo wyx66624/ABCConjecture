@@ -1,0 +1,3395 @@
+arXiv:2503.14510v1  [math.NT]  8 Mar 2025
+The inter-universal Teichmüller theory and new
+Diophantine results over the rational numbers. I
+Zhong-Peng Zhou
+Abstract
+By applying inter-universal Teichmüller theory and its slig ht modiﬁcation over
+the rational number ﬁeld, we prove new Diophantine results t owards eﬀective abc
+inequalities and the generalized Fermat equations.
+For coprime integers a, b, c satisfying a + b = c and log(|abc|) ≥ 700, we prove
+log |abc| ≤ 3 log rad(abc) + 8
+√
+log |abc| ·log log |abc|.
+This implies for any 0 < ǫ ≤ 1
+10 ,
+|abc| ≤ max
+{
+exp
+(
+400 ·ǫ− 2 ·log(ǫ− 1)
+)
+, rad(abc)3+3ǫ}
+,
+reducing the constant in eﬀective abc bounds from 1. 7 ·1030 (Mochizuki-Fesenko-
+Hoshi-Minamide-Porowski) to 400.
+For positive primitive solutions (x, y, z ) to the generalized Fermat equation xr +
+ys = zt (r, s, t ≥ 3), deﬁne h = log(xryszt). We prove explicit bounds:
+h ≤ 573 ( r, s, t ≥ 8); h ≤ 907 ( r, s, t ≥ 5); h ≤ 2283 ( r, s, t ≥ 4);
+h ≤ 14750 (min {r, s } ≥ 4 or t ≥ 4); h ≤ 24626 ( r, s, t ≥ 3).
+These imply Fermat’s Last Theorem (FLT) holds unconditiona lly for prime expo-
+nents ≥ 11. Combined with classical results for FLT with exponents 3, 4, 5, 7, this
+yields a new alternative proof of FLT. Computational veriﬁc ation conﬁrms no non-
+trivial primitive solution exists when r, s, t ≥ 20 or (r, s, t ) is a permutation of (3, 3, n )
+(n ≥ 3).
+Introduction 2
+0 Notations and Conventions 4
+1 Modiﬁed Estimation for Log-volumes 6
+1.1 Estimation for Local Log-volumes . . . . . . . . . . . . . . . . . . . . . . . 6
+1.2 Estimation for Log-volumes of Initial Θ-Data . . . . . . . . . . . . . . . . 10
+1.3 Ramiﬁcation datasets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+2 Construction of initial Θ-Data 17
+2.1 The general construction . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+2.2 The consturction for Frey-Hellegouarch curves . . . . . . . . . . . . . . . . 19
+2.3 Eﬀective partial abc inequalities . . . . . . . . . . . . . . . . . . . . . . . . 21
+Submitted for publication on September 11, 2024.
+1
+
+3 Eﬀective abc inequalities 25
+4 Generalized Fermat Equations 30
+4.1 A brief survey . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+4.2 Upper bounds . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+References 39
+Introduction
+In the recent paper [
+39], Shinichi Mochizuki, Ivan B. Fesenko, Yuichiro Hoshi, Ara ta
+Minamide, and Wojciech Porowski established a µ 6-version of Mochizuki’s inter-universal
+Teichmüller theory (IUT theory) [cf. [ 35– 38]], proving the following diophantine results
+[cf. [ 39], Theorem B and Corollary C]:
+Theorem. (Eﬀective version of a conjecture of Szpiro) Let a, b, c be non-zero co-
+prime integers such that a + b + c = 0; ǫ a positive real number ≤ 1. Then we have
+|abc| ≤ 24 ·max{exp(1. 7 ·1030 ·ǫ− 166/ 81, rad(abc)3+3ǫ}.
+Corollary. (Application to “Fermat’s Last Theorem”) Let
+p > 1. 615 ·1014
+be a prime number. Then there does not exist any triple (x, y, z) of positive integers that
+satisﬁes the Fermat equation
+xp + yp = zp.
+In the present paper, we slightly modify some of the methods i n [38, 39], in the special
+case of rational numbers, to estimate the log-volumes of [ µ 6-]initial Θ-data more precisely.
+Then by focusing on the Frey-Hellegouarch curves, we prove n ew eﬀective versions of abc
+inequalities for rational numbers:
+Theorem A1. Let (a, b, c) be a triple of non-zero coprime integers such that a + b = c.
+(i) Suppose that log(|abc|) ≥ 700, then we have
+log(|abc|) ≤ 3 log rad(abc) + 8
+√
+log(|abc|) ·log log(|abc|).
+(ii) Suppose that log(|abc|) ≥ 3 ·1013, then we have
+log(|abc|) ≤ 3 log rad(abc) + 3
+√
+log(|abc|) ·log log(|abc|)
+·(1 + 6√
+log log(|abc|)
++ 15
+log log(|abc|) ).
+Corollary A2. Let (a, b, c) be a triple of non-zero coprime integers such that a + b = c;
+ǫ be a positive real number ≤ 1
+10 . Then we have
+|abc| ≤ max{exp
+(
+400 ·ǫ− 2 ·log(ǫ− 1)
+)
+, rad(abc)3+3ǫ}.
+2
+
+We will also conduct a preliminary study on the generalized F ermat equations. Let
+r, s, t ≥ 2 be positive integers. The equation
+xr + ys = zt, with x, y, z ∈ Z, xyz ̸= 0
+is known as the generalized Fermat equation with signature (r, s, t). A solution (x, y, z)
+is called primitive if gcd(x, y, z) = 1 , and positive if x, y, z ≥ 1.
+Theorem B1. Let r, s, t ≥ 3 be positive integers. Write
+S(r, s, t)
+def
+={(x, y, z) ∈ Z3
+≥ 1 : xr + ys = zt, gcd(x, y, z) = 1 }
+for the ﬁnite set of positive primitive solutions to the gene ralized Fermat equation with
+signature (r, s, t). Deﬁne
+f (r, s, t)
+def
+= sup
+(x,y,z )∈ S
+log(xryszt) ∈ R≥ 0,
+where we shall write f (r, s, t) = 0 if S(r, s, t) is an empty set.
+Then we have f (r, s, t) ≤ 573 for r, s, t ≥ 8; f (r, s, t) ≤ 907 for r, s, t ≥ 5; f (r, s, t) ≤
+2283 for r, s, t ≥ 4; f (r, s, t) ≤ 14750 for min{r, s} ≥ 4 or t ≥ 4; and f (r, s, t) ≤ 24626
+for r, s, t ≥ 3.
+Corollary B2. Let
+p ≥ 11
+be a prime number. Then there does not exist any triple (x, y, z) of positive integers that
+satisﬁes the Fermat equation
+xp + yp = zp.
+Corollary B2, combined with the classical results about the non-existence of positive
+integer solutions (x, y, z) of the Fermat equation
+xn + yn = zn
+for n = 3 (Euler), n = 4 (Fermat), n = 5 (Dirichlet and Legendre) and n = 7 (Gabriel
+Lamé), yields an unconditional new alternative proof [i.e., to the proof of [
+49] and
+a certain simpliﬁcation of its second proof in [39]] of Fermat’s Last Theorem .
+Corollary B3. Let r, s, t be positive integers such that r, s, t ≥ 20, or (r, s, t) is a per-
+mutation of (3, 3, n) for n ≥ 3. Then there does not exist any triple (x, y, z) of non-zero
+coprime integers that satisﬁes the generalized Fermat equa tion
+xr + ys = zt.
+In the subsequent paper, we will introduce new insights to fu rther explore the gener-
+alized Fermat equations. We will establish new upper bounds for non-trivial primitive
+solutions and demonstrate the non-existence of such soluti on for an expanded set of sig-
+natures.
+The present paper is organized as follows. In Section 1, we pr ovide an estimation for
+the log-volume of µ 6-initial Θ-data [cf. Proposition 1.10], which is a slightly modiﬁed
+version of [ 38], Theorem 1.10 and [ 39], Theorem 5.1. In Section 2, for any triple of non-
+zero coprime integers (a, b, c) such that a + b = c, we ﬁrst construct the µ 6-initial Θ-data
+associated to the Frey-Hellegouarch curve y2 = x(x − a)(x + b). Then by applying the
+estimation in Section 1 to these µ 6-initial Θ-data, we obtain “partial abc inequalities”
+associated to (a, b, c). Section 3 is devoted to prove several eﬀective abc inequali ties.
+Finally, in Section 4, we study on the upper bounds for positi ve primitive solutions to the
+generalized Fermat equations.
+3
+
+Acknowledgements
+The results of the present paper were obtained by its author w hen studying on his own
+initiative the relevant research papers and then working al one on this paper in Beijing in
+2023-2024. Sharing the ﬁrst draft of the paper with Shinichi Mochizuki and Ivan Fesenko
+led to their encouragement which is gratefully acknowledge d. The author is also grateful
+to Ivan Fesenko for discussions of some topics of the present paper during his short visits
+to Westlake University.
+0 Notations and Conventions
+General Notations:
+For a real number λ, we shall write ⌊λ⌋ for the largest integer n ≤ λ, and write ⌈λ⌉ for
+the smallest integer n ≥ λ. For a ﬁnite set I, we shall write |I|for the the cardinality of I.
+For a ﬁnite ﬁeld extension K/L , we shall write [K : L] for the extension degree dimL K.
+For a ﬁeld K or a ring R, we shall write K × or R× for the group of invertible elements in
+K or R.
+Let n be a non-zero integer. The radical of n, denoted by rad (n), is the product of the
+distinct prime factors of n. For any integer k ≥ 2, the k-radical of n, denoted by rad k(n),
+is the product of the distinct prime factors p of n, where the p-adic valuation vp(n) of n
+is not divided by k. Hence we have
+rad(n) =
+∏
+p|n
+p, radk(n) =
+∏
+k∤vp(n)
+p.
+Let p be a prime number. We shall write Q (respectively, R; C; Qp; Fp) for the ﬁeld of
+rational numbers (respectively, real numbers; complex num bers; p-adic rational numbers;
+the ﬁnite ﬁeld with p elements), and write Z (respectively, Zp) for the ring of rational
+integers (respectively, the ring of p-adic integers).
+We shall call ﬁnite extension of Q number ﬁeld, call ﬁnite extension of Qp p-adic local
+ﬁeld, call R real archimedean local ﬁeld, and call C complex archimedean local ﬁeld.
+We shall write Primes for the set of prime numbers. For each prime number l ≥ 3, we
+shall put l⋇ def
+= l− 1
+2 .
+Number Fields:
+Let L be an arbitrary number ﬁeld. We shall use V(L) to denote the set of valua-
+tions of L, and use V(L)non (respectively, V(L)arc) to denote the set of nonarchimedean
+(respectively, archimedean) valuations of L. Here, all the valuations are assumed to be
+normalized.
+For the case L = Q, we shall put VQ
+def
+= V(Q), and put V□
+Q
+def
+= V(Q)□ for □ ∈ { non, arc}.
+Then we have Vnon
+Q = {vp : p ∈ Primes} and Varc
+Q = {vR}, where vp is the p-adic valuation
+on Q, and vR is the unique archimedean valuation on Q. For a prime number p and a
+rational number x, if vp(x) ≥ 1, then we shall say p divides x, and write it as p | x; if
+vp(x) ≤ 0, then we shall say p does not divide x, and write it as p ∤x.
+Let K/L be a ﬁnite extension of number ﬁelds. For each v ∈ V(L), we shall use V(K)v
+to denote the [ﬁnite] set of valuations of K lying over v. Then we have
+∑
+v
+∈ V(K)v
+[Kv : Lv] = [ K : L].
+4
+
+An [ R-]arithmetic divisor on L is a ﬁnite formal sum a = ∑
+v∈ V(L) cv ·v, where cv ∈ R.
+We shall use ADiv R(L) to denote the abelian group of [ R-]arithmetic divisors on L. The
+degree of a is deﬁned by the formula
+degL(a)
+def
+=
+∑
+v∈ V(L)non
+cv ·log
+(
+|κ(Lv)|
+)
++
+∑
+v∈ V(L)arc
+cv,
+where κ(Lv) is the [ﬁnite] residue ﬁeld of Lv. The normalized degree of a is deﬁned by
+the formula
+deg(a)
+def
+= 1
+[L : Q] degL(a).
+Thus for any ﬁnite extension K of L, we have deg(a|K) = deg (a), where we write a|K for
+the the pull-back [deﬁned in the evident fashion] of a to an arithmetic divisor on K.
+Local Fields:
+For an archimedean local ﬁeld k [i.e. R or C] with absolute value | · |k, we shall write
+Ok
+def
+={x : x ∈ k, |x|k ≤ 1}
+for the unit ball of k.
+Let p be a prime number, k be a p-adic local ﬁeld. The p-adic valuation vp on Q
+extends naturally to Qp and k, and we shall write Ok for the ring of integers of k. We
+shall call the p-adic valuation of any generator of the diﬀerent ideal of Ok over Zp as the
+diﬀerent index of k.
+Let e be the ramiﬁcation index of k over Qp, πk ∈ k be a uniformizer of k, Rk be the
+group of multiplicative representatives in the unit group o f Ok. Then we have an group
+isomorphism
+k× ∼
+= π Z
+k × Rk × (1 + πk Ok).
+For each x = π a
+k ·u ·(1 + t) ∈ k× according to the this group isomorphism, the p-adic
+logarithm function logp : k× → k is deﬁned by the formula
+logp(x) = log p(1 + t) =
+∞∑
+n=1
+(− 1)n+1 tn
+n .
+For each t ∈ k× with vp(t) > 1
+p− 1, the p-adic exponent function expp : {t ∈ k : vp(t) >
+1
+p− 1} → k× is deﬁned by the formula
+expp(t) =
+∞∑
+n=0
+tn
+n! .
+For each t ∈ k with vp(t) > 1
+p− 1, we have logp(expp(t)) = t.
+Curves:
+Let K be a ﬁeld of characteristic zero with an algebraic closure K, E be an elliptic
+curve deﬁned over K, n ≥ 1 be an positive integer. Then we shall write E[n] for the
+group of n-torsion points of EK
+def
+= E × K K, and write K(E[n]) ⊆ K for the “ n-torsion
+point ﬁeld" of E, i.e. the ﬁeld generated by K and the coordinates of the points in E[n].
+5
+
+1 Modiﬁed Estimation for Log-volumes
+This section is devoted to the estimation for log-volumes in IUT theory. We shall prove
+Proposition 1.10, which is a modiﬁed version of [ 38], Theorem 1.10 and [ 39], Theorem 5.1.
+The majority of the results in this section can be viewed as sl ight modiﬁcations of [ 38],
+Section 1 and [ 39], Theorem 5.1.
+1.1 Estimation for Local Log-volumes
+We shall begin with some estimation for local log-volumes.
+Lemma 1.1. Let {ki}i∈ I be a ﬁnite set of p-adic local ﬁelds [cf. §0], where |I| ≥ 2. For
+each i ∈ I, write πi for a uniformizer of ki; Oki for the ring of integers of ki; ei for the
+ramiﬁcation index of ki over Qp; di ∈ 1
+ei
+Z for the diﬀerent index [cf. §0] of ki.
+(i) We shall write
+RI
+def
+=
+⨂
+i∈ I
+Oki, logp(R×
+I )
+def
+=
+⨂
+i∈ I
+logp(O×
+ki),
+where the tensor product is over Zp; write (RI)∼ for the normalization of RI in its ring
+of fractions R′. Then we have
+R′ = Qp ⊗ ZpRI = Qp ⊗ Zp logp(R×
+I ) =
+⨂
+i∈ I
+ki,
+where the last tensor product is over Qp. We also have direct sum decompositions
+R′ =
+nR′⨁
+i=1
+Li and (RI)∼ =
+nR′⨁
+i=1
+OLi,
+where for each 1 ≤ i ≤ nR′, Li is a p-adic local ﬁeld with ring of integers OLi.
+(ii) For each
+− →λ = (λ i)i∈ I ∈ ΛI
+def
+=
+⨁
+i∈ I
+1
+ei
+·Z,
+we shall call
+deg(− →λ )
+def
+=
+∑
+i∈ I
+λ i ∈ Λ
+def
+= 1
+gcdi∈ I{ei} Z
+the degree of − →λ , and write
+p
+− →λ def
+= ⊗ i∈ I π λ iei
+i ∈ RI.
+Then the set p
+− →λ ·(RI)∼ is determined by deg(− →λ ) [i.e. independent of the choice of πi, λ i
+for i ∈ I], and we shall write
+pdeg(− →λ ) ·(RI)∼ def
+= p
+− →λ ·(RI)∼ .
+Moreover, for any λ, λ ′ ∈ Λ with λ ≥ λ ′, we have pλ ·(RI)∼ ⊆ pλ ′
+·(RI)∼ .
+(iii) Suppose that d∗ = max
+i∈ I
+{di} for some ∗ ∈ I. View d∗ ∈ 1
+e∗
+·Z֒→ΛI as an element
+− →d∗ ∈ ΛI, and write − →dI
+def
+=(di)i∈ I ∈ ΛI, − →dI
+′ def
+= − →dI − − →d∗ ∈ ΛI,
+6
+
+dI
+def
+= deg(− →dI ) =
+∑
+i∈ I
+di, d ′
+I
+def
+= deg(− →dI
+′) = dI − max
+i∈ I
+{di}.
+Then we have
+pd′
+I (RI)∼ ⊆ RI ⊆ (RI)∼ .
+Proof. Assertions (i) and (ii) can be proved by deﬁnition. Assertio n (iii) follows immedi-
+ately from [
+38], Proposition 1.1.
+Lemma 1.2. Let k/k 0 be a ﬁnite extension of p-adic local ﬁelds. Let e, e0 be the ramiﬁ-
+cation indices of k and k0 over Qp respectively. Let d, d0 be the diﬀerent indices [cf. §0]
+of k and k0 respectively. Then:
+(i) We have d + 1
+e ≥ d0 + 1
+e0
+. Moreover, if k is tamely ramiﬁed over k0, then we have
+d + 1
+e = d0 + 1
+e0
+.
+(ii) Suppose that k is a ﬁnite Galois extension of an intermediate subﬁeld k1, such that
+k1 is tamely ramiﬁed over k0. Then we have
+d ≤ d0 + 1
+e0
++ vp([k : k1]).
+(iii) For the case of k0 = Qp, we have:
+• If p ∤e, then d = 1 − 1
+e ; if e = 1, then d = 0.
+• If k is Galois over Qp, then d ≤ 1 + vp(e).
+Proof. For assertions (i) and (ii), cf, [ 38], Proposition 1.3. For assertion (iii), we have
+e0 = 1 , d0 = 0 . Hence by (i), if p ∤ e, then d = 1 − 1
+e ; if e = 1 , then d = 1 − 1
+e = 0 .
+Now suppose that k is Galois over Qp. Let k1 be the maximal unramiﬁed subextension
+of k0 in k, then k is Galois over k1, and we have [k : k1] = e. Hence by (ii), we have
+d ≤ d0 + 1
+e0
++ vp([k : k1]) = 1 + vp(e).
+Lemma 1.3. We continue to use the notation of Lemma 1.1. For each i ∈ I, deﬁne
+ai
+def
+= 1
+ei
+·
+⌈ ei + 1
+p − 1
+⌉
+, b i
+def
+= sup
+n≥ 0
+{
+n − pn
+ei
+}
+,
+− →aI
+def
+=(ai)i∈ I, − →bI
+def
+=(bi)i∈ I ∈ ΛI, a I
+def
+= deg(− →aI ), b I
+def
+= deg(− →bI ).
+Let
+φ : log p(R×
+I )
+∼
+− → logp(R×
+I )
+be an automorphism of [ﬁnitely generated] Zp-module, which can be extended [by tensoring
+with Qp over Zp] to an automorphism of R′ = Qp ⊗ Zp logp(R×
+I ). Then:
+(i) For each i ∈ I, we have
+π aiei
+i Oki ⊆ logp(O×
+ki) ⊆ π − biei
+i Oki .
+For each − →λ ∈ ΛI with degree λ, we have
+pλ +aI ·RI ⊆ p
+− →λ ·logp(R×
+I ) ⊆ pλ − bI ·RI .
+(ii) For each − →λ ∈ ΛI with degree λ, we have
+φ(pλ ·(RI )∼ ) ⊆ p⌊λ − d′
+I − aI ⌋ logp(R×
+I ) ⊆ p⌊λ − d′
+I − aI ⌋− bI ·(RI)∼ .
+7
+
+In particular, if ei ≤ p − 2 for each i ∈ I, then
+φ(pλ ·(RI)∼ ) ⊆ pλ − d′
+I − 1 ·(RI)∼ .
+(iii) We shall call Iki
+def
+= 1
+2p logp(O×
+ki) ⊆ ki the log-shell of ki for i ∈ I, and call
+IR′
+def
+=
+⨂
+i∈ I
+Iki = p−| I| ·2−| I| ·logp(R×
+I ) ⊆ R′
+the log-shell of R′, where the tensor product is over Zp. Then for each − →λ ∈ ΛI with degree
+λ, we have
+p
+− →λ · IR′ ⊆ pλ − bI − vp(2p)·|I|(RI)∼ .
+Proof. First, to prove assertion (i), we only need to prove
+π aiei
+i Oki ⊆ logp(O×
+ki) ⊆ π − biei
+i Oki
+for each i ∈ I. On one hand, for each x ∈ π aiei Oki, since ai = 1
+ei
+·
+⌈
+ei+1
+p− 1
+⌉
+> 1
+ei
+· ei
+p− 1 = 1
+p− 1,
+we have vp(x) > 1
+p− 1 and x = log p(expp(x)) ∈ logp(O×
+ki). Hence π aiei
+i Oki ⊆ logp(O×
+ki). On
+the other hand, for each x ∈ πi Oki, we have
+vp(logp(1 + x)) = vp(
+∞∑
+m=1
+(− 1)m+1 xm
+m ) ≥ inf
+m≥ 1
+{vp( xm
+m )}
+= − sup
+m≥ 1
+{vp(m) − m ·vp(x)} ≥ − sup
+n=vp(m)≥ 0
+{
+n − pn
+ei
+}
+= − bi.
+Hence logp(1 + x) ∈ π − biei
+i Oki. Then by the deﬁnition of p-adic logarithm, we have
+logp(O×
+ki) = log p(1 + πi Oki) ⊆ π − biei
+i Oki . This proves assertion (i).
+Assertions (ii) and (iii) can be proved similarly to [the pro of of] [
+38], Proposition
+1.2.
+Lemma 1.4. We continue to use the notation of Lemma 1.3.
+(i) Recall that R′ has a direct sum decomposition R′ = ⨁nR′
+i=1 Li, where Li (1 ≤ i ≤
+nR′) are p-adic local ﬁelds. The log-volume functions on Li [cf. [ 34], Proposition 5.7 (i)]
+determines a normalized log-volume function
+µ log(− )
+deﬁned on compact open subsets of R′, valued in R, which is normalized so that
+µ log((RI)∼ ) = 0 , µ log(p(RI)∼ ) = − log(p).
+(ii) For a subset A ⊆ R′, the holomorphic hull of A in R′ is the smallest subset of the
+form ⨁nR′
+i=1 xi OLi ⊆ R′ which contains A, where xi is a non-zero element of Li for each
+1 ≤ i ≤ nR′.
+Suppose that − →λ ∈ ΛI with degree λ. Let U be holomorphic hull of the union of p
+− →λ · IR′
+and φ(p
+− →λ ·(RI)∼ ), where φ runs through all the automorphisms of the Qp-vector space R′
+which is extended by an automorphism of the Zp-module logp(R×
+I ) (i.e. all the possible φ
+in Lemma 1.3). Then we have
+µ log(U) ≤ (max{⌈− λ + d′
+I + aI⌉, − λ + vp(2p) · |I|}+ bI) ·log(p). (1.1)
+8
+
+Proof. For assertion (i), cf. [ 38], Proposition 1.4. Next, we consider assertion (ii). Write
+u
+def
+= max{⌈− λ + d′
+I + aI⌉, − λ + vp(2p) · |I|}+ bI.
+By Lemma
+1.3 (ii), for each possible automorphism φ, we have
+φ(pλ (RI)∼ ) ⊆ p− (⌈− λ +d′
+I +aI ⌉+bI )(RI)∼ ⊆ p− u ·(RI)∼ .
+And by Lemma
+1.3 (iii), we have
+p
+− →λ · IR′ ⊆ p− (− λ +bI +vp(2p)·|I|)(RI)∼ ⊆ p− u ·(RI )∼ .
+Since p− u ·(RI)∼ is of the form ⨁nR′
+i=1 xi OLi [with each xi ∈ Li satisfying vp(xi) = − u], U
+must be a subset of p− u ·(RI)∼ [by the deﬁnition of holomorphic hull]. Hence
+µ log(U) ≤ µ log(p− u ·(RI)∼ ) = u ·log(p).
+This proves assertion (ii).
+We also have a archimedean version of Lemma 1.4.
+Lemma 1.5. Let {ki}i∈ I be a ﬁnite set of complex archimedean local ﬁelds, where |I| ≥ 2.
+For i ∈ I, write Oki for the ring of integers of ki. Then:
+(i) Write R′ def
+= ⨂
+i∈ I ki, where the tensor product is over R. Then we have a naural
+direct sum decomposition
+R′ =
+nR′⨁
+i=1
+Ci,
+where nR′ = 2 |I|− 1, and Ci is a complex archimedean local ﬁeld for each 1 ≤ i ≤ nR′.
+Write BI
+def
+= ⨁nR′
+i=1 OCi, where OCi is the unit ball of Ci.
+(ii) The radial log-volume functions on Ci [cf. [ 34], Proposition 5.7 (ii)] determines a
+normalized log-volume function
+µ log(− )
+deﬁned on compact subsets of R′, valued in R, which is normalized so that
+µ log(BI) = 0 , µ log(e ·BI) = 1 .
+(iii) We shall call Iki
+def
+= π · Oki ⊆ ki the log-shell of ki for i ∈ I. We shall write IR′
+for the image of ∏
+i∈ I Iki in R′ under the natural homomorphism ∏
+i∈ I ki → ⨂
+i∈ I ki = R′,
+and call IR′ the log-shell of R′.
+For a subset A ⊆ R′, the holomorphic hull of A in R′ is the smallest subset of the
+form ⨁nR′
+i=1 xi OCi ⊆ R′ which contains A, where xi is a non-zero element of Ci for each
+1 ≤ i ≤ nR′.
+Let U be holomorphic hull of the union of IR′ and BI, Then we have
+µ log(U) ≤ | I| ·log(π).
+Proof. For assertion (i), cf. [ 38], Proposition 1.5, where we can take |V | = 1 . Assertion
+(ii) can be proved by deﬁnition. Assertion (iii) follows fro m the fact that IR′, BI ⊆ π |I|·BI
+and µ log(π |I|·BI) = |I| ·log(π), which can be veriﬁed by means of routine and elementary
+arguments.
+9
+
+1.2 Estimation for Log-volumes of Initial Θ-Data
+In this subsection, we will estimate the log-volumes associ ated to µ 6-initial Θ-data [cf. [35],
+Deﬁnition 3.1 and [ 39], Deﬁnition 4.1]. We will maintain the notation throughout this
+subsection, and introduce additional notation as necessar y to support our analysis.
+The following lemma is helpful for constructing µ 6-initial Θ-data.
+Lemma 1.6. Suppose that the following conditions are satisﬁed:
+(a) F is a number ﬁeld such that √ − 1 ∈ F ; F is an algebraic closure of F . Write
+GF
+def
+= Gal(F /F ) for the absolute Galois group of F .
+(b) XF is a punctured elliptic curve over F . Write EF for the elliptic curve over F
+determined by XF , then EF is semi-stable and F = F (EF [6]).
+(c) Fmod ⊆ F is the ﬁeld of moduli [cf., e.g., [ 34], Deﬁnition 5.1, (ii)] of XF . Write
+Vmod
+def
+= V(Fmod), Vnon
+mod
+def
+= V(Fmod)non.
+Then
+Vbad
+mod ⊆ Vnon
+mod
+is a nonempty set of nonarchimedean valuations of Fmod, such that EF has bad
+multiplicative reduction at each v ∈ V(F ) lying over Vbad
+mod. Write
+V(F )bad def
+= Vbad
+mod × Vmod V(F ).
+(d) l ≥ 5 is a prime number, such that the image of the Galois represent ation
+ρEF ,l : GF → GL(2, Fl)
+determined by the l-torsion points of EF contains the subgroup SL(2, Fl) ⊆ GL(2, Fl).
+Write K
+def
+= F (EF [l]) ⊆
+F for the l-torsion point ﬁeld of EF , then K is a ﬁnite Galois
+extension of F . Write XK
+def
+= XF × F K, then XK admits a K-core.
+(e) The ﬁeld extension F/F mod is Galois of degree prime to l. Also, for each v ∈ V(F )bad,
+l is prime to the residue characteristic of v, as well as to the order of the q-parameter
+of EF at v.
+Then there exists a section
+η : Vmod
+∼
+− → V ⊆ V(K)
+of the natural surjection V(K) ։ Vmod, a hyperbolic orbicurve C K of type (1, l-tors)±
+[cf. [ 39], Deﬁnition 3.4, (i)] over K and a cusp ǫ of C K, such that
+(F /F, X F , l, CK, V, Vbad
+mod, ǫ
+)
+is a µ 6-initial Θ-data.
+Proof. The lemma is a consequence of [ 35], Deﬁnition 3.1 and [ 39], Deﬁnition 4.1, where
+the existence of the section η : Vmod
+∼
+− → V follows from the condition that the image of
+ρEF ,l contains the subgroup SL (2, Fl) ⊆ GL(2, Fl).
+10
+
+Deﬁnition 1.7. Suppose that (F /F, X F , l, CK, V, Vbad
+mod, ǫ
+) is a µ 6-initial Θ-data. We shall
+proceed with the notation of Lemma 1.6,
+(i) For each v ∈ Vnon
+mod, we shall write v
+def
+= η(v) ∈ V(K), and write pv for the residue
+characteristic of v, ev for the ramiﬁcation index of Kv over Qp, dv ∈ 1
+ev
+Z for the diﬀerent
+index [cf. §0] of Kv.
+When v ∈ Vbad
+mod, write qv for the q-parameter of the Tate curve EKv
+def
+= EF × F Kv, then
+by the fact that 2l-torsion points of EF are deﬁned over K and Proposition 2.1 (iv), we
+have
+2l |v(qv) = ev ·vpv(qv). (1.2)
+When v / ∈ Vbad
+mod, write qv
+def
+= 1, then vpv(qv) = 0 . Hence (
+1.2) is valid for every v ∈ Vnon
+mod.
+We shall also write
+av
+def
+= 1
+ev
+·
+⌈ ev + 1
+pv − 1
+⌉
+, b v
+def
+= sup
+n≥ 0
+{
+n − pn
+v
+ev
+}
+.
+Then we have av = − bv = 1
+ev
+when ev ≤ pv − 2.
+(ii) For each vp ∈ Vnon
+Q , we shall put
+log(qvp)
+def
+= 1
+[Fmod : Q]
+∑
+v∈ (Vmod)vp
+deg(v(qv) ·v) ∈ R .
+We shall also write
+q
+def
+=
+∑
+v∈ Vnon
+mod
+v(qv) ·v ∈ ADivR(Vmod), log(q)
+def
+= deg
+Fmod(q) ∈ R .
+Then
+log(q) = 1
+[Fmod : Q]
+∑
+v∈ Vnon
+mod
+deg(v(qv) ·v) =
+∑
+vp∈ Vnon
+Q
+log(qvp). (1.3)
+Deﬁnition 1.8. We shall proceed with the above notation. Suppose that j ∈ { 1, 2, . . . , l ⋇ =
+l− 1
+2 }, vQ ∈ VQ.
+(i) Let v0, v1, . . . , v j ∈ (Vmod)vQ be j +1 valuations. For 0 ≤ i ≤ j, write vi
+def
+= η(vj) ∈ V
+and ki
+def
+= Kvi. We shall use −| log(Θ)|(v0,v 1,...,v j ) to denote the log-volume of the following:
+• For vQ ∈ Vnon
+Q , the holomorphic hull described in Lemma
+1.4, where by ( 1.2) we can
+write − →λ
+def
+= j2
+2l ·vj(qvj ) ∈ 1
+evj
+Z֒⊕ j
+i=0
+1
+evi
+Z .
+• For vQ ∈ Varc
+Q , the holomorphic hull described in Lemma
+1.5. In this case, since√ − 1 ∈ F ⊆ K, all the ki are complex archimedean local ﬁelds, which satiﬁes the
+premise of Lemma 1.5.
+(ii) The weighted average log-volume −| log(Θ)|vQ,j is deﬁned by the formula
+−| log(Θ)|vQ,j
+def
+=
+∑
+v0,...,v j∈ (Vmod)vQ
+( ∏
+0≤ i≤ j
+[(Fmod)vi : QvQ]
+)
+·
+(
+− | log(Θ)|(v0,v 1,...,v j )
+)
+∑
+v0,...,v j∈ (Vmod)vQ
+( ∏
+0≤ i≤ j
+[(Fmod)vi : QvQ]
+) , (1.4)
+11
+
+and the procession-normalized log-volume −| log(Θ)|vQ is deﬁned by the formula
+−| log(Θ)|vQ
+def
+= 1
+l⋇
+∑
+1≤ j≤ l⋇
+(−| log(Θ)|vQ,j ). (1.5)
+(iii) The log-volume of µ 6-initial Θ-data −| log(Θ)| is deﬁned by the formula
+−| log(Θ)|
+def
+= −
+∑
+vQ∈ VQ
+|log(Θ)|vQ. (1.6)
+Proposition 1.9. Proceeding with the above notation, we have
+− 1
+2l ·log(q) ≤ −| log(Θ)|. (1.7)
+Proof. The proposition follows from the µ 6-version of [ 37], Corollary 3.12.
+From now on, we shall focus on the special case of Fmod = Q, which is enough for the
+present paper. Then the j-invarient j(EF ) of EF is a rational number. For each vp ∈ Vnon
+Q ,
+write ep
+def
+= evp, a p
+def
+= avp, b p
+def
+= bvp, d p
+def
+= dvp, q p
+def
+= qvp. Then log(qvp) = vp(qp) ·log(p) for any
+prime number p, and by (
+1.3) we have
+log(q) =
+∑
+p
+vp(qp) ·log(p). (1.8)
+Proposition 1.10. Proceeding with the above notation, we have
+1
+6 log(q) ≤ l2 + 5l
+l2 + l − 12 ·
+(
+log(π ) +
+∑
+p≥ 2
+dp ·log(p) +
+∑
+ep≥ p− 1
+( 1
+p − 1 + 1 − p − 1
+ep
+) ·log(p)
++
+∑
+ep>p(p− 1)
+log( ep
+p − 1 )
+)
+.
+(1.9)
+Proof. By ( 1.6) and ( 1.7), we have
+− 1
+2l ·log(q) ≤ −| log(Θ)|= (−| log(Θ)|vR) +
+∑
+vp∈ Vnon
+Q
+(−| log(Θ
+)|vp ), (1.10)
+where vR is the unique real archimedean valuation on Q.
+We shall estimate −| log(Θ)|vp at ﬁrst. Let vp ∈ Vnon
+Q and 1 ≤ j ≤ l⋇. Since Fmod = Q,
+we have (Vmod)vp = {vp}. Then by (
+1.1) and ( 1.4), we have
+−| log(Θ)|vp,j = − | log(Θ)|(vp, . . . , v p  
+j+1
+) ≤
+(
+max{⌈− j2
+2l ·vp(qp) + j ·dp + (j + 1) ·ap⌉,
+− j2
+2l ·vp(qp) + vp(2p) ·(j + 1)
+}
++ (j + 1)bp
+)
+·log(p).
+(1.11)
+By (1.2) we have 2l |ep ·vp(qp), hence − j2
+2l ·vp(qp) ∈ 1
+ep
+Z and − j2
+2l ·vp(qp) + j ·dp + (j +
+1) ·ap ∈ 1
+ep
+Z. Then since dp ≥ 1 − 1
+ep
+[cf. Lemma 1.2], we have
+⌈− j2
+2l ·vp(qp) + j ·dp + (j + 1) ·ap⌉ ≤ − j2
+2l ·vp(qp) + (j + 1)(dp + ap). (1.12)
+12
+
+Meanwhile, since dp ≥ 1 − 1
+ep
+and ap = 1
+ep
+·
+⌈
+ep+1
+p− 1
+⌉
+≥ vp(2) + 1
+ep
+, we have dp + ap ≥ vp(2p),
+hence
+− j2
+2l ·vp(qp) + vp(2p) ·(j + 1) ≤ − j2
+2l ·vp(qp) + (j + 1)(dp + ap). (1.13)
+By ( 1.11), ( 1.12) and ( 1.13), we have
+−| log(Θ)|vp,j ≤
+(
+− j2
+2l ·vp(qp) + (j + 1)(dp + ap + bp)
+)
+·log(p).
+Then by averaging the cases 1 ≤ j ≤ l⋇ and by ( 1.5), we have
+−| log(Θ)|vp ≤
+(
+− l + 1
+24 ·vp(qp) + l + 5
+4 ·(dp + ap + bp)
+)
+·log(p). (1.14)
+Similarly, by combining Lemma 1.5 (iii) with Deﬁnition 1.8 (i), (ii), we can get
+−| log(Θ)|vR ≤ l + 5
+4 ·log(π).
+Then by ( 1.10) and ( 1.14), we have
+− 1
+2l ·log(q) ≤ −| log(Θ)|=
+∑
+vp∈ Vnon
+Q
+(−| log(Θ
+)|vp) + (−| log(Θ)|vR)
+≤ − l + 1
+24 ·
+∑
+p
+vp(qp) ·log(p) + l + 5
+4 ·
+(
+log(π ) +
+∑
+p
+(dp + ap + bp) ·log(p)
+)
+.
+Hence by ( 1.8) we have
+1
+6 log(q) ≤ l2 + 5l
+l2 + l − 12 ·
+(
+log(π) +
+∑
+p≥ 2
+(dp + ap + bp) ·log(p)
+)
+. (1.15)
+To prove ( 1.9), we are left to estimate ap + bp. Recall that
+ap = 1
+ep
+·
+⌈ ep + 1
+p − 1
+⌉
+≤ 1
+p − 1 + 1
+ep
+, b p = sup
+n≥ 0
+{
+n − pn
+ep
+}
+.
+Since n − pn
+ep
+≥ (n + 1) − pn+1
+ep
+⇔ pn ≥ ep
+p− 1 ⇔ n ≥ logp( ep
+p− 1), when n0
+def
+=⌈logp( ep
+p− 1)⌉ ≥ 1,
+we have
+bp = n0 − pn0
+ep
+≤ logp( ep
+p − 1 ) + 1 − p
+ep
+≤
+log( ep
+p− 1)
+log(p) + 1 − p
+ep
+.
+When ep ≤ p− 2, we have ap = − bp = 1
+ep
+, hence ap +bp = 0; when p− 1 ≤ ep ≤ p(p− 1),
+we have bp = 1 − p
+ep
+, hence ap + bp ≤ 1
+p− 1 + 1 − p− 1
+ep
+; when ep > p (p − 1), we have
+ap + bp ≤ 1
+p− 1 + 1 − p− 1
+ep
++ log(ep/ (p− 1))
+log(p) . Hence by ( 1.15) we have
+1
+6 log(q) ≤ l2 + 5l
+l2 + l − 12 ·
+(
+log(π ) +
+∑
+p≥ 2
+dp ·log(p) +
+∑
+ep≥ p− 1
+( 1
+p − 1 + 1 − p − 1
+ep
+) ·log(p)
++
+∑
+ep>p(p− 1)
+log( ep
+p − 1 )
+)
+.
+13
+
+1.3 Ramiﬁcation datasets
+We shall introduce the concept of ramiﬁcation dataset. Rami ﬁcation dataset encodes the
+ramiﬁcation information of an initial Θ-data, which is useful for explicit computation.
+Deﬁnition 1.11. A ramiﬁcation dataset R consists of the following data:
+• A prime number l0 ≥ 5 called base prime, an positive integer e0 called base index.
+• A non-empty ﬁnite set Smulti
+gen of positive integers called the set of general multiplica-
+tive indices, such that every element in Smulti
+gen equals e or e ·l, where 1 ≤ e ≤ e0 and
+l ∤e.
+• A ﬁnite set of prime numbers S0 called the set of special primes.
+• For each p in S0, a ﬁnite set Sgood
+p of positive integers called the set of good indices
+at p, and a ﬁnite set Smulti
+p of positive integers called the set of multiplicative indic es
+at p.
+Deﬁnition 1.12. Let D = ( F /F, X F , l, CK, V, Vbad
+mod, ǫ
+) be a µ 6-initial Θ-data such that
+Fmod = Q, with ramiﬁcation indices ep deﬁned as in the notation of Proposition 1.10. Let
+η(vp) be the valuation in V lying over vp, cf. Lemma 1.6.
+(i) Write N for the denominator of the j-invarient j(EF ) ∈ Fmod = Q of the elliptic
+curve EF associated to XF . Then we shall say D is of type (l, N, N ′) if we have
+log(N ′) = log( q) for some positive integer N ′.
+(ii) We shall say D admits a ramiﬁcation dataset R if in the notation of Deﬁnition
+1.11, the following conditions hold:
+• l0 = l, i.e. l is the base prime of R.
+• For each p / ∈ S0, if EK has good reduction at η(vp) [i.e. p ∤N], then ep = 1 ; if EK
+has multiplicative reduction at η(vp) [i.e. p |N], then ep ∈ Smulti
+gen .
+• For each p ∈ S0, if EK has good reduction at η(vp) [i.e. p ∤N], then ep ∈ Sgood
+p ; if
+EK has multiplicative reduction at η(vp) [i.e. p |N], then ep ∈ Smulti
+p .
+Corollary 1.13. Let R be a ramiﬁcation dataset with base prime l ≥ 5 and base index e0.
+Then there exists an algorithm [whose construction is prese nted in the proof ] to compute
+a real number Vol(R) ≥ 0 that depends only on R, such that for any µ 6-initial Θ-data D
+which admits R and is of type (l, N, N ′), proceeding with the notation of Proposition 1.10,
+we have
+1
+6 log(N ′) ≤ l2 + 5l
+l2 + l − 12 ·
+(
+(1 − 1
+e0l ) ·log rad(N ) − 1
+e0
+(1 − 1
+l ) log rad(Nl)
+)
++ Vol(R), (1.16)
+where Nl
+def
+= ∏
+p:l|vp(N ) pvp(N ).
+Proof. We continue to use the notation of Proposition 1.10 and Deﬁnition 1.11. We shall
+provide an algorithm for computing the value of Vol (R):
+Step 0: Let p ≤ e0l + 1 be a prime number. When p / ∈ S0, take e = 1 , δ = 0 or
+e ∈ Smulti
+gen , δ = 1 ; when p ∈ S0, take e ∈ Sgood
+p , δ = 0 or take e ∈ Smulti
+p , δ = 1 . Then we
+get ﬁnitely many triples (p, e, δ).
+Step 1 : For each triple (p, e, δ) in step 0, we shall deﬁne several functions. Write
+ap(e)
+def
+= 1
+e ·
+⌈
+e+1
+p− 1
+⌉
+, bp(e)
+def
+= supn≥ 0
+{
+n − pn
+e
+}
+. When p ∤ e, write dp(e)
+def
+= 1 − 1
+e ; when p | e,
+14
+
+write dp(e)
+def
+= 1 + vp(e). When δ = 0 , take u = 0 ; when δ = 1 , let u be any integer such
+that 0 ≤ u ≤ 2l − 1 and 2l |e ·u. When l |e, write l0(e) = l; when l ∤e, write l0(e) = 1 .
+Then for e ∈ Smulti
+gen , we have e ≤ e0 ·l0(e). For each integer 1 ≤ j ≤ l⋇, deﬁne
+B0(p, e, δ, u, j )
+def
+= max{⌈− j2
+2l ·u + j ·dp(e) + (j + 1) ·ap(e)⌉ + j2
+2l ·u, v p(2p) ·(j + 1)}
++ (j + 1) ·bp(e),
+B1(p, e, δ, u )
+def
+= 1
+l⋇ ·
+( l⋇
+∑
+j=1
+B0(p, e, δ, u, j )
+)
+· 4
+l + 5 − (1 − 1
+e0 ·l0(e) ) ·δ,
+B2(p)
+def
+= max
+(e,δ,u )
+{B1(p, e, δ, u )}.
+Step 2 : Finally, deﬁne Vol (R) by the equation
+Vol(R)
+def
+= max{0, l2 + 5l
+l2 + l − 12 ·
+(
+log(π) +
+∑
+p≤ e0l+1 or p∈ S
+B2(p) ·log(p)
+)
+}. (1.17)
+We claim that ( 1.16) is valid for the Vol (R) deﬁned in this way. To show this, for each
+prime number p, we shall write δp = 0 if p ∤ N, and write δp = 1 if p | N. Recall that
+since l ∤ [F : Q], we can see that l | ep if and only if EK has multiplicative reduction at
+η(v) and l ∤vp(N), which is equivalent to ( 1
+l0(e) − 1
+l ) ·δp = (1 − 1
+l )δp ̸= 0. Hence
+log rad(N) =
+∑
+p
+δp log(p), (1 − 1
+l ) log rad(Nl) =
+∑
+p
+( 1
+l0(e) − 1
+l ) ·δp log(p). (1.18)
+Write up for the remainder of vp(qp) modulo p. Then we have ap = ap(ep), bp = bp(ep),
+dp ≤ dp(ep); δp = 0 (resp. δp = 1 ) if and only if Ek has good (resp. multiplicative)
+reduction at η(vp); up = 0 when δp = 0 , and 2l |ep ·up when δp = 1 . Hence (p, ep, δp, up)
+is in the domain of the function B1(p, e, δ, u).
+Similar to the proof of Proposition 1.10, by ( 1.1) and ( 1.4), for 1 ≤ j ≤ l⋇, we have
+−| log(Θ)|vp,j + j2
+2l ·vp(qp) ≤ B0(p, ep, δp, up, j) ·log(p).
+Then by averaging the cases 1 ≤ j ≤ l⋇, we have
+−| log(Θ)|vp + l + 1
+24 ·vp(qp) ≤ l + 5
+4 ·
+(
+B1(p, e p, δ p, u p) + (1 − 1
+e0l0(e) )δp
+)
+·log(p)
+≤ l + 5
+4 ·
+(
+B2(p) + (1 − 1
+e0l )δp − 1
+e0
+( 1
+l0(e) − 1
+l )δp
+)
+·log(p).
+Hence by summing over p and vR, and by ( 1.18) [cf. the proof of Proposition 1.10], we
+can get
+1
+6 log(q) ≤ l2 + 5l
+l2 + l − 12 ·
+(
+(1 − 1
+e0l ) ·log rad(N ) − 1
+e0
+(1 − 1
+l ) log rad(Nl)
++ log(π ) +
+∑
+p
+B2(p) ·log(p)
+)
+.
+(1.19)
+By (1.19) and the deﬁnition of Vol (R), to prove (1.16), it suﬃces to show that B(p) = 0
+when p /∈ S0 and p ≥ e0l + 2 ≥ 3. For such p, consider all the possible B1(p, e, δ, u).
+Recall that since p /∈ S, we have e = 1, δ = 0 or e ∈ Smulti
+gen , δ = 1.
+15
+
+When e = 1 , δ = 0 , sicne p ≥ 3, we have ap(e) = 1 , bp(e) = − 1, dp(e) = 0 , u =
+0, vp(2p) = 1 . Hence B0(p, e, δ, u, j) = 0 and B1(p, e, δ, u) = 0 .
+When e ∈ Smulti
+gen , δ = 1, since p ≥ e0l+2 ≥ e+2, we have ap(e) = 1
+e , bp(e) = − 1
+e , dp(e) =
+1 − 1
+e , vp(2p) = 1 . Then similar to the proof of ( 1.14), we can show that
+B0(p, e, δ, u, j) ≤ l + 5
+4 ·(1 − 1
+e ), B 1(p, e, δ, u) ≤ (1 − 1
+e ) − (1 − 1
+e0l0(e) ) ≤ 0.
+Hence when p /∈ S and p ≥ e0l + 2, we have
+B2(p) = max
+(e,δ,u )
+{B1(p, e, δ, u)} = 0.
+This proves the corollary.
+Remark 1.13.1. (i) Let R be the the ramiﬁcation dataset in 1.13, and let p be a prime
+number. By taking n = 0 , we have bp(e) ≥ n − pn
+e = − 1
+e , hence in the deﬁnition of
+B0(p, e, δ, u, j), we have B0(p, e, δ, u, j) ≥ (j + 1)( vp(2p) + bp(e)) ≥ 0. Then we have
+B1(p, e, δ, u) ≥ ( 1
+e0l − 1)δ and B2(p) ≥ max
+(e,δ,u )
+{( 1
+e0l − 1)δ} ≥ − 1.
+Suppose that p /∈ S0, or Sgood
+p is not empty, then there exists a tuple (p, e, δ, u) in the
+domain of B1(p, e, δ, u) with δ = 0. Hence we have B2(p) ≥ max
+(e,δ,u )
+{( 1
+e0l − 1)δ} = 0.
+(ii) Suppose that S0 is empty, or Sgood
+p is not empty for each p ∈ S0. Then for each
+prime number p,we have B2(p) ≥ 0. Hence by ( 1.17) we have Vol (R) ≥ max{0, l2+5l
+l2+l− 12 ·
+log(π)} > log(π).
+Remark 1.13.2. (i) For each p /∈ S0, write e0(p) = e0l. For each p ∈ S0, put
+e0(p)
+def
+= max
+e∈ Sgood
+p ∪ Smultip
+{e}, d 0(p) = max
+e∈ Sgood
+p ∪ Smultip
+(1 + vp(e)).
+In addition, recall that for a proposition P , the Iverson Bracket is deﬁned by [P ]IB = 1 if
+P is true, and [P ]IB = 0 if P is false.
+Then by a similar approach to the proof of Proposition 1.10, we can show that
+B2(p) ·log(p) ≤ [e0(p) ≥ p − 1]IB ·( 1
+p − 1 + 1 − p − 1
+e0(p) ) ·log(p)
++ [p ∈ S0]IB ·d0(p) ·log(p) + [e0(p) > p(p − 1)]IB ·log( e0(p)
+p − 1 ).
+(1.20)
+(ii) By a similar approach to the proof of Proposition 1.10, we can also show that
+l2 + l − 12
+l2 + 5l ·Vol(R) ≤ log(π )+
+∑
+e0(p)≥ p− 1
+( 1
+p − 1 + 1 − p − 1
+e0(p) ) ·log(p)
++
+∑
+p∈ S0
+d0(p) ·log(p) +
+∑
+e0(p)>p(p− 1)
+log( e0(p)
+p − 1 ).
+(1.21)
+Remark 1.13.3. It is worth noting that the value of Vol (R) can be computed explicitly
+by the algorithm in the proof of Corollary 1.13. It is also worth noting that in the proof
+of each inequality in this section, the condition that 3-tor sion points of EF are deﬁned
+over F is not used.
+16
+
+2 Construction of initial Θ-Data
+In this section, we will prove a local version of eﬀective abc -type inequalities associated
+to the triples (a, b, c), where a, b, c are non-zero coprime integers such that
+a + b = c.
+2.1 The general construction
+We shall provide a procedure for constructing µ 6-initial Θ-data from an elliptic curve
+deﬁned over Q. Some results in the arithmetic of elliptic curves are neede d for the con-
+struction.
+Proposition 2.1. Let K be a number ﬁeld, E be an elliptic curve deﬁned over K, j(E) ∈
+K be the j-invariant of E. Let w ∈ V(L) be a nonarchimedean valuation of L lying over
+some v ∈ V(K)non, with residue characteristic p. Then:
+(i) For any integer n ≥ 2, the n-torsion point ﬁeld K(E[n]) is Galois over K; we
+have µ n ⊆ K(E[n]), where µ n denotes the group of n-th roots of 1 in
+Q; if m, n ≥ 2 are
+coprime integers, then K(E[mn]) = K(E[m], E[n]), K(E[m]) ∩ K(E[n]) = K.
+(ii) Suppose that l ≥ 3 is a prime number, l ̸= p, and all the l-torsion points of E are
+deﬁned over Kv [i.e. Kv = Kv(E[l])]. Then E has semi-stable reduction at v.
+(iii) Suppose that E has good reduction at v. If l ̸= p, then the ﬁeld extension Lw/K v
+is unramiﬁed; if l = p and v is not ramiﬁed over Q, then the ramiﬁcation index of the
+ﬁeld extension Lw/K v belongs to the set {l − 1, l(l − 1), l2 − 1}.
+(iv) Suppose that E has bad multiplicative reduction at v, n ≥ 2 is an integer. Write qK
+for the q-parameter of EKv
+def
+= E × K Kv, ev for the ramiﬁcation index of the ﬁeld extension
+K(E[n])/K at v. Then we have v(qK) = − v(j(E)), and there exists an unramiﬁed ﬁeld
+extension L/K v of degree 1 or 2, such that L(E[n]) = L(µ n, q1/n
+K ). Hence if p ∤n, then the
+ﬁeld extension Kv(E[n])/K v is tamely ramiﬁed, and ev = n/ gcd(v(qK), n); if vp(n) = 1
+and the ﬁeld extension Kv/ Qp is unramiﬁed, then ev = (p − 1) ·n/ gcd(v(qK), n).
+(v) The ﬁeld of moduli [cf., e.g., [ 34], Deﬁnition 5.1, (ii)] of E is the ﬁeld generated
+over Q by the j-invariant j(E) of E. If there exists a prime number l ≥ 3, such that all
+the l-torsion points of E are deﬁned over K, then any model of EK
+def
+= E × K K over K is
+isomorphic to E, hence any model of EK over its ﬁeld of moduli is also a model of E.
+Proof. For assertion (i), cf. [ 1], Proposition 5.2.1 and Proposition 5.2.2. For assertion
+(ii), cf. [ 38], Proposition 1.8 (v). For assertion (iii), cf. [ 11], §7.4 Theorem 5 and the
+introduction of [ 43]. Assertion (iv) follows from the theory of Tate curves, cf. [47], §5 for
+a reference. Assertion (v) follows from [ 38], Proposition 1.8 (ii), (iv).
+Proposition 2.2. Let E be an elliptic curve deﬁned over a number ﬁeld K, X be the
+punctured elliptic curve [deﬁned over K] associated to E. Suppose that
+j(E) /∈ { 0, 26 ·33, 22 ·733 ·3− 4, 214 ·313 ·5− 3},
+then X admits a K-core [cf. [ 32], remark 2.1.1].
+Proof. The proposition follows immediately from [ 44], Table 4 [cf. also [ 44], Lemma
+1.1.1; [ 32], Proposition 2.7].
+17
+
+Proposition 2.3. Let E be an elliptic curve deﬁned over Q with j-invariant j(E) ∈ Q, l
+be a prime number. Suppose that (a) l ≥ 23 and l ̸= 37, 43, 67, 163; or (b) E is semi-stable
+and l ≥ 11; or (c) l ≥ 11, l ̸= 13 and the denominator of j(E) is not a power of 2. Then
+E doesn ’t admit a Q-rational isogeny of degree l.
+Proof. The proposition follows immediately from [ 30], Theorem 1, Theorem 4 and Corol-
+lary 4.4.
+Corollary 2.4. Let E be an elliptic curve deﬁned over Q, l be a prime number. Let p
+be a prime number, such that vp(j(E)) < 0 and l ∤ vp(j(E)). Suppose that (a) l ≥ 23
+and l ̸= 37 , 43, 67, 163; or (b) E is semi-stable and l ≥ 11; or (c) l ≥ 11, l ̸= 13 and
+the denominator of j(E) is not a power of 2. Then the the mod- l Galois representation
+ρ = ρE,l : GQ → GL(2, Fl) associated to E is a surjection.
+Proof. Write H for the image ρ(GQ) ⊆ GL(2, Fl). By taking into account that the deter-
+minant of the image of ρ is F×
+l , we only need to prove that SL (2, Fl) ⊆ H.
+Since vp(j(E)) < 0, E has potentially bad multiplicative reduction at p. Hence there
+exists a p-adic local ﬁeld k, such that [k : Qp] |2, and Ek
+def
+= E × Q k has bad multiplicative
+reduction. Since l ∤vp(j(E)), it follows from the discussion of the local theory precedin g
+[
+33], Lemma 3.2 that the image H contains [up to conjugacy] the element α =
+( 1 1
+0 1
+)
+∈
+GL(2, Fl).
+Since (a) or (b) or (c) is true, by Lemma
+2.3, E doesn’t admit a Q-rational isogeny
+of degree l. Hence H is not contained in the Borel subgroup
+( ∗ ∗
+0 ∗
+)
+⊆ GL(2, Fl), so H
+contains at least one matrix that is not upper triangular. Th en by [
+33], Lemma 3.1 (iii),
+we have SL (2, Fl) ⊆ H.
+Now we shall start the construction of µ 6-initial Θ-data.
+Proposition 2.5. Let E be an elliptic curve deﬁned over Q with j-invarient j(E) ∈ Q;
+N be the denominator of j(E); F be a number ﬁeld which is Galois over Q; l ≥ 5 be
+a prime number such that l ∤ [F : Q]; XF be the punctured elliptic curve associated to
+EF
+def
+= E × Q F . Suppose that:
+(a) √ − 1 ∈ F , F (E[6]) = F , EF is semi-stable, and F ⊆ Q(E[n]) for some positive
+integer l ∤n.
+(b) j(E) /∈ { 0, 26 ·33, 22 ·733 ·3− 4, 214 ·313 ·5− 3}.
+(c) We have l ≥ 23 and l ̸= 37 , 43, 67, 163; or E is semi-stable and l ≥ 11; or l ≥ 11,
+l ̸= 13 and N is not a power of 2.
+(d) We have N ′
+l ̸= 1, where N ′
+l
+def
+= ∏
+p:p̸=l,l ∤vp(N ) pvp(N ).
+Then there exists a µ 6-initial Θ-data
+D(E, F, l, µ 6) = ( F /F, X F , l, CK, V, Vbad
+mod, ǫ
+),
+which is of type (l, N, N ′
+l ) [cf. the notation in Deﬁnition 1.12, (i)].
+Proof. The proof will be shown by making use of Lemma 1.6.
+(1) Write Fmod
+def
+= Q, then F is Galois over Fmod, l ∤ [F : Fmod]. By (a), we have√ − 1 ∈ F , 6-torsion points of EF are rational over F , and EF is semi-stable. Let F be an
+algebraic closure of F , write GF
+def
+= Gal(F /F ) for the absolute Galois group of F .
+18
+
+(2) Let X be the punctured elliptic curve deﬁned over Q associated to E, then XF =
+X × Q F . Hence the ﬁeld of moduli of XF is Q = Fmod. By (a), the elliptic curve EF is
+semi-stable. Write
+Vmod
+def
+= V(Fmod) = VQ, Vbad
+mod
+def
+={vp ∈ Vnon
+Q : p ̸= l, l ∤vp(N)}.
+Then since N ′
+l ̸= 1 by (d), Vbad
+mod is a nonempty set of nonarchimedean valuations of Fmod.
+(3) For each v ∈ V(F ) lying over some vp ∈ Vbad
+mod, we have p ̸= l and l ∤vp(N) = vp(qp),
+where qp is the q-parameter of E at vp. Write e′ for the ramiﬁcation idex of Fv over Qp.
+Since l ∤ [F : Q], e′ | [F : Q], we have l ∤ e′. Then since l ∤ vp(N) = vp(qp), we have
+l ∤ e′ ·vp(qp) = v(qp). Hence for each v ∈ V(F )bad def
+= Vbad
+mod × Vmod V(F ), l is prime to the
+residue characteristics of v, as well as to the order of the q-parameter of EF at v.
+(4) By Corollary
+2.4 and (c), the mod- l Galois representation ρE,l : GQ → GL(2, Fl)
+associated to E is a surjection. Note that since F ⊆ Q(E[n]) and l ∤ n by (a), we have
+F ∩ Q(E[l]) = Q by Lemma 2.1, (i). Hence the image of the mod- l Galois representation
+ρEF ,l [associated to EF ] equals the image of ρE,l [which equals GL (2, Fl)], thus ρEF ,l is a
+surjection.
+(5) Write K
+def
+= F (EF [l]) ⊆ F for the l-torsion point ﬁeld of EF . Then since F and
+Q(E[l]) are Galois over Fmod = Q, the ﬁeld K = F ·Q(E[l]) is a ﬁnite Galois extension
+of Fmod. Write XK
+def
+= XF × F K, then by Proposition 2.2 and (b), XK admits a K-core.
+Now by the above facts (1)–(5), the existence of the µ 6-initial Θ-data D(E, F, l, µ 6)
+follows from Lemma 1.6, and log(q) = log( N ′
+l ) follows easily from Deﬁnition 1.7.
+2.2 The consturction for Frey-Hellegouarch curves
+Let (a, b, c) be a triple of non-zero coprime integers such that a + b = c. The Frey-
+Hellegouarch curve associated to (a, b, c) is the elliptic curve deﬁned over Q by the equation
+y2 = x(x − a)(x + b).
+This curve is popularized in its application to Fermat’s Las t Theorem, where one investi-
+gates a (hypothetical) solution to the Fermat equation xl + yl = zl.
+Lemma 2.6. Let (a, b, c) be a triple of non-zero coprime integers such that a + b = c;
+E be the Frey-Hellegouarch curve associated to (a, b, c), which is deﬁned over Q by the
+equation y2 = x(x − a)(x + b). Let l ≥ 5 be a prime number.
+(i) By Tate’s algorithm, we have
+c4(E) = 16( a2 + ab + b2), ∆(E) = 16 a2b2c2, j (E) = 256(a2 + ab + b2)3
+a2b2c2 ∈ Q .
+For each prime number p ̸= 2, the Frey-Hellegouarch curve E has good reduction at vp
+when p ∤abc, and has multiplicative reduction at vp when p |abc. Moreover, if 4 |(a + 1)
+and 16 |b, then E is semi-stable.
+(ii) Write F
+def
+= Q(√ − 1, E[3]), then F is Galois over Q, F = F (E[6]), EF is semi-
+stable, and F ⊆ Q(E[12]). Write
+N
+def
+= |abc|
+gcd(16, abc), N ′
+l
+def
+=
+∏
+p:p̸=l,l ∤vp(N )
+pvp(N ).
+19
+
+Then N 2 is the denominator of j(E), v2(N) = max {v2(abc) − 4, 0}, and we have vp(N) =
+vp(abc) for each prime number p ≥ 3. Write XF for the punctured elliptic curve associated
+to EF
+def
+= E × F F .
+(iii) Suppose that N ′
+l ̸= 1 and (|a|, |b|, |c|) is not a permutation of (1, 1, 2), (1, 8, 9).
+Also, suppose that (a) l ≥ 11 and l ̸= 13; or (b) l ≥ 11, 4 |(a + 1) and 16 |b.
+Then by Proposition 2.5, there exists a µ 6-initial Θ-data
+D(E, F, l, µ 6) = ( F /F, X F , l, CK, V, Vbad
+mod, ǫ
+),
+which is of type (l, N 2, (N ′
+l )2).
+(iv) In the situation of (iii), proceeding with the notation in §1. For each vp ∈ Vnon
+mod,
+write ep for the ramiﬁcation index of Kη(v) over Qp, dp for the diﬀerent index of Kη(v).
+Then:
+• When p | abc and p ̸= 2 , E has multiplicative reduction at vp. In this case, if
+p ̸= 3 , l, then ep = 6 l/ gcd(vp(N 2), 6l) = 3 l/ gcd(vp(abc), 3l) divides 3l, p ∤ ep,
+dp = 1 − 1
+ep
+≤ 1 − 1
+3l ; if p ∈ { 3, l}, then ep = 3 l(p − 1)/ gcd(vp(abc), 3l), hence
+e3 ∈ { 2, 6, 2l, 6l}, el ∈ { l − 1, 3(l − 1), l(l − 1), 3l(l − 1)}, d3 ≤ 2, dl ≤ 2.
+• When p | abc and p ̸= 2 , E has good reduction at vp. In this case, if p ̸= 3 , l, then
+ep = 1, dp = 0; if p ∈ { 3, l}, then e3 ∈ { 2, 6, 8}, el ∈ { l − 1, l(l − 1), l2 − 1}, d3 ≤ 2,
+dl ≤ 2.
+• Note that v2(abc) ≥ 1. When v2(abc) ≥ 5, E′ def
+= E × Q Q(√ − 1) has multiplicative re-
+duction at the unique valuation of Q(√ − 1) lying over v2, then e2 = 6l/ gcd(v2(abc)−
+4, 3l), e2 ∈ { 2, 6, 2l, 6l}, d2 ≤ 2; when v2(abc) = 4 , E has good reduction at v2, then
+e2 = 2 , d2 ≤ 2; when 1 ≤ v2(abc) ≤ 3, E has potentially good reduction at v2, we
+have 2 |e2, e2 |48 and d2 ≤ 1 + v2(e2) ≤ 5.
+Proof. For assertion (i), the case p ̸= 2 follows from Tate’s algorithm. When 4 | (a + 1)
+and 16 |b, by the change of variables x ↦→ 4x, y ↦→ 8y + 4x, E can be deﬁned by the new
+equation
+E′ : y2 + xy = x3 + b − a − 1
+4 ·x2 − ab
+16 ·x.
+By Tate’s algorithm, we can show that
+c4(E′) = a2 + ab + b2, ∆(E′) = 2 − 8a2b2c2, j (E′) = (a2 + ab + b2)3
+2− 8a2b2c2 .
+Then since gcd(c4(E′), ∆(E′)) = 1 , E′ is semi-stable, so E is semi-stable.
+Assertion (ii) is a consequence of Proposition 2.1 and Proposition 2.2.
+For assersion (iii), since (|a|, |b|, |c|) is not a permutation of (1, 1, 2), (1, 8, 9), we have
+j(E) /∈ { 0, 26 ·33, 22 ·733 ·3− 4, 214 ·313 ·5− 3}, and N is not a power of 2. Then assersion
+(iii) follows easily from Proposition 2.5.
+Assertion (iv) can be proved via Lemma 1.2, Proposition 2.1 and assertions (i), (ii).
+We shall prove the case of p = 2, 1 ≤ v2(abc) ≤ 3 as an example. In this case, v2(N) = 0 ,
+thus E has potentially good reduction at v2. Since √ − 1 ∈ F ⊆ K, we have 2 | e2. Let
+v′ ∈ V(F ) be the image of v
+def
+= η(v2) via the surjection V(K) ։ V(F ). By Proposition
+2.1, EF has good reduction at v′, thus the extension Kv/F v′ is unramiﬁed. Then since
+Q ⊆ Q(µ 3) ⊆ F = Q(√ − 1, E[3]) and Q(µ 3)/ Q is unramiﬁed at v2, we have e2 | [F :
+Q(µ 3)] |48, and hence d2 ≤ 1 + v2(e2) ≤ 5 by Lemma 1.2.
+20
+
+Proposition 2.7. Let (a, b, c) be a triple of non-zero coprime integers such that a + b = c,
+l ≥ 11 be a prime number. Write N
+def
+= |abc|/ gcd(16, abc). Suppose that (a) l ̸= 13; or (b)
+16 |abc.
+Let Rl be the ramiﬁcation dataset consists of the following data:
+l0 = l, e 0 = 3, S 0 = {2, 3, l}, S multi
+gen = {1, 3, l, 3l}, S good
+2 = {e : e |48, 2 |e},
+Sgood
+3 = {2, 6, 8}, S good
+l = {l − 1, l(l − 1), l2 − 1}, S multi
+2 = {2, 6, 2l, 6l},
+Smulti
+3 = {2, 6, 2l, 6l}, S multi
+l = {l − 1, 3(l − 1), l(l − 1), 3l(l − 1)}.
+Then with Vol(Rl) deﬁned in Corollary 1.13, we have
+log(N ) ≤ (3 + 11l + 31
+l2 + l − 12) ·log rad(N ) + 3 Vol(Rl) +
+∑
+p: p=l or l|vp(N )
+vp(N ) ·log(p). (2.1)
+Proof. Write N ′
+l
+def
+= ∏
+p:p̸=l,l ∤vp(N ) pvp(N ). Then it suﬃces to show that
+1
+3 log(N ′
+l ) ≤ (1 + 11l + 31
+3l2 + 3l − 36 ) ·log rad(N ) + Vol(Rl). (2.2)
+When N ′
+l = 1 or (|a|, |b|, |c|) is a permutation of (1, 1, 2), (1, 8, 9), we have 1
+3 log(N ′
+l ) <
+log(3) < log(π). Then ( 2.2) follows from Vol (Rl) > log(π) > 1
+3 log(N ′
+l ) by Remark 1.13.1.
+Hence we can assume that N ′
+l ̸= 1 and (|a|, |b|, |c|) is not a permutation of (1, 1, 2), (1, 8, 9).
+In the case (b) where 16 |abc, since ( 2.2) is symmetric for (a, b, c), we can assume that
+16 | b. Then if 4 ∤ a, we can replace (a, b, c) by (− a, − b, − c), thus we can assume that
+4 |(a + 1). Hence we can assume that (a) l ̸= 13; or (b) 4 |(a + 1) and 16 |b.
+Then by Lemma 2.6, (iii), there exists a µ 6-initial Θ-data D = D(E, F, l, µ 6), which
+is of type (l, N 2, (N ′
+l )2). Moreover, by Lemma 2.6, (iv) and Deﬁnition 1.12, D admits Rl.
+Then ( 2.2) follows directly from Corollary 1.13.
+Remark 2.7.1. When we have 16 |abc in Proposition 2.7, we can deﬁne the ramiﬁcation
+dataset R′
+l by deﬁnding Sgood
+2 = {2} instead in the deﬁntion of Rl. Then similar to the
+proof of Proposition
+2.7, we have
+log(N ) ≤ (3 + 11l + 31
+l2 + l − 12 ) ·log rad(N ) + 3 Vol(R′
+l) +
+∑
+p: p=l or l|vp(N )
+vp(N ) ·log(p).
+2.3 Eﬀective partial abc inequalities
+We shall call (
+2.1) the partial abc inequality. In this subsection, we will pro ve an eﬀective
+version of ( 2.1) by estimating the term Vol (Rl). The following lemma in analytic number
+theory is needed, where the “sum over p” runs over prime numbers.
+Lemma 2.8. (i) For real number x > 3, put
+f1(x)
+def
+=
+∑
+p≤ x
+log(p)
+p − 1 + (1 + 1
+x ) ·
+∑
+p≤ x
+log(p) − 1
+x
+∑
+p≤ x
+p ·log(p) +
+∑
+p<√ x+1
+log( x
+p − 1 )
+f2(x)
+def
+= x2 + 5x
+x2 + x − 12 ·(f1(3x) + 10
+3 ·log(x) + 9).
+Then for integer n ≥ 2 ·105, we have
+f2(n) < 3
+2 ·n + 0. 06 · n
+log(n) .
+21
+
+(ii) For real number x ≥ 1, write
+Sx
+def
+={p ∈ Primes :
+√
+x/ log(2) < p ≤ 2
+3
+√
+x log(x)},
+f3(x)
+def
+= |Sx|, f 4(x) =
+∑
+p∈ Sx
+p.
+Then for any real number x ≥ e31, we have
+f3(x) ≥ 4
+3 ·
+√ x ·(
+√
+log(x) − 2. 14)
+log(x) + log log(x) , f 4(x) < 4
+9x ·(1 + 4. 33
+log(x) ).
+Proof. Write π(x)
+def
+= ∑
+p≤ x 1 for the prime counting function and write ϑ(x)
+def
+= ∑
+p≤ x log(p)
+for the ﬁrst Chebyshev function.
+First, we consider assertion (i). We shall use the Stieltjes integral.
+By [ 24], Section 4, we have
+|ϑ(x) − x| ≤ ǫ · x
+log(x) for x ≥ A, (2.3)
+where A = 2. 89 ·107, ǫ = 0. 006788. Then by ( 2.3), for x ≥ A we have
+∑
+A<p≤ x
+p ·log(p) =
+∫ x
+A
+t ·d(ϑ(t)) = [ t ·ϑ(t)]
+⏐
+⏐x
+A −
+∫ x
+A
+ϑ(t)dt
+≥ x ·ϑ(x) − A ·ϑ(A) −
+∫ x
+A
+(t + ǫ · log(A)
+2 log(A) − 1 · 2t log(t) − t
+log2(t) )dt
+≥ x ·ϑ(x) − A ·ϑ(A) −
+∫ x
+A
+(t + 0. 515ǫ · 2t log(t) − t
+log2(t) )dt
+≥ (1 − ǫ
+log(x) )x2 − (1 + ǫ
+log(A) )A2 − [ t2
+2 + 0. 515ǫt2
+log(t) ]
+⏐
+⏐x
+A
+≥ ( 1
+2 − 1. 515ǫ
+log(x) )x2 − ( 1
+2 + 0. 485ǫ
+log(A) )A2.
+For x ≥ 10 ·A, the computation in [ 50] shows that
+∑
+p≤ A
+p ·log(p) − ( 1
+2 + 0. 485ǫ
+log(A) )A2 > − 0. 008ǫ ·(10 ·A)2
+log(10 ·A) ≥ − 0. 008ǫx2
+log(x) .
+Hence for x ≥ 10 ·A we have
+∑
+p≤ x
+p ·log(p) =
+∑
+A<p≤ x
+p ·log(p) +
+∑
+p≤ A
+p ·log(p)
+≥ ( 1
+2 − 1. 523ǫ
+log(x) )x2 − 0. 008ǫx2
+log(x) = ( 1
+2 − 1. 523ǫ
+log(x) )x2.
+(2.4)
+By [ 42], Equation (3.24), we have
+∑
+p≤ x
+log(p)
+p < log(x) for x > 1.
+22
+
+Thus by the computation in [ 50], we have
+∑
+p≤ x
+log(p)
+p − 1 =
+∑
+p≤ x
+log(p)
+p +
+∑
+p≤ x
+log(p)
+p(p − 1) < log(x) +
+∑
+p≤ A
+log(p)
+p(p − 1) +
+∑
+n>A
+log(n)
+n(n − 1)
+< log(x) +
+∑
+p≤ A
+log(p)
+p(p − 1) + 1√
+A
+< log(x) + 0. 8.
+(2.5)
+By [ 42], Equation (3.14), (3.29), for x ≥ 10 ·A > exp(19. 48), we have ϑ(√ x) >√ x ·(1 − 1
+log(x)) > 0. 94√ x, and ∑
+p≤ √ x+1 log( p
+p− 1) ≤ log(eγ log(√ x + 1)(1 + 1
+2 log(√ x+1) )) <
+log log(√ x + 1) + 0. 63 < log log(x), where γ = 0. 57721 . . . is Euler’s constant. Hence for
+x ≥ 10 ·A, we have
+∑
+p<√ x+1
+log( 1
+p − 1 ) ≤
+∑
+p≤ √ x+1
+log( p
+p − 1 ) − ϑ(√ x) < log log(x) − 0. 94√ x. (2.6)
+By [ 25], Corollary 5.2, for x > 1 we have
+x
+log(x) ≤
+x≥ 17
+π (x) ≤
+x>1
+x
+log(x) (1 + 1
+log(x) + 2. 53816
+log2(x) ) ≤
+x≥ e31
+x
+log(x) (1 + 1. 082
+log(x) ). (2.7)
+Then for x ≥ 10 ·A > exp(19. 48), we have ∑
+p<√ x+1 log(x) ≤ (π(√ x) + 1) ·log(x) ≤
+2√ x(1 + 1
+log(√ x) + 2. 53816
+log2(√ x)) + log( x) < 2. 26√ x. Hence by ( 2.6), ∑
+p<√ x+1 log( x
+p− 1) =∑
+p<√ x+1 log(x)+∑
+p<√ x+1 log( 1
+p− 1) < 2. 26√ x+log log(x)− 0. 94√ x = 1. 32√ x+log log(x).
+Then by ( 2.3), ( 2.4) and ( 2.5), for x ≥ 10 ·A we have
+f1(x) =
+∑
+p≤ x
+log(p)
+p − 1 + (1 + 1
+x )ϑ(x) − 1
+x
+∑
+p≤ x
+p ·log(p) +
+∑
+p<√
+x+1
+log( x
+p − 1 )
+< log(x) + 0. 8 + (1 + 1
+x ) ·x ·(1 + ǫ
+log(x) ) − 1
+x ·( 1
+2 − 1. 523ǫ
+log(x) ) ·x2 + 1. 32√ x + log log(x)
+< 1
+2 ·x + 0. 01865 · x
+log(x) .
+The computationin [ 50]] shows that f1(n) < 1
+2 ·n + 0. 01865 · n
+log(n) holds for any integer
+2 ·105 ≤ n ≤ 10 ·A. Hence for any integer n ≥ 2 ·105, we have
+f1(n) < 1
+2 ·n + 0. 01865 · n
+log(n) .
+Then for any integer n ≥ 2 ·105, we have
+f2(n) = n2 + 5n
+n2 + n − 12 ·(f1(3n) + 10
+3 ·log(n) + 9)
+< (1 + 5
+n ) ·( 3
+2 ·n + 0. 05595 · n
+log(n) + 10
+3 ·log(n) + 9) < 3
+2 ·n + 0. 06 · n
+log(n) .
+This proves assertion (i).
+23
+
+Next, we consider assertion (ii). For x ≥ e31, we have log(x) ≥ 31. Then by (eq5) we
+have
+f3(x) = π ( 2
+3
+√
+x log(x)) − π (
+√
+x/ log(2))
+≥
+2
+3
+√
+x log(x)
+log( 2
+3
+√
+x log(x))
+−
+√
+x/ log(2)
+log(
+√
+x/ log(2))
+(1 + 1. 082
+log(
+√
+x/ log(2))
+)
+≥
+4
+3
+√
+x log(x)
+log(x) + log log(x) − 2
+√
+x/ log(2)
+log(x) + log log(x) ·(1 + log log(x)
+log(x) ) ·(1 + 1. 082 × 2
+log(x) − log log(2) )
+≥
+4
+3
+√
+x log(x)
+log(x) + log log(x) −
+√ x ·2/
+√
+log(2)
+log(x) + log log(x) ·(1 + log(31)
+31 ) ·(1 + 1. 082 × 2
+31 − log log(2) )
+>
+4
+3
+√ x ·(
+√
+log(x) − 2. 14)
+log(x) + log log(x) .
+To estimate f4(x), we shall write α =
+√
+x/ log(2) and β = 2
+3
+√
+x log(x) for convenience.
+For x ≥ e31, by (eq5) we have
+f4(x) =
+∑
+α<p ≤ β
+p =
+∫ β
+α
+p ·d(π (t)) = β ·π (β ) − α ·π (α ) −
+∫ β
+α
+π (t) ·dt
+< β ·π (β ) − α ·π (α ) − 1
+2
+∫ β
+α
+d( t2
+log(t) )
+= β ·π (β ) − β 2
+2 log(β ) − α ·π (α ) + α 2
+2 log(α )
+< β 2
+2 log(β ) (1 + 2. 164
+log(β ) ) < 4
+9 x ·(1 + 4. 33
+log(x) ).
+This proves assertion (ii).
+Proposition 2.9. Let (a, b, c) be a triple of non-zero coprime integers such that a + b = c,
+l ≥ 11 be a prime number. Write N
+def
+= |abc|/ gcd(16, abc). Suppose that (a) l ̸= 13; or (b)
+16 |abc. Then with f2(l) deﬁned in Lemma 2.8, (i), we have
+log(N ) ≤ (3 + 11l + 31
+l2 + l − 12 ) ·log rad(N ) +
+∑
+p: p=l or l|vp(N )
+vp(N ) ·log(p) + 3f2(l).
+≤
+n≥ 2·105
+(3 + 11l + 31
+l2 + l − 12 ) ·log rad(N ) +
+∑
+p: p=l or l|vp(N )
+vp(N ) ·log(p) + 9
+2 ·n + 0. 18 · n
+log(n) .
+Proof. Proceeding with the notation of Proposition 2.7, we shall estimate the upper bound
+of Vol(Rl) via Remark 1.13.2. Recall that Rl consists of the following data:
+l0 = l, e 0 = 3, S 0 = {2, 3, l}, S multi
+gen = {1, 3, l, 3l}, S good
+2 = {e : e |48, 2 |e},
+Sgood
+3 = {2, 6, 8}, S good
+l = {l − 1, l(l − 1), l2 − 1}, S multi
+2 = {2, 6, 2l, 6l},
+Smulti
+3 = {2, 6, 2l, 6l}, S multi
+l = {l − 1, 3(l − 1), l(l − 1), 3l(l − 1)}.
+Following the notation of Remark 1.13.2, for p ̸= 2, 3, l, we have e0(p) = 3 l; for p ∈ { 2, 3, l},
+we have e0(2) = max {48, 6l} ≤ 6l, d0(2) = 5 , e0(3) = 6 l, d0(3) = 2 , e0(l) = 3 l(l − 1),
+24
+
+d0(l) = 2 . Then by ( 1.21) we have
+l2 + l − 12
+l2 + 5l ·Vol(Rl) ≤ log(π)+
+∑
+p≤ e0(p)+1
+( 1
+p − 1 + 1 − p − 1
+e0(p) ) ·log(p)
++
+∑
+p∈ S0
+d0(p) ·log(p) +
+∑
+e0(p)>p(p− 1)
+log( e0(p)
+p − 1 ).
+(2.8)
+We shall estimate the partial sums in the right hand of ( 2.8).
+For p ∈ { 2, 3, l}, we have 1
+p− 1 + 1 − p− 1
+e0(p) < ( 1
+p− 1 + 1 − p− 1
+3l ) + p− 1
+3l . For p / ∈ { 2, 3, l},
+e0(p) = 3 l. If we have p ≤ e0(p) + 1 = 3 l + 1, then since p is a prime number, we have
+p ≤ 3l − 2. Hence we have
+∑
+p≤ e0(p)+1
+( 1
+p − 1 + 1 − p − 1
+e0(p) ) ·log(p)
+≤
+∑
+p≤ 3l− 2
+( 1
+p − 1 + 1 − p − 1
+3l ) ·log(p) + log(2) + 2 log(3) + (l − 1) log(l)
+3l .
+(2.9)
+Since S0 = {2, 3, l}, we have
+∑
+p∈ S0
+d0(p) ·log(p) = d0(2) ·log(2) + d0(3) ·log(3) + d0(l) ·log(l) = log(2 5 ·32 ·l2). (2.10)
+For p / ∈ { 2, 3, l}, e0(p) = 3 l. If we have p(p − 1) < e 0(p) = 3 l, then p <
+√
+3l + 1 < l .
+Since e0(2) = 6 l, e0(3) = 6 l, e0(l) = 3 l(l − 1), we have
+∑
+e0(p)>p(p− 1)
+log( e0(p)
+p − 1 ) ≤ log( e0(2)
+3l ) + log( 2e0(3)
+3l ) +
+∑
+p<
+√
+3l+1
+log( 3l
+p − 1 ) + log( e0(l)
+l − 1 )
+<
+∑
+p<
+√
+3l+1
+log( 3l
+p − 1 ) + log(24l).
+(2.11)
+Finally, since l ≥ 11, by combaining ( 2.8), ( 2.9), ( 2.10), ( 2.11) and Lemma 2.8, (i), we
+have
+Vol(Rl) < l2 + 5l
+l2 + l − 12 ·
+(
+f1(3l) + log(π ) + log(2) + 2 log(3) + (l − 1) log(l)
+3l + log(25 ·32 ·l2)
++ log(20l)
+)
+< l2 + 5l
+l2 + l − 12 ·
+(
+f1(3l) + 10
+3 ·log(l) + 9
+)
+= f2(l) <
+n≥ 2·105
+3
+2 ·n + 0. 06 · n
+log(n) .
+3 Eﬀective abc inequalities
+In this section, we focus on eﬀective versions of abc inequal ities over the rational number
+ﬁeld.
+Lemma 3.1. Let N be a positive integer, h
+def
+= log(N). Let S be a ﬁnite set of prime
+numbers ≥ 5, with cardinality n
+def
+= |S| ≥ 2. Let p0 be the smallest prime number in S.
+Let 2 ≤ k ≤ n be an integer, k(S) be the the product of the smallest k numbers in S.
+Suppose that k(S) > h/ log(2).
+25
+
+For each prime number l, write Nl
+def
+= ∏
+p:l|vp(N ) pvp(N ). For each l ∈ S, suppose that
+∑
+p:p̸=l,l ∤vp(N )
+vp(N ) ·log(p) ≤ (3 + 11l + 31
+l2 + l − 12) ·log rad(N ) + 3 Vol(l). (3.1)
+for some real number Vol(l) ≥ 0.
+(i) Write
+A
+def
+={p ∈ S : p |N }, B
+def
+={p |N : ∃l ∈ S, l |vp(N )}, C
+def
+={p |N : p /∈ (A ∪ B)};
+NA
+def
+=
+∏
+p∈ A
+pvp(N ), N B
+def
+=
+∏
+p∈ B
+pvp(N ), N C
+def
+=
+∏
+p∈ C
+pvp(N ).
+Then we have
+∑
+p∈ S
+vp(N ) ·log(p) = log( NA),
+∑
+p∈ S
+log(Np) ≤ (k − 1) ·log(NB).
+(ii) Write
+a1
+def
+= 1
+n
+∑
+l∈ S
+11l + 31
+l2 + l − 12 , a 2
+def
+= 3
+n
+∑
+l∈ S
+Vol(l), a 3
+def
+=
+∑
+l∈ S
+log(l).
+Then we have
+h ≤ (3 + a1) ·log rad(N ) + a2 + kh
+n ,
+(iii) With the notaion in assertion (ii), we have
+h ≤ (3 + a1) ·log rad(NC) + ( k
+n + 3 + a1
+p0
+)(h − log(NC )) + a2 + (3 + a1)a3.
+Proof. First, we consider assertion (i). By the deﬁnition of the set A, we have
+∑
+p∈ S
+vp(N ) ·log(p) =
+∑
+p:p∈ S,p |N
+vp(N ) ·log(p) =
+∑
+p∈ A
+vp(N ) ·log(p) = log( NA).
+By the deﬁnition of Np, We have
+∑
+p∈ S
+log(Np) =
+∑
+p∈ S
+∑
+l:l|N,p |vl(N )
+vl(N ) ·log(l) =
+∑
+p∈ S
+∑
+l:l∈ B,p |vl(N )
+vl(N ) ·log(l)
+=
+∑
+l∈ B
+vl(N ) ·log(l) ·
+( ∑
+p:p∈ S,p |vl(N )
+1
+)
+.
+Now for each prime number l | N, we claim that ∑
+p:p∈ S,p |vl(N ) 1 ≤ k − 1, which can
+be proved by contradiction as follows. Assume that p1, . . . , p k ∈ S are k distinct prime
+numbers, such that pi | vl(N) for 1 ≤ i ≤ k. Then ∏
+1≤ i≤ k pi ≥ k(S) > h/ log(2) and∏
+1≤ i≤ k pi |vl(N). Hence
+h = log( N) ≥ vl(N) ·log(l) ≥
+∏
+1≤ i≤ k
+pi ·log(2) > (h/ log(2)) ·log(2) = h.
+— a contradiction. Thus the claim is true.
+26
+
+By the claim we have
+∑
+p∈ S
+log(Np) =
+∑
+l∈ B
+vl(N ) ·log(l) ·
+( ∑
+p:p∈ S,p |vl(N )
+1
+)
+≤ (k − 1) ·
+∑
+l∈ B
+vl(N ) ·log(l) = ( k − 1) ·log(NB).
+This proves assertion (i).
+Next, we consider assertion (ii). By ( 3.1), for each l ∈ S, we have
+h = log(N ) ≤ (3 + 11l + 31
+l2 + l − 12 ) ·log rad(N ) + 3 Vol(l) + vl(N ) ·log(l) + log(Nl). (3.2)
+Hence by taking the average of ( 3.2) for l ∈ S and by assertion (i), we have
+h ≤ (3 + a1) ·log rad(N ) + a2 + 1
+n ·log(NA) + k − 1
+n ·log(NB)
+≤ (3 + a1) ·log rad(N ) + a2 + kh
+n .
+(3.3)
+This proves assertion (ii).
+Finally, we consider assertion (iii). By the deﬁnition of NA, NB, we have
+log rad(NA) =
+∑
+p∈ A
+log(p) ≤
+∑
+p∈ S
+log(p) = a3,
+log(NB) =
+∑
+p∈ B
+vp(N ) ·log(p) ≥
+∑
+p∈ B
+p0 ·log(p) = p0 ·log rad(NB).
+Thus
+log rad(N ) ≤ log rad(NA) + log rad(NB) + log rad(NC )
+≤ log rad(NC) + 1
+p0
+·log(NB) + a3.
+Then by ( 3.3) and log(NA), log(NB) ≤ log(N) − log(NC), we have
+h ≤ (3 + a1) ·log rad(N ) + a2 + 1
+n ·log(NA) + k − 1
+n ·log(NB)
+≤ (3 + a1) ·log rad(NC) + (3 + a1)a3 + ( k − 1
+n + 3 + a1
+p0
+) log(NB) + 1
+n log(NA) + a2
+≤ (3 + a1) ·log rad(NC) + ( k
+n + 3 + a1
+p0
+)(log(N ) − log(NC )) + a2 + (3 + a1)a3.
+This proves assertion (iii).
+Theorem 3.2. Let (a, b, c) be a triple of non-zero coprime integers such that a + b = c.
+(i) Suppose that log(|abc|) ≥ 700, then we have
+log(|abc|) ≤ 3 log rad(abc) + 8
+√
+log(|abc|) ·log log(|abc|).
+(ii) Suppose that log(|abc|) ≥ 3 ·1013, then we have
+log(|abc|) ≤ 3 log rad(abc) + 3
+√
+log(|abc|) ·log log(|abc|)
+·(1 + 6√
+log log(|abc|)
++ 15
+log log(|abc|) ).
+27
+
+Proof. Write N
+def
+= |abc|/ gcd(16, abc), h
+def
+= log(N). We shall proceed with the notaion in
+Lemma 3.1. We will choose suitable S, such that for each l ∈ S, we have l ≥ 11 and
+l ̸= 13. Then by Proposition 2.9 we can take
+Vol(l) = f2(l) ≤
+n≥ 2·105
+3
+2 ·l + 0. 06 · l
+log(l) .
+For assertion (i), consider the case h ≥ e31 at ﬁrst. We shall write
+k = 2, S = {l ∈ P :
+√
+h/ log(2) < l ≤ 2
+3
+√
+h log(h)}.
+Since h ≥ e31, for any l ∈ S, we have l ≥ p0 >
+√
+h/ log(2) > e 15. Since k(S) > p 2
+0 >
+h/ log(2) and n = |S| ≥ 2, the set S satiﬁes the premise of Lemma
+3.1.
+Since log rad(N) ≤ h, by Lemma 3.1, (ii) we have
+h ≤ 3 ·log rad(N) + a1 ·h + a2 + 2h
+n , (3.4)
+where
+a1 = 1
+n
+∑
+l∈ S
+11l + 31
+l2 + l − 12 , a 2 = 3
+n
+∑
+l∈ S
+Vol(l).
+Since p0 > e 15, by Proposition 2.9 we can take
+Vol(l) = f2(l) < 3
+2 ·l + 0. 06 · l
+log(l) ≤ 3
+2 ·l + 0. 06 · 2
+3
+√
+h log(h)
+log( 2
+3
+√
+h log(h))
+≤ 3
+2 ·l + 0. 08
+√
+h√
+log(h)
+for each l ∈ S. Also, by Lemma 2.8, (ii) we have
+f3(h) = n = |S| ≥
+4
+3
+√
+h ·(
+√
+log(h) − 2. 14)
+log(h) + log log(h) , f 4(h) =
+∑
+l∈ S
+l < 4
+9 h ·(1 + 4. 33
+log(h) ).
+Hence for h ≥ e31, we have
+a1 = 1
+n
+∑
+l∈ S
+11l + 31
+l2 + l − 12 < 1
+n
+∑
+l∈ S
+12
+l < 12
+p0
+< 12
+√
+log(2)√
+h
+< 10√
+h
+a2 = 3
+n
+∑
+l∈ S
+Vol(l) < 9
+2n
+∑
+l∈ S
+l + 3 · 0. 08
+√
+h√
+log(h)
+= 9f4(h)
+2n + 0. 24
+√
+h√
+log(h)
+,
+and
+9f4(h)
+2n + 2h
+n < 4h
+n ·(1 + 2. 165
+log(h) ) = 4h
+f3(h) ·(1 + 2. 165
+log(h) )
+< 3
+√
+h log(h) ·(1 + 2. 165
+log(h) ) ·(1 − 2. 14√
+log(h)
+)− 1 ·(1 + log log(h)
+log(h) ).
+Thus we have
+a1 ·h + a2 + 2h
+n < 10
+√
+h + 0. 24
+√
+h√
+log(h)
++
+( 9f4(h)
+2n + 2h
+n
+)
+< 3
+√
+h log(h) ·g(log(h)), (3.5)
+28
+
+where for x = log(h) ≥ 31, we have
+g(x)
+def
+=(1 + 2. 165
+x ) ·(1 − 2. 14√ x )− 1 ·(1 + log(x)
+x ) + 10
+3√ x + 0. 08
+x < 1 + 6√ x + 14. 5
+x .
+Then for h ≥ e31, by ( 3.4), ( 3.5) we have
+h − 3 log rad(N ) ≤ a1 ·h + a2 + 2h
+n < 3
+√
+h log(h) ·g(log(h))
+< 3
+√
+h log(h) ·(1 + 6√
+log(h)
++ 14. 5
+log(h) ),
+hence for h ≥ e31, we have
+h − 3 log rad(N ) + 4 log(2) < 3
+√
+h log(h) ·(1 + 6√
+log(h)
++ 15
+log(h) ) < 8
+√
+h log(h). (3.6)
+The computation in [ 50] shows that for 680 ≤ h ≤ e31, we have
+h − 3 log rad(N ) + 4 log(2) < 8
+√
+h log(h). (3.7)
+Then ( 3.7) is true for any h ≥ 680 by (3.6).
+Since N = |abc|/ gcd(abc, 16), we have h = log( N) ≤ log(|abc|) ≤ h + 4 log(2). Hence
+when log(|abc|) ≥ 700, we have h ≥ log(|abc|) − 4 log(2) > 680. Then by ( 3.7), we have
+log(|abc|) − 3 log rad(abc) ≤ h − 3 log rad(N ) + 4 log(2) < 8
+√
+h log(h)
+≤ 8
+√
+log(|abc|) ·log log(|abc|).
+This proves assertion (i).
+For assertion (ii), note that we have h ≥ log(|abc|) − 4 log(2) ≥ 3 ·1013 − 4 log(2) > e 31.
+Then assertion (ii) follows easily from ( 3.6).
+Corollary 3.3. Let (a, b, c) be a triple of non-zero coprime integers such that a + b = c;
+ǫ be a positive real number ≤ 1
+10 . Then we have
+|abc| ≤ max{exp
+(
+400 ·ǫ− 2 ·log(ǫ− 1)
+)
+, rad(abc)3+3ǫ}. (3.8)
+Proof. Write
+h0
+def
+= 400 ·ǫ− 2 ·log(ǫ− 1), u 0
+def
+= 64 ·(1 + ǫ− 1)2.
+For real number x ≥ 10, write
+f (x)
+def
+= log(400 ·x2 ·log(x)) − log log(400 ·x2 ·log(x)) − log(64 ·(1 + x)2).
+For x ≥ 10, the derivative
+f ′(x) = 2
+x(x + 1) + log(400 log(x)) − 1
+x log(x) log(400 ·x2 ·log(x)) > 0.
+Then since ǫ− 1 ≥ 10, we have
+f (ǫ− 1) = log( h0) − log log(h0) − log(u0) ≥ f (10) > 0.
+29
+
+Hence we have
+h0
+log(h0) > u 0. (3.9)
+When |abc| ≤ eh0 = exp (400 ·ǫ− 2 ·log(ǫ− 1)), ( 3.8) is true. Hence we can assume that
+|abc|> e h0.
+Write h
+def
+= log(|abc|) > h 0 > 40000, then by ( 3.9) we have
+h
+log(h) > h0
+log(h0) > u 0. (3.10)
+By Theorem 3.2, (i), we have
+h ≤ 3 log rad(|abc|) + 8
+√
+h ·log(h).
+Then by ( 3.10) and the deﬁnition of u0, we have
+3 log rad(|abc|)
+h ≥ 1 − 8
+√
+log(h)
+h ≥ 1 − 8√ u0
+= 1
+1 + ǫ,
+which implies
+h = log( |abc|) ≤ (3 + 3ǫ) ·log rad(|abc|).
+Hecne
+|abc| ≤ rad(abc)3+3ǫ.
+Remark 3.3.1. With the same notation, Corollary 3.3 improves the following inequality
+in [ 39], Theorem 5.4:
+|abc| ≤ 24 ·max{exp(1. 7 ·1030 ·ǫ− 166/ 81), rad(abc)3+3ǫ}.
+4 Generalized Fermat Equations
+Let r, s, t ≥ 2 be positive integers. The equation
+xr + ys = zt, with x, y, z ∈ Z (⋆)
+is known as the generalized Fermat equation with signature (r, s, t). A solution (x, y, z) of
+(
+⋆) is called non-trivial if xyz ̸= 0, primitive if gcd(x, y, z) = 1 , and positive if x, y, z ∈ N.
+Finding all the non-trivial primitive solutions to ( ⋆) is a long-standing problem in
+number theory. The Pythagorean triples, which are the posit ive solutions to ( ⋆) with
+signature (2, 2, 2), have been known since ancient times. Fermat’s Last Theorem , which
+is proven by Andrew Wiles in 1994 [ 49], states that ( ⋆) has no positive primitive solution
+with signature (n, n, n), n ≥ 3. Catalan’s conjecture, which is proven by Preda Mihăilescu
+in 2002 [31], states that if x = 1 in (⋆), then the only positive integer solution to 1+ ys = zt
+(with s, t ≥ 2) is (y, z, s, t) = (2 , 3, 3, 2).
+30
+
+4.1 A brief survey
+The behavior of primitive solutions to ( ⋆) is fundamentally determined by the size of the
+quantity
+χ (r, s, t) = 1
+r + 1
+s + 1
+t − 1.
+Here χ is the Euler characteristic of a certain stack associated to (⋆).
+For the spherical case where χ > 0, (r, s, t) is a permutation of (2, 2, t), t ≥ 2, or
+(2, 3, t), 3 ≤ t ≤ 5. In this case, parametrizations for non-trivial primitive solutions for
+these signatures can be found in Beukers [ 10], Edwards [ 26] and Cohen [ 19], Section 14.
+For the Euclidean case where χ = 0 , (r, s, t) is a permutation of (2, 3, 6), (2, 4, 4) or
+(3, 3, 3). In this case, non-trivial primitive solutions for these si gnatures come from the
+solution 16 + 23 = 3 2, cf. [ 7], Proposition 6 for a proof.
+For the hyperbolic case where χ < 0, the number of primitive solutions for each ﬁxed
+signature (r, s, t) is ﬁnite, cf. Darmon-Granville [ 22]. The following positive primitive
+solutions for the hyperbolic case are currently known:
+1n + 23 = 3 2 (for n ≥ 7), 25 + 72 = 3 4, 73 + 132 = 2 9, 27 + 173 = 71 2,
+35 + 114 = 122 2, 177 + 762713 = 21063928 2, 14143 + 22134592 = 65 7,
+92623 + 153122832 = 113 7, 438 + 962223 = 30042907 2, 338 + 15490342 = 15613 3.
+Since all known solutions have min{r, s, t} ≤ 2, Andrew Beal conjectured in 1993 (cf. [ 29])
+that ( ⋆) has no positive primitive solution when r, s, t ≥ 3. This conjecture is known
+as the Beal conjecture, also known as the Mauldin conjecture and the Tijdeman-Zagier
+conjecture.
+We shall say a signature (r, s, t) is solved if all the non-trivial primitive solutions
+to the generalized Fermat equation xr + ys = zt are known. Then each signature with
+χ (r, s, t) = 1
+r + 1
+s + 1
+t − 1 > 0 is solved.
+The generalized Fermat equation ( ⋆) has been solved for many signatures with χ ≤ 0,
+some of them are listed in the following Theorem 4.1.
+Theorem 4.1. For the signatures (r, s, t) listed below, the generalized Fermat equation
+has been solved, i.e. all the non-trivial primitive solutio ns to xr + ys = zt are related to
+the known solutions presented above.
+• (n, n, n), n ≥ 3, cf. Wiles [ 49], Taylor-Wiles [48], Mochizuki-Fesenko-Hoshi-Minamide-
+Porowski [ 39].
+• (n, n, 2), n ≥ 4; (n, n, 3), n ≥ 3, cf. Darmon-Merel [ 23], Poonen [ 40].
+• (2, 3, n), n ∈ { 7, 8, 9, 10, 15}, cf. Poonen-Schaefer-Stoll [ 41], Bruin [ 13, 15], Brown
+[12], Siksek-Stoll [ 46]. Also for n = 11, which is conditional on generalized Riemann
+hypothesis, cf. Freitas-Naskręcki-Stoll [ 28].
+• (2, 4, n), n ≥ 4, cf. Ellenberg [ 27], Bennett-Ellenberg-Ng [ 8]; (2, n, 4), n ≥ 4, Corol-
+lary of Bennett-Skinner [ 9], Bruin [ 14].
+• (2, 6, n), n ≥ 3, cf. Bennett-Chen [ 5]; (2, n, 6), n ≥ 3, cf. Bennett-Chen-Dahmen-
+Yazdani [7].
+• (2, 2n, 3), 3 ≤ n ≤ 107 or n ≡ 5(mod 6), cf. Chen [ 16], Dahmen [ 20].
+• (2n, 2n, 5), n ≥ 2, cf. Bennett [ 4]; (2, 2p, 5), prime p ≥ 17, p ≡ 1(mod 4), cf.
+Chen [ 17].
+31
+
+• (2, 2n, k), n ≥ 2, k ∈ { 9, 10, 15}; (3, 3, 2n), (3, 6, n), (4, 2n, 3), n ≥ 2; (2m, 2n, 3),
+m ≥ 2 and n ≡ 3(mod 4); (3, 3p, 2), prime p ≡ 1(mod 8), cf. Bennett-Chen-
+Dahmen-Yazdani [6, 7].
+• (3, 3, n), 3 ≤ n ≤ 109, cf. Chen-Siksek [ 18].
+• (3, 4, 5), (5, 5, 7), (5, 7, 7), (5, 5, 19), cf. Siksek-Stoll [ 45], Dahmen-Siksek [ 21].
+• (p, p, q), primes p ≥ q ≥ 5; (p, p, q), primes p ≥ 5, q > 3
+√
+p log2(p), cf. Bartolomé-
+Mihăilescu [ 2].
+Remark 4.1.1. Note that if a signature (r, s, t) is solved, then (s, r, t) is solved; if (r, s, t) is
+solved and 2 ∤s, then (s, t, r), (t, s, r) are solved; when χ (r, s, t) ≤ 0, if (r, s, t) is solved and
+r′, s′, t′ are positive multiples of r, s, t respectively, then (r′, s′, t′) is solved. Hence many
+new solved signatures can be obtained from the solved signat ures in Theorem 4.1. For
+more about generalized Fermat equations, cf. Bennett-Mihă ilescu-Siksek [3] and Bennett-
+Chen-Dahmen-Yazdani [7].
+Remark 4.1.2. Most of the results in Theorem 4.1 are quoted from the tables in the ﬁrst
+section of [ 7], including the case of signatures (2, n, 4), n ≥ 4. As explained by Michael
+Bennett, the case of signatures (2, n, 4), n ≥ 4 can be proved in the following way.
+(1) The signature (2, 4, 4) is solved by Fermat; Bruin [ 14] covers the signature (2, 5, 4);
+Bennett-Chen [ 5] covers the signature (2, 6, 4). Hence it suﬃces to prove for n = 9 or n
+is a prime number ≥ 7.
+(2) Suppose that x, y, z are non-zero coprime integers such that x2 + yn = z4. Then
+we have (z2 + x)(z2 − x) = yn, where gcd(z2 + x, z2 − x) is 1 or 2.
+When gcd(z2 + x, z2 − x) = 1 , we can write z2 + x = yn
+1 , z 2 − x = yn
+2 , where y1, y2, z
+are non-zero coprime integers. Hence we have 2z2 = yn
+1 + yn
+2 , which has no solution for
+n ≥ 6 by Bennett-Skinner [ 9], Theorem 1.1.
+When gcd(z2 + x, z2 − x) = 2 , we can write z2 + ǫx = 2 yn
+1 , z 2 − ǫx = 2 n− 1yn
+2 ,
+where y1, y2, z are non-zero coprime integers, x, z are odd and ǫ ∈ {± 1}. Hence we have
+z2 = yn
+1 +2 n− 2yn
+2 . By Catalan’s conjecture, we can show that |y1y2| ̸= 1. Then when n ≥ 7
+is a prime number, the equation z2 = yn
+1 + 2n− 2yn
+2 has no solution by Bennett-Skinner [ 9],
+Theorem 1.2.
+(3) We are now left to prove the case where n = 9 and y is even. Since x2 − z4 = (− y3)3
+and 8 | y3, by comparing to the parametrizations in Cohen [ 19], Section 14.4.1, we can
+assume that y3 = 8 st(s3 − 16t3)(s3 + 2t3), where s, t are non-zero coprime integers such
+that s is odd and 3 ∤(s − t).
+Note that s, t, s3− 16t3, s3+2t3 are coprime with each other, except for gcd(s3− 16t3, s3+
+2t3) ∈ { 1, 3, 9}. But since their product is a cube, we must have gcd(s3− 16t3, s3+2t3) = 1 ,
+and hence s, t, s3 − 16t3, s3 + 2t3 are cubes.
+Write s3 + 2t3 = r3, where r, s, t are non-zero coprime integers. Then one can check
+that ( 6t
+r− s, 9(r+s)
+r− s ) is a rational point on the elliptic curve E : Y 2 = X 3 − 27. E has
+Mordell-Weil rank 0, and only has the rational points corresponding to the point at
+inﬁnity and (X, Y ) = (3 , 0). Hence we have ( 6t
+r− s, 9(r+s)
+r− s ) = (3 , 0) or r − s = 0 , thus
+(r, s, t) = ± (1, − 1, 1), ± (1, 1, 0). But then y3 = 8 st(s3 − 16t3)(s3 + 2t3) ∈ { 0, 17}, which
+is impossible.
+4.2 Upper bounds
+Let r, s, t ≥ 2 be positive integers. Throughout this subsection, we shall assume that
+(x, y, z) is a positive primitive solution to the generalized Fermat e quation xr + ys = zt.
+32
+
+We shall prove upper bounds for log(xryszt).
+Write a = xr, b = ys, c = zt, then (a, b, c) is a triple of positive coprime integers such
+that a + b = c. We shall follow the notaion of Lemma 3.1 and make some assumptions:
+(1) N
+def
+= |abc|/ gcd(16, abc), h
+def
+= log(N). For each prime number l, Nl
+def
+= ∏
+p:l|vp(N ) pvp(N ).
+(2) S is a ﬁnite set of prime numbers ≥ 11, with cardinality n
+def
+= |S| ≥ 2; 2 ≤ k ≤ n is an
+integer, k(S) is the the product of the smallest k numbers in S; write u0
+def
+= min{r, s, t} ≥ 2,
+write p0 for the smallest prime number in S. When u0 < 4, suppose that for any 13 /∈ S.
+(3) For each l ∈ S, suppose that
+∑
+p:p̸=l,l ∤vp(N )
+vp(N) ·log(p) ≤ (3 + 11l + 31
+l2 + l − 12 ) ·log rad(N) + 3 Vol(l). (4.1)
+for some real number Vol (l) ≥ 0. The value of Vol (l) can be taken as the value of
+Vol(Rl) in Proposition 2.9; or Vol (R′
+l) in Remark
+2.7.1 when u0 ≥ 4, since we have
+v2(abc) = v2(xryszt) ≥ u0 ≥ 4.
+(4) Write
+A
+def
+={p ∈ S : p |N }, B
+def
+={p |N : ∃l ∈ S, l |vp(N )}, C
+def
+={p |N : p /∈ (A ∪ B)};
+NA
+def
+=
+∏
+p∈ A
+pvp(N ), N B
+def
+=
+∏
+p∈ B
+pvp(N ), N C
+def
+=
+∏
+p∈ C
+pvp(N );
+a1
+def
+= 1
+n
+∑
+l∈ S
+11l + 31
+l2 + l − 12 , a 2
+def
+= 3
+n
+∑
+l∈ S
+Vol(l), a 3
+def
+=
+∑
+l∈ S
+log(l).
+Lemma 4.2. Proceeding with the above notation, write
+r′ def
+= min{r, s}, s ′ def
+= max{r, s}, 0 ≤ hC
+def
+= log(NC) ≤ h = log(N).
+(i) We have
+log rad(NC) ≤ 1
+u0
+hC + 4 log(2)
+u0
+.
+(ii) If t ≤ r′, then
+log rad(NC) ≤ 1
+r′(hC − h) + ( 1
+2t + 1
+2r′)h + 4 log(2)
+u0
+.
+(iii) If t = r′, then
+log rad(NC) ≤ 1
+s′(hC − h) + ( 1
+t + 1
+s′) · 2th
+3t − 1 + 4 log(2)
+u0
+.
+(iv) If t ≥ r′, then
+log rad(NC) ≤ 1
+t (hC − h) + max{ 1
+2t + 1
+2r′, 1
+3 ( 1
+r + 1
+s + 1
+t )} ·h + 4 log(2)
+u0
+.
+33
+
+Proof. When (a, b, c) is a permutation of (1, 8, 9), we have u0 = r′ = 2 and log rad(NC) ≤
+log(3) < 2 log(2) = 4 log(2)
+u0
+, thus the lemma is true. Now assume that (a, b, c) is not a
+permutation of (1, 8, 9), and assume without loss of generality that r ≤ s, then r′ = r,
+s′ = s.
+Since a + b = c and (a, b, c) is not a permutation of (1, 8, 9), we have a, b, c, x, y, z ≥ 2
+by Catalan’s conjecture (now Mihăilescu’s theorem, cf. [ 31]). Hence
+a, b < c < (abc)1/ 2 ≤ (16N)1/ 2. (4.2)
+Write v
+def
+= max{v2(abc), 4}, then abc = 2 vN. Write N ′
+C
+def
+= 2vNC ≤ 16NC if 2 |NC, and
+write N ′
+C
+def
+= NC if 2 ∤NC. Then for each p |NC, we have vp(N ′
+C) = vp(abc). Hence we can
+assume that NC |N ′
+C = xr
+1ys
+1zt
+1 ≤ 16NC for some x1 |x, y1 |y, z1 |z. Then
+log rad(NC) ≤ log(x1y1z1), log(N ′
+C) ≤ log(16NC) = hC + 4 log(2). (4.3)
+For assertion (i), by (
+4.3) we have
+log rad(NC) ≤ log(x1y1z1) ≤ 1
+u0
+log(xr
+1ys
+1zt
+1) = 1
+u0
+log(N ′
+C) ≤ 1
+u0
+hC + 4 log(2)
+u0
+.
+For assertion (ii), since t ≤ r′ = r ≤ s, we have u0 = t. Then by ( 4.2), ( 4.3) we have
+log rad(NC) ≤ log(x1y1z1) = 1
+r log(xr
+1yr
+1zt
+1) + ( 1
+t − 1
+r ) log(zt
+1)
+≤ 1
+r log(N ′
+C) + ( 1
+t − 1
+r ) log(c) ≤ 1
+r log(16NC) + ( 1
+2t − 1
+2r ) log(16N)
+≤ 1
+r hC + ( 1
+2t − 1
+2r ) log(N) + 4 log(2)
+u0
+.
+For assersion (iii), since t = r′ = r ≤ s, we have u0 = t. Since z = c1/t > a 1/t = x > 1,
+we have 2 ≤ x ≤ z − 1, and
+b = ys = zt − xt ≥ zt − (z − 1)t > z t− 1 > (xz)(t− 1)/ 2 = (ac)(t− 1)/ (2t). (4.4)
+Then
+log(xr
+1zt
+1) = log( ac) < 2t
+3t − 1 log(abc) ≤ 2t
+3t − 1 log(16N).
+Hence we have
+log rad(NC) ≤ log(x1y1z1) = 1
+s log(xt
+1ys
+1zt
+1) + ( 1
+t − 1
+s ) log(xt
+1zt
+1)
+≤ 1
+s log(16NC) + ( 1
+t − 1
+s ) · 2t
+3t − 1 log(16N)
+≤ 1
+s hC + ( 1
+t − 1
+s ) · 2th
+3t − 1 + 4 log(2)
+u0
+.
+For assertion (iv), let ℓa = log( a)/ log(abc), ℓb = log(b)/ log(abc), ℓc = log(c)/ log(abc).
+Then 0 ≤ ℓa, ℓb ≤ ℓc and ℓa + ℓb + ℓc = 1. Hence ℓa, ℓb ≤ ℓc ≤ 1
+2 and ℓa + ℓb ≤ 2
+3 . Consider
+about the upper bound of ( 1
+r − 1
+t )ℓa + ( 1
+s − 1
+t )ℓb.
+If ℓa ≤ ℓb, then since 1
+r − 1
+t > 1
+s − 1
+t , we have ( 1
+r − 1
+t )ℓa + ( 1
+s − 1
+t )ℓb ≤ (( 1
+r − 1
+t ) + ( 1
+s −
+1
+t )) · ℓa+ℓb
+2 ≤ 1
+3( 1
+r + 1
+s − 2
+t ).
+34
+
+Case 2: ℓa ≥ ℓb. Then we have ℓb ≤ 1− 2ℓa and 1
+3 ≤ ℓa ≤ 1
+2. Hence ( 1
+r − 1
+t )ℓa+( 1
+s − 1
+t )ℓb ≤
+( 1
+r − 1
+t )ℓa + ( 1
+s − 1
+t )(1 − 2ℓa) = 1
+3( 1
+r + 1
+s − 2
+t ) + ( 1
+r + 1
+t − 2
+s )(ℓa − 1
+3). If 1
+r + 1
+t ≤ 2
+s , by taking
+ℓa = 1
+3, we can get ( 1
+r − 1
+t )ℓa + ( 1
+s − 1
+t )ℓb ≤ 1
+3( 1
+r + 1
+s − 2
+t ); if 1
+r + 1
+t ≥ 2
+s , by taking ℓa = 1
+2 ,
+we can get ( 1
+r − 1
+t )ℓa + ( 1
+s − 1
+t )ℓb ≤ 1
+2r − 1
+2t.
+In conclusion, we have
+( 1
+r − 1
+t )ℓa + ( 1
+s − 1
+t )ℓb ≤ max{ 1
+2r − 1
+2t, 1
+3 ( 1
+r + 1
+s − 2
+t )}.
+Hence
+log rad(NC ) ≤ log(x1y1z1) = 1
+t log(xt
+1ys
+1zt
+1) + ( 1
+r − 1
+t ) log(xr
+1) + ( 1
+s − 1
+t ) log(ys
+1)
+≤ 1
+t log(16NC ) + (( 1
+r − 1
+t )ℓa + ( 1
+s − 1
+t )ℓb) log(abc)
+≤ 1
+t (hC − h) + max{ 1
+2r + 1
+2t , 1
+3 ( 1
+r + 1
+s + 1
+t )} + 4 log(2)
+u0
+.
+Remark 4.2.1. Write u
+def
+= 1
+3( 1
+r + 1
+s + 1
+t ). When 2
+s′ ≤ 1
+r′ + 1
+t , we have u ≤ 1
+2r′ + 1
+2t, hence
+by Lemma 4.2, (ii) and (iv), we have
+log rad(NC) ≤ hC − h
+max{r′, t} + ( 1
+2t + 1
+2r′)h + 4 log(2)
+u0
+.
+When 2
+s′ ≥ 1
+r′ + 1
+t , we have r′ ≤ t, and 1
+2r′ + 1
+2t ≤ u ≤ 2
+3r′ + 1
+3t , hence by Lemma 4.2, (ii)
+and (iv), we have
+log rad(NC) ≤ hC − h
+t + ( 2
+3r′ + 1
+3t)h + 4 log(2)
+u0
+.
+Lemma 4.3. Proceeding with the above notation, and suppose that k(S) > h/ log(2).
+Recall that r′ = min{r, s}, s′ = max{r, s}, u0 = min{r, s, t}. We shall deﬁne b1 in any of
+the following cases:
+(a) When 2
+s′ ≤ 1
+r′ + 1
+t , write b1
+def
+= max{ k
+n + 3+a1
+p0
+, 1
+2 ( k
+n + 3+a1
+p0
+) + 3+a1
+2u0
+, (3 + a1) ·( 1
+2r′ + 1
+2t)}.
+(b) When 2
+s′ ≥ 1
+r′ + 1
+t , write b1
+def
+= max{ k
+n + 3+a1
+p0
+, 1
+3 ( k
+n + 3+a1
+p0
+) + 2(3+a1)
+3r′ , (3 +a1) ·( 2
+3r′ + 1
+3t)}.
+(c) When t = r′, write b1
+def
+= max{ k
+n + 3+a1
+p0
+, ( k
+n + 3+a1
+p0
+) · t− 1
+3t− 1 + 2(3+a1)
+3t− 1 , (3 + a1) ·2s′+(t− 1)
+s′(3t− 1) }.
+We shall write b2
+def
+= a2 + (3 + a1) ·(a3 + 4 log(2)
+u0
+). Then we have
+h ≤ b1 ·h + b2. (4.5)
+Hence if b1 < 1 and k(S) ·log(2) > b2
+1− b1
+, then h = log( N) cannot belong to the interval
+( b2
+1 − b1
+, k(S) ·log(2)).
+35
+
+Proof. Since k(S) > h/ log(2), we can make use of Lemma 3.1. We shall only prove the
+case when b1 is deﬁned in case (a), Other cases can be proved similarly.
+Recall that we have
+0 ≤ hC
+def
+= log(NC) ≤ h = log(N).
+By Lemma 3.1 (iii), we have
+h ≤ (3 + a1) ·log rad(NC) + ( k
+n + 3 + a1
+p0
+)(h − hC) + a2 + (3 + a1)a3. (4.6)
+When 0 ≤ hC ≤ 1
+2h, by ( 4.6) and Lemma 4.2 (i), we have
+h ≤ (3 + a1) ·hC
+u0
++ ( k
+n + 3 + a1
+p0
+)(h − hC) + b2. (4.7)
+The right hand of ( 4.7) is linear in hC, reaching its maximal value at hC = 0 or hC = 1
+2h.
+Hence by ( 4.7) we have
+h ≤ max{ k
+n + 3 + a1
+p0
+, k
+2n + 3 + a1
+2p0
++ 3 + a1
+2u0
+} ·h + b2 ≤ b1 ·h + b2.
+When 1
+2 h ≤ hC ≤ h, by ( 4.6) and Remark 4.2.1, we have
+h ≤ (3 + a1)( hc − h
+max{r′, t} + ( 1
+2t + 1
+2r′)h) + ( k
+n + 3 + a1
+p0
+)(h − hC) + b2. (4.8)
+The right hand of ( 4.8) is linear in hC, reaching its maximal value at hC = 1
+2h or hC = h.
+Hence by ( 4.8) we have
+h ≤ max{ k
+2n + 3 + a1
+2p0
++ 3 + a1
+2u0
+, 3 + a1
+2t + 3 + a1
+2r′ } ·h + b2 ≤ b1 ·h + b2.
+Hence when b1 is deﬁned in case (a), we must have ( 4.5), and then the lemma follows.
+Theorem 4.4. Let r, s, t ≥ 3 be positive integers. Write
+S(r, s, t)
+def
+={(x, y, z) ∈ Z3
+≥ 1 : xr + ys = zt, gcd(x, y, z) = 1 }
+for the ﬁnite set of positive primitive solutions to the gene ralized Fermat equation with
+signature (r, s, t). Deﬁne
+f (r, s, t)
+def
+= sup
+(x,y,z )∈ S
+log(xryszt) ∈ R≥ 0,
+where we shall write f (r, s, t) = 0 if S(r, s, t) is an empty set.
+Then the explicit upper bounds for f (r, s, t) are presented in Table
+1. In particular,
+we have f (r, s, t) ≤ 573 for r, s, t ≥ 8; f (r, s, t) ≤ 907 for r, s, t ≥ 5; f (r, s, t) ≤ 2283
+for r, s, t ≥ 4; f (r, s, t) ≤ 14750 for min{r, s} ≥ 4 or t ≥ 4; and f (r, s, t) ≤ 24626 for
+r, s, t ≥ 3.
+36
+
+Table 1: Upper bounds for f (r, s, t)
+(min{r, s }, t ) Bounds min{r, s, t } Bounds
+(3, 3) 24626 4 2283
+(3, 4) 14750 5 907
+(3, n ), n ≥ 5 6648 6 697
+(4, 3) 7254 7 635
+(n, 3), n ≥ 5 3406 ≥ 8 573
+Proof. Suppose that S(r, s, t) ̸= ∅, and let (x, y, z) ∈ S(r, s, t) be a positive primitive
+solution to xr + ys = zt. Write (a, b, c)
+def
+=(xr, ys, zt), h
+def
+= log(xryszt) = log( abc), then
+a + b = c and gcd(a, b, c) = 1 .
+We shall prove that
+log rad(abc) ≤ log(xyz) < 5
+16 ·h, for h ≥ log(4). (4.9)
+Assume without loss of generality that s ≥ r. Then since (r, s, t) ̸= (3 , 3, 3), which is
+proved by Euler, we have t ≥ 4; or s ≥ r ≥ 4; or s ≥ 4, r = t = 3.
+When t ≥ 4, since c > a, b , we have abc > a
+12
+11 b
+12
+11 c
+9
+11 = x
+12r
+11 y
+12s
+11 z
+9t
+11 ≥ (xyz)
+36
+11 . Hence
+log rad(abc) ≤ log(xyz) < 11
+36 log(abc) = 11
+36h < 5
+16h.
+When s ≥ r ≥ 4, since 2ab ≥ c by a + b = c, we have 2
+1
+7 abc > a
+6
+7 b
+6
+7 c
+8
+7 = x
+6r
+7 y
+6s
+7 z
+8t
+7 ≥
+(xyz)
+24
+7 . Hence when h ≥ log(4), we have log rad(abc) ≤ log(xyz) < 7
+24 log(abc) + log(2)
+24 =
+7
+24h + log(2)
+24 ≤ 5
+16 h.
+When s ≥ 4, r = t = 3 , write λ = s− 3
+s+1 ≥ 1
+5 by s ≥ 4. Since b = ys > z 2 > xz by
+(4.4), we have abc = x3ysz3 > x 3+λ ys− sλ z3+λ = (xyz)3+λ ≥ (xyz)
+16
+5 . Hence log rad(abc) ≤
+log(xyz) < 5
+16 log(abc) = 5
+16h. This proves ( 4.9).
+Assume that h ≥ log(4), then by Theorem 3.2, (i) and ( 4.9), we have
+h ≤ 3 log rad(abc) + 9
+√
+h ·log(h) ≤ 15
+16 ·h + 9
+√
+h ·log(h),
+which is impossible for h ≥ 106. Hence we must have h < 106. The computation in [ 50]
+based on Lemma 4.3 shows that if h < 106, then h must be less than the upper bounds
+presented in Table 1. Hence the theorem is proven.
+By making use of the “entirely elementary estimate” for posi tive solutions of the Fermat
+equation presented in [ 39], Lemma 5.7, we shall provide an alternative approach to pro ve
+the “Fermat’s Last Theorem” for prime exponents ≥ 11.
+Corollary 4.5. Let
+p ≥ 11
+be a prime number. Then there does not exist any triple (x, y, z) of positive integers that
+satisﬁes the Fermat equation
+xp + yp = zp.
+Proof. By dividing (x, y, z) by their greatest common divisor, we shall assume that (x, y, z)
+is a triple of positive coprime integers such that xp + yp = zp and x < y < z .
+Since
+xp = zp − yp ≥ zp − (z − 1)p > z p− 1,
+37
+
+we have
+xpypzp > z p− 1 ·(zp − zp− 1) ·zp > (z − 1)3p− 1. (4.10)
+Since p ≥ 11, by Theorem 4.1, we have log(xpypzp) ≤ 600. Then by ( 4.10), we have
+log(z − 1) < 1
+3p − 1 ·log(xpypzp) ≤ 600
+3p − 1 < 20. (4.11)
+However, by the estimate in [ 39], Lemma 5.7, we have z > (p+1)p
+2 . Hence for p ≥ 11,
+we have
+log(z − 1) ≥ log( (p + 1)p
+2 ) = p ·log(p + 1) − log(2) > 26. (4.12)
+— a contradiction between ( 4.11) and ( 4.12).
+Remark 4.5.1. (i) To prove Fermat’s Last Theorem (FLT), we only need to prov e that
+there does not exist any triple (x, y, z) of positive integers that satisﬁes the Fermat equa-
+tion
+xn + yn = zn,
+where n = 4 or n = p is a prime number ≥ 3.
+(ii) The case n = 4 is proved by Fermat using the technique of inﬁnite descent; t he
+case n = 3 is proved by Euler; the case n = 5 is proved by Dirichlet and Legendre around
+1825; the case n = 7 is proved by Gabriel Lamé in 1839. All of these cases have elem entary
+proofs.
+(iii) in Corollary 4.5, by applying Theorem 4.1 and the elementary estimate found
+in [ 39], Lemma 5.7, we have proven FLT for prime exponents ≥ 11. Hence we conclude
+that the results of the present paper, combined with the hist orical proofs for the cases
+n = 3 , 4, 5, 7 montioned in (ii), yield an unconditional new alternative p roof [i.e., to the
+proof of [ 49]] of Fermat’s Last Theorem.
+Corollary 4.6. Let r, s, t be positive integers such that r, s, t ≥ 20, or (r, s, t) is a per-
+mutation of (3, 3, n) for n ≥ 3. Then there does not exist any triple (x, y, z) of non-zero
+coprime integers that satisﬁes the generalized Fermat equa tion
+xr + ys = zt.
+Proof. Suppose that (x, y, z) is a non-trivial primitive solution to the generalized Ferm at
+equation xr + ys = zt. Then by permuting (r, s, t), we can assume that x, y, z ≥ 1. Then
+since r, s, t ≥ 3, we have x, y, z ≥ 2 by Catalan’s conjecture.
+(1) When (r, s, t) is a permutation of (3, 3, n), n ≥ 3, we have n > 109 by [ 18], also cf.
+Theorem 4.1. However, by Theorem 4.4 we have log(2n) < log(xryszt) ≤ 24626, hence
+n < 24626/ log(2) < 105 – a contradiction!
+(2) When r, s, t ≥ 20, by Theorem 4.4 we have log(xryszt) < 600. However, the
+computation in [ 50] shows that for any r, s, t ≥ 20, there does not exist any triple (x, y, z)
+of positive coprime integers such that xr+ys = zt and log(xryszt) < 600 — a contradiction!
+The corollary follows from (1) and (2).
+Remark 4.6.1. In the subsequent paper, we will introduce new insights to fu rther explore
+the generalized Fermat equations. We will establish new upp er bounds for non-trivial
+primitive solutions and demonstrate the non-existence of s uch solution for an expanded
+set of signatures.
+38
+
+References
+[1] Clemens Adelmann. The decomposition of primes in torsion point ﬁelds , volume 1761
+of Lecture Notes in Mathematics . Springer-Verlag, Berlin, 2001.
+[2] Boris Bartolomé and Preda Mihăilescu. Semilocal approx imation for the
+fermat-catalan and further popular diophantine norm equat ions. arXiv preprint
+arXiv:2108.08572v3, 2021.
+[3] Michael Bennett, Preda Mihăilescu, and Samir Siksek. Th e generalized Fermat equa-
+tion. In Open problems in mathematics , pages 173–205. Springer, [Cham], 2016.
+[4] Michael A. Bennett. The equation x2n + y2n = z5. J. Théor. Nombres Bordeaux ,
+18(2):315–321, 2006.
+[5] Michael A. Bennett and Imin Chen. Multi-Frey Q-curves and the Diophantine equa-
+tion a2 + b6 = cn. Algebra Number Theory , 6(4):707–730, 2012.
+[6] Michael A. Bennett, Imin Chen, Sander R. Dahmen, and Soro osh Yazdani. On the
+equation a3 + b3n = c2. Acta Arith., 163(4):327–343, 2014.
+[7] Michael A. Bennett, Imin Chen, Sander R. Dahmen, and Soro osh Yazdani. General-
+ized Fermat equations: a miscellany. Int. J. Number Theory , 11(1):1–28, 2015.
+[8] Michael A. Bennett, Jordan S. Ellenberg, and Nathan C. Ng . The Diophantine
+equation A4 + 2δB2 = C n. Int. J. Number Theory , 6(2):311–338, 2010.
+[9] Michael A. Bennett and Chris M. Skinner. Ternary Diophan tine equations via Galois
+representations and modular forms. Canad. J. Math. , 56(1):23–54, 2004.
+[10] Frits Beukers. The Diophantine equation Axp +By q = Cz r. Duke Math. J. , 91(1):61–
+88, 1998.
+[11] Siegfried Bosch, Werner Lütkebohmert, and Michel Rayn aud. Néron models , vol-
+ume 21 of Ergebnisse der Mathematik und ihrer Grenzgebiete (3) [Resu lts in Mathe-
+matics and Related Areas (3)] . Springer-Verlag, Berlin, 1990.
+[12] David Brown. Primitive integral solutions to x2 + y3 = z10. Int. Math. Res. Not.
+IMRN, (2):423–436, 2012.
+[13] Nils Bruin. The Diophantine equations x2 ± y4 = ± z6 and x2 + y8 = z3. Compositio
+Math., 118(3):305–321, 1999.
+[14] Nils Bruin. Chabauty methods using elliptic curves. J. Reine Angew. Math. , 562:27–
+49, 2003.
+[15] Nils Bruin. The primitive solutions to x3 + y9 = z2. J. Number Theory , 111(1):179–
+189, 2005.
+[16] Imin Chen. On the equation s2 + y2p = α 3. Math. Comp. , 77(262):1223–1227, 2008.
+[17] Imin Chen. On the equation a2 + b2p = c5. Acta Arith., 143(4):345–375, 2010.
+39
+
+[18] Imin Chen and Samir Siksek. Perfect powers expressible as sums of two cubes. J.
+Algebra, 322(3):638–656, 2009.
+[19] Henri Cohen. Number theory. Vol. II. Analytic and modern tools , volume 240 of
+Graduate Texts in Mathematics . Springer, New York, 2007.
+[20] Sander R. Dahmen. A reﬁned modular approach to the Dioph antine equation x2 +
+y2n = z3. Int. J. Number Theory , 7(5):1303–1316, 2011.
+[21] Sander R. Dahmen and Samir Siksek. Perfect powers expre ssible as sums of two ﬁfth
+or seventh powers. Acta Arith., 164(1):65–100, 2014.
+[22] Henri Darmon and Andrew Granville. On the equations zm = F (x, y) and Axp +
+By q = Cz r. Bull. London Math. Soc. , 27(6):513–543, 1995.
+[23] Henri Darmon and Loïc Merel. Winding quotients and some variants of Fermat’s
+last theorem. J. Reine Angew. Math. , 490:81–100, 1997.
+[24] Pierre Dusart. The kth prime is greater than k(ln k + ln ln k − 1) for k ≥ 2. Math.
+Comp., 68(225):411–415, 1999.
+[25] Pierre Dusart. Explicit estimates of some functions ov er primes. Ramanujan J. ,
+45(1):227–251, 2018.
+[26] Johnny Edwards. A complete solution to X 2 + Y 3 + Z 5 = 0. J. Reine Angew. Math. ,
+571:213–236, 2004.
+[27] Jordan S. Ellenberg. Galois representations attached to Q-curves and the generalized
+Fermat equation A4 + B2 = C p. Amer. J. Math. , 126(4):763–787, 2004.
+[28] Nuno Freitas, Bartosz Naskręcki, and Michael Stoll. Th e generalized Fermat equation
+with exponents 2, 3, n. Compos. Math. , 156(1):77–113, 2020.
+[29] R. Daniel Mauldin. A generalization of Fermat’s last th eorem: the Beal conjecture
+and prize problem. Notices Amer. Math. Soc. , 44(11):1436–1437, 1997.
+[30] B. Mazur. Rational isogenies of prime degree (with an ap pendix by D. Goldfeld).
+Invent. Math. , 44(2):129–162, 1978.
+[31] Preda Mihăilescu. Primary cyclotomic units and a proof of Catalan’s conjecture. J.
+Reine Angew. Math. , 572:167–195, 2004.
+[32] Shinichi Mochizuki. The absolute anabelian geometry o f canonical curves. pages
+609–640. 2003. Kazuya Kato’s ﬁftieth birthday.
+[33] Shinichi Mochizuki. Arithmetic elliptic curves in gen eral position. Math. J. Okayama
+Univ., 52:1–28, 2010.
+[34] Shinichi Mochizuki. Topics in absolute anabelian geom etry III: global reconstruction
+algorithms. J. Math. Sci. Univ. Tokyo , 22(4):939–1156, 2015.
+[35] Shinichi Mochizuki. Inter-universal Teichmüller the ory I: Construction of Hodge
+theaters. Publ. Res. Inst. Math. Sci. , 57(1-2):3–207, 2021.
+40
+
+[36] Shinichi Mochizuki. Inter-universal Teichmüller the ory II: Hodge-Arakelov-theoretic
+evaluation. Publ. Res. Inst. Math. Sci. , 57(1-2):209–401, 2021.
+[37] Shinichi Mochizuki. Inter-universal Teichmüller the ory III: Canonical splittings of
+the log-theta-lattice. Publ. Res. Inst. Math. Sci. , 57(1-2):403–626, 2021.
+[38] Shinichi Mochizuki. Inter-universal Teichmüller the ory IV: Log-volume computations
+and set-theoretic foundations. Publ. Res. Inst. Math. Sci. , 57(1-2):627–723, 2021.
+[39] Shinichi Mochizuki, Ivan Fesenko, Yuichiro Hoshi, Ara ta Minamide, and Wojciech
+Porowski. Explicit estimates in inter-universal Teichmül ler theory. Kodai Math. J. ,
+45(2):175–236, 2022.
+[40] Bjorn Poonen. Some Diophantine equations of the form xn + yn = zm. Acta Arith.,
+86(3):193–205, 1998.
+[41] Bjorn Poonen, Edward F. Schaefer, and Michael Stoll. Tw ists of X(7) and primitive
+solutions to x2 + y3 = z7. Duke Math. J. , 137(1):103–158, 2007.
+[42] J. Barkley Rosser and Lowell Schoenfeld. Approximate f ormulas for some functions
+of prime numbers. Illinois J. Math. , 6:64–94, 1962.
+[43] Jean-Pierre Serre. Propriétés galoisiennes des point s d’ordre ﬁni des courbes ellip-
+tiques. Invent. Math. , 15(4):259–331, 1972.
+[44] Jeroen Sijsling. Canonical models of arithmetic (1; e)-curves. Math. Z. , 273(1-2):173–
+210, 2013.
+[45] Samir Siksek and Michael Stoll. Partial descent on hype relliptic curves and the
+generalized Fermat equation x3 + y4 + z5 = 0. Bull. Lond. Math. Soc. , 44(1):151–166,
+2012.
+[46] Samir Siksek and Michael Stoll. The generalised Fermat equation x2 +y3 = z15. Arch.
+Math. (Basel) , 102(5):411–421, 2014.
+[47] Joseph H. Silverman. Advanced topics in the arithmetic of elliptic curves , volume
+151 of Graduate Texts in Mathematics . Springer-Verlag, New York, 1994.
+[48] Richard Taylor and Andrew Wiles. Ring-theoretic prope rties of certain Hecke alge-
+bras. Ann. of Math. (2) , 141(3):553–572, 1995.
+[49] Andrew Wiles. Modular elliptic curves and Fermat’s las t theorem. Ann. of Math.
+(2), 141(3):443–551, 1995.
+[50] Zhong-Peng Zhou. IUT-Diophantine-Q-I. A vailable at
+https://github.com/github-zpzhou/IUT-Diophantine-Q- I.
+(Zhong-Peng Zhou) Institute for Theoretical Sciences, Westlake Univer-
+sity, No. 600 Dunyu Road, Xihu District, Hangzhou, Zhejiang , 310030, P.R.
+China
+E-mail address : zhouzhongpeng@westlake.edu.cn
+41

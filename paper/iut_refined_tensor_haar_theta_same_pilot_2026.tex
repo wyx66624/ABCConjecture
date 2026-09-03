@@ -1,0 +1,218 @@
+% Directly inputtable article fragment.
+% Required preamble packages: amsmath, amssymb.
+% Author: ChatGPT, 2 September 2026.
+
+\section{Refined tensor Haar volume and the pointed same-pilot gate}
+\label{sec:refined-tensor-haar-same-pilot}
+
+\noindent\textbf{Author: ChatGPT.}\quad
+This section isolates an unconditional local theorem that is useful at the
+present Project-LANA/IUT interface.  It does not assert IUT III,
+Corollary~3.12, or the $abc$ conjecture.  In particular, the finite-etale
+factorization, Haar-positivity, Ind3-openness, and pointed-horizontal
+identification hypotheses below are logically distinct.
+
+\noindent\textbf{Primary-source boundary.}
+The terminology follows Mochizuki's May 2020 author version of
+\emph{Inter-universal Teichmuller Theory III}.  The exact locators are
+Proposition~3.9(i), Remark~3.9.5(i), Theorem~3.11(i)--(ii), and
+Corollary~3.12, especially proof Steps (xi-b)--(xi-f).  The identification
+still missing after the three indeterminacies is also recorded in Sections
+6--7 of the July 2026 LANA formalization report.  The frozen Project LANA
+source is commit
+\begin{center}
+\texttt{c65b28c9f9631635e742294c3a5df15759e7c74c}.
+\end{center}
+No source claim is imported as a premise unless it is displayed below.
+
+\subsection{Primitive factors and the prime Jacobian}
+
+Fix a rational prime $p$.  For a place tuple $c$, let
+\[
+ A_c=\bigotimes_{j\in S,\,\mathbb Q_p}K_{c_j}.
+\]
+Since the local extensions are finite and separable, $A_c$ is a finite-etale
+$\mathbb Q_p$-algebra.  Thus
+\begin{equation}
+ A_c\simeq\prod_{d\in D_c}L_{c,d},
+ \qquad
+ N_c:=\dim_{\mathbb Q_p}A_c
+      =\sum_{d\in D_c}[L_{c,d}:\mathbb Q_p].
+ \label{eq:primitive-decomposition}
+\end{equation}
+For a factor $L=L_{c,d}$, write $e=e(L/\mathbb Q_p)$ and
+$f=f(L/\mathbb Q_p)$.
+
+\paragraph{Primitive-factor theorem.}
+For every uniformizer $\pi\in\mathcal O_L$, there is
+$u\in\mathcal O_L^\times$ such that
+\begin{equation}
+ p=u\pi^e,\qquad |k_L|=p^f,
+ \qquad [L:\mathbb Q_p]=ef.
+ \label{eq:ef-identities}
+\end{equation}
+Indeed, unique factorization in the discrete valuation ring gives
+$p=u\pi^m$.  Applying the integer-valued valuation normalized by
+$v_L(\pi)=1$ yields $m=v_L(p)=e$.  The residue field is an
+$f$-dimensional vector space over $\mathbb F_p$, and the fundamental equality
+for finite extensions of complete discretely valued fields gives
+$[L:\mathbb Q_p]=ef$.  Consequently,
+\begin{equation}
+ N_c=\sum_{d\in D_c}e_{c,d}f_{c,d}>0.
+ \label{eq:dimension-conservation}
+\end{equation}
+The last identity follows by taking dimensions in
+\eqref{eq:primitive-decomposition}; it is not an assumption about an
+unsplit tensor product.
+
+Normalize additive Haar measure $\mu_{c,d}$ by
+$\mu_{c,d}(\mathcal O_{c,d})=1$.  For nonempty compact-open
+$U_{c,d}\subseteq L_{c,d}$, set
+\[
+ U_c=\prod_dU_{c,d},\qquad
+ \mu_c=\prod_d\mu_{c,d},\qquad
+ \lambda_c(U_c)=\frac{1}{N_c}\log\mu_c(U_c).
+\]
+All measures in this display are finite and strictly positive.  The additive
+Haar change-of-variables formula and \eqref{eq:ef-identities} give
+\[
+ \mu_{c,d}(p^{-1}U_{c,d})
+   =p^{e_{c,d}f_{c,d}}\mu_{c,d}(U_{c,d}).
+\]
+Taking products and using \eqref{eq:dimension-conservation} proves
+\begin{equation}
+ \lambda_c(p^{-1}U_c)=\lambda_c(U_c)+\log p.
+ \label{eq:normalized-prime-shift}
+\end{equation}
+Moreover, with $n_{c,d}=[L_{c,d}:\mathbb Q_p]$ and
+$\rho_{c,d}=n_{c,d}/N_c$, one has
+\begin{equation}
+ \sum_d\rho_{c,d}=1,
+ \qquad
+ \lambda_c(U_c)=
+ \sum_d\rho_{c,d}
+   \frac{\log\mu_{c,d}(U_{c,d})}{n_{c,d}}.
+ \label{eq:relative-degree-average}
+\end{equation}
+Thus the normalization is by total local degree, rather than by the number
+of primitive factors.
+
+If a tuple has weight $W_c$, its primitive factors must receive
+\begin{equation}
+ \widetilde W_{c,d}=W_c\rho_{c,d}.
+ \label{eq:refined-weights}
+\end{equation}
+Then $\sum_d\widetilde W_{c,d}=W_c$, so normalized tuple weights remain
+normalized after primitive refinement.
+
+\subsection{Finite-positive orbit regions}
+
+Let $X$ be a finite product of locally compact primitive fields with product
+Haar measure $\mu$.  Let $U\subseteq X$ be nonempty and open, and let
+$\{\phi_a:X\simeq X\}_{a\in A}$ be homeomorphisms, one of which is the
+identity.  Suppose that every $\phi_a(U)$ lies in a common set $E$ with
+compact closure.  Then
+\begin{equation}
+ \Theta(U):=\bigcup_{a\in A}\phi_a(U)
+ \label{eq:theta-orbit}
+\end{equation}
+is nonempty and open.  It therefore has positive Haar measure.  Its closure
+is a closed subset of the compact set $\overline E$, so it is compact; Haar
+measure is finite on that closure.  Hence
+\begin{equation}
+ 0<\mu(\Theta(U))<\infty.
+ \label{eq:theta-finite-positive}
+\end{equation}
+When $A$ is finite and $U$ is compact-open, $\Theta(U)$ is itself
+compact-open.  For an infinite family the stated hypotheses yield an open
+region with compact closure; they do not imply that the orbit union is
+closed.
+
+The same argument applies to an inductively generated Ind1--Ind3 system only
+under the following separate premises: ordinary branches are open and one is
+nonempty; Ind1 and Ind2 preserve openness; every relational Ind3 target of an
+open reachable region is open; and all constructors preserve the common
+compact-envelope containment.  Structural induction then proves openness
+and envelope containment for every reachable region, after which
+\eqref{eq:theta-finite-positive} follows.  The finite-etale theorem above
+does not supply any of these source-level Ind hypotheses.
+
+\subsection{The pointed same-pilot implication}
+
+Let $P$ be the actual native $q$-pilot region, $\Theta$ the actual union of
+reachable theta outputs, and $H$ a finite-positive hull.  If the
+object-level construction proves the pointed inclusions
+\begin{equation}
+ P\subseteq\Theta\subseteq H,
+ \label{eq:pointed-inclusions}
+\end{equation}
+then Haar monotonicity and monotonicity of the real logarithm give
+\begin{equation}
+ \log\mu(P)\leq\log\mu(\Theta)\leq\log\mu(H).
+ \label{eq:same-pilot-sandwich}
+\end{equation}
+Thus any independent estimate $\log\mu(H)\leq T$ implies
+$\log\mu(P)\leq T$.  No volume-preservation assertion for the Ind maps is
+needed for this conditional implication.  However, naming some generated
+branch ``native'' does not establish \eqref{eq:pointed-inclusions}.  The open
+source-level obligation is to transport the original pointed pilot through
+the theta link, IPL/SHE/APT, log-Kummer correction, determinant
+normalization, and Ind3.
+
+\subsection{Exact counterexamples and route status}
+
+Each counterexample below satisfies all premises of the deliberately weaker
+claim that it refutes.
+
+\begin{enumerate}
+\item A one-factor quadratic local field has factor count $1$ and total
+degree $2$.  Its raw prime-preimage shift is $2\log p$, so division by factor
+count does not give \eqref{eq:normalized-prime-shift}.  This refutes only
+factor-count normalization.
+\item For an unramified quadratic Galois extension $K/\mathbb Q_p$,
+$K\otimes_{\mathbb Q_p}K\simeq K\times K$.  Copying a parent weight $1$ to
+both factors gives total weight $2$; the relative-degree weights
+$(1/2,1/2)$ satisfy \eqref{eq:refined-weights}.  This refutes only copied
+parent weights.
+\item On $\mathbb R$ with Lebesgue Haar measure, an Ind3 relation may send
+$(-1,1)$ to $\{0\}$ while both lie in the compact envelope $[-1,1]$.
+The target has measure zero.  This refutes the claim that envelope
+preservation alone yields finite-positive Ind3 outputs; it does not refute a
+concrete Ind3 theorem that proves openness or positivity.
+\item In the discrete three-point group with counting Haar measure, take
+$P=\{0,1\}$ and $\Theta=H=\{0\}$.  All regions are compact-open and
+finite-positive and $\Theta\subseteq H$, but
+$\log\mu(P)=\log2>0=\log\mu(H)$.  This refutes only an unpointed inference.
+\end{enumerate}
+
+The finite-etale factor identities and total-degree Haar normalization are
+proved.  The relative-degree weights, bounded-open orbit lemma, and
+conditional pointed sandwich are also proved.  The identification of the
+concrete IUT Ind1 and Ind2 maps,
+openness or positive measure of the required Ind3 targets, and the pointed
+IPL, SHE, and APT horizontal transport remain open gaps.  No counterexample
+satisfying all premises of those source statements is presently supplied;
+therefore those routes remain active.  IUT III, Corollary~3.12, IUT, and the
+standard $abc$ conjecture remain open in this work.
+
+\subsection{Formalization boundary}
+
+The companion Lean development derives the identities in
+\eqref{eq:ef-identities} and \eqref{eq:dimension-conservation} on the actual
+primitive quotients of a \texttt{TupleFiniteEtalePacket}.  It also formalizes
+the product-Haar formulas, the refined weights, the orbit and Ind interface
+lemmas and the pointed sandwich.  It checks coefficient-level versions of the
+factor-count and copied-weight obstructions and set-level versions of the
+envelope and unpointed obstructions.  The quadratic local-field and tensor
+decomposition witnesses for the first two remain paper proofs.  Its axiom
+audit reports only \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}; there are no project axioms or admitted proofs.
+
+The following source-specific work remains on paper: identifying each IUT
+capsule's completed tensor algebra with the finite-etale packet; comparing
+the tensor product of integral orders with the product of maximal factor
+orders, including finite-index/different corrections; instantiating the
+abstract Ind1/Ind2 homeomorphisms and common envelope; proving the required
+Ind3 openness or positivity; and constructing the pointed horizontal map.
+Finite computation audits the rational normalization formulas only and gives
+no evidence for these source-specific obligations or for $abc$.
