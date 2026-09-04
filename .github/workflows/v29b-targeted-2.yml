@@ -1,0 +1,37 @@
+name: v29b contact-depth targeted 2
+
+on:
+  push:
+    branches:
+      - "formalize/cross-endpoint-contact-depth-v29b"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  targeted:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake update >/dev/null 2>&1
+          lake exe cache get >/dev/null 2>&1
+      - name: Compile v29b modules
+        working-directory: Lean
+        shell: bash
+        run: |
+          lake build \
+            IUTThreeClosures.SharedSupportAffineContact \
+            IUTThreeClosures.CanonicalEndpointContactDepth \
+            IUTThreeClosures.OneSidedContactCoefficientLedger
