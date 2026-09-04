@@ -1,0 +1,222 @@
+\section{Signed endpoint prime-token transport}\label{sec:endpoint-prime-token-transport}
+
+We next attach a finite transport problem to every positive primitive $abc$
+triple; unit arms are allowed in this section.  Set
+\[
+ K_c=\frac{c}{\rad(c)},\qquad
+ E_{ab}=\rad(a)\rad(b),\qquad R=\rad(abc).
+\]
+
+\begin{proposition}[Endpoint-core balance]\label{prop:endpoint-core-balance}
+Every positive primitive triple satisfies
+\[
+ E_{ab}=\rad(ab),\qquad R=E_{ab}\rad(c),
+ \qquad E_{ab}c=RK_c.
+\]
+Consequently
+\[
+ \delta_c(a,b,c):=\log K_c-\log E_{ab}
+ =\log c-\log R.
+\]
+\end{proposition}
+
+\begin{proof}
+The three coordinates are pairwise coprime, so the squarefree radical is
+multiplicative across their supports.  Since $c=\rad(c)K_c$, multiplication
+gives $E_{ab}c=RK_c$.  Every factor is positive; taking logarithms and
+rearranging proves the last identity.
+\end{proof}
+
+For $p\mid c$, write $e_p=v_p(c)$.  The source tokens and their masses are
+\[
+ \mathcal S_c=\{(p,j):p\mid c,\ 1\le j<e_p\},
+ \qquad w(p,j)=\log p.
+\]
+Thus one source token is retained for each prime layer above the first copy.
+The sink tokens and capacities are
+\[
+ \mathcal T_{ab}=\{q:q\mid ab\},\qquad v(q)=\log q,
+\]
+with one sink for every distinct external prime.  Canonical factorisation
+immediately gives
+\[
+ \sum_{s\in\mathcal S_c}w(s)=\log K_c,\qquad
+ \sum_{q\in\mathcal T_{ab}}v(q)=\log E_{ab}.
+\tag{EPT-1}
+\]
+
+\begin{definition}[Fractional monotone endpoint transport]
+A transport is a family $F(s,q)\in\R_{\ge0}$ such that
+\[
+ \sum_qF(s,q)\le w(s),\qquad
+ \sum_sF(s,q)\le v(q),
+\]
+and $F((p,j),q)>0$ only when $p\le q$.  Write
+\[
+ U(F)=\sum_s\left(w(s)-\sum_qF(s,q)\right),
+ \quad
+ V(F)=\sum_q\left(v(q)-\sum_sF(s,q)\right)
+\]
+for unmatched source mass and unused sink capacity.
+\end{definition}
+
+The zero transport always exists.  The content of the construction is the
+size of $U(F)$, together with the order restriction on its edges.
+
+\begin{theorem}[Exact accounting and height control]
+\label{thm:endpoint-transport-accounting}
+Every fractional monotone endpoint transport satisfies
+\[
+ U(F)=\delta_c(a,b,c)+V(F).
+\]
+In particular,
+\[
+ \delta_c(a,b,c)\le U(F),
+ \qquad \log c\le\log R+U(F).
+\]
+\end{theorem}
+
+\begin{proof}
+Let $C(F)=\sum_{s,q}F(s,q)$.  Finite interchange of summation gives
+\[
+ U(F)=\sum_sw(s)-C(F),\qquad
+ V(F)=\sum_qv(q)-C(F).
+\]
+Subtracting and using the two token-mass identities gives
+$U(F)-V(F)=\delta_c(a,b,c)$.  The column-capacity inequalities make
+$V(F)\ge0$, and Proposition~\ref{prop:endpoint-core-balance} converts the
+first resulting inequality into the height bound.
+\end{proof}
+
+The monotone edge condition carries information that the scalar identity does
+not see.  For $t\in\R$, put
+\[
+ S_{>t}=\sum_{(p,j)\in\mathcal S_c,\ p>t}\log p,
+ \qquad T_{>t}=\sum_{q\in\mathcal T_{ab},\ q>t}\log q.
+\]
+
+\begin{theorem}[Weighted Hall tail obstruction]
+\label{thm:endpoint-hall-tail}
+Every fractional monotone endpoint transport satisfies
+\[
+ U(F)\ge S_{>t}-T_{>t}
+\qquad(t\in\R).
+\]
+\end{theorem}
+
+\begin{proof}
+Mass emitted by a source over $p>t$ can enter only a sink $q\ge p>t$.
+Consequently the total carried mass from that source tail is at most the total
+capacity $T_{>t}$ of the sink tail.  Its unmatched mass is therefore at least
+$S_{>t}-T_{>t}$, and it is at most the total unmatched mass because every row
+deficit is nonnegative.
+\end{proof}
+
+We do not use a converse max-flow formula.  The proved tail inequalities are
+necessary tests for any proposed transport construction.
+
+\begin{definition}[Uniform endpoint-flow gate]
+For every $\eps>0$, require a constant $C_\eps$ such that every positive
+primitive triple admits a monotone fractional transport satisfying
+\[
+ U(F)\le\eps\log R+C_\eps.
+\tag{EPF}
+\]
+\end{definition}
+
+\begin{theorem}[EPF implies standard $abc$]
+If the uniform endpoint-flow gate holds, then the standard $abc$ conjecture
+holds.
+\end{theorem}
+
+\begin{proof}
+For the flow supplied by EPF,
+Theorem~\ref{thm:endpoint-transport-accounting} gives
+\[
+ \log c\le\log R+U(F)
+ \le(1+\eps)\log R+C_\eps.
+\]
+Exponentiating yields the usual constant-times
+$\rad(abc)^{1+\eps}$ inequality, with the same quantifier order.
+\end{proof}
+
+The gate EPF is refuted by the infinite prime-square family in
+Section~\ref{sec:ordered-prime-transport-obstruction}.  Two smaller
+complete-premise examples separately show why an integral replacement is too
+rigid.  A \emph{full integral
+matching} assigns every source token injectively to a sink token whose prime
+is at least the source prime.
+
+\begin{proposition}[Integral matching boundaries]
+For $3+13=16$, the source multiset is $\{2,2,2\}$ and the sink set is
+$\{3,13\}$, so no full integral matching exists.  For $9+16=25$, the source
+has one token over $5$ and the sinks are $\{2,3\}$, so no monotone edge
+exists, although
+\[
+ K_c=5\le6=E_{ab}.
+\]
+\end{proposition}
+
+\begin{proof}
+The first claim is the pigeonhole principle applied to three distinct layer
+tokens and two sinks.  In the second example every available sink prime is
+strictly below $5$.  The displayed aggregate inequality follows from
+$\rad(25)=5$, $\rad(9)=3$, and $\rad(16)=2$.
+\end{proof}
+
+These witnesses refute universal full integral matching and the inference
+from $K_c\le E_{ab}$ to such a matching.  On their own they do not settle the
+fractional epsilon gate; the later infinite family does.
+
+There is also an infinite obstruction to removing the epsilon allowance from
+the scalar endpoint-core estimate.
+
+\begin{proposition}[No fixed zero-epsilon multiplier]
+Let $X_k=4^{3^k}$.  Then
+\[
+ 3^{k+1}\mid X_k-1,\qquad
+ 3^k\rad(X_k-1)\le X_k-1,
+\]
+and the primitive triple $(1,X_k-1,X_k)$ satisfies
+\[
+ \frac{K_{X_k}}{\rad(1)\rad(X_k-1)}>\frac{3^k}{2}.
+\]
+Consequently, for every $K\in\N$ there is a positive primitive triple with
+$K_c>K\rad(a)\rad(b)$.
+\end{proposition}
+
+\begin{proof}
+The divisibility is by induction.  It is true at $k=0$ because $X_0-1=3$.
+If $3^{k+1}\mid X_k-1$, then $X_k\equiv1\pmod3$ and hence
+$3\mid X_k^2+X_k+1$.  The factorisation
+\[
+ X_{k+1}-1=X_k^3-1=(X_k-1)(X_k^2+X_k+1)
+\]
+supplies the next power of $3$.  Write $X_k-1=3^{k+1}u$.  Radical
+submultiplicativity and $\rad(u)\le u$ give
+\[
+ \rad(X_k-1)\le3\rad(u)\le3u,
+\]
+which is the second inequality.  Since $X_k$ is a power of $2$,
+$K_{X_k}=X_k/2$; therefore
+\[
+ \frac{K_{X_k}}{\rad(X_k-1)}
+ \ge \frac{(X_k/2)3^k}{X_k-1}>\frac{3^k}{2}.
+\]
+Choosing, for example, $k=2K+1$ makes $3^k>2K$ and proves the final claim.
+\end{proof}
+
+This is an infinite, full-quantifier counterexample to a fixed natural
+multiplier at epsilon zero.  This particular family does not refute $abc$ or
+the epsilon gate: the displayed certified logarithmic lower bound grows only
+linearly in $k$, while $\log X_k=3^k\log4$.  The logically separate
+prime-square family in the next section does refute the ordered epsilon gate.
+
+The companion module
+\texttt{ABCSignedEndpointPrimeToken\allowbreak Transport20260903} formalises the exact
+core identity, finite weighted-flow accounting, Hall tail obstruction, the
+quantified implication EPF $\Rightarrow$ \texttt{ABCConjecture}, both finite
+integral counterexamples, and the elementary radical-budget mechanism used by
+the zero-epsilon family.  The module does not postulate EPF.  Its quantified
+negation and the common CT-3C obstruction are checked in the companion module
+of Section~\ref{sec:ordered-prime-transport-obstruction}.

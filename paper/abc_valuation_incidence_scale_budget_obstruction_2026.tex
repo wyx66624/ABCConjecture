@@ -1,0 +1,91 @@
+\section{The coefficient-one scale-budget obstruction}
+\label{sec:vic-scale-budget-obstruction}
+
+We now test the first scale-sensitive repair of the fixed-budget incidence
+selector.  Write
+\[
+ \ell_2(c)=\min\{s\in\N:c\le 2^s\}.
+\]
+For fixed $m,n\ge1$, VIC-1R asks for a fixed additive slack $t=t(m,n)$
+such that all but finitely many primitive nonunit triples admit a face $F$
+with
+\begin{equation}
+ \begin{aligned}
+ d_A(F)+d_B(F)&\le \ell_2(c)+t,\\
+ c&<M_A(F)M_B(F),\\
+ D_C^m&\le\bigl(R_A(F)R_B(F)\bigr)^{m+n}R_C^n.
+ \end{aligned}
+ \tag{VIC-1R}
+\end{equation}
+The following obstruction satisfies all ambient arithmetic premises and
+fails the first two necessary conditions together on an infinite tail.
+
+For $r\ge1$, put
+\[
+ Q_r=(2^{2r},3^r,2^{2r}+3^r).
+\]
+The two summands are coprime, so $Q_r$ is primitive; all three coordinates
+exceed one.  The family is injective through its first coordinate.
+
+\begin{theorem}[No coefficient-one scale-budget reconstruction]
+\label{thm:vic-scale-budget-obstruction}
+Let $r\ge1$ and let $F$ be an $AB$-reconstructing face of $Q_r$.  Then
+\[
+ d_A(F)+d_B(F)=3r-2
+ \qquad\text{and}\qquad
+ \ell_2(2^{2r}+3^r)\le 2r+1.
+\]
+Consequently, for every fixed $t\in\N$, every $r>t+3$ fails
+\[
+ d_A(F)+d_B(F)\le\ell_2(c)+t.
+\]
+In particular, VIC-1R is false for every pair $m,n\ge1$.
+\end{theorem}
+
+\begin{proof}
+The $A$-support is the singleton $\{2\}$ and the $B$-support is the
+singleton $\{3\}$.  If $2$ were omitted, then $M_A(F)=1$ and
+$M_B(F)\mid3^r$, whence
+\[
+ M_A(F)M_B(F)\le3^r<2^{2r}+3^r=c,
+\]
+contrary to reconstruction.  If $3$ were omitted, the symmetric estimate
+$M_A(F)M_B(F)\le2^{2r}<c$ gives the same contradiction.  Thus both vertices
+are selected, and their excess valuations give
+\[
+ d_A(F)+d_B(F)=(2r-1)+(r-1)=3r-2.
+\]
+
+Since $3^r<4^r=2^{2r}$ for $r\ge1$,
+\[
+ c=2^{2r}+3^r<2^{2r+1},
+\]
+so the defining minimum satisfies $\ell_2(c)\le2r+1$.  If $r>t+3$, then
+\[
+ 3r-2>2r+1+t\ge\ell_2(c)+t.
+\]
+Hence no reconstructing face meets the budget.  Infinitely many distinct
+$Q_r$ occur for every fixed $t$.  The third line of VIC-1R cannot create a
+face after the first two necessary conditions have become incompatible, so
+the all-but-finitely-many selector fails for every $m,n$.
+\end{proof}
+
+This theorem retires the coefficient-one binary-scale one-face selector and
+nothing broader.  It does not refute the valuation-incidence complex, its
+exact half-space theorem, or standard $abc$.  Surviving constructions may use
+logarithmically weighted defect, a larger scale coefficient coupled to a new
+quantitative restriction, several faces with joint CRT data, three-arm
+reconstruction, or a homological invariant of the filtered complex.  None of
+these replacements is assumed here.
+
+The ordinary proof above was fixed before formalization.  The Lean module
+\texttt{ABCValuation\allowbreak Incidence\allowbreak ScaleBudget\allowbreak
+Obstruction20260903}
+reindexes by
+$r=k+1$, defines the binary scale by a least-witness construction, proves the
+exact defect $3k+1$ and scale bound $2k+3$, constructs an infinite failure set
+for every slack, and negates the full pointwise and all-but-finitely-many
+VIC-1R predicates.  Its one-for-one audit covers all $34$ public declarations.
+The dependency union is exactly \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}; there are no custom
+axioms, placeholders, or native decision oracles.

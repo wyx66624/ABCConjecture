@@ -1,0 +1,39 @@
+import IUTThreeClosures.ABCValuationIncidenceScaleBudgetObstruction20260903
+
+open IUTThreeClosures
+open ABCValuationIncidenceScaleBudgetObstruction20260903
+
+#print axioms PrimitiveABC
+#print axioms Face
+#print axioms exists_le_two_pow
+#print axioms binaryScale
+#print axioms le_two_pow_binaryScale
+#print axioms binaryScale_le_of_le_two_pow
+#print axioms binaryScale_le_iff
+#print axioms balancedTwoPrimeDatum
+#print axioms balancedTwoPrimeDatum_injective
+#print axioms balanced_A_primeFactors
+#print axioms balanced_B_primeFactors
+#print axioms balanced_A_valuation_two
+#print axioms balanced_B_valuation_three
+#print axioms A_support_eq_empty_of_two_not_mem
+#print axioms B_support_eq_empty_of_three_not_mem
+#print axioms two_mem_A_of_ABReconstructing
+#print axioms three_mem_B_of_ABReconstructing
+#print axioms A_support_eq_singleton_of_ABReconstructing
+#print axioms B_support_eq_singleton_of_ABReconstructing
+#print axioms defectDegree_A_eq_of_ABReconstructing
+#print axioms defectDegree_B_eq_of_ABReconstructing
+#print axioms defectDegree_AB_eq_of_ABReconstructing
+#print axioms three_mul_k_add_one_le_defectDegree_AB_of_ABReconstructing
+#print axioms three_pow_succ_lt_two_pow_twice_succ
+#print axioms balanced_c_le_two_pow_two_mul_add_three
+#print axioms binaryScale_balanced_c_le
+#print axioms HasCoefficientOneScaleReconstructingFace
+#print axioms HasVIC1RFace
+#print axioms CoefficientOneScaleVIC1R
+#print axioms balanced_no_coefficientOneScaleReconstructingFace
+#print axioms balanced_no_VIC1RFace
+#print axioms coefficientOneScale_reconstruction_failureSet_infinite
+#print axioms coefficientOneScale_VIC1R_failureSet_infinite
+#print axioms not_coefficientOneScaleVIC1R

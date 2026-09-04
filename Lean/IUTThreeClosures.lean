@@ -877,3 +877,86 @@ import IUTThreeClosures.SynchronizedPacketRadicalExcessObstruction20260903
 -- A < 3/2, P < 3 => q <= 3/2 inference and a universal power-gain-three cap
 -- have complete countermodels.
 import IUTThreeClosures.ABCCanonicalGainSurface20260903
+
+-- A higher-dimensional object built directly from the three labelled prime
+-- supports of a primitive nonunit abc triple.  Faces retain valuations,
+-- radical/defect/modulus coordinates, a defect filtration, and local CRT
+-- signatures.  The exact rational-power half-space and a filtered-face
+-- implication are checked.  The first one-face selectors are tested in the
+-- two obstruction modules below; the parent complex remains active.
+-- The witness 12+833=845 retires only two pointwise degeneracy claims.
+import IUTThreeClosures.ABCValuationIncidenceComplex20260903
+
+-- Infinite complete-premise obstruction to the first absolute-budget
+-- incidence selector.  The dyadic family forces a budgeted face to omit its
+-- unique A-prime and hence prevents AB reconstruction.  This retires
+-- VIC-ABS-1 while leaving the parent complex open.
+import IUTThreeClosures.ABCValuationIncidenceFixedBudgetObstruction20260903
+
+-- Infinite complete-premise obstruction to the coefficient-one binary-scale
+-- repair VIC-1R.  The balanced family
+-- (2^(2r), 3^r, 2^(2r)+3^r) forces both summand vertices, whose combined
+-- defect exceeds binaryScale(c)+t on an infinite tail for every fixed t.
+-- This exact one-face selector is retired; the parent complex remains open.
+import IUTThreeClosures.ABCValuationIncidenceScaleBudgetObstruction20260903
+
+-- Three-arm weighted incidence continuation.  A primitive Pythagorean-square
+-- family refutes the raw selected-defect gate with all premises present.  The
+-- ordered complement-transport gate yields the exact height bound
+-- height <= conductor + unmatchedMass and would imply ABCConjecture if its
+-- uniform epsilon estimate held; the obstruction imported below refutes it.
+import IUTThreeClosures.ABCThreeArmIncidenceSuccessor20260903
+
+-- Signed endpoint prime-token transport for positive primitive abc triples.
+-- Exact core/radical balance, fractional-flow accounting, weighted Hall tail
+-- obstructions, and the implication from the quantified uniform flow gate to
+-- ABCConjecture are checked.  Integral matching and a fixed zero-epsilon
+-- natural multiplier have complete counterexamples.  The prime-square
+-- obstruction imported below also refutes the ordered fractional epsilon gate.
+import IUTThreeClosures.ABCSignedEndpointPrimeTokenTransport20260903
+
+-- Common infinite obstruction to the two ordered transport gates.  For odd
+-- prime p, the point (1,p^2-1,p^2) has an excess source at p, every external
+-- prime is smaller, and every covering three-arm face must select p.  Together
+-- with conductor <= 3*log p this refutes CT-3C and EPF at epsilon 1/4, while
+-- leaving standard ABCConjecture and the parent token constructions untouched.
+import IUTThreeClosures.ABCThreeArmComplementTransportObstruction20260903
+
+-- Bidirectional endpoint successor.  Completely unordered scalar transport
+-- is proved equivalent to ABCConjecture, so the first nontrivial candidate
+-- also charges relative logarithmic downward displacement.  Its conditional
+-- implication remains useful, but the obstruction imported next refutes its
+-- exact uniform energy gate.
+import IUTThreeClosures.ABCBidirectionalPrimeTransportSuccessor20260903
+
+-- Prime-hypotenuse Pythagorean-square obstruction to the first bidirectional
+-- energy gate.  Every external prime is at square-root scale or below, so
+-- every flow has energy at least (log p)/4 while conductor <= 3*log p.  This
+-- gives a complete-premise infinite refutation of BEP at epsilon 1/24; only
+-- that calibration is retired.
+import IUTThreeClosures.ABCBidirectionalEnergyPythagoreanObstruction20260903
+
+-- Prime-packet boundary successor.  Excess layers at each endpoint prime are
+-- aggregated into one source and each external radical prime is assigned as
+-- an indivisible sink.  The packet boundary controls the height and a uniform
+-- small-boundary gate PBT would imply ABCConjecture.  A two-source/one-sink
+-- certificate proves that the finite objective is not the scalar divisible
+-- relaxation.  The gate is not assumed; the Linnik module imported next
+-- gives its transparent finite/arithmetic obstruction and a conditional
+-- formal negation from the precisely stated analytic escape.
+import IUTThreeClosures.ABCPrimePacketBoundaryTransportSuccessor20260903
+
+-- Finite and elementary core of the Linnik prime-neighbour obstruction.
+-- The actual point (1, ell, ell+1), square-product endpoint sources, the
+-- unique-sink residual lower bound, conductor control, and zero scalar defect
+-- are checked.  Since Mathlib has no Linnik least-prime theorem, the final
+-- Lean theorem is honestly conditional on a transparent arithmetic escape;
+-- the cited ordinary proof supplies that escape from the published theorem.
+import IUTThreeClosures.ABCPrimePacketBoundaryLinnikObstruction20260903
+
+-- Shared CRT-incidence successor.  Disjoint saturated hyperedges allow one
+-- sink union to certify several endpoint powers while a once-charged capacity
+-- kernel preserves the height bridge.  Unrestricted pooling is proved to
+-- collapse to the scalar defect and duplicated capacity breaks the bridge.
+-- The arithmetic SCRT-0 uniform estimate is neither assumed nor proved.
+import IUTThreeClosures.ABCSharedCRTIncidenceSuccessor20260903

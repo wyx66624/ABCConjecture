@@ -1,0 +1,62 @@
+import IUTThreeClosures.ABCBidirectionalPrimeTransportSuccessor20260903
+
+/-!
+# Axiom audit: bidirectional prime-transport successor
+
+Compile this file directly with `-DwarningAsError=true`.  The inventory is
+one-for-one with every public `abbrev`, `structure`, `def`, and `theorem` in
+the implementation module.  It audits the unordered scalar degeneration,
+the exact equivalence of its endpoint gate with `ABCConjecture`, the
+bidirectional cost construction, and the conditional small-energy
+implication.  It does not assume the uniform energy candidate.
+-/
+
+open IUTThreeClosures
+open ABCBidirectionalPrimeTransportSuccessor20260903
+
+#print axioms BidirectionalWeightedFlow
+#print axioms zeroBidirectionalWeightedFlow
+#print axioms singleEdgeBidirectionalWeightedFlow
+#print axioms singleEdgeBidirectionalWeightedFlow_selected
+#print axioms UnorderedMassRelaxation
+#print axioms UnorderedMassRelaxation.unmatched
+#print axioms UnorderedMassRelaxation.positivePart_le_unmatched
+#print axioms UnorderedMassRelaxation.optimal
+#print axioms UnorderedMassRelaxation.optimal_unmatched_eq_positivePart
+#print axioms BidirectionalWeightedFlow.toUnorderedMassRelaxation
+#print axioms BidirectionalWeightedFlow.positivePart_source_sub_sink_le_unmatchedMass
+
+#print axioms EndpointBidirectionalFlow
+#print axioms primeExcessTokenWeight_nonneg
+#print axioms primeSupportTokenWeight_nonneg
+#print axioms zeroEndpointBidirectionalFlow
+#print axioms endpointBidirectionalFlow_nonempty
+#print axioms endpointBidirectionalFlow_sourceMass_eq_log_core
+#print axioms endpointBidirectionalFlow_sinkMass_eq_log_externalRadical
+#print axioms endpointUnorderedOptimalUnmatched
+#print axioms endpointUnorderedOptimalUnmatched_eq_positive_height_defect
+#print axioms endpointUnorderedOptimalUnmatched_le_unmatchedMass
+#print axioms endpointOptimalScalarRelaxation
+#print axioms endpointOptimalScalarRelaxation_unmatched
+#print axioms UniformUnorderedEndpointRelaxationBound
+#print axioms abc_of_uniformUnorderedEndpointRelaxationBound
+#print axioms uniformUnorderedEndpointRelaxationBound_of_abc
+#print axioms uniformUnorderedEndpointRelaxationBound_iff_abc
+
+#print axioms relativeLogDrop
+#print axioms relativeLogDrop_nonneg
+#print axioms relativeLogDrop_eq_zero_of_le
+#print axioms BidirectionalWeightedFlow.downwardCost
+#print axioms BidirectionalWeightedFlow.downwardCost_nonneg
+#print axioms endpointDownwardCost
+#print axioms endpointDownwardCost_nonneg
+#print axioms endpointPrimeFlowToBidirectional
+#print axioms endpointPrimeFlow_toBidirectional_downwardCost_eq_zero
+#print axioms endpointBidirectionalEnergy
+#print axioms endpointBidirectionalEnergy_nonneg
+#print axioms unmatchedMass_le_endpointBidirectionalEnergy
+#print axioms signedEndpointCoreDefect_le_bidirectionalUnmatchedMass
+#print axioms height_le_conductor_add_bidirectionalUnmatchedMass
+#print axioms height_le_conductor_add_bidirectionalEnergy
+#print axioms UniformBidirectionalEndpointEnergyBound
+#print axioms abc_of_uniformBidirectionalEndpointEnergyBound

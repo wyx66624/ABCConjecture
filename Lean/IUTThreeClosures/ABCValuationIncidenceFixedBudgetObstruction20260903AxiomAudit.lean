@@ -1,0 +1,23 @@
+import IUTThreeClosures.ABCValuationIncidenceFixedBudgetObstruction20260903
+
+open IUTThreeClosures
+open ABCValuationIncidenceFixedBudgetObstruction20260903
+
+#print axioms PrimitiveABC
+#print axioms Face
+#print axioms HasFixedAABReconstructingFace
+#print axioms HasFixedABReconstructingFace
+#print axioms HasVICABS1Face
+#print axioms AbsoluteBudgetVICABS1
+#print axioms dyadic_A_valuation_two
+#print axioms dyadic_A_primeFactors
+#print axioms two_not_mem_A_of_defectDegree_le
+#print axioms A_support_eq_empty_of_defectDegree_le
+#print axioms A_armModulus_eq_one_of_defectDegree_le
+#print axioms B_armModulus_le_three
+#print axioms dyadic_no_fixedA_ABReconstructing
+#print axioms dyadic_no_fixedBudget_ABReconstructing
+#print axioms dyadic_no_VICABS1Face
+#print axioms fixedA_reconstruction_failureSet_infinite
+#print axioms fixedBudget_failureSet_infinite
+#print axioms not_absoluteBudgetVICABS1

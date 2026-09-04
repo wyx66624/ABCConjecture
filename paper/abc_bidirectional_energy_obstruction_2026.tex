@@ -1,0 +1,141 @@
+\section{A square-root obstruction to relative-drop energy}
+\label{sec:bidirectional-energy-obstruction}
+
+The bidirectional endpoint model removes the false hard order and assigns an
+edge from $p$ to $q$ the relative drop
+\[
+ d(p,q)=\max\left\{0,\frac{\log p-\log q}{\log p}\right\}.
+\]
+For a feasible flow $f$, its proposed energy is
+$E(f)=U(f)+\sum_{s,q}f(s,q)d(p_s,q)$.  The prime-square family of
+Section~\ref{sec:ordered-prime-transport-obstruction} no longer fails because
+its downward edges are absent: all capacity-compatible edges now exist.  A
+different infinite family shows that charging every downward edge at this
+scale is still too rigid.
+
+First observe the exact finite optimization problem.  Put
+\[
+ \rho(p,q)=1-d(p,q)
+ =\min\left\{1,\frac{\log q}{\log p}\right\}.
+\]
+If $S$ is total source mass, then
+\[
+ E(f)=S-\sum_{s,q}\rho(p_s,q)f(s,q).
+\tag{BRE-1}
+\]
+Thus minimizing energy is a maximum-reward transportation problem.  Its dual
+minimizes
+\[
+ \sum_s w(s)u_s+\sum_qv(q)v_q
+ \quad\text{subject to}\quad
+ u_s+v_q\ge\rho(p_s,q),\qquad u_s,v_q\ge0.
+\]
+For one source, the optimum fills sink capacities in nonincreasing prime
+order until either the source or all sinks are exhausted.  This follows by
+moving any mass on a lower-reward sink to an unused higher-reward sink.  The
+description is exact and supplies finite primal--dual certificates; it does
+not imply an asymptotic estimate.
+
+Choose an arbitrarily large prime $p\equiv1\pmod4$.  Fermat's two-square
+theorem gives
+\[
+ p=m^2+n^2,\qquad m>n>0.
+\]
+Primality makes $m$ and $n$ coprime, and their parities are opposite.  Put
+\[
+ X=m^2-n^2,\qquad Y=2mn.
+\]
+Then $X^2+Y^2=p^2$ and $\gcd(X,Y)=1$, so
+\[
+ Q_p=(X^2,Y^2,p^2)
+\tag{BRE-2}
+\]
+is a positive primitive $abc$ triple.
+
+\begin{lemma}[Square-root support]
+\label{lem:pythagorean-square-root-support}
+Every prime $q$ dividing $XY$ satisfies
+\[
+ q\le m+n,\qquad q^2\le2p.
+\]
+\end{lemma}
+
+\begin{proof}
+The factorizations
+$X=(m-n)(m+n)$ and $Y=2mn$ show that $q$ divides one of
+$m-n,m+n,2,m,n$.  Each is at most $m+n$.  Finally,
+\[
+ (m+n)^2=m^2+n^2+2mn\le2(m^2+n^2)=2p.
+\]
+\end{proof}
+
+\begin{theorem}[Bidirectional relative-drop obstruction]
+\label{thm:bidirectional-relative-drop-obstruction}
+The gate \textup{(BEP)} is false.  It is refuted at $\eps=1/12$ by the
+family \textup{(BRE-2)}.
+\end{theorem}
+
+\begin{proof}
+The endpoint $p^2$ has exactly one excess token, of capacity
+$L=\log p$.  Every sink prime divides $XY$, and the lemma gives
+\[
+ \log q\le\frac{L+\log2}{2},\qquad
+ d(p,q)\ge\delta_p:=\frac12-\frac{\log2}{2L}.
+\]
+For $p\ge5$, one has $0<\delta_p<1$.  If an arbitrary flow carries total
+mass $W$, its single row gives $0\le W\le L$, while
+\[
+ U=L-W,\qquad D\ge\delta_pW.
+\]
+Consequently
+\[
+ E\ge L-(1-\delta_p)W
+ \ge\delta_pL=\frac{L-\log2}{2}.
+\tag{BRE-3}
+\]
+
+The radical of (BRE-2) satisfies
+\[
+ \rad(X^2Y^2p^2)\le XYp\le p^3,
+\]
+because $X,Y\le p$.  Hence its conductor is at most $3L$.  If BEP held at
+$\eps=1/12$ with constant $C$, (BRE-3) would imply
+\[
+ \frac{L-\log2}{2}
+ \le E\le\frac1{12}(3L)+C,
+\]
+or $L/4\le C+(\log2)/2$.  Primes congruent to one modulo four are unbounded,
+so this is impossible.
+\end{proof}
+
+The proof bounds every admissible flow and uses an infinite family with all
+positivity, addition, and coprimality premises present.  It therefore retires
+the exact relative-drop energy gate.  It does not refute standard $abc$,
+bidirectional transport as a parent construction, or a differently calibrated
+packet or homological cost.
+
+The mechanism suggests the correction.  Prime-hypotenuse Pythagorean squares
+naturally place leg factors at square-root scale.  A candidate that assigns a
+fixed positive proportional charge to every edge down to that scale will fail
+for the same reason.  The next successor must aggregate several sinks into a
+packet, record an algebraic degree, or permit cancellation across an incidence
+boundary.  A quadratic calibration such as
+\[
+ \max\left\{0,\frac{\log p-2\log q}{\log p}\right\}
+\]
+passes this particular scale test, but its uniform estimate is not asserted
+and must be subjected to the same complete-premise audit.
+
+The ordinary proof above precedes its Lean realization in
+\begin{center}
+\path{ABCBidirectionalEnergyPythagoreanObstruction20260903}.
+\end{center}
+The companion audit queries every public declaration.  The module proves the
+unbounded prime-hypotenuse construction, the support and energy bounds, and
+the quantified negation of BEP without assuming \texttt{ABCConjecture}.  The
+ordinary estimate above is the sharper square-root bound and gives
+$\eps=1/12$; the Lean proof uses the simpler integral consequence
+$q^4\le p^3$, obtains energy at least $(\log p)/4$, and closes the same
+negation at $\eps=1/24$.  The module exposes $40$ public declarations and its
+audit has exactly $40$ corresponding queries; the dependency union is only
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.

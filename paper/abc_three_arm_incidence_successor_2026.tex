@@ -1,0 +1,217 @@
+\section{Three-arm incidence covers and complement transport}
+\label{sec:three-arm-incidence-successor}
+
+The preceding obstructions rule out two one-face selectors, but they do not
+rule out the labelled incidence complex itself.  We now allow a face to use
+prime-power vertices on all three arms and charge every selected excess layer
+by its actual logarithmic weight.
+
+Let $P=(a,b,c)$ be a positive primitive triple with $a+b=c$.  For
+$i\in\{A,B,C\}$ put $x_A=a$, $x_B=b$, and $x_C=c$.  A three-arm face $F$
+selects a subset $F_i$ of the prime support of each $x_i$.  Define
+\[
+ \begin{aligned}
+ R_i(F)&=\prod_{p\in F_i}p,
+ &\overline R_i(F)&=\prod_{\substack{p\mid x_i\\p\notin F_i}}p,\\
+ D_i(F)&=\prod_{p\in F_i}p^{v_p(x_i)-1},
+ &M_i(F)&=\prod_{p\in F_i}p^{v_p(x_i)}.
+ \end{aligned}
+\]
+Write $R(F)$, $\overline R(F)$, $D(F)$, and $M(F)$ for the products over
+the three arms, and write $R(P)=\rad(abc)$.  We say that $F$ covers the
+endpoint when $c\le M(F)$.
+
+\begin{proposition}[Exact three-arm products and CRT rigidity]
+\label{prop:three-arm-products-crt}
+Every three-arm face satisfies
+\[
+ R(F)D(F)=M(F),\qquad R(F)\overline R(F)=R(P)
+ \qquad\text{(3C-1)}.
+\]
+If $c<M(F)$, $0\le x<M(F)$, and
+\[
+ x\equiv b\pmod {M_A(F)},\qquad
+ x\equiv a\pmod {M_B(F)},\qquad
+ x\equiv0\pmod {M_C(F)},
+\]
+then $x=c$.
+\end{proposition}
+
+\begin{proof}
+For a selected prime, the identity
+$p\,p^{v_p(x_i)-1}=p^{v_p(x_i)}$ gives the first product formula.
+Selected and unselected primes partition the support on each arm, so their
+radicals multiply to $\rad(x_i)$.  Pairwise coprimality of the coordinates
+then gives the second formula.
+
+Each selected arm modulus divides its coordinate.  The equation $a+b=c$
+therefore gives the three displayed congruences for $c$.  The three moduli
+are pairwise coprime, so the Chinese remainder theorem gives
+$x\equiv c\pmod {M(F)}$.  Both numbers lie in $[0,M(F))$, hence $x=c$.
+\end{proof}
+
+The first weighted proposal asks, for every $\eps>0$, for a constant
+$C_\eps$ such that every $P$ has a covering face satisfying
+\[
+ \log D(F)\le \eps\log R(P)+C_\eps
+ \qquad\text{(RAW-3C)}.
+\]
+Coverage and (3C-1) would then give
+\[
+ \log c\le\log R(P)+\log D(F)
+ \le(1+\eps)\log R(P)+C_\eps,
+\]
+so RAW-3C would imply standard $abc$.  The following complete-premise
+family shows that this proposal is still too strong.
+
+For $t\ge1$, put
+\[
+ x_t=2t+1,\qquad y_t=2t(t+1),\qquad
+ z_t=2t^2+2t+1,
+\]
+and set $P_t=(x_t^2,y_t^2,z_t^2)$.  Euclid's identity gives
+$x_t^2+y_t^2=z_t^2$, while the consecutive-parameter gcd calculation gives
+$\gcd(x_t,y_t)=1$.  Thus the $P_t$ are distinct positive primitive triples.
+
+\begin{theorem}[Infinite obstruction to RAW-3C]
+\label{thm:raw-three-arm-obstruction}
+RAW-3C is false, already at $\eps=1/4$.
+\end{theorem}
+
+\begin{proof}
+Every selected valuation on $P_t$ is at least two.  Consequently
+$R(F)\le D(F)$ and
+\[
+ M(F)=R(F)D(F)\le D(F)^2.
+\]
+If $F$ covers, then $z_t^2\le M(F)$ and hence $z_t\le D(F)$.  On the other
+hand, $\rad(u^2)=\rad(u)\le u$ for every positive integer $u$, and
+$x_t,y_t\le z_t$.  Therefore
+\[
+ R(P_t)\le x_ty_tz_t\le z_t^3.
+\]
+If RAW-3C held at $1/4$, every $t$ would admit a covering face with
+\[
+ \log z_t\le\log D(F)
+ \le\frac14\log R(P_t)+C
+ \le\frac34\log z_t+C.
+\]
+This would bound $\frac14\log z_t$ by the fixed constant $C$, whereas
+$z_t$ is unbounded.
+\end{proof}
+
+The failure identifies the missing resource: the radical vertices omitted
+from a covering face.  For every selected prime $p$ and every layer above
+its first occurrence, create a source token of weight $\log p$ and key $p$.
+For every unselected prime $q$, create a sink token of capacity $\log q$ and
+key $q$.  A complement transport is a nonnegative fractional flow from
+sources to sinks, subject to row and column capacities, in which positive
+flow from $p$ to $q$ is allowed only when $p\le q$.  Its unmatched source
+mass is
+\[
+ U(F,f)=\sum_s\left(w(s)-\sum_q f(s,q)\right).
+\]
+
+\begin{proposition}[Transport accounting]
+\label{prop:three-arm-transport-accounting}
+For every complement transport,
+\[
+ \sum_s w(s)=\log D(F),\qquad
+ \sum_q w(q)=\log\overline R(F),
+\]
+and
+\[
+ \log D(F)\le\log\overline R(F)+U(F,f)
+ \qquad\text{(3C-2)}.
+\]
+For every prime threshold $T$ one also has the necessary Hall inequality
+\[
+ \sum_{p(s)>T}w(s)-\sum_{q>T}w(q)\le U(F,f)
+ \qquad\text{(3C-3)}.
+\]
+\end{proposition}
+
+\begin{proof}
+A selected vertex $p$ contributes $v_p(x_i)-1$ source tokens, so summing
+their weights gives $\log D(F)$.  The sink identity is the logarithm of the
+complementary squarefree product.  If $W$ is the carried mass, then
+$U=\log D(F)-W$, while the column capacities give
+$W\le\log\overline R(F)$; this proves (3C-2).  A source with key above
+$T$ can send mass only to a sink whose key is also above $T$.  Comparing that
+source-tail mass with the available sink-tail capacity proves (3C-3).
+\end{proof}
+
+The ordered gate CT-3C asks, for every $\eps>0$, for a constant $C_\eps$
+such that every positive primitive $P$ has a covering face and a complement
+transport satisfying
+\[
+ U(F,f)\le\eps\log R(P)+C_\eps
+ \qquad\text{(CT-3C)}.
+\]
+
+\begin{theorem}[Complement transport implies standard $abc$]
+\label{thm:three-arm-complement-transport-abc}
+If CT-3C holds, then the standard $abc$ conjecture holds.
+\end{theorem}
+
+\begin{proof}
+Coverage, (3C-1), and (3C-2) give
+\[
+ \begin{aligned}
+ \log c
+ &\le\log R(F)+\log D(F)\\
+ &\le\log R(F)+\log\overline R(F)+U(F,f)\\
+ &=\log R(P)+U(F,f).
+ \end{aligned}
+\]
+Substitution of CT-3C yields
+$\log c\le(1+\eps)\log R(P)+C_\eps$ with the standard quantifier order.
+\end{proof}
+
+Section~\ref{sec:ordered-prime-transport-obstruction} gives an infinite
+complete-premise refutation of CT-3C.  Before that obstruction was isolated,
+the exact-support computation enumerated all
+$218{,}893$ unordered primitive triples with $a\le b$ and $a+b=c\le1200$,
+all covering faces of each triple, the balanced family
+$(2^{2r},3^r,2^{2r}+3^r)$ for $1\le r\le12$, and the first eighty members of
+the Pythagorean-square family.  It finds $1{,}669$ triples without a
+zero-defect covering face.  The largest displayed value of
+$\min U/\log R(P)$ in the exhaustive range is approximately $0.613147$, at
+$1+8=9$.  These finite ratios can be absorbed by an additive constant and by
+themselves neither prove nor refute an asymptotic gate.  Integer
+factorisation, support, coverage, radical, modulus, and defect decisions are
+exact.  Floating-point logarithms enter only the finite flow values and their
+ranking.
+
+For completeness, the descending greedy calculation is optimal for this
+finite nested graph.  Group equal keys and process groups from largest to
+smallest, adding the current sink capacity before matching the current source
+mass.  If $\Delta_r$ is cumulative source mass minus cumulative sink capacity
+after $r$ groups and $U_r$ is the greedy unmatched mass, conservation gives
+\[
+ U_r=\max(U_{r-1},\Delta_r),\qquad U_0=0.
+\]
+Thus $U_r=\max(0,\Delta_1,\ldots,\Delta_r)$.  These cumulative differences
+are precisely the Hall upper-tail excesses, every one of which is a lower
+bound for any transport.  The greedy value therefore equals the finite
+min-cut formula.  The implementation cross-checks the two calculations and
+includes the regression instance with
+sources $(5,1),(2,1)$ and sink $(3,1)$, whose unmatched optimum is $1$.
+
+The ordinary arguments above were fixed before their Lean translation.  The
+companion module is
+\begin{center}
+\path{ABCThreeArmIncidenceSuccessor20260903}.
+\end{center}
+It formalises the exact products, local signatures, three-modulus CRT rigidity,
+both implications to \texttt{ABCConjecture}, the infinite RAW-3C
+refutation, the source and sink mass identities, the Hall obstruction, and
+the exact bound $\operatorname{height}(P)\le
+\operatorname{conductor}(P)+U(F,f)$.  Its one-for-one audit covers all $65$
+public declarations.  The dependency union is exactly \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}; no custom axiom or
+placeholder is used.  The converse finite Hall theorem remains a useful exact
+description of this ordered graph, but the prime-square obstruction shows
+that no bound on its optimized tail excess can establish CT-3C.  Subsequent
+work must change the transport geometry while retaining the parent incidence
+data.

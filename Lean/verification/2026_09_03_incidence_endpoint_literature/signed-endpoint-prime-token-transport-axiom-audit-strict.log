@@ -1,0 +1,230 @@
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.sourceMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.sinkMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.carriedMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.unmatchedMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.unusedCapacity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.sourceTailMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.sinkTailMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.sourceTailCarried' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.sourceTailUnmatched' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.unmatchedMass_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.unusedCapacity_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.unmatchedMass_eq_sourceMass_sub_carriedMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.unusedCapacity_eq_sinkMass_sub_carriedMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.unmatchedMass_eq_defect_add_unusedCapacity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.sourceMass_sub_sinkMass_le_unmatchedMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.sourceTailUnmatched_le_unmatchedMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.sourceTailUnmatched_eq_tailMass_sub_tailCarried' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.sourceTailCarried_le_sinkTailMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.MonotoneWeightedFlow.sourceTailMass_sub_sinkTailMass_le_unmatchedMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.PrimeSupportToken' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.PrimeExcessToken' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.primeSupportTokenPrime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.primeExcessTokenPrime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.primeSupportTokenWeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.primeExcessTokenWeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.endpointCore' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.externalRadical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.totalRadical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.signedEndpointCoreDefect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.externalRadical_eq_radical_a_mul_radical_b' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.externalRadical_mul_c_eq_totalRadical_mul_endpointCore' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.endpointCore_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.externalRadical_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.totalRadical_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.log_c_sub_log_totalRadical_eq_signedEndpointCoreDefect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.height_sub_conductor_eq_signedEndpointCoreDefect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.sum_primeExcessTokenWeight_eq_log_powerfulPart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.sum_primeSupportTokenWeight_eq_log_radical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.EndpointPrimeFlow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.endpointPrimeFlow_sourceMass_eq_log_core' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.endpointPrimeFlow_sinkMass_eq_log_externalRadical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.signedEndpointCoreDefect_le_unmatchedMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.height_le_conductor_add_unmatchedMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.endpointPrimeFlow_threshold_obstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.UniformEndpointPrimeFlowBound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.abc_of_uniformEndpointPrimeFlowBound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.FullIntegralDominanceMatching' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.threeThirteenSixteenDatum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.factorization_sixteen_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.sixteenSourceTokenZero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.sixteenSourceTokenOne' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.sixteenSourceTokenTwo' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.sixteenSourceTokenZero_ne_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.sixteenSourceTokenZero_ne_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.sixteenSourceTokenOne_ne_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.threeThirteenSixteen_sink_prime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.threeThirteenSixteen_not_fullIntegralDominanceMatching' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.nineSixteenTwentyFiveDatum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.twentyFiveSourceToken' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.twentyFiveSourceToken_prime' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.nineSixteenTwentyFive_sink_lt_five' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.nineSixteenTwentyFive_not_fullIntegralDominanceMatching' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.nineSixteenTwentyFive_core_eq_five' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.nineSixteenTwentyFive_externalRadical_eq_six' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.nineSixteenTwentyFive_core_le_externalRadical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.primePower_succ_dvd_forces_radical_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.three_pow_succ_dvd_four_pow_three_pow_sub_one_int' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.three_pow_succ_dvd_four_pow_three_pow_sub_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.dyadicMersenneCoreDatum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.dyadicMersenneCoreDatum_radical_c' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.dyadicMersenneCoreDatum_two_mul_core' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.dyadicMersenneCoreDatum_three_pow_succ_dvd_b' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.dyadicMersenneCoreDatum_radical_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.dyadicMersenneCoreDatum_three_pow_mul_radical_lt_two_mul_core' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.dyadicMersenneCoreDatum_externalRadical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.SignedEndpointPrimeTokenTransport.no_uniform_natural_endpointCore_domination' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

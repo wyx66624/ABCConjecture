@@ -1,0 +1,731 @@
+{
+  "command_parameters": {
+    "limit": 5000,
+    "lte_k_limit": 12
+  },
+  "first_core_favorable_integral_failure": {
+    "core_le_external_radical": true,
+    "endpoint_core": 8,
+    "exact_zero_unmatched_hall": true,
+    "external_radical": 39,
+    "factorization": {
+      "a": {
+        "3": 1
+      },
+      "b": {
+        "13": 1
+      },
+      "c": {
+        "2": 4
+      }
+    },
+    "fractional_accounting_error": 0.0,
+    "fractional_monotone_flow": [
+      [
+        2,
+        3,
+        0.6931471805599453
+      ],
+      [
+        2,
+        3,
+        0.4054651081081645
+      ],
+      [
+        2,
+        13,
+        0.2876820724517808
+      ],
+      [
+        2,
+        13,
+        0.6931471805599453
+      ]
+    ],
+    "fractional_unmatched_mass": 0.0,
+    "fractional_unused_capacity": 1.5841201044498106,
+    "full_integral_dominance_matching": false,
+    "greedy_pairs": [
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        13
+      ]
+    ],
+    "quality": 0.6363952314771766,
+    "radicals": {
+      "a": 3,
+      "abc": 78,
+      "b": 13,
+      "c": 2
+    },
+    "signed_core_defect": -1.5841201044498106,
+    "sink_mass": 3.6635616461296463,
+    "sink_tokens": [
+      3,
+      13
+    ],
+    "source_mass": 2.0794415416798357,
+    "source_tokens": [
+      2,
+      2,
+      2
+    ],
+    "transport_bound_slack": 2.277267285009756,
+    "triple": [
+      3,
+      13,
+      16
+    ],
+    "unmatched_mass": 0.6931471805599453,
+    "unmatched_tokens": [
+      2
+    ],
+    "unused_sinks": []
+  },
+  "first_integral_failure": {
+    "core_le_external_radical": true,
+    "endpoint_core": 8,
+    "exact_zero_unmatched_hall": true,
+    "external_radical": 39,
+    "factorization": {
+      "a": {
+        "3": 1
+      },
+      "b": {
+        "13": 1
+      },
+      "c": {
+        "2": 4
+      }
+    },
+    "fractional_accounting_error": 0.0,
+    "fractional_monotone_flow": [
+      [
+        2,
+        3,
+        0.6931471805599453
+      ],
+      [
+        2,
+        3,
+        0.4054651081081645
+      ],
+      [
+        2,
+        13,
+        0.2876820724517808
+      ],
+      [
+        2,
+        13,
+        0.6931471805599453
+      ]
+    ],
+    "fractional_unmatched_mass": 0.0,
+    "fractional_unused_capacity": 1.5841201044498106,
+    "full_integral_dominance_matching": false,
+    "greedy_pairs": [
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        13
+      ]
+    ],
+    "quality": 0.6363952314771766,
+    "radicals": {
+      "a": 3,
+      "abc": 78,
+      "b": 13,
+      "c": 2
+    },
+    "signed_core_defect": -1.5841201044498106,
+    "sink_mass": 3.6635616461296463,
+    "sink_tokens": [
+      3,
+      13
+    ],
+    "source_mass": 2.0794415416798357,
+    "source_tokens": [
+      2,
+      2,
+      2
+    ],
+    "transport_bound_slack": 2.277267285009756,
+    "triple": [
+      3,
+      13,
+      16
+    ],
+    "unmatched_mass": 0.6931471805599453,
+    "unmatched_tokens": [
+      2
+    ],
+    "unused_sinks": []
+  },
+  "floating_point_policy": "logs only report weights/rankings; all identities, valuations, gcds, and inequalities are exact integers",
+  "lte_dyadic_unit_arm_audit": [
+    {
+      "certified_core_over_external_lower_bound": "> 3/2",
+      "certified_log_excess_lower_bound": 0.4054651081081645,
+      "k": 1,
+      "log_c": 4.1588830833596715,
+      "m": 6,
+      "v3_2powm_minus_one": 2
+    },
+    {
+      "certified_core_over_external_lower_bound": "> 9/2",
+      "certified_log_excess_lower_bound": 1.5040773967762742,
+      "k": 2,
+      "log_c": 12.476649250079015,
+      "m": 18,
+      "v3_2powm_minus_one": 3
+    },
+    {
+      "certified_core_over_external_lower_bound": "> 27/2",
+      "certified_log_excess_lower_bound": 2.6026896854443837,
+      "k": 3,
+      "log_c": 37.42994775023705,
+      "m": 54,
+      "v3_2powm_minus_one": 4
+    },
+    {
+      "certified_core_over_external_lower_bound": "> 81/2",
+      "certified_log_excess_lower_bound": 3.7013019741124937,
+      "k": 4,
+      "log_c": 112.28984325071113,
+      "m": 162,
+      "v3_2powm_minus_one": 5
+    },
+    {
+      "certified_core_over_external_lower_bound": "> 243/2",
+      "certified_log_excess_lower_bound": 4.799914262780604,
+      "k": 5,
+      "log_c": 336.8695297521334,
+      "m": 486,
+      "v3_2powm_minus_one": 6
+    },
+    {
+      "certified_core_over_external_lower_bound": "> 729/2",
+      "certified_log_excess_lower_bound": 5.898526551448713,
+      "k": 6,
+      "log_c": 1010.6085892564003,
+      "m": 1458,
+      "v3_2powm_minus_one": 7
+    },
+    {
+      "certified_core_over_external_lower_bound": "> 2187/2",
+      "certified_log_excess_lower_bound": 6.997138840116823,
+      "k": 7,
+      "log_c": 3031.825767769201,
+      "m": 4374,
+      "v3_2powm_minus_one": 8
+    },
+    {
+      "certified_core_over_external_lower_bound": "> 6561/2",
+      "certified_log_excess_lower_bound": 8.095751128784933,
+      "k": 8,
+      "log_c": 9095.477303307602,
+      "m": 13122,
+      "v3_2powm_minus_one": 9
+    },
+    {
+      "certified_core_over_external_lower_bound": "> 19683/2",
+      "certified_log_excess_lower_bound": 9.194363417453042,
+      "k": 9,
+      "log_c": 27286.431909922805,
+      "m": 39366,
+      "v3_2powm_minus_one": 10
+    },
+    {
+      "certified_core_over_external_lower_bound": "> 59049/2",
+      "certified_log_excess_lower_bound": 10.292975706121153,
+      "k": 10,
+      "log_c": 81859.29572976842,
+      "m": 118098,
+      "v3_2powm_minus_one": 11
+    },
+    {
+      "certified_core_over_external_lower_bound": "> 177147/2",
+      "certified_log_excess_lower_bound": 11.391587994789262,
+      "k": 11,
+      "log_c": 245577.88718930524,
+      "m": 354294,
+      "v3_2powm_minus_one": 12
+    },
+    {
+      "certified_core_over_external_lower_bound": "> 531441/2",
+      "certified_log_excess_lower_bound": 12.490200283457371,
+      "k": 12,
+      "log_c": 736733.6615679158,
+      "m": 1062882,
+      "v3_2powm_minus_one": 13
+    }
+  ],
+  "named_complete_premise_certificates": {
+    "cardinality_obstruction": {
+      "core_le_external_radical": true,
+      "endpoint_core": 8,
+      "exact_zero_unmatched_hall": true,
+      "external_radical": 39,
+      "factorization": {
+        "a": {
+          "3": 1
+        },
+        "b": {
+          "13": 1
+        },
+        "c": {
+          "2": 4
+        }
+      },
+      "fractional_accounting_error": 0.0,
+      "fractional_monotone_flow": [
+        [
+          2,
+          3,
+          0.6931471805599453
+        ],
+        [
+          2,
+          3,
+          0.4054651081081645
+        ],
+        [
+          2,
+          13,
+          0.2876820724517808
+        ],
+        [
+          2,
+          13,
+          0.6931471805599453
+        ]
+      ],
+      "fractional_unmatched_mass": 0.0,
+      "fractional_unused_capacity": 1.5841201044498106,
+      "full_integral_dominance_matching": false,
+      "greedy_pairs": [
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          13
+        ]
+      ],
+      "quality": 0.6363952314771766,
+      "radicals": {
+        "a": 3,
+        "abc": 78,
+        "b": 13,
+        "c": 2
+      },
+      "signed_core_defect": -1.5841201044498106,
+      "sink_mass": 3.6635616461296463,
+      "sink_tokens": [
+        3,
+        13
+      ],
+      "source_mass": 2.0794415416798357,
+      "source_tokens": [
+        2,
+        2,
+        2
+      ],
+      "transport_bound_slack": 2.277267285009756,
+      "triple": [
+        3,
+        13,
+        16
+      ],
+      "unmatched_mass": 0.6931471805599453,
+      "unmatched_tokens": [
+        2
+      ],
+      "unused_sinks": []
+    },
+    "positive_core_defect": {
+      "core_le_external_radical": false,
+      "endpoint_core": 16,
+      "exact_zero_unmatched_hall": false,
+      "external_radical": 15,
+      "factorization": {
+        "a": {
+          "5": 1
+        },
+        "b": {
+          "3": 3
+        },
+        "c": {
+          "2": 5
+        }
+      },
+      "fractional_accounting_error": 0.0,
+      "fractional_monotone_flow": [
+        [
+          2,
+          3,
+          0.6931471805599453
+        ],
+        [
+          2,
+          3,
+          0.4054651081081645
+        ],
+        [
+          2,
+          5,
+          0.2876820724517808
+        ],
+        [
+          2,
+          5,
+          0.6931471805599453
+        ],
+        [
+          2,
+          5,
+          0.6286086594223742
+        ]
+      ],
+      "fractional_unmatched_mass": 0.06453852113757108,
+      "fractional_unused_capacity": 0.0,
+      "full_integral_dominance_matching": false,
+      "greedy_pairs": [
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "quality": 1.018975235452531,
+      "radicals": {
+        "a": 5,
+        "abc": 30,
+        "b": 3,
+        "c": 2
+      },
+      "signed_core_defect": 0.06453852113757108,
+      "sink_mass": 2.70805020110221,
+      "sink_tokens": [
+        3,
+        5
+      ],
+      "source_mass": 2.772588722239781,
+      "source_tokens": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "transport_bound_slack": 1.3217558399823195,
+      "triple": [
+        5,
+        27,
+        32
+      ],
+      "unmatched_mass": 1.3862943611198906,
+      "unmatched_tokens": [
+        2,
+        2
+      ],
+      "unused_sinks": []
+    },
+    "threshold_obstruction": {
+      "core_le_external_radical": true,
+      "endpoint_core": 5,
+      "exact_zero_unmatched_hall": false,
+      "external_radical": 6,
+      "factorization": {
+        "a": {
+          "3": 2
+        },
+        "b": {
+          "2": 4
+        },
+        "c": {
+          "5": 2
+        }
+      },
+      "fractional_accounting_error": 0.0,
+      "fractional_monotone_flow": [],
+      "fractional_unmatched_mass": 1.6094379124341003,
+      "fractional_unused_capacity": 1.791759469228055,
+      "full_integral_dominance_matching": false,
+      "greedy_pairs": [],
+      "quality": 0.9463948908766786,
+      "radicals": {
+        "a": 3,
+        "abc": 30,
+        "b": 2,
+        "c": 5
+      },
+      "signed_core_defect": -0.18232155679395468,
+      "sink_mass": 1.791759469228055,
+      "sink_tokens": [
+        2,
+        3
+      ],
+      "source_mass": 1.6094379124341003,
+      "source_tokens": [
+        5
+      ],
+      "transport_bound_slack": 1.791759469228055,
+      "triple": [
+        9,
+        16,
+        25
+      ],
+      "unmatched_mass": 1.6094379124341003,
+      "unmatched_tokens": [
+        5
+      ],
+      "unused_sinks": [
+        2,
+        3
+      ]
+    }
+  },
+  "scope": "normalized primitive nonunit triples 2 <= a <= b, a+b=c",
+  "script_sha256": "6be885d5ae879b923b4d7d3931b8acea57783d65c6b70142d819a34f9b29150b",
+  "summary": {
+    "core_le_external_but_integral_matching_fails": 113027,
+    "exact_identity_failures": 0,
+    "exact_zero_unmatched_fractional_monotone_flows": 3792836,
+    "full_integral_dominance_matching_failures": 113086,
+    "triples_scanned": 3795230
+  },
+  "top_twenty_greedy_unmatched_to_conductor_ratios": [
+    {
+      "fractional_unmatched_mass": 5.1298987149230735,
+      "quality": 1.2897517290221443,
+      "ratio": 0.8598344860147629,
+      "signed_core_defect": 1.728701333260918,
+      "triple": [
+        10,
+        2187,
+        2197
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 4.795790545596741,
+      "quality": 1.2404847183915741,
+      "ratio": 0.8269898122610495,
+      "signed_core_defect": 1.3945931639345859,
+      "triple": [
+        81,
+        1250,
+        1331
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 4.795790545596741,
+      "quality": 1.1724569695043712,
+      "ratio": 0.7816379796695807,
+      "signed_core_defect": 1.058120927313373,
+      "triple": [
+        8,
+        1323,
+        1331
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 3.8918202981106265,
+      "quality": 1.297213997658906,
+      "ratio": 0.7278365500886844,
+      "signed_core_defect": 1.5892352051165806,
+      "triple": [
+        5,
+        1024,
+        1029
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 3.8918202981106265,
+      "quality": 1.0917548251330267,
+      "ratio": 0.7278365500886844,
+      "signed_core_defect": 0.490622916448471,
+      "triple": [
+        100,
+        243,
+        343
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 5.1298987149230735,
+      "quality": 0.9725471114699749,
+      "ratio": 0.6483647409799833,
+      "signed_core_defect": -0.217208815794395,
+      "triple": [
+        405,
+        1792,
+        2197
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 5.1298987149230735,
+      "quality": 0.9725471114699749,
+      "ratio": 0.6483647409799833,
+      "signed_core_defect": -0.217208815794395,
+      "triple": [
+        972,
+        1225,
+        2197
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 5.666426688112432,
+      "quality": 0.9476920723570448,
+      "ratio": 0.6317947149046965,
+      "signed_core_defect": -0.4691382029693063,
+      "triple": [
+        539,
+        4374,
+        4913
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 4.795790545596741,
+      "quality": 0.9288164253639188,
+      "ratio": 0.6192109502426126,
+      "signed_core_defect": -0.5513169851207271,
+      "triple": [
+        35,
+        1296,
+        1331
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 5.666426688112432,
+      "quality": 0.8810968608912525,
+      "ratio": 0.5873979072608351,
+      "signed_core_defect": -1.1470179113984633,
+      "triple": [
+        13,
+        4900,
+        4913
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 4.07753744390572,
+      "quality": 1.0904350906962674,
+      "ratio": 0.5452175453481337,
+      "signed_core_defect": 0.6763400622435642,
+      "triple": [
+        25,
+        3456,
+        3481
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 2.8824035882469876,
+      "quality": 1.2039689893561185,
+      "ratio": 0.5390584669727467,
+      "signed_core_defect": 1.090644119018933,
+      "triple": [
+        49,
+        576,
+        625
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 5.666426688112432,
+      "quality": 0.8035040987623903,
+      "ratio": 0.5356693991749268,
+      "signed_core_defect": -2.078576115403407,
+      "triple": [
+        2240,
+        2673,
+        4913
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 5.666426688112432,
+      "quality": 0.7910122173261119,
+      "ratio": 0.527341478217408,
+      "signed_core_defect": -2.2456302000665733,
+      "triple": [
+        350,
+        4563,
+        4913
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 5.666426688112432,
+      "quality": 0.7910122173261119,
+      "ratio": 0.527341478217408,
+      "signed_core_defect": -2.2456302000665733,
+      "triple": [
+        1728,
+        3185,
+        4913
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 3.713572066704308,
+      "quality": 1.0439051029424253,
+      "ratio": 0.5219525514712127,
+      "signed_core_defect": 0.3123746850421525,
+      "triple": [
+        81,
+        1600,
+        1681
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 3.6109179126442243,
+      "quality": 1.029908311854535,
+      "ratio": 0.5149541559272675,
+      "signed_core_defect": 0.2097205309820689,
+      "triple": [
+        640,
+        729,
+        1369
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 3.8918202981106265,
+      "quality": 1.0633470289030436,
+      "ratio": 0.5024943691878249,
+      "signed_core_defect": 0.490622916448471,
+      "triple": [
+        128,
+        3645,
+        3773
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 3.8918202981106265,
+      "quality": 1.0633470289030436,
+      "ratio": 0.5024943691878249,
+      "signed_core_defect": 0.490622916448471,
+      "triple": [
+        648,
+        3125,
+        3773
+      ]
+    },
+    {
+      "fractional_unmatched_mass": 5.1298987149230735,
+      "quality": 0.7463514817759488,
+      "ratio": 0.4975676545172992,
+      "signed_core_defect": -2.6151040885927657,
+      "triple": [
+        825,
+        1372,
+        2197
+      ]
+    }
+  ]
+}

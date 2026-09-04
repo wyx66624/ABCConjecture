@@ -1,0 +1,21 @@
+Command:
+python research/computation/2026_09_03_three_arm_incidence_successor/search_three_arm_successor.py --cmax 1200 --rmax 12 --tmax 80
+
+Completed: 2026-09-03
+
+Summary:
+- unordered positive primitive triples: 218893
+- triples with no zero-defect covering face: 1669
+- maximum actual displayed flow ratio: 0.6131471927654585
+- maximum balanced-family displayed flow ratio: 0.4611952033043337
+- maximum Pythagorean-square displayed flow ratio: 0.5056183806331765
+- regression sources [(5,1),(2,1)], sink [(3,1)]: unmatched mass 1
+- every computed greedy optimum cross-checked against the Hall upper-tail formula
+- OUTPUT.json serialized explicitly as UTF-8 with LF line endings
+- OUTPUT.csv retains the standard CSV CRLF record convention
+
+Trust boundary:
+- exact integers: factorization, support enumeration, products, radicals,
+  defects, coverage, and gcd
+- floating display only: logarithms and weighted-flow rankings
+- no mathematical theorem relies on this bounded computation

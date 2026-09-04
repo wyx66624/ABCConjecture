@@ -1,0 +1,283 @@
+\section{Shared CRT incidence after exclusive packets}
+\label{sec:shared-crt-incidence-successor}
+
+The Linnik counterfamily to exclusive prime packets identifies an arithmetic
+loss rather than a shortage of total radical mass.  One prime
+$\ell\equiv-1\pmod {M^2}$ certifies all congruences modulo the prime-power
+factors of $M^2$ simultaneously.  Its capacity $\log\ell$ must therefore be
+shareable, but it may be charged only once.  This section gives a first
+capacity-correct shared-incidence successor, proves its height bridge, and
+separates it from the scalar relaxation.  Its uniform estimate remains open.
+
+Let $P=(a,b,c)$ be a positive primitive point:
+\[
+ a,b,c\in\mathbb Z_{>0},\qquad a+b=c,qquad
+ \gcd(a,b)=\gcd(b,c)=\gcd(c,a)=1.
+\]
+Put
+\[
+ \operatorname{core}(n)=\frac{n}{\rad(n)},\qquad
+ h(P)=\log c,\qquad r(P)=\log\rad(abc),
+\]
+and define the endpoint sources and external sinks by
+\[
+ I=I(P)=\{p:p\mid c,\ v_p(c)\ge2\},\qquad
+ J=J(P)=\{q:q\mid ab\}.
+\]
+For $e_p=v_p(c)$, set
+\[
+ x_p=(e_p-1)\log p,\qquad y_q=\log q,
+\]
+and write
+\[
+ X=\sum_{p\in I}x_p=\log\operatorname{core}(c),\qquad
+ Y=\sum_{q\in J}y_q=\log\rad(ab).
+\tag{SCRT-1}
+\]
+For $S\subseteq I$ and $T\subseteq J$, let
+\[
+ \begin{split}
+ m(S)&=\prod_{p\in S}p^{e_p},\\
+ a_T&=\prod_{\substack{q\in T\\q\mid a}}q^{v_q(a)},\qquad
+ b_T=\prod_{\substack{q\in T\\q\mid b}}q^{v_q(b)},\\
+ x(S)&=\sum_{p\in S}x_p,\qquad y(T)=\sum_{q\in T}y_q.
+ \end{split}
+\tag{SCRT-2}
+\]
+The empty products are one.  Thus $a_T,b_T$ are unitary divisors carrying
+the complete valuation of every selected external prime.
+
+\begin{definition}[Shared CRT block]
+A pair $(S,T)$ with $\varnothing\ne S\subseteq I$ and
+$\varnothing\ne T\subseteq J$ is \emph{CRT compatible} when
+\[
+                         m(S)\mid a_T+b_T.                    \tag{SCRT-3}
+\]
+It is \emph{saturated} when also
+\[
+                         x(S)\le y(T).                        \tag{SCRT-4}
+\]
+A saturated compatible pair is a \emph{shared CRT block}.
+\end{definition}
+
+Compatibility is arithmetic, rather than merely an incidence convention:
+the truncated relation $a_T+b_T$ simultaneously certifies every prime-power
+modulus indexed by $S$.  When $I$ and $J$ are nonempty, the full pair is
+always compatible because $a_J=a$, $b_J=b$, and $m(I)\mid c$.
+
+\begin{definition}[SCRT-0 configuration]
+An SCRT-0 configuration consists of a finite family $\mathcal H$ of
+saturated blocks $(S_\nu,T_\nu)$ whose source sets are pairwise disjoint and
+whose sink sets are pairwise disjoint.  Put
+\[
+ I_0=I\setminus\bigcup_\nu S_\nu,
+ \qquad
+ J_0=J\setminus\bigcup_\nu T_\nu.
+\]
+The remaining data are an exclusive assignment
+\[
+                     o:J_0\longrightarrow I_0\sqcup\{\varnothing\}.
+\]
+Thus a residual sink is unused or belongs to one residual source, while
+several sinks may belong to the same source.  For $p\in I_0$, put
+\[
+ M_p(o)=\sum_{\substack{q\in J_0\\o(q)=p}}y_q,
+ \qquad
+ R_p(o)=\max\{x_p-M_p(o),0\},
+\]
+and define
+\[
+ B(\mathcal H,o)=\sum_{p\in I_0}R_p(o),
+ \qquad
+ B_{\rm SCRT}(P)=\min_{(\mathcal H,o)}B(\mathcal H,o).
+\tag{SCRT-5}
+\]
+\end{definition}
+
+The minimum exists because the underlying sets are finite; the empty block
+family with every sink unused is an admissible configuration.  Sources in a
+saturated block have zero boundary.  Choosing a block consumes all of
+$y(T_\nu)$, including any surplus over $x(S_\nu)$.
+
+The sink union $T_\nu$ occurs in exactly one block, and its total credit is
+at most $y(T_\nu)$.  Every residual sink occurs in at most one exclusive
+packet.  Thus no logarithmic capacity is counted twice.
+
+\begin{proposition}[Once-charged height bridge]
+\label{prop:scrt-height-bridge}
+Every SCRT-0 configuration satisfies
+\[
+                         X\le Y+B(\mathcal H,o)               \tag{SCRT-6}\label{eq:scrt-mass}
+\]
+and consequently
+\[
+                         h(P)\le r(P)+B(\mathcal H,o).        \tag{SCRT-7}
+\]
+\end{proposition}
+
+\begin{proof}
+Saturation gives $x(S_\nu)\le y(T_\nu)$ block by block.  At every
+remaining source, $x_p\le M_p(o)+R_p(o)$.  Disjoint blocks and exclusive
+ownership give
+\[
+ X\le \sum_\nu y(T_\nu)+\sum_{p\in I_0}M_p(o)
+        +B(\mathcal H,o)\le Y+B(\mathcal H,o),
+\]
+which is (SCRT-6).  Prime factorisation gives
+\[
+ h(P)-r(P)
+ =\log\operatorname{core}(c)-\log\rad(ab)=X-Y,
+\]
+which proves (SCRT-7).
+\end{proof}
+
+Let $B_{\rm PBT}(P)$ denote the optimum of the earlier exclusive packet
+model and put $\Delta(P)=\max\{X-Y,0\}$.
+
+\begin{proposition}[Sandwich and easy strata]
+\label{prop:scrt-sandwich}
+For every positive primitive point,
+\[
+ \Delta(P)\le B_{\rm SCRT}(P)\le B_{\rm PBT}(P).            \tag{SCRT-8}
+\]
+Moreover, $X\le Y$ implies $B_{\rm SCRT}(P)=0=\Delta(P)$, and
+$|I|\le1$ implies $B_{\rm SCRT}(P)=\Delta(P)$.
+\end{proposition}
+
+\begin{proof}
+Nonnegativity and (SCRT-6) give the lower bound.  Taking no shared blocks
+recovers exactly the PBT assignment problem, giving the upper bound.  If
+$I=\varnothing$, then $X=0$ and the empty configuration has zero boundary.
+If $I\ne\varnothing$ and $X\le Y$, then $J\ne\varnothing$ and the full pair
+$(I,J)$ is a valid saturated block, again giving zero boundary.  Finally, if
+$I$ has one member, assign every sink to that source; the resulting residual
+is $\max\{X-Y,0\}$ and attains the lower bound.
+\end{proof}
+
+Thus an additional shared-incidence gap can occur only when $X>Y$ and at
+least two endpoint primes carry positive excess weight.
+
+\begin{definition}[Uniform shared-CRT gate]
+SCRT-0 is the statement
+\[
+ \forall\varepsilon>0\ \exists C_\varepsilon\ \forall P\
+ \exists(\mathcal H,o):\quad
+ B(\mathcal H,o)\le\varepsilon r(P)+C_\varepsilon.          \tag{SCRT-0}
+\]
+Here $P$ ranges over all positive primitive $abc$ points.
+\end{definition}
+
+\begin{theorem}[Conditional reduction to $abc$]
+\label{thm:scrt-implies-abc}
+If SCRT-0 holds, then the standard logarithmic $abc$ conjecture holds.
+\end{theorem}
+
+\begin{proof}
+For the configuration supplied by SCRT-0, Proposition~\ref{prop:scrt-height-bridge}
+gives
+\[
+ h(P)\le r(P)+B(\mathcal H,o)
+       \le(1+\varepsilon)r(P)+C_\varepsilon.
+\]
+This has the standard quantifier order.
+\end{proof}
+
+No instance of SCRT-0 is assumed or proved here.
+
+Both clauses in the definition are necessary.  If the capacity of one
+shared sink union were repeated once per incident source, the point
+$(1,224,225)$ would be assigned zero boundary: its two source weights are
+$\log3,\log5$ and its external mass is $\log14$, available through the full
+relation.  Yet
+\[
+                         h-r=\log(15/14)>0,
+\]
+so the height bridge would fail.  At the other extreme, if the full block
+may distribute arbitrary partial credits $z_p$ with
+$\sum z_p\le Y$, its optimal boundary is
+\[
+ X-\min(X,Y)=(X-Y)_+.                 \tag{SCRT-9}\label{eq:scrt-scalar-collapse}
+\]
+The unrestricted model is therefore exactly the scalar defect.  In the
+reverse logical implication from $abc$, the additive constant may first be
+replaced by its maximum with zero before taking positive parts.
+
+SCRT-0 is strictly different pointwise.  At
+\[
+                         (343,625,968)=(7^3,5^4,2^3 11^2),
+\]
+the source weights are $\log4,\log11$ and the sink weights are
+$\log5,\log7$.  The joint block is unsaturated because $\log44>\log35$.
+The saturated blocks are
+\[
+ (\{2\},\{7\}),\quad(\{2\},\{5,7\}),\quad
+ (\{11\},\{5,7\}),
+\]
+with resulting best residuals $\log(11/5),\log11,\log4$, respectively.
+The empty block family and split assignment $5\mapsto2$, $7\mapsto11$
+attain $\log(11/7)$, and the finite list of other assignments is worse.
+Thus
+\[
+ B_{\rm SCRT}(343,625,968)=\log(11/7)
+ >\log(44/35)=\Delta.                                       \tag{SCRT-10}\label{eq:scrt-noncollapse}
+\]
+
+The recorded infinite counterfamilies do not reproduce their earlier
+artificial losses.  Both $(1,p^2-1,p^2)$ and the prime-hypotenuse
+Pythagorean-square family have one endpoint source, so
+$B_{\rm SCRT}=\Delta$.  The same holds for the fixed-prime family
+$(1,p^N-1,p^N)$.  In the Linnik family $(1,\ell,\ell+1)$, the single sink
+$\ell$ gives a full shared block: since $\ell$ is odd,
+\[
+ \operatorname{core}(\ell+1)\le(\ell+1)/2\le\ell,
+\]
+so that block is saturated and has zero boundary.  For the shifted family
+$(2,\ell,\ell+2)$ with $\ell\equiv-2\pmod {M^2}$ and $M$ odd, the full sink
+union $\{2,\ell\}$ likewise closes every forced source once; indeed
+$\operatorname{core}(\ell+2)\le(\ell+2)/3\le\ell$.  For
+$(4^r,3^r,4^r+3^r)$, the full block works whenever
+$\operatorname{core}(4^r+3^r)\le6$, and a single repeated endpoint prime again gives
+$B_{\rm SCRT}=\Delta$.  The earlier balanced-family obstruction does not
+prove an infinite subsequence with several powerful endpoint primes and a
+bad SCRT partition, so it does not refute this gate.
+
+A harder child model, SCRT-SAT, deletes the exclusive residual stage and
+charges every source outside saturated blocks in full.  It is false.  For
+\[
+ n=284+310t,
+ \qquad P_n=(2,15^n-2,15^n),
+\]
+direct modular exponentiation gives
+$15^{284}\equiv2\pmod {31^2}$ and
+$15^{310}\equiv1\pmod {31^2}$.  Hence $31^2\mid15^n-2$ and
+\[
+ Y=\log\bigl(2\rad(15^n-2)\bigr)
+ <\log(2\cdot15^n/31)<(n-1)\log15=X.                        \tag{SCRT-11}\label{eq:scrt-sat-gap}
+\]
+Disjoint saturated blocks cannot close both endpoint sources, so SCRT-SAT
+leaves at least $(n-1)\log3$.  Since its conductor is less than
+$n\log15$, every fixed
+$0<\varepsilon<\log3/\log15$ refutes its uniform gate.  SCRT-0 retains the
+external prime-log partition and therefore is not refuted by this argument;
+\eqref{eq:scrt-sat-gap} alone supplies only the constant total-capacity gap
+$X-Y>\log(31/30)$.
+
+The saturated rule currently consumes the whole capacity $y(T)$, including
+surplus beyond $x(S)$.  This is a design choice.  A surplus-reuse successor
+would need a proved fractional-cover or signed-chain identity which keeps
+each sink charged once without admitting the unrestricted pooling in
+\eqref{eq:scrt-scalar-collapse}.
+
+The Lean module
+\texttt{ABCSharedCRTIncidence\allowbreak Successor20260903} formalises the abstract
+once-charged certificate and the mass inequality \eqref{eq:scrt-mass}.  It
+proves the endpoint height bridge and the conditional implication to
+\texttt{ABCConjecture}.  It also checks the duplicated-capacity failure and
+the scalar optimum \eqref{eq:scrt-scalar-collapse}.  The module has $30$
+public declarations and a one-for-one $30$-query axiom audit whose union is
+only
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.  The
+arithmetic CRT-block configuration, the optimum \eqref{eq:scrt-noncollapse}, and the
+SCRT-SAT counterfamily are ordinary proofs at this checkpoint and are not
+represented by axioms or opaque gate inhabitants.  Proving or refuting the
+uniform SCRT-0 estimate is the next unresolved step.

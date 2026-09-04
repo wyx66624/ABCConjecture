@@ -1,0 +1,158 @@
+\section{A Linnik obstruction to exclusive prime packets}
+\label{sec:prime-packet-linnik-obstruction}
+
+The packet-boundary gate of the preceding section has a second, genuinely
+different obstruction.  Its exclusive ownership rule prevents one external
+prime from recording simultaneous congruences at several powerful endpoint
+primes.  Linnik's least-prime theorem turns this defect into an unconditional
+infinite counterfamily.
+
+For a finite packet problem, let the source and sink weights be $x_i\ge0$ and
+$y_j\ge0$, and put $X=\sum_i x_i$, $Y=\sum_jy_j$.  If $M_i$ is the mass
+assigned to source $i$, then
+\[
+ \sum_i(x_i-M_i)_+
+   =X-\sum_i\min\{x_i,M_i\}.
+ \tag{LPO-1}
+\]
+This is the clipped-reward identity.  In particular, if there are $k$
+selected sources with weights $z_1\ge\cdots\ge z_k$ and only $t$ positive
+sinks, disjoint ownership lets at most $t$ of those sources receive positive
+mass.  Every assignment therefore has residual at least
+\[
+                         \sum_{i=t+1}^{k}z_i.
+ \tag{LPO-2}
+\]
+For one sink of weight $y$, the exact optimum is
+\[
+ R_*=X-\max_i\min\{x_i,y\}.
+ \tag{LPO-3}
+\]
+These formulas isolate a cardinality loss which is absent from divisible
+transport.
+
+We use Linnik's unconditional theorem in the following uniform form: there
+are absolute constants $C\ge1$ and $L\ge1$ such that the least prime in any
+reduced residue class $a\pmod Q$ is at most $CQ^L$.  This is precisely the
+uniform polynomial estimate proved by Linnik and sharpened, with an explicit
+admissible exponent, by Xylouris
+\cite[Theorem~1.1]{XylourisLinnik2009}.  No optimal value of $L$ is needed.
+
+Let
+\[
+ p_1<p_2<\cdots<p_k,\qquad M_k=\prod_{i=1}^{k}p_i,
+ \qquad Q_k=M_k^2,
+\]
+where the $p_i$ are the first $k$ primes.  Apply Linnik's theorem to the
+reduced class $-1\pmod{Q_k}$ and choose a prime $\ell_k$ with
+\[
+ \ell_k\equiv-1\pmod{M_k^2},\qquad
+ \ell_k\le C M_k^{2L}.
+ \tag{LPO-4}
+\]
+Then
+\[
+                         P_k=(1,\ell_k,\ell_k+1)
+ \tag{LPO-5}
+\]
+is a positive primitive $abc$ point.  The family is infinite because
+$\ell_k+1\ge M_k^2$.
+
+\begin{lemma}[One sink and many compulsory sources]
+\label{lem:linnik-packet-residual}
+Every packet assignment at $P_k$ has residual
+\[
+                         R(P_k)\ge\log M_k-\log p_k.
+ \tag{LPO-6}
+\]
+\end{lemma}
+
+\begin{proof}
+The external product is the prime $\ell_k$, so there is exactly one sink.
+For every $i\le k$, (LPO-4) gives $p_i^2\mid\ell_k+1$; hence the aggregate
+source at $p_i$ has weight
+\[
+ (v_{p_i}(\ell_k+1)-1)\log p_i\ge\log p_i.
+\]
+The unique sink can belong to at most one source packet.  Apply (LPO-2) and
+discard at most the largest of the $k$ guaranteed weights.
+\end{proof}
+
+The conductor remains comparable with $\log M_k$.  Indeed,
+\[
+ \begin{aligned}
+ r(P_k)
+ &\le \log\bigl(\ell_k(\ell_k+1)\bigr)\\
+ &\le 2\log\ell_k+\log2
+ \le4L\log M_k+B,
+ \end{aligned}
+ \tag{LPO-7}
+\]
+where $B=2\log C+\log2$.  At the same time,
+\[
+                         \frac{\log p_k}{\log M_k}\longrightarrow0.
+ \tag{LPO-8}
+\]
+For completeness, Bertrand's postulate gives $p_k<2^k$ for large $k$, while
+$p_i\ge i+1$ gives $M_k\ge(k+1)!$; the last half of the factorial factors
+already proves (LPO-8).
+
+\begin{theorem}[Exclusive packet obstruction]
+\label{thm:linnik-packet-obstruction}
+The gate \textup{PBT} is false.
+\end{theorem}
+
+\begin{proof}
+Set $\eps_0=1/(8L)$.  Combining (LPO-6) and (LPO-7) gives
+\[
+ R_*(P_k)-\eps_0r(P_k)
+ \ge \frac12\log M_k-\log p_k-\frac{B}{8L}.
+ \tag{LPO-9}
+\]
+By (LPO-8), the right side tends to infinity.  Thus every proposed additive
+constant fails at some $P_k$, even after minimizing over all assignments.
+This has exactly the negated epsilon--constant--point--assignment quantifier
+order of PBT.
+\end{proof}
+
+This is not an $abc$ counterexample.  Since $M_k$ is even,
+$\rad(\ell_k+1)\ge2$, and therefore
+\[
+ \rad\bigl(\ell_k(\ell_k+1)\bigr)
+ =\ell_k\rad(\ell_k+1)\ge2\ell_k\ge\ell_k+1.
+ \tag{LPO-10}
+\]
+Hence every point in the family satisfies $h(P_k)\le r(P_k)$ and has zero
+positive scalar defect.  PBT fails solely through its indivisibility gap.
+Indeed, if $\Delta(P)=(h(P)-r(P))_+$ and
+$G(P)=R_*(P)-\Delta(P)$, then the exact identity
+$R_*=\Delta+G$ shows that PBT is equivalent to standard logarithmic $abc$
+together with a uniform sublinear bound on $G$.  The Linnik family refutes the
+second conjunct while satisfying the first with constant zero.
+
+The correct structural lesson is that one external prime may encode many CRT
+incidences at once:
+\[
+                         \ell_k\equiv-1\pmod{p_i^2}
+                         \qquad(1\le i\le k).
+\]
+A successor must permit this shared incidence while charging its logarithmic
+capacity only once.  Allowing arbitrary divisible sharing without incidence
+data returns to the scalar defect, so neither repair alone is sufficient.
+The next positive target is a shared CRT-incidence boundary with a pointwise
+height bridge and an audit showing zero artificial loss on (LPO-5).
+
+The ordinary proof above uses the published Linnik theorem.  The current
+Mathlib tree does not contain that analytic theorem.  The companion Lean
+module therefore checks the finite packet identities, the prime-neighbour
+arithmetic core, and the implication from a transparent Linnik-style escape
+hypothesis to the negation of PBT; it does not insert Linnik's theorem as a
+project axiom or mislabel the resulting source boundary as kernel-closed.
+
+The accompanying exact computation independently enumerates all
+$1{,}368{,}094$ normalized primitive triples with $c\le3000$.  It finds $572$
+strict packet fragmentation gaps, $567$ of them with zero scalar defect, and
+replays all optima with a second state-set algorithm.  Five finite
+square-primorial prime-predecessor rows exhibit the same one-sink mechanism.
+These data are regression and discovery evidence only; Theorem~\ref{thm:linnik-packet-obstruction}
+uses the infinite Linnik family and does not extrapolate from the scan.

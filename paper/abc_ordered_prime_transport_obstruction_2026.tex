@@ -1,0 +1,171 @@
+\section{A common obstruction to ordered prime transport}
+\label{sec:ordered-prime-transport-obstruction}
+
+The three-arm and endpoint constructions use the same hard orientation:
+positive mass may move from a source prime $r$ to a sink prime $q$ only when
+$r\le q$.  The next family tests that orientation with every quantifier and
+every arithmetic premise present.
+
+For an odd prime $p$, put
+\[
+ P_p=(1,p^2-1,p^2).
+\]
+These are positive primitive $abc$ triples.  Indeed, the additive relation is
+immediate, the unit arm is coprime to both other arms, and
+$\gcd(p^2-1,p^2)=1$.
+
+\begin{lemma}[Prime separation]
+\label{lem:prime-square-separation}
+If $p$ is an odd prime and $q$ is a prime divisor of $p^2-1$, then $q<p$.
+\end{lemma}
+
+\begin{proof}
+Since $p^2-1=(p-1)(p+1)$, Euclid's lemma gives $q\mid p-1$ or
+$q\mid p+1$.  The first alternative gives $q<p$.  In the second, $p+1$ is
+an even composite integer greater than $2$, so its prime divisor $q$ is a
+proper divisor and hence $q\le(p+1)/2<p$.
+\end{proof}
+
+\begin{theorem}[The ordered endpoint gate is false]
+\label{thm:endpoint-ordered-flow-obstruction}
+The uniform endpoint-flow gate \emph{(EPF)} is false.  More precisely, every
+monotone endpoint transport on $P_p$ has
+\[
+ U(F)=\log p.
+\]
+\end{theorem}
+
+\begin{proof}
+The endpoint $p^2$ has one excess layer, at the prime $p$, so the source
+consists of one token of mass $\log p$.  Every sink prime divides $p^2-1$ and
+is therefore smaller than $p$ by Lemma~\ref{lem:prime-square-separation}.
+The order condition forbids every edge from the source token.  Thus no source
+mass is carried and $U(F)=\log p$.
+
+Moreover, radical multiplicativity and the elementary bound
+$\rad(n)\le n$ give
+\[
+ R(P_p)=p\,\rad(p^2-1)\le p(p^2-1)<p^3.
+\tag{OPS-1}
+\]
+If EPF held at $\eps=1/4$ with constant $C$, then every odd prime $p$ would
+satisfy
+\[
+ \log p=U(F)\le\frac14\log R(P_p)+C
+ <\frac34\log p+C.
+\]
+This bounds $\frac14\log p$ by $C$, contrary to the existence of arbitrarily
+large odd primes.
+\end{proof}
+
+\begin{theorem}[The ordered three-arm gate is false]
+\label{thm:three-arm-ordered-flow-obstruction}
+The uniform three-arm complement-transport gate \emph{(CT-3C)} is false.
+For every covering face of $P_p$ and every one of its ordered complement
+transports,
+\[
+ U(F,f)\ge\log p.
+\]
+\end{theorem}
+
+\begin{proof}
+Suppose first that a face does not select the prime $p$ on the $C$-arm.  The
+$A$-arm has no prime vertex, the selected $C$-arm modulus is then $1$, and
+the selected $B$-arm modulus divides $p^2-1$.  Hence
+$M(F)\le p^2-1<p^2$, contradicting coverage.  Every covering face must
+therefore select $p$ on the $C$-arm.  Its valuation is two, so this vertex
+creates a source token of mass $\log p$.
+
+The $A$-arm has no complementary prime.  The only $C$-arm prime has already
+been selected.  Every remaining complementary prime is a divisor of
+$p^2-1$ and is smaller than $p$ by
+Lemma~\ref{lem:prime-square-separation}.  The distinguished source token can
+therefore send no mass, regardless of the other choices in the face.  This
+proves $U(F,f)\ge\log p$.  Combining the claimed CT-3C estimate at
+$\eps=1/4$ with (OPS-1) gives the same impossible bound
+$\frac14\log p<C$ for all odd primes.
+\end{proof}
+
+The conditional implications
+\[
+ \mathrm{EPF}\Longrightarrow abc,
+ \qquad \mathrm{CT\text{-}3C}\Longrightarrow abc
+\]
+remain valid: the counterexample proves that their antecedents are false.
+It does not disprove standard $abc$, the labelled incidence complex, or a
+transport with a different geometry.  Taking finitely many independent
+covering faces under the same hard order creates no admissible sink for the
+distinguished $p$-source; a repair must change either the edge geometry or the
+way different faces interact.
+
+There is a useful exact description of the Hall obstruction.  For a
+three-arm face and a threshold $T$, let $H_{>T}(F)$ be the logarithm of the
+selected full prime-power modulus contributed by selected primes above $T$,
+and let $R_{>T}(P)$ be the logarithm of the full radical contributed by all
+arm-labelled primes above $T$.  Separating selected from unselected radical
+vertices gives
+\[
+ S_{>T}(F)-T_{>T}(F)=H_{>T}(F)-R_{>T}(P).
+\tag{OPS-2}
+\]
+Indeed, a selected prime of valuation $e$ contributes $(e-1)\log p$ to the
+source side, an unselected prime contributes $-\log p$, and adding and
+subtracting the selected $\log p$ gives the right-hand side.  At
+$T=p-1$ for $P_p$, the right-hand side is $2\log p-\log p=\log p$.
+Thus the obstruction is an exact high-prime valuation surplus, not a failure
+of the max-flow algorithm.
+
+Simply deleting the order condition is not by itself a new arithmetic
+advance.  For a complete bipartite fractional flow with nonnegative source
+weights of total mass $A$ and sink capacities of total mass $B$, the minimum
+unmatched mass is
+\[
+ \min U=(A-B)_+.
+\tag{OPS-3}
+\]
+The capacity inequalities give the lower bound.  If $0<A\le B$, the product
+coupling $f_{ij}=a_i b_j/B$ fills every source; if $A>B>0$, the coupling
+$f_{ij}=a_i b_j/A$ fills every sink and leaves $A-B$ unmatched.  The zero
+cases are immediate.  At the endpoint, (OPS-3) becomes
+\[
+ \min U=\bigl(\log c-\log R(P)\bigr)_+.
+\]
+After harmless enlargement of the additive constant to be nonnegative, a
+uniform epsilon-bound for this quantity is equivalent to the usual scalar
+$abc$ inequality.  Unordered transport therefore supplies no independent
+mechanism.
+
+A nontrivial successor must allow the downward edges exposed by $P_p$ while
+retaining information beyond total mass.  One candidate assigns a
+nonnegative relative displacement cost
+\[
+ \kappa(r,q)=\frac{(\log r-\log q)_+}{\log r}
+\]
+to mass sent from $r$ to $q$, and studies $U+\sum f(r,q)\kappa(r,q)$ on one
+or several faces.  A uniform epsilon-small bound for that sum still implies
+$abc$, because the added cost is nonnegative.  The family $P_p$ no longer
+causes the formal ``no admissible edge'' failure.  No uniform cost bound is
+asserted here.  The next section performs the required adversarial test and
+refutes this exact relative-drop calibration on a different infinite family.
+Weighted multi-face and homological incidence constructions remain active only
+as precisely stated future interfaces.
+
+The ordinary arguments in this section were fixed before formalization.  The
+companion obstruction module is
+\begin{center}
+\path{ABCThreeArmComplementTransportObstruction20260903}.
+\end{center}
+It checks the complete premises, both quantified negations, the exact tail
+identity (OPS-2), and their shared prime-square mechanism without assuming
+either transport gate or
+\texttt{ABCConjecture}.  The costed bidirectional successor and its conditional
+implication are isolated in
+\begin{center}
+\path{ABCBidirectionalPrimeTransportSuccessor20260903}.
+\end{center}
+The two modules expose respectively $37$ and $44$ public declarations, with
+one axiom query for each declaration.  Their dependency union is exactly
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}; no
+custom axiom or placeholder is used.  No uniform instance of the successor is
+postulated; its exact BEP instance is refuted in
+Section~\ref{sec:bidirectional-energy-obstruction}.

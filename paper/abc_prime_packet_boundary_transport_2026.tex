@@ -1,0 +1,117 @@
+\section{Prime-packet boundary transport}
+\label{sec:prime-packet-boundary-transport}
+
+The two transport obstructions distinguish individual edge geometry from
+aggregate radical capacity.  We next aggregate all excess layers at one
+endpoint prime into one source and assign each external radical prime, as an
+indivisible sink, to at most one source packet.  Several small primes may
+therefore act together, and no cost is attached to their individual distance
+from the source.
+
+Let finite sources have weights $x_i\ge0$ and finite sinks have weights
+$y_j\ge0$.  A packet assignment is a map
+\[
+ o:J\longrightarrow I\sqcup\{\varnothing\}.
+\]
+Put
+\[
+ M_i(o)=\sum_{o(j)=i}y_j,\qquad
+ B_i(o)=(x_i-M_i(o))_+,\qquad
+ B(o)=\sum_iB_i(o).
+\]
+
+\begin{proposition}[Packet boundary inequality]
+\label{prop:packet-boundary-inequality}
+Every packet assignment satisfies
+\[
+ \sum_i x_i-\sum_jy_j\le B(o).
+\tag{PBT-1}
+\]
+\end{proposition}
+
+\begin{proof}
+The packets are disjoint, so
+$\sum_iM_i(o)$ is at most the total sink weight.  For each source,
+$x_i-M_i(o)\le(x_i-M_i(o))_+$.  Summing these inequalities gives
+\[
+ \sum_i x_i-\sum_jy_j
+ \le\sum_i(x_i-M_i(o))
+ \le\sum_iB_i(o).
+\]
+\end{proof}
+
+For an $abc$ point $P=(a,b,c)$, use one source for each prime $p\mid c$,
+with aggregate weight
+\[
+ x_p=(v_p(c)-1)\log p,
+\]
+and one indivisible sink for each prime $q\mid ab$, with weight $\log q$.
+Canonical factorization gives
+\[
+ \sum_{p\mid c}x_p=\log\frac{c}{\rad(c)},\qquad
+ \sum_{q\mid ab}\log q=\log\rad(ab).
+\]
+Together with (PBT-1), the exact endpoint balance yields
+\[
+ \log c\le\log\rad(abc)+B(o).
+\tag{PBT-2}
+\]
+
+The packet-boundary gate PBT asks that, for every $\eps>0$, one constant
+$C_\eps$ work for all positive primitive $P$, with a packet assignment such
+that
+\[
+ B(o)\le\eps\log\rad(abc)+C_\eps.
+\tag{PBT}
+\]
+
+\begin{theorem}[Packet boundary implies standard $abc$]
+\label{thm:packet-boundary-implies-abc}
+PBT implies the standard $abc$ conjecture.
+\end{theorem}
+
+\begin{proof}
+Substitute (PBT) into (PBT-2).  Since $a+b=c$ and all coordinates are
+positive, $c$ is their maximum.  The resulting inequality has exactly the
+standard epsilon--constant quantifier order.
+\end{proof}
+
+PBT is not the divisible unordered relaxation pointwise.  Two sources of
+weight one and a single indivisible sink of weight two have equal total source
+and sink mass.  Divisible flow has zero residual, whereas a packet assignment
+can cover at most one source; its optimal packet boundary is one.  Thus the
+packet objective cannot be recovered from the two total masses alone.  We do
+not claim that this proves logical independence of its uniform arithmetic
+gate from $abc$.
+
+The two preceding counterexample mechanisms do not automatically refute PBT.
+Whenever $c=p^2$, there is one aggregate source of weight $\log p$.  Assigning
+all external primes to its packet gives exactly
+\[
+ B=\left(\log p-\log\rad(ab)\right)_+.
+\]
+For both $(1,p^2-1,p^2)$ and the prime-hypotenuse Pythagorean-square family,
+the individual inequalities $q<p$ or $q\le\sqrt{2p}$ create neither a
+forbidden edge nor a per-edge charge.  This observation does not prove PBT:
+an infinite family with small aggregate external radical, or competition
+among several powerful endpoint primes, may still refute it.
+
+The next positive problem is therefore an arithmetic logarithmic bin-covering
+theorem: partition the distinct primes of $ab$ among the powerful primes of
+$c$ while leaving only epsilon-small uncovered aggregate weight.  The next
+counterexample search must optimize the full indivisible assignment on an
+unbounded family; a finite bad value is absorbed by $C_\eps$ and retires
+nothing.  If the bare packet gate fails, congruence labels or a genuine signed
+multi-face boundary must be added without discarding the parent construction.
+
+The ordinary proof was completed before the Lean module
+\begin{center}
+\path{ABCPrimePacketBoundaryTransportSuccessor20260903}.
+\end{center}
+That module checks the finite boundary inequality, endpoint specialization,
+conditional implication, a two-source noncollapse certificate, and the
+one-source formula.  PBT itself is a definition and has no asserted
+inhabitant in this construction.  The next section gives a complete
+counterexample to that inhabitance claim.  The module exposes $39$ public declarations and its audit has
+exactly $39$ corresponding queries; the dependency union is only
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.

@@ -10,6 +10,123 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
+## September 3, 2026 incidence, endpoint-transport, and literature checkpoint
+
+The standard unconditional `ABCConjecture` remains unproved and undisproved.
+This checkpoint advances positive reductions and adversarial counterexample
+search together.  The persistent, cross-round list of current bottlenecks is
+[`../research/ABC_ROUTE_BOTTLENECKS.md`](../research/ABC_ROUTE_BOTTLENECKS.md);
+the next round starts from its first unchecked mathematical obligation.
+
+- **Labelled valuation-incidence complex: parent route active.**
+  `ABCValuationIncidenceComplex20260903` constructs the three labelled
+  prime-support face lattice, exact radical/defect/modulus coordinates,
+  defect filtration, local congruence signatures, pairwise-coprime CRT
+  reconstruction, and the exact top-face rational-power half-space.  The
+  primitive witness `(12,833,845)` refutes only universal trivial-arm defect
+  and constant-per-arm valuation.  It does not refute an eventual or
+  multi-face statement.
+- **The first two one-face incidence selectors are retired exactly.**
+  `ABCValuationIncidenceFixedBudgetObstruction20260903` uses the infinite
+  family `(2^(k+4),3,2^(k+4)+3)` to refute VIC-ABS-1.  The ordinary proof of
+  the balanced family `(2^(2*r),3^r,2^(2*r)+3^r)` then shows that every
+  reconstructing face has summand defect at least `3*r-2`, while its binary
+  scale is at most `2*r+1`.  The formal module
+  `ABCValuationIncidenceScaleBudgetObstruction20260903` therefore refutes the
+  coefficient-one fixed-slack selector VIC-1R on an infinite tail for every
+  parameter pair.
+- **Raw and ordered three-arm transport gates retired exactly.**
+  `ABCThreeArmIncidenceSuccessor20260903` lets all three arms contribute to a
+  covering face.  It proves that RAW-3C would imply `ABCConjecture`, then uses
+  the infinite primitive Pythagorean-square family to refute RAW-3C at
+  `epsilon=1/4` with every premise present.  The ordered CT-3C gate sends
+  selected excess layers only to complementary primes `q>=p`; exact radical
+  partition and flow accounting give
+  `height <= conductor + unmatchedMass`, so its uniform small-unmatched bound
+  would imply `ABCConjecture`.  The companion module
+  `ABCThreeArmComplementTransportObstruction20260903` proves that
+  `(1,p^2-1,p^2)`, over unbounded odd primes, forces unmatched mass at least
+  `log p` while conductor is at most `3*log p`; it therefore refutes CT-3C at
+  `epsilon=1/4`.  Weighted multi-face, recalibrated bidirectional, and
+  homological successors remain active.  The same module also proves the exact identity
+  between every Hall tail deficit and selected full-modulus tail minus total
+  radical tail.
+- **Signed endpoint prime-token transport: ordered gate retired, parent active.**
+  `ABCSignedEndpointPrimeTokenTransport20260903` proves the exact endpoint
+  core/radical identity, fractional monotone-flow accounting, a weighted Hall
+  tail obstruction, and the correctly quantified implication from uniformly
+  small unmatched logarithmic mass to `ABCConjecture`.  `(3,13,16)` and
+  `(9,16,25)` refute integral matching.  The infinite family
+  `(1,4^(3^k)-1,4^(3^k))` refutes a fixed natural multiplier only at zero
+  epsilon.  The distinct prime-square family gives the endpoint source prime
+  `p` no ordered sink and refutes the fractional epsilon gate itself at
+  `epsilon=1/4`.  Completely unordered flow reduces to the positive scalar
+  height defect.
+- **First bidirectional energy and exclusive packet boundary retired.**
+  `ABCBidirectionalPrimeTransportSuccessor20260903` defines an all-edge flow
+  with relative logarithmic downward cost and proves that its uniform BEP gate
+  would imply `ABCConjecture`.  The complete prime-hypotenuse family in
+  `ABCBidirectionalEnergyPythagoreanObstruction20260903` has every sink prime
+  at square-root scale or below.  Every flow therefore has energy at least
+  `(log p)/4`, while conductor is at most `3*log p`; unbounded primes
+  congruent to one modulo four refute BEP at `epsilon=1/24` with all premises
+  present.  The parent route remains active.  Its current successor,
+  `ABCPrimePacketBoundaryTransportSuccessor20260903`, aggregates all excess
+  layers at one endpoint prime and assigns each external radical prime as an
+  indivisible sink.  It proves the packet boundary inequality, the conditional
+  implication `PBT -> ABCConjecture`, and a two-source/one-sink certificate
+  separating its finite objective from scalar divisible flow.  A further
+  Linnik prime-neighbour construction takes first-prime product `M_k`, chooses
+  a prime `ell_k = -1 mod M_k^2` of polynomial size, and uses
+  `(1,ell_k,ell_k+1)`.  There is one external sink but at least `k` compulsory
+  powerful-prime sources, so every exclusive assignment has residual at least
+  `log M_k-log p_k`, while conductor is at most `4*L*log M_k+O(1)` and
+  `log p_k=o(log M_k)`.  This refutes PBT for one fixed positive epsilon.
+  Every point satisfies `height <= conductor`, so standard abc is untouched.
+  The parent route continues through a shared CRT-incidence boundary; the
+  published Linnik input remains an explicitly source-dependent paper step
+  until it is available in the formal library.  The module
+  `ABCPrimePacketBoundaryLinnikObstruction20260903` kernel-checks the finite
+  packet and actual prime-neighbour arithmetic core, and proves the honest
+  conditional statement
+  `LinnikPrimeNeighborEscape -> not UniformEndpointPrimePacketBound`.
+  An independent exact computation enumerates all 1,368,094 normalized
+  primitive triples with `c<=3000`: 624 have positive optimal packet residual,
+  572 have a strict indivisibility gap, and 567 have positive packet residual
+  with zero scalar defect.  Its separate validator recomputes the full scope
+  and deterministically reproduces all 1,038 structured rows.  These finite
+  counts confirm the mechanism but play no role in the Linnik proof.
+- **Shared CRT-incidence successor: active.**  SCRT-0 uses pairwise-disjoint
+  saturated CRT hyperedges, charges the logarithmic capacity of every external
+  prime once, and retains exclusive partial packets outside the hyperedges.
+  The ordinary proof gives `height <= conductor + B_SCRT`, the exact sandwich
+  `(height-conductor)_+ <= B_SCRT <= B_PBT`, and the correctly quantified
+  implication `SCRT-0 -> ABCConjecture`.  Full pooling with arbitrary partial
+  credit is proved to collapse to the scalar defect, whereas the actual point
+  `(343,625,968)` has
+  `B_SCRT=log(11/7)>log(44/35)=(height-conductor)_+`.  The saturated-only child
+  SCRT-SAT is retired by `(2,15^n-2,15^n)` for `n=284 mod 310`; its leftover
+  exclusive packets prevent that proof from refuting SCRT-0.  The Lean module
+  `ABCSharedCRTIncidenceSuccessor20260903` checks the abstract once-charged
+  capacity kernel, endpoint height bridge, conditional admissibility
+  implication, scalar-collapse guard rail, and duplicated-capacity failure.
+  The arithmetic hypergraph, exact noncollapse optimum, and SCRT-SAT family
+  remain ordinary proofs, and the uniform SCRT-0 estimate remains open.
+- **Primary-literature synchronization:** sources available through
+  2026-09-03 supply exact parity-class radical-defect identities, aggregate
+  exceptional-triple counts, the polynomial Mason--Stothers theorem with its
+  necessary derivative-zero disjunct, and several useful conditional or
+  family-specific reductions.  They do not supply a generally accepted
+  unconditional proof or disproof of standard abc, nor do they close the
+  repository's source-faithful all-place/Ind3/pointed IUT transport chain.
+  Source-dependent statements remain visibly distinct from kernel theorems.
+
+The eleven principal modules contain 496 public declarations, each paired with
+one `#print axioms` query in a dedicated audit. Their ordinary proofs and exact
+retirement boundaries are recorded in the corresponding dated reports; no
+open replacement, `ABCConjecture`, or negation of `ABCConjecture` is
+introduced as an axiom. The checkpoint validation package seals this inventory.
+
 ## September 3, 2026 canonical-gain, packet-obstruction, and signed-trace checkpoint
 
 The standard unconditional `ABCConjecture` remains unproved and undisproved.

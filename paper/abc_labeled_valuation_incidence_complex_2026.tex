@@ -1,0 +1,235 @@
+\section{A labelled valuation-incidence complex}\label{sec:valuation-incidence-complex}
+
+This section develops a higher-dimensional object directly from the prime
+factorisation of an $abc$ triple.  It is deliberately restricted to
+\emph{primitive nonunit triples}
+\[
+ a,b,c\in\N_{>0},\qquad a>1,\quad b>1,\quad a+b=c,
+ \quad \gcd(a,b)=1.
+\]
+The restriction is part of every statement below.  Unit-arm triples require a
+separate extension.  The construction is finite and exact.  The next two
+sections refute its first one-face quantitative selectors and preserve the
+remaining weighted, multi-face, three-arm, and homological design problem.
+
+Put $x_A=a$, $x_B=b$, and $x_C=c$.  For $i\in\{A,B,C\}$ let
+\[
+ S_i=\{p:p\text{ prime},\ p\mid x_i\},\qquad e_i(p)=v_p(x_i).
+\]
+Primitivity and $a+b=c$ make the three coordinates pairwise coprime.  Thus
+their prime supports are disjoint, although we retain the arm label because it
+also records a different local congruence.
+
+\begin{definition}[Valuation-incidence complex]
+A vertex is a labelled pair $(i,p)$ with $p\in S_i$, carrying the datum
+$(i,p,e_i(p))$.  A face is a triple
+\[
+ F=(F_A,F_B,F_C),\qquad F_i\subseteq S_i.
+\]
+We write $F\preceq G$ if $F_i\subseteq G_i$ on every arm.  Union and
+intersection are taken armwise.  The empty face is
+$\varnothing_P=(\varnothing,\varnothing,\varnothing)$ and the top face is
+$\top_P=(S_A,S_B,S_C)$.
+\end{definition}
+
+The face relation is the Boolean face lattice on
+$S_A\sqcup S_B\sqcup S_C$.  In particular, it is reflexive, transitive and
+antisymmetric; the empty and top faces are respectively least and greatest;
+and armwise union is the least common upper bound.  These assertions follow
+coordinatewise from the corresponding elementary facts for finite subsets.
+If
+\[
+ \nu(F)=|F_A|+|F_B|+|F_C|,
+ \qquad \dim_{\N}(F)=\max\{\nu(F)-1,0\},
+\]
+then a nonempty top face with $N$ vertices has dimension $N-1$.  There is no
+a priori bound on $N$.
+
+For a face $F$ and an arm $i$, define
+\[
+ \begin{aligned}
+ R_i(F)&=\prod_{p\in F_i}p,&
+ D_i(F)&=\prod_{p\in F_i}p^{e_i(p)-1},\\
+ M_i(F)&=\prod_{p\in F_i}p^{e_i(p)},&
+ d_i(F)&=\sum_{p\in F_i}(e_i(p)-1).
+ \end{aligned}
+\]
+Thus $R_i$ records selected radical mass, $D_i$ selected multiplicity beyond
+the first layer, $M_i$ the corresponding prime-power modulus, and $d_i$ its
+additive defect degree.  The exact six-coordinate realisation is
+\[
+ T(F)=((R_A(F),D_A(F)),(R_B(F),D_B(F)),(R_C(F),D_C(F))).
+\]
+Applying logarithms produces an additive display in $\R^6$, but logarithms
+play no role in face membership or in the filtration below.
+
+\begin{proposition}[Exact face factorisation]\label{prop:vic-face-factorisation}
+For every face and every arm,
+\[
+ R_i(F)D_i(F)=M_i(F),\qquad M_i(F)\mid x_i.
+\]
+At the top face,
+\[
+ M_i(\top_P)=x_i,\qquad R_i(\top_P)=\rad(x_i),
+ \qquad \rad(x_i)D_i(\top_P)=x_i.
+\]
+If $F$ and $G$ are armwise disjoint, each of $R_i,D_i,M_i$ is multiplicative
+under $F\cup G$, while $d_i(F\cup G)=d_i(F)+d_i(G)$.
+\end{proposition}
+
+\begin{proof}
+For every selected prime, positivity of $e_i(p)$ gives
+$p\,p^{e_i(p)-1}=p^{e_i(p)}$.  Multiplication over $F_i$ proves the first
+identity.  The selected product is a subproduct of the canonical
+factorisation of $x_i$, so it divides $x_i$; on the top face it is the full
+factorisation.  Retaining one copy of each support prime gives the usual
+squarefree radical.  The disjoint-union formulas are the standard product and
+sum formulas over disjoint finite sets.
+\end{proof}
+
+For a budget $u=(u_A,u_B,u_C)\in\N^3$, define the filtered subcomplex
+\[
+ \mathcal K_u(P)=\{F:d_i(F)\le u_i\text{ for }i=A,B,C\}.
+\]
+
+\begin{proposition}[Defect filtration]\label{prop:vic-filtration}
+If $G\preceq F$ and $F\in\mathcal K_u(P)$, then
+$G\in\mathcal K_u(P)$.  The empty face lies in every filtration level.  If
+$F,G$ are armwise disjoint, $F\in\mathcal K_u(P)$ and
+$G\in\mathcal K_v(P)$, then $F\cup G\in\mathcal K_{u+v}(P)$.  Moreover,
+\[
+ F\in\mathcal K_{(0,0,0)}(P)
+ \quad\Longleftrightarrow\quad
+ e_i(p)=1\text{ for every selected }(i,p).
+\]
+\end{proposition}
+
+\begin{proof}
+Every summand $e_i(p)-1$ is nonnegative.  Restricting to a subset can only
+decrease its sum, and the empty sums vanish.  The graded-union assertion uses
+the additive formula in Proposition~\ref{prop:vic-face-factorisation}.  At
+budget zero, a finite sum of nonnegative integers is zero precisely when each
+summand is zero; positivity of $e_i(p)$ then gives the final equivalence.
+\end{proof}
+
+The arm colours also retain the additive equation at selected prime-power
+resolution.
+
+\begin{proposition}[Local incidence and CRT rigidity]
+Every face satisfies
+\[
+ c\equiv b\pmod{M_A(F)},\qquad
+ c\equiv a\pmod{M_B(F)},\qquad
+ a+b\equiv0\pmod{M_C(F)}.
+\]
+The three moduli are pairwise coprime.  Call $F$ \emph{$AB$-reconstructing}
+when $c<M_A(F)M_B(F)$.  Every top face is $AB$-reconstructing.  More
+generally, if $F$ is $AB$-reconstructing and
+\[
+ 0\le x<M_A(F)M_B(F),\quad
+ x\equiv b\pmod{M_A(F)},\quad x\equiv a\pmod{M_B(F)},
+\]
+then $x=c$.
+\end{proposition}
+
+\begin{proof}
+Proposition~\ref{prop:vic-face-factorisation} gives
+$M_A(F)\mid a$, $M_B(F)\mid b$, and $M_C(F)\mid c$; subtracting within
+$a+b=c$ proves the three congruences.  Since each selected modulus divides
+one member of a pairwise coprime triple, the moduli are pairwise coprime.
+At the top face, $M_A=a$ and $M_B=b$.  For nonunits one has
+$a+b\le ab$, with equality only at $a=b=2$; primitivity excludes that case,
+so $a+b<ab$.
+For a general reconstructing face, the displayed residues show that $x$ and
+$c$ are congruent modulo both coprime moduli, hence modulo their product.
+Both lie in the same half-open interval of that length, so they are equal.
+\end{proof}
+
+The top point recovers the ordinary conductor exactly:
+\[
+ R_A(\top_P)R_B(\top_P)R_C(\top_P)=\rad(abc).
+\]
+It also gives a precise half-space form of a rational-power $abc$ bound.
+
+\begin{theorem}[Exact top-face half-space]\label{thm:vic-half-space}
+Write $R_i=R_i(\top_P)$ and $D_C=D_C(\top_P)$.  For all $m,n\in\N$,
+\[
+ c^m\le\rad(abc)^{m+n}
+ \quad\Longleftrightarrow\quad
+ D_C^m\le (R_AR_B)^{m+n}R_C^n.
+\]
+Furthermore, for any face $F$, the stronger selected-face inequality
+\[
+ D_C^m\le
+ \bigl(R_A(F)R_B(F)\bigr)^{m+n}R_C^n
+\]
+implies $c^m\le\rad(abc)^{m+n}$.
+\end{theorem}
+
+\begin{proof}
+The top-face identities give $c=R_CD_C$ and
+$\rad(abc)=R_AR_BR_C$.  Substitution turns the left inequality into
+\[
+ R_C^mD_C^m\le
+ R_C^m\bigl((R_AR_B)^{m+n}R_C^n\bigr).
+\]
+Since $R_C>0$, cancellation proves the equivalence.  For the second claim,
+$F_i\subseteq S_i$ gives $R_A(F)\le R_A$ and $R_B(F)\le R_B$; enlarge the
+right side of the selected-face inequality and apply the reverse implication
+of the equivalence.
+\end{proof}
+
+Theorem~\ref{thm:vic-half-space} is an exact change of coordinates.  It does
+not prove that a useful selected face exists.  The following fully realised
+example also prevents two tempting degeneracy assumptions.
+
+\begin{proposition}[A five-dimensional complete-premise boundary]
+The primitive nonunit triple
+\[
+ 12+833=845,\qquad
+ 12=2^2\cdot3,\quad 833=7^2\cdot17,\quad 845=5\cdot13^2
+\]
+has a six-vertex top face, hence natural dimension five, and
+\[
+ T(\top_P)=((6,2),(119,7),(65,13)),\qquad
+ (d_A,d_B,d_C)=(1,1,1).
+\]
+Every arm has nontrivial defect, and on every arm the two valuation exponents
+are different.  The face selecting $3$, $17$, and $5$ lies at zero budget.
+\end{proposition}
+
+\begin{proof}
+The displayed factorizations list the six vertices and give all coordinates
+by their definitions.  They also show directly that one exponent on each arm
+is $2$ and the other is $1$.  Thus the defects are $2,7,13$, all nontrivial,
+and every defect degree is one.  Selecting the three exponent-one vertices
+gives defect degree zero on every arm.
+\end{proof}
+
+This example refutes exactly the pointwise universal statements that some arm
+must have defect one and that the valuations must be constant on each arm.  It
+does not refute eventual or density variants and does not refute any estimate
+that permits all three arms to be defective.
+
+The first falsifiable gate proposed for this higher-dimensional route used an
+absolute budget.  For fixed $m,n\ge1$, it asked whether a number
+$t=t(m,n)$ exists such that all but finitely many primitive nonunit triples
+possess a face $F$ satisfying
+\[
+ d_A(F),d_B(F)\le t,\qquad
+ c<M_A(F)M_B(F),\qquad
+ D_C^m\le\bigl(R_A(F)R_B(F)\bigr)^{m+n}R_C^n.
+\tag{VIC-ABS-1}
+\]
+Theorem~\ref{thm:vic-half-space} proves that VIC-ABS-1 would imply the
+corresponding rational-exponent height bound on this domain.  The next section
+constructs an infinite complete-premise family that refutes this absolute
+budget formulation.  That obstruction does not refute the complex or its
+weighted, multi-face, three-arm, and homological replacements.
+
+The companion Lean module
+\texttt{ABCValuationIncidenceComplex20260903} constructs the actual faces with
+\texttt{Nat.primeFactors} and the labels with \texttt{Nat.factorization}.  It
+kernel-checks the finite-poset, factorisation, filtration, congruence, CRT,
+half-space, selected-face, and witness statements above.  No selector is
+inserted as an axiom or an inhabited interface.

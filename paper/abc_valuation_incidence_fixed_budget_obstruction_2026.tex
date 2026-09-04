@@ -1,0 +1,81 @@
+\section{The fixed-budget incidence obstruction}\label{sec:vic-fixed-budget-obstruction}
+
+We now test VIC-ABS-1 against every one of its necessary reconstruction
+premises.  The resulting obstruction is asymptotic and uses actual primitive
+nonunit triples; it therefore retires the exact all-but-finitely-many
+absolute-budget statement.
+
+For $k\ge0$, define
+\[
+ P_k=(2^{k+4},3,2^{k+4}+3).
+\]
+Every $P_k$ is primitive and nonunit, and the family is injective through its
+first coordinate.
+
+\begin{theorem}[No fixed-budget reconstruction on the dyadic tail]
+\label{thm:vic-fixed-budget-obstruction}
+Let $t,k\in\N$ with $t<k+3$.  No face of $P_k$ satisfies both
+\[
+ d_A(F)\le t
+ \qquad\text{and}\qquad
+ c<M_A(F)M_B(F).
+\]
+Consequently, for every fixed $t$, infinitely many primitive nonunit triples
+have no face that both reconstructs through the two summand arms and has
+$A$-defect at most $t$.  In particular, VIC-ABS-1 is false for every pair of
+rational-power parameters $(m,n)$.
+\end{theorem}
+
+\begin{proof}
+The $A$-coordinate of $P_k$ is $2^{k+4}$.  Its support consists only of $2$,
+with valuation $k+4$.  If a face selected this vertex, then its contribution
+to $d_A(F)$ would be
+\[
+ v_2(2^{k+4})-1=k+3>t,
+\]
+contrary to the budget.  Hence $F_A$ is empty and $M_A(F)=1$.
+The selected $B$-modulus divides the coordinate $3$, so $M_B(F)\le3$.
+It follows that
+\[
+ M_A(F)M_B(F)\le3<2^{k+4}+3=c,
+\]
+which rules out reconstruction.  For a fixed $t$, every $k\ge t$ satisfies
+$t<k+3$; the injective tail therefore supplies infinitely many failures.
+Every full VIC-ABS-1 face would satisfy the two conditions just excluded, so
+its additional quantitative inequality cannot repair the selector.
+\end{proof}
+
+The theorem retires the fixed absolute defect budget and nothing more.  In
+particular, it leaves intact all face-poset, local-incidence, CRT, and
+half-space results of Section~\ref{sec:valuation-incidence-complex}.  It also
+suggests where the missing scale entered: selecting one high-multiplicity arm
+can cost logarithmically in the height.
+
+The first attempted correction was therefore scale-sensitive.  Put
+\[
+ \ell_2(c)=\min\{s\in\N:c\le2^s\}.
+\]
+For fixed $m,n\ge1$, VIC-1R asks whether a slack $t=t(m,n)$ exists such that
+all but finitely many primitive nonunit triples possess a face satisfying
+\[
+ \begin{aligned}
+ d_A(F)+d_B(F)&\le\ell_2(c)+t,\\
+ c&<M_A(F)M_B(F),\\
+ D_C^m&\le\bigl(R_A(F)R_B(F)\bigr)^{m+n}R_C^n.
+ \end{aligned}
+\tag{VIC-1R}
+\]
+The dyadic obstruction does not violate the scale budget merely by selecting
+the prime $2$.  Nevertheless, the next companion section gives a different
+balanced two-prime family that refutes VIC-1R itself.  The surviving parent
+route must therefore use weighted budgets, several faces with combined
+congruence data, all three labelled arms, or another invariant absent from
+this one-face selector.  Each replacement remains subject to simultaneous
+positive proof construction and complete-premise counterexample search.
+
+The Lean module
+\texttt{ABCValuationIncidenceFixedBudgetObstruction20260903} defines the full
+pointwise selector and its all-but-finitely-many form.  It kernel-checks the
+dyadic valuation, support exclusion, modulus bounds, infinite failure set, and
+the negation of VIC-ABS-1.  It does not formalise or assume VIC-1R; that
+separate statement is handled by the scale-budget obstruction module.

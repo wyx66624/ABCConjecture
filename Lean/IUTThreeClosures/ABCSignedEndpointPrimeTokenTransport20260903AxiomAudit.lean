@@ -1,0 +1,102 @@
+import IUTThreeClosures.ABCSignedEndpointPrimeTokenTransport20260903
+
+/-!
+# Axiom audit: signed endpoint prime-token transport
+
+Compile this file directly with `-DwarningAsError=true`.  The inventory covers
+the generic finite-flow layer, its actual prime-token instantiation, the exact
+endpoint-core bridge, the conditional implication to `ABCConjecture`, both
+complete-premise finite matching counterexamples, and the fully quantified
+natural-multiplier Mersenne obstruction.  The imported module does not assert
+the uniform small-unmatched-mass hypothesis or a max-flow converse; a separate
+companion audit checks its later negation.
+-/
+
+namespace IUTThreeClosures
+namespace ABCSignedEndpointPrimeTokenTransport20260903AxiomAudit
+
+open SignedEndpointPrimeTokenTransport
+
+#print axioms MonotoneWeightedFlow
+#print axioms MonotoneWeightedFlow.sourceMass
+#print axioms MonotoneWeightedFlow.sinkMass
+#print axioms MonotoneWeightedFlow.carriedMass
+#print axioms MonotoneWeightedFlow.unmatchedMass
+#print axioms MonotoneWeightedFlow.unusedCapacity
+#print axioms MonotoneWeightedFlow.sourceTailMass
+#print axioms MonotoneWeightedFlow.sinkTailMass
+#print axioms MonotoneWeightedFlow.sourceTailCarried
+#print axioms MonotoneWeightedFlow.sourceTailUnmatched
+#print axioms MonotoneWeightedFlow.unmatchedMass_nonneg
+#print axioms MonotoneWeightedFlow.unusedCapacity_nonneg
+#print axioms MonotoneWeightedFlow.unmatchedMass_eq_sourceMass_sub_carriedMass
+#print axioms MonotoneWeightedFlow.unusedCapacity_eq_sinkMass_sub_carriedMass
+#print axioms MonotoneWeightedFlow.unmatchedMass_eq_defect_add_unusedCapacity
+#print axioms MonotoneWeightedFlow.sourceMass_sub_sinkMass_le_unmatchedMass
+#print axioms MonotoneWeightedFlow.sourceTailUnmatched_le_unmatchedMass
+#print axioms MonotoneWeightedFlow.sourceTailUnmatched_eq_tailMass_sub_tailCarried
+#print axioms MonotoneWeightedFlow.sourceTailCarried_le_sinkTailMass
+#print axioms MonotoneWeightedFlow.sourceTailMass_sub_sinkTailMass_le_unmatchedMass
+
+#print axioms PrimeSupportToken
+#print axioms PrimeExcessToken
+#print axioms primeSupportTokenPrime
+#print axioms primeExcessTokenPrime
+#print axioms primeSupportTokenWeight
+#print axioms primeExcessTokenWeight
+#print axioms endpointCore
+#print axioms externalRadical
+#print axioms totalRadical
+#print axioms signedEndpointCoreDefect
+#print axioms externalRadical_eq_radical_a_mul_radical_b
+#print axioms externalRadical_mul_c_eq_totalRadical_mul_endpointCore
+#print axioms endpointCore_pos
+#print axioms externalRadical_pos
+#print axioms totalRadical_pos
+#print axioms log_c_sub_log_totalRadical_eq_signedEndpointCoreDefect
+#print axioms height_sub_conductor_eq_signedEndpointCoreDefect
+#print axioms sum_primeExcessTokenWeight_eq_log_powerfulPart
+#print axioms sum_primeSupportTokenWeight_eq_log_radical
+#print axioms EndpointPrimeFlow
+#print axioms endpointPrimeFlow_sourceMass_eq_log_core
+#print axioms endpointPrimeFlow_sinkMass_eq_log_externalRadical
+#print axioms signedEndpointCoreDefect_le_unmatchedMass
+#print axioms height_le_conductor_add_unmatchedMass
+#print axioms endpointPrimeFlow_threshold_obstruction
+#print axioms UniformEndpointPrimeFlowBound
+#print axioms abc_of_uniformEndpointPrimeFlowBound
+
+#print axioms FullIntegralDominanceMatching
+#print axioms threeThirteenSixteenDatum
+#print axioms factorization_sixteen_two
+#print axioms sixteenSourceTokenZero
+#print axioms sixteenSourceTokenOne
+#print axioms sixteenSourceTokenTwo
+#print axioms sixteenSourceTokenZero_ne_one
+#print axioms sixteenSourceTokenZero_ne_two
+#print axioms sixteenSourceTokenOne_ne_two
+#print axioms threeThirteenSixteen_sink_prime
+#print axioms threeThirteenSixteen_not_fullIntegralDominanceMatching
+#print axioms nineSixteenTwentyFiveDatum
+#print axioms twentyFiveSourceToken
+#print axioms twentyFiveSourceToken_prime
+#print axioms nineSixteenTwentyFive_sink_lt_five
+#print axioms nineSixteenTwentyFive_not_fullIntegralDominanceMatching
+#print axioms nineSixteenTwentyFive_core_eq_five
+#print axioms nineSixteenTwentyFive_externalRadical_eq_six
+#print axioms nineSixteenTwentyFive_core_le_externalRadical
+
+#print axioms primePower_succ_dvd_forces_radical_budget
+#print axioms three_pow_succ_dvd_four_pow_three_pow_sub_one_int
+#print axioms three_pow_succ_dvd_four_pow_three_pow_sub_one
+#print axioms dyadicMersenneCoreDatum
+#print axioms dyadicMersenneCoreDatum_radical_c
+#print axioms dyadicMersenneCoreDatum_two_mul_core
+#print axioms dyadicMersenneCoreDatum_three_pow_succ_dvd_b
+#print axioms dyadicMersenneCoreDatum_radical_budget
+#print axioms dyadicMersenneCoreDatum_three_pow_mul_radical_lt_two_mul_core
+#print axioms dyadicMersenneCoreDatum_externalRadical
+#print axioms no_uniform_natural_endpointCore_domination
+
+end ABCSignedEndpointPrimeTokenTransport20260903AxiomAudit
+end IUTThreeClosures

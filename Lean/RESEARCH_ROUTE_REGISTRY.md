@@ -21,6 +21,90 @@ community acceptance, and a finite counterexample search with no hit are not
 grounds for retirement.  Positive proof construction and counterexample search
 must therefore continue in parallel for every unrefuted route.
 
+The live bottleneck checklist is maintained at
+[`../research/ABC_ROUTE_BOTTLENECKS.md`](../research/ABC_ROUTE_BOTTLENECKS.md).
+Every new round begins there, checks off only proved or completely refuted
+items, and records the next positive and counterexample actions.
+
+## September 3, 2026 incidence and endpoint route update
+
+Standard `ABCConjecture` remains open in both directions.
+
+- **Labelled valuation-incidence complex: retain.**  The face lattice,
+  radical/defect/modulus coordinates, filtration, local signatures, CRT
+  uniqueness, and rational-power half-space are kernel checked.  The exact
+  witness `(12,833,845)` retires only the two stated arm-degeneracy shortcuts.
+  The dyadic family `(2^(k+4),3,2^(k+4)+3)` retires VIC-ABS-1, and the
+  balanced family `(2^(2*r),3^r,2^(2*r)+3^r)` retires VIC-1R because
+  reconstruction forces defect `3*r-2` against binary scale at most
+  `2*r+1`.  A third infinite complete-premise obstruction, the primitive
+  Pythagorean-square family, retires RAW-3C at `epsilon=1/4` after all three
+  arms and logarithmic weights are allowed.  The ordered CT-3C construction
+  uses fractional flow from selected excess layers only to larger
+  complementary primes and proves `height <= conductor + unmatchedMass`.
+  The prime-square family `(1,p^2-1,p^2)` forces every covering face to select
+  the `p` source while every complement prime is smaller; it refutes CT-3C at
+  `epsilon=1/4`.  The formal obstruction also identifies every Hall tail
+  exactly as selected full-modulus tail minus total radical tail. This
+  complete counterexample retires the ordered gate alone.
+  The first relative-drop bidirectional gate is also refuted by the
+  prime-hypotenuse Pythagorean-square family: every flow pays at least
+  `(log p)/4` against conductor at most `3*log p`.  This retires BEP at
+  `epsilon=1/24`, while recalibrated bidirectional, weighted multi-face, and
+  homological successors remain active.
+- **Signed endpoint prime-token transport: retain after retiring EPF.** Exact core balance,
+  fractional-flow bookkeeping, Hall-tail obstruction, and the implication
+  from a uniform epsilon-dependent unmatched-mass bound to abc are checked.
+  The actual triples `(3,13,16)` and `(9,16,25)` retire integral matching.
+  The infinite family `(1,4^(3^k)-1,4^(3^k))` retires fixed natural
+  zero-epsilon domination.  The separate prime-square family has one source
+  over `p` and only smaller external primes, so it also retires the ordered
+  fractional epsilon gate EPF.  Unordered flow alone is the positive scalar
+  height defect, and the first relative-drop bidirectional calibration is
+  retired by the separate prime-hypotenuse obstruction.
+- **Prime-packet boundary transport: exact gate retired, parent retained.**  Aggregate endpoint
+  excess at each prime into one source and assign every external radical prime
+  as an indivisible sink to at most one packet.  The exact boundary inequality
+  gives `height <= conductor + packetResidual`; hence PBT implies abc.  The
+  two-source/one-sink optimum is one although the scalar divisible optimum is
+  zero, proving that the finite objective does not collapse to total mass.
+  Linnik's least-prime theorem then gives points `(1,ell_k,ell_k+1)` with one
+  external sink and arbitrarily many square-divisor sources, a packet residual
+  of fixed positive conductor proportion, and zero scalar abc defect.  This
+  complete-premise family retires PBT alone.  Shared CRT incidence, which lets
+  the same external prime record several simultaneous congruences without
+  duplicating its capacity, is the next retained construction.
+  A separate exact scan of 1,368,094 normalized primitive triples finds 572
+  strict indivisibility gaps, including 567 with zero scalar defect, and an
+  independent implementation replays the whole range.  The bounded data are
+  diagnostic and are not used to infer the infinite obstruction.  A companion
+  Lean module checks the actual prime-neighbour point, forced endpoint sources,
+  unique-sink lower bound, conductor control, zero scalar defect, and the
+  implication from a transparent Linnik-style arithmetic escape to `not PBT`;
+  the published analytic theorem remains a source-dependent paper input.
+- **Literature interfaces: retain with source labels.**  The audit through
+  2026-09-03 imports no claimed resolution of standard abc.  Published IUT
+  material remains a source-dependent route until the all-place, Ind3, and
+  pointed same-pilot transports are realized without circularity.  Exact
+  polynomial, parity-defect, counting, Pell/Lucas, and approximation results
+  may be reused only with their stated hypotheses.
+- **Shared CRT incidence: retain SCRT-0; retire only its saturated-only child.**
+  Disjoint saturated CRT blocks let one sink union certify several endpoint
+  prime powers while charging every logarithmic capacity once; the remaining
+  sinks keep exclusive partial ownership.  This gives the exact height bridge
+  and a conditional reduction to abc.  Unrestricted partial pooling is the
+  scalar defect, but `(343,625,968)` proves that SCRT-0 itself is pointwise
+  stricter.  The progression `(2,15^n-2,15^n)`, `n=284 mod 310`, refutes
+  SCRT-SAT, where no exclusive residual stage is allowed.  It does not refute
+  SCRT-0 because a linear obstruction to partitioning the remaining prime-log
+  weights is not known.  The parent shared-incidence route and exact SCRT-0
+  uniform gate remain active.
+
+The eleven new principal modules expose 496 one-for-one audited declarations.
+The scale-budget ordinary proof was completed before its Lean formalization.
+Neither a failed selector nor the difficulty of a surviving replacement is
+grounds for retiring the parent construction.
+
 ## September 3, 2026 gain/packet/trace route update
 
 Standard `ABCConjecture` remains open in both directions.  This update applies

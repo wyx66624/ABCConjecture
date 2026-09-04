@@ -1,0 +1,106 @@
+\section{Primary-literature gate audit through September 2026}
+\label{sec:primary-literature-gate-audit}
+
+We re-audited primary sources available through September 3, 2026 against the
+exact gates used in this paper.  This is a theorem-by-theorem compatibility
+check, not a survey by title or terminology.  No checked source supplies a
+generally accepted unconditional proof or disproof of standard $abc$, and no
+source closes one of the remaining repository gates without an additional
+uniformity statement.
+
+Laniewski's parity coordinates give the clearest direct match to the canonical
+defect route \cite[Proposition~3.7 and Corollary~3.9]{Laniewski2026RadicalDefects}.
+For $m=\log(abc)$, $r=\log\rad(abc)$, and $h=\log c$, the cited identity is
+exactly
+\[
+ q=1+\frac{(m-r)-(m-h)}{r}=1+X-Y.
+\]
+The equality follows by expanding the numerator:
+$(m-r)-(m-h)=h-r$.  It therefore confirms the coordinate choice used in the
+canonical gain section, but it gives no upper bound for $X-Y$.
+Laniewski's Theorem~4.3 similarly gives an exact parity-class transgression
+threshold in terms of linear radical defect and the smaller summand.  It is a
+certificate for transgression, not an estimate excluding it.  The conditional
+dichotomy in Theorem~10.5 starts from a hypothetical fixed-epsilon
+transgressive sequence and hence cannot supply that missing estimate.
+
+The exceptional-set theorems of
+Bernert--Browning--Lichtman--Ter\"av\"ainen give, in their notation,
+\[
+ N_\lambda(X)\ll_{\lambda,\varepsilon}
+ X^{(23\lambda+3)/40+\varepsilon}
+\]
+and a stronger fixed-$\lambda<1$ exponent $3/5+\varepsilon$
+\cite[Theorems~1.2--1.3]{BBLT}.  These are unconditional aggregate counts.
+They do not imply a pointwise bound on $X-Y$, an eventual compensated packet
+estimate, or a fixed-index Pell valuation theorem.  The distinction between
+aggregate scarcity and an all-triples uniform inequality is retained
+throughout our formal interfaces.
+
+Baek and Lee prove Mason--Stothers over arbitrary fields with the necessary
+alternative that all three derivatives vanish
+\cite[Theorem~1]{BaekLee2024Mason}.  Their formal development is the source of
+the Mathlib theorem \texttt{Polynomial.abc} already used by our
+\texttt{MasonSpecializationBarrier} module.  In positive characteristic the
+triple
+\[
+ -1,\qquad -x^p,\qquad (1+x)^p
+\]
+has vanishing derivatives, so deleting that branch would be false.  The
+polynomial theorem has no specialization mechanism that turns it into the
+needed integer radical inequality; the repository's specialization barrier
+therefore remains.
+
+For the Pell route, Laniewski's Theorem~4.31 provides a positive-density
+composite-index family in which quality exceeding one is detected by
+non-squarefreeness of a Pell-coordinate product.  Non-squarefree is weaker
+than squarefull.  At its only odd-prime seed $\ell=7$, the repository's exact
+factorization is
+\[
+ A_7B_7=239\cdot13^2,\qquad v_{239}(A_7B_7)=1.
+\]
+Thus this row satisfies the non-squarefree condition but not the simultaneous
+squarefull gate.  Sanna's valuation formulas determine later valuations once
+the rank-of-apparition valuation is known \cite{Sanna2016}; Carmichael's
+primitive-divisor theorem guarantees a primitive divisor
+\cite{Yabuta2001}, but being primitive does not imply exponent one.  These
+results leave exactly the first-rank exponent problem isolated by the signed
+trace module.
+
+Browning and Verzobio obtain power-saving counts for sums of three powerful
+numbers in a broad log-general-type range
+\cite[Theorem~1.2]{BrowningVerzobio2026}.  The squarefull exponent triple
+$(2,2,2)$ relevant to the elementary Pell surface is explicitly outside that
+range.  Their theorem is therefore a valid aggregate input in its stated
+domain, but not a squarefull-Pell exclusion.
+
+The alternative-quality identity
+$q_{\rm std}=\eta q_{\rm DGM}$ remains usable
+\cite{Sankaran2026AlternativeQuality}.  Divergence of $q_{\rm DGM}$ alone
+does not control the product.  The claimed later phase-boundary transfer uses
+a one-sided estimate as an equality and applies a fixed-support lemma in a
+growing-support regime; we do not import those conclusions.  Likewise, the
+fixed-epsilon exceptional-set claim in Carella depends on replacing an
+$O(h)$ error by $O(h\rho(u))$ while $\rho(u)\to0$
+\cite[Lemma~4.2]{Carella}.  That step does not follow.  These findings reject
+only the dependent inferences, not the broader smooth-neighbour or
+alternative-metric routes.  The exact gain factorization in
+M\"uller--Taktikos remains motivational, but the preprint changes the
+approximation-gain numerator between its definition and subsequent theorem
+and supplies no standard-$abc$ coefficient-one estimate
+\cite{MuellerTaktikos2026}.
+
+Finally, IUT~III Corollary~3.12 is stated inside the situation of
+Theorem~3.11 and the preceding IUT constructions \cite{IUT3}.  Zhou's explicit
+rational inequalities expressly invoke its $\mu_6$ version
+\cite{Zhou2025IUTRationals}.  Published sources therefore exist, but they do
+not eliminate the source-faithful obligation carried by our IUT-facing route:
+all places, the Ind1--Ind3 action, actual hulls and integral orders, and
+pointed same-pilot transport must inhabit one compatible interface.  That
+chain remains open in this repository; no source-dependent conclusion is
+silently promoted to an independent Lean theorem.
+
+The detailed version-locked ledger, with proposition and page references, is
+\path{research/ABC_PRIMARY_LITERATURE_GATE_AUDIT_2026_09_03.md}.
+Its classifications are local: a flawed inference retires that inference
+only, while every unrefuted parent route continues.

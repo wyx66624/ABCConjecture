@@ -1,0 +1,43 @@
+Signed endpoint prime-token transport verification
+Date: 2026-09-03
+
+Repository working directory for Lean commands:
+  E:\AImath\abc猜想\Lean
+
+1. Direct strict elaboration of the main module
+  lake env lean -DwarningAsError=true IUTThreeClosures/ABCSignedEndpointPrimeTokenTransport20260903.lean
+  exit code: 0
+  stdout/stderr: empty
+
+2. Build the main module and refresh its olean
+  lake build IUTThreeClosures.ABCSignedEndpointPrimeTokenTransport20260903
+  exit code: 0
+  result: Build completed successfully (8774 jobs).
+  note: replayed dependency modules emit pre-existing linter warnings; the
+        target module built successfully.
+
+3. Direct strict elaboration of the separate axiom audit
+  lake env lean -DwarningAsError=true IUTThreeClosures/ABCSignedEndpointPrimeTokenTransport20260903AxiomAudit.lean
+  exit code: 0
+  one-for-one public declaration queries: 77
+  union of axioms reported for audited declarations:
+    propext
+    Classical.choice
+    Quot.sound
+  no project-specific axiom, sorryAx, or native_decide axiom was reported.
+
+4. Deterministic finite computation
+  python research/computation/2026_09_03_signed_endpoint_prime_token_transport/search_endpoint_token_transport.py --limit 5000 --lte-k-limit 12 --output research/computation/2026_09_03_signed_endpoint_prime_token_transport/OUTPUT.json
+  exit code: 0
+  triples_scanned: 3795230
+  exact_identity_failures: 0
+  full_integral_dominance_matching_failures: 113086
+  core_le_external_but_integral_matching_fails: 113027
+  exact_zero_unmatched_fractional_monotone_flows: 3792836
+  first complete-premise failure: [3, 13, 16]
+  script sha256: 6be885d5ae879b923b4d7d3931b8acea57783d65c6b70142d819a34f9b29150b
+
+5. Text hygiene
+  The report, Lean module, audit, script, README, OUTPUT.json, RUN.log, and
+  this verification ledger were scanned for C0 controls other than TAB/LF/CR,
+  DEL, and U+FFFD. No such character was found.
