@@ -1,0 +1,157 @@
+{
+  "claims": {
+    "FCRT_1": "open uniform estimate",
+    "SCRT_0": "open uniform estimate",
+    "retired_exact_child": "free-target surplus collapses to scalar pooling",
+    "retired_exact_shortcut": "raw Boolean count implies a proper compatible target face",
+    "standard_abc": "open; neither proved nor disproved"
+  },
+  "commands": [
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "log": "lean-version.log",
+      "name": "lean-version"
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/ABCFlaggedCRTSurplusResidueCube20260904.lean"
+      ],
+      "exit_code": 0,
+      "log": "abc-flaggedcrtsurplusresiduecube-20260904-strict.log",
+      "name": "abc-flaggedcrtsurplusresiduecube-20260904-strict"
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/ABCFlaggedCRTSurplusResidueCube20260904AxiomAudit.lean"
+      ],
+      "exit_code": 0,
+      "log": "abc-flaggedcrtsurplusresiduecube-20260904axiomaudit-strict.log",
+      "name": "abc-flaggedcrtsurplusresiduecube-20260904axiomaudit-strict"
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/ABCFlaggedCRTSurplusResidueCube20260904IndependentBridge.lean"
+      ],
+      "exit_code": 0,
+      "log": "abc-flaggedcrtsurplusresiduecube-20260904independentbridge-strict.log",
+      "name": "abc-flaggedcrtsurplusresiduecube-20260904independentbridge-strict"
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/ABCFlaggedCRTSurplusResidueCube20260904IndependentBridgeAxiomAudit.lean"
+      ],
+      "exit_code": 0,
+      "log": "abc-flaggedcrtsurplusresiduecube-20260904independentbridgeaxiomaudit-strict.log",
+      "name": "abc-flaggedcrtsurplusresiduecube-20260904independentbridgeaxiomaudit-strict"
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/ABCAnchoredPrefixFlaggedCRT20260904.lean"
+      ],
+      "exit_code": 0,
+      "log": "abc-anchoredprefixflaggedcrt-20260904-strict.log",
+      "name": "abc-anchoredprefixflaggedcrt-20260904-strict"
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/ABCAnchoredPrefixFlaggedCRT20260904AxiomAudit.lean"
+      ],
+      "exit_code": 0,
+      "log": "abc-anchoredprefixflaggedcrt-20260904axiomaudit-strict.log",
+      "name": "abc-anchoredprefixflaggedcrt-20260904axiomaudit-strict"
+    },
+    {
+      "argv": [
+        "lake",
+        "build",
+        "IUTThreeClosures"
+      ],
+      "exit_code": 0,
+      "log": "umbrella-build.log",
+      "name": "umbrella-build"
+    },
+    {
+      "argv": [
+        "D:\\anaconda3\\python.exe",
+        "research/computation/2026_09_04_shared_crt_exact/validate_shared_crt_exact.py",
+        "--directory",
+        "research/computation/2026_09_04_shared_crt_exact"
+      ],
+      "exit_code": 0,
+      "log": "shared-crt-exact-independent-validator.log",
+      "name": "shared-crt-exact-independent-validator"
+    }
+  ],
+  "declaration_audit": [
+    {
+      "audit": "Lean\\IUTThreeClosures\\ABCFlaggedCRTSurplusResidueCube20260904AxiomAudit.lean",
+      "axiom_queries": 70,
+      "declarations": 70,
+      "forbidden_code_tokens": [],
+      "one_for_one": true,
+      "source": "Lean\\IUTThreeClosures\\ABCFlaggedCRTSurplusResidueCube20260904.lean"
+    },
+    {
+      "audit": "Lean\\IUTThreeClosures\\ABCFlaggedCRTSurplusResidueCube20260904IndependentBridgeAxiomAudit.lean",
+      "axiom_queries": 18,
+      "declarations": 18,
+      "forbidden_code_tokens": [],
+      "one_for_one": true,
+      "source": "Lean\\IUTThreeClosures\\ABCFlaggedCRTSurplusResidueCube20260904IndependentBridge.lean"
+    },
+    {
+      "audit": "Lean\\IUTThreeClosures\\ABCAnchoredPrefixFlaggedCRT20260904AxiomAudit.lean",
+      "axiom_queries": 28,
+      "declarations": 28,
+      "forbidden_code_tokens": [],
+      "one_for_one": true,
+      "source": "Lean\\IUTThreeClosures\\ABCAnchoredPrefixFlaggedCRT20260904.lean"
+    }
+  ],
+  "expected_axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "expected_declaration_counts": [
+    70,
+    18,
+    28
+  ],
+  "reported_axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "status": "PASS"
+}

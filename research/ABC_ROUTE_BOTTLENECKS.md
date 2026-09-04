@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-03, incidence/endpoint continuation, Linnik PBT
-obstruction, shared-CRT successor, and primary-literature audit.
+**Last synchronized:** 2026-09-04, proper-subface flagged CRT surplus,
+endpoint residue cubes, exact independent replay, and primary-literature audit.
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -15,6 +15,10 @@ rigorous complete-premise disproof.
   search with no hit never changes an item to retired.
 - A counterexample closes only the displayed claim. Its parent route remains
   active unless the parent claim itself is what the counterexample refutes.
+- No route is abandoned because it is difficult, because a bridge is missing,
+  or because a search is null. Only a complete-premise counterexample to the
+  exact route claim can retire that route; a child counterexample retires only
+  that child.
 - Ordinary mathematical proof precedes Lean formalization for every new
   proposition.
 
@@ -232,18 +236,63 @@ rigorous complete-premise disproof.
 - [x] Refute the saturated-only child SCRT-SAT with
   `(2,15^n-2,15^n)`, `n=284 mod 310`, while recording why the available
   factorization information does not refute SCRT-0.
+- [x] Prove that the exact free-target surplus child always collapses to the
+  scalar defect `(X-Y)_+`; retire only that arithmetically empty child, while
+  retaining SCRT-0 and the parent endpoint-incidence route.
+- [x] Construct the capped proper-subface flagged successor FCRT-1. A
+  saturated block may emit one one-hop token only when a nonempty proper face
+  certifies the residual target modulus; its mass is capped by both surplus
+  and witness-face weight. Prove its once-charged height bridge, the sandwich
+  `Delta <= B_FCRT <= B_SCRT <= B_PBT`, and `FCRT-1 -> ABCConjecture` without
+  assuming or inhabiting the uniform gate.
+- [x] Give exact arithmetic witnesses: `(1,675,676)` where FCRT reaches the
+  scalar lower bound, `(1,224,225)` where it does not collapse, and
+  `(1,65024,65025)` where
+  `Delta < B_FCRT < B_SCRT < B_PBT` and the proper-face cap is active.
+- [x] Exhaustively scan the 1,368,094 normalized primitive triples with
+  `c<=3000`, using proved easy strata and full direct enumeration at the six
+  hard points, and independently replay 154 structured rows, 17 detailed
+  certificates, and all frozen bytes. Retain this only as finite evidence.
+- [x] Encode endpoint packets as Boolean cubes over finite residue groups,
+  prove complement-fibre and same-fibre signed-exchange identities, and
+  isolate the actual FCRT flag as a cross-source, cross-fibre incidence.
+- [x] Independently audit the Lean accounting kernel and construct the exact
+  owner-to-aggregate-to-endpoint bridge after capping overfill. Also prove
+  that a bare endpoint certificate is tautological, so all arithmetic content
+  must remain in concrete admissibility, endpoint decomposition, and uniform
+  smallness rather than in the certificate wrapper.
+- [x] Prove the anchored-prefix cross-fibre bridge: under the explicit
+  residue-subgroup, weight-cell, and forbidden-gap entropy inequality, an
+  identity-label deletion of weight at most `L` produces a nonempty proper
+  target-compatible face and reuses the full surplus when `L<=x(S)`. In the
+  full-packet, all-but-one-source case this attains the scalar lower bound.
+- [x] Refute only the naive Boolean shortcut
+  `2^|J|>|G_p| -> proper p-compatible face` with the complete primitive point
+  `(1,4715,4716)`: all three target generators are `2 mod 9`, so every
+  nonempty proper packet has label `2` or `4`, never `-1 mod 9`. The parent
+  anchored, FCRT, SCRT, and endpoint-residue routes remain active.
 - [ ] Prove the shared-incidence uniform estimate, or refute its exact
   formulation with an unbounded complete-premise family before revising it.
+- [ ] Prove or refute the exact FCRT-1 uniform estimate; until an unbounded
+  complete-premise counterfamily is found, FCRT-1 remains active.
+- [ ] Construct the concrete arithmetic map from disjoint CRT blocks and
+  proper faces into the Lean owner kernel, including source/block
+  disjointness, witness-weight identity, and the endpoint defect decomposition.
+- [ ] Force the anchored entropy premise uniformly on actual endpoint
+  reservoirs, or prove another weighted cross-fibre theorem strong enough to
+  produce useful proper faces. Same-fibre pigeonhole and character
+  orthogonality alone do not supply it.
 - [ ] Lift shared incidence to weighted multiple faces or a genuine signed
-  boundary if one-face incidence is insufficient.
-- Next positive action: formalize the arithmetic CRT hypergraph above the
-  once-charged kernel, compute its exact optimum with an independent replay,
-  and test whether unused surplus in a saturated block can be reused without
-  duplicating capacity or allowing unrestricted full-block pooling.
-- Next counterexample action: resolve the prime-log two-bin partition for
-  `(2,15^n-2,15^n)` and continue tests on composite-base, balanced,
-  mixed-power generalized-Fermat, Linnik, and high-quality abc families;
-  bounded scans remain diagnostic only.
+  homological boundary if one-face incidence is insufficient.
+- Next positive action: bound the generated residue subgroup and weight-cell
+  entropy for actual endpoint reservoirs, perhaps via a weighted zero-sum or
+  Davenport-type theorem; in parallel build the concrete Lean arithmetic
+  configuration map.
+- Next counterexample action: attack the exact SCRT-0 and FCRT-1 quantified
+  gates on composite-base, balanced, mixed-power generalized-Fermat, Linnik,
+  smooth-neighbour, and high-quality abc families. Test every proposed
+  residue-collision shortcut on complete arithmetic points; bounded scans
+  remain diagnostic only.
 
 ## Function-field / Mason specialization route
 
@@ -284,8 +333,12 @@ rigorous complete-premise disproof.
 
 ## Literature synchronization
 
-- [x] Audit primary literature through 2026-09-03 with exact versions, theorem
+- [x] Audit primary literature through 2026-09-04 with exact versions, theorem
   numbers, page references, reusable results, and rejected inferences.
+- [x] Re-audit Bae arXiv:2604.23784v3 (revised 2026-09-03), including its
+  anchored-fibre lemma, withdrawn earlier weighted argument, and Lean source;
+  audit Dujella arXiv:2609.03448 and the official 2026-09-04 math.NT listing.
+  None closes abc, SCRT-0, or FCRT-1.
 - [x] Record that published IUT sources do not by themselves close the
   repository's all-place / Ind3 / pointed-transport chain.
 - [ ] Re-audit any later source revision before importing a changed theorem.

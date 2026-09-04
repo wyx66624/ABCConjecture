@@ -1,0 +1,96 @@
+{
+  "detailed_certificates_checked": 17,
+  "deterministic_replay_sha256": {
+    "OUTPUT.json": "a454f05288a3e62fe64ae95ac7301e16d32c0bc2e9031f3aefaf569e51bf524c",
+    "STRUCTURED_FAMILIES.csv": "2eb798b8d117654c81acf74692fa4461d46b26d9038f53ed57033fd4abb3267b"
+  },
+  "exhaustive": {
+    "counts": {
+      "FCRT_equal_to_scalar": 1368092,
+      "FCRT_positive_B": 57,
+      "FCRT_strict_fragmentation_beyond_scalar": 2,
+      "FCRT_strict_improvement_over_SCRT": 3,
+      "FCRT_zero_B": 1368037,
+      "endpoint_with_at_least_two_sources": 43340,
+      "endpoint_with_source": 405871,
+      "equal_to_scalar": 1368089,
+      "positive_B": 57,
+      "strict_fragmentation_beyond_scalar": 5,
+      "triples": 1368094,
+      "zero_B": 1368037
+    },
+    "hard_points_directly_enumerated": [
+      [
+        1,
+        224,
+        225
+      ],
+      [
+        1,
+        675,
+        676
+      ],
+      [
+        343,
+        625,
+        968
+      ],
+      [
+        1,
+        2303,
+        2304
+      ],
+      [
+        125,
+        2187,
+        2312
+      ],
+      [
+        99,
+        2401,
+        2500
+      ]
+    ]
+  },
+  "forced_regressions": {
+    "(1,224,225)": {
+      "FCRT_exp_B": "3/2",
+      "PBT_exp_B": "3/2",
+      "SCRT_exp_B": "3/2",
+      "scalar_exp_Delta": "15/14"
+    },
+    "(1,65024,65025)": {
+      "FCRT_exp_B": "3/2",
+      "PBT_exp_B": "15/2",
+      "SCRT_exp_B": "3",
+      "scalar_exp_Delta": "255/254"
+    },
+    "(1,675,676)": {
+      "FCRT_exp_B": "26/15",
+      "PBT_exp_B": "2",
+      "SCRT_exp_B": "2",
+      "scalar_exp_Delta": "26/15"
+    },
+    "(343,625,968)": {
+      "FCRT_exp_B": "44/35",
+      "PBT_exp_B": "11/7",
+      "SCRT_exp_B": "11/7",
+      "scalar_exp_Delta": "44/35"
+    }
+  },
+  "independence": "validator does not import producer; direct block-family and owner-word enumeration",
+  "logical_scope": "finite exact validation only; no quantified SCRT-0 conclusion",
+  "status": "PASS",
+  "structured": {
+    "family_counts": {
+      "balanced_4r_3r": 20,
+      "composite_base_unit_power": 63,
+      "forced_hard_witness": 1,
+      "linnik_prime_predecessor_finite": 5,
+      "linnik_shifted_minus_two_finite": 4,
+      "mixed_power_generalized_fermat": 38,
+      "two_fifteen_power": 23
+    },
+    "rows_directly_enumerated": 154
+  }
+}

@@ -1,0 +1,365 @@
+\section{Anchored prefix fibres for proper-face CRT flags}
+\label{sec:anchored-prefix-flagged-crt}
+
+The residue-cube formulation in
+Section~\ref{sec:flagged-crt-residue-cube} turns an FCRT flag into a nested
+cross-fibre problem.  This section extracts a finite positive result from
+Bae's anchored-fibre selection lemma~\cite{Bae2026Erdos684}.  An ordered
+reservoir with sufficiently many prefix samples, relative to its residue
+subgroup and weight-cell entropy, contains a light zero-sum interval.  Its
+complement is the required proper face.  The entropy hypothesis is explicit;
+no uniform endpoint theorem supplying it is assumed.
+
+Let $p^{e_p}\Vert c$, with $e_p\ge2$, be a target source and let $S$ be a
+source face disjoint from $p$.  For a sink packet $A\subseteq J$, retain the
+notation
+\[
+ G_p=(\mathbb Z/p^{e_p}\mathbb Z)^\times,
+ \qquad
+ \Phi_p(A)=\prod_{q\in A}g_{p,q},
+ \qquad
+ y(A)=\sum_{q\in A}\log q.
+\tag{APF-1}\label{eq:apf-notation}
+\]
+Here $g_{p,q}$ contains the complete $q$-power on the $a$-arm and its
+inverse on the $b$-arm.  Thus
+\[
+ \Phi_p(J)=-1,
+ \qquad
+ p^{e_p}\mid a_A+b_A
+ \quad\Longleftrightarrow\quad
+ \Phi_p(A)=-1.
+\tag{APF-2}\label{eq:apf-compatibility}
+\]
+Fix a packet $T\subseteq J$ satisfying the joint conditions
+\[
+ \Phi_S(T)=-1,\qquad \Phi_p(T)=-1,\qquad x(S)\le y(T).
+\tag{APF-3}\label{eq:apf-joint-block}
+\]
+The second condition is stronger than ordinary FCRT block compatibility,
+but it is automatic when $T=J$.
+
+\subsection{The complement dictionary}
+
+Call a nonempty $D\subseteq T$ a $p$-zero-sum deletion if
+$\Phi_p(D)=1$.
+
+\begin{proposition}[Zero-sum deletion and compatible proper face]
+\label{prop:apf-complement-dictionary}
+The assignments
+\[
+                         D\longmapsto U=T\setminus D,
+ \qquad U\longmapsto D=T\setminus U
+\tag{APF-4}\label{eq:apf-complement-map}
+\]
+give inverse correspondences between nonempty $p$-zero-sum deletions of
+$T$ and nonempty proper subfaces $U\subsetneq T$ satisfying
+$\Phi_p(U)=-1$.
+\end{proposition}
+
+\begin{proof}
+If $D$ and $U=T\setminus D$ partition $T$, then
+\[
+                         \Phi_p(T)=\Phi_p(U)\Phi_p(D).
+\]
+Thus $\Phi_p(T)=-1$ and $\Phi_p(D)=1$ imply $\Phi_p(U)=-1$.
+Nonemptiness of $D$ makes $U$ proper.  If $U$ were empty, then $D=T$ and
+$\Phi_p(T)=1$, contradicting $\Phi_p(T)=-1$.  The two group elements are
+distinct because $p^{e_p}\ge4$.
+
+Conversely, if $U\subsetneq T$ and both $U$ and $T$ have target label $-1$,
+then cancellation in $G_p$ gives $\Phi_p(T\setminus U)=1$.  Properness makes
+$T\setminus U$ nonempty, and the two complement operations in
+\eqref{eq:apf-complement-map} are inverse.
+\end{proof}
+
+The block surplus is $\sigma=y(T)-x(S)$.  If $U=T\setminus D$, its capped
+FCRT credit is
+\[
+ \rho=\min\{\sigma,y(U)\}
+     =\min\{y(T)-x(S),\,y(T)-y(D)\}.
+\tag{APF-5}\label{eq:apf-deletion-credit}
+\]
+It follows directly that the full surplus is reusable precisely when
+\[
+                              y(D)\le x(S).
+\tag{APF-6}\label{eq:apf-full-surplus-condition}
+\]
+
+\subsection{Anchored weighted selection}
+
+Choose a nonempty reservoir $K\subseteq T$, order it as
+$K=(q_1,\ldots,q_m)$, and put
+\[
+ H=\langle g_{p,q}:q\in K\rangle\le G_p,
+ \qquad W=y(K).
+\tag{APF-7}\label{eq:apf-reservoir}
+\]
+Then $m\ge1$ and $W>0$.  Fix $L>0$, set
+\[
+                         N=\left\lceil\frac WL\right\rceil,
+\tag{APF-8}\label{eq:apf-cell-count}
+\]
+and partition $[0,W]$ into $N$ consecutive cells of diameter at most $L$.
+Let $\mathcal F\subseteq\{1,\ldots,m\}$ be a set of forbidden prefix gaps.
+
+\begin{theorem}[Anchored prefix flag]
+\label{thm:apf-anchored-prefix}
+Under \eqref{eq:apf-joint-block}, assume the exact entropy inequality
+\[
+                  m+1>|H|N\bigl(|\mathcal F|+1\bigr).
+\tag{APF-9}\label{eq:apf-entropy}
+\]
+There are $0\le i<j\le m$, with $j-i\notin\mathcal F$, for which
+\[
+ D=\{q_{i+1},\ldots,q_j\}\ne\varnothing,\qquad
+ \Phi_p(D)=1,\qquad y(D)\le L.
+\tag{APF-10}\label{eq:apf-light-deletion}
+\]
+Consequently $U=T\setminus D$ is a legal nonempty proper target face and
+\[
+ \rho\ge
+ \min\{y(T)-x(S),\,y(T)-L\}.
+\tag{APF-11}\label{eq:apf-credit-lower-bound}
+\]
+If $L\le x(S)$, then $\rho=y(T)-x(S)$, so the complete block surplus is
+reused.
+\end{theorem}
+
+\begin{proof}
+For $0\le k\le m$, define the prefix packet, residue, and weight by
+\[
+ P_k=\{q_1,\ldots,q_k\},
+ \qquad R_k=\Phi_p(P_k),
+ \qquad Z_k=y(P_k).
+\]
+Code $k$ by the pair consisting of $R_k\in H$ and the weight cell containing
+$Z_k\in[0,W]$.  There are at most $|H|N$ codes.  Bae's anchored-fibre lemma
+states that a map on $\{0,\ldots,m\}$ with at most $C$ codes has equal-code
+indices $i<j$ whose positive difference avoids $\mathcal F$, provided
+$m+1>C(|\mathcal F|+1)$~\cite[Lemma~5.1]{Bae2026Erdos684}.  Apply it with
+$C=|H|N$.
+
+Equality of residue coordinates gives
+\[
+ 1=R_jR_i^{-1}
+   =\prod_{r=i+1}^{j}g_{p,q_r}=\Phi_p(D).
+\]
+Equality of weight cells and monotonicity of the prefix weights give
+$y(D)=Z_j-Z_i\le L$.  Since $i<j$, the deletion is nonempty.
+Proposition~\ref{prop:apf-complement-dictionary} turns it into a legal face.
+Moreover,
+$y(U)=y(T)-y(D)\ge y(T)-L$, and
+\eqref{eq:apf-deletion-credit} proves
+\eqref{eq:apf-credit-lower-bound}.  When $L\le x(S)$,
+$y(T)-L\ge y(T)-x(S)$, so the first entry is the minimum and the full
+surplus is reused.
+\end{proof}
+
+The forbidden-gap clause is retained exactly.  It may encode a bad tail,
+unwanted interval size, or another obstruction depending only on $j-i$.
+The theorem does not assert that endpoint arithmetic supplies a uniformly
+small forbidden set.
+
+\begin{corollary}[Light-reservoir full-surplus criterion]
+\label{cor:apf-light-reservoir}
+If
+\[
+                         |K|\ge|H|,\qquad y(K)\le x(S),
+\tag{APF-12}\label{eq:apf-light-reservoir}
+\]
+then the complete surplus of $(S,T)$ can be sent to $p$.
+\end{corollary}
+
+\begin{proof}
+Take $L=x(S)$ and $\mathcal F=\varnothing$.  The hypotheses imply
+$0<W\le L$, so $N=1$, and $|K|+1>|H|$.
+Theorem~\ref{thm:apf-anchored-prefix} applies.
+\end{proof}
+
+\begin{corollary}[Full packet and the scalar boundary]
+\label{cor:apf-full-packet}
+Suppose $I\setminus\{p\}=S\ne\varnothing$, $x(S)\le Y=y(J)$, and the
+hypotheses of Theorem~\ref{thm:apf-anchored-prefix} hold with $T=J$ and
+$L\le x(S)$.  The resulting one-block configuration has
+\[
+ B_{\rm FCRT}
+  =\bigl(x_p-(Y-x(S))\bigr)_+
+  =(X-Y)_+.
+\tag{APF-13}\label{eq:apf-scalar-boundary}
+\]
+\end{corollary}
+
+\begin{proof}
+The full packet has label $-1$ in every source coordinate.  The selected
+block covers $S$, consumes all sinks, and sends its full surplus
+$Y-x(S)$ to the sole residual source $p$.  Its clipped residual is the first
+quantity in \eqref{eq:apf-scalar-boundary}, while
+\[
+                  x_p-(Y-x(S))=x_p+x(S)-Y=X-Y.
+\]
+The universal once-charge lower bound proves optimality.
+\end{proof}
+
+This corollary removes a finite fragmentation loss when its entropy premise
+holds.  It does not estimate $(X-Y)_+$ uniformly and therefore is not an
+$abc$ theorem.
+
+\subsection{Recovery of the two motivating flags}
+
+For $(a,b,c)=(1,675,676)$, choose
+\[
+ S=\{13\},\qquad p=2,\qquad T=J=\{3,5\},\qquad K=\{5\}.
+\]
+Modulo $4$, the $b$-arm generator satisfies $g_{2,5}=5^{-2}=1$.
+Consequently $H$ is trivial, $|K|=|H|=1$, and
+$y(K)=\log5<\log13=x(S)$.  Corollary~\ref{cor:apf-light-reservoir}
+produces $D=\{5\}$ and $U=\{3\}$, recovering the full-surplus flag and the
+boundary factor $26/15$.
+
+For $(1,65024,65025)$, choose
+\[
+ S=\{5,17\},\qquad p=3,\qquad
+ T=J=\{2,127\},\qquad K=\{127\}.
+\]
+Modulo $9$, $g_{3,127}=127^{-1}=1$.  With
+$L=\log127$ and $\mathcal F=\varnothing$, one has $m=N=|H|=1$, so the
+strict entropy condition is $2>1$.  Theorem~\ref{thm:apf-anchored-prefix}
+gives $D=\{127\}$ and $U=\{2\}$.  Therefore
+\[
+ \rho\ge
+ \min\left\{\log\frac{254}{85},\log\frac{254}{127}\right\}
+ =\log2.
+\]
+The face itself has weight $\log2$, so equality holds.  This is the
+cap-active flag giving FCRT boundary factor $3/2$.
+
+\subsection{A complete-premise failure of the naive Boolean shortcut}
+
+Consider the assertion
+\[
+ \tag{NBF}\label{eq:apf-nbf}
+ 2^{|J|}>|G_p|
+ \quad\Longrightarrow\quad
+ \text{there is a nonempty proper $U\subsetneq J$ with $\Phi_p(U)=-1$}.
+\]
+Its proposed FCRT consequence would give a target-$p$ flag for a saturated
+full block whose source face is disjoint from $p$.
+
+\begin{proposition}[Complete-premise NBF counterexample]
+\label{prop:apf-nbf-counterexample}
+The primitive endpoint
+\[
+                         (a,b,c)=(1,4715,4716)
+\]
+satisfies the Boolean inequality and has a compatible saturated full block
+disjoint from the target $p=3$, but it has no nonempty proper
+$3$-compatible packet.  Hence \textup{NBF} is false.
+\end{proposition}
+
+\begin{proof}
+The exact factorizations are
+\[
+ 4715=5\cdot23\cdot41,
+ \qquad
+ 4716=2^2\cdot3^2\cdot131.
+\tag{APF-14}\label{eq:apf-4715-factorization}
+\]
+Thus $p^2=9\mid c$, $J=\{5,23,41\}$, and
+\[
+             2^{|J|}=8>6=|(\mathbb Z/9\mathbb Z)^\times|=|G_p|.
+\]
+The full block $S=\{2\}$, $T=J$ is disjoint from $p$, compatible because
+$4\mid4716$, and saturated because $x(S)=\log2<\log4715=y(J)$.
+
+Each sink prime is congruent to $5$ modulo $9$ and occurs to the first power
+on the $b$-arm.  Therefore
+\[
+                         g_{3,q}=q^{-1}=2\pmod9
+                         \qquad(q\in J),
+\]
+and every packet has label
+\[
+                         \Phi_3(U)=2^{|U|}\pmod9.
+\]
+A nonempty proper packet has size one or two, hence label $2$ or $4$, never
+$-1=8$.  Equivalently, its arm sum is congruent to $6$ or $8$, rather than
+zero, modulo $9$.  Only the full packet, of size three, is compatible.
+Every possible FCRT face is a nonempty proper subset of $J$, so no flag can
+target $3$.
+\end{proof}
+
+The Boolean collision predicted by pigeonhole still occurs: all singleton
+packets have label $2$, and all doubletons have label $4$.  Distinct packets
+of the same size are incomparable, so cancellation produces a signed
+relation rather than a positive zero-sum deletion.  The counterexample does
+not meet Theorem~\ref{thm:apf-anchored-prefix}'s entropy premise.  Every
+nonempty reservoir generates $H=\langle2\rangle=G_p$, so $|H|=6$ while
+$|K|\le3$ and $N\ge1$.
+
+Accordingly, this example retires only the implication \textup{NBF}.  It
+does not refute the anchored theorem, FCRT-1, SCRT-0, the residue-cube route,
+or the standard $abc$ conjecture.
+
+\subsection{The remaining uniform bottleneck}
+
+For a jointly compatible packet $T$, define the weighted zero-sum radius
+\[
+ \zeta_p(T)=
+ \min\{y(D):\varnothing\ne D\subseteq T,\ \Phi_p(D)=1\},
+\tag{APF-15}\label{eq:apf-zero-sum-radius}
+\]
+with value $+\infty$ when no such deletion exists.  The complement dictionary
+identifies proper target faces with these deletions, and full surplus reuse
+is equivalent to $\zeta_p(T)\le x(S)$.
+
+The anchored theorem controls this radius only after an ordered reservoir
+satisfies
+\[
+ |K|+1>
+ |\langle g_{p,q}:q\in K\rangle|
+ \left\lceil\frac{y(K)}L\right\rceil
+ (|\mathcal F|+1),
+\tag{APF-16}\label{eq:apf-uniform-bottleneck}
+\]
+with $L$ small enough to yield useful credit.  No uniform endpoint theorem
+forcing \eqref{eq:apf-uniform-bottleneck} is known.  The generated subgroup
+may have prime-power scale, whereas $|K|$ counts only distinct sink primes.
+Bae's application has an exponentially longer sample interval and a
+separate exponential tail estimate~\cite{Bae2026Erdos684}; endpoint analogues
+of those inputs have not been proved.  The NBF counterexample shows why
+replacing the ordered prefixes by all Boolean packets does not by itself
+solve the mismatch.
+
+The remaining positive problem is a weighted zero-sum or Davenport-type
+estimate using the special endpoint relation $\Phi_p(J)=-1$, or an arithmetic
+theorem forcing many light sink generators into a small subgroup.  Absence
+of such an estimate records the present bottleneck and does not retire the
+parent route.
+
+\subsection{Lean boundary}
+
+The companion module
+\texttt{ABCAnchoredPrefixFlaggedCRT20260904} has $28$ public declarations,
+and its audit file contains exactly $28$ corresponding
+\texttt{\#print axioms} queries.  Both files compile with warnings treated as
+errors.  The audit union is exactly \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}; no \texttt{sorry},
+\texttt{admit}, \texttt{unsafe}, or \texttt{native\_decide} escape occurs.
+The formalization proves the finite
+anchored code-fibre avoidance lemma, additive prefix cancellation, the
+abstract weighted selection theorem with a supplied finite cell code,
+both directions of the complement dictionary, the two capped-credit
+inequalities, the scalar residual identity, and the complete finite
+arithmetic assertions for $(1,4715,4716)$.
+
+The formal weighted theorem assumes a cell code together with the proved
+implication that equal cells have interval-weight difference at most $L$.
+It does not formalize the elementary real-ceiling construction of the cells
+in \eqref{eq:apf-cell-count}.  It also does not construct the concrete unit
+group $G_p$ uniformly from an arbitrary endpoint, prove the entropy estimate
+\eqref{eq:apf-uniform-bottleneck}, or inhabit the uniform FCRT-1 gate.  The
+two motivating examples are ordinary exact recoveries; the Lean module's
+new endpoint arithmetic is the complete-premise $4715$ counterexample.
+Thus the formal development contains neither an unconditional proof nor a
+disproof of $abc$.

@@ -1,0 +1,5493 @@
+{
+  "FCRT_model": {
+    "assignment": "each token has at most one owner; multiple tokens and residual sinks may share one owner",
+    "charging": "sinks consumed by a block are absent from residual packets, so original sink capacity is charged once",
+    "forced_regressions": {
+      "(1,224,225)": {
+        "FCRT_exp_B": {
+          "denominator": 2,
+          "numerator": 3
+        },
+        "PBT_exp_B": {
+          "denominator": 2,
+          "numerator": 3
+        },
+        "SCRT_exp_B": {
+          "denominator": 2,
+          "numerator": 3
+        },
+        "scalar_exp_Delta": {
+          "denominator": 14,
+          "numerator": 15
+        }
+      },
+      "(1,65024,65025)": {
+        "FCRT_exp_B": {
+          "denominator": 2,
+          "numerator": 3
+        },
+        "PBT_exp_B": {
+          "denominator": 2,
+          "numerator": 15
+        },
+        "SCRT_exp_B": {
+          "denominator": 1,
+          "numerator": 3
+        },
+        "scalar_exp_Delta": {
+          "denominator": 254,
+          "numerator": 255
+        }
+      },
+      "(1,675,676)": {
+        "FCRT_exp_B": {
+          "denominator": 15,
+          "numerator": 26
+        },
+        "PBT_exp_B": {
+          "denominator": 1,
+          "numerator": 2
+        },
+        "SCRT_exp_B": {
+          "denominator": 1,
+          "numerator": 2
+        },
+        "scalar_exp_Delta": {
+          "denominator": 15,
+          "numerator": 26
+        }
+      },
+      "(343,625,968)": {
+        "FCRT_exp_B": {
+          "denominator": 35,
+          "numerator": 44
+        },
+        "PBT_exp_B": {
+          "denominator": 7,
+          "numerator": 11
+        },
+        "SCRT_exp_B": {
+          "denominator": 7,
+          "numerator": 11
+        },
+        "scalar_exp_Delta": {
+          "denominator": 35,
+          "numerator": 44
+        }
+      }
+    },
+    "optimizer": "all pairwise-disjoint block families, then exact eligibility-constrained capped-product DP",
+    "surplus_token": "each selected saturated (S,T) creates the indivisible factor rad(T)/core(S)",
+    "target_delivery": "the factor delivered to p is min(rad(T)/core(S), rad(U)); the optimizer chooses the largest eligible exact U-cap and records U",
+    "token_eligibility": "a token may serve one remaining p only if some nonempty proper U subset T has p^e | a_U+b_U"
+  },
+  "claim_discipline": {
+    "FCRT_status": "FCRT is evaluated as a finite candidate successor only; no uniform theorem is asserted.",
+    "SCRT_0_status": "No bounded no-hit, frequency, or growing finite pattern proves or refutes the quantified gate.",
+    "current_conclusion": "This computation supplies no such unbounded family.",
+    "finite_scope": "Every exhaustive or structured result is finite evidence only.",
+    "refutation_threshold": "Only a complete-premise family with B_SCRT - epsilon*log(rad(abc)) unbounded for some fixed epsilon>0 refutes SCRT-0.",
+    "standard_abc": "not proved or disproved by this computation"
+  },
+  "detailed_certificates": [
+    {
+      "B_decimal": "0",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 0,
+        "certified_grid_upper_numerator": 1,
+        "diagnostic_decimal": "0"
+      },
+      "FCRT": {
+        "B_decimal": "0",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 0,
+          "certified_grid_upper_numerator": 1,
+          "diagnostic_decimal": "0"
+        },
+        "attaining_shared_blocks": [],
+        "complete_pairwise_disjoint_block_family_count": 1,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "indivisible_items_and_owners": [],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "source_replay": []
+      },
+      "PBT": {
+        "B_decimal": "0",
+        "attaining_exclusive_assignment": [],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "source_replay": []
+      },
+      "abc": [
+        1,
+        1,
+        2
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [],
+        "exclusive_final_capped_state_count": 1,
+        "exclusive_layer_state_count_sum": 1,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [],
+        "all_compatible_saturated_blocks": [],
+        "compatible_count": 0,
+        "compatible_saturated_count": 0,
+        "reachable_pairwise_disjoint_union_count": 1
+      },
+      "endpoint_core": 1,
+      "external_radical": 1,
+      "factorization": {
+        "a": [],
+        "b": [],
+        "c": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "radical_abc": 2,
+      "scalar_positive_defect_factor": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "sinks": [],
+      "sources": []
+    },
+    {
+      "B_decimal": "0.4054651081081643819780131154643491365720",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 2715,
+        "certified_grid_upper_numerator": 2716,
+        "diagnostic_decimal": "0.2262943855309168262595077230643582470697"
+      },
+      "FCRT": {
+        "B_decimal": "0.4054651081081643819780131154643491365720",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 2715,
+          "certified_grid_upper_numerator": 2716,
+          "diagnostic_decimal": "0.2262943855309168262595077230643582470697"
+        },
+        "attaining_shared_blocks": [],
+        "complete_pairwise_disjoint_block_family_count": 1,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "indivisible_items_and_owners": [
+          {
+            "eligible_source_primes": [
+              3
+            ],
+            "kind": "sink",
+            "owner_prime": 3,
+            "sink_prime": 2,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 2
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 2,
+          "numerator": 3
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 2,
+              "numerator": 3
+            },
+            "prime": 3,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 2
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "0.4054651081081643819780131154643491365720",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 3,
+            "sink_prime": 2
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 2,
+          "numerator": 3
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 2,
+            "local_residual_factor": {
+              "denominator": 2,
+              "numerator": 3
+            },
+            "prime": 3
+          }
+        ]
+      },
+      "abc": [
+        1,
+        8,
+        9
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "3",
+            "sink_prime": 2
+          }
+        ],
+        "exclusive_final_capped_state_count": 2,
+        "exclusive_layer_state_count_sum": 3,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 2,
+            "sink_primes": [
+              2
+            ],
+            "source_capacity_product": 3,
+            "source_modulus": 9,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 8,
+            "truncated_sum": 9
+          }
+        ],
+        "all_compatible_saturated_blocks": [],
+        "compatible_count": 1,
+        "compatible_saturated_count": 0,
+        "reachable_pairwise_disjoint_union_count": 1
+      },
+      "endpoint_core": 3,
+      "external_radical": 2,
+      "factorization": {
+        "a": [],
+        "b": [
+          [
+            2,
+            3
+          ]
+        ],
+        "c": [
+          [
+            3,
+            2
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 2,
+        "numerator": 3
+      },
+      "radical_abc": 6,
+      "scalar_positive_defect_factor": {
+        "denominator": 2,
+        "numerator": 3
+      },
+      "sinks": [
+        2
+      ],
+      "sources": [
+        {
+          "capacity_product": 3,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 2,
+          "local_residual_factor": {
+            "denominator": 2,
+            "numerator": 3
+          },
+          "prime": 3,
+          "prime_power_modulus": 9
+        }
+      ]
+    },
+    {
+      "B_decimal": "0",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 0,
+        "certified_grid_upper_numerator": 1,
+        "diagnostic_decimal": "0"
+      },
+      "FCRT": {
+        "B_decimal": "0",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 0,
+          "certified_grid_upper_numerator": 1,
+          "diagnostic_decimal": "0"
+        },
+        "attaining_shared_blocks": [
+          {
+            "sink_capacity_product": 71,
+            "sink_primes": [
+              71
+            ],
+            "source_capacity_product": 12,
+            "source_modulus": 72,
+            "source_primes": [
+              2,
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 71,
+            "truncated_sum": 72
+          }
+        ],
+        "complete_pairwise_disjoint_block_family_count": 4,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "indivisible_items_and_owners": [
+          {
+            "eligible_deliveries": [],
+            "kind": "token",
+            "originating_block": {
+              "sink_capacity_product": 71,
+              "sink_primes": [
+                71
+              ],
+              "source_capacity_product": 12,
+              "source_modulus": 72,
+              "source_primes": [
+                2,
+                3
+              ],
+              "truncated_a": 1,
+              "truncated_b": 71,
+              "truncated_sum": 72
+            },
+            "owner_prime": null,
+            "surplus_token_factor": {
+              "denominator": 12,
+              "numerator": 71
+            },
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 1
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": true,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 2,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 1
+            }
+          },
+          {
+            "covered_by_shared_block": true,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 3,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 1
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "1.0986122886681096913952452369225257046475",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 2,
+            "sink_prime": 71
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 1,
+          "numerator": 3
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 71,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 2
+          },
+          {
+            "exclusive_packet_product": 1,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 3
+            },
+            "prime": 3
+          }
+        ]
+      },
+      "abc": [
+        1,
+        71,
+        72
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "consumed_by_shared_block",
+            "sink_prime": 71
+          }
+        ],
+        "exclusive_final_capped_state_count": 1,
+        "exclusive_layer_state_count_sum": 1,
+        "shared_blocks": [
+          {
+            "sink_capacity_product": 71,
+            "sink_primes": [
+              71
+            ],
+            "source_capacity_product": 12,
+            "source_modulus": 72,
+            "source_primes": [
+              2,
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 71,
+            "truncated_sum": 72
+          }
+        ]
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 71,
+            "sink_primes": [
+              71
+            ],
+            "source_capacity_product": 4,
+            "source_modulus": 8,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 1,
+            "truncated_b": 71,
+            "truncated_sum": 72
+          },
+          {
+            "sink_capacity_product": 71,
+            "sink_primes": [
+              71
+            ],
+            "source_capacity_product": 3,
+            "source_modulus": 9,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 71,
+            "truncated_sum": 72
+          },
+          {
+            "sink_capacity_product": 71,
+            "sink_primes": [
+              71
+            ],
+            "source_capacity_product": 12,
+            "source_modulus": 72,
+            "source_primes": [
+              2,
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 71,
+            "truncated_sum": 72
+          }
+        ],
+        "all_compatible_saturated_blocks": [
+          {
+            "sink_capacity_product": 71,
+            "sink_primes": [
+              71
+            ],
+            "source_capacity_product": 4,
+            "source_modulus": 8,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 1,
+            "truncated_b": 71,
+            "truncated_sum": 72
+          },
+          {
+            "sink_capacity_product": 71,
+            "sink_primes": [
+              71
+            ],
+            "source_capacity_product": 3,
+            "source_modulus": 9,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 71,
+            "truncated_sum": 72
+          },
+          {
+            "sink_capacity_product": 71,
+            "sink_primes": [
+              71
+            ],
+            "source_capacity_product": 12,
+            "source_modulus": 72,
+            "source_primes": [
+              2,
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 71,
+            "truncated_sum": 72
+          }
+        ],
+        "compatible_count": 3,
+        "compatible_saturated_count": 3,
+        "reachable_pairwise_disjoint_union_count": 4
+      },
+      "endpoint_core": 12,
+      "external_radical": 71,
+      "factorization": {
+        "a": [],
+        "b": [
+          [
+            71,
+            1
+          ]
+        ],
+        "c": [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "radical_abc": 426,
+      "scalar_positive_defect_factor": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "sinks": [
+        71
+      ],
+      "sources": [
+        {
+          "capacity_product": 4,
+          "covered_by_shared_block": true,
+          "endpoint_exponent": 3,
+          "exclusive_packet_product": 1,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 1
+          },
+          "prime": 2,
+          "prime_power_modulus": 8
+        },
+        {
+          "capacity_product": 3,
+          "covered_by_shared_block": true,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 1,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 1
+          },
+          "prime": 3,
+          "prime_power_modulus": 9
+        }
+      ]
+    },
+    {
+      "B_decimal": "0.9932517730102833901677442560832129063414",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 3504,
+        "certified_grid_upper_numerator": 3505,
+        "diagnostic_decimal": "0.2920300298846179007149942174744319697115"
+      },
+      "FCRT": {
+        "B_decimal": "0.9932517730102833901677442560832129063414",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 3504,
+          "certified_grid_upper_numerator": 3505,
+          "diagnostic_decimal": "0.2920300298846179007149942174744319697115"
+        },
+        "attaining_shared_blocks": [],
+        "complete_pairwise_disjoint_block_family_count": 1,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "indivisible_items_and_owners": [
+          {
+            "eligible_source_primes": [
+              3
+            ],
+            "kind": "sink",
+            "owner_prime": 3,
+            "sink_prime": 2,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 2
+            }
+          },
+          {
+            "eligible_source_primes": [
+              3
+            ],
+            "kind": "sink",
+            "owner_prime": 3,
+            "sink_prime": 5,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 5
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 10,
+          "numerator": 27
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 10,
+              "numerator": 27
+            },
+            "prime": 3,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 10
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "0.9932517730102833901677442560832129063414",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 3,
+            "sink_prime": 2
+          },
+          {
+            "owner_prime": 3,
+            "sink_prime": 5
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 10,
+          "numerator": 27
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 10,
+            "local_residual_factor": {
+              "denominator": 10,
+              "numerator": 27
+            },
+            "prime": 3
+          }
+        ]
+      },
+      "abc": [
+        1,
+        80,
+        81
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "3",
+            "sink_prime": 2
+          },
+          {
+            "owner": "3",
+            "sink_prime": 5
+          }
+        ],
+        "exclusive_final_capped_state_count": 4,
+        "exclusive_layer_state_count_sum": 7,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 10,
+            "sink_primes": [
+              2,
+              5
+            ],
+            "source_capacity_product": 27,
+            "source_modulus": 81,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 80,
+            "truncated_sum": 81
+          }
+        ],
+        "all_compatible_saturated_blocks": [],
+        "compatible_count": 1,
+        "compatible_saturated_count": 0,
+        "reachable_pairwise_disjoint_union_count": 1
+      },
+      "endpoint_core": 27,
+      "external_radical": 10,
+      "factorization": {
+        "a": [],
+        "b": [
+          [
+            2,
+            4
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "c": [
+          [
+            3,
+            4
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 10,
+        "numerator": 27
+      },
+      "radical_abc": 30,
+      "scalar_positive_defect_factor": {
+        "denominator": 10,
+        "numerator": 27
+      },
+      "sinks": [
+        2,
+        5
+      ],
+      "sources": [
+        {
+          "capacity_product": 27,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 4,
+          "exclusive_packet_product": 10,
+          "local_residual_factor": {
+            "denominator": 10,
+            "numerator": 27
+          },
+          "prime": 3,
+          "prime_power_modulus": 81
+        }
+      ]
+    },
+    {
+      "B_decimal": "0.4054651081081643819780131154643491365720",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 909,
+        "certified_grid_upper_numerator": 910,
+        "diagnostic_decimal": "0.0758288674351307733125222571285682512091"
+      },
+      "FCRT": {
+        "B_decimal": "0.4054651081081643819780131154643491365720",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 909,
+          "certified_grid_upper_numerator": 910,
+          "diagnostic_decimal": "0.0758288674351307733125222571285682512091"
+        },
+        "attaining_shared_blocks": [],
+        "complete_pairwise_disjoint_block_family_count": 3,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 5,
+          "numerator": 7
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "indivisible_items_and_owners": [
+          {
+            "eligible_source_primes": [
+              3,
+              5
+            ],
+            "kind": "sink",
+            "owner_prime": 3,
+            "sink_prime": 2,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 2
+            }
+          },
+          {
+            "eligible_source_primes": [
+              3,
+              5
+            ],
+            "kind": "sink",
+            "owner_prime": 5,
+            "sink_prime": 7,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 7
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 2,
+          "numerator": 3
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 2,
+              "numerator": 3
+            },
+            "prime": 3,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 2
+            }
+          },
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 5,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 7
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "0.4054651081081643819780131154643491365720",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 3,
+            "sink_prime": 2
+          },
+          {
+            "owner_prime": 5,
+            "sink_prime": 7
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 2,
+          "numerator": 3
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 2,
+            "local_residual_factor": {
+              "denominator": 2,
+              "numerator": 3
+            },
+            "prime": 3
+          },
+          {
+            "exclusive_packet_product": 7,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 5
+          }
+        ]
+      },
+      "abc": [
+        1,
+        224,
+        225
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "3",
+            "sink_prime": 2
+          },
+          {
+            "owner": "5",
+            "sink_prime": 7
+          }
+        ],
+        "exclusive_final_capped_state_count": 7,
+        "exclusive_layer_state_count_sum": 11,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 14,
+            "sink_primes": [
+              2,
+              7
+            ],
+            "source_capacity_product": 3,
+            "source_modulus": 9,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 224,
+            "truncated_sum": 225
+          },
+          {
+            "sink_capacity_product": 14,
+            "sink_primes": [
+              2,
+              7
+            ],
+            "source_capacity_product": 5,
+            "source_modulus": 25,
+            "source_primes": [
+              5
+            ],
+            "truncated_a": 1,
+            "truncated_b": 224,
+            "truncated_sum": 225
+          },
+          {
+            "sink_capacity_product": 14,
+            "sink_primes": [
+              2,
+              7
+            ],
+            "source_capacity_product": 15,
+            "source_modulus": 225,
+            "source_primes": [
+              3,
+              5
+            ],
+            "truncated_a": 1,
+            "truncated_b": 224,
+            "truncated_sum": 225
+          }
+        ],
+        "all_compatible_saturated_blocks": [
+          {
+            "sink_capacity_product": 14,
+            "sink_primes": [
+              2,
+              7
+            ],
+            "source_capacity_product": 3,
+            "source_modulus": 9,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 224,
+            "truncated_sum": 225
+          },
+          {
+            "sink_capacity_product": 14,
+            "sink_primes": [
+              2,
+              7
+            ],
+            "source_capacity_product": 5,
+            "source_modulus": 25,
+            "source_primes": [
+              5
+            ],
+            "truncated_a": 1,
+            "truncated_b": 224,
+            "truncated_sum": 225
+          }
+        ],
+        "compatible_count": 3,
+        "compatible_saturated_count": 2,
+        "reachable_pairwise_disjoint_union_count": 3
+      },
+      "endpoint_core": 15,
+      "external_radical": 14,
+      "factorization": {
+        "a": [],
+        "b": [
+          [
+            2,
+            5
+          ],
+          [
+            7,
+            1
+          ]
+        ],
+        "c": [
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            2
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 5,
+        "numerator": 7
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 2,
+        "numerator": 3
+      },
+      "radical_abc": 210,
+      "scalar_positive_defect_factor": {
+        "denominator": 14,
+        "numerator": 15
+      },
+      "sinks": [
+        2,
+        7
+      ],
+      "sources": [
+        {
+          "capacity_product": 3,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 2,
+          "local_residual_factor": {
+            "denominator": 2,
+            "numerator": 3
+          },
+          "prime": 3,
+          "prime_power_modulus": 9
+        },
+        {
+          "capacity_product": 5,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 7,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 1
+          },
+          "prime": 5,
+          "prime_power_modulus": 25
+        }
+      ]
+    },
+    {
+      "B_decimal": "0.6931471805599453094172321214581765680755",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 1394,
+        "certified_grid_upper_numerator": 1395,
+        "diagnostic_decimal": "0.1161800423067962952887088130517714386377"
+      },
+      "FCRT": {
+        "B_decimal": "0.5500463369192719794747149928747818287077",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 1106,
+          "certified_grid_upper_numerator": 1107,
+          "diagnostic_decimal": "0.0921945706283554817487243294937598713179"
+        },
+        "attaining_shared_blocks": [
+          {
+            "sink_capacity_product": 15,
+            "sink_primes": [
+              3,
+              5
+            ],
+            "source_capacity_product": 13,
+            "source_modulus": 169,
+            "source_primes": [
+              13
+            ],
+            "truncated_a": 1,
+            "truncated_b": 675,
+            "truncated_sum": 676
+          }
+        ],
+        "complete_pairwise_disjoint_block_family_count": 4,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 13,
+          "numerator": 15
+        },
+        "indivisible_items_and_owners": [
+          {
+            "chosen_witness_U_sink_primes": [
+              3
+            ],
+            "eligible_deliveries": [
+              {
+                "delivered_factor": {
+                  "denominator": 13,
+                  "numerator": 15
+                },
+                "source_prime": 2,
+                "witness_U_sink_primes": [
+                  3
+                ]
+              }
+            ],
+            "kind": "token",
+            "originating_block": {
+              "sink_capacity_product": 15,
+              "sink_primes": [
+                3,
+                5
+              ],
+              "source_capacity_product": 13,
+              "source_modulus": 169,
+              "source_primes": [
+                13
+              ],
+              "truncated_a": 1,
+              "truncated_b": 675,
+              "truncated_sum": 676
+            },
+            "owner_prime": 2,
+            "surplus_token_factor": {
+              "denominator": 13,
+              "numerator": 15
+            },
+            "weight_factor": {
+              "denominator": 13,
+              "numerator": 15
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 15,
+          "numerator": 26
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 15,
+              "numerator": 26
+            },
+            "prime": 2,
+            "received_factor": {
+              "denominator": 13,
+              "numerator": 15
+            }
+          },
+          {
+            "covered_by_shared_block": true,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 13,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 1
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "0.6931471805599453094172321214581765680755",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 13,
+            "sink_prime": 3
+          },
+          {
+            "owner_prime": 13,
+            "sink_prime": 5
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 1,
+          "numerator": 2
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 1,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 2
+            },
+            "prime": 2
+          },
+          {
+            "exclusive_packet_product": 15,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 13
+          }
+        ]
+      },
+      "abc": [
+        1,
+        675,
+        676
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "13",
+            "sink_prime": 3
+          },
+          {
+            "owner": "13",
+            "sink_prime": 5
+          }
+        ],
+        "exclusive_final_capped_state_count": 7,
+        "exclusive_layer_state_count_sum": 11,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 3,
+            "sink_primes": [
+              3
+            ],
+            "source_capacity_product": 2,
+            "source_modulus": 4,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 1,
+            "truncated_b": 27,
+            "truncated_sum": 28
+          },
+          {
+            "sink_capacity_product": 15,
+            "sink_primes": [
+              3,
+              5
+            ],
+            "source_capacity_product": 2,
+            "source_modulus": 4,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 1,
+            "truncated_b": 675,
+            "truncated_sum": 676
+          },
+          {
+            "sink_capacity_product": 15,
+            "sink_primes": [
+              3,
+              5
+            ],
+            "source_capacity_product": 13,
+            "source_modulus": 169,
+            "source_primes": [
+              13
+            ],
+            "truncated_a": 1,
+            "truncated_b": 675,
+            "truncated_sum": 676
+          },
+          {
+            "sink_capacity_product": 15,
+            "sink_primes": [
+              3,
+              5
+            ],
+            "source_capacity_product": 26,
+            "source_modulus": 676,
+            "source_primes": [
+              2,
+              13
+            ],
+            "truncated_a": 1,
+            "truncated_b": 675,
+            "truncated_sum": 676
+          }
+        ],
+        "all_compatible_saturated_blocks": [
+          {
+            "sink_capacity_product": 3,
+            "sink_primes": [
+              3
+            ],
+            "source_capacity_product": 2,
+            "source_modulus": 4,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 1,
+            "truncated_b": 27,
+            "truncated_sum": 28
+          },
+          {
+            "sink_capacity_product": 15,
+            "sink_primes": [
+              3,
+              5
+            ],
+            "source_capacity_product": 2,
+            "source_modulus": 4,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 1,
+            "truncated_b": 675,
+            "truncated_sum": 676
+          },
+          {
+            "sink_capacity_product": 15,
+            "sink_primes": [
+              3,
+              5
+            ],
+            "source_capacity_product": 13,
+            "source_modulus": 169,
+            "source_primes": [
+              13
+            ],
+            "truncated_a": 1,
+            "truncated_b": 675,
+            "truncated_sum": 676
+          }
+        ],
+        "compatible_count": 4,
+        "compatible_saturated_count": 3,
+        "reachable_pairwise_disjoint_union_count": 4
+      },
+      "endpoint_core": 26,
+      "external_radical": 15,
+      "factorization": {
+        "a": [],
+        "b": [
+          [
+            3,
+            3
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "c": [
+          [
+            2,
+            2
+          ],
+          [
+            13,
+            2
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 13,
+        "numerator": 15
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 1,
+        "numerator": 2
+      },
+      "radical_abc": 390,
+      "scalar_positive_defect_factor": {
+        "denominator": 15,
+        "numerator": 26
+      },
+      "sinks": [
+        3,
+        5
+      ],
+      "sources": [
+        {
+          "capacity_product": 2,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 1,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 2
+          },
+          "prime": 2,
+          "prime_power_modulus": 4
+        },
+        {
+          "capacity_product": 13,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 15,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 1
+          },
+          "prime": 13,
+          "prime_power_modulus": 169
+        }
+      ]
+    },
+    {
+      "B_decimal": "1.0018826622095585790996741804350622676325",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 1584,
+        "certified_grid_upper_numerator": 1585,
+        "diagnostic_decimal": "0.1320383231648833102967691788934576622239"
+      },
+      "FCRT": {
+        "B_decimal": "1.0018826622095585790996741804350622676325",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 1584,
+          "certified_grid_upper_numerator": 1585,
+          "diagnostic_decimal": "0.1320383231648833102967691788934576622239"
+        },
+        "attaining_shared_blocks": [],
+        "complete_pairwise_disjoint_block_family_count": 3,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 3,
+          "numerator": 7
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "indivisible_items_and_owners": [
+          {
+            "eligible_source_primes": [
+              2,
+              3
+            ],
+            "kind": "sink",
+            "owner_prime": 3,
+            "sink_prime": 7,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 7
+            }
+          },
+          {
+            "eligible_source_primes": [
+              2,
+              3
+            ],
+            "kind": "sink",
+            "owner_prime": 2,
+            "sink_prime": 47,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 47
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 47,
+          "numerator": 128
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 47,
+              "numerator": 128
+            },
+            "prime": 2,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 47
+            }
+          },
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 3,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 7
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "1.0018826622095585790996741804350622676325",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 3,
+            "sink_prime": 7
+          },
+          {
+            "owner_prime": 2,
+            "sink_prime": 47
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 47,
+          "numerator": 128
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 47,
+            "local_residual_factor": {
+              "denominator": 47,
+              "numerator": 128
+            },
+            "prime": 2
+          },
+          {
+            "exclusive_packet_product": 7,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 3
+          }
+        ]
+      },
+      "abc": [
+        1,
+        2303,
+        2304
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "3",
+            "sink_prime": 7
+          },
+          {
+            "owner": "2",
+            "sink_prime": 47
+          }
+        ],
+        "exclusive_final_capped_state_count": 7,
+        "exclusive_layer_state_count_sum": 11,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 329,
+            "sink_primes": [
+              7,
+              47
+            ],
+            "source_capacity_product": 128,
+            "source_modulus": 256,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 1,
+            "truncated_b": 2303,
+            "truncated_sum": 2304
+          },
+          {
+            "sink_capacity_product": 329,
+            "sink_primes": [
+              7,
+              47
+            ],
+            "source_capacity_product": 3,
+            "source_modulus": 9,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 2303,
+            "truncated_sum": 2304
+          },
+          {
+            "sink_capacity_product": 329,
+            "sink_primes": [
+              7,
+              47
+            ],
+            "source_capacity_product": 384,
+            "source_modulus": 2304,
+            "source_primes": [
+              2,
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 2303,
+            "truncated_sum": 2304
+          }
+        ],
+        "all_compatible_saturated_blocks": [
+          {
+            "sink_capacity_product": 329,
+            "sink_primes": [
+              7,
+              47
+            ],
+            "source_capacity_product": 128,
+            "source_modulus": 256,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 1,
+            "truncated_b": 2303,
+            "truncated_sum": 2304
+          },
+          {
+            "sink_capacity_product": 329,
+            "sink_primes": [
+              7,
+              47
+            ],
+            "source_capacity_product": 3,
+            "source_modulus": 9,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 2303,
+            "truncated_sum": 2304
+          }
+        ],
+        "compatible_count": 3,
+        "compatible_saturated_count": 2,
+        "reachable_pairwise_disjoint_union_count": 3
+      },
+      "endpoint_core": 384,
+      "external_radical": 329,
+      "factorization": {
+        "a": [],
+        "b": [
+          [
+            7,
+            2
+          ],
+          [
+            47,
+            1
+          ]
+        ],
+        "c": [
+          [
+            2,
+            8
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 3,
+        "numerator": 7
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 47,
+        "numerator": 128
+      },
+      "radical_abc": 1974,
+      "scalar_positive_defect_factor": {
+        "denominator": 329,
+        "numerator": 384
+      },
+      "sinks": [
+        7,
+        47
+      ],
+      "sources": [
+        {
+          "capacity_product": 128,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 8,
+          "exclusive_packet_product": 47,
+          "local_residual_factor": {
+            "denominator": 47,
+            "numerator": 128
+          },
+          "prime": 2,
+          "prime_power_modulus": 256
+        },
+        {
+          "capacity_product": 3,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 7,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 1
+          },
+          "prime": 3,
+          "prime_power_modulus": 9
+        }
+      ]
+    },
+    {
+      "B_decimal": "2.4365330655037845399028215387226492766627",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 5468,
+        "certified_grid_upper_numerator": 5469,
+        "diagnostic_decimal": "0.4556731001773688590793590571269809517633"
+      },
+      "FCRT": {
+        "B_decimal": "2.4365330655037845399028215387226492766627",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 5468,
+          "certified_grid_upper_numerator": 5469,
+          "diagnostic_decimal": "0.4556731001773688590793590571269809517633"
+        },
+        "attaining_shared_blocks": [],
+        "complete_pairwise_disjoint_block_family_count": 1,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "indivisible_items_and_owners": [
+          {
+            "eligible_source_primes": [
+              7
+            ],
+            "kind": "sink",
+            "owner_prime": 7,
+            "sink_prime": 2,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 2
+            }
+          },
+          {
+            "eligible_source_primes": [
+              7
+            ],
+            "kind": "sink",
+            "owner_prime": 7,
+            "sink_prime": 3,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 3
+            }
+          },
+          {
+            "eligible_source_primes": [
+              7
+            ],
+            "kind": "sink",
+            "owner_prime": 7,
+            "sink_prime": 5,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 5
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 30,
+          "numerator": 343
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 30,
+              "numerator": 343
+            },
+            "prime": 7,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 30
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "2.4365330655037845399028215387226492766627",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 7,
+            "sink_prime": 2
+          },
+          {
+            "owner_prime": 7,
+            "sink_prime": 3
+          },
+          {
+            "owner_prime": 7,
+            "sink_prime": 5
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 30,
+          "numerator": 343
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 30,
+            "local_residual_factor": {
+              "denominator": 30,
+              "numerator": 343
+            },
+            "prime": 7
+          }
+        ]
+      },
+      "abc": [
+        1,
+        2400,
+        2401
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "7",
+            "sink_prime": 2
+          },
+          {
+            "owner": "7",
+            "sink_prime": 3
+          },
+          {
+            "owner": "7",
+            "sink_prime": 5
+          }
+        ],
+        "exclusive_final_capped_state_count": 8,
+        "exclusive_layer_state_count_sum": 15,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 30,
+            "sink_primes": [
+              2,
+              3,
+              5
+            ],
+            "source_capacity_product": 343,
+            "source_modulus": 2401,
+            "source_primes": [
+              7
+            ],
+            "truncated_a": 1,
+            "truncated_b": 2400,
+            "truncated_sum": 2401
+          }
+        ],
+        "all_compatible_saturated_blocks": [],
+        "compatible_count": 1,
+        "compatible_saturated_count": 0,
+        "reachable_pairwise_disjoint_union_count": 1
+      },
+      "endpoint_core": 343,
+      "external_radical": 30,
+      "factorization": {
+        "a": [],
+        "b": [
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "c": [
+          [
+            7,
+            4
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 30,
+        "numerator": 343
+      },
+      "radical_abc": 210,
+      "scalar_positive_defect_factor": {
+        "denominator": 30,
+        "numerator": 343
+      },
+      "sinks": [
+        2,
+        3,
+        5
+      ],
+      "sources": [
+        {
+          "capacity_product": 343,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 4,
+          "exclusive_packet_product": 30,
+          "local_residual_factor": {
+            "denominator": 30,
+            "numerator": 343
+          },
+          "prime": 7,
+          "prime_power_modulus": 2401
+        }
+      ]
+    },
+    {
+      "B_decimal": "2.1002323113489096904558030662126753941632",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 3835,
+        "certified_grid_upper_numerator": 3836,
+        "diagnostic_decimal": "0.3196271069483659014440214278017590773709"
+      },
+      "FCRT": {
+        "B_decimal": "2.1002323113489096904558030662126753941632",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 3835,
+          "certified_grid_upper_numerator": 3836,
+          "diagnostic_decimal": "0.3196271069483659014440214278017590773709"
+        },
+        "attaining_shared_blocks": [],
+        "complete_pairwise_disjoint_block_family_count": 3,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "indivisible_items_and_owners": [
+          {
+            "eligible_source_primes": [
+              2,
+              3
+            ],
+            "kind": "sink",
+            "owner_prime": 3,
+            "sink_prime": 7,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 7
+            }
+          },
+          {
+            "eligible_source_primes": [
+              2,
+              3
+            ],
+            "kind": "sink",
+            "owner_prime": 3,
+            "sink_prime": 17,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 17
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 119,
+          "numerator": 972
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 4
+            },
+            "prime": 2,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 1
+            }
+          },
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 119,
+              "numerator": 243
+            },
+            "prime": 3,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 119
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "2.1002323113489096904558030662126753941632",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 3,
+            "sink_prime": 7
+          },
+          {
+            "owner_prime": 3,
+            "sink_prime": 17
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 119,
+          "numerator": 972
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 1,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 4
+            },
+            "prime": 2
+          },
+          {
+            "exclusive_packet_product": 119,
+            "local_residual_factor": {
+              "denominator": 119,
+              "numerator": 243
+            },
+            "prime": 3
+          }
+        ]
+      },
+      "abc": [
+        1,
+        5831,
+        5832
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "3",
+            "sink_prime": 7
+          },
+          {
+            "owner": "3",
+            "sink_prime": 17
+          }
+        ],
+        "exclusive_final_capped_state_count": 7,
+        "exclusive_layer_state_count_sum": 11,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 7,
+            "sink_primes": [
+              7
+            ],
+            "source_capacity_product": 4,
+            "source_modulus": 8,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 1,
+            "truncated_b": 343,
+            "truncated_sum": 344
+          },
+          {
+            "sink_capacity_product": 119,
+            "sink_primes": [
+              7,
+              17
+            ],
+            "source_capacity_product": 4,
+            "source_modulus": 8,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 1,
+            "truncated_b": 5831,
+            "truncated_sum": 5832
+          },
+          {
+            "sink_capacity_product": 119,
+            "sink_primes": [
+              7,
+              17
+            ],
+            "source_capacity_product": 243,
+            "source_modulus": 729,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 5831,
+            "truncated_sum": 5832
+          },
+          {
+            "sink_capacity_product": 119,
+            "sink_primes": [
+              7,
+              17
+            ],
+            "source_capacity_product": 972,
+            "source_modulus": 5832,
+            "source_primes": [
+              2,
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 5831,
+            "truncated_sum": 5832
+          }
+        ],
+        "all_compatible_saturated_blocks": [
+          {
+            "sink_capacity_product": 7,
+            "sink_primes": [
+              7
+            ],
+            "source_capacity_product": 4,
+            "source_modulus": 8,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 1,
+            "truncated_b": 343,
+            "truncated_sum": 344
+          },
+          {
+            "sink_capacity_product": 119,
+            "sink_primes": [
+              7,
+              17
+            ],
+            "source_capacity_product": 4,
+            "source_modulus": 8,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 1,
+            "truncated_b": 5831,
+            "truncated_sum": 5832
+          }
+        ],
+        "compatible_count": 4,
+        "compatible_saturated_count": 2,
+        "reachable_pairwise_disjoint_union_count": 3
+      },
+      "endpoint_core": 972,
+      "external_radical": 119,
+      "factorization": {
+        "a": [],
+        "b": [
+          [
+            7,
+            3
+          ],
+          [
+            17,
+            1
+          ]
+        ],
+        "c": [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            6
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 119,
+        "numerator": 972
+      },
+      "radical_abc": 714,
+      "scalar_positive_defect_factor": {
+        "denominator": 119,
+        "numerator": 972
+      },
+      "sinks": [
+        7,
+        17
+      ],
+      "sources": [
+        {
+          "capacity_product": 4,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 3,
+          "exclusive_packet_product": 1,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 4
+          },
+          "prime": 2,
+          "prime_power_modulus": 8
+        },
+        {
+          "capacity_product": 243,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 6,
+          "exclusive_packet_product": 119,
+          "local_residual_factor": {
+            "denominator": 119,
+            "numerator": 243
+          },
+          "prime": 3,
+          "prime_power_modulus": 729
+        }
+      ]
+    },
+    {
+      "B_decimal": "1.0986122886681096913952452369225257046475",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 1189,
+        "certified_grid_upper_numerator": 1190,
+        "diagnostic_decimal": "0.0991652831246006362650865007083467045981"
+      },
+      "FCRT": {
+        "B_decimal": "0.4054651081081643819780131154643491365720",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 439,
+          "certified_grid_upper_numerator": 440,
+          "diagnostic_decimal": "0.0365989554799525500590793665718052280589"
+        },
+        "attaining_shared_blocks": [
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 85,
+            "source_modulus": 7225,
+            "source_primes": [
+              5,
+              17
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          }
+        ],
+        "complete_pairwise_disjoint_block_family_count": 7,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 85,
+          "numerator": 127
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 2
+        },
+        "indivisible_items_and_owners": [
+          {
+            "chosen_witness_U_sink_primes": [
+              2
+            ],
+            "eligible_deliveries": [
+              {
+                "delivered_factor": {
+                  "denominator": 1,
+                  "numerator": 2
+                },
+                "source_prime": 3,
+                "witness_U_sink_primes": [
+                  2
+                ]
+              }
+            ],
+            "kind": "token",
+            "originating_block": {
+              "sink_capacity_product": 254,
+              "sink_primes": [
+                2,
+                127
+              ],
+              "source_capacity_product": 85,
+              "source_modulus": 7225,
+              "source_primes": [
+                5,
+                17
+              ],
+              "truncated_a": 1,
+              "truncated_b": 65024,
+              "truncated_sum": 65025
+            },
+            "owner_prime": 3,
+            "surplus_token_factor": {
+              "denominator": 85,
+              "numerator": 254
+            },
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 2
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 2,
+          "numerator": 3
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 2,
+              "numerator": 3
+            },
+            "prime": 3,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 2
+            }
+          },
+          {
+            "covered_by_shared_block": true,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 5,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 1
+            }
+          },
+          {
+            "covered_by_shared_block": true,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 17,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 1
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "2.0149030205422647565787724486905367760976",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 3,
+            "sink_prime": 2
+          },
+          {
+            "owner_prime": 17,
+            "sink_prime": 127
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 2,
+          "numerator": 15
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 2,
+            "local_residual_factor": {
+              "denominator": 2,
+              "numerator": 3
+            },
+            "prime": 3
+          },
+          {
+            "exclusive_packet_product": 1,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 5
+            },
+            "prime": 5
+          },
+          {
+            "exclusive_packet_product": 127,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 17
+          }
+        ]
+      },
+      "abc": [
+        1,
+        65024,
+        65025
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "consumed_by_shared_block",
+            "sink_prime": 2
+          },
+          {
+            "owner": "consumed_by_shared_block",
+            "sink_prime": 127
+          }
+        ],
+        "exclusive_final_capped_state_count": 1,
+        "exclusive_layer_state_count_sum": 1,
+        "shared_blocks": [
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 85,
+            "source_modulus": 7225,
+            "source_primes": [
+              5,
+              17
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          }
+        ]
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 2,
+            "sink_primes": [
+              2
+            ],
+            "source_capacity_product": 3,
+            "source_modulus": 9,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 512,
+            "truncated_sum": 513
+          },
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 3,
+            "source_modulus": 9,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          },
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 5,
+            "source_modulus": 25,
+            "source_primes": [
+              5
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          },
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 15,
+            "source_modulus": 225,
+            "source_primes": [
+              3,
+              5
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          },
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 17,
+            "source_modulus": 289,
+            "source_primes": [
+              17
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          },
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 51,
+            "source_modulus": 2601,
+            "source_primes": [
+              3,
+              17
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          },
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 85,
+            "source_modulus": 7225,
+            "source_primes": [
+              5,
+              17
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          },
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 255,
+            "source_modulus": 65025,
+            "source_primes": [
+              3,
+              5,
+              17
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          }
+        ],
+        "all_compatible_saturated_blocks": [
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 3,
+            "source_modulus": 9,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          },
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 5,
+            "source_modulus": 25,
+            "source_primes": [
+              5
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          },
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 15,
+            "source_modulus": 225,
+            "source_primes": [
+              3,
+              5
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          },
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 17,
+            "source_modulus": 289,
+            "source_primes": [
+              17
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          },
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 51,
+            "source_modulus": 2601,
+            "source_primes": [
+              3,
+              17
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          },
+          {
+            "sink_capacity_product": 254,
+            "sink_primes": [
+              2,
+              127
+            ],
+            "source_capacity_product": 85,
+            "source_modulus": 7225,
+            "source_primes": [
+              5,
+              17
+            ],
+            "truncated_a": 1,
+            "truncated_b": 65024,
+            "truncated_sum": 65025
+          }
+        ],
+        "compatible_count": 8,
+        "compatible_saturated_count": 6,
+        "reachable_pairwise_disjoint_union_count": 7
+      },
+      "endpoint_core": 255,
+      "external_radical": 254,
+      "factorization": {
+        "a": [],
+        "b": [
+          [
+            2,
+            9
+          ],
+          [
+            127,
+            1
+          ]
+        ],
+        "c": [
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            17,
+            2
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 85,
+        "numerator": 254
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 1,
+        "numerator": 3
+      },
+      "radical_abc": 64770,
+      "scalar_positive_defect_factor": {
+        "denominator": 254,
+        "numerator": 255
+      },
+      "sinks": [
+        2,
+        127
+      ],
+      "sources": [
+        {
+          "capacity_product": 3,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 1,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 3
+          },
+          "prime": 3,
+          "prime_power_modulus": 9
+        },
+        {
+          "capacity_product": 5,
+          "covered_by_shared_block": true,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 1,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 1
+          },
+          "prime": 5,
+          "prime_power_modulus": 25
+        },
+        {
+          "capacity_product": 17,
+          "covered_by_shared_block": true,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 1,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 1
+          },
+          "prime": 17,
+          "prime_power_modulus": 289
+        }
+      ]
+    },
+    {
+      "B_decimal": "0",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 0,
+        "certified_grid_upper_numerator": 1,
+        "diagnostic_decimal": "0"
+      },
+      "FCRT": {
+        "B_decimal": "0",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 0,
+          "certified_grid_upper_numerator": 1,
+          "diagnostic_decimal": "0"
+        },
+        "attaining_shared_blocks": [
+          {
+            "sink_capacity_product": 446,
+            "sink_primes": [
+              2,
+              223
+            ],
+            "source_capacity_product": 15,
+            "source_modulus": 225,
+            "source_primes": [
+              3,
+              5
+            ],
+            "truncated_a": 2,
+            "truncated_b": 223,
+            "truncated_sum": 225
+          }
+        ],
+        "complete_pairwise_disjoint_block_family_count": 4,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "indivisible_items_and_owners": [
+          {
+            "eligible_deliveries": [],
+            "kind": "token",
+            "originating_block": {
+              "sink_capacity_product": 446,
+              "sink_primes": [
+                2,
+                223
+              ],
+              "source_capacity_product": 15,
+              "source_modulus": 225,
+              "source_primes": [
+                3,
+                5
+              ],
+              "truncated_a": 2,
+              "truncated_b": 223,
+              "truncated_sum": 225
+            },
+            "owner_prime": null,
+            "surplus_token_factor": {
+              "denominator": 15,
+              "numerator": 446
+            },
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 1
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": true,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 3,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 1
+            }
+          },
+          {
+            "covered_by_shared_block": true,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 5,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 1
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "0.4054651081081643819780131154643491365720",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 3,
+            "sink_prime": 2
+          },
+          {
+            "owner_prime": 5,
+            "sink_prime": 223
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 2,
+          "numerator": 3
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 2,
+            "local_residual_factor": {
+              "denominator": 2,
+              "numerator": 3
+            },
+            "prime": 3
+          },
+          {
+            "exclusive_packet_product": 223,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 5
+          }
+        ]
+      },
+      "abc": [
+        2,
+        223,
+        225
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "consumed_by_shared_block",
+            "sink_prime": 2
+          },
+          {
+            "owner": "consumed_by_shared_block",
+            "sink_prime": 223
+          }
+        ],
+        "exclusive_final_capped_state_count": 1,
+        "exclusive_layer_state_count_sum": 1,
+        "shared_blocks": [
+          {
+            "sink_capacity_product": 446,
+            "sink_primes": [
+              2,
+              223
+            ],
+            "source_capacity_product": 15,
+            "source_modulus": 225,
+            "source_primes": [
+              3,
+              5
+            ],
+            "truncated_a": 2,
+            "truncated_b": 223,
+            "truncated_sum": 225
+          }
+        ]
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 446,
+            "sink_primes": [
+              2,
+              223
+            ],
+            "source_capacity_product": 3,
+            "source_modulus": 9,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 2,
+            "truncated_b": 223,
+            "truncated_sum": 225
+          },
+          {
+            "sink_capacity_product": 446,
+            "sink_primes": [
+              2,
+              223
+            ],
+            "source_capacity_product": 5,
+            "source_modulus": 25,
+            "source_primes": [
+              5
+            ],
+            "truncated_a": 2,
+            "truncated_b": 223,
+            "truncated_sum": 225
+          },
+          {
+            "sink_capacity_product": 446,
+            "sink_primes": [
+              2,
+              223
+            ],
+            "source_capacity_product": 15,
+            "source_modulus": 225,
+            "source_primes": [
+              3,
+              5
+            ],
+            "truncated_a": 2,
+            "truncated_b": 223,
+            "truncated_sum": 225
+          }
+        ],
+        "all_compatible_saturated_blocks": [
+          {
+            "sink_capacity_product": 446,
+            "sink_primes": [
+              2,
+              223
+            ],
+            "source_capacity_product": 3,
+            "source_modulus": 9,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 2,
+            "truncated_b": 223,
+            "truncated_sum": 225
+          },
+          {
+            "sink_capacity_product": 446,
+            "sink_primes": [
+              2,
+              223
+            ],
+            "source_capacity_product": 5,
+            "source_modulus": 25,
+            "source_primes": [
+              5
+            ],
+            "truncated_a": 2,
+            "truncated_b": 223,
+            "truncated_sum": 225
+          },
+          {
+            "sink_capacity_product": 446,
+            "sink_primes": [
+              2,
+              223
+            ],
+            "source_capacity_product": 15,
+            "source_modulus": 225,
+            "source_primes": [
+              3,
+              5
+            ],
+            "truncated_a": 2,
+            "truncated_b": 223,
+            "truncated_sum": 225
+          }
+        ],
+        "compatible_count": 3,
+        "compatible_saturated_count": 3,
+        "reachable_pairwise_disjoint_union_count": 4
+      },
+      "endpoint_core": 15,
+      "external_radical": 446,
+      "factorization": {
+        "a": [
+          [
+            2,
+            1
+          ]
+        ],
+        "b": [
+          [
+            223,
+            1
+          ]
+        ],
+        "c": [
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            2
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "radical_abc": 6690,
+      "scalar_positive_defect_factor": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "sinks": [
+        2,
+        223
+      ],
+      "sources": [
+        {
+          "capacity_product": 3,
+          "covered_by_shared_block": true,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 1,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 1
+          },
+          "prime": 3,
+          "prime_power_modulus": 9
+        },
+        {
+          "capacity_product": 5,
+          "covered_by_shared_block": true,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 1,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 1
+          },
+          "prime": 5,
+          "prime_power_modulus": 25
+        }
+      ]
+    },
+    {
+      "B_decimal": "1.8510760463844745659464610762304962413066",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 615,
+        "certified_grid_upper_numerator": 616,
+        "diagnostic_decimal": "0.0513309080103215852125251485427826668050"
+      },
+      "FCRT": {
+        "B_decimal": "1.8510760463844745659464610762304962413066",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 615,
+          "certified_grid_upper_numerator": 616,
+          "diagnostic_decimal": "0.0513309080103215852125251485427826668050"
+        },
+        "attaining_shared_blocks": [],
+        "complete_pairwise_disjoint_block_family_count": 3,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "indivisible_items_and_owners": [
+          {
+            "eligible_source_primes": [
+              3,
+              5
+            ],
+            "kind": "sink",
+            "owner_prime": 3,
+            "sink_prime": 2,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 2
+            }
+          },
+          {
+            "eligible_source_primes": [
+              3,
+              5
+            ],
+            "kind": "sink",
+            "owner_prime": 3,
+            "sink_prime": 31,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 31
+            }
+          },
+          {
+            "eligible_source_primes": [
+              3,
+              5
+            ],
+            "kind": "sink",
+            "owner_prime": 3,
+            "sink_prime": 47,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 47
+            }
+          },
+          {
+            "eligible_source_primes": [
+              3,
+              5
+            ],
+            "kind": "sink",
+            "owner_prime": 3,
+            "sink_prime": 97,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 97
+            }
+          },
+          {
+            "eligible_source_primes": [
+              3,
+              5
+            ],
+            "kind": "sink",
+            "owner_prime": 5,
+            "sink_prime": 191,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 191
+            }
+          },
+          {
+            "eligible_source_primes": [
+              3,
+              5
+            ],
+            "kind": "sink",
+            "owner_prime": 5,
+            "sink_prime": 263,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 263
+            }
+          },
+          {
+            "eligible_source_primes": [
+              3,
+              5
+            ],
+            "kind": "sink",
+            "owner_prime": 5,
+            "sink_prime": 21529,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 21529
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 305685089271106,
+          "numerator": 1946195068359375
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 282658,
+              "numerator": 1594323
+            },
+            "prime": 3,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 282658
+            }
+          },
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 1081466257,
+              "numerator": 1220703125
+            },
+            "prime": 5,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 1081466257
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "1.8510760463844745659464610762304962413066",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 3,
+            "sink_prime": 2
+          },
+          {
+            "owner_prime": 3,
+            "sink_prime": 31
+          },
+          {
+            "owner_prime": 3,
+            "sink_prime": 47
+          },
+          {
+            "owner_prime": 3,
+            "sink_prime": 97
+          },
+          {
+            "owner_prime": 5,
+            "sink_prime": 191
+          },
+          {
+            "owner_prime": 5,
+            "sink_prime": 263
+          },
+          {
+            "owner_prime": 5,
+            "sink_prime": 21529
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 305685089271106,
+          "numerator": 1946195068359375
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 282658,
+            "local_residual_factor": {
+              "denominator": 282658,
+              "numerator": 1594323
+            },
+            "prime": 3
+          },
+          {
+            "exclusive_packet_product": 1081466257,
+            "local_residual_factor": {
+              "denominator": 1081466257,
+              "numerator": 1220703125
+            },
+            "prime": 5
+          }
+        ]
+      },
+      "abc": [
+        2,
+        29192926025390623,
+        29192926025390625
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "3",
+            "sink_prime": 2
+          },
+          {
+            "owner": "3",
+            "sink_prime": 31
+          },
+          {
+            "owner": "3",
+            "sink_prime": 47
+          },
+          {
+            "owner": "3",
+            "sink_prime": 97
+          },
+          {
+            "owner": "5",
+            "sink_prime": 191
+          },
+          {
+            "owner": "5",
+            "sink_prime": 263
+          },
+          {
+            "owner": "5",
+            "sink_prime": 21529
+          }
+        ],
+        "exclusive_final_capped_state_count": 1442,
+        "exclusive_layer_state_count_sum": 2482,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 305685089271106,
+            "sink_primes": [
+              2,
+              31,
+              47,
+              97,
+              191,
+              263,
+              21529
+            ],
+            "source_capacity_product": 1594323,
+            "source_modulus": 4782969,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 2,
+            "truncated_b": 29192926025390623,
+            "truncated_sum": 29192926025390625
+          },
+          {
+            "sink_capacity_product": 305685089271106,
+            "sink_primes": [
+              2,
+              31,
+              47,
+              97,
+              191,
+              263,
+              21529
+            ],
+            "source_capacity_product": 1220703125,
+            "source_modulus": 6103515625,
+            "source_primes": [
+              5
+            ],
+            "truncated_a": 2,
+            "truncated_b": 29192926025390623,
+            "truncated_sum": 29192926025390625
+          },
+          {
+            "sink_capacity_product": 305685089271106,
+            "sink_primes": [
+              2,
+              31,
+              47,
+              97,
+              191,
+              263,
+              21529
+            ],
+            "source_capacity_product": 1946195068359375,
+            "source_modulus": 29192926025390625,
+            "source_primes": [
+              3,
+              5
+            ],
+            "truncated_a": 2,
+            "truncated_b": 29192926025390623,
+            "truncated_sum": 29192926025390625
+          }
+        ],
+        "all_compatible_saturated_blocks": [
+          {
+            "sink_capacity_product": 305685089271106,
+            "sink_primes": [
+              2,
+              31,
+              47,
+              97,
+              191,
+              263,
+              21529
+            ],
+            "source_capacity_product": 1594323,
+            "source_modulus": 4782969,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 2,
+            "truncated_b": 29192926025390623,
+            "truncated_sum": 29192926025390625
+          },
+          {
+            "sink_capacity_product": 305685089271106,
+            "sink_primes": [
+              2,
+              31,
+              47,
+              97,
+              191,
+              263,
+              21529
+            ],
+            "source_capacity_product": 1220703125,
+            "source_modulus": 6103515625,
+            "source_primes": [
+              5
+            ],
+            "truncated_a": 2,
+            "truncated_b": 29192926025390623,
+            "truncated_sum": 29192926025390625
+          }
+        ],
+        "compatible_count": 3,
+        "compatible_saturated_count": 2,
+        "reachable_pairwise_disjoint_union_count": 3
+      },
+      "endpoint_core": 1946195068359375,
+      "external_radical": 305685089271106,
+      "factorization": {
+        "a": [
+          [
+            2,
+            1
+          ]
+        ],
+        "b": [
+          [
+            31,
+            1
+          ],
+          [
+            47,
+            1
+          ],
+          [
+            97,
+            1
+          ],
+          [
+            191,
+            2
+          ],
+          [
+            263,
+            1
+          ],
+          [
+            21529,
+            1
+          ]
+        ],
+        "c": [
+          [
+            3,
+            14
+          ],
+          [
+            5,
+            14
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 305685089271106,
+        "numerator": 1946195068359375
+      },
+      "radical_abc": 4585276339066590,
+      "scalar_positive_defect_factor": {
+        "denominator": 305685089271106,
+        "numerator": 1946195068359375
+      },
+      "sinks": [
+        2,
+        31,
+        47,
+        97,
+        191,
+        263,
+        21529
+      ],
+      "sources": [
+        {
+          "capacity_product": 1594323,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 14,
+          "exclusive_packet_product": 282658,
+          "local_residual_factor": {
+            "denominator": 282658,
+            "numerator": 1594323
+          },
+          "prime": 3,
+          "prime_power_modulus": 4782969
+        },
+        {
+          "capacity_product": 1220703125,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 14,
+          "exclusive_packet_product": 1081466257,
+          "local_residual_factor": {
+            "denominator": 1081466257,
+            "numerator": 1220703125
+          },
+          "prime": 5,
+          "prime_power_modulus": 6103515625
+        }
+      ]
+    },
+    {
+      "B_decimal": "1.4508328822574617905073881586003460642799",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 5118,
+        "certified_grid_upper_numerator": 5119,
+        "diagnostic_decimal": "0.4265653296335433302292132444229071481240"
+      },
+      "FCRT": {
+        "B_decimal": "1.4508328822574617905073881586003460642799",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 5118,
+          "certified_grid_upper_numerator": 5119,
+          "diagnostic_decimal": "0.4265653296335433302292132444229071481240"
+        },
+        "attaining_shared_blocks": [],
+        "complete_pairwise_disjoint_block_family_count": 1,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "indivisible_items_and_owners": [
+          {
+            "eligible_source_primes": [
+              2
+            ],
+            "kind": "sink",
+            "owner_prime": 2,
+            "sink_prime": 3,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 3
+            }
+          },
+          {
+            "eligible_source_primes": [
+              2
+            ],
+            "kind": "sink",
+            "owner_prime": 2,
+            "sink_prime": 5,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 5
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 15,
+          "numerator": 64
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 15,
+              "numerator": 64
+            },
+            "prime": 2,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 15
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "1.4508328822574617905073881586003460642799",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 2,
+            "sink_prime": 3
+          },
+          {
+            "owner_prime": 2,
+            "sink_prime": 5
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 15,
+          "numerator": 64
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 15,
+            "local_residual_factor": {
+              "denominator": 15,
+              "numerator": 64
+            },
+            "prime": 2
+          }
+        ]
+      },
+      "abc": [
+        3,
+        125,
+        128
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "2",
+            "sink_prime": 3
+          },
+          {
+            "owner": "2",
+            "sink_prime": 5
+          }
+        ],
+        "exclusive_final_capped_state_count": 4,
+        "exclusive_layer_state_count_sum": 7,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 15,
+            "sink_primes": [
+              3,
+              5
+            ],
+            "source_capacity_product": 64,
+            "source_modulus": 128,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 3,
+            "truncated_b": 125,
+            "truncated_sum": 128
+          }
+        ],
+        "all_compatible_saturated_blocks": [],
+        "compatible_count": 1,
+        "compatible_saturated_count": 0,
+        "reachable_pairwise_disjoint_union_count": 1
+      },
+      "endpoint_core": 64,
+      "external_radical": 15,
+      "factorization": {
+        "a": [
+          [
+            3,
+            1
+          ]
+        ],
+        "b": [
+          [
+            5,
+            3
+          ]
+        ],
+        "c": [
+          [
+            2,
+            7
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 15,
+        "numerator": 64
+      },
+      "radical_abc": 30,
+      "scalar_positive_defect_factor": {
+        "denominator": 15,
+        "numerator": 64
+      },
+      "sinks": [
+        3,
+        5
+      ],
+      "sources": [
+        {
+          "capacity_product": 64,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 7,
+          "exclusive_packet_product": 15,
+          "local_residual_factor": {
+            "denominator": 15,
+            "numerator": 64
+          },
+          "prime": 2,
+          "prime_power_modulus": 128
+        }
+      ]
+    },
+    {
+      "B_decimal": "0.4845083154486172746349816782702538891180",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 750,
+        "certified_grid_upper_numerator": 751,
+        "diagnostic_decimal": "0.0625575390661801987977171921544323441282"
+      },
+      "FCRT": {
+        "B_decimal": "0.0790432073404528926569685628059047525460",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 122,
+          "certified_grid_upper_numerator": 123,
+          "diagnostic_decimal": "0.0102057041612136379928111693801313417615"
+        },
+        "attaining_shared_blocks": [
+          {
+            "sink_capacity_product": 231,
+            "sink_primes": [
+              3,
+              7,
+              11
+            ],
+            "source_capacity_product": 125,
+            "source_modulus": 625,
+            "source_primes": [
+              5
+            ],
+            "truncated_a": 99,
+            "truncated_b": 2401,
+            "truncated_sum": 2500
+          }
+        ],
+        "complete_pairwise_disjoint_block_family_count": 6,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 2,
+          "numerator": 3
+        },
+        "indivisible_items_and_owners": [
+          {
+            "chosen_witness_U_sink_primes": [
+              11
+            ],
+            "eligible_deliveries": [
+              {
+                "delivered_factor": {
+                  "denominator": 125,
+                  "numerator": 231
+                },
+                "source_prime": 2,
+                "witness_U_sink_primes": [
+                  11
+                ]
+              }
+            ],
+            "kind": "token",
+            "originating_block": {
+              "sink_capacity_product": 231,
+              "sink_primes": [
+                3,
+                7,
+                11
+              ],
+              "source_capacity_product": 125,
+              "source_modulus": 625,
+              "source_primes": [
+                5
+              ],
+              "truncated_a": 99,
+              "truncated_b": 2401,
+              "truncated_sum": 2500
+            },
+            "owner_prime": 2,
+            "surplus_token_factor": {
+              "denominator": 125,
+              "numerator": 231
+            },
+            "weight_factor": {
+              "denominator": 125,
+              "numerator": 231
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 231,
+          "numerator": 250
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 231,
+              "numerator": 250
+            },
+            "prime": 2,
+            "received_factor": {
+              "denominator": 125,
+              "numerator": 231
+            }
+          },
+          {
+            "covered_by_shared_block": true,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 5,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 1
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "0.4845083154486172746349816782702538891180",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 2,
+            "sink_prime": 3
+          },
+          {
+            "owner_prime": 5,
+            "sink_prime": 7
+          },
+          {
+            "owner_prime": 5,
+            "sink_prime": 11
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 77,
+          "numerator": 125
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 3,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 2
+          },
+          {
+            "exclusive_packet_product": 77,
+            "local_residual_factor": {
+              "denominator": 77,
+              "numerator": 125
+            },
+            "prime": 5
+          }
+        ]
+      },
+      "abc": [
+        99,
+        2401,
+        2500
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "2",
+            "sink_prime": 3
+          },
+          {
+            "owner": "5",
+            "sink_prime": 7
+          },
+          {
+            "owner": "5",
+            "sink_prime": 11
+          }
+        ],
+        "exclusive_final_capped_state_count": 15,
+        "exclusive_layer_state_count_sum": 26,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 11,
+            "sink_primes": [
+              11
+            ],
+            "source_capacity_product": 2,
+            "source_modulus": 4,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 11,
+            "truncated_b": 1,
+            "truncated_sum": 12
+          },
+          {
+            "sink_capacity_product": 33,
+            "sink_primes": [
+              3,
+              11
+            ],
+            "source_capacity_product": 2,
+            "source_modulus": 4,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 99,
+            "truncated_b": 1,
+            "truncated_sum": 100
+          },
+          {
+            "sink_capacity_product": 77,
+            "sink_primes": [
+              7,
+              11
+            ],
+            "source_capacity_product": 2,
+            "source_modulus": 4,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 11,
+            "truncated_b": 2401,
+            "truncated_sum": 2412
+          },
+          {
+            "sink_capacity_product": 231,
+            "sink_primes": [
+              3,
+              7,
+              11
+            ],
+            "source_capacity_product": 2,
+            "source_modulus": 4,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 99,
+            "truncated_b": 2401,
+            "truncated_sum": 2500
+          },
+          {
+            "sink_capacity_product": 231,
+            "sink_primes": [
+              3,
+              7,
+              11
+            ],
+            "source_capacity_product": 125,
+            "source_modulus": 625,
+            "source_primes": [
+              5
+            ],
+            "truncated_a": 99,
+            "truncated_b": 2401,
+            "truncated_sum": 2500
+          },
+          {
+            "sink_capacity_product": 231,
+            "sink_primes": [
+              3,
+              7,
+              11
+            ],
+            "source_capacity_product": 250,
+            "source_modulus": 2500,
+            "source_primes": [
+              2,
+              5
+            ],
+            "truncated_a": 99,
+            "truncated_b": 2401,
+            "truncated_sum": 2500
+          }
+        ],
+        "all_compatible_saturated_blocks": [
+          {
+            "sink_capacity_product": 11,
+            "sink_primes": [
+              11
+            ],
+            "source_capacity_product": 2,
+            "source_modulus": 4,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 11,
+            "truncated_b": 1,
+            "truncated_sum": 12
+          },
+          {
+            "sink_capacity_product": 33,
+            "sink_primes": [
+              3,
+              11
+            ],
+            "source_capacity_product": 2,
+            "source_modulus": 4,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 99,
+            "truncated_b": 1,
+            "truncated_sum": 100
+          },
+          {
+            "sink_capacity_product": 77,
+            "sink_primes": [
+              7,
+              11
+            ],
+            "source_capacity_product": 2,
+            "source_modulus": 4,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 11,
+            "truncated_b": 2401,
+            "truncated_sum": 2412
+          },
+          {
+            "sink_capacity_product": 231,
+            "sink_primes": [
+              3,
+              7,
+              11
+            ],
+            "source_capacity_product": 2,
+            "source_modulus": 4,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 99,
+            "truncated_b": 2401,
+            "truncated_sum": 2500
+          },
+          {
+            "sink_capacity_product": 231,
+            "sink_primes": [
+              3,
+              7,
+              11
+            ],
+            "source_capacity_product": 125,
+            "source_modulus": 625,
+            "source_primes": [
+              5
+            ],
+            "truncated_a": 99,
+            "truncated_b": 2401,
+            "truncated_sum": 2500
+          }
+        ],
+        "compatible_count": 6,
+        "compatible_saturated_count": 5,
+        "reachable_pairwise_disjoint_union_count": 6
+      },
+      "endpoint_core": 250,
+      "external_radical": 231,
+      "factorization": {
+        "a": [
+          [
+            3,
+            2
+          ],
+          [
+            11,
+            1
+          ]
+        ],
+        "b": [
+          [
+            7,
+            4
+          ]
+        ],
+        "c": [
+          [
+            2,
+            2
+          ],
+          [
+            5,
+            4
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 2,
+        "numerator": 3
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 77,
+        "numerator": 125
+      },
+      "radical_abc": 2310,
+      "scalar_positive_defect_factor": {
+        "denominator": 231,
+        "numerator": 250
+      },
+      "sinks": [
+        3,
+        7,
+        11
+      ],
+      "sources": [
+        {
+          "capacity_product": 2,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 3,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 1
+          },
+          "prime": 2,
+          "prime_power_modulus": 4
+        },
+        {
+          "capacity_product": 125,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 4,
+          "exclusive_packet_product": 77,
+          "local_residual_factor": {
+            "denominator": 77,
+            "numerator": 125
+          },
+          "prime": 5,
+          "prime_power_modulus": 625
+        }
+      ]
+    },
+    {
+      "B_decimal": "0.4519851237430572389565908345219495701846",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 816,
+        "certified_grid_upper_numerator": 817,
+        "diagnostic_decimal": "0.0680045992984227065143055488123403938044"
+      },
+      "FCRT": {
+        "B_decimal": "0.2288415724288474831902957442121150668100",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 413,
+          "certified_grid_upper_numerator": 414,
+          "diagnostic_decimal": "0.0344309549548173518320781533558390071734"
+        },
+        "attaining_shared_blocks": [
+          {
+            "sink_capacity_product": 35,
+            "sink_primes": [
+              5,
+              7
+            ],
+            "source_capacity_product": 11,
+            "source_modulus": 121,
+            "source_primes": [
+              11
+            ],
+            "truncated_a": 343,
+            "truncated_b": 625,
+            "truncated_sum": 968
+          }
+        ],
+        "complete_pairwise_disjoint_block_family_count": 4,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 4,
+          "numerator": 5
+        },
+        "indivisible_items_and_owners": [
+          {
+            "chosen_witness_U_sink_primes": [
+              7
+            ],
+            "eligible_deliveries": [
+              {
+                "delivered_factor": {
+                  "denominator": 11,
+                  "numerator": 35
+                },
+                "source_prime": 2,
+                "witness_U_sink_primes": [
+                  7
+                ]
+              }
+            ],
+            "kind": "token",
+            "originating_block": {
+              "sink_capacity_product": 35,
+              "sink_primes": [
+                5,
+                7
+              ],
+              "source_capacity_product": 11,
+              "source_modulus": 121,
+              "source_primes": [
+                11
+              ],
+              "truncated_a": 343,
+              "truncated_b": 625,
+              "truncated_sum": 968
+            },
+            "owner_prime": 2,
+            "surplus_token_factor": {
+              "denominator": 11,
+              "numerator": 35
+            },
+            "weight_factor": {
+              "denominator": 11,
+              "numerator": 35
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 35,
+          "numerator": 44
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 35,
+              "numerator": 44
+            },
+            "prime": 2,
+            "received_factor": {
+              "denominator": 11,
+              "numerator": 35
+            }
+          },
+          {
+            "covered_by_shared_block": true,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 11,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 1
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "0.4519851237430572389565908345219495701846",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 2,
+            "sink_prime": 5
+          },
+          {
+            "owner_prime": 11,
+            "sink_prime": 7
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 7,
+          "numerator": 11
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 5,
+            "local_residual_factor": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "prime": 2
+          },
+          {
+            "exclusive_packet_product": 7,
+            "local_residual_factor": {
+              "denominator": 7,
+              "numerator": 11
+            },
+            "prime": 11
+          }
+        ]
+      },
+      "abc": [
+        343,
+        625,
+        968
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "2",
+            "sink_prime": 5
+          },
+          {
+            "owner": "11",
+            "sink_prime": 7
+          }
+        ],
+        "exclusive_final_capped_state_count": 7,
+        "exclusive_layer_state_count_sum": 11,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 7,
+            "sink_primes": [
+              7
+            ],
+            "source_capacity_product": 4,
+            "source_modulus": 8,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 343,
+            "truncated_b": 1,
+            "truncated_sum": 344
+          },
+          {
+            "sink_capacity_product": 35,
+            "sink_primes": [
+              5,
+              7
+            ],
+            "source_capacity_product": 4,
+            "source_modulus": 8,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 343,
+            "truncated_b": 625,
+            "truncated_sum": 968
+          },
+          {
+            "sink_capacity_product": 35,
+            "sink_primes": [
+              5,
+              7
+            ],
+            "source_capacity_product": 11,
+            "source_modulus": 121,
+            "source_primes": [
+              11
+            ],
+            "truncated_a": 343,
+            "truncated_b": 625,
+            "truncated_sum": 968
+          },
+          {
+            "sink_capacity_product": 35,
+            "sink_primes": [
+              5,
+              7
+            ],
+            "source_capacity_product": 44,
+            "source_modulus": 968,
+            "source_primes": [
+              2,
+              11
+            ],
+            "truncated_a": 343,
+            "truncated_b": 625,
+            "truncated_sum": 968
+          }
+        ],
+        "all_compatible_saturated_blocks": [
+          {
+            "sink_capacity_product": 7,
+            "sink_primes": [
+              7
+            ],
+            "source_capacity_product": 4,
+            "source_modulus": 8,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 343,
+            "truncated_b": 1,
+            "truncated_sum": 344
+          },
+          {
+            "sink_capacity_product": 35,
+            "sink_primes": [
+              5,
+              7
+            ],
+            "source_capacity_product": 4,
+            "source_modulus": 8,
+            "source_primes": [
+              2
+            ],
+            "truncated_a": 343,
+            "truncated_b": 625,
+            "truncated_sum": 968
+          },
+          {
+            "sink_capacity_product": 35,
+            "sink_primes": [
+              5,
+              7
+            ],
+            "source_capacity_product": 11,
+            "source_modulus": 121,
+            "source_primes": [
+              11
+            ],
+            "truncated_a": 343,
+            "truncated_b": 625,
+            "truncated_sum": 968
+          }
+        ],
+        "compatible_count": 4,
+        "compatible_saturated_count": 3,
+        "reachable_pairwise_disjoint_union_count": 4
+      },
+      "endpoint_core": 44,
+      "external_radical": 35,
+      "factorization": {
+        "a": [
+          [
+            7,
+            3
+          ]
+        ],
+        "b": [
+          [
+            5,
+            4
+          ]
+        ],
+        "c": [
+          [
+            2,
+            3
+          ],
+          [
+            11,
+            2
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 4,
+        "numerator": 5
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 7,
+        "numerator": 11
+      },
+      "radical_abc": 770,
+      "scalar_positive_defect_factor": {
+        "denominator": 35,
+        "numerator": 44
+      },
+      "sinks": [
+        5,
+        7
+      ],
+      "sources": [
+        {
+          "capacity_product": 4,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 3,
+          "exclusive_packet_product": 5,
+          "local_residual_factor": {
+            "denominator": 1,
+            "numerator": 1
+          },
+          "prime": 2,
+          "prime_power_modulus": 8
+        },
+        {
+          "capacity_product": 11,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 7,
+          "local_residual_factor": {
+            "denominator": 7,
+            "numerator": 11
+          },
+          "prime": 11,
+          "prime_power_modulus": 121
+        }
+      ]
+    },
+    {
+      "B_decimal": "3.4260733627319991419335669178138821405309",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 3639,
+        "certified_grid_upper_numerator": 3640,
+        "diagnostic_decimal": "0.3032666973530698852671627537783628436640"
+      },
+      "FCRT": {
+        "B_decimal": "3.4260733627319991419335669178138821405309",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 3639,
+          "certified_grid_upper_numerator": 3640,
+          "diagnostic_decimal": "0.3032666973530698852671627537783628436640"
+        },
+        "attaining_shared_blocks": [],
+        "complete_pairwise_disjoint_block_family_count": 3,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "indivisible_items_and_owners": [
+          {
+            "eligible_source_primes": [
+              3,
+              101
+            ],
+            "kind": "sink",
+            "owner_prime": 3,
+            "sink_prime": 2,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 2
+            }
+          },
+          {
+            "eligible_source_primes": [
+              3,
+              101
+            ],
+            "kind": "sink",
+            "owner_prime": 3,
+            "sink_prime": 7,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 7
+            }
+          },
+          {
+            "eligible_source_primes": [
+              3,
+              101
+            ],
+            "kind": "sink",
+            "owner_prime": 101,
+            "sink_prime": 19,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 19
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 266,
+          "numerator": 8181
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 14,
+              "numerator": 81
+            },
+            "prime": 3,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 14
+            }
+          },
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 19,
+              "numerator": 101
+            },
+            "prime": 101,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 19
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "3.4260733627319991419335669178138821405309",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 3,
+            "sink_prime": 2
+          },
+          {
+            "owner_prime": 3,
+            "sink_prime": 7
+          },
+          {
+            "owner_prime": 101,
+            "sink_prime": 19
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 266,
+          "numerator": 8181
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 14,
+            "local_residual_factor": {
+              "denominator": 14,
+              "numerator": 81
+            },
+            "prime": 3
+          },
+          {
+            "exclusive_packet_product": 19,
+            "local_residual_factor": {
+              "denominator": 19,
+              "numerator": 101
+            },
+            "prime": 101
+          }
+        ]
+      },
+      "abc": [
+        2744,
+        2476099,
+        2478843
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "3",
+            "sink_prime": 2
+          },
+          {
+            "owner": "3",
+            "sink_prime": 7
+          },
+          {
+            "owner": "101",
+            "sink_prime": 19
+          }
+        ],
+        "exclusive_final_capped_state_count": 25,
+        "exclusive_layer_state_count_sum": 38,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 266,
+            "sink_primes": [
+              2,
+              7,
+              19
+            ],
+            "source_capacity_product": 81,
+            "source_modulus": 243,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 2744,
+            "truncated_b": 2476099,
+            "truncated_sum": 2478843
+          },
+          {
+            "sink_capacity_product": 266,
+            "sink_primes": [
+              2,
+              7,
+              19
+            ],
+            "source_capacity_product": 101,
+            "source_modulus": 10201,
+            "source_primes": [
+              101
+            ],
+            "truncated_a": 2744,
+            "truncated_b": 2476099,
+            "truncated_sum": 2478843
+          },
+          {
+            "sink_capacity_product": 266,
+            "sink_primes": [
+              2,
+              7,
+              19
+            ],
+            "source_capacity_product": 8181,
+            "source_modulus": 2478843,
+            "source_primes": [
+              3,
+              101
+            ],
+            "truncated_a": 2744,
+            "truncated_b": 2476099,
+            "truncated_sum": 2478843
+          }
+        ],
+        "all_compatible_saturated_blocks": [
+          {
+            "sink_capacity_product": 266,
+            "sink_primes": [
+              2,
+              7,
+              19
+            ],
+            "source_capacity_product": 81,
+            "source_modulus": 243,
+            "source_primes": [
+              3
+            ],
+            "truncated_a": 2744,
+            "truncated_b": 2476099,
+            "truncated_sum": 2478843
+          },
+          {
+            "sink_capacity_product": 266,
+            "sink_primes": [
+              2,
+              7,
+              19
+            ],
+            "source_capacity_product": 101,
+            "source_modulus": 10201,
+            "source_primes": [
+              101
+            ],
+            "truncated_a": 2744,
+            "truncated_b": 2476099,
+            "truncated_sum": 2478843
+          }
+        ],
+        "compatible_count": 3,
+        "compatible_saturated_count": 2,
+        "reachable_pairwise_disjoint_union_count": 3
+      },
+      "endpoint_core": 8181,
+      "external_radical": 266,
+      "factorization": {
+        "a": [
+          [
+            2,
+            3
+          ],
+          [
+            7,
+            3
+          ]
+        ],
+        "b": [
+          [
+            19,
+            5
+          ]
+        ],
+        "c": [
+          [
+            3,
+            5
+          ],
+          [
+            101,
+            2
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 266,
+        "numerator": 8181
+      },
+      "radical_abc": 80598,
+      "scalar_positive_defect_factor": {
+        "denominator": 266,
+        "numerator": 8181
+      },
+      "sinks": [
+        2,
+        7,
+        19
+      ],
+      "sources": [
+        {
+          "capacity_product": 81,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 5,
+          "exclusive_packet_product": 14,
+          "local_residual_factor": {
+            "denominator": 14,
+            "numerator": 81
+          },
+          "prime": 3,
+          "prime_power_modulus": 243
+        },
+        {
+          "capacity_product": 101,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 2,
+          "exclusive_packet_product": 19,
+          "local_residual_factor": {
+            "denominator": 19,
+            "numerator": 101
+          },
+          "prime": 101,
+          "prime_power_modulus": 10201
+        }
+      ]
+    },
+    {
+      "B_decimal": "1.4271163556401457483890413080716730063282",
+      "B_over_log_radical": {
+        "certified_grid_denominator": 12000,
+        "certified_grid_lower_numerator": 1371,
+        "certified_grid_upper_numerator": 1372,
+        "diagnostic_decimal": "0.1142551160020324469774676144744325449993"
+      },
+      "FCRT": {
+        "B_decimal": "1.4271163556401457483890413080716730063282",
+        "B_over_log_radical": {
+          "certified_grid_denominator": 12000,
+          "certified_grid_lower_numerator": 1371,
+          "certified_grid_upper_numerator": 1372,
+          "diagnostic_decimal": "0.1142551160020324469774676144744325449993"
+        },
+        "attaining_shared_blocks": [],
+        "complete_pairwise_disjoint_block_family_count": 1,
+        "fragmentation_factor_exp_B_minus_Delta": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "improvement_factor_exp_B_SCRT_minus_B_FCRT": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "indivisible_items_and_owners": [
+          {
+            "eligible_source_primes": [
+              5
+            ],
+            "kind": "sink",
+            "owner_prime": 5,
+            "sink_prime": 2,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 2
+            }
+          },
+          {
+            "eligible_source_primes": [
+              5
+            ],
+            "kind": "sink",
+            "owner_prime": 5,
+            "sink_prime": 3,
+            "weight_factor": {
+              "denominator": 1,
+              "numerator": 3
+            }
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 6,
+          "numerator": 25
+        },
+        "source_replay": [
+          {
+            "covered_by_shared_block": false,
+            "local_residual_factor": {
+              "denominator": 6,
+              "numerator": 25
+            },
+            "prime": 5,
+            "received_factor": {
+              "denominator": 1,
+              "numerator": 6
+            }
+          }
+        ]
+      },
+      "PBT": {
+        "B_decimal": "1.4271163556401457483890413080716730063282",
+        "attaining_exclusive_assignment": [
+          {
+            "owner_prime": 5,
+            "sink_prime": 2
+          },
+          {
+            "owner_prime": 5,
+            "sink_prime": 3
+          }
+        ],
+        "optimal_residual_factor_exp_B": {
+          "denominator": 6,
+          "numerator": 25
+        },
+        "source_replay": [
+          {
+            "exclusive_packet_product": 6,
+            "local_residual_factor": {
+              "denominator": 6,
+              "numerator": 25
+            },
+            "prime": 5
+          }
+        ]
+      },
+      "abc": [
+        59049,
+        1048576,
+        1107625
+      ],
+      "attaining_configuration": {
+        "exclusive_assignment": [
+          {
+            "owner": "5",
+            "sink_prime": 2
+          },
+          {
+            "owner": "5",
+            "sink_prime": 3
+          }
+        ],
+        "exclusive_final_capped_state_count": 4,
+        "exclusive_layer_state_count_sum": 7,
+        "shared_blocks": []
+      },
+      "block_enumeration": {
+        "all_compatible_blocks": [
+          {
+            "sink_capacity_product": 6,
+            "sink_primes": [
+              2,
+              3
+            ],
+            "source_capacity_product": 25,
+            "source_modulus": 125,
+            "source_primes": [
+              5
+            ],
+            "truncated_a": 59049,
+            "truncated_b": 1048576,
+            "truncated_sum": 1107625
+          }
+        ],
+        "all_compatible_saturated_blocks": [],
+        "compatible_count": 1,
+        "compatible_saturated_count": 0,
+        "reachable_pairwise_disjoint_union_count": 1
+      },
+      "endpoint_core": 25,
+      "external_radical": 6,
+      "factorization": {
+        "a": [
+          [
+            3,
+            10
+          ]
+        ],
+        "b": [
+          [
+            2,
+            20
+          ]
+        ],
+        "c": [
+          [
+            5,
+            3
+          ],
+          [
+            8861,
+            1
+          ]
+        ]
+      },
+      "fragmentation_factor_exp_B_minus_Delta": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "optimal_residual_factor_exp_B": {
+        "denominator": 6,
+        "numerator": 25
+      },
+      "radical_abc": 265830,
+      "scalar_positive_defect_factor": {
+        "denominator": 6,
+        "numerator": 25
+      },
+      "sinks": [
+        2,
+        3
+      ],
+      "sources": [
+        {
+          "capacity_product": 25,
+          "covered_by_shared_block": false,
+          "endpoint_exponent": 3,
+          "exclusive_packet_product": 6,
+          "local_residual_factor": {
+            "denominator": 6,
+            "numerator": 25
+          },
+          "prime": 5,
+          "prime_power_modulus": 125
+        }
+      ]
+    }
+  ],
+  "exhaustive_scan": {
+    "FCRT_largest_exact_fragmentation_factor": {
+      "abc": [
+        1,
+        2303,
+        2304
+      ],
+      "factor": {
+        "denominator": 3,
+        "numerator": 7
+      }
+    },
+    "FCRT_largest_exact_residual_factor": {
+      "abc": [
+        1,
+        2400,
+        2401
+      ],
+      "factor": {
+        "denominator": 30,
+        "numerator": 343
+      }
+    },
+    "FCRT_largest_improvement_factor_over_SCRT": {
+      "abc": [
+        99,
+        2401,
+        2500
+      ],
+      "factor": {
+        "denominator": 2,
+        "numerator": 3
+      }
+    },
+    "FCRT_largest_observed_B_over_log_radical_grid_cell": {
+      "denominator": 12000,
+      "example": [
+        1,
+        2400,
+        2401
+      ],
+      "lower_numerator": 5468,
+      "upper_numerator": 5469
+    },
+    "c_max": 3000,
+    "counts": {
+      "FCRT_equal_to_scalar": 1368092,
+      "FCRT_positive_B": 57,
+      "FCRT_strict_fragmentation_beyond_scalar": 2,
+      "FCRT_strict_improvement_over_SCRT": 3,
+      "FCRT_zero_B": 1368037,
+      "endpoint_with_at_least_two_sources": 43340,
+      "endpoint_with_source": 405871,
+      "equal_to_scalar": 1368089,
+      "positive_B": 57,
+      "strict_fragmentation_beyond_scalar": 5,
+      "triples": 1368094,
+      "zero_B": 1368037
+    },
+    "largest_exact_fragmentation_factor": {
+      "abc": [
+        1,
+        2303,
+        2304
+      ],
+      "factor": {
+        "denominator": 3,
+        "numerator": 7
+      }
+    },
+    "largest_exact_residual_factor": {
+      "abc": [
+        1,
+        2400,
+        2401
+      ],
+      "factor": {
+        "denominator": 30,
+        "numerator": 343
+      }
+    },
+    "largest_observed_B_over_log_radical_grid_cell": {
+      "denominator": 12000,
+      "example": [
+        1,
+        2400,
+        2401
+      ],
+      "lower_numerator": 5468,
+      "upper_numerator": 5469
+    },
+    "normalization": "1 <= a <= b, a+b=c, gcd(a,b)=1",
+    "solution_method_counts": {
+      "complete_block_union_plus_exclusive_dp": 6,
+      "full_block_saturated_X_le_Y": 405814,
+      "no_endpoint_sources": 962223,
+      "one_source_exact_scalar": 51
+    }
+  },
+  "model": {
+    "arithmetic": "all feasibility and optimizer comparisons exact over integers/Fraction",
+    "block_rule": "chosen source masks and sink masks are separately pairwise disjoint",
+    "compatibility": "product(p^v_p(c), p in S) divides a_T+b_T",
+    "exclusive_rule": "each residual sink is unused or assigned to exactly one residual source",
+    "objective": "exp(B_SCRT)=product residual sources max(capacity/assigned_sink_product,1)",
+    "saturation": "product(source capacities in S) <= product(q, q in T)",
+    "sink_capacity": "q for each distinct q|ab",
+    "source_capacity": "p^(v_p(c)-1) for v_p(c)>=2"
+  },
+  "n284_partial_audit": {
+    "abc_description": "(2, 15^284-2, 15^284)",
+    "b_decimal_digits": 335,
+    "certified_divisibility": "31^2 divides 15^284-2",
+    "exact_31_adic_valuation": 2,
+    "logical_force": "finite/partial diagnostic only; neither proves nor refutes SCRT-0",
+    "primitive": true,
+    "remaining_cofactor_decimal_digits_after_31_power": 332,
+    "status": "not an exact B_SCRT computation because complete factorization of the external arm was not attempted"
+  },
+  "parameters": {
+    "c_max": 3000,
+    "generalized_base_max": 20,
+    "generalized_value_max": 10000000,
+    "ratio_grid_denominator": 12000
+  },
+  "schema": "scrt_fcrt_exact_audit_v2",
+  "structured_family_csv": "STRUCTURED_FAMILIES.csv",
+  "structured_family_summary": {
+    "balanced_4r_3r": {
+      "FCRT_largest_residual_abc": [
+        59049,
+        1048576,
+        1107625
+      ],
+      "FCRT_largest_residual_factor": {
+        "denominator": 6,
+        "numerator": 25
+      },
+      "FCRT_largest_residual_parameters": "r=10",
+      "FCRT_positive_B": 2,
+      "FCRT_strict_fragmentation_beyond_scalar": 0,
+      "FCRT_strict_improvement_over_SCRT": 0,
+      "largest_residual_abc": [
+        59049,
+        1048576,
+        1107625
+      ],
+      "largest_residual_factor": {
+        "denominator": 6,
+        "numerator": 25
+      },
+      "largest_residual_parameters": "r=10",
+      "positive_B": 2,
+      "rows": 20,
+      "strict_fragmentation_beyond_scalar": 0
+    },
+    "composite_base_unit_power": {
+      "FCRT_largest_residual_abc": [
+        1,
+        5831,
+        5832
+      ],
+      "FCRT_largest_residual_factor": {
+        "denominator": 119,
+        "numerator": 972
+      },
+      "FCRT_largest_residual_parameters": "base=18;exponent=3",
+      "FCRT_positive_B": 9,
+      "FCRT_strict_fragmentation_beyond_scalar": 2,
+      "FCRT_strict_improvement_over_SCRT": 0,
+      "largest_residual_abc": [
+        1,
+        5831,
+        5832
+      ],
+      "largest_residual_factor": {
+        "denominator": 119,
+        "numerator": 972
+      },
+      "largest_residual_parameters": "base=18;exponent=3",
+      "positive_B": 9,
+      "rows": 63,
+      "strict_fragmentation_beyond_scalar": 2
+    },
+    "forced_hard_witness": {
+      "FCRT_largest_residual_abc": [
+        1,
+        65024,
+        65025
+      ],
+      "FCRT_largest_residual_factor": {
+        "denominator": 2,
+        "numerator": 3
+      },
+      "FCRT_largest_residual_parameters": "four-layer-strict-chain",
+      "FCRT_positive_B": 1,
+      "FCRT_strict_fragmentation_beyond_scalar": 1,
+      "FCRT_strict_improvement_over_SCRT": 1,
+      "largest_residual_abc": [
+        1,
+        65024,
+        65025
+      ],
+      "largest_residual_factor": {
+        "denominator": 1,
+        "numerator": 3
+      },
+      "largest_residual_parameters": "four-layer-strict-chain",
+      "positive_B": 1,
+      "rows": 1,
+      "strict_fragmentation_beyond_scalar": 1
+    },
+    "linnik_prime_predecessor_finite": {
+      "FCRT_largest_residual_abc": [
+        1,
+        71,
+        72
+      ],
+      "FCRT_largest_residual_factor": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "FCRT_largest_residual_parameters": "k=2;M=6;multiplier=2;ell=71",
+      "FCRT_positive_B": 0,
+      "FCRT_strict_fragmentation_beyond_scalar": 0,
+      "FCRT_strict_improvement_over_SCRT": 0,
+      "largest_residual_abc": [
+        1,
+        71,
+        72
+      ],
+      "largest_residual_factor": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "largest_residual_parameters": "k=2;M=6;multiplier=2;ell=71",
+      "positive_B": 0,
+      "rows": 5,
+      "strict_fragmentation_beyond_scalar": 0
+    },
+    "linnik_shifted_minus_two_finite": {
+      "FCRT_largest_residual_abc": [
+        2,
+        223,
+        225
+      ],
+      "FCRT_largest_residual_factor": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "FCRT_largest_residual_parameters": "k=2;M=15;multiplier=1;ell=223",
+      "FCRT_positive_B": 0,
+      "FCRT_strict_fragmentation_beyond_scalar": 0,
+      "FCRT_strict_improvement_over_SCRT": 0,
+      "largest_residual_abc": [
+        2,
+        223,
+        225
+      ],
+      "largest_residual_factor": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "largest_residual_parameters": "k=2;M=15;multiplier=1;ell=223",
+      "positive_B": 0,
+      "rows": 4,
+      "strict_fragmentation_beyond_scalar": 0
+    },
+    "mixed_power_generalized_fermat": {
+      "FCRT_largest_residual_abc": [
+        2744,
+        2476099,
+        2478843
+      ],
+      "FCRT_largest_residual_factor": {
+        "denominator": 266,
+        "numerator": 8181
+      },
+      "FCRT_largest_residual_parameters": "x=14;u=3;y=19;v=5",
+      "FCRT_positive_B": 10,
+      "FCRT_strict_fragmentation_beyond_scalar": 1,
+      "FCRT_strict_improvement_over_SCRT": 2,
+      "largest_residual_abc": [
+        2744,
+        2476099,
+        2478843
+      ],
+      "largest_residual_factor": {
+        "denominator": 266,
+        "numerator": 8181
+      },
+      "largest_residual_parameters": "x=14;u=3;y=19;v=5",
+      "positive_B": 10,
+      "rows": 38,
+      "strict_fragmentation_beyond_scalar": 3
+    },
+    "two_fifteen_power": {
+      "FCRT_largest_residual_abc": [
+        2,
+        29192926025390623,
+        29192926025390625
+      ],
+      "FCRT_largest_residual_factor": {
+        "denominator": 305685089271106,
+        "numerator": 1946195068359375
+      },
+      "FCRT_largest_residual_parameters": "n=14",
+      "FCRT_positive_B": 1,
+      "FCRT_strict_fragmentation_beyond_scalar": 0,
+      "FCRT_strict_improvement_over_SCRT": 0,
+      "largest_residual_abc": [
+        2,
+        29192926025390623,
+        29192926025390625
+      ],
+      "largest_residual_factor": {
+        "denominator": 305685089271106,
+        "numerator": 1946195068359375
+      },
+      "largest_residual_parameters": "n=14",
+      "positive_B": 1,
+      "rows": 23,
+      "strict_fragmentation_beyond_scalar": 0
+    }
+  }
+}

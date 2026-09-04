@@ -37,7 +37,7 @@
 \title[Uniformity and prime support in $abc$ research]{Uniformity, Prime Support, and Reachable Lattices\\
 in Approaches to the $abc$ Conjecture}
 \author{ChatGPT}
-\date{September 3, 2026}
+\date{September 4, 2026}
 \subjclass[2020]{11D75, 11N25, 11G05, 11J86, 68V15}
 \keywords{abc conjecture, smooth numbers, prime support, effective integral points,
 local lattices, formal verification}
@@ -104,6 +104,21 @@ defect, while a saturated-only child is refuted by
 $(2,15^n-2,15^n)$ for $n\equiv284\pmod {310}$.  The exact shared-incidence
 uniform estimate, weighted multi-face, and genuine homological successors
 remain open.
+
+The present continuation analyzes the unused capacity of a saturated shared
+block.  Sending it to an arbitrary target is proved to collapse exactly to
+the scalar defect.  Requiring a compatible nonempty proper subface instead
+gives a once-charged flagged boundary satisfying
+$\Delta\le B_{\rm FCRT}\le B_{\rm SCRT}\le B_{\rm PBT}$.  Exact points show
+both strict improvement and strict noncollapse; at
+$(1,65024,65025)$ all four levels are distinct.  Endpoint packets form
+Boolean cubes over finite residue groups, where the desired flag is a nested
+cross-source incidence rather than a same-fibre collision.  The resulting
+uniform flagged estimate remains open and is never inserted as a formal
+assumption.  An anchored-prefix theorem now produces the required proper face
+under an explicit residue-subgroup and weight-cell entropy condition.  The
+actual point $(1,4715,4716)$ refutes the weaker raw Boolean-cardinality
+shortcut while leaving the anchored theorem and the parent FCRT route active.
 
 We also introduce a divisor-valued contact surface.  Its standard Bloch
 five-term boundary gives an exact quadratic Veronese peeling and a
@@ -1202,6 +1217,8 @@ logarithmic-form methods to a different family.
 \input{abc_prime_packet_boundary_transport_2026}
 \input{abc_prime_packet_boundary_linnik_obstruction_2026}
 \input{abc_shared_crt_incidence_successor_2026}
+\input{abc_flagged_crt_residue_cube_2026}
+\input{abc_anchored_prefix_flagged_crt_2026}
 \input{abc_primary_literature_gate_audit_2026}
 
 \input{steinberg_valuation_contact_surface_2026}
@@ -1667,8 +1684,36 @@ arithmetic admissibility predicate, the exact scalar optimum of unrestricted
 pooling, and the failure of duplicated capacity.  Arithmetic CRT blocks, the
 strict noncollapse optimum, and the SCRT-SAT counterfamily remain ordinary
 proofs rather than axioms.\\[3pt]
+\texttt{ABCFlaggedCRTSurplusResidue\allowbreak Cube20260904} &
+The maximal feasible-subset selection, once-owned residual and capped-reuse
+accounting kernels, source-minus-sink and endpoint height bridges, conditional
+FCRT implication, additive commutative-group packet identities, and exact
+arithmetic/logarithmic checks for three finite witnesses.  The uniform gate
+has no inhabitant.\\[3pt]
+\texttt{ABCFlaggedCRTSurplusResidue\allowbreak Cube20260904IndependentBridge} &
+The exact owner-to-aggregate conversion after capping overfill, preservation
+of the clipped boundary, an endpoint constructor under the displayed defect
+decomposition, and the observation that a bare endpoint certificate is
+tautological.  Concrete proper-face admissibility remains open.\\[3pt]
+\texttt{ABCAnchoredPrefixFlagged\allowbreak CRT20260904} &
+The finite anchored code-fibre lemma, additive prefix cancellation,
+zero-deletion/proper-face dictionary, capped-credit consequences, scalar
+full-surplus identity, and a complete Boolean-packet verification of the
+$(1,4715,4716)$ counterexample to the raw cardinality shortcut.  No uniform
+entropy premise is asserted.\\[3pt]
 \bottomrule
 \end{longtable}
+
+The flagged-CRT primary module has $70$ public declarations and a one-for-one
+$70$-query axiom audit.  Its independent bridge has $18$ declarations and
+$18$ queries.  The anchored-prefix module adds $28$ declarations and $28$
+queries.  All six files compile directly with warnings treated as
+errors, and the combined dependency union is only \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}.  This audit proves the
+logical accounting bridges; it does not formalize the multiplicative residue
+groups, the arithmetic map from proper faces to owners, the finite optimum
+enumerations, the real-ceiling construction behind the weight cells, or the
+uniform FCRT entropy and boundary estimates.
 
 The six modules added in the dual-route continuation contain $94$ public
 theorems and $15$ definitions or structures.  A declaration-level audit
@@ -2738,6 +2783,20 @@ R.~Li and J.~Zhao,
 Non-Wieferich property of prime ideals and a conjecture of Erd\H{o}s,
 \href{https://arxiv.org/abs/2601.12753v1}{arXiv:2601.12753v1},
 January 19, 2026.
+
+\bibitem{Bae2026Erdos684}
+J.~H.~Bae,
+Unbounded logarithmic limsup in Erd\H{o}s Problem 684 via shifted carry
+scheduling,
+\href{https://arxiv.org/abs/2604.23784v3}{arXiv:2604.23784v3},
+revised September 3, 2026;
+\href{https://github.com/jidodat/erdos684-lean}{Lean formalization}.
+
+\bibitem{Dujella2026PrimePower}
+A.~Dujella,
+Prime-power Diophantine tuples,
+\href{https://arxiv.org/abs/2609.03448}{arXiv:2609.03448},
+September 3, 2026.
 
 \bibitem{ShparlinskiFermatQuotients2011}
 I.~E.~Shparlinski,

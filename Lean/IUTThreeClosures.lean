@@ -960,3 +960,28 @@ import IUTThreeClosures.ABCPrimePacketBoundaryLinnikObstruction20260903
 -- collapse to the scalar defect and duplicated capacity breaks the bridge.
 -- The arithmetic SCRT-0 uniform estimate is neither assumed nor proved.
 import IUTThreeClosures.ABCSharedCRTIncidenceSuccessor20260903
+
+-- Proper-subface flagged surplus successor to shared CRT incidence.  Reuse
+-- remains once-charged, one-hop, and is capped by both the saturated-block
+-- surplus and the compatible witness-face mass.  The finite owner kernel,
+-- endpoint height implication, additive residue-cube identities, exact
+-- witnesses, and a four-level strict boundary separation are checked.  The
+-- uniform FCRT-1 estimate is defined but neither assumed nor proved.
+import IUTThreeClosures.ABCFlaggedCRTSurplusResidueCube20260904
+
+-- Independent logical bridge for the flagged CRT accounting kernel.  Raw
+-- owner credit is capped at source demand to construct an aggregate
+-- certificate without changing the clipped boundary, and an explicit
+-- endpoint defect decomposition then yields the height bridge.  The file
+-- also records that a bare endpoint certificate is tautological; concrete
+-- FCRT admissibility and the uniform small-boundary estimate remain open.
+import IUTThreeClosures.ABCFlaggedCRTSurplusResidueCube20260904IndependentBridge
+
+-- Anchored-prefix continuation of the residue-cube route.  A finite
+-- code-fibre lemma turns equal residue/weight prefixes into a light zero-label
+-- deletion and hence a compatible proper face, under an explicit entropy
+-- premise.  The actual point (1,4715,4716) refutes only the raw Boolean-count
+-- shortcut to such a face.  The entropy premise and uniform FCRT gate remain
+-- open.
+import IUTThreeClosures.ABCAnchoredPrefixFlaggedCRT20260904
+import IUTThreeClosures.ABCDirectCountersearchBoundary20260904

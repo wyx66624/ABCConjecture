@@ -1,0 +1,701 @@
+\section{Proper-subface flagged CRT surplus and endpoint residue cubes}
+\label{sec:flagged-crt-residue-cube}
+
+This section refines the shared-CRT boundary of
+Section~\ref{sec:shared-crt-incidence-successor}.  The refinement has two
+purposes.  First, it identifies and removes a false source of apparent
+progress: if the surplus of a saturated block may be sent to an arbitrary
+residual source, the resulting optimization is exactly the scalar endpoint
+defect.  Second, it retains surplus only when a proper subpacket supplies an
+independent prime-power congruence for the target source.  The resulting
+finite boundary, denoted $B_{\rm FCRT}$, obeys the same once-charge height
+inequality, can be strictly smaller than $B_{\rm SCRT}$, and need not equal
+the scalar defect.  The associated uniform estimate is left as an explicit
+open premise throughout.
+
+\subsection{Endpoint data}
+
+Let $P=(a,b,c)$ satisfy
+\[
+ a,b,c\in\mathbb Z_{>0},\qquad a+b=c,\qquad \gcd(a,b)=1.
+\]
+Pairwise coprimality follows.  Put
+\[
+ I=\{p:p\mid c,\ e_p:=v_p(c)\ge 2\},\qquad
+ J=\{q:q\mid ab\},
+\]
+and assign the logarithmic source and sink weights
+\[
+ x_p=(e_p-1)\log p,\qquad y_q=\log q,
+ \qquad X=\sum_{p\in I}x_p,
+ \qquad Y=\sum_{q\in J}y_q.
+\tag{FCRT-1}\label{eq:fcrt-endpoint-data}
+\]
+For $S\subseteq I$ and $T\subseteq J$, define
+\[
+ \begin{aligned}
+ m(S)&=\prod_{p\in S}p^{e_p},
+ &x(S)&=\sum_{p\in S}x_p,\\
+ a_T&=\prod_{\substack{q\in T\\q\mid a}}q^{v_q(a)},
+ &b_T&=\prod_{\substack{q\in T\\q\mid b}}q^{v_q(b)},\\
+ y(T)&=\sum_{q\in T}y_q.
+ \end{aligned}
+\tag{FCRT-2}\label{eq:fcrt-packets}
+\]
+Empty products are one.  A pair $(S,T)$ of nonempty subsets is a
+\emph{shared CRT block} if
+\[
+                 m(S)\mid a_T+b_T,
+ \qquad           x(S)\le y(T).
+\tag{FCRT-3}\label{eq:fcrt-block}
+\]
+The two clauses will be called compatibility and saturation, respectively.
+Let $\mathcal B(P)$ be the set of all shared CRT blocks.  It is a finite
+subset of
+\[
+ \bigl(\mathcal P(I)\setminus\{\varnothing\}\bigr)
+ \times
+ \bigl(\mathcal P(J)\setminus\{\varnothing\}\bigr).
+\]
+Prime factorization gives the exact identity
+\[
+ h(P)-r(P)
+ =\log c-\log\rad(abc)=X-Y,
+\tag{FCRT-4}\label{eq:fcrt-endpoint-identity}
+\]
+and hence the scalar lower bound is
+\[
+                         \Delta(P)=(X-Y)_+.
+\]
+
+\subsection{The exact collapse of free-target reuse}
+
+It is useful to dispose of an unrestricted surplus rule before imposing the
+arithmetic flag.  Let $K\subseteq\mathcal B(P)$ be a selected block family
+such that the sets $S_\nu$ are pairwise disjoint and the sets $T_\nu$ are
+pairwise disjoint, where $\nu=(S_\nu,T_\nu)\in K$.  In particular, the
+blocks are distinct and $K$ is finite.
+Write
+\[
+ I_0=I\setminus\bigcup_{\nu\in K}S_\nu,
+ \qquad
+ J_0=J\setminus\bigcup_{\nu\in K}T_\nu,
+ \qquad
+ \sigma_\nu=y(T_\nu)-x(S_\nu)\ge0.
+\tag{FCRT-5}\label{eq:fcrt-free-residual-sets}
+\]
+A free-target configuration consists further of two total maps into pointed
+finite sets,
+\[
+ o:J_0\longrightarrow I_0\sqcup\{\bot\},
+ \qquad
+ t:K\longrightarrow I_0\sqcup\{\bot\}.
+\tag{FCRT-6}\label{eq:fcrt-free-owners}
+\]
+Here $o(q)=p$ assigns the residual sink $q$ exclusively to $p$, while
+$t(\nu)=p$ sends the whole unsplit surplus $\sigma_\nu$ to $p$; the value
+$\bot$ means unused.  Several independently charged objects may have the
+same target.  Define
+\[
+ C_p=\sum_{\substack{q\in J_0\\o(q)=p}}y_q
+     +\sum_{\substack{\nu\in K\\t(\nu)=p}}\sigma_\nu,
+ \qquad
+ B_{\rm free}(\mathcal C)=\sum_{p\in I_0}(x_p-C_p)_+.
+\tag{FCRT-7}\label{eq:fcrt-free-boundary}
+\]
+
+\begin{proposition}[Free-target collapse]
+\label{prop:fcrt-free-collapse}
+For every positive primitive $P$,
+\[
+                 \min_{\mathcal C}B_{\rm free}(\mathcal C)
+                 =(X-Y)_+.
+\tag{FCRT-8}\label{eq:fcrt-free-collapse}
+\]
+\end{proposition}
+
+\begin{proof}
+Every sink weight is charged at most once.  A selected block consumes
+$x(S_\nu)$ and leaves at most $\sigma_\nu$ for reuse, whereas an unselected
+sink contributes at most its own weight.  Therefore
+\[
+                       X\le Y+B_{\rm free}(\mathcal C)
+\]
+for every configuration, proving the lower bound.
+
+If $I=\varnothing$, the empty configuration realizes zero.  Suppose
+$I\ne\varnothing$ and $X\le Y$.  Then $J\ne\varnothing$: otherwise
+$a=b=1$, $c=2$, and $I$ would be empty.  The full pair $(I,J)$ is compatible
+because $m(I)\mid c=a+b$, and it is saturated because $X\le Y$.  Selecting
+it realizes zero.
+
+It remains to consider $X>Y$.  Choose an inclusion-maximal subset
+$S\subset I$ with $x(S)\le Y$.  It exists and is proper.  If
+$S\ne\varnothing$, select the full-sink block $(S,J)$, which is compatible
+and saturated.  For every $p\in I\setminus S$, maximality gives
+\[
+                         x_p>Y-x(S)=:\sigma.
+\tag{FCRT-9}\label{eq:fcrt-maximality}
+\]
+Send the unique surplus token $\sigma$ to one such $p$.  Since no residual
+sinks remain, all residual terms are positive and their sum is
+\[
+ x_p-\sigma+\sum_{u\in I\setminus(S\cup\{p\})}x_u=X-Y.
+\]
+If $S=\varnothing$, maximality says $x_p>Y$ for every $p\in I$.
+Select no block and assign every residual sink to any one source.  The
+boundary is again $X-Y$.  This proves equality in all cases.
+\end{proof}
+
+Proposition~\ref{prop:fcrt-free-collapse} rules out only this exact
+free-target child model.  It supplies neither a counterexample to the
+shared-CRT route nor a reason to remove arithmetic restrictions from a
+surplus token.
+
+\subsection{A fully typed proper-subface configuration}
+
+Fix a finite block family as in \eqref{eq:fcrt-free-residual-sets}.  For each
+$\nu\in K$, define its finite flag set
+\[
+ \mathcal F_\nu=
+ \left\{(p,U)\ \middle|\
+ \begin{array}{l}
+ p\in I_0,\quad U\subseteq T_\nu,\quad
+ \varnothing\ne U\ne T_\nu,\\[2pt]
+ p^{e_p}\mid a_U+b_U
+ \end{array}
+ \right\}.
+\tag{FCRT-10}\label{eq:fcrt-flag-type}
+\]
+Thus $U$ is a nonempty proper face of the block's sink packet, and the target
+$p$ is residual, hence lies outside every selected block source set.  An
+\emph{FCRT configuration} consists of the block family, a residual-sink
+owner map
+\[
+                        o:J_0\longrightarrow I_0\sqcup\{\bot\},
+\]
+and, for every $\nu\in K$, a choice
+\[
+ f_\nu\in\mathcal F_\nu\sqcup\{\bot\}.
+\tag{FCRT-11}\label{eq:fcrt-flag-choice}
+\]
+If $f_\nu=\bot$, put $\rho_\nu=0$.  If
+$f_\nu=(p_\nu,U_\nu)$, put
+\[
+ \rho_\nu=\min\{\sigma_\nu,y(U_\nu)\},
+ \qquad \sigma_\nu=y(T_\nu)-x(S_\nu).
+\tag{FCRT-12}\label{eq:fcrt-reuse-cap}
+\]
+The token of mass $\rho_\nu$ is indivisible, has the single target $p_\nu$,
+and travels one hop.  The amount $\sigma_\nu-\rho_\nu$ is discarded.  Credit
+left after a target is filled is also discarded and cannot emit a new token.
+Different residual sinks and different block tokens may meet at the same
+source; this does not repeat the charge of any originating sink.
+
+For $p\in I_0$, set
+\[
+ \begin{split}
+ M_p&=\sum_{\substack{q\in J_0\\o(q)=p}}y_q,\\
+ Z_p&=\sum_{\nu\in K}z_{\nu,p},
+ \qquad
+ z_{\nu,p}=
+ \begin{cases}
+  \rho_\nu,&f_\nu=(p,U)\text{ for some }U,\\
+  0,&\text{otherwise},
+ \end{cases}\\
+ R_p&=(x_p-M_p-Z_p)_+,
+ \end{split}
+ \qquad
+ B_{\rm FCRT}(\mathcal C)=\sum_{p\in I_0}R_p.
+\tag{FCRT-13}\label{eq:fcrt-boundary}
+\]
+Every set and every choice space in
+\eqref{eq:fcrt-flag-type}--\eqref{eq:fcrt-flag-choice} is finite.  The empty
+block family with all residual sinks unused is admissible, so the pointwise
+minimum
+\[
+ B_{\rm FCRT}(P)=\min_{\mathcal C\in\operatorname{Conf}_{\rm FCRT}(P)}
+                         B_{\rm FCRT}(\mathcal C)
+\tag{FCRT-14}\label{eq:fcrt-optimum}
+\]
+exists.
+
+\begin{proposition}[Once-charge mass bridge]
+\label{prop:fcrt-once-charge}
+Every FCRT configuration satisfies
+\[
+                         X\le Y+B_{\rm FCRT}(\mathcal C)
+\tag{FCRT-15}\label{eq:fcrt-mass-bridge}
+\]
+and consequently
+\[
+                         h(P)\le r(P)+B_{\rm FCRT}(\mathcal C).
+\tag{FCRT-16}\label{eq:fcrt-height-bridge}
+\]
+\end{proposition}
+
+\begin{proof}
+The definition of the positive part gives
+$x_p\le M_p+Z_p+R_p$.  Exclusive ownership of residual sinks gives
+\[
+                       \sum_{p\in I_0}M_p\le y(J_0).
+\]
+Each block emits at most one token, and
+$\rho_\nu\le\sigma_\nu$, so
+\[
+                       \sum_{p\in I_0}Z_p
+                       \le\sum_{\nu\in K}\sigma_\nu.
+\]
+Pairwise source disjointness, pairwise sink disjointness, and
+\eqref{eq:fcrt-free-residual-sets} now yield
+\[
+ \begin{aligned}
+ X
+ &=\sum_{\nu\in K}x(S_\nu)+\sum_{p\in I_0}x_p\\
+ &\le\sum_{\nu\in K}x(S_\nu)+y(J_0)
+       +\sum_{\nu\in K}\bigl(y(T_\nu)-x(S_\nu)\bigr)
+       +B_{\rm FCRT}(\mathcal C)\\
+ &=Y+B_{\rm FCRT}(\mathcal C).
+ \end{aligned}
+\]
+Combining this with \eqref{eq:fcrt-endpoint-identity} proves the height
+inequality.
+\end{proof}
+
+The congruence and proper-face clauses do not enter the last accounting
+calculation.  Their role is to restrict which once-charged configurations
+exist; deleting them recovers the scalar collapse above.
+
+\begin{corollary}[Pointwise sandwich]
+\label{cor:fcrt-sandwich}
+For every positive primitive point,
+\[
+ \Delta(P)\le B_{\rm FCRT}(P)
+             \le B_{\rm SCRT}(P)\le B_{\rm PBT}(P).
+\tag{FCRT-17}\label{eq:fcrt-sandwich}
+\]
+\end{corollary}
+
+\begin{proof}
+Every boundary is nonnegative, and
+Proposition~\ref{prop:fcrt-once-charge} gives
+$B_{\rm FCRT}(\mathcal C)\ge X-Y$ configuration by configuration.  Taking
+the finite minimum therefore gives
+$B_{\rm FCRT}(P)\ge\max\{X-Y,0\}=\Delta(P)$.  Giving every selected block
+the choice $\bot$ embeds the SCRT configurations into the FCRT
+configurations.  Taking no shared block recovers the exclusive PBT problem.
+\end{proof}
+
+\begin{definition}[Uniform proper-subface gate]
+\label{def:fcrt-uniform-gate}
+The statement \textup{FCRT-1} is
+\[
+ \forall\varepsilon>0\ \exists C_\varepsilon\in\mathbb R\
+ \forall P\ \exists\mathcal C\in\operatorname{Conf}_{\rm FCRT}(P):
+ \quad B_{\rm FCRT}(\mathcal C)
+ \le\varepsilon r(P)+C_\varepsilon,
+\tag{FCRT-18}\label{eq:fcrt-uniform-gate}
+\]
+where $P$ ranges over all positive primitive triples.
+\end{definition}
+
+\begin{theorem}[Conditional implication to $abc$]
+\label{thm:fcrt-implies-abc}
+If \textup{FCRT-1} holds, then the standard logarithmic $abc$ conjecture
+holds.
+\end{theorem}
+
+\begin{proof}
+Insert the configuration supplied by \eqref{eq:fcrt-uniform-gate} into
+\eqref{eq:fcrt-height-bridge}:
+\[
+ h(P)\le r(P)+B_{\rm FCRT}(\mathcal C)
+       \le(1+\varepsilon)r(P)+C_\varepsilon.
+\]
+The quantifier order is unchanged.
+\end{proof}
+
+No instance, inhabitant, or proof of the uniform gate
+\eqref{eq:fcrt-uniform-gate} is supplied here.  The theorem is a conditional
+reduction, not an unconditional proof of $abc$.
+
+\subsection{Three exact separating points}
+
+The following proposition records complete finite optimizations, rather than
+merely exhibiting upper bounds.
+
+\begin{proposition}[Strict improvement, noncollapse, and an active cap]
+\label{prop:fcrt-three-witnesses}
+The three positive primitive points below have the indicated exact
+boundaries:
+\[
+\begin{array}{c|c|c|c|c}
+ P&e^{\Delta(P)}&e^{B_{\rm FCRT}(P)}
+  &e^{B_{\rm SCRT}(P)}&e^{B_{\rm PBT}(P)}\\ \hline
+ (1,675,676)&26/15&26/15&2&2\\
+ (1,224,225)&15/14&3/2&3/2&3/2\\
+ (1,65024,65025)&255/254&3/2&3&15/2.
+\end{array}
+\tag{FCRT-19}\label{eq:fcrt-three-witness-table}
+\]
+In particular, the last row makes every inequality in
+\eqref{eq:fcrt-sandwich} strict.
+\end{proposition}
+
+\begin{proof}
+For $P=(1,675,676)$,
+\[
+ 675=3^3 5^2,\qquad676=2^2 13^2,\qquad
+ e^X=26,\quad e^Y=15.
+\]
+The proper packet $\{3\}$ satisfies
+$1+3^3=28\equiv0\pmod4$, while $1+5^2=26$ is divisible by neither $4$ nor
+$13^2$.  The full packet certifies both source moduli.  The complete list of
+saturated compatible blocks is
+\[
+ (\{2\},\{3\}),\qquad(\{2\},\{3,5\}),\qquad
+ (\{13\},\{3,5\}).
+\]
+They share sinks, so at most one is selectable.  The four complete
+assignments of the two residual sinks in the no-block case have boundary
+factors
+\[
+                         13,\qquad\frac{13}{5},\qquad
+                         \frac{13}{3},\qquad2,
+\]
+while the three one-block cases have best factors
+$13/5$, $13$, and $2$, in the order displayed above.  Thus the exact SCRT
+minimum is $\log2$; the no-block list also gives the PBT minimum.  In FCRT,
+choose
+$(S,T)=(\{13\},\{3,5\})$.  Its surplus is
+$\log(15/13)$, and $U=\{3\}$ is a legal face for residual source $2$.
+Because $15/13<3$, the surplus, rather than the face weight, is limiting:
+the whole surplus is reused and the residual factor is
+\[
+                         \frac{2}{15/13}=\frac{26}{15}.
+\]
+The scalar lower bound in \eqref{eq:fcrt-sandwich} proves optimality.
+
+For $P=(1,224,225)$,
+\[
+ 224=2^5\cdot7,\qquad225=3^2 5^2,\qquad
+ e^X=15,\quad e^Y=14.
+\]
+The two nonempty proper packets give $1+2^5=33$ and $1+7=8$; neither is
+divisible by $9$ or $25$.  Hence the only nontrivial saturated blocks use
+the full sink set with one singleton source, and neither block can emit a
+flagged token.  The four complete PBT assignments give residual factors
+\[
+                         5,\quad3,\quad\frac32,\quad\frac52.
+\]
+The full-sink singleton blocks leave factors $5$ and $3$.  Thus all three
+finite models have exact factor $3/2$, strictly above the scalar factor
+$15/14$.
+
+Finally,
+\[
+ 65024=2^9\cdot127,\qquad
+ 65025=3^2\cdot5^2\cdot17^2,\qquad
+ e^X=255,\quad e^Y=254.
+\]
+The face $\{2\}$ gives
+$1+2^9=513=3^3\cdot19$, so it certifies source $3$ and neither source $5$
+nor source $17$.  The face $\{127\}$ gives $128$ and certifies none of the
+three source moduli.  Every nonempty proper source subset paired with the
+full sink set is compatible and saturated; the full source set is not
+saturated.  The only compatible proper-packet block is
+$(\{3\},\{2\})$, and it is not saturated.  Consequently every selectable
+block uses the full sink set and at most one can be selected.
+
+In PBT, the nine complete assignments of the two sinks to the three sources
+have residual factors among
+\[
+ \frac{15}{2},\quad15,\quad\frac{51}{2},\quad51,
+ \quad\frac{85}{2},\quad85;
+\]
+the minimum is $15/2$.  In SCRT, the block
+$(\{5,17\},\{2,127\})$ closes source factor $85$ and leaves factor $3$.
+Every other legal full-sink block leaves at least
+$5,15,17,51$, or $85$, proving exactness.  The same block has surplus factor
+$254/85$, while the legal face $U=\{2\}$ has factor $2$ and targets the
+remaining source $3$.  Here the proper-face cap is active:
+\[
+ e^\rho=\min\left\{\frac{254}{85},2\right\}=2,
+ \qquad e^{B_{\rm FCRT}}=\frac32.
+\]
+If a block contains source $3$, it cannot target $3$; if it omits source
+$3$, the token just described is the only possible flagged credit and is at
+most a factor of $2$.  The chosen block closes the largest possible mass in
+the other sources.  This proves the matching lower bound.  Hence
+\[
+                         \frac{255}{254}<\frac32<3<\frac{15}{2}.
+\]
+\end{proof}
+
+The middle row disproves the pointwise identity
+$B_{\rm FCRT}=\Delta$.  It does not disprove the quantified uniform gate,
+which permits both an $\varepsilon r(P)$ term and an additive constant.
+
+\subsection{The endpoint residue cube}
+
+Fix a source face $S\subseteq I$ and define the finite abelian group
+\[
+                   G_S=\prod_{p\in S}
+                   (\mathbb Z/p^{e_p}\mathbb Z)^\times.
+\tag{FCRT-20}\label{eq:fcrt-residue-group}
+\]
+For every integer $n$ coprime to $m(S)$, let $\overline n_S\in G_S$ denote
+its diagonal residue tuple.  Since $\gcd(ab,c)=1$, the following elements are
+well-defined:
+\[
+ g_{S,q}=
+ \begin{cases}
+  \overline{q^{v_q(a)}}_S,&q\mid a,\\
+  \overline{q^{v_q(b)}}_S^{-1},&q\mid b.
+ \end{cases}
+\tag{FCRT-21}\label{eq:fcrt-residue-generators}
+\]
+Define the packet-label map on the Boolean cube by
+\[
+ \Phi_S:\mathcal P(J)\longrightarrow G_S,
+ \qquad \Phi_S(T)=\prod_{q\in T}g_{S,q}.
+\tag{FCRT-22}\label{eq:fcrt-packet-label}
+\]
+
+\begin{proposition}[Fixed-fibre and complement identities]
+\label{prop:fcrt-fixed-fibre}
+For every $T\subseteq J$,
+\[
+ \Phi_S(T)=\overline{a_T}_S\,\overline{b_T}_S^{-1},
+ \qquad \Phi_S(J)=\overline{-1}_S,
+\tag{FCRT-23}\label{eq:fcrt-full-label}
+\]
+and
+\[
+ \begin{split}
+ m(S)\mid a_T+b_T
+ &\quad\Longleftrightarrow\quad
+ \Phi_S(T)=\overline{-1}_S\\
+ &\quad\Longleftrightarrow\quad
+ \Phi_S(J\setminus T)=1.
+ \end{split}
+\tag{FCRT-24}\label{eq:fcrt-complement-fibre}
+\]
+If $S'\subseteq S$ and
+$\pi_{S,S'}:G_S\to G_{S'}$ is coordinate projection, then
+\[
+                         \pi_{S,S'}\circ\Phi_S=\Phi_{S'}.
+\tag{FCRT-25}\label{eq:fcrt-inverse-system}
+\]
+\end{proposition}
+
+\begin{proof}
+Separating the primes of $T$ between the two coprime arms gives the first
+identity in \eqref{eq:fcrt-full-label}.  At every coordinate $p^{e_p}$,
+$a+b\equiv0$ and $b$ is a unit, so $ab^{-1}\equiv-1$; this gives the second
+identity.  Since $b_T$ is a unit modulo every $p^{e_p}$,
+$a_T+b_T\equiv0$ is equivalent to
+$\overline{a_T}_S\overline{b_T}_S^{-1}=\overline{-1}_S$.
+Finally,
+\[
+ \Phi_S(T)\Phi_S(J\setminus T)=\Phi_S(J)=\overline{-1}_S,
+\]
+which proves the complement statement by cancellation.  The projection
+identity follows coordinatewise from the definitions.
+\end{proof}
+
+Thus compatible packets form the $\overline{-1}_S$ fibre, and complementation
+identifies this fibre with the identity fibre.  The groups and maps form an
+inverse system over the source-face poset.  An FCRT flag is nevertheless a
+cross-fibre incidence.  For a block source $S_\nu$ and residual target
+$p\notin S_\nu$, it requires
+\[
+ T_\nu\in\Phi_{S_\nu}^{-1}(\overline{-1}_{S_\nu}),
+ \qquad
+ U_\nu\in\Phi_{\{p\}}^{-1}(\overline{-1}_{\{p\}}),
+ \qquad U_\nu\subsetneq T_\nu.
+\tag{FCRT-26}\label{eq:fcrt-cross-fibre}
+\]
+Both labels can be compared by projection from
+$G_{S_\nu\cup\{p\}}$, but neither packet is required to lie in the
+$\overline{-1}$ fibre for the union source.  Consequently
+\eqref{eq:fcrt-inverse-system} does not convert the flag into a fibre
+inclusion.
+
+\subsection{Signed exchange and exact Fourier enumerators}
+
+Define the residue-relation lattice
+\[
+ \Lambda_S=\left\{z\in\mathbb Z^J:
+              \prod_{q\in J}g_{S,q}^{z_q}=1\right\}.
+\tag{FCRT-27}\label{eq:fcrt-residue-lattice}
+\]
+
+\begin{proposition}[Same-fibre signed exchange]
+\label{prop:fcrt-signed-exchange}
+If $T,T'\subseteq J$ are compatible with the same source face $S$, then
+\[
+ \prod_{q\in T'\setminus T}g_{S,q}
+ =\prod_{q\in T\setminus T'}g_{S,q},
+\tag{FCRT-28}\label{eq:fcrt-signed-product}
+\]
+and
+\[
+ y(T')-y(T)=y(T'\setminus T)-y(T\setminus T').
+\tag{FCRT-29}\label{eq:fcrt-signed-weight}
+\]
+If $T\ne T'$, then
+$\mathbf 1_{T'}-\mathbf 1_T$ is a nonzero member of
+$\Lambda_S\cap\{-1,0,1\}^J$.
+\end{proposition}
+
+\begin{proof}
+Both packet products are $\overline{-1}_S$.  Factor each over
+$T\cap T'$ and its disjoint remainder, then cancel the common factor.  This
+proves \eqref{eq:fcrt-signed-product}; the analogous disjoint decompositions
+of the weight sums prove \eqref{eq:fcrt-signed-weight}.  The final statement
+is exactly the multiplicative identity written in exponent-vector form.
+\end{proof}
+
+In particular, if $2^{|J|}>|G_S|$, the pigeonhole principle gives distinct
+packets with the same label, and hence a nonzero
+$\{-1,0,1\}$ relation in $\Lambda_S$.  This conclusion alone controls
+neither the sign or size of \eqref{eq:fcrt-signed-weight} nor the location of
+the collision in the compatible fibre.
+
+Character orthogonality makes the missing analytic input precise.  Let
+$\widehat G_S=\operatorname{Hom}(G_S,S^1)$.  For $g\in G_S$ and
+$t\in\mathbb R$,
+\[
+ \sum_{\Phi_S(T)=g}e^{t y(T)}
+ =\frac1{|G_S|}\sum_{\chi\in\widehat G_S}
+   \overline{\chi(g)}
+   \prod_{q\in J}\left(1+e^{t y_q}\chi(g_{S,q})\right).
+\tag{FCRT-30}\label{eq:fcrt-one-fibre-fourier}
+\]
+Formula \eqref{eq:fcrt-one-fibre-fourier} only enumerates one prescribed
+source fibre.  The FCRT flag instead requires a joint, nested selection of
+$T$ in the $S$-fibre and a nonempty proper $U\subsetneq T$ in the
+$\{p\}$-fibre, with $p\notin S$.  A future Fourier argument would therefore
+need a rigorously defined two-fibre enumerator, control of its boundary
+terms, and a uniform nontrivial-character estimate strong enough to retain
+pairs with the required logarithmic weights.  It would then still have to
+select several pairs subject to source and sink disjointness.  No such joint
+estimate is asserted here.  Neither character orthogonality, the Boolean
+collision count, nor the same-fibre exchange proposition supplies it.
+
+\subsection{Scope of the exact finite computation}
+
+The frozen computation uses integer factorizations and rational
+multiplicative residuals; floating logarithms occur only as display fields.
+It exhausts the normalized domain
+\[
+ 1\le a\le b,\qquad a+b=c,\qquad\gcd(a,b)=1,\qquad c\le3000,
+\tag{FCRT-31}\label{eq:fcrt-scan-domain}
+\]
+which contains $1{,}368{,}094$ triples.  The easy strata
+$I=\varnothing$, $X\le Y$, and $|I|=1$ reduce the block search to proved
+closed formulas: all boundaries vanish when $I=\varnothing$; SCRT and FCRT
+vanish when $X\le Y$ because the full block is saturated, although PBT need
+not vanish; and when $|I|=1$ with $X>Y$, all three boundaries equal
+$X-Y$.  Only six points require a direct block search.  The producer
+enumerates every compatible saturated block, represents SCRT states by all
+attainable disjoint source--sink unions, retains every disjoint block family
+for FCRT, and solves the residual ownership problems by an exact capped-state
+dynamic program.  The independent validator instead recursively enumerates
+every disjoint block family and then every residual sink and reuse-token
+owner word.  It does not import the producer and performs a deterministic
+byte-for-byte replay.  The six directly enumerated points are
+\[
+ \begin{gathered}
+ (1,224,225),\ (1,675,676),\ (343,625,968),\\
+ (1,2303,2304),\ (125,2187,2312),\ (99,2401,2500).
+ \end{gathered}
+\]
+The same validation also covers $154$ fully factored structured-family rows,
+including the out-of-range regression point $(1,65024,65025)$, and $17$
+detailed certificates.
+
+Besides the three rows in \eqref{eq:fcrt-three-witness-table}, the forced
+comparison
+\[
+ \begin{array}{c|c|c|c|c}
+ P&e^\Delta&e^{B_{\rm FCRT}}&e^{B_{\rm SCRT}}&e^{B_{\rm PBT}}\\ \hline
+ (343,625,968)&44/35&44/35&11/7&11/7
+ \end{array}
+\tag{FCRT-32}\label{eq:fcrt-968-witness}
+\]
+is reproduced exactly.  Five points in the bounded domain have
+$B_{\rm SCRT}>\Delta$; FCRT reaches the scalar lower bound at
+$(1,675,676)$, $(343,625,968)$, and $(99,2401,2500)$.  The two remaining
+FCRT fragmentation points are
+$(1,224,225)$ and $(1,2303,2304)$.  The frozen validation status is
+\texttt{PASS}; sealed hashes for the exact output, producer, validator, and
+validation log are stored with the computation artifacts.
+
+These statements have finite scope.  They prove no uniform upper bound and
+produce no complete-premise unbounded counterfamily.  In particular, the
+$n=284$ point in $(2,15^n-2,15^n)$ is recorded only with the proved fact
+$v_{31}(15^{284}-2)=2$; its $335$-digit external arm is not completely
+factored, so no exact FCRT optimum is asserted there.
+
+\subsection{Lean formalization and the remaining arithmetic boundary}
+
+The ordinary proofs above precede the formalization.  The primary Lean
+module has $70$ public declarations and a matching $70$-query axiom audit.
+An independently written bridge module has $18$ public declarations and a
+matching $18$-query audit.  All four files compile with warnings treated as
+errors.  The union reported by \texttt{\#print axioms} is exactly
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}; no
+\texttt{sorry}, \texttt{admit}, \texttt{unsafe}, or
+\texttt{native\_decide} escape occurs.
+
+The formalized unconditional content includes the finite maximal-feasible
+subset and cancellation lemmas used in the nontrivial part of
+Proposition~\ref{prop:fcrt-free-collapse}; an explicit owner kernel in which
+each residual sink and reuse token has at most one owner; the clipped
+residual and once-charge mass inequality; the cap of reuse credit by both
+block surplus and witness weight; the endpoint height bridge; and the
+conditional implication of the separately supplied uniform gate to the
+repository's unchanged \texttt{ABCConjecture}.  The independent bridge caps
+raw incoming credit by source demand,
+\[
+                 \widehat c_i=\min\{x_i,c_i\},
+ \qquad x_i-\widehat c_i=\max\{x_i-c_i,0\},
+\]
+constructs the aggregate certificate from the owner kernel, and proves that
+the clipped boundary is preserved exactly.  Its endpoint conversion assumes
+the decomposition
+\[
+ \operatorname{signedEndpointCoreDefect}(P)
+ =\operatorname{sourceMass}-\operatorname{sinkMass}
+\tag{FCRT-33}\label{eq:fcrt-formal-endpoint-premise}
+\]
+as an explicit parameter.
+
+Several formal limits are mathematically substantive.  The Lean selection
+and cancellation lemmas do not encode the full typed free-target
+configuration or all cases of Proposition~\ref{prop:fcrt-free-collapse}.
+The formal \texttt{ProperSubfaceFlag} is not yet constructed from concrete
+endpoint unitary divisors, and the owner kernel itself stores neither block
+source sets nor the residual-target and block-disjointness proofs; it also
+does not identify its abstract witness weight with $y(U)$.  A bare endpoint
+certificate is tautologically inhabited by the boundary
+$\max\{h-r,0\}$, so its mere existence carries no flagged-CRT content.
+Concrete arithmetic admissibility, the endpoint identity
+\eqref{eq:fcrt-formal-endpoint-premise}, and uniform smallness carry that
+content.
+
+The additive commutative-group versions of the complement identity and
+same-fibre signed exchange are formalized.  The multiplicative residue-unit
+construction \eqref{eq:fcrt-residue-group}--\eqref{eq:fcrt-packet-label}, the
+inverse system, the Boolean collision criterion, and the Fourier identity
+\eqref{eq:fcrt-one-fibre-fourier} are not yet formalized.  The required joint
+cross-fibre enumerator has not yet been promoted to a theorem.  The witness
+files check the displayed factorizations,
+congruences, cap inequalities, and logarithmic strict inequalities, but do
+not encode the exhaustive optimizer that proves the three exact minima in
+Proposition~\ref{prop:fcrt-three-witnesses}.  Most significantly, no Lean
+term inhabits the uniform gate \eqref{eq:fcrt-uniform-gate}.  Therefore this
+checkpoint proves neither the standard $abc$ conjecture nor its negation;
+the cross-fibre weighted selection estimate remains an open obligation.
