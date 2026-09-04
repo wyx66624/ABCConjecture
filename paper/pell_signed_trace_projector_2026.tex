@@ -1,0 +1,352 @@
+% Directly inputtable paper section. Author: ChatGPT.
+\section{Signed trace projectors for a prime-index Pell squarefull gate}
+\label{sec:pell-signed-trace-projector}
+
+\noindent\textbf{Author: ChatGPT.}
+
+\paragraph{Summary.}
+Let $(1+\sqrt 2)^n=A_n+B_n\sqrt 2$.  We give an exact signed-trace
+encoding of the still open assertion that $A_\ell B_\ell$ is not
+squarefull at an odd prime index.  At every odd index,
+\[
+ A_{2n}-1=2A_n^2,\qquad A_{2n}+1=4B_n^2.
+\]
+Thus squared support in either coordinate is equivalent to fourth-power
+support in the corresponding adjacent trace factor.  We also identify a
+canonical Chinese-remainder projector
+$E_n=(A_{2n}+1)/2=2B_n^2$ whose exact idempotent defect is
+$2(A_nB_n)^2$, and show that one explicit Newton correction raises its
+precision from $(A_nB_n)^2$ to $(A_nB_n)^4$.
+
+An exhaustive computation over odd prime $\ell\leq 800000$ and support
+prime $q\leq 2000000$, independently replayed by matrix powering, finds
+exactly two depth-two support collisions, one in each channel.  Both give
+signed-trace depth exactly four and therefore disprove several tempting
+strengthenings.  The index-seven row is nonsquarefull because its opposite
+coordinate is the exponent-one prime $239$; the global squarefull status of
+the large row is unresolved.  Neither row is a counterexample to the $abc$
+conjecture.  All algebraic claims and the small counterexample are kernel
+checked in Lean.
+
+\subsection{The Pell coordinates and the unresolved gate}
+
+Define nonnegative integers $A_n,B_n$ by
+\[
+ (1+\sqrt2)^n=A_n+B_n\sqrt2.
+\]
+Equivalently, $(A_0,B_0)=(1,0)$ and
+\[
+ (A_{n+1},B_{n+1})=(A_n+2B_n,A_n+B_n).
+\]
+The norm identity is
+\begin{equation}\label{eq:pell-signed-norm}
+ A_n^2-2B_n^2=(-1)^n.
+\end{equation}
+For an integer $N>0$, \emph{squarefull} means that
+$p\mid N$ implies $p^2\mid N$ for every prime $p$.
+
+The present work begins with the following fixed-parameter result from the
+companion transversality analysis.
+
+\begin{proposition}[fixed-parameter gate]\label{prop:pell-signed-input}
+Let $\ell$ be an odd prime.  Every support prime of $A_\ell$ and
+$B_\ell$ is transverse at the Pell polynomial parameter $T=2$.
+Furthermore, all first Hensel displacements vanish if and only if
+$A_\ell B_\ell$ is squarefull.
+\end{proposition}
+
+Proposition~\ref{prop:pell-signed-input} is recalled as an input, rather than silently
+being folded into a computation.  Classical rank-of-apparition theory for
+Lucas sequences supplies the necessary candidate classes
+$q\equiv\pm1\pmod{2\ell}$ used below; primitive-divisor results such as
+\cite{BHV2001} provide the broader historical setting.  The exclusion of a
+squarefull product at every odd prime index remains open.
+
+\subsection{Depth doubling in adjacent signed trace factors}
+
+\begin{lemma}[addition law]\label{lem:pell-signed-addition}
+For all $m,n\geq0$,
+\[
+\begin{aligned}
+ A_{m+n}&=A_mA_n+2B_mB_n,\\
+ B_{m+n}&=A_mB_n+B_mA_n.
+\end{aligned}
+\]
+\end{lemma}
+
+\begin{proof}
+Multiply $(A_m+B_m\sqrt2)(A_n+B_n\sqrt2)$ and compare the
+rational and $\sqrt2$ coefficients.  This is also an induction using the
+defining recurrence.
+\end{proof}
+
+Put $Z_n=A_{2n}$.  Taking $m=n$ in
+Lemma~\ref{lem:pell-signed-addition} gives
+\[
+ Z_n=A_n^2+2B_n^2,\qquad B_{2n}=2A_nB_n.
+\]
+
+\begin{theorem}[signed trace-square identities]\label{thm:pell-signed-trace}
+If $n$ is odd, then
+\[
+ Z_n-1=2A_n^2,\qquad Z_n+1=4B_n^2.
+\]
+\end{theorem}
+
+\begin{proof}
+For odd $n$, equation~\eqref{eq:pell-signed-norm} gives
+$2B_n^2=A_n^2+1$.  Substitute this identity into
+$Z_n=A_n^2+2B_n^2$.
+\end{proof}
+
+\begin{theorem}[exact depth dictionary]\label{thm:pell-signed-depth}
+Let $n$ be odd.
+\begin{enumerate}
+\item If $q$ is an odd prime dividing $A_n$, then
+\[
+ q^4\mid Z_n-1\quad\Longleftrightarrow\quad q^2\mid A_n.
+\]
+\item If $q$ is an odd prime dividing $B_n$, then
+\[
+ q^4\mid Z_n+1\quad\Longleftrightarrow\quad q^2\mid B_n.
+\]
+\end{enumerate}
+Moreover, coordinate depth exactly two gives signed-trace depth exactly four.
+\end{theorem}
+
+\begin{proof}
+Use Theorem~\ref{thm:pell-signed-trace}.  The factors $2$ and $4$ are coprime
+to an odd prime.  Unique factorization gives both fourth-power equivalences;
+the same comparison at powers two, three, four, and five gives the exact
+depth-two-to-four assertion.
+\end{proof}
+
+For odd integers $A,B$ and a trace value $Z$ satisfying the two identities
+of Theorem~\ref{thm:pell-signed-trace}, define
+\[
+\operatorname{ST}_{4}(A,B,Z)
+\ \Longleftrightarrow\
+\begin{cases}
+ q^4\mid Z-1&\text{for every prime }q\mid A,\\
+ q^4\mid Z+1&\text{for every prime }q\mid B.
+\end{cases}
+\]
+
+\begin{corollary}[exact signed-packet gate]\label{cor:pell-signed-gate}
+For every odd prime $\ell$,
+\[
+\begin{aligned}
+ &\text{all fixed-$T=2$ first Hensel displacements vanish}\\
+ &\qquad\Longleftrightarrow\
+ A_\ell B_\ell\text{ is squarefull}\\
+ &\qquad\Longleftrightarrow\
+ \operatorname{ST}_{4}(A_\ell,B_\ell,A_{2\ell}).
+\end{aligned}
+\]
+\end{corollary}
+
+\begin{proof}
+The first equivalence is Proposition~\ref{prop:pell-signed-input}.  The coordinates are
+coprime, so their product is squarefull exactly when both coordinates are
+squarefull.  Apply Theorem~\ref{thm:pell-signed-depth} to every support prime.
+\end{proof}
+
+\begin{corollary}[radical compression]\label{cor:pell-signed-radical}
+If both coordinates at an odd index are squarefull, then
+\[
+ \rad(A_n)^4\mid Z_n-1,\qquad
+ \rad(B_n)^4\mid Z_n+1,
+\]
+and
+\[
+ \rad(A_nB_n)^4
+ \mid (Z_n-1)(Z_n+1)=8(A_nB_n)^2.
+\]
+\end{corollary}
+
+\begin{proof}
+Squarefullness gives $\rad(A_n)^2\mid A_n$ and
+$\rad(B_n)^2\mid B_n$.  Square these divisibilities and use
+Theorem~\ref{thm:pell-signed-trace}.  Coprimality combines the radicals, while direct
+multiplication gives the displayed product identity.
+\end{proof}
+
+The last divisibility is compatible with squarefullness and is not a
+contradiction.  Its content is the placement of the two complete support
+packets in adjacent factors of one trace coordinate.
+
+\subsection{The exact projector and its Newton continuation}
+
+Fix an odd index and abbreviate $A=A_n$, $B=B_n$, $U=AB$, and $Z=Z_n$.
+Define
+\[
+ E=\frac{Z+1}{2}=2B^2=A^2+1.
+\]
+
+\begin{theorem}[channel projector]\label{thm:pell-signed-projector}
+The integer $E$ satisfies
+\[
+ E\equiv1\pmod{A^2},\qquad E\equiv0\pmod{B^2},
+\]
+and has exact defect
+\begin{equation}\label{eq:pell-signed-defect}
+ E^2-E=2U^2.
+\end{equation}
+Thus $E$ is idempotent modulo $U^2$.  If $U\geq3$, it is not idempotent
+modulo $U^3$.
+\end{theorem}
+
+\begin{proof}
+The congruences follow from the two expressions for $E$.  Their product
+gives
+\[
+ E(E-1)=2B^2A^2=2U^2.
+\]
+If $U^3$ divided the last expression, then $U$ would divide $2$, which is
+impossible for $U\geq3$.
+\end{proof}
+
+The sharpness of the raw projector does not terminate the construction.
+For integers $e,d$, set
+\[
+ \mathcal N(e,d)=e-(2e-1)d.
+\]
+
+\begin{theorem}[one Newton step]\label{thm:pell-signed-newton}
+If $e^2-e=d$, then
+\[
+ \mathcal N(e,d)^2-\mathcal N(e,d)=d^2(4d-3).
+\]
+For $d=2U^2$, the corrected projector is congruent to $e$ modulo $U^2$
+and is idempotent modulo $U^4$.
+\end{theorem}
+
+\begin{proof}
+Write $z=2e-1$.  Since $z^2=4d+1$, expansion yields
+\[
+\begin{aligned}
+ (e-zd)^2-(e-zd)
+ &=d-z^2d+z^2d^2\\
+ &=d^2(4d-3).
+\end{aligned}
+\]
+The correction $zd$ is divisible by $U^2$, and the new defect contains
+$d^2=4U^4$.
+\end{proof}
+
+\subsection{Complete-premise finite counterexamples}
+
+The search enumerates every odd prime $\ell\leq800000$ and every prime
+$q\leq2000000$ in the necessary classes
+$q\equiv\pm1\pmod{2\ell}$.  It computes $(A_\ell,B_\ell)$ modulo $q^2$,
+and recomputes every repeated hit modulo $q^5$.  The producer uses binary
+powering in $\mathbb Z[\sqrt2]$.  A verifier independently powers
+\[
+ \begin{pmatrix}1&2\\1&1\end{pmatrix}^{\ell}.
+\]
+A separate certificate checks primality by complete trial division and
+recomputes each collision by a third, linear-recurrence algorithm.
+
+\begin{proposition}[replayed finite search]\label{prop:pell-signed-search}
+In the stated rectangle there are $63950$ prime indices, $764366$
+candidate-prime tests, and $12356$ actual support hits.  Exactly two
+support hits have depth at least two.  They are the rows in
+Table~\ref{tab:pell-signed-hits}; both have coordinate depth exactly two and signed
+trace depth exactly four.  No depth-three hit and no index with repeated
+support in both channels occurs in the rectangle.
+\end{proposition}
+
+\begin{table}[ht]
+\centering
+\caption{The complete repeated-support rows.  The two quotient columns are
+nonzero residues modulo $q$; $C_\ell$ denotes the indicated channel and
+$S_\ell=A_{2\ell}\mp1$ its signed trace shift.}
+\label{tab:pell-signed-hits}
+\small
+\begin{tabular}{rrcrrr}
+\toprule
+$\ell$ & $q$ & ch. & $C_\ell/q^2$
+& $C_\ell'(2)$ & $S_\ell/q^4$\\
+\midrule
+$7$ & $13$ & $B$ & $1$ & $12$ & $4$\\
+$773231$ & $1546463$ & $A$ & $1090979$ & $326969$ & $1407445$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{proof}
+The exhaustive producer and independent matrix replay agree on every
+count and on both complete rows.  For the larger row, complete trial
+division through $879$ and $1243$ proves the primality of $\ell$ and $q$,
+respectively.  Three orbit algorithms agree modulo
+$q^5=8844996565598309452666138088543$.  The nonzero residues in
+Table~\ref{tab:pell-signed-hits} prove $q^2\parallel C_\ell$, transversality of the
+fixed parameter, and $q^4\parallel A_{2\ell}\mp1$.
+\end{proof}
+
+The first row can also be read without software:
+\[
+ B_7=169=13^2,\qquad
+ A_{14}+1=114244=4\cdot13^4.
+\]
+It follows that $13^5\nmid A_{14}+1$.
+
+\begin{corollary}[refuted strengthenings]\label{cor:pell-signed-refuted}
+Each of the following universal statements is false:
+\begin{enumerate}
+\item no support prime repeats at an odd prime index;
+\item repetition is confined to the $A$ channel;
+\item repetition is confined to the $B$ channel;
+\item the minimal representative $q=2\ell\pm1$ forces simple support;
+\item coordinate depth two always promotes to signed-trace depth five.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+The two rows of Table~\ref{tab:pell-signed-hits} meet every premise of the relevant
+claims.  The first supplies the $B$-channel counterexample, the second the
+$A$-channel counterexample, and both use the minimal residue
+representative.  Exact trace depth four refutes the last assertion.
+\end{proof}
+
+\begin{remark}[logical boundary]
+The two rows are local collisions.  Neither row says that both coordinates
+at its index are squarefull.  Consequently neither refutes the
+signed-packet exclusion in Corollary~\ref{cor:pell-signed-gate}, and neither is an
+$abc$ counterexample.  Bounded absence of a simultaneous row is recorded
+only as a finite observation.
+\end{remark}
+
+\subsection{Formal and computational record}
+
+The Lean module
+\texttt{PellSignedTraceProjector}\allowbreak\texttt{20260903.lean}
+formalizes the addition and
+doubling laws, Theorems~\ref{thm:pell-signed-trace}--\ref{thm:pell-signed-newton}, the radical
+consequences, and the complete index-seven refutation.  It compiles with
+\texttt{-DwarningAsError=true}.  Its companion audit prints the axioms of
+every declaration.  The union consists only of the standard imported
+library axioms
+\[
+ \mathtt{propext},\qquad
+ \mathtt{Classical.choice},\qquad
+ \mathtt{Quot.sound}.
+\]
+
+The reproducibility bundle contains the producer, matrix verifier,
+complete-premise collision certifier, JSON outputs, exit codes, compiler
+logs, environment metadata, and SHA-256 manifests.  No finite no-hit is
+promoted to a global theorem.
+
+\subsection{Remaining problem}
+
+The prime-index squarefull gate is now the existence problem for two
+fourth-power support packets in the adjacent factors
+$A_{2\ell}-1$ and $A_{2\ell}+1$, together with their exact product and one
+explicit Newton correction step.  The depth-two collisions prove
+that neither a single channel nor one additional trace digit can close the
+problem.  A successful continuation must couple all support primes across
+both adjacent factors, or construct a genuine simultaneous packet.  Since
+no complete-premise counterexample to that global exclusion is presently
+known, the route remains open.
+

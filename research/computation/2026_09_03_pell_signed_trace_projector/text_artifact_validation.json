@@ -1,0 +1,43 @@
+{
+  "schema": "pell-signed-trace-text-validation-v1",
+  "artifacts": [
+    {
+      "path": "E:/AImath/abc\u731c\u60f3/research/ABC_PELL_SIGNED_TRACE_PROJECTOR_2026_09_03.md",
+      "byte_length": 13646,
+      "unexpected_c0": [],
+      "bare_high_risk_tex_controls": {},
+      "checks": {
+        "utf8_decodes": true,
+        "no_unexpected_c0_bytes": true,
+        "no_bare_high_risk_tex_controls": true,
+        "display_math_delimiters_balanced": true,
+        "tex_environment_delimiters_balanced": true,
+        "signed_factor_line_has_escaped_qquad": true
+      },
+      "status": "PASS"
+    },
+    {
+      "path": "E:/AImath/abc\u731c\u60f3/paper/pell_signed_trace_projector_2026.tex",
+      "byte_length": 12435,
+      "unexpected_c0": [],
+      "bare_high_risk_tex_controls": {},
+      "checks": {
+        "utf8_decodes": true,
+        "no_unexpected_c0_bytes": true,
+        "no_bare_high_risk_tex_controls": true,
+        "display_math_delimiters_balanced": true,
+        "tex_environment_delimiters_balanced": true,
+        "directly_inputtable_no_wrapper_tokens": true,
+        "section_label_is_unique_route_label": true,
+        "all_labels_have_route_prefix": true,
+        "all_local_refs_resolve": true
+      },
+      "status": "PASS"
+    }
+  ],
+  "bibliography_checks": {
+    "main_paper_has_BHV2001_bibitem": true,
+    "fragment_cites_BHV2001": true
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,39 @@
+⚠ [8744/8751] Replayed IUTThreeClosures.ABCStatement
+warning: IUTThreeClosures/ABCStatement.lean:35:20: '' starts on column 20, but all commands should start at the beginning of the line.
+
+Note: This linter can be disabled with `set_option linter.style.whitespace false`
+⚠ [8749/8751] Replayed IUTThreeClosures.ABCPointLegendreCurve
+warning: IUTThreeClosures/ABCPointLegendreCurve.lean:1:1: * '-/':
+Copyright too short!
+
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+warning: IUTThreeClosures/ABCPointLegendreCurve.lean:130:20: '' starts on column 20, but all commands should start at the beginning of the line.
+
+Note: This linter can be disabled with `set_option linter.style.whitespace false`
+ℹ [8750/8751] Replayed IUTThreeClosures.SymmetricProductCoefficientBarrier
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:203:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.ABCPoint.c_sq_le_two_abc' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:204:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.ABCPoint.two_height_sub_log_two_le_symmetricProductLog' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:205:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.ABCPoint.height_le_of_symmetricProduct_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:206:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.ABCPoint.height_le_three_halves_of_coefficient_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:207:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.ABCPoint.height_le_one_of_coefficient_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:208:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.ABCPoint.height_le_of_relative_symmetricProduct_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:209:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.abc_of_uniformSymmetricProductBound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: IUTThreeClosures/SymmetricProductCoefficientBarrier.lean:210:0: 'IUTThreeClosures.SymmetricProductCoefficientBarrier.coefficient_three_product_model_does_not_force_slope_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Build completed successfully (8751 jobs).

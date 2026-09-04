@@ -1,0 +1,40 @@
+{
+  "schema": "pell-signed-trace-projector-verification-v1",
+  "algorithm": "independent binary powering of [[1,2],[1,1]]",
+  "checks": {
+    "prime_index_count": true,
+    "candidate_count": true,
+    "support_count": true,
+    "simple_index_count": true,
+    "repeated_rows_exact": true,
+    "only_complete_counterexamples_retired": true,
+    "global_gates_remain_open": true
+  },
+  "replayed_repeated_hits": [
+    {
+      "index": 7,
+      "prime": 13,
+      "residue_sign": -1,
+      "residue_multiplier": 1,
+      "channel": "B",
+      "coordinate_depth": "exactly_2",
+      "coordinate_quotient_mod_prime": 1,
+      "derivative_mod_prime": 12,
+      "trace_shift_depth": "exactly_4",
+      "trace_shift_quotient_mod_prime": 4
+    },
+    {
+      "index": 773231,
+      "prime": 1546463,
+      "residue_sign": 1,
+      "residue_multiplier": 1,
+      "channel": "A",
+      "coordinate_depth": "exactly_2",
+      "coordinate_quotient_mod_prime": 1090979,
+      "derivative_mod_prime": 326969,
+      "trace_shift_depth": "exactly_4",
+      "trace_shift_quotient_mod_prime": 1407445
+    }
+  ],
+  "status": "PASS"
+}

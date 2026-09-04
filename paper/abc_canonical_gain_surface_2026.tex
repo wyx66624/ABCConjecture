@@ -1,0 +1,245 @@
+\section{Canonical gain surfaces and defect flags}
+\label{sec:canonical-gain-surface}
+
+M\"uller and Taktikos propose separating the quality of certain $abc$
+equations into an approximation gain and a power gain
+\cite{MuellerTaktikos2026}.  The factorization itself is exact and useful, but
+the proposed fixed bounds on the two factors do not supply the coefficient-one quantifier
+in the standard $abc$ conjecture.  We record the precise correlation that is
+needed and then introduce a finite-dimensional defect flag on which different
+arithmetic mechanisms can act.
+
+The source requires two cautions.  Definition~2.6 prints
+$\log(q_n^s k)$ in the numerator when $d_n>0$, whereas the proof of
+Theorem~2.7 uses $\log(p_n^3)$ for the same sign.  These are distinct when
+$p_n^3=kq_n^3+d_n$ and $d_n>0$.  Moreover, the printed proof of
+Theorem~2.8 obtains a limiting equality from a one-sided asymptotic estimate
+and refers to a finite verification below an unspecified cutoff.  We therefore
+use no continued-fraction assertion from that theorem.  The frozen source and
+its audit extraction are recorded under
+\path{research/sources/abc_gain_surface_2026_09_03/}.
+
+\subsection{The gain surface}
+
+Let $H,N,\mathcal R>1$ and write
+\[
+ h=\log H,\qquad n=\log N,\qquad \rho=\log \mathcal R.
+\]
+Define
+\[
+ q(H,\mathcal R)=\frac{h}{\rho},\qquad
+ A(H,N)=\frac{h}{n},\qquad
+ P(N,\mathcal R)=\frac{n}{\rho}.
+\]
+
+\begin{proposition}[Exact gain surface]
+\label{prop:exact-gain-surface}
+For every intermediate scale $N>1$,
+\[
+q(H,\mathcal R)=A(H,N)P(N,\mathcal R).
+\]
+\end{proposition}
+
+\begin{proof}
+Both $n$ and $\rho$ are positive, and
+$(h/n)(n/\rho)=h/\rho$.
+\end{proof}
+
+The level set $q=1+\varepsilon$ is the hyperbola
+$AP=1+\varepsilon$.  Separate bounds $A\le A_0$ and $P\le P_0$
+give only $q\le A_0P_0$.  Thus the proposed constants $3/2$ and $3$
+give a weak exponent $9/2$, rather than the standard $1+\varepsilon$
+for every positive $\varepsilon$.
+
+This failure is not an issue of endpoints.  In logarithmic coordinates take
+$(\rho,h,n)=(2,4,5)$ and exponentiate.  Then $1<\mathcal R<H<N$ while
+\[
+ A=\frac45<\frac32,\qquad P=\frac52<3,
+ \qquad q=2>\frac32.
+\]
+This is a full-premise countermodel to the abstract implication from the two
+independent bounds.  It is not an $abc$ triple.
+
+\subsection{The canonical arithmetic corridor}
+
+Let $a+b=c$ be a primitive positive triple with $a,b>1$, and set
+\[
+ M=abc,\qquad \mathcal R=\rad(abc),\qquad
+ A_{\rm can}=\frac{\log c}{\log M},\qquad
+ P_{\rm can}=\frac{\log M}{\log \mathcal R}.
+\]
+
+\begin{theorem}[Canonical gain corridor]
+\label{thm:canonical-gain-corridor}
+Every such triple satisfies
+\[
+ c^2<M<c^3,
+ \qquad
+ \frac13<A_{\rm can}<\frac12,
+ \qquad
+ q(a,b,c)=A_{\rm can}P_{\rm can}.
+\]
+Consequently
+\[
+ \frac13P_{\rm can}<q(a,b,c)<\frac12P_{\rm can}.
+\]
+\end{theorem}
+
+\begin{proof}
+Because $a,b>1$ and $(a,b)=1$, the pair cannot be $(2,2)$, so
+$(a-1)(b-1)>1$.  Expansion and $a+b=c$ give $ab>c$, whence
+$abc>c^2$.  Also $a<c$ and $b<c$, so $abc<c^3$.  Strict monotonicity
+of the logarithm gives
+\[
+ 2\log c<\log M<3\log c,
+\]
+which is equivalent to the claimed corridor.  The factorization is
+Proposition~\ref{prop:exact-gain-surface}; multiplying the corridor by the
+positive number $P_{\rm can}$ proves the last display.
+\end{proof}
+
+\begin{corollary}[Necessary canonical power concentration]
+\label{cor:canonical-power-concentration}
+If $q(a,b,c)\ge1+\varepsilon$, then
+\[
+ P_{\rm can}>2(1+\varepsilon).
+\]
+Conversely, $P_{\rm can}\le2(1+\varepsilon)$ implies
+$q(a,b,c)<1+\varepsilon$.
+\end{corollary}
+
+\begin{proof}
+Use $q<P_{\rm can}/2$ from
+Theorem~\ref{thm:canonical-gain-corridor}.
+\end{proof}
+
+The coefficient two is the same sharp threshold found by the symmetric
+product transfer, but the factorized form exposes the cancellation that the
+coefficient statement hides.
+
+\subsection{The affine defect plane}
+
+Put $h=\log c$, $m=\log M$, and $\rho=\log \mathcal R$, and define
+\[
+ X=\frac{m-\rho}{\rho},\qquad
+ Y=\frac{m-h}{\rho}.
+\]
+Here $X$ is the normalized multiplicity discarded by the radical and $Y$ is
+the normalized product-to-height slack.
+
+\begin{theorem}[Exact cancellation]
+\label{thm:gain-defect-cancellation}
+One has
+\[
+ \boxed{q(a,b,c)=1+X-Y.}
+\]
+Consequently the effective logarithmic inequality
+\[
+ h\le(1+\varepsilon)\rho+C
+\]
+is equivalent to
+\[
+ X-Y\le\varepsilon+\frac{C}{\rho}.
+\]
+\end{theorem}
+
+\begin{proof}
+Cancellation gives
+\[
+ 1+\frac{m-\rho}{\rho}-\frac{m-h}{\rho}=\frac{h}{\rho}.
+\]
+The second assertion follows by subtracting one and dividing by $\rho>0$.
+\end{proof}
+
+Thus a large power excess can be harmless when the approximation slack is
+comparably large.  Independent constant bounds erase this relation.
+
+\subsection{A scale groupoid and higher-dimensional flags}
+
+On real scale coordinates define
+\[
+ \delta(x,y)=y-x.
+\]
+This is an additive one-cocycle on the pair groupoid:
+\[
+ \delta(x,x)=0,
+ \qquad
+ \delta(x,z)=\delta(x,y)+\delta(y,z).
+\]
+On nonzero coordinates, $g(x,y)=y/x$ is the corresponding multiplicative
+cocycle.  Both identities are immediate by cancellation.
+
+A \emph{defect flag} is a finite path
+\[
+ \rho=s_0,s_1,\ldots,s_k=m,
+ \qquad d_i=s_i-s_{i-1}.
+\]
+Its total is path-independent:
+\[
+ \sum_{i=1}^k d_i=m-\rho.
+\]
+In particular every closed scale flag has trivial additive and multiplicative
+holonomy.  Refining a factorization cannot manufacture a saving; arithmetic
+must restrict the admissible paths or bound their costs.
+
+\begin{theorem}[Defect-budget half-space]
+\label{thm:defect-budget-half-space}
+Suppose
+\[
+ \sum_i d_i\le\sum_i B_i
+\]
+and
+\[
+ \sum_i B_i\le(m-h)+\varepsilon \rho+C.
+\]
+Then
+\[
+ h\le(1+\varepsilon)\rho+C.
+\]
+\end{theorem}
+
+\begin{proof}
+The cocycle law telescopes, so
+$m-\rho=\sum_i d_i\le\sum_iB_i$.  Combining this with the second budget and
+cancelling $m$ gives the result.
+\end{proof}
+
+For a fixed total allowance and no sign constraints, the vectors
+$(B_1,\ldots,B_k)$ lie in an affine half-space.  Its intersection with the
+nonnegative orthant is a simplex when the allowance is nonnegative.  Packet
+compression, Pell transversality, IUT log-volume estimates, and analytic
+radical bounds may therefore be assigned to different coordinates, but their
+total must remain below the approximation slack plus the
+$\varepsilon$-allowance.
+
+\subsection{An exact counterexample boundary}
+
+The tempting universal strengthening $P_{\rm can}\le3$ is false.  For the
+primitive hit
+\[
+ 3+125=128
+\]
+one has
+\[
+ M=48000=2^7\cdot3\cdot5^3,
+ \qquad \mathcal R=30,
+\]
+and $48000>30^3=27000$.  Hence
+\[
+ P_{\rm can}=\frac{\log48000}{\log30}>3.
+\]
+This retires only the universal power-three cap.  It does not refute the
+correlated defect barrier or the $abc$ conjecture.
+
+An exhaustive computation of the $5{,}465{,}583$ unordered primitive
+nonunit triples with $c\le6000$ found no violation of the canonical
+approximation corridor, $65$ triples of quality above one, and $14$ triples
+with canonical power gain above three.  These data are finite evidence only.
+
+The exact open gate is, for every $\varepsilon>0$, to prove
+\[
+ \sum_i d_i\le(m-h)+\varepsilon \rho+C_\varepsilon.
+\]
+This is equivalent to standard $abc$, so the coordinate construction alone
+does not close the conjecture.  It supplies a common, noncircular accounting
+surface on which the different routes can be combined.

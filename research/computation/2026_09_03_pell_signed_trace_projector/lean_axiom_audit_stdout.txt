@@ -1,0 +1,161 @@
+IUTThreeClosures.PellSignedTraceProjector20260903.sqrtTwoOrbit_add (m n : ℕ) :
+  PellSquareRootDescent20260831.sqrtTwoOrbit (m + n) =
+    ((PellSquareRootDescent20260831.sqrtTwoOrbit m).1 * (PellSquareRootDescent20260831.sqrtTwoOrbit n).1 +
+        2 * (PellSquareRootDescent20260831.sqrtTwoOrbit m).2 * (PellSquareRootDescent20260831.sqrtTwoOrbit n).2,
+      (PellSquareRootDescent20260831.sqrtTwoOrbit m).1 * (PellSquareRootDescent20260831.sqrtTwoOrbit n).2 +
+        (PellSquareRootDescent20260831.sqrtTwoOrbit m).2 * (PellSquareRootDescent20260831.sqrtTwoOrbit n).1)
+IUTThreeClosures.PellSignedTraceProjector20260903.sqrtTwoOrbit_double (n : ℕ) :
+  PellSquareRootDescent20260831.sqrtTwoOrbit (2 * n) =
+    ((PellSquareRootDescent20260831.sqrtTwoOrbit n).1 ^ 2 + 2 * (PellSquareRootDescent20260831.sqrtTwoOrbit n).2 ^ 2,
+      2 * (PellSquareRootDescent20260831.sqrtTwoOrbit n).1 * (PellSquareRootDescent20260831.sqrtTwoOrbit n).2)
+IUTThreeClosures.PellSignedTraceProjector20260903.pellDoubleTrace (n : ℕ) : ℕ
+IUTThreeClosures.PellSignedTraceProjector20260903.pellDoubleSine (n : ℕ) : ℕ
+IUTThreeClosures.PellSignedTraceProjector20260903.pellDoubleTrace_eq_quadratic (n : ℕ) :
+  pellDoubleTrace n =
+    (PellSquareRootDescent20260831.sqrtTwoOrbit n).1 ^ 2 + 2 * (PellSquareRootDescent20260831.sqrtTwoOrbit n).2 ^ 2
+IUTThreeClosures.PellSignedTraceProjector20260903.pellDoubleSine_eq_two_mul (n : ℕ) :
+  pellDoubleSine n =
+    2 * (PellSquareRootDescent20260831.sqrtTwoOrbit n).1 * (PellSquareRootDescent20260831.sqrtTwoOrbit n).2
+IUTThreeClosures.PellSignedTraceProjector20260903.odd_pellDoubleTrace_eq_positive (ell m : ℕ) (hell : ell = 2 * m + 1) :
+  pellDoubleTrace ell = 2 * (PellSquareRootDescent20260831.sqrtTwoOrbit ell).1 ^ 2 + 1
+IUTThreeClosures.PellSignedTraceProjector20260903.odd_pellDoubleTrace_add_one_eq_negative (ell m : ℕ)
+  (hell : ell = 2 * m + 1) : pellDoubleTrace ell + 1 = 4 * (PellSquareRootDescent20260831.sqrtTwoOrbit ell).2 ^ 2
+IUTThreeClosures.PellSignedTraceProjector20260903.odd_pellDoubleTrace_sub_one_eq_positive (ell m : ℕ)
+  (hell : ell = 2 * m + 1) : pellDoubleTrace ell - 1 = 2 * (PellSquareRootDescent20260831.sqrtTwoOrbit ell).1 ^ 2
+IUTThreeClosures.PellSignedTraceProjector20260903.prime_fourth_dvd_positiveTrace_iff_square {p A Z : ℕ}
+  (hp : Nat.Prime p) (hpA : p ∣ A) (hoddA : Odd A) (hZ : Z - 1 = 2 * A ^ 2) : p ^ 4 ∣ Z - 1 ↔ p ^ 2 ∣ A
+IUTThreeClosures.PellSignedTraceProjector20260903.prime_fourth_dvd_negativeTrace_iff_square {p B Z : ℕ}
+  (hp : Nat.Prime p) (hpB : p ∣ B) (hoddB : Odd B) (hZ : Z + 1 = 4 * B ^ 2) : p ^ 4 ∣ Z + 1 ↔ p ^ 2 ∣ B
+IUTThreeClosures.PellSignedTraceProjector20260903.positiveTrace_exact_four_of_coordinate_exact_two {p A Z : ℕ}
+  (hp : Nat.Prime p) (hpA : p ∣ A) (hoddA : Odd A) (hZ : Z - 1 = 2 * A ^ 2) (h2 : p ^ 2 ∣ A) (h3 : ¬p ^ 3 ∣ A) :
+  p ^ 4 ∣ Z - 1 ∧ ¬p ^ 5 ∣ Z - 1
+IUTThreeClosures.PellSignedTraceProjector20260903.negativeTrace_exact_four_of_coordinate_exact_two {p B Z : ℕ}
+  (hp : Nat.Prime p) (hpB : p ∣ B) (hoddB : Odd B) (hZ : Z + 1 = 4 * B ^ 2) (h2 : p ^ 2 ∣ B) (h3 : ¬p ^ 3 ∣ B) :
+  p ^ 4 ∣ Z + 1 ∧ ¬p ^ 5 ∣ Z + 1
+IUTThreeClosures.PellSignedTraceProjector20260903.SignedFourthTracePacket (A B Z : ℕ) : Prop
+IUTThreeClosures.PellSignedTraceProjector20260903.signedFourthTracePacket_iff_squarefull_channels {A B Z : ℕ}
+  (hoddA : Odd A) (hoddB : Odd B) (hZA : Z - 1 = 2 * A ^ 2) (hZB : Z + 1 = 4 * B ^ 2) :
+  SignedFourthTracePacket A B Z ↔
+    PellPolynomialAllIndexFormalization20260902.NatSquarefull A ∧
+      PellPolynomialAllIndexFormalization20260902.NatSquarefull B
+IUTThreeClosures.PellSignedTraceProjector20260903.fixed_allZeroDisplacements_iff_signedFourthTracePacket (ell m : ℕ)
+  (hprime : Nat.Prime ell) (hell : ell = 2 * m + 1) :
+  PellFixedTwoTransversality20260903.FixedPrimeIndexAllZeroDisplacements ell ↔
+    SignedFourthTracePacket (PellSquareRootDescent20260831.sqrtTwoOrbit ell).1
+      (PellSquareRootDescent20260831.sqrtTwoOrbit ell).2 (pellDoubleTrace ell)
+IUTThreeClosures.PellSignedTraceProjector20260903.radical_fourth_dvd_square_of_twoFull {N : ℕ}
+  (hN : KFullRadicalCompression.IsKFull 2 N) : abcRadical N ^ 4 ∣ N ^ 2
+IUTThreeClosures.PellSignedTraceProjector20260903.twoFull_channels_give_radical_fourth_trace {A B Z : ℕ}
+  (hA : KFullRadicalCompression.IsKFull 2 A) (hB : KFullRadicalCompression.IsKFull 2 B) (hZA : Z - 1 = 2 * A ^ 2)
+  (hZB : Z + 1 = 4 * B ^ 2) : abcRadical A ^ 4 ∣ Z - 1 ∧ abcRadical B ^ 4 ∣ Z + 1
+IUTThreeClosures.PellSignedTraceProjector20260903.twoFull_channels_give_product_radical_fourth {A B Z : ℕ}
+  (hA : KFullRadicalCompression.IsKFull 2 A) (hB : KFullRadicalCompression.IsKFull 2 B) (hZA : Z - 1 = 2 * A ^ 2)
+  (hZB : Z + 1 = 4 * B ^ 2) : abcRadical A ^ 4 * abcRadical B ^ 4 ∣ (Z - 1) * (Z + 1)
+IUTThreeClosures.PellSignedTraceProjector20260903.signedTrace_product_eq_eight_product_square {A B Z : ℕ}
+  (hZA : Z - 1 = 2 * A ^ 2) (hZB : Z + 1 = 4 * B ^ 2) : (Z - 1) * (Z + 1) = 8 * (A * B) ^ 2
+IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector (B : ℕ) : ℕ
+IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector_eq_positive_add_one {A B : ℕ}
+  (hnorm : A ^ 2 + 1 = 2 * B ^ 2) : pellChannelProjector B = A ^ 2 + 1
+IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector_defect {A B U : ℕ}
+  (hnorm : A ^ 2 + 1 = 2 * B ^ 2) (hU : U = A * B) : pellChannelProjector B ^ 2 = pellChannelProjector B + 2 * U ^ 2
+IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector_modEq {A B U : ℕ} (hnorm : A ^ 2 + 1 = 2 * B ^ 2)
+  (hU : U = A * B) : pellChannelProjector B ^ 2 ≡ pellChannelProjector B [MOD U ^ 2]
+IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector_positive_channel {A B : ℕ}
+  (hnorm : A ^ 2 + 1 = 2 * B ^ 2) : pellChannelProjector B ≡ 1 [MOD A ^ 2]
+IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector_negative_channel (B : ℕ) :
+  pellChannelProjector B ≡ 0 [MOD B ^ 2]
+IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector_precision_two_sharp {A B U : ℕ}
+  (hnorm : A ^ 2 + 1 = 2 * B ^ 2) (hU : U = A * B) (hUge : 3 ≤ U) :
+  ¬U ^ 3 ∣ pellChannelProjector B ^ 2 - pellChannelProjector B
+IUTThreeClosures.PellSignedTraceProjector20260903.newtonIdempotentCorrection (e d : ℤ) : ℤ
+IUTThreeClosures.PellSignedTraceProjector20260903.newtonIdempotentCorrection_defect {e d : ℤ} (hdef : e ^ 2 - e = d) :
+  newtonIdempotentCorrection e d ^ 2 - newtonIdempotentCorrection e d = d ^ 2 * (4 * d - 3)
+IUTThreeClosures.PellSignedTraceProjector20260903.newtonIdempotentCorrection_preserves_square (e U : ℤ) :
+  newtonIdempotentCorrection e (2 * U ^ 2) ≡ e [ZMOD U ^ 2]
+IUTThreeClosures.PellSignedTraceProjector20260903.pellProjector_newtonCorrection_mod_fourth {e U : ℤ}
+  (hdef : e ^ 2 - e = 2 * U ^ 2) :
+  U ^ 4 ∣ newtonIdempotentCorrection e (2 * U ^ 2) ^ 2 - newtonIdempotentCorrection e (2 * U ^ 2)
+IUTThreeClosures.PellSignedTraceProjector20260903.index_seven_doubleTrace : pellDoubleTrace 7 = 114243
+IUTThreeClosures.PellSignedTraceProjector20260903.thirteen_fourth_dvd_index_seven_negative_trace :
+  13 ^ 4 ∣ pellDoubleTrace 7 + 1
+IUTThreeClosures.PellSignedTraceProjector20260903.thirteen_fifth_not_dvd_index_seven_negative_trace :
+  ¬13 ^ 5 ∣ pellDoubleTrace 7 + 1
+IUTThreeClosures.PellSignedTraceProjector20260903.EveryFibonacciZeroDisplacementLiftsToTraceFifth : Prop
+IUTThreeClosures.PellSignedTraceProjector20260903.not_everyFibonacciZeroDisplacementLiftsToTraceFifth :
+  ¬EveryFibonacciZeroDisplacementLiftsToTraceFifth
+'IUTThreeClosures.PellSignedTraceProjector20260903.sqrtTwoOrbit_add' depends on axioms: [propext]
+'IUTThreeClosures.PellSignedTraceProjector20260903.sqrtTwoOrbit_double' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.pellDoubleTrace' does not depend on any axioms
+'IUTThreeClosures.PellSignedTraceProjector20260903.pellDoubleSine' does not depend on any axioms
+'IUTThreeClosures.PellSignedTraceProjector20260903.pellDoubleTrace_eq_quadratic' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.pellDoubleSine_eq_two_mul' depends on axioms: [propext, Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.odd_pellDoubleTrace_eq_positive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.odd_pellDoubleTrace_add_one_eq_negative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.odd_pellDoubleTrace_sub_one_eq_positive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.prime_fourth_dvd_positiveTrace_iff_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.prime_fourth_dvd_negativeTrace_iff_square' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.positiveTrace_exact_four_of_coordinate_exact_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.negativeTrace_exact_four_of_coordinate_exact_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.SignedFourthTracePacket' depends on axioms: [propext]
+'IUTThreeClosures.PellSignedTraceProjector20260903.signedFourthTracePacket_iff_squarefull_channels' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.fixed_allZeroDisplacements_iff_signedFourthTracePacket' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.radical_fourth_dvd_square_of_twoFull' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.twoFull_channels_give_radical_fourth_trace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.twoFull_channels_give_product_radical_fourth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.signedTrace_product_eq_eight_product_square' depends on axioms: [propext]
+'IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector' depends on axioms: [propext]
+'IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector_eq_positive_add_one' depends on axioms: [propext]
+'IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector_defect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector_modEq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector_positive_channel' depends on axioms: [propext]
+'IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector_negative_channel' depends on axioms: [propext]
+'IUTThreeClosures.PellSignedTraceProjector20260903.pellChannelProjector_precision_two_sharp' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.newtonIdempotentCorrection' does not depend on any axioms
+'IUTThreeClosures.PellSignedTraceProjector20260903.newtonIdempotentCorrection_defect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.newtonIdempotentCorrection_preserves_square' depends on axioms: [propext,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.pellProjector_newtonCorrection_mod_fourth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.index_seven_doubleTrace' depends on axioms: [propext]
+'IUTThreeClosures.PellSignedTraceProjector20260903.thirteen_fourth_dvd_index_seven_negative_trace' depends on axioms: [propext]
+'IUTThreeClosures.PellSignedTraceProjector20260903.thirteen_fifth_not_dvd_index_seven_negative_trace' depends on axioms: [propext]
+'IUTThreeClosures.PellSignedTraceProjector20260903.EveryFibonacciZeroDisplacementLiftsToTraceFifth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'IUTThreeClosures.PellSignedTraceProjector20260903.not_everyFibonacciZeroDisplacementLiftsToTraceFifth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

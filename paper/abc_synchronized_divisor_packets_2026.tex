@@ -264,15 +264,15 @@ the possible even arm carries the separate $2$-adic ambiguity.
 
 Let
 \[
- R=\operatorname{rad}(abc),
+ \mathcal R=\operatorname{rad}(abc),
  \qquad
- q_s(a,b,c)=\frac{\log c}{\log R}.
+ q_s(a,b,c)=\frac{\log c}{\log \mathcal R}.
 \]
 The spectrum is finite and nonempty, so one may define
 \begin{equation}
  \mathcal E_{\mathrm{sync}}(a,b,c)
  =\min_{Q\in\mathcal S(a,b,c)}
- \frac{\log B(Q)}{\log R}.
+ \frac{\log B(Q)}{\log \mathcal R}.
  \label{eq:sdp-energy}
 \end{equation}
 
@@ -286,22 +286,30 @@ For every triple in the present scope,
 
 \begin{proof}
 Theorem~\ref{thm:sdp-height-envelope} gives $c\le abc\le B(Q)$ for every
-packet.  Take logarithms, divide by the positive number $\log R$, and then
+packet.  Take logarithms, divide by the positive number $\log \mathcal R$,
+and then
 take the minimum.
 \end{proof}
 
-The precise missing global statement is now visible.  If, for each
+The original candidate global statement is now visible.  If, for each
 $\varepsilon>0$ and all but finitely many primitive nonunit triples, one
 could produce a packet with
 \begin{equation}
- B(Q)\le R^{1+\varepsilon},
+ B(Q)\le \mathcal R^{1+\varepsilon},
  \label{eq:sdp-open-gate}
 \end{equation}
 then Corollary~\ref{cor:sdp-energy-majorant} would imply the usual
-$abc$ inequality.  No estimate of the form
-\eqref{eq:sdp-open-gate} is established here.  The full packet gives no
-radical saving, and the finite data described below frequently finds no
-proper packet for high-quality triples.
+$abc$ inequality.  The infinite primitive family in
+Section~\ref{sec:packet-radical-excess-obstruction} refutes
+\eqref{eq:sdp-open-gate} at $\varepsilon=1/3$.  Only this uncompensated gate
+is retired.  The corrected live gate inserts the factor $ab$:
+\begin{equation}
+ B(Q)\le ab\,\mathcal R^{1+\varepsilon}.
+ \label{eq:sdp-compensated-open-gate}
+\end{equation}
+Together with $abc\le B(Q)$, this would imply
+$c\le\mathcal R^{1+\varepsilon}$.  No eventual estimate of the compensated
+form is established or refuted here.
 
 For comparison, Sankaran's alternative-quality construction
 \cite{Sankaran2026AlternativeQuality} assigns to the distinct primes
@@ -352,12 +360,14 @@ index-one packets.  Exact assertions checked the three packet congruences,
 the product divisibility, and both bounds in
 \eqref{eq:sdp-height-envelope}.  The family in
 Proposition~\ref{prop:sdp-family} was separately checked for
-$2\le t\le100000$.  Floating-point logarithms were used only for ranking.
+$2\le t\le100000$.  The selection $q_s\ge1$ used the equivalent exact
+integer condition $c\ge\operatorname{rad}(abc)$; floating-point logarithms
+were used for ranking and reported ratios.
 
 The twenty highest-quality triples in the finite range had only their full
-packet.  This is adverse evidence for the open gate
-\eqref{eq:sdp-open-gate}, but a finite range neither proves eventual packet
-rigidity nor refutes an all-but-finitely-many assertion.
+packet.  This is adverse finite evidence, but a finite range neither proves
+eventual packet rigidity nor decides the compensated all-but-finitely-many
+assertion.
 
 \subsection{Lean boundary and audit}
 
@@ -369,14 +379,16 @@ standard quality, packet energy, and the minimum over the finite nonempty
 packet spectrum, and proves the quality majorant in
 Corollary~\ref{cor:sdp-energy-majorant}.  Each counterexample in the preceding table is
 an explicit Lean datum and packet satisfying all packet premises.  The
-deterministic computation and the open radical estimate
-\eqref{eq:sdp-open-gate} are absent from the formalization; in particular no
-upper bound on the minimum packet energy is assumed.  A separate axiom audit
-lists all dependencies.
+deterministic computation and both global radical estimates are absent from
+this original formalization; in particular no upper bound on the minimum
+packet energy is assumed.  The companion radical-excess module formalizes the
+counterfamily and the rational-exponent compensated implication.  A separate
+axiom audit lists all dependencies.
 
-Thus the output of this route is a finite structural invariant and a sharp
-statement of the remaining radical-control problem.  It is not a proof or a
-claimed breakthrough on the $abc$ conjecture.
+Thus the surviving output of this route is a finite structural invariant and
+the compensated radical-control problem.  The original uncompensated problem
+has a full-premise counterfamily.  Neither result proves or disproves the
+$abc$ conjecture.
 
 % Suggested bibliography entry for a host paper:
 % \bibitem{Sankaran2026AlternativeQuality}

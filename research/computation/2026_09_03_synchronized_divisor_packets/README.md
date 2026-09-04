@@ -9,7 +9,7 @@ python research/computation/2026_09_03_synchronized_divisor_packets/search_synch
   --output research/computation/2026_09_03_synchronized_divisor_packets/OUTPUT.json
 ```
 
-The program uses deterministic integer arithmetic for factorization, divisor enumeration, packet membership, divisibility, and all asserted bounds. Floating-point logarithms are used only to rank triples and to report quality, Sankaran's packing efficiency, DGM quality, and synchronization energy.
+The program uses deterministic integer arithmetic for factorization, divisor enumeration, packet membership, divisibility, and all asserted bounds. At the default (or explicitly supplied) `--quality-threshold 1.0`, it selects `q_s >= 1` by the equivalent exact integer test `c >= rad(abc)`. Floating-point logarithms are used to rank triples and to report quality, Sankaran's packing efficiency, DGM quality, and synchronization energy; thresholds other than `1.0` retain the original floating-point comparison.
 
 The scan covers every normalized primitive triple `2 <= a <= b`, `a + b = c`, `c <= 5000`. Packet enumeration is exhaustive for all such triples through `c <= 1000`, for the top 200 standard-quality triples through `c <= 5000`, and for all scanned triples of standard quality at least one.
 
@@ -18,9 +18,9 @@ The output contains full-premise counterexamples to corner uniqueness and to the
 SHA-256 checksums for the archived run are:
 
 ```text
-55a322658e930587fda58d07dd3c84ee3c42b5795da3c2a94be6d58e980cb28e  search_synchronized_packets.py
-977cdea6e1460f3c32e450fe9f99ab056af8e2870f1053bbc7162892657fc83a  OUTPUT.json
-977cdea6e1460f3c32e450fe9f99ab056af8e2870f1053bbc7162892657fc83a  RUN.log
+0bc623ef7f19251a6db6f98378ed064e4236ad70e393a7affddd4cba44aa2b50  search_synchronized_packets.py
+2ceabeae8caadde6775e04fadbd05358e089046017d8eb91c7be64ba790c373f  OUTPUT.json
+2ceabeae8caadde6775e04fadbd05358e089046017d8eb91c7be64ba790c373f  RUN.log
 ```
 
 `RUN.log` is the UTF-8 console rendering of the same JSON object stored in `OUTPUT.json`, hence the identical archived checksum.

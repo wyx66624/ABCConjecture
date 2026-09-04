@@ -1,8 +1,15 @@
 # Synchronized divisor packets for primitive \(abc\) triples
 
 **Date:** 2026-09-03
-**Status:** the named finite propositions and the real-log finite-minimum quality bridge are Lean-closed; the radical-control gate is open
+**Status:** the named finite propositions and the real-log finite-minimum quality bridge are Lean-closed; the original uncompensated radical-control gate (5.3) is now refuted at \(\varepsilon=1/3\), while its compensated replacement remains open
 **Claim discipline:** this note does **not** prove the \(abc\) conjecture, any uniform upper bound for \(abc\) quality, or an eventual packet-compression theorem.
+
+> **Correction after the original checkpoint.**  The infinite primitive family
+> \((2^{k+4},3,2^{k+4}+3)\) proves that every packet satisfies
+> \(R^4<B(Q)^3\), so (5.3) fails at \(\varepsilon=1/3\).  Only that
+> uncompensated gate is retired.  The packet spectrum and the corrected open
+> implication with the factor \(ab\) are developed in
+> `ABC_SYNCHRONIZED_PACKET_RADICAL_EXCESS_OBSTRUCTION_2026_09_03.md`.
 
 ## 1. Purpose and scope
 
@@ -227,7 +234,7 @@ This family also shows that no universal estimate \(abc\le T(Q)^r\) can hold for
 
 The three identities in (4.4) are familiar square-difference algebra.  They are used here as one exact stratum of the packet spectrum; renaming those identities is not the claimed contribution.
 
-## 5. A radical-height bridge with an explicit open gate
+## 5. A radical-height bridge and the original gate
 
 Let
 
@@ -266,15 +273,28 @@ Every nonunit primitive triple satisfies
 
 Divide by \(\log R>0\), then minimize over the finite nonempty spectrum.  \(\square\)
 
-This produces a precise sufficient route to \(abc\):
+The bridge originally suggested the following sufficient route to \(abc\):
 
-> **Open synchronization-energy gate.** For every \(\varepsilon>0\), prove that all but finitely many nonunit primitive triples admit a synchronized packet \(Q\) with
+> **Original uncompensated synchronization-energy gate (now refuted).** For every \(\varepsilon>0\), prove that all but finitely many nonunit primitive triples admit a synchronized packet \(Q\) with
 > \[
 >   B(Q)\le R^{1+\varepsilon}.
 >   \tag{5.3}
 > \]
 
-Theorem 5.1 would then give \(q\le1+\varepsilon\).  No estimate resembling (5.3) is proved here.  It is stronger than the desired \(abc\) inequality at the packet level, and the finite data in Section 10 is adverse rather than supportive: the largest-quality triples in the search often have only the full packet and therefore have large synchronization energy.  The algebraic layer identifies a testable gate; it does not cross it.
+Theorem 5.1 would then give \(q\le1+\varepsilon\).  The later radical-excess
+audit gives an infinite full-premise counterfamily to (5.3) at
+\(\varepsilon=1/3\).  The corrected live gate asks instead for an eventual
+packet satisfying
+
+\[
+  B(Q)\le ab\,R^{1+\varepsilon}.
+  \tag{5.4}
+\]
+
+Together with \(abc\le B(Q)\), this implies \(c\le R^{1+\varepsilon}\).
+No eventual estimate of the form (5.4) is proved or refuted here.  The finite
+data in Section 10 is evidence only.  The algebraic layer identifies a
+testable corrected gate; it does not cross it.
 
 ## 6. Odd-prime orientation channels
 
@@ -444,7 +464,7 @@ python research/computation/2026_09_03_synchronized_divisor_packets/search_synch
 The output records script SHA-256
 
 ```text
-55a322658e930587fda58d07dd3c84ee3c42b5795da3c2a94be6d58e980cb28e
+0bc623ef7f19251a6db6f98378ed064e4236ad70e393a7affddd4cba44aa2b50
 ```
 
 and reports:
@@ -470,9 +490,13 @@ The 20 highest-quality triples in that range all have only the full packet.  For
 
 \]
 
-and the output verifies \(\eta q_{\rm DGM}=q_s\), but its minimum synchronization energy is approximately \(8.54545\).  This finite observation weighs against treating (5.3) as already plausible.  It neither proves eventual rigidity nor refutes an all-but-finitely-many statement.
+and the output verifies \(\eta q_{\rm DGM}=q_s\), but its minimum
+synchronization energy is approximately \(8.54545\).  This finite observation
+is adverse evidence for finding short packets, including the compensated
+direction (5.4).  By itself it neither proves eventual rigidity nor decides an
+all-but-finitely-many compensated statement.
 
-Every enumerated packet was checked by exact integer assertions for positivity, \(abc\mid D(Q)\), \(abc\le B(Q)\), and \(abc\le T(Q)^6\).  Floating-point logarithms are used only for ranking and reported ratios, never for packet membership or divisibility.
+Every enumerated packet was checked by exact integer assertions for positivity, \(abc\mid D(Q)\), \(abc\le B(Q)\), and \(abc\le T(Q)^6\).  At the recorded threshold \(q_s\ge1\), triple selection uses the equivalent exact integer condition \(c\ge\operatorname{rad}(abc)\).  Floating-point logarithms are used for ranking and reported ratios; a user-supplied threshold other than \(1.0\) retains the original floating-point comparison.  They are never used for packet membership or divisibility.
 
 ## 11. Formalization boundary and declaration inventory
 
@@ -492,11 +516,23 @@ The independent module `Lean/IUTThreeClosures/ABCSynchronizedDivisorPackets20260
 
 The companion `Lean/IUTThreeClosures/ABCSynchronizedDivisorPackets20260903AxiomAudit.lean` inventories these declarations.  Its output contains only `propext`, `Classical.choice`, and `Quot.sound`.  There is no `sorry`, `admit`, declaration of a new axiom, finite-search oracle, or asymptotic radical-compression assumption.
 
-The finite search and the open all-but-finitely-many gate (5.3) are deliberately absent from the Lean module.  The quality majorant is now formalized, but no upper bound on `minimumPacketEnergy` is assumed or proved.  Thus Lean-closed applies to the exact bridge \(q_s\le\mathcal E_{\rm sync}\), never to the global radical-compression gate.
+The finite search, the refuted all-but-finitely-many gate (5.3), and the open
+compensated gate (5.4) are deliberately absent from the original Lean module.
+The quality majorant is formalized, but no upper bound on
+`minimumPacketEnergy` is assumed or proved.  Thus Lean-closed applies to the
+exact bridge \(q_s\le\mathcal E_{\rm sync}\), never to a global
+radical-compression gate.  The companion radical-excess module formalizes the
+counterfamily and the rational-exponent compensated implication.
 
 ## 12. Exact \(abc\) gap and no-breakthrough statement
 
-The route currently stops at (5.3).  The identity \(a+b=c\) produces the packet spectrum and forces (3.1) and (7.2), but none of those statements controls the smallest pair-max bound by \(\operatorname{rad}(abc)^{1+\varepsilon}\).  The full packet alone yields a bound on the order of \(c^6\), which contains no new radical saving.  The finite audit shows that proper packets can be absent even among conspicuous high-quality triples.
+The original route stopped at (5.3), which is now refuted at
+\(\varepsilon=1/3\).  The parent route continues through the compensated gate
+(5.4).  The identity \(a+b=c\) produces the packet spectrum and forces (3.1)
+and (7.2), but none of those statements proves the eventual compensated
+bound.  The full packet alone yields a bound on the order of \(c^6\), which
+contains no new radical saving.  The finite audit shows that proper packets
+can be absent even among conspicuous high-quality triples.
 
 Accordingly:
 
@@ -504,12 +540,6 @@ Accordingly:
 * no (abc) estimate is derived;
 * no novelty priority beyond this project is claimed;
 * no conflict with Sankaran's exact factorization is asserted;
-* this is a finite structural invariant plus an explicit, still-open global gate.
+* this is a finite structural invariant whose original uncompensated gate is
+  refuted and whose explicit compensated global gate remains open.
 
-## Appendix A. Required correction to the older Steinberg report
-
-The older umbrella-style report `research/ABC_STEINBERG_VALUATION_CONTACT_SURFACE_2026_09_02.md`, lines 763--765 in the 2026-09-03 checkout, still describes the integer exponent-gcd bridge as paper-only.  It should be replaced during integration, but is deliberately not edited by this task, with:
-
-> Lean now formalizes the positive-integer exponent-gcd construction, the primitive-base power decomposition (with the unit convention), the nonunit exponent-gcd-one theorem, and the induced height/defect split in `SteinbergIntegerFiniteChain20260902.lean`. That companion also instantiates the concrete finite-support exact-boundary chain inequality. `SteinbergFiveTermBoundaryBridge20260903.lean` now formalizes the rational five-term-generated submodule and derives its boundary bridge. What remains open is a positive filling-existence theorem for an arbitrary target, together with the two analytic Gate VF cost estimates; none of those statements follows from generated-submodule membership alone.
-
-**Reason.**  The old sentence contradicts both supplemental Lean modules and the revised account earlier in that same report.  The generated-submodule boundary bridge is now closed, but it neither constructs a positive filling for every target nor proves either analytic cost estimate.  The replacement records exactly that changed boundary.

@@ -10,7 +10,8 @@ x,y,z>1, a synchronized packet satisfies
 
 The full packet (a,b,c) is automatic.  This script searches for proper
 packets and stress-tests several stronger statements against full premises.
-It uses only deterministic integer arithmetic.
+Packet predicates and the default q >= 1 threshold use deterministic integer
+arithmetic; floating-point logarithms are retained for ranking and metrics.
 """
 
 from __future__ import annotations
@@ -135,6 +136,18 @@ def primitive_triples(limit: int) -> Iterable[Tuple[int, int, int]]:
                 yield a, b, c
 
 
+def meets_quality_threshold(
+    c: int,
+    radical: int,
+    quality: float,
+    threshold: float,
+) -> bool:
+    """Test q >= threshold, using the equivalent exact test at q = 1."""
+    if threshold == 1.0:
+        return c >= radical
+    return quality >= threshold
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=20_000)
@@ -170,8 +183,10 @@ def main() -> None:
     selected.update((a, b, c) for _, a, b, c, _ in quality_rows[: args.top_quality])
     selected.update(
         (a, b, c)
-        for quality, a, b, c, _ in quality_rows
-        if quality >= args.quality_threshold
+        for quality, a, b, c, radical in quality_rows
+        if meets_quality_threshold(
+            c, radical, quality, args.quality_threshold
+        )
     )
 
     packet_count = 0

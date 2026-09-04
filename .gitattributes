@@ -157,4 +157,23 @@ paper/pell_fixed_two_transversality_2026.tex -text -eol -whitespace
 paper/steinberg_five_term_boundary_bridge_2026.tex -text -eol -whitespace
 paper/steinberg_five_term_boundary_bridge_2026_bibitems.tex -text -eol -whitespace
 
+# Canonical-gain / packet-radical / signed-Pell checkpoint evidence is sealed
+# byte-for-byte.  Preserve computation outputs, source captures, compiler
+# logs, rendered QA pages, manifests, and the six audited Lean files exactly.
+Lean/verification/2026_09_03_gain_packet_pell/** -text -eol -whitespace
+research/computation/2026_09_03_canonical_gain_surface/** -text -eol -whitespace
+research/computation/2026_09_03_packet_radical_excess_obstruction/** -text -eol -whitespace
+research/computation/2026_09_03_pell_signed_trace_projector/** -text -eol -whitespace
+research/sources/abc_gain_surface_2026_09_03/** -text -eol -whitespace
+research/verification/2026_09_03_canonical_gain_surface/** -text -eol -whitespace
+research/verification/2026_09_03_packet_radical_excess_obstruction/** -text -eol -whitespace
+output/latex_2026_09_03_pell_signed_trace_projector/** -text -eol -whitespace
+output/pdf/ChatGPT_ABC_Gain_Packet_Trace_2026_09_03_QA/** -text -eol -whitespace
+Lean/IUTThreeClosures/ABCCanonicalGainSurface20260903*.lean -text -eol -whitespace
+Lean/IUTThreeClosures/SynchronizedPacketRadicalExcessObstruction20260903*.lean -text -eol -whitespace
+Lean/IUTThreeClosures/PellSignedTraceProjector20260903*.lean -text -eol -whitespace
+paper/abc_canonical_gain_surface_2026.tex -text -eol -whitespace
+paper/synchronized_packet_radical_excess_obstruction_2026.tex -text -eol -whitespace
+paper/pell_signed_trace_projector_2026.tex -text -eol -whitespace
+
 Lean/lean-toolchain text eol=lf

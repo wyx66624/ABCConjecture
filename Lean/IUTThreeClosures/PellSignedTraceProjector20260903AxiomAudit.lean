@@ -1,0 +1,88 @@
+/-
+Copyright (c) 2026 ChatGPT. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: ChatGPT
+-/
+import IUTThreeClosures.PellSignedTraceProjector20260903
+
+/-! Dependency audit for the signed trace projector checkpoint. -/
+
+namespace IUTThreeClosures
+namespace PellSignedTraceProjector20260903
+
+#check sqrtTwoOrbit_add
+#check sqrtTwoOrbit_double
+#check pellDoubleTrace
+#check pellDoubleSine
+#check pellDoubleTrace_eq_quadratic
+#check pellDoubleSine_eq_two_mul
+#check odd_pellDoubleTrace_eq_positive
+#check odd_pellDoubleTrace_add_one_eq_negative
+#check odd_pellDoubleTrace_sub_one_eq_positive
+#check prime_fourth_dvd_positiveTrace_iff_square
+#check prime_fourth_dvd_negativeTrace_iff_square
+#check positiveTrace_exact_four_of_coordinate_exact_two
+#check negativeTrace_exact_four_of_coordinate_exact_two
+#check SignedFourthTracePacket
+#check signedFourthTracePacket_iff_squarefull_channels
+#check fixed_allZeroDisplacements_iff_signedFourthTracePacket
+#check radical_fourth_dvd_square_of_twoFull
+#check twoFull_channels_give_radical_fourth_trace
+#check twoFull_channels_give_product_radical_fourth
+#check signedTrace_product_eq_eight_product_square
+#check pellChannelProjector
+#check pellChannelProjector_eq_positive_add_one
+#check pellChannelProjector_defect
+#check pellChannelProjector_modEq
+#check pellChannelProjector_positive_channel
+#check pellChannelProjector_negative_channel
+#check pellChannelProjector_precision_two_sharp
+#check newtonIdempotentCorrection
+#check newtonIdempotentCorrection_defect
+#check newtonIdempotentCorrection_preserves_square
+#check pellProjector_newtonCorrection_mod_fourth
+#check index_seven_doubleTrace
+#check thirteen_fourth_dvd_index_seven_negative_trace
+#check thirteen_fifth_not_dvd_index_seven_negative_trace
+#check EveryFibonacciZeroDisplacementLiftsToTraceFifth
+#check not_everyFibonacciZeroDisplacementLiftsToTraceFifth
+
+#print axioms sqrtTwoOrbit_add
+#print axioms sqrtTwoOrbit_double
+#print axioms pellDoubleTrace
+#print axioms pellDoubleSine
+#print axioms pellDoubleTrace_eq_quadratic
+#print axioms pellDoubleSine_eq_two_mul
+#print axioms odd_pellDoubleTrace_eq_positive
+#print axioms odd_pellDoubleTrace_add_one_eq_negative
+#print axioms odd_pellDoubleTrace_sub_one_eq_positive
+#print axioms prime_fourth_dvd_positiveTrace_iff_square
+#print axioms prime_fourth_dvd_negativeTrace_iff_square
+#print axioms positiveTrace_exact_four_of_coordinate_exact_two
+#print axioms negativeTrace_exact_four_of_coordinate_exact_two
+#print axioms SignedFourthTracePacket
+#print axioms signedFourthTracePacket_iff_squarefull_channels
+#print axioms fixed_allZeroDisplacements_iff_signedFourthTracePacket
+#print axioms radical_fourth_dvd_square_of_twoFull
+#print axioms twoFull_channels_give_radical_fourth_trace
+#print axioms twoFull_channels_give_product_radical_fourth
+#print axioms signedTrace_product_eq_eight_product_square
+#print axioms pellChannelProjector
+#print axioms pellChannelProjector_eq_positive_add_one
+#print axioms pellChannelProjector_defect
+#print axioms pellChannelProjector_modEq
+#print axioms pellChannelProjector_positive_channel
+#print axioms pellChannelProjector_negative_channel
+#print axioms pellChannelProjector_precision_two_sharp
+#print axioms newtonIdempotentCorrection
+#print axioms newtonIdempotentCorrection_defect
+#print axioms newtonIdempotentCorrection_preserves_square
+#print axioms pellProjector_newtonCorrection_mod_fourth
+#print axioms index_seven_doubleTrace
+#print axioms thirteen_fourth_dvd_index_seven_negative_trace
+#print axioms thirteen_fifth_not_dvd_index_seven_negative_trace
+#print axioms EveryFibonacciZeroDisplacementLiftsToTraceFifth
+#print axioms not_everyFibonacciZeroDisplacementLiftsToTraceFifth
+
+end PellSignedTraceProjector20260903
+end IUTThreeClosures

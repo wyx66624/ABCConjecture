@@ -1,0 +1,227 @@
+{
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "records": [
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/ABCCanonicalGainSurface20260903.lean"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\Lean",
+      "elapsed_seconds": 10.024,
+      "exit_code": 0,
+      "name": "abccanonicalgainsurface-main-strict",
+      "output_bytes": 0
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/ABCCanonicalGainSurface20260903AxiomAudit.lean"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\Lean",
+      "elapsed_seconds": 9.441,
+      "exit_code": 0,
+      "name": "abccanonicalgainsurface-axiom-audit-strict",
+      "output_bytes": 5953
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/SynchronizedPacketRadicalExcessObstruction20260903.lean"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\Lean",
+      "elapsed_seconds": 4.656,
+      "exit_code": 0,
+      "name": "synchronizedpacketradicalexcessobstruction-main-strict",
+      "output_bytes": 0
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/SynchronizedPacketRadicalExcessObstruction20260903AxiomAudit.lean"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\Lean",
+      "elapsed_seconds": 4.528,
+      "exit_code": 0,
+      "name": "synchronizedpacketradicalexcessobstruction-axiom-audit-strict",
+      "output_bytes": 5868
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/PellSignedTraceProjector20260903.lean"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\Lean",
+      "elapsed_seconds": 9.931,
+      "exit_code": 0,
+      "name": "pellsignedtraceprojector-main-strict",
+      "output_bytes": 0
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/PellSignedTraceProjector20260903AxiomAudit.lean"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\Lean",
+      "elapsed_seconds": 9.447,
+      "exit_code": 0,
+      "name": "pellsignedtraceprojector-axiom-audit-strict",
+      "output_bytes": 12531
+    },
+    {
+      "argv": [
+        "lake",
+        "build",
+        "IUTThreeClosures.ABCSynchronizedDivisorPackets20260903"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\Lean",
+      "elapsed_seconds": 1.944,
+      "exit_code": 0,
+      "name": "legacy-synchronized-packet-build",
+      "output_bytes": 42
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/ABCSynchronizedDivisorPackets20260903.lean"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\Lean",
+      "elapsed_seconds": 4.976,
+      "exit_code": 0,
+      "name": "legacy-synchronized-packet-main-strict",
+      "output_bytes": 0
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "IUTThreeClosures/ABCSynchronizedDivisorPackets20260903AxiomAudit.lean"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\Lean",
+      "elapsed_seconds": 4.641,
+      "exit_code": 0,
+      "name": "legacy-synchronized-packet-axiom-audit-strict",
+      "output_bytes": 9554
+    },
+    {
+      "argv": [
+        "lake",
+        "build",
+        "IUTThreeClosures"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\Lean",
+      "elapsed_seconds": 4.459,
+      "exit_code": 0,
+      "name": "umbrella-build",
+      "output_bytes": 1167118
+    },
+    {
+      "argv": [
+        "D:\\anaconda3\\python.exe",
+        "verify_checkpoint.py"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\research\\verification\\2026_09_03_canonical_gain_surface",
+      "elapsed_seconds": 24.362,
+      "exit_code": 0,
+      "name": "canonical-gain-route-verifier",
+      "output_bytes": 465
+    },
+    {
+      "argv": [
+        "D:\\anaconda3\\python.exe",
+        "verify_artifacts.py"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\research\\verification\\2026_09_03_packet_radical_excess_obstruction",
+      "elapsed_seconds": 0.061,
+      "exit_code": 0,
+      "name": "packet-radical-route-verifier",
+      "output_bytes": 673
+    },
+    {
+      "argv": [
+        "D:\\anaconda3\\python.exe",
+        "verify_signed_trace_projector.py"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\research\\computation\\2026_09_03_pell_signed_trace_projector",
+      "elapsed_seconds": 3.176,
+      "exit_code": 0,
+      "name": "pell-search-verifier",
+      "output_bytes": 1115
+    },
+    {
+      "argv": [
+        "D:\\anaconda3\\python.exe",
+        "certify_exact_collisions.py"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\research\\computation\\2026_09_03_pell_signed_trace_projector",
+      "elapsed_seconds": 0.149,
+      "exit_code": 0,
+      "name": "pell-collision-certifier",
+      "output_bytes": 3747
+    },
+    {
+      "argv": [
+        "D:\\anaconda3\\python.exe",
+        "audit_formalization.py",
+        "--main",
+        "E:\\AImath\\abc\u731c\u60f3\\Lean\\IUTThreeClosures\\PellSignedTraceProjector20260903.lean",
+        "--audit",
+        "E:\\AImath\\abc\u731c\u60f3\\Lean\\IUTThreeClosures\\PellSignedTraceProjector20260903AxiomAudit.lean",
+        "--audit-output",
+        "E:\\AImath\\abc\u731c\u60f3\\research\\computation\\2026_09_03_pell_signed_trace_projector\\lean_axiom_audit_stdout.txt",
+        "--evidence-dir",
+        "E:\\AImath\\abc\u731c\u60f3\\research\\computation\\2026_09_03_pell_signed_trace_projector",
+        "--output",
+        "E:\\AImath\\abc\u731c\u60f3\\research\\computation\\2026_09_03_pell_signed_trace_projector\\formalization_audit.json"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\research\\computation\\2026_09_03_pell_signed_trace_projector",
+      "elapsed_seconds": 0.06,
+      "exit_code": 0,
+      "name": "pell-formalization-audit",
+      "output_bytes": 745
+    },
+    {
+      "argv": [
+        "D:\\anaconda3\\python.exe",
+        "validate_text_artifacts.py",
+        "--report",
+        "E:\\AImath\\abc\u731c\u60f3\\research\\ABC_PELL_SIGNED_TRACE_PROJECTOR_2026_09_03.md",
+        "--paper",
+        "E:\\AImath\\abc\u731c\u60f3\\paper\\pell_signed_trace_projector_2026.tex",
+        "--main-paper",
+        "E:\\AImath\\abc\u731c\u60f3\\paper\\ChatGPT_ABC_Uniformity_2026.tex",
+        "--output",
+        "E:\\AImath\\abc\u731c\u60f3\\research\\computation\\2026_09_03_pell_signed_trace_projector\\text_artifact_validation.json"
+      ],
+      "cwd": "E:\\AImath\\abc\u731c\u60f3\\research\\computation\\2026_09_03_pell_signed_trace_projector",
+      "elapsed_seconds": 0.063,
+      "exit_code": 0,
+      "name": "pell-text-validator",
+      "output_bytes": 1397
+    }
+  ],
+  "schema": "abc-gain-packet-pell-replay-v1",
+  "status": "PASS"
+}

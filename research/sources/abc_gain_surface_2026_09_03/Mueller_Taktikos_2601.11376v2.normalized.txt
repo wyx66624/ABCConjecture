@@ -1,0 +1,805 @@
+=== PAGE 1 ===
+From ABC to Effective Roth and Ridout Constants for
+Cubic Roots
+Karsten M¨ uller, Michael Taktikos
+February 2026, final version
+Abstract
+Enrico Bombieri showed conditionally (1994) that the ABC conjecture implies Roth’s
+theorem, and Van Frankenhuysen (1999) later provided a complete proof. Building on
+Bombieri’s and Van der Poorten’s explicit formula for continued-fraction coefficients
+of algebraic numbers—specialized to cubic roots—we derive an effective bound for
+a Roth-type constant assuming an effective form of ABC. Roth’s original argument
+establishes existence but does not yield an explicit value; our approach makes the
+dependence on the ABC parameters explicit and also gives an explicit bound in the
+corresponding special case of Ridout’s theorem.
+We then introduce the notion of approximation gain as a refinement of the “quality”
+of an abc-triple. For c in a large computational range (verified up to c < 263), the
+approximation gain remains below a strikingly small threshold, motivating the conjecture
+that the approximation gain is always smaller than 3
+2. This suggests a potential strategy
+for attacking ABC by bounding approximation gain and power gain separately. 1
+1 Introduction
+Roth’s theorem is famously deep, and its original proof is both long and ineffective (see
+Roth (1955)). In particular, it guarantees the existence of a constant in the Diophantine
+approximation bound, but it does not provide an explicit value or a practical way to compute
+one.
+1The authors are grateful to Benne de Weger, Joshua Lampert, Timm Lampert, Enrico Bombieri, Machiel
+van Frankenhuysen, Wadim Zudilin, Michel Waldschmidt, Preda Mihailescu, Paul Vojta, Stephane Fischler,
+Robin Zhang, Abderrahmane Nitaj, Sam Chow, Noah Lebowitz-Lockard, Ingo Alth¨ ofer, David Broadhurst,
+Ulrich Tamm and ChatGPT.
+1
+arXiv:2601.11376v2  [math.NT]  4 Feb 2026
+
+=== PAGE 2 ===
+Bombieri proved conditionally in 1994 that Roth’s theorem follows from the ABC conjecture,
+and Van Frankenhuysen later gave a full proof in 1999 (Van Frankenhuysen (1999)). In this
+paper we revisit that implication with an additional goal: making the constants explicit in a
+natural family of cases. We focus on cubic roots and use an explicit continued-fraction formula
+of Bombieri and Van der Poorten (Bombieri&Van der Poorten (1975)) for the coefficients of
+regular continued fractions of algebraic numbers. This yields a concrete relationship between
+the ε-parameters in Roth-type inequalities and the corresponding ε in ABC, and it leads to
+an explicit upper bound for the inverse of the Roth constant in our setting.
+In our earlier paper (Sibbertsen (2022)), we showed that a weakened form of ABC follows
+from Roth’s theorem in certain special cases. The present work uses essentially the same
+vocabulary and techniques, but in the opposite direction: assuming (an effective form of)
+ABC, we extract explicit Diophantine approximation bounds.
+We also introduce the approximation gain, which is always lower or equal to the quality of an
+ABC hit.
+2 Approximation gains for ABC
+2.1 Roth’s theorem
+In the following, the coefficients of the regular continued fraction are called bn and the
+approximants pn
+qn
+.
+Theorem 2.1.Roth’s Theorem: Let a be an algebraic number. Then for every ε > 0, there
+exists a constant C dependent on the algebraic number a and ε such that for all positive
+integerspandq:
+|a− p
+q |> C
+q2+ε.(2.1)
+Proof.See Roth (1955).
+Van Frankenhuysen (1999) discusses Roth’s Theorem and its implication by the ABC con-
+jecture in detail and investigates effective versions of Mordell’s conjecture. Furthermore,
+Granville and Tucker (2002, p.1229) show that a generalized version of Roth’s theorem implies
+the ABC conjecture effectively.
+With the help of the inequality for regular continued fractions from this follows bn+1 ≤ qε
+n
+C
+2
+
+=== PAGE 3 ===
+2.2 Formula by Bombieri and Van der Poorten
+Our main technical input is the explicit formula of Bombieri and Van der Poorten for the
+continued-fraction coefficients of algebraic numbers by (Bombieri&Van der Poorten, 1975,
+p.151, Theorem 3, formula (13)), in which f(x) is the minimal polynomial of the algebraic
+number.
+The formula links two quantities—call them dn and bn — and is therefore well suited to
+bridge ABC-type information (which naturally arises from integer identities involving dn
+with Diophantine approximation data encoded byb n).
+f ′(x)
+f(x) leads to dn in the denominator. This holds because f ′(x)
+f(x) results in
+f ′( pn
+qn )
+f( pn
+qn ) = qs
+nsps−1
+n
+dnqs−1n
+for the convergents with f(x) = xs −k being the minimal polynomial of the sth root of
+k.
+For cubic roots α =
+3√
+k > 1with minimal polynomial f(x) = x3 −k , the Bombieri–
+Van der Poorten formula for the continued-fraction coefficients reads
+bn+1 = q3
+nf ′(pn/qn)
+f(p n/qn) +R n,
+where pn/qn are the convergents and Rn is the remainder. Evaluating the derivative gives
+the leading term
+3p2
+nqn
+dn
+, d n =|p 3
+n −kq 3
+n|.
+A simple estimate of Rn using |α−p n/qn|< 1/q2
+n shows that |Rn| ≤ 3pnq3
+n/dn.
+For all convergents with pn > q n, which holds for all but possibly the first, the leading
+term strictly dominates the remainder. Consequently, the inequality
+bn+1 ≤ 3p2
+nqn
+dn
+holds rigorously, and the error term can be safely ignored. No additional constant depending
+onkis required.
+For quartic roots α =
+4√
+k, the formula may fail for the first few convergents, but for each
+fixedkit becomes valid from some sufficiently large convergent onward.
+3
+
+=== PAGE 4 ===
+2.3 ABC Conjecture
+To formulate the ABC Conjecture we need the following definition:
+Definition 2.2.For a positive integer a, rad(a)is the product of the distinct prime factors
+ofa.
+Definition 2.3(ABC Conjecture).For every positive real number ε, there exists a constant
+Kε such that for all triples(a, b, c)of coprime positive integers, witha+b=c:
+c < K ε ·rad(abc) 1+ε.
+Note that this version of the ABC Conjecture is not effective. This is so because only the
+existence of a constantK ε is claimed without specifying how to calculateK ε for givenϵ.
+2.4 Resulting ABC equations
+We consider the convergents( pn/qn)of the regular continued fraction of
+3√
+k, which satisfy
+the “resulting equation”
+p3
+n =kq 3
+n +d n,
+with integersp n, qn, dn andgcd(p n, qn) = 1.
+To apply the ABC conjecture, we define
+gn := gcd(kq3
+n, dn)
+and consider the triple p3
+n
+gn
+, kq3
+n
+gn
+, dn
+gn
+
+,
+which will be coprime.
+Using the resulting equation, we have
+gn = gcd(kq3
+n, dn) = gcd(kq3
+n, p3
+n −kq 3
+n) = gcd(kq3
+n, p3
+n).
+Sincegcd(p n, qn) = 1, it follows thatgcd(p 3
+n, q3
+n) = 1, and therefore
+gn = gcd(k, p3
+n)≤k.
+4
+
+=== PAGE 5 ===
+Thus gn ≥ 1and gn ≤k , giving an explicit bound. Dividing by gn ensures that the
+resulting ABC triple is coprime, as required for the application of the ABC conjecture.
+2.5 Construction of the effective bound for the inverse of Roth’s
+constant
+Let(p n/qn)be the convergents of
+3√
+k, with the resulting equation
+p3
+n =kq 3
+n +d n,gcd(p n, qn) = 1,
+and define
+gn := gcd(kq3
+n, dn) = gcd(k, p3
+n)≤k.
+Dividing through byg n gives a coprime ABC triple
+p3
+n
+gn
+, kq3
+n
+gn
+, dn
+gn
+
+,
+so the effective ABC conjecture yields
+p3
+n
+gn
+≤K ε Rad
+p3
+n
+gn
+· kq3
+n
+gn
+· dn
+gn
+1+ε
+.
+Multiplying both sides byg n, we obtain
+p3
+n ≤K ε g1−(1+ε)·3
+n Rad
+
+pnqndnk
+1+ε
+.
+Sinceg n ≤k, we can bound
+g1−(1+ε)·3
+n ≤k 1−3(1+ε).
+Next, using Bombieri–Van der Poorten’s explicit formula for the continued-fraction coefficients
+in the cubic case, we have
+dn ≤ 3p2
+n
+qnbn+1
+.
+5
+
+=== PAGE 6 ===
+Substituting into the ABC inequality gives
+bn+1 ≤K
+1
+1+ε
+ε 3k p
+3ε
+1+ε
+n
+g1/(1+ε)
+n
+qn
+.
+Finally, Roth’s theorem implies the existence of a constant C, depending only on εRoth and
+3√
+k, such that
+bn+1 ≤ qεRoth
+n
+C .
+Comparing the two bounds forb n+1, we get the relationship between the epsilons:
+εRoth = 3 εABC
+1 +ε ABC
+,
+and an explicit bound for the inverse of Roth’s constant:
+1
+C ≤K
+1
+1+ε
+ε 3k
+pn
+qn
+ 3ε
+1+ε
+.
+Since gn ≤k and pn
+qn
+≤ p1
+q1
+in this case, this provides a fully explicit ABC-based bound
+for the inverse of Roth’s constant.
+2.6 Range of the Epsilons
+For εABC = εRoth = 0 it results that bn is bounded. This is an open question, but it is
+known that ABC is not valid for ε = 0, but the known counterexamples are not resulting
+equations of 3rd roots.
+For εABC = ε = 1
+2 we get bn+1 ≤q n
+pn
+qn
+f actor, which bascially is Liouville’s theorem.
+So the interesting part isε ABC between 0 and 1
+2.
+2.7 Example
+3√
+2
+The regular continued fraction starts with[1; 3,1,5, ..]
+The first resulting equations are
+2 = 1 + 1, which is an ABC equation
+6
+
+=== PAGE 7 ===
+64 = 54 + 10, wheregcd= 2so we get the ABC equation32 = 27 + 5
+128 = 125 + 3, which is an ABC equation
+Our formula for a bound of the inverse of Roth’s constant
+K
+1
+1+ε
+ε 3k( pn
+qn
+)
+3ε
+1+ε
+leads in this case to
+K
+1
+1+ε
+ε 6(4
+3)
+3ε
+1+ε
+as 4
+3 is the largest approximant.
+There is a lot of data on ABC, which could be used to get a bound for the inverse of Roth’s
+constant within the range already analysed by computer calculation. We will investigate
+3√
+2
+now for 2 differentε.
+2.8ε= 0.5
+Due to Korobov’s famous result Korobov (1990)
+|
+3√
+2− p
+q |> 1
+q2.5
+for all natural numberspandqwith the exception of 1 and 4 forq
+If we ignore 1 then Roth’s constant is calculated by
+|
+3√
+2− 5
+4 |4 2.5
+which is approximately 0.32 and so the the inverse is given by
+1
+C = 3.15approximately.
+Now we use our way from the ABC side. Aε Roth = 0.5leads to anε ABC = 1
+5
+Again ignoring the first case 2 = 1 + 1 we take from the ABC data the Kε that results from
+the resulting equation 128 = 125 + 3.
+So calculation givesK 1
+5
+is approximately 2.16
+7
+
+=== PAGE 8 ===
+So our formula for a bound of the inverse of Roth’s constant results in
+1
+C ≤2.16
+5
+66(4
+3)
+1
+2
+which is approximately 13.16
+So in this case the road via ABC leads to a loss in precision, which is mainly due to the use
+of 4
+3 as upper bound.
+2.9ε= 0.4
+Here the result is not known exactly. In the proof of corollary 2.2 Voutier (2007) gives one
+result using the hypergeometric method forε= 0.4325using his theorem 2.1 (p.285):
+|
+3√
+2− p
+q |> 10−99
+q2.4321
+So the inverse of Roth’s constant is bounded by10 99.
+Now we use our way from the ABC side and use a εRoth = 0 .4. This leads to an
+εABC = 2
+13
+Again ignoring the first case 2 = 1 + 1 from the ABC data we take the ABC Kε that results
+from the resulting equation 128 = 125 + 3 in the following.
+So calculation givesK 2
+13
+is approximately 2.527
+So our formula for a bound of the inverse of Roth’s constant results in
+1
+C ≤2.527
+13
+156(4
+3)
+6
+15
+which is approximately 15.03
+2.10 Table for bounds of the inverse of Roth’s constant C
+If it is assumed that the ABC conjecture is valid forε >0withK ε = 4
+ε then results:
+8
+
+=== PAGE 9 ===
+εRoth εABC Kε ABC bound for 1
+C Known bound for 1
+C
+0 0 unbounded unbounded Probably unbounded
+0,4 2
+13 26 113.35 Not known
+0,5 1
+5 20 84.1 3.15 (Korobov’s result is exact)
+1 1
+2 8 32 6 (Liouville can be lowered to 1.575)
+Table 1: Approximate values for
+3√
+2, if ABC is valid forε >0withK ε = 4
+ε
+2.11 An explicit bound for Ridout’s theorem
+Using the ABC method it is also possible to give an explicit bound for the number of solutions
+of Ridout’s theorem for the special case of the approximants of the regular continued fraction:
+Theorem 2.4.(D. Ridout, 1957):
+Let S be a finite set of prime numbers. For any real algebraic number a, for any ε > 0, the
+set of p
+q with p an integer and q a S–integer and
+|a− p
+q |< q −1−ε
+is finite.
+See Waldschmidt (2008) page 75.
+2.12 Square Roots
+As we are dealing with the prime factorisation, here the squares roots are interesting as well
+and a bound follows from ABC as follows:
+For
+√
+kthe resulting equations are
+p2
+n =kq 2
+n +d n
+resp
+kq2
+n =p 2
+n +d n
+We only look at the first case here. The second is basically analogous. Here the gcd is always
+1 and so we have ABC equations and get from ABC
+9
+
+=== PAGE 10 ===
+p2
+n ≤K εRad(pnqndnk)1+ε
+From this follows
+p2
+n ≤K εRad(qn)1+εd1+ε
+n k1+εp1+ε
+n
+and so withRad(q n)given asq n is an S integer we get the bound
+p1−ε
+n ≤K εRad(qn)1+εd1+ε
+n k1+ε
+for the pn and so the number of solutions must be finite and an explicit bound is given,
+which follows from an explicit ABC version.
+We assume now that the ABC conjecture is valid for ε= 0.75 with Kε = 1. Then for√
+2results
+prime numbers Bound forp n Possible Approximants
+2 214 3
+2
+3 279936 None as 4
+3 is not in the CF
+5 10000000 7
+5
+2*3 35831808 3
+2 and 17
+12
+Table 2: The first values for
+√
+2
+2.13 Generalization of Ridout’s Theorem to All S-Integers
+Let a =
+√
+k be a positive square-free integer and let S be a finite set of primes. Consider
+solutions(p, q)withp∈Z,q∈Z S (anS-integer) satisfying
+a− p
+q
+ < q −1−ε.
+Define the “error term”
+d=|p 2 −kq 2|.
+To apply an effective ABC inequality rigorously, we first factor out the greatest common
+divisor
+g= gcd(p 2, kq2, d),
+10
+
+=== PAGE 11 ===
+and define the coprime triple
+(a′, b′, c′) :=
+p2
+g , kq2
+g , d
+g
+
+∈Z 3.
+Then the effective ABC conjecture yields
+a′ ≤K ε Rad(a′b′c′k)1+ε.
+Substituting back, we get
+p2
+g ≤K ε Rad
+p2
+g · kq2
+g · d
+g ·k
+1+ε
+.
+Since q∈Z S, the radical of q is bounded by q, and d≤ (p + q
+√
+k) |a−p/q|q≤
+2q1−ε(p+q
+√
+k). Using these estimates, we obtain
+p2−(1+ε) ≤2 1+εKεk1+εq1+ε(p+q
+√
+k)1+ε.
+Hence, for fixed ε > 0and effective ABC constant Kε, the set of solutions( p, q)is finite,
+and one can explicitly bound p (and hence q) in terms of Kε, k, and S. This gives a fully
+explicit version of Ridout’s theorem for S-integer denominators, with rigorous coprimeness
+ensured via the factorg.
+2.14 Third Roots
+Now we use our method from above based on the formula of Bombieri and Van der Poorten.
+For the third root of k the resulting equations are
+p3
+n =kq 3
+n +d n
+resp
+kq3
+n =p 3
+n +d n
+We only look at the first case here. The second is basically analogous. Here the gcd is not
+always 1 and a priori must be considered. But in the resulting inequality the case with gcd=1
+is the critical one so we can assume that from the beginning. So in this sense we have ABC
+equations and get from ABC
+11
+
+=== PAGE 12 ===
+p3
+n ≤K εRad(pnqndnk)1+ε
+For 3rd roots the formula (Bombieri&Van der Poorten, 1975, p.151, Theorem 3, formula
+(13)) by Bombieri and Van der Poorten is valid without error term due to Liouville’s theorem
+as given by Bombieri and Van der Poorten and their method can be used directly. For
+n > = 4an error term can arise and the method can not be started with the first step.
+This is the reason, why we restrict ourselves to 3rd roots here.
+From (Bombieri&Van der Poorten, 1975, p.151, Theorem 3, formula (13)), we have the
+inequality
+dn ≤ 3p2
+n
+qnbn+1
+Using that inequality we get
+p3
+n ≤K εRad(pnqndnk)1+ε
+p3
+n ≤K εRad(qn)1+ε(pndnk)1+ε
+p3
+n ≤K εRad(qn)1+ε(pnk)1+ε( 3p2
+n
+qnbn+1
+)1+ε
+And so usingb n+1 >= 1finally
+p
+3
+2(1+ε)
+n ≤K εRad(qn)1+εk2+2ε( pn
+qn
+)1+ε
+for the pn and so the number of solutions must be finite and an explicit bound can be given
+as pn
+qn
+converges to the 3rd root of k. So one choice is
+pn ≤(K εRad(qn)1+εk2+2ε( p1
+q1
+)1+ε)
+2(1+ε)
+3
+2.15 Bounds for the approximation gain of ABC hits from resulting
+equations
+Definition 2.5.A triple of coprime integers a + b = c is an ABC hit, if rad(abc) < c
+holds and the quality of a triple is given by the first quality(a, b, c) = ln(c)
+ln(rad(abc)) . As
+c >1it is clear that abc is larger than 1.
+2 + 109 · 95 = 235 is the ABC hit with the highest quality so far found. Its quality
+is approximately 1.62991. This hit results from the 3rd convergent to
+5√
+109 with regular
+continued fraction[2; 1 , 1, 4, 77733, . . .]. The fraction 23
+9 is a good approximation
+12
+
+=== PAGE 13 ===
+because 77733 is very large and very near the absolute Liouville bound.
+Definition 2.6.Let dnqnkpn come from a resulting equation of
+s√
+k. The approximation
+gain of (a,b,c) equals ln(qnsk)
+ln(dnqnkpn) ifd n >0, and ln(pns)
+ln(−dnqnkpn) ifd n <0.
+The approximation gain is always smaller or equal to the quality.
+Theorem 2.7(Uniform bound for approximation gain for k≥ 3).Let k≥ 3and let
+α =
+3√
+k. For all resulting equations arising from convergents pn
+qn
+to α, the approximation
+gain satisfies
+approximation gain< 3
+2.
+Proof.Let pn
+qn
+be a convergent toα=
+3√
+kwith resulting equation
+p3
+n =kq 3
+n +d n, d n >0.
+(The cased n <0is analogous.)
+By Bombieri–van der Poorten (Bombieri&Van der Poorten, 1975, p. 151, Theorem 3,
+formula (13)), we have
+dn ≥ 3p2
+n
+qn(bn+1 + 2).
+By Liouville’s bound for cubic irrationals,
+bn+1 ≤3kq n.
+Hence
+dnqnkpn ≥ 3kp3
+n
+3kqn + 2.
+The approximation gain is therefore bounded by
+approximation gain= ln(p3
+n)
+ln(dnqnkpn) ≤ 3 lnpn
+ln
+
+3kp3n
+3kqn+2
+.
+We estimate the denominator:
+ln
+ 3kp3
+n
+3kqn + 2
+
+= 2 lnpn + ln
+pn
+qn
+
++ ln
+ 3kqn
+3kqn + 2
+
+.
+13
+
+=== PAGE 14 ===
+Since pn
+qn
+→αandk≥3, we have
+ln
+pn
+qn
+
+≥ln(α)≥ 1
+3 ln 3,
+while
+ln
+ 3kqn
+3kqn + 2
+
+≥ − 2
+3kqn
+≥ − 2
+9.
+Combining these estimates yields
+ln
+ 3kp3
+n
+3kqn + 2
+
+>2 lnp n for alln.
+Consequently,
+approximation gain< 3 lnpn
+2 lnpn
+= 3
+2,
+which proves the theorem.
+Theorem 2.8.Now The case k = 2. Let α =
+3√
+2. For all resulting equations arising
+from convergents pn
+qn
+toα, the approximation gain satisfies
+approximation gain< 3
+2.
+Proof.Let pn
+qn
+be a convergent toα=
+3√
+2with resulting equation
+p3
+n = 2q3
+n +d n.
+As in the proof of Theorem 2.8, Bombieri–van der Poorten and Liouville’s bound imply
+approximation gain≤ 3 lnpn
+2 lnpn + ln(α) +o(1) .
+Sinceln(α)>0, it follows that
+lim
+n→∞
+approximation gain= 3
+2,
+14
+
+=== PAGE 15 ===
+and the limit is approached from below. Consequently, there exists an indexNsuch that
+approximation gain< 3
+2 for alln≥N.
+It therefore suffices to verify the inequality for the finitely many indicesn < N.
+The first convergent is p1
+q1
+= 4
+3, which yields
+p3
+1 −2q 3
+1 = 64−54 = 10,
+and hence
+approximation gain= ln(64)
+ln(4·3·10) < 3
+2.
+A direct computation of the remaining convergents withn < Nconfirms that
+approximation gain< 3
+2
+in each case. This completes the proof.
+2.16 General case if the formula can be used
+When it is assumed that the method of Bombieri and Van der Poorten works as well for
+m√
+k
+withm≥3andk≥2then the following would result:
+The inequality of Bombieri and Van der Poorten isd n ≥ mpm−1
+n
+qn(bn+1+2)
+Liouville’s bound isb n+1 ≤mkq n
+And the resulting inequality is
+approximation gain = ln(pnm)
+ln(dnqnkpn) ≤ m
+2
+So even when it would work (the error terms can be ignored and the algorithm started, which
+is clear for 3rd degree) the bound for this inequality would diverge and so no universal bound
+for all m can be found on this road as Liouville’s bound is not strong enough for this purpose.
+So the ABC gains can be seperated for resulting equation in approximation gains and power
+gains. The approximation gain can be bounded by 3
+2 for 3rd roots. To prove a bound for the
+quality the power gains ln(pnqndnk)
+ln(rad(dnqnkpn)) must be bounded as well, which seems to be very
+15
+
+=== PAGE 16 ===
+difficult even for special cases like
+3√
+2 (remarkable are here the second equation 128 = 125
++ 3 with a power gain of 1.4 and an approximation gain of 1.01 and the 5th equation with a
+power gain of 1.37 and an approximation gain of 0.99).
+To bound the power gains a strong explicit effective ABC result is needed. There is a
+discussion in the mathematical community, if Mochizuki’s results can be used. We do not
+know this, but if they can be used the following follows:
+Theorem 2.9(Explicit ABC).For every positive real number ε, there exists a constant Lε
+such that for all triples(a, b, c)of coprime positive integers, witha+b=c:
+c < L ε ·rad(abc) 3+ε.
+This can be used to prove that the power gains of the quality for resulting ABC equations of
+3rd roots are bounded for a fixed k:
+power gain = ln(pnqndnk)
+ln(rad(dnqnkpn))
+≤ ln(k2pn3)
+ln(rad(dnqnkpn))
+using the formula (Bombieri&Van der Poorten, 1975, p.151, Theorem 3, formula (13)) by
+Bombieri and Van der Poorten and the fact thatb n+1 >= 1.
+= ln(k2pn3)
+ln((rad(dnqnkpn)3+ε)
+1
+3+ε )
+≤ ln(k2pn3)
+ln( pn3
+Lε
+1
+3+ε )
+for n large enough. This converges to 3 +ε and is therefore bounded for all n. The bound
+itself depends on k and is of course extremely large.
+Recently Zhou (2025) has reduced the constant Lε from about10 30 to 400 under certain
+extra conditions.
+One concept to prove the ABC conjecture might then be to prove that both gains are bounded
+seperately. We conjecture that the approximation gain is bounded by 3
+2 and the power gain
+by 3.
+16
+
+=== PAGE 17 ===
+References
+Bombieri, E.(1994): Roth’s Theorem and the abc-Conjecture, preprint ETH Z¨ urich.
+Bombieri, E. and van der Poorten, A. (1975): “Continued Fractions of Algebraic Numbers”,
+in: Baker (ed.),Transcendental Number Theory, Cambridge University Press, Cambridge,
+137-155.
+Granville, Andrew and Tucker, Thomas J. (2002): It’s As Easy As abc, Notices of the AMS,
+Volume 10, p.1224-1231.
+Korobov, A. (1990):Continued Fractions and Diophantine Approximations, Candidate’s
+Dissertation, Moscow State University.
+S. Mochizuki, I. Fesenko, Y. Hoshi, A. Minamide, W. Porowski,Explicit estimates in inter-
+universal Teichm¨ uller theory, RIMS Preprint 1933 (November 2020), Kodai Mathematical
+Journal,45(2022), pp. 175-236.
+Roth, K. (1955): “Rational Approximations to Algebraic Numbers and Corrigendum”,
+Mathematika2, 1-20 and 168.
+Sibbertsen, P., M¨ uller,K, Lampert, T. and Taktikos, M. (2022): Roth’s Theorem implies a
+Weakened Version of the ABC Conjecture for Special Cases, arXiv:2208.14354
+Voutier, P. (2007): “Rational Approximation to
+3√
+2 and other Algebraic Numbers Revisited”,
+Journal des Nombres de Bordeaux19, 263-288.
+Van Frankenhuysen, M. (1999):The ABC conjecture implies Roth’s theorem and Mordell’s
+conjecture, Mat. Contemp. 16 (1999), 45-72.
+Waldschmidt, M. (2008): Introduction to Diophantine methods, irrationality and transcen-
+dence, Michel Waldschmidt’s website.
+Zhou, Zhong-Peng (2025): The inter-universal Teichm¨ uller theory and new Diophantine
+results over the rational numbers. I, arxiv.org:2503.14510
+17

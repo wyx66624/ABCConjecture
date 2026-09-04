@@ -8,7 +8,10 @@ import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import Mathlib.Data.Nat.GCD.Basic
 import Mathlib.Data.Nat.ModEq
 import Mathlib.RingTheory.Radical.NatInt
-import Mathlib.Tactic
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.NormNum.GCD
+import Mathlib.Tactic.NormNum.ModEq
+import Mathlib.Tactic.Ring
 
 /-!
 # Synchronized divisor packets for primitive abc triples

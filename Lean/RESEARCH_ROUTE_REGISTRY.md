@@ -21,7 +21,47 @@ community acceptance, and a finite counterexample search with no hit are not
 grounds for retirement.  Positive proof construction and counterexample search
 must therefore continue in parallel for every unrefuted route.
 
-## September 3, 2026 authoritative route update
+## September 3, 2026 gain/packet/trace route update
+
+Standard `ABCConjecture` remains open in both directions.  This update applies
+the retirement rule to three exact interfaces:
+
+- **Canonical gain/defect flags:** retain.  The canonical corridor,
+  gain-product factorization, scale cocycles, and exact
+  `q-1=powerExcess-approximationSlack` identity are closed.  The uniform flag
+  budget is exactly equivalent to abc and remains open.  The proposed
+  `A<3/2, P<3 -> q<=3/2` inference and the universal canonical power-three cap
+  are retired by complete abstract and actual counterexamples respectively;
+  those counterexamples do not touch standard abc.
+- **Synchronized divisor packets:** retain after correcting the global gate.
+  The old eventual uncorrected estimate `B(Q)<=R^(1+epsilon)` is retired by
+  the infinite primitive family `(2^(k+4),3,2^(k+4)+3)` at
+  `epsilon=1/3`, with every packet satisfying `R^4<B(Q)^3`.  The parent packet
+  construction, its exact shape/support laws, and the compensated implication
+  `B(Q)^m<=(ab)^m*R^(m+n) -> c^m<=R^(m+n)` remain active.  No infinite
+  full-premise counterexample to an eventual compensated estimate is known.
+- **Pell signed fourth-trace packets:** retain.  The simultaneous-zero gate is
+  now exactly equivalent to fourth-power support in `A_(2ell)-1` and
+  `A_(2ell)+1`.  The raw projector precision-three strengthening and automatic
+  trace-depth-five promotion are retired by exact algebra and the `(7,13)`
+  row.  The independent row `(773231,1546463)` confirms the same depth boundary
+  in the other channel.  The first row is nonsquarefull because its opposite
+  coordinate contains `239` to exponent one; the full squarefull status of
+  the large row is unresolved.  The global squarefull exclusion/construction
+  therefore remains active.
+
+The ordinary proofs and formal pointers are collected in
+`../research/ABC_MULTI_ROUTE_GAIN_PACKET_TRACE_SYNTHESIS_2026_09_03.md`.
+The three principal Lean modules expose 114 one-for-one audited declarations;
+their direct warning-as-error compilations pass with dependency union exactly
+`propext`, `Classical.choice`, and `Quot.sound`.
+
+The sealed combined replay passes 16/16 tasks, including the 9,271-job
+umbrella build and the legacy packet route's 70 axiom queries.  The 246-page
+English paper records author `ChatGPT` and has SHA-256
+`7d0834d7cfbc2095e77429141fd42e2c36d65913db6d7c3798909ed59778031e`.
+
+## September 3, 2026 earlier checkpoint (superseded where noted above)
 
 Standard `ABCConjecture` remains open in both directions.  The current route
 boundaries are:
@@ -51,8 +91,10 @@ boundaries are:
   Counterexamples rule out full-corner
   uniqueness and the unqualified cubic, quartic, squared-product, constant-one
   fifth-power, and every exponent-below-five envelope; they do not refute the
-  sixth-power theorem or a compensated fifth-power estimate.  The global
-  all-but-finitely packet radical bound remains open.
+  sixth-power theorem or a compensated fifth-power estimate.  The original
+  uncompensated all-but-finitely packet radical bound is retired by the
+  infinite family in the latest update above; its compensated replacement
+  remains open.
 - **Alternative-quality packing:** active.  The exact identity
   `q_std = eta * q_DGM`, its transfer equivalence, and its AM--GM upper-side
   consequences are established.  An abstract sequence with unbounded `q_DGM`

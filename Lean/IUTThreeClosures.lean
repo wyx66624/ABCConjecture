@@ -841,6 +841,13 @@ import IUTThreeClosures.AlternativeQualityPackingBridge20260903
 -- single (7,13) collision retires only the stronger individual-zero ban.
 import IUTThreeClosures.PellFixedTwoTransversality20260903
 
+-- Signed trace continuation of the fixed-parameter Pell gate.  Squarefull
+-- coordinates are exactly fourth-power support packets in the two adjacent
+-- doubled-trace factors; the raw projector has sharp square precision and an
+-- explicit Newton lift.  Exact depth-two collisions retire only automatic
+-- fifth-power promotion, while simultaneous squarefull exclusion stays open.
+import IUTThreeClosures.PellSignedTraceProjector20260903
+
 -- Generated Steinberg five-term boundary bridge.  Both the algebraic span
 -- and the span of positive rational realizations lie in the boundary kernel
 -- and feed the calibrated finite-chain estimate.  Arbitrary-target positive
@@ -851,5 +858,22 @@ import IUTThreeClosures.SteinbergFiveTermBoundaryBridge20260903
 -- triples.  Pairwise coprimality, finite nonemptiness, product/height bounds,
 -- exact-gap index, orientation rigidity, an infinite proper family, the
 -- real-log minimum-energy majorant, and actual finite no-go packets are
--- kernel checked.  Radical-scale compression of a packet remains open.
+-- kernel checked.  Its uncompensated radical-scale candidate is tested and
+-- refuted by the radical-excess continuation imported below.
 import IUTThreeClosures.ABCSynchronizedDivisorPackets20260903
+
+-- Radical-excess obstruction for synchronized divisor packets.  An infinite
+-- primitive family refutes the former uncorrected four-thirds compression
+-- gate for every packet, while the exact compensated implication to a bound
+-- on the height arm remains available as an open forward route.
+import IUTThreeClosures.SynchronizedPacketRadicalExcessObstruction20260903
+
+-- Canonical gain surface and higher-dimensional defect flags.  The module
+-- proves the strict nonunit corridor 1/3 < A_can < 1/2, factors standard
+-- quality through the symmetric product, identifies the exact
+-- power-excess/approximation-slack cancellation, and realizes finite scale
+-- decompositions as an exact additive cocycle.  Its uniform flag budget is
+-- proved equivalent to ABCConjecture, not inhabited; the proposed
+-- A < 3/2, P < 3 => q <= 3/2 inference and a universal power-gain-three cap
+-- have complete countermodels.
+import IUTThreeClosures.ABCCanonicalGainSurface20260903

@@ -1,0 +1,59 @@
+import IUTThreeClosures.SynchronizedPacketRadicalExcessObstruction20260903
+
+/-!
+# Axiom audit: synchronized-packet radical-excess obstruction
+
+Compile this file directly with `-DwarningAsError=true`.  The imported module
+contains exact finite packet identities and an explicit infinite obstruction
+to the four-thirds packet-compression inequality.  It contains no `abc`
+conclusion and no asymptotic assumption.
+-/
+
+namespace IUTThreeClosures
+namespace SynchronizedPacketRadicalExcessObstruction20260903AxiomAudit
+
+open SynchronizedPacketRadicalExcessObstruction20260903
+
+#print axioms PrimitiveABC
+#print axioms SynchronizedPacket
+#print axioms SynchronizedPacket.minCoordinate
+#print axioms SynchronizedPacket.pairMaxRoot
+#print axioms SynchronizedPacket.pairMaxBound_eq_pairMaxRoot_sq
+#print axioms SynchronizedPacket.min_mul_pairMaxRoot
+#print axioms SynchronizedPacket.min_sq_mul_pairMaxBound
+#print axioms SynchronizedPacket.coordinateProduct_dvd_modulusProduct
+#print axioms SynchronizedPacket.coordinateRadical_dvd_abcRadical
+#print axioms SynchronizedPacket.pairMaxBound_le_fullPacket
+
+#print axioms radicalExcess
+#print axioms abcRadical_dvd_modulusProduct
+#print axioms abcRadical_mul_radicalExcess
+#print axioms compressionPower_forces_radicalExcessPower
+#print axioms radicalExcessPower_obstructs_compressionPower
+#print axioms compensatedCompression_forces_cPower
+
+#print axioms twoThreeFiveDatum
+#print axioms twoThreeFivePacket_rigid
+#print axioms radical_thirty
+#print axioms twoThreeFive_abcRadical
+#print axioms twoThreeFive_no_fourThirdCompressedPacket
+#print axioms twoThreeFive_no_compensatedFourThirdCompressedPacket
+#print axioms radical_seventy
+#print axioms radical_fourHundredTwenty
+#print axioms cubicCounterexamplePacket_coordinateRadical_ne_abcRadical
+
+#print axioms dyadicThreeDatum
+#print axioms dyadicThreeDatum_injective
+#print axioms dyadicThreeDatum_range_infinite
+#print axioms radical_two_pow_add_four
+#print axioms dyadicThree_abcRadical_le
+#print axioms dyadicThree_halfArm_le_radicalExcess
+#print axioms dyadicThree_abcRadical_lt_radicalExcess_cube
+#print axioms dyadicThree_everyPacket_fails_fourThirdCompression
+#print axioms dyadicThree_no_fourThirdCompressedPacket
+#print axioms fourThirdObstructionLocus
+#print axioms dyadicThreeDatum_range_subset_fourThirdObstructionLocus
+#print axioms fourThirdObstructionLocus_infinite
+
+end SynchronizedPacketRadicalExcessObstruction20260903AxiomAudit
+end IUTThreeClosures

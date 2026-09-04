@@ -1,0 +1,29 @@
+{
+  "schema": "pell-signed-trace-formalization-audit-v1",
+  "declaration_count": 36,
+  "checked_count": 36,
+  "printed_axiom_count": 36,
+  "audit_record_count": 36,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "forbidden_tokens_present": {
+    "sorry": false,
+    "admit": false,
+    "custom_axiom_declaration": false,
+    "native_decide": false
+  },
+  "checks": {
+    "strict_main_exit_zero": true,
+    "lake_build_exit_zero": true,
+    "strict_audit_exit_zero": true,
+    "every_declaration_checked_once": true,
+    "every_declaration_printed_once": true,
+    "audit_output_has_every_record": true,
+    "axiom_union_is_standard": true,
+    "no_forbidden_proof_placeholders": true
+  },
+  "status": "PASS"
+}

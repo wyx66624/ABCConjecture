@@ -7,6 +7,51 @@ Arakelov--Vojta、Frey--Szpiro、S-unit 与算术微分等路线中的真实组�
 严格反例及剩余核心缺口均在
 [`Lean/RESEARCH_STATUS.md`](Lean/RESEARCH_STATUS.md) 中逐项区分。
 
+## 2026-09-03 增益、packet 与 Pell 迹联合检查点
+
+标准、无条件的 `ABCConjecture` 仍未被证明或证伪。本检查点继续同时推进
+正向证明和反例搜索，只退役已被完整前提反例击穿的精确命题。
+
+- **规范增益面与亏损旗标：active。** 对每个 primitive 非单位三元组，已
+  Lean 证明 `c^2<abc<c^3`、`1/3<A_can<1/2`、
+  `q=A_can*P_can=1+X-Y`，并把统一亏损旗标预算严格证明为与
+  `ABCConjecture` 等价，而没有假设该预算成立。抽象完整反模型否定固定
+  `A<3/2,P<3` 自动推出 `q<=3/2`；实际三元组 `(3,125,128)` 否定统一
+  `P_can<=3`。这些反例不否定 abc；剩余门是对 `X-Y` 的独立统一控制。
+- **Synchronized packet radical excess：修正后 active。** 令
+  `R=rad(abc)`、`E=abc/R`。已证明
+  `B(Q)^m<=R^(m+n) -> E^m<=R^n`，并构造无穷 primitive 族
+  `(2^(k+4),3,2^(k+4)+3)`，使每个 packet 都满足 `R^4<B(Q)^3`。
+  因而旧的“对每个 epsilon 几乎处处存在 `B(Q)<=R^(1+epsilon)`”门在
+  `epsilon=1/3` 被严格退役。packet 路线本身保留；正确的正向桥是
+  `B(Q)^m<=(ab)^m R^(m+n) -> c^m<=R^(m+n)`，其 eventual 版本仍开放。
+- **Pell signed trace：active。** 对
+  `(1+sqrt(2))^n=A_n+B_n sqrt(2)` 的奇指标，已证明
+  `A_(2n)-1=2A_n^2` 与 `A_(2n)+1=4B_n^2`，从而把同步零位移/平方满门
+  等价改写为相邻迹因子的全支撑四次幂 packet。规范通道投影器的缺陷精确为
+  `2(A_nB_n)^2`，一次显式 Newton 修正提升到模 `(A_nB_n)^4`。
+  `(ell,q)=(7,13)` 与 `(773231,1546463)` 是两通道各一个精确深度
+  `2 -> 4` 碰撞，退役“自动提升到迹深度五”等加强。`ell=7` 的另一
+  坐标含指数一素数 `239`，所以该行不是同步 squarefull packet；大行只
+  证明一个 A 通道碰撞，其整个乘积是否 squarefull 仍未决。因此全局 Pell
+  门继续开放。
+
+普通数学证明与边界见
+[`联合综合`](research/ABC_MULTI_ROUTE_GAIN_PACKET_TRACE_SYNTHESIS_2026_09_03.md)、
+[`规范增益面`](research/ABC_CANONICAL_GAIN_SURFACE_AND_DEFECT_FLAG_2026_09_03.md)、
+[`packet radical excess`](research/ABC_SYNCHRONIZED_PACKET_RADICAL_EXCESS_OBSTRUCTION_2026_09_03.md) 和
+[`Pell signed trace`](research/ABC_PELL_SIGNED_TRACE_PROJECTOR_2026_09_03.md)。
+三个新 Lean 主模块共有 114 个逐声明审计项；严格 direct compile 已通过，
+依赖并集仅为 `Classical.choice`、`Quot.sound` 与 `propext`。规范增益搜索
+穷尽 5,465,583 个三元组，packet 搜索穷尽 1,365,095 个三元组与
+1,366,531 个 packets，Pell 搜索检查 63,950 个素指标与 764,366 个候选素数；
+这些有限数据只在其明确范围内使用，不替代任何全局证明。
+
+最终联合重放为 16/16 项通过，包含 9271-job umbrella build、旧 packet 的
+70 项逐声明审计和完整前提五次界反例的整数复算。英文总论文共 246 页，
+作者元数据为 ChatGPT，最终 PDF 的 SHA-256 为
+`7d0834d7cfbc2095e77429141fd42e2c36d65913db6d7c3798909ed59778031e`。
+
 ## 2026-09-03 当前状态同步：Pell、Mersenne、Steinberg 与两条新增路线
 
 标准、无条件的 `ABCConjecture` 仍未被证明或证伪。以下更新只关闭已由
@@ -32,12 +77,13 @@ Arakelov--Vojta、Frey--Szpiro、S-unit 与算术微分等路线中的真实组�
   `R(Gamma)<=epsilon Q(Gamma)+K_epsilon H` 与
   `Q(Gamma)<=2H rho+L_epsilon H` 仍开放。`x=1/2,y=1/6` 证明的是自由链中
   五项生成元并不字面等于零，不反驳商关系或五项路线。
-- **Synchronized divisor packets：active。** 已 Lean 证明 packet 非空有限、
+- **Synchronized divisor packets（原检查点；全局门已由上方修正）：active。** 已 Lean 证明 packet 非空有限、
   `abc | D(Q) <= B(Q) <= T(Q)^6`、一个无限 exact-gap 族、canonical
   orientation rigidity，以及使用真实 squarefree radical 与 `Real.log` 的
   `standardQuality_le_packetEnergy` 和有限谱最小值版
-  `standardQuality_le_minimumPacketEnergy`。活跃门是对几乎所有非单位 primitive triples 找到
-  `B(Q)<=rad(abc)^(1+epsilon)` 的 packet。完整前提例子分别否定 full corner
+  `standardQuality_le_minimumPacketEnergy`。原门
+  `B(Q)<=rad(abc)^(1+epsilon)` 已在 `epsilon=1/3` 被上方无穷族否定；
+  parent route 以补偿门 `B(Q)<=ab*rad(abc)^(1+epsilon)` 保留。完整前提例子分别否定 full corner
   唯一性、统一三次/四次界、`(xyz)^2` 界、常数一五次界及所有指数 `<5` 的
   无常数加强；它们不否定已证六次界或带常数五次界。
 - **Alternative-quality packing：active。** 已核验

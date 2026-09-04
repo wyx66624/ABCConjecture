@@ -10,6 +10,66 @@ remains forbidden is circularly assuming abc, Szpiro, or an equivalent target;
 using an open conjecture as if it were a theorem; or hiding an unsourced
 critical input behind a definition or opaque interface.
 
+## September 3, 2026 canonical-gain, packet-obstruction, and signed-trace checkpoint
+
+The standard unconditional `ABCConjecture` remains unproved and undisproved.
+This is the latest boundary for the three routes below.  In particular, it
+supersedes the uncorrected packet-energy gate recorded in the earlier
+September 3 synchronization, while preserving the packet route under its
+compensated formulation.
+
+- **Canonical gain surface and defect flags: active.**
+  `ABCCanonicalGainSurface20260903` proves the strict primitive-nonunit
+  corridor `c^2<abc<c^3`, hence `1/3<A_can<1/2`, the exact product
+  `standardQuality=A_can*P_can`, and the cancellation identity
+  `standardQuality=1+powerExcess-approximationSlack`.  The uniform finite-flag
+  budget is kernel-proved equivalent to `ABCConjecture`; it is not inhabited.
+  A complete abstract model refutes the proposed implication from
+  `A<3/2` and `P<3` to `q<=3/2`, and the actual primitive triple
+  `(3,125,128)` refutes the universal canonical bound `P_can<=3`.  Neither is
+  an abc counterexample.  The live gate is an independent uniform estimate
+  for the excess/slack difference.
+- **Synchronized packet radical excess: corrected and active.**
+  `SynchronizedPacketRadicalExcessObstruction20260903` proves the exact
+  order-statistic shape, coordinate-support containment, full-packet envelope
+  monotonicity, and the implication
+  `B(Q)^m<=R^(m+n) -> (abc/R)^m<=R^n`.  The injective primitive family
+  `(2^(k+4),3,2^(k+4)+3)` satisfies `R^4<B(Q)^3` for every packet.  This is an
+  infinite full-premise refutation, at `epsilon=1/3`, of the former eventual
+  gate `B(Q)<=R^(1+epsilon)`.  Only that exact gate is retired.  The module
+  retains the valid forward bridge
+  `B(Q)^m<=(ab)^m*R^(m+n) -> c^m<=R^(m+n)`; its eventual hypothesis remains
+  open and has no known infinite complete-premise counterfamily.
+- **Fixed-parameter Pell signed traces: active.**
+  `PellSignedTraceProjector20260903` proves, at odd indices,
+  `A_(2n)-1=2*A_n^2` and `A_(2n)+1=4*B_n^2`.  It therefore converts the exact
+  simultaneous-zero/squarefull gate into all-support fourth-power packets in
+  the two adjacent trace factors.  The canonical channel projector has exact
+  defect `2*(A_n*B_n)^2`; raw square precision is sharp, while one explicit
+  Newton correction is idempotent modulo `(A_n*B_n)^4`.  The complete rows
+  `(ell,q)=(7,13)` and `(773231,1546463)` have coordinate depth exactly two
+  and trace depth exactly four.  They retire automatic fifth-depth promotion
+  and the corresponding single-channel strengthenings only.  At `ell=7`, the
+  opposite coordinate has the exponent-one prime `239`, so that row is not a
+  simultaneous squarefull packet.  For the large row, the global squarefull
+  status of the full coordinate product is unresolved.  Thus the signed
+  fourth-trace exclusion or construction remains open.
+
+The combined ordinary proof is
+`../research/ABC_MULTI_ROUTE_GAIN_PACKET_TRACE_SYNTHESIS_2026_09_03.md`.
+The three route reports, computation bundles, paper fragments, and one-for-one
+axiom audits are linked there.  The principal modules contain 114 audited
+declarations.  Direct warning-as-error compilation passes, and their axiom
+union is exactly `propext`, `Classical.choice`, and `Quot.sound`.  Bounded
+searches and null results are never promoted to global theorems.
+
+The final combined replay passes all 16 tasks, including the 9,271-job
+umbrella build and the legacy packet module's 70-query audit.  Its validator
+also recomputes the complete-premise constant-one quintic witness with exact
+integer arithmetic.  The final English paper has 246 pages, author metadata
+`ChatGPT`, and SHA-256
+`7d0834d7cfbc2095e77429141fd42e2c36d65913db6d7c3798909ed59778031e`.
+
 ## September 3, 2026 status synchronization
 
 The standard unconditional `ABCConjecture` remains unproved and
@@ -55,7 +115,7 @@ explicitly retired below.
   `Q(Gamma)<=2*H*rho+L_epsilon*H`.  The positive reduced
   `(x,y)=(1/2,1/6)` witness retires literal free-chain cancellation and
   boundary injectivity only; it leaves the quotient relation and route intact.
-- **Synchronized divisor packets: active new route.**
+- **Synchronized divisor packets (earlier checkpoint; global gate corrected above): active.**
   `ABCSynchronizedDivisorPackets20260903` proves the finite exact layer:
   packet coprimality and nonemptiness, `abc | D(Q) <= B(Q) <= T(Q)^6`, the
   synchronization-index exact-gap criterion and family, odd-prime channel
@@ -63,9 +123,10 @@ explicitly retired below.
   `standardQuality`, `packetEnergy`, and `minimumPacketEnergy` with the actual
   squarefree radical and `Real.log`, and proves
   `standardQuality_le_packetEnergy` and
-  `standardQuality_le_minimumPacketEnergy`.  The global gate is to find, for
-  every `epsilon>0` and all but finitely many nonunit primitive triples, a
-  packet with `B(Q)<=rad(abc)^(1+epsilon)`.  Full-premise packets refute
+  `standardQuality_le_minimumPacketEnergy`.  The original global gate
+  `B(Q)<=rad(abc)^(1+epsilon)` is refuted above at `epsilon=1/3`; the parent
+  route remains active through the compensated gate
+  `B(Q)<=ab*rad(abc)^(1+epsilon)`.  Full-premise packets refute
   uniqueness of the full corner, universal cubic and quartic bounds,
   `(xyz)^2`, the constant-one fifth-power bound, and every exponent below
   five without a compensating constant.  They do not refute the proved

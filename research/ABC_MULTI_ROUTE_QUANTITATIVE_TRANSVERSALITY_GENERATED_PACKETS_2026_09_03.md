@@ -6,6 +6,13 @@
 counterexample boundaries; the standard unconditional abc conjecture remains
 unproved and undisproved.
 
+> **Later correction.**  The uncompensated synchronized-packet gate recorded
+> below is refuted at \(\varepsilon=1/3\) by the infinite primitive family
+> \((2^{k+4},3,2^{k+4}+3)\), for which every packet has
+> \(\operatorname{rad}(abc)^4<B(Q)^3\).  The packet structure remains active
+> through the compensated gate
+> \(B(Q)\le ab\,\operatorname{rad}(abc)^{1+\varepsilon}\).
+
 ## 1. Research rule and source cutoff
 
 Every route in this checkpoint was run in both directions.  Positive
@@ -31,7 +38,7 @@ without a reverse bound.  Neither issue is imported as a Lean premise.
 | Alternative quality packing | Exact `q_std=eta*q_DGM` transfer, AM--GM comparison, clustered-log efficiency lower bound | `q_D=n+1`, `eta=1/(n+1)`, `q_std=1` refutes metric-only divergence transfer | Prove a correlated packing estimate on actual primitive abc triples |
 | Fixed `T=2` Pell | Prime-index matrix Frobenius congruences and unconditional derivative transversality at every actual support prime; squarefull is equivalent to simultaneous zero first displacement | The actual row `(ell,p,channel)=(7,13,B)` refutes only the ban on every individual zero displacement | Exclude simultaneous zero displacement at all support primes, equivalently exclude squarefull prime-index Pell coordinate products |
 | Steinberg five-term | Algebraic and positive-realization-generated submodules lie in the exact boundary kernel and feed the calibrated finite-chain inequality | Every five-term generator has augmentation one, so it is a nonzero free chain with zero boundary; the positive `1/2,1/6` realization gives the same boundary noninjectivity | Construct a positive generated filling for every required target and prove the two Gate VF cost estimates |
-| Synchronized divisor packets | Actual finite nonempty packet spectrum, product and sixth-power envelope, positive synchronization index, canonical-orientation rigidity, prime-power channels and an infinite proper exact-gap family | Actual packets refute corner uniqueness, cubic, quartic, product-square and constant-one quintic bounds | Produce a packet with pair-max energy at radical scale for all but finitely many primitive triples |
+| Synchronized divisor packets | Actual finite nonempty packet spectrum, product and sixth-power envelope, positive synchronization index, canonical-orientation rigidity, prime-power channels and an infinite proper exact-gap family | Actual packets refute corner uniqueness, cubic, quartic, product-square and constant-one quintic bounds; a later infinite family refutes uncompensated radical compression at `epsilon=1/3` | Produce a packet with compensated bound `B(Q)<=ab*rad(abc)^(1+epsilon)` for all but finitely many primitive triples |
 
 No row of this table contains `ABCConjecture`, its negation, or a hidden
 equivalent assumption.
@@ -186,11 +193,17 @@ The spectrum is finer than a symmetric prime-log mean.  The triples
 `(2,3,5)` and `(3,5,8)` have the same radical and packing efficiency, yet
 their packet spectra have different cardinalities.  Actual packet examples
 retire several overstrong height estimates, while the proved sixth-power
-envelope survives.  The new route remains active at the radical-compression
-gate
+envelope survives.  The original uncompensated radical-compression gate
 
 \[
- B(Q)\le\operatorname{rad}(abc)^{1+\varepsilon}.
+ B(Q)\le\operatorname{rad}(abc)^{1+\varepsilon}
+\]
+
+is refuted at \(\varepsilon=1/3\) by the later dyadic complete-premise family.
+The route remains active at the compensated gate
+
+\[
+ B(Q)\le ab\,\operatorname{rad}(abc)^{1+\varepsilon}.
 \]
 
 ## 8. Finite evidence and its limits

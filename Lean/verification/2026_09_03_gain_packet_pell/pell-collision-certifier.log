@@ -1,0 +1,106 @@
+{
+  "schema": "pell-signed-trace-exact-collisions-v1",
+  "definition": "(1+sqrt(2))^n=A_n+B_n*sqrt(2)",
+  "claim_boundary": "These certificates establish local support collisions only.  The large row's full squarefull status is unresolved, and neither row is an abc counterexample.",
+  "rows": [
+    {
+      "index": 7,
+      "prime": 13,
+      "channel": "B",
+      "sign": -1,
+      "index_primality": {
+        "integer": 7,
+        "method": "complete odd trial division through floor(sqrt(n))",
+        "upper_bound": 2,
+        "odd_divisors_tested": 0,
+        "first_divisor": null,
+        "is_prime": true
+      },
+      "support_prime_primality": {
+        "integer": 13,
+        "method": "complete odd trial division through floor(sqrt(n))",
+        "upper_bound": 3,
+        "odd_divisors_tested": 1,
+        "first_divisor": null,
+        "is_prime": true
+      },
+      "modulus_q5": 371293,
+      "A_index_mod_q5": 239,
+      "B_index_mod_q5": 169,
+      "coordinate_quotient_after_q2_mod_q": 1,
+      "opposite_coordinate_mod_q": 5,
+      "fixed_parameter_derivative_mod_q": 12,
+      "doubled_trace_mod_q5": 114243,
+      "signed_trace_shift": "A_2ell+1",
+      "signed_trace_shift_mod_q5": 114244,
+      "trace_quotient_after_q4_mod_q": 4,
+      "checks": {
+        "index_is_odd": true,
+        "index_is_prime": true,
+        "support_integer_is_prime": true,
+        "minimal_residue_identity": true,
+        "three_orbit_algorithms_agree": true,
+        "odd_norm_identity_mod_q5": true,
+        "support_divisibility_q": true,
+        "support_divisibility_q2": true,
+        "coordinate_not_divisible_q3": true,
+        "opposite_coordinate_not_divisible_q": true,
+        "fixed_parameter_derivative_nonzero": true,
+        "doubled_trace_algorithms_agree": true,
+        "signed_trace_divisible_q4": true,
+        "signed_trace_not_divisible_q5": true
+      },
+      "status": "PASS"
+    },
+    {
+      "index": 773231,
+      "prime": 1546463,
+      "channel": "A",
+      "sign": 1,
+      "index_primality": {
+        "integer": 773231,
+        "method": "complete odd trial division through floor(sqrt(n))",
+        "upper_bound": 879,
+        "odd_divisors_tested": 439,
+        "first_divisor": null,
+        "is_prime": true
+      },
+      "support_prime_primality": {
+        "integer": 1546463,
+        "method": "complete odd trial division through floor(sqrt(n))",
+        "upper_bound": 1243,
+        "odd_divisors_tested": 621,
+        "first_divisor": null,
+        "is_prime": true
+      },
+      "modulus_q5": 8844996565598309452666138088543,
+      "A_index_mod_q5": 1358486649730465585420935269695,
+      "B_index_mod_q5": 6402177142951557057739315306520,
+      "coordinate_quotient_after_q2_mod_q": 1090979,
+      "opposite_coordinate_mod_q": 892525,
+      "fixed_parameter_derivative_mod_q": 326969,
+      "doubled_trace_mod_q5": 8049882985411556983650881218646,
+      "signed_trace_shift": "A_2ell-1",
+      "signed_trace_shift_mod_q5": 8049882985411556983650881218645,
+      "trace_quotient_after_q4_mod_q": 1407445,
+      "checks": {
+        "index_is_odd": true,
+        "index_is_prime": true,
+        "support_integer_is_prime": true,
+        "minimal_residue_identity": true,
+        "three_orbit_algorithms_agree": true,
+        "odd_norm_identity_mod_q5": true,
+        "support_divisibility_q": true,
+        "support_divisibility_q2": true,
+        "coordinate_not_divisible_q3": true,
+        "opposite_coordinate_not_divisible_q": true,
+        "fixed_parameter_derivative_nonzero": true,
+        "doubled_trace_algorithms_agree": true,
+        "signed_trace_divisible_q4": true,
+        "signed_trace_not_divisible_q5": true
+      },
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}

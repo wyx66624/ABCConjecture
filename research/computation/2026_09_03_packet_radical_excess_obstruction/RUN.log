@@ -1,0 +1,712 @@
+{
+  "arithmetic": "exact Python integers only; no floating point",
+  "candidate_audit": {
+    "every_exact_gap_packet_minimizes_B_first_counterexample": null,
+    "every_proper_packet_has_full_radical_support_first_counterexample": {
+      "abc": [
+        5,
+        7,
+        12
+      ],
+      "coordinate_radical": 70,
+      "full_packet_bound": 1016064,
+      "gaps": [
+        45,
+        21,
+        24
+      ],
+      "packet": [
+        5,
+        7,
+        2
+      ],
+      "pair_max_bound": 60025,
+      "pair_max_root": 245,
+      "proper": true,
+      "radical": 210,
+      "radical_excess": 2,
+      "synchronization_index": 54
+    },
+    "every_proper_packet_strictly_lowers_full_B_first_counterexample": null,
+    "if_exact_gap_exists_some_B_minimizer_is_exact_first_counterexample": null,
+    "pointwise_compensated_four_thirds_success_count": 371,
+    "pointwise_exists_B_cubed_le_R_fourth_first_counterexample": {
+      "abc": [
+        2,
+        3,
+        5
+      ],
+      "minimizers": [
+        {
+          "abc": [
+            2,
+            3,
+            5
+          ],
+          "coordinate_radical": 30,
+          "full_packet_bound": 5625,
+          "gaps": [
+            16,
+            21,
+            5
+          ],
+          "packet": [
+            2,
+            3,
+            5
+          ],
+          "pair_max_bound": 5625,
+          "pair_max_root": 75,
+          "proper": false,
+          "radical": 30,
+          "radical_excess": 1,
+          "synchronization_index": 56
+        }
+      ],
+      "minimum_pair_max_bound": 5625,
+      "radical": 30,
+      "radical_excess": 1
+    },
+    "pointwise_exists_B_squared_le_R_cubed_first_counterexample": {
+      "abc": [
+        2,
+        3,
+        5
+      ],
+      "minimizers": [
+        {
+          "abc": [
+            2,
+            3,
+            5
+          ],
+          "coordinate_radical": 30,
+          "full_packet_bound": 5625,
+          "gaps": [
+            16,
+            21,
+            5
+          ],
+          "packet": [
+            2,
+            3,
+            5
+          ],
+          "pair_max_bound": 5625,
+          "pair_max_root": 75,
+          "proper": false,
+          "radical": 30,
+          "radical_excess": 1,
+          "synchronization_index": 56
+        }
+      ],
+      "minimum_pair_max_bound": 5625,
+      "radical": 30,
+      "radical_excess": 1
+    },
+    "pointwise_exists_compensated_B_cubed_le_ab_cubed_R_fourth_first_counterexample": {
+      "abc": [
+        2,
+        3,
+        5
+      ],
+      "left_min_B_cubed": 177978515625,
+      "minimizers": [
+        {
+          "abc": [
+            2,
+            3,
+            5
+          ],
+          "coordinate_radical": 30,
+          "full_packet_bound": 5625,
+          "gaps": [
+            16,
+            21,
+            5
+          ],
+          "packet": [
+            2,
+            3,
+            5
+          ],
+          "pair_max_bound": 5625,
+          "pair_max_root": 75,
+          "proper": false,
+          "radical": 30,
+          "radical_excess": 1,
+          "synchronization_index": 56
+        }
+      ],
+      "minimum_pair_max_bound": 5625,
+      "radical": 30,
+      "right_ab_cubed_times_R_fourth": 174960000
+    }
+  },
+  "claim_discipline": {
+    "abc_conjecture": "not proved or disproved",
+    "four_thirds_packet_gate": "refuted by the proved infinite dyadic family; finite rows are checks",
+    "null_search_results": "retained as open; never treated as proofs"
+  },
+  "dyadic_family_exact_audit": [
+    {
+      "abc": [
+        16,
+        3,
+        19
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          19,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 8,
+      "k": 0,
+      "minimum_pair_max_bound": 33362176,
+      "packet_count": 1,
+      "radical": 114,
+      "radical_excess": 8,
+      "radical_upper_bound_6c": 114
+    },
+    {
+      "abc": [
+        32,
+        3,
+        35
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          5,
+          1
+        ],
+        [
+          7,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 16,
+      "k": 1,
+      "minimum_pair_max_bound": 1536640000,
+      "packet_count": 1,
+      "radical": 210,
+      "radical_excess": 16,
+      "radical_upper_bound_6c": 210
+    },
+    {
+      "abc": [
+        64,
+        3,
+        67
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          67,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 32,
+      "k": 2,
+      "minimum_pair_max_bound": 82538991616,
+      "packet_count": 1,
+      "radical": 402,
+      "radical_excess": 32,
+      "radical_upper_bound_6c": 402
+    },
+    {
+      "abc": [
+        128,
+        3,
+        131
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          131,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 64,
+      "k": 3,
+      "minimum_pair_max_bound": 4825086705664,
+      "packet_count": 1,
+      "radical": 786,
+      "radical_excess": 64,
+      "radical_upper_bound_6c": 786
+    },
+    {
+      "abc": [
+        256,
+        3,
+        259
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          7,
+          1
+        ],
+        [
+          37,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 128,
+      "k": 4,
+      "minimum_pair_max_bound": 294902861725696,
+      "packet_count": 1,
+      "radical": 1554,
+      "radical_excess": 128,
+      "radical_upper_bound_6c": 1554
+    },
+    {
+      "abc": [
+        512,
+        3,
+        515
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          5,
+          1
+        ],
+        [
+          103,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 256,
+      "k": 5,
+      "minimum_pair_max_bound": 18440336343040000,
+      "packet_count": 1,
+      "radical": 3090,
+      "radical_excess": 256,
+      "radical_upper_bound_6c": 3090
+    },
+    {
+      "abc": [
+        1024,
+        3,
+        1027
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          13,
+          1
+        ],
+        [
+          79,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 512,
+      "k": 6,
+      "minimum_pair_max_bound": 1166491793165910016,
+      "packet_count": 1,
+      "radical": 6162,
+      "radical_excess": 512,
+      "radical_upper_bound_6c": 6162
+    },
+    {
+      "abc": [
+        2048,
+        3,
+        2051
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          7,
+          1
+        ],
+        [
+          293,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 1024,
+      "k": 7,
+      "minimum_pair_max_bound": 74220272765164847104,
+      "packet_count": 1,
+      "radical": 12306,
+      "radical_excess": 1024,
+      "radical_upper_bound_6c": 12306
+    },
+    {
+      "abc": [
+        4096,
+        3,
+        4099
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          4099,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 2048,
+      "k": 8,
+      "minimum_pair_max_bound": 4736216747996732194816,
+      "packet_count": 1,
+      "radical": 24594,
+      "radical_excess": 2048,
+      "radical_upper_bound_6c": 24594
+    },
+    {
+      "abc": [
+        8192,
+        3,
+        8195
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          5,
+          1
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          149,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 4096,
+      "k": 9,
+      "minimum_pair_max_bound": 302674420015185264640000,
+      "packet_count": 1,
+      "radical": 49170,
+      "radical_excess": 4096,
+      "radical_upper_bound_6c": 49170
+    },
+    {
+      "abc": [
+        16384,
+        3,
+        16387
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          7,
+          1
+        ],
+        [
+          2341,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 8192,
+      "k": 10,
+      "minimum_pair_max_bound": 19356984104867764545519616,
+      "packet_count": 1,
+      "radical": 98322,
+      "radical_excess": 8192,
+      "radical_upper_bound_6c": 98322
+    },
+    {
+      "abc": [
+        32768,
+        3,
+        32771
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          32771,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 16384,
+      "k": 11,
+      "minimum_pair_max_bound": 1238393448729297008768057344,
+      "packet_count": 1,
+      "radical": 196626,
+      "radical_excess": 16384,
+      "radical_upper_bound_6c": 196626
+    },
+    {
+      "abc": [
+        65536,
+        3,
+        65539
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          65539,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 32768,
+      "k": 12,
+      "minimum_pair_max_bound": 79242670620254292769333313536,
+      "packet_count": 1,
+      "radical": 393234,
+      "radical_excess": 32768,
+      "radical_upper_bound_6c": 393234
+    },
+    {
+      "abc": [
+        131072,
+        3,
+        131075
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          5,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          107,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 65536,
+      "k": 13,
+      "minimum_pair_max_bound": 5071066644365879699046400000000,
+      "packet_count": 1,
+      "radical": 22470,
+      "radical_excess": 2293760,
+      "radical_upper_bound_6c": 786450
+    },
+    {
+      "abc": [
+        262144,
+        3,
+        262147
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          262147,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 131072,
+      "k": 14,
+      "minimum_pair_max_bound": 324533409193907886982020953276416,
+      "packet_count": 1,
+      "radical": 1572882,
+      "radical_excess": 131072,
+      "radical_upper_bound_6c": 1572882
+    },
+    {
+      "abc": [
+        524288,
+        3,
+        524291
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          29,
+          1
+        ],
+        [
+          101,
+          1
+        ],
+        [
+          179,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 262144,
+      "k": 15,
+      "minimum_pair_max_bound": 20769662807194536305809497348112384,
+      "packet_count": 1,
+      "radical": 3145746,
+      "radical_excess": 262144,
+      "radical_upper_bound_6c": 3145746
+    },
+    {
+      "abc": [
+        1048576,
+        3,
+        1048579
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          7,
+          1
+        ],
+        [
+          163,
+          1
+        ],
+        [
+          919,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 524288,
+      "k": 16,
+      "minimum_pair_max_bound": 1329243207657400730431426554134265856,
+      "packet_count": 1,
+      "radical": 6291474,
+      "radical_excess": 524288,
+      "radical_upper_bound_6c": 6291474
+    },
+    {
+      "abc": [
+        2097152,
+        3,
+        2097155
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          5,
+          1
+        ],
+        [
+          59,
+          1
+        ],
+        [
+          7109,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 1048576,
+      "k": 17,
+      "minimum_pair_max_bound": 85071078509109616410205402421002240000,
+      "packet_count": 1,
+      "radical": 12582930,
+      "radical_excess": 1048576,
+      "radical_upper_bound_6c": 12582930
+    },
+    {
+      "abc": [
+        4194304,
+        3,
+        4194307
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          13,
+          1
+        ],
+        [
+          19,
+          1
+        ],
+        [
+          16981,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 2097152,
+      "k": 18,
+      "minimum_pair_max_bound": 5444533447642303218396226808918013116416,
+      "packet_count": 1,
+      "radical": 25165842,
+      "radical_excess": 2097152,
+      "radical_upper_bound_6c": 25165842
+    },
+    {
+      "abc": [
+        8388608,
+        3,
+        8388611
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          7,
+          1
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          108943,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 4194304,
+      "k": 19,
+      "minimum_pair_max_bound": 348449642187806801042185532295764953268224,
+      "packet_count": 1,
+      "radical": 50331666,
+      "radical_excess": 4194304,
+      "radical_upper_bound_6c": 50331666
+    },
+    {
+      "abc": [
+        16777216,
+        3,
+        16777219
+      ],
+      "all_packets_fail_B_cubed_le_R_fourth": true,
+      "factorization_c": [
+        [
+          1549,
+          1
+        ],
+        [
+          10831,
+          1
+        ]
+      ],
+      "half_dyadic_arm": 8388608,
+      "k": 20,
+      "minimum_pair_max_bound": 22300761149270850881811978995512531040075776,
+      "packet_count": 1,
+      "radical": 100663314,
+      "radical_excess": 8388608,
+      "radical_upper_bound_6c": 100663314
+    }
+  ],
+  "largest_observed_min_B_cubed_over_R_fourth_exact_pair": {
+    "abc": [
+      625,
+      2048,
+      2673
+    ],
+    "denominator": 11859210000,
+    "minimum_pair_max_bound": 214119262883848126464,
+    "numerator": 9816738422356445924284031834127004274530610788594205897785344,
+    "packet_count": 1,
+    "radical": 330
+  },
+  "packets_exhausted": 1366531,
+  "parameters": {
+    "dyadic_k_range": [
+      0,
+      20
+    ],
+    "limit": 3000
+  },
+  "primitive_triples_exhausted": 1365095,
+  "proper_packets_exhausted": 1436,
+  "proved_invariants_checked_on_every_packet": {
+    "abc_divides_gap_product": true,
+    "abc_le_gapProduct_le_pairMaxBound_le_height_pow_six": true,
+    "compensated_compression_power_implies_c_power": true,
+    "compression_power_implies_radical_excess_power": true,
+    "coordinate_radical_divides_abc_radical": true,
+    "min_times_pairMaxRoot_eq_xyz_times_height": true,
+    "pairMaxBound_le_fullPacket_pairMaxBound": true,
+    "positive_full_premises_and_pairwise_coprimality": true
+  },
+  "scope": "every normalized primitive nonunit triple 2 <= a <= b, a+b=c, c<=limit, and every synchronized divisor packet",
+  "script_sha256": "4c0b132cfcdd5dcc670573ad5e00a3b4d8b63ded51b1333f6648d3b25c319649"
+}
