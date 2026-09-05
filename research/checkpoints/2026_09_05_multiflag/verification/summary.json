@@ -1,0 +1,79 @@
+{
+  "core_replay": {
+    "ABC_proved": false,
+    "core_checks": "passed",
+    "expanded_arithmetic_and_lifting_datasets": "not rerun by this core-only command",
+    "lean_compilation_this_command": "not executed; see pinned GitHub workflow",
+    "lean_source_hash": "matched",
+    "network_crosscheck": {
+      "abstract_single_output_residual": "2",
+      "abstract_two_output_residual": "1",
+      "arithmetic_realizability_of_abstract_witness": "not asserted",
+      "cut_augmenting_agreements": 5000,
+      "maximum_augmentations": 16,
+      "random_networks": 5000,
+      "seed": 20260905
+    },
+    "unitary_scan": {
+      "c_bound": 5000,
+      "compatible_unitary_modulus_cases": 8435196,
+      "counterexamples": 0,
+      "equality_cases": 1156,
+      "mod3_refined_cases": 3866583,
+      "primitive_triples": 3800229,
+      "proper_faces": 70740182
+    }
+  },
+  "expanded_arithmetic": {
+    "fixed_configuration_comparisons": 1273,
+    "strict_improvements": 0,
+    "triples": 38
+  },
+  "expanded_data_location": "conversation research bundle, not core repository import",
+  "expanded_lifting": {
+    "M_range": [4, 10000],
+    "all_passed": true,
+    "certified_lifting_rows": 498,
+    "distinct_primes_trial_checked": 502,
+    "scope": "498 supplied rows, not every base/exponent pair in the discovery rectangle",
+    "sharpness_moduli": 9997
+  },
+  "lean": {
+    "axiom_union": ["propext", "Classical.choice", "Quot.sound"],
+    "axioms": {
+      "coprime_parity": ["propext", "Quot.sound"],
+      "geometric_gcd": ["propext", "Quot.sound"],
+      "geometric_mod": ["propext"],
+      "greedy_two_feasible": ["propext", "Classical.choice", "Quot.sound"],
+      "greedy_two_optimal": ["propext", "Quot.sound"],
+      "greedy_two_sum": ["propext", "Quot.sound"],
+      "no_face_no_transfer": ["propext"],
+      "normalized_unitary_face_threshold": ["propext", "Quot.sound"],
+      "positive_product_lower": ["propext", "Quot.sound"],
+      "separated_face_product_lower": ["propext", "Quot.sound"],
+      "splitting_never_worse": ["propext", "Quot.sound"],
+      "strict_abstract_example": [],
+      "threshold_comparison": ["propext", "Quot.sound"],
+      "unit_cell_impossible": ["propext", "Quot.sound"]
+    },
+    "blob": "e03c3533c5587fc60300a1ff16fea22d855cd447",
+    "command": "lean -DwarningAsError=true research/checkpoints/2026_09_05_multiflag/Lean/CapacityAndLifting.lean",
+    "commit": "539db3ad12faeb5a78ebc18b2a44895218744a6a",
+    "compiler": "Lean 4.32.2",
+    "compiler_commit": "f3b06c705e6c85f5314019d5d3baab0fec5b580c",
+    "conclusion": "success",
+    "contains_sorryAx": false,
+    "description": "Transcription of successful GitHub Actions result and axiom lines read through GitHub connector; not raw log archive",
+    "full_ABC_proof": false,
+    "full_LTE_theorem_formalized": false,
+    "full_mod3_refinement_formalized": false,
+    "full_real_flow_formalized": false,
+    "job_id": 101311920225,
+    "run_id": 33968189781,
+    "run_url": "https://github.com/wyx66624/ABCConjecture/actions/runs/33968189781",
+    "source_sha256": "1bb648834b0570daac70f8a4dbe021f35ddd35ba0adceb69667345376bd929c0",
+    "theorem_count": 14
+  },
+  "starting_main": "d05220b6ddd59e40da976ba4238121f3b3b0b012",
+  "status": "partial research, not ABC proof"
+}

@@ -1,7 +1,7 @@
 name: September 5 standalone arithmetic cores
 on:
   push:
-    branches: ["verify/2026-09-05-capacity-lifting", "main"]
+    branches: ["verify/**", "main"]
     paths:
       - "research/checkpoints/2026_09_05_multiflag/**"
       - ".github/workflows/abc-20260905-standalone.yml"
