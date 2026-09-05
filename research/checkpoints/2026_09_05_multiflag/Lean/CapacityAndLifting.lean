@@ -134,7 +134,7 @@ theorem threshold_comparison (M : Nat) :
     (M - 1) * (2 * M + 1) <= (M - 1) * (2 * (M + 1)) :=
       Nat.mul_le_mul_left (M - 1) (by omega)
     _ = (2 * (M - 1)) * (M + 1) := by
-      simp only [Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
+      simp only [Nat.mul_comm, Nat.mul_left_comm]
     _ <= (2 * M - 1) * (M + 1) := Nat.mul_le_mul_right (M + 1) h
 
 theorem normalized_unitary_face_threshold (M A B Y k l : Nat)
@@ -157,10 +157,11 @@ theorem normalized_unitary_face_threshold (M A B Y k l : Nat)
     omega
   by_cases hy2 : 2 <= Y
   · have hxy : 2 * M + 1 <= (Y + l * M) * Y := by
-      have hh := Nat.mul_le_mul hx hy2
-      simp only [Nat.mul_add, Nat.add_mul, Nat.mul_one, Nat.one_mul,
-        Nat.mul_two, Nat.two_mul] at hh
-      omega
+      calc
+        2 * M + 1 <= (M + 1) * 2 := by
+          rw [Nat.mul_two]
+          omega
+        _ <= (Y + l * M) * Y := Nat.mul_le_mul hx hy2
     have hh := Nat.mul_le_mul hmprod hxy
     simpa only [Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm] using hh
   · have ey : Y = 1 := by omega
