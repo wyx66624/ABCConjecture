@@ -1,0 +1,230 @@
+{
+  "counts": {
+    "base_reallocation_checks": 180,
+    "cleared_defect_transfers": 14212,
+    "cocycle_checks": 405,
+    "independent_small_representatives": 129,
+    "local_energy_lifts": 7497,
+    "max_energy_exchanges": 10,
+    "orbit_exact_valuations": 13,
+    "signed_radical_identities": 3553
+  },
+  "cubic_seed_example": {
+    "B": 7,
+    "E2": 1,
+    "G": 931,
+    "L": 1,
+    "R": 115710,
+    "R0": 870,
+    "T": 7,
+    "first": [
+      [
+        7,
+        3,
+        2
+      ],
+      [
+        19,
+        3,
+        1
+      ]
+    ],
+    "n": 3,
+    "sign": -1,
+    "x": 30,
+    "y": 1
+  },
+  "energy_examples": [
+    {
+      "factors": {
+        "2": 1,
+        "3": 1,
+        "5": 1,
+        "7": 1
+      },
+      "max_f": 1,
+      "new_envelope": "3/4",
+      "previous_S": 4,
+      "realized_error": "419/840"
+    },
+    {
+      "factors": {
+        "2": 1,
+        "3": 100
+      },
+      "max_f": 100,
+      "new_envelope": "50",
+      "previous_S": 101,
+      "realized_error": "10150/303"
+    },
+    {
+      "factors": {
+        "2": 2,
+        "3": 3
+      },
+      "max_f": 3,
+      "new_envelope": "1/4",
+      "previous_S": 5,
+      "realized_error": "1/5"
+    },
+    {
+      "factors": {
+        "2": 64,
+        "3": 41
+      },
+      "max_f": 64,
+      "new_envelope": "16",
+      "previous_S": 105,
+      "realized_error": "736/315"
+    }
+  ],
+  "orbit": [
+    {
+      "bit_length": 8,
+      "k": 0,
+      "sha256": "30a5bfa58e128af9e5a4955725d8ad26d4d574a537b58b7dc6d357acad578572",
+      "v7_phi": 2,
+      "x": "226"
+    },
+    {
+      "bit_length": 21,
+      "k": 1,
+      "sha256": "6def64a39367c30925add1ae292b7b048b4917684b079a99e1e778cc439560ad",
+      "v7_phi": 3,
+      "x": "1641922"
+    },
+    {
+      "bit_length": 47,
+      "k": 2,
+      "sha256": "88ce23b3d85b80ae1200a820fa215cd54004d74228fab916c5c38e7386ebabdb",
+      "v7_phi": 4,
+      "x": "86269105514146"
+    },
+    {
+      "bit_length": 98,
+      "k": 3,
+      "sha256": "460849651c2ebdf7ee364028a525e5e16ea13a63af0620ff46a608fabf8a7ce0",
+      "v7_phi": 5
+    },
+    {
+      "bit_length": 201,
+      "k": 4,
+      "sha256": "637919418cc9aa920e9beafa7ec100af00459c2ed3c3c9d68433eb8ba2b8edc8",
+      "v7_phi": 6
+    },
+    {
+      "bit_length": 406,
+      "k": 5,
+      "sha256": "42359ec46cfaeb98dee6a880fb14cc0d46aecb5b653de2870e5e433479f3ba8d",
+      "v7_phi": 7
+    },
+    {
+      "bit_length": 816,
+      "k": 6,
+      "sha256": "8ec1633196dfe8d2e66e925a91bf785b65253cb930205518749bb7955a72bc5b",
+      "v7_phi": 8
+    },
+    {
+      "bit_length": 1637,
+      "k": 7,
+      "sha256": "bdb3481ee5569560ffa607458c67908ad1f956e1d3637f9e5a9a974a76c51f5d",
+      "v7_phi": 9
+    },
+    {
+      "bit_length": 3278,
+      "k": 8,
+      "sha256": "90e648de5dd315b4be3b3c57ecd2ee433dec07ea9e704661d6f5dfab58302350",
+      "v7_phi": 10
+    },
+    {
+      "bit_length": 6561,
+      "k": 9,
+      "sha256": "29dba3243b4961f73d646dfa724c2bc1680d89efb915e86c6562543276ed85ee",
+      "v7_phi": 11
+    },
+    {
+      "bit_length": 13127,
+      "k": 10,
+      "sha256": "614c3d2e38d3b97372fee6d2ca3d685a3a04897db168c7b399ce2a6c9ef9f4f7",
+      "v7_phi": 12
+    },
+    {
+      "bit_length": 26258,
+      "k": 11,
+      "sha256": "11ae89c2332a57ac73d60e6d11e23386a91cb6ddbbea826784e6b038ba47fe9a",
+      "v7_phi": 13
+    },
+    {
+      "bit_length": 52520,
+      "k": 12,
+      "sha256": "eeace90011ef9b705769bcddaaf3df2fa68849529cb6b28713691b0c76823501",
+      "v7_phi": 14
+    }
+  ],
+  "ordered_digest": "831823d57ae2d228dd78b290819444c2f687b6bd7f22d0acde893a4c98d10667",
+  "small_representatives": [
+    {
+      "exhibited_excess": "7",
+      "k": 0,
+      "v7_phi": 2,
+      "x": "30"
+    },
+    {
+      "exhibited_excess": "49",
+      "k": 1,
+      "v7_phi": 3,
+      "x": "1010"
+    },
+    {
+      "exhibited_excess": "343",
+      "k": 2,
+      "v7_phi": 4,
+      "x": "3754"
+    },
+    {
+      "exhibited_excess": "2401",
+      "k": 3,
+      "v7_phi": 5,
+      "x": "51774"
+    },
+    {
+      "exhibited_excess": "16807",
+      "k": 4,
+      "v7_phi": 6,
+      "x": "387914"
+    },
+    {
+      "exhibited_excess": "117649",
+      "k": 5,
+      "v7_phi": 7,
+      "x": "3211490"
+    },
+    {
+      "exhibited_excess": "823543",
+      "k": 6,
+      "v7_phi": 8,
+      "x": "19682350"
+    },
+    {
+      "exhibited_excess": "5764801",
+      "k": 7,
+      "v7_phi": 9,
+      "x": "65800758"
+    }
+  ],
+  "status": "PASS: exact finite tests, not an ABC proof",
+  "two_adic_example": {
+    "B": 8,
+    "E2": 4,
+    "G": 8,
+    "L": 2,
+    "R": 42,
+    "R0": 42,
+    "T": 1,
+    "first": [],
+    "n": 2,
+    "sign": -1,
+    "x": 7,
+    "y": 1
+  }
+}

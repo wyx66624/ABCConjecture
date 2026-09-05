@@ -1,0 +1,58 @@
+{
+  "status": "partial research; unconditional ABC unresolved",
+  "baseline_commit": "d3f7b33b1115538920cb5fcd851a97f0c3a26a3d",
+  "lean": {
+    "version": "4.32.2",
+    "compiler_commit": "f3b06c705e6c85f5314019d5d3baab0fec5b580c",
+    "source_commit": "67af725edf41a7b4103eae055e9ee19c6be716c6",
+    "source_blob": "eb665612004cc072255419b6fc5af464f4dc1ffe",
+    "source_sha256": "f0a7d2d1340a0ae26fd02036c056d63e9d5e8e29d31e8538c5bfe3568123544e",
+    "run_id": 33976085784,
+    "job_id": 101332907717,
+    "conclusion": "success",
+    "theorems": 29,
+    "axiom_queries": 29,
+    "warning_as_error": true,
+    "axiom_union": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "sorryAx": false,
+    "failed_development_runs": [
+      33975521741,
+      33975725775
+    ],
+    "scope": "universal orbit/valuation and nonperfect-power certificates, small representatives, integer transfer/cocycle with an explicit balance premise, polynomial energy exchange",
+    "not_fully_formalized": [
+      "general radical balance from orders and LTE",
+      "real-valued pair-energy proximity",
+      "asymptotic T-product interpretation",
+      "standard ABC"
+    ]
+  },
+  "finite": {
+    "two_local_runs_byte_identical": true,
+    "result_bytes": 4637,
+    "result_sha256": "d5f0877cef9a7681ee42db068b22ef61620467935f62359298181d513ae5188a",
+    "counts": {
+      "base_reallocation_checks": 180,
+      "cleared_defect_transfers": 14212,
+      "cocycle_checks": 405,
+      "independent_small_representatives": 129,
+      "local_energy_lifts": 7497,
+      "max_energy_exchanges": 10,
+      "orbit_exact_valuations": 13,
+      "signed_radical_identities": 3553
+    }
+  },
+  "environment": {
+    "local_lean_available": false,
+    "actual_lean_execution": "GitHub-hosted Ubuntu x86_64",
+    "personal_wsl_accessed": false,
+    "wsl_compatible_script_supplied": true,
+    "independent_autonomous_agents": false,
+    "full_repository_build_claimed": false,
+    "external_peer_review_claimed": false
+  }
+}
