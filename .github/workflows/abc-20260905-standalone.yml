@@ -1,0 +1,30 @@
+name: September 5 standalone arithmetic cores
+on:
+  push:
+    branches: ["verify/2026-09-05-capacity-lifting", "main"]
+    paths:
+      - "research/checkpoints/2026_09_05_multiflag/**"
+      - ".github/workflows/abc-20260905-standalone.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  standalone-lean:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install pinned standalone Lean 4.32.2
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 -o /tmp/lean.tar.zst https://github.com/leanprover/lean4/releases/download/v4.32.2/lean-4.32.2-linux.tar.zst
+          echo '5f2069e6f5db73780f374ccb49ce8ea649aa20a0cebf0116816744c999ce72aa  /tmp/lean.tar.zst' | sha256sum -c -
+          tar --zstd -xf /tmp/lean.tar.zst -C /tmp
+          echo '/tmp/lean-4.32.2-linux/bin' >> "$GITHUB_PATH"
+      - name: Check elementary cores and report axiom dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          lean --version
+          lean -DwarningAsError=true research/checkpoints/2026_09_05_multiflag/Lean/CapacityAndLifting.lean
