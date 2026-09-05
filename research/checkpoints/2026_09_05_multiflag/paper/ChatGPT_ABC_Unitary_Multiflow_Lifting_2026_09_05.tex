@@ -1,0 +1,408 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,array,longtable}
+\usepackage[breaklinks,hidelinks]{hyperref}
+\usepackage{microtype}
+\hypersetup{pdftitle={Sharp Unitary-Face Thresholds, Multi-Output Transport, and Exponent-Lifting Budgets},pdfauthor={ChatGPT}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\vp}{v_p}
+\newcommand{\pos}[1]{\left[#1\right]_+}
+\newcommand{\code}[1]{\texttt{\small #1}}
+\title{Sharp Unitary-Face Thresholds,\protect\\ Once-Charged Multi-Output Transport,\protect\\ and Uniform Exponent-Lifting Budgets for \(abc\)}
+\author{ChatGPT}
+\date{September 5, 2026 --- third research supplement}
+\begin{document}
+\maketitle
+\begin{abstract}
+We continue the project's flagged Chinese-remainder transport and signed-endpoint program. For every unitary divisor \(M\ge4\) of the sum of a primitive positive triple, we prove a sharp, residue-sensitive lower bound on the product of the summands whenever a compatible nonempty proper unitary face exists. The optimal threshold is \((M-1)(2M+1)\), improved to \((2M-1)(M+1)\) when \(M\equiv1\pmod3\); both are attained for every eligible modulus. We introduce a multi-output extension whose total outgoing capacity is charged only once, prove its height certificate and exact finite cut formula, and verify the formula by a separate rational augmenting-path implementation. Finally we isolate, for every power neighbour \(x^n-1\), a lifting factor dividing \(n\); the uncontrolled first-apparition factor is kept explicit. Fourteen elementary-core theorems were successfully compiled by Lean 4.32.2 with axiom queries. These results do not prove or disprove the standard \(abc\) conjecture. The uniform global estimate and the remaining geometric and first-apparition gates are not assumed.
+\end{abstract}
+
+\section{Target, provenance, and exact scope}
+For a positive integer \(m\), let \(\rad(m)=\prod_{p\mid m}p\). Our target is
+\begin{equation}\label{eq:abc}
+\forall\epsilon>0\ \exists K_\epsilon>0\ \forall a,b,c\in\mathbb Z_{>0},\quad
+ a+b=c,\ (a,b)=1\ \Longrightarrow\ c\le K_\epsilon\rad(abc)^{1+\epsilon}.
+\end{equation}
+The constant must be independent of the triple, prime support, base and exponent. A conditional implication to \eqref{eq:abc} is not a proof of its premise.
+
+The starting repository snapshot is \code{d05220b6ddd59e40da976ba4238121f3b3b0b012}, which contains the two preceding supplements \cite{first,second}. We preserve their whole-prime-power faces, exact congruences, and no-double-counting conventions. The new proofs below are developed here, rather than attributed to those sources. No general web literature search was performed in this round; external novelty and peer review are not asserted. The valuation argument in Section~\ref{sec:lift} is an elementary lifting calculation, not a claim to have discovered the classical lifting phenomenon.
+
+Write \(R=\rad(abc)\). The preceding signed selector has
+\[
+ F_{\rm sel}=\min\{F_c,(c/b)F_b\},\qquad c\le RF_{\rm sel},
+\]
+for \(a\le b\), and its logarithm decomposes exactly into the scalar defect \(\log(c/R)\) and the smaller of two allocation losses \cite{second}. Reducing an allocation loss alone does not bound the scalar defect. This distinction is maintained throughout.
+
+\section{A sharp threshold for general unitary faces}\label{sec:threshold}
+\begin{definition}
+A divisor \(d\) of \(m>0\) is \emph{unitary} if \((d,m/d)=1\). A whole-prime-power face of a primitive triple \(a+b=c\) is a choice
+\[
+ a=AX,\qquad b=BY,
+\]
+where \(A\mid a\) and \(B\mid b\) are unitary. The face is nonempty and proper when \((A,B)\ne(1,1)\) and \((X,Y)\ne(1,1)\). It is compatible with \(M\) when \(M\mid A+B\).
+\end{definition}
+All four integers \(A,B,X,Y\) are then pairwise coprime. This includes the within-summand conditions \((A,X)=(B,Y)=1\), not only the cross-summand conditions.
+
+\begin{theorem}[Sharp general threshold]\label{thm:threshold}
+Let \(a+b=c\) be a primitive positive triple, and let \(M\ge4\) be a unitary divisor of \(c\). If there is a compatible nonempty proper whole-prime-power face, then
+\begin{equation}\label{eq:threshold}
+ ab\ge T(M):=
+ \begin{cases}
+ (2M-1)(M+1),&M\equiv1\pmod3,\\
+ (M-1)(2M+1),&M\not\equiv1\pmod3.
+ \end{cases}
+\end{equation}
+For every integer \(M\ge4\), equality is attained by an actual primitive triple and an actual unitary proper face.
+\end{theorem}
+
+\begin{lemma}[Normal form and excluded unit cell]\label{lem:cell}
+Under the hypotheses of Theorem~\ref{thm:threshold}, after interchanging the summands when necessary, there are positive integers \(k,\ell,Y\) such that
+\begin{equation}\label{eq:normal}
+ A+B=kM,\qquad X=Y+\ell M,\qquad c/M=kY+\ell A.
+\end{equation}
+The case \(k=\ell=Y=1\) is impossible.
+\end{lemma}
+\begin{proof}
+Since \(M\mid c\) and \((a,c)=1\), the integer \(A\) is invertible modulo \(M\). From \(A+B\equiv0\) and \(AX+BY\equiv0\pmod M\), we get \(X\equiv Y\pmod M\). If \(X=Y\), pairwise coprimality gives \(X=Y=1\), contrary to properness. Interchange the summands so that \(X>Y\); this gives \eqref{eq:normal}. Unitarity of \(M\) says \((M,kY+\ell A)=1\).
+
+In the unit cell, \(X=M+1\), \(A+B=M\), and \(c/M=A+1\). If \(M\) is odd, \(X\) is even, so coprimality with \(X\) forces both \(A\) and \(B\) odd, contradicting their odd sum. If \(M\) is even, coprimality of \(A,B\) and their even sum forces both odd; then \(c/M=A+1\) is even, contradicting \((M,c/M)=1\).
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:threshold}]
+For positive \(A,B\),
+\[
+ AB-(A+B-1)=(A-1)(B-1)\ge0.
+\]
+Hence \(AB\ge kM-1\), and \(XY=Y(Y+\ell M)\). Outside the excluded unit cell, at least one of the following applies:
+\begin{align}
+ Y\ge2&:\quad ab\ge2(M-1)(M+2),\label{eq:ycase}\\
+ k\ge2&:\quad ab\ge(2M-1)(M+1),\label{eq:kcase}\\
+ \ell\ge2&:\quad ab\ge(M-1)(2M+1).\label{eq:lcase}
+\end{align}
+Each is at least \((M-1)(2M+1)\). This proves the baseline threshold.
+
+Suppose now \(M\equiv1\pmod3\). The difference between the right sides of \eqref{eq:ycase} and \eqref{eq:kcase} is \(M-3\ge1\). Thus only \(Y=k=1\) requires further treatment. If \(\ell\ge3\),
+\[
+ (M-1)(3M+1)-(2M-1)(M+1)=M(M-3)\ge0.
+\]
+If \(\ell=2\), then \(X=2M+1\) is divisible by \(3\). Neither \(A\) nor \(B\) can equal \(1\), since the other would equal \(M-1\), also divisible by \(3\), contradicting its coprimality with \(X\). Therefore \(A,B\ge2\), and
+\[
+ (A-2)(B-2)\ge0\quad\Longrightarrow\quad AB\ge2(M-2).
+\]
+Consequently
+\[
+ ab\ge2(M-2)(2M+1)\ge(2M-1)(M+1),
+\]
+since the difference is
+\[
+ 2M^2-7M-3=2(M-4)^2+9(M-4)+1>0.
+\]
+This proves the strengthened threshold.
+
+For sharpness take \(a=1,b=uv,c=uv+1\). If \(M\not\equiv1\pmod3\), set
+\[
+ u=M-1,\quad v=2M+1,\quad c=M(2M-1).
+\]
+Here \((u,v)=(M-1,3)=1\), \((M,2M-1)=1\), and \(1+u=M\). If \(M\equiv1\pmod3\), set
+\[
+ u=2M-1,\quad v=M+1,\quad c=M(2M+1).
+\]
+Then \((u,v)=(M+1,3)=1\), \((M,2M+1)=1\), and \(1+u=2M\). In each case \(u,v>1\), the face \((1,u)\) is nonempty and proper, and its product is exactly \(T(M)\).
+\end{proof}
+
+\begin{corollary}[A source exclusion rule]\label{cor:exclude}
+For every complete prime power \(p^e\Vert c\) with \(p^e\ge4\), the inequality \(ab<T(p^e)\) rules out every compatible nonempty proper whole-prime-power face at that source. In particular it rules out all proper-face transfers to that source from any smaller packet.
+\end{corollary}
+\begin{proof}
+A complete prime power is a unitary divisor of \(c\). A nonempty proper subface of any packet is also a nonempty proper face of the full endpoint. Apply the theorem.
+\end{proof}
+\begin{remark}
+For \(a=1\), the baseline recovers the earlier \(c\ge M(2M-1)\) obstruction, and the residue-one case improves it to \(c\ge M(2M+1)\). The theorem does not claim that a face exists whenever the threshold is exceeded. It only proves necessity and sharpness. Omitting within-arm unitarity invalidates the parity argument; arbitrary divisors must not be substituted for these faces.
+\end{remark}
+
+\section{Multi-output transport with a single total charge}\label{sec:multi}
+We give a complete definition because relaxing the old rules silently would change the problem. Consider a signed endpoint
+\[
+ n=x+\sigma y>0,\qquad \sigma\in\{1,-1\},\qquad (x,y)=1.
+\]
+Then \(n,x,y\) are pairwise coprime. The sources are \(p_i^{e_i}\Vert n\), \(e_i\ge2\), with demands \(d_i=p_i^{e_i-1}\). The sinks are the distinct primes of \(xy\). For a set \(T\) of sinks, let \(x_T,y_T\) select their full powers from \(x,y\), and set \(Q_T=\rad(x_Ty_T)\).
+
+A block \((S,T)\) has nonempty source and sink sets, satisfies
+\[
+ \prod_{i\in S}p_i^{e_i}\mid x_T+\sigma y_T,\qquad
+ D_S:=\prod_{i\in S}d_i\le Q_T,
+\]
+and is disjoint in both kinds of indices from every other selected block. A residual sink is assigned to at most one residual source. Write \(K_i\) for the product assigned to source \(i\), with the empty product equal to \(1\).
+
+\begin{definition}[Multi-output extension]
+A selected block \(k=(S_k,T_k)\) may emit factors \(f_{ki}\ge1\) to several residual sources. Whenever \(f_{ki}>1\), there must exist a nonempty proper subset \(U_{ki}\subsetneq T_k\) with
+\[
+ p_i^{e_i}\mid x_{U_{ki}}+\sigma y_{U_{ki}},\qquad f_{ki}\le Q_{U_{ki}}.
+\]
+The \emph{joint} block budget is
+\begin{equation}\label{eq:joint}
+ \prod_i f_{ki}\le Q_{T_k}/D_{S_k}.
+\end{equation}
+The witnesses need not be disjoint from one another: they provide congruence and individual-capacity restrictions. The available block surplus, not a sum of independent face budgets, is the resource charged by \eqref{eq:joint}. The residual factor is
+\[
+ F=\prod_{i\ \mathrm{residual}}\max\left\{\frac{d_i}{K_i\prod_k f_{ki}},1\right\}.
+\]
+\end{definition}
+This is an explicitly defined successor of FCRT, not an assertion that the old single-output optimizer already permitted such splitting.
+
+\begin{theorem}[Exact accounting and height certificate]\label{thm:account}
+Let \(R_n=\rad(nxy)\). For every multi-output configuration,
+\begin{equation}\label{eq:account}
+ F=\frac{n}{R_n}\,U_0S_0O_0\ge\frac{n}{R_n},
+\end{equation}
+where
+\[
+ U_0=\prod_{\text{unowned residual sinks}}q,\quad
+ S_0=\prod_k\frac{Q_{T_k}}{D_{S_k}\prod_i f_{ki}},\quad
+ O_0=\prod_i\max\left\{\frac{K_i\prod_k f_{ki}}{d_i},1\right\}.
+\]
+All three factors are at least one. The minimum new boundary is no greater than the preceding single-output FCRT boundary.
+\end{theorem}
+\begin{proof}
+Use \(\max(d/z,1)=(d/z)\max(z/d,1)\) at each residual source. The product of all source demands is \(n/\rad(n)\). Multiply the covered and residual factors, and partition the sink primes into owned residual sinks, unowned sinks, and disjoint blocks. Cancellation gives \eqref{eq:account}. The joint budget gives \(S_0\ge1\); the other inequalities are immediate. Each old configuration is a new one with at most one nontrivial factor per block, proving the optimizer comparison.
+\end{proof}
+For the two orientations of \(a+b=c\), the same argument gives a selector
+\[
+ E_{\rm multi}=\log\min\{F_{{\rm multi},c},(c/b)F_{{\rm multi},b}\},\qquad
+ c\le R\exp(E_{\rm multi}),\quad E_{\rm multi}\le E.
+\]
+The pointwise lower bound is still \(\max\{\log(c/R),0\}\).
+
+\section{The finite cut formula and a genuinely independent verifier}\label{sec:cut}
+Fix the disjoint blocks and residual ownership. Define
+\[
+ r_i=\log\max\{d_i/K_i,1\},\qquad s_k=\log(Q_{T_k}/D_{S_k}),
+\]
+and let \(W_{ki}\) be the maximum \(Q_U\) over legitimate nonempty proper compatible faces of block \(k\) for source \(i\), with \(W_{ki}=1\) if none exist. Set \(u_{ki}=\log W_{ki}\).
+
+\begin{theorem}[Exact residual cut formula]\label{thm:cut}
+The optimal logarithmic residual for these fixed blocks and ownership is
+\begin{equation}\label{eq:cut}
+ B_* =\max_{A\subseteq I}\left\{\sum_{i\in A}r_i-
+             \sum_k\min\left(s_k,\sum_{i\in A}u_{ki}\right)\right\}.
+\end{equation}
+Equivalently, with \(\rho_i=\max(d_i/K_i,1)\) and \(\beta_k=Q_{T_k}/D_{S_k}\),
+\begin{equation}\label{eq:multcut}
+ e^{B_*}=\max_{A\subseteq I}
+ \frac{\prod_{i\in A}\rho_i}
+ {\prod_k\min\bigl(\beta_k,\prod_{i\in A}W_{ki}\bigr)}.
+\end{equation}
+In particular, its exact value is rational; logarithms need not be numerically evaluated.
+\end{theorem}
+\begin{proof}
+Put edges of capacities \(s_k\) from a new source to block vertices, edges of capacities \(u_{ki}\) from block \(k\) to demand vertex \(i\), and edges of capacities \(r_i\) from demand vertices to a new sink. Removing useless overfill cannot increase the residual, so usable transfers are exactly feasible flows in this finite real-capacity network. The total unmatched mass is \(\sum_i r_i\) minus maximum flow.
+
+For completeness, maximum flow equals minimum cut here without requiring a termination assumption for arbitrary real augmentations. The feasible flow polytope is nonempty and compact, so a maximizing flow exists. Its residual graph cannot contain a source-to-sink path, since augmenting by the minimum positive residual along that finite path would increase its value. Let the source side be the vertices reachable in the residual graph. Every forward edge crossing the resulting cut is saturated, and every backward crossing edge carries zero flow. Summing conservation shows equality of flow value and cut capacity. Every flow is bounded by every cut, establishing the equality.
+
+For a cut with demand vertices \(A\) on the sink side, putting a block on the sink side costs \(s_k\), while putting it on the source side costs \(\sum_{i\in A}u_{ki}\). Choose the smaller independently for each block. Demand vertices outside \(A\) contribute \(\sum_{i\notin A}r_i\). Subtract the minimum cut from total demand to obtain \eqref{eq:cut}; exponentiate to get \eqref{eq:multcut}.
+\end{proof}
+
+\begin{proposition}[Two outputs and an obstruction that persists]
+For one block and two residual demands, put \(a=\min(r_1,u_1)\), \(b=\min(r_2,u_2)\). The usable transfer is \(\min(s,a+b)\), versus \(\min(s,\max(a,b))\) for a single output. A feasible maximizing choice is
+\[
+ t_1=\min(s,a),\qquad t_2=\min(s-t_1,b).
+\]
+If every proper-face cap vanishes, multi-output transport emits nothing and cannot repair the no-face obstruction.
+\end{proposition}
+\begin{proof}
+Any feasible sum is at most both \(s\) and \(a+b\). The displayed greedy pair attains their minimum by separating the cases \(s\le a\), \(a<s\le a+b\), and \(a+b<s\). A single output is bounded by \(\min(s,a)\) or \(\min(s,b)\). If all \(u_{ki}=0\), every usable transfer is zero.
+\end{proof}
+The model \(s=2\), \(u_1=u_2=r_1=r_2=1\) gives a strict abstract improvement. No arithmetic realization of this model is asserted. In particular the preceding complete counterexample \(1+3024=3025\) has no proper faces in either orientation, so its excess factor \(6/5\) persists. More flexibility is not itself a uniform estimate.
+
+The supplied verifier has two separate algorithms. One enumerates \eqref{eq:multcut}; the other implements breadth-first augmenting paths with rational multiplicative residuals. It starts each reverse residual at \(1\), augments a path by its smallest residual factor \(\alpha>1\), divides forward residuals by \(\alpha\), and multiplies reverse residuals by \(\alpha\). These are exact exponentiated flow operations. It also checks edge capacities and multiplicative conservation. The two algorithms agree on 5,000 seeded rational networks and all 1,273 fixed arithmetic configurations arising in the 38 selected triples described in Section~\ref{sec:tests}.
+
+\section{A uniform exponent-lifting budget}\label{sec:lift}
+Let \(x\ge2\), \(n\ge1\), and \(N=x^n-1\). For an odd prime \(p\mid N\), put
+\[
+ r_p=\ord_p(x),\qquad t_p=v_p(x^{r_p}-1).
+\]
+The order divides \(n\) and \(p-1\), and hence \(p\nmid r_p\). The divisibility by \(p-1\) follows, for example, by partitioning the finite group of nonzero residues into cosets of the cyclic subgroup generated by \(x\).
+
+\begin{lemma}[Valuation lifting, with the prime two separated]\label{lem:lte}
+For odd \(p\mid x^n-1\),
+\[
+ v_p(x^n-1)=t_p+v_p(n).
+\]
+If \(x\) is odd, then
+\[
+ v_2(x^n-1)=
+ \begin{cases}
+ v_2(x-1),&n\text{ odd},\\
+ v_2(x^2-1)+v_2(n)-1,&n\text{ even}.
+ \end{cases}
+\]
+\end{lemma}
+\begin{proof}
+For odd \(p\), write \(z=1+p^t u\), where \(p\nmid u\), \(t\ge1\). If \(m\) is coprime to \(p\), the first term of the binomial expansion of \(z^m-1\) has valuation \(t\), while all later terms have larger valuation. Thus raising to such an exponent preserves valuation. Raising to \(p\) increases it by exactly one: the first term has valuation \(t+1\); for \(2\le j<p\), the \(j\)-th term has valuation at least \(jt+1\ge t+2\); the last term has valuation \(pt\ge t+2\). Apply this repeatedly to \(z=x^{r_p}\) and exponent \(n/r_p\).
+
+For odd \(x\), an odd exponent contributes an odd geometric sum and does not change \(v_2(x-1)\). For \(n=2^h m\), \(h\ge1\), \(m\) odd, remove the odd exponent in the same way and use
+\[
+ x^{2^h}-1=(x-1)(x+1)\prod_{j=1}^{h-1}(x^{2^j}+1).
+\]
+Each factor in the product has valuation exactly one, since an odd square is \(1\pmod8\). This proves the formula, including \(h=1\).
+\end{proof}
+
+Define
+\[
+ T_{\rm odd}=\prod_{\substack{p\mid N\\p\text{ odd}}}p^{t_p-1},\qquad
+ L_{\rm odd}=\prod_{\substack{p\mid N\\p\text{ odd}}}p^{v_p(n)}.
+\]
+For the two-part set
+\[
+ (T_2,L_2)=
+ \begin{cases}
+ (1,1),&x\text{ even},\\
+ (2^{v_2(x-1)-1},1),&x,n\text{ odd},\\
+ (2^{v_2(x^2-1)-2},2^{v_2(n)}),&x\text{ odd},\ n\text{ even}.
+ \end{cases}
+\]
+All exponents are nonnegative. Let \(T=T_2T_{\rm odd}\) and \(L=L_2L_{\rm odd}\).
+
+\begin{theorem}[Uniform budget for repeated lifting]\label{thm:lift}
+For every \(x\ge2,n\ge1\),
+\begin{equation}\label{eq:TL}
+ \frac{x^n-1}{\rad(x^n-1)}=TL,\qquad L\mid n,\qquad 1\le L\le n.
+\end{equation}
+Consequently
+\[
+ 0\le\frac{\log L}{\log(x^n)}\le\frac{\log n}{n\log2},
+\]
+which tends to zero uniformly over all bases \(x\ge2\) as \(n\to\infty\).
+\end{theorem}
+\begin{proof}
+For each odd prime of \(N\), Lemma~\ref{lem:lte} splits its excess exponent as
+\(v_p(N)-1=(t_p-1)+v_p(n)\). The two-part does exactly the same splitting using its separate formula. Multiplication proves the equality in \eqref{eq:TL}. Every prime exponent in \(L\) is either zero or its full exponent in \(n\), so \(L\mid n\). The logarithmic bound follows from \(x\ge2\).
+\end{proof}
+
+\begin{corollary}[A uniform \(abc\) bound on an explicit stratum]\label{cor:stratum}
+Fix \(A\ge0\). Among all triples
+\[
+ (1,x^n-1,x^n),\qquad x\ge2,\ n\ge1,\qquad T(x,n)\le n^A,
+\]
+the standard \(abc\) inequality holds with a constant depending only on \(A,\epsilon\), not on \(x,n\).
+\end{corollary}
+\begin{proof}
+Let \(c=x^n\). Since \((x,x^n-1)=1\), \(\rad(x)\ge2\), and \(c-1\ge c/2\), Theorem~\ref{thm:lift} gives
+\[
+ R=\rad(x)\frac{c-1}{TL}\ge\frac{c}{n^{A+1}}.
+\]
+Thus, with \(B=(A+1)(1+\epsilon)\),
+\[
+ \frac{c}{R^{1+\epsilon}}\le\frac{n^B}{c^\epsilon}
+ \le n^B2^{-n\epsilon}\le
+ \max\left\{1,\left(\frac{B}{e\epsilon\log2}\right)^B\right\}.
+\]
+The last bound follows by maximizing \(t^B\exp(-\epsilon(\log2)t)\) for real \(t>0\).
+\end{proof}
+The condition \(T\le n^A\) is an explicit restriction, not a newly proved bound on arbitrary power neighbours. The uncontrolled first-apparition valuations remain in \(T\). In particular \(n=1\) already leaves unrestricted squarefullness in \(x-1\), so a claim that this corollary settles all consecutive triples would be false.
+
+\begin{lemma}[Geometric-sum gcd core]\label{lem:gcd}
+For \(x\ge1,n\ge0\), let \(G(x,0)=0\) and \(G(x,n+1)=xG(x,n)+1\). Then
+\[
+ G(x,n)\equiv n\pmod{x-1},\qquad
+ \gcd(x-1,G(x,n))=\gcd(x-1,n).
+\]
+For \(x=1\), interpret the congruence as equality.
+\end{lemma}
+\begin{proof}
+Induction gives the congruence since \(x\equiv1\pmod{x-1}\). Applying the Euclidean gcd recurrence gives the equality. At \(x=1\), \(G(1,n)=n\) directly.
+\end{proof}
+This is the lifting route's formalized gcd core, not a replacement for the full valuation proof.
+
+\section{Exact computations and adversarial audit}\label{sec:tests}
+All reported comparisons use integers or rational numbers. Numerical logarithms and probable-prime declarations are not accepted as certificates.
+\begin{center}\small
+\begin{tabular}{p{91mm}r}\toprule
+Check & Count\\\midrule
+Normalized primitive triples with \(c\le5000\) & 3,800,229\\
+Nonempty proper whole-prime-power faces examined & 70,740,182\\
+Compatible unitary-modulus cases \(M\ge4\) & 8,435,196\\
+Cases in the residue-one refinement & 3,866,583\\
+Equality cases in that scan & 1,156\\
+Sharpness constructions, \(4\le M\le10000\) & 9,997\\
+Independent cut/augmenting checks on seeded networks & 5,000\\
+Arithmetic fixed-configuration cross-checks & 1,273\\
+Selected positive-defect triples with three or more powerful sources & 38\\
+Certified supplied power-neighbour factorizations & 498\\
+Distinct factor primes checked by deterministic trial division & 502\\\bottomrule
+\end{tabular}
+\end{center}
+The first scan found no threshold counterexample. Its range is finite; the theorem is proved in Section~\ref{sec:threshold} independently of this scan.
+
+For transport, an exact radical sieve considered \(c\le10^6\), at least three source primes of exponent at least two, and \(R<c\). It tested 3,278 eligible targets and 1,554,459 candidate summand choices, obtaining 38 normalized primitive triples. For each, all legal block selections and residual ownership assignments were enumerated, and both network solvers were run. The complete new optimum equals the old FCRT optimum in all 38 cases. This is \emph{no demonstrated strict arithmetic improvement}, not evidence of a global equality theorem.
+
+The lifting certificate contains 498 supplied rows from the discovery rectangle \(2\le x\le20,1\le n\le30\); it is not a complete scan of that rectangle. Factor discovery was separated from verification. The standard-library verifier trial-checks every included prime, checks each full factorization product, derives each order by exact modular exponentiation, and checks \eqref{eq:TL}. No probabilistic discovery result is relied upon without this deterministic replay.
+
+Three adversarial checks matter structurally. First, within-arm coprimality cannot be dropped from the face definition. Second, an abstract network's strict gain is not an arithmetic example. Third, \(L\le n\) says nothing by itself about the first-apparition factor \(T\). These restrictions prevent three different ways of turning a local result into an unsupported global assertion.
+
+\section{Lean verification and dependency audit}\label{sec:lean}
+The standalone module \code{CapacityAndLifting.lean} imports only \code{Std}. At commit
+\begin{center}\code{539db3ad12faeb5a78ebc18b2a44895218744a6a}\end{center}
+it passed
+\begin{verbatim}
+lean -DwarningAsError=true \
+  research/checkpoints/2026_09_05_multiflag/Lean/CapacityAndLifting.lean
+\end{verbatim}
+on Lean 4.32.2, compiler commit \code{f3b06c705e6c85f5314019d5d3baab0fec5b580c}. GitHub Actions run \code{33968189781}, job \code{101311920225}, returned success. The compiler archive checksum was checked before execution. The source SHA-256 is
+\begin{center}\small\texttt{1bb648834b0570daac70f8a4dbe021f35ddd35ba0adceb69667345376bd929c0}.\end{center}
+
+All 14 named theorems have executed axiom queries. The union is \code{propext}, \code{Classical.choice}, and \code{Quot.sound}; no \code{sorryAx} occurs. The strict finite abstract example uses no axioms. Two earlier compilation attempts failed and were repaired; only the stated successful source is described as checked.
+
+The formalized scope comprises the natural-capacity two-output optimizer, no-face zero-transfer and monotonicity, elementary positive-product estimates, parity exclusion of the unit cell, the baseline threshold in the explicit normal form \eqref{eq:normal}, and geometric-sum congruence/gcd identities. The normal-form theorem assumes the four relevant gcd conditions and positivity hypotheses explicitly. It does not assume its conclusion.
+
+The complete translation from actual unitary faces into that normal form, the \(M\equiv1\pmod3\) refinement, sharpness for all \(M\), the real-capacity max-flow theorem, the exact signed arithmetic accounting map, and full valuation lifting have ordinary proofs here but are \emph{not fully formalized in this module}. The discrete capacity theorem is not silently presented as a theorem on arbitrary real logarithms. The existing project toolchain, verified imports, and earlier drafts were not changed by this standalone check.
+
+\begin{center}\small
+\begin{tabular}{p{64mm}p{84mm}}\toprule
+Dependency & Status\\\midrule
+Unitary factorization \(\Rightarrow\) normal form & Ordinary proof, Lemma~\ref{lem:cell}\\
+Normal form \(\Rightarrow\) baseline threshold & Ordinary proof and checked Lean core\\
+Mod-3 refinement and sharpness & Ordinary proof, Theorem~\ref{thm:threshold}\\
+Joint budget \(\Rightarrow\) exact accounting & Ordinary proof, Theorem~\ref{thm:account}\\
+Fixed network \(\Rightarrow\) cut formula & Ordinary proof, Theorem~\ref{thm:cut}; two finite implementations\\
+Valuation identities \(\Rightarrow L\mid n\) & Ordinary proof, Theorem~\ref{thm:lift}\\
+Geometric gcd identity & Ordinary proof and checked Lean theorem\\
+Uniform first-apparition control & Unresolved\\
+Uniform global multi-output bound & Unresolved\\
+Unconditional \(\mathtt{ABCConjecture}\) closed term & Not obtained\\\bottomrule
+\end{tabular}
+\end{center}
+No independent autonomous research agents or outside peer review are claimed. Independent \emph{algorithms}, not independent mathematicians, supplied the numerical cross-check.
+
+\section{Route register and the remaining decisive statement}
+The new exclusion theorem supplies a sharp arithmetic test for which transport edges cannot exist. The multi-output construction supplies an exact optimizer for the edges that do exist. The lifting budget controls one source of high valuations uniformly. None bounds the total scalar defect on arbitrary primitive triples.
+
+The actual sufficient target for the successor remains
+\begin{equation}\label{eq:remaining}
+ \forall\epsilon>0\ \exists C_\epsilon\ \forall(a,b,c),\qquad
+ E_{\rm multi}(a,b,c)\le\epsilon\log R+C_\epsilon.
+\end{equation}
+Its implication to \eqref{eq:abc} follows from the certificate, but \eqref{eq:remaining} has not been proved. In a no-face region all new edge caps vanish; therefore splitting cannot by itself supply the missing global mechanism. Replacing \(E_{\rm multi}\) by its scalar lower bound would reverse the direction needed for a proof.
+
+For power neighbours, the independently proved \(L\mid n\) removes repeated exponent lifting as a potential large uniform error. The remaining task is arithmetic control of \(T\), including first-rank super-Wieferich behaviour, rather than a further estimate on \(L\). The restricted Corollary~\ref{cor:stratum} does not cover all \(T\).
+
+The IUT source-faithful all-place tensor, integral-order and Ind1--Ind3/same-pilot bridges remain unresolved. The canonical correlated defect \(X-Y\), compensated divisor-packet construction, Pell first-apparition valuations, Mersenne depth-three prime count, positive five-term filling, and geometric uniformity gates retain their prior open status \cite{ledger}. They were reviewed for their exact dependencies, not declared solved by the local results of this supplement. No entire parent route is retired on the basis of a child obstruction or a null finite search.
+
+\paragraph{Conclusion.}
+The completed outputs are the sharp general unitary-face theorem, a fully specified once-charged multi-output successor and its cut formula, the uniform lifting decomposition, a restricted uniform \(abc\) stratum, deterministic finite checks, and actually compiled elementary Lean proofs. No unconditional proof or disproof of \eqref{eq:abc} and no Lean closed term of its full statement has been obtained in this round.
+
+\begin{thebibliography}{9}
+\bibitem{first} ChatGPT. \emph{Prime-Power Obstructions to Flagged CRT Transport and an Exact Divisor-Gap Reduction for abc}. September 5, 2026. Project checkpoint \code{2026\_09\_05\_chatgpt}, first supplement.
+\bibitem{second} ChatGPT. \emph{Signed Endpoint Selection and Sharp Difference-Face Thresholds}. September 5, 2026. Same checkpoint, second supplement and accompanying proof note.
+\bibitem{ledger} \emph{ABC route bottleneck ledger}. \code{wyx66624/ABCConjecture}, \code{research/ABC\_ROUTE\_BOTTLENECKS.md}, snapshot \code{d05220b6ddd59e40da976ba4238121f3b3b0b012}.
+\bibitem{lean} Lean project. Official Lean 4.32.2 release, compiler archive and SHA-256 metadata. Release metadata retrieved through the GitHub connector; the installed compiler and successful job are recorded in the verification manifest.
+\end{thebibliography}
+\end{document}
