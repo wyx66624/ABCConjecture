@@ -1,0 +1,702 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Power-Radical Descent and Arithmetic Derivatives},pdfauthor={ChatGPT},pdfsubject={Partial abc research with scoped Lean proofs}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{Power-radical descent and arithmetic derivatives}\fancyhead[R]{ChatGPT}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\rad}{rad}\DeclareMathOperator{\ord}{ord}\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\Z}{\mathbb Z}\newcommand{\N}{\mathbb N}\newcommand{\R}{\mathbb R}
+\newcommand{\vp}{v_p}\newcommand{\Qm}{\mathcal Q_m}
+\title{Power-Radical Descent, Unbounded First-Appearance Depth,\\and Pairwise Lifting of Arithmetic Derivatives}
+\author{ChatGPT}
+\date{September 5, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We continue an arithmetic research checkpoint for the abc conjecture. For
+coprime positive bases we separate the exact change of radical under a power
+map into a repeated-lifting factor dividing the exponent, a first-appearance
+factor, and an explicit two-adic correction. This yields same-constant descent
+criteria for abc-type inequalities and a multiplicative composition law for
+the complete budget. We construct infinitely many bases that are not perfect
+powers but whose first-appearance factor at the fixed outer exponent three
+exceeds one twenty-eighth of the base. This disproves independent sublinear
+first-appearance bounds even after common-power normalization; it does not
+disprove abc. Independently, pairwise energy minimization improves a local
+integer-lifting error for arithmetic derivatives from the sum to at most the
+maximum of the normalized exponents. Twenty-nine standalone Lean theorems
+have been compiled and axiom-audited, including the all-depth recurrence and
+explicit integer transfer cores. General radical identities and the real
+proximity theorem have ordinary proofs here, not full formalizations. The
+uniform abc estimate remains unproved in this work.
+\end{abstract}
+\noindent\textbf{Keywords:} abc conjecture; radicals; multiplicative order; valuation lifting; arithmetic derivatives; Lean.
+
+\section{Problem, starting point, and scope}
+For a positive integer $N$, put $\rad(N)=\prod_{p\mid N}p$. A primitive
+positive triple satisfies $a+b=c$ and $\gcd(a,b)=1$, hence is pairwise coprime.
+The target is
+\begin{equation}\label{eq:abc}
+\forall\varepsilon>0\ \exists K_\varepsilon>0\ \forall(a,b,c),\qquad
+c\le K_\varepsilon\rad(abc)^{1+\varepsilon}.
+\end{equation}
+The constant must be independent of the triple, its prime support, and every
+auxiliary base or exponent. None of the unrestricted estimates equivalent to
+\eqref{eq:abc} is used as a premise in our unconditional results.
+
+The starting repository snapshot is commit
+\texttt{d3f7b33b1115538920cb5fcd851a97f0c3a26a3d} of
+\texttt{wyx66624/ABCConjecture}. Its previous transverse-lifting checkpoint
+\cite{transverse} controls integer realization of arithmetic derivatives,
+but identifies its proposed uniform small-transverse-derivative condition
+as equivalent to abc. Its earlier exponent-lifting checkpoint
+\cite{multiflag} separates repeated lifting from first appearance for
+$x^n-1$. We extend the latter to relative radical budgets, descent between
+actual triples, and base changes. An independent energy argument sharpens
+local realization without claiming to bound the original scalar defect.
+
+For $m\ge1$ define the cleared defect
+\begin{equation}\label{eq:cleared}
+\Qm(a,b,c)=\frac{c^m}{\rad(abc)^{m+1}}.
+\end{equation}
+Uniform boundedness of \eqref{eq:cleared} for every positive integer $m$ is
+equivalent to \eqref{eq:abc}. Indeed, abc with $\varepsilon=1/m$ gives the
+bound after taking the $m$th power. Conversely, given $\varepsilon>0$, choose
+$m$ with $1/m\le\varepsilon$, take the $m$th root, and use
+$\rad(abc)\ge1$. The exponent choice depends only on $\varepsilon$.
+
+\section{Valuation lifting and the exact relative radical}
+Throughout this section, $x>y\ge1$ and $\gcd(x,y)=1$.
+
+\begin{lemma}[Elementary valuation lifting]\label{lem:lte}
+If an odd prime $p$ divides $U-V$ and $p\nmid UV$, then
+\[
+v_p(U^t-V^t)=v_p(U-V)+v_p(t)\qquad(t\ge1).
+\]
+The formula also holds with $U+V$ and $U^t+V^t$ when $t$ is odd.
+If $U,V$ are odd and $t$ is even, then
+\[
+v_2(U^t-V^t)=v_2(U-V)+v_2(U+V)+v_2(t)-1.
+\]
+For odd $t$, $v_2(U^t-V^t)=v_2(U-V)$, and
+$v_2(U^t+V^t)=v_2(U+V)$.
+\end{lemma}
+\begin{proof}
+Write $U=V+p^h w$ with $p\nmid Vw$. Raising to a positive exponent prime to
+$p$ and expanding shows a unique lowest-valuation term $tV^{t-1}p^h w$,
+of valuation $h$. Raising to $p$, the first term has valuation $h+1$;
+the middle binomial terms have valuation at least $1+2h>h+1$, and the last
+has valuation $ph>h+1$ for odd $p$, except $p=3,h=1$ where it is still
+$3>2$. Iteration and the decomposition $t=p^s u$ prove the odd-prime formula.
+Using $-V$ proves the odd sum case. For two, odd geometric or alternating
+geometric sums have odd length and are odd modulo two. The first squaring
+contributes $v_2(U-V)+v_2(U+V)$. Every later factor
+$U^{2^j}+V^{2^j}$, $j\ge1$, is $2$ modulo $8$, and contributes exactly one.
+An odd remaining exponent contributes zero additional valuation.
+\end{proof}
+
+\subsection{Difference powers}
+Let
+\[
+b_n=x^n-y^n,\quad g_n=\frac{x^n-y^n}{x-y},\quad
+R_1=\rad(xy(x-y)),\quad R_n=\rad(xy b_n).
+\]
+The actual lifted triple is $(y^n,b_n,x^n)$ and has radical $R_n$.
+A prime divisor of $b_n$ is called \emph{new relative to this base pair}
+when it does not divide $x-y$. Every such prime is odd. For a new prime set
+\[
+d_p=\ord_{\mathbb F_p^\times}(xy^{-1}),\qquad
+\alpha_p=v_p(x^{d_p}-y^{d_p}).
+\]
+The inverse exists because $p\nmid xy$. The order is greater than one,
+divides both $n$ and $p-1$, and is prime to $p$. Define
+\begin{align}
+T_n(x,y)&=\prod_{\substack{p\mid b_n\\p\nmid x-y}}p^{\alpha_p-1},
+&L_n(x,y)&=\prod_{p\mid b_n}p^{v_p(n)},\label{eq:TL}\\
+E_n(x,y)&=
+\begin{cases}
+2^{v_2(x+y)-1},&x,y\text{ odd and }n\text{ even},\\
+1,&\text{otherwise},
+\end{cases}
+&B_n(x,y)&=E_nL_nT_n.\label{eq:B}
+\end{align}
+Empty products are one. Notice that $L_n\mid n$.
+
+\begin{theorem}[Exact relative radical identity]\label{thm:balance}
+For every $n\ge1$,
+\begin{equation}\label{eq:balance}
+R_n B_n=R_1 g_n.
+\end{equation}
+In particular, $R_1\mid R_n$ and $R_n/R_1$ is the product of the new primes,
+each counted once.
+\end{theorem}
+\begin{proof}
+All primes in $x-y$ persist in $b_n$, and neither integer has a prime factor
+in common with $xy$. For an odd old prime, Lemma~\ref{lem:lte} gives
+$v_p(g_n)=v_p(n)$. For a new prime it gives
+\[
+v_p(g_n)=v_p(b_n)=\alpha_p+v_p(n).
+\]
+Dividing $g_n$ by the product of new primes thus leaves
+$p^{\alpha_p-1+v_p(n)}$ at a new prime and $p^{v_p(n)}$ at an odd old prime.
+If two occurs, it is old; its exponent in this quotient is $v_2(n)$ for odd
+$n$ (both are zero) and $v_2(n)+v_2(x+y)-1$ for even $n$. This is exactly
+\eqref{eq:B}. These identities exhaust the prime divisors of $g_n$.
+\end{proof}
+
+\begin{remark}[A necessary two-adic correction]
+At $(x,y,n)=(7,1,2)$ one has $g_n=8$, $R_1=R_n=42$, $L_n=2$, $T_n=1$,
+and $E_n=4$. Omitting $E_n$ gives a false radical identity. This correction
+cannot be silently included in the factor claimed to divide $n$.
+\end{remark}
+
+\subsection{Odd sum powers}
+For odd $n$ put
+\[
+b_n^+=x^n+y^n,\quad g_n^+=\frac{x^n+y^n}{x+y},\quad
+R_1^+=\rad(xy(x+y)),\quad R_n^+=\rad(xyb_n^+).
+\]
+For $p\mid b_n^+$, $p\nmid x+y$, let
+$d_p=\ord(-xy^{-1})$. This is an odd divisor of $n$, greater than one.
+Use $\alpha_p=v_p(x^{d_p}+y^{d_p})$ and define $T_n^+,L_n^+$ as in
+\eqref{eq:TL} with the new seed and sum. Set $B_n^+=L_n^+T_n^+$.
+
+\begin{proposition}\label{prop:sum}
+For odd $n$, $L_n^+\mid n$ and
+\begin{equation}\label{eq:sumbalance}
+R_n^+B_n^+=R_1^+g_n^+.
+\end{equation}
+\end{proposition}
+\begin{proof}
+For a new prime, apply the odd-sum part of Lemma~\ref{lem:lte} at $d_p$ and
+$n/d_p$, both odd. Its valuation is $\alpha_p+v_p(n)$ because $d_p\mid p-1$.
+For an old odd prime, the valuation increment is $v_p(n)$. Two, if present,
+is old and its valuation does not change. Counting the new primes once
+proves the identity exactly as before.
+\end{proof}
+
+\section{Same-constant descent and composition}
+Write $\Qm^-(x,y;n)=\Qm(y^n,x^n-y^n,x^n)$ and
+$\Qm^+(x,y;n)=\Qm(x^n,y^n,x^n+y^n)$. In this section $m\ge1$.
+
+\begin{theorem}[Exact defect transfer]\label{thm:transfer}
+For difference powers,
+\begin{equation}\label{eq:minusdefect}
+\frac{\Qm^-(x,y;n)}{\Qm^-(x,y;1)}
+=\frac{x^{m(n-1)}B_n^{m+1}}{g_n^{m+1}}
+\le\frac{B_n^{m+1}}{x^{n-1}}.
+\end{equation}
+For odd sum powers,
+\begin{equation}\label{eq:plusdefect}
+\frac{\Qm^+(x,y;n)}{\Qm^+(x,y;1)}
+=\frac{(B_n^+)^{m+1}}{g_n^+}.
+\end{equation}
+Consequently a bound $\Qm\le K$ at the seed transfers with the same constant
+if $B_n^{m+1}\le x^{n-1}$ in the difference case, or
+$(B_n^+)^{m+1}\le g_n^+$ in the sum case.
+\end{theorem}
+\begin{proof}
+Substitute $R_n/R_1=g_n/B_n$ in the quotient of the two cleared defects.
+In the difference case the height ratio is $x^{n-1}$; the geometric sum
+$g_n=\sum_{j=0}^{n-1}x^{n-1-j}y^j$ is at least $x^{n-1}$. In the sum case
+the height ratio equals $g_n^+$, so its $m$th power cancels all but one of
+the $m+1$ radical-ratio powers. Every denominator used here is positive.
+\end{proof}
+
+\begin{corollary}[An obstruction in a minimal counterexample]\label{cor:descent}
+Fix $K>0$. If a triple with minimal height among those satisfying
+$\Qm>K$ has the difference-power form with $n\ge2$, then
+\[
+B_n^{m+1}>x^{n-1}.
+\]
+For odd $n$ this implies
+\begin{equation}\label{eq:criticalT}
+T_n>\frac{x^{(n-1)/(m+1)}}{n}.
+\end{equation}
+In the odd sum-power form with $n\ge3$, it must satisfy
+$(B_n^+)^{m+1}>g_n^+\ge x^{n-1}/2$.
+\end{corollary}
+\begin{proof}
+The seed is a primitive triple of smaller height, so its cleared defect is
+at most $K$. Apply Theorem~\ref{thm:transfer} contrapositively. For odd
+$n$, $B_n=L_nT_n\le nT_n$. Finally
+$g_n^+=(x^n+y^n)/(x+y)\ge x^{n-1}/2$.
+\end{proof}
+
+\begin{remark}[What descent does not give]
+A smallest counterexample to a fixed inequality is a legitimate conditional
+object. Its nonexistence is not proved here. Most triples do not have two
+entries with a common exponent greater than one, so these power maps do not
+supply a predecessor for every triple. Furthermore, \eqref{eq:criticalT}
+is not contradicted by our bounds. The next section constructs genuinely
+large first-appearance factors after common-power normalization.
+\end{remark}
+
+\begin{proposition}[Complete-budget composition]\label{prop:cocycle}
+For difference powers and positive integers $u,v$,
+\[
+B_{uv}(x,y)=B_u(x,y)B_v(x^u,y^u).
+\]
+For odd $u,v$ the corresponding sum identity holds.
+\end{proposition}
+\begin{proof}
+In the difference case, $g_{uv}(x,y)=g_u(x,y)g_v(x^u,y^u)$, and the
+intermediate radical is both $R_u(x,y)$ and $R_1(x^u,y^u)$. Multiply the
+two exact radical identities and cancel the positive intermediate radical.
+For sums, both quotients are integral when $u,v$ are odd, and the same
+argument applies. This proves composition without assigning a prime's
+contribution twice.
+\end{proof}
+
+First-appearance depth alone does not obey this composition law. For an odd
+prime with order $d$ at $(x,y)$, the order at $(x^u,y^u)$ is
+$d/\gcd(d,u)$. If $p\mid x^{uv}-y^{uv}$ but $p\nmid x^u-y^u$, its new
+first valuation is
+\[
+\alpha_p+v_p(u),
+\]
+because $p\nmid d$. Dividing the two first-appearance products gives the
+more precise identity
+\begin{equation}\label{eq:rebase}
+T_v(x^u,y^u)=\frac{T_{uv}(x,y)}{T_u(x,y)}\,
+\prod_{\substack{p\mid x^{uv}-y^{uv}\\p\nmid x^u-y^u}}p^{v_p(u)}.
+\end{equation}
+The final product divides $u$. All primes in it are odd. For example,
+$\ord_7(2)=3$ and $v_7(2^3-1)=1$, whereas for the base $2^{7^j}$ and outer
+exponent three the first valuation at seven is $j+1$.
+
+A canonical way to remove this ambiguity is to write
+$x=X^s,y=Y^s$, where $s$ is the greatest common divisor of all the positive
+prime exponents in $x$ and $y$ (ignore the empty profile for $y=1$).
+Unique factorization proves uniqueness and maximality of $s$. The pair
+$(X,Y)$ is not a simultaneous nontrivial power. Formula~\eqref{eq:rebase}
+keeps track of what this normalization reallocates. The obstruction below
+shows that normalization is insufficient to make $T$ sublinear.
+
+\subsection{A uniform estimate on a restricted large-exponent stratum}
+\begin{theorem}\label{thm:stratum}
+Fix $A\ge0$ and $\varepsilon>0$. For odd
+$n\ge 2(1+\varepsilon)/\varepsilon$, suppose that the relevant
+first-appearance product satisfies $T_n\le n^A$ (or $T_n^+\le n^A$).
+Then the corresponding primitive power triple has height $C$ and radical
+$R$ satisfying
+\[
+C\le K_{\varepsilon,A}R^{1+\varepsilon},
+\]
+where, with $b=(A+1)(1+\varepsilon)$, one may take
+\[
+K_{\varepsilon,A}=2^{2+\varepsilon}
+\max\left\{1,\left(\frac{2b}{\mathrm e\varepsilon\log 2}\right)^b\right\}.
+\]
+This constant is independent of $x,y,n$ within the stated stratum.
+\end{theorem}
+\begin{proof}
+The exact balance and $L_n\mid n$ give $R\ge x^{n-1}/n^{A+1}$ for
+differences and $R\ge x^{n-1}/(2n^{A+1})$ for sums. In both cases
+$C\le2x^n$. Thus
+\[
+\frac{C}{R^{1+\varepsilon}}
+\le2^{2+\varepsilon}n^b x^{1+\varepsilon-\varepsilon n}
+\le2^{2+\varepsilon}n^b2^{-\varepsilon n/2}.
+\]
+The maximum of $t^b e^{-ct}$ over $t>0$ is $(b/(\mathrm e c))^b$;
+use $c=\varepsilon\log2/2$.
+\end{proof}
+The hypothesis on $T$ is not proved for all bases. Even among powers this
+theorem leaves all bounded outer exponents with unbounded bases untreated.
+Those families cannot be absorbed into a finite exceptional list.
+
+\section{A normalized first-appearance obstruction of linear size}
+Let $\phi(X)=X^2+X+1$. We now give a fully explicit infinite construction,
+without factoring its growing values.
+
+\begin{lemma}[A polynomial lifting orbit]\label{lem:orbit}
+Set
+\[
+r_0=226,\qquad r_{k+1}=r_k+32\phi(r_k)\quad(k\ge0).
+\]
+Then $r_k\equiv30\pmod{49}$, $r_k\equiv2\pmod4$, and
+\[
+v_7(\phi(r_k))=v_7(r_k^3-1)=k+2.
+\]
+The sequence is strictly increasing, $\ord_7(r_k)=3$, and no $r_k$ is a
+perfect power of exponent at least two.
+\end{lemma}
+\begin{proof}
+The exact polynomial identity is
+\begin{equation}\label{eq:orbitpoly}
+\phi(X+32\phi(X))=\phi(X)(1024X^2+1088X+1057).
+\end{equation}
+At $X\equiv30\pmod{49}$, $\phi(X)\equiv0\pmod{49}$, so the first
+residue is preserved. The multiplier in \eqref{eq:orbitpoly} is $42$ modulo
+$49$, so it has seven-adic valuation one. Since
+$\phi(226)=49\cdot1047$ and $1047\equiv4\pmod7$, induction proves the
+exact valuation claim for $\phi$. The residue modulo four is preserved
+because the increment is a multiple of $32$. Hence $v_2(r_k)=1$, which
+excludes $r_k=z^e$ for $e\ge2$. Modulo seven the residues of $r_k,r_k^2,r_k^3$
+are $2,4,1$, respectively, proving the order statement.
+Finally $r_k^3-1=(r_k-1)\phi(r_k)$ and $r_k-1\equiv1\pmod7$.
+The increment is strictly positive.
+\end{proof}
+
+The orbit grows unnecessarily quickly. A bounded representative retains
+its useful divisibility and the normalization condition.
+\begin{theorem}[Small normalized representatives]\label{thm:small}
+For every $k\ge0$, define
+\[
+x_k=r_k\bmod(4\cdot7^{k+2}),
+\]
+where the remainder lies between zero and its modulus. Then
+\begin{align}
+2\le x_k&<28\cdot7^{k+1},&x_k&\equiv2\pmod4,\quad x_k\equiv2\pmod7,\label{eq:smallsize}\\
+7^{k+2}&\mid\phi(x_k),& 7^{k+2}&\le\phi(x_k).\label{eq:smalldiv}
+\end{align}
+No $x_k$ is a nontrivial perfect power, and $x_k\to\infty$.
+\end{theorem}
+\begin{proof}
+Reduction modulo $4\cdot7^{k+2}$ preserves the residues modulo four and
+seven and the polynomial value modulo $7^{k+2}$. The residue modulo four
+implies $x_k\ge2$ and excludes nontrivial perfect powers. The positive
+integer $\phi(x_k)$ is a multiple of $7^{k+2}$ and is therefore at least
+that large. Since $X^2+X+1$ is bounded on every bounded interval of
+nonnegative integers, \eqref{eq:smalldiv} implies $x_k\to\infty$.
+The sequence of small representatives need not be strictly increasing;
+no monotonicity of these remainders is used.
+\end{proof}
+
+\begin{corollary}[No independent sublinear first-depth bound]\label{cor:linear}
+There are infinitely many integers $x$ that are not nontrivial perfect
+powers and satisfy
+\begin{equation}\label{eq:lineart}
+T_3(x,1)>x/28.
+\end{equation}
+Consequently, for each $0\le\theta<1$ and each $C>0$, some such $x$ satisfies
+$T_3(x,1)>Cx^\theta$. In particular, no bound depending only on the outer
+exponent can bound $T_n$ uniformly over normalized bases.
+\end{corollary}
+\begin{proof}
+Seven is new relative to $(x_k,1)$ and has order three. Its first valuation
+is at least $k+2$, so $T_3(x_k,1)\ge7^{k+1}>x_k/28$. Since $x_k\to\infty$,
+$x_k^{1-\theta}/28\to\infty$, proving all the assertions.
+\end{proof}
+
+For example the first eight small representatives are
+\[
+30,\ 1010,\ 3754,\ 51774,\ 387914,\ 3211490,\ 19682350,\ 65800758.
+\]
+A separate implementation obtains the same representatives by lifting the
+simple root $2$ of $\phi$ modulo seven one digit at a time, and imposing
+$x\equiv2\pmod4$. At a root $r$ modulo $M=7^e$, the next digit is
+$t\equiv-(\phi(r)/M)(2r+1)^{-1}\pmod7$, and $r$ is replaced by $r+tM$.
+This implementation does not use the recurrence \eqref{eq:orbitpoly}.
+
+\begin{remark}[Why this is not an abc counterexample]
+The true abc ratio for $(1,x^3-1,x^3)$ also contains
+$\rad(x(x-1))$ and all new radical primes in $\phi(x)$. An unbounded
+first-appearance factor, even one linear in $x$, does not bound that entire
+radical from above strongly enough to contradict \eqref{eq:abc}.
+The refuted claim is independent control of $T$, not a coupled estimate
+involving the seed's radical or defect. At fixed $\varepsilon>0$, an abc
+disproof would require the entire ratio $c/\rad(abc)^{1+\varepsilon}$ to be
+unbounded. No such family is constructed here.
+\end{remark}
+
+\section{An independent pairwise improvement for arithmetic derivatives}
+This section sharpens local realization instead of imposing a new
+unproved global estimate. Let
+\[
+N=\prod_{i=1}^t p_i^{e_i}>1,\quad
+k=\gcd(e_1,\ldots,e_t),\quad f_i=e_i/k,\quad S=\sum_i f_i.
+\]
+For $\lambda\in\Z^t$, define
+\[
+\partial_\lambda(N)=\sum_i \frac{N}{p_i}e_i\lambda_i.
+\]
+A target $d$ is \emph{attainable} when it is one of these integer values.
+
+\begin{lemma}[The attainable-value ideal]\label{lem:ideal}
+Put $r=\prod_i p_i$ and $\rho=\prod_{p_i\mid f_i}p_i$. The attainable
+values are exactly $G_N\Z$, where
+\[
+G_N=\frac Nr\,k\rho.
+\]
+\end{lemma}
+\begin{proof}
+The image is the ideal generated by the integer coefficients
+$(N/p_i)e_i$. Remove the common factor $(N/r)k$. At a prime outside $r$, the
+remaining coefficients have minimum valuation zero since $\gcd_i f_i=1$.
+At a prime $p_j\mid r$, the $j$th coefficient is $f_j(r/p_j)$. If
+$p_j\nmid f_j$, the minimum is zero. Otherwise all coefficients are
+divisible by $p_j$, while some $f_i$ with $i\ne j$ is prime to $p_j$ and its
+coefficient has valuation exactly one. Thus their gcd is exactly $\rho$.
+The single-prime case has $f_1=1$ and fits the same formula. Bezout's identity
+also proves existence of an integer vector for every multiple of $G_N$.
+\end{proof}
+
+Set
+\[
+s_i=\begin{cases}1,&p_i\nmid f_i,\\1/p_i,&p_i\mid f_i,\end{cases}
+\qquad m_i=f_i s_i\in\Z_{>0},\qquad q=\frac{d}{N\Omega(N)},
+\quad\Omega(N)=kS.
+\]
+The $s_i$ are the natural spacings of $\lambda_i/p_i$ after the forced
+regular-prime residues have been imposed. Only their displayed values,
+not this interpretation, are needed for the proof.
+
+\begin{theorem}[Pair-energy proximity]\label{thm:energy}
+For every attainable integer $d$ there is an integer vector with
+$\partial_\lambda(N)=d$ and
+\begin{equation}\label{eq:kap}
+\max_i\left|\frac{\lambda_i}{p_i}-q\right|\le\kappa_N,
+\qquad
+\kappa_N=\max_i\frac1{2S}\sum_{j\ne i}
+\frac{f_j(f_i+f_j)s_i s_j}{\gcd(m_i,m_j)}.
+\end{equation}
+In particular,
+\[
+\kappa_N\le\max_i f_i.
+\]
+For $t=1$ it is zero. If every normalized exponent $f_i$ equals one,
+$\kappa_N=(t-1)/t<1$.
+\end{theorem}
+\begin{proof}
+Write $\delta_i=\lambda_i/p_i-q$. The target equation is equivalent to
+$\sum_i f_i\delta_i=0$. Among feasible integer vectors, minimize
+\[
+\mathcal E(\lambda)=\sum_i f_i\delta_i^2.
+\]
+A feasible vector exists by Lemma~\ref{lem:ideal}; each bounded sublevel
+contains only finitely many integer vectors, so the minimum exists.
+For $i\ne j$, let $g=\gcd(m_i,m_j)$ and $v=s_i s_j/g$. The two-coordinate
+move
+\[
+(\delta_i,\delta_j)\longmapsto
+(\delta_i+f_jv,\delta_j-f_iv)
+\]
+is a legal integer-weight move: the corresponding increments are
+$p_i s_i m_j/g$ and $-p_j s_j m_i/g$, both integers. It preserves the target.
+Its energy change, with either sign, is
+\[
+\pm2f_i f_jv(\delta_i-\delta_j)+f_i f_jv^2(f_i+f_j).
+\]
+Minimality for both signs gives
+$|\delta_i-\delta_j|\le v(f_i+f_j)/2$. Since the weighted mean of the
+$\delta_i$ is zero,
+\[
+|\delta_i|=\left|\frac1S\sum_{j\ne i}f_j(\delta_i-\delta_j)\right|
+\le\frac1{2S}\sum_{j\ne i}f_j(f_i+f_j)v,
+\]
+proving \eqref{eq:kap}. Finally $v\le1$ and
+$(f_i+f_j)/2\le\max_i f_i$; sum the weights and divide by $S$.
+The two special cases follow by direct substitution.
+\end{proof}
+
+\begin{corollary}[A terminating pair-move algorithm]\label{cor:algorithm}
+Starting from any feasible vector, repeatedly perform a strictly
+energy-decreasing integral multiple of a two-coordinate move whenever
+one exists. This process terminates and its output satisfies
+\eqref{eq:kap}. No polynomial bound on the number of moves is asserted.
+\end{corollary}
+\begin{proof}
+All visited vectors lie in the finite sublevel set determined by the
+initial energy, and strict decrease prevents revisiting a vector.
+At termination, the positive and negative unit moves are nondecreasing
+for every pair. The proof of Theorem~\ref{thm:energy} only needs these
+inequalities, not global optimality.
+\end{proof}
+
+The previous local bound was $S=\Omega(N)/k$ \cite{transverse}. The new
+bound is at most $\max_i f_i$, and is less than one when all $f_i=1$,
+regardless of the number or size of the supporting primes. For actual
+finite target choices in the replay we obtain:
+\begin{center}
+\begin{tabular}{lrrr}\toprule
+Profile $N$ & Previous bound $S$ & New envelope $\kappa_N$ & Realized error\\\midrule
+$2\cdot3\cdot5\cdot7$ & $4$ & $3/4$ & $419/840$\\
+$2\cdot3^{100}$ & $101$ & $50$ & $10150/303$\\
+$2^2 3^3$ & $5$ & $1/4$ & $1/5$\\
+$2^{64}3^{41}$ & $105$ & $16$ & $736/315$\\\bottomrule
+\end{tabular}
+\end{center}
+The ``realized error'' column is one constructed vector per displayed
+profile, not an assertion of the optimal error for every target.
+
+\subsection{Why the global scalar obstruction remains}
+The prior global construction first chooses admissible values of
+$\partial(a),\partial(b),\partial(c)$ in a one-dimensional aggregate
+fibre. When all entries exceed one its period is
+\[
+\ell=\lcm(h_a,h_b,h_c),\qquad
+h_N=\frac{G_N}{\gcd(G_N,N)}\mid k_N.
+\]
+Replacing its local lifting by Theorem~\ref{thm:energy} changes the overhead
+to at most
+\[
+\frac{\ell}{2\min\{\Omega(a),\Omega(b),\Omega(c)\}}
++\max\{\kappa_a,\kappa_b,\kappa_c\}.
+\]
+Entries equal to one have zero derivative and are treated without this
+three-variable period term. This sharpens realization, but the real
+minimum is still
+\[
+h_0=\frac JR\max\left\{
+\frac c{\Omega(a)+\Omega(b)},
+\frac b{\Omega(a)+\Omega(c)},
+\frac a{\Omega(b)+\Omega(c)}\right\},
+\]
+where $I\Z$ is the exact Wronskian image, $D=abc/R$, and $J=I/D$.
+In particular, the scalar factor $c/R$ has not disappeared.
+The uniform small-transverse condition remains at abc strength as established
+in the earlier checkpoint; the new proximity estimate is not an independent
+proof of that condition.
+
+\section{Proof dependencies, validation, and formal scope}
+\subsection{Dependency audit}
+The main unconditional chains are
+\[
+\text{binomial valuation lemma}
+\ \Longrightarrow\ \text{exact radical balance}
+\ \Longrightarrow\ \text{defect transfer and cocycle};
+\]
+\[
+\begin{gathered}
+\text{polynomial orbit identity}
+\ \Longrightarrow\ \text{all-depth valuation induction}\\
+\Longrightarrow\ \text{small representatives}
+\ \Longrightarrow\ T_3>x/28;
+\end{gathered}
+\]
+\[
+\text{coefficient gcd and Bezout}
+\ \Longrightarrow\ \text{feasible energy minimization}
+\ \Longrightarrow\ \text{pairwise proximity envelope}.
+\]
+None uses abc, Szpiro, Vojta, or a uniform assertion about first appearance.
+The large-exponent stratum theorem has the explicit input $T\le n^A$;
+it must not be labeled an unrestricted result. The transfer theorem has an
+explicit seed bound and budget condition, not an unconditional conclusion
+for every triple.
+
+The examples $x=7,y=1,n=2$ and $x_k$ refute, respectively, omission of the
+two-adic correction and independent sublinear first-depth control. The
+rebasing example explains how ordinary repeated lifting can be misclassified
+as first appearance. The derivative proof attacks integer realization,
+not the already identified scalar height obstruction.
+
+\subsection{Exact finite checks}
+The standard-library program \texttt{computation/replay.py} uses integers
+and rational numbers throughout. It rejects optimized Python execution
+because assertions are part of the checks. The default run records:
+\begin{center}
+\begin{tabular}{lr}\toprule
+Check & Count\\\midrule
+Signed radical identities & 3,553\\
+Cleared-defect transfer checks & 14,212\\
+Complete-budget composition checks & 405\\
+Base-change first-depth checks & 180\\
+Exact polynomial-orbit valuations & 13\\
+Small representatives, two independent algorithms & 129\\
+Local energy lifts on actual factorizations & 7,497\\\bottomrule
+\end{tabular}
+\end{center}
+The power grid covers coprime $1\le y<x\le32$, difference exponents one
+through seven, and sum exponents one, three, five, seven. Local profiles
+include every $2\le N\le2000$ and 500 generated factorizations, each with
+three signed or positive attainable targets. Finite checks validate
+implementations; all infinite assertions above have proofs independent
+of these counts. No scan is used to prove uniformity.
+
+\subsection{What Lean actually verifies}
+\texttt{Lean/PowerDescent.lean} imports only \texttt{Std}. Its 29 named
+theorems and 29 axiom queries passed Lean 4.32.2 with this recorded identity:
+\begin{center}\small
+\begin{tabular}{ll}
+Source commit & \texttt{67af725edf41a7b4103eae055e9ee19c6be716c6}\\
+Source blob & \texttt{eb665612004cc072255419b6fc5af464f4dc1ffe}\\
+Actions run / job & \texttt{33976085784} / \texttt{101332907717}
+\end{tabular}\end{center}
+Warnings are treated as errors. The reported axiom union consists of
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+There is no \texttt{sorryAx}. Two failed development versions were repaired
+and are not counted as successful checks.
+
+The formalized infinite statements are genuine universal theorems about
+the recurrence, exact divisibility by $7^{k+2}$, residues, exclusion of
+all nontrivial perfect powers, and existence of the bounded
+representatives for every $k$. In particular the module proves
+\begin{gather*}
+\forall k\ \exists x,\quad 2\le x<28\cdot7^{k+1},\quad
+x\equiv2\pmod4,\quad x\equiv2\pmod7,\\
+7^{k+2}\mid x^2+x+1,\quad 7^{k+2}\le x^2+x+1,\quad
+\forall z\in\N\ \forall e\ge2,\ x\ne z^e,
+\end{gather*}
+where in the final clause $z$ is any natural number and $e\ge2$.
+The Lean source states the quantifiers without the displayed shorthand.
+It also checks abstract integer transfer and composition given an explicit
+radical-balance equality, and the polynomial energy-exchange identity.
+
+\emph{Not fully formalized here:} multiplicative-order theory, the general
+valuation-to-radical map, all real-power statements, the asymptotic
+interpretation of $T_3>x/28$, the real-valued energy-minimum theorem, and the
+full abc statement. The root-family's arithmetic certificates are stronger
+than finite samples, but they do not make the whole paper kernel-checked.
+
+A checksum-pinned isolated installer and verifier is provided for x86\_64
+Ubuntu/WSL. Hosted Ubuntu execution is not access to the user's personal
+WSL. Existing project toolchains, dependencies, and verified imports are
+not changed. There was no independently running research subagent,
+external peer review, or full-repository build in this work.
+
+\section{Remaining mathematical obligations}
+Power descent would need a new mechanism jointly controlling first
+appearance and the seed's radical or defect. Corollary~\ref{cor:linear}
+prevents treating the first factor as uniformly sublinear on normalized
+bases independently of that seed information. Descent additionally needs
+coverage of triples without two entries sharing a nontrivial exponent;
+writing a canonical root decomposition does not create such an exponent.
+Neither obligation is proved here.
+
+The derivative route needs an independent height estimate, not merely a
+smaller integer-realization error. The FCRT and multi-output route still
+needs its uniform endpoint estimate; no new edge exists in a no-face region
+solely because the scalar bookkeeping has been sharpened. The IUT
+all-place compatibility, geometric uniformity, Pell first-appearance, and
+other recorded routes retain their earlier unresolved status. They have
+not been refuted as entire approaches, nor newly closed in this supplement.
+
+Thus the strongest completed results of this work are the exact descent
+mechanism, the normalized infinite obstruction to independent first-depth
+bounds, and the local proximity improvement. The final node
+\eqref{eq:abc} is still unresolved. No completed abc proof, disproof, or
+Lean closed term for it is asserted.
+
+\begin{thebibliography}{9}
+\bibitem{transverse}
+ChatGPT, \emph{Quantitative Lifting of Arithmetic Derivatives and the
+Transverse Obstruction to abc}, project research checkpoint, September 5,
+2026. Repository \texttt{wyx66624/ABCConjecture},
+\texttt{research/checkpoints/2026\_09\_05\_transverse\_lifting/}, at the
+baseline commit identified in Section 1. Ordinary general proofs and
+24 previously checked scoped Lean theorems; not an abc proof.
+\bibitem{multiflag}
+ChatGPT, \emph{Unitary faces, multi-output transport, and exponent lifting},
+project research checkpoint, September 5, 2026. Same repository,
+\texttt{research/checkpoints/2026\_09\_05\_multiflag/}.
+\bibitem{lean}
+Lean project, \emph{Lean 4.32.2}, compiler commit
+\texttt{f3b06c705e6c85f5314019d5d3baab0fec5b580c}.
+The isolated verifier pins the Linux archive by SHA-256 and records actual
+compiler and axiom output. This reference documents the formal checking
+implementation, not an additional number-theoretic premise.
+\end{thebibliography}
+\end{document}
