@@ -170,7 +170,7 @@ theorem every_vector_within_ten_is_tangent (v : Weights)
   unfold Below
   omega
 
-theorem centered_residue (p r : Int) (hp : 0 < p)
+theorem centered_residue (p r : Int) (_hp : 0 < p)
     (hr0 : 0 <= r) (hrp : r < p) :
     let z := if 2*r <= p then r else r-p;
     -p <= 2*z /\ 2*z <= p /\ (z = r \/ z = r-p) := by
