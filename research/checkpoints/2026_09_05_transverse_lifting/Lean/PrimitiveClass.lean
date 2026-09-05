@@ -3,7 +3,7 @@ import Std
 /-!
 Author: ChatGPT. A complete exact counterexample on 5 + 7 = 12:
 the minimum transverse radius is 1/5, but the minimum radius in the
-primitive Wronskian classes W = +/-4 is 2/5. No ABC theorem is assumed.
+primitive Wronskian classes W = 4 or W = -4 is 2/5. No ABC theorem is assumed.
 -/
 set_option autoImplicit false
 namespace ABCPrimitiveClass20260905
@@ -91,13 +91,11 @@ theorem primitive_witness :
   unfold additive W Within primitive
   decide
 
-theorem no_smaller_primitive (v : Weights) (h : additive v)
+theorem no_smaller_primitive (v : Weights)
     (hw : W v = 4 \/ W v = -4) : Not (Below 2 5 v) := by
   intro hb
-  unfold additive at h
   unfold Below at hb
   unfold W at hw
-  have hz : v.at2=0 := by omega
   omega
 
 theorem all_minimizers_have_level_three (v : Weights)
