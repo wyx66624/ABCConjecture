@@ -7,11 +7,13 @@ on:
       - "formalize/**"
     paths:
       - "Lean/IUTThreeClosures/EndpointConstantResidueObstruction.lean"
+      - "Lean/IUTThreeClosures/EndpointResidueArithmeticFamily.lean"
       - "research/computation/endpoint_residue_obstruction_2026_09_05.py"
       - ".github/workflows/endpoint-residue-obstruction.yml"
   pull_request:
     paths:
       - "Lean/IUTThreeClosures/EndpointConstantResidueObstruction.lean"
+      - "Lean/IUTThreeClosures/EndpointResidueArithmeticFamily.lean"
       - "research/computation/endpoint_residue_obstruction_2026_09_05.py"
       - ".github/workflows/endpoint-residue-obstruction.yml"
   workflow_dispatch:
@@ -45,17 +47,28 @@ jobs:
         run: |
           lake update
           lake exe cache get
-      - name: Strict kernel check and axiom report
+      - name: Strict kernel checks and axiom whitelist
         working-directory: Lean
         shell: bash
         run: |
           set -euo pipefail
           lake env lean -DwarningAsError=true IUTThreeClosures/EndpointConstantResidueObstruction.lean 2>&1 | tee ../endpoint-audit/lean-axioms.log
-          if grep -E 'sorryAx|ofReduceBool|Lean.ofReduceBool' ../endpoint-audit/lean-axioms.log; then
-            exit 1
-          fi
-          count=$(grep -c 'depends on axioms' ../endpoint-audit/lean-axioms.log)
-          test "$count" -eq 9
+          lake env lean -DwarningAsError=true IUTThreeClosures/EndpointResidueArithmeticFamily.lean 2>&1 | tee -a ../endpoint-audit/lean-axioms.log
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          text = Path('../endpoint-audit/lean-axioms.log').read_text()
+          reports = re.findall(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", text)
+          empty = re.findall(r"'([^']+)' does not depend on any axioms", text)
+          allowed = {'propext', 'Classical.choice', 'Quot.sound'}
+          names = [name for name, _ in reports] + empty
+          assert len(names) == len(set(names)) == 13, names
+          for name, body in reports:
+              axioms = {a.strip() for a in body.split(',') if a.strip()}
+              assert axioms <= allowed, (name, axioms - allowed)
+          assert 'sorryAx' not in text and 'ofReduceBool' not in text
+          print('PASS: 13 distinct declarations; only the three permitted standard axioms')
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
