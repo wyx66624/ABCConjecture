@@ -1,0 +1,403 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\rad}{rad}
+\newcommand{\F}{\mathcal F}
+\newcommand{\B}{\mathcal B}
+\title{Signed Endpoint Selection, Exact Transport Loss,\\and Sharp Subface Thresholds for \(abc\)}
+\author{ChatGPT}
+\date{5 September 2026 \quad---\quad second research supplement}
+\begin{document}
+\maketitle
+\begin{center}\small
+Ordinary proofs and exact reproducible computations.\\
+The partial Lean companion is uncompiled.\\
+No unconditional proof or disproof of the standard \(abc\) conjecture is claimed.
+\end{center}
+\begin{abstract}
+We continue the flagged CRT program at repository commit \texttt{6118955} and the preceding prime-power obstruction supplement. The new construction selects between the sum endpoint \(a+b=c\) and the difference endpoint \(c-a=b\). We prove its height inequality from actual signed packet admissibility, and express each configuration's boundary exactly as height minus radical height plus three nonnegative losses: unused capacity, discarded block surplus, and residual overfill. In the positive-defect region the adaptive optimum equals the scalar defect plus the smaller optimized loss at the two endpoints. We prove sharp unitary-subface absence thresholds \(M(2M+3)\), with the exceptional threshold \(M(4M+5)\) at the prime \(3\). A certified 39-digit endpoint has an original boundary factor \(2^{63}/13\), while the adaptive factor attains the scalar lower bound; its large prime is verified by a recursive integer-only order certificate. The complete witness \(1+3024=3025\) nevertheless has adaptive excess factor \(6/5\), ruling out universal pointwise scalar collapse. None of these results supplies the missing uniform estimate. We distinguish the completed ordinary arguments from finite computations, partial formal scripts, and unperformed remote integration.
+\end{abstract}
+
+\section{The target and the precise continuation}
+For positive coprime integers \(a,b\), write \(c=a+b\), normalize \(a\le b\), and put
+\[
+ R=\rad(abc),\qquad \Delta=\max\{\log c-\log R,0\}.
+\]
+The target is
+\begin{equation}\label{eq:abc}
+ \forall\varepsilon>0\ \exists K_\varepsilon>0\ \forall(a,b,c),\quad
+ c\le K_\varepsilon R^{1+\varepsilon}.
+\end{equation}
+The repository's FCRT-1 boundary is a sufficient auxiliary target, not an already proved estimate. The first September 5 supplement proved sharp obstructions to proper flags and reduced balanced two-source sum endpoints to a divisor-partition problem \cite{previous}. The present paper changes the endpoint rather than silently relaxing the face condition. It does not modify the meaning of the original boundary.
+
+The inspected remote branch remains at
+\begin{center}\small\texttt{6118955d20b4edd32e577e06d1060f3945358dd9}.\end{center}
+The route ledger \cite{ledger} retains the IUT comparison, canonical defect, compensated packet, first-apparition valuation, and geometric uniformity obligations. Our arguments neither assume these obligations nor close them. There was no web literature search in this round, and no claim of priority beyond the inspected project sources is made.
+
+\section{Signed configurations and an exact loss identity}
+Fix \(\sigma\in\{+1,-1\}\), positive coprime \(x,y\), and a positive target
+\[
+ n=x+\sigma y.
+\]
+For \(\sigma=-1\) we require \(x>y\). These three integers are pairwise coprime. Set
+\[
+ I=\{p:v_p(n)\ge2\},\quad d_p=p^{v_p(n)-1},\quad
+ J=\{q:q\mid xy\},\quad R=\rad(xyn).
+\]
+For source and sink subsets define
+\[
+ D_S=\prod_{p\in S}d_p,\quad M_S=\prod_{p\in S}p^{v_p(n)},\quad
+ Q_T=\prod_{q\in T}q,
+\]
+\[
+ x_T=\prod_{q\in T}q^{v_q(x)},\qquad
+ y_T=\prod_{q\in T}q^{v_q(y)}.
+\]
+Empty products are one. The exponent of a selected prime is never split.
+
+\begin{definition}[Signed FCRT configuration]
+A block \((S,T)\) has nonempty source and sink sets and satisfies
+\begin{equation}\label{eq:block}
+ M_S\mid x_T+\sigma y_T,\qquad D_S\le Q_T.
+\end{equation}
+Blocks are source-disjoint and sink-disjoint. Each residual sink has at most one residual source owner. A block may emit at most one one-hop token to a residual source \(p\), witnessed by
+\begin{equation}\label{eq:flag}
+ \varnothing\ne U\subsetneq T,\qquad p^{v_p(n)}\mid x_U+\sigma y_U.
+\end{equation}
+The token factor is \(f=\min\{Q_T/D_S,Q_U\}\). An unused token has factor one. Tokens are not re-emitted.
+\end{definition}
+For a residual source \(p\), let \(K_p\) be the product of its owned sink primes and incoming token factors. Define the configuration's boundary factor
+\[
+ F=\prod_{p\text{ residual}}\max\{d_p/K_p,1\}.
+\]
+This is a positive rational number. The finite minimum over legal configurations is denoted \(\F_\sigma(x,y;n)\); its logarithm is \(\B_\sigma\). Finiteness follows from the finite sets of blocks, owners, targets, and faces.
+
+\begin{theorem}[Exact arithmetic loss identity]\label{thm:loss}
+For any signed configuration put
+\[
+ U_0=\prod_{q\text{ residual and unowned}}q,\quad
+ S_0=\prod_\nu\frac{Q_{T_\nu}}{D_{S_\nu}f_\nu},\quad
+ O_0=\prod_{p\text{ residual}}\max\{K_p/d_p,1\}.
+\]
+Then \(U_0,S_0,O_0\ge1\), and
+\begin{equation}\label{eq:loss}
+ \boxed{F=\frac nR\,U_0S_0O_0.}
+\end{equation}
+Consequently \(n\le RF\), and \(\log F\ge\max\{\log(n/R),0\}\).
+\end{theorem}
+\begin{proof}
+For every positive \(d,K\),
+\[
+ \max\{d/K,1\}=(d/K)\max\{K/d,1\}.
+\]
+The product of all demands is \(n/\rad(n)\). Disjointness gives
+\[
+ \prod_{p\text{ residual}}d_p
+ =\frac{n/\rad(n)}{\prod_\nu D_{S_\nu}}.
+\]
+The product of all residual credits is the product of the owned residual sink primes times \(\prod_\nu f_\nu\). Thus
+\[
+ \frac{\prod_{p\text{ residual}}d_p}{\prod_{p\text{ residual}}K_p}
+ =\frac{n}{\rad(n)Q_J}\,
+ U_0\prod_\nu\frac{Q_{T_\nu}}{D_{S_\nu}f_\nu}.
+\]
+Since \(\rad(n)Q_J=R\), multiplication by \(O_0\) proves the identity. Saturation and the surplus cap give \(f_\nu\le Q_{T_\nu}/D_{S_\nu}\); all three loss factors are therefore at least one. Finally \(F\ge1\) by definition.
+\end{proof}
+The proof uses actual prime factorizations and actual owners. The congruences restrict which configurations may enter the minimum, although the accounting equality itself uses the partition and cap conditions. This is not a wrapper whose input already assumes an \(abc\)-strength bound.
+
+Let \(L=\log U_0+\log S_0+\log O_0\) and let \(L^*_\sigma\) be its minimum. The theorem gives, for either sign,
+\begin{equation}\label{eq:Lstar}
+ \B_\sigma=\log(n/R)+L^*_\sigma.
+\end{equation}
+This separates the scalar arithmetic defect from configuration loss exactly, not merely by an upper estimate.
+
+\section{Changing the endpoint without changing the radical}
+For a normalized primitive triple define
+\[
+ \F_c=\F_+(a,b;c),\qquad
+ \F_b=\F_-(c,a;b).
+\]
+Both use precisely the radical \(R=\rad(abc)\). The second orientation is new relative to simply optimizing the first one.
+\begin{definition}[Two-endpoint selector]
+\[
+ \F_{\mathrm{sel}}=\min\left\{\F_c,\frac cb\F_b\right\},\qquad
+ E=\log\F_{\mathrm{sel}}.
+\]
+\end{definition}
+\begin{theorem}[Adaptive height bridge and exact loss]\label{thm:selector}
+The selector satisfies
+\begin{equation}\label{eq:bridge}
+ c\le R\F_{\mathrm{sel}},\qquad
+ \Delta\le E\le\B_+(a,b;c).
+\end{equation}
+If \(L_c^*,L_b^*\) denote the respective minimum logarithmic losses, then
+\begin{equation}\label{eq:selectorloss}
+ E=\log(c/R)+\min\{L_c^*,L_b^*\}.
+\end{equation}
+In particular, when \(c>R\), this is \(\Delta+\min\{L_c^*,L_b^*\}\).
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:loss} gives \(c\le R\F_c\) and \(b\le R\F_b\). Multiplying the second inequality by \(c/b\) proves the first statement. Both candidate factors are at least one because \(c/b\ge1\). This proves the lower bound; choosing the first candidate proves the upper bound. For the exact formula, substitute \eqref{eq:Lstar} into
+\[
+ E=\min\{\B_+,\log(c/b)+\B_-\}.
+\]
+The scalar terms are equal because \(\log(c/b)+\log(b/R)=\log(c/R)\).
+\end{proof}
+Thus a uniform estimate
+\begin{equation}\label{eq:gate}
+ \forall\varepsilon>0\ \exists C_\varepsilon\in\mathbb R\ \forall(a,b,c),\quad
+ E\le\varepsilon\log R+C_\varepsilon
+\end{equation}
+implies \eqref{eq:abc}, with \(K_\varepsilon=\exp C_\varepsilon\). This implication does not supply \eqref{eq:gate}. In the positive-defect region, the outstanding upper bound has two nonnegative components in \eqref{eq:selectorloss}.
+
+\begin{proposition}[Easy signed strata]\label{prop:easy}
+For either sign, if \(n\le R\), then \(\F_\sigma=1\). If the target has at most one prime of exponent at least two, then
+\[
+ \F_\sigma=\max\{n/R,1\}.
+\]
+\end{proposition}
+\begin{proof}
+If there are sources and \(n\le R\), the full block has \(M_I\mid n=x+\sigma y\) and \(D_I=n/\rad(n)\le Q_J\). It is saturated and leaves no residual source. If there are no sources, the empty configuration already has boundary one. With exactly one source, assigning every sink to it gives \(\max\{d_p/Q_J,1\}=\max\{n/R,1\}\). The lower bound follows from Theorem~\ref{thm:loss}.
+\end{proof}
+\begin{corollary}\label{cor:one}
+If \(c\) has at most one powerful prime, then \(E=\Delta\). If \(b\) has at most one powerful prime and \(R\le b\), then again \(E=\Delta\). Without \(R\le b\), the latter condition gives
+\[
+ E\le\Delta+\log(c/b)\le\Delta+\log2.
+\]
+\end{corollary}
+\begin{proof}
+The first assertion uses the sum candidate. For the second, the difference candidate is \((c/b)(b/R)=c/R\), and the lower bound is exact. If \(R>b\), the difference candidate is \(c/b\), so \(E\le\log(c/b)\le\Delta+\log(c/b)\). Finally \(a\le b\) implies \(c\le2b\).
+\end{proof}
+The corollary removes allocation loss on these strata; it does not independently bound their scalar defect in all parameter ranges.
+
+\section{Proper deletions: a necessary sign correction}
+Fix a target source modulus \(M=p^{v_p(n)}\ge4\). In the unit group modulo \(M\), set
+\[
+ \Phi(T)=x_Ty_T^{-1}.
+\]
+Compatibility of a face is \(\Phi(U)=-\sigma\). For complementary subsets \(U,D\) of \(T\), this is equivalent to
+\[
+ \Phi(D)=-\sigma\Phi(T).
+\]
+Define
+\[
+ z_\sigma(T)=\min\{Q_D:\varnothing\ne D\subsetneq T,
+               \ \Phi(D)=-\sigma\Phi(T)\},
+\]
+with value \(+\infty\) when the set is empty.
+\begin{proposition}[Signed optimal-face formula]\label{prop:deletion}
+A proper compatible face exists exactly when \(z_\sigma(T)<\infty\). For a fixed saturated block \((S,T)\) and residual target, the best credit factor is
+\[
+ f^*=\frac{Q_T}{\max\{D_S,z_\sigma(T)\}}.
+\]
+\end{proposition}
+\begin{proof}
+Complementation bijects the permitted faces and deletions. Since \(Q_U=Q_T/Q_D\), a smallest deletion maximizes face weight. Substitution into \(\min\{Q_T/D_S,Q_U\}\) yields the formula.
+\end{proof}
+For the plus sign, the equation automatically excludes \(D=T\), because otherwise \(\Phi(T)=-\Phi(T)\), forcing \(M\mid2\). For the minus sign it does not: \(D=T\) always meets its own residue target. One must explicitly forbid this empty complementary face. For example, \(17-1=16\) has one sink prime \(17\); its full deletion has residue one modulo \(16\), but there is no nonempty proper face. Treating this full deletion as a flag is invalid.
+
+\section{Sharp absence thresholds for the difference endpoint}
+An integer factor \(u\) formed by a whole-prime-power packet is a unitary divisor: \(u\mid N\) and \(\gcd(u,N/u)=1\).
+\begin{theorem}[Sharp signed unitary-gap threshold]\label{thm:threshold}
+Let \(p\) be prime, \(e\ge2\), and \(M=p^e\Vert n\). Suppose
+\[
+ n+1=du,\qquad d,u>1,\qquad \gcd(d,u)=1,\qquad u\equiv1\pmod M.
+\]
+Then
+\begin{equation}\label{eq:threshold}
+ n\ge
+ \begin{cases}
+ M(2M+3),&p\ne3,\\
+ M(4M+5),&p=3.
+ \end{cases}
+\end{equation}
+Each bound is attained for every permitted prime power \(M\). Consequently, below these thresholds the difference endpoint \((n+1)-1=n\) has no nonempty proper compatible whole-prime-power face at that source.
+\end{theorem}
+\begin{proof}
+Since \(du\equiv1\pmod M\) and \(u\equiv1\pmod M\), also \(d\equiv1\pmod M\). Write
+\[
+ d=Ms+1,\qquad u=Mt+1,\qquad s,t\ge1.
+\]
+Coprimality excludes \(s=t\), since then \(d=u>1\). Interchange the factors to assume \(s<t\). Expansion gives
+\begin{equation}\label{eq:bilinear}
+ n/M=Mst+s+t.
+\end{equation}
+Here \(st\ge2\) and \(s+t\ge3\), proving the first lower bound.
+
+For \(p=3\), the ordered pair \((s,t)=(1,2)\) would give \(n/M=2M+3\), divisible by \(3\), contradicting exactness. The pair \((1,3)\) would give two even factors \(M+1\) and \(3M+1\), since \(M\) is odd, contradicting coprimality. If \(s=1\), then \(t\ge4\), giving \(Mst+s+t\ge4M+5\). If \(s\ge2\), then \(t\ge3\), giving \(Mst+s+t\ge6M+5\ge4M+5\).
+
+For sharpness at \(p\ne3\), take
+\[
+ n=M(2M+3),\qquad n+1=(M+1)(2M+1).
+\]
+The factors have gcd one, and \(p\nmid2M+3\) because its reduction modulo \(p\) is \(3\). Thus \(M\Vert n\). Both factors are one modulo \(M\), and their coprimality makes them actual whole-prime-power packets.
+
+For \(p=3\), take
+\[
+ n=M(4M+5),\qquad n+1=(M+1)(4M+1).
+\]
+Their gcd is \(\gcd(M+1,3)=1\); also \(3\nmid4M+5\). This attains the exceptional bound with exact source valuation and legal packets.
+\end{proof}
+The extra factor at the prime three uses both exact valuation and unitary divisibility. Omitting either premise would invalidate that strengthened conclusion.
+
+\clearpage
+\section{A certified large repair and a surviving obstruction}
+\subsection{A 39-digit no-face sum endpoint}
+Set
+\[
+ c=2^{64}3^{41}=672808029771005150108072916419239477248
+\]
+and
+\[
+ q=3981112602195296746201614890054671463.
+\]
+The exact factorization is
+\begin{equation}\label{eq:bigfactor}
+ c-1=13^2q.
+\end{equation}
+The integer \(q\) is prime; Section~\ref{sec:prime} supplies a deterministic certificate protocol and its complete recursive data are in the supplement.
+
+Write \(A=2^{63}\), \(B=3^{40}\), so \(c=6AB\). Direct integer comparisons give
+\[
+ \max(2^{64},3^{41})<2\min(2^{64},3^{41})-1,
+ \qquad 13<A<B<q.
+\]
+The preceding supplement's plus-sign threshold therefore excludes every proper compatible face at both sources. To recall its proof: if \(c-1=du\) with \(u\equiv-1\pmod M\), then \(d=Mt+1\), \(u=Ms-1\), and \(c/M=s(Mt+1)-t\). The pair \(s=t=1\) contradicts exactness \(M\Vert c\); every other positive pair gives \(c/M\ge2M-1\).
+
+Here \(Q=13q\) and \(AB>Q\). Every compatible block uses the full sink set, so at most one block can be selected. The two-source block is unsaturated, while a singleton block is no better than assigning all sinks to that source. There are no flags. The complete optimum is consequently
+\[
+ \F_c=\min_{H\mid Q}\max\{A/H,1\}\max\{BH/Q,1\}.
+\]
+The four divisors are \(1,13,q,13q\). Their boundary factors are, respectively,
+\[
+ A,\quad A/13,\quad B/13,\quad B.
+\]
+Thus
+\begin{equation}\label{eq:bigplus}
+ \boxed{\F_c=2^{63}/13.}
+\end{equation}
+At the difference endpoint \(c-1=b=13^2q\), the sole powerful prime is \(13\). Its demand is \(13\), and the sink primes are \(2,3\), with product \(6\). Proposition~\ref{prop:easy} gives
+\[
+ \F_b=13/6.
+\]
+Since \(R=78q<b\), the selected factor is exactly
+\begin{equation}\label{eq:bigselect}
+ \boxed{\F_{\mathrm{sel}}=\frac c{78q}=\frac cR.}
+\end{equation}
+The original excess factor removed by selection is
+\begin{equation}\label{eq:bigwaste}
+ \frac{\F_c}{c/R}=\frac q{3^{40}}
+ =\frac{3981112602195296746201614890054671463}{12157665459056928801}.
+\end{equation}
+It exceeds \(3\cdot10^{17}\), an integer comparison verified by the replay. This is a large repair of an auxiliary bound, not a large \(abc\) defect: the selected scalar factor is only slightly greater than \(13/6\).
+
+More generally, every endpoint \(c=2^e3^f\), \(e,f\ge1\), with \(c-1=13^2s\), \(s\) squarefree and \(13\nmid s\), has one powerful prime on the difference side. Its radical is \(78s\), so the same selector attains \(c/R\). This is a statement about every member satisfying the hypotheses, not an assertion that infinitely many such members have been produced or that these hypotheses hold for arbitrary balanced endpoints.
+
+\subsection{The selector does not always attain the scalar defect}
+\begin{proposition}[Complete-premise noncollapse]\label{prop:counter}
+For \(1+3024=3025\),
+\[
+ R=2310,\quad \F_c=11/7,\quad\F_b=8/5,\quad
+ \F_{\mathrm{sel}}=11/7>55/42=c/R.
+\]
+The adaptive excess factor is \(6/5\).
+\end{proposition}
+\begin{proof}
+The factorizations are
+\[
+ 3024=2^4 3^3 7,\qquad3025=5^2 11^2.
+\]
+At the sum endpoint the source demands are \(5,11\) and the sink weights are \(2,3,7\). The proper whole-power packets of \(3024\) are
+\[
+ 16,\ 27,\ 7,\ 432,\ 112,\ 189.
+\]
+None is minus one modulo either \(25\) or \(121\). Hence every compatible block uses all sinks; the two-source block is unsaturated because \(55>42\), and no flag exists. The complete partition optimum is obtained by assigning \(2\cdot3\) to demand \(5\), and \(7\) to demand \(11\), giving \(11/7\). To check minimality explicitly, the possible divisor products are \(1,2,3,6,7,14,21,42\); substituting them in \(\max\{5/H,1\}\max\{11H/42,1\}\) gives no smaller value. Singleton full blocks give at least \(5\), so do not improve it.
+
+At the difference endpoint, the demands are \(8,9\), and the sink weights are \(5,11\). Neither proper packet \(25\) nor \(121\) is one modulo \(16\) or \(27\), because their differences from one are \(24,120\). Thus again only full blocks are compatible. The two-source block is unsaturated since \(72>55\). Assigning \(5\) to demand \(8\) and \(11\) to demand \(9\) gives \(8/5\). The other split gives \(9/5\); assigning all sinks to one source or using a singleton full block leaves boundary at least \(8\). Therefore the optimum is \(8/5\).
+
+Finally
+\[
+ \min\left\{\frac{11}7,\frac{3025}{3024}\frac85\right\}
+ =\frac{11}7,
+ \qquad\frac{11/7}{55/42}=\frac65.
+\]
+All positivity, coprimality, packet, saturation, and face premises have been checked.
+\end{proof}
+This refutes only universal pointwise scalar collapse. A finite positive loss does not refute the quantified estimate \eqref{eq:gate}; the adaptive route remains open.
+
+\section{Deterministic computational evidence}\label{sec:prime}
+\subsection{An elementary recursive primality certificate}
+The certificate for \(q\) begins with the full factorization
+\[
+ q-1=2\cdot61\cdot563\cdot921889\cdot2532974063
+              \cdot24821433536218331.
+\]
+For a candidate \(N>2\), recursively certify all primes \(r\) in a complete factorization of \(N-1\). For each such \(r\), supply an integer \(a_r\) with
+\begin{equation}\label{eq:lucas}
+ a_r^{N-1}\equiv1\pmod N,\qquad
+ \gcd\bigl(a_r^{(N-1)/r}-1,N\bigr)=1.
+\end{equation}
+The root uses \(a_2=5\) and \(a_r=2\) for each other displayed factor. The recursive file contains 25 certified primes and 70 order-witness checks, including the separate prime \(13\).
+
+For completeness, this criterion is sufficient without any probable-prime assumption. Let \(\ell\) be any prime divisor of \(N\). If \(r^v\Vert N-1\), the order of \(a_r\) modulo \(\ell\) divides \(N-1\), but does not divide \((N-1)/r\) by the gcd condition. Therefore \(r^v\) divides that order and hence \(\ell-1\). Doing this for every \(r\) gives \(N-1\mid\ell-1\), so \(\ell\ge N\). Since \(\ell\mid N\), necessarily \(N=\ell\) is prime. Recursion terminates at \(2\).
+
+The discovery of factors used a separate symbolic program. The delivered verifier does not depend on that program: it checks every product, recursive dependency, modular power, and gcd using only Python integers. This distinction is important because finding a factorization and verifying its prime factors are different tasks.
+
+\subsection{Finite scans and their exact scope}
+\begin{center}
+\begin{tabular}{p{0.60\linewidth}r}
+\toprule
+Check & Completed count\\\midrule
+Normalized primitive triples filtered, \(c\le3000\) & 1,368,094\\
+Rows in that range with \(R<b\), both optima computed & 49\\
+Rows among those 49 with nonzero adaptive loss & 0\\
+Consecutive endpoints with \(c\le10^6\), \(R<c-1\) & 135\\
+Rows among those 135 with nonzero adaptive loss & 3\\
+Eligible difference-target/modulus pairs, \(n\le200000\) & 7,167\\
+Proper packets checked below the new thresholds & 36,668\\
+Signed face/deletion comparisons, larger input \(\le100\) & 5,736\\
+Sharp threshold examples checked & 30\\\bottomrule
+\end{tabular}
+\end{center}
+The three consecutive noncollapse endpoints are \(c=3025,50176,998001\), with excess factors \(6/5,669/512,37/25\). The scan through \(3000\) alone would have missed every one of them. This demonstrates concretely why finite scalar attainment must not be promoted to a theorem.
+
+The optimizer retains the first supplement's exhaustive block-family, residual-owner, target, and proper-face enumeration. Only packet compatibility receives the sign parameter. An independent multiplicative evaluator reconstructs unused capacity, discarded surplus, and overfill from each returned configuration and checks \eqref{eq:loss} exactly. The signed deletion test separately enumerates both complementary subsets and explicitly forbids full deletions. The threshold scan enumerates every proper unitary packet in its stated range.
+
+These are finite implementation and certificate checks. The proofs of Theorems~\ref{thm:loss}, \ref{thm:selector}, and \ref{thm:threshold} do not depend on extrapolating these computations. Repeating a deterministic run verifies reproducibility, not independent mathematical peer review.
+
+\section{The remaining mathematical and formal obligations}
+The completed step is not merely another name for \(\Delta\). The selector uses concrete signed blocks and genuine nonempty proper faces, repairs a large loss in Section~6, and still has the complete-premise obstruction of Proposition~\ref{prop:counter}. Its live uniform target is \eqref{eq:gate}. In the region \(R<b\), it requires control of both
+\[
+ \log(c/R)\quad\text{and}\quad \min\{L_c^*,L_b^*\}.
+\]
+The first term is still the \(abc\) defect. Setting it to \(o(\log R)\) as an assumption would restate the missing conclusion rather than prove it. The second term is now weaker than requiring either orientation's loss to be small separately, but no uniform estimate for it is established here.
+
+The original FCRT-1 route is not retired: the 39-digit example is finite. The adaptive scalar-collapse child is retired by \(1+3024=3025\); the adaptive uniform route is not. The IUT all-place/Ind3/pointed comparison, compensated divisor-packet, Pell first-apparition valuation, Mersenne depth-three counting, and geometric uniformity routes remain as recorded in the inspected ledger. No new unconditional theorem from those separate routes is claimed in this supplement.
+
+\subsection{Formal status}
+The mathematical proofs preceded the Lean scripts. The partial file
+\begin{center}\small\texttt{Lean/drafts/ABCSignedEndpointSelection20260905.lean}\end{center}
+contains algebraic loss identities, the abstract endpoint selection inequality, two elementary bilinear cores, sharpness identities, and rational arithmetic for the small witness. It includes one axiom query for each of its 12 named theorems. These queries have \emph{not} been executed. The file is explicitly uncompiled and is not imported into the repository's verified build.
+
+No local \texttt{lean} or \texttt{lake} executable was present, and the available installation path did not yield one. The full signed arithmetic adapter, prime-certificate verification in Lean, optimizer completeness, and the universal estimate are not formalized by this partial companion. A Python pass is not a Lean kernel pass. There is no claimed term of type \texttt{ABCConjecture}.
+
+\subsection{Integration status}
+The GitHub connector supplied repository reads but no write action. The local Git remote test failed with DNS resolution failure. No remote branch, commit, pull request, workflow dispatch, or merge was created. The deliverable is an additive source patch and a research archive, not an assertion that remote \texttt{main} was changed. Patch-application tests are distinct from a full repository build and from remote integration.
+
+\begin{thebibliography}{9}
+\bibitem{previous} ChatGPT, \emph{Prime-Power Obstructions to Flagged CRT Transport and an Exact Divisor-Gap Reduction for abc}, first supplement, 5 September 2026. Supplied in the preceding conversation research archive; ordinary proofs and an uncompiled partial Lean draft.
+\bibitem{ledger} \texttt{wyx66624/ABCConjecture}, \emph{ABC route bottleneck ledger}, \texttt{research/ABC\_ROUTE\_BOTTLENECKS.md}, inspected at commit \texttt{6118955d20b4edd32e577e06d1060f3945358dd9}.
+\bibitem{code} ChatGPT, \emph{Signed endpoint exact replay and recursive prime certificate}, accompanying source files \texttt{abc\_signed\_endpoint\_2026\_09\_05.py} and \texttt{prime\_certificate.json}, 5 September 2026.
+\end{thebibliography}
+\end{document}

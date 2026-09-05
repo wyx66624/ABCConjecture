@@ -1,0 +1,100 @@
+{
+  "integration_date": "2026-09-05",
+  "base_commit": "6118955d20b4edd32e577e06d1060f3945358dd9",
+  "source_archive": "ABCConjecture_2026_09_05_combined_research.zip",
+  "scope": "Primary research source import; not an unconditional ABC proof.",
+  "source_integrity": {
+    "original_archive_manifest_passed": true,
+    "imported_primary_files": 9,
+    "copied_without_content_edits": true
+  },
+  "local_replay": {
+    "fcrt": {
+      "exit_code": 0,
+      "byte_identical_to_original_result": true,
+      "output_bytes": 10680,
+      "output_sha256": "88ed5113a11f20c8c8d1113d33cdd892042e43123052032a19cb146d033ad1e5",
+      "dynamic_program": {
+        "c_inclusive_bound": 200,
+        "ordered_primitive_triples": 12231,
+        "dp_tables_equal_to_exhaustive_tables": 26832,
+        "face_normal_form_comparisons": 26832,
+        "arithmetic_cost_checks": 5082,
+        "concrete_empty_block_owner_bridge_checks": 3700
+      },
+      "unit_gap_threshold": {
+        "c_inclusive_bound": 200000,
+        "eligible_endpoint_modulus_pairs": 6741,
+        "proper_unitary_packets_checked": 35756,
+        "counterexamples": 0
+      },
+      "dense_divisor_identity": {
+        "Q_inclusive_bound": 20000,
+        "squarefree_values_checked": 12159
+      },
+      "bilinear_factor_gap": {
+        "M": [
+          2,
+          120
+        ],
+        "s_and_t": [
+          1,
+          50
+        ],
+        "nonexceptional_cases_checked": 297381
+      }
+    },
+    "signed": {
+      "exit_code": 0,
+      "byte_identical_to_original_result": true,
+      "output_bytes": 339041,
+      "output_sha256": "1c9148ce89a8fd8ec12f21ecf932530188a271699481cf912675862869197bd8",
+      "prime_certificate": {
+        "root": 3981112602195296746201614890054671463,
+        "certified_primes": 25,
+        "order_witness_checks": 70,
+        "all_checks_passed": true
+      },
+      "normalized_scan": {
+        "c_bound": 3000,
+        "primitive_triples_filtered": 1368094,
+        "hard_triples_R_lt_b_optimized": 49,
+        "nonzero_adaptive_waste": 0
+      },
+      "consecutive_scan": {
+        "c_bound": 1000000,
+        "hard_triples_optimized": 135,
+        "nonzero_adaptive_waste": 3
+      },
+      "signed_deletions": {
+        "max_input_x": 100,
+        "face_deletion_comparisons": 5736,
+        "full_identity_packets_requiring_empty_face_exclusion": 1646
+      },
+      "difference_threshold": {
+        "target_n_bound": 200000,
+        "eligible_target_modulus_pairs": 7167,
+        "proper_packets_checked": 36668,
+        "counterexamples": 0
+      }
+    }
+  },
+  "lean": {
+    "compiler_available": false,
+    "compiled": false,
+    "axiom_queries_executed": false,
+    "drafts_imported_into_verified_build": false
+  },
+  "limits": {
+    "unconditional_abc_proof": false,
+    "unconditional_abc_disproof": false,
+    "full_repository_build_run": false,
+    "independent_peer_review_claimed": false,
+    "literature_reverified_in_merge_session": false
+  },
+  "integration": {
+    "existing_files_modified": false,
+    "existing_build_and_toolchain_modified": false,
+    "status_authority": "The pull request and Git commit history, not historical manuscript integration paragraphs."
+  }
+}
