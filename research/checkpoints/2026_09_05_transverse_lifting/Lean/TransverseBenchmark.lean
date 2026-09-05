@@ -55,10 +55,12 @@ def zeroWeights : Weights := { at2 := 0, at3 := 0, at109 := 0, at23 := 0 }
 
 /-- Finite trial-division predicate, used only for the four small factors below. -/
 def trialPrime (n : Nat) : Prop :=
-  2 <= n /\ forall d : Fin n, 2 <= d.val -> n % d.val != 0
+  2 <= n /\ forall d : Fin n, 2 <= d.val -> n % d.val ≠ 0
 
 theorem small_prime_certificates :
-    trialPrime 2 /\ trialPrime 3 /\ trialPrime 109 /\ trialPrime 23 := by decide
+    trialPrime 2 /\ trialPrime 3 /\ trialPrime 109 /\ trialPrime 23 := by
+  unfold trialPrime
+  decide
 
 theorem factorization_and_coprimality :
     (2 : Nat) + 3^10 * 109 = 23^5 /\
@@ -85,7 +87,9 @@ theorem wronskian_level (v : Weights) (h : tripleAdditive v) :
 
 theorem witness_certificate :
     tripleAdditive witness /\ wronskian witness = 5508110403 /\
-    Within 1644 23 witness := by decide
+    Within 1644 23 witness := by
+  unfold tripleAdditive wronskian Within witness
+  decide
 
 theorem every_level_realized (m : Int) :
     exists v : Weights, tripleAdditive v /\ wronskian v = 5508110403 * m := by
@@ -112,7 +116,22 @@ theorem gap_cell (x w m : Int)
     (hx0 : -142 <= x) (hx1 : x <= 142)
     (hw0 : -1643 <= w) (hw1 : w <= 1643)
     (heq : 10*w - 23*x = 19683*m) : m = 0 := by
-  omega
+  have hb : -19696 <= 19683*m /\ 19683*m <= 19696 := by omega
+  have hm : m = -1 \/ m = 0 \/ m = 1 := by omega
+  rcases hm with hm | hm | hm
+  · subst m
+    have hne : x ≠ 142 := by
+      intro hh
+      subst x
+      omega
+    omega
+  · exact hm
+  · subst m
+    have hne : x ≠ -142 := by
+      intro hh
+      subst x
+      omega
+    omega
 
 theorem no_smaller_transverse (v : Weights)
     (h : tripleAdditive v) (hb : Below 1644 23 v) : wronskian v = 0 := by
@@ -128,9 +147,9 @@ theorem no_smaller_transverse (v : Weights)
 
 /-- A witness at 1644/23, and a quantified exclusion of every smaller radius. -/
 theorem exact_transverse_minimum :
-    tripleAdditive witness /\ wronskian witness != 0 /\
+    tripleAdditive witness /\ wronskian witness ≠ 0 /\
     Within 1644 23 witness /\
-    (forall v : Weights, tripleAdditive v -> wronskian v != 0 ->
+    (forall v : Weights, tripleAdditive v -> wronskian v ≠ 0 ->
       Not (Below 1644 23 v)) := by
   refine ⟨witness_certificate.1, ?_, witness_certificate.2.2, ?_⟩
   · rw [witness_certificate.2.1]
@@ -140,7 +159,9 @@ theorem exact_transverse_minimum :
 
 theorem short_tangent_certificate :
     tripleAdditive tangent /\ wronskian tangent = 0 /\
-    Within 10 1 tangent /\ tangent != zeroWeights := by decide
+    Within 10 1 tangent /\ tangent ≠ zeroWeights := by
+  unfold tripleAdditive wronskian Within tangent zeroWeights
+  decide
 
 theorem every_vector_within_ten_is_tangent (v : Weights)
     (h : tripleAdditive v) (hb : Within 10 1 v) : wronskian v = 0 := by
@@ -151,7 +172,7 @@ theorem every_vector_within_ten_is_tangent (v : Weights)
 
 theorem centered_residue (p r : Int) (hp : 0 < p)
     (hr0 : 0 <= r) (hrp : r < p) :
-    let z := if 2*r <= p then r else r-p
+    let z := if 2*r <= p then r else r-p;
     -p <= 2*z /\ 2*z <= p /\ (z = r \/ z = r-p) := by
   dsimp
   split <;> omega
