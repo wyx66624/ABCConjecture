@@ -1,0 +1,140 @@
+{
+  "archive_sha256": "5f2069e6f5db73780f374ccb49ce8ea649aa20a0cebf0116816744c999ce72aa",
+  "arithmetic_correction": "An initial small-example working calculation and progress message omitted v_2(12)=2. The corrected actual derivative coefficient is 12, image generator 4, and the shortest level is 3 rather than 6. No incorrect arithmetic version was merged to main.",
+  "axiom_union": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "axioms": {
+    "ABCPrimitiveClass20260905.all_minimizers_have_level_three": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ABCPrimitiveClass20260905.arithmetic_data": [],
+    "ABCPrimitiveClass20260905.exact_image": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ABCPrimitiveClass20260905.exact_transverse_minimum": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ABCPrimitiveClass20260905.image_attainment": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ABCPrimitiveClass20260905.image_divisibility": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ABCPrimitiveClass20260905.minimum_witness": [],
+    "ABCPrimitiveClass20260905.no_smaller_primitive": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ABCPrimitiveClass20260905.no_smaller_transverse": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ABCPrimitiveClass20260905.primitive_witness": [],
+    "ABCTransverseLifting20260905.centered_residue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ABCTransverseLifting20260905.coefficient_certificates": [],
+    "ABCTransverseLifting20260905.every_level_realized": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ABCTransverseLifting20260905.every_vector_within_ten_is_tangent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ABCTransverseLifting20260905.exact_transverse_minimum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ABCTransverseLifting20260905.exact_wronskian_image": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ABCTransverseLifting20260905.factorization_and_coprimality": [],
+    "ABCTransverseLifting20260905.gap_cell": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ABCTransverseLifting20260905.level_equation": [
+      "propext",
+      "Quot.sound"
+    ],
+    "ABCTransverseLifting20260905.no_smaller_transverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ABCTransverseLifting20260905.short_tangent_certificate": [],
+    "ABCTransverseLifting20260905.small_prime_certificates": [],
+    "ABCTransverseLifting20260905.witness_certificate": [],
+    "ABCTransverseLifting20260905.wronskian_level": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "baseline_main": "1e791475504efdcfc951b85ed6ccc14f9532d603",
+  "compiler": "Lean 4.32.2",
+  "compiler_commit": "f3b06c705e6c85f5314019d5d3baab0fec5b580c",
+  "execution_environment": "GitHub-hosted Ubuntu 24.04.4 x86_64; not the user WSL",
+  "external_peer_review": false,
+  "failed_development_runs": [
+    {
+      "reason": "decidability, Prop/Bool, proof elaboration, let syntax",
+      "run": 33969755761
+    },
+    {
+      "reason": "unused-variable warning with warnings-as-errors",
+      "run": 33969902140
+    },
+    {
+      "reason": "nested-comment token in PrimitiveClass docstring",
+      "run": 33970238762
+    }
+  ],
+  "finite_default_replay": {
+    "byte_identical": true,
+    "runs": 2,
+    "sha256": "9b1a73607615b4bf732e8c651c4b381e4c156fbdb258d597ce239a0c8e94d196"
+  },
+  "first_successful_job": 101317995486,
+  "first_successful_lean_source_commit": "3bf8bd92cef6bbd74f571eeb50035cc01271b1e4",
+  "first_successful_run": 33970484302,
+  "formal_scope": [
+    "actual coefficient equations of two fixed primitive triples",
+    "exact Wronskian image ideals for those lattices",
+    "rational witness certificates",
+    "universal smaller-radius exclusions",
+    "short tangent and nonprimitive minimum counterexamples",
+    "centered residue inequality"
+  ],
+  "full_repository_build_claimed": false,
+  "independent_autonomous_agents": false,
+  "named_theorems_and_axiom_queries": 24,
+  "not_formalized": [
+    "general local content/CRT lifting theorem",
+    "general real relaxation and fibre period",
+    "uniform additive bound",
+    "equivalence of SD and ABC",
+    "standard ABCConjecture"
+  ],
+  "run_url": "https://github.com/wyx66624/ABCConjecture/actions/runs/33970484302",
+  "sorryAx": false,
+  "source_blobs": {
+    "PrimitiveClass.lean": "6763f0c8b31e04f5c051a7645c30daa70d9ab228",
+    "TransverseBenchmark.lean": "42817f8bf9fc5e5b63688e976bcf424e3080e09a"
+  },
+  "status": "Scoped partial research. Not an ABC proof or disproof."
+}

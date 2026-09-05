@@ -1,0 +1,432 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,longtable}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[unicode,colorlinks=true,allcolors=blue]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Om}{\Omega}
+\newcommand{\LL}{\mathcal L}
+\title{Quantitative Lifting of Arithmetic Derivatives and the Transverse Obstruction to \(abc\)}
+\author{ChatGPT}
+\date{September 5, 2026}
+\hypersetup{pdftitle={Quantitative Lifting of Arithmetic Derivatives and the Transverse Obstruction to abc},pdfauthor={ChatGPT}}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a primitive positive triple $a+b=c$, integer prime weights define a lattice of arithmetic derivatives that are additive on that triple. We give a constructive lifting theorem for every attainable derivative value: after dividing out the common exponent, a Chinese-remainder construction followed by a bounded residue-graph correction approximates the optimal constant real weights with error at most the normalized exponent sum. We compute the exact one-dimensional period of the aggregate derivative fibre and the exact real minimum at each nonzero Wronskian level. Consequently the least transverse integer norm lies between an explicit scalar expression and that expression plus $\tfrac12(\log_2 c)^2+\log_2 c$. This closes an auxiliary integer-lifting problem, but not the scalar height problem. In fact the previously proposed uniformly small transverse-derivative condition is equivalent to standard $abc$, not an independently weaker bridge. We also give an actual triple where every optimal transverse vector has nonprimitive Wronskian level, and supply executable Lean certificates for two exact optimization problems. The general lifting theorems have ordinary proofs here; their complete Lean formalization, the uniform $abc$ bound, and a counterexample to $abc$ are not claimed.
+\end{abstract}
+\noindent\textbf{Keywords.} Arithmetic derivations; radical; Chinese remainder theorem; integer lattices; Wronskian; formal verification.
+
+\section{Problem, scope, and principal result}
+A primitive triple consists of positive integers $a,b,c$ with $a+b=c$ and $\gcd(a,b)=1$. Its entries are pairwise coprime. Put
+\[
+ R=\rad(abc),\qquad D=\frac{abc}{R},\qquad
+ \Om(n)=\sum_{p\mid n}v_p(n),\quad \Om(1)=0.
+\]
+Standard $abc$ asserts that for each $\varepsilon>0$ there is $K_\varepsilon>0$, independent of the triple, such that
+\begin{equation}\label{eq:abc}
+ c\le K_\varepsilon R^{1+\varepsilon}.
+\end{equation}
+The triple $(1,1,2)$ satisfies this with $K_\varepsilon=1$ and will be excluded from transverse statements.
+
+For integer weights $\lambda=(\lambda_p)_{p\mid abc}$, define
+\begin{equation}\label{eq:derivative}
+ \partial_\lambda(n)=\sum_{p\mid n}\frac np\,v_p(n)\lambda_p,
+ \qquad
+ H(\lambda)=\max_{p\mid abc}\frac{|\lambda_p|}{p}.
+\end{equation}
+Weights outside the displayed support can be set to zero. This operator satisfies the Leibniz identity by additivity of valuations, but is not assumed additive on arbitrary pairs. We impose only
+\[
+ \LL=\{\lambda\in\Z^{\{p:p\mid abc\}}:
+ \partial_\lambda(a)+\partial_\lambda(b)=\partial_\lambda(c)\}.
+\]
+The arithmetic Wronskian is
+\[
+ W(\lambda)=a\partial_\lambda(b)-b\partial_\lambda(a).
+\]
+Write $G_1=0$ and, for $n>1$,
+\[
+ G_n=\gcd_{p\mid n}\left(\frac np v_p(n)\right).
+\]
+The exact image calculation from the preceding checkpoint \cite{normalforms} is re-proved in Section~\ref{sec:global}:
+\begin{equation}\label{eq:I}
+ W(\LL)=I\Z,\qquad
+ I=\frac{\gcd(cG_aG_b,bG_aG_c,aG_bG_c)}{\gcd(G_a,G_b,G_c)},
+ \qquad J=I/D\in\Z_{>0}.
+\end{equation}
+For $m\ne0$ let $H_m$ be the least norm with $W=mI$, and set
+\[
+ H_\perp=\min_{\lambda\in\LL,\ W(\lambda)\ne0}H(\lambda).
+\]
+These minima exist: the image is nonzero, every bounded weight box contains finitely many integer vectors, and a nonempty set of such vectors has a least norm.
+
+\begin{theorem}[Uniform additive lifting bound]\label{thm:main}
+For every nontrivial primitive triple, define
+\begin{equation}\label{eq:h0}
+ h_0=\frac JR\max\left\{
+ \frac{c}{\Om(a)+\Om(b)},\
+ \frac{b}{\Om(a)+\Om(c)},\
+ \frac{a}{\Om(b)+\Om(c)}\right\}>0.
+\end{equation}
+There is an explicit nonnegative $E=E(a,b,c)$, specified in Theorem~\ref{thm:global}, such that for every nonzero integer $m$,
+\begin{equation}\label{eq:levelbound}
+ |m|h_0\le H_m\le |m|h_0+E,
+ \qquad
+ E\le\tfrac12(\log_2c)^2+\log_2c.
+\end{equation}
+In particular
+\begin{equation}\label{eq:Hperp}
+ h_0\le H_\perp\le H_1\le h_0+\tfrac12(\log_2c)^2+\log_2c.
+\end{equation}
+The upper bound is realized by a constructive procedure given the three prime factorizations. It is not a claim about the complexity of obtaining those factorizations.
+\end{theorem}
+The theorem isolates the rounding cost from the scalar term $h_0$, which itself contains $c/R$. Section~\ref{sec:equivalence} proves that the previously proposed subpower bound for $H_\perp/J$ is equivalent to $abc$. That equivalence is an obstruction audit, not a proof of either assertion.
+
+\section{Local content and a bounded lifting construction}\label{sec:local}
+For $n>1$, write $n=\prod_{p\mid n}p^{e_p}$ and define
+\[
+ r_n=\rad(n),\quad D_n=n/r_n,\quad
+ k_n=\gcd_{p\mid n}e_p,\quad f_p=e_p/k_n,
+\]
+\begin{equation}\label{eq:rho}
+ \rho_n=\prod_{\substack{p\mid n\\p\mid f_p}}p,
+ \qquad r'_n=r_n/\rho_n,\qquad S_n=\sum_{p\mid n}f_p=\Om(n)/k_n.
+\end{equation}
+Thus $\gcd_p f_p=1$. The factor $\rho_n$ records which normalized exponents are divisible by their own primes; this is its definition, not an assumed distributional property.
+
+\begin{lemma}[Exact local content]\label{lem:content}
+The attainable values of $\partial_\lambda(n)$ are exactly $G_n\Z$, where
+\begin{equation}\label{eq:G}
+ G_n=D_n k_n\rho_n.
+\end{equation}
+Moreover
+\begin{equation}\label{eq:h}
+ h_n:=\frac{G_n}{\gcd(G_n,n)}
+ =\frac{k_n}{\gcd(k_n,r'_n)}\mid k_n.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The image of an integer linear form is the ideal generated by its coefficients, by B\'ezout's identity. After dividing the coefficients by $D_nk_n$, their gcd is the gcd of $f_p r_n/p$. A prime outside $r_n$ does not divide that gcd because $\gcd_p f_p=1$. For $p\mid r_n$, the $p$-valuation of the gcd is zero when $p\nmid f_p$. When $p\mid f_p$, all the coefficients are divisible by $p$, and some $f_q$ with $q\ne p$ is not divisible by $p$; the coefficient at $q$ then has $p$-valuation exactly one. Thus the gcd is $\rho_n$, proving \eqref{eq:G}. Since $r_n$ is squarefree,
+\[
+ \gcd(k_n\rho_n,r_n)=\rho_n\gcd(k_n,r'_n),
+\]
+which gives \eqref{eq:h}.
+\end{proof}
+For a prime power $n=p^e$, one has $k_n=e$, $f_p=1$, $\rho_n=1$, $G_n=ep^{e-1}$ and $h_n=e/\gcd(e,p)$. At $n=12=2^2\cdot3$, one instead has $k_n=1$, $\rho_n=2$ and $G_n=4$. At $n=108=2^2\cdot3^3$, every support prime contributes to $\rho_n$, and $G_n=108$. These examples include the one-coordinate and all-resonant extremes of the construction below.
+
+\begin{lemma}[Bounded correction by a residue graph]\label{lem:correction}
+Let $m_1,\ldots,m_t$ be positive integers of gcd one, with $M=\max m_i$ and $m=\min m_i$. For any integer $u$, choose an index $i_0$ with $m_{i_0}=m$. There are integers $z_i$ with $\sum m_i z_i=u$, all $z_i\ge0$ for $i\ne i_0$, such that
+\[
+ \sum_{i\ne i_0}z_i\le m-1,
+ \qquad
+ |z_{i_0}|\le\frac{|u|+M(m-1)}{m}.
+\]
+\end{lemma}
+\begin{proof}
+On $\Z/m\Z$ put directed edges $x\mapsto x+m_i$. Every residue is reachable from zero: the steps generate the group since their gcd together with $m$ is one, and in a finite group the inverse of a step is a nonnegative multiple of that step. A shortest path to $u\bmod m$ has no repeated vertex and has at most $m-1$ edges. It uses no self-loop, in particular no step $m_{i_0}$. Let its step counts be $z_i$ and its integer sum be $u_0$. Then $0\le u_0\le M(m-1)$ and $u_0\equiv u\pmod m$. Set $z_{i_0}=(u-u_0)/m$. This proves all assertions, including $m=1$, when the path is empty.
+\end{proof}
+
+\begin{theorem}[Local lifting near the real minimizer]\label{thm:local}
+For $n>1$ and every $d\in G_n\Z$, integer weights realizing $\partial_\lambda(n)=d$ can be chosen so that
+\begin{equation}\label{eq:locallift}
+ \max_{p\mid n}\left|\frac{\lambda_p}{p}-\frac{d}{n\Om(n)}\right|\le S_n.
+\end{equation}
+When $n$ is a prime power, the left side can be zero.
+\end{theorem}
+\begin{proof}
+Suppress the subscript $n$, set $q=d/(n\Om(n))$, and write $u=d/G\in\Z$. Equation~\eqref{eq:G} gives
+\[
+ \frac{d}{nk}=\frac{u}{r'}.
+\]
+For each regular prime $p\mid r'$ choose $\lambda_p$ in the residue class
+\begin{equation}\label{eq:crtres}
+ \lambda_p\equiv u\bigl(f_p(r'/p)\bigr)^{-1}\pmod p
+\end{equation}
+such that $|\lambda_p/p-q|\le1/2$. This is possible by choosing the nearest point in an arithmetic progression of spacing one in the normalized coordinate. For each remaining prime, choose an integer nearest to $pq$, giving error at most $1/(2p)\le1/2$.
+
+The residual
+\[
+ v=\frac{d}{nk}-\sum_{p\mid n}\frac{f_p\lambda_p}{p}
+\]
+is an integer. Indeed, the terms at the primes of $\rho$ are integers; multiplication by $r'$ and reduction at each regular prime gives zero by \eqref{eq:crtres}. The pairwise coprimeness of these primes gives the assertion, also when $r'=1$. Moreover
+\begin{equation}\label{eq:resbound}
+ |v|=\left|\sum_{p\mid n} f_p\left(q-\frac{\lambda_p}{p}\right)\right|\le S/2.
+\end{equation}
+Put
+\[
+ m_p=\begin{cases}f_p,&p\mid r',\\ f_p/p,&p\mid\rho.\end{cases}
+\]
+These are positive integers of gcd one, since every $m_p$ divides $f_p$ and $\gcd_p f_p=1$. Apply Lemma~\ref{lem:correction} to $v$. Correct a regular coordinate by $\lambda_p\mapsto\lambda_p+pz_p$, and a remaining coordinate by $\lambda_p\mapsto\lambda_p+z_p$. The change in the normalized derivative is exactly $\sum m_pz_p=v$.
+
+For the distinguished coordinate, using $M\le S$, \eqref{eq:resbound}, and $m\le S$ gives
+\[
+ |z_{i_0}|\le\frac{S}{2m}+\frac{S(m-1)}m
+ =S-\frac{S}{2m}\le S-\tfrac12.
+\]
+Every other $z_p$ is at most $m-1\le S-1$. The change in each normalized coordinate is at most $|z_p|$. Adding its initial error at most $1/2$ proves \eqref{eq:locallift}.
+
+For $n=p^e$, the only allowed value is $d=ep^{e-1}u$. Taking $\lambda_p=u$ gives $\lambda_p/p=d/(ne)$ exactly.
+\end{proof}
+The construction uses a graph with $m\le S_n$ vertices after the prime factorization is known. It provides a norm guarantee, not necessarily the local norm optimum. Define the available error bound
+\begin{equation}\label{eq:kappa}
+ \kappa_n=\begin{cases}
+ 0,&n=1\text{ or }n\text{ is a prime power},\\
+ \Om(n)/k_n,&\text{otherwise}.
+ \end{cases}
+\end{equation}
+
+\section{Wronskian image, real relaxation, and integer fibres}\label{sec:global}
+\begin{lemma}[Image of a linear form on an integer kernel]\label{lem:minors}
+If an integer row $A=(A_1,\ldots,A_t)$ is primitive and $B$ is an integer row of the same size, then
+\[
+ B(\ker_{\Z} A)=\gcd_{i<j}(A_iB_j-A_jB_i)\Z.
+\]
+\end{lemma}
+\begin{proof}
+Choose $v\in\Z^t$ with $A\cdot v=1$. For every $x\in\ker_{\Z}A$,
+\[
+ x=\sum_{i<j}(v_i x_j-v_j x_i)(A_i e_j-A_j e_i).
+\]
+This follows by comparing each coordinate, or by expanding $(A\cdot v)x-(A\cdot x)v$. Thus the displayed pair vectors generate the integer kernel, not just its rational span. Applying $B$ proves the image formula by B\'ezout's identity.
+\end{proof}
+
+\begin{proposition}[Exact arithmetic image and divisibility]\label{prop:image}
+Equation~\eqref{eq:I} holds, and $I>0$ except at $(1,1,2)$.
+\end{proposition}
+\begin{proof}
+The disjoint prime supports let the derivative values range independently over $G_a\Z,G_b\Z,G_c\Z$. Divide the row $(G_a,G_b,-G_c)$ by $g=\gcd(G_a,G_b,G_c)$ and apply Lemma~\ref{lem:minors} with $B=(-bG_a,aG_b,0)$. Its three minors give \eqref{eq:I}. At least one of $a,b$ is greater than one, so at least one of $aG_bG_c,bG_aG_c$ is positive.
+
+For every $n$, $D_n\mid\partial_\lambda(n)$. The identities
+\[
+ W=a\partial_\lambda(b)-b\partial_\lambda(a)
+   =a\partial_\lambda(c)-c\partial_\lambda(a)
+\]
+show that each of $D_a,D_b,D_c$ divides $W$. These integers are pairwise coprime, so their product $D$ divides every $W$, hence divides the positive generator $I$.
+\end{proof}
+
+\begin{proposition}[Exact real minimum]\label{prop:real}
+Allow real weights, retain triple additivity, and fix $W=I$. Then the least norm is exactly $h_0$ in \eqref{eq:h0}. For $W=mI$ the real minimum is $|m|h_0$.
+\end{proposition}
+\begin{proof}
+For a fixed aggregate derivative value $d_n$, the condition $H\le h$ implies $|d_n/n|\le\Om(n)h$. Conversely this inequality is sufficient: take every coordinate $\lambda_p/p=d_n/(n\Om(n))$ when $n>1$; at $n=1$ require $d_n=0$.
+
+Write $x=d_a/a$. Additivity and $W=I$ force
+\[
+ d_b/b=x+I/(ab),\qquad d_c/c=x+I/(ac).
+\]
+With offsets $o=(0,I/(ab),I/(ac))$, the three admissible intervals for $x$ are
+\[
+ [-\Om(n)h-o_n,\ \Om(n)h-o_n],\qquad n=a,b,c.
+\]
+Intervals on a line have a common point precisely when they overlap pairwise. Their least admissible radius is
+\[
+ \max_{i<j}\frac{|o_i-o_j|}{\Om(n_i)+\Om(n_j)}.
+\]
+All denominators are positive in the nontrivial cases; a zero $\Om(n)$ simply produces a point interval. Since $I=abcJ/R$, this is \eqref{eq:h0}. Scaling all weights proves the last assertion.
+\end{proof}
+
+\begin{theorem}[Discrete fibre and global lifting]\label{thm:global}
+For $a,b>1$, put
+\[
+ \ell=\lcm(h_a,h_b,h_c),\qquad
+ E=\frac{\ell}{2\min\{\Om(a),\Om(b),\Om(c)\}}+
+       \max\{\kappa_a,\kappa_b,\kappa_c\}.
+\]
+If $a=1$ or $b=1$, instead put $E=\max\{\kappa_a,\kappa_b,\kappa_c\}$. Then \eqref{eq:levelbound} holds for every $m\ne0$.
+\end{theorem}
+\begin{proof}
+There is at least one integral aggregate triple $d=(d_a,d_b,d_c)$ with $W=mI$ by Proposition~\ref{prop:image}. Two such aggregate triples differ by
+\[
+ (d'_a-d_a,d'_b-d_b,d'_c-d_c)=t(a,b,c),\qquad t\in\Z.
+\]
+Indeed $a(d'_b-d_b)=b(d'_a-d_a)$ and $\gcd(a,b)=1$. For each $n$, the new derivative remains in $G_n\Z$ exactly when $h_n\mid t$. Thus the allowed values of $x=d_a/a$ form one coset of $\ell\Z$.
+
+Choose a real minimizer from Proposition~\ref{prop:real}. A point in the allowed coset lies at distance at most $\ell/2$ from it. The resulting aggregate values satisfy
+\[
+ \max_{n=a,b,c}\frac{|d_n|}{n\Om(n)}
+ \le |m|h_0+\frac{\ell}{2\min_n\Om(n)}.
+\]
+Apply Theorem~\ref{thm:local} independently on the disjoint prime supports. Its error at each $n$ is at most $\kappa_n$, so the combined vector proves the upper bound.
+
+When $a=1$ or $b=1$, the vanishing derivative at one fixes the real aggregate triple uniquely. Proposition~\ref{prop:image} already makes those values attainable integrally. There is no period-rounding error in this case. The lower bound in all cases is Proposition~\ref{prop:real}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+For $n\le c$, $k_n\le\Om(n)\le L:=\log_2c$. If $a,b>1$, then $\ell\le k_a k_b k_c$ by Lemma~\ref{lem:content}. Dividing this product by the smallest $\Om(n)$ leaves a bound at most the product of the other two exponent sums, hence at most $L^2$. Also $\kappa_n\le L$. Thus $E\le L^2/2+L$; the one-entry-equals-one case is stronger. Taking the minimum over levels gives \eqref{eq:Hperp}.
+\end{proof}
+
+\begin{corollary}[Non-power entries and level truncation]\label{cor:truncate}
+If $a,b,c>1$ and $k_a=k_b=k_c=1$, then $E\le\log_2c+1/2$. In general an optimal nonzero level must satisfy
+\[
+ 1\le |m|\le\left\lfloor\frac{H_1}{h_0}\right\rfloor
+ \le\left\lfloor1+\frac E{h_0}\right\rfloor.
+\]
+In particular $h_0>E$ implies that every transverse minimizer has $|m|=1$.
+\end{corollary}
+\begin{proof}
+The first assertion follows from $\ell=1$. For the second, a level with $|m|h_0>H_1$ cannot minimize the norm. The final assertion follows from $2h_0>h_0+E\ge H_1$.
+\end{proof}
+
+\section{The remaining uniform condition is equivalent to abc}\label{sec:equivalence}
+\begin{definition}
+The small transverse-derivative assertion, denoted $\mathrm{SD}$, is
+\[
+ \forall\tau>0\ \exists C_\tau>0\ \forall\text{ nontrivial primitive triples},
+ \qquad H_\perp\le C_\tau J R^\tau.
+\]
+No constant here may depend on the prime support, its size, the triple, or its exponent pattern.
+\end{definition}
+
+\begin{theorem}[Equivalence, not an unconditional height theorem]\label{thm:equiv}
+Standard $abc$ is equivalent to $\mathrm{SD}$. It is also equivalent to the same assertion with $H_1$ in place of $H_\perp$.
+\end{theorem}
+\begin{proof}
+Assume $\mathrm{SD}$. The first term of \eqref{eq:h0} gives
+\[
+ c\le C_\tau R^{1+\tau}(\Om(a)+\Om(b))
+ \le\frac{2C_\tau}{\log2}R^{1+\tau}\log c.
+\]
+Given $\varepsilon>0$, set $\tau=\varepsilon/2$ and $\delta=\varepsilon/(2(1+\varepsilon))$. Elementary maximization gives $\log x\le x^\delta/(e\delta)$ for $x\ge1$. Therefore
+\[
+ c^{1-\delta}\le\frac{2C_\tau}{e\delta\log2}R^{1+\tau}.
+\]
+Since $(1+\tau)/(1-\delta)=1+\varepsilon$, raising to the positive power $1/(1-\delta)$ proves \eqref{eq:abc}. Enlarge the constant to one to include $(1,1,2)$.
+
+Conversely, assume $abc$ and fix $\tau>0$. Choose $K\ge1$, depending only on $\tau$, such that $c\le K R^{1+\tau/2}$. Each denominator in \eqref{eq:h0} is at least one, so $h_0/J\le c/R\le K R^{\tau/2}$. Moreover
+\[
+ \log_2c\le\frac{\log K+(1+\tau/2)\log R}{\log2}.
+\]
+For $\sigma>0$, $(\log R)^2\le4R^\sigma/(e^2\sigma^2)$ for $R\ge1$. Applying Theorem~\ref{thm:main} with $\sigma=\tau/2$ and $J\ge1$ yields
+\[
+ H_1/J\le K R^{\tau/2}+E/J\le C_\tau R^\tau
+\]
+with a constant depending only on $\tau$. This proves the strongest of the two transverse assertions. Finally $H_\perp\le H_1$ gives their equivalence with $abc$.
+\end{proof}
+
+The preceding sufficient condition in \cite{normalforms} therefore contains the full uniform height problem, even though its local integer-realization cost has now been controlled. The new object $J$ cannot be regarded as a replacement for $D$: it is normalized out on both sides of the height inequality. No estimate for $c/R^{1+\varepsilon}$ has been obtained here independently of $abc$.
+
+A counterexample to standard $abc$ would require a fixed $\varepsilon>0$ for which $c/R^{1+\varepsilon}$ is unbounded over primitive triples. A single high-quality triple, or either counterexample to an auxiliary optimization assertion below, does not meet that requirement.
+
+\section{Exact optimization and failed shortcuts}\label{sec:examples}
+\subsection{A short transverse vector need not lie over a primitive image value}
+\begin{proposition}\label{prop:five}
+For $5+7=12$, $I=4$, $D=2$, $J=2$, and
+\[
+ H_\perp=\frac15,\qquad H_1=H_{-1}=\frac25.
+\]
+Every transverse minimizer has $W=12$ or $W=-12$, hence level $3$ or $-3$.
+\end{proposition}
+\begin{proof}
+In coordinates $(\lambda_2,\lambda_3,\lambda_5,\lambda_7)$, the actual derivative constraint and Wronskian are
+\[
+ \lambda_5+\lambda_7=12\lambda_2+4\lambda_3,
+ \qquad W=5\lambda_7-7\lambda_5.
+\]
+The coefficient $12$ includes the valuation $v_2(12)=2$. Substitution gives
+\[
+ W=4(15\lambda_2+5\lambda_3-3\lambda_5).
+\]
+The vector $(0,-1,-2,-2)$ has $W=4$ and norm $2/5$, so the image is exactly $4\Z$. The vector $(0,0,-1,1)$ has $W=12$ and norm $1/5$.
+
+Below radius $1/5$, the first three coordinates vanish and additivity forces the fourth to vanish. At radius at most $1/5$, the first two vanish, the remaining ones are opposites, and each is in $\{-1,0,1\}$. This proves the transverse minimum and the level assertion.
+
+Below radius $2/5$, $\lambda_5\in\{-1,0,1\}$. If $W=4$, reduction modulo five gives $\lambda_5\equiv-2\pmod5$, impossible in that range. If $W=-4$, it gives $\lambda_5\equiv2\pmod5$, likewise impossible. The primitive witness and its negative prove the claimed primitive-class minimum.
+\end{proof}
+This refutes pointwise primitive-class optimality, but not the primitive-class upper bound in Theorem~\ref{thm:main}. Its proof and all-radius exclusion statements are implemented in \texttt{PrimitiveClass.lean}.
+
+\subsection{Reconstructing the large benchmark without a lattice search}
+The preceding checkpoint considered
+\[
+ 2+3^{10}\cdot109=23^5,
+ \quad b=6436341,\quad c=6436343,
+ \quad R=15042,\quad I=D=5508110403.
+\]
+Here $J=1$, $(\Om(a),\Om(b),\Om(c))=(1,11,5)$, $\ell=5$ and $h_0=6561/92$. The new construction, using nearest CRT representatives and the residue graph, returns
+\begin{equation}\label{eq:newwitness}
+ (\lambda_2,\lambda_3,\lambda_{109},\lambda_{23})
+ =(-141,98,3349,1644),
+ \qquad H=\frac{1644}{23}.
+\end{equation}
+Its aggregate values are $(-141,2300293161,2300293020)$ and its Wronskian is $D$. The earlier optimal witness was $(-141,107,79,1644)$; the two differ by three times the tangent vector $(0,3,-1090,0)$. Thus the construction reaches the already proved optimum, with actual excess
+\[
+ \frac{1644}{23}-\frac{6561}{92}=\frac{15}{92}.
+\]
+This instance does not assert that the construction is always pointwise optimal.
+
+For completeness, the all-vector exclusion underlying the optimum is as follows. Additivity implies
+\[
+ 10\lambda_{23}-23\lambda_2=19683m,
+ \qquad W=5508110403m,\quad m\in\Z.
+\]
+At radius strictly below $1644/23$, $|\lambda_2|\le142$ and $|\lambda_{23}|\le1643$. Thus $m\in\{-1,0,1\}$. For $m=1$, the congruence implies $\lambda_2\equiv9\pmod{10}$, hence $\lambda_2\ge-141$. Then the left side is at most $19673<19683$, a contradiction. The case $m=-1$ follows by changing signs. Hence every smaller vector has $W=0$. The tangent vector has norm ten, so every shortest nonzero lattice vector is tangent. This disproves the shortcut that a shortest nonzero lattice vector is automatically transverse. These assertions, including the factorization and coefficient checks, are implemented in \texttt{TransverseBenchmark.lean}.
+
+\section{Verification, dependencies, and the next unresolved node}\label{sec:audit}
+\subsection{Exact computation}
+The programs use Python integer arithmetic and \texttt{Fraction}; no floating-point solver decides a congruence, a norm comparison, or an optimum. The local content formula is compared with a direct coefficient gcd. The aggregate constructor is checked by separately evaluating the derivative definition. A second real-minimum implementation enumerates the breakpoints of the piecewise-linear objective, rather than using the pairwise interval formula. Both methods use the same elementary arithmetic library; they are distinct implementations, not independent autonomous researchers.
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Check & Completed cases\\
+\midrule
+Local content profiles, $1\le n\le30000$ & 30,000\\
+Local signed/large-value lifts, $n\le5000$ & 29,995\\
+Generated large factorizations / additional lifts & 1,200 / 2,400\\
+Normalized primitive triples, $3\le c\le600$ & 54,749\\
+Extra negative/positive levels with swapped addends & 2,256\\
+Nonzero points in the small example's unit box & 86\\
+\bottomrule
+\end{tabular}
+\end{center}
+The generated profiles include 695 with smallest correction step at least two, and four with all support primes resonant. Two full default replays produced byte-identical JSON. The file's SHA-256 is
+\begin{center}\small\texttt{9b1a73607615b4bf732e8c651c4b381e4c156fbdb258d597ce239a0c8e94d196}.\end{center}
+These are finite implementation checks. The universal statements in Sections~2--4 rest on the proofs, not on extrapolation from this table.
+
+\subsection{Formal scope and reproducibility}
+Two standalone modules contain 24 named theorems with 24 axiom queries, using \texttt{Std}. Both passed Lean 4.32.2 with warnings treated as errors in Actions run \texttt{33970484302}, at source commit \texttt{3bf8bd92cef6bbd74f571eeb50035cc01271b1e4}. The axiom union is \texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}; no \texttt{sorryAx} occurs. Positive rational norm balls are encoded by exact integer inequalities. The scope is Section~\ref{sec:examples} and a centered-residue lemma, not the general lifting theorem, real relaxation, or equivalence theorem.
+
+The script \texttt{wsl/verify\_lean.sh} installs an isolated, checksum-pinned Lean 4.32.2 and runs both modules without changing existing toolchains. A companion parser checks each reported axiom dependency against an explicit whitelist. The supplied verification record distinguishes the source check from the final integration check. Hosted Ubuntu execution is not execution on the user's own WSL; that machine was not accessible.
+
+\subsection{Proof dependency register}
+\begin{center}\small
+\begin{tabular}{p{0.30\textwidth}p{0.29\textwidth}p{0.30\textwidth}}
+\toprule
+Node & Dependencies & Status here\\
+\midrule
+Local content $G_n=D_nk_n\rho_n$ & Factorization, B\'ezout & Ordinary proof\\
+Local bounded lifting & Content, CRT, residue graph & Ordinary proof\\
+Exact Wronskian image & Primitive integer kernel & Ordinary proof; two instances Lean-checked\\
+Global additive error bound & Local lifting, fibre period, intervals & Ordinary proof\\
+Smallest vectors need not be transverse & Large exact benchmark & Exact Lean certificate\\
+Primitive image values need not minimize & $5+7=12$ & Exact Lean certificate\\
+$\mathrm{SD}\Longleftrightarrow abc$ & Global bound, elementary log estimates & Ordinary equivalence proof\\
+Uniform $\mathrm{SD}$ or uniform $abc$ & Independent height input still required & Unresolved\\
+\bottomrule
+\end{tabular}
+\end{center}
+The baseline was \texttt{1e791475504efdcfc951b85ed6ccc14f9532d603}. The existing FCRT/signed-endpoint and unitary-face/multi-output routes \cite{signed,multiflag} remain active. Their first-apparition problem and the IUT/geometric gates are neither assumed nor closed here; new proofs in this article concern the derivative route.
+
+The uniform assertion in Section~\ref{sec:equivalence} remains unresolved. By Theorem~\ref{thm:equiv}, proving it without an equivalent conjectural input is exactly an $abc$ proof. Neither such a proof, external peer review, nor a full formalization is asserted; priority outside these project sources is unverified.
+
+\begin{thebibliography}{9}
+\small
+\setlength{\itemsep}{0pt}
+\bibitem{normalforms} ChatGPT, \emph{Signed Packet Normal Forms and Transverse Arithmetic Wronskians for abc}, research checkpoint of September 5, 2026. Supplied normal-forms research archive and its source manifest.
+\bibitem{signed} ChatGPT, \emph{Signed endpoint selection and sharp difference-face thresholds}, September 5, 2026, \texttt{wyx66624/ABCConjecture}, checkpoint \texttt{2026\_09\_05\_chatgpt}, merged in pull request 420.
+\bibitem{multiflag} ChatGPT, \emph{Research checkpoint on sharp unitary faces and multi-output transport}, \texttt{wyx66624/ABCConjecture}, merged pull request 421, September 5, 2026.
+\end{thebibliography}
+\end{document}
