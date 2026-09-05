@@ -166,17 +166,23 @@ theorem small_root_residues (k : Nat) : smallRoot k %4=2 ∧ smallRoot k %7=2 :=
   · have hd : 7 ∣ 4*7^(k+2) := by
       refine ⟨4*7^(k+1), ?_⟩
       rw [show k+2=(k+1)+1 by omega, Nat.pow_succ 7 (k+1)]
-      simp only [Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
+      simp only [Nat.mul_comm, Nat.mul_left_comm]
     unfold smallRoot
     rw [Nat.mod_mod_of_dvd (orbit k) hd]
     exact (orbit_order_three k).1
+
+theorem phi_mod_congr (a b M : Nat) (h : a%M=b%M) : phi a %M=phi b %M := by
+  unfold phi
+  rw [Nat.add_mod (a*a+a) 1 M, Nat.add_mod (b*b+b) 1 M,
+    Nat.add_mod (a*a) a M, Nat.add_mod (b*b) b M,
+    Nat.mul_mod a a M, Nat.mul_mod b b M, h]
 
 theorem small_root_divisibility (k : Nat) : 7^(k+2) ∣ phi (smallRoot k) := by
   have hm : smallRoot k % (7^(k+2)) = orbit k % (7^(k+2)) := by
     unfold smallRoot
     exact Nat.mod_mul_left_mod (orbit k) 4 (7^(k+2))
   have he : phi (smallRoot k) % (7^(k+2)) = phi (orbit k) % (7^(k+2)) := by
-    simp only [phi, Nat.add_mod, Nat.mul_mod, hm]
+    exact phi_mod_congr (smallRoot k) (orbit k) (7^(k+2)) hm
   have ho := Nat.mod_eq_zero_of_dvd (orbit_exact_phi k).1
   exact Nat.dvd_of_mod_eq_zero (he.trans ho)
 
@@ -188,7 +194,7 @@ theorem small_root_size (k : Nat) :
     Nat.mod_lt (orbit k) (Nat.mul_pos (by decide) (Nat.pow_pos (by decide)))
   have he : 4*7^(k+2)=28*7^(k+1) := by
     rw [show k+2=(k+1)+1 by omega, Nat.pow_succ 7 (k+1)]
-    simp only [Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
+    omega
   have hphi : 0<phi (smallRoot k) := by unfold phi; omega
   exact ⟨by omega, by omega, Nat.le_of_dvd hphi (small_root_divisibility k)⟩
 
@@ -278,6 +284,7 @@ theorem exchange_identity (a b x y : Int) :
 #print axioms orbit_exact_cubic_difference
 #print axioms infinite_first_appearance_certificate
 #print axioms small_root_residues
+#print axioms phi_mod_congr
 #print axioms small_root_divisibility
 #print axioms small_root_size
 #print axioms normalized_small_first_appearance
