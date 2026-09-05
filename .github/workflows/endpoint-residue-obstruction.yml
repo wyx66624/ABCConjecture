@@ -1,0 +1,63 @@
+name: Endpoint residue obstruction audit
+
+on:
+  push:
+    branches:
+      - main
+      - "formalize/**"
+    paths:
+      - "Lean/IUTThreeClosures/EndpointConstantResidueObstruction.lean"
+      - "research/computation/endpoint_residue_obstruction_2026_09_05.py"
+      - ".github/workflows/endpoint-residue-obstruction.yml"
+  pull_request:
+    paths:
+      - "Lean/IUTThreeClosures/EndpointConstantResidueObstruction.lean"
+      - "research/computation/endpoint_residue_obstruction_2026_09_05.py"
+      - ".github/workflows/endpoint-residue-obstruction.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Exact finite replay
+        run: |
+          mkdir -p endpoint-audit
+          python research/computation/endpoint_residue_obstruction_2026_09_05.py --max-e 6 --output endpoint-audit/cases.json
+          echo 'ea56c8bc568e90311204e69e479534c9a7dafa2214db2c3c060831434fee9621  endpoint-audit/cases.json' | sha256sum -c -
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+      - name: Restore dependencies
+        working-directory: Lean
+        run: |
+          lake update
+          lake exe cache get
+      - name: Strict kernel check and axiom report
+        working-directory: Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake env lean -DwarningAsError=true IUTThreeClosures/EndpointConstantResidueObstruction.lean 2>&1 | tee ../endpoint-audit/lean-axioms.log
+          if grep -E 'sorryAx|ofReduceBool|Lean.ofReduceBool' ../endpoint-audit/lean-axioms.log; then
+            exit 1
+          fi
+          count=$(grep -c 'depends on axioms' ../endpoint-audit/lean-axioms.log)
+          test "$count" -eq 9
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: endpoint-residue-audit
+          path: endpoint-audit/
