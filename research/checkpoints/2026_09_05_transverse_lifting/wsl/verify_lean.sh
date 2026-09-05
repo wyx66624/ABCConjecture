@@ -13,17 +13,23 @@ if [[ "$(uname -s)" != Linux || "$(uname -m)" != x86_64 ]]; then
   echo 'This pinned distribution requires Linux x86_64, including x86_64 WSL.' >&2
   exit 2
 fi
-for cmd in curl tar zstd sha256sum grep; do
+for cmd in curl tar zstd sha256sum grep python3; do
   if ! command -v "$cmd" >/dev/null 2>&1; then
     echo "Missing dependency: $cmd" >&2
-    echo 'Inside Ubuntu/WSL: sudo apt-get update && sudo apt-get install -y curl ca-certificates tar zstd coreutils' >&2
+    echo 'Inside Ubuntu/WSL: sudo apt-get update && sudo apt-get install -y curl ca-certificates tar zstd coreutils python3' >&2
     exit 2
   fi
 done
+tmp=""
+logs=""
+cleanup() {
+  [[ -z "$tmp" ]] || rm -rf -- "$tmp"
+  [[ -z "$logs" ]] || rm -rf -- "$logs"
+}
+trap cleanup EXIT
 if [[ ! -x "$TOOLCHAIN/bin/lean" ]]; then
   mkdir -p "$INSTALL_ROOT"
   tmp="$(mktemp -d "$INSTALL_ROOT/.lean-install.XXXXXXXX")"
-  trap 'rm -rf -- "$tmp"' EXIT
   curl --fail --location --retry 3 --output "$tmp/lean.tar.zst" "$URL"
   printf '%s  %s\n' "$ARCHIVE_SHA" "$tmp/lean.tar.zst" | sha256sum --check -
   tar --zstd -xf "$tmp/lean.tar.zst" -C "$tmp"
@@ -40,8 +46,10 @@ if [[ ! -f "$TOOLCHAIN/ABC_ARCHIVE_SHA256" ]] ||
   exit 2
 fi
 "$TOOLCHAIN/bin/lean" --version
+logs="$(mktemp -d)"
 for source in TransverseBenchmark.lean PrimitiveClass.lean; do
   printf '\nChecking %s\n' "$source"
-  "$TOOLCHAIN/bin/lean" -DwarningAsError=true "$ROOT/Lean/$source"
+  "$TOOLCHAIN/bin/lean" -DwarningAsError=true "$ROOT/Lean/$source" | tee "$logs/$source.log"
+  python3 "$ROOT/wsl/check_axioms.py" "$ROOT/Lean/$source" "$logs/$source.log"
 done
 printf '\nPASS: both scoped Lean modules compiled; this is not an ABC proof.\n'
