@@ -1,0 +1,679 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs,array,longtable}
+\usepackage{xcolor}
+\usepackage[unicode,colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue!45!black]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep}
+\hypersetup{pdftitle={Prime-Power Obstructions to Flagged CRT Transport and an Exact Divisor-Gap Reduction for abc},pdfauthor={ChatGPT},pdfsubject={Research supplement; no unconditional abc proof claimed}}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{1.2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\FCRT}{\mathrm{FCRT}}
+\newcommand{\SCRT}{\mathrm{SCRT}}
+\newcommand{\PBT}{\mathrm{PBT}}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\title{Prime-Power Obstructions to Flagged CRT Transport\\and an Exact Divisor-Gap Reduction for \(abc\)}
+\author{ChatGPT}
+\date{5 September 2026}
+\begin{document}
+\maketitle
+\begin{center}\small
+Research manuscript and reproducible supplement.\\
+Ordinary proofs and exact computations; the Lean companion has not been compiled.\\
+No unconditional proof or disproof of the \(abc\) conjecture is claimed.
+\end{center}
+\begin{abstract}
+We continue the FCRT-1 route of the ABCConjecture repository at commit
+\texttt{6118955}. We prove an arithmetic obstruction that is independent of
+pigeonhole estimates: if \(p^e\Vert c\), \(M=p^e\ge4\), and a nonempty proper
+prime-power packet of \(c-1\) is congruent to \(-1\pmod M\), then
+\(c\ge M(2M-1)\). The threshold is attained for infinitely many moduli.
+Consequently, balanced endpoints \(c=2^e3^f\) have no proper flags at either
+source. An elementary approximation argument produces infinitely many such
+endpoints with \(49\mid c-1\), hence \(c>\rad(c(c-1))\). This refutes a
+universal flag-existence shortcut even on positive-defect endpoints, whose
+absolute defects can moreover be arbitrarily large; it does
+not refute FCRT-1's uniform boundary conjecture or \(abc\).
+On this stratum we identify the entire FCRT optimum with an exclusive
+partition optimum and express it exactly as scalar radical defect plus a
+one-dimensional divisor-gap penalty. We also give a multiplicative arithmetic
+certificate for general FCRT configurations, an exact minimum-product deletion
+normal form, and a finite dynamic program with a proved invariant. A
+25-digit endpoint is fully factored and attains the scalar optimum despite
+having no flags. All global uniform estimates remain explicit open obligations.
+\end{abstract}
+\bigskip
+
+\section{Scope, provenance, and endpoint notation}
+The source snapshot is
+\begin{center}\small\texttt{6118955d20b4edd32e577e06d1060f3945358dd9}.\end{center}
+The September 4 endpoint, anchored-prefix, and independent-audit notes
+\cite{repoendpoint,repoanchor,repoaudit} are the immediate antecedents.
+We retain their mathematical FCRT-1 definition, rather than replacing its
+admissibility condition with a desired height inequality. In particular, a
+flag must have an actual nonempty proper prime-power face. Results below are
+proved here; priority or novelty beyond comparison with those notes is not
+asserted. Computational evidence is separated from universal statements.
+
+Let \(a,b,c\) be positive integers, \(a+b=c\), and \(\gcd(a,b)=1\).
+Put \(R=\rad(abc)\). For each \(p\mid c\), let \(e_p=v_p(c)\), and set
+\[
+ I=\{p:e_p\ge2\},\quad d_p=p^{e_p-1},\quad x_p=\log d_p,
+ \qquad J=\{q:q\mid ab\}.
+\]
+For \(S\subseteq I\), \(T\subseteq J\), write
+\[
+ D_S=\prod_{p\in S}d_p,\quad m_S=\prod_{p\in S}p^{e_p},\quad
+ Q_T=\prod_{q\in T}q,
+\]
+\[
+ a_T=\prod_{q\in T,\ q\mid a}q^{v_q(a)},\qquad
+ b_T=\prod_{q\in T,\ q\mid b}q^{v_q(b)}.
+\]
+Empty products are one. These are \emph{whole-prime-power packets}: an
+exponent may not be split between faces. A block \((S,T)\) has nonempty
+source and sink sets and is admissible and saturated when
+\begin{equation}\label{eq:block}
+ m_S\mid a_T+b_T,\qquad D_S\le Q_T.
+\end{equation}
+The selected blocks have pairwise disjoint source sets and pairwise disjoint
+sink sets. Let \(I_0,J_0\) be the respective residual sets. A residual sink
+has zero or one owner in \(I_0\). A selected block may emit zero or one token
+to one \(p\in I_0\), witnessed by
+\begin{equation}\label{eq:flag}
+ \varnothing\ne U\subsetneq T,\qquad p^{e_p}\mid a_U+b_U.
+\end{equation}
+The logarithmic credit is
+\[
+ \rho=\min\{\log Q_T-\log D_S,\log Q_U\}.
+\]
+No credit is re-emitted. Several independent tokens may have the same target.
+These rules are precisely the one-hop, capped FCRT-1 rules of the snapshot.
+
+Let \(X=\sum_{p\in I}x_p\), \(Y=\log Q_J\), \(h=\log c\),
+\(r=\log R\). Unique factorization and pairwise coprimality give
+\begin{equation}\label{eq:height}
+ \prod_{p\in I}d_p=\frac{c}{\rad(c)},\qquad
+ X-Y=h-r,\qquad \Delta=\max\{h-r,0\}.
+\end{equation}
+We reserve \(B_{\FCRT},B_{\SCRT},B_{\PBT}\) for \emph{logarithmic}
+optimized boundaries. Their exponentials are called boundary factors.
+
+\section{A concrete multiplicative certificate}
+This section supplies a mathematical arithmetic-to-accounting construction.
+It is not a claim that the repository's Lean owner types have now been
+inhabited or connected by compiled code.
+
+For a used block \(\nu\), define the rational number
+\begin{equation}\label{eq:creditfactor}
+ f_\nu=\min\{Q_{T_\nu}/D_{S_\nu},Q_{U_\nu}\};
+\end{equation}
+for an unused block put \(f_\nu=1\). Saturation implies \(f_\nu\ge1\).
+For a residual source \(p\), let
+\[
+ K_p=\prod_{q\in J_0:\ o(q)=p}q
+       \prod_{\nu:\ t(\nu)=p}f_\nu,
+ \qquad
+ F=\prod_{p\in I_0}\max\{d_p/K_p,1\}.
+\]
+Everything in this definition uses positive integers, rational arithmetic,
+finite sets, and divisibility. Its logarithm is exactly the original clipped
+FCRT boundary.
+
+\begin{theorem}[Arithmetic once-charge certificate]\label{thm:certificate}
+Every configuration satisfying the actual disjointness, saturation, owner,
+and face conditions above satisfies
+\begin{equation}\label{eq:rationalbridge} c\le R F.\end{equation}
+Consequently \(\Delta\le\log F\). The construction does not assume this
+inequality as a field of its input.
+\end{theorem}
+\begin{proof}
+For every residual source,
+\(d_p\le K_p\max\{d_p/K_p,1\}\).
+Multiplication, disjointness, and at-most-once ownership imply
+\begin{align*}
+ \prod_{p\in I}d_p
+ &\le \Bigl(\prod_\nu D_{S_\nu}\Bigr)
+       \Bigl(\prod_{p\in I_0}K_p\Bigr)F\\
+ &\le \Bigl(\prod_\nu D_{S_\nu}f_\nu\Bigr) Q_{J_0} F
+ \le \Bigl(\prod_\nu Q_{T_\nu}\Bigr)Q_{J_0}F=Q_JF.
+\end{align*}
+Unused sinks only increase the middle upper bound because their primes are
+at least two. Substitute \eqref{eq:height} and multiply by \(\rad(c)\).
+Since \(F\ge1\), taking logarithms also bounds the positive part.
+\end{proof}
+
+\begin{remark}[What the certificate does and does not use]
+Congruence and witness-face conditions make the configuration arithmetically
+admissible. The inequality itself uses disjointness and the surplus cap.
+This distinction is essential: dropping arithmetic conditions preserves a
+valid inequality but may destroy all additional arithmetic information.
+The construction maps source weights to \(\log d_p\), block weights to
+\(\log D_S,\log Q_T\), witness weights to the \emph{actual} \(\log Q_U\),
+and owners to the given partial maps. The finite partitions explicitly
+establish the source and sink mass decompositions required by the earlier
+independent audit \cite{repoaudit}.
+\end{remark}
+
+\section{Optimal faces as minimum-product deletions}
+Fix a source \(p\), and put \(M=p^{e_p}\ge4\).
+All primes in \(J\) are units modulo \(M\). Define
+\[
+ g_q=\begin{cases}q^{v_q(a)}&q\mid a,\\q^{-v_q(b)}&q\mid b\end{cases}
+ \quad\text{in }(\Z/M\Z)^\times,
+ \qquad \Phi(T)=\prod_{q\in T}g_q.
+\]
+Then \(\Phi(U)=-1\) is equivalent to \(M\mid a_U+b_U\), and
+\(\Phi(J)=-1\).
+For any nonempty \(T\subseteq J\), define
+\begin{equation}\label{eq:z}
+ z_p(T)=\min\{Q_D:\varnothing\ne D\subseteq T,
+                         \ \Phi(D)=-\Phi(T)\},
+\end{equation}
+with value \(+\infty\) when the set is empty.
+
+\begin{theorem}[Exact optimal-face normal form]\label{thm:normal}
+For a fixed saturated block \((S,T)\) and fixed residual target \(p\), a
+proper flag exists if and only if \(z_p(T)<\infty\). If one exists, the
+maximum credit factor over its legal witnesses is
+\begin{equation}\label{eq:optimalfactor}
+ f^*_{p,S,T}=\frac{Q_T}{\max\{D_S,z_p(T)\}}.
+\end{equation}
+In particular its discarded logarithmic surplus is
+\begin{equation}\label{eq:loss}
+ \log\frac{Q_T}{D_S}-\log f^*_{p,S,T}
+       =\max\{\log z_p(T)-\log D_S,0\}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+For complementary subsets \(U,D\) in \(T\), multiplication in the unit
+group gives
+\(\Phi(U)=-1\) if and only if \(\Phi(D)=-\Phi(T)\).
+The nonempty condition on \(D\) says \(U\ne T\). Also \(D=T\) cannot
+satisfy its displayed label: it would imply \(\Phi(T)=-\Phi(T)\), hence
+\(M\mid2\), contrary to \(M\ge4\). Thus \(U\) is automatically nonempty.
+Since \(Q_U=Q_T/Q_D\), maximizing the face weight is equivalent to minimizing
+\(Q_D\). Monotonicity of the minimum in \eqref{eq:creditfactor} gives
+\eqref{eq:optimalfactor}; cancellation gives \eqref{eq:loss}.
+\end{proof}
+
+When \(\Phi(T)=-1\), the deletion label in \eqref{eq:z} is one. For a
+general block it is \emph{not} necessarily one. This distinction prevents
+an incorrect application of an anchored identity-deletion result to an
+arbitrary cross-source block. Optimizing each fixed target independently is
+valid: increasing its incoming credit never increases the clipped boundary.
+
+\subsection{Exact finite computation}
+Process the distinct primes \(q_1,\ldots,q_n\) of \(T\). A table indexed
+by reachable residues stores the least product of a \emph{nonempty} subset
+and a witness. Initially it is empty. At stage \(k\), retain all previous
+entries, insert the singleton \((g_{q_k},q_k)\), and, using only the previous
+table, insert
+\[
+      (r g_{q_k},wq_k)\quad\text{from every previous entry }(r,w).
+\]
+At each residue retain the smaller product. The empty subset is not allowed
+to overwrite a nonempty identity entry.
+
+\begin{proposition}[Dynamic-program invariant]
+After stage \(k\), each present table entry is the minimum product among
+nonempty subsets of \(\{q_1,\ldots,q_k\}\) with that residue; an absent
+entry means no such subset exists. Thus the entry at \(-\Phi(T)\) computes
+\eqref{eq:z} exactly.
+\end{proposition}
+\begin{proof}
+A nonempty subset either omits \(q_k\), is the singleton \(\{q_k\}\), or
+is \(\{q_k\}\) together with a nonempty earlier subset. These are exactly
+the three transitions. Multiplication by the positive integer \(q_k\)
+preserves order, so discarding a larger product with the same earlier residue
+cannot remove a later optimum. Induction proves the assertion.
+\end{proof}
+The sparse table has at most the size of the subgroup generated by the
+labels. Arithmetic-operation complexity is \(O(n|H|)\) in a dense
+implementation; this excludes bit-complexity and makes no claim of polynomial
+time in the bit length of \(M\). No numerical logarithm is used.
+
+\subsection{An arithmetic cost obstruction}
+\begin{proposition}\label{prop:cost}
+Suppose \(\Phi(T)=-1\), and let \(D\) be a nonempty identity deletion.
+Write \(E=\max_{q\in T}v_q(ab)\) and
+\(V_T=a_Tb_T/Q_T\). Then
+\[
+ Q_D^E\ge M+1,\qquad Q_DV_T\ge M+1.
+\]
+Consequently, full-surplus reuse at a block requires both
+\(D_S^E\ge M+1\) and \(D_SV_T\ge M+1\).
+\end{proposition}
+\begin{proof}
+The positive coprime integers \(a_D,b_D\) are congruent modulo \(M\).
+They are unequal: equality and coprimality would make both one, contrary to
+a nonempty packet. Hence \(|a_D-b_D|\ge M\) and
+\(a_Db_D\ge\max\{a_D,b_D\}\ge M+1\).
+Furthermore \(a_Db_D\le Q_D^E\), and
+\(a_Db_D=Q_DV_D\le Q_DV_T\).
+Full reuse means \(Q_D\le D_S\) for some deletion, by
+Theorem~\ref{thm:normal}. Substitute this inequality.
+\end{proof}
+
+\section{A sharp obstruction for unit-gap endpoints}
+The next result is stronger than a weight obstruction: in its range the
+required face does not exist at any weight.
+
+\begin{lemma}[Bilinear factor gap]\label{lem:gap}
+Let \(M\ge2\), \(s,t\ge1\) be integers, and suppose
+\[
+ C+t=s(Mt+1),\qquad C\ne M.
+\]
+Then \(C\ge2M-1\).
+\end{lemma}
+\begin{proof}
+If \(s=t=1\), the equation gives \(C=M\), excluded by hypothesis.
+If \(t\ge2\), then
+\[
+ C=s(Mt+1)-t\ge (M-1)t+1\ge2M-1.
+\]
+If \(t=1\), necessarily \(s\ge2\), and
+\(C=s(M+1)-1\ge2M+1\).
+\end{proof}
+
+\begin{theorem}[Prime-power no-face threshold]\label{thm:noface}
+Let \(c\) be a positive integer and \(p^e\Vert c\), with \(e\ge2\).
+Put \(M=p^e\). If a nonempty proper prime-power packet \(U\) of \(c-1\)
+satisfies \(M\mid1+b_U\), then
+\begin{equation}\label{eq:threshold} c\ge M(2M-1).\end{equation}
+In fact the conclusion holds for any factorization
+\(c-1=du\), \(d,u>1\), with \(u\equiv-1\pmod M\).
+\end{theorem}
+\begin{proof}
+Write \(c=MC\); exactness of \(p^e\Vert c\) implies \(p\nmid C\),
+so \(C\ne M\). The complementary packet gives
+\(c-1=du\) with \(d,u>1\). Since \(du\equiv-1\pmod M\) and
+\(u\equiv-1\pmod M\), we have \(d\equiv1\pmod M\). Thus
+\[
+ d=Mt+1,\qquad u=Ms-1\qquad(s,t\ge1).
+\]
+Expanding \((Mt+1)(Ms-1)=MC-1\) and dividing by \(M\) gives
+\(C+t=s(Mt+1)\). Lemma~\ref{lem:gap} yields \eqref{eq:threshold}.
+\end{proof}
+
+The exact prime-power assumption is significant. Without it, the case
+\(C=M\) is possible; the weaker threshold \(c\ge M^2\) is all the same
+argument yields. The proof does not rely on estimating the number of
+prime factors or on random residue heuristics.
+
+\begin{proposition}[Sharpness on actual prime-power packets]
+For \(M=2^{2k+1}\), \(k\ge1\), put \(c=M(2M-1)\). Then
+\(v_2(c)=2k+1\) and a proper packet modulo the full \(2\)-power exists.
+\end{proposition}
+\begin{proof}
+We have \(c-1=(M-1)(2M+1)\). Since \(M\equiv2\pmod3\),
+\(\gcd(M-1,2M+1)=\gcd(M-1,3)=1\). Therefore the two factors are
+unions of disjoint whole-prime-power packets. Both exceed one, and
+\(M-1\equiv-1\), \(2M+1\equiv1\pmod M\).
+The factor \(2M-1\) is odd, proving the valuation assertion.
+\end{proof}
+
+\begin{corollary}[Balanced two-source endpoints]\label{cor:balanced}
+Suppose \(c=2^e3^f\), \(e,f\ge2\), and
+\begin{equation}\label{eq:balanced}
+ \max\{2^e,3^f\}<2\min\{2^e,3^f\}-1.
+\end{equation}
+For \((1,c-1,c)\), no nonempty proper packet of the full sink set is
+compatible with either source. In particular, \emph{no} FCRT-1 configuration
+at this endpoint contains a used flag, regardless of its selected blocks.
+\end{corollary}
+\begin{proof}
+For either source modulus \(M\), the complementary factor \(C=c/M\)
+is less than \(2M-1\), by \eqref{eq:balanced}. Apply
+Theorem~\ref{thm:noface}. A proper face of any block is also a proper face
+of the full sink set, so choosing a smaller block cannot evade the result.
+\end{proof}
+
+\section{Infinitely many positive-defect endpoints without flags}
+\begin{theorem}\label{thm:infinite}
+There are infinitely many distinct primitive triples \((1,c-1,c)\) such
+that \(c=2^e3^f\), \eqref{eq:balanced} holds, \(49\mid c-1\), and
+\begin{equation}\label{eq:hit}
+ \rad(c(c-1))\le\frac{6(c-1)}7<c.
+\end{equation}
+All their proper FCRT flags are absent.
+\end{theorem}
+\begin{proof}
+The number \(\alpha=2\log3/\log2\) is irrational. Otherwise an equality
+between a positive power of 2 and a positive power of 3 would contradict
+unique factorization. The elementary pigeonhole approximation argument
+produces positive integers \(u_k,v_k\), with \(v_k\to\infty\), such that
+\(u_k-\alpha v_k\to0\). For completeness, place the \(Q+1\) fractional
+parts of \(0,\alpha,\ldots,Q\alpha\) into \(Q\) equal intervals. A
+collision gives \(1\le v\le Q\) and an integer \(u\) with
+\(|v\alpha-u|\le1/Q\). These denominators cannot remain bounded as
+\(Q\to\infty\), since irrationality gives a positive minimum error on any
+fixed finite set. Pass to a subsequence with unbounded denominators; its
+numerators are eventually positive.
+
+Set \(e_k=21u_k\), \(f_k=42v_k\). Then
+\[
+ \log\frac{2^{e_k}}{3^{f_k}}
+       =21\log2\,(u_k-\alpha v_k)\longrightarrow0.
+\]
+Both factors tend to infinity. Their larger-to-smaller ratio tends to one,
+so \eqref{eq:balanced} holds eventually. The elementary congruences
+\(2^{21}\equiv1\pmod{49}\) and \(3^{42}\equiv1\pmod{49}\)
+imply \(49\mid2^{e_k}3^{f_k}-1\).
+
+A number divisible by \(7^2\) has radical at most one seventh of itself.
+Also \(\rad(c)=6\) and \(\gcd(c,c-1)=1\). This proves
+\eqref{eq:hit}. Select an increasing subsequence of \(c\) to ensure
+distinctness, and invoke Corollary~\ref{cor:balanced}.
+\end{proof}
+
+
+\begin{corollary}[Unbounded absolute defect without flags]\label{cor:unbounded}
+For every integer \(k\ge2\), there are infinitely many balanced two-source
+endpoints without flags such that \(7^k\mid c-1\) and
+\[
+ \frac{c}{\rad(c(c-1))}>\frac{7^{k-1}}6.
+\]
+Consequently the scalar defect \(\Delta\) is unbounded on the no-flag
+stratum. For every fixed threshold there are infinitely many no-flag
+endpoints with defect above that threshold.
+\end{corollary}
+\begin{proof}
+The congruences
+\[
+ 2^{3\cdot7^{k-1}}\equiv1\pmod{7^k},\qquad
+ 3^{6\cdot7^{k-1}}\equiv1\pmod{7^k}
+\]
+follow by induction from \(2^3\equiv3^6\equiv1\pmod7\): raising a number
+congruent to one modulo \(7^j\) to the seventh power makes it congruent to
+one modulo \(7^{j+1}\), as the binomial expansion shows. In the proof of
+Theorem~\ref{thm:infinite}, replace the constants \(21,42\) by
+\(3\cdot7^{k-1},6\cdot7^{k-1}\), keeping \(k\) fixed during the
+approximation argument. The same ratio tends to one, and
+\(\rad(c-1)\le(c-1)/7^{k-1}\). Now let \(k\) increase to exceed any
+prescribed absolute defect threshold. There is still no estimate of this
+defect as a positive proportion of \(\log R\).
+\end{proof}
+
+\begin{remark}[Exact statement refuted]
+Theorem~\ref{thm:infinite} refutes the following proposed shortcut, including
+its ``all sufficiently large'' variant: every positive-defect two-source
+unit-gap endpoint has at least one proper compatible face. Corollary~\ref{cor:unbounded}
+also rules out rescue by imposing only a sufficiently large absolute defect. It also prevents
+a global application of any sufficient condition that would force such a
+face at \emph{every} endpoint in this stratum. It does not contradict the
+anchored-prefix theorem \cite{repoanchor}; that theorem has additional
+hypotheses, which cannot all hold here. No original FCRT uniform gate is
+refuted. Nor does a lower bound \(c/R>7/6\) refute \(abc\): it does not
+establish that \(c/R^{1+\varepsilon}\) is unbounded for any fixed
+\(\varepsilon>0\).
+\end{remark}
+
+\section{The remaining finite problem is exactly a divisor gap}
+Let the hypotheses of Corollary~\ref{cor:balanced} hold. Write
+\[
+ Q=\rad(c-1),\quad A=2^{e-1},\quad B=3^{f-1},\quad D=\log(AB/Q).
+\]
+In this section assume \(AB>Q\), so \(D=\Delta>0\).
+
+\begin{theorem}[Exact reduction on the no-flag stratum]\label{thm:reduction}
+At these endpoints,
+\begin{equation}\label{eq:allopt}
+ B_{\FCRT}=B_{\SCRT}=B_{\PBT}
+ =\log\min_{H\mid Q}\left(\max\{A/H,1\}\max\{BH/Q,1\}\right).
+\end{equation}
+Equivalently, for the nonempty real interval
+\(\mathcal I=[\log(Q/B),\log A]\),
+\begin{equation}\label{eq:distance}
+ B_{\FCRT}=D+\min_{H\mid Q}\dist(\log H,\mathcal I).
+\end{equation}
+In particular, the scalar lower bound is attained if and only if there is
+a divisor \(H\mid Q\) with \(Q/B\le H\le A\).
+\end{theorem}
+\begin{proof}
+Every compatible nonempty block has the full sink set: a proper one would
+contradict Corollary~\ref{cor:balanced}. Disjointness permits at most one
+such block. The block with both sources is not saturated, because \(AB>Q\).
+A saturated singleton-source block with all sinks has exactly the same
+boundary as assigning every sink exclusively to that source. Thus it cannot
+improve upon the exclusive partition optimum. Flags do not exist, so all
+three optima coincide.
+
+An unused residual sink can be assigned without increasing the boundary.
+Since \(Q\) is squarefree, assigning all sinks between the two sources is
+the same as choosing a divisor \(H\mid Q\); the capacities are \(H,Q/H\).
+This proves \eqref{eq:allopt}. To obtain \eqref{eq:distance}, put
+\(t=\log H\), \(L=\log(Q/B)\), \(U=\log A\). Since \(L<U\), direct
+consideration of \(t<L\), \(L\le t\le U\), and \(t>U\) gives
+\[
+ (\log A-t)_++(\log B-\log Q+t)_+
+       =D+\dist(t,[L,U]).
+\]
+Minimize over the finite divisor set.
+\end{proof}
+
+\subsection{A dense-divisor upper bound, not an \(abc\) estimate}
+The maximum ratio of consecutive divisors is a classical object in the
+study of dense divisors \cite{weingartner}. We include the elementary
+squarefree calculation to make the precise inequality self-contained.
+Write \(Q=q_1\cdots q_n\), with distinct increasing primes, and define
+\[
+ G(Q)=\max_{1\le j\le n}\frac{q_j}{q_1\cdots q_{j-1}}.
+\]
+The empty denominator is one, so \(G(Q)\ge2\).
+
+\begin{lemma}\label{lem:dense}
+The largest ratio of consecutive positive divisors of squarefree \(Q\)
+is exactly \(G(Q)\).
+\end{lemma}
+\begin{proof}
+Adjoin the primes in increasing order. In logarithmic coordinates, the new
+divisor set is the union of the old set and its translate by \(\log q_j\).
+If their convex hulls are disjoint, the new bridge gap is
+\(\log(q_j/(q_1\cdots q_{j-1}))\); all other gaps are old ones. If the
+hulls overlap, a gap in the union cannot cross either hull endpoint in its
+interior, since those endpoints are themselves divisor logarithms. It therefore
+lies in one hull and between two consecutive points of that translated or
+untranslated set. Thus no gap exceeds the previous maximum.
+This gives the upper bound by induction.
+For the reverse bound, whenever \(q_j>q_1\cdots q_{j-1}\), a divisor
+smaller than \(q_j\) uses only earlier primes and is at most their full
+product. Hence that product and \(q_j\) are consecutive divisors of the
+full \(Q\). The case \(j=1\) supplies the initial gap from one.
+\end{proof}
+
+\begin{corollary}\label{cor:densebound}
+On the positive-defect no-flag stratum,
+\[
+ D\le B_{\FCRT}\le D+\frac12\max\{\log G(Q)-D,0\}.
+\]
+If \(\log G(Q)\le D\), the scalar optimum is attained.
+\end{corollary}
+\begin{proof}
+The interval \(\mathcal I\) has length \(D\) and intersects
+\([0,\log Q]\), since \(A,B\ge1\). If it contains a divisor logarithm,
+the penalty is zero. Otherwise it lies strictly inside one consecutive-divisor
+gap, of length \(g\le\log G(Q)\). The nearer endpoint is at distance at
+most \((g-D)/2\) from the interval. Apply Theorem~\ref{thm:reduction}.
+\end{proof}
+
+There is no proved uniform bound here for either \(D\) or the endpoint's
+divisor-gap penalty. A theorem about the density of integers with dense
+divisors does not automatically apply pointwise to the special sequence
+\(\rad(2^e3^f-1)\). The exact reduction changes the finite optimization
+problem; it does not eliminate the Diophantine difficulty.
+
+\section{An exact 25-digit endpoint and computational replay}
+Take
+\[
+ e=41,\quad f=26,\quad
+ M=2199023255552,\quad N=2541865828329,
+\]
+\[
+ c=5589622068988418728132608.
+\]
+Direct integer arithmetic gives
+\begin{align*}
+ c-1&=7^2\cdot439\cdot857\cdot2729\cdot292183\cdot380261663,\\
+ Q&=7\cdot439\cdot857\cdot2729\cdot292183\cdot380261663.
+\end{align*}
+All six displayed factors are prime; the companion program checks this by
+deterministic trial division. The two no-face inequalities are
+\[
+ N<2M-1,\qquad M<2N-1.
+\]
+Consequently neither source has a proper flag, while \(R=6Q=6(c-1)/7<c\).
+Nevertheless the divisor
+\[
+ H=2729\cdot380261663=1037734078327
+\]
+attains the scalar optimum. Indeed
+\[
+ H\le A=1099511627776,\qquad
+ Q/H=769481753663\le B=847288609443.
+\]
+These are exact integer comparisons. Thus
+\[
+ \exp B_{\FCRT}=\frac{AB}{Q}
+  =\frac{931603678164736454688768}{798517438426916961161801}
+  =\frac{c}{R}.
+\]
+The absence of flags therefore does \emph{not} imply failure of the full
+uniform-boundary strategy. It identifies a stratum requiring a different
+mechanism, here an ordinary sink partition.
+
+\subsection{Reproducibility protocol}
+The standard-library Python companion performs: independent dynamic-program
+versus exhaustive-subset comparisons; bounded direct checks of the no-face
+threshold; exact rational FCRT optimization for the repository's finite
+witnesses; deterministic primality and factorization checks for the endpoint
+above; and arithmetic checks on a large symbolic member with exponents
+\((399,252)\). In this replay there were 12,231 ordered primitive triples with \(c\le200\),
+26,832 dynamic-program/exhaustive-table comparisons, 5,082 arithmetic-cost
+checks, and 3,700 concrete owner-bridge checks. The separate unit-gap scan
+through \(c=200000\) checked 6,741 eligible endpoint--modulus pairs and
+35,756 proper unitary packets, with no counterexample. The dense-divisor
+identity was checked on 12,159 squarefree values through 20,000; the bilinear
+factor lemma was checked on 297,381 nonexceptional bounded parameter triples.
+Its JSON output records exact bounds, factors, and selected configurations. All assertions are executable checks rather than
+floating-point estimates. The results and invocation are in the accompanying
+verification report. Bounded tests do not prove a uniform theorem, and a
+Python replay is not a Lean kernel proof.
+
+\section{Independent route and source audit}
+\subsection{IUT: retain the route without assuming its comparison}
+The original IUT III discusses the three indeterminacies, log-Kummer
+compatibility, and log-volume comparison in the proof of Corollary 3.12
+\cite{iut}. Inspection of those passages does not supply the missing
+source-faithful global construction in the repository. Its own audit still
+distinguishes local accounting interfaces from actual arithmetic data.
+Joshi's report \cite{joshi} takes a distinct position: it criticizes both
+sides of the controversy and claims that his arithmetic Teichmuller spaces
+provide additional structures. These are attributed claims, not results
+validated by this manuscript. We neither import the disputed comparison as
+an axiom nor declare the entire IUT route false on the basis of a simplified
+model. No IUT bridge is closed here.
+
+\subsection{Anchored selection and recent literature}
+The anchored code-fibre lemma in Bae's revised manuscript
+\cite{bae} is an elementary sufficient selection principle. Its proof
+selects two indices in the same fibre with a permitted positive difference.
+It does not establish the arithmetic reservoir hypotheses at every \(abc\)
+endpoint. Theorem~\ref{thm:infinite} exhibits infinitely many endpoints
+where any sufficient condition implying a proper flag must fail.
+
+Lichtman's discussion of the almost-all \(abc\) result \cite{lichtman}
+concerns quantitative exceptional-set bounds; such a bound does not itself
+exclude infinitely many exceptions. Dujella's prime-power tuple theorem
+\cite{dujella} controls a different Diophantine configuration. No uniform
+map from the endpoint packets above into that theorem's hypotheses has been
+constructed here. These sources are relevant background, not an imported
+solution to the uniform gate.
+
+\subsection{Other maintained routes}
+The repository's Pell, Mersenne/Wieferich, synchronized-packet, Steinberg,
+and Frey/Szpiro ledgers identify separate unresolved valuation or uniformity
+obligations. This manuscript does not settle those obligations and does not
+retire those routes. In particular, fixed-parameter finiteness, polynomial
+function-field analogies, or identities for radical defects cannot be promoted
+to a constant uniform in all integer triples without another proof. The
+present ordinary results use neither GRH nor \(abc\), IUT, a conjectural
+prime-producing polynomial, or a conjecture about Wieferich primes.
+
+\section{Formalization boundary and remaining uniform target}
+The mathematical proofs above precede the Lean companion. That companion
+contains candidate proof scripts for the bilinear arithmetic obstruction,
+the proper-divisor implication, the real interval identity, and concrete
+integer certificates. It has \emph{not} been compiled in this execution
+environment. Accordingly there is no claimed Lean declaration count, no
+claimed successful axiom audit, and no claimed unconditional closed term
+of type \texttt{ABCConjecture}. The infinite-family approximation argument,
+the full arithmetic owner construction, the dynamic-program invariant, and
+the complete optimization theorems are not fully formalized by that file.
+
+The pinned repository toolchain is \texttt{leanprover/lean4:v4.32.0}.
+Official release notes for 4.32.1 and 4.32.2 describe kernel soundness fixes
+\cite{lean321,lean322}; the latter also warns that the affected checking path
+included comparator. This is not evidence that the repository exploited a
+bug or that any particular theorem is false. It does mean that the eventual
+trusted replay should rebuild compatible dependencies on a patched toolchain,
+run a fresh-process check, and, where appropriate, an updated independent
+checker. Merely printing a familiar list of axioms is not a substitute for
+that check.
+
+For the original target, a sufficient FCRT statement remains
+\begin{equation}\label{eq:uniform}
+ \forall\varepsilon>0\ \exists C_\varepsilon\in\R\
+ \forall (a,b,c),\qquad
+ B_{\FCRT}(a,b,c)\le\varepsilon\log\rad(abc)+C_\varepsilon.
+\end{equation}
+Together with Theorem~\ref{thm:certificate}, it gives the usual
+\(c\le K_\varepsilon\rad(abc)^{1+\varepsilon}\).
+Neither \eqref{eq:uniform} nor its negation is established.
+On the positive-defect no-flag stratum, Theorem~\ref{thm:reduction} says
+precisely that the boundary is the sum of two nonnegative terms:
+\[
+ \log\frac{c}{\rad(c(c-1))}
+ \quad\text{and}\quad
+ \min_{H\mid\rad(c-1)}\dist\!\left(\log H,
+       [\log(Q/B),\log A]\right).
+\]
+A uniform sublinear bound for their sum is equivalent to such bounds for
+both terms separately: necessity follows from nonnegativity, and sufficiency
+uses \(\varepsilon/2\) in each bound. Thus further work must control
+arithmetic radical defect as well as any transport fragmentation. Creating a
+formal hypothesis with those bounds would not constitute proving them.
+
+\paragraph{Repository integration status.}
+This supplement is based on the pinned commit and is provided as an additive
+patch. No remote branch, commit, pull request, or merge was created in this
+session. Existing build imports and verified-status ledgers are deliberately
+unchanged. A local research result, a locally replayed computation, a compiled
+Lean proof, and a merged remote theorem are four different deliverables.
+
+\begin{thebibliography}{20}\small
+\bibitem{repoendpoint} ChatGPT, \emph{Endpoint residue cubes and proper-subface flagged CRT surplus}, ABCConjecture repository, 4 Sept. 2026, pinned commit \texttt{6118955}; research file \texttt{ABC\_ENDPOINT\_RESIDUE\_CUBE\_FLAGGED\_CRT\_2026\_09\_04.md}.
+\bibitem{repoanchor} ChatGPT, \emph{Anchored-prefix flagged CRT}, same repository and commit; research file \texttt{ABC\_ANCHORED\_PREFIX\_FLAGGED\_CRT\_2026\_09\_04.md}.
+\bibitem{repoaudit} \emph{Independent Lean audit of flagged CRT surplus}, same repository and commit; research file \texttt{ABC\_FLAGGED\_CRT\_LEAN\_INDEPENDENT\_AUDIT\_2026\_09\_04.md}.
+\bibitem{weingartner} A. Weingartner, \emph{Practical numbers and the distribution of divisors}, Quarterly J. Math. 66 (2015), 743--758. \href{https://arxiv.org/abs/1405.2585}{arXiv:1405.2585}.
+\bibitem{iut} S. Mochizuki, \emph{Inter-universal Teichmuller theory III: Canonical splittings of the log-theta-lattice}, author-hosted manuscript, especially Corollary 3.12 and Remark 3.11.1. \href{https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal\%20Teichmuller\%20Theory\%20III.pdf}{Author's PDF}, inspected 5 Sept. 2026.
+\bibitem{joshi} K. Joshi, \emph{Final Report on the Mochizuki-Scholze-Stix Controversy}, \href{https://arxiv.org/abs/2505.10568}{arXiv:2505.10568v1} (2025).
+\bibitem{bae} J. H. Bae, \emph{Unbounded logarithmic limsup in Erdos Problem 684 via shifted carry scheduling}, \href{https://arxiv.org/abs/2604.23784}{arXiv:2604.23784v3}, revised 3 Sept. 2026, Lemma 5.1. Earlier versions are not used.
+\bibitem{lichtman} J. D. Lichtman, \emph{The abc conjecture is true almost always}, \href{https://arxiv.org/abs/2505.13991}{arXiv:2505.13991} (2025).
+\bibitem{dujella} A. Dujella, \emph{Prime-power Diophantine tuples}, \href{https://arxiv.org/abs/2609.03448}{arXiv:2609.03448v1}, 3 Sept. 2026.
+\bibitem{lean321} Lean development team, \emph{Lean 4.32.1 release notes}, 22 July 2026. \url{https://lean-lang.org/doc/reference/latest/releases/v4.32.1/}.
+\bibitem{lean322} Lean development team, \emph{Lean 4.32.2 release notes}, 28 July 2026. \url{https://lean-lang.org/doc/reference/latest/releases/v4.32.2/}.
+\end{thebibliography}
+\end{document}
