@@ -1,0 +1,51 @@
+name: ABC square core isolated audit
+
+on:
+  push:
+    branches:
+      - verify/abc-square-2026-09-05
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  square-core:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install pinned Lean
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: "false"
+          build: "false"
+          use-mathlib-cache: "false"
+      - name: Restore pinned Mathlib
+        working-directory: Lean
+        run: |
+          lake update
+          lake exe cache get
+      - name: Compile exact module and emit all eight axiom queries
+        working-directory: Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum IUTThreeClosures/ABCSquareEndpointPartition.lean
+          lake env lean IUTThreeClosures/ABCSquareEndpointPartition.lean 2>&1 | tee square-core.log
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          text = Path('square-core.log').read_text()
+          allowed = {'propext', 'Classical.choice', 'Quot.sound'}
+          axioms = re.findall(r'depends on axioms:\s*\[([^\]]*)\]', text)
+          free = re.findall(r'does not depend on any axioms', text)
+          if len(axioms) + len(free) != 8:
+              raise SystemExit('Expected exactly eight axiom-query results')
+          union = set()
+          for block in axioms:
+              union.update(x.strip() for x in block.split(',') if x.strip())
+          if not union <= allowed:
+              raise SystemExit('Unexpected axiom dependencies: ' + repr(union - allowed))
+          print('Verified eight declarations; dependency union:', sorted(union))
+          PY
