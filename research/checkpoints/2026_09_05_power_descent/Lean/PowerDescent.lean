@@ -21,7 +21,7 @@ def orbit : Nat → Nat
 def ExactDiv (p e n : Nat) : Prop := p^e ∣ n ∧ ¬ p^(e+1) ∣ n
 
 theorem phi_step (x : Nat) : phi (step x) = phi x * factor x := by
-  unfold phi step factor
+  simp only [step, phi, factor]
   grind
 
 theorem step_mod49 (x : Nat) (h : x%49=30) : step x %49=30 := by
@@ -72,7 +72,7 @@ theorem orbit_unit_factor (k : Nat) :
     · change phi (step (orbit k)) = 7^(k+1+2)*(u*(7*t+6))
       rw [phi_step, hu, hf]
       have he : k+1+2=(k+2)+1 := by omega
-      rw [he, Nat.pow_succ]
+      rw [he, Nat.pow_succ 7 (k+2)]
       simp only [Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
     · rcases hm with hm | hm
       · right
@@ -155,6 +155,52 @@ theorem infinite_first_appearance_certificate (k : Nat) :
     (orbit_order_three k).1, orbit_exact_cubic_difference k,
     fun y e he => orbit_not_perfect_power k y e he⟩
 
+
+def smallRoot (k : Nat) : Nat := orbit k % (4*7^(k+2))
+
+theorem small_root_residues (k : Nat) : smallRoot k %4=2 ∧ smallRoot k %7=2 := by
+  constructor
+  · unfold smallRoot
+    rw [Nat.mod_mul_right_mod]
+    exact (orbit_residues k).2
+  · have hd : 7 ∣ 4*7^(k+2) := by
+      refine ⟨4*7^(k+1), ?_⟩
+      rw [show k+2=(k+1)+1 by omega, Nat.pow_succ 7 (k+1)]
+      simp only [Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
+    unfold smallRoot
+    rw [Nat.mod_mod_of_dvd (orbit k) hd]
+    exact (orbit_order_three k).1
+
+theorem small_root_divisibility (k : Nat) : 7^(k+2) ∣ phi (smallRoot k) := by
+  have hm : smallRoot k % (7^(k+2)) = orbit k % (7^(k+2)) := by
+    unfold smallRoot
+    exact Nat.mod_mul_left_mod (orbit k) 4 (7^(k+2))
+  have he : phi (smallRoot k) % (7^(k+2)) = phi (orbit k) % (7^(k+2)) := by
+    simp only [phi, Nat.add_mod, Nat.mul_mod, hm]
+  have ho := Nat.mod_eq_zero_of_dvd (orbit_exact_phi k).1
+  exact Nat.dvd_of_mod_eq_zero (he.trans ho)
+
+theorem small_root_size (k : Nat) :
+    2≤smallRoot k ∧ smallRoot k < 28*7^(k+1) ∧
+      7^(k+2)≤phi (smallRoot k) := by
+  have h4 := (small_root_residues k).1
+  have hb : smallRoot k < 4*7^(k+2) :=
+    Nat.mod_lt (orbit k) (Nat.mul_pos (by decide) (Nat.pow_pos (by decide)))
+  have he : 4*7^(k+2)=28*7^(k+1) := by
+    rw [show k+2=(k+1)+1 by omega, Nat.pow_succ 7 (k+1)]
+    simp only [Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
+  have hphi : 0<phi (smallRoot k) := by unfold phi; omega
+  exact ⟨by omega, by omega, Nat.le_of_dvd hphi (small_root_divisibility k)⟩
+
+theorem normalized_small_first_appearance (k : Nat) :
+    ∃ x : Nat, 2≤x ∧ x<28*7^(k+1) ∧ x%4=2 ∧ x%7=2 ∧
+      7^(k+2) ∣ phi x ∧ 7^(k+2)≤phi x ∧
+      (∀ y e : Nat, 2≤e → x ≠ y^e) := by
+  have hs := small_root_size k
+  have hr := small_root_residues k
+  exact ⟨smallRoot k,hs.1,hs.2.1,hr.1,hr.2,small_root_divisibility k,hs.2.2,
+    fun y e he => mod_four_not_power (smallRoot k) hr.1 y e he⟩
+
 /- An exact, exponent-cleared transfer, not a substitute ABC statement. -/
 theorem transfer_criterion (m K h s R0 R1 B g : Nat)
     (hB : 0<B) (hseed : h^m ≤ K*R0^(m+1))
@@ -182,7 +228,7 @@ theorem difference_subcritical (m K h s R0 R1 B g : Nat)
   calc
     s^m*B^(m+1) ≤ s^m*s := Nat.mul_le_mul_left _ hsmall
     _ = s^(m+1) := (Nat.pow_succ s m).symm
-    _ ≤ g^(m+1) := Nat.pow_le_pow_left hsg
+    _ ≤ g^(m+1) := Nat.pow_le_pow_left hsg (m+1)
 
 theorem sum_subcritical (m K h R0 R1 B g : Nat)
     (hB : 0<B) (hseed : h^m ≤ K*R0^(m+1))
@@ -194,10 +240,10 @@ theorem difference_obstruction (m K h s R0 R1 B g : Nat)
     (hB : 0<B) (hseed : h^m ≤ K*R0^(m+1))
     (hbalance : R1*B=R0*g) (hsg : s≤g)
     (hbad : K*R1^(m+1)<(h*s)^m) : s<B^(m+1) := by
-  by_contra hn
-  have hs : B^(m+1)≤s := by omega
-  have hg := difference_subcritical m K h s R0 R1 B g hB hseed hbalance hsg hs
-  omega
+  by_cases hs : B^(m+1)≤s
+  · have hg := difference_subcritical m K h s R0 R1 B g hB hseed hbalance hsg hs
+    omega
+  · omega
 
 theorem budget_cocycle (R0 Rm RN gm gn Bm Bn BN : Nat)
     (hRN : 0<RN) (h1 : Rm*Bm=R0*gm) (h2 : RN*Bn=Rm*gn)
@@ -206,8 +252,8 @@ theorem budget_cocycle (R0 Rm RN gm gn Bm Bn BN : Nat)
   calc
     RN*BN = R0*(gm*gn) := h3
     _ = (Rm*Bm)*gn := by rw [h1]; simp only [Nat.mul_assoc]
-    _ = (RN*Bn)*Bm := by rw [h2]; simp only [Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
-    _ = RN*(Bm*Bn) := by simp only [Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
+    _ = (RN*Bn)*Bm := by rw [h2]; simp only [Nat.mul_comm, Nat.mul_left_comm]
+    _ = RN*(Bm*Bn) := by simp only [Nat.mul_comm, Nat.mul_left_comm]
 
 theorem exchange_identity (a b x y : Int) :
     a*(x+b)^2+b*(y-a)^2 = a*x^2+b*y^2+a*b*(2*(x-y)+a+b) := by
@@ -231,6 +277,10 @@ theorem exchange_identity (a b x y : Int) :
 #print axioms cubic_factorization
 #print axioms orbit_exact_cubic_difference
 #print axioms infinite_first_appearance_certificate
+#print axioms small_root_residues
+#print axioms small_root_divisibility
+#print axioms small_root_size
+#print axioms normalized_small_first_appearance
 #print axioms transfer_criterion
 #print axioms difference_subcritical
 #print axioms sum_subcritical
