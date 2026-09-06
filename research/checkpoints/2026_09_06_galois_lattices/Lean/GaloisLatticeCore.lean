@@ -87,7 +87,7 @@ theorem two_coordinate_separation (a b x : Int) (hab : a ≠ b) :
   by_cases ha : a = x
   · have hb : b-x ≠ 0 := by omega
     have hp := square_positive (b-x) hb
-    grind
+    simpa [ha] using hp
   · have hax : a-x ≠ 0 := by omega
     have hp := square_positive (a-x) hax
     have hn := square_nonnegative (b-x)
