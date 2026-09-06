@@ -9,7 +9,7 @@ permissions:
 jobs:
   fields:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
       - name: Install exact arithmetic package
@@ -22,6 +22,27 @@ jobs:
           gp --version 2>&1 | tee verification-exact-fermat/pari-version.txt
           timeout 900 gp -q -f research/checkpoints/2026_09_06_exact_fermat/computation/field_check.gp | tee verification-exact-fermat/fields.log
           grep -q '^ALL_ACTUAL_FIELD_DISCRIMINANTS_PASS$' verification-exact-fermat/fields.log
+      - name: Install checksum-pinned isolated Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 -o /tmp/lean.tar.zst https://github.com/leanprover/lean4/releases/download/v4.32.2/lean-4.32.2-linux.tar.zst
+          echo '5f2069e6f5db73780f374ccb49ce8ea649aa20a0cebf0116816744c999ce72aa  /tmp/lean.tar.zst' | sha256sum -c -
+          tar --zstd -xf /tmp/lean.tar.zst -C /tmp
+          echo '/tmp/lean-4.32.2-linux/bin' >> "$GITHUB_PATH"
+      - name: Compile all-index identities and audit declared axioms
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/abc-olean verification-exact-fermat
+          lean --version | tee verification-exact-fermat/lean-version.txt
+          E=research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean
+          L=research/checkpoints/2026_09_06_exact_fermat/Lean/ExactFermat.lean
+          C=research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py
+          lean -DwarningAsError=true -o /tmp/abc-olean/EisensteinDescent.olean "$E" | tee verification-exact-fermat/dependency.log
+          python3 "$C" "$E" verification-exact-fermat/dependency.log
+          LEAN_PATH=/tmp/abc-olean lean -DwarningAsError=true "$L" | tee verification-exact-fermat/new-lean.log
+          python3 "$C" "$L" verification-exact-fermat/new-lean.log
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
