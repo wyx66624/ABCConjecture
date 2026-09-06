@@ -1,17 +1,18 @@
-\documentclass[11pt]{amsart}
-\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
-\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
-\newcommand{\Z}{\mathbb Z}\newcommand{\N}{\mathbb N}
-\newcommand{\rad}{\operatorname{rad}}\newcommand{\lcm}{\operatorname{lcm}}
-\title{Signed Packet Normal Forms and Transverse Arithmetic Wronskians: Integrated Proof Edition}
-\author{ChatGPT}
-\date{September 6, 2026}
-\begin{document}\maketitle
+\clearpage
+\begingroup
+\let\Z\relax
+\newcommand{\Z}{\mathbb Z}
+\let\N\relax
+\newcommand{\N}{\mathbb N}
+\let\rad\relax
+\newcommand{\rad}{\operatorname{rad}}
+\let\lcm\relax
+\newcommand{\lcm}{\operatorname{lcm}}
+\section*{Integrated checkpoint: Signed normal forms and arithmetic Wronskians}
+\phantomsection\label{checkpoint:normal}
+\addcontentsline{toc}{section}{Integrated checkpoint: Signed normal forms and arithmetic Wronskians}
+\noindent\textit{Edited proof consolidation; provenance and historical verification boundaries are stated below.}\medskip
+
 \section{Provenance and scope}
 This integrated edition restates with complete proofs the principal mathematical results of the September 5 normal-form supplement. It is not a byte-identical reproduction of that historical standalone paper: its historical runtime narrative and finite-count table are not repeated as current verification claims. The original source is identified by Git blob hash \texttt{ce5ae32428f1e5c710386acfff4b8e5f1cfd9e02} in the conversation research bundle. Neither this edition nor its predecessor proves standard abc. The earlier partial Lean draft is not certified by integrating these ordinary proofs. Later supplements supersede the historical assessment of the uniform derivative gate by proving its equivalence to abc.
 
@@ -21,7 +22,7 @@ Fix $M\ge4$, $0<a<M$, $b>0$, $\gcd(a,b)=1$, and $\eta\in\{-1,1\}$, with $n=b+\et
  a=xX,\quad b=yY,\quad \gcd(x,X)=\gcd(y,Y)=1.
 \]
 It is nonempty if $(x,y)\ne(1,1)$, proper if $(X,Y)\ne(1,1)$, and compatible if $M\mid y+\eta x$.
-\begin{theorem}[Complete normal form]\label{thm:normal}
+\begin{theorem}[Complete normal form]\label{normal:thm:normal}
 All nonempty proper compatible packets are in bijection with unitary divisors $x$ of $a$ and positive integers $r,s$ satisfying, with $X=a/x$,
 \[
  C=Mrs+sX-\eta rx,\qquad y=Ms-\eta x,\qquad Y=Mr+X,\qquad\gcd(y,Y)=1.
@@ -40,7 +41,7 @@ Indeed $s\ge1$ is exactly the stated upper restriction on $r$. Testing integrali
 
 \section{Sharp dyadic thresholds}
 Assume now $M=2^e\Vert n$, $e\ge2$. Then $a,x,X,C$ are odd, so the normal form gives $r+s$ odd and excludes $(r,s)=(1,1)$.
-\begin{theorem}[Plus threshold]\label{thm:plus}
+\begin{theorem}[Plus threshold]\label{normal:thm:plus}
 For $n=a+b$, the existence of a compatible proper packet requires
 \[
  n\ge M(2M+1-2a).
@@ -59,7 +60,7 @@ Define
 \[
  \mu(a)=\min_{x\mid a,\,\gcd(x,a/x)=1}(2x+a/x).
 \]
-\begin{theorem}[Difference threshold]\label{thm:minus}
+\begin{theorem}[Difference threshold]\label{normal:thm:minus}
 For $n=b-a$, a compatible proper packet requires $n\ge M(2M+\mu(a))$. When $a=1$ or $a$ is an odd prime power, $\mu(a)=a+2$, and equality is attained infinitely often by actual complete dyadic sources.
 \end{theorem}
 \begin{proof}
@@ -78,7 +79,7 @@ Only require $\partial(a)+\partial(b)=\partial(c)$ at this triple. Put
  W=a\partial(b)-b\partial(a),\quad R=\rad(abc),\quad D=abc/R.
 \]
 For $n>1$ let $G_n$ be the gcd of the coefficients $(n/p)v_p(n)$, and set $G_1=0$.
-\begin{theorem}[Exact image]\label{thm:image}
+\begin{theorem}[Exact image]\label{normal:thm:image}
 The set of all such $W$ is $I\Z$, with
 \[
  I=\frac{\gcd(cG_aG_b,\ bG_aG_c,\ aG_bG_c)}{\gcd(G_a,G_b,G_c)}.
@@ -91,7 +92,7 @@ Let $g$ be the gcd of $A$ and $A'=A/g$. Choose an integer column $u$ with $A'u=1
 Each $n/\rad(n)$ divides $\partial(n)$. The identities $W=a\partial(b)-b\partial(a)=a\partial(c)-c\partial(a)$ show that $a/\rad(a)$, $b/\rad(b)$ and $c/\rad(c)$ all divide $W$. They are pairwise coprime, so $D\mid W$, whence $D\mid I$. For nontrivial triples at least two of $a,b,c$ exceed one, making one of the displayed minors nonzero. At $(1,1,2)$ the additivity condition forces the remaining derivative to be zero.
 \end{proof}
 Let $J=I/D>0$ in the nontrivial case and $\Omega(n)=\sum_{p\mid n}v_p(n)$, with $\Omega(1)=0$.
-\begin{theorem}[Three operator bounds]\label{thm:operator}
+\begin{theorem}[Three operator bounds]\label{normal:thm:operator}
 Every admissible $\lambda$ with $W\ne0$ satisfies
 \[
  cJ\le RH(\lambda)(\Omega(a)+\Omega(b)),
@@ -111,7 +112,7 @@ Consider $a=2$, $b=3^{10}109=6436341$, $c=23^5=6436343$. The support is $(2,3,10
  \lambda_2+21454470\lambda_3+59049\lambda_{109}-1399205\lambda_{23}=0.
 \]
 Here $R=15042$ and $I=D=5508110403$. There is a nonzero tangent vector $(0,3,-1090,0)$ of norm ten, whereas the second operator bound gives every transverse vector norm at least $6561/92>71$. Thus every shortest nonzero vector of this actual integer kernel is tangent.
-\begin{theorem}[Exact optimum]\label{thm:optimum}
+\begin{theorem}[Exact optimum]\label{normal:thm:optimum}
 The minimum norm among admissible vectors with $W\ne0$ is $1644/23$.
 \end{theorem}
 \begin{proof}
@@ -133,4 +134,5 @@ Consequently $\log I=\log D+\log J$. This adds a nonnegative index; it does not 
 
 If for every $\eta>0$ one could independently find a uniformly bounded transverse certificate $H(\lambda)\le C_\eta J R^\eta$, the first operator bound would imply $c\ll_\eta R^{1+\eta}\log c$. For a prescribed $\eps>0$, choose $\eta=\eps/2$ and absorb $\log c\le A_\delta c^\delta$ with $\delta=\eps/(2(1+\eps))$; then $(1+\eta)/(1-\delta)=1+\eps$. This is only a conditional implication. The later transverse-lifting supplement proves that its hypothesis is in fact at full abc strength.
 The packet normal form, exact image and the finite optimum do not prove that global hypothesis. They neither close IUT's all-place comparison nor any unrestricted radical estimate.
-\end{document}
+
+\endgroup

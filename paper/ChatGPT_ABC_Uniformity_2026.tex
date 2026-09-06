@@ -42,6 +42,8 @@ in Approaches to the $abc$ Conjecture}
 \keywords{abc conjecture, smooth numbers, prime support, effective integral points,
 local lattices, formal verification}
 
+% INTEGRATION PREAMBLE 2026-09-06
+\usepackage{mathrsfs}
 \begin{document}
 \begin{abstract}\sloppy
 We develop proof reductions, obstruction theorems, and formally checked finite
@@ -1226,6 +1228,18 @@ logarithmic-form methods to a different family.
 \input{steinberg_five_term_boundary_bridge_2026}
 \input{quadratic_veronese_peeling_2026}
 
+% BEGIN INTEGRATED CHECKPOINTS 2026-09-06
+\input{supplements/integration_ledger_20260906}
+\input{supplements/checkpoint_fcrt_20260906}
+\input{supplements/checkpoint_signed_20260906}
+\input{supplements/checkpoint_multiflag_20260906}
+\input{supplements/checkpoint_normal_20260906}
+\input{supplements/checkpoint_transverse_20260906}
+\input{supplements/checkpoint_power_20260906}
+\input{supplements/checkpoint_eisenstein_20260906}
+\input{supplements/checkpoint_rank_20260906}
+\input{supplements/checkpoint_moving_20260906}
+% END INTEGRATED CHECKPOINTS 2026-09-06
 \section{Formal verification and remaining obligations}\label{sec:formal}
 
 The companion development uses Lean~4.32.0 and the repository's pinned
@@ -2816,5 +2830,184 @@ S.~Mochizuki, Arithmetic elliptic curves in general position,
 author version, February 2009.
 \href{https://www.kurims.kyoto-u.ac.jp/~motizuki/Arithmetic\%20Elliptic\%20Curves\%20in\%20General\%20Position.pdf}{Author version}.
 
+% BEGIN INTEGRATED BIBLIOGRAPHY 2026-09-06
+\begingroup
+\let\rad\relax
+\newcommand{\rad}{\operatorname{rad}}
+\let\dist\relax
+\newcommand{\dist}{\operatorname{dist}}
+\let\FCRT\relax
+\newcommand{\FCRT}{\mathrm{FCRT}}
+\let\SCRT\relax
+\newcommand{\SCRT}{\mathrm{SCRT}}
+\let\PBT\relax
+\newcommand{\PBT}{\mathrm{PBT}}
+\let\pos\relax
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\let\N\relax
+\newcommand{\N}{\mathbb N}
+\let\Z\relax
+\newcommand{\Z}{\mathbb Z}
+\let\R\relax
+\newcommand{\R}{\mathbb R}
+\small
+\bibitem{fcrt:repoendpoint} ChatGPT, \emph{Endpoint residue cubes and proper-subface flagged CRT surplus}, ABCConjecture repository, 4 Sept. 2026, pinned commit \texttt{6118955}; research file \texttt{ABC\_ENDPOINT\_RESIDUE\_CUBE\_FLAGGED\_CRT\_2026\_09\_04.md}.
+\bibitem{fcrt:repoanchor} ChatGPT, \emph{Anchored-prefix flagged CRT}, same repository and commit; research file \texttt{ABC\_ANCHORED\_PREFIX\_FLAGGED\_CRT\_2026\_09\_04.md}.
+\bibitem{fcrt:repoaudit} \emph{Independent Lean audit of flagged CRT surplus}, same repository and commit; research file \texttt{ABC\_FLAGGED\_CRT\_LEAN\_INDEPENDENT\_AUDIT\_2026\_09\_04.md}.
+\bibitem{fcrt:weingartner} A. Weingartner, \emph{Practical numbers and the distribution of divisors}, Quarterly J. Math. 66 (2015), 743--758. \href{https://arxiv.org/abs/1405.2585}{arXiv:1405.2585}.
+\bibitem{fcrt:iut} S. Mochizuki, \emph{Inter-universal Teichmuller theory III: Canonical splittings of the log-theta-lattice}, author-hosted manuscript, especially Corollary 3.12 and Remark 3.11.1. \href{https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal\%20Teichmuller\%20Theory\%20III.pdf}{Author's PDF}, inspected 5 Sept. 2026.
+\bibitem{fcrt:joshi} K. Joshi, \emph{Final Report on the Mochizuki-Scholze-Stix Controversy}, \href{https://arxiv.org/abs/2505.10568}{arXiv:2505.10568v1} (2025).
+\bibitem{fcrt:bae} J. H. Bae, \emph{Unbounded logarithmic limsup in Erdos Problem 684 via shifted carry scheduling}, \href{https://arxiv.org/abs/2604.23784}{arXiv:2604.23784v3}, revised 3 Sept. 2026, Lemma 5.1. Earlier versions are not used.
+\bibitem{fcrt:lichtman} J. D. Lichtman, \emph{The abc conjecture is true almost always}, \href{https://arxiv.org/abs/2505.13991}{arXiv:2505.13991} (2025).
+\bibitem{fcrt:dujella} A. Dujella, \emph{Prime-power Diophantine tuples}, \href{https://arxiv.org/abs/2609.03448}{arXiv:2609.03448v1}, 3 Sept. 2026.
+\bibitem{fcrt:lean321} Lean development team, \emph{Lean 4.32.1 release notes}, 22 July 2026. \url{https://lean-lang.org/doc/reference/latest/releases/v4.32.1/}.
+\bibitem{fcrt:lean322} Lean development team, \emph{Lean 4.32.2 release notes}, 28 July 2026. \url{https://lean-lang.org/doc/reference/latest/releases/v4.32.2/}.
+
+\endgroup
+\begingroup
+\let\rad\relax
+\newcommand{\rad}{\operatorname{rad}}
+\let\F\relax
+\newcommand{\F}{\mathcal F}
+\let\B\relax
+\newcommand{\B}{\mathcal B}
+
+\bibitem{signed:previous} ChatGPT, \emph{Prime-Power Obstructions to Flagged CRT Transport and an Exact Divisor-Gap Reduction for abc}, first supplement, 5 September 2026. Supplied in the preceding conversation research archive; ordinary proofs and an uncompiled partial Lean draft.
+\bibitem{signed:ledger} \texttt{wyx66624/ABCConjecture}, \emph{ABC route bottleneck ledger}, \texttt{research/ABC\_ROUTE\_BOTTLENECKS.md}, inspected at commit \texttt{6118955d20b4edd32e577e06d1060f3945358dd9}.
+\bibitem{signed:code} ChatGPT, \emph{Signed endpoint exact replay and recursive prime certificate}, accompanying source files \texttt{abc\_signed\_endpoint\_2026\_09\_05.py} and \texttt{prime\_certificate.json}, 5 September 2026.
+
+\endgroup
+\begingroup
+\let\rad\relax
+\newcommand{\rad}{\operatorname{rad}}
+\let\ord\relax
+\newcommand{\ord}{\operatorname{ord}}
+\let\vp\relax
+\newcommand{\vp}{v_p}
+\let\pos\relax
+\newcommand{\pos}[1]{\left[#1\right]_+}
+\let\code\relax
+\newcommand{\code}[1]{\texttt{\small #1}}
+
+\bibitem{multiflag:first} ChatGPT. \emph{Prime-Power Obstructions to Flagged CRT Transport and an Exact Divisor-Gap Reduction for abc}. September 5, 2026. Project checkpoint \code{2026\_09\_05\_chatgpt}, first supplement.
+\bibitem{multiflag:second} ChatGPT. \emph{Signed Endpoint Selection and Sharp Difference-Face Thresholds}. September 5, 2026. Same checkpoint, second supplement and accompanying proof note.
+\bibitem{multiflag:ledger} \emph{ABC route bottleneck ledger}. \code{wyx66624/ABCConjecture}, \code{research/ABC\_ROUTE\_BOTTLENECKS.md}, snapshot \code{d05220b6ddd59e40da976ba4238121f3b3b0b012}.
+\bibitem{multiflag:lean} Lean project. Official Lean 4.32.2 release, compiler archive and SHA-256 metadata. Release metadata retrieved through the GitHub connector; the installed compiler and successful job are recorded in the verification manifest.
+
+\endgroup
+\begingroup
+\let\rad\relax
+\newcommand{\rad}{\operatorname{rad}}
+\let\lcm\relax
+\newcommand{\lcm}{\operatorname{lcm}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb Z}
+\let\R\relax
+\newcommand{\R}{\mathbb R}
+\let\Om\relax
+\newcommand{\Om}{\Omega}
+\let\LL\relax
+\newcommand{\LL}{\mathcal L}
+
+\small
+\setlength{\itemsep}{0pt}
+\bibitem{transverse:normalforms} ChatGPT, \emph{Signed Packet Normal Forms and Transverse Arithmetic Wronskians for abc}, research checkpoint of September 5, 2026. Supplied normal-forms research archive and its source manifest.
+\bibitem{transverse:signed} ChatGPT, \emph{Signed endpoint selection and sharp difference-face thresholds}, September 5, 2026, \texttt{wyx66624/ABCConjecture}, checkpoint \texttt{2026\_09\_05\_chatgpt}, merged in pull request 420.
+\bibitem{transverse:multiflag} ChatGPT, \emph{Research checkpoint on sharp unitary faces and multi-output transport}, \texttt{wyx66624/ABCConjecture}, merged pull request 421, September 5, 2026.
+
+\endgroup
+\begingroup
+\let\rad\relax
+\newcommand{\rad}{\operatorname{rad}}
+\let\ord\relax
+\newcommand{\ord}{\operatorname{ord}}
+\let\lcm\relax
+\newcommand{\lcm}{\operatorname{lcm}}
+\let\Z\relax
+\newcommand{\Z}{\mathbb Z}
+\let\N\relax
+\newcommand{\N}{\mathbb N}
+\let\R\relax
+\newcommand{\R}{\mathbb R}
+\let\vp\relax
+\newcommand{\vp}{v_p}
+\let\Qm\relax
+\newcommand{\Qm}{\mathcal Q_m}
+
+\bibitem{power:transverse}
+ChatGPT, \emph{Quantitative Lifting of Arithmetic Derivatives and the
+Transverse Obstruction to abc}, project research checkpoint, September 5,
+2026. Repository \texttt{wyx66624/ABCConjecture},
+\texttt{research/checkpoints/2026\_09\_05\_transverse\_lifting/}, at the
+baseline commit identified in Section 1. Ordinary general proofs and
+24 previously checked scoped Lean theorems; not an abc proof.
+\bibitem{power:multiflag}
+ChatGPT, \emph{Unitary faces, multi-output transport, and exponent lifting},
+project research checkpoint, September 5, 2026. Same repository,
+\texttt{research/checkpoints/2026\_09\_05\_multiflag/}.
+\bibitem{power:lean}
+Lean project, \emph{Lean 4.32.2}, compiler commit
+\texttt{f3b06c705e6c85f5314019d5d3baab0fec5b580c}.
+The isolated verifier pins the Linux archive by SHA-256 and records actual
+compiler and axiom output. This reference documents the formal checking
+implementation, not an additional number-theoretic premise.
+
+\endgroup
+\begingroup
+\let\rad\relax
+\newcommand{\rad}{\operatorname{rad}}
+\let\ZZ\relax
+\newcommand{\ZZ}{\mathbb Z}
+\let\QQ\relax
+\newcommand{\QQ}{\mathbb Q}
+\let\NN\relax
+\newcommand{\NN}{\mathbb N}
+\let\gcdabs\relax
+\newcommand{\gcdabs}[2]{\gcd\!\left(|#1|,|#2|\right)}
+
+\bibitem{eisenstein:project} ChatGPT and project contributors, \emph{ABC Conjecture Research and Lean Formalization}, repository \texttt{wyx66624/ABCConjecture}, inspected commit \texttt{9edd965d6df645dbebc0869530f3f5a40fb8cddc}. Entry points: \texttt{README.md} and \texttt{research/ABC\_ROUTE\_BOTTLENECKS.md}.
+\bibitem{eisenstein:power} ChatGPT, \emph{Power-Radical Descent, Unbounded First-Appearance Depth, and Pairwise Lifting of Arithmetic Derivatives}, project checkpoint \texttt{2026\_09\_05\_power\_descent}, 2026. A partial-research source, not a proof of abc.
+\bibitem{eisenstein:transverse} ChatGPT, \emph{Quantitative Lifting of Arithmetic Derivatives and the Transverse Obstruction to abc}, project checkpoint \texttt{2026\_09\_05\_transverse\_lifting}, 2026. A partial-research source.
+\bibitem{eisenstein:endpoint} Project contributors, \emph{Endpoint residue packets: unbounded counting obstruction and explicit verification scope}, pull request 419, incorporated in the inspected snapshot, 2026.
+\bibitem{eisenstein:lean} Lean contributors, \emph{Lean 4}, pinned release 4.32.2, compiler commit \texttt{f3b06c705e6c85f5314019d5d3baab0fec5b580c}. The formal certificate is the supplied source plus compiler and axiom-audit output, not this bibliographic entry.
+
+\endgroup
+\begingroup
+\let\Z\relax
+\newcommand{\Z}{\mathbb Z}
+\let\N\relax
+\newcommand{\N}{\mathbb N}
+\let\rad\relax
+\newcommand{\rad}{\operatorname{rad}}
+\let\eps\relax
+\newcommand{\eps}{\varepsilon}
+
+\bibitem{rank:bugeaud} Y.~Bugeaud, $B'$, arXiv:2209.00275v1 (2022), Theorem 1.1, equation (1.2). \href{https://arxiv.org/abs/2209.00275}{Author's preprint}.
+\bibitem{rank:prior} ChatGPT, \emph{First-Appearance Depth and Radical Growth in an Eisenstein Orbit}, September 5, 2026; conversation source identified in the provenance paragraph. This edition consolidates proofs and does not repeat historical unconfirmed execution claims.
+
+\endgroup
+\begingroup
+\let\Z\relax
+\newcommand{\Z}{\mathbb Z}
+\let\Q\relax
+\newcommand{\Q}{\mathbb Q}
+\let\N\relax
+\newcommand{\N}{\mathbb N}
+\let\rad\relax
+\newcommand{\rad}{\operatorname{rad}}
+\let\eps\relax
+\newcommand{\eps}{\varepsilon}
+\let\EE\relax
+\newcommand{\EE}{\mathcal E}
+\let\HH\relax
+\newcommand{\HH}{\mathcal A}
+
+\bibitem{moving:bugeaud} Y.~Bugeaud, $B'$, arXiv:2209.00275v1 (2022), Theorem~1.1, equation~(1.2), and the first inequality of Theorem~1.3. \href{https://arxiv.org/abs/2209.00275}{Author's preprint}.
+\bibitem{moving:eis} ChatGPT, \emph{Eisenstein descent and explicit proof audit}, project checkpoint of September 5, 2026. Checked algebraic modules at commit \texttt{b228479c215d45d6555e56a1f6b42c08b665a8fb}; the audit distinguishes ordinary proofs from formal theorems.
+\bibitem{moving:rank} ChatGPT, \emph{First-Appearance Depth and Radical Growth in an Eisenstein Orbit}, September 5, 2026, accompanying project supplement.
+\bibitem{moving:main} ChatGPT, \emph{Uniformity, Prime Support, and Reachable Lattices in Approaches to the abc Conjecture}, repository master source at \texttt{9edd965d6df645dbebc0869530f3f5a40fb8cddc}. The source and sealed 270-page PDF are separately versioned in the integration audit.
+
+\endgroup
+% END INTEGRATED BIBLIOGRAPHY 2026-09-06
 \end{thebibliography}
 \end{document}
