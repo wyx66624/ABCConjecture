@@ -22,10 +22,13 @@ jobs:
           echo '5f2069e6f5db73780f374ccb49ce8ea649aa20a0cebf0116816744c999ce72aa  /tmp/lean.tar.zst' | sha256sum -c -
           tar --zstd -xf /tmp/lean.tar.zst -C /tmp
           echo '/tmp/lean-4.32.2-linux/bin' >> "$GITHUB_PATH"
-      - name: Compile scoped proofs and inspect actual axiom output
+      - name: Compile full boundary gcd and recurrence proofs
         shell: bash
         run: |
           set -euo pipefail
           lean --version
-          lean -DwarningAsError=true research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean | tee /tmp/eisenstein-axioms.log
-          python3 research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean /tmp/eisenstein-axioms.log
+          D=research/checkpoints/2026_09_05_eisenstein_descent/Lean
+          lean -DwarningAsError=true -o /tmp/EisensteinDescent.olean "$D/EisensteinDescent.lean" | tee /tmp/eisenstein-axioms.log
+          python3 research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py "$D/EisensteinDescent.lean" /tmp/eisenstein-axioms.log
+          LEAN_PATH=/tmp lean -DwarningAsError=true "$D/BoundaryGcd.lean" | tee /tmp/gcd-axioms.log
+          python3 research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py "$D/BoundaryGcd.lean" /tmp/gcd-axioms.log
