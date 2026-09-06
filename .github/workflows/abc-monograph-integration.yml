@@ -28,3 +28,13 @@ jobs:
           D=research/checkpoints/2026_09_05_rank_law
           lean -DwarningAsError=true "$D/Lean/RankDepth.lean" | tee /tmp/rank-axioms.log
           python3 research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py "$D/Lean/RankDepth.lean" /tmp/rank-axioms.log
+      - name: Export original source and proof-review materials
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: monograph-original-review
+          retention-days: 7
+          path: |
+            paper/
+            output/pdf/ChatGPT_ABC_Uniformity_2026.pdf
+            research/checkpoints/
