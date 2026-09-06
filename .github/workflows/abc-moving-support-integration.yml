@@ -1,0 +1,43 @@
+name: ABC moving support and monograph integration
+on:
+  push:
+    branches: ['verify/monograph-20260906*']
+    paths: ['research/checkpoints/2026_09_06_moving_support/**', '.github/workflows/abc-moving-support-integration.yml', 'paper/supplements/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Install isolated checksum-pinned Lean
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 -o /tmp/lean.tar.zst https://github.com/leanprover/lean4/releases/download/v4.32.2/lean-4.32.2-linux.tar.zst
+          echo '5f2069e6f5db73780f374ccb49ce8ea649aa20a0cebf0116816744c999ce72aa  /tmp/lean.tar.zst' | sha256sum -c -
+          tar --zstd -xf /tmp/lean.tar.zst -C /tmp
+          echo '/tmp/lean-4.32.2-linux/bin' >> "$GITHUB_PATH"
+      - name: Compile exact algebra and audit all printed axioms
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/abc-olean verification-moving
+          lean --version | tee verification-moving/compiler.txt
+          E=research/checkpoints/2026_09_05_eisenstein_descent/Lean
+          C=research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py
+          lean -DwarningAsError=true -o /tmp/abc-olean/EisensteinDescent.olean "$E/EisensteinDescent.lean" | tee verification-moving/eisenstein.log
+          python3 "$C" "$E/EisensteinDescent.lean" verification-moving/eisenstein.log
+          LEAN_PATH=/tmp/abc-olean lean -DwarningAsError=true -o /tmp/abc-olean/BoundaryGcd.olean "$E/BoundaryGcd.lean" | tee verification-moving/gcd.log
+          python3 "$C" "$E/BoundaryGcd.lean" verification-moving/gcd.log
+          M=research/checkpoints/2026_09_06_moving_support/Lean/MovingSupport.lean
+          LEAN_PATH=/tmp/abc-olean lean -DwarningAsError=true "$M" | tee verification-moving/moving.log
+          python3 "$C" "$M" verification-moving/moving.log
+          R=research/checkpoints/2026_09_05_rank_law/Lean/RankDepth.lean
+          lean -DwarningAsError=true "$R" | tee verification-moving/rank.log
+          python3 "$C" "$R" verification-moving/rank.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: moving-support-lean-review
+          path: verification-moving/
