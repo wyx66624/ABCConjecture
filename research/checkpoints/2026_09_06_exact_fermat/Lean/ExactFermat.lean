@@ -30,7 +30,7 @@ theorem power_one (w : Pair) : powPair w 1 = w := by
 theorem power_norm (w : Pair) (n : Nat) :
     norm (powPair w n) = (norm w)^n := by
   induction n with
-  | zero => rfl
+  | zero => simp [powPair, norm]
   | succ n ih =>
     change norm (mul w (powPair w n)) = (norm w)^(n+1)
     rw [norm_mul, ih, Int.pow_succ]
@@ -80,7 +80,7 @@ theorem power_boundary_pair (w : Pair) (n : Nat) :
   induction n with
   | zero =>
     constructor
-    · rfl
+    · simp [powPair, boundary, seq]
     · rw [power_one]
       simp [seq]
   | succ n ih =>
@@ -135,6 +135,18 @@ theorem coefficient_table_three :
 theorem coefficient_table_five :
     4*5+3=23 ∧ 4*9+3=39 ∧ 4*3+3=15 := by decide
 
+theorem hyperelliptic_quotient_identity (u v : Int) :
+    (u-v)^2+4*u*v=(u+v)^2 := by grind
+
+theorem mixed_quotient_wild_difference (p : Int) :
+    2*p*p-p*(2*p-1)=p := by grind
+
+theorem unit_quotient_wild_difference (p : Int) :
+    (p*p+p-2)-p*(p-2)=3*p-2 := by grind
+
+#print axioms hyperelliptic_quotient_identity
+#print axioms mixed_quotient_wild_difference
+#print axioms unit_quotient_wild_difference
 #print axioms power_one
 #print axioms power_norm
 #print axioms power_add

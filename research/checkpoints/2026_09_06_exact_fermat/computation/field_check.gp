@@ -22,6 +22,15 @@ checkcase(a,b,l) = {
  if(DE!=predE,error(Str("point discriminant mismatch: expected ",predE)));
  if(df<=20 && DF!=predF,error(Str("Galois discriminant mismatch: expected ",predF)));
  if(valuation(a*b*c,l)==1 && j!=2,error("additive rank-two law"));
+ if(r>=1,
+  my(k=cl(a*b/c^2,l),delta=if(k==[0,0],l-2,if(k[1],2*l-1,l)),Q=rep(a*b*c^(l-2),l),PK=polredbest(x^l-Q),DK,predK=l^delta,Delta);
+  if(poldegree(PK)!=l,error("quotient degree mismatch"));
+  DK=abs(nfdisc(PK));
+  for(i=1,matsize(fac)[1],my(p=fac[i,1],e=fac[i,2]);if(p!=l && e%l,predK*=p^(l-1)));
+  if(DK!=predK,error("quotient discriminant mismatch"));
+  if(r==1,if(DE!=DK,error("rank-one quotient equality")),Delta=if(typ==3,l,if(typ==1 && k==[0,0],3*l-2,l-2));if(DE!=DK^l*l^Delta,error("relative quotient discriminant mismatch")));
+  print("QUOTIENT K=",DK," wild=",delta," relative=",if(r==1,0,Delta))
+ );
  if(r==2,
   my(Q0=if(c%2==0,a,c),N1=if(c%2==0,c,a),N2=b);
   my(Dorder=abs(poldisc(x^l-N1*Q0^(l-1)))^l*abs(poldisc(x^l-N2*Q0^(l-1)))^l);
@@ -37,6 +46,6 @@ checkcase(a,b,l) = {
 };
 cases=[[1,2,3],[1,7,3],[1,8,3],[1,26,3],[1,17,3],[1,53,3],[1,269,3],[1,31,5],[1,1024,5],[1,3124,5],[1,4,5],[1,63,5],[1,2047,5]];
 for(i=1,#cases,iferr(checkcase(cases[i][1],cases[i][2],cases[i][3]),err,print(err);quit(1)));
-print("VERIFIED_COUNTS point_fields=13 normal_closures=10 order_indices=7");
+print("VERIFIED_COUNTS point_fields=13 quotient_fields=13 normal_closures=10 order_indices=7");
 print("ALL_ACTUAL_FIELD_DISCRIMINANTS_PASS");
 quit(0);
