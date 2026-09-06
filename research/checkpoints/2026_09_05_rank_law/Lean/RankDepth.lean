@@ -80,6 +80,7 @@ theorem exponent_two_excess (p s : Nat) (hp : 1 ≤ p) :
       rw [he]
       have he2 : s+1+1=s+2 := by omega
       rw [he2,Nat.pow_add,Nat.mul_comm]
+      exact Nat.le_refl _
 
 structure Datum where
   p : Nat
@@ -159,19 +160,19 @@ theorem rank_factorization : (12876 : Nat) = 2^2*3*29*37 := by decide
 theorem modulus_identity :
     (38629 : Nat)^2=1492199641 ∧ 38629^3=57642179932189 := by decide
 
-theorem full_period_certificate : powerMod 12876 38629=(1,0) := by decide
+theorem full_period_certificate : powerMod 12876 38629=(1,0) := by simp [powerMod,mulMod]
 
 theorem proper_period_certificates :
     powerMod 6438 38629=(25926,25406) ∧
     powerMod 4292 38629=(38628,1) ∧
     powerMod 444 38629=(10564,19690) ∧
-    powerMod 348 38629=(23253,26998) := by decide
+    powerMod 348 38629=(23253,26998) := by simp [powerMod,mulMod]
 
 theorem square_depth_certificate :
-    powerMod 12876 1492199641=(89232991,0) := by decide
+    powerMod 12876 1492199641=(89232991,0) := by simp [powerMod,mulMod]
 
 theorem not_cube_depth_certificate :
-    powerMod 12876 57642179932189=(43039603478354,40547540844893) := by decide
+    powerMod 12876 57642179932189=(43039603478354,40547540844893) := by simp [powerMod,mulMod]
 
 theorem nonzero_cube_coefficient : (40547540844893 : Nat) ≠ 0 := by decide
 
