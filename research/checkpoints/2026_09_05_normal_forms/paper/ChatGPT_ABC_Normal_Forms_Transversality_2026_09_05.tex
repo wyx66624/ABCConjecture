@@ -1,0 +1,136 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}\newcommand{\N}{\mathbb N}
+\newcommand{\rad}{\operatorname{rad}}\newcommand{\lcm}{\operatorname{lcm}}
+\title{Signed Packet Normal Forms and Transverse Arithmetic Wronskians: Integrated Proof Edition}
+\author{ChatGPT}
+\date{September 6, 2026}
+\begin{document}\maketitle
+\section{Provenance and scope}
+This integrated edition restates with complete proofs the principal mathematical results of the September 5 normal-form supplement. It is not a byte-identical reproduction of that historical standalone paper: its historical runtime narrative and finite-count table are not repeated as current verification claims. The original source is identified by Git blob hash \texttt{ce5ae32428f1e5c710386acfff4b8e5f1cfd9e02} in the conversation research bundle. Neither this edition nor its predecessor proves standard abc. The earlier partial Lean draft is not certified by integrating these ordinary proofs. Later supplements supersede the historical assessment of the uniform derivative gate by proving its equivalence to abc.
+
+\section{Exact signed packet construction}
+Fix $M\ge4$, $0<a<M$, $b>0$, $\gcd(a,b)=1$, and $\eta\in\{-1,1\}$, with $n=b+\eta a>0$ divisible by $M$. Put $C=n/M$. A unitary packet consists of
+\[
+ a=xX,\quad b=yY,\quad \gcd(x,X)=\gcd(y,Y)=1.
+\]
+It is nonempty if $(x,y)\ne(1,1)$, proper if $(X,Y)\ne(1,1)$, and compatible if $M\mid y+\eta x$.
+\begin{theorem}[Complete normal form]\label{thm:normal}
+All nonempty proper compatible packets are in bijection with unitary divisors $x$ of $a$ and positive integers $r,s$ satisfying, with $X=a/x$,
+\[
+ C=Mrs+sX-\eta rx,\qquad y=Ms-\eta x,\qquad Y=Mr+X,\qquad\gcd(y,Y)=1.
+\]
+\end{theorem}
+\begin{proof}
+Primitivity implies $\gcd(x,M)=1$. Write $y+\eta x=Ms$. For the minus sign this quantity exceeds $-M$; if it were zero, $x=y=1$, contradicting nonemptiness. The plus sign is positive. Thus $s\ge1$. Reducing $n=yY+\eta xX$ modulo $M$ gives $X\equiv Y\pmod M$. Since $X<M$, $Y-X>-M$. Equality $Y=X$ would imply $X=Y=1$, contradicting properness. Hence $Y-X=Mr$, $r\ge1$. Expansion gives the stated formula for $C$. All recovered parameters are unique.
+Conversely the displayed data have $y>0$, $Y>1$, product $yY=n-\eta a=b$, and the required unitary gcds. Their selected signed sum is $Ms$. An empty packet would give that sum zero or two, impossible for $Ms\ge M$. The packet is proper because $Y>X\ge1$.
+\end{proof}
+For each unitary divisor $x$, all candidates can be constructed without factoring $b$ by testing
+\[
+ 1\le r\le\max\left(0,\left\lfloor\frac{C-X}{M-\eta x}\right\rfloor\right),
+ \qquad s=\frac{C+\eta rx}{Mr+X}.
+\]
+Indeed $s\ge1$ is exactly the stated upper restriction on $r$. Testing integrality and the gcd completes the enumeration. This removes factorization of $b$ for packet existence, not necessarily for radical weights or the full FCRT optimization; nor is it uniformly faster than subset enumeration.
+
+\section{Sharp dyadic thresholds}
+Assume now $M=2^e\Vert n$, $e\ge2$. Then $a,x,X,C$ are odd, so the normal form gives $r+s$ odd and excludes $(r,s)=(1,1)$.
+\begin{theorem}[Plus threshold]\label{thm:plus}
+For $n=a+b$, the existence of a compatible proper packet requires
+\[
+ n\ge M(2M+1-2a).
+\]
+For each fixed odd $a\ge1$ infinitely many complete dyadic sources attain equality.
+\end{theorem}
+\begin{proof}
+For $r\ge2$,
+\[
+ Mrs+sX-rx-(2M+X-2x)=(r-2)(M-x)+(s-1)(Mr+X)\ge0.
+\]
+For $r=1$, $s\ge2$, and the same difference equals $(s-2)(M+X)+X+x>0$. Hence $C\ge2M+X-2x\ge2M+1-2a$.
+Choose $L\ge1$ with $2^L\equiv1\pmod{a(2a+1)}$ and let $M=2^{kL-1}>a$ with exponent at least two. Put $b=(M-a)(2M+1)$. Then $a+b=M(2M+1-2a)$ and the quotient by $M$ is odd. The congruence $2M\equiv1\pmod{a(2a+1)}$ gives $\gcd(a,b)=1$. Also a common divisor of $M-a$ and $2M+1$ divides $2a+1$, while $2M+1\equiv2\pmod{2a+1}$; that gcd is one. The packet $(x,X,y,Y)=(a,1,M-a,2M+1)$ is genuine and has $s=1,r=2$.
+\end{proof}
+Define
+\[
+ \mu(a)=\min_{x\mid a,\,\gcd(x,a/x)=1}(2x+a/x).
+\]
+\begin{theorem}[Difference threshold]\label{thm:minus}
+For $n=b-a$, a compatible proper packet requires $n\ge M(2M+\mu(a))$. When $a=1$ or $a$ is an odd prime power, $\mu(a)=a+2$, and equality is attained infinitely often by actual complete dyadic sources.
+\end{theorem}
+\begin{proof}
+For fixed $x,X$, $C=Mrs+sX+rx$. If $r\ge2$, then $C\ge2M+X+2x$; if $r=1,s\ge2$, then $C\ge2M+2X+x$. Both candidate minima are covered by minimizing $2x+X$ over unitary divisors, since exchanging $x,X$ preserves that set. If $a$ is a prime power, its unitary divisors are $1,a$, giving $\mu(a)=a+2$; the formula also holds at $a=1$.
+Choose $L$ with $2^L\equiv1\pmod{a(a+2)}$ and $M=2^{kL}>a$. Take $(x,X,y,Y)=(1,a,M+1,2M+a)$. Its target is $n=M(2M+a+2)$. Since $M\equiv1\pmod a$, $\gcd(a,b)=1$ for $b=(M+1)(2M+a)$. A common divisor of $M+1$ and $2M+a$ divides $a-2$; this alone need not vanish, so refine the choice as follows. Instead take $M=2^{kL-1}$ with $2M\equiv1\pmod{a(a+2)}$ and use $(x,X,y,Y)=(a,1,2M+a,M+1)$, which has $s=2,r=1$ and the same target $M(2M+a+2)$. Its within-arm gcd still divides $a-2$. To ensure it is one, impose the additional odd modulus $|a-2|$ (omitting it when it equals one) and choose $M\equiv1\pmod{|a-2|}$ by taking $M=2^{kL}$, with $L$ now a multiple of the orders modulo $a$ and $|a-2|$. Then any common divisor divides both $a-2$ and $M+1\equiv2$, and is one. The congruence modulo $a$ also gives $M+1\equiv2$ and $2M+a\equiv2$, so primitivity holds. The quotient $2M+a+2$ is odd. This final choice supplies infinitely many valid sources and proves sharpness without relying on the unnecessary intermediate modulus.
+\end{proof}
+
+\section{Arithmetic derivative image and transverse size}
+For a fixed primitive triple $a+b=c$ choose integer weights $\lambda_p$ and define
+\[
+ \partial_\lambda(n)=\sum_{p\mid n}\frac np v_p(n)\lambda_p,
+ \qquad H(\lambda)=\max_{p\mid abc}|\lambda_p|/p.
+\]
+Only require $\partial(a)+\partial(b)=\partial(c)$ at this triple. Put
+\[
+ W=a\partial(b)-b\partial(a),\quad R=\rad(abc),\quad D=abc/R.
+\]
+For $n>1$ let $G_n$ be the gcd of the coefficients $(n/p)v_p(n)$, and set $G_1=0$.
+\begin{theorem}[Exact image]\label{thm:image}
+The set of all such $W$ is $I\Z$, with
+\[
+ I=\frac{\gcd(cG_aG_b,\ bG_aG_c,\ aG_bG_c)}{\gcd(G_a,G_b,G_c)}.
+\]
+Also $D\mid I$. Except for $(1,1,2)$ this image is nonzero.
+\end{theorem}
+\begin{proof}
+The values of the derivative on each arm are exactly $G_n\Z$, by Bezout applied to its coefficients. Distinct arms have disjoint prime support. Thus admissible triples of derivative values are parametrized by the integer kernel of the row $A=(G_a,G_b,-G_c)$, and $W$ is the row $B=(-bG_a,aG_b,0)$ on that kernel.
+Let $g$ be the gcd of $A$ and $A'=A/g$. Choose an integer column $u$ with $A'u=1$. For any integer column $v$, $v-u(A'v)$ is in the kernel. Conversely the kernel is generated by the columns $A'_j e_i-A'_i e_j$: if $A'v=0$, summing $u_jv_i(A'_j e_i-A'_i e_j)$ over $i,j$ gives $v$. Their $B$-images are exactly the signed two-by-two minors of $A',B$. Their gcd is the displayed value of $I$.
+Each $n/\rad(n)$ divides $\partial(n)$. The identities $W=a\partial(b)-b\partial(a)=a\partial(c)-c\partial(a)$ show that $a/\rad(a)$, $b/\rad(b)$ and $c/\rad(c)$ all divide $W$. They are pairwise coprime, so $D\mid W$, whence $D\mid I$. For nontrivial triples at least two of $a,b,c$ exceed one, making one of the displayed minors nonzero. At $(1,1,2)$ the additivity condition forces the remaining derivative to be zero.
+\end{proof}
+Let $J=I/D>0$ in the nontrivial case and $\Omega(n)=\sum_{p\mid n}v_p(n)$, with $\Omega(1)=0$.
+\begin{theorem}[Three operator bounds]\label{thm:operator}
+Every admissible $\lambda$ with $W\ne0$ satisfies
+\[
+ cJ\le RH(\lambda)(\Omega(a)+\Omega(b)),
+\]
+\[
+ bJ\le RH(\lambda)(\Omega(a)+\Omega(c)),\qquad
+ aJ\le RH(\lambda)(\Omega(b)+\Omega(c)).
+\]
+\end{theorem}
+\begin{proof}
+The definition gives $|\partial(n)|\le n\Omega(n)H$. Therefore $|W|\le abH(\Omega(a)+\Omega(b))$. The other two representations using additivity give analogous bounds with $ac$ and $bc$. Since a nonzero image value has absolute value at least $I=abcJ/R$, divide to get the assertions.
+\end{proof}
+
+\section{A fully specified transverse optimization}
+Consider $a=2$, $b=3^{10}109=6436341$, $c=23^5=6436343$. The support is $(2,3,109,23)$ and the exact additivity row is
+\[
+ \lambda_2+21454470\lambda_3+59049\lambda_{109}-1399205\lambda_{23}=0.
+\]
+Here $R=15042$ and $I=D=5508110403$. There is a nonzero tangent vector $(0,3,-1090,0)$ of norm ten, whereas the second operator bound gives every transverse vector norm at least $6561/92>71$. Thus every shortest nonzero vector of this actual integer kernel is tangent.
+\begin{theorem}[Exact optimum]\label{thm:optimum}
+The minimum norm among admissible vectors with $W\ne0$ is $1644/23$.
+\end{theorem}
+\begin{proof}
+The vector $(-141,107,79,1644)$ satisfies the displayed row, has $W=D$, and has norm $1644/23$. Suppose a smaller transverse vector existed. The image theorem and the second operator bound force $W=\pm D$, since $6ac(1644/23)<2D$. Change signs to take $W=D$. Additivity then gives
+\[
+ W=23^4(10\lambda_{23}-23\lambda_2),\qquad
+ 10\lambda_{23}-23\lambda_2=19683.
+\]
+The strict norm bound gives $|\lambda_2|\le142$ and $|\lambda_{23}|\le1643$. Modulo ten, $\lambda_2\equiv9$, so $\lambda_2\ge-141$. The left side is at most $16430+3243=19673<19683$, a contradiction.
+\end{proof}
+
+\section{The excess-contact module and the actual remaining gate}
+Since $I=DJ$, reduction modulo $D$ gives the exact sequence
+\[
+ 0\longrightarrow D\Z/I\Z\longrightarrow\Z/I\Z\longrightarrow\Z/D\Z\longrightarrow0,
+ \qquad D\Z/I\Z\simeq\Z/J\Z.
+\]
+Consequently $\log I=\log D+\log J$. This adds a nonnegative index; it does not bound $\log D$. In the preceding triple $J=1$ and $c/R>427$, refuting the shortcut $c/R\le J$.
+
+If for every $\eta>0$ one could independently find a uniformly bounded transverse certificate $H(\lambda)\le C_\eta J R^\eta$, the first operator bound would imply $c\ll_\eta R^{1+\eta}\log c$. For a prescribed $\eps>0$, choose $\eta=\eps/2$ and absorb $\log c\le A_\delta c^\delta$ with $\delta=\eps/(2(1+\eps))$; then $(1+\eta)/(1-\delta)=1+\eps$. This is only a conditional implication. The later transverse-lifting supplement proves that its hypothesis is in fact at full abc strength.
+The packet normal form, exact image and the finite optimum do not prove that global hypothesis. They neither close IUT's all-place comparison nor any unrestricted radical estimate.
+\end{document}

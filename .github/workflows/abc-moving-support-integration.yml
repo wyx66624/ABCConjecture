@@ -2,42 +2,91 @@ name: ABC moving support and monograph integration
 on:
   push:
     branches: ['verify/monograph-20260906*']
-    paths: ['research/checkpoints/2026_09_06_moving_support/**', '.github/workflows/abc-moving-support-integration.yml', 'paper/supplements/**']
+    paths: ['research/checkpoints/2026_09_06_moving_support/**', 'research/checkpoints/2026_09_05_normal_forms/paper/**', 'research/checkpoints/2026_09_05_rank_law/paper/**', '.github/workflows/abc-moving-support-integration.yml', 'paper/supplements/**']
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   verify:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    env:
+      SOURCE_DATE_EPOCH: '1788666000'
+      FORCE_SOURCE_DATE: '1'
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
-      - name: Install isolated checksum-pinned Lean
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Verify scoped Lean, exact finite replay and source integration
+        shell: bash
         run: |
           set -euo pipefail
-          curl --fail --location --retry 3 -o /tmp/lean.tar.zst https://github.com/leanprover/lean4/releases/download/v4.32.2/lean-4.32.2-linux.tar.zst
-          echo '5f2069e6f5db73780f374ccb49ce8ea649aa20a0cebf0116816744c999ce72aa  /tmp/lean.tar.zst' | sha256sum -c -
-          tar --zstd -xf /tmp/lean.tar.zst -C /tmp
-          echo '/tmp/lean-4.32.2-linux/bin' >> "$GITHUB_PATH"
-      - name: Compile exact algebra and audit all printed axioms
+          D=research/checkpoints/2026_09_06_moving_support
+          mkdir -p verification-moving
+          python3 "$D/verify.py" | tee verification-moving/exact-replay.json
+          ABC_LOG_DIR="$PWD/verification-moving" bash "$D/wsl/verify_lean.sh"
+          python3 "$D/integrate_monograph.py" > verification-moving/source-integration.json
+          cp verification-moving/source-integration.json /tmp/first-integration.json
+          python3 "$D/integrate_monograph.py" > /tmp/second-integration.json
+          cmp /tmp/first-integration.json /tmp/second-integration.json
+      - name: Install manuscript tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-recommended texlive-science latexmk
+          python3 -m pip install --quiet pypdf
+      - name: Rebuild the actual master PDF and record scope
+        shell: bash
         run: |
           set -euo pipefail
-          mkdir -p /tmp/abc-olean verification-moving
-          lean --version | tee verification-moving/compiler.txt
-          E=research/checkpoints/2026_09_05_eisenstein_descent/Lean
-          C=research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py
-          lean -DwarningAsError=true -o /tmp/abc-olean/EisensteinDescent.olean "$E/EisensteinDescent.lean" | tee verification-moving/eisenstein.log
-          python3 "$C" "$E/EisensteinDescent.lean" verification-moving/eisenstein.log
-          LEAN_PATH=/tmp/abc-olean lean -DwarningAsError=true -o /tmp/abc-olean/BoundaryGcd.olean "$E/BoundaryGcd.lean" | tee verification-moving/gcd.log
-          python3 "$C" "$E/BoundaryGcd.lean" verification-moving/gcd.log
-          M=research/checkpoints/2026_09_06_moving_support/Lean/MovingSupport.lean
-          LEAN_PATH=/tmp/abc-olean lean -DwarningAsError=true "$M" | tee verification-moving/moving.log
-          python3 "$C" "$M" verification-moving/moving.log
-          R=research/checkpoints/2026_09_05_rank_law/Lean/RankDepth.lean
-          lean -DwarningAsError=true "$R" | tee verification-moving/rank.log
-          python3 "$C" "$R" verification-moving/rank.log
-      - uses: actions/upload-artifact@v4
+          mkdir -p _build_monograph
+          (cd paper && latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir="$GITHUB_WORKSPACE/_build_monograph" ChatGPT_ABC_Uniformity_2026.tex) > verification-moving/latex-build.log 2>&1
+          cp _build_monograph/ChatGPT_ABC_Uniformity_2026.pdf output/pdf/ChatGPT_ABC_Uniformity_2026.pdf
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json,re,os,subprocess
+          from pypdf import PdfReader
+          root=Path('.')
+          D=root/'research/checkpoints/2026_09_06_moving_support'
+          log=Path('_build_monograph/ChatGPT_ABC_Uniformity_2026.log').read_text(errors='replace')
+          for phrase in ('There were undefined references','There were multiply-defined labels','LaTeX Error:'):
+              assert phrase not in log, phrase
+          p=Path('output/pdf/ChatGPT_ABC_Uniformity_2026.pdf')
+          pages=len(PdfReader(p).pages)
+          assert pages>281, pages
+          sources=[Path('research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean'),Path('research/checkpoints/2026_09_05_eisenstein_descent/Lean/BoundaryGcd.lean'),Path('research/checkpoints/2026_09_05_rank_law/Lean/RankDepth.lean'),D/'Lean/MovingSupport.lean']
+          counts=[len(re.findall(r'^#print axioms ',q.read_text(),re.M)) for q in sources]
+          assert counts==[29,11,18,12],counts
+          hashes={str(q):hashlib.sha256(q.read_bytes()).hexdigest() for q in sources+[D/'verify.py',D/'integrate_monograph.py',Path('paper/ChatGPT_ABC_Uniformity_2026.tex')]}
+          result={'status':'PASS: scoped checks and rebuilt monograph; NOT a proof of ABC','tested_input_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'run_id':int(os.environ['GITHUB_RUN_ID']),'pdf_path':str(p),'pdf_pages':pages,'pdf_bytes':p.stat().st_size,'pdf_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'scoped_lean_queries':70,'new_lean_queries':12,'axiom_whitelist':['propext','Classical.choice','Quot.sound'],'hashes':hashes,'overfull_hbox_count_including_preserved_sources':len(re.findall(r'Overfull \\hbox',log)),'not_claimed':['standard ABC proof','full-repository Lean build','formalized logarithmic-form theorem','independent peer review','user WSL access']}
+          (D/'verification/build_validation.json').write_text(json.dumps(result,indent=2)+'\n')
+          for q in Path('verification-moving').glob('*.log'):
+              if q.name!='latex-build.log': (D/'verification'/q.name).write_bytes(q.read_bytes())
+          print(json.dumps(result,indent=2))
+          PY
+      - name: Commit only reviewed generated paths to the working branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$GITHUB_REF_NAME" == verify/monograph-20260906* ]]
+          D=research/checkpoints/2026_09_06_moving_support
+          git add -- paper/ChatGPT_ABC_Uniformity_2026.tex paper/supplements output/pdf/ChatGPT_ABC_Uniformity_2026.pdf "$D/paper" "$D/verification" research/checkpoints/2026_09_05_normal_forms/paper research/checkpoints/2026_09_05_rank_law/paper
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Integrate checked research supplements into the master ABC monograph; retain unresolved global status'
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+          git rev-parse HEAD | tee verification-moving/generated-commit.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: moving-support-lean-review
-          path: verification-moving/
+          name: moving-support-integrated-monograph
+          retention-days: 7
+          path: |
+            output/pdf/ChatGPT_ABC_Uniformity_2026.pdf
+            paper/
+            research/checkpoints/2026_09_06_moving_support/
+            research/checkpoints/2026_09_05_normal_forms/paper/
+            research/checkpoints/2026_09_05_rank_law/
+            research/checkpoints/2026_09_05_eisenstein_descent/
+            verification-moving/
