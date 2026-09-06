@@ -36,8 +36,12 @@ theorem epow_add (z : Pair) (m n : Nat) :
   induction n with
   | zero => simp [epow, mul_one]
   | succ n ih =>
-    simp only [Nat.add_succ, epow, ih]
-    exact mul_assoc (epow z m) (epow z n) z
+    calc
+      epow z (m+(n+1)) = mul (epow z (m+n)) z := rfl
+      _ = mul (mul (epow z m) (epow z n)) z :=
+        congrArg (fun w => mul w z) ih
+      _ = mul (epow z m) (epow z (n+1)) :=
+        mul_assoc (epow z m) (epow z n) z
 
 theorem epow_mul (z : Pair) (m n : Nat) :
     epow z (m*n) = epow (epow z m) n := by
@@ -115,7 +119,7 @@ theorem endpoint_fifth_not_divides (p j : Nat) (hp : 2 ≤ p) :
   have hd : p ∣ 1+p*j := ⟨s,hcancel⟩
   have hz := Nat.mod_eq_zero_of_dvd hd
   have hrem : (1+p*j)%p = 1 := by
-    simp [Nat.add_mod, Nat.mul_mod, Nat.mod_eq_of_lt (by omega : 1 < p)]
+    simp [Nat.add_mod, Nat.mod_eq_of_lt (by omega : 1 < p)]
   omega
 
 theorem endpoint_progression (p j : Nat) (hp : 2 ≤ p) :
@@ -129,7 +133,7 @@ theorem endpoint_lower_bound (p j : Nat) : p^4 ≤ endpoint p j := by
   omega
 
 theorem primitive_neighbour (n : Nat) : Nat.gcd n (n+1) = 1 := by
-  simpa using Nat.gcd_add_self_right n 1
+  simp
 
 theorem compensated_shape_identity (a b : Int) :
     (a+b)^3 = (a+b)*(a-b)^2+4*a*b*(a+b) := by grind
