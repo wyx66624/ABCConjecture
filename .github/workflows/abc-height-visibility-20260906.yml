@@ -29,9 +29,11 @@ jobs:
           mkdir -p verification-height
           D=research/checkpoints/2026_09_06_height_visibility
           lean --version | tee verification-height/compiler.txt
-          sha256sum "$D/Lean/HeightVisibility.lean" | tee verification-height/source.sha256
-          lean -DwarningAsError=true "$D/Lean/HeightVisibility.lean" | tee verification-height/axioms.log
-          python3 research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py "$D/Lean/HeightVisibility.lean" verification-height/axioms.log | tee verification-height/audit.txt
+          sha256sum "$D/Lean/HeightVisibility.lean" "$D/Lean/HomogeneousTorsion.lean" | tee verification-height/source.sha256
+          for name in HeightVisibility HomogeneousTorsion; do
+            lean -DwarningAsError=true "$D/Lean/$name.lean" | tee "verification-height/$name.log"
+            python3 research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py "$D/Lean/$name.lean" "verification-height/$name.log" | tee "verification-height/$name-audit.txt"
+          done
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
