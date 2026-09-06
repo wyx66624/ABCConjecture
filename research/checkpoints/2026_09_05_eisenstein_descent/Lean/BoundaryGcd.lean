@@ -77,7 +77,7 @@ theorem boundary_gcd (u v x y : Int) (hxy : Int.gcd x y=1) :
     int_gcd_product x y T hxy,int_gcd_product x y A hxy,hx,hy,hS]
 
 theorem gcd_seven_of_nonzero_residue (y : Int) (hy : y%7≠0) : Int.gcd y 7=1 := by
-  have he : y=y%7+7*(y/7) := (Int.emod_add_ediv y 7).symm
+  have he : y=y%7+7*(y/7) := by omega
   have hh : Int.gcd y 7=Int.gcd (y%7) 7 := by
     calc
       Int.gcd y 7 = Int.gcd (y%7+7*(y/7)) 7 := congrArg (fun z => Int.gcd z 7) he
@@ -110,8 +110,9 @@ theorem orbit_primitive (n : Nat) : Int.gcd (orbit n).1 (orbit n).2=1 := by
       gcd_seven_of_nonzero_residue y (orbit_mod_seven n).2
     have hd7 : Nat.gcd d 7=1 := by
       have hh := Int.gcd_dvd_gcd_of_dvd_left (7:Int) hdy
-      have hz : Nat.gcd d 7 ∣ 1 := by simpa [hy7] using hh
-      omega
+      change Nat.gcd d 7 ∣ Int.gcd y 7 at hh
+      rw [hy7] at hh
+      exact Nat.dvd_one.mp hh
     have hp := Nat.gcd_pow_right_of_gcd_eq_one (k:=n+1) hd7
     rw [Nat.gcd_eq_left_iff_dvd.mpr hdpow] at hp
     exact hp
@@ -130,7 +131,7 @@ theorem mass_gcd_add (m n : Nat) :
 theorem mass_gcd_multiple (m r q : Nat) :
     Nat.gcd (mass m) (mass (r+q*m))=Nat.gcd (mass m) (mass r) := by
   induction q with
-  | zero => simpa using (rfl : Nat.gcd (mass m) (mass r)=Nat.gcd (mass m) (mass r))
+  | zero => simp
   | succ q ih =>
     have he : r+(q+1)*m=m+(r+q*m) := by grind
     rw [he,mass_gcd_add,ih]
