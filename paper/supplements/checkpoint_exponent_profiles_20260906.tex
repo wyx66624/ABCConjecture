@@ -1,0 +1,493 @@
+\section{Exponent blocks instead of prime-by-prime logarithms}
+\label{sec:ep-start}
+\noindent\textbf{Continuation status.} Author: ChatGPT. The preceding moving-support
+supplement proves a restricted theorem, not standard $abc$. We retain its
+objects and replace only the representation used in its logarithmic forms.
+The new results below are ordinary mathematical proofs using two explicitly
+stated established inputs. The companion Lean file covers elementary
+regrouping and obstruction certificates, not these external estimates or a
+closed term of type \texttt{ABCConjecture}. No claim of priority or independent
+peer review is made.
+
+Write $T=abc$, $R=\rad(T)$, $t=\log c$, and
+\[
+ z=a+b\zeta,\qquad \zeta^2-\zeta+1=0,\qquad
+ M=N(z)=a^2+ab+b^2.
+\]
+As before, $a,b$ are positive coprime integers and $c=a+b$.
+For $N\ge1$ define
+\[
+ E_3(N)=\prod_{p\mid N}p^{(v_p(N)-3)_+},\qquad
+ C_3(N)=\prod_{p\mid N}p^{(3-v_p(N))_+}.
+\]
+For a real $Y\ge1$, a superscript $>Y$ restricts either product to primes
+$p>Y$. Define also the positive rational, compensated tail
+\[
+ W_Y(T)=E_3^{>Y}(T)/C_3^{>Y}(T).
+\]
+It can be less than one. These are functions of actual factorizations, not
+abstract capacities.
+
+We use the prime-norm factorization already established in the moving-support
+supplement:
+\begin{equation}\label{eq:ep-factor}
+ z=u(1+\zeta)^{e_0}\prod_{i=1}^r\pi_i^{e_i},\qquad
+ M=3^{e_0}\prod_{i=1}^r q_i^{e_i},
+\end{equation}
+where $e_0\in\{0,1\}$, $q_i=N(\pi_i)\equiv1\pmod3$ are distinct primes,
+$e_i\ge1$, and a conjugate pair of factors is never used together.
+The only positive triple with $r=0$ is $(1,1,2)$; it is handled directly.
+The norm--boundary identity $\gcd(M,T)=1$ and
+\begin{equation}\label{eq:ep-cubic}
+ z^3-\bar z^3=3\sqrt{-3}\,T,\qquad
+ \frac34 c^2\le M\le c^2
+\end{equation}
+will be used with their full arithmetic hypotheses.
+
+\begin{definition}[A partition into exponent blocks]\label{def:ep-blocks}
+Let $\mathcal P=\{I_1,\ldots,I_m\}$ be any partition of $\{1,\ldots,r\}$
+into nonempty subsets. Put
+\[
+ k_j=\gcd\{e_i:i\in I_j\},\quad
+ w_j=\prod_{i\in I_j}\pi_i^{e_i/k_j},\quad
+ Q_j=N(w_j)=\prod_{i\in I_j}q_i^{e_i/k_j},\quad S=\sum_{j=1}^m k_j.
+\]
+Thus $k_j\ge1$, $Q_j\ge7$, and
+\begin{equation}\label{eq:ep-regroup}
+ z=u(1+\zeta)^{e_0}\prod_{j=1}^m w_j^{k_j},\qquad
+ \sum_j k_j\log Q_j=\log M-e_0\log3\le2t.
+\end{equation}
+The one-block partition has $k_1=g:=\gcd(e_1,\ldots,e_r)$.
+Grouping equal values of $e_i$ is another allowed partition; its number of
+blocks is the number of distinct positive exponents, not the number of primes.
+\end{definition}
+
+All assertions in \eqref{eq:ep-regroup} follow from integer divisibility and
+associative commutative multiplication. In particular grouping does not create
+an algebraic root: the displayed $w_j$ are elements of the original quadratic
+ring. Allowing a partition with a few blocks also handles $g=1$, for example
+when two blocks have coprime contents $k$ and $k+1$.
+
+\subsection{The two established inputs and their exact use}
+We use inequalities (1.2) and the first inequality of Theorem 1.3 of
+Bugeaud \cite{EPBugeaud2022}. In a number field of fixed degree $D$, the first
+asserts, for a nonzero integer linear form in $s$ fixed determinations of
+logarithms,
+\[
+ \log|b_1\log\alpha_1+\cdots+b_s\log\alpha_s|
+ \ge -c_D^s\prod_i h^*(\alpha_i)\log\max(3,|b_1|,\ldots,|b_s|).
+\]
+Zero coefficients can be deleted and a nonzero last coefficient chosen. The
+second, for $s\ge2$ and a product different from one, asserts
+\[
+ v_{\mathfrak p}\left(\prod_i\alpha_i^{b_i}-1\right)
+ <d_D^s p^D\prod_i h^*(\alpha_i)\log\max(3,|b_1|,\ldots,|b_s|).
+\]
+Here $v_{\mathfrak p}(p)=1$ and $h^*(\alpha)=\max(1,h(\alpha))$.
+The constants depend only on $D$. We use neither a conjectural refinement nor
+one branch of an unproved alternative. Our applications have $D=2$ throughout.
+These results are external established inputs, not new theorems proved or
+axiomatized in the companion Lean development.
+
+\begin{theorem}[Blockwise archimedean and non-archimedean bounds]
+\label{thm:ep-main}
+There is an effective absolute constant $C>2$ such that, for every partition
+in Definition~\ref{def:ep-blocks}, the quantity
+\begin{equation}\label{eq:ep-penalty}
+ \mathcal B_{\mathcal P}(z)=C^{m+1}\log(3+S)\prod_{j=1}^m\log Q_j
+\end{equation}
+satisfies, with $\lambda=(z/\bar z)^3$,
+\begin{align}
+ |\lambda-1|&\ge\exp(-\mathcal B_{\mathcal P}(z)),\label{eq:ep-angle}\\
+ v_p(T)&\le p^2\mathcal B_{\mathcal P}(z)\quad(p\mid T),\label{eq:ep-adic}\\
+ c^3&\le8\exp(\mathcal B_{\mathcal P}(z))R^3
+ \frac{E_3(T)}{C_3(T)},\label{eq:ep-height}\\
+ \log\prod_{\substack{p\mid T\\p\le Y}}p^{v_p(T)}
+ &\le\mathcal B_{\mathcal P}(z)Y^3\log Y\quad(Y\ge2).
+ \label{eq:ep-small}
+\end{align}
+The same conclusions hold with the minimum of
+$\mathcal B_{\mathcal P}(z)$ over all partitions. No sublinear bound for this
+minimum on all triples is asserted.
+\end{theorem}
+\begin{proof}
+Put $\eta_j=(w_j/\bar w_j)^3$. Both conjugates of $w_j$ have absolute value
+$\sqrt{Q_j}$, so $h(w_j)=\tfrac12\log Q_j$ and the height laws give
+$h^*(\eta_j)\le3\log Q_j$. None is one: otherwise $w_j^3=\bar w_j^3$,
+so each split prime factor of $w_j$ would also divide its conjugate, contrary
+to \eqref{eq:ep-factor}. The unit and ramified factors contribute respectively
+one and $(-1)^{e_0}$. Consequently
+\[
+ \lambda=(-1)^{e_0}\prod_j\eta_j^{k_j}\ne1,
+\]
+where nonvanishing also follows directly from \eqref{eq:ep-cubic} and $T>0$.
+Choose principal arguments $\log\eta_j=i\theta_j$, $|\theta_j|\le\pi$, and
+an integer $v$ for which
+\[
+ \Lambda=\sum_j k_j\log\eta_j+(e_0-2v)\log(-1)
+\]
+has imaginary part in $[-\pi,\pi]$. It is nonzero, and
+$|e_0-2v|\le1+S$. Apply the complex bound with at most $m+1$ logarithms,
+then use $|e^{ix}-1|\ge2|x|/\pi$ on that interval. All factors $3^m$,
+the constants for degree two, and the additive $\log(\pi/2)$ are absorbed
+in one absolute $C$, proving \eqref{eq:ep-angle}.
+
+For $p\mid T$, the identity $\gcd(M,T)=1$ implies that $z,\bar z$ and every
+$w_j,\bar w_j$ are units at places over $p$. Equation \eqref{eq:ep-cubic}
+gives
+\[
+ v_{\mathfrak p}(\lambda-1)
+ =v_p(T)+v_{\mathfrak p}(3\sqrt{-3})\ge v_p(T).
+\]
+Apply the second external bound to the $m+1\ge2$ numbers
+$\eta_1,\ldots,\eta_m,-1$ with coefficients $k_1,\ldots,k_m,e_0$.
+Retaining a zero last coefficient is permitted here. This proves
+\eqref{eq:ep-adic}, including the primes two and three. Summing and using
+$\sum_{p\le Y}p^2\log p\le Y^3\log Y$ proves \eqref{eq:ep-small}.
+
+Finally \eqref{eq:ep-cubic} and $M\ge3c^2/4$ give
+$T\ge c^3\exp(-\mathcal B_{\mathcal P})/8$.
+Prime by prime $T C_3(T)=R^3E_3(T)$, proving
+\eqref{eq:ep-height}. Dropping $C_3(T)\ge1$ recovers the one-sided
+bound. The compensated version retains all low-depth credit.
+There are finitely many partitions and every one gives all the stated
+inequalities. Choosing a minimizing partition is therefore legitimate.
+\end{proof}
+
+\section{Removing both prime-size and prime-count restrictions on explicit profiles}
+\label{sec:ep-classes}
+\begin{corollary}[One block, without fixing the root]\label{cor:ep-content}
+Let $g=\gcd(e_1,\ldots,e_r)$. Then an admissible penalty is
+\[
+ C^2\frac{\log M-e_0\log3}{g}\log(3+g)
+ \le2C^2t\frac{\log(3+g)}g.
+\]
+Neither the size nor the number of norm primes is restricted. For $g\ge64$,
+put $Y=g^{1/6}$. The full small-prime part satisfies
+\begin{equation}\label{eq:ep-content-small}
+ \log\prod_{\substack{p\mid T\\p\le g^{1/6}}}p^{v_p(T)}
+ \le\frac{C^2}{3}t\frac{\log(3+g)\log g}{\sqrt g}.
+\end{equation}
+Both ratios to $t$ tend to zero as $g\longrightarrow\infty$, uniformly in
+all other arithmetic data.
+\end{corollary}
+\begin{proof}
+Take the one-block partition in Theorem~\ref{thm:ep-main};
+$\log Q_1=(\log M-e_0\log3)/g$. Substitute $Y=g^{1/6}$ into
+\eqref{eq:ep-small}. The displayed limits are elementary.
+\end{proof}
+
+\begin{corollary}[A uniform restriction on unbalanced norm powers]
+\label{cor:ep-unbalanced}
+For each $0<\eta<1$ there is an effective $G_\eta$ such that every primitive
+positive triple with $g\ge G_\eta$ has
+\[
+ \min(a,b)>c^{1-\eta}.
+\]
+In particular this is uniform even when $M=3^{e_0}Q^g$ has arbitrarily large
+or numerous split prime factors in $Q$.
+\end{corollary}
+\begin{proof}
+If $\min(a,b)\le c^{1-\eta}$ then $T\le c^{3-\eta}$.
+The lower bound for $T$ in the proof of Theorem~\ref{thm:ep-main} yields
+\[
+ \eta t\le\log8+2C^2t\frac{\log(3+g)}g.
+\]
+But $t\ge g\log7/2$. Choose $G_\eta$ so large that, for every
+$g\ge G_\eta$, each of $2\log8/(g\log7)$ and
+$2C^2\log(3+g)/g$ is at most $\eta/3$. Dividing by $t$ gives a
+contradiction. Such a threshold is effective and depends only on $\eta$.
+\end{proof}
+
+\begin{theorem}[A high-content conditional class with no norm-support bound]
+\label{thm:ep-content-class}
+Fix $B\ge0$ and $\varepsilon>0$. There is an effective integer
+$G_{B,\varepsilon}$ such that every primitive positive triple with
+\[
+ g\ge G_{B,\varepsilon},\qquad
+ W_{g^{1/6}}(T)\le g^B
+\]
+satisfies $c\le R^{1+\varepsilon}$. In particular the stronger condition
+$E_3^{>g^{1/6}}(T)\le g^B$ suffices. The large-prime hypothesis is not
+asserted for all triples. In particular this is not a proof of standard $abc$.
+\end{theorem}
+\begin{proof}
+The small-prime contribution to $\log(E_3/C_3)$ is at most the left side of
+\eqref{eq:ep-content-small}; the large-prime contribution is at most
+$B\log g$. Since $t\ge g\log7/2$, the sum of $\log8$, the angular penalty,
+and $\log(E_3/C_3)$ divided by $t$ is at most
+\[
+ \frac{2\log8}{g\log7}
+ +2C^2\frac{\log(3+g)}g
+ +\frac{C^2}{3}\frac{\log(3+g)\log g}{\sqrt g}
+ +\frac{2B\log g}{g\log7}.
+\]
+This tends to zero independently of the norm primes. Choose the threshold
+so that it is at most $3\varepsilon/(1+\varepsilon)$ and apply
+\eqref{eq:ep-height} after taking logarithms.
+\end{proof}
+
+There is also a usual uniform-constant formulation on any explicitly fixed
+class for which $g\ge f(\log c)$ with a fixed function $f(t)\to\infty$ and
+the same excess hypothesis: beyond a threshold Theorem~\ref{thm:ep-content-class}
+applies, and below it finitely many triples are absorbed into $K_\varepsilon$.
+No assertion that $g$ diverges on all prospective counterexamples is made.
+
+\begin{theorem}[Several blocks, including global content one]
+\label{thm:ep-few}
+Fix an integer $d\ge1$ and reals $0<\delta<1$, $B\ge0$.
+For every $\varepsilon>0$ there is a constant
+$K_{d,\delta,B,\varepsilon}>0$ such that the standard $1+\varepsilon$
+inequality holds for every primitive positive triple admitting a partition with
+\begin{equation}\label{eq:ep-profile-condition}
+ m\le d,\qquad \prod_{j=1}^m k_j\ge t^{m-1+\delta},\qquad
+ W_{t^{\delta/12}}(T)\le t^B.
+\end{equation}
+These conditions define the class for $t\ge2$; the finitely many smaller
+triples may be included by enlarging the same constant. No restrictions on
+individual $q_i$ or their total count are imposed.
+\end{theorem}
+\begin{proof}
+Weighted AM--GM in \eqref{eq:ep-regroup} gives
+\[
+ \prod_j\log Q_j\le\frac{(2t/m)^m}{\prod_j k_j},\qquad
+ S\le\frac{2t}{\log7}.
+\]
+For $m\le d$, Theorem~\ref{thm:ep-main} therefore gives
+\[
+ \mathcal B_{\mathcal P}\le C_d t^{1-\delta}\log(3+t)
+ \le t^{1-\delta/2}
+\]
+past a threshold depending only on $d,\delta$. With $Y=t^{\delta/12}$,
+\eqref{eq:ep-small} is at most
+$(\delta/12)t^{1-\delta/4}\log t=o(t)$ uniformly. The small-prime contribution to $\log(E_3/C_3)$ is no greater than
+this full small-prime bound; the high-prime signed cost is at most
+$B\log t=o(t)$. In \eqref{eq:ep-height} absorb the total cost
+below $3\varepsilon t/(1+\varepsilon)$; this proves the result above a
+uniform threshold. Below it $K=\max(1,c_0)$ suffices.
+\end{proof}
+
+\subsection{Actual profiles not covered by a polylogarithmic norm-prime cutoff}
+There are infinitely many primes $q\equiv1\pmod3$. An elementary proof is to
+suppose a finite list, take $x$ equal to three times their product, and take a
+prime divisor of $x^2+x+1$. It is neither three nor any listed prime, and the
+order of $x$ modulo it is three, so it is another prime congruent to one.
+Choose $\pi_q$ of norm $q$ in the same ring, with one fixed orientation.
+
+First take $k=\lceil(\log q)^2\rceil$ and $z=\pi_q^k$. Its coordinates are
+primitive; a common rational prime divisor would require a conjugate factor.
+Its boundary is nonzero because its norm is greater than one and a primitive
+zero-boundary pair is a unit. After rotation it gives an actual triple with
+\[
+ g=k,\qquad \log c=\tfrac{k}{2}\log q+O(1)
+             \asymp(\log q)^3.
+\]
+Thus $q>(\log c)^A$ eventually for every fixed $A$ while the one-block
+angular and small-prime bounds apply uniformly. This demonstrates an infinite
+extension of the \emph{profile} domain, not an infinite family satisfying the
+additional unproved high-prime excess hypothesis.
+
+For a content-one example, let $q\ne7$, put $k=\lceil(\log q)^3\rceil$, and
+use $z=\pi_q^k(2+\zeta)^{k+1}$. It is again primitive and nondegenerate,
+its global content is $\gcd(k,k+1)=1$, and the two indicated blocks satisfy
+\[
+ \log c\asymp(\log q)^4,\qquad k(k+1)\asymp(\log q)^6.
+\]
+Hence their product exceeds $t^{1+\delta}$ for any fixed $\delta<1/2$ and
+large $q$. Again $q$ exceeds every fixed power of $t$. The profile hypothesis
+in Theorem~\ref{thm:ep-few} is consequently not just the earlier bounded-prime
+condition or a disguised common-power condition.
+
+\begin{proposition}[Exact limit on squarefree split-norm profiles]
+\label{prop:ep-squarefree}
+Suppose all split exponents $e_i$ equal one. Then the minimum of
+\eqref{eq:ep-penalty} over all partitions is exactly
+\[
+ \min_{\mathcal P}\mathcal B_{\mathcal P}(z)
+   =C^2\log4\,(\log M-e_0\log3).
+\]
+It is attained by the single block. In particular regrouping removes the
+previous artificial factor $\log\log c$ at a prime-norm endpoint, but
+cannot make this particular bound $o(\log c)$ there.
+\end{proposition}
+\begin{proof}
+Every block has $k_j=1$, hence $S=m$ and
+$\sum_j\log Q_j=\log M-e_0\log3=:V$. Set $l=\log7>1$.
+Since every $\log Q_j/l\ge1$, their product is at least their average;
+therefore $\prod_j\log Q_j\ge l^{m-1}V/m$.
+Also $C^{m-1}l^{m-1}\ge2^{m-1}\ge m$ for $m\ge1$.
+Thus every partition has penalty at least $C^2\log4\,V$, with equality
+for the single block. Since $V=2\log c+O(1)$, the last assertion follows.
+This concerns the proved bound, not a lower bound on the true angular defect.
+\end{proof}
+
+\section{A large-prime excess bound that cannot hold globally}
+\label{sec:ep-obstruction}
+An attempted global proof must not simply assert that every large-prime
+excess factor is small. That assertion is false even on triples that already
+satisfy the stronger bound $c<R$.
+
+We use only the classical Linnik theorem: there are absolute $A_0,L>0$ such
+that each reduced progression $a\bmod m$ contains a prime at most
+$A_0m^L$. Its quantitative form is recorded, for example, in
+Xylouris \cite{EPLinnik}. We do not require the best numerical exponent.
+
+\begin{theorem}[Deep large-prime excess with negative abc defect]
+\label{thm:ep-safe}
+Fix an integer $h\ge4$. For each odd prime $p$ let $\ell_p$ be the least
+prime in the progression $p^h-1\pmod {p^{h+1}}$, and put
+\[
+ (a_p,b_p,c_p)=(1,\ell_p,\ell_p+1).
+\]
+Then $v_p(c_p)=h$ and
+\[
+ p^h\le c_p\le (A_0+1)p^{(h+1)L'}
+\]
+for an absolute $L'\ge\max(1,L)$, after harmless enlargement of $A_0$.
+Moreover
+\[
+ R_p=\rad(a_pb_pc_p)\ge2\ell_p>c_p.
+\]
+For every fixed $A>0$, $p>(\log c_p)^A$ eventually and
+\begin{equation}\label{eq:ep-excess-no-go}
+ \liminf_{p\to\infty}
+ \frac{\log E_3^{>(\log c_p)^A}(a_pb_pc_p)}{\log c_p}
+ \ge\frac{h-3}{(h+1)L'}>0.
+\end{equation}
+Thus neither a uniform polylogarithmic bound on this raw excess nor its
+uniform $o(\log c)$ logarithmic bound is true on all primitive triples.
+The family is not a counterexample to $abc$ and does not refute the restricted
+norm-profile theorems above or in the preceding manuscript.
+\end{theorem}
+\begin{proof}
+The residue $p^h-1$ is coprime to $p^{h+1}$. Linnik supplies the upper bound.
+Write $\ell_p=p^h-1+jp^{h+1}$ with $j\ge0$. Then
+$c_p=p^h(1+jp)$, which proves exact valuation $h$ and the lower bound.
+The prime $\ell_p$ is larger than two, so it is odd and $2\mid c_p$;
+also $\gcd(\ell_p,c_p)=1$. These distinct supported primes imply
+$R_p\ge2\ell_p>c_p$.
+
+The height upper bound gives $\log c_p\le\log(A_0+1)+(h+1)L'\log p$.
+Consequently $p>(\log c_p)^A$ for large $p$. Its contribution to the
+restricted excess is $p^{h-3}$. Divide the logarithm of this contribution by
+the height bound and take the lower limit, proving \eqref{eq:ep-excess-no-go}.
+Finally $c_p\ge p^h$ makes the family height-unbounded.
+\end{proof}
+
+\begin{proposition}[Explicit compensation and an angular obstruction]
+\label{prop:ep-compensation}
+On the family in Theorem~\ref{thm:ep-safe},
+\[
+ E_3(T)=E_3(c_p),\qquad C_3(T)=\ell_p^2C_3(c_p),\qquad
+ \frac{E_3(T)}{C_3(T)}\le\frac{c_p}{\ell_p^2}.
+\]
+For every triple $1+b=c$, including this family,
+\[
+ -\log|(z/\bar z)^3-1|=\log c+O(1)
+ \quad(c\to\infty),
+\]
+with an absolute implied constant. Therefore a uniform sublinear angular
+penalty on \emph{all} triples is also impossible.
+\end{proposition}
+\begin{proof}
+The prime $\ell_p$ occurs with exponent one in $T=\ell_pc_p$ and is absent
+from $c_p$, giving the first two equalities. Use $E_3(c_p)\le c_p$ and
+$C_3(c_p)\ge1$ for the inequality.
+For $a=1,b=c-1$, $M=c^2-c+1$ and \eqref{eq:ep-cubic} gives exactly
+\[
+ |(z/\bar z)^3-1|=
+ \frac{3\sqrt3\,c(c-1)}{(c^2-c+1)^{3/2}}.
+\]
+After multiplication by $c$, this tends to $3\sqrt3$, proving the claim.
+\end{proof}
+
+This identifies an obstruction to bounding the archimedean and positive
+multiplicity losses independently, not to correlated methods. Indeed the
+exact identity with $\theta=4ab/c^2$ is
+\[
+ \left(\frac cR\right)^3
+ =\frac4\theta\frac{E_3(T)}{C_3(T)}.
+\]
+Proving the corresponding global correlated bound without new arithmetic
+input would be another expression of $abc$, not a completed bridge theorem.
+
+\section{Dependency audit, independent computations, and precise remaining gates}
+\label{sec:ep-audit}
+The positive proof chain is
+\[
+\begin{gathered}
+ \text{actual prime-norm factors}\ \longrightarrow\
+ \text{integer exponent blocks}\\
+ \mathrel{\phantom{\longrightarrow}}\Downarrow\quad
+ \text{two established logarithmic-form bounds}\\
+ \text{uniform block penalty and small-prime bound}.
+\end{gathered}
+\]
+The uniform $1+\varepsilon$ consequences additionally require their explicitly
+stated high-prime excess conditions. The Linnik construction independently
+proves that an unrestricted positive-excess smallness claim is false.
+The prime-norm terminal case has just one split exponent equal to one: there
+is no nontrivial exponent block to extract. It remains unresolved; the present
+method does not supply a hidden small predecessor for it.
+
+The exact verifier factors bounded norms, reconstructs their oriented ring
+factors, compares exponent-block products to the original coordinates, and
+independently checks norm products and primitive coordinates. It also certifies
+finite prime-neighbour examples by trial division and checks their exact
+valuation, radical and credit. Finite computations neither prove Linnik nor
+estimate unknown logarithmic-form constants. Machine-readable bounds and counts
+are recorded only after execution.
+
+The Lean companion proves the finite commutative multiplication and norm
+regrouping cores, universal arithmetic progression divisibility and
+nondivisibility, and explicit integer inequalities. These statements do not
+formalize the external logarithmic-form estimates, the general splitting
+classification, the Linnik existence theorem, or all asymptotic absorption.
+A successful scoped compile must not be reported as a full-repository build,
+independent peer review, autonomous-subagent audit, or a proof of standard $abc$.
+
+The retained gates are: control the \emph{correlated} large-prime multiplicity
+and low-depth credit; handle triples with bounded block contents or many
+arithmetically incompatible contents; and supply a new input for prime-norm
+terminal cases. The original IUT all-place comparison, FCRT arithmetic residual,
+Pell/Mersenne first-depth estimates, and geometric uniformity routes remain
+open at their previously recorded statements. The universal upper bounds on
+raw high-prime excess and on the angular defect alone are now specifically
+refuted, while their parent correlated routes remain active.
+
+\subsection{Even full low-depth credit cannot close this particular envelope}
+\label{sec:ep-envelope-limit}
+The squarefree-profile calculation permits a stronger audit of the proposed
+uniform gate. Let $\mathcal B_*(z)$ be the minimum partition penalty and set
+\[
+ \Psi(z)=\mathcal B_*(z)+\log\bigl(E_3(T)/C_3(T)\bigr).
+\]
+This is the remainder in the proved cubic upper bound, not the true defect.
+
+\begin{proposition}[An unbounded obstruction at prime-norm endpoints]
+\label{prop:ep-envelope-no-go}
+Along the infinite family of primitive positive triples with $M=q$ prime,
+\[
+ \Psi(z)\ge (2C^2\log4-6)\log c+O_C(1).
+\]
+In particular $\Psi=o(\log c)$ fails, and the uniform sufficient gate
+$\Psi\le3\varepsilon\log R+K_\varepsilon$ fails already at
+$\varepsilon=1/4$. Neither statement is a failure of standard $abc$.
+\end{proposition}
+\begin{proof}
+Every prime $q\equiv1\pmod3$ is the norm of a primitive element of the
+Eisenstein ring; rotation gives a positive nonzero-boundary pair. Infinitely
+many such primes were constructed above, and $c\ge\sqrt q$ is unbounded.
+There is only one split prime exponent and it equals one, so
+$\mathcal B_*=C^2\log4\log q$. Exact truncation gives
+$E_3(T)/C_3(T)=T/R^3$. Since $R\le T\le c^3/4$,
+\[
+ \log(T/R^3)\ge-2\log T\ge-6\log c+2\log4.
+\]
+Also $q\ge3c^2/4$. Combining proves the stated lower bound. For $C>2$,
+$2C^2\log4-6>5$, whereas $(3/4)\log R\le(9/4)\log c$.
+Their difference is unbounded, so no additive constant works at the displayed
+epsilon. The argument retires only the explicit logarithmic-form envelope
+as a universal sufficient gate. A sharper input for prime-norm endpoints,
+or a method using additional additive information, remains a different route.
+\end{proof}
