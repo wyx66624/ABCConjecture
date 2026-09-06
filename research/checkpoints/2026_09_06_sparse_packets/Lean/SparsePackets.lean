@@ -41,7 +41,11 @@ theorem small_multiple_zero (D k : Int) (hD : 0 < D)
     have hs := Int.mul_le_mul_of_nonneg_left hk (Int.le_of_lt hD)
     have ht : D ≤ D*k := by simpa using hs
     omega
-  omega
+  by_cases hk : k<0
+  · exact False.elim (hneg hk)
+  · by_cases hk' : 0<k
+    · exact False.elim (hpos hk')
+    · omega
 
 theorem small_divisible_zero (D x : Int) (hD : 0<D)
     (hd : D ∣ x) (hlo : -D<x) (hhi : x<D) : x=0 := by
