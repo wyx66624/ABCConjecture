@@ -136,15 +136,19 @@ theorem fixed_vector_forces_first_column (a b c d : Nat)
 theorem split_multiplier_identity (u : Int) :
     (u^6+1)^2-u^6 = u^12+u^6+1 := by grind
 
-theorem split_other_factor_at_D (u : Int) (hu : u^6 = -1) :
-    u^12+u^6+1=1 ∧ u^6-1 = -2 := by
+theorem split_other_factor_at_D (u : Int) :
+    u^12+u^6+1=u^6*(u^6+1)+1 ∧ u^6-1=(u^6+1)-2 := by
   constructor <;> grind
 
 theorem split_derivative_square (u : Int) :
     (2*u^6+1)^2+3 = 4*(u^12+u^6+1) := by grind
 
 theorem height_credit_integer_identity (T R E C : Nat) (h : T*C=R^3*E) :
-    4*T*C=4*R^3*E := by omega
+    4*T*C=4*R^3*E := by
+  calc
+    4*T*C = 4*(T*C) := Nat.mul_assoc 4 T C
+    _ = 4*(R^3*E) := congrArg (fun x : Nat => 4*x) h
+    _ = 4*R^3*E := (Nat.mul_assoc 4 (R^3) E).symm
 
 #print axioms family_sum
 #print axioms point_on_curve
