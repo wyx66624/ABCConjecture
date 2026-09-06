@@ -60,8 +60,11 @@ theorem cubic_boundary_upper (x y : Int) (hx : 0 ≤ x) (hy : 0 ≤ y) :
     4*boundary (x,y) ≤ (x+y)^3 := by
   have hs : 0 ≤ x+y := by omega
   have hsq : 0 ≤ (x-y)^2 := by
-    have h := Int.mul_self_nonneg (x-y)
-    simpa [Int.pow_two] using h
+    by_cases hz : 0 ≤ x-y
+    · simpa [Int.pow_two] using Int.mul_nonneg hz hz
+    · have hn : 0 ≤ -(x-y) := by omega
+      have hn2 := Int.mul_nonneg hn hn
+      grind
   have hmul := Int.mul_nonneg hs hsq
   have he := cubic_boundary_identity x y
   omega
