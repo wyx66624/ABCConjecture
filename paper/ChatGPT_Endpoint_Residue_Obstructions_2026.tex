@@ -1,0 +1,470 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=28mm]{geometry}
+\usepackage{microtype,booktabs,array,longtable}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Unbounded Boolean-Counting Obstructions in Endpoint Residue Packets}, pdfauthor={ChatGPT}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Endpoint residue obstructions}
+\fancyhead[R]{\small ChatGPT}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\ord}{ord}
+\newcommand{\FCRT}{B_{\mathrm{FCRT}}}
+\newcommand{\SCRT}{B_{\mathrm{SCRT}}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\pos}[1]{\left(#1\right)_{+}}
+\title{Unbounded Boolean-Counting Obstructions\protect\\in Endpoint Residue Packets}
+\author{ChatGPT}
+\date{September 5, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study a finite auxiliary inference in an endpoint-residue approach to the
+standard $abc$ conjecture. A previous repository note exhibited a primitive
+triple whose Boolean packet cube is larger than its residue group but has no
+proper packet in the prescribed endpoint fibre. We extend that obstruction
+to an infinite arithmetic family with an unbounded cube-to-group ratio.
+For each $e\ge2$, Dirichlet's theorem and the Chinese remainder theorem give
+squarefree products $B$ of $m=3^{e-1}$ distinct primes such that
+$v_2(B+1)=2$, $v_3(B+1)=e$, and only the full packet is compatible with the
+source $3$. A compatible saturated donor exists but has no such outgoing
+proper-face flag. Nevertheless every constructed triple satisfies
+$B+1<\rad(B(B+1))$ and has zero optimized flagged-CRT boundary. This
+separates failure of an overly strong local rule from failure of a global
+optimized estimate. We also give a standard antichain-based sufficient
+criterion, a finite algebraic Lean core, a fixed-modulus arithmetic
+formalization, and a deterministic exact replay. No proof or disproof of
+standard $abc$, SCRT-0, or FCRT-1 is claimed.
+\end{abstract}
+\noindent\textbf{Keywords.} $abc$ conjecture; residue packets; zero-sum subsets;
+Dirichlet's theorem; antichains; formal verification.
+
+\section{Problem and scope}
+For a positive integer $n$, let $\rad(n)$ be the product of its distinct prime
+divisors. The standard target throughout the repository is
+\begin{equation}\label{eq:abc}
+ \forall\varepsilon>0\ \exists K_\varepsilon>0\ \forall a,b,c\in\N_{>0},\qquad
+ \begin{gathered}a+b=c,\quad \gcd(a,b)=1\end{gathered}
+ \Longrightarrow c\le K_\varepsilon\rad(abc)^{1+\varepsilon}.
+\end{equation}
+The quantifiers in \eqref{eq:abc} are not replaced by a bounded search, a
+fixed-support theorem, or an alternative quality metric.
+
+This note continues the repository at commit
+\texttt{6118955}; the precise antecedents
+are the endpoint-residue and anchored-prefix notes of September 4
+\cite{repo}. Those notes already disprove the raw Boolean-counting shortcut
+at $(1,4715,4716)$. Our contribution is an unbounded arithmetic extension
+and its scope analysis, rather than a new refutation of an unexamined claim.
+The construction gives no estimate for the difficult positive-defect region.
+We make no claim of priority in the literature or of external peer review.
+
+\subsection{Endpoint notation}
+Fix a primitive positive triple $P=(a,b,c)$. In prime-indexed sets and
+products, $p$ and $q$ always denote primes. Write
+\[
+ I=\{p\mid c:v_p(c)\ge2\},\qquad J=\{q:q\mid ab\},
+ \qquad x_p=(v_p(c)-1)\log p,\quad y_q=\log q.
+\]
+Set $X=\sum_{p\in I}x_p$, $Y=\sum_{q\in J}y_q$. For $U\subseteq J$, take
+whole prime-power factors on the two arms:
+\[
+ a_U=\prod_{\substack{q\in U\\q\mid a}}q^{v_q(a)},\qquad
+ b_U=\prod_{\substack{q\in U\\q\mid b}}q^{v_q(b)}.
+\]
+If $p^{e_p}\Vert c$ with $e_p\ge2$, coprimality makes $a_U,b_U$ invertible
+modulo $p^{e_p}$. Define
+\begin{equation}\label{eq:label}
+ G_p=(\Z/p^{e_p}\Z)^\times,\qquad
+ \Phi_p(U)=a_U b_U^{-1}\in G_p.
+\end{equation}
+Thus $p^{e_p}\mid a_U+b_U$ if and only if $\Phi_p(U)=-1$. The full packet
+always has this label. All subset products in this note are taken in the
+abelian group in \eqref{eq:label}.
+
+\subsection{The local flag and the global optimization}
+For a nonempty source face $S\subseteq I$ and nonempty packet $T\subseteq J$,
+put
+\[
+ M(S)=\prod_{p\in S}p^{e_p},\qquad x(S)=\sum_{p\in S}x_p,
+ \qquad y(T)=\sum_{q\in T}\log q.
+\]
+The pair $(S,T)$ is a compatible block when $M(S)\mid a_T+b_T$, and it is
+saturated when $x(S)\le y(T)$. It has surplus $\sigma=y(T)-x(S)$.
+In the repository's FCRT-1 rule, a block can send one unsplit, one-hop token
+to a residual source $p\notin S$ only if some nonempty proper $U\subsetneq T$
+satisfies $\Phi_p(U)=-1$. Its credit is
+\begin{equation}\label{eq:cap}
+ \rho=\min\{\sigma,y(U)\}.
+\end{equation}
+Selected blocks have disjoint source faces and disjoint sink packets;
+remaining sinks have exclusive residual owners. The optimized clipped
+residual is denoted by $\FCRT(P)$. Discarding all surplus gives $\SCRT(P)$.
+The previously proved accounting bound is
+\begin{equation}\label{eq:bridge}
+ \Delta(P):=\pos{\log c-\log\rad(abc)}\le\FCRT(P)\le\SCRT(P).
+\end{equation}
+The corresponding uniform upper estimate would imply \eqref{eq:abc}.
+It is not established here. A prescribed donor without an outgoing flag
+need not be part of an optimizing configuration.
+
+\section{Elementary order calculation}
+\begin{lemma}\label{lem:order}
+For every integer $e\ge1$,
+\[
+ v_3\bigl(2^{3^{e-1}}+1\bigr)=e,
+ \qquad \ord_{3^e}(2)=2\cdot3^{e-1}.
+\]
+\end{lemma}
+\begin{proof}
+Put $A_t=2^{3^t}$. Initially $A_0+1=3$. If $A_t=-1+3u$, then
+\[
+ A_t^2-A_t+1=3(1-3u+3u^2)
+\]
+has exact $3$-adic valuation one. The factorization
+\[
+ A_{t+1}+1=(A_t+1)(A_t^2-A_t+1)
+\]
+therefore proves $v_3(A_t+1)=t+1$ by induction.
+
+For the order statement, take a positive exponent $n$ with
+$2^n\equiv1\pmod{3^e}$. This first implies that $n$ is
+even. Write $n=2u$ and $u=3^t s$ with $3\nmid s$. The factorization
+\[
+ 4^{3^t}-1=(2^{3^t}-1)(2^{3^t}+1)
+\]
+has valuation $t+1$, since its first factor is not divisible by three.
+The geometric sum
+\[
+ \frac{4^{3^t s}-1}{4^{3^t}-1}
+   =\sum_{j=0}^{s-1}4^{3^t j}
+\]
+is congruent to $s$ modulo three, hence has valuation zero. Consequently
+$v_3(4^u-1)=1+v_3(u)$. Divisibility by $3^e$ requires $3^{e-1}\mid u$.
+The first part supplies the exponent $2\cdot3^{e-1}$, proving exactness.
+\end{proof}
+
+\section{An unbounded arithmetic obstruction}
+\begin{theorem}\label{thm:main}
+For each $e\ge2$, let $m=3^{e-1}$. There are infinitely many squarefree
+integers $B$, each with exactly $m$ distinct prime factors, for which the
+primitive triple $(1,B,B+1)$ has the following properties:
+\begin{enumerate}
+\item $v_2(B+1)=2$ and $v_3(B+1)=e$.
+\item $|G_3|=2m$. Every sink label equals $2^{-1}$ in $G_3$; the full
+packet has label $-1$, but no proper packet has label $-1$ and no nonempty
+packet has label one.
+\item The source face $\{2\}$ and the full sink packet form a compatible
+saturated block of positive surplus, but no proper-face flag can target $3$.
+\item The Boolean-cube/group-size ratio is $2^m/(2m)$ and is unbounded as
+$e$ increases.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Let $Q=3^{e+1}$. Since $8$ and $Q$ are coprime, the Chinese remainder theorem
+gives a residue $r$ modulo $8Q$ such that
+\begin{equation}\label{eq:crt}
+ r\equiv2\pmod Q,\qquad r\equiv3\pmod8.
+\end{equation}
+This residue is coprime to $8Q$. Dirichlet's theorem gives infinitely many
+primes in this progression; the same standard input is available in
+Mathlib \cite{dirichlet}. Choose $m$ distinct such primes $q_1,\ldots,q_m$
+and put $B=q_1\cdots q_m$. Varying the last prime above every bound proves
+infinitude for each fixed $e$. The integer $B$ is squarefree and the triple
+is primitive because its first coordinate is one.
+
+The number $m$ is odd, so $B\equiv3^m\equiv3\pmod8$. Therefore
+$v_2(B+1)=2$. Also
+\[
+ B+1\equiv2^m+1\pmod{3^{e+1}}.
+\]
+Lemma~\ref{lem:order} gives exact valuation $e$ for the right side and hence
+for $B+1$. The modulus $3^{e+1}$, rather than $3^e$, is necessary for this
+exact-valuation conclusion.
+
+Every prime occurs to the first power on the $B$-arm. Its label is
+$g=2^{-1}\pmod{3^e}$. By Lemma~\ref{lem:order}, $g$ has order $2m$ and
+$g^m=-1$. A packet of cardinality $k$ has label $g^k$. If $0\le k<m$, this
+cannot equal $g^m$ because exponents in $[0,2m)$ give distinct powers.
+If $0<k\le m$, it cannot equal one either.
+
+For the donor source $\{2\}$, the full modulus is four and the demand is
+$\log2$. The full sink packet is compatible and has capacity $\log B>\log2$.
+Its surplus is positive, but the proper target face necessary for a flag to
+$3$ does not exist. Indeed, a flag from any block to $3$ would require a
+proper subset of $J$ with target label $-1$ and is therefore impossible.
+
+Finally $|(\Z/3^e\Z)^\times|=2\cdot3^{e-1}=2m$. For $m\ge3$,
+\[
+ \frac{2^m}{2m}\ge\frac{\binom m3}{2m}
+ =\frac{(m-1)(m-2)}{12},
+\]
+which tends to infinity along $m=3^{e-1}$.
+\end{proof}
+
+\begin{corollary}\label{cor:constant}
+For every real $C>0$, some primitive endpoints with a compatible saturated
+donor satisfy $2^{|J|}>C|G_3|$ but have no proper target-compatible packet.
+\end{corollary}
+\begin{proof}
+Choose $e$ making the ratio in Theorem~\ref{thm:main} exceed $C$.
+\end{proof}
+
+\begin{remark}
+All equal-label fibres in the construction are rank layers: two subsets
+have the same label precisely when they have the same cardinality.
+There are very many collisions, but they are between incomparable sets.
+Their signed differences are relations in the group; they are not positive
+identity-product deletions. This is the exact obstruction to substituting a
+raw Boolean pigeonhole argument for a nested-packet argument.
+\end{remark}
+
+\section{The optimized boundary is zero}
+\begin{proposition}\label{prop:zero}
+Every point constructed in Theorem~\ref{thm:main} satisfies
+\[
+ c<\rad(abc),\qquad \Delta(P)=0,\qquad
+ \FCRT(P)=\SCRT(P)=0.
+\]
+\end{proposition}
+\begin{proof}
+Squarefreeness and $\gcd(B,B+1)=1$ give
+\[
+ \rad(abc)=B\rad(B+1)\ge6B>B+1=c,
+\]
+since both two and three divide $B+1$. This proves the first two claims.
+For completeness, prime factorization gives the exact identities
+\[
+ X=\log\frac{c}{\rad(c)},\quad Y=\log B,\quad
+ X-Y=\log c-\log\rad(abc)<0.
+\]
+The full block $(I,J)$ is compatible: its modulus divides $c=1+B$.
+It is saturated because $X<Y$ and covers every source, leaving no residual.
+The boundary is nonnegative by definition, so both optimized boundaries
+are zero.
+\end{proof}
+
+The distinction between Theorem~\ref{thm:main} and
+Proposition~\ref{prop:zero} is essential. The family refutes the assertion
+that \emph{every prescribed saturated donor} has a useful outgoing flag.
+It does not refute the existence of a good \emph{chosen configuration}.
+In particular it supplies neither the fixed-positive-$\varepsilon$
+counterfamily required to refute \eqref{eq:abc}, nor a counterfamily to the
+optimized FCRT-1 uniform estimate.
+
+The valid anchored-prefix criterion of the previous note is untouched.
+Every nonempty reservoir in our construction generates a group of order
+$2m$ but has at most $m$ generators. Its sufficient prefix-count hypothesis
+therefore fails. The relevant research task is to find useful configurations
+on the positive-defect region $X>Y$, not to insist on this stronger local
+condition at arbitrary easy points.
+
+\section{A valid positive antichain criterion}
+The following standard combinatorial argument replaces the invalid raw-count
+inference by a sufficient condition with a proved bound. It is not presented
+as a new global estimate.
+
+\begin{lemma}\label{lem:sperner}
+An antichain of subsets of an $m$-element set has at most
+$\binom{m}{\lfloor m/2\rfloor}$ members.
+\end{lemma}
+\begin{proof}
+Each ordering of the ground set gives a maximal chain, for a total of $m!$
+chains. An $r$-element subset belongs to exactly $r!(m-r)!$ such chains.
+An antichain $\mathcal A$ meets any chain at most once, hence
+\[
+ \sum_{A\in\mathcal A}\frac{1}{\binom m{|A|}}\le1.
+\]
+Every binomial coefficient in the denominators is at most the central one,
+which gives the asserted cardinality bound.
+\end{proof}
+
+\begin{theorem}\label{thm:antichain}
+Attach labels in an abelian group to the elements of an $m$-element set $T$.
+Suppose every subset product belongs to a finite subgroup of order $h$. If
+\begin{equation}\label{eq:antichain}
+ 2^m>h\binom m{\lfloor m/2\rfloor},
+\end{equation}
+then a nonempty subset $D\subseteq T$ has product one. If the full packet
+has label $\tau\ne1$, then $T\setminus D$ is a nonempty proper packet with
+label $\tau$.
+\end{theorem}
+\begin{proof}
+Assume no nonempty identity-product subset exists. A label fibre is an
+antichain: if $A\subsetneq B$ have equal products, cancellation gives the
+nonempty identity-product subset $B\setminus A$. Lemma~\ref{lem:sperner}
+bounds each fibre by the central binomial coefficient. There are at most
+$h$ fibres, contradicting \eqref{eq:antichain}. For the complement statement,
+$D$ cannot be all of $T$ because the full label is not one; cancellation
+then gives the target label for its nonempty proper complement.
+\end{proof}
+
+\begin{corollary}\label{cor:weighted}
+Let a block $(S,T)$ be jointly compatible with a residual target $p\notin S$, with surplus
+$\sigma\ge0$. Suppose a reservoir $K\subseteq T$ satisfies
+\eqref{eq:antichain} with its own size and generated subgroup, and suppose
+$y(K)\le x(S)$. Then an FCRT proper-face flag to $p$ reuses all of $\sigma$.
+\end{corollary}
+\begin{proof}
+The theorem gives a nonempty deletion $D\subseteq K$ with identity label.
+Its weight is at most $y(K)\le x(S)$. The complement $U=T\setminus D$
+has target label and satisfies
+\[
+ y(U)=y(T)-y(D)\ge y(T)-x(S)=\sigma.
+\]
+The cap in \eqref{eq:cap} therefore equals $\sigma$.
+\end{proof}
+
+The extra width factor in \eqref{eq:antichain} prevents the raw counting
+mistake. The criterion can be weaker than a useful ordered light-reservoir
+argument, and no theorem here forces its weighted hypotheses on actual
+positive-defect endpoints.
+
+\section{Formalization and exact replay}
+\subsection{Finite algebraic kernel}
+The companion \texttt{EndpointConstantResidueObstruction.lean} contains
+nine public theorems. It proves injectivity on the first half of a cyclic
+orbit, the absence of identity-product nonempty packets, the absence of
+proper packets in the full target fibre, and equal-rank collisions. The
+hypothesis $\ord(g)=2m$ is explicit. The final declaration invokes Mathlib's
+established Dirichlet theorem rather than adding an arithmetic axiom.
+The relevant order API is documented in \cite{order}.
+
+This core was strictly compiled under Lean 4.32.0 on the research commit
+\texttt{c09e57f}. The dedicated PR run
+\texttt{33956603573} completed successfully. The nine printed axiom reports
+have union
+\[
+ \{\texttt{propext},\ \texttt{Classical.choice},\ \texttt{Quot.sound}\}.
+\]
+No global abc or uniform FCRT hypothesis occurs in these theorem types.
+
+\subsection{A fixed-modulus arithmetic specialization}
+The further companion \texttt{EndpointResidueArithmeticFamily.lean}
+expresses an unbounded family without any abstract group-order premise.
+Fix the primes $83$ and $947$, both congruent to $83$ modulo $216$, and take
+an arbitrarily large prime
+\[
+ p\equiv83\pmod{216},\qquad p>947.
+\]
+Set $B=83\cdot947\cdot p=78601p$. Then $B\equiv35\pmod{216}$, giving
+\[
+ 4\mid B+1,\quad8\nmid B+1,\quad9\mid B+1,\quad27\nmid B+1.
+\]
+Every factor is $2$ modulo nine. A proper packet has cardinality zero, one
+or two, so its product is respectively $1$, $2$ or $4$ modulo nine; adding
+one never gives zero. Dirichlet's theorem supplies $p$ above every bound.
+These are precisely the arithmetic assertions of the specialization.
+Its execution status is recorded in the accompanying verification report,
+not inferred from the successful build of the earlier algebraic module.
+
+The full $e$-uniform CRT/valuation realization, the logarithmic optimization
+in Proposition~\ref{prop:zero}, and the antichain argument are ordinary
+proofs in this manuscript. They are not labelled fully formalized merely
+because one companion file compiles.
+
+\subsection{Deterministic finite evidence}
+The included Python program has no third-party dependencies. It selects the
+first required primes in \eqref{eq:crt}, proving primality by trial division
+through the integer square root. It checks exact $2$- and $3$-adic
+valuations and the complete modular orbit. As the label depends only on
+cardinality, checking all possible cardinalities covers every subset label
+without enumerating all $2^m$ subsets.
+
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+$e$ & $m$ & $|G_3|$ & Largest chosen prime & Digits of $B+1$\\
+\midrule
+2 & 3 & 6 & 1,163 & 8\\
+3 & 9 & 18 & 16,931 & 33\\
+4 & 27 & 54 & 195,131 & 133\\
+5 & 81 & 162 & 1,919,459 & 473\\
+6 & 243 & 486 & 23,608,667 & 1,675\\
+\bottomrule
+\end{tabular}
+\end{center}
+The first triple is $(1,91412963,91412964)$. All five rows pass the exact
+checks. The JSON digest is
+\begin{center}\small\ttfamily
+ ea56c8bc568e90311204e69e479534c9a7d\allowbreak
+ afa2214db2c3c060831434fee9621.
+\end{center}
+The output's zero optimized boundary is derived from the full-block proof,
+not from a numerical optimizer. The computation does not factor the large
+number $B+1$ and does not test a uniform abc estimate.
+
+\section{Relation to the other research routes}
+The new result neither supplies nor invalidates the source construction
+required by the repository's IUT program. Mochizuki's April 2026 report
+\cite{iut} describes a five-stage formalization plan and its then-early
+skeletal Stage 1. The report is not itself a released unconditional Lean
+term for \eqref{eq:abc}. At the repository baseline, the conditional
+\texttt{FourStageProgram} implication must still be distinguished from an
+inhabitant built out of the stated arithmetic source objects \cite{repo}.
+
+Likewise Bae's September 3 revision \cite{bae} gives an anchored-fibre
+selection lemma in a binomial-coefficient problem. It can be applied with
+its actual premises. Its application-specific tail estimates do not prove
+an endpoint-reservoir condition, and our obstruction explains one failed
+way of bypassing that missing step.
+
+The remaining parallel gates in the repository are not closed by a finite
+counting lemma. In a polynomial/Mason route, specialization and coefficient
+heights must still be controlled. In the Frey/Szpiro, Vojta and S-unit routes,
+constants must be uniform as the curves or supports vary. In Pell or
+primitive-divisor routes, existence of a primitive divisor does not itself
+supply exponent-one information. These are recorded as unresolved inputs,
+not reasons to discard their parent routes.
+
+\section{Conclusion}
+A Boolean cube may overwhelm an endpoint group by an arbitrarily large
+factor while containing no proper target-compatible packet. The phenomenon
+occurs on genuine primitive arithmetic triples with a valid saturated donor,
+not merely in an abstract group model. At the same time, every point in the
+construction is harmless for the optimized global problem: the full block
+has boundary zero. The next uniform theorem must therefore be about a
+well-chosen configuration in the positive-defect region and must respect
+nestedness and logarithmic weight, rather than infer a target face from raw
+cardinality alone. No unconditional closed term of type
+\texttt{ABCConjecture}, and no rigorous negation of that statement, results
+from this work.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{repo} \texttt{wyx66624/ABCConjecture}, research repository,
+commit \texttt{6118955}, September 4, 2026.
+In particular, \emph{Endpoint residue cubes and proper-subface flagged CRT
+surplus}, \emph{Anchored prefix fibres and weighted proper-face CRT flags},
+and \emph{ABC route bottlenecks}.\newline
+\url{https://github.com/wyx66624/ABCConjecture}
+\bibitem{dirichlet} The Mathlib Community, \emph{Primes in arithmetic
+progression}, theorem \texttt{Nat.forall\_exists\_prime\_gt\_and\_modEq}.
+\url{https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/LSeries/PrimesInAP.html}
+\bibitem{order} The Mathlib Community, \emph{Order of an element}, theorem
+\texttt{pow\_injOn\_Iio\_orderOf}.
+\url{https://leanprover-community.github.io/mathlib4_docs/Mathlib/GroupTheory/OrderOfElement.html}
+\bibitem{bae} J.~H.~Bae, \emph{Unbounded logarithmic limsup in Erd\H{o}s
+Problem 684 via shifted carry scheduling}, arXiv:2604.23784v3,
+September 3, 2026. \url{https://arxiv.org/html/2604.23784v3}
+\bibitem{iut} S.~Mochizuki, \emph{Formalization of IUT}, workshop slides,
+April 2026. \url{https://www.kurims.kyoto-u.ac.jp/~motizuki/Formalization%20of%20IUT%20(2026-04).pdf}
+\end{thebibliography}
+\end{document}
