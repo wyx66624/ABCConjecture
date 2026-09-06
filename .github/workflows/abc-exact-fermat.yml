@@ -1,0 +1,30 @@
+name: ABC exact Fermat field audit
+on:
+  push:
+    branches: ['verify/exact-fermat-20260906*']
+    paths: ['research/checkpoints/2026_09_06_exact_fermat/**', '.github/workflows/abc-exact-fermat.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fields:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Install exact arithmetic package
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq pari-gp
+      - name: Check actual field discriminants
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p verification-exact-fermat
+          gp --version 2>&1 | tee verification-exact-fermat/pari-version.txt
+          timeout 900 gp -q -f research/checkpoints/2026_09_06_exact_fermat/computation/field_check.gp | tee verification-exact-fermat/fields.log
+          grep -q '^ALL_ACTUAL_FIELD_DISCRIMINANTS_PASS$' verification-exact-fermat/fields.log
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: exact-fermat-field-audit
+          path: verification-exact-fermat/
+          retention-days: 7
