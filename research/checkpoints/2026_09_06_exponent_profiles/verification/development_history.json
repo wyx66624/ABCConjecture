@@ -1,0 +1,19 @@
+{
+  "status": "Historical scoped executions, not a standard ABC proof",
+  "runs": [
+    {
+      "run_id": 34015344307,
+      "commit": "ea56f6243700331b94d6976d634f392e38e43da0",
+      "conclusion": "failure",
+      "reason": "Structural induction simplification and unused-simp warnings; not accepted as a proof"
+    },
+    {
+      "run_id": 34015534201,
+      "commit": "4a042e213871246815509950ee095202129a110f",
+      "conclusion": "success",
+      "new_queries": 16,
+      "dependency_queries": 29,
+      "method": "Lean 4.32.2, warnings as errors, printed-axiom whitelist"
+    }
+  ]
+}

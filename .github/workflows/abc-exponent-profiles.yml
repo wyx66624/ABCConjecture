@@ -1,41 +1,70 @@
-name: ABC exponent profiles scoped verification
+name: ABC exponent profiles scoped verification and manuscript
 on:
   push:
     branches: ['verify/exponent-profiles-20260906*']
-    paths: ['research/checkpoints/2026_09_06_exponent_profiles/**', '.github/workflows/abc-exponent-profiles.yml']
+    paths:
+      - 'research/checkpoints/2026_09_06_exponent_profiles/**'
+      - '!research/checkpoints/2026_09_06_exponent_profiles/verification/build_validation.json'
+      - '.github/workflows/abc-exponent-profiles.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   verify:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
-      - name: Install isolated checksum-pinned Lean
+      - name: Scoped kernels and byte-identical exact replay
         shell: bash
         run: |
           set -euo pipefail
-          curl --fail --location --retry 3 -o /tmp/lean.tar.zst https://github.com/leanprover/lean4/releases/download/v4.32.2/lean-4.32.2-linux.tar.zst
-          echo '5f2069e6f5db73780f374ccb49ce8ea649aa20a0cebf0116816744c999ce72aa  /tmp/lean.tar.zst' | sha256sum -c -
-          tar --zstd -xf /tmp/lean.tar.zst -C /tmp
-          echo '/tmp/lean-4.32.2-linux/bin' >> "$GITHUB_PATH"
-      - name: Compile actual regrouping and progression statements
+          D=research/checkpoints/2026_09_06_exponent_profiles
+          mkdir -p verification-profiles
+          python3 "$D/verify.py" | tee verification-profiles/replay.log
+          ABC_LOG_DIR="$PWD/verification-profiles" bash "$D/wsl/verify_lean.sh"
+          python3 "$D/integrate.py" | tee verification-profiles/integration-first.json
+          sha256sum paper/ChatGPT_ABC_Uniformity_2026.tex > /tmp/integrated-source.sha256
+          python3 "$D/integrate.py" | tee verification-profiles/integration-second.json
+          sha256sum -c /tmp/integrated-source.sha256
+      - name: Install manuscript tools
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p /tmp/abc-profile-olean verification-profiles
-          lean --version | tee verification-profiles/compiler.txt
-          E=research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean
-          P=research/checkpoints/2026_09_06_exponent_profiles/Lean/ExponentProfiles.lean
-          C=research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py
-          lean -DwarningAsError=true -o /tmp/abc-profile-olean/EisensteinDescent.olean "$E" | tee verification-profiles/dependency.log
-          python3 "$C" "$E" verification-profiles/dependency.log
-          LEAN_PATH=/tmp/abc-profile-olean lean -DwarningAsError=true "$P" | tee verification-profiles/profiles.log
-          python3 "$C" "$P" verification-profiles/profiles.log
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq texlive-latex-extra texlive-fonts-recommended cm-super latexmk
+          python3 -m pip install --quiet 'pypdf==5.9.0'
+      - name: Build actual master and standalone paper
+        shell: bash
+        run: |
+          set -euo pipefail
+          (cd paper && latexmk -pdf -interaction=nonstopmode -halt-on-error ChatGPT_ABC_Uniformity_2026.tex) > verification-profiles/master-build.log 2>&1
+          cp paper/ChatGPT_ABC_Uniformity_2026.pdf output/pdf/ChatGPT_ABC_Uniformity_2026.pdf
+          D=research/checkpoints/2026_09_06_exponent_profiles
+          (cd "$D/paper" && latexmk -pdf -interaction=nonstopmode -halt-on-error ChatGPT_ABC_Exponent_Profiles_2026.tex) > verification-profiles/standalone-build.log 2>&1
+          python3 "$D/record_build.py" | tee verification-profiles/build-validation.log
+      - name: Commit only reviewed generated paths on the verification branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$GITHUB_REF_NAME" in verify/exponent-profiles-20260906*) ;; *) echo 'Refusing write outside verification branch' >&2; exit 2;; esac
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- paper/ChatGPT_ABC_Uniformity_2026.tex paper/supplements/checkpoint_exponent_profiles_20260906.tex output/pdf/ChatGPT_ABC_Uniformity_2026.pdf research/checkpoints/2026_09_06_exponent_profiles/verification/build_validation.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Integrate scoped exponent-profile proofs and the rebuilt ABC manuscript; retain unresolved global status'
+            git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
+          fi
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: exponent-profile-kernel-review
-          path: verification-profiles/
+          name: exponent-profiles-integrated-review
           retention-days: 7
+          path: |
+            verification-profiles/
+            research/checkpoints/2026_09_06_exponent_profiles/
+            paper/ChatGPT_ABC_Uniformity_2026.tex
+            paper/ChatGPT_ABC_Uniformity_2026.log
+            paper/supplements/checkpoint_exponent_profiles_20260906.tex
+            output/pdf/ChatGPT_ABC_Uniformity_2026.pdf
+            .github/workflows/abc-exponent-profiles.yml
