@@ -1,0 +1,71 @@
+\section{Non-Archimedean localization of the remaining multiplicity}
+\label{sec:adic-moving}
+The angular estimate controls the infinite place, but does not bound the excess product. A second, independent input gives a uniform elimination of small boundary primes within the same norm-support regime.
+
+We use the first inequality of Bugeaud's Theorem~1.3 \cite{bugeaud}, a stated consequence of Yu's logarithmic-form estimates. Let $m\ge2$ and let $\alpha_i$ lie in a number field of degree $D$. For integers $b_i$ with $\prod_i\alpha_i^{b_i}\ne1$, put $B_0=\max(3,|b_1|,\ldots,|b_m|)$. At a place above the rational prime $p$, normalize the valuation by $v_{\mathfrak p}(p)=1$. There is an effective $c_D>0$, depending only on $D$, such that
+\begin{equation}\label{eq:yu-input}
+ v_{\mathfrak p}\left(\prod_i\alpha_i^{b_i}-1\right)
+ <c_D^m p^D\prod_i h^*(\alpha_i)\log B_0.
+\end{equation}
+Only this first inequality is used, not the conditional refinements or the open improvement discussed later in that source. This theorem is an established external input and is not formalized by the accompanying Lean module.
+
+\begin{theorem}[Uniform local multiplicity bound]\label{thm:adic-local}
+Enlarge the absolute constant $C_*$ in Theorem~\ref{thm:angle} once so it also dominates the degree-two constant in \eqref{eq:yu-input}. For every nontrivial primitive positive triple and every prime $p\mid abc$,
+\[
+ v_p(abc)\le p^2\HH(z).
+\]
+Consequently, for $Y\ge2$ and the full small-prime part
+\[
+ S_Y(abc)=\prod_{p\mid abc,\,p\le Y}p^{v_p(abc)},
+\]
+one has
+\begin{equation}\label{eq:small-mass}
+ \log S_Y(abc)\le \HH(z)Y^3\log Y.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Use the actual factorization of Lemma~\ref{lem:factors}. Since $\gcd(N(z),abc)=1$, both $z$ and $\bar z$ are units at every place above $p\mid abc$. The exact cubic identity implies
+\[
+ v_{\mathfrak p}(\lambda_z-1)
+  =v_p(abc)+v_{\mathfrak p}(3\sqrt{-3})
+  \ge v_p(abc).
+\]
+This also treats $p=2$ and $p=3$: the added valuation is zero except at three, where it is $3/2$ under the stated normalization.
+
+Write $\lambda_z=(-1)^{e_0}\prod_i\eta_i^{e_i}$ as in the angular proof. There are $r+1\ge2$ algebraic factors, all in the fixed quadratic field. Zero coefficients are permitted in \eqref{eq:yu-input}; hence the factor $-1$ can be retained also when $e_0=0$. The product is not one, by $P(z)\ne0$. The same coefficient and height estimates give
+\[
+ \log B_0\le\log(3+2\log c/\log7),\qquad
+ h^*(\eta_i)\le3\log q_i,\qquad h^*(-1)=1.
+\]
+Apply \eqref{eq:yu-input} with $D=2$ and absorb fixed factors into the common $C_*$. This proves the local bound uniformly in the rational prime $p$. Summing $v_p(abc)\log p$ for $p\le Y$ and using
+\[
+ \sum_{p\le Y}p^2\log p\le \lfloor Y\rfloor Y^2\log Y\le Y^3\log Y
+\]
+proves \eqref{eq:small-mass}, without a prime-number asymptotic.
+\end{proof}
+
+\begin{corollary}[Small primes require no separate multiplicity hypothesis]\label{cor:small-free}
+Fix $A>0$ and $0<\delta<1$. Suppose only the first two norm-support conditions in \eqref{eq:stratum} hold. With $t=\log c$ and $Y=t^{\delta/12}$, for all sufficiently large triples in this class,
+\[
+ \log S_Y(abc)\le \frac{\delta}{12}
+            t^{1-\delta/4}\log t=o(t)
+\]
+uniformly in the triple and its prime support. In particular the same bound holds for the contribution to $\log E_3(abc)$ from $p\le Y$.
+\end{corollary}
+\begin{proof}
+The proof of Theorem~\ref{thm:growing}, applied with the enlarged but still absolute constant, gives $\HH(z)\le t^{1-\delta/2}$ past a uniform threshold. Substitute $Y=t^{\delta/12}$ into \eqref{eq:small-mass}. Since $Y^3=t^{\delta/4}$ and $\log Y=(\delta/12)\log t$, the bound follows. The ratio to $t$ tends to zero because $t^{-\delta/4}\log t\to0$. No hypothesis on the small-prime multiplicities was used.
+\end{proof}
+
+\begin{theorem}[A larger, explicitly localized uniformity class]\label{thm:large-prime-stratum}
+Fix $A>0$, $B\ge0$, $0<\delta<1$ and $\eps>0$. There exists a constant $K_{A,B,\delta,\eps}>0$ such that $c\le K_{A,B,\delta,\eps}R^{1+\eps}$ for every primitive positive triple satisfying the first two conditions of \eqref{eq:stratum} and only the large-prime excess condition
+\[
+ \prod_{\substack{p\mid abc\\p>(\log c)^{\delta/12}}}
+        p^{(v_p(abc)-3)_+}\le(\log c)^B.
+\]
+All sufficiently small triples may again be included by enlarging the same constant. In particular, final exponents at most three are required only above the moving cutoff, not at the small primes.
+\end{theorem}
+\begin{proof}
+The low-prime contribution to $\log E_3$ is uniformly $o(\log c)$ by Corollary~\ref{cor:small-free}. The remaining contribution is at most $B\log\log c$, also uniformly $o(\log c)$. Together with $\HH(z)=o(\log c)$, insert these estimates into \eqref{eq:main} and use the same explicit $3\eps/(1+\eps)$ absorption as before. All thresholds depend only on the displayed parameters and the fixed external theorem constants.
+\end{proof}
+
+This is a genuine removal of a separate hypothesis on small-prime multiplicities, but only inside the stated norm-support class. The high-prime excess, large norm primes and unrestricted growing factor support are still not controlled. The theorem does not assert that its restricted class is infinite or that it covers all triples. The non-Archimedean estimates and their analytic use are ordinary/source-dependent proofs, not additional kernel-checked declarations.

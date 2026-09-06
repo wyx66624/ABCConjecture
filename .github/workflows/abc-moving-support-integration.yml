@@ -25,14 +25,14 @@ jobs:
           mkdir -p verification-moving
           python3 "$D/verify.py" | tee verification-moving/exact-replay.json
           ABC_LOG_DIR="$PWD/verification-moving" bash "$D/wsl/verify_lean.sh"
-          python3 "$D/integrate_monograph.py" > verification-moving/source-integration.json
+          python3 "$D/prepare_and_integrate.py" > verification-moving/source-integration.json
           cp verification-moving/source-integration.json /tmp/first-integration.json
-          python3 "$D/integrate_monograph.py" > /tmp/second-integration.json
+          python3 "$D/prepare_and_integrate.py" > /tmp/second-integration.json
           cmp /tmp/first-integration.json /tmp/second-integration.json
-      - name: Install manuscript tools
+      - name: Install manuscript tools and scalable Computer Modern fonts
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-recommended texlive-science latexmk
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-recommended texlive-science cm-super latexmk
           python3 -m pip install --quiet pypdf
       - name: Rebuild the actual master PDF and record scope
         shell: bash
@@ -56,8 +56,8 @@ jobs:
           sources=[Path('research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean'),Path('research/checkpoints/2026_09_05_eisenstein_descent/Lean/BoundaryGcd.lean'),Path('research/checkpoints/2026_09_05_rank_law/Lean/RankDepth.lean'),D/'Lean/MovingSupport.lean']
           counts=[len(re.findall(r'^#print axioms ',q.read_text(),re.M)) for q in sources]
           assert counts==[29,11,18,12],counts
-          hashes={str(q):hashlib.sha256(q.read_bytes()).hexdigest() for q in sources+[D/'verify.py',D/'integrate_monograph.py',Path('paper/ChatGPT_ABC_Uniformity_2026.tex')]}
-          result={'status':'PASS: scoped checks and rebuilt monograph; NOT a proof of ABC','tested_input_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'run_id':int(os.environ['GITHUB_RUN_ID']),'pdf_path':str(p),'pdf_pages':pages,'pdf_bytes':p.stat().st_size,'pdf_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'scoped_lean_queries':70,'new_lean_queries':12,'axiom_whitelist':['propext','Classical.choice','Quot.sound'],'hashes':hashes,'overfull_hbox_count_including_preserved_sources':len(re.findall(r'Overfull \\hbox',log)),'not_claimed':['standard ABC proof','full-repository Lean build','formalized logarithmic-form theorem','independent peer review','user WSL access']}
+          hashes={str(q):hashlib.sha256(q.read_bytes()).hexdigest() for q in sources+[D/'verify.py',D/'integrate_monograph.py',D/'prepare_and_integrate.py',Path('paper/ChatGPT_ABC_Uniformity_2026.tex')]}
+          result={'status':'PASS: scoped checks and rebuilt monograph; NOT a proof of ABC','tested_input_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'run_id':int(os.environ['GITHUB_RUN_ID']),'pdf_path':str(p),'pdf_pages':pages,'pdf_bytes':p.stat().st_size,'pdf_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'scoped_lean_queries':70,'new_lean_queries':12,'axiom_whitelist':['propext','Classical.choice','Quot.sound'],'hashes':hashes,'overfull_hbox_count_including_preserved_sources':len(re.findall(r'Overfull \\hbox',log)),'not_claimed':['standard ABC proof','full-repository Lean build','formalized logarithmic-form theorems','independent peer review','user WSL access']}
           (D/'verification/build_validation.json').write_text(json.dumps(result,indent=2)+'\n')
           for q in Path('verification-moving').glob('*.log'):
               if q.name!='latex-build.log': (D/'verification'/q.name).write_bytes(q.read_bytes())
