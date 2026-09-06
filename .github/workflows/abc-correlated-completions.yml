@@ -1,0 +1,38 @@
+name: ABC correlated completions scoped verification
+on:
+  push:
+    branches: ['verify/correlated-completions-20260906*']
+    paths: ['research/checkpoints/2026_09_06_correlated_completions/**', '.github/workflows/abc-correlated-completions.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Install checksum-pinned isolated Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 -o /tmp/lean.tar.zst https://github.com/leanprover/lean4/releases/download/v4.32.2/lean-4.32.2-linux.tar.zst
+          echo '5f2069e6f5db73780f374ccb49ce8ea649aa20a0cebf0116816744c999ce72aa  /tmp/lean.tar.zst' | sha256sum -c -
+          tar --zstd -xf /tmp/lean.tar.zst -C /tmp
+          echo '/tmp/lean-4.32.2-linux/bin' >> "$GITHUB_PATH"
+      - name: Compile exact arithmetic and audit all named axioms
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p verification-correlated
+          lean --version | tee verification-correlated/compiler.txt
+          F=research/checkpoints/2026_09_06_correlated_completions/Lean/CorrelatedCompletions.lean
+          sha256sum "$F" | tee verification-correlated/source.sha256
+          lean -DwarningAsError=true "$F" | tee verification-correlated/axioms.log
+          python3 research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py "$F" verification-correlated/axioms.log
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: correlated-completions-development-review
+          path: verification-correlated/
+          retention-days: 7
