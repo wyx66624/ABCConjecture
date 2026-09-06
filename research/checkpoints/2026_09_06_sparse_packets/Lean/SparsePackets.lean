@@ -29,15 +29,19 @@ theorem determinant_divides (da db dc r u v up vp : Int) :
 
 theorem small_multiple_zero (D k : Int) (hD : 0 < D)
     (hlo : -D < D*k) (hhi : D*k < D) : k=0 := by
-  by_contra hn
-  have hk : k ≤ -1 ∨ 1 ≤ k := by omega
-  rcases hk with hk | hk
-  · have hs := Int.mul_le_mul_of_nonneg_left hk (Int.le_of_lt hD)
+  have hneg : k<0 → False := by
+    intro h
+    have hk : k ≤ -1 := by omega
+    have hs := Int.mul_le_mul_of_nonneg_left hk (Int.le_of_lt hD)
     have ht : D*k ≤ -D := by simpa using hs
     omega
-  · have hs := Int.mul_le_mul_of_nonneg_left hk (Int.le_of_lt hD)
+  have hpos : 0<k → False := by
+    intro h
+    have hk : 1 ≤ k := by omega
+    have hs := Int.mul_le_mul_of_nonneg_left hk (Int.le_of_lt hD)
     have ht : D ≤ D*k := by simpa using hs
     omega
+  omega
 
 theorem small_divisible_zero (D x : Int) (hD : 0<D)
     (hd : D ∣ x) (hlo : -D<x) (hhi : x<D) : x=0 := by
@@ -60,7 +64,7 @@ theorem exact_three_lift (u : Int) :
 
 theorem lift_unit_mod_three (u : Int) :
     (1-3*u+3*u^2)%3=1 := by
-  simp [Int.add_emod,Int.sub_emod,Int.mul_emod]
+  simp [Int.add_emod,Int.sub_emod]
 
 theorem cubic_carry (u : Int) :
     (3*u-1)^3+1=9*u*(1-3*u+3*u^2) := by grind
