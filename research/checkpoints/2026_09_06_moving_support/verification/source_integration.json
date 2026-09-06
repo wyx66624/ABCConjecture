@@ -1,0 +1,100 @@
+{
+  "status": "Source integration; actual PDF and Lean builds are separate checks",
+  "base_commit": "9edd965d6df645dbebc0869530f3f5a40fb8cddc",
+  "baseline_master_sha256": "08762e9d25b4f024f09e3a732945ebd6078250723e90e5776b01b463753e504a",
+  "baseline_sealed_pdf_pages": 270,
+  "baseline_source_rebuild_pages": 281,
+  "integrated_master_sha256": "cd0a867057a2a89adeba041c26e84a72bcb6d3fa63385ecea80b72cfec56f175",
+  "sources": [
+    {
+      "tag": "fcrt",
+      "title": "Flagged CRT obstructions and exact divisor gaps",
+      "edition": "historical full proof body",
+      "source": "research/checkpoints/2026_09_05_chatgpt/paper/ChatGPT_ABC_FCRT_UnitGap_2026_09_05.tex",
+      "source_sha256": "4019362abd60bf362d1ffbf3ac085633185425add14659b4cf1d45b8d02fd8ad",
+      "integrated": "paper/supplements/checkpoint_fcrt_20260906.tex",
+      "integrated_sha256": "6c3d0dde18c9693bb35257d5bb6fb4b999a3eeab155f7b08250841ed2debbd0c",
+      "theorem_environments": 13
+    },
+    {
+      "tag": "signed",
+      "title": "Signed endpoint transport and exact losses",
+      "edition": "historical full proof body",
+      "source": "research/checkpoints/2026_09_05_chatgpt/paper/ChatGPT_ABC_Signed_Endpoints_2026_09_05.tex",
+      "source_sha256": "7f73a9f6b461878615e6748e1f74b69b528e5900c00bdc1d19bc146cd182312b",
+      "integrated": "paper/supplements/checkpoint_signed_20260906.tex",
+      "integrated_sha256": "807a95d98a33d95daea29746519b3e004c327cb2eb1958d5095247cbd9f9ee86",
+      "theorem_environments": 7
+    },
+    {
+      "tag": "multiflag",
+      "title": "Unitary faces, safe multiple outputs, and valuation lifting",
+      "edition": "historical full proof body",
+      "source": "research/checkpoints/2026_09_05_multiflag/paper/ChatGPT_ABC_Unitary_Multiflow_Lifting_2026_09_05.tex",
+      "source_sha256": "82e39831394d8ab113edc80d40c0c7418e53078d44e0afa0448e5803c71335f1",
+      "integrated": "paper/supplements/checkpoint_multiflag_20260906.tex",
+      "integrated_sha256": "c44013176cf138c3b8326f17d979164654a2c36c5c7a92e2ccc4aa8de37d97de",
+      "theorem_environments": 10
+    },
+    {
+      "tag": "normal",
+      "title": "Signed normal forms and arithmetic Wronskians",
+      "edition": "edited proof consolidation",
+      "source": "research/checkpoints/2026_09_05_normal_forms/paper/ChatGPT_ABC_Normal_Forms_Transversality_2026_09_05.tex",
+      "source_sha256": "276b4cd4335d17451ddb84b882978b368fabb10de668d0feb5d1fc121d431c96",
+      "integrated": "paper/supplements/checkpoint_normal_20260906.tex",
+      "integrated_sha256": "5637480f91d4e545e1306998d26bbf43c1002477caf3af7327fb31d17251e5e2",
+      "theorem_environments": 6
+    },
+    {
+      "tag": "transverse",
+      "title": "Quantitative transverse integer lifting",
+      "edition": "historical full proof body",
+      "source": "research/checkpoints/2026_09_05_transverse_lifting/paper/ChatGPT_ABC_Transverse_Lifting_2026_09_05.tex",
+      "source_sha256": "09860effa8eca75211b07087b4b0dfda35f554d8617932acf9c91b3d9d74d4b0",
+      "integrated": "paper/supplements/checkpoint_transverse_20260906.tex",
+      "integrated_sha256": "1fc1bf1c590417d79140e93fa3eb2903db6dbb93c81dfbf759324b74a426b9a8",
+      "theorem_environments": 11
+    },
+    {
+      "tag": "power",
+      "title": "Power-radical descent and first-depth obstructions",
+      "edition": "historical full proof body",
+      "source": "research/checkpoints/2026_09_05_power_descent/paper/ChatGPT_ABC_Power_Descent_2026_09_05.tex",
+      "source_sha256": "709a35ed2055ad34553fe7c6ea13cb395c5dfed389e173ea56efb42152a9347a",
+      "integrated": "paper/supplements/checkpoint_power_20260906.tex",
+      "integrated_sha256": "4ac4f34b174cd686ae9ad6d908f18cdc850ebe0eb35b029d339e0569f3ad4fd6",
+      "theorem_environments": 13
+    },
+    {
+      "tag": "eisenstein",
+      "title": "Eisenstein descent and strong boundary divisibility",
+      "edition": "historical full proof body",
+      "source": "research/checkpoints/2026_09_05_eisenstein_descent/paper/ChatGPT_ABC_Eisenstein_Descent_2026_09_05.tex",
+      "source_sha256": "af836b846f13c25b9760abb3e972a965eba7c8df3aa5acff64af5ccd2638d68c",
+      "integrated": "paper/supplements/checkpoint_eisenstein_20260906.tex",
+      "integrated_sha256": "fcbedc1fdd6f397ae0aa93e8bf72b72907b12891647d280f92344cb3c8a8d5e7",
+      "theorem_environments": 15
+    },
+    {
+      "tag": "rank",
+      "title": "First-appearance depth and the norm-seven orbit",
+      "edition": "edited proof consolidation",
+      "source": "research/checkpoints/2026_09_05_rank_law/paper/ChatGPT_ABC_Rank_Depth_2026_09_05.tex",
+      "source_sha256": "943ec535f82b355f9efc36cdada10a009294c393bd52e1c3adaaee0f19e784d6",
+      "integrated": "paper/supplements/checkpoint_rank_20260906.tex",
+      "integrated_sha256": "4132c34984252c5f59ba6fa9776208b48b42d79fb4ff3cedb799e5cd3ff325f1",
+      "theorem_environments": 5
+    },
+    {
+      "tag": "moving",
+      "title": "Moving norm support and compensated cubic boundaries",
+      "edition": "new supplement",
+      "source": "research/checkpoints/2026_09_06_moving_support/paper/ChatGPT_ABC_Moving_Support_2026_09_06.tex",
+      "source_sha256": "8252bc8e4742e25650d1bf656bc0042ed91678559ddcf6d3214e5e8ddfe95f64",
+      "integrated": "paper/supplements/checkpoint_moving_20260906.tex",
+      "integrated_sha256": "3f953a12c2421ec3bac88078e140ee5383b9a63cfa32a39ac8232affbfd62fbc",
+      "theorem_environments": 12
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+name: Eisenstein descent scoped certificates
+on:
+  push:
+    branches: ["verify/**", "main"]
+    paths:
+      - "research/checkpoints/2026_09_05_eisenstein_descent/**"
+      - ".github/workflows/abc-20260905-eisenstein.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  standalone-lean:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Install checksum-pinned standalone Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 -o /tmp/lean.tar.zst https://github.com/leanprover/lean4/releases/download/v4.32.2/lean-4.32.2-linux.tar.zst
+          echo '5f2069e6f5db73780f374ccb49ce8ea649aa20a0cebf0116816744c999ce72aa  /tmp/lean.tar.zst' | sha256sum -c -
+          tar --zstd -xf /tmp/lean.tar.zst -C /tmp
+          echo '/tmp/lean-4.32.2-linux/bin' >> "$GITHUB_PATH"
+      - name: Compile full boundary gcd and recurrence proofs
+        shell: bash
+        run: |
+          set -euo pipefail
+          lean --version
+          D=research/checkpoints/2026_09_05_eisenstein_descent/Lean
+          lean -DwarningAsError=true -o /tmp/EisensteinDescent.olean "$D/EisensteinDescent.lean" | tee /tmp/eisenstein-axioms.log
+          python3 research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py "$D/EisensteinDescent.lean" /tmp/eisenstein-axioms.log
+          LEAN_PATH=/tmp lean -DwarningAsError=true "$D/BoundaryGcd.lean" | tee /tmp/gcd-axioms.log
+          python3 research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py "$D/BoundaryGcd.lean" /tmp/gcd-axioms.log

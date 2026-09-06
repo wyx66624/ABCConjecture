@@ -1,0 +1,387 @@
+\documentclass[11pt]{amsart}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable,array,microtype,xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}\newcommand{\Q}{\mathbb Q}\newcommand{\N}{\mathbb N}
+\newcommand{\rad}{\operatorname{rad}}\newcommand{\eps}{\varepsilon}
+\newcommand{\EE}{\mathcal E}\newcommand{\HH}{\mathcal A}
+\title[Moving norm support and cubic boundary]{Moving Norm Support, Cubic Boundary Compensation,\\and a Uniformity Stratum for abc}
+\author{ChatGPT}
+\date{September 6, 2026}
+\subjclass[2020]{11D75, 11J86, 11R04, 68V15}
+\keywords{abc conjecture, Eisenstein integers, logarithmic forms, radical, multiplicity, formal verification}
+\begin{document}
+\begin{abstract}
+The preceding fixed-orbit argument absorbs first multiplicities through depth three but leaves its logarithmic-form constants tied to one generator. We remove that fixed-generator restriction in a specified range: for an arbitrary primitive triple, an effective angular penalty is bounded by an exponential in the number of distinct split norm primes times the product of their logarithms and a logarithm of the logarithmic height. This gives a uniform $1+\eps$ theorem on a class where the norm primes are polylogarithmic, their number may grow as $(1-\delta)\log\log c/\log\log\log c$, and the excess beyond cubic multiplicity has a polynomial logarithmic budget. We also prove an exact compensated truncation identity and an obstruction to absorbing fourth powers merely by increasing the degree in the boundary-size argument. A non-Archimedean logarithmic-form bound then controls the entire small-prime part uniformly on the same norm-support regime, so the cubic-excess restriction is needed only above a moving cutoff. All restrictions are explicit. The norm-prime terminal case and the unrestricted multiplicity budget remain unresolved; standard abc is neither proved nor disproved. The accompanying Lean module checks the integral algebra and finite-list accounting, not the external complex logarithmic-form theorem or its analytic application.
+\end{abstract}
+\hypersetup{pdfauthor={ChatGPT},pdftitle={Moving Norm Support, Cubic Boundary Compensation, and a Uniformity Stratum for abc}}
+\maketitle\raggedbottom
+
+\section{Objects and the exact scope of the continuation}
+Throughout $a,b,c$ are positive integers with $a+b=c$ and $\gcd(a,b)=1$. Set
+\[
+ T=abc,\qquad R=\rad(T),\qquad M=a^2+ab+b^2=c^2-ab.
+\]
+The target remains
+\[
+ \forall\eps>0\ \exists K_\eps>0\ \forall(a,b,c),\qquad c\le K_\eps R^{1+\eps}.
+\]
+A theorem on a restricted class is not this target. We explicitly retain the distinction between the radical of the boundary $T$ and the distinct primes in the auxiliary norm $M$.
+
+The project previously gave exact boundary overlap, norm descent, and a fixed norm-seven orbit, but no radical induction \cite{eis}. Its next supplement bounded the integer multiplicity contribution using complex logarithmic forms only for that fixed orbit \cite{rank}. The present argument joins that mechanism to varying prime-norm factorizations. The uniform constants derived below are not inherited from an unspecified fixed-base theorem.
+
+For an integer $k\ge1$ and $t\ge1$ define
+\[
+ E_k(t)=\prod_{p\mid t}p^{(v_p(t)-k)_+},\qquad
+ C_k(t)=\prod_{p\mid t}p^{(k-v_p(t))_+},\qquad (u)_+=\max(u,0).
+\]
+Empty products equal one. We call $E_k$ the excess beyond depth $k$ and $C_k$ the complementary truncated credit. These are concrete functions of the full prime factorization, not asserted small quantities.
+
+\section{Arithmetic factorization with support kept visible}
+Let $\zeta=(1+\sqrt{-3})/2$ and $\EE=\Z[\zeta]$. For $z=x+y\zeta$ put
+\[
+ N(z)=x^2+xy+y^2,\quad P(z)=xy(x+y),\quad
+ H(z)=\max(|x|,|y|,|x+y|).
+\]
+Multiplication in coordinates is
+\[
+ (x,y)(u,v)=(xu-yv,xv+yu+yv),
+\]
+and conjugation is $(x,y)\mapsto(x+y,-y)$. A pair is primitive when $\gcd(x,y)=1$.
+
+\begin{lemma}[Norm and boundary support are disjoint]\label{lem:disjoint}
+For every primitive pair $z$, including the zero-boundary units,
+\[
+ \gcd(N(z),|P(z)|)=1.
+\]
+Moreover, after positive unit rotation of a nonzero-boundary pair,
+\begin{equation}\label{eq:geometry}
+ \tfrac34H(z)^2\le N(z)\le H(z)^2,
+ \qquad 4|P(z)|\le H(z)^3.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The three integers $x,y,x+y$ are pairwise coprime. Modulo these integers the norm is respectively $y^2,x^2,y^2$. Thus each individual gcd is one, proving the first assertion by multiplication. If a factor is zero, primitivity forces the pair to be a unit, with norm one.
+Multiplication by $\zeta$ sends $(x,y)$ to $(-y,x+y)$ and permits a rotation to $x,y>0$. Here $H=x+y$ and $N=H^2-xy$; use $0\le xy\le H^2/4$. The final inequality is the identity
+\[
+ H^3-4P=H(x-y)^2\ge0.
+\]
+\end{proof}
+
+\begin{lemma}[The norm-prime representation]\label{lem:factors}
+For a primitive nonunit $z$ there are distinct rational primes $q_i\equiv1\pmod3$, elements $\pi_i$ of norm $q_i$, integers $e_i\ge1$, a unit $u$, and $e_0\in\{0,1\}$ such that
+\begin{equation}\label{eq:factor}
+ z=u(1+\zeta)^{e_0}\prod_{i=1}^{r}\pi_i^{e_i},
+ \qquad N(z)=3^{e_0}\prod_{i=1}^{r}q_i^{e_i}.
+\end{equation}
+One cannot use both orientations $\pi_i$ and $\bar\pi_i$ for the same $q_i$. If $z=(a,b)$ with $a,b>0$ and $r=0$, then $(a,b,c)=(1,1,2)$.
+\end{lemma}
+\begin{proof}
+In the complex quotient of two nonzero elements, round the two real coordinates in the basis $1,\zeta$. Both errors have absolute value at most $1/2$, and their norm is at most $3/4<1$. This is norm-Euclidean division; hence $\EE$ is a unique factorization domain.
+For a rational prime $q\ne3$, the polynomial $X^2-X+1$ has a root modulo $q$ exactly when $q\equiv1\pmod3$: its roots correspond to nontrivial cube roots of unity after changing sign, with the prime two checked directly. Thus a prime congruent to two modulo three is inert, whereas a split prime has two conjugate prime ideals of index $q$. In this principal ideal domain they have generators of norm $q$. An inert prime dividing $z$ would divide both coordinates. Likewise, both conjugate split factors dividing $z$ imply that the rational integer $q$ divides both coordinates. Neither can occur.
+Finally $(1+\zeta)^2=3\zeta$, so two ramified factors would again violate primitivity. Unique factorization proves \eqref{eq:factor}. With $r=0$, a nonunit primitive element is associated to $1+\zeta$; its only positive sector pair is $(1,1)$.
+\end{proof}
+
+This representation supplies an explicit variable support for logarithmic forms, not a radical descent. Lemma~\ref{lem:disjoint} prevents charging these norm primes directly to $R$. At a prime-norm endpoint there is still no smaller positive abc triple supplied by this factorization.
+
+\section{An external logarithmic-form input with its dependence retained}
+We use only inequality (1.2) of Theorem 1.1 in Bugeaud \cite{bugeaud}, stated there as a consequence of the classical complex logarithmic-form estimates of Waldschmidt and Matveev. In degree $D$, for fixed choices of logarithms and a nonzero form
+\[
+ \Lambda=b_1\log\alpha_1+\cdots+b_m\log\alpha_m,
+ \quad B=\max(3,|b_1|,\ldots,|b_m|),
+\]
+there is an effective $c_D>0$, depending only on $D$, for which
+\begin{equation}\label{eq:external}
+ \log|\Lambda|\ge-c_D^m\prod_{i=1}^m h^*(\alpha_i)\log B,
+ \qquad h^*(\alpha)=\max(1,h(\alpha)).
+\end{equation}
+The statement requires a nonzero coefficient in the last position; we may reorder or delete zero coefficients. It does not require multiplicative independence. This is an external established theorem, not proved in this paper and not encoded as a Lean axiom. We do not use the refinements involving $B'$ or $B''$, or a real-only version of Matveev's theorem.
+
+For an algebraic number $\theta$ of degree $d$ with primitive minimal polynomial $a_d\prod_j(X-\theta_j)$, our logarithmic height convention is
+\[
+ h(\theta)=\frac1d\left(\log|a_d|+\sum_j\log\max(1,|\theta_j|)\right).
+\]
+The standard height laws $h(uv)\le h(u)+h(v)$, $h(u^{-1})=h(u)$ and $h(u^m)=|m|h(u)$ follow equivalently by summing the corresponding local inequalities at all places.
+
+\begin{theorem}[A uniform varying-support angular penalty]\label{thm:angle}
+There is an effective absolute constant $C_*>2$ with the following property. For any primitive positive triple other than $(1,1,2)$, use the primes $q_i$ of Lemma~\ref{lem:factors}, set $t=\log c$, and define
+\begin{equation}\label{eq:penalty}
+ \HH(z)=C_*^{r+1}\log(3+t)\prod_{i=1}^r\log q_i.
+\end{equation}
+Then, for $\lambda_z=(z/\bar z)^3$,
+\begin{equation}\label{eq:angbound}
+ |\lambda_z-1|\ge\exp(-\HH(z)).
+\end{equation}
+In particular $C_*$ does not depend on the primes, their exponents, or their number.
+\end{theorem}
+\begin{proof}
+Put $\eta_i=(\pi_i/\bar\pi_i)^3$. These elements lie in the same degree-two field and have complex absolute value one. The two conjugates of $\pi_i$ have absolute value $\sqrt{q_i}$, so $h(\pi_i)=\frac12\log q_i$ and
+\[
+ h^*(\eta_i)\le3\log q_i
+\]
+by the height laws and $q_i\ge7$. Also $(1+\zeta)/(1+\bar\zeta)=\zeta$, and a unit contributes its sixth power, which is one. Thus
+\[
+ \lambda_z=(-1)^{e_0}\prod_i\eta_i^{e_i}.
+\]
+Each $\eta_i\ne1$: equality would make $\pi_i$ associated to its conjugate, impossible for a split prime. Cubic expansion gives
+\begin{equation}\label{eq:cubic}
+ z^3-\bar z^3=3\sqrt{-3}\,P(z).
+\end{equation}
+Hence $\lambda_z\ne1$ because $P(z)\ne0$.
+
+Choose principal arguments $\log\eta_i=i\theta_i$, with $|\theta_i|\le\pi$, and choose an integer $j$ so that
+\[
+ \Lambda=\sum_i e_i\log\eta_i+(e_0-2j)\log(-1)
+\]
+has imaginary part in $[-\pi,\pi]$. It is nonzero, and
+\[
+ |e_0-2j|\le1+\sum_i e_i,
+ \qquad \sum_i e_i\le\frac{\log N(z)}{\log7}\le\frac{2t}{\log7}.
+\]
+The coefficient size is therefore at most $3+2t/\log7$. Apply \eqref{eq:external} with at most $r+1$ logarithms in degree two and $h^*(-1)=1$. Since $|e^{iv}-1|\ge2|v|/\pi$ for $|v|\le\pi$, we get
+\[
+ -\log|\lambda_z-1|
+ \le c_2^{r+1}3^r\prod_i\log q_i\,
+       \log(3+2t/\log7)+\log(\pi/2),
+\]
+where we enlarge $c_2$ to at least one. Both the fixed factors and the last additive constant are absorbed by a fixed $C_*$ in \eqref{eq:penalty}, for example by taking $C_*\ge12\max(1,c_2)$. No generator is kept fixed in this argument.
+\end{proof}
+
+\section{Cubic radical control on a growing-support class}
+\begin{theorem}[A general estimate with a visible penalty]\label{thm:general}
+For every primitive positive triple, after increasing the same fixed constant if necessary,
+\begin{equation}\label{eq:main}
+ \boxed{c^3\le8e^{\HH(z)}R^3 E_3(abc).}
+\end{equation}
+For $(1,1,2)$ one may simply set $\HH=0$.
+\end{theorem}
+\begin{proof}
+Taking absolute values in \eqref{eq:cubic} gives
+\[
+ abc=\frac{N(z)^{3/2}}{3\sqrt3}|\lambda_z-1|.
+\]
+Since $N(z)\ge3c^2/4$, Theorem~\ref{thm:angle} yields
+\[
+ abc\ge c^3 e^{-\HH(z)}/8.
+\]
+Prime by prime $v_p(abc)\le3+(v_p(abc)-3)_+$, so $abc\le R^3E_3(abc)$. Combining proves \eqref{eq:main}. The omitted small triple satisfies it directly.
+\end{proof}
+
+The penalty in \eqref{eq:main} is not asserted sublinear in $\log c$ for all triples. In particular, a large prime norm has $r=1$ and $\log q\asymp\log c$, producing a penalty of order $\log c\log\log c$, not the required $o(\log c)$.
+
+\begin{corollary}[Fixed rank, varying primes]\label{cor:fixedrank}
+Fix an integer $r_0\ge0$ and real numbers $A>0$, $B\ge0$. For every $\eps>0$ there is $K_{r_0,A,B,\eps}>0$, independent of the triple and its prime support, such that
+\[
+ c\le K_{r_0,A,B,\eps} R^{1+\eps}
+\]
+for all triples with $r\le r_0$, every $q_i\le(\log c)^A$, and $E_3(abc)\le(\log c)^B$.
+\end{corollary}
+\begin{proof}
+With $t=\log c$, \eqref{eq:penalty} gives
+$\HH=O_{r_0,A}((\log t)^{r_0+1})=o(t)$ uniformly on this class. Also $\log E_3\le B\log t=o(t)$. Taking logarithms in \eqref{eq:main} and using these uniform bounds gives, for sufficiently large $c$,
+\[
+ 3\log c\le3\log R+\frac{3\eps}{1+\eps}\log c.
+\]
+Thus $\log c\le(1+\eps)\log R$. The finitely many smaller triples are absorbed in $K$, with a threshold depending only on the displayed parameters.
+\end{proof}
+
+\begin{theorem}[The number of norm primes may grow]\label{thm:growing}
+Fix $A>0$, $B\ge0$ and $0<\delta<1$. For every $\eps>0$ there exists $K_{A,B,\delta,\eps}>0$ such that the standard $1+\eps$ inequality holds uniformly on the class defined, for $c>\exp(\exp(e))$, by
+\begin{equation}\label{eq:stratum}
+ q_i\le(\log c)^A,\qquad
+ r\le(1-\delta)\frac{\log\log c}{\log\log\log c},
+ \qquad E_3(abc)\le(\log c)^B.
+\end{equation}
+Any smaller triples can be included by enlarging the same constant. No assertion that this class exhausts the triples, or contains an infinite sequence, is needed or made.
+\end{theorem}
+\begin{proof}
+Put $t=\log c$, $s=\log t$, $u=\log s$. As $c$ grows, all three tend to infinity. The first two conditions imply
+\[
+ \log\HH\le r\bigl(u+\log(AC_*)\bigr)+O(u)
+ \le(1-\delta)s\left(1+\frac{\log(AC_*)}{u}\right)+O(u).
+\]
+All implied constants are independent of the primes and their exponents. Since $u=o(s)$, the right side is at most $(1-\delta/2)s$ past a threshold depending only on $A,\delta$. Consequently
+\[
+ \HH\le t^{1-\delta/2},\qquad
+ \log E_3\le B\log t.
+\]
+These are uniformly $o(t)$. Apply the explicit absorption step in the preceding proof. Equivalently choose a threshold where
+$\log8+t^{1-\delta/2}+B\log t\le3\eps t/(1+\eps)$.
+For the smaller range $c\le c_0$ the choice $K=\max(1,c_0)$ already works, because $R\ge1$. This proves the required constant order without any dependence on individual prime supports.
+\end{proof}
+
+\section{Compensation, and a precise limit of the absorption mechanism}
+\begin{proposition}[Exact truncation, rather than discarding credit]\label{prop:credit}
+For every $t\ge1$ and $k\ge1$,
+\begin{equation}\label{eq:credit}
+ t C_k(t)=\rad(t)^k E_k(t).
+\end{equation}
+More generally, for any finite list $(p_i,s_i,\ell_i)$ of positive integer bases and nonnegative exponents, put $V=\prod_i p_i^{s_i+\ell_i}$, $R_*=\prod_i p_i$, $L=\prod_i p_i^{\ell_i}$, $F=\prod_i p_i^{(s_i-k)_+}$ and $C=\prod_i p_i^{(k-s_i)_+}$. Then
+\[
+ VC=R_*^k LF.
+\]
+No primality or distinctness is needed for this algebraic identity. Those hypotheses are necessary when interpreting $R_*$ as an actual radical.
+\end{proposition}
+\begin{proof}
+The exponent identity
+$s+\ell+(k-s)_+=k+\ell+(s-k)_+$ holds in the cases $s\le k$ and $s\ge k$. Multiply the corresponding prime-power equalities. For \eqref{eq:credit}, use the distinct actual prime factors, $s_i=v_{p_i}(t)$ and $\ell_i=0$.
+\end{proof}
+For example $t=2^6\cdot3$, $k=3$, gives $E_3=8$, $C_3=9$, and $192\cdot9=6^3\cdot8$. A large uncompensated excess is not on its own a statement that a radical bound fails.
+
+For the preceding norm-seven sequence, Proposition~\ref{prop:credit} gives
+\[
+ |U_n|\,\prod_{d_p\mid n}p^{(3-s_p)_+}
+  =\rad(|U_n|)^3\mathcal L_n
+    \prod_{d_p\mid n}p^{(s_p-3)_+}.
+\]
+It therefore retains the low-first-depth credits discarded in the one-sided bound. A uniform estimate on the resulting correlated quotient is still required; this exact identity is not advertised as an independent solution.
+
+\begin{proposition}[Cubic degree is a real barrier for this mechanism]\label{prop:degree}
+On the primitive norm-seven orbit $z_n=(2+\zeta)^n$, no constants $C>0$, $B\ge0$ can satisfy
+\[
+ H(z_n)^k\le C n^B |P(z_n)|\quad\text{for all }n\ge1
+\]
+when the fixed real exponent $k$ is greater than three.
+\end{proposition}
+\begin{proof}
+By \eqref{eq:geometry} and $N(z_n)=7^n$,
+\[
+ \frac{H(z_n)^k}{|P(z_n)|}
+ \ge4H(z_n)^{k-3}\ge4\,7^{n(k-3)/2}.
+\]
+An exponential with positive rate exceeds every fixed polynomial, proving the assertion.
+\end{proof}
+Thus first fourth powers cannot be absorbed merely by replacing a cubic size estimate by a quartic one with polynomial index loss. This refutes that precise modification, not all higher-order or multi-object methods.
+
+\section{Non-Archimedean localization of the remaining multiplicity}
+\label{sec:adic-moving}
+The angular estimate controls the infinite place, but does not bound the excess product. A second, independent input gives a uniform elimination of small boundary primes within the same norm-support regime.
+
+We use the first inequality of Bugeaud's Theorem~1.3 \cite{bugeaud}, a stated consequence of Yu's logarithmic-form estimates. Let $m\ge2$ and let $\alpha_i$ lie in a number field of degree $D$. For integers $b_i$ with $\prod_i\alpha_i^{b_i}\ne1$, put $B_0=\max(3,|b_1|,\ldots,|b_m|)$. At a place above the rational prime $p$, normalize the valuation by $v_{\mathfrak p}(p)=1$. There is an effective $c_D>0$, depending only on $D$, such that
+\begin{equation}\label{eq:yu-input}
+ v_{\mathfrak p}\left(\prod_i\alpha_i^{b_i}-1\right)
+ <c_D^m p^D\prod_i h^*(\alpha_i)\log B_0.
+\end{equation}
+Only this first inequality is used, not the conditional refinements or the open improvement discussed later in that source. This theorem is an established external input and is not formalized by the accompanying Lean module.
+
+\begin{theorem}[Uniform local multiplicity bound]\label{thm:adic-local}
+Enlarge the absolute constant $C_*$ in Theorem~\ref{thm:angle} once so it also dominates the degree-two constant in \eqref{eq:yu-input}. For every nontrivial primitive positive triple and every prime $p\mid abc$,
+\[
+ v_p(abc)\le p^2\HH(z).
+\]
+Consequently, for $Y\ge2$ and the full small-prime part
+\[
+ S_Y(abc)=\prod_{p\mid abc,\,p\le Y}p^{v_p(abc)},
+\]
+one has
+\begin{equation}\label{eq:small-mass}
+ \log S_Y(abc)\le \HH(z)Y^3\log Y.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Use the actual factorization of Lemma~\ref{lem:factors}. Since $\gcd(N(z),abc)=1$, both $z$ and $\bar z$ are units at every place above $p\mid abc$. The exact cubic identity implies
+\[
+ v_{\mathfrak p}(\lambda_z-1)
+  =v_p(abc)+v_{\mathfrak p}(3\sqrt{-3})
+  \ge v_p(abc).
+\]
+This also treats $p=2$ and $p=3$: the added valuation is zero except at three, where it is $3/2$ under the stated normalization.
+
+Write $\lambda_z=(-1)^{e_0}\prod_i\eta_i^{e_i}$ as in the angular proof. There are $r+1\ge2$ algebraic factors, all in the fixed quadratic field. Zero coefficients are permitted in \eqref{eq:yu-input}; hence the factor $-1$ can be retained also when $e_0=0$. The product is not one, by $P(z)\ne0$. The same coefficient and height estimates give
+\[
+ \log B_0\le\log(3+2\log c/\log7),\qquad
+ h^*(\eta_i)\le3\log q_i,\qquad h^*(-1)=1.
+\]
+Apply \eqref{eq:yu-input} with $D=2$ and absorb fixed factors into the common $C_*$. This proves the local bound uniformly in the rational prime $p$. Summing $v_p(abc)\log p$ for $p\le Y$ and using
+\[
+ \sum_{p\le Y}p^2\log p\le \lfloor Y\rfloor Y^2\log Y\le Y^3\log Y
+\]
+proves \eqref{eq:small-mass}, without a prime-number asymptotic.
+\end{proof}
+
+\begin{corollary}[Small primes require no separate multiplicity hypothesis]\label{cor:small-free}
+Fix $A>0$ and $0<\delta<1$. Suppose only the first two norm-support conditions in \eqref{eq:stratum} hold. With $t=\log c$ and $Y=t^{\delta/12}$, for all sufficiently large triples in this class,
+\[
+ \log S_Y(abc)\le \frac{\delta}{12}
+            t^{1-\delta/4}\log t=o(t)
+\]
+uniformly in the triple and its prime support. In particular the same bound holds for the contribution to $\log E_3(abc)$ from $p\le Y$.
+\end{corollary}
+\begin{proof}
+The proof of Theorem~\ref{thm:growing}, applied with the enlarged but still absolute constant, gives $\HH(z)\le t^{1-\delta/2}$ past a uniform threshold. Substitute $Y=t^{\delta/12}$ into \eqref{eq:small-mass}. Since $Y^3=t^{\delta/4}$ and $\log Y=(\delta/12)\log t$, the bound follows. The ratio to $t$ tends to zero because $t^{-\delta/4}\log t\to0$. No hypothesis on the small-prime multiplicities was used.
+\end{proof}
+
+\begin{theorem}[A larger, explicitly localized uniformity class]\label{thm:large-prime-stratum}
+Fix $A>0$, $B\ge0$, $0<\delta<1$ and $\eps>0$. There exists a constant $K_{A,B,\delta,\eps}>0$ such that $c\le K_{A,B,\delta,\eps}R^{1+\eps}$ for every primitive positive triple satisfying the first two conditions of \eqref{eq:stratum} and only the large-prime excess condition
+\[
+ \prod_{\substack{p\mid abc\\p>(\log c)^{\delta/12}}}
+        p^{(v_p(abc)-3)_+}\le(\log c)^B.
+\]
+All sufficiently small triples may again be included by enlarging the same constant. In particular, final exponents at most three are required only above the moving cutoff, not at the small primes.
+\end{theorem}
+\begin{proof}
+The low-prime contribution to $\log E_3$ is uniformly $o(\log c)$ by Corollary~\ref{cor:small-free}. The remaining contribution is at most $B\log\log c$, also uniformly $o(\log c)$. Together with $\HH(z)=o(\log c)$, insert these estimates into \eqref{eq:main} and use the same explicit $3\eps/(1+\eps)$ absorption as before. All thresholds depend only on the displayed parameters and the fixed external theorem constants.
+\end{proof}
+
+This is a genuine removal of a separate hypothesis on small-prime multiplicities, but only inside the stated norm-support class. The high-prime excess, large norm primes and unrestricted growing factor support are still not controlled. The theorem does not assert that its restricted class is infinite or that it covers all triples. The non-Archimedean estimates and their analytic use are ordinary/source-dependent proofs, not additional kernel-checked declarations.
+
+
+\begin{proposition}[From first-depth excess to the present budget]\label{prop:first-to-final}
+On the norm-seven orbit, with $P(z_n)=6U_n$, the exact local valuation law of the preceding supplement implies
+\[
+ E_3(|P(z_n)|)\le6\mathcal L_n F_n\le6nF_n.
+\]
+\end{proposition}
+\begin{proof}
+For each supported prime write $v_p(U_n)=s_p+\ell_p$. The elementary inequality
+\[
+ (s_p+\ell_p+v_p(6)-3)_+\le(s_p-3)_++\ell_p+v_p(6)
+\]
+gives the claim on multiplying; any prime supplied only by six contributes at most its factor in six. Finally $\mathcal L_n\mid n$. Thus a fixed polynomial bound on $F_n$ implies a polynomial logarithmic bound on the actual-boundary excess because $n\ll\log H_n$. This connects the preceding sufficient class to the present one without confusing first exponents with final exponents.
+\end{proof}
+
+\section{Dependency ledger and formal scope}
+The proof chain for Theorem~\ref{thm:growing} is
+\[
+ \begin{gathered}
+ \text{Euclidean factorization and heights}\\
+ +\text{established complex logarithmic forms}\\
+ \Longrightarrow\text{uniform angular penalty}\\
+ \Longrightarrow\text{general cubic estimate}\\
+ \Longrightarrow\text{the explicitly restricted uniform theorem}.
+ \end{gathered}
+\]
+The first arrow uses the external theorem \eqref{eq:external}; it is not a new proof of that theorem. None of the arrows asserts the unrestricted conditions \eqref{eq:stratum}.
+
+The companion \texttt{MovingSupport.lean} formalizes the full norm--boundary gcd theorem, the cubic cap, cubic conjugate coordinates, and the general finite-list compensated identity and its elementary consequences. It imports the earlier checked boundary module. The external logarithmic estimate, algebraic height bounds, Euclidean classification and analytic asymptotic absorption remain ordinary/source-dependent mathematics. Compiler output and axiom dependencies are recorded only after actual execution, separately from this mathematical text.
+
+The test program uses exact integer pairs and trial division for bounded factorization ranges; list identities use generated integer data. It does not numerically test the unknown effective constant in Theorem~\ref{thm:angle}, and it does not certify the unrestricted asymptotic conjecture. There is no claim of independent autonomous-agent review or external peer review.
+
+\begin{center}\small
+\begin{tabular}{p{.24\textwidth}p{.30\textwidth}p{.36\textwidth}}
+\toprule
+Direction & Reliable input & Remaining exact obligation\\\midrule
+Eisenstein / angular & Varying-support penalty, this paper & Large norm primes and general mixed support\\
+First-depth / packets & Exact compensated accounting & Uniform high-depth mass after low-depth credit\\
+Arithmetic derivatives & Constructive integer lifting & Global real transverse term, still at abc strength\\
+FCRT / multi-output & Once-charged accounting & Actual arithmetic uniform residual bound\\
+Pell / Mersenne & Rank and valuation ledgers & First-apparition weighted distribution at the required scale\\
+IUT / geometry & Source-labelled local interfaces & Full same-pilot all-place comparison and uniform height bound\\\bottomrule
+\end{tabular}
+\end{center}
+
+The new restricted theorem handles moving primes and a growing number of them, improving the fixed-generator scope of the preceding argument. It does not settle prime-norm terminal triples, prove a bound for $E_3(abc)$ on all triples, or show that the exact low-depth credits suffice globally. These are the places where a complete abc proof would still require genuinely new estimates. No unconditional \texttt{ABCConjecture} term is asserted.
+
+\begin{thebibliography}{9}
+\bibitem{bugeaud} Y.~Bugeaud, $B'$, arXiv:2209.00275v1 (2022), Theorem~1.1, equation~(1.2), and the first inequality of Theorem~1.3. \href{https://arxiv.org/abs/2209.00275}{Author's preprint}.
+\bibitem{eis} ChatGPT, \emph{Eisenstein descent and explicit proof audit}, project checkpoint of September 5, 2026. Checked algebraic modules at commit \texttt{b228479c215d45d6555e56a1f6b42c08b665a8fb}; the audit distinguishes ordinary proofs from formal theorems.
+\bibitem{rank} ChatGPT, \emph{First-Appearance Depth and Radical Growth in an Eisenstein Orbit}, September 5, 2026, accompanying project supplement.
+\bibitem{main} ChatGPT, \emph{Uniformity, Prime Support, and Reachable Lattices in Approaches to the abc Conjecture}, repository master source at \texttt{9edd965d6df645dbebc0869530f3f5a40fb8cddc}. The source and sealed 270-page PDF are separately versioned in the integration audit.
+\end{thebibliography}
+\end{document}

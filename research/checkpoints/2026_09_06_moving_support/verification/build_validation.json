@@ -1,0 +1,34 @@
+{
+  "status": "PASS: scoped checks and rebuilt monograph; NOT a proof of ABC",
+  "tested_input_commit": "0eff38e53261c59510b833c04d7c5321f495f9e4",
+  "run_id": 34013788658,
+  "pdf_path": "output/pdf/ChatGPT_ABC_Uniformity_2026.pdf",
+  "pdf_pages": 347,
+  "pdf_bytes": 2331579,
+  "pdf_sha256": "4ee38ad507ba5cf4a6d833706d224056993d4054b443a9f150fbb4b2c4010ade",
+  "scoped_lean_queries": 70,
+  "new_lean_queries": 12,
+  "axiom_whitelist": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "hashes": {
+    "research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean": "e5e15c14c4771fcf6bffd1d87bac67d23895cf02f40606188b2059d4cf3c944e",
+    "research/checkpoints/2026_09_05_eisenstein_descent/Lean/BoundaryGcd.lean": "bf3d463bbd3409f38c2340d8f691cb3fff9b5c3be9116c5aab770267fb4f5a1b",
+    "research/checkpoints/2026_09_05_rank_law/Lean/RankDepth.lean": "6be63607295d077bda7ce39964e7a47691988b039eeb27844f1f990e9d2b6832",
+    "research/checkpoints/2026_09_06_moving_support/Lean/MovingSupport.lean": "c5f059779139cb80cd62f7d35ac78375d22cefe419a66ceff74b8df6a881b569",
+    "research/checkpoints/2026_09_06_moving_support/verify.py": "34c645543e57f973447bfd8534dc7b9b4b98d77e14ef85ea5787fdeaf273e33e",
+    "research/checkpoints/2026_09_06_moving_support/integrate_monograph.py": "fad79634b7fd9e6cd2f8d5b986821ec813d3bfcb8a20bc45ed6dfb7992f0fd64",
+    "research/checkpoints/2026_09_06_moving_support/prepare_and_integrate.py": "b60321cf4daa574184120d7d4e8c1bb6507a89af501cabb49d008dd4a0db0f79",
+    "paper/ChatGPT_ABC_Uniformity_2026.tex": "cd0a867057a2a89adeba041c26e84a72bcb6d3fa63385ecea80b72cfec56f175"
+  },
+  "overfull_hbox_count_including_preserved_sources": 6,
+  "not_claimed": [
+    "standard ABC proof",
+    "full-repository Lean build",
+    "formalized logarithmic-form theorems",
+    "independent peer review",
+    "user WSL access"
+  ]
+}

@@ -1,0 +1,58 @@
+\clearpage
+\section{Integrated research edition: provenance and proof status}
+\label{sec:integration-20260906}
+This edition integrates six historical full mathematical proof bodies, two
+explicitly labelled proof consolidations (normal forms and rank/depth), and
+one new moving-support paper. It does not concatenate unrelated PDFs.
+The two consolidations retain the principal mathematical results with full
+proofs, but do not repeat unconfirmed historical runtime narratives or claim
+to be byte-identical reprints. Existing main-text mathematics is preserved;
+removing the labelled integration blocks recovers the hash-pinned master.
+References and local notation in the supplements have isolated namespaces.
+
+The original sealed PDF at the baseline commit has 270 pages. Rebuilding the
+current baseline source with pdfLaTeX gives 281 pages before these additions:
+the source already contains material not present in that sealed artifact.
+Thus the difference from 270 is not a count of newly proved pages. The old
+PDF remains recoverable from the baseline Git commit.
+
+\textbf{Global status.} Standard abc is neither proved nor disproved.
+The new theorem is uniform only on its explicitly stated growing-support
+class. None of the earlier sufficient gates is silently supplied.
+The complex logarithmic-form theorem is an established cited input; it is
+not proved or formalized by the present Lean modules.
+
+\begin{center}\small
+\begin{tabular}{p{.67\textwidth}r}
+\toprule Checkpoint & Starts on page\\\midrule
+Flagged CRT obstructions and exact divisor gaps & \pageref{checkpoint:fcrt}\\
+Signed endpoint transport and exact losses & \pageref{checkpoint:signed}\\
+Unitary faces, safe multiple outputs, and valuation lifting & \pageref{checkpoint:multiflag}\\
+Signed normal forms and arithmetic Wronskians & \pageref{checkpoint:normal}\\
+Quantitative transverse integer lifting & \pageref{checkpoint:transverse}\\
+Power-radical descent and first-depth obstructions & \pageref{checkpoint:power}\\
+Eisenstein descent and strong boundary divisibility & \pageref{checkpoint:eisenstein}\\
+First-appearance depth and the norm-seven orbit & \pageref{checkpoint:rank}\\
+Moving norm support and compensated cubic boundaries & \pageref{checkpoint:moving}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The integration workflow separately compiles the exact currently included
+sources with warnings as errors and an axiom whitelist restricted to
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+It checks the two Eisenstein modules (40 named queries), the rank/depth
+module (18), and the new moving-support module (12). The full norm--boundary
+gcd and general finite-list compensated identity are among the new checks.
+These are scoped algebraic certificates, not formalizations of the complete
+analytic theorem. Earlier CRT and normal-form drafts are not thereby
+certified, and no full-repository Lean build is claimed. Current compiler
+logs, source hashes and exact replay results are recorded separately.
+
+The original IUT all-place comparison, compensated packet gate, catalogue
+sparsity and Pell/Mersenne distribution obligations remain open. Algebraic
+coverage does not resolve unit terminals or prime-norm endpoints. The new
+result controls the varying-generator angular constant in a specified
+regime, while retaining the unrestricted multiplicity budget as an open
+problem. Hosted Ubuntu execution is not access to the user's personal WSL;
+no external peer review or independent autonomous-agent audit is claimed.
