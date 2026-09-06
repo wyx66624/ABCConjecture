@@ -1,0 +1,36 @@
+\subsection{Even full low-depth credit cannot close this particular envelope}
+\label{sec:ep-envelope-limit}
+The squarefree-profile calculation permits a stronger audit of the proposed
+uniform gate. Let $\mathcal B_*(z)$ be the minimum partition penalty and set
+\[
+ \Psi(z)=\mathcal B_*(z)+\log\bigl(E_3(T)/C_3(T)\bigr).
+\]
+This is the remainder in the proved cubic upper bound, not the true defect.
+
+\begin{proposition}[An unbounded obstruction at prime-norm endpoints]
+\label{prop:ep-envelope-no-go}
+Along the infinite family of primitive positive triples with $M=q$ prime,
+\[
+ \Psi(z)\ge (2C^2\log4-6)\log c+O_C(1).
+\]
+In particular $\Psi=o(\log c)$ fails, and the uniform sufficient gate
+$\Psi\le3\varepsilon\log R+K_\varepsilon$ fails already at
+$\varepsilon=1/4$. Neither statement is a failure of standard $abc$.
+\end{proposition}
+\begin{proof}
+Every prime $q\equiv1\pmod3$ is the norm of a primitive element of the
+Eisenstein ring; rotation gives a positive nonzero-boundary pair. Infinitely
+many such primes were constructed above, and $c\ge\sqrt q$ is unbounded.
+There is only one split prime exponent and it equals one, so
+$\mathcal B_*=C^2\log4\log q$. Exact truncation gives
+$E_3(T)/C_3(T)=T/R^3$. Since $R\le T\le c^3/4$,
+\[
+ \log(T/R^3)\ge-2\log T\ge-6\log c+2\log4.
+\]
+Also $q\ge3c^2/4$. Combining proves the stated lower bound. For $C>2$,
+$2C^2\log4-6>5$, whereas $(3/4)\log R\le(9/4)\log c$.
+Their difference is unbounded, so no additive constant works at the displayed
+epsilon. The argument retires only the explicit logarithmic-form envelope
+as a universal sufficient gate. A sharper input for prime-norm endpoints,
+or a method using additional additive information, remains a different route.
+\end{proof}

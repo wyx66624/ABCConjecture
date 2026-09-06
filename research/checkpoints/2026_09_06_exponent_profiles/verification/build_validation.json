@@ -1,0 +1,30 @@
+{
+  "status": "PASS: scoped kernels, exact finite replay and master PDF; NOT an ABC proof",
+  "tested_input_commit": "5bfccb65d82a75df659a843332ea280ecc3ef67d",
+  "run_id": "34016367820",
+  "baseline_commit": "e27d295939e2130e2565b4686549e6c4a3b6ac8a",
+  "pdf_pages": 353,
+  "pdf_bytes": 2369571,
+  "pdf_sha256": "fd73048426c64882d1d94e2d9e783e1a9c4695572d2573fe092e364682670567",
+  "new_lean_queries": 16,
+  "dependency_lean_queries": 29,
+  "axiom_whitelist": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "source_hashes": {
+    "paper/ChatGPT_ABC_Uniformity_2026.tex": "f1f673a4b1de8bba0979a76d69f826177ade04126ba61cc30b2f45fbbffc15a9",
+    "paper/supplements/checkpoint_exponent_profiles_20260906.tex": "229b3a688e5c08a1f75219838d7dff132e754d37fd5974eb625c5b07733987d6",
+    "research/checkpoints/2026_09_06_exponent_profiles/Lean/ExponentProfiles.lean": "c0ed12c413176a7362d2f9d4da98429ab76355239f785a9ff9b21e1ab94ccc49"
+  },
+  "overfull_hbox_count_including_baseline": 6,
+  "not_claimed": [
+    "standard ABC proof",
+    "whole manuscript formalization",
+    "full repository build",
+    "independent autonomous agents",
+    "external peer review",
+    "personal WSL access"
+  ]
+}

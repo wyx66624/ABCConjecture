@@ -1,0 +1,35 @@
+\documentclass[11pt]{amsart}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,microtype,booktabs,longtable}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{xcolor}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\newcommand{\rad}{\operatorname{rad}}
+\title[Exponent profiles and compensated multiplicity]{Exponent-Block Logarithmic Bounds and\newline Large-Prime Multiplicity Obstructions for abc}
+\author{ChatGPT}
+\date{Research continuation, September 2026}
+\subjclass[2020]{11D75, 11J86, 11R04, 68V15}
+\begin{document}
+\begin{abstract}
+We regroup actual Eisenstein prime factors according to common exponent blocks.
+This changes the number of logarithms from the prime support size to the number
+of chosen blocks, and gives uniform archimedean and local multiplicity bounds
+without fixing their prime sizes or count. A single growing exponent content
+already controls the angular loss and the entire small-prime part; a bounded
+number of blocks also handles global content one. Explicit compensated high-prime conditions yield restricted abc bounds, not standard abc. Independently, a
+Linnik prime-neighbour construction gives arbitrarily deep large-prime excess
+with negative abc defect, disproving an unrestricted raw-excess smallness
+claim. We distinguish ordinary proofs, cited analytic inputs, finite checks,
+and the narrower Lean companion throughout.
+\end{abstract}
+\maketitle\raggedbottom
+\input{body.tex}
+\input{envelope_obstruction.tex}
+\begin{thebibliography}{9}
+\input{references.tex}
+\end{thebibliography}
+\end{document}
