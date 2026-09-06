@@ -1,0 +1,684 @@
+\section{The correlation problem and the status of this continuation}
+\label{cr:scope}
+\noindent\textbf{Author: ChatGPT.} This is partial research, not a proof or a
+counterexample to standard $abc$. We preserve the previous distinction between
+an estimate valid on all triples and a construction of triples satisfying a
+stronger estimate. The present continuation proves two completion theorems,
+one elementary and one using a prime-element theorem, and a sharp
+ramification obstruction to one class of proposed normalizations. The
+completion theorems establish the required compensation on their actual
+outputs; they do not assert that every input triple is such an output.
+
+Let $a,b$ be coprime positive integers, $c=a+b$, $T=abc$, and
+$R=\operatorname{rad}(T)$. Put $\zeta=(1+\sqrt{-3})/2$,
+$\mathcal E=\mathbb Z[\zeta]$, $z=a+b\zeta$, and
+$M=N(z)=a^2+ab+b^2$. The norm factorization and common exponent content $g$
+are as in the preceding supplements \cite{CRProject2026}. In particular, $M$ prime implies $g=1$;
+more generally $v_7(M)=1$ implies $g=1$.
+
+For $j\ge1$ define the actual arithmetic products
+\[
+ E_j(T)=\prod_{p\mid T}p^{(v_p(T)-j)_+},\qquad
+ C_j(T)=\prod_{p\mid T}p^{(j-v_p(T))_+}.
+\]
+The already established identity $TC_j(T)=R^jE_j(T)$ gives, on setting
+\[
+ I(a,b)=\log\frac{c^2}{ab},\qquad
+ D_3(T)=\log E_3(T)-\log C_3(T),
+\]
+\begin{equation}\label{cr:identity}
+ I(a,b)+D_3(T)=3\log(c/R).
+\end{equation}
+Indeed $E_3/C_3=T/R^3$ and $c^2T/(ab)=c^3$. Consequently a universal
+upper bound for the left side at the $abc$ scale would be an equivalent
+reformulation, not an independently proved bridge. The new input below is
+instead an arithmetic construction that proves an exact formula for $R$ on
+many concrete completions, including prime-norm points.
+
+\begin{definition}[Specified valuation pattern and its completion]
+\label{cr:pattern}
+A pattern consists of a finite set $S$ of rational primes, integers $k_p\ge1$,
+and a specified arm for each $p\in S$. A completion is a primitive triple
+having $v_p(T)=k_p$ on the specified arm, with every other prime divisor of
+$T$ having exponent one. Write
+\[
+ G=\prod_{p\in S}p^{k_p-1}.
+\]
+Thus a completion satisfies the exact identity $T=GR$.
+\end{definition}
+
+\begin{lemma}[Exact compensated correlation on completions]\label{cr:compensation}
+Every completion satisfies
+\[
+ \frac cR=\frac G{ab},\qquad
+ I(a,b)+D_3(T)=3\log\frac G{ab}.
+\]
+In particular, $ab\ge G$ implies $c\le R$. No norm hypothesis is required.
+\end{lemma}
+\begin{proof}
+The exponent of each supported prime in $T/R$ is $v_p(T)-1$. The specified
+primes give $G$ and all other primes give one. Cancel $c>0$ in $abc=GR$,
+and use \eqref{cr:identity}.
+\end{proof}
+The point of a completion theorem is to establish such triples without
+assuming that their unspecified prime factors have the desired behavior.
+
+\section{An elementary completion theorem with maximal imbalance and content one}
+\label{cr:elementary}
+In this section let $S$ be any finite set of primes at least five, excluding
+seven, and assign each specified prime to $b$ or $c=b+1$. Set
+\[
+ m=1764\prod_{p\in S}p^{k_p+1},\qquad G=\prod_{p\in S}p^{k_p-1}.
+\]
+Choose the unique residue $r$ modulo $m$ specified by
+\begin{align*}
+ r&\equiv6\pmod{36},&r&\equiv2\pmod{49},\\
+ r&\equiv p^{k_p}\pmod{p^{k_p+1}}&&\text{if $p$ is assigned to $b$},\\
+ r&\equiv p^{k_p}-1\pmod{p^{k_p+1}}&&\text{if $p$ is assigned to $c$}.
+\end{align*}
+These are compatible by the Chinese remainder theorem. Empty $S$ is allowed.
+
+\begin{theorem}[Uniform elementary squarefree completion]\label{cr:elementary-main}
+For every real $X\ge400m^2$, at least $X/(4m)$ integers $b$ in the open
+interval $(X,2X)$ satisfy $b\equiv r\pmod m$ and make $(1,b,b+1)$ a
+completion. Every such triple has
+\begin{equation}\label{cr:elementary-correlation}
+ v_7(b^2+b+1)=1,\quad g=1,\quad
+ R=\frac{b(b+1)}G,\quad
+ \frac cR=\frac Gb<\frac mX\le\frac1{20\sqrt X}.
+\end{equation}
+Its imbalance is $I(1,b)=\log b+O(1)$, with an absolute constant.
+The assertion is uniform in the entire pattern, including its size and exponents.
+\end{theorem}
+\begin{proof}
+The progression has at least $X/m-1$ integers in $(X,2X)$. The congruence
+modulo 36 makes the exponents of two and three in $b(b+1)$ exactly one.
+The congruence modulo 49 excludes seven from $b(b+1)$ and gives
+$b^2+b+1\equiv7\pmod{49}$. The selected congruences give exactly $k_p$
+on the required arm; the other arm is a unit at $p$.
+
+It remains to remove squares of primes $\ell\ge5$ with $\ell\notin S\cup\{7\}$.
+Such a prime is coprime to $m$. The two conditions
+$b\equiv0,-1\pmod{\ell^2}$ give two distinct progressions modulo $m\ell^2$.
+Together they remove at most $2X/(m\ell^2)+2$ integers. A square that can
+occur has $\ell\le\sqrt{2X+1}$. The elementary telescoping estimate
+\[
+ \sum_{\ell\ge5\ {\rm prime}}\frac2{\ell^2}
+ <2\sum_{n=5}^\infty\frac1{n(n-1)}=\frac12
+\]
+therefore leaves at least
+\[
+ \frac X{2m}-1-2\sqrt{2X+1}.
+\]
+For $X\ge1$, $1+2\sqrt{2X+1}\le5\sqrt X$. Since
+$X\ge400m^2$, we have $X/(4m)\ge5\sqrt X$. The last display is consequently
+at least $X/(4m)$. This argument is a union bound; overlaps can only improve
+it. Every remaining integer has no unspecified squared prime divisor.
+
+Now $G\le m$ and Lemma~\ref{cr:compensation} give the radical and ratio.
+The pair $(1,b)$ is primitive. Since seven is a split norm prime and
+$v_7(M)=1$, the gcd of all positive split-norm exponents is one. Finally
+$I(1,b)=2\log(b+1)-\log b=\log b+O(1)$.
+\end{proof}
+
+\begin{corollary}[Both losses can be large while their compensated sum is negative]
+\label{cr:two-losses}
+There are completions with $g=1$, a large imbalance of order $\log c$, and
+large-prime excess of linear logarithmic size, although $c/R\to0$.
+Both large arms can have prescribed exponents at least four.
+More precisely fix $k\ge4$, choose primes $p<q<2p$, $p>7$, and prescribe
+exponent $k$ on $b$ at $p$ and on $c$ at $q$. Take $X=400m^2$ and any
+completion supplied by Theorem~\ref{cr:elementary-main}. Then for every fixed
+$A>0$, eventually $p,q>(\log c)^A$, and
+\[
+ \frac{\log E_{3,>(\log c)^A}(T)}{\log c}
+ \longrightarrow\frac{k-3}{2(k+1)},\qquad
+ \frac{I(1,b)+D_3(T)}{\log c}
+ \longrightarrow-\frac{3(k+3)}{2(k+1)}.
+\]
+\end{corollary}
+\begin{proof}
+Primes $q$ as stated exist by Bertrand's theorem. Here
+$m=1764(pq)^{k+1}$, $G=(pq)^{k-1}$, and
+$\log c=2(k+1)\log(pq)+O(1)$. The only exponents exceeding one are the two
+specified ones. Thus the large-prime excess is exactly $(pq)^{k-3}$ for large
+$p$. Also $\log(c/R)=\log G-\log b=-(k+3)\log(pq)+O(1)$.
+Divide and use Lemma~\ref{cr:compensation}. Since $\log c=O_k(\log p)$,
+$p$ eventually exceeds every fixed power of $\log c$.
+\end{proof}
+This is not a prime-norm family: seven divides its norm exactly once. It
+handles genuinely unbalanced content-one completions, not the prime-norm
+endpoint. The next argument treats that endpoint by a different mechanism.
+
+\section{Prime elements in rectangles: the external input and its exceptional term}
+\label{cr:prime-input}
+We use Kai's Theorem~3.1.1 \cite{CRKai2023}, an extension of Mitsui's prime-element
+theorem retaining a possible Siegel-zero term. We state only its specialization
+needed here. All field constants below are absolute because
+$K=\mathbb Q(\sqrt{-3})$ is fixed.
+
+For an integral ideal $\mathfrak q$, write
+$\Phi(\mathfrak q)=| (\mathcal E/\mathfrak q)^\times |$.
+Let $C$ be a convex open set in $|z|<4X$, with $|z|>X$, and let
+$\alpha$ be a unit residue modulo $\mathfrak q$. For suitable constants
+$a_0,b_0>0$, uniformly when
+$N\mathfrak q\le\exp(a_0\sqrt{\log X})$, the weighted prime-element count is
+\begin{equation}\label{cr:kai}
+ W(C;\mathfrak q,\alpha)
+ =\frac{6}{\pi\Phi(\mathfrak q)}
+ \int_C(1-\chi_{\mathfrak q}(z;\alpha)N(z)^{\beta_{\mathfrak q}-1})\,d\mu(z)
+ +O(X^2e^{-b_0\sqrt{\log X}}).
+\end{equation}
+Here $W$ sums $\log N(\pi)$ over prime elements in the specified set, $\mu$
+is ordinary area in $\mathbb C$, and the second integrand is omitted when
+there is no exceptional zero. Rescaling the parameter $X$ in the source by a
+fixed factor changes only $a_0,b_0$ and the absolute implied constant.
+A real finite-order Hecke character is trivial on the connected infinite-place
+group $\mathbb C^\times$, so its value at a fixed residue is constant, in
+$\{-1,1\}$. In particular the integrand lies between zero and two.
+The coefficient is $6/\pi$ because the field has six units, class number one
+and regulator one. In $(a,b)$ coordinates $d\mu=(\sqrt3/2)\,da\,db$;
+we abbreviate $\kappa=3\sqrt3/\pi$.
+
+We also use the usual zero-free-region consequence for \emph{nontrivial real
+finite-order} Hecke characters modulo one ideal: at most one has a real zero
+in
+\[
+ \beta>1-\frac{c_0}{\log(4N\mathfrak q)}
+\]
+for an absolute $c_0>0$; such a zero is less than one. This is the real-character
+part of the zero-free input recorded in \cite[Theorem 2.3.1]{CRKai2023}. We do
+not apply a zero-free statement to the pole of the trivial character, or
+assert a frequency-independent assertion for arbitrary infinite-type
+characters. Neither GRH nor the absence of Siegel zeros is assumed.
+These analytic results are external inputs, not newly proved theorems or
+axioms in the Lean companion.
+
+\begin{lemma}[A single excluded conductor at a scale]\label{cr:exception}
+For any $Q\ge2$, among primitive nontrivial real characters of conductor norm
+at most $Q$, at most one has a real zero
+\[
+ \beta>1-\frac{c_0}{\log(4Q^2)}.
+\]
+Call its conductor $\mathfrak f_Q$ if it exists. If
+$N\mathfrak q\le Q$ and $\mathfrak f_Q\nmid\mathfrak q$, then every exceptional
+term in \eqref{cr:kai} is at most
+$X^{-2c_0/\log(4Q^2)}$ in absolute value on $C$.
+\end{lemma}
+\begin{proof}
+Two distinct primitive characters would induce distinct characters modulo the
+least common multiple of their conductors, whose norm is at most $Q^2$.
+Both real zeros would be in the forbidden region for that modulus, contradicting
+the single-exception zero-free statement. Inducing a character changes only
+Euler factors, which introduce no real zeros in $(0,1)$; primitive conductors
+are unique. If the single conductor does not divide $\mathfrak q$, any
+exceptional zero of that modulus is no closer to one than the displayed
+threshold. Since $N(z)>X^2$, the asserted decay follows.
+\end{proof}
+
+\section{Prime-norm completions with a moving valuation pattern}
+\label{cr:prime-completion}
+Now allow $S$ to be any finite set of primes at least five, including seven,
+with arbitrary assignments to the three arms $a,b,c$. Let
+\[
+ m=36\prod_{p\in S}p^{k_p+1},\qquad
+ G=\prod_{p\in S}p^{k_p-1}.
+\]
+Choose a pair residue $(a_0,b_0)$ modulo $m$ by CRT: it is $(1,6)$ modulo36,
+and modulo $p^{k_p+1}$ it is respectively
+\[
+ (p^{k_p},1),\quad (1,p^{k_p}),\quad (1,p^{k_p}-1)
+\]
+when the assigned arm is $a,b,c$. Each norm is a unit modulo $p$, and the
+modulo-36 norm is coprime to six. Thus $\alpha=a_0+b_0\zeta$ is a unit modulo
+$m\mathcal E$. Exact exponents at all specified primes and exponent one at
+two and three are forced.
+
+\begin{theorem}[Uniform prime-norm squarefree completion]\label{cr:prime-main}
+There are absolute constants $\nu>0$ and $X_0>1$ with the following property.
+Put $L=\sqrt{\log X}$ and $Q_X=e^{20\nu L}$. For $X\ge X_0$, suppose
+\begin{equation}\label{cr:range}
+ m\le e^{\nu L},\qquad Xe^{-\nu L}\le U\le X,
+ \qquad \mathfrak f_{Q_X}\nmid m\mathcal E.
+\end{equation}
+The last condition is empty if no exceptional conductor exists.
+In the rectangle $U<a<2U$, $X<b<2X$, the sum of $\log N(a+b\zeta)$ over
+completions with rational-prime norm is at least
+\begin{equation}\label{cr:weighted-count}
+ \frac{\kappa UX}{10\Phi(m\mathcal E)}.
+\end{equation}
+In particular such completions exist; their number is at least this quantity
+divided by $\log(12X^2)$. Every one has $g=1$ and
+\begin{equation}\label{cr:prime-corr}
+ \frac cR=\frac G{ab}<X^{-2}e^{2\nu\sqrt{\log X}},\qquad
+ I(a,b)+D_3(T)<-6\log X+6\nu\sqrt{\log X}.
+\end{equation}
+All constants are independent of the finite pattern, its exponents, and the
+position of its primes among the arms.
+\end{theorem}
+
+\begin{proof}
+\emph{Uniform choice of constants.} With $a_0,b_0,c_0$ from the preceding
+section, choose $\nu>0$ sufficiently small that
+\[
+ 20\nu<a_0,\qquad
+ 30\nu<b_1:=\min\{b_0,c_0/(21\nu)\}.
+\]
+Such a choice exists. Enlarge the fixed $X_0$ whenever a following absolute
+error ratio is required to be small. Write
+\[
+ C=\{a+b\zeta:U<a<2U,\ X<b<2X\},\quad
+ A_X=\frac{\kappa UX}{\Phi(m\mathcal E)},\quad Y=e^{4\nu L}.
+\]
+The region is convex, lies in $|z|<4X$, and has $N(z)>X^2$. Since
+$\Phi(m\mathcal E)\le m^2$,
+\begin{equation}\label{cr:mainfloor}
+ A_X\ge\kappa X^2e^{-3\nu L}.
+\end{equation}
+Lemma~\ref{cr:exception} and \eqref{cr:kai} give
+\begin{equation}\label{cr:basecount}
+ W(C;m\mathcal E,\alpha)=A_X+O(X^2e^{-b_1L}).
+\end{equation}
+Indeed $2c_0\log X/\log(4Q_X^2)\ge c_0L/(21\nu)$ for large $X$.
+Prime elements in this strictly positive rectangle have rational-prime norm:
+inert prime elements are associates of rational primes and lie on the six
+boundary rays, not in the rectangle. The ramified prime has bounded norm and
+is absent for large $X$. A common integer divisor of $a,b$ would have its
+square divide the prime norm. Thus all counted pairs are primitive.
+
+\emph{Exact square-residue density.} For $\ell\ge5$ with $\ell\nmid m$, let
+$\chi_\ell=1$ if $\ell\equiv1\pmod3$ and $-1$ otherwise. Then
+\[
+ \Phi(\ell^2\mathcal E)=\ell^2(\ell-1)(\ell-\chi_\ell).
+\]
+For a split prime this is the product of two counts $\ell^2-\ell$; for an
+inert prime it is $\ell^4-\ell^2$. Among unit pair residues modulo $\ell^2$,
+the condition $\ell^2\mid a$ has $\ell^2-\ell$ possibilities for $b$.
+The same count holds for $b$ and $a+b$. These three sets are disjoint among
+units, since an intersection makes both coordinates zero modulo $\ell$.
+Their combined relative density is therefore
+\begin{equation}\label{cr:beta}
+ \beta_\ell=\frac3{\ell(\ell-\chi_\ell)}.
+\end{equation}
+CRT combines each bad residue with the fixed residue modulo $m$. For large
+$X$ we have $Y<X$; the rational prime norm is greater than $X^2$, so
+every candidate prime element is a unit at each $\ell\le Y$. The unit
+restriction in this count therefore omits no small-square candidate.
+
+\emph{Small square divisors, including exceptional characters.} For
+$\ell\le Y$, the refined modulus $m\ell^2\mathcal E$ has norm at most
+$e^{18\nu L}<Q_X$. We do not assume these refined moduli are nonexceptional.
+The integrand bound by two in \eqref{cr:kai} shows that their bad residue
+classes have total weighted count at most
+\[
+ 2A_X\beta_\ell+O(\ell^2X^2e^{-b_0L}).
+\]
+The union bound over primes up to $Y$ gives a loss at most
+\begin{equation}\label{cr:near}
+ 2A_X\sum_{\ell\ge5\ {\rm prime}}\beta_\ell
+       +O(X^2Y^3e^{-b_1L}).
+\end{equation}
+The last error divided by \eqref{cr:mainfloor} is
+$O(e^{-(b_1-15\nu)L})=o(1)$ uniformly.
+There is an explicit positive margin despite the factor two:
+\begin{align*}
+ 2\sum_{\ell\ge5\ {\rm prime}}\beta_\ell
+ &\le6\sum_{j=2}^\infty\frac1{2j(2j+1)}
+   =5-6\log2<\frac{23}{27}.
+\end{align*}
+For completeness, partial fractions give
+$\sum_{j\ge1}(2j(2j+1))^{-1}=1-\log2$, and removing $j=1$ gives the equality.
+Moreover
+$\log2=2\sum_{j\ge0}((2j+1)3^{2j+1})^{-1}>56/81$,
+which proves the last strict inequality. Hence at least $4/27$ of the main
+term remains before the uniform errors and the large-square tail.
+
+\emph{Large square divisors.} If $\ell>Y$ and $\ell^2$ divides one of the
+three positive arms, then $\ell\le2\sqrt X$. Ignoring primality and the
+modulo-$m$ condition, for each arm the number of such pairs is
+$O(X^2/\ell^2+X)$. Summing over integers in the allowed prime range gives
+\[
+ O(X^2/Y+X^{3/2}).
+\]
+Each pair has logarithmic norm weight at most $\log(12X^2)$. Relative to
+\eqref{cr:mainfloor}, this loss is
+\[
+ O(e^{-\nu L}\log X+e^{3\nu L}X^{-1/2}\log X)=o(1).
+\]
+Primitivity ensures that a square in $T$ occurs in just one arm. After
+subtracting both tails from \eqref{cr:basecount}, the remaining weight is
+at least $A_X/10$ for sufficiently large $X$, uniformly in all data.
+Specified primes and two and three were already treated by congruences;
+thus every remaining point is a completion.
+
+Finally $G\le m\le e^{\nu L}$ and $ab>UX\ge X^2e^{-\nu L}$.
+Apply Lemma~\ref{cr:compensation} to obtain \eqref{cr:prime-corr}.
+Prime norm supplies $g=1$, with no compressed exponent used.
+\end{proof}
+
+\begin{corollary}[Arbitrary specified depths also at two and three]
+\label{cr:small-variants}
+In Theorem~\ref{cr:prime-main}, the fixed exponents one at two and three may
+be replaced by any positive integers $k_2,k_3$, on any assigned arms.
+Replace the factor 36 in $m$ by $2^{k_2+1}3^{k_3+1}$ and multiply $G$ by
+$2^{k_2-1}3^{k_3-1}$. The same absolute constants and conclusions hold under
+the resulting modulus condition. In Theorem~\ref{cr:elementary-main} the
+same replacement is possible, with assignments only to $b,c$ and the factor
+49 retained.
+\end{corollary}
+\begin{proof}
+At $p=2,3$, use the same three pair residues
+$(p^{k_p},1),(1,p^{k_p}),(1,p^{k_p}-1)$ as for other primes.
+Their norms are one modulo $p$, and they force the required exact valuation
+on one arm with the other two arms units. All small-square sieving still
+starts at five, and all estimates use only $m$ and $G$. In the elementary
+case select $b\equiv p^{k_p}$ or $p^{k_p}-1$; the same union bound excludes
+all other squares. No analytic constant or square-density margin changes.
+\end{proof}
+
+\section{Consequences, growth of the prescribed depth, and limitations}
+\label{cr:consequences}
+\begin{corollary}[Every fixed pattern has infinitely many prime-norm completions]
+\label{cr:fixed}
+For each fixed finite pattern of Definition~\ref{cr:pattern}, with primes at
+least five and arbitrary arm assignments, infinitely many completions have
+prime auxiliary norm. They can be taken in $X<a,b<2X$, and all sufficiently
+large such completions produced here satisfy $c<R$.
+\end{corollary}
+\begin{proof}
+For fixed $m$, there are finitely many real characters of conductor dividing
+$m\mathcal E$. None has a zero at one. Thus their real zeros eventually lie
+outside the shrinking exceptional interval in Lemma~\ref{cr:exception}.
+Condition \eqref{cr:range} holds with $U=X$ for all sufficiently large $X$.
+The positive lower bound in Theorem~\ref{cr:prime-main} proves existence at
+arbitrarily large height. This corollary needs no assertion that Siegel zeros
+never occur, and makes no uniform claim about its fixed-pattern threshold.
+\end{proof}
+
+\begin{corollary}[Growing large primes and growing depth at prime norm]
+\label{cr:growing}
+There is a sequence of prime-norm completions with $g=1$, a supported prime
+$p$ exceeding every fixed power of $\log c$, and $v_p(T)\to\infty$.
+Only this prime has exponent exceeding one, and $R=c^{3-o(1)}$ on the sequence.
+\end{corollary}
+\begin{proof}
+Use the absolute $\nu$ of Theorem~\ref{cr:prime-main}. Let
+$k=\lfloor(\log X)^{1/4}\rfloor$ and
+$Z=\exp(\nu\sqrt{\log X}/(2(k+1)))$. Bertrand's theorem gives two distinct
+primes in $(Z,4Z)$ for large $X$. For either prime $p$,
+$m_p=36p^{k+1}\le e^{\nu\sqrt{\log X}}$, since
+$\log36+(k+1)\log4=o(\sqrt{\log X})$.
+The exceptional conductor cannot divide $36\mathcal E$ for arbitrarily large
+$X$, by the fixed finite-character argument of Corollary~\ref{cr:fixed}.
+It can divide at most one of the two ideals $m_p\mathcal E$: otherwise it
+would divide their gcd, $36\mathcal E$. Choose the other prime and prescribe
+exponent $k$ on, for example, $c$. The theorem with $U=X$ constructs a
+completion. We have $2X<c<4X$, $k\to\infty$, and
+$\log p\asymp(\log X)^{1/4}$, so $p>(\log c)^A$ for every fixed $A$
+eventually. Finally $G=p^{k-1}=\exp(O(\sqrt{\log X}))$, while
+$T\asymp X^3$. The identity $R=T/G$ proves $R=c^{3-o(1)}$.
+\end{proof}
+
+\noindent\textbf{Boundary of the conclusion.}
+The last corollary is an existence assertion about exactly compensated
+completions, not a bound on every prime-norm triple. In its construction
+$\log G=O(\sqrt{\log c})$, rather than a positive fixed fraction of $\log c$.
+The earlier ray-class obstruction allows prescribed prime powers with a much
+smaller height budget; the present prime-element error term does not give a
+squarefree completion uniformly at that polynomial-modulus scale. Similarly,
+Theorem~\ref{cr:prime-main} allows the aspect ratio $U/X$ to shrink only as
+$e^{-\nu\sqrt{\log X}}$, not as a fixed negative power of $X$.
+Theorem~\ref{cr:elementary-main} handles the very unbalanced case $a=1$ but
+ensures only content one, not prime norm. These limitations are part of the
+theorems, not omitted exceptional cases.
+
+\section{A sharp ramification cost of forcing high norm exponent}
+\label{cr:ramification}
+A separate proposal is to move arbitrary $g=1$ triples to large-$g$ triples
+by a rational map, then invoke the previously proved high-content bounds.
+The following theorem measures an unavoidable geometric cost of maps which
+force a norm power identically. It does not address arbitrary point-adaptive
+maps or arithmetic cancellations among their values.
+
+Let $A(X,Y),B(X,Y)\in\mathbb Q[X,Y]$ be homogeneous forms of the same degree
+$d\ge1$, having no common zero on $\mathbb P^1(\mathbb C)$. They define a
+nonconstant morphism $f=[A:B]$ of degree $d$. Let
+\[
+ F=A B(A+B),\qquad s=\#\{P\in\mathbb P^1(\mathbb C):F(P)=0\}.
+\]
+Thus $s$ is the homogeneous degree of the geometric squarefree boundary.
+All root counts include the point at infinity.
+
+\begin{theorem}[Norm-power ramification budget]\label{cr:ramification-main}
+Suppose
+\[
+ A^2+AB+B^2=U V^g,\qquad g\ge2,
+\]
+where $U,V$ are nonzero homogeneous forms, $\deg U=h$, $\deg V=v$, so
+$h+gv=2d$. The factors need not be squarefree or coprime. Then
+\begin{equation}\label{cr:ramification-bound}
+ s\ge d+2+(g-1)v
+   =d+2+(1-1/g)(2d-h).
+\end{equation}
+In particular, for a pure power $A^2+AB+B^2=\kappa Q^g$ with
+$\kappa\ne0$, one has $g\mid d$ and
+\begin{equation}\label{cr:pure}
+ s\ge3d-2d/g+2.
+\end{equation}
+\end{theorem}
+\begin{proof}
+We give the required ramification count directly. The homogeneous Jacobian
+\[
+ J=A_XB_Y-A_YB_X
+\]
+is a nonzero form of degree $2d-2$. Nonvanishing follows from nonconstancy in
+characteristic zero. At any source point choose source and target affine
+coordinates such that the latter is $f(t)=f(0)+u t^e+\cdots$, $u\ne0$.
+The order of the Jacobian there is $e-1$, since its local expression differs
+from $f'(t)$ by an invertible factor; Euler's identity accounts for the
+homogeneous coordinates. This also applies in the charts at infinity.
+Consequently the sum of $e_P-1$ over all source points is $2d-2$.
+
+The three fibres over $0,-1,\infty$ are disjoint and have total multiplicity
+$3d$. Their contribution to this ramification sum is exactly $3d-s$.
+The two zeros of $t^2+t+1$ are distinct from these three values. Their
+pullback, $A^2+AB+B^2$, has total multiplicity $2d$ and at most $h+v$
+distinct zeros, since its support is contained in that of $UV$. Its
+ramification contribution is at least $2d-h-v=(g-1)v$. All other
+ramification contributions are nonnegative. Hence
+\[
+ 3d-s+(g-1)v\le2d-2,
+\]
+proving \eqref{cr:ramification-bound}.
+For a pure power, the two forms $A-\rho B$ and $A-\bar\rho B$, with
+$\rho,\bar\rho$ the roots of $t^2+t+1$, have disjoint supports and each
+has degree $d$. Every root multiplicity is divisible by $g$; thus $g\mid d$.
+Substitute $h=0$ in the general bound.
+\end{proof}
+
+\begin{corollary}[No boundary-Belyi exact-power normalization]
+\label{cr:belyi}
+A nonconstant map branched only over $\{0,-1,\infty\}$ cannot satisfy
+$A^2+AB+B^2=U V^g$ with $g\ge2$ and $\deg V>0$.
+\end{corollary}
+\begin{proof}
+Both norm-root fibres lie outside these three branch values and must be
+unramified. A zero of $V$ would have multiplicity at least $g$ in their
+pullback and hence would be ramified. This is a contradiction. The assertion
+concerns this specific norm-power normalization, not every use of Belyi maps
+in an arithmetic height argument.
+\end{proof}
+
+\begin{corollary}[Limit of a degree-only radical transfer]\label{cr:degree-barrier}
+In the pure-power case, assume the three original boundary points
+$XY(X+Y)=0$ belong to the support of $F$. If $D=s-3$ is the degree of the
+remaining squarefree boundary, then $D\ge d+1$.
+Consequently a transfer that only bounds the new boundary radical by its
+polynomial height degree cannot prove an $abc$ height bound for the input
+from an $abc$ bound for the output.
+\end{corollary}
+\begin{proof}
+Write $d=gm$, $m\ge1$. Equation~\eqref{cr:pure} gives
+$D\ge3d-2m-1$. Subtracting $d+1$ leaves
+$2(g-1)m-2\ge0$.
+To specify the last assertion precisely, the degree-only estimates for a
+fixed map have the shape $H(f(x))\gg H(x)^d$ and
+$\operatorname{rad}(F(x))\ll R(x)H(x)^D$, up to constants for fixed
+coefficients and denominators. Combining these with an output bound of
+exponent $1+\epsilon$ gives only
+\[
+ H(x)^{d-(1+\epsilon)D}\ll R(x)^{1+\epsilon}.
+\]
+The exponent of $H(x)$ is negative. This does not bound $H(x)$ above.
+This is an obstruction to that expressly stated transfer mechanism, not to
+sharper arithmetic bounds or to all rational transformations.
+\end{proof}
+
+\begin{proposition}[Sharpness and the quadratic example]\label{cr:sharpness}
+For every $g\ge2$, write
+\[
+ (X+Y\zeta)^g=A_g(X,Y)+B_g(X,Y)\zeta.
+\]
+Then $A_g,B_g$ have integer coefficients, define a degree-$g$ morphism,
+satisfy $A_g^2+A_gB_g+B_g^2=(X^2+XY+Y^2)^g$, and their boundary has
+exactly $3g$ distinct geometric zeros. Equality holds in \eqref{cr:pure}.
+For $g=2$ the precise factorization is
+\[
+ A_2=X^2-Y^2,\quad B_2=2XY+Y^2,
+\]
+\[
+ A_2B_2(A_2+B_2)=XY(X+Y)(X-Y)(2X+Y)(X+2Y).
+\]
+\end{proposition}
+\begin{proof}
+Norm multiplicativity proves the norm identity. Over $\mathbb C$,
+\[
+ \frac{A_g+B_g\zeta}{A_g+B_g\bar\zeta}
+   =\left(\frac{X+Y\zeta}{X+Y\bar\zeta}\right)^g.
+\]
+The two linear forms in the right side have distinct zeros. Thus the map is
+conjugate to $t\mapsto t^g$ and has no common zero in its two coordinates.
+It ramifies only above the two norm roots, neither a boundary target. Each of
+the three boundary targets therefore has $g$ distinct preimages. The three
+original boundary points are among them because units remain units after
+raising to a power. Direct expansion gives the quadratic formulas.
+\end{proof}
+
+\section{Concrete certificates and a same-height limitation}
+\label{cr:certificates}
+A prime-norm completion with a fourth power on one arm is
+\[
+ (a,b,c)=(225001,228750,453751),\qquad
+ M=154420991251\quad\text{prime}.
+\]
+Its complete arm factorizations are
+\[
+ a=7\cdot32143,\quad b=2\cdot3\cdot5^4\cdot61,\quad
+ c=587\cdot773.
+\]
+Thus $G=125$, $g=1$, and the exact ratio is $c/R=125/(225001\cdot228750)$.
+The verifier also certifies a first fourth power at eleven and a sixth power
+at five in two further prime-norm completions; these are finite examples,
+not tests of the unknown analytic threshold in Theorem~\ref{cr:prime-main}.
+
+An unbalanced example with both large arms having fourth-power factors is
+\[
+ 1+27960078750=27960078751,
+\]
+\[
+ b=2\cdot3\cdot5^4\cdot7456021,\qquad
+ c=11^4\cdot887\cdot2153.
+\]
+Its norm is seven modulo 49, so it has content one. Its only repeated primes
+are five and eleven, and $c/R=5^3 11^3/b$ exactly. All displayed factor
+primes and all three asserted prime norms are certified with a recursive
+full-$n-1$ Lucas test. At a node $n$, the factorization of $n-1$ is checked
+against previously certified smaller primes; a base $a$ satisfies
+$a^{n-1}\equiv1\pmod n$ and
+$\gcd(a^{(n-1)/q}-1,n)=1$ for every $q\mid n-1$. For every prime divisor
+$\ell$ of $n$, these conditions force $n-1\mid\ell-1$, hence $\ell=n$.
+This proves the criterion and validates its recursive use without a
+probable-prime assumption.
+
+The replay also implements the entire elementary sieve in an actual range
+satisfying its uniform threshold. With $S$ empty, $m=1764$, $r=1374$ and
+$X=1244678400=400m^2$, there are 705600 progression points. Sieving all
+5120 relevant prime-square bases leaves 610293 completions, compared with
+the proved lower bound 176400. One hundred surviving pairs are independently
+factored to cross-check the progression-index implementation.
+Exhaustive local counts examine 260070 pairs modulo $p^2$ for
+$p=5,7,11,13,17,19$. A separate mod-$p$ lift calculation agrees with their
+unit counts. Twelve exact polynomial computations verify the pure-power
+maps and the geometric boundary degrees, including the point at infinity.
+The prime certificates have 50 nodes and 195 modular conditions.
+
+A limitation on using completions to bound an arbitrary input is worth
+making quantitative. If a triple were to satisfy
+$c>K R^{1+\epsilon}$, then its full repeated-prime factor would obey
+\[
+ \frac TR>
+ \frac{K^{1/(1+\epsilon)}}2
+ c^{1+\epsilon/(1+\epsilon)},
+\]
+because $T\ge c^2/2$. Any modulus prescribing all these repeated valuations
+is at least $T/R$. At a comparable height $X\asymp c$, this is outside both
+the modulus range $m\le\sqrt X/20$ in the elementary theorem and the range
+$m\le e^{\nu\sqrt{\log X}}$ in the prime-norm theorem. A completion at a
+much larger height does not preserve the original triple's radical defect.
+Thus the counting results cannot be silently substituted for an all-point
+comparison theorem. A new argument would have to recover missing correlation
+in precisely this sparse, large-modulus regime.
+
+\section{Proof dependencies, computations, and the unresolved all-point estimate}
+\label{cr:audit}
+The elementary chain is CRT plus a union bound for squares of two consecutive
+linear forms. It produces genuine content-one triples, with explicit
+polynomial height cost and exact radical compensation, at maximal imbalance.
+The prime-norm chain uses two expressly stated established analytic inputs,
+then proves a local density, a uniform exceptional-conductor lemma, and small-
+and large-square estimates. It constructs completions with variable patterns
+and rational-prime norm. The geometric chain is a direct Jacobian proof of
+ramification counting followed by two disjoint pullback calculations. None
+uses a conjectural height inequality.
+
+The three chains do not establish the all-point estimate
+\[
+ \forall\epsilon>0\ \exists K_\epsilon>0\ \forall(a,b,c),\qquad
+ c\le K_\epsilon\operatorname{rad}(abc)^{1+\epsilon}.
+\]
+In particular the positive count of completions does not exclude an infinite
+sparse family outside the completion conditions. Siegel zeros were not
+assumed absent: the moving-pattern theorem states its excluded conductor,
+and the growing-prime corollary proves how to avoid it. No numerical replay
+can evaluate the unknown absolute analytic constants or certify a uniform
+large-height threshold.
+
+The finite standard-library verifier records exact local residue counts,
+actual prime-norm completions, content-one unbalanced examples, independently
+factored radicals, and polynomial identities. Counts and hashes are recorded
+only after execution. A separate scoped Lean companion proves elementary
+integer identities, exact fixed congruence consequences, finite weighted-union
+accounting, explicit compensation implications, and the numerical degree-budget
+consequence. It does not formalize Kai's theorem, Hecke characters, the
+infinite sieve argument, or the general Jacobian ramification theorem. It
+must not be described as a formal proof of standard $abc$ or of this entire
+paper. Earlier uncompiled compression source remains explicitly uncompiled
+unless its own exact file is separately checked.
+
+\begin{center}\small
+\begin{tabular}{p{.22\textwidth}p{.33\textwidth}p{.34\textwidth}}
+\hline
+Direction & Result in this continuation & Remaining issue\\\hline
+Elementary / imbalance & Uniform squarefree completion; exact $g=1$ and compensation & Does not cover arbitrary input triples or require prime norm\\
+Prime elements / sieve & Moving-pattern prime-norm completion; high primes and depth can grow & Exceptional conductor stated; polynomial-modulus and very thin regions uncontrolled\\
+Rational normalization & Sharp norm-power ramification cost & Does not forbid arithmetic cancellations or adaptive non-power constructions\\
+Global correlation & Exact identity \eqref{cr:identity}, not asserted new & Required uniform bound is still at $abc$ strength\\
+Other manuscript routes & Their established inputs are retained & IUT all-place comparison, FCRT uniform residual, and general Pell/Mersenne depth gates remain open\\\hline
+\end{tabular}
+\end{center}
+
+The completion method is a new derivation in this project, not a claim of
+literature priority. Independent autonomous agents and external peer review
+are not asserted. The correct next all-point problem is to bound the
+uncontrolled complementary configurations, rather than to rename
+\eqref{cr:identity} or to infer a universal statement from positive density.

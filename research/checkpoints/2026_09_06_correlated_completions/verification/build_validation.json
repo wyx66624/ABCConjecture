@@ -1,0 +1,46 @@
+{
+  "status": "PASS: scoped checks, exact replay and integrated manuscript; NOT a proof of ABC",
+  "baseline_main": "937cb77058a80e9e9ae8ce3a4c8e13b752119796",
+  "tested_input_commit": "9f7d93880d40262ff62504b6bec3ebc6ca77a0ed",
+  "run_id": "34019921431",
+  "pdf_pages": 371,
+  "pdf_bytes": 2476595,
+  "pdf_sha256": "a8dced55f36d84017b749cf28b5d477d488010dbcb08d96c6c286503ebb3fd02",
+  "new_lean_queries": 16,
+  "axiom_whitelist": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "new_theorem_pages": {
+    "Uniform elementary squarefree completion": [
+      339
+    ],
+    "Uniform prime-norm squarefree completion": [
+      341
+    ],
+    "Norm-power ramification budget": [
+      343
+    ],
+    "Source integration and verification scope": [
+      329
+    ]
+  },
+  "overfull_hbox_count_including_preserved_sources": 6,
+  "source_hashes": {
+    "paper/ChatGPT_ABC_Uniformity_2026.tex": "602db6bd54b11e6222a53dade3441cd5c8e4ee067f06cc96e009b66f20a4541b",
+    "research/checkpoints/2026_09_06_correlated_completions/paper/body.tex": "997622eb798c796d73224334d6f2ee48fc1dfba65f8d07d850d277dc4b0a0f29",
+    "research/checkpoints/2026_09_06_correlated_completions/Lean/CorrelatedCompletions.lean": "4de2ff072cd1c8a0841071fff40dcf3f44ad3e93e5bbaf11a9e9ee301da8b947",
+    "paper/supplements/checkpoint_compression_20260906.tex": "323ecb6df9351796fe1f2f8409c5fde466975789003cb80383cee7a9593239e5"
+  },
+  "not_claimed": [
+    "standard ABC proof",
+    "entire paper formally verified",
+    "prime-element analytic input proved here",
+    "general ramification theorem kernel checked",
+    "historical compression Lean compiled",
+    "independent autonomous agents",
+    "external peer review",
+    "personal WSL execution"
+  ]
+}

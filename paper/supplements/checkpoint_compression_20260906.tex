@@ -1,0 +1,630 @@
+% BEGIN EXPONENT-COMPRESSION SUPPLEMENT 2026-09-06
+\ifdefined\XCStandalone
+\else
+\clearpage
+\subsection*{Research continuation: exponent compression and overlapping obstructions}
+\fi
+\noindent\textbf{Author: ChatGPT. Status: ordinary mathematical proofs with explicitly
+cited external inputs. This supplement is not a proof or disproof of standard
+abc. Its new Lean companion has not been compiled in the present execution.}
+
+\section{The two remaining difficulties and the notation}
+\label{sec:xc-scope}
+The preceding moving-support supplement controls small boundary primes only
+under restrictions on the number and size of the prime factors of the
+auxiliary norm. We give a different compression mechanism, an elementary
+local estimate on exact-power representations, and an obstruction showing
+that large boundary multiplicities and prime auxiliary norms occur together.
+The results below are new derivations in this project; no claim of priority
+within the literature is made.
+
+Let $a,b,c$ be positive integers with $a+b=c$ and $\gcd(a,b)=1$, and put
+\[
+ T=abc,\quad R=\rad(T),\quad t=\log c,\quad
+ z=a+b\zeta,\quad M=N(z)=a^2+ab+b^2,
+ \qquad\zeta^2-\zeta+1=0.
+\]
+Write $\mathcal E=\Z[\zeta]$. For $w=x+y\zeta$ define
+\[
+ P(w)=xy(x+y),\quad H(w)=\max(|x|,|y|,|x+y|),
+ \quad N(w)=x^2+xy+y^2.
+\]
+The multiplication, conjugation, Euclidean factorization and unit rotations
+are those of the preceding Eisenstein supplement. In particular, for
+primitive $w$,
+\begin{equation}\label{eq:xc-geometric}
+ \gcd(N(w),|P(w)|)=1,\qquad
+ \frac34H(w)^2\le N(w)\le H(w)^2,\qquad
+ |P(w)|\le\frac{2}{3\sqrt3}N(w)^{3/2}.
+\end{equation}
+The last inequality follows from $4|P|\le H^3$. A primitive zero-boundary
+pair is a unit. All radical statements below concern nonzero boundaries.
+We retain the exact excess and credit
+\[
+ E_3(T)=\prod_{p\mid T}p^{(v_p(T)-3)_+},\qquad
+ C_3(T)=\prod_{p\mid T}p^{(3-v_p(T))_+},\qquad
+ TC_3(T)=R^3E_3(T).
+\]
+For real $Y\ge2$ let $S_Y(T)=\prod_{p\mid T,\ p\le Y}p^{v_p(T)}$ and
+$E_{3,>Y}(T)=\prod_{p\mid T,\ p>Y}p^{(v_p(T)-3)_+}$.
+
+\section{Compressing arbitrarily many norm primes to one power}
+\label{sec:xc-content}
+Use the actual factorization
+\begin{equation}\label{eq:xc-factorization}
+ z=u(1+\zeta)^\epsilon\prod_{i=1}^r\pi_i^{e_i},\qquad
+ \epsilon\in\{0,1\},\quad N(\pi_i)=q_i\equiv1\pmod3.
+\end{equation}
+The $q_i$ are distinct and only one conjugate orientation occurs for each.
+The case $r=0$ gives $(1,1,2)$ and is henceforth handled separately.
+
+\begin{definition}[Common exponent content]\label{def:xc-content}
+Set $g=\gcd(e_1,\ldots,e_r)$ and
+$w=\prod_i\pi_i^{e_i/g}$. Put $Q=N(w)$. Thus
+\begin{equation}\label{eq:xc-content}
+ z=u(1+\zeta)^\epsilon w^g,\qquad
+ N(z)=3^\epsilon Q^g,\qquad Q\ge7,\quad\gcd(Q,6)=1.
+\end{equation}
+Every positive common divisor of the $e_i$ could be used instead of their gcd.
+\end{definition}
+
+\begin{lemma}\label{lem:xc-primitive}
+The pair $w$ and every power $w^n$, $n\ge1$, are primitive. Neither $P(w^n)$
+nor $w^{3n}+\bar w^{3n}$ is zero. Furthermore
+\[
+ \frac g2\log Q\le t,\qquad \log Q\le\frac{2t}{g}.
+\]
+\end{lemma}
+\begin{proof}
+A common rational prime divisor of the two coordinates would be an inert
+prime factor, two ramified factors, or both orientations of a split prime.
+None occurs in $w^n$. A primitive element with $P=0$ is a unit, inconsistent
+with norm $Q^n>1$. The identity
+\begin{equation}\label{eq:xc-trace}
+ w^3+\bar w^3=(x-y)(2x+y)(x+2y)
+\end{equation}
+shows that a primitive pair with this trace zero has norm three: the three
+possible coordinate ratios give $(1,1)$, $(1,-2)$ or $(-2,1)$ up to signs.
+This contradicts $3\nmid Q$. Finally $N(z)\le c^2$ proves both inequalities.
+\end{proof}
+
+The only transcendence input in the next theorem is the fixed-degree,
+fixed-number-of-logarithms estimate (1.2) of Bugeaud's Theorem~1.1
+\cite{moving:bugeaud}. In degree two and for at most two logarithms, it gives
+$\log|\Lambda|\ge-C\prod h^*(\alpha_i)\log B$ with an effective absolute
+constant. No algebraic generator is required to be fixed across triples.
+
+\begin{theorem}[Support-free compressed angular estimate]\label{thm:xc-angle}
+There is an effective absolute constant $C>0$ such that every representation
+\eqref{eq:xc-content} satisfies
+\begin{equation}\label{eq:xc-angle}
+ \left|\left(\frac z{\bar z}\right)^3-1\right|
+ \ge \exp\{-C\log Q\log(3g)\}.
+\end{equation}
+Consequently its angular penalty divided by $\log c$ is at most
+$2C\log(3g)/g$, uniformly in the number and sizes of all norm primes.
+\end{theorem}
+\begin{proof}
+Set $h=(w/\bar w)^3$. Then $h^*(h)\le3\log Q$, since each conjugate of
+$w$ has absolute value $\sqrt Q$ and the standard height laws give
+$h(h)\le6h(w)=3\log Q$. Also
+\[
+ \lambda_z=(z/\bar z)^3=(-1)^\epsilon h^g.
+\]
+A unit contributes its sixth power, and
+$(1+\zeta)/(1+\bar\zeta)=\zeta$. The cubic difference identity
+$z^3-\bar z^3=3\sqrt{-3}P(z)$ proves $\lambda_z\ne1$.
+Choose $\log h=i\theta$, $|\theta|\le\pi$, and an integer $j$ such that
+\[
+ \Lambda=g\log h+(\epsilon-2j)\log(-1)
+\]
+has imaginary part in $[-\pi,\pi]$. It is nonzero and
+$|\epsilon-2j|\le g+1$, so its coefficient bound is at most $3g$.
+The cited estimate, followed by $|e^{iv}-1|\ge2|v|/\pi$ for $|v|\le\pi$,
+gives \eqref{eq:xc-angle} after absorbing a fixed additive constant.
+If a coefficient vanishes, delete it or reorder the remaining terms as
+required by the source theorem. Lemma~\ref{lem:xc-primitive} gives the final
+uniform ratio. This proves a quantitative estimate, not the assertion that
+$g$ tends to infinity on all abc triples.
+\end{proof}
+
+\section{An elementary bound for local multiplicities}
+\label{sec:xc-local}
+The exact-power representation permits a bound linear in $p$, using order
+and binomial expansion instead of a general $p$-adic logarithmic estimate.
+Here $v_p$ on rational integers has its usual normalization. At a place of
+$\Q(\sqrt{-3})$ we use the extension satisfying $v(p)=1$.
+
+\begin{theorem}[Local bounds with all exceptional primes included]
+\label{thm:xc-local}
+For \eqref{eq:xc-content}, and every prime $p\ge5$ dividing $T$, one has
+\begin{equation}\label{eq:xc-local-large}
+ v_p(T)\log p\le\frac{p+1}{2}\log Q+v_p(g)\log p.
+\end{equation}
+At two and three one has
+\begin{align}
+ v_2(T)\log2&\le3\log Q+v_2(g)\log2,\label{eq:xc-local-two}\\
+ v_3(T)\log3&\le\tfrac32\log Q+v_3(g)\log3.
+ \label{eq:xc-local-three}
+\end{align}
+When $\epsilon=1$, in fact $v_3(T)=0$. When $\epsilon=0$,
+$v_3(T)=v_3(P(w))+v_3(g)$.
+\end{theorem}
+\begin{proof}
+First suppose $p\ge5$ and $p\mid T$. By \eqref{eq:xc-geometric}, $p\nmid Q$.
+In the quadratic algebra modulo $p$, conjugation is trivial on the split
+components when $p\equiv1\pmod3$ and is Frobenius when $p\equiv2\pmod3$.
+Write $\chi=1$ or $-1$ respectively. The element $w/\bar w$ has norm one,
+so its order divides $p-\chi$. Since $3\mid p-\chi$, the order $d$ of
+$h=(w/\bar w)^3$ divides $(p-\chi)/3$, and $p\nmid d$.
+The numerator of $h^d-1$ is $3\sqrt{-3}P(w^d)$, hence
+\[
+ s:=v(h^d-1)=v_p(P(w^d))\ge1.
+\]
+This valuation is the same at both components in the split case, because
+$P(w^d)$ is a rational integer and all other factors are units.
+
+For an odd prime, binomial expansion gives
+$v((1+p^s u)^n-1)=s+v_p(n)$ when $u$ is a unit and $s\ge1$:
+a multiplier prime to $p$ preserves the leading valuation, and raising to
+$p$ increases it by exactly one. For the latter assertion the first term
+has valuation $s+1$ and all the other terms have valuation at least $s+2$.
+This proof also works in each split component.
+If $\epsilon=0$, $d\mid g$ and $v_p(T)=s+v_p(g)$. If $\epsilon=1$,
+$h^g=-1$ modulo $p$, so $d\mid2g$ and $h^g-1$ is a unit. Factoring
+$h^{2g}-1$ gives the same formula $v_p(T)=s+v_p(g)$.
+Finally
+\[
+ s\log p\le\log|P(w^d)|<\tfrac32d\log Q
+ \le\tfrac12(p+1)\log Q,
+\]
+using \eqref{eq:xc-geometric} and Lemma~\ref{lem:xc-primitive}.
+
+At two, $Q$ is odd and $\mathcal E/2\mathcal E$ is the field with four
+ elements. Thus $h\equiv1\pmod2$. Put
+\[
+ s_-=v(h-1)=v_2(P(w)),\qquad
+ s_+=v(h+1)=v_2(w^3+\bar w^3).
+\]
+Both are positive integers. For odd $g$, factoring $h^g-1$ or
+$h^g+1$ shows that its valuation is respectively $s_-$ or $s_+$.
+For even $g$, the valuations of $h^g-1$ and $h^g+1$ are respectively
+$s_-+s_++v_2(g)-1$ and one. Indeed $v_2(h^2-1)\ge2$; every subsequent
+doubling increases this valuation by one, and odd multipliers preserve it.
+The plus expression is two modulo four. Now
+\[
+ s_-\log2<\tfrac32\log Q,\qquad
+ s_+\log2\le\log2+\tfrac32\log Q.
+\]
+For even $g$ the $-1$ in the valuation cancels the extra $\log2$.
+For odd $g$, $\log2+\tfrac32\log Q\le3\log Q$ since $Q\ge7$.
+This proves \eqref{eq:xc-local-two} for both twists.
+
+At three, a primitive pair with norm divisible by three has
+$x\equiv y\not\equiv0\pmod3$, so its boundary is a unit. This proves the
+claim when $\epsilon=1$. When $\epsilon=0$, $3\nmid Q$ implies
+$3\mid P(w)$: modulo three, either a coordinate or their sum is zero.
+Thus $v(h-1)=v_3(P(w))+3/2\ge5/2$.
+Binomial expansion now gives $v(h^g-1)=v(h-1)+v_3(g)$.
+For multiplication by three the last binomial term has valuation $3v(h-1)$,
+strictly exceeding $v(h-1)+1$; multipliers prime to three preserve the
+leading valuation. Subtracting $v(3\sqrt{-3})=3/2$ proves the exact formula.
+The bound on $|P(w)|$ proves \eqref{eq:xc-local-three}.
+\end{proof}
+
+\begin{corollary}[A support-free small-prime budget]\label{cor:xc-small}
+For $Y\ge3$,
+\begin{equation}\label{eq:xc-small}
+ \log S_Y(T)\le
+ \frac{Y^2+3Y+18}{4}\log Q+\log g.
+\end{equation}
+In particular, put $Y_g=\max(3,\sqrt g/\log(3g))$. Then
+$\log S_{Y_g}(T)=o(\log c)$ as $g\to\infty$, uniformly in the base $w$,
+its support, and the twist.
+\end{corollary}
+\begin{proof}
+Sum Theorem~\ref{thm:xc-local}. The contributions of $v_p(g)\log p$ total
+at most $\log g$. The two exceptional coefficients sum to $9/2$.
+For $n=\lfloor Y\rfloor$, the sum of $p+1$ over supported primes between
+five and $Y$ is at most $\sum_{j=1}^n(j+1)=n(n+3)/2$.
+This gives \eqref{eq:xc-small}. Dividing by $t$ and using
+$t\ge g\log Q/2\ge g\log7/2$, the ratio is at most
+\begin{equation}\label{eq:xc-small-ratio}
+ \frac{Y_g^2+3Y_g+18}{2g}+\frac{2\log g}{g\log7},
+\end{equation}
+which tends to zero. This is a uniform elementary bound, not a finite
+search assertion or a bound with an unspecified base-dependent constant.
+\end{proof}
+
+\section{The resulting restricted abc theorem}
+\label{sec:xc-stratum}
+Define the explicit error function, with the absolute $C$ from
+Theorem~\ref{thm:xc-angle},
+\[
+ \eta(g)=\frac{2C\log(3g)}g+
+ \frac{Y_g^2+3Y_g+18}{2g}+\frac{2\log g}{g\log7}.
+\]
+It tends to zero.
+\begin{theorem}\label{thm:xc-restricted}
+Every triple with representation \eqref{eq:xc-content} satisfies
+\begin{equation}\label{eq:xc-tail}
+ 3\log c\le3\log R+\log8+\eta(g)\log c
+             +\log E_{3,>Y_g}(T).
+\end{equation}
+For every $\varepsilon>0$ there is an integer $g_\varepsilon$ such that
+\begin{equation}\label{eq:xc-class}
+ g\ge g_\varepsilon,\qquad
+ E_{3,>Y_g}(T)\le c^{3\varepsilon/(2(1+\varepsilon))}
+\end{equation}
+imply
+\[
+ c\le8^{(1+\varepsilon)/3}R^{1+\varepsilon}.
+\]
+No restriction on $r$ or on an individual $q_i$ is imposed.
+\end{theorem}
+\begin{proof}
+The cubic identity and $N(z)\ge3c^2/4$ give
+$T\ge c^3\exp(-C\log Q\log(3g))/8$.
+Also $T\le R^3E_3(T)$, and the low-prime contribution to $\log E_3(T)$
+is at most $\log S_{Y_g}(T)$. Apply Corollary~\ref{cor:xc-small} and
+$\log Q\le2t/g$ to obtain \eqref{eq:xc-tail}.
+Choose $g_\varepsilon$ so that $\eta(g)\le3\varepsilon/(2(1+\varepsilon))$
+for every $g\ge g_\varepsilon$. Substitution of \eqref{eq:xc-class} gives
+$3t/(1+\varepsilon)\le3\log R+\log8$, proving the assertion.
+Neither the tail condition nor $g\ge g_\varepsilon$ is asserted on all
+triples. In particular, a prime norm has $g=1$ and is not covered by this
+argument. No infinitude of the class \eqref{eq:xc-class} is asserted.
+\end{proof}
+
+\section{A second compression that allows exponent gcd one}
+\label{sec:xc-cluster}
+The common exponent is useful but not necessary for compression. For any
+integer $m\ge1$, write $e_i=mf_i+r_i$ with $0\le r_i<m$ and put
+\[
+ W=\prod_i\pi_i^{f_i},\qquad V=\prod_i\pi_i^{r_i},\qquad
+ z=u(1+\zeta)^\epsilon VW^m.
+\]
+Set $Q_W=N(W)$, $Q_V=N(V)$ and
+\[
+ \mathcal B_m=C_1\max(1,\log Q_V)\max(1,\log Q_W)\log(3m),
+\]
+where $C_1$ is an effective absolute constant.
+\begin{proposition}[Two-block estimates]\label{prop:xc-two-block}
+The constant $C_1$ can be chosen such that, uniformly in all the data,
+\begin{align}
+ |\lambda_z-1|&\ge e^{-\mathcal B_m},\label{eq:xc-block-angle}\\
+ v_p(T)&\le p^2\mathcal B_m\quad(p\mid T),\label{eq:xc-block-local}\\
+ \log S_Y(T)&\le\mathcal B_mY^3\log Y\quad(Y\ge2).
+ \label{eq:xc-block-small}
+\end{align}
+\end{proposition}
+\begin{proof}
+The exact multiplicative expression is
+$\lambda_z=(-1)^\epsilon(V/\bar V)^3((W/\bar W)^3)^m$.
+Apply the complex theorem to its at most three logarithms; a principal-branch
+adjustment has coefficient at most $m+2\le3m$.
+The two nonconstant heights are bounded by
+$3\max(1,\log Q_V)$ and $3\max(1,\log Q_W)$.
+For the second assertion use the first inequality of Bugeaud's
+Theorem~1.3 \cite{moving:bugeaud}, in degree two, with the same at most three
+factors and coefficient bound. One may keep $-1$ and any unit factors with
+zero coefficients to have at least two factors. The product is not one.
+Since $p\nmid N(z)$, all factors are units at places above $p$, and
+$v(\lambda_z-1)=v_p(T)+v(3\sqrt{-3})\ge v_p(T)$.
+Enlarging $C_1$ handles both external constants. Summing and using
+$\sum_{p\le Y}p^2\log p\le Y^3\log Y$ proves the last assertion.
+\end{proof}
+
+\begin{theorem}[Clustered exponents, unrestricted individual norm primes]
+\label{thm:xc-cluster}
+Fix an integer $J\ge0$, $0<\delta<1$, $B\ge0$ and $\varepsilon>0$.
+There is a constant $K_{J,\delta,B,\varepsilon}$ for which
+$c\le K_{J,\delta,B,\varepsilon}R^{1+\varepsilon}$ on the following class,
+with $t=\log c$ and $c$ sufficiently large:
+\begin{equation}\label{eq:xc-cluster-class}
+ m\le e_i\le m+J\text{ for all }i,\quad
+ m\ge t^{(1+\delta)/2},\quad
+ E_{3,>t^{\delta/12}}(T)\le t^B.
+\end{equation}
+The common gcd of the $e_i$ may be one. There is no separate condition
+$q_i\le t^A$ or fixed bound on their number.
+\end{theorem}
+\begin{proof}
+Eventually $m>J$. Then every $f_i=1$. With $S=\sum_i\log q_i$,
+$\log Q_W=S\le2t/m$, $\log Q_V\le JS$, and $S\ge\log7$.
+Proposition~\ref{prop:xc-two-block} gives
+\[
+ \mathcal B_m\le C_J(t/m)^2\log(3m)
+ \le C'_Jt^{1-\delta}\log t\le t^{1-\delta/2}
+\]
+past a threshold depending only on $J,\delta$; here $m\le2t/\log7$.
+The small-prime bound with $Y=t^{\delta/12}$ is consequently
+$O(t^{1-\delta/4}\log t)=o(t)$ uniformly.
+The large-prime excess contributes at most $B\log t=o(t)$.
+Combine these with $c^3\le8e^{\mathcal B_m}R^3E_3(T)$, and absorb
+$\log8+o(t)$ into $3\varepsilon t/(1+\varepsilon)$.
+The remaining finite height range is absorbed by one constant.
+For example an exponent pattern $(m,m+1)$ has gcd one, so the argument
+is not merely the exact common-power case in different notation.
+No existence or exhaustion assertion for the class is needed or made.
+\end{proof}
+
+\section{Prime auxiliary norm and prescribed high boundary valuations coexist}
+\label{sec:xc-ray}
+We now attack, rather than assume, a uniform bound on the independent excess
+$E_3$. The needed external tool is a quantitative ray-class prime theorem,
+not any conjectural height inequality. The ray-class definitions and the
+ordinary existence theorem are used in their standard forms
+\cite[Chapter~V, Sections~1 and~3; Chapter~VI, Section~4]{MilneCFT}.
+
+\begin{lemma}[A fixed-field least ray-class prime consequence]
+\label{lem:xc-ray-prime}
+Let $\mathfrak m=3\prod_{p\in S}p^{k_p+1}\mathcal E$, where $S$ is a
+nonempty finite set of rational primes at least five and $k_p\ge1$.
+Every full ray class modulo $\mathfrak m$ contains a degree-one prime ideal
+$\mathfrak q$ satisfying
+\[
+ N\mathfrak q\le C_2(N\mathfrak m)^{521},
+\]
+where $C_2$ is effective and absolute. Prime ideals in the class are coprime
+to $\mathfrak m$.
+\end{lemma}
+\begin{proof}
+Apply Theorem~3.1 of Thorner--Zaman \cite{XC-ThornerZaman} in the fixed field
+$K=\Q(\sqrt{-3})$ of degree two and discriminant three.
+Their maximum character-conductor norm, denoted here by $Q_H$, is at most
+$N\mathfrak m$. The norm of the product of modulus primes omitted from
+the congruence subgroup's conductor is also at most $N\mathfrak m$.
+Their threshold is
+\[
+ 3^{694}Q_H^{521}+3^{232}Q_H^{367}2^{580}
+ +(12Q_H)^{1/1000}N\mathfrak m_0,
+\]
+which is at most an absolute multiple of $(N\mathfrak m)^{521}$.
+Above the stated conductor threshold the theorem gives a positive lower
+bound for the number of degree-one primes in the specified class, hence
+at least one.
+
+For completeness, the sufficiently-large-conductor proviso loses only
+finitely many moduli in this family. The class number is one, so the full
+ray group is $(\mathcal E/\mathfrak m)^\times$ modulo the image of the six
+units. For any $p\in S$, the last principal-unit layer
+$1+p^{k_p}\mathcal E$ modulo $p^{k_p+1}\mathcal E$ has order $p^2$ and
+intersects the unit image trivially. Thus some character is nontrivial on
+that layer, and its conductor has a prime-ideal factor of exponent
+$k_p+1$. Consequently $Q_H\ge p^{k_p+1}$.
+If $Q_H$ is bounded, only finitely many pairs $(p,k_p)$ and hence finitely
+many such moduli and classes occur. Existence of a degree-one prime in
+each remaining ray class follows from the prime-ideal theorem for ray
+classes; alternatively use the corresponding abelian class field and
+Chebotarev. The former statement concerns precisely the coprime modulus
+classes. Enumerating these finite cases enlarges $C_2$ effectively.
+This verifies the hypotheses of the source theorem rather than replacing
+its conductor by the much larger discriminant of a varying ray-class field.
+\end{proof}
+
+\begin{theorem}[Prime norm with any finite prescribed valuation pattern]
+\label{thm:xc-prime-norm}
+There is an effective absolute constant $C_{\mathrm{ray}}>0$ such that for every nonempty
+finite $S\subset\{p\text{ prime}:p\ge5\}$ and every choice $k_p\ge1$,
+there is a primitive positive triple with
+\begin{equation}\label{eq:xc-ray-result}
+ a^2+ab+b^2=q\text{ prime},\qquad
+ v_p(abc)=k_p\quad(p\in S),\qquad
+ \prod_{p\in S}p^{k_p}\le c
+ \le C_{\mathrm{ray}}\prod_{p\in S}p^{521(k_p+1)}.
+\end{equation}
+The lower bound holds because all prescribed powers can be placed on one
+arm, up to the common unit rotation.
+\end{theorem}
+\begin{proof}
+Put $L=\prod_{p\in S}p^{k_p+1}$ and $A=\prod_{p\in S}p^{k_p}$.
+Choose $r\in\mathcal E$ by the ordinary Chinese remainder theorem so that
+$r\equiv1\pmod{3\mathcal E}$ and $r\equiv1+A\zeta\pmod{L\mathcal E}$.
+It is a unit at the modulus, since its norm is one modulo every $p\in S$.
+Apply Lemma~\ref{lem:xc-ray-prime} to the ray class of $(r)$.
+Since $\mathcal E$ is a principal ideal domain, equality of ray classes gives
+$\mathfrak q=(r\gamma)$ with $\gamma\equiv1\pmod{\mathfrak m}$ locally.
+The generator $\pi=r\gamma$ is integral because $(\pi)=\mathfrak q$ is an
+integral ideal. Locally at every modulus prime it is congruent to $r$;
+since $\pi-r$ is integral, these congruences give $\pi\equiv r\pmod{\mathfrak m}$.
+Writing $\pi=x+y\zeta$, we get $x\equiv1$, $y\equiv A\pmod L$.
+Thus $v_p(y)=k_p$ and $p\nmid x(x+y)$ for every $p\in S$.
+
+The norm $N(\pi)=q$ is a rational prime. A common divisor of $x,y$ would
+have its square divide $q$, so the pair is primitive. Zero boundary would
+force a square norm, impossible for a prime. Rotate by a unit to positive
+coordinates $a,b$. The absolute values of the three arms are permuted by
+this rotation, so all the exact boundary valuations survive, as does the
+assertion that $A$ divides a single arm. Hence $c\ge A$.
+Finally $N\mathfrak m=9L^2$, and
+$c\le2\sqrt q/\sqrt3\le C_{\mathrm{ray}}L^{521}$.
+All constants depend only on the fixed quadratic field and the cited
+absolute estimate, not on $S$ or the exponents.
+\end{proof}
+
+\begin{corollary}[The two uncontrolled regions genuinely overlap]
+\label{cor:xc-overlap}
+Fix an integer $k\ge4$. There is a family of primitive positive triples
+indexed by all rational primes $p\ge5$ with prime auxiliary norm,
+$v_p(abc)=k$, and
+\[
+ p^k\le c\le C_{\mathrm{ray}}p^{521(k+1)}.
+\]
+For every fixed real $A>0$, eventually $p>(\log c)^A$, and
+\begin{equation}\label{eq:xc-large-tail-obstruction}
+ \liminf_{p\to\infty}
+ \frac{\log E_{3,>(\log c)^A}(abc)}{\log c}
+ \ge\frac{k-3}{521(k+1)}>0.
+\end{equation}
+Consequently the independent estimate
+$\log E_{3,>(\log c)^A}(abc)=o(\log c)$ is false even when the auxiliary
+norm is prime. The common exponent content of this family is one.
+\end{corollary}
+\begin{proof}
+Use Theorem~\ref{thm:xc-prime-norm} with $S=\{p\}$.
+The upper height bound gives $\log c\le\log C_{\mathrm{ray}}+521(k+1)\log p$.
+Every fixed power of this logarithm is eventually less than $p$.
+The specified prime then contributes $p^{k-3}$ to the large-prime excess,
+giving \eqref{eq:xc-large-tail-obstruction} on division.
+Since $N(z)$ is prime, \eqref{eq:xc-factorization} has a single exponent one.
+The family is unbounded because $c\ge p^k$.
+\end{proof}
+
+This is not an abc counterfamily. No upper bound for its full radical $R$
+strong enough to violate abc has been proved. The complementary credit
+$C_3(T)$ and the balance of the three arms remain relevant. In particular,
+this corollary does not contradict the previous restricted theorem, whose
+small-norm support assumptions fail on prime norms of size comparable to
+$c^2$. It rules out extending that theorem merely by asserting its separate
+large-prime excess hypothesis everywhere.
+
+\section{An intrinsic angular obstruction and a modular cross-check}
+\label{sec:xc-audit}
+\begin{proposition}[A sharp elementary universal angular scale]
+\label{prop:xc-angular-cap}
+For every primitive positive triple,
+\[
+ |\lambda_z-1|\ge\frac{3\sqrt3}{2c},\qquad
+ \max(0,-\log|\lambda_z-1|)\le\log c.
+\]
+Thus the preceding $O(\log c\log\log c)$ upper penalty at prime norm can
+already be replaced by an $O(\log c)$ penalty without any logarithmic-form
+input. In the exact-power class one may take the minimum of $\log c$ and
+$C\log Q\log(3g)$ as a valid nonnegative angular penalty.
+\end{proposition}
+\begin{proof}
+Since $(a-1)(b-1)\ge0$, $ab\ge c-1\ge c/2$. Hence $T\ge c^2/2$.
+Use $|\lambda_z-1|=3\sqrt3T/M^{3/2}$ and $M\le c^2$. Since
+$3\sqrt3/2>1$, the stated logarithmic consequence follows, including when
+the absolute value is greater than one. Taking the smaller of two valid
+upper penalties preserves the lower bound for the absolute value.
+\end{proof}
+
+\begin{proposition}[Angular smallness is not a universal target]
+\label{prop:xc-imbalance}
+On the genuine primitive family $(1,c-1,c)$,
+\[
+ \left|\left(\frac z{\bar z}\right)^3-1\right|
+ =\frac{3\sqrt3\,c(c-1)}{(c^2-c+1)^{3/2}},\qquad
+ -\log|\lambda_z-1|=\log c-\log(3\sqrt3)+o(1).
+\]
+In particular no universally sublinear angular penalty can be valid on all
+triples, regardless of the chosen decomposition of $z$.
+\end{proposition}
+\begin{proof}
+Substitute $T=c(c-1)$ and $N(z)=c^2-c+1$ in the cubic identity and divide
+numerator and denominator by $c^3$. The residual factor tends to one.
+Any $A(z)$ with $|\lambda_z-1|\ge e^{-A(z)}$ must therefore satisfy
+$A(z)\ge\log c+O(1)$ on this family.
+\end{proof}
+
+Thus two separate universal replacements for the previous sufficient class
+are now excluded: unconditionally making the angular penalty sublinear,
+and unconditionally making the large-prime excess sublinear. Their
+correlated, credit-preserving alternatives remain open, not refuted.
+
+We also tested the modular direction against these proposed replacements.
+Pasten's established estimate \cite[Theorem~2.5]{XC-Pasten} states that,
+for each $\rho>0$,
+\[
+ \prod_{p\mid T}v_p(T)\le\kappa_\rho R^{8/3+\rho}.
+\]
+It implies, for $V>1$,
+\begin{equation}\label{eq:xc-pasten-count}
+ \#\{p\mid T:v_p(T)\ge V\}
+ \le\frac{\log\kappa_\rho+(8/3+\rho)\log R}{\log V}.
+\end{equation}
+The proof is simply to take logarithms and retain these factors.
+The source controls $\sum\log v_p(T)$, not
+$\sum(v_p(T)-3)_+\log p$. We do not replace one by the other.
+Corollary~\ref{cor:xc-overlap}, with a fixed $k\ge4$ and $p\to\infty$,
+shows concretely why excluding only extremely large exponents cannot by
+itself exclude a large weighted excess: this obstruction uses a fixed
+exponent. No contradiction with Pasten's theorem is asserted.
+
+\section{Finite certificates, formalization scope, and the surviving graph}
+\label{sec:xc-validation}
+The supplied standard-library Python verifier checks the local inequalities
+without logarithmic rounding. For $p\ge5$ it verifies
+\[
+ p^{2\max(v_p(T)-v_p(g),0)}\le Q^{p+1};
+\]
+the exceptional-prime and aggregate estimates are likewise checked by
+integer powers. The aggregate comparison used in the replay is
+$S_Y(T)^4\le g^4Q^{Y^2+3Y+18}$ at integer $Y$.
+The test uses positive primitive bases with coordinates at most 24,
+$3\nmid Q$, $1\le g\le12$, both twists, and all primes at most 101.
+It checks 6,528 triples and 169,728 local prime conditions, plus
+52,224 aggregate inequalities. An independently implemented integer matrix
+power verifies 3,264 pair powers. Forty-two adjacent-exponent examples have
+exponent gcd one. None of these counts proves a universal theorem.
+
+Five concrete prime-norm examples have the shape
+$(1,p^4-1,p^4)$ for $p=5,13,31,107,263$.
+For example the last has
+\[
+ (a,b,c)=(1,4784350560,4784350561),\qquad
+ N(z)=22890010285756664161\text{ prime}.
+\]
+Their prime claims are checked by recursive full-$n-1$ Lucas certificates,
+not by probable-prime tests. The certificate graph has 21 prime nodes and
+81 modular conditions. To justify this test, if $a^{n-1}=1\pmod n$ and
+$\gcd(a^{(n-1)/\ell}-1,n)=1$ for every certified prime $\ell\mid n-1$,
+then for every prime divisor $r$ of $n$ the order of $a$ modulo $r$ contains
+the full $\ell$-part of $n-1$. Thus $n-1\mid r-1$, forcing $r=n$.
+This proves the criterion recursively from the prime two. The last example
+has exact radical $R=78642762330>c$, despite $v_{263}(T)=4$ and prime
+auxiliary norm; thus a large selected excess can coexist with ample radical.
+These five
+examples are not substituted for the ray-class infinite-family proof.
+
+A separate Lean companion records elementary polynomial and divisibility
+statements, and integer forms of selected bounds. It is expressly marked \emph{uncompiled}:
+there is no Lean executable in this execution and no accessible remote
+write/CI-trigger action was provided by the current connector.
+No number-theoretic existence result, local order theorem, logarithmic-form
+estimate, ray-class theorem or standard abc statement is thereby claimed
+kernel-checked. The earlier 70-declaration validation records are retained
+as historical records and are not represented as validation of new code.
+
+\begin{center}\small
+\begin{tabular}{p{.21\linewidth}p{.34\linewidth}p{.37\linewidth}}
+\toprule
+Line & Result established here & Exact remaining issue\\\midrule
+Exact exponent compression & Support-free angular and elementary local bounds
+& Large-prime tail and small exponent content\\
+Near-common exponents & Three-log compression even at gcd one
+& Coverage beyond clustered exponents and large-prime tail\\
+Ray-class construction & Prime norm and deep large boundary primes coexist
+& Full radical/credit correlation, not just excess\\
+Modular multiplicity & Literal consequence \eqref{eq:xc-pasten-count}
+& Conversion from log exponent count to weighted depth\\
+IUT and other geometry & No new source comparison asserted
+& Previous all-place and uniform height obligations\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The positive dependency chain is
+\[
+ \text{actual power extraction}+
+ \text{two-log estimate}+
+ \text{explicit local lifting}
+ \ \Longrightarrow\ \eqref{eq:xc-tail}.
+\]
+Its final implication to abc is proved only under \eqref{eq:xc-class}.
+The second positive chain uses the three-log and $p$-adic input only on
+\eqref{eq:xc-cluster-class}. The adversarial chain is
+\[
+ \text{least ray-class prime theorem}+\text{CRT}
+ \ \Longrightarrow\ \eqref{eq:xc-ray-result}
+ \ \Longrightarrow\ \eqref{eq:xc-large-tail-obstruction}.
+\]
+Every external input is an established theorem, but no chain removes all
+the remaining restrictions. In particular no unconditional term of type
+\texttt{ABCConjecture} is constructed. Claims about the local checks,
+source integration and remote publication are recorded separately from
+mathematical correctness. No independent autonomous subagents or external
+peer review were available in this execution.
+% END EXPONENT-COMPRESSION SUPPLEMENT 2026-09-06

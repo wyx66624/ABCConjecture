@@ -1,0 +1,239 @@
+{
+  "certificate_nodes": 50,
+  "examples": [
+    {
+      "C3": 1396259875202256373601653956,
+      "E3": 5,
+      "G": 125,
+      "a": 225001,
+      "b": 228750,
+      "c": 453751,
+      "c_over_R": [
+        1,
+        411751830
+      ],
+      "kind": "prime_norm",
+      "norm": 154420991251,
+      "radical": 186832804614330
+    },
+    {
+      "C3": 1001680649989805712621988471003573932900,
+      "E3": 11,
+      "G": 1331,
+      "a": 63776197,
+      "b": 59120358,
+      "c": 122896555,
+      "c_over_R": [
+        1,
+        2832811118346
+      ],
+      "kind": "prime_norm",
+      "norm": 11333091632349499,
+      "radical": 348142727410420698030
+    },
+    {
+      "C3": 77121058395272564794058658133956,
+      "E3": 125,
+      "G": 3125,
+      "a": 2812501,
+      "b": 5718750,
+      "c": 8531251,
+      "c_over_R": [
+        1,
+        5146876830
+      ],
+      "kind": "prime_norm",
+      "norm": 56698253531251,
+      "radical": 43909298102814330
+    },
+    {
+      "C3": 7298809777617153902850411396,
+      "E3": 55,
+      "G": 166375,
+      "a": 1,
+      "b": 27960078750,
+      "c": 27960078751,
+      "c_over_R": [
+        1331,
+        223680630
+      ],
+      "kind": "content_one",
+      "norm": 781766003734161641251,
+      "radical": 4698818955577230
+    }
+  ],
+  "local_residue_counts": [
+    {
+      "bad_residues": 60,
+      "density": [
+        1,
+        10
+      ],
+      "p": 5,
+      "unit_residues": 600
+    },
+    {
+      "bad_residues": 126,
+      "density": [
+        1,
+        14
+      ],
+      "p": 7,
+      "unit_residues": 1764
+    },
+    {
+      "bad_residues": 330,
+      "density": [
+        1,
+        44
+      ],
+      "p": 11,
+      "unit_residues": 14520
+    },
+    {
+      "bad_residues": 468,
+      "density": [
+        1,
+        52
+      ],
+      "p": 13,
+      "unit_residues": 24336
+    },
+    {
+      "bad_residues": 816,
+      "density": [
+        1,
+        102
+      ],
+      "p": 17,
+      "unit_residues": 83232
+    },
+    {
+      "bad_residues": 1026,
+      "density": [
+        1,
+        114
+      ],
+      "p": 19,
+      "unit_residues": 116964
+    }
+  ],
+  "local_residue_pairs_examined": 260070,
+  "modular_certificate_conditions": 195,
+  "not_tested": [
+    "Kai analytic constants or effective thresholds",
+    "all-point ABC",
+    "full analytic theorem in Lean",
+    "general ramification theorem in Lean"
+  ],
+  "power_maps": [
+    {
+      "degree": 1,
+      "finite_boundary_roots": 2,
+      "infinity_boundary_roots": 1,
+      "jacobian_degree": 0,
+      "new_boundary_degree": 0,
+      "total_boundary_roots": 3
+    },
+    {
+      "degree": 2,
+      "finite_boundary_roots": 5,
+      "infinity_boundary_roots": 1,
+      "jacobian_degree": 2,
+      "new_boundary_degree": 3,
+      "total_boundary_roots": 6
+    },
+    {
+      "degree": 3,
+      "finite_boundary_roots": 8,
+      "infinity_boundary_roots": 1,
+      "jacobian_degree": 4,
+      "new_boundary_degree": 6,
+      "total_boundary_roots": 9
+    },
+    {
+      "degree": 4,
+      "finite_boundary_roots": 11,
+      "infinity_boundary_roots": 1,
+      "jacobian_degree": 6,
+      "new_boundary_degree": 9,
+      "total_boundary_roots": 12
+    },
+    {
+      "degree": 5,
+      "finite_boundary_roots": 14,
+      "infinity_boundary_roots": 1,
+      "jacobian_degree": 8,
+      "new_boundary_degree": 12,
+      "total_boundary_roots": 15
+    },
+    {
+      "degree": 6,
+      "finite_boundary_roots": 17,
+      "infinity_boundary_roots": 1,
+      "jacobian_degree": 10,
+      "new_boundary_degree": 15,
+      "total_boundary_roots": 18
+    },
+    {
+      "degree": 7,
+      "finite_boundary_roots": 20,
+      "infinity_boundary_roots": 1,
+      "jacobian_degree": 12,
+      "new_boundary_degree": 18,
+      "total_boundary_roots": 21
+    },
+    {
+      "degree": 8,
+      "finite_boundary_roots": 23,
+      "infinity_boundary_roots": 1,
+      "jacobian_degree": 14,
+      "new_boundary_degree": 21,
+      "total_boundary_roots": 24
+    },
+    {
+      "degree": 9,
+      "finite_boundary_roots": 26,
+      "infinity_boundary_roots": 1,
+      "jacobian_degree": 16,
+      "new_boundary_degree": 24,
+      "total_boundary_roots": 27
+    },
+    {
+      "degree": 10,
+      "finite_boundary_roots": 29,
+      "infinity_boundary_roots": 1,
+      "jacobian_degree": 18,
+      "new_boundary_degree": 27,
+      "total_boundary_roots": 30
+    },
+    {
+      "degree": 11,
+      "finite_boundary_roots": 32,
+      "infinity_boundary_roots": 1,
+      "jacobian_degree": 20,
+      "new_boundary_degree": 30,
+      "total_boundary_roots": 33
+    },
+    {
+      "degree": 12,
+      "finite_boundary_roots": 35,
+      "infinity_boundary_roots": 1,
+      "jacobian_degree": 22,
+      "new_boundary_degree": 33,
+      "total_boundary_roots": 36
+    }
+  ],
+  "progression_sieve": {
+    "X": 1244678400,
+    "bitmap_sha256": "9a3bc24f5cc78b8d09cfe3df66ab2d4acf612f3a68f8286a2b6e435ae7beecb3",
+    "independently_factored_pairs": 100,
+    "m": 1764,
+    "prime_square_sieve_bases": 5120,
+    "progression_points": 705600,
+    "residue": 1374,
+    "survivors": 610293,
+    "theorem_lower_bound": 176400
+  },
+  "status": "PASS: exact finite tests only; not an ABC proof"
+}
