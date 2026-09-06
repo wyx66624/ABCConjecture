@@ -1,0 +1,474 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,longtable,array}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Eisenstein Descent and Exact Boundary Divisibility},pdfauthor={ChatGPT},pdfsubject={Partial abc research; no unconditional proof},pdfkeywords={abc conjecture, Eisenstein descent, Lean, radical}}
+\usepackage{enumitem}
+\setlist{nosep}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\gcdabs}[2]{\gcd\!\left(|#1|,|#2|\right)}
+\title{Eisenstein Descent and Exact Boundary Divisibility:\\
+A Coupled Obstruction to Radical Estimates for \textit{abc}}
+\author{ChatGPT}
+\date{September 5, 2026 (America/Chicago)}
+\begin{document}
+\maketitle
+\begin{abstract}
+We continue an arithmetic research program on the standard abc inequality, without claiming a proof or disproof of that inequality. In the quadratic ring $\ZZ[\rho]$, $\rho^2=\rho-1$, we use the norm $N(x,y)=x^2+xy+y^2$ and the boundary form $F(x,y)=xy(x+y)$. An elementary Euclidean argument gives a prime-norm descent for every primitive pair: at each nonterminal step the associated height decreases by a factor at most $2/3$. This removes a coverage restriction present in common-power descent, but does not control the radical loss. Our central identity is the full, multiplicity-sensitive formula
+\[
+\gcdabs{F(w)}{F(\beta w)}=\gcdabs{F(w)}{F(\beta)}
+\]
+for every primitive $w$ and every integral $\beta$. On the orbit $(2+\rho)^n$, it yields strong divisibility of the entire boundary sequence, which is $6$ times the absolute value of the Lucas sequence with parameters $(20,343)$. We also construct normalized signed cubic triples for which the whole quadratic quotient is $7^n$ and its first-appearance excess has quadratic size in the base height. An explicit orbit point shows that every available prime-norm predecessor can worsen the normalized radical inequality. Forty named Lean theorems, including the general boundary gcd identity and strong divisibility, have passed a standalone compiler and axiom audit. Euclidean coverage and the asymptotic interpretations are ordinary mathematical proofs, not fully formalized here. The missing uniform radical estimate is stated explicitly.
+\end{abstract}
+\noindent\textbf{Keywords.} abc conjecture; Eisenstein integers; radical; descent; Lucas sequence; first apparition; Lean formalization.
+
+\section{The target and the inherited breakpoint}
+For a positive integer $n$, put $\rad(n)=\prod_{p\mid n}p$. The standard target is
+\begin{equation}\label{eq:abc}
+\forall\varepsilon>0\ \exists K_\varepsilon>0\ \forall a,b,c\in\ZZ_{>0},\qquad
+ a+b=c,\ \gcd(a,b)=1\ \Longrightarrow\ c\le K_\varepsilon\rad(abc)^{1+\varepsilon}.
+\end{equation}
+All constants in this assertion are independent of the triple. Its negation requires one fixed positive $\varepsilon$ and a family for which the displayed ratio is unbounded. Neither a large finite example nor a counterexample to an auxiliary estimate proves that negation.
+
+The inspected project checkpoint \cite{project} contains several distinct lines: proper-face transport, compensated divisor packets, first-apparition estimates, arithmetic derivatives, and IUT/geometric interfaces. Earlier power descent compares a triple with a common-power lift and keeps the entire first-appearance factor separate from the controlled repeated-lifting factor \cite{power}. Earlier transverse lifting controls integer-realization overhead, but its proposed uniform small-norm condition was proved equivalent to abc \cite{transverse}. We do not assume either missing estimate.
+
+The present mechanism uses a factorization of $a+b\rho$, rather than a common integer power in two arms. Every primitive positive triple is covered by the resulting algebraic descent. We then study the actual change in its boundary prime support. Our results distinguish three separate questions:
+\begin{center}
+existence of a smaller predecessor;\quad exact common prime support;\quad uniform radical growth.
+\end{center}
+The first two are resolved below in the stated settings. The third is not.
+
+The source snapshot is commit \texttt{9edd965d6df645dbebc0869530f3f5a40fb8cddc}. Its endpoint-residue obstruction \cite{endpoint} is retained: no positive-face existence assumption is used here. This manuscript develops its mathematical arguments directly. It does not assert priority relative to the external literature or external peer review.
+
+\section{The quadratic model and height normalization}
+Let $\rho=(1+\sqrt{-3})/2$ and $\mathcal E=\ZZ[\rho]$. An element $x+y\rho$ is represented by the integer pair $(x,y)$. Its operations are
+\begin{align}
+(u,v)(x,y)&=(ux-vy,\ vx+(u+v)y),\label{eq:mul}\\
+\overline{(x,y)}&=(x+y,-y),\\
+N(x,y)&=x^2+xy+y^2.
+\end{align}
+Direct multiplication proves $z\bar z=(N(z),0)$ and $N(zw)=N(z)N(w)$. The norm is positive away from zero, since
+\[
+4N(x,y)=(2x+y)^2+3y^2.
+\]
+An element is a unit exactly when its norm is one: the conjugate supplies an integral inverse in that case, and multiplicativity proves the converse.
+
+\begin{definition}
+A pair $(x,y)$ is primitive when $\gcd(|x|,|y|)=1$. Define
+\[
+F(x,y)=xy(x+y),\qquad H(x,y)=\max\{|x|,|y|,|x+y|\}.
+\]
+For a primitive nonunit pair, define $R(x,y)=\rad(|F(x,y)|)$.
+\end{definition}
+The boundary is nonzero at every primitive nonunit. Indeed, if one of $x,y,x+y$ vanishes, primitivity forces the remaining nonzero coordinate to have absolute value one, and the norm is one.
+
+\begin{lemma}[Normalization and height corridor]\label{lem:height}
+Every primitive nonunit is unit-equivalent to a pair $(a,b)$ with $a,b>0$. The three positive integers obtained by sorting $|x|,|y|,|x+y|$ form a primitive abc triple with largest entry $H(x,y)$ and radical $R(x,y)$. Moreover
+\begin{equation}\label{eq:corridor}
+\frac34H(z)^2\le N(z)\le H(z)^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Multiplication by $\rho$ sends $(x,y)$ to $(-y,x+y)$. Its six iterates permute $x,y,x+y$ up to sign. They preserve $H$ and $N$, and change $F$ only by sign. Their six closed cones cover the plane, so one representative has both coordinates nonnegative. A zero coordinate would make a primitive representative a unit. For the positive representative, $H=a+b$ and
+\[
+N=(a+b)^2-ab,\qquad 4N-3(a+b)^2=(a-b)^2.
+\]
+These prove the corridor. Pairwise coprimality of $a,b,a+b$ follows from $\gcd(a,b)=1$.
+\end{proof}
+
+\begin{lemma}[Coprime norm and boundary]\label{lem:disjoint}
+For every primitive pair $z$, $\gcd(N(z),|F(z)|)=1$.
+\end{lemma}
+\begin{proof}
+Modulo $x$, $y$, and $x+y$, the norm is respectively $y^2$, $x^2$, and $y^2$. Each of these squares is coprime to its modulus. Since the three boundary factors are pairwise coprime, the conclusion follows. This also covers units, where $N=1$.
+\end{proof}
+Thus factoring the norm does not directly factor the abc radical. This distinction is important when interpreting the descent.
+
+\section{Prime-norm descent with complete algebraic coverage}
+\begin{lemma}[Euclidean division]\label{lem:euclidean}
+For $z,w\in\mathcal E$, $w\ne0$, there are $q,r\in\mathcal E$ such that
+\[
+z=qw+r,\qquad N(r)\le\tfrac34N(w)<N(w).
+\]
+\end{lemma}
+\begin{proof}
+Write $z/w=s+t\rho$ with $s,t\in\QQ$. Choose integers $s_0,t_0$ within $1/2$ of the respective coordinates, and put $q=s_0+t_0\rho$. If $A=s-s_0$, $B=t-t_0$, then
+\[
+N(A+B\rho)=A^2+AB+B^2\le\tfrac34.
+\]
+Multiplication by $w$ proves the bound. The remainder is integral by construction. Consequently the Euclidean algorithm terminates and gives a gcd together with a Bezout identity; back substitution proves the identity at every step.
+\end{proof}
+
+\begin{theorem}[Every primitive pair has a prime-norm predecessor]\label{thm:coverage}
+Let $z\in\mathcal E$ be primitive and nonunit. For every rational prime $p\mid N(z)$, there are integral $\pi,w$ satisfying
+\begin{equation}\label{eq:descent}
+z=\pi w,\qquad N(\pi)=p,\qquad N(w)=N(z)/p,
+\end{equation}
+where $w$ is primitive, $p\ge3$, and
+\begin{equation}\label{eq:contraction}
+H(w)\le\frac23 H(z).
+\end{equation}
+Iterating produces a finite path from every primitive abc triple to a unit.
+\end{theorem}
+\begin{proof}
+Write $z=x+y\rho$. If $p\mid y$, then $N(z)\equiv x^2\pmod p$ would force $p\mid x$, contradicting primitivity. Thus $y$ is invertible modulo $p$, and $r=-x/y$ in $\mathbb F_p$ satisfies $r^2-r+1=0$. Evaluation $\rho\mapsto r$ defines a ring homomorphism $\mathcal E\to\mathbb F_p$ which kills both $p$ and $z$.
+
+Let $\pi$ be a Euclidean gcd of $p$ and $z$. It is not a unit: a Bezout identity for a unit gcd would, after multiplying by its inverse, express $1$ as a combination of $p$ and $z$, contradicting evaluation in $\mathbb F_p$. Because $\pi\mid p$, its positive integer norm divides $p^2$. The only possible nonunit norms are $p$ and $p^2$. If $N(\pi)=p^2$, the integral quotient $p/\pi$ has norm one; hence $\pi$ is associated to $p$. Since $\pi\mid z$, this would make both coordinates of $z$ divisible by $p$. Therefore $N(\pi)=p$.
+
+The quotient $w=z/\pi$ is primitive: any rational integer dividing both its coordinates divides both coordinates of $z$. A primitive norm is odd, as inspection modulo two shows, so $p\ne2$. Applying Lemma~\ref{lem:height} to $w$ and $z$ yields
+\[
+H(w)^2\le\frac43N(w)=\frac{4}{3p}N(z)\le\frac49H(z)^2.
+\]
+The positive integral norm strictly decreases at each step, and norm one is precisely the terminal unit case.
+\end{proof}
+
+This proof does not assume that either arm is an integer power. It also does not assert that a radical inequality improves along the path. The latter statement is false, even when all prime-norm predecessor choices are allowed; see Section~\ref{sec:counter}.
+
+\section{The exact boundary gcd identity}
+\begin{theorem}[Exact boundary overlap]\label{thm:gcd}
+For arbitrary $u,v,x,y\in\ZZ$ with $\gcd(|x|,|y|)=1$,
+\begin{equation}\label{eq:gcd}
+\gcdabs{F(x,y)}{F((u,v)(x,y))}
+=\gcdabs{F(x,y)}{F(u,v)}.
+\end{equation}
+This identity has been fully formalized in the supplied standalone Lean modules.
+\end{theorem}
+\begin{proof}
+Put $A=F(u,v)$ and $T=F((u,v)(x,y))$. Formula~\eqref{eq:mul} gives the exact congruences
+\begin{align}
+T&\equiv-Ay^3\pmod{x},\label{eq:remx}\\
+T&\equiv Ax^3\pmod{y},\\
+T&\equiv Ay^3\pmod{x+y}.
+\end{align}
+For example, modulo $x$ the transformed coordinates are $-vy$ and $(u+v)y$, whose sum is $uy$; their product is $-uv(u+v)y^3$. The other two substitutions give the remaining congruences.
+
+The integers $x,y,x+y$ are pairwise coprime in absolute value. Thus $y^3$ can be cancelled in the gcd modulo $x$ and $x+y$, and $x^3$ can be cancelled modulo $y$. We obtain
+\[
+\gcdabs{x}{T}=\gcdabs{x}{A},\quad
+\gcdabs{y}{T}=\gcdabs{y}{A},\quad
+\gcdabs{x+y}{T}=\gcdabs{x+y}{A}.
+\]
+For pairwise coprime integers $r_i$, prime valuations show
+$\gcd(|\prod_i r_i|,|t|)=\prod_i\gcd(|r_i|,|t|)$.
+Multiplying the three equalities proves the theorem. If a boundary factor is zero, the other factors have absolute value one; the same gcd calculation remains valid.
+\end{proof}
+
+The assertion is stronger than an equality of prime supports: it preserves the exact minimum valuation at every common prime. It requires no coprimality condition on the multiplier $(u,v)$.
+
+\begin{corollary}[Exact overlap on a descent edge]
+For a nonterminal edge $z=\pi w$ from Theorem~\ref{thm:coverage}, with $w$ nonunit, the common radical factor is
+\[
+\gcd(R(w),R(z))=\rad\bigl(\gcd(|F(w)|,|F(\pi)|)\bigr).
+\]
+In particular, if $\pi=2+\rho$, all common primes lie in $\{2,3\}$.
+\end{corollary}
+The formula controls overlap, not the magnitudes of the new primes or their multiplicities. Replacing those missing magnitude bounds by this overlap formula would be an invalid inference.
+
+\section{A norm-seven orbit and strong divisibility}
+Set $\alpha=2+\rho$ and write
+\begin{equation}\label{eq:orbit}
+\alpha^n=x_n+y_n\rho,\qquad (x_0,y_0)=(1,0).
+\end{equation}
+Then
+\begin{equation}\label{eq:step}
+x_{n+1}=2x_n-y_n,\qquad y_{n+1}=x_n+3y_n,
+\end{equation}
+and $N(x_n,y_n)=7^n$.
+
+\begin{lemma}[Primitivity of the entire orbit]\label{lem:primitive}
+Every pair $(x_n,y_n)$ is primitive. For $n\ge1$,
+\[
+x_n\equiv2y_n\pmod7,\qquad y_n\not\equiv0\pmod7.
+\]
+\end{lemma}
+\begin{proof}
+The congruences hold at $n=1$. Under~\eqref{eq:step}, their difference becomes a multiple of seven, and $y_{n+1}\equiv5y_n\pmod7$, so they persist. A common divisor of $x_n,y_n$ divides their norm $7^n$, but is coprime to seven by the second congruence. It is therefore one. The case $n=0$ is immediate.
+\end{proof}
+
+\begin{definition}
+Let $F_n=F(x_n,y_n)$ and $B_n=|F_n|$, including $B_0=0$. Define the integer sequence
+\[
+U_0=0,\quad U_1=1,\quad U_{n+2}=20U_{n+1}-343U_n.
+\]
+\end{definition}
+
+\begin{theorem}[A whole-boundary strong divisibility sequence]\label{thm:strong}
+For all $m,n\in\NN$,
+\begin{equation}\label{eq:strong}
+\gcd(B_m,B_n)=B_{\gcd(m,n)},
+\end{equation}
+and
+\begin{equation}\label{eq:lucas}
+F_n=6U_n.
+\end{equation}
+Both statements have been proved in Lean for arbitrary indices.
+\end{theorem}
+\begin{proof}
+The orbit multiplication law and Theorem~\ref{thm:gcd} give
+\[
+\gcd(B_m,B_{m+n})=\gcd(B_m,B_n).
+\]
+Repeated subtraction, or Euclidean induction on $(m,n)$, proves~\eqref{eq:strong}; at an index zero it reduces to $\gcd(0,B_n)=B_n$.
+
+For the sequence identity, direct polynomial expansion for the map $S(x,y)=(2x-y,x+3y)$ gives
+\[
+F(S^2z)=20F(Sz)-343F(z).
+\]
+Since $F_0=0$ and $F_1=6$, induction proves~\eqref{eq:lucas}. As an independent explanation, the coefficient of $\rho$ in $z^3$ is $3F(z)$, whereas $\alpha^3$ has trace $20$ and norm $343$.
+\end{proof}
+
+\begin{corollary}
+For $n\ge1$, $B_n>0$. If $\gcd(m,n)=1$, then $\gcd(B_m,B_n)=6$; hence their prime supports outside two and three are disjoint.
+\end{corollary}
+\begin{proof}
+A zero boundary at a primitive pair would force norm one, whereas the norm here is $7^n>1$. The gcd assertion follows from $B_1=6$.
+\end{proof}
+This gives an exact connection with first-apparition questions in recurrence sequences. It does not bound the first-apparition valuation. Distinct prime support at different indices alone supplies no pointwise exponential radical lower bound.
+
+\section{A full quadratic quotient with one prime support}
+The same orbit constructs a stronger obstruction to an independently small first-appearance factor when homogeneous bases are allowed. Signs must be retained: the boundary in this section is $xy(x-y)$, not $F(x,y)=xy(x+y)$.
+
+\begin{lemma}[A non-power subsequence]\label{lem:modfour}
+For $n=6j+1$, $j\ge0$,
+\[
+x_n\equiv2\pmod4,\qquad y_n\equiv1\pmod4.
+\]
+Consequently $|x_n|$ is not a nontrivial perfect power, so the two absolute bases cannot have a common nontrivial power exponent.
+\end{lemma}
+\begin{proof}
+An exact computation gives $\alpha^6=(-323,360)$. Multiplication by this pair has matrix
+\[
+\begin{pmatrix}-323&-360\\360&37\end{pmatrix}\equiv I\pmod4.
+\]
+The residues at $n=1$ therefore persist. The two-adic valuation of $|x_n|$ is exactly one. If $|x_n|=z^e$ with $e\ge2$, an odd $z$ gives an odd power and an even $z$ gives a multiple of four, both contradictions.
+\end{proof}
+
+\begin{theorem}[Quadratic first-appearance excess]\label{thm:quadratic}
+For every $n=6j+1$, let $x=x_n$, $y=y_n$, and $h=\max(|x|,|y|)$. Then $x,y,x-y$ are nonzero and pairwise coprime, and
+\begin{equation}\label{eq:cubic}
+x^3-y^3=(x-y)7^n,\qquad 7\nmid xy(x-y).
+\end{equation}
+The ratio $x/y$ modulo seven has exact order three, and
+\[
+v_7(x^3-y^3)=n.
+\]
+Thus the entire excess of the new-prime quadratic quotient is
+\begin{equation}\label{eq:T}
+T=7^{n-1},\qquad \frac{3}{28}h^2\le T\le\frac37h^2.
+\end{equation}
+The resulting signed cubic relation gives a positive primitive abc triple, and the bases are normalized as in Lemma~\ref{lem:modfour}.
+\end{theorem}
+\begin{proof}
+The polynomial identity $x^3-y^3=(x-y)(x^2+xy+y^2)$ proves the first equation. The residues from Lemma~\ref{lem:primitive} give $x/y=2$ modulo seven. This residue has order three, and neither $x$, $y$, nor $x-y$ is zero modulo seven. The exact valuation follows. In particular $x-y\ne0$; the other coordinates are also nonzero. Their pairwise coprimality follows from that of $x,y$.
+
+For arbitrary real $x,y$ with $h=\max(|x|,|y|)$,
+\[
+\tfrac34 h^2\le x^2+xy+y^2\le3h^2.
+\]
+For the lower bound, fix the coordinate of absolute value $h$ and complete the square in the other coordinate. Divide these inequalities by seven and use $N=7^n$ to obtain~\eqref{eq:T}.
+
+Sorting the positive quantities $|x|^3,|y|^3,|x-y|7^n$ gives an abc triple. If $x,y$ have the same sign, it is a difference of positive cubes. If they have opposite signs, it is a sum of positive cubes, with quadratic quotient $|x|^2-|x||y|+|y|^2$. Coprimality was already proved. Finally $h\ge7^{n/2}/\sqrt3\to\infty$, so infinitely many distinct base pairs occur.
+\end{proof}
+
+\begin{corollary}[An independent subquadratic bound fails]
+For every fixed $\theta<2$ and $C>0$, the normalized signed homogeneous family in Theorem~\ref{thm:quadratic} contains infinitely many members with $T>Ch^\theta$.
+\end{corollary}
+This extends the previous one-variable obstruction to a homogeneous signed setting; it is not a claim that the stronger exponent holds with $y=1$. Nor is it a counterexample to abc.
+
+\begin{proposition}[The exact coupled radical still required]\label{prop:coupled}
+For the positive cubic triple just constructed, write $C_n$ for its largest entry and $S_n=\rad(|x_ny_n(x_n-y_n)|)$. Its radical is exactly $7S_n$, and
+\begin{equation}\label{eq:cubic-height}
+\frac1{27}7^{3n}\le C_n^2\le4\cdot7^{3n}.
+\end{equation}
+Consequently abc restricted to this family is equivalent to the collection of lower bounds
+\begin{equation}\label{eq:restricted}
+\forall\delta>0\ \exists c_\delta>0\ \forall n=6j+1,\qquad
+S_n\ge c_\delta7^{(3/2-\delta)n}.
+\end{equation}
+No proof of~\eqref{eq:restricted} is supplied here.
+\end{proposition}
+\begin{proof}
+Equation~\eqref{eq:cubic} and $7\nmid xy(x-y)$ give the radical formula. If $x,y$ have the same sign, then $C_n=h^3$ and $h^2\le N\le3h^2$. If they have opposite signs, write $u=|x|$, $v=|y|$; then $C_n=(u+v)N$, with
+$N=u^2-uv+v^2$ and $N\le(u+v)^2\le4N$. These prove~\eqref{eq:cubic-height}.
+
+If the restricted abc statement holds for every $\varepsilon>0$, the lower height bound gives
+$S_n\ge c_\varepsilon7^{3n/(2(1+\varepsilon))}$. For any $0<\delta<3/2$, choose $\varepsilon$ small enough that $3/(2(1+\varepsilon))\ge3/2-\delta$. Larger $\delta$ are immediate. Conversely, for a given $\varepsilon>0$, choose $0<\delta<3\varepsilon/(2(1+\varepsilon))$ and use~\eqref{eq:restricted} together with the upper height bound. The constants depend only on the chosen exponent, not on $n$.
+\end{proof}
+The sequence $S_n$ in this proposition is not $\rad(B_n)$. Substituting the strong-divisibility conclusion for the latter into~\eqref{eq:restricted} would confuse two different boundary forms.
+
+\section{A complete obstruction to pointwise no-loss descent}\label{sec:counter}
+\begin{theorem}[Every prime-norm predecessor can have smaller normalized defect]\label{thm:counter}
+For $z=\alpha^6=(-323,360)$, every prime-norm factorization $z=\pi w$ has a quotient unit-equivalent to $\alpha^5=(-87,149)$. Their associated triples and radicals are
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Pair & Positive triple & Height & Radical\\\midrule
+$(-87,149)$ & $(62,87,149)$ & $149$ & $803706$\\
+$(-323,360)$ & $(37,323,360)$ & $360$ & $358530$\\\bottomrule
+\end{tabular}
+\end{center}
+For every integer $m\ge1$,
+\begin{equation}\label{eq:counter}
+\frac{149^m}{803706^{m+1}}<\frac{360^m}{358530^{m+1}}.
+\end{equation}
+Hence a policy requiring the normalized abc ratio never to increase on a forward prime-norm edge cannot cover every triple.
+\end{theorem}
+\begin{proof}
+The complete factorizations are
+\[
+|F_5|=2\cdot3\cdot29\cdot31\cdot149,
+\qquad |F_6|=2^3\cdot3^2\cdot5\cdot17\cdot19\cdot37.
+\]
+The displayed factors are prime by trial division up to their square roots, and multiplication verifies the products. Thus $R_5=803706$ and $R_6=358530$. Inequality~\eqref{eq:counter} follows from $149<360$ and $358530<803706$. Its denominator-cleared form is formally proved for every $m\in\NN$.
+
+Every prime norm dividing $N(z)=7^6$ is seven. A pair of norm seven has coordinates between $-3$ and $3$, by $N\ge3u^2/4$ and $N\ge3v^2/4$. The twelve possibilities are exhausted by $(2u+v)^2+3v^2=28$. To test integrality of $z/(u+v\rho)$, the two numerators are
+\[
+(u+v)(-323)+360v=-323u+37v,
+\quad 323v+360u.
+\]
+They are divisible by seven exactly when $v\equiv4u\pmod7$. The six surviving pairs, with their quotients, are
+\begin{center}
+\begin{tabular}{@{}rr@{\qquad}rr@{}}
+\toprule
+$u$&$v$&$w_1$&$w_2$\\\midrule
+$-3$&$2$&$149$&$-62$\\
+$-2$&$-1$&$87$&$-149$\\
+$-1$&$3$&$62$&$87$\\
+$1$&$-3$&$-62$&$-87$\\
+$2$&$1$&$-87$&$149$\\
+$3$&$-2$&$-149$&$62$\\\bottomrule
+\end{tabular}
+\end{center}
+These quotients are precisely unit rotations of $\alpha^5$. This checks every prime-norm predecessor, not just one chosen algorithmic predecessor.
+\end{proof}
+Both displayed triples have height strictly below their radical. The theorem refutes only the pointwise monotonicity policy, not any asymptotic abc estimate. It also does not refute a scheme allowing controlled losses on several edges.
+
+\begin{proposition}[Adding both factors does not restore the same constant]\label{prop:both}
+The triple $(1,48,49)$ has $q_{25}>1$, but every one of its prime-norm factorizations $z=\pi w$ has $q_{25}(\pi)<1$ and $q_{25}(w)<1$. Thus an induction rule that transfers the same constant from both factors is false, even on a positive-defect child.
+\end{proposition}
+\begin{proof}
+In the pair ring,
+\[
+(1,48)=(1,-4)(-15,4),\quad N(1,-4)=13,\quad N(-15,4)=181.
+\]
+Both 13 and 181 are prime. Every prime norm in a factorization is one of these. A gcd of an element of norm 13 and one of norm 181 has norm dividing both primes, so is a unit. Its Bezout identity shows that any norm-13 divisor of the product divides the first factor, and hence is associated to it; the analogous assertion holds for 181. Thus, up to units and interchanging the factors, the displayed factorization is the only prime-norm factorization.
+
+The associated smaller triples are $(1,3,4)$ and $(4,11,15)$, with radicals 6 and 330. The original radical is 42. The exact integer certificates are
+\[
+4^{25}<6^{26},\qquad 15^{25}<330^{26},
+\]
+\[
+49^{25}-42^{26}=197132423399647862770020139227092550013105>0.
+\]
+These prove the claims at the single fixed exponent $\varepsilon=1/25$ and constant $K=1$. Allowing a larger constant removes this finite exception; it is not a counterexample to standard abc.
+\end{proof}
+
+\section{What remains after algebraic coverage}
+For a primitive nonunit $z$, put
+\[
+q_m(z)=\frac{H(z)^m}{R(z)^{m+1}},\qquad m\ge1.
+\]
+For terminal units only, define $q_m=1$ as a bookkeeping convention; this is not a definition of $\rad(0)$. A forward edge $z=\pi w$ has logarithmic loss
+\[
+\ell_m(w,z)=\log q_m(z)-\log q_m(w).
+\]
+Along any complete path from a unit to $z$, the sum of these losses is exactly $\log q_m(z)$. Consequently an unspecified uniform bound for the complete path loss is merely a reformulation of abc. It is not a new proved bridge.
+
+Theorem~\ref{thm:coverage} supplies actual predecessors for all triples; Theorem~\ref{thm:gcd} identifies their shared boundary divisors exactly; Theorem~\ref{thm:counter} prevents free pointwise monotonicity, and Proposition~\ref{prop:both} prevents a same-constant transfer from both factors. The unresolved task is to prove a quantitative estimate on new boundary primes and their multiplicities that, when accumulated, bounds $q_m$ independently of the final triple. No such estimate follows from the gcd identity alone. If the norm itself is prime, the predecessor is a unit and the multiplier is the original element; thus coverage alone has not reduced the height problem on that stratum.
+
+There is also a useful separation within the fixed orbit. Lemma~\ref{lem:height} gives
+\[
+7^{n/2}\le H(x_n,y_n)\le\frac2{\sqrt3}7^{n/2}.
+\]
+The original boundary orbit would require
+$\rad(6U_n)\ge c_\delta7^{(1/2-\delta)n}$ for every $\delta>0$; the signed cubic family instead requires~\eqref{eq:restricted}. Each is a restricted-family condition, not a resolution for arbitrary triples. Strong divisibility resolves support overlap across indices but not either radical growth condition.
+
+The existing IUT same-pilot and all-place comparisons, compensated packet bounds, Mersenne depth-three counting, Pell first-apparition valuations, and geometric uniformity gates in \cite{project} remain unresolved in this work. Their parent routes are retained. The fixed nonreal Lucas sequence above is not identified with the earlier real Pell sequence. What is shared is the precise first-valuation bottleneck, not an unproved transfer of estimates.
+
+\section{Proof audit, finite replay, and formal verification}
+\subsection{Dependency scope}
+The ordinary proof dependencies are
+\[
+\begin{array}{c}
+\text{quadratic algebra and coordinate rounding}
+\Longrightarrow\text{Euclidean gcd and prime-norm descent};\\[2pt]
+\text{polynomial remainders and coprimality}
+\Longrightarrow\text{boundary gcd}
+\Longrightarrow\text{orbit strong divisibility};\\[2pt]
+\text{norm recurrence and modular invariants}
+\Longrightarrow\text{single-prime quadratic quotient};\\[2pt]
+\text{all norm-seven divisors}
+\Longrightarrow\text{failure of pointwise no-loss descent}.
+\end{array}
+\]
+None of these arrows uses abc, a Szpiro conjecture, a Vojta conjecture, or an unproved height bound. The final global radical estimate has no completed incoming proof arrow.
+
+The signed case, unit case, index zero, repeated prime powers, and all prime-norm parents of the finite obstruction have been treated explicitly. The claimed quadratic first-appearance size uses a homogeneous signed family, not an unstated one-variable specialization. The two boundary forms $xy(x+y)$ and $xy(x-y)$ are deliberately separated.
+
+\subsection{Actual formal scope}
+The two supplied files import only Lean's standard library and the first local module:
+\begin{center}
+\begin{tabular}{@{}p{0.36\textwidth}p{0.56\textwidth}@{}}
+\toprule
+File & Scope\\\midrule
+\texttt{EisensteinDescent.lean} & 29 named theorems: pair algebra, norm and polynomial remainders, orbit identities and residues, Lucas relation, and the denominator-cleared finite counterexample for all exponents.\\[3pt]
+\texttt{BoundaryGcd.lean} & 11 named theorems: gcd algebra, the full general boundary gcd theorem with its actual coprimality premise, primitive orbit, and full strong divisibility for all indices.\\\bottomrule
+\end{tabular}
+\end{center}
+At commit \texttt{b228479c215d45d6555e56a1f6b42c08b665a8fb}, workflow run \texttt{34005200961} compiled both files using checksum-pinned Lean 4.32.2, with warnings treated as errors. All 40 executed axiom queries passed the whitelist
+\[
+\{\texttt{propext},\ \texttt{Classical.choice},\ \texttt{Quot.sound}\}.
+\]
+One intervening development run for the second module failed on an API name, a cast, and a linter warning, then was repaired. The failed version is not certified.
+
+The Euclidean algorithm's complete abstract existence proof, height contraction for every primitive input, asymptotic quadratic-excess interpretation, enumeration of all norm-seven parents, and real-power abc equivalence are ordinary proofs in this paper, not fully formalized here. The arithmetic product certificates in Lean do not silently stand in for a general radical definition. No theorem named or equivalent to unconditional \texttt{ABCConjecture} has been proved.
+
+\subsection{Finite replay}
+The dependency-free Python replay uses exact integer arithmetic, coordinate-rounded Euclidean division, Bezout-checked gcds, and an independently generated Lucas recurrence. Default checks are:
+\begin{center}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Check & Count\\\midrule
+Full boundary gcd cases on signed coordinate boxes & 230,000\\
+Normalized primitive triples, height at most 400 & 24,339\\
+Prime-norm descent steps on those triples & 51,381\\
+Orbit norm and Lucas indices, including zero & 476\\
+Strong-divisibility index pairs & 58,081\\
+Normalized single-prime quadratic quotients & 80\\
+Small cubic triples with complete radical checks & 10\\
+Prime-norm factorizations of the positive-defect obstruction & 12\\
+Cleared exponents in the finite obstruction replay & 101\\\bottomrule
+\end{tabular}
+\end{center}
+All six prime-norm parents of the orbit obstruction and all twelve prime-norm factorizations of the positive-defect obstruction are checked separately. Two complete local replays produced byte-identical JSON, with SHA-256
+\begin{center}\small\texttt{a8c86d05cc111bd41d2909580338bf0bc79a43db6ab6c6cbd1ff64e7706f2d3a}.\end{center}
+These are finite implementation checks, not proofs of the universal statements. In particular, full factorization of the large orbit terms is not claimed.
+
+\subsection{Reproduction and environment boundary}
+The checkpoint supplies \texttt{verify.py} for source integrity and exact replay, and \texttt{wsl/verify\_lean.sh} for actual compilation and axiom checking. The latter installs a separate checksum-pinned compiler on x86\_64 Linux, including an existing WSL Ubuntu distribution. It does not change the original repository toolchain or elan defaults. Hosted Ubuntu execution is not access to the user's personal WSL. No independent autonomous subagent audit, external peer review, or complete build of the existing repository is claimed.
+
+\section{Conclusion}
+The new descent covers all primitive abc triples algebraically, and the exact boundary gcd theorem supplies a multiplicity-sensitive coupling law. Its fixed norm-seven orbit has a fully verified strong-divisibility boundary and yields a full single-prime quadratic quotient with normalized bases. The same orbit gives a complete-premise counterexample to pointwise no-loss factor descent. These are concrete structural and formal results. They do not imply the uniform radical estimate. Any continuation must control that estimate independently, rather than reinterpret algebraic coverage, support disjointness, or successful finite and formal tests as a completed proof of abc.
+
+\begin{thebibliography}{9}
+\bibitem{project} ChatGPT and project contributors, \emph{ABC Conjecture Research and Lean Formalization}, repository \texttt{wyx66624/ABCConjecture}, inspected commit \texttt{9edd965d6df645dbebc0869530f3f5a40fb8cddc}. Entry points: \texttt{README.md} and \texttt{research/ABC\_ROUTE\_BOTTLENECKS.md}.
+\bibitem{power} ChatGPT, \emph{Power-Radical Descent, Unbounded First-Appearance Depth, and Pairwise Lifting of Arithmetic Derivatives}, project checkpoint \texttt{2026\_09\_05\_power\_descent}, 2026. A partial-research source, not a proof of abc.
+\bibitem{transverse} ChatGPT, \emph{Quantitative Lifting of Arithmetic Derivatives and the Transverse Obstruction to abc}, project checkpoint \texttt{2026\_09\_05\_transverse\_lifting}, 2026. A partial-research source.
+\bibitem{endpoint} Project contributors, \emph{Endpoint residue packets: unbounded counting obstruction and explicit verification scope}, pull request 419, incorporated in the inspected snapshot, 2026.
+\bibitem{lean} Lean contributors, \emph{Lean 4}, pinned release 4.32.2, compiler commit \texttt{f3b06c705e6c85f5314019d5d3baab0fec5b580c}. The formal certificate is the supplied source plus compiler and axiom-audit output, not this bibliographic entry.
+\end{thebibliography}
+\end{document}
