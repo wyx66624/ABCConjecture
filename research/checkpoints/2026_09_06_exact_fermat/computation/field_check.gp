@@ -22,9 +22,20 @@ checkcase(a,b,l) = {
  if(DE!=predE,error(Str("point discriminant mismatch: expected ",predE)));
  if(DF!=predF,error(Str("Galois discriminant mismatch: expected ",predF)));
  if(valuation(a*b*c,l)==1 && j!=2,error("additive rank-two law"));
+ if(r==2,
+  my(Q0=if(c%2==0,a,c),N1=if(c%2==0,c,a),N2=b);
+  my(Dorder=abs(poldisc(x^l-N1*Q0^(l-1)))^l*abs(poldisc(x^l-N2*Q0^(l-1)))^l);
+  if(Dorder%DE,error("order discriminant divisibility"));
+  if(!issquare(Dorder/DE),error("order index is not an integer square"));
+  if(Q0%2 && (a*b*c)%2==0,
+    my(e=valuation(a*b*c,2),idx=l*(l-1)/2*(e-(e%l!=0)));
+    if(valuation(Dorder/DE,2)!=2*idx,error("local horizontal order index"));
+    print("ORDER_INDEX_AT_2 ",idx)
+  )
+ );
  print("PASS");
 };
-cases=[[1,2,3],[1,7,3],[1,8,3],[1,26,3],[1,17,3],[1,53,3],[1,269,3],[1,31,5],[1,1024,5],[1,3124,5]];
+cases=[[1,2,3],[1,7,3],[1,8,3],[1,26,3],[1,17,3],[1,53,3],[1,269,3],[1,31,5],[1,1024,5],[1,3124,5],[1,4,5],[1,63,5],[1,2047,5]];
 for(i=1,#cases,iferr(checkcase(cases[i][1],cases[i][2],cases[i][3]),err,print(err);quit(1)));
 print("ALL_ACTUAL_FIELD_DISCRIMINANTS_PASS");
 quit(0);
