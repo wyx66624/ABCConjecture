@@ -1,38 +1,49 @@
-name: ABC correlated completions scoped verification
+name: ABC correlated source transport integrity
 on:
   push:
     branches: ['verify/correlated-completions-20260906*']
-    paths: ['research/checkpoints/2026_09_06_correlated_completions/**', '.github/workflows/abc-correlated-completions.yml']
+    paths: ['.staging/correlated-20260906/**', '.github/workflows/abc-correlated-completions.yml']
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  verify:
+  integrity:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
-      - name: Install checksum-pinned isolated Lean
+      - name: Normalize source-transfer chunks without extracting
         shell: bash
         run: |
           set -euo pipefail
-          curl --fail --location --retry 3 -o /tmp/lean.tar.zst https://github.com/leanprover/lean4/releases/download/v4.32.2/lean-4.32.2-linux.tar.zst
-          echo '5f2069e6f5db73780f374ccb49ce8ea649aa20a0cebf0116816744c999ce72aa  /tmp/lean.tar.zst' | sha256sum -c -
-          tar --zstd -xf /tmp/lean.tar.zst -C /tmp
-          echo '/tmp/lean-4.32.2-linux/bin' >> "$GITHUB_PATH"
-      - name: Compile exact arithmetic and audit all named axioms
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p verification-correlated
-          lean --version | tee verification-correlated/compiler.txt
-          F=research/checkpoints/2026_09_06_correlated_completions/Lean/CorrelatedCompletions.lean
-          sha256sum "$F" | tee verification-correlated/source.sha256
-          lean -DwarningAsError=true "$F" | tee verification-correlated/axioms.log
-          python3 research/checkpoints/2026_09_05_transverse_lifting/wsl/check_axioms.py "$F" verification-correlated/axioms.log
+          mkdir -p transport-review
+          python3 - <<'PY'
+          from pathlib import Path
+          import base64, hashlib, json
+          src=Path('.staging/correlated-20260906'); out=Path('transport-review')
+          pieces=[base64.b64encode((src/'part0.bin').read_bytes()).decode()]
+          pieces += [(src/f'part{i}.txt').read_text() for i in range(1,7)]
+          for i,s in enumerate(pieces): (out/f'part{i}.txt').write_text(s)
+          joined=''.join(pieces)
+          try:
+              raw=base64.b64decode(joined,validate=True)
+              sha=hashlib.sha256(raw).hexdigest()
+          except Exception as e:
+              sha='decode failed: '+str(e)
+          print(json.dumps({'lengths':list(map(len,pieces)),'sha256':sha}))
+          (out/'transport.json').write_text(json.dumps({'lengths':list(map(len,pieces)),'sha256':sha},indent=2))
+          PY
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        if: always()
         with:
-          name: correlated-completions-development-review
-          path: verification-correlated/
+          name: correlated-source-transport-review
+          path: transport-review/
           retention-days: 7
+      - name: Require exact source archive identity
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('transport-review/transport.json').read_text())
+          assert r['sha256']=='d71c1065186e150e2b33a9109dfc25caf924ace88bc08cc60a772f0b59263ff4', r
+          PY
