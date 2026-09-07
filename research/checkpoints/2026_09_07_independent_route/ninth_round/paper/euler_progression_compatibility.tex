@@ -1,0 +1,217 @@
+\section{A totient budget at a general common pure exponent}
+\label{sec-euler-progression-compatibility}
+
+Retain positive coprime $a,b$, $c=a+b$, $M=a^2+ab+b^2$ and
+$F=M^2+ab c^2$. Suppose
+\begin{equation}\label{epg-pure}
+ M=R^n,\qquad F=Q^n,\qquad R,Q\in\mathbb Z_{>0},
+ \qquad n>1,\quad\gcd(n,6)=1.
+\end{equation}
+Let $\varphi=\varphi(n)$, let $P$ be the largest prime divisor of
+$n$, and put
+\begin{equation}\label{epg-kappa}
+ L=\Phi_n(1)=\Phi_n(1,1),\qquad \kappa=P/L.
+\end{equation}
+Here $\Phi_n(X,Y)$ is the homogeneous cyclotomic polynomial.
+We verify below that $L=P$ for a prime power $n$ and $L=1$
+otherwise. Thus $\kappa$ is a positive integer with $\kappa\le n$.
+All conclusions are necessary conditions on actual simultaneous
+pure powers, without an existence or nonexistence claim.
+
+\begin{lemma}[The complete exceptional-prime contribution]
+\label{epg-cyclotomic-valuation}
+Let $X>Y$ be coprime positive integers and let $n>1$ be odd.
+Every prime divisor of $\Phi_n(X,Y)$ outside $1\bmod n$ is the
+largest prime divisor $P$ of $n$, and its valuation is one.
+Consequently the full part outside that progression divides $P$.
+\end{lemma}
+\begin{proof}
+Monicity and the constant term $Y^{\varphi(n)}$ exclude every
+prime dividing $XY$. For an odd prime $q$ which is a unit in both
+coordinates, put $d=\operatorname{ord}_{\mathbb F_q^\times}(X/Y)$
+and $u=v_q(X^d-Y^d)$. Then $d\mid q-1$ and
+\[
+ v_q(X^m-Y^m)=
+ \begin{cases}
+ 0,&d\nmid m,\\
+ u+v_q(m/d),&d\mid m.
+ \end{cases}
+\]
+To verify the second case, divide by unit powers of $Y$ and write
+$B=1\bmod q$. A power prime to $q$ preserves $v_q(B-1)$, since
+its geometric sum is that exponent modulo $q$. Taking a $q$-th
+power adds one: the binomial leading term $q(B-1)$ has valuation
+$u+1$, and all subsequent terms have valuation at least $u+2$.
+This proves the formula by iteration.
+
+The factorization $X^m-Y^m=\prod_{e\mid m}\Phi_e(X,Y)$ determines
+the cyclotomic valuations uniquely by divisor induction. The values
+\[
+ v_q(\Phi_d(X,Y))=u,\qquad
+ v_q(\Phi_{dq^j}(X,Y))=1\quad(j\ge1),
+\]
+with all other values zero, have precisely the required divisor
+sums: when $d\mid m$ their sum is $u+v_q(m/d)$, and otherwise
+it is zero. This includes $d=1$ and $\Phi_1=X-Y$.
+
+If $n=d$, then $n\mid q-1$, so $q$ belongs to the progression.
+Every other supported index has $n=dq^j$, $j\ge1$, and valuation
+one. Since $d\mid q-1$, all prime divisors of $d$ are smaller than
+$q$, which must therefore equal $P$.
+
+At $q=2$, different coordinate parities make $X^n-Y^n$ odd.
+If both coordinates are odd, every odd $m$ instead satisfies
+$v_2(X^m-Y^m)=v_2(X-Y)$, by the odd geometric sum. Divisor
+induction gives $v_2(\Phi_n(X,Y))=0$ for every odd $n>1$.
+\end{proof}
+
+\begin{lemma}[A lower bound from conjugate primitive roots]
+\label{epg-root-pair}
+For positive real $X>Y$ and $n>2$,
+\[
+ \Phi_n(X,Y)\ge\Phi_n(1)Y^{\varphi(n)}.
+\]
+Moreover $\Phi_n(1)$ equals $P$ when $n$ is a prime power and
+equals one otherwise.
+\end{lemma}
+\begin{proof}
+Pair each primitive $n$-th root $\zeta$ with its distinct conjugate.
+For each pair,
+\[
+ |X-Y\zeta|^2-Y^2|1-\zeta|^2
+ =(X-Y)^2+2Y(X-Y)(1-\operatorname{Re}\zeta)\ge0.
+\]
+Multiplying proves the bound, because the product of the factors
+$|1-\zeta|^2$ is $\Phi_n(1)>0$.
+
+Evaluation at one of the polynomial
+$(T^n-1)/(T-1)=\prod_{d\mid n,d>1}\Phi_d(T)$ gives
+$\prod_{d\mid n,d>1}\Phi_d(1)=n$. Induct on $n$. For a
+non-prime-power $n$, its proper prime-power divisors already
+contribute the entire product $n$; all other proper divisors
+contribute one. For $n=P^j$, the proper prime powers contribute
+$P^{j-1}$. These give the two asserted values.
+\end{proof}
+
+Write $z_{\mathrm{bad}}(s)$ for the full prime-power part of a
+positive integer $z$ outside $1\bmod s$, and
+$z_{\mathrm{good}}(s)=z/z_{\mathrm{bad}}(s)$.
+\begin{theorem}[Actual support with its totient and exceptional-prime costs]
+\label{epg-support-budget}
+Under \eqref{epg-pure},
+\begin{equation}\label{epg-integer-budgets}
+ 9c_{\mathrm{bad}}(n)^2\le4\kappa R^{2(n-\varphi)},\qquad
+ 27c_{\mathrm{bad}}(6n)^2\le16\kappa R^{2(n-\varphi)+1}.
+\end{equation}
+Consequently
+\begin{equation}\label{epg-good-part}
+ c_{\mathrm{good}}(6n)>
+ \frac{3\sqrt3}{4\sqrt\kappa}\,
+       c^{\,2\varphi/n-1-1/n},
+\end{equation}
+and, summing over primes,
+\begin{equation}\label{epg-mass}
+ \sum_{\substack{q\mid c\\q\equiv1\bmod6n}}v_q(c)\log q
+ >
+ \left(\frac{2\varphi}{n}-1-\frac1n\right)\log c
+ +\log\frac{3\sqrt3}{4}-\frac12\log\kappa.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Actual primitivity gives $\gcd(Q,R)=1$, and $F>M^2$ gives
+$Q>R^2$. Put
+\[
+ T=\Phi_n(Q,R^2),\qquad
+ C=(Q^n-R^{2n})/T.
+\]
+These are positive integers and $TC=ab c^2$. By
+Lemma~\ref{epg-cyclotomic-valuation}, the full bad part
+$U=(ab c^2)_{\mathrm{bad}}(n)$ divides $PC$.
+Lemma~\ref{epg-root-pair} and the actual four-ninths certificate give
+\[
+ C\le\frac{4R^{2n}/9}{LR^{2\varphi}},\qquad
+ U\le\frac{4\kappa}{9}R^{2(n-\varphi)}.
+\]
+As $c_{\mathrm{bad}}(n)^2\mid U$, this proves the first budget.
+
+The actual oriented factorization gives an Eisenstein root
+$w=x+y\zeta$ with $N(w)=R$ and $w^n=a+b\zeta$.
+Indeed, the ramified norm valuation is at most one and is excluded
+by $M=R^n$; every oriented split exponent is divisible by $n$.
+The unit factor can be absorbed because $\gcd(n,6)=1$.
+The normalized three-arm construction gives $c=\ell D_j$,
+where $\ell=x+y$ for $n\equiv1\bmod6$, and $\ell=x$ for
+$n\equiv5\bmod6$. The root is primitive, unramified and a
+nonunit; hence $\ell\ne0$ and $3\ell^2\le4R$.
+
+Let $J$ be the full part of $c$ at primes $q\equiv1\bmod n$
+but $q\not\equiv1\bmod6n$. Such a prime is inert, exceeds $n$,
+and does not divide $R$. Its homogeneous boundary rank $d$
+divides both $n$ and $(q+1)/3$. But $q+1\equiv2\bmod n$
+and $n$ is odd, so $\gcd(n,q+1)=1$ and $d=1$.
+The exact homogeneous valuation law gives
+$v_q(T_n)=v_q(T_1)+v_q(n)=v_q(T_1)$.
+Thus the entire actual three-arm quotient product has valuation
+zero at $q$. From $c=\ell D_j$ it follows that
+$v_q(c)=v_q(\ell)$. Therefore $J\mid|\ell|$ with full depths,
+and $3J^2\le4R$.
+
+The disjoint support identity
+$c_{\mathrm{bad}}(6n)=c_{\mathrm{bad}}(n)J$ now gives the second
+budget in \eqref{epg-integer-budgets}. Divide $c^2$ by that
+bound, take square roots, and use $R<c^{2/n}$, since $M<c^2$.
+This proves \eqref{epg-good-part} and its logarithm. The strict
+inequality remains valid even if the final exponent of $c$ is
+nonpositive: the substituted power of $R$ in the denominator
+has positive exponent $2(n-\varphi)+1$.
+\end{proof}
+
+\begin{corollary}[A totient gate guarantees a large progression prime]
+\label{epg-prime-exists}
+If \eqref{epg-pure} holds and $2\varphi(n)>n+1$, then $c$ has
+an actual prime divisor $q\equiv1\bmod6n$, and $q\ge6n+1$.
+The condition includes every prime power $n=P^k$ with $P\ge5$.
+\end{corollary}
+\begin{proof}
+Put $\rho=2\varphi(n)-n-1$. Since $n$ is odd, this is an even
+integer, and the hypothesis gives $\rho\ge2$.
+The actual common-exponent size budget gives $R^2\ge9n/4$.
+To recall its direct proof, $D_0=Q-R^2\ge1$ and the full geometric
+sum $S_n\ge nR^{2n-2}$ satisfy
+$D_0S_n=ab c^2\le4R^{2n}/9$.
+Cancellation gives $9nD_0\le4R^2$.
+Using $c^2>R^n$ in \eqref{epg-integer-budgets}, we obtain
+\[
+ c_{\mathrm{good}}(6n)^2
+ >\frac{27}{16\kappa}R^\rho
+ \ge\frac{27}{16\kappa}R^2
+ \ge\frac{243n}{64\kappa}
+ \ge\frac{243}{64}>1.
+\]
+The good part therefore has a prime divisor. For $n=P^k$,
+$2\varphi(n)-n-1=n(1-2/P)-1\ge2$, proving the last assertion.
+\end{proof}
+
+Any selected common divisor $n$ of unequal pure exponents gives
+these same conclusions when $\gcd(n,6)=1$ and the stated totient
+condition holds. If the totient condition fails, the support budgets
+remain valid; this particular prime-existence argument is not claimed
+to succeed.
+
+\paragraph{Verification and remaining scope.}
+Both research peers completed independent full ordinary review.
+The exact finite supplement checks fourteen fully factored homogeneous
+cyclotomic values and four additional exceptional-prime valuations.
+For example, the valuations at $11$ of
+$\Phi_{55}(3,1)$ and $\Phi_{605}(3,1)$ are one, but that of
+$\Phi_{275}(3,1)$ is zero. These are generic homogeneous examples,
+not actual simultaneous pure-power seeds.
+The classical cyclotomic and root-pair arguments were proved explicitly
+to separate their role from the actual norm and arm hypotheses.
+
+The exceptional prime is retained in $\kappa$. No coefficient-height
+estimate is treated as a point-height bound. Large surviving primes
+and their valuations remain uncontrolled, and the root-size estimate
+is a lower bound. Nonunit residuals, the ramified first norm and
+exponents without a suitable common divisor remain separate live
+routes. No ABC proof or disproof follows.

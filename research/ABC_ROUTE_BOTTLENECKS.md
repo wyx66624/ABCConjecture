@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, CM elimination, full boundary twists,
-two-torsion support and all-index sieved windows (eighth continuation).
+**Last synchronized:** 2026-09-07, actual signed-arm compensation,
+common prime-power and totient progression support (ninth continuation).
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -33,6 +33,28 @@ rigorous complete-premise disproof.
 
 ## Shared exponent generators: September 7 positive frontier
 
+- [x] Construct the actual three integer arm quotients and prove the
+  signed two-arm compensation inequality, including old-factor overlap.
+  Two large-prime cubefree quotient arms suffice at uniformly large n;
+  the third arm may have arbitrary depths.
+- [x] Kernel-check 32 actual arm and finite integer-weight statements,
+  15 actual common-exponent algebra/gap statements and 7 support assembly
+  statements, with 54 unchanged dependencies and all formal inputs explicit.
+- [ ] Prove arbitrary actual membership in the sufficient signed condition
+  (E_i+E_j-2R_k)_+/t -> 0, or control the weaker original full signed tail.
+  The two-arm criterion itself is sufficient, not asserted necessary.
+- [x] Use the actual norm difference to force full valuation mass of c
+  into 1 mod p, then its actual first root to refine this to 1 mod 6p.
+- [x] Lift the support modulus to 6p^k with retained fraction
+  1-2/p-1/p^k, and prove 9n(Q-R^2)<=4R^2 for the entire common n.
+- [x] At general common n coprime to 6, retain the exceptional largest
+  prime in kappa and prove the totient support budget. If 2phi(n)>n+1,
+  an actual prime q|c is 1 mod 6n and q>=6n+1.
+- [ ] Bound the surviving prime multiplicities, treat nonunit residuals
+  and ramified first norms, and connect exponents with no common divisor.
+  These support masses and height lower bounds do not imply a radical
+  budget or a uniform upper point-height bound.
+
 - [x] Exclude all actual CM residual candidates for p>7 by the nonsolvable
   global projective image; finite CM local shadows still exist.
 - [x] Identify the two non-CM fixed-level orbits as exact quadratic twists
@@ -50,8 +72,8 @@ rigorous complete-premise disproof.
 - [x] Extend the actual finite root-window estimate to every exponent
   index by a uniform elementary divisor-sum bound and adjusted endpoint.
 - [ ] Control the full private upper tail while retaining signed negative
-  contributions. The next actual three-arm compensation proposal requires
-  a separate proof and membership argument; it is not a closed gate here.
+  contributions. The actual three-arm compensation theorem is now proved;
+  its arbitrary-root membership obligation remains open.
 
 - [x] Combine actual rank counts with Brun--Titchmarsh to extend controlled
   windows beyond the root-block length for bounded sigma(n)/n subclasses.

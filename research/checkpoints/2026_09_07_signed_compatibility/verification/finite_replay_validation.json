@@ -1,0 +1,61 @@
+{
+  "status": "PASS: three exact finite replays with unchanged source and certificate bytes",
+  "records": [
+    {
+      "script": "research/checkpoints/2026_09_07_critical_bottleneck/ninth_round/replay.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_critical_bottleneck/ninth_round/replay.py": "0f0ebc55a3a3bb68ee56cf13117a9886d43f70d6ab65acb97792b27162ca6d61",
+        "research/checkpoints/2026_09_07_critical_bottleneck/ninth_round/finite_replay.json": "8e6a5da3fdc84d316ea2ef3cd98c74e6c111de04584e7e20a5706657f72f4132"
+      },
+      "result": {
+        "actual_rows": 113,
+        "file_sha256": "8e6a5da3fdc84d316ea2ef3cd98c74e6c111de04584e7e20a5706657f72f4132",
+        "payload_sha256": "4292da9eb4d642cf99c5e7530e8d462f12da945887d96086d325c56a04d02e8f",
+        "signed_inequalities": 678,
+        "status": "PASS"
+      }
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_independent_route/ninth_round/replay_common_exponent.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_independent_route/ninth_round/replay_common_exponent.py": "1fac26d9418d9629425c7ff65227c41d12fb34c44424beca43e13733ef3da779",
+        "research/checkpoints/2026_09_07_independent_route/ninth_round/common_exponent_results.json": "7f5ca89ff61bd99393dca73932474f439bdd58c212adaf5323c91c00f7189cad"
+      },
+      "result": {
+        "arithmetic_rows": 116,
+        "primitive_seed_identities": 3931,
+        "sha256": "7f5ca89ff61bd99393dca73932474f439bdd58c212adaf5323c91c00f7189cad",
+        "status": "PASS"
+      }
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_independent_route/ninth_round/replay_euler_progression.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_independent_route/ninth_round/replay_euler_progression.py": "f80200acbfc7ebb0bb34762d41db840ee021453c54afb78dfe573363684c2a05",
+        "research/checkpoints/2026_09_07_independent_route/ninth_round/replay_common_exponent.py": "1fac26d9418d9629425c7ff65227c41d12fb34c44424beca43e13733ef3da779",
+        "research/checkpoints/2026_09_07_independent_route/ninth_round/euler_progression_results.json": "cfa7705fbd29e52a6288ffddc8abd4ea2bd112580457a06aeda6ed6b43287271"
+      },
+      "result": {
+        "exceptional_rows": 4,
+        "factored_rows": 14,
+        "sha256": "cfa7705fbd29e52a6288ffddc8abd4ea2bd112580457a06aeda6ed6b43287271",
+        "status": "PASS"
+      }
+    }
+  ],
+  "not_claimed": [
+    "ABC proof or disproof",
+    "asymptotic signed-tail membership",
+    "existence of simultaneous pure-power seeds",
+    "universal prime allocation from a finite sample"
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "status": "PASS: fresh scoped Lake build and complete theorem axiom inventory",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "command": [
+    "lake",
+    "build"
+  ],
+  "new_theorems": 54,
+  "dependency_theorems": 54,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "modules": {
+    "EisensteinDescent": {
+      "source": "research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean",
+      "sha256": "e5e15c14c4771fcf6bffd1d87bac67d23895cf02f40606188b2059d4cf3c944e",
+      "theorems": 29,
+      "queries": [
+        "ABCEisenstein20260905.mul_comm",
+        "ABCEisenstein20260905.mul_assoc",
+        "ABCEisenstein20260905.mul_one",
+        "ABCEisenstein20260905.norm_mul",
+        "ABCEisenstein20260905.conjugate_product",
+        "ABCEisenstein20260905.rotate_boundary",
+        "ABCEisenstein20260905.rotate_norm",
+        "ABCEisenstein20260905.norm_height_identity",
+        "ABCEisenstein20260905.inverse_numerators",
+        "ABCEisenstein20260905.boundary_remainder_x",
+        "ABCEisenstein20260905.boundary_remainder_y",
+        "ABCEisenstein20260905.boundary_remainder_sum",
+        "ABCEisenstein20260905.step_is_mul",
+        "ABCEisenstein20260905.step_norm",
+        "ABCEisenstein20260905.orbit_norm",
+        "ABCEisenstein20260905.orbit_add",
+        "ABCEisenstein20260905.orbit_six",
+        "ABCEisenstein20260905.orbit_six_shift",
+        "ABCEisenstein20260905.orbit_mod_four",
+        "ABCEisenstein20260905.orbit_mod_seven",
+        "ABCEisenstein20260905.cubic_coordinate",
+        "ABCEisenstein20260905.boundary_step_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_lucas",
+        "ABCEisenstein20260905.cubic_difference",
+        "ABCEisenstein20260905.orbit_cubic_difference",
+        "ABCEisenstein20260905.exact_small_orbits",
+        "ABCEisenstein20260905.boundary_factor_certificates",
+        "ABCEisenstein20260905.defect_ratio_increases"
+      ],
+      "new": false
+    },
+    "LocalPowerArithmetic": {
+      "source": "research/checkpoints/2026_09_07_support_power_classes/Lean/LocalPowerArithmetic.lean",
+      "sha256": "b17af29c82e564816d09ef9d581535f2a110ec1ba5d23dff6ca2490128ce8661",
+      "theorems": 15,
+      "queries": [
+        "ABCLocalPowerArithmetic20260907.second_quartic",
+        "ABCLocalPowerArithmetic20260907.consecutive_primitive",
+        "ABCLocalPowerArithmetic20260907.consecutive_norm",
+        "ABCLocalPowerArithmetic20260907.consecutive_second",
+        "ABCLocalPowerArithmetic20260907.consecutive_mixed_primitive",
+        "ABCLocalPowerArithmetic20260907.consecutive_norm_power_residue",
+        "ABCLocalPowerArithmetic20260907.consecutive_second_power_residue",
+        "ABCLocalPowerArithmetic20260907.unbounded_simultaneous_residue_family",
+        "ABCLocalPowerArithmetic20260907.norm_simple_root_linearization",
+        "ABCLocalPowerArithmetic20260907.second_simple_root_linearization",
+        "ABCLocalPowerArithmetic20260907.extraction_root_data",
+        "ABCLocalPowerArithmetic20260907.residual_depth_one_data",
+        "ABCLocalPowerArithmetic20260907.hfree_valuation_nonnegative",
+        "ABCLocalPowerArithmetic20260907.minimal_denominator_exponent",
+        "ABCLocalPowerArithmetic20260907.denominator_clearing_degree"
+      ],
+      "new": false
+    },
+    "GeneralLucasBoundary": {
+      "source": "research/checkpoints/2026_09_07_cyclotomic_covers/Lean/GeneralLucasBoundary.lean",
+      "sha256": "990334699d402ebc75f424f723e31636fee7df7f02d7d1524a04e9411faf8c77",
+      "theorems": 10,
+      "queries": [
+        "ABCGeneralLucasBoundary20260907.cubic_trace_identity",
+        "ABCGeneralLucasBoundary20260907.trace_discriminant_identity",
+        "ABCGeneralLucasBoundary20260907.general_shifted_boundary_recurrence",
+        "ABCGeneralLucasBoundary20260907.norm_power",
+        "ABCGeneralLucasBoundary20260907.boundary_orbit_recurrence",
+        "ABCGeneralLucasBoundary20260907.lucas_recurrence",
+        "ABCGeneralLucasBoundary20260907.linear_recurrence_solution",
+        "ABCGeneralLucasBoundary20260907.actual_shifted_lucas_solution",
+        "ABCGeneralLucasBoundary20260907.actual_power_boundary_lucas",
+        "ABCGeneralLucasBoundary20260907.actual_boundary_divides_powers"
+      ],
+      "new": false
+    },
+    "SignedArmArithmetic": {
+      "source": "research/checkpoints/2026_09_07_critical_bottleneck/ninth_round/Lean/SignedArmArithmetic.lean",
+      "sha256": "c9b1b53f7f35b7c2e9f7004c482f182cc1346ff01ca1e66556473c6341ef05aa",
+      "theorems": 32,
+      "queries": [
+        "ABCSignedArmArithmetic20260907.add_mod_congr",
+        "ABCSignedArmArithmetic20260907.sub_mod_congr",
+        "ABCSignedArmArithmetic20260907.mul_mod_congr",
+        "ABCSignedArmArithmetic20260907.mul_congr",
+        "ABCSignedArmArithmetic20260907.conjugate_congr",
+        "ABCSignedArmArithmetic20260907.power_congr",
+        "ABCSignedArmArithmetic20260907.normalized_power_congr",
+        "ABCSignedArmArithmetic20260907.power_add",
+        "ABCSignedArmArithmetic20260907.power_scale",
+        "ABCSignedArmArithmetic20260907.power_six_blocks",
+        "ABCSignedArmArithmetic20260907.power_six_residue",
+        "ABCSignedArmArithmetic20260907.normalized_zeta_arm",
+        "ABCSignedArmArithmetic20260907.normalized_real_arm",
+        "ABCSignedArmArithmetic20260907.normalized_sum_arm",
+        "ABCSignedArmArithmetic20260907.normalized_first_divisible",
+        "ABCSignedArmArithmetic20260907.normalized_second_divisible",
+        "ABCSignedArmArithmetic20260907.normalized_sum_divisible",
+        "ABCSignedArmArithmetic20260907.actual_arm_reconstruction",
+        "ABCSignedArmArithmetic20260907.actual_arm_additive_relation",
+        "ABCSignedArmArithmetic20260907.actual_boundary_quotient_product",
+        "ABCSignedArmArithmetic20260907.norm_conjugate",
+        "ABCSignedArmArithmetic20260907.normalized_power_norm",
+        "ABCSignedArmArithmetic20260907.actual_quotient_norm",
+        "ABCSignedArmArithmetic20260907.coprime_divisors",
+        "ABCSignedArmArithmetic20260907.actual_quotients_pairwise_coprime",
+        "ABCSignedArmArithmetic20260907.two_arm_integer_budget",
+        "ABCSignedArmArithmetic20260907.two_cubefree_integer_budget",
+        "ABCSignedArmArithmetic20260907.local_depth_radical_budget",
+        "ABCSignedArmArithmetic20260907.finite_depth_radical_budget",
+        "ABCSignedArmArithmetic20260907.finite_two_arm_compensation",
+        "ABCSignedArmArithmetic20260907.local_overlap_budget",
+        "ABCSignedArmArithmetic20260907.weighted_overlap_budget"
+      ],
+      "new": true
+    },
+    "CommonExponentArithmetic": {
+      "source": "research/checkpoints/2026_09_07_independent_route/ninth_round/Lean/CommonExponentArithmetic.lean",
+      "sha256": "e85c75a29bce81fc95b56b80a71c20e7e4e9492d6f8e0382cf440df34a693bf0",
+      "theorems": 10,
+      "queries": [
+        "ABCCommonExponentArithmetic20260907.actual_norm_difference",
+        "ABCCommonExponentArithmetic20260907.actual_four_ninths_certificate",
+        "ABCCommonExponentArithmetic20260907.actual_four_ninths_bound",
+        "ABCCommonExponentArithmetic20260907.actual_first_norm_lt_sum_square",
+        "ABCCommonExponentArithmetic20260907.actual_second_gt_first_square",
+        "ABCCommonExponentArithmetic20260907.homogeneous_factorization",
+        "ABCCommonExponentArithmetic20260907.actual_common_power_factorization",
+        "ABCCommonExponentArithmetic20260907.root_gap_budget",
+        "ABCCommonExponentArithmetic20260907.root_gap_lower_bound",
+        "ABCCommonExponentArithmetic20260907.bad_part_square_budget"
+      ],
+      "new": true
+    },
+    "ActualCommonExponentGap": {
+      "source": "research/checkpoints/2026_09_07_independent_route/ninth_round/Lean/ActualCommonExponentGap.lean",
+      "sha256": "243774d87010250bf55b1076808270b646f8497adf3f0bf4c1d91081b8329032",
+      "theorems": 5,
+      "queries": [
+        "ABCActualCommonExponentGap20260907.nonnegative_power_monotone",
+        "ABCActualCommonExponentGap20260907.homogeneous_sum_lower",
+        "ABCActualCommonExponentGap20260907.actual_root_gap_positive",
+        "ABCActualCommonExponentGap20260907.actual_common_exponent_budget",
+        "ABCActualCommonExponentGap20260907.actual_common_root_lower_bound"
+      ],
+      "new": true
+    },
+    "ProgressionSupportArithmetic": {
+      "source": "research/checkpoints/2026_09_07_signed_compatibility/Lean/ProgressionSupportArithmetic.lean",
+      "sha256": "50874e1dd57ca38fccf09f649cec909e7e2ecfcc31e07261d669d2140b944f7e",
+      "theorems": 7,
+      "queries": [
+        "ABCProgressionSupportArithmetic20260907.odd_rank_one",
+        "ABCProgressionSupportArithmetic20260907.first_arm_height_identity",
+        "ABCProgressionSupportArithmetic20260907.first_arm_height_bound",
+        "ABCProgressionSupportArithmetic20260907.sum_arm_height_bound",
+        "ABCProgressionSupportArithmetic20260907.support_product_budget",
+        "ABCProgressionSupportArithmetic20260907.support_power_product_budget",
+        "ABCProgressionSupportArithmetic20260907.progression_part_nontrivial"
+      ],
+      "new": true
+    }
+  },
+  "not_claimed": [
+    "ABC proof or disproof",
+    "full repository build",
+    "prime valuation allocation",
+    "real logarithmic estimates",
+    "signed-tail membership for arbitrary roots",
+    "complete ninth-round formalization",
+    "Eisenstein UFD",
+    "existence of simultaneous pure-power seeds",
+    "external peer review"
+  ]
+}

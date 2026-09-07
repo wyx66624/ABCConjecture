@@ -1,0 +1,131 @@
+\section{The actual first power sharpens common-exponent support to a split progression}
+\label{acs-section}
+
+Let $a,b$ be positive coprime integers, $c=a+b$, and suppose the actual
+norms satisfy
+\begin{equation}\label{acs-pure}
+ M=a^2+ab+b^2=R^p,\qquad
+ F=a^4+3a^3b+5a^2b^2+3ab^3+b^4=Q^p,
+\end{equation}
+where $p\ge5$ is prime and $R,Q$ are positive integers. For a positive
+integer modulus $s$, write
+\[
+ c_{\mathrm{bad}}(s)=\prod_{q\not\equiv1\bmod s}q^{v_q(c)},
+ \qquad c_{\mathrm{good}}(s)=c/c_{\mathrm{bad}}(s),
+\]
+with products over primes. These are full prime-power parts, not
+radicals. This section combines the common-exponent factorization with
+one specific input arm of the actual Eisenstein power.
+
+\begin{lemma}[One input arm pays for the extra excluded primes]
+\label{acs-input-arm}
+There is a primitive unramified $w=x+y\zeta$ of norm $R$ with
+$w^p=a+b\zeta$. Set
+\[
+ \ell=\begin{cases}x+y,&p\equiv1\pmod6,\\x,&p\equiv5\pmod6.
+ \end{cases}
+\]
+Then $\ell\ne0$ and
+\begin{equation}\label{acs-extra-part}
+ J=\prod_{\substack{q\mid c\\q\equiv1\bmod p\\q\not\equiv1\bmod6p}}
+       q^{v_q(c)}\ \mid\ |\ell|,
+ \qquad 3J^2\le3\ell^2\le4R.
+\end{equation}
+\end{lemma}
+\begin{proof}
+A primitive Eisenstein integer has no inert rational factor and no pair
+of conjugate split prime factors. If $3\mid M$, primitiveness gives
+$a\equiv b\not\equiv0\pmod3$, and direct expansion gives $v_3(M)=1$.
+This is incompatible with $M=R^p$. Each remaining oriented split
+exponent is divisible by $p$, because its norm exponent is. Unique
+factorization gives $a+b\zeta=u w_0^p$ with $N(w_0)=R$ and
+$u\in\mu_6$. The $p$th-power map on $\mu_6$ is bijective, so a unit
+$p$th root of $u$ can be absorbed in $w_0$. The resulting $w$ is
+primitive, unramified and nonunit; hence $R\ge7$ and its boundary
+arms are nonzero.
+
+Apply Lemma~\ref{sac-quotients} at exponent $p$. If $p\equiv1\pmod6$,
+the sum of the normalized output coordinates is $c$, with input arm
+$x+y$. If $p\equiv5\pmod6$, the normalized output is
+$\overline{a+b\zeta}$, whose first coordinate is $c$, with input arm
+$x$. Thus for one actual quotient $D_j$,
+\begin{equation}\label{acs-actual-quotient}
+ c=\ell D_j,\qquad T_p/T_1=|D_1D_2D_3|.
+\end{equation}
+
+Let $q$ occur in $J$. It is at least $2p+1>3$, so $q\ne p$.
+If it split in the Eisenstein field, then $q\equiv1\pmod3$;
+together with its oddness and $q\equiv1\pmod p$, this would give
+$q\equiv1\pmod{6p}$. Hence it is inert. Also
+$\gcd(M,c)=1$, so $q\nmid R$.
+
+The actual homogeneous rank
+$d_q=\operatorname{ord}((w/\bar w)^3\bmod q)$ divides $p$, since
+$q\mid T_p$. In the inert case the norm-one group has order $q+1$,
+and its cube subgroup has order $(q+1)/3$. Rank $p$ would force
+$p\mid(q+1)/3$, impossible because $q+1\equiv2\pmod p$.
+Therefore $d_q=1$. The homogeneous valuation law, as used in
+Theorem~\ref{cp-valuations}, gives
+\[
+ v_q(T_p)=v_q(T_1)+v_q(p)=v_q(T_1).
+\]
+By \eqref{acs-actual-quotient}, all three nonnegative quotient
+valuations are zero. Hence $v_q(c)=v_q(\ell)$, with its full depth,
+and $J\mid|\ell|$. Finally
+\[
+ 4R-3(x+y)^2=(x-y)^2,\qquad
+ 4R-3x^2=(x+2y)^2
+\]
+proves the size estimate.
+\end{proof}
+
+\begin{theorem}[Actual mass in the split progression]\label{acs-mass}
+Every actual representation \eqref{acs-pure} satisfies
+\begin{align}
+ 27c_{\mathrm{bad}}(6p)^2&\le16R^3,\label{acs-square-budget}\\
+ c_{\mathrm{good}}(6p)&>
+       \frac{3\sqrt3}{4}\,c^{1-3/p}.\label{acs-good-size}
+\end{align}
+In particular $c$ has a prime divisor $q\equiv1\pmod{6p}$, necessarily
+$q\ge6p+1$, and
+\begin{equation}\label{acs-weighted-mass}
+ \sum_{\substack{q\mid c\\q\equiv1\bmod6p}}v_q(c)\log q
+ >\left(1-\frac3p\right)\log c+\log\frac{3\sqrt3}{4}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The common-exponent allocation gives $c_{\mathrm{bad}}(p)\le2R/3$.
+For completeness, put $D=Q-R^2>0$ and
+$S=\sum_{j=0}^{p-1}Q^{p-1-j}R^{2j}$. Then $DS=ab c^2$.
+Every prime factor of $S$ other than $p$ has exact multiplicative
+order $p$ for $Q/R^2$; its only possible prime contribution outside
+$1\pmod p$ is one factor of $p$. Thus the full bad part of $ab c^2$
+divides $pD$. The inequalities $S\ge pR^{2p-2}$ and
+$9ab c^2\le4M^2$ give $pD\le4R^2/9$, proving the asserted bound
+on $c_{\mathrm{bad}}(p)$, with the exponent-prime exception included.
+
+The supports of $c_{\mathrm{bad}}(p)$ and $J$ are disjoint, and
+their product is exactly $c_{\mathrm{bad}}(6p)$. Multiplication of
+$9c_{\mathrm{bad}}(p)^2\le4R^2$ and $3J^2\le4R$ proves
+\eqref{acs-square-budget}. Dividing, taking square roots, and using
+$R<c^{2/p}$ from $M<c^2$ proves \eqref{acs-good-size}.
+Its right side exceeds one for $p\ge5$, so the good part has a
+prime divisor. Logarithms give \eqref{acs-weighted-mass}.
+\end{proof}
+
+If $M=A^h$ and $F=B^g$ for positive integer bases and $h,g\ge2$,
+every prime $p\ge5$ dividing $\gcd(h,g)$ gives the same conclusions
+by setting $R=A^{h/p}$ and $Q=B^{g/p}$. Along a sequence with chosen
+common primes $p\to\infty$, the left side of
+\eqref{acs-weighted-mass} divided by $\log c$ tends to one. This is
+a statement about the actual seed's valuations, with no independence
+or prime-density hypothesis.
+
+Primes already present in the input arm are fully included in its
+budget. Large new primes in the surviving progression and their high
+depths remain possible. The argument gives no sufficient radical
+bound for ABC. Nonunit residuals, the first norm $3A^h$, and pairs
+of exponents without a common prime at least five remain separate
+open branches. The rank and valuation part of this section is an
+ordinary proof, not a claim that the integer arm module formalizes
+the entire progression argument.

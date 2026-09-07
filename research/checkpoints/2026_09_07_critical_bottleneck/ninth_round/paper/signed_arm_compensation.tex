@@ -1,0 +1,225 @@
+\section{Actual arm quotients and signed compensation of a private deep tail}
+\label{sac-section}
+
+This section keeps the negative radical contributions in the signed
+large-prime cost. It proves a sufficient subclass in which two actual
+quotient arms compensate for unrestricted depths in the third. General
+membership in that subclass remains unproved.
+
+Let $\mathcal O=\mathbb Z[\zeta]$, where $\zeta^2-\zeta+1=0$, and let
+$w=a+b\zeta$ be primitive and unramified, with
+\[
+ Q=N(w)\ge7,\qquad \gcd(a,b)=1,\qquad 3\nmid Q.
+\]
+The three input arms $a,b,a+b$ are nonzero. For an integer $n\ge5$
+with $\gcd(n,6)=1$, define
+\begin{equation}\label{sac-normalized}
+ z_n=A+B\zeta=
+ \begin{cases}w^n,&n\equiv1\pmod6,\\
+ \bar w^{\,n},&n\equiv5\pmod6,
+ \end{cases}
+ \qquad
+ D_1=\frac A a,\quad D_2=\frac B b,\quad
+ D_3=\frac{A+B}{a+b}.
+\end{equation}
+Write $P(x+y\zeta)=xy(x+y)$ and $T_j=|P(w^j)|$.
+
+\begin{lemma}[Three actual integer quotients]\label{sac-quotients}
+The $D_i$ are evaluations of integer homogeneous polynomials of degree
+$n-1$. They are nonzero and pairwise coprime, and satisfy
+\begin{equation}\label{sac-relations}
+ aD_1+bD_2=(a+b)D_3,\qquad
+ |D_1D_2D_3|=\frac{T_n}{T_1}.
+\end{equation}
+For prime $n$, their product is the actual top cyclotomic factor $C_n$
+up to sign. For general $n$ in this domain it is, up to sign,
+$\prod_{d\mid n,\ d>1}C_d$.
+\end{lemma}
+\begin{proof}
+The normalized power map in \eqref{sac-normalized} fixes each boundary
+line individually. At $a=0$ its value is $b^n\zeta$, at $b=0$ it is
+$a^n$, and at $a=-b$ it is $b^n\zeta^2$. This uses $n\equiv1\pmod6$
+in the first branch and $-n\equiv1\pmod6$ in the second.
+Consequently its first coordinate is divisible by $a$ in $\mathbb Z[a,b]$,
+its second by $b$, and the sum by $a+b$. For the last assertion,
+substitute $a=-b$ and divide by the monic linear polynomial $a+b$.
+Homogeneity gives the degrees.
+
+The established oriented factorization shows that the unramified
+primitive power $w^n$ is primitive and has no zero boundary arm.
+Conjugation preserves these properties. Thus $A,B,A+B$ are pairwise
+coprime nonzero integers, and their respective integer divisors $D_i$
+are pairwise coprime. Substitution and multiplication give
+\eqref{sac-relations}. Finally $P(\bar z)=-P(z)$ and the actual
+cyclotomic identity of Theorem~\ref{cp-integers} give the last statements.
+\end{proof}
+
+The unramified hypothesis matters: for $w=1+\zeta$ and $n=5$ the
+normalized output is $-9-9\zeta$, and all three quotients are $-9$.
+It is excluded by $3\nmid Q$.
+
+Set
+\[
+ c=\max\{|A|,|B|,|A+B|\},\quad t=\log c,\quad
+ c_1=\max\{|a|,|b|,|a+b|\},\quad \Delta=3t-\log T_n.
+\]
+For a real cutoff $Y\ge5$, all sums below are over primes and valuations
+of signed integers mean valuations of their absolute values. Define
+\begin{align*}
+ L(Y)&=\sum_{q\le Y}v_q(T_n)\log q,&
+ S_i(Y)&=\sum_{q>Y}v_q(D_i)\log q,\\
+ R_i(Y)&=\sum_{\substack{q>Y\\q\mid D_i}}\log q,&
+ E_i(Y)&=\sum_{q>Y}(v_q(D_i)-2)_+\log q.
+\end{align*}
+As before,
+\[
+ \log W_Y(H)=\sum_{\substack{q>Y\\q\mid H}}(v_q(H)-3)\log q
+ \qquad(H\ne0).
+\]
+
+\begin{theorem}[Finite signed-credit compensation]\label{sac-finite}
+For every choice of distinct $i,j,k\in\{1,2,3\}$,
+\begin{equation}\label{sac-finite-bound}
+ \log W_Y(T_n)\le
+ \Delta+\log c_1+\log T_1+\frac{L(Y)}2
+       +\frac32(E_i(Y)+E_j(Y))-3R_k(Y).
+\end{equation}
+The third quotient's entire multiplicity is included; no individual
+depth bound is imposed on it.
+\end{theorem}
+\begin{proof}
+Each output arm has absolute value at most $c$. Since the sum of their
+logarithms is $3t-\Delta$, each has logarithm at least $t-\Delta$.
+The nonzero integer input arms have absolute values between one and
+$c_1$. Therefore, for $M_i=\log|D_i|$,
+\begin{equation}\label{sac-arm-height}
+ t-\Delta-\log c_1\le M_i\le t.
+\end{equation}
+Let $L_i=M_i-S_i$ be the small-prime mass of $D_i$.
+Equation~\eqref{sac-relations} gives $L_i+L_j\le L(Y)$.
+At every supported prime, $e\le2+(e-2)_+$, so
+$2R_i\ge S_i-E_i$ and $2R_j\ge S_j-E_j$.
+Pairwise coprimality makes the signed cost additive on the quotient
+product. It follows that
+\[
+ \log W_Y(D_1D_2D_3)
+ \le S_k-\frac{S_i+S_j}{2}+\frac32(E_i+E_j)-3R_k.
+\]
+By \eqref{sac-arm-height}, the first two terms on the right are at most
+$\Delta+\log c_1+(L_i+L_j)/2$.
+
+For arbitrary nonzero integers $U,V$, adjoining the valuations of $U$
+can increase $\log W_Y(V)$ by at most $\log|U|$. At an old prime the
+increase is exactly $v_q(U)\log q$; at a new prime it is
+$(v_q(U)-3)\log q\le v_q(U)\log q$. Applying this to
+$T_n=T_1|D_1D_2D_3|$ proves \eqref{sac-finite-bound}. This step makes
+no coprimality assumption between $T_1$ and the quotient product and
+does not discard a negative contribution at their overlapping primes.
+\end{proof}
+
+\begin{theorem}[Uniform explicit error and a signed-tail subclass]
+\label{sac-subclass}
+There are absolute effective constants $A_1,A_2$ such that, on the
+whole actual domain above,
+\begin{align}
+ \frac{\Delta}{t}&\le A_1\frac{\log(4n)}n,&
+ \frac{v_q(T_n)}t&\le A_2q^2\frac{\log^2(4n)}n
+                    \quad(q\text{ prime}),\label{sac-two-place}\\
+ \frac{\log c_1+\log T_1}{t}&\le\frac5n,&
+ \frac{L(Y)}t&\le A_2\frac{Y^3\log Y\log^2(4n)}n.
+                    \label{sac-explicit-errors}
+\end{align}
+Consequently, writing
+\[
+ \epsilon(n,Y)=A_1\frac{\log(4n)}n+\frac5n+
+             \frac{A_2Y^3\log Y\log^2(4n)}{2n},
+\]
+one has
+\begin{equation}\label{sac-uniform}
+ \frac{\log W_Y(T_n)}t
+ \le\epsilon(n,Y)+\frac{3}{2t}(E_i+E_j-2R_k).
+\end{equation}
+For $Y=n^{1/6}$, $\epsilon(n,Y)\to0$ uniformly in the moving root.
+In particular, if two actual quotient arms have $v_q(D_i),v_q(D_j)\le2$
+at every prime $q>Y$, then
+\begin{equation}\label{sac-positive-part}
+ \frac{(\log W_Y(T_n))_+}{t}\longrightarrow0
+ \qquad(n\longrightarrow\infty)
+\end{equation}
+uniformly in that subclass. More generally it suffices that
+$ (E_i+E_j-2R_k)_+/t\to0$.
+\end{theorem}
+\begin{proof}
+To apply Theorem~\ref{lr-two-place}, multiply $z_n$ by a unit to
+place it in the open positive sector. No boundary arm is zero, so such
+a unit exists. Units and conjugation only permute the three absolute
+arm values, preserving $c,T_n,\Delta$ and all valuations. The resulting
+actual representation has ramified exponent zero, unit residual,
+root $w$ or $\bar w$ of norm $Q$, and exponent $g=n$. Thus
+$\lambda=1/n$, proving \eqref{sac-two-place}. This includes $q=2,3$;
+primes dividing $Q$ have no boundary contribution.
+
+The quadratic and cubic height inequalities give
+$Q^n\le c^2$, $Q\ge3c_1^2/4$ and $T_1\le Q^{3/2}$.
+The numerator $\log c_1+\log T_1$ is at most
+$2\log Q+\log(2/\sqrt3)$. Divide by $t\ge n\log Q/2$ and use
+\[
+ 4+\frac{2\log(2/\sqrt3)}{\log7}<5.
+\]
+There are at most $Y$ primes below $Y$, and each satisfies
+$q^2\log q\le Y^2\log Y$. Summing \eqref{sac-two-place} proves
+the remaining inequality in \eqref{sac-explicit-errors}.
+Substitution in Theorem~\ref{sac-finite} gives \eqref{sac-uniform}.
+For $Y=n^{1/6}$ its error tends to zero and eventually $Y\ge5$.
+If the two selected arms have depth at most two, then $E_i=E_j=0$;
+the term $-3R_k/t$ is nonpositive. Taking positive parts gives
+\eqref{sac-positive-part}. The more general condition follows directly
+from the same upper bound.
+\end{proof}
+
+Together with the previously proved archimedean and small-prime
+absorption, this gives the restricted ABC estimate for this explicitly
+specified homogeneous subclass, uniformly for sufficiently large $n$
+for each fixed target epsilon. It does not settle bounded $n$ with
+arbitrarily moving roots. Finitely many indices are not finitely many
+seeds. The signed upper bound is one-sided; a persistent negative
+contribution is compatible with it.
+
+\paragraph{Exact finite evidence and formal scope.}
+The exact replay checks six polynomial quotient identities, $113$
+actual unramified primitive examples and $678$ rational inequalities
+obtained by exponentiating twice \eqref{sac-finite-bound}. It uses
+integer arithmetic, rational fractions and complete trial division,
+not floating-point logarithms. For example, $w=54345+\zeta$, $n=5$ gives
+\begin{align*}
+ D_1&=5\cdot31^4\cdot168541\cdot11208719,\\
+ D_2&=-571\cdot640049\cdot119336975731,\\
+ D_3&=181\cdot659\cdot2131\cdot263129\cdot130411.
+\end{align*}
+Every displayed factor is prime and every product is checked exactly.
+Thus two actual quotients are squarefree while the third has private
+depth four at $31$. This is a finite illustration, not an asymptotic
+membership theorem.
+
+The separate Lean module \texttt{SignedArmArithmetic} proves $32$
+integer declarations using the actual pair arithmetic: normalized
+unit powers and congruences, the three actual divisibilities,
+quotient reconstruction, the additive and boundary-product identities,
+the exact norm, and quotient coprimality under an explicit output
+primitivity hypothesis. It also proves the signed linear budget for
+integer weights, its specialization to finite lists of natural depths
+with nonnegative integer weights, and the local weighted overlap bound.
+Its fresh Lean~4.32.0 build checks all $32$ declarations and $39$
+dependency declarations with warnings treated as errors and only
+\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}.
+It does not formalize preservation of primitivity, real logarithmic
+weights, the full prime-valuation identities, Theorem~\ref{lr-two-place},
+or general membership in the sufficient subclass.
+
+The unresolved arithmetic problem is to constrain the actual coupled
+quantity $E_i+E_j-2R_k$ using \eqref{sac-relations} and the common norm.
+No claim that two arms are usually cubefree is made. The criterion
+discards some shallow contributions in the two selected arms and is a
+sufficient condition stronger than the general signed-tail target.
+The exceptional roots of earlier averaging windows and their complete
+large-prime tails remain uncontrolled.

@@ -1,0 +1,190 @@
+\section{Common pure exponents force progression support in the actual seed}
+\label{sec-common-exponent-compatibility}
+
+Let $a,b$ be positive coprime integers, put $c=a+b$, and retain the
+actual norms
+\[
+ M=a^2+ab+b^2=c^2-ab,\qquad
+ F=a^4+3a^3b+5a^2b^2+3ab^3+b^4.
+\]
+Their elementary identity is
+\begin{equation}\label{ce-norm-difference}
+ F-M^2=ab c^2.
+\end{equation}
+This section studies the simultaneous pure-power hypotheses
+\begin{equation}\label{ce-common-pure}
+ M=R^p,\qquad F=Q^p,\qquad
+ p\ge3\text{ an odd prime},\quad R,Q\in\mathbb Z_{>0}.
+\end{equation}
+It proves necessary conditions on such actual seeds. No existence,
+nonexistence, modularity, or uniform point-height theorem is assumed.
+The first norm $3R^p$ is a different branch.
+
+\begin{lemma}[Exact cyclotomic allocation and the exponent-prime exception]
+\label{ce-cyclotomic-allocation}
+Under \eqref{ce-common-pure}, set
+\[
+ D=Q-R^2,\qquad
+ S=\Phi_p(Q,R^2)=\sum_{j=0}^{p-1}Q^{p-1-j}R^{2j}.
+\]
+Then $D$ is a positive integer, $DS=ab c^2$, and $\gcd(Q,R)=1$.
+For every prime $q\mid S$ with $q\ne p$,
+\begin{equation}\label{ce-exact-order}
+ \operatorname{ord}_{\mathbb F_q^\times}(Q/R^2)=p,
+ \qquad q\equiv1\pmod p.
+\end{equation}
+Moreover $p\mid S$ if and only if $p\mid D$, and in that case
+$v_p(S)=1$.
+\end{lemma}
+\begin{proof}
+Reducing $M$ modulo $a,b,c$ gives respectively $b^2,a^2,a^2$.
+Primitivity therefore implies $\gcd(M,abc)=1$, and
+\eqref{ce-norm-difference} gives $\gcd(M,F)=1$ and hence
+$\gcd(Q,R)=1$. Also $F>M^2$, so $Q>R^2$. Factoring
+$Q^p-R^{2p}$ proves $DS=ab c^2$.
+
+If a prime $q$ divides $Q$ or $R$, exactly one extreme term in $S$
+is nonzero modulo $q$. Thus every $q\mid S$ makes $Q,R$ units.
+For $t=Q/R^2$ modulo $q$, the identity
+$(t-1)(1+t+\cdots+t^{p-1})=t^p-1$ gives $t^p=1$.
+If $q\ne p$ and $t=1$, the sum would instead be the nonzero
+element $p$. Consequently the order is exactly $p$, giving
+\eqref{ce-exact-order}.
+
+In characteristic $p$, the polynomial $S$ equals $(Q-R^2)^{p-1}$,
+so $p\mid S$ exactly when $p\mid D$. In that case $Q,R$ are
+$p$-units. The expansion
+\[
+ S=pR^{2p-2}+\binom p2R^{2p-4}D+\cdots+D^{p-1}
+\]
+has first term of valuation one. Every subsequent intermediate
+term has a factor $pD$, and the final term has valuation at least
+$p-1\ge2$. Hence $v_p(S)=1$, including the complete exceptional
+prime contribution.
+\end{proof}
+
+For a positive integer $n$, define its full prime-power parts by
+\[
+ n_{\mathrm{bad},p}
+ =\prod_{\substack{q\text{ prime}\\q\not\equiv1\bmod p}}q^{v_q(n)},
+ \qquad n_{\mathrm{good},p}=n/n_{\mathrm{bad},p}.
+\]
+\begin{theorem}[Full bad mass and the actual root gap]
+\label{ce-bad-budget}
+Under \eqref{ce-common-pure}, put $U=(ab c^2)_{\mathrm{bad},p}$.
+Then
+\begin{equation}\label{ce-bad-divisibility}
+ U\mid pD,\qquad
+ U=a_{\mathrm{bad},p}b_{\mathrm{bad},p}
+       c_{\mathrm{bad},p}^{\,2},
+\end{equation}
+and
+\begin{equation}\label{ce-gap-size}
+ 1\le D\le\frac{4R^2}{9p},\qquad U\le\frac49R^2.
+\end{equation}
+If the exponent prime $p$ is omitted as well, the remaining part of
+$ab c^2$ outside $1\bmod p$ divides $D$ without the extra factor $p$.
+\end{theorem}
+\begin{proof}
+At every prime outside $1\bmod p$ other than $p$, the preceding
+lemma gives $v_q(S)=0$. At $p$ it gives $v_p(S)\le1$.
+The identity $DS=ab c^2$ therefore proves $U\mid pD$ prime by
+prime, with the stated stronger conclusion when $p$ is omitted.
+Additivity of valuations gives the equality in
+\eqref{ce-bad-divisibility}. No premise about the support of $D$
+is required.
+
+The following exact integral certificate supplies the required
+archimedean inequality:
+\begin{equation}\label{ce-four-ninths-certificate}
+ 4M^2-9ab(a+b)^2=(a-b)^2(4a^2+7ab+4b^2)\ge0.
+\end{equation}
+Since $Q>R^2$, every term of $S$ is at least $R^{2p-2}$.
+As $M^2=R^{2p}$, we obtain
+\[
+ D=\frac{ab c^2}{S}
+ \le\frac{ab c^2}{pR^{2p-2}}
+ \le\frac{4R^2}{9p}.
+\]
+The integrality and positivity of $D$, followed by $U\mid pD$,
+prove \eqref{ce-gap-size}.
+\end{proof}
+
+\begin{corollary}[Most denominator mass is in the progression]
+\label{ce-csupport}
+Every representation \eqref{ce-common-pure} satisfies
+\begin{equation}\label{ce-denominator-parts}
+ c_{\mathrm{bad},p}\le\frac23R<\frac23c^{2/p},
+ \qquad c_{\mathrm{good},p}>\frac32c^{1-2/p}.
+\end{equation}
+In particular, $c$ has an actual prime divisor $q\equiv1\pmod p$;
+every such prime satisfies $q\ge2p+1$. More precisely,
+\begin{equation}\label{ce-progression-mass}
+ \sum_{\substack{q\mid c\\q\equiv1\bmod p}}v_q(c)\log q
+ >\left(1-\frac2p\right)\log c+\log\frac32,
+\end{equation}
+where all sums are over primes. The complementary weighted mass obeys
+\begin{equation}\label{ce-complementary-mass}
+ \sum_{q\not\equiv1\bmod p}
+ \bigl(v_q(a)+v_q(b)+2v_q(c)\bigr)\log q
+ \le\frac2p\log M+\log\frac49
+ <\frac4p\log c+\log\frac49.
+\end{equation}
+There is also an elementary height restriction
+\begin{equation}\label{ce-elementary-height}
+ R^2\ge\frac{9p}{4},\qquad
+ \log c>\frac p4\log\frac{9p}{4}.
+\end{equation}
+\end{corollary}
+\begin{proof}
+Equation~\eqref{ce-bad-divisibility} gives
+$c_{\mathrm{bad},p}^2\le U\le4R^2/9$. Also $M<c^2$, so
+$R<c^{2/p}$. Division and logarithms prove
+\eqref{ce-denominator-parts}--\eqref{ce-complementary-mass}.
+The lower bound for $c_{\mathrm{good},p}$ is strictly greater than
+one. It therefore has a prime divisor. If $q=kp+1$ is prime,
+then $k$ is positive and even because $p$ is odd; hence $q\ge2p+1$.
+Finally $D\ge1$ in \eqref{ce-gap-size} gives $R^2\ge9p/4$,
+and $R^p=M<c^2$ gives \eqref{ce-elementary-height}.
+\end{proof}
+
+\begin{corollary}[Shared prime divisors of unequal pure exponents]
+\label{ce-common-prime}
+Suppose $M=A^h$ and $F=B^g$ for positive integer bases and
+$h,g\ge2$. Every odd prime $p\mid\gcd(h,g)$ gives all the
+preceding conclusions on taking $R=A^{h/p}$ and $Q=B^{g/p}$.
+For a sequence with chosen common prime divisors $p_j\to\infty$,
+\[
+ \frac{\displaystyle\sum_{\substack{q\mid c_j\\q\equiv1\bmod p_j}}
+       v_q(c_j)\log q}{\log c_j}\longrightarrow1.
+\]
+\end{corollary}
+\begin{proof}
+The substituted bases satisfy \eqref{ce-common-pure}. The last
+ratio is at most one and greater than $1-2/p_j$ by
+\eqref{ce-progression-mass}. The height bound also gives
+$c_j\to\infty$.
+\end{proof}
+
+\paragraph{Verification and remaining scope.}
+Both research peers and the root researcher completed independent
+ordinary reviews. The exact finite supplement checks $116$
+cyclotomic factor and valuation instances and $3931$ actual primitive
+seed identities. It does not assert that any of those seeds has two
+pure-power norms. Two separate Lean modules prove fifteen integer
+algebra and budget declarations using the actual repository norms.
+They prove the general geometric-sum factorization and lower bound,
+then derive the integer root-gap budget directly from actual common
+power representations, for every positive integer exponent. The
+bad-part interface still exposes its antecedent. Prime-order and full
+valuation allocation, and the real logarithmic conclusions, are not
+claimed as formalized by these modules.
+
+The mass in \eqref{ce-progression-mass} consists of full valuations,
+not the radical. The theorem leaves large primes and large valuations
+in the surviving progression uncontrolled. It does not give a point-height
+upper bound or an ABC contradiction. Relatively prime exponents,
+nonunit residuals and the first norm $3A^h$ remain open: the latter
+changes the difference to $Q^p-9R^{2p}$, which is not the homogeneous
+cyclotomic identity above. Fixed-exponent finiteness is not promoted
+to a uniform theorem as the exponent varies.

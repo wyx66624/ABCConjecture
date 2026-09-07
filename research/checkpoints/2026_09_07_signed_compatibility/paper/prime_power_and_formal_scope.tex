@@ -1,0 +1,130 @@
+\section{Prime-power refinement, full-exponent growth and formal scope}
+\label{sec-prime-power-compatibility}
+
+The general totient budget has a particularly sharp form at a common
+prime-power divisor of the two actual pure exponents. Let $a,b>0$ be
+coprime, $c=a+b$, $M=a^2+ab+b^2$ and $F=M^2+ab c^2$.
+For the full prime-power part outside $1\bmod s$, use the notation
+$c_{\mathrm{bad}}(s)$ of the preceding section.
+
+\begin{corollary}[The full prime-power modulus]
+\label{ppg-full-modulus}
+Suppose $p\ge5$ is prime, $k\ge1$, $n=p^k$, $m=p^{k-1}$, and
+$M=R^n$, $F=Q^n$ with positive integer bases. Then
+\begin{align}
+ c_{\mathrm{bad}}(n)&\le\frac23R^m<\frac23c^{2/p},
+ \label{ppg-modn}\\
+ 27c_{\mathrm{bad}}(6n)^2&\le16R^{2m+1},
+ \label{ppg-mod6n}\\
+ \sum_{\substack{q\mid c\\q\equiv1\bmod6p^k}}v_q(c)\log q
+ &>\left(1-\frac2p-\frac1{p^k}\right)\log c
+       +\log\frac{3\sqrt3}{4}.
+ \label{ppg-mass}
+\end{align}
+In particular, an actual prime divisor of $c$ is $1\bmod6p^k$,
+and is at least $6p^k+1$.
+\end{corollary}
+\begin{proof}
+Here $\Phi_n(1)=p$, $\kappa=1$ and $n-\varphi(n)=m$.
+Substitution in the general support budgets proves all three estimates.
+The exponent in \eqref{ppg-mass} is positive, and
+$3\sqrt3/4>1$, so the good part exceeds one.
+
+There is also a direct allocation proof that makes the $p$-exception
+transparent. Set
+\[
+ D=Q^m-R^{2m},\qquad
+ S=\Phi_n(Q,R^2)
+  =\sum_{j=0}^{p-1}(Q^m)^{p-1-j}(R^{2m})^j.
+\]
+Then $DS=ab c^2$. At $q\ne p$ dividing $S$, the order of $Q/R^2$
+is exactly $n$: its $n$-th power is one, its $m$-th power is not one,
+and every proper divisor of $n$ divides $m$. At $p$, the binomial
+argument gives $p\mid S$ exactly when $p\mid D$, and then $v_p(S)=1$.
+Consequently $(ab c^2)_{\mathrm{bad}}(n)\mid pD$. Since
+$S\ge pR^{2m(p-1)}$ and $ab c^2\le4R^{2n}/9$,
+\[
+ 1\le D\le\frac{4R^{2m}}{9p},\qquad
+ (ab c^2)_{\mathrm{bad}}(n)\le\frac49R^{2m}.
+\]
+This proves \eqref{ppg-modn} with full valuations. The actual input-arm
+allocation for the remaining inert primes gives $3J^2\le4R$ and
+$c_{\mathrm{bad}}(6n)=c_{\mathrm{bad}}(n)J$, proving
+\eqref{ppg-mod6n} again.
+\end{proof}
+
+At $k=1$ this recovers the split progression bound at $6p$. For fixed
+$p$ and growing $k$, the guaranteed fraction tends to $1-2/p$; it
+does not tend to one merely because the modulus grows. Any common
+prime-power divisor $p^k\mid\gcd(h,g)$ of unequal pure exponents
+$M=A^h$, $F=B^g$ gives the same result by replacing their bases.
+
+\begin{theorem}[The entire common exponent controls the extraction root]
+\label{ppg-full-exponent-growth}
+For any positive integer $n$, simultaneous representations $M=R^n$,
+$F=Q^n$ with positive integer bases satisfy
+\[
+ 9n(Q-R^2)\le4R^2,\qquad R^2\ge\frac{9n}{4},\qquad
+ \log c>\frac n4\log\frac{9n}{4}.
+\]
+\end{theorem}
+\begin{proof}
+The inequality $F>M^2$ gives the positive integer $D_0=Q-R^2$.
+The full geometric sum has $n$ terms, each at least $R^{2n-2}$,
+and its product with $D_0$ is $ab c^2\le4R^{2n}/9$.
+Cancellation gives the first inequality. Use $D_0\ge1$ for the
+second, and $R^n=M<c^2$ for the logarithmic conclusion.
+This includes $n=1$ and needs no prime-order assertion.
+\end{proof}
+
+This is a lower bound on the height of the actual seed. It is not an
+upper bound, and does not contradict the existence of a moving family.
+
+\paragraph{Exact scope of the fifty-four new Lean declarations.}
+The signed-arm module proves thirty-two statements. It defines the actual
+normalized Eisenstein power, proves boundary-arm divisibility, reconstructs
+the three integer quotients, proves their additive relation and norm identity,
+and derives pairwise coprimality with output primitivity explicitly supplied.
+It also proves the signed linear budget, its two-arm specialization, finite
+nonnegative integer-weight depth bounds, and the exact overlap-cost inequality.
+The finite weights are not silently identified with real logarithms.
+
+Two common-exponent modules prove fifteen statements. Besides the actual
+polynomial certificates, they prove the geometric-sum identity and lower
+bound for all relevant integer bases. In particular, the integer conclusions
+of Theorem~\ref{ppg-full-exponent-growth} follow directly from actual norm
+representations; the sum lower bound is proved rather than postulated.
+The separate bad-part interface retains its explicit antecedent.
+
+The support-assembly module proves seven statements. For every odd integer
+$n$, the rank premises $n\mid q-1$, $d\mid n$, $d\mid q+1$ and
+$d>0$ give $d=1$: they force $d\mid2$, and $d=2$ contradicts oddness.
+The module proves the two actual input-arm height inequalities using
+\[
+ 4N(x,y)-3x^2=(x+2y)^2,\qquad
+ 4N(x,y)-3(x+y)^2=(x-y)^2.
+\]
+It combines explicit budgets $9B^2\le4U$ and $3J^2\le4R$ into
+$27(BJ)^2\le16UR$, including its power form. Finally it verifies the
+integer core of the totient support-existence step. For $R\ge1$,
+$0<K\le N$, $9N\le4R^2$ and integer $\rho\ge2$, the inequality
+$16KG^2>27R^\rho$ forces $G^2>1$.
+The correspondence of these parameters with actual prime parts remains
+the independently reviewed ordinary input.
+
+All fifty-four new declarations and fifty-four unchanged dependency
+declarations pass a fresh scoped Lake build under Lean~4.32.0 with warnings
+treated as errors. Every theorem's axiom list is checked; only
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound} occur.
+Three exact finite supplements are independently replayed: $113$ actual
+signed-arm rows and $678$ rational inequalities; $116$ cyclotomic instances
+and $3931$ primitive seed identities; and $14$ fully factored general-index
+cyclotomic values with four additional exceptional-prime valuations.
+These are finite checks, not an infinite family or a substitute for the
+ordinary universal proofs.
+
+The full prime-order and valuation allocation, unique factorization, real
+logarithmic estimates, and arbitrary-root signed-tail membership are outside
+this continuation's Lean scope. The complementary high multiplicities and
+the absence of a suitable common exponent remain live bottlenecks. Neither
+standard ABC nor its negation is asserted by any of these results.
