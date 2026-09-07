@@ -1,0 +1,31 @@
+{
+  "status": "PASS: all three finite replays independently rerun by root",
+  "records": [
+    {
+      "name": "critical",
+      "artifact": "research/checkpoints/2026_09_07_critical_bottleneck/fourth_round/finite_replay.json",
+      "artifact_sha256": "f4bed724b5e676188ea7a2f968ae3e3277e443ccfe51f8e9489c347b1ea1f312",
+      "reported_digest": "9cf9f7cdfbbbc671d63e2c05c4641b8ef6d4c299ea70f0d5eaeef28684a6f67e",
+      "reported_digest_kind": "canonical payload"
+    },
+    {
+      "name": "independent",
+      "artifact": "research/checkpoints/2026_09_07_independent_route/fourth_round/exact_power_lifting_results.json",
+      "artifact_sha256": "bf5c7c23b679358f6ea408001c07b033fa2a604d45d529779c00aafe819cfc44",
+      "reported_digest": "bf5c7c23b679358f6ea408001c07b033fa2a604d45d529779c00aafe819cfc44",
+      "reported_digest_kind": "whole artifact"
+    },
+    {
+      "name": "adversarial",
+      "artifact": "research/checkpoints/2026_09_07_adversarial_audit/fourth_round/verification/results.json",
+      "artifact_sha256": "ebd5c2bf871da0b0650efdfd990bfc88f5c3e350f61d9d014ac09f5170c43fbd",
+      "reported_digest": "ebd5c2bf871da0b0650efdfd990bfc88f5c3e350f61d9d014ac09f5170c43fbd",
+      "reported_digest_kind": "whole artifact"
+    }
+  ],
+  "not_claimed": [
+    "infinite theorem from finite scan",
+    "ABC proof or disproof",
+    "formal probability or geometry"
+  ]
+}

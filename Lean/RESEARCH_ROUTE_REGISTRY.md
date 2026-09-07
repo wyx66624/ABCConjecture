@@ -1,5 +1,18 @@
 # Research route registry
 
+Latest fourth continuation: September 7, 2026. Signed support conditioning
+retains the negative low-depth prime credits and yields an exact allowance
+criterion, whose arithmetic bound remains open. A separate Kummer descent
+removes the direct affine denominator restriction from fixed-exponent,
+fixed-residual-class finiteness. Its support and exponent escape consequences
+do not control moving classes uniformly. An actual CRT family realizes every
+specified pair of extraction exponents with nonsquare residuals, refuting
+exclusion from parity alone while failing the small-lambda gate. Direct finite
+norm-residue tests have an unbounded primitive family passing all their tests;
+auxiliary global descent remains active. Fifteen new scoped Lean declarations
+formalize the actual direct-test family and arithmetic pieces, not the full
+geometric or probability arguments. All unrefuted parent directions remain.
+
 Latest third continuation: September 7, 2026. The private-depth route now
 has an exact repeated-factor envelope, a finite reference law, and a proved
 boundary for full-state entropy transfer. Its lossless observable quotient

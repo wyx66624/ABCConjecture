@@ -1,0 +1,256 @@
+\section{Higher-power norm classes and finite arithmetic descent}
+\label{pl-section}
+
+The second actual mixed norm is the binary quartic
+\[
+ F(a,b)=a^4+3a^3b+5a^2b^2+3ab^3+b^4,
+ \qquad F(x)=F(x,1).
+\]
+Its discriminant is $117$. We first give the exact denominator correction
+for a direct affine lift. We then use integral primitivity and finite
+Kummer descent to remove that denominator restriction from the
+fixed-exponent finiteness theorem. This is an explicit application of
+the classical Darmon--Granville mechanism
+\cite[Theorem~1 and its consequence on p.~514]{DarmonGranville1995},
+not a new general finiteness theorem. Throughout, a seed means positive
+coprime integers $a,b$; its height is $a+b$.
+
+\subsection{The exact direct lift}
+
+For $h\ge2$ put
+\[
+ \delta=\gcd(h,4),\qquad m=h/\delta,\qquad k=4/\delta.
+\]
+A positive integer is \emph{$h$-free} when every prime valuation belongs
+to $\{0,\ldots,h-1\}$. Every positive rational class modulo $h$-th powers
+has a unique positive $h$-free integer representative. For $m=1$, the
+only $m$-free representative is $1$.
+
+\begin{lemma}[Integral lifting and the denominator class]\label{pl-direct-lift}
+Fix an $h$-free positive integer $D$ and an $m$-free positive integer
+$\beta$. Primitive positive solutions
+\begin{equation}\label{pl-integer-lift}
+ F(a,b)=DW^h,\qquad b=\beta B^m,\qquad W,B\in\mathbb Z_{>0}
+\end{equation}
+correspond bijectively to positive rational points $(x,y)$ satisfying
+\begin{equation}\label{pl-affine-lift}
+ y^h=\frac{\beta^4F(x)}D
+\end{equation}
+whose reduced denominator $b$ has the indicated $m$-th power class.
+The maps are $x=a/b$, $y=W/B^k$, and conversely $W=yB^k$.
+The denominator-class map
+\[
+ \mathbb Q_{>0}^{\times}/\mathbb Q_{>0}^{\times m}
+ \longrightarrow
+ \mathbb Q_{>0}^{\times}/\mathbb Q_{>0}^{\times h},
+ \qquad [b]\longmapsto[b^4]
+\]
+is injective.
+\end{lemma}
+\begin{proof}
+The identity $4m=hk$ gives $b^4=\beta^4(B^k)^h$; homogeneity proves
+the displayed maps. To check integral lifting, suppose $q>0$ is rational,
+$Dq^h$ is an integer, and $D$ is $h$-free. For every prime $p$,
+\[
+ h v_p(q)=v_p(Dq^h)-v_p(D)\ge-(h-1).
+\]
+The left side is a multiple of $h$, hence is nonnegative. Thus $q$ is
+an integer. Apply this to $B$ and then to $W$; when $m=1$ the first
+step is immediate. Positivity and the unique reduced fraction $a/b$
+give the bijection. Finally, $h\mid4e$ if and only if $m\mid e$ for
+each integer $e$, proving the class-map assertion prime by prime.
+\end{proof}
+
+The correction is necessary. The primitive seed $(a,b)=(1,2)$ satisfies
+$F(a,b)=67$. With $D=67$ and $W=1$,
+\[
+ \frac{F(1/2)}{67}=\frac1{16},
+\]
+which is not a rational $h$-th power when $h\nmid4$. Its $2$-adic
+valuation is $-4$. Thus $W/b^{4/h}$ cannot be used as a rational
+coordinate in general. This is a counterexample to that direct map,
+not to the integer finiteness theorem below.
+
+\begin{theorem}[Direct-cover genus and coupled class]\label{pl-direct-genus}
+For $d>0$ rational, the smooth projective curve with function field
+$\mathbb Q(x)(y)$, $y^h=F(x)/d$, is geometrically connected and has genus
+\begin{equation}\label{pl-direct-genus-formula}
+ g_h=\frac{3h-2-\gcd(h,4)}2.
+\end{equation}
+For fixed $h\ge3$, only finitely many primitive positive seeds
+$F(a,b)=VW^h$ can have the coupled class
+$[Vb^{-4}]_h$ in any fixed finite set of $h$-th power classes.
+In particular fixing $[V]_h$ and $[b]_m$ suffices.
+\end{theorem}
+\begin{proof}
+Over the algebraic closure, valuation one at a root gives Kummer degree
+$h$. The four simple roots have inertia $h$, contributing $4(h-1)$.
+At infinity the pole order is four: there are $\delta$ points of
+ramification index $h/\delta$, contributing $h-\delta$. There is no
+other ramification. Thus
+\[
+ 2g_h-2=-2h+4(h-1)+(h-\delta)=3h-4-\delta.
+\]
+For $h\ge3$, this genus is at least three, so Faltings's theorem gives
+finitely many rational points on each fixed twist. If
+$Vb^{-4}=dq^h$, then $F(a/b)=d(qW)^h$, which supplies such a rational
+point. Each positive reduced rational $a/b$ determines its seed uniquely.
+A finite union over twists proves the result.
+\end{proof}
+
+For $h=4$, $m=1$, so the denominator correction is automatic and each
+fixed fourth-power class of $M_1$ gives only finitely many seeds. For
+$h=2$, the genus is one, in agreement with the infinite square family
+of Section~\ref{qg-section}. The next theorem strengthens the
+fixed-class conclusion for every $h\ge3$ without fixing a denominator
+class.
+
+\subsection{Finite descent using the four linear factors}
+
+\begin{lemma}[Finite Kummer classes]\label{pl-selmer-finite}
+Let $K$ be a number field, $S$ a finite set of its nonarchimedean primes,
+and $h\ge2$. Then
+\[
+ K(S,h)=
+ \{z\in K^\times:v_{\mathfrak p}(z)\in h\mathbb Z
+       \text{ for }\mathfrak p\notin S\}/K^{\times h}
+\]
+is finite.
+\end{lemma}
+\begin{proof}
+In the ring $\mathcal O_{K,S}$, write $(z)=\mathfrak a^h$. The map
+to $[\mathfrak a]$ has image in the finite group
+$\operatorname{Cl}(\mathcal O_{K,S})[h]$. Its kernel is the group of
+$S$-units modulo $h$-th powers: if $\mathfrak a=(t)$, then $z/t^h$
+is an $S$-unit, and conversely an $S$-unit has trivial ideal. The
+$S$-unit group is finitely generated. Thus both kernel and image are
+finite. This uses finiteness of the ideal class group, with no
+principal-ideal or element-factorization assumption.
+\end{proof}
+
+\begin{theorem}[Finite seeds for a fixed higher-power residual class]
+\label{pl-fixed-residual}
+Fix $h\ge3$ and a positive rational $h$-th power class $[D]_h$.
+There are only finitely many primitive positive seeds satisfying
+\begin{equation}\label{pl-fixed-equation}
+ F(a,b)=DW^h,\qquad W\in\mathbb Q_{>0}.
+\end{equation}
+The conclusion holds for a fixed finite set of residual classes,
+and also when the positive integer residual has prime support in
+one fixed finite set. No denominator-class hypothesis is required.
+\end{theorem}
+\begin{proof}
+Choose the positive $h$-free integer representative $D$; the integral
+lifting argument above makes $W$ an integer. Let $K$ contain the four
+roots $\alpha_1,\ldots,\alpha_4$ of $F$ and the $h$-th roots of unity.
+These roots are integral because $F$ is monic. Put
+\[
+ L_i=a-\alpha_i b,\qquad \prod_{i=1}^4L_i=DW^h.
+\]
+Let $S$ consist of the primes of $K$ over rational primes dividing
+$117D$. Outside $S$ all differences $\alpha_i-\alpha_j$ are units,
+since their squared product is $117$. If a prime $\mathfrak p\notin S$
+divided both $L_i$ and $L_j$, it would divide $b$ and then $a$,
+contradicting an integer Bezout identity for the primitive seed.
+Hence at most one $L_i$ has positive valuation at $\mathfrak p$.
+Taking valuations of the product shows
+$h\mid v_{\mathfrak p}(L_i)$ for every $i$ outside $S$.
+
+Lemma~\ref{pl-selmer-finite} gives only finitely many possible classes
+of the $L_i$, and hence only finitely many triples of classes of
+$L_i/L_4$ for $i=1,2,3$. Choose their representatives $\xi_i$.
+Every seed gives a $K$-point, with $x=a/b$, on one of the finitely many
+curves
+\begin{equation}\label{pl-four-branch-cover}
+ y_i^h=\frac{x-\alpha_i}{\xi_i(x-\alpha_4)},
+ \qquad i=1,2,3.
+\end{equation}
+These points avoid the branch values since $F(x)>0$ for $x>0$.
+
+Over an algebraic closure the three Kummer classes are independent
+modulo $h$: evaluating the valuation of a relation at $\alpha_i$
+forces its $i$-th exponent to be divisible by $h$. This holds also
+for composite $h$. The smooth projective normalization of
+\eqref{pl-four-branch-cover} is therefore geometrically connected of
+degree $h^3$, with group $(\mathbb Z/h\mathbb Z)^3$.
+
+At each $\alpha_i$ for $i\le3$ the inertia order is $h$. At
+$\alpha_4$ the three functions all have a simple pole. Geometric
+local units have $h$-th roots in characteristic zero, so the three
+extensions there adjoin the same $h$-th root of a uniformizer.
+The inertia group is diagonal cyclic of order $h$, not of order
+$h^3$. At infinity all three ratios are units, and there is no
+ramification. Consequently the four branch points each contribute
+$h^2(h-1)$, and Riemann--Hurwitz gives
+\begin{equation}\label{pl-descent-genus}
+ 2G_h-2=-2h^3+4h^2(h-1),\qquad G_h=1+h^2(h-2)>1.
+\end{equation}
+Faltings's theorem over the fixed number field $K$ gives finitely many
+$K$-points on each curve. There are finitely many curves, and each
+positive reduced rational $x$ determines $a,b$ uniquely. This proves
+the fixed-class statement; a finite union proves its finite-class
+version. If the residual support is in $S_0$, its $h$-free
+representative has at most $h^{|S_0|}$ possibilities, proving the
+last assertion.
+\end{proof}
+
+The arithmetic covers capture every actual primitive seed. They do
+not assert that the direct coordinate $W/b^{4/h}$ is rational.
+Primitivity outside a finite set supplies the extra information that
+the direct affine normalization lacked.
+
+\subsection{An exponent restriction for possible unbounded families}
+
+\begin{corollary}[Residual support or exponent escape]\label{pl-exponent-escape}
+Consider actual second profiles $M_1=V_1Q_1^{g_1}$ along a sequence
+of primitive positive seeds with $a+b\longrightarrow\infty$.
+For every fixed $h\ge3$, among terms with $h\mid g_1$, the class
+$[V_1]_h$ eventually leaves every fixed finite set of classes.
+If all $V_1$ have prime support in one fixed finite set, then each
+fixed $h\ge3$ divides $g_1$ only finitely often. In particular,
+eventually $v_2(g_1)\le1$, and for each fixed $B$ no odd prime
+$p\le B$ divides $g_1$ at sufficiently large indices. If also
+$g_1\longrightarrow\infty$, its least odd prime factor tends to infinity.
+\end{corollary}
+\begin{proof}
+For $h\mid g_1$, substitute $W=Q_1^{g_1/h}$ in
+Theorem~\ref{pl-fixed-residual}. Each indicated finite class set gives
+only finitely many seeds, which a height-tending-to-infinity sequence
+eventually leaves. With fixed residual support, apply this to $h=4$
+and each of the finitely many odd primes at most $B$. If $g_1$ tends
+to infinity, after excluding multiples of four the values with no odd
+prime divisor, namely $1$ and $2$, no longer occur.
+\end{proof}
+
+\begin{corollary}[Finite total support]\label{pl-total-support}
+For each fixed finite prime set $S$, there are only finitely many
+primitive positive seeds with $\operatorname{supp}(M_1)\subseteq S$.
+Thus, along a sequence with $a+b\longrightarrow\infty$, if
+$\operatorname{supp}(Q_1)\subseteq S_Q$ for one fixed finite set,
+then for every fixed finite $S_V$ one eventually has
+$\operatorname{supp}(V_1)\not\subseteq S_V$. No condition on
+divisibility of $g_1$ is needed.
+\end{corollary}
+\begin{proof}
+Write $M_1=DW^3$ with $D$ cube-free. There are at most $3^{|S|}$
+possible $D$, so Theorem~\ref{pl-fixed-residual} applies. For the
+profile consequence use $S=S_Q\cup S_V$; a height-tending-to-infinity
+sequence eventually leaves the resulting finite set of seeds.
+\end{proof}
+
+This is a concrete Thue--Mahler consequence, with no quantitative
+prime-growth estimate. The unit residual case $V_1=1$ is included in
+Corollary~\ref{pl-exponent-escape}, even with arbitrary moving
+roots. Each fixed exponent divisor $h\ge3$ supports only finitely many
+seeds. This does not assert that such seeds do not exist, and it is
+not uniform in $h$. Large odd prime exponents, twice such exponents,
+and moving residual support remain outside this obstruction. A small
+$\lambda_1=\max\{1,\log V_1\}/g_1$ need not bound the residual support
+or its power class, so the two-step finite threshold remains unresolved.
+
+The number-field and geometric dependencies here are the finite ideal
+class group, finite generation of $S$-units, Kummer theory,
+Riemann--Hurwitz, and Faltings's theorem. This section supplies ordinary
+proofs; it does not claim Lean verification of those dependencies or
+of the resulting finiteness theorem. The companion exact arithmetic
+replay checks the denominator identities and examples only.

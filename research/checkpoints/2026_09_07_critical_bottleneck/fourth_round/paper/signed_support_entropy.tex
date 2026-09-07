@@ -1,0 +1,200 @@
+\section{Signed depth entropy with the actual support retained}
+\label{se-section}
+The positive-excess observable of Section~\ref{om-section} discards the
+negative contributions of primes of depths one and two. We now retain
+these contributions and condition on the actual supported primes. An
+elementary height count bounds the remaining conditional Shannon entropy.
+The result is an exact signed allowance criterion, not an estimate of
+that allowance on a specified arithmetic orbit.
+
+For a positive integer $A$ and a real $Y\ge5$, put
+\[
+ S_Y(A)=\log W_Y(A)=\sum_{\substack{p>Y\\p\mid A}}
+          (v_p(A)-3)\log p,
+ \qquad R_Y(A)=\prod_{\substack{p>Y\\p\mid A}}p.
+\]
+The sum is signed. For the finite primitive-pair reference measure
+modulo $p^E$, $p>3$, write $\nu$ for the capped boundary valuation.
+The local count proved in Section~\ref{om-section} gives
+\begin{align*}
+ \Pr(\nu=0)&=\frac{p-2}{p+1},\\
+ \Pr(\nu=e)&=\frac{3(p-1)}{(p+1)p^e}\quad(1\le e<E),&
+ \Pr(\nu=E)&=\frac{3}{(p+1)p^{E-1}}.
+\end{align*}
+Indeed the primitive state count modulo $p^e$ is
+$p^{2e-2}(p^2-1)$, and each of the three disjoint boundary arms has
+$\varphi(p^e)$ such states. Multiplication by a fixed $H$ with
+$p\nmid N(H)$ permutes the primitive states. Distinct primes have
+independent reference laws by CRT. These are reference statements;
+no uniformity of actual small-height residuals or power orbits is assumed.
+
+\subsection{Signed moments before and after conditioning on support}
+Define $j(0)=0$ and $j(e)=e-3$ for $e\ge1$.
+\begin{theorem}[Signed local moments]\label{se-moment}
+For $0<\theta<1$ the infinite-precision signed moment is
+\[
+ Z_p(\theta)=1-\frac3{p+1}
+ +\frac{3(p-1)}{(p+1)p^{1+2\theta}(1-p^{\theta-1})}.
+\]
+The finite capped moment is at most $Z_p(\theta)$. For $p\ge5$,
+\[
+ Z_p(1/2)=1-\frac3{p+1}(1-p^{-1}-p^{-3/2})
+ \le1-\frac2{p+1}.
+\]
+Thus for a finite set $J$ of retained primes and the signed reference
+variable $S=\sum_{p\in J}j(\nu_p)\log p$,
+\[
+ \log\mathbb E_\mu e^{S/2}\le-2\sum_{p\in J}\frac1{p+1}.
+\]
+For every probability law $\nu$ on the same finite space,
+\[
+ \mathbb E_\nu S\le2D(\nu\Vert\mu)
+                       -4\sum_{p\in J}\frac1{p+1}.
+\]
+\end{theorem}
+\begin{proof}
+Sum the geometric series over the positive depths. Capping at a positive
+integer $E$ decreases $j$ on the positive branch, and hence decreases
+its exponential moment. At $\theta=1/2$, cancellation uses
+$(1-p^{-1})/(1-p^{-1/2})=1+p^{-1/2}$.
+The inequality $1-p^{-1}-p^{-3/2}\ge2/3$ holds at $p=5$ and its
+left side increases. Multiply the local moments and use
+$\log(1-x)\le-x$. Finally, the tilted measure
+$\mu_\theta(x)=e^{\theta S(x)}\mu(x)/\mathbb E_\mu e^{\theta S}$
+and $D(\nu\Vert\mu_\theta)\ge0$ give the stated entropy bound.
+\end{proof}
+The unconditioned negative term above is a reciprocal-prime sum.
+Conditioning on the supported primes gives a radical-sized allowance.
+
+\begin{theorem}[Support-conditioned signed moments]\label{se-conditioned}
+Given a hit $\nu_p\ge1$, the infinite-precision reference law is
+\[
+ q_p(e)=(1-p^{-1})p^{-(e-1)}\quad(e\ge1).
+\]
+At finite precision $E$, this formula holds for $e<E$, with
+$q_p(E)=p^{-(E-1)}$. In either case
+\[
+ \mathbb E[p^{\theta(\nu_p-3)}\mid\nu_p\ge1]
+ \le p^{-2\theta}\frac{1-p^{-1}}{1-p^{\theta-1}}.
+\]
+In infinite precision equality holds, and at $\theta=1/2$ the value
+is $p^{-1}(1+p^{-1/2})$. Fix a supported set $J$ and write
+$R_J=\prod_{p\in J}p$. If $D_J$ is the relative entropy of an actual
+depth law on this support against the conditional product reference,
+then
+\[
+ \mathbb E S\le2D_J-2\log R_J
+                      +2\sum_{p\in J}\log(1+p^{-1/2}).
+\]
+More generally, for $\theta=1-\delta\in(0,1)$,
+\[
+ \mathbb E S\le\frac{D_J}{\theta}-2\log R_J
+ +\frac1\theta\sum_{p\in J}
+       \bigl(\log(1-p^{-1})-\log(1-p^{-\delta})\bigr).
+\]
+\end{theorem}
+\begin{proof}
+Divide the positive-depth probabilities by $3/(p+1)$, sum the resulting
+geometric series, and apply the same tilted-measure inequality.
+Capping only decreases the signed moment. For primes $p>Y$, the last
+sum is at most
+$|J|Y^{-\delta}/(1-Y^{-\delta})$.
+For example, $\delta=1/\sqrt{\log Y}$ makes it $o(\log R_J)$,
+uniformly over finite nonempty supports as $Y\to\infty$; the empty
+support has zero error.
+\end{proof}
+
+\subsection{An exact identity with a uniform height error}
+Fix $t>0$ and any probability distribution on finitely many positive
+integers $A$ satisfying $\log A\le3t$. This is a common upper height
+bound for the ensemble. It applies in particular to an ensemble of
+actual primitive boundaries $A=abc$ with $\log c\le t$.
+Let
+\[
+ J=\{p>Y:p\mid A\},\qquad e=(v_p(A))_{p\in J},
+ \qquad L=\sum_{p\in J}e_p\log p,\quad r=\log R_Y(A).
+\]
+Keep the support law exactly as in the actual ensemble, and put
+$H_{\rm depth}=H(e\mid J)$, with natural logarithms.
+For each prime in the finite union of the actual supports choose an
+integer $E_p>3t/\log p$. Given $J$, let $q_J$ be the product of the
+finite capped geometric laws in Theorem~\ref{se-conditioned}, and set
+\[
+ D_{\rm depth}=\mathbb E_J
+   D\bigl(\operatorname{Law}(e\mid J)\Vert q_J\bigr),
+ \qquad c_J=\sum_{p\in J}-\log(1-p^{-1}).
+\]
+Every actual depth is strictly below its reference precision cap.
+The terminal reference atoms are needed for normalization but do not
+enter the cross entropy at actual states.
+
+\begin{theorem}[Height-sensitive signed entropy identity]\label{se-height}
+With the preceding common-height assumptions,
+\[
+ \mathbb E S_Y(A)=D_{\rm depth}-2\mathbb E r
+                     +H_{\rm depth}-\mathbb E c_J.
+\]
+Moreover,
+\[
+ 0\le H_{\rm depth}\le\frac{3(\log2)t}{\log Y},
+ \qquad 0\le\mathbb E c_J\le\frac{3t}{(Y-1)\log Y}.
+\]
+Consequently
+\[
+ -\frac{3t}{(Y-1)\log Y}
+ \le \mathbb E S_Y(A)-(D_{\rm depth}-2\mathbb E r)
+ \le \frac{3(\log2)t}{\log Y}.
+\]
+These estimates are uniform in the ensemble size, actual prime supports,
+common factor, and the chosen precisions satisfying the strict bounds.
+\end{theorem}
+\begin{proof}
+On every actual depth vector,
+$-\log q_J(e)=\sum_{p\in J}(e_p-1)\log p+c_J=L-r+c_J$.
+Thus $D_{\rm depth}=\mathbb E(L-r+c_J)-H_{\rm depth}$;
+subtracting $2\mathbb E r$ proves the identity since $S_Y=L-3r$.
+
+Put $M=\lfloor3t/\log Y\rfloor$. Since $p>Y$ and $L\le3t$,
+every possible depth vector satisfies $\sum e_p\le M$.
+For a fixed support of size $r_0$, stars and bars gives exactly
+$\binom M{r_0}$ positive integer vectors with sum at most $M$.
+The empty support contributes one vector. As
+$\binom M{r_0}\le2^M$, its conditional entropy is at most
+$M\log2$. Also $|J|\le3t/\log Y$ and
+$-\log(1-p^{-1})\le1/(p-1)\le1/(Y-1)$.
+These prove both nonnegative error bounds and the final estimate.
+\end{proof}
+
+For a sequence of such ensembles with $Y\to\infty$, the uniform
+one-sided upper bound $\mathbb E S_Y(A)\le o(t)$ is therefore
+equivalent to
+\[
+ D_{\rm depth}\le2\mathbb E\log R_Y(A)+o(t).
+\]
+This permits negative linear signed credit; it does not assert that
+the signed cost converges to zero after division by height.
+For a point mass the identity still holds, with $H_{\rm depth}=0$.
+No distributional assumption has been introduced into that single seed.
+
+\subsection{Arithmetic scope and the remaining allowance bound}
+This conditional allowance retains credits that the positive-excess
+observable loses. For a concrete retained-prime comparison, take primes
+$p<q<2p$ and the actual primitive seed $(a,b)=(p^4,q)$ with common
+factor $H=1$. At the specified primes $\{p,q\}$ its boundary has
+depths four and one. Its retained positive excess is $\log p$, whereas
+its retained signed cost is $\log p-2\log q<0$ and
+$\log(a+b)\sim4\log p$. This comparison does not control the other
+prime factors of the boundary and does not supply a nontrivial power
+orbit with small $\lambda$.
+
+The new allowance has not been bounded arithmetically. Neither data
+processing nor a sparse set of actual states proves it. On a homogeneous
+orbit, the exact rank law gives $e_p=s_p+v_p(g)$ at the supported ranks
+$d_p\mid g$, with total lifting cost at most $\log g$. The unresolved
+part is the actual joint first-depth and supported-prime budget.
+Shifted residuals require their own shifted ranks and stopping towers;
+the homogeneous divisibility law cannot be transferred unchanged.
+The dependency chain here consists of the proved local count, finite
+geometric series, the relative-entropy identity, and stars and bars.
+These ordinary probability statements are not claimed as new Lean
+formalizations or as a resolution of the signed-tail gate or ABC.

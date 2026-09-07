@@ -1,0 +1,30 @@
+\section{Signed support and higher-power arithmetic classes}
+\label{sec:support-power-checkpoint}
+
+The fourth continuation keeps the forward signed-tail problem and the
+independent higher-power geometry separate while identifying a precise
+connection between their arithmetic supports. On the forward side,
+conditioning on the actual supported primes retains the negative
+contributions of depths one and two. An exact relative-entropy identity,
+with an elementary uniform height error, replaces the unnecessarily strong
+positive-excess target by a support-dependent allowance. The required
+arithmetic upper bound for that allowance remains open.
+
+On the geometric side, a finite Kummer descent proves finiteness of
+primitive positive seeds for every fixed higher exponent and residual
+power class. It removes the denominator-class restriction from a direct
+affine lift by using integral primitivity. Its actual-profile consequences
+force residual support or exponent escape, without supplying a bound
+uniform in the exponent. A separate construction realizes arbitrary
+specified simultaneous extraction exponents with nonsquare residuals.
+A separate consecutive-seed family shows why a fixed finite list of
+direct norm-residue tests cannot exclude the whole branch.
+
+The ordinary proofs were independently reviewed before their arithmetic
+pieces were formalized. The new Lean module verifies an unbounded actual
+primitive family passing all direct tests whose moduli divide a specified
+integer, together with polynomial, primitive-coordinate, and denominator
+arithmetic. It does not formalize Hensel lifting, the finite Kummer
+descent, Faltings's theorem, or the entropy estimates. Neither the actual
+signed allowance nor the uniform moving-exponent radical gate has been
+proved. Standard $abc$ remains unproved and undisproved here.

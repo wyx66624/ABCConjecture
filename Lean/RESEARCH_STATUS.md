@@ -1,5 +1,36 @@
 # Research status
 
+## September 7, 2026: signed support and higher-power arithmetic classes
+
+Standard ABC remains unproved and undisproved. The fourth continuation retains
+the actual prime support in a conditional depth reference law. An exact
+entropy identity with a uniform height error yields the equivalent signed
+allowance `D_depth <= 2 E log rad + o(t)`. This allowance is still an unproved
+arithmetic estimate; negative depth-one and depth-two credits are preserved.
+
+Independently, a finite four-branch Kummer descent proves finiteness of actual
+primitive seeds for each fixed higher exponent and residual power class,
+without a denominator-class restriction. This is a Darmon--Granville
+specialization using Faltings and the stated number-field inputs. Fixed
+residual support forces escape from every fixed higher exponent divisor.
+Fixed total second-norm support gives finitely many seeds. These statements
+are ineffective and not uniform as the exponent or support varies.
+
+Actual consecutive seeds realize arbitrary prescribed simultaneous extraction
+exponents with two nonsquare residuals, at the fixed roots of norms 7 and 67.
+Their residual lambdas diverge at fixed exponents, and their second residual
+supports escape every fixed finite prime set. Finite direct norm-power residue
+tests cannot exclude the whole branch; this limitation does not apply to all
+methods combining auxiliary local conditions with global descent.
+
+Fresh scoped Lean verification accepts 15 new declarations and recompiles
+29 unchanged dependency declarations. The main theorem is an actual positive
+primitive family beyond every height passing all direct tests with moduli
+dividing a specified L. Other declarations check polynomial and denominator
+arithmetic. Hensel lifting, Kummer descent, Faltings, entropy and ABC are not
+formalized by this module. The exact source/axiom inventories and ordinary
+reviews are in `../research/checkpoints/2026_09_07_support_power_classes/`.
+
 ## September 7, 2026: private depth, reference measures and elliptic geometry
 
 Standard ABC remains unproved and undisproved. The third continuation proves

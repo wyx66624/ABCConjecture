@@ -49,7 +49,8 @@ Neither end goal has been reached.
 | [`Lean/README.md`](Lean/README.md) | Lean package overview, conditional theorem audit, missing constructions, and build instructions |
 | [`Lean/verification/2026_09_03_incidence_endpoint_literature/README.md`](Lean/verification/2026_09_03_incidence_endpoint_literature/README.md) | Latest incidence/endpoint checkpoint replay protocol |
 | [`paper/ChatGPT_ABC_Uniformity_2026.tex`](paper/ChatGPT_ABC_Uniformity_2026.tex) | Current English manuscript source |
-| [`output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf`](output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf) | Current 391-page integrated manuscript, maintained at the user-designated filename; the filename is historical |
+| [`output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf`](output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf) | Current 400-page integrated manuscript, maintained at the user-designated filename; the filename is historical |
+| [`research/checkpoints/2026_09_07_support_power_classes/README.md`](research/checkpoints/2026_09_07_support_power_classes/README.md) | Fourth continuation: signed support entropy, finite higher-power descent, actual extraction families, and 15 new scoped Lean declarations |
 | [`research/checkpoints/2026_09_07_residual_collisions/README.md`](research/checkpoints/2026_09_07_residual_collisions/README.md) | Third continuation: private-depth collisions, finite reference laws, independent elliptic geometry, and 27 new scoped Lean declarations |
 
 The bottleneck ledger is the persistent entry point for new research rounds.

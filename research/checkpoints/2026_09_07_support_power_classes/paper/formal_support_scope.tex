@@ -1,0 +1,61 @@
+\section{Formal arithmetic for direct power tests and denominator classes}
+\label{sec:formal-support-power}
+
+The module \texttt{LocalPowerArithmetic.lean} contains fifteen declarations
+supporting the preceding ordinary proofs. It imports the existing
+Eisenstein pair norm and defines the second norm by that actual norm,
+\[
+ M_1(a,b)=N\bigl(ab,N(a,b)\bigr),
+\]
+then proves its quartic expansion. Its principal quantified statement says
+that for every positive natural number $L$ and every natural height bound
+$T$, there exist positive integers $a,b$ with $a+b>T$ such that
+\[
+ \gcd(a,b)=\gcd\bigl(ab,N(a,b)\bigr)=1
+\]
+and, simultaneously for every integer $m\mid L$ and natural exponents
+$e,f$,
+\[
+ m\mid N(a,b)-1^e,\qquad m\mid M_1(a,b)-1^f.
+\]
+The witness is $a=L(T+1)$, $b=a+1$. Thus this is an actual unbounded
+primitive family, with the same seed working for every stated test.
+Taking $L$ to be a common multiple gives the direct finite-modulus
+obstruction. The formal theorem does not assert that either norm is a
+perfect power as an integer or that the seeds have high ABC quality.
+
+Further declarations prove the two consecutive-coordinate polynomial
+identities, their exact linearizations at the simple roots modulo seven
+and sixty-seven, the coprime derivatives, and the exact arithmetic
+supporting the residual depth-one conditions at thirteen and thirty-one.
+These are the arithmetic inputs to the ordinary Hensel and CRT argument;
+the infinite family of actual Eisenstein power extractions is not itself
+claimed as formalized by these declarations.
+
+For the direct-lift denominator, the module checks the integer valuation
+implication
+\[
+ h>0,\quad 0\le d<h,\quad d+hv\ge0
+ \quad\Longrightarrow\quad v\ge0.
+\]
+It also proves, for natural $h,z$,
+\[
+ h\mid4z\quad\Longleftrightarrow\quad
+ \frac{h}{\gcd(h,4)}\mid z,
+ \qquad
+ 4\frac{h}{\gcd(h,4)}=h\frac4{\gcd(h,4)}.
+\]
+The first equivalence is stated at the nonnegative valuation level in
+Lean. The passage through rational valuations, rational power-class
+groups, the full lifting bijection, and the higher-genus finiteness
+argument remain ordinary proofs with their stated external dependencies.
+
+A fresh standalone Lake build with Lean~4.32.0, warnings treated as
+errors, verifies the fifteen new declarations and recompiles all
+twenty-nine declarations in the unchanged norm dependency. Every
+declaration has a printed-axiom inventory; only \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound} occur. The checkpoint
+records the exact source hashes and reproducible finite arithmetic
+replays. This is scoped formal verification, with no claim to a full
+repository build, formalized geometric or probability theorems, or a
+solution of ABC.

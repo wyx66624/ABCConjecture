@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, private-depth collisions, finite reference
-measures, explicit elliptic families and dynamic square-class covers.
+**Last synchronized:** 2026-09-07, signed support entropy, fixed higher-power
+class descent, actual extraction families and scoped denominator arithmetic.
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -32,6 +32,27 @@ rigorous complete-premise disproof.
 - [x] Maintain the English journal manuscript with author ChatGPT.
 
 ## Shared exponent generators: September 7 positive frontier
+
+- [x] Retain the actual prime support and prove the exact signed conditional
+  depth-entropy identity with uniform common-height error bounds.
+- [ ] Bound the actual allowance `D_depth <= 2 E log rad + o(t)` using
+  arithmetic coupling of first depths and ranks; the reference law is insufficient.
+- [x] Correct the direct affine denominator class to `h/gcd(h,4)` and give
+  the actual `(1,2)` counterexample to the uncorrected rational lift.
+- [x] Use finite Kummer descent and integral primitivity to prove fixed
+  higher-exponent, fixed-residual-class finiteness without fixing denominators.
+- [x] Prove the resulting residual-support/exponent escape and finite-total-
+  support consequences with their fixed-parameter quantifiers.
+- [ ] Obtain an effective or sufficiently uniform estimate as the higher
+  exponent and residual prime support vary; fixed-cover Faltings is insufficient.
+- [x] Realize arbitrary specified simultaneous extraction exponents on an
+  infinite actual primitive family with nonsquare residuals at both steps.
+- [x] Prove that all direct norm-power tests at finitely many fixed moduli
+  have an unbounded actual primitive family passing them simultaneously.
+- [ ] Resolve the small-lambda gate for those or other actual families;
+  the CRT family's lambdas grow at fixed exponents.
+- [x] Kernel-check the direct-test unbounded-family statement and elementary
+  polynomial and denominator arithmetic, with all stronger scopes excluded.
 
 - [x] Cancel the actual common factor in cross-residual boundary gcds,
   including full multiplicity at two and three.

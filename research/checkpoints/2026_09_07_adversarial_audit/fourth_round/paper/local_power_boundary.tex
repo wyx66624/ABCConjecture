@@ -1,0 +1,149 @@
+\section{Actual exponent realizations beyond the parity obstruction}
+\label{lp-section}
+
+For a primitive positive seed $(a,b)$ put
+\[
+ M_0=a^2+ab+b^2,\quad U=ab,\quad
+ M_1=U^2+UM_0+M_0^2=F(a,b).
+\]
+The actual Eisenstein integers are $z_0=a+b\zeta$ and
+$z_1=U+M_0\zeta$, where $\zeta^2-\zeta+1=0$.
+Both are primitive, since $\gcd(ab,M_0)=1$.
+We distinguish direct norm-residue tests, local power solutions, and
+actual simultaneous extractions. None of the constructions below
+supplies the small-lambda two-step gate.
+
+\subsection{A precise boundary of direct fixed-modulus tests}
+
+\begin{theorem}[Simultaneous direct power residues]\label{lp-residues}
+Fix $m,n\ge2$ and finitely many positive integer moduli. There are
+infinitely many primitive positive seeds, with $a/(a+b)\to1/2$ and
+$a+b\to\infty$, for which $M_0$ and $M_1$ are respectively $m$-th
+and $n$-th power residues modulo every specified modulus.
+\end{theorem}
+\begin{proof}
+Let $L$ be the least common multiple of the moduli and take
+$(a,b)=(Lk,Lk+1)$, $k\ge1$. These integers are coprime. Their
+residues are $(0,1)$ modulo $L$, so $M_0\equiv M_1\equiv1\pmod L$.
+The integer one is both specified power residues. The limiting height
+and balance assertions follow directly.
+\end{proof}
+This excludes a universal obstruction consisting solely of finitely many
+fixed power-residue tests on the original norm integers. It does not
+exclude every argument using local information: the successful QG3
+descent uses auxiliary covering classes and additional global input.
+The seeds here are not claimed to have power norms. Indeed the theorem
+also applies to the globally excluded square/square positive branch.
+
+\begin{theorem}[Primitive local power solutions]\label{lp-local}
+For every $m,n\ge2$ and every prime $p$, there are $a,b\in\mathbb Z_p$
+with $ab(a+b)\ne0$, at least one coordinate a unit, such that $M_0$
+is an $m$-th power and $M_1$ an $n$-th power in $\mathbb Z_p$.
+The same system has a positive real solution.
+\end{theorem}
+\begin{proof}
+Put $s=2\max\{v_p(m),v_p(n)\}+1$, $a=p^s$, and $b=a+1$.
+For consecutive seeds, direct expansion gives
+\begin{align}
+ N_c(a)&=M_0=1+3a+3a^2,\label{lp-norm-polynomial}\\
+ F_c(a)&=M_1=1+7a+20a^2+26a^3+13a^4.\label{lp-quartic-polynomial}
+\end{align}
+Both differences from one have valuation at least $s$. Applying strong
+Hensel lifting at one to $T^m-M_0$ and $T^n-M_1$ is valid because
+the error valuation exceeds twice the derivative valuation. It gives
+unit roots in $\mathbb Z_p$. The chosen integers have the stated
+nonzero and primitive properties. Over the reals, take the positive
+roots of the norms of any positive seed.
+\end{proof}
+Different primes may use different seeds and roots. Local solubility
+therefore does not supply a common rational or integer power solution.
+
+\subsection{Prescribed actual depths with nonsquare residuals}
+
+\begin{theorem}[Arbitrary two-step extraction exponents]\label{lp-actual}
+For every $g_0,g_1\ge2$, there are infinitely many primitive positive
+consecutive seeds, balanced in the limit, with actual representations
+\[
+ z_0=v_0(1+2\zeta)^{g_0},\qquad
+ z_1=v_1(2+7\zeta)^{g_1}.
+\]
+Writing $V_i=N(v_i)$, the residual norms are positive nonsquares and
+\begin{gather*}
+ M_0=V_0\,7^{g_0},\qquad M_1=V_1\,67^{g_1},\\
+ v_7(V_0)=v_{67}(V_1)=0,\qquad
+ v_{13}(V_0)=v_{31}(V_1)=1.
+\end{gather*}
+In particular both exponents may be arbitrary odd numbers, or arbitrary
+numbers congruent to two modulo four.
+\end{theorem}
+\begin{proof}
+At $a=1$ the consecutive polynomials satisfy
+\[
+ N_c(1)=7,\quad N_c'(1)=9,\qquad
+ F_c(1)=67,\quad F_c'(1)=177\equiv43\pmod{67}.
+\]
+Each is a simple root at its indicated prime. A simple root modulo
+$p$ lifts uniquely to each modulus $p^e$. Of the $p$ extensions of
+a root modulo $p^e$ to modulus $p^{e+1}$, exactly one remains a root;
+choosing any other extension gives exact valuation $e$.
+Thus choose a class modulo $7^{g_0+1}$ with
+$v_7(N_c(a))=g_0$, and a class modulo $67^{g_1+1}$ with
+$v_{67}(F_c(a))=g_1$. Both reduce to $a=1$ at their base prime.
+
+Also impose $a\equiv5\pmod{13^2}$ and $a\equiv14\pmod{31^2}$.
+The exact identities
+\[
+ N_c(5)=91=7\cdot13,\qquad
+ F_c(14)=574771=31\cdot18541,\quad18541\equiv3\pmod{31}
+\]
+give residual-prime depth one. The four moduli are pairwise coprime,
+so CRT provides an infinite progression of positive $a$ satisfying
+all four exact valuation requirements. Set $b=a+1$.
+
+The two indicated Eisenstein primes have norms seven and sixty-seven.
+Modulo seven, $z_0$ reduces to $1+2\zeta$; modulo sixty-seven,
+$z_1$ reduces to $2+7\zeta$. Thus each prime occurs with the stated
+orientation. Primitivity prevents its conjugate from also dividing
+the same integer. Unique factorization and the exact norm valuations
+give the displayed powers of these fixed prime elements. Dividing
+produces actual primitive Eisenstein quotients $v_i$, without any
+assumption about the factorization of their remaining norms.
+
+For consecutive seeds, $M_0\equiv1\pmod3$, so its ramified exponent
+is zero; $M_1$ is also prime to three. Division by $7^{g_0}$ and
+$67^{g_1}$ leaves the exact depths at thirteen and thirty-one, proving
+that the residual norms are nonsquares. The exact root valuations
+give their asserted coprimality with the displayed root norms.
+Height and balance follow along the positive CRT progression.
+\end{proof}
+
+This is a complete integer realization beyond the square-residual parity
+obstruction. It does not show that the residuals are analytically small.
+At fixed $g_0,g_1$ their logarithms tend to infinity along the progression,
+so both displayed $\lambda_i=\max\{1,\log V_i\}/g_i$ diverge.
+For varying exponents, the earlier fixed-first-root obstruction still
+applies whenever its bounded-first-lambda premise holds.
+
+\begin{corollary}[Residual support escape in the realized family]
+\label{lp-support-escape}
+Along each progression in Theorem~\ref{lp-actual}, at fixed $g_0,g_1$,
+the support of $V_1$ eventually fails to lie in each fixed finite prime
+set. No effective rate of prime growth is asserted.
+\end{corollary}
+\begin{proof}
+If $\operatorname{supp}(V_1)\subseteq S$, then
+$\operatorname{supp}(M_1)\subseteq S\cup\{67\}$. The finite-total-
+support theorem, Corollary~\ref{pl-total-support}, permits only finitely
+many such primitive seeds. Their heights are eventually left by the
+infinite positive progression.
+\end{proof}
+This last corollary uses the separate global finite-descent and Faltings
+input. The residue and realization constructions themselves do not.
+
+An exact integer replay verifies actual division and reconstruction in
+the Eisenstein ring for twenty-one members with varied exponent pairs.
+A separate scan of $76{,}116$ primitive pairs with $1\le a\le b\le500$
+finds ten first-norm cubes and no second-norm cubes. The null scan is
+only finite diagnostic evidence and proves no global nonexistence.
+No statement in this section establishes high ABC quality, the required
+two-step radical compression, or a proof or disproof of ABC.
