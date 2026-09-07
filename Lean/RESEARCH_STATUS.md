@@ -1,5 +1,27 @@
 # Research status
 
+## September 7, 2026: actual prime-log and reciprocal-depth compensation
+
+The tenth continuation adds 41 proved declarations in checkpoint modules:
+17 reciprocal-depth statements and 24 statements using actual
+`Nat.factorization`, `Nat.primeFactors` and `Real.log`. The latter include
+the complete finite signed-compensation bound derived from positive integer
+input and output bounds, with arbitrary overlap of the old factor. All new
+declarations have complete axiom audits using only the standard three
+axioms. The reciprocal build freshly checks 71 old dependency declarations;
+the prime-log build reuses the pinned Mathlib compiled cache.
+
+Ordinary results include the three-arm private-depth family refuting only
+automatic reciprocal-cap membership, an elementary replacement in the
+actual block mass theorem, and a degree-hg actual double norm cover with
+smooth rational descent. These infinite, analytic and geometric arguments
+have independent internal reviews but are not claimed as Lean theorems.
+The two exact finite replays remain finite evidence. Arbitrary-root signed
+membership and uniform point-height bounds are still open; ABC remains
+unproved and undisproved. See
+`../research/checkpoints/2026_09_07_depth_compensation/README.md` for exact
+commands, source hashes, the 469-page manuscript seal and formal scope.
+
 ## September 7, 2026: CM elimination and actual pure-power support
 
 Standard ABC remains unproved and undisproved. The eighth continuation

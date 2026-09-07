@@ -1,0 +1,91 @@
+{
+  "date": "2026-09-07",
+  "reviewer": "adversarial_audit",
+  "status": "PASS: ten specified raster pages actually viewed",
+  "method": "Each listed PNG was opened using view_image and visually inspected; PDF and PNG hashes were independently recomputed and matched the render inventory.",
+  "pdf_path": "E:/agent/ABCConjecture/tmp/abc_20260907/round10pdf/ChatGPT_ABC_Uniformity_2026.pdf",
+  "pdf_sha256": "599fd923441375391e3d2b6b301aebc7cc2a1093e975a8e7b87bfed4deba0a60",
+  "scope": "Only the ten pages listed below were visually reviewed in this record. No all-page visual review is claimed.",
+  "actual_pages_viewed": [447, 448, 449, 450, 451, 452, 453, 454, 455, 456],
+  "pages": [
+    {
+      "page": 447,
+      "path": "E:/agent/ABCConjecture/tmp/abc_20260907/round10pdf/view-447.png",
+      "sha256": "b4b66e9961e4de462c2a3932f090b0475ac1b4af2fbc3933cf9d637df4606501",
+      "status": "PASS",
+      "observations": "Reciprocal-cap definitions, long compensation display and lower-page error formula are legible and inside the margins; section heading and page header are intact."
+    },
+    {
+      "page": 448,
+      "path": "E:/agent/ABCConjecture/tmp/abc_20260907/round10pdf/view-448.png",
+      "sha256": "b4185626762535b7d822c08e8709aa7855df9b62779592bde2eb7cd86684b284",
+      "status": "PASS",
+      "observations": "Continuation of the cap theorem, five-pattern display and one-arm inequality render clearly. The abstract sharpness proof continues naturally to the next page without clipping."
+    },
+    {
+      "page": 449,
+      "path": "E:/agent/ABCConjecture/tmp/abc_20260907/round10pdf/view-449.png",
+      "sha256": "265620336dcf2854ac42996a3ff2d80b229a75d529991fbaa5dc31c56ab3510c",
+      "status": "PASS",
+      "observations": "RC proof continuation and formal scope are clean. The actual-prime-log section title, aligned definitions, ledger and overlap inequality fit with no overlap or missing mathematical glyphs."
+    },
+    {
+      "page": 450,
+      "path": "E:/agent/ABCConjecture/tmp/abc_20260907/round10pdf/view-450.png",
+      "sha256": "dd72feb9e3efecbc312f6a1388b3d757cea5aba5271b81b7b77c644738c92cb6",
+      "status": "PASS",
+      "observations": "The complete finite theorem, signed coefficients and squarefree-arm interface are legible. Long Lean module identifiers, theorem name and Mathlib hash remain within the text area; final scope paragraphs are not clipped."
+    },
+    {
+      "page": 451,
+      "path": "E:/agent/ABCConjecture/tmp/abc_20260907/round10pdf/view-451.png",
+      "sha256": "cd66ae86dc2bd2333b4b3553310efacdb3276e5ecd5bc1cb2b784b1a17f8e81b",
+      "status": "PASS",
+      "observations": "The private-depth theorem, case distinction, long exact-depth/rank display, inverse ratio and three-arm table fit correctly. The derivative numerator has the conjugation bar visible; the proof continues coherently to page 452."
+    },
+    {
+      "page": 452,
+      "path": "E:/agent/ABCConjecture/tmp/abc_20260907/round10pdf/view-452.png",
+      "sha256": "afb25bfa1ac9fed803cdeaddd6ac45f3e72318eec3706e2dd3cdf859d2e8a577",
+      "status": "PASS",
+      "observations": "The normalized-arm swap, exact lifting formula, CRT modulus, cap-union corollary and selected-cost bound are clear. The final finite-evidence paragraph breaks across pages at a normal word boundary."
+    },
+    {
+      "page": 453,
+      "path": "E:/agent/ABCConjecture/tmp/abc_20260907/round10pdf/view-453.png",
+      "sha256": "35717596e8d91a778db6cff1580464b1b67b09c2e6694141454ffbb6bf5a455f",
+      "status": "PASS",
+      "observations": "The TD evidence continuation is complete. The long full-mass section heading, rank-mean inequality, harmonic sum and endpoint proof render without cropped symbols or displaced equation numbers."
+    },
+    {
+      "page": 454,
+      "path": "E:/agent/ABCConjecture/tmp/abc_20260907/round10pdf/view-454.png",
+      "sha256": "d401f7e38d4c5ecad7cb062256b8111d5a5f6edfe721d31d5039bd8925f15e8a",
+      "status": "PASS",
+      "observations": "The all-index cutoff, nested prime sums, tail inequalities and top-rank limit are readable. Proof paragraphs and the concluding unresolved-scope text stay within the bottom margin."
+    },
+    {
+      "page": 455,
+      "path": "E:/agent/ABCConjecture/tmp/abc_20260907/round10pdf/view-455.png",
+      "sha256": "43544270c6ed6ecc6beb2ee76685e054be62afe2b2acf63056b2329542962f02",
+      "status": "PASS",
+      "observations": "The positive auxiliary-index clarification is visible. Angular bounds, cubic identity, parity cases and local lifting display render correctly; the final numbered identity is inside the page and continues to the next proof page."
+    },
+    {
+      "page": 456,
+      "path": "E:/agent/ABCConjecture/tmp/abc_20260907/round10pdf/view-456.png",
+      "sha256": "cdcb9f360dad7fd8834857977e90f1f0c055798571c70d627830740b1694301b",
+      "status": "PASS",
+      "observations": "The fixed-prime proof continuation, T2 factorization, elementary tail/top-rank inequalities and scope paragraph fit cleanly. The following mixed-cover heading and opening formulas are readable with no overlap or clipping."
+    }
+  ],
+  "issues": [],
+  "checks": [
+    "Formulas and equation numbers visible",
+    "No text or formula overlap",
+    "No margin clipping or page overflow",
+    "No missing or garbled mathematical glyphs observed",
+    "Cross-page proof continuations coherent",
+    "Page headers and page numbers intact"
+  ]
+}

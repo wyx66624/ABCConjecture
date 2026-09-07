@@ -1,0 +1,71 @@
+name: Actual prime logs and depth compensation verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research/checkpoints/2026_09_07_depth_compensation/**'
+      - 'research/checkpoints/2026_09_07_critical_bottleneck/tenth_round/**'
+      - 'research/checkpoints/2026_09_07_adversarial_audit/tenth_round/**'
+      - 'research/checkpoints/2026_09_07_independent_route/tenth_round/**'
+      - 'research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean'
+      - 'research/checkpoints/2026_09_07_cyclotomic_covers/Lean/GeneralLucasBoundary.lean'
+      - 'research/checkpoints/2026_09_07_critical_bottleneck/ninth_round/Lean/SignedArmArithmetic.lean'
+      - 'Lean/lean-toolchain'
+      - '.github/workflows/abc-depth-compensation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reciprocal-depth-and-exact-replays:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Install the pinned compiler
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: 'false'
+          build: 'false'
+          use-mathlib-cache: 'false'
+      - name: Fresh 17 declarations and 71 dependency declarations
+        run: python3 research/checkpoints/2026_09_07_depth_compensation/verify_round.py
+      - name: Exact actual private depths and elementary fixed-prime identities
+        run: python3 research/checkpoints/2026_09_07_depth_compensation/verify_finite.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: reciprocal-depth-and-exact-evidence
+          path: research/checkpoints/2026_09_07_depth_compensation/verification/
+
+  actual-prime-logarithms:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Install the pinned compiler
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: 'false'
+          build: 'false'
+          use-mathlib-cache: 'false'
+      - name: Prepare a Mathlib-only dependency project
+        run: python3 research/checkpoints/2026_09_07_depth_compensation/prepare_mathlib_project.py
+      - name: Resolve the exact Mathlib revision and restore only required caches
+        working-directory: tmp/abc_20260907/prime-log-ci-project
+        run: |
+          lake update
+          lake exe cache get Mathlib.Analysis.SpecialFunctions.Log.Basic Mathlib.Data.Nat.Factorization.Basic Mathlib.Tactic.Linarith Mathlib.Tactic.NormNum Mathlib.Tactic.Positivity
+      - name: Fresh compilation and complete axiom audit of 24 actual-prime-log declarations
+        run: python3 research/checkpoints/2026_09_07_depth_compensation/verify_prime_logs.py --project tmp/abc_20260907/prime-log-ci-project
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: actual-prime-log-evidence
+          path: |
+            research/checkpoints/2026_09_07_depth_compensation/verification/prime_log_validation.json
+            research/checkpoints/2026_09_07_depth_compensation/verification/prime-log-lean.log

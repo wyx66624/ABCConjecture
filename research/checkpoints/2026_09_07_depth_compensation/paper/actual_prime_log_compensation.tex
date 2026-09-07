@@ -1,0 +1,140 @@
+\section{Actual prime logarithms and a finite compensation theorem in Lean}
+\label{apl-section}
+
+The earlier integer-weight ledger has a direct arithmetic realization.
+This section uses the prime factorization of positive natural numbers
+and real logarithms. Its finite height hypotheses are discharged from
+integer input and output bounds. It supplies no asymptotic membership
+theorem for an arbitrary orbit.
+
+For a natural cutoff $Y$ and a positive integer $N$, define
+\begin{align*}
+ S_Y(N)&=\sum_{\substack{p\mid N\\p>Y}}v_p(N)\log p,&
+ R_Y(N)&=\sum_{\substack{p\mid N\\p>Y}}\log p,\\
+ L_Y(N)&=\sum_{\substack{p\mid N\\p\le Y}}v_p(N)\log p,&
+ E_{h,Y}(N)&=\sum_{\substack{p\mid N\\p>Y}}(v_p(N)-h)_+\log p.
+\end{align*}
+Here $p$ always denotes a rational prime, $h$ is a natural number,
+and the positive part agrees with natural-number subtraction. Write
+$\mathcal S_Y(N)=S_Y(N)-3R_Y(N)$ for the signed logarithmic cost.
+It is the logarithm of the corresponding multiplicative cost in the
+preceding sections, not that multiplicative cost itself.
+
+\begin{lemma}[The actual factorization ledger]\label{apl-ledger}
+For positive integers $U,V,N$,
+\begin{gather*}
+ S_Y(N),L_Y(N)\ge0,\qquad S_Y(N)+L_Y(N)=\log N,\\
+ S_Y(N)\le hR_Y(N)+E_{h,Y}(N),\\
+ S_Y(UV)=S_Y(U)+S_Y(V),\qquad
+ L_Y(UV)=L_Y(U)+L_Y(V),\\
+ \mathcal S_Y(UV)\le\mathcal S_Y(V)+\log U.
+\end{gather*}
+If $U,V$ are coprime, then $R_Y(UV)=R_Y(U)+R_Y(V)$
+and their signed costs are additive. If all prime depths of $N$
+above $Y$ are at most $h$, then $E_{h,Y}(N)=0$.
+\end{lemma}
+\begin{proof}
+The prime factorization of $N$ and the logarithm of a finite product
+give the partition identity. Every prime logarithm is nonnegative.
+At a supported prime of depth $e$, the inequality
+$e\le h+(e-h)_+$ gives the depth-cap estimate after multiplication
+by $\log p$ and summation. Valuations add under multiplication,
+which proves additivity of both full masses. Every prime divisor
+of $V$ divides $UV$, so $R_Y(UV)\ge R_Y(V)$. Therefore
+\[
+ \mathcal S_Y(UV)\le S_Y(U)+\mathcal S_Y(V)
+                       \le\log U+\mathcal S_Y(V).
+\]
+For coprime factors their prime supports are disjoint; radical mass,
+and hence signed cost, then adds exactly. Under the stated cap every
+summand in the excess is zero.
+\end{proof}
+
+\begin{theorem}[Finite compensation from integer arm data]
+\label{apl-finite-compensation}
+Let $a,b,d,A,B,C,H,H_1$ be positive integers. Suppose $A,B,C$
+are pairwise coprime and
+\[
+ aA\le H,\quad bB\le H,\quad dC\le H,
+ \qquad a,b\le H_1.
+\]
+Put $U=abd$, $T=(aA)(bB)(dC)$ and
+$\Delta=3\log H-\log T$. Then
+\begin{align}
+ \mathcal S_Y(T)\le{}&\Delta+\log H_1+\log U+\tfrac12 L_Y(T)
+ \label{apl-finite-bound}\\
+ &+\tfrac32\bigl(E_{2,Y}(A)+E_{2,Y}(B)\bigr)-3R_Y(C).\notag
+\end{align}
+No coprimality between $U$ and $ABC$ is assumed.
+\end{theorem}
+\begin{proof}
+Abbreviate the masses of $A,B,C$ by $S_A,S_B,S_C$, and similarly
+for $R,L,E$. The depth-two estimates give
+$R_A\ge(S_A-E_A)/2$ and $R_B\ge(S_B-E_B)/2$.
+Additivity of signed cost on the three coprime quotients yields
+\begin{equation}\label{apl-two-arm-step}
+ \mathcal S_Y(ABC)\le S_C-\tfrac12(S_A+S_B)
+                         +\tfrac32(E_A+E_B)-3R_C.
+\end{equation}
+Since the other two output logarithms are at most $\log H$,
+\[
+ \log(aA)\ge\log T-2\log H=\log H-\Delta.
+\]
+Subtracting $\log a\le\log H_1$ and using the partition identity gives
+$S_A\ge\log H-\Delta-\log H_1-L_A$; the same argument applies
+to $B$. Also $C\le dC\le H$, so $S_C\le\log H$.
+Substitution in \eqref{apl-two-arm-step} gives
+\[
+ \mathcal S_Y(ABC)\le\Delta+\log H_1+\tfrac12(L_A+L_B)
+                              +\tfrac32(E_A+E_B)-3R_C.
+\]
+The identity $T=UABC$ and nonnegativity and additivity of $L_Y$
+imply $L_A+L_B\le L_Y(T)$. Apply the overlap estimate of
+Lemma~\ref{apl-ledger} to adjoin $U$, proving the theorem.
+\end{proof}
+
+\begin{proposition}[A squarefree-arm finite interface]\label{apl-squarefree}
+Suppose $A,B,C$ are positive pairwise coprime integers, and every
+prime depth of $A$ above $Y$ is at most one. For real $t,\delta,l$,
+assume $S_Y(A)\ge t-\delta-l$ and $S_Y(B),S_Y(C)\le t$.
+Then
+\[
+ \mathcal S_Y(ABC)\le2\delta+2l-3\bigl(R_Y(B)+R_Y(C)\bigr).
+\]
+\end{proposition}
+\begin{proof}
+The depth-one estimate has zero excess, so $R_Y(A)\ge S_Y(A)$.
+Additivity gives
+$\mathcal S_Y(ABC)\le-2S_Y(A)+S_Y(B)+S_Y(C)-3R_Y(B)-3R_Y(C)$.
+Insert the assumed mass bounds.
+\end{proof}
+
+\paragraph{Formal scope.}
+The modules \texttt{ActualPrimeLogCompensation} and
+\texttt{ActualPrimeLogHeight} contain respectively 17 and 7 proved
+declarations, using \texttt{Nat.factorization}, \texttt{Nat.primeFactors}
+and \texttt{Real.log}. They include the finite inequalities above,
+the actual mass partition, product and overlap laws, logarithmic
+monotonicity, and the derivation of the height hypotheses from the
+displayed natural-number data. The second module's final theorem is
+\texttt{finite\_actual\_arm\_compensation}. The natural cutoff is part
+of the formal statement; no real-cutoff asymptotic limit is inferred
+from it without an additional argument.
+
+Both modules were freshly compiled with Lean 4.32.0 and warnings as
+errors against the pinned Mathlib revision
+\texttt{81a5d257c8e410db227a6665ed08f64fea08e997}.
+The pinned dependency cache was reused; this is not a fresh build of
+all Mathlib. Every new declaration has an explicit axiom query, with
+only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}
+in the union. No ordinary number-theoretic claim is added as an axiom.
+The sources and their mathematical scope were independently reviewed.
+
+In the orbit application, $a,b,d$ and $A,B,C$ are the absolute input
+arms and actual quotients of Section~\ref{sac-section}. The ordinary
+primitivity and quotient theorems supply their reconstruction and
+pairwise coprimality. Those orbit facts, the logarithmic-form input,
+and arbitrary-root membership in a sufficient signed-compensation
+class are still outside these two formal modules. The finite
+factorization bridge therefore narrows the formal gap without
+closing the remaining number-theoretic one.

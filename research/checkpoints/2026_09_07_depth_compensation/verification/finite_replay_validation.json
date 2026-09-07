@@ -1,0 +1,45 @@
+{
+  "status": "PASS: two exact finite replays with unchanged source and certificate bytes",
+  "records": [
+    {
+      "script": "research/checkpoints/2026_09_07_adversarial_audit/tenth_round/replay_three_arm_depth.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_adversarial_audit/tenth_round/replay_three_arm_depth.py": "f4df3ca0dd7152a81c77fa2f78fd0f8f93910fb0d0cddf06b17b99eedeea58d9",
+        "research/checkpoints/2026_09_07_adversarial_audit/tenth_round/three_arm_depth_results.json": "71c8e1d1aa54ecef4048ca2ba05ded94e8efdce60a00b25e7fe707283e1ec0fe"
+      },
+      "result": {
+        "actual_roots": 10,
+        "parameter_rows": 5,
+        "selected_depth_checks": 30,
+        "sha256": "71c8e1d1aa54ecef4048ca2ba05ded94e8efdce60a00b25e7fe707283e1ec0fe",
+        "status": "PASS"
+      }
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_critical_bottleneck/tenth_round/replay_elementary_block.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_critical_bottleneck/tenth_round/replay_elementary_block.py": "aaa4b8f0980613fe96509041170eb4224ac7960a4901ebb6261023f31a105c85",
+        "research/checkpoints/2026_09_07_critical_bottleneck/tenth_round/elementary_block_replay.json": "05ff5fa1ddb45dfb1c662e5ad0bae06a60adea8956038dd51d49ed778c8ef213"
+      },
+      "result": {
+        "actual_rows": 571,
+        "file_sha256": "05ff5fa1ddb45dfb1c662e5ad0bae06a60adea8956038dd51d49ed778c8ef213",
+        "payload_sha256": "1d657505ffaa849345008e6901daab21c2b3bb07b22ba6c435900c2a10f29566",
+        "status": "PASS",
+        "valuation_equalities": 1142
+      }
+    }
+  ],
+  "not_claimed": [
+    "ABC proof or disproof",
+    "asymptotic signed-tail membership",
+    "existence of simultaneous pure-power seeds",
+    "universal prime allocation from a finite sample"
+  ]
+}

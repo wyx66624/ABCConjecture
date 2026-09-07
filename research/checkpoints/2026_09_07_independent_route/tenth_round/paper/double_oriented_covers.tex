@@ -1,0 +1,267 @@
+\section{Two actual oriented profiles in a quadratic-field cover}
+\label{dc-section}
+
+The actual quartic norm admits a more direct lifting than the generic
+splitting-field construction of Sections~\ref{qc-section}
+and~\ref{mx-section}. Its defining integer is itself a primitive
+Eisenstein norm. This lets us use two actual residual coefficients,
+with no coefficient-height term proportional to either exponent.
+The resulting point-height problem remains open.
+
+Retain $\mathcal O=\mathbb Z[\zeta]$, $\zeta^2-\zeta+1=0$,
+$K_0=\mathbb Q(\zeta)$ and $\gamma=1+\zeta$. For positive coprime
+integers $a,b$, put
+\[
+ c=a+b,\quad x=a/b,\quad M=a^2+ab+b^2,
+ \quad F=a^4+3a^3b+5a^2b^2+3ab^3+b^4.
+\]
+Assume an actual first oriented profile
+\begin{equation}\label{dc-first-profile}
+ a+b\zeta=u_0\gamma^e v_0w_0^h,\qquad
+ M=3^eV_0R^h,\qquad
+ V_0=\operatorname N v_0,\quad R=\operatorname N w_0\ge7,
+\end{equation}
+where $u_0$ is a unit, $e\in\{0,1\}$, $h\ge2$, and
+$v_0,w_0$ are primitive oriented unramified elements, as in
+\eqref{lr-profile}. Their oriented supports may overlap.
+For the second norm assume only
+\begin{equation}\label{dc-second-profile}
+ F=V_1Q^g,\qquad g\ge2,\qquad V_1,Q\in\mathbb Z_{>0},\qquad Q>1.
+\end{equation}
+All exponents are integers. The residual $V_1$ need not be $g$-free;
+that is an optional canonical convention. The exponents need not
+have a common divisor, or be coprime to six. As checked in
+Section~\ref{mx-section}, $2,3,5$ do not divide $F$, so $Q\ge7$.
+
+\begin{lemma}[An actual second oriented factorization]\label{dc-second-lift}
+There are a unit $u_1$ and primitive oriented unramified elements
+$v_1,w_1\in\mathcal O$ such that
+\begin{equation}\label{dc-actual-second}
+ ab+M\zeta=u_1v_1w_1^g,\qquad
+ \operatorname N v_1=V_1,\qquad\operatorname N w_1=Q.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Direct expansion gives
+\begin{equation}\label{dc-second-norm-identity}
+ \operatorname N(ab+M\zeta)=(ab)^2+abM+M^2=F.
+\end{equation}
+Moreover $\gcd(ab,M)=1$: a prime dividing $a$ or $b$ and $M$
+would divide both $a$ and $b$. Thus $ab+M\zeta$ is primitive,
+and it is unramified because $3\nmid F$.
+
+Use unique factorization in the Euclidean Eisenstein ring. An inert
+rational prime in the norm of a primitive element would divide both
+coordinates, as would the simultaneous occurrence of conjugate split
+factors. There is therefore a factorization
+\[
+ ab+M\zeta=u_1\prod_q\pi_q^{E_q},\qquad
+ \operatorname N\pi_q=q,
+\]
+with precisely one orientation chosen at each rational prime in the
+support. Equation~\eqref{dc-second-profile} gives
+$E_q=v_q(V_1)+g v_q(Q)$, with both summands nonnegative. Set
+\[
+ v_1=\prod_q\pi_q^{v_q(V_1)},\qquad
+ w_1=\prod_q\pi_q^{v_q(Q)}.
+\]
+Their product and norms give \eqref{dc-actual-second} exactly.
+They inherit primitivity, unramifiedness and the absence of
+conjugate pairs within either factor. They may share oriented
+factors. No bound $v_q(V_1)<g$ is used.
+\end{proof}
+
+This is an existence proof using unique factorization, not an assertion
+that a practical factorization of a large $F$ has already been computed.
+
+Put $N(X)=X^2+X+1$, $\beta_+=-\zeta$, $\beta_-=-\bar\zeta$,
+and
+\begin{equation}\label{dc-quadratics}
+ G(X)=X+\zeta N(X),\qquad
+ \bar G(X)=X+\bar\zeta N(X).
+\end{equation}
+Define, in the fixed quadratic field $K_0$,
+\begin{equation}\label{dc-coefficients}
+ \eta_0=(u_0^2\zeta^e v_0/\bar v_0)^{-1},\qquad
+ \eta_1=(u_1^2v_1/\bar v_1)^{-1}.
+\end{equation}
+
+\begin{theorem}[A degree-$hg$ cover from two actual profiles]
+\label{dc-cover}
+The actual profiles yield nonzero $K_0$-valued coordinates satisfying
+\begin{equation}\label{dc-kummer-equations}
+ Y^h=\eta_0\frac{x-\beta_+}{x-\beta_-},\qquad
+ Z^g=\eta_1\frac{G(x)}{\bar G(x)},\qquad
+ Y=w_0/\bar w_0,\quad Z=w_1/\bar w_1.
+\end{equation}
+Their coefficients have exact absolute logarithmic Weil heights
+\begin{equation}\label{dc-exact-height}
+ h_{K_0}(\eta_0)=\tfrac12\log V_0,\qquad
+ h_{K_0}(\eta_1)=\tfrac12\log V_1.
+\end{equation}
+The smooth projective normalization is geometrically connected over
+$K_0$, with degree $D=hg$ over $\mathbb P^1_x$ and genus
+\begin{equation}\label{dc-genus}
+ G_C=1+hg\left(2-\frac1h-\frac2g\right)
+     =1+2hg-g-2h.
+\end{equation}
+Every actual profile gives a $K_0$-point of this curve above $a/b$.
+\end{theorem}
+\begin{proof}
+The first equation follows by conjugating the first profile, using
+$\gamma/\bar\gamma=\zeta$ and $u_0/\bar u_0=u_0^2$.
+For the second, $(ab+M\zeta)/b^2=G(x)$; divide
+\eqref{dc-actual-second} by its conjugate and rearrange.
+Neither step takes an exponent-th root of a unit.
+Lemma~\ref{lr-heights} gives
+$h_{K_0}(v_i/\bar v_i)=\tfrac12\log\operatorname N v_i$.
+Multiplication by roots of unity and inversion preserve height.
+This proves \eqref{dc-exact-height}, including unit residuals.
+
+For the branch calculation,
+$G(X)/\zeta=X^2+(2-\zeta)X+1$ has discriminant $-1-3\zeta$
+of norm thirteen. Thus $G$ has two distinct roots, as does $\bar G$.
+They have no common root: their difference is
+$(\zeta-\bar\zeta)N(X)$, whereas at either root of $N$ their
+value is $X\ne0$. Their four roots are also disjoint from
+$\beta_+,\beta_-$. At infinity $G/\bar G$ tends to the nonzero
+constant $\zeta/\bar\zeta$.
+
+Over $\overline{K_0}$ the second equation therefore defines a
+cyclic cover of degree $g$, with exactly four branch points,
+each of inertia $g$. Simple zeros and poles give this conclusion
+also for composite $g$. The first equation gives a cyclic cover
+of degree $h$, with exactly the two branch points
+$\beta_+,\beta_-$, each of inertia $h$. Both are unramified
+at infinity.
+
+The two geometric Galois extensions have disjoint branch sets.
+Their intersection is everywhere unramified over $\mathbb P^1$,
+and is trivial by Riemann--Hurwitz. Their compositum is thus a
+field of degree $hg$, proving geometric connectedness for arbitrary
+$\gcd(h,g)$. Roots of unity are only adjoined for this geometric
+calculation, not to the arithmetic field $K_0$. Summing the six
+ramification contributions gives
+\[
+ 2G_C-2=-2D+2D(1-1/h)+4D(1-1/g),
+\]
+and hence \eqref{dc-genus}.
+
+The actual positive $x$ avoids the roots of $N$. Also
+$G(x)\bar G(x)=F/b^4>0$, so it avoids the other four branch
+values. Its nonzero coordinates give a smooth affine point, since
+the derivatives in $Y,Z$ are nonzero in characteristic zero.
+It lifts to the normalization over $K_0$. No converse asserting
+that every point is a primitive integer seed is used.
+\end{proof}
+
+At $h=g=2$ the genus is three, consistently with the earlier
+two-square-class geometry. This does not assert a seed in the
+already excluded subbranch with two unit residuals and even exponents.
+
+\begin{theorem}[Two cumulative residual counts]\label{dc-count-height}
+Fix $h,g$. All actual profiles with $V_0\le X_0$, $V_1\le X_1$,
+where $X_0,X_1\ge1$, lift to a list of at most
+\begin{equation}\label{dc-cover-count}
+ CX_0X_1
+\end{equation}
+models, for an absolute constant $C$. The models can be written as
+\begin{equation}\label{dc-polynomial-model}
+ (x-\beta_-)Y^h-\eta_0(x-\beta_+)=0,\qquad
+ \bar G(x)Z^g-\eta_1G(x)=0.
+\end{equation}
+Their maximum individual coefficient height, and their projective
+coefficient height up to an absolute factor, are bounded by
+\begin{equation}\label{dc-model-height}
+ H_{\rm coef}=C_0(1+\log V_0+\log V_1),
+\end{equation}
+where $C_0$ is fixed. The degrees $h,g$ remain explicit and are
+not included in this coefficient-height assertion.
+\end{theorem}
+\begin{proof}
+The lattice count of Lemma~\ref{mx-actual-coefficient} bounds the
+number of Eisenstein integers of norm at most $X_i$ by $16X_i$.
+There are only six choices for each unit and two choices for $e$.
+Multiplying these two cumulative counts proves
+\eqref{dc-cover-count}. Restricting to compatible actual
+coefficients can only reduce the list. No additional sum over
+residual norms or independent unit-class factor is added.
+
+The coefficients of $G,\bar G$ and the branch values are fixed.
+The product-height inequality and \eqref{dc-exact-height} give
+\eqref{dc-model-height}. There are a fixed number of nonzero
+coefficients, independent of $h,g$, so their projective height
+is bounded by a constant multiple of the same expression.
+\end{proof}
+
+For any $L_0,L_1\ge0$, the union with
+$V_0\le\exp(L_0h)$ and $V_1\le\exp(L_1g)$ consequently has size
+at most
+\begin{equation}\label{dc-small-residual-count}
+ C\exp(L_0h+L_1g).
+\end{equation}
+This uses the actual quadratic-norm structure of $F$. It does not
+provide small representatives for every class in the generic QC
+list. The difficult unit classes in Lemma~\ref{qc-unit-lower-bound}
+were not proved to have actual seeds, so their lower bound is fully
+consistent with the present coefficient construction.
+
+\begin{corollary}[Height separation with unrestricted exponent ratios]
+\label{dc-height-separation}
+Write $H=\max(a,b)$ and $H_{\rm point}=\log H$. Every actual
+profile satisfies
+\begin{equation}\label{dc-point-lower}
+ H_{\rm point}\ge
+ \max\left\{\frac h2\log7-\log2,
+             \frac g4\log7-\frac14\log13\right\}.
+\end{equation}
+For any sequence of actual profiles such that
+\begin{equation}\label{dc-height-domain}
+ T=\max(h,g)\longrightarrow\infty,\qquad
+ \log V_0+\log V_1=o(T),
+\end{equation}
+the selected models obey
+\begin{equation}\label{dc-height-limit}
+ \frac{H_{\rm coef}+\log h+\log g}{H_{\rm point}}
+ \longrightarrow0.
+\end{equation}
+In particular this holds whenever
+\begin{equation}\label{dc-lambda-domain}
+ \lambda_0=\frac{\max\{1,\log V_0\}}h\longrightarrow0,
+ \qquad
+ \lambda_1=\frac{\max\{1,\log V_1\}}g\longrightarrow0,
+\end{equation}
+without a condition on $h/g$ or on the common divisors of $h,g$.
+For the combined list in \eqref{dc-small-residual-count} with
+$L_i=\lambda_i$, its logarithmic size divided by $T$ also tends to zero.
+\end{corollary}
+\begin{proof}
+We have $M\ge7^h$, $M<c^2$ and $H\ge c/2$.
+Also $F\ge7^g$ and $F\le13H^4$. These imply
+\eqref{dc-point-lower}, whose right side is at least
+$\tfrac14T\log7-\log2$. Under \eqref{dc-height-domain},
+\eqref{dc-model-height} is $o(T)$ and
+$\log h+\log g\le2\log T=o(T)$. Division proves
+\eqref{dc-height-limit}.
+
+Under \eqref{dc-lambda-domain}, both exponents tend to infinity and
+\[
+ \frac{\log V_0+\log V_1}{T}\le\lambda_0+\lambda_1\longrightarrow0.
+\]
+Finally the logarithm of \eqref{dc-small-residual-count}, divided
+by $T$, is at most $\log C/T+\lambda_0+\lambda_1$.
+\end{proof}
+
+These conclusions are necessary properties of an actual sequence,
+not a construction of one. High points on varying high-genus curves
+are compatible with all the displayed estimates. A uniform bound
+\[
+ H_{\rm point}\le A(H_{\rm coef}+\log h+\log g+1)
+\]
+for actual lifted points, with $A$ independent of the profiles, would
+exclude \eqref{dc-height-domain}. No such upper bound is proved here;
+coefficient height, genus and the number of twists alone do not give it.
+Moving roots, nonunit residuals, and the fixed positive two-step
+threshold remain unresolved. The present result is an independently
+reviewed ordinary proof; its number-field, geometric and height
+arguments are not claimed as Lean formalizations.

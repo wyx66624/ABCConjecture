@@ -1,0 +1,179 @@
+\section{A rational-map descent of the actual double cover}
+\label{rd-section}
+
+The quadratic-field model of Section~\ref{dc-section} has an explicit
+descent to a rational fiber product. Its expanded rational equation
+has a different coefficient-height budget; the exponent-free sparse
+bound is not transferred to this expanded model.
+
+Retain all actual DC hypotheses, and put
+\[
+ \tau_0=u_0\gamma^e v_0,\qquad \tau_1=u_1v_1,
+ \qquad \rho(T)=\frac{T+\zeta}{T+\bar\zeta},
+ \qquad r(X)=\frac{X}{X^2+X+1}.
+\]
+
+\begin{lemma}[Projective norm-power maps]\label{rd-power-map}
+For $0\ne\tau\in\mathbb Z[\zeta]$ and $n\in\mathbb Z_{\ge1}$, define homogeneous
+integer polynomials by
+\begin{equation}\label{rd-power-polynomials}
+ \tau(T+S\zeta)^n=A_{\tau,n}(T,S)+B_{\tau,n}(T,S)\zeta.
+\end{equation}
+Then $L_{\tau,n}=[A_{\tau,n}:B_{\tau,n}]$ is a morphism
+$\mathbb P^1_{\mathbb Q}\to\mathbb P^1_{\mathbb Q}$ of degree $n$.
+Over $K_0$ it satisfies the identity of projective maps
+\begin{equation}\label{rd-conjugacy}
+ \rho(L_{\tau,n}(t))=(\tau/\bar\tau)\rho(t)^n.
+\end{equation}
+For $n\ge2$, its critical points and branch values are exactly
+$\beta_+=-\zeta$, $\beta_-=-\bar\zeta$, with index $n$ at each.
+\end{lemma}
+\begin{proof}
+A common projective zero of $A,B$ would make both
+$\tau(T+S\zeta)^n$ and $\bar\tau(T+S\bar\zeta)^n$ vanish.
+Both coefficients are nonzero, so $T+S\zeta=T+S\bar\zeta=0$,
+forcing $T=S=0$. Thus there is no common projective zero.
+Conjugating \eqref{rd-power-polynomials} and dividing gives
+\eqref{rd-conjugacy} first as a rational identity and hence as an
+identity of projective maps. The map $\rho$ is a projective linear
+automorphism; the other side is a power map followed by nonzero
+scaling. Its degree is $n$, and its two critical points and values
+correspond to zero and infinity under $\rho$. This also accounts
+for all poles of the affine expression $A/B$.
+\end{proof}
+
+The map $r$ is the degree-two morphism
+\[
+ [X:Y]\longmapsto[XY:X^2+XY+Y^2].
+\]
+Its only critical points are $1,-1$, both of index two, with
+values $1/3,-1$. Indeed,
+$r'(x)=(1-x^2)/(x^2+x+1)^2$. Its poles $\beta_+,\beta_-$ are
+simple, and infinity is unramified, since
+$r(1/t)=t/(1+t+t^2)$. Consequently
+\begin{equation}\label{rd-composite}
+ F_h=r\circ L_{\tau_0,h}
+\end{equation}
+has degree $2h$ and branch values exactly $\infty,1/3,-1$.
+Above infinity its two ramified points are $\beta_+,\beta_-$,
+of index $h$. Above each other branch value are the $h$ distinct
+inverse images under $L_{\tau_0,h}$ of $1$ or $-1$, each of index
+two. The total ramification is $2(h-1)+2h=4h-2$, as required.
+
+\begin{theorem}[A smooth rational fiber product]\label{rd-descent}
+The full projective fiber product
+\begin{equation}\label{rd-fiber-product}
+ L_{\tau_1,g}(t_1)=r(L_{\tau_0,h}(t_0))
+\end{equation}
+is a smooth geometrically connected curve $D$ over $\mathbb Q$.
+Its equation in $\mathbb P^1_{t_0}\times\mathbb P^1_{t_1}$ has
+bidegree $(2h,g)$, and
+\begin{equation}\label{rd-genus}
+ g(D)=(2h-1)(g-1)=1+2hg-g-2h.
+\end{equation}
+After extension to $K_0$, it is isomorphic to the smooth projective
+curve of Theorem~\ref{dc-cover}. Every actual profile gives a
+$\mathbb Q$-point of $D$.
+\end{theorem}
+\begin{proof}
+The branch values of $L_{\tau_1,g}$ are $\beta_+,\beta_-$;
+they are disjoint from $\infty,1/3,-1$, the branch values of $F_h$.
+Thus at every geometric point in the fiber product at least one
+of the two maps is unramified. In local parameters, the defining
+relation has a nonzero derivative in at least one variable.
+This proves smoothness at every projective point, including those
+above infinity.
+
+Abbreviate the two pairs of homogeneous polynomials by $A_i,B_i$.
+The homogeneous equation is
+\begin{equation}\label{rd-expanded-equation}
+ A_1(A_0^2+A_0B_0+B_0^2)-B_1A_0B_0=0.
+\end{equation}
+Each pair has no common zero, and the maps have degrees $g,2h$,
+so this equation has bidegree $(2h,g)$.
+
+On a dense open set put
+\[
+ x=L_{\tau_0,h}(t_0),\qquad Y=\rho(t_0),\quad Z=\rho(t_1).
+\]
+The conjugacy identity and
+\[
+ \tau_0/\bar\tau_0=\eta_0^{-1},\qquad
+ \tau_1/\bar\tau_1=\eta_1^{-1},\qquad
+ \rho(r(x))=G(x)/\bar G(x)
+\]
+give precisely \eqref{dc-kummer-equations}. Conversely, invert
+$\rho$ to recover $t_0,t_1$ from $Y,Z$. Thus the generic
+function field is the geometrically connected field of
+Theorem~\ref{dc-cover}. No further component can be confined to
+the removed finite set of base values: those fibers are finite,
+whereas every smooth component here is a curve. This proves
+geometric connectedness. The birational identification between
+smooth projective curves extends to an isomorphism over $K_0$,
+by the standard extension and function-field equivalence
+\cite[Lemma~53.2.2 and Theorem~53.2.6]{StacksCurves2026}.
+This proves the claimed rational descent.
+
+Projection to $t_0$ has degree $g$. The $2h$ inverse images of
+each $\beta$ value under $F_h$ are distinct, since $F_h$ is
+unramified there. The resulting $4h$ branch points each have
+inertia $g$, and the characteristic-zero Riemann--Hurwitz formula
+\cite[Section~53.12]{StacksCurves2026} gives
+\[
+ 2g(D)-2=-2g+4h(g-1).
+\]
+This is \eqref{rd-genus}.
+
+For the actual point, write $w_i=r_i+s_i\zeta$. Primitivity and
+$\operatorname N w_i>1$ force $s_i\ne0$: otherwise
+$\gcd(r_i,0)=1$ would make $w_i$ a unit. Thus $t_i=r_i/s_i$
+is rational, and the exact power identities give
+\[
+ L_{\tau_0,h}(t_0)=a/b,
+ \qquad L_{\tau_1,g}(t_1)=ab/M=r(a/b).
+\]
+The actual displayed denominators are nonzero because $b,M>0$.
+These are therefore actual rational points on the full projective
+curve. No converse from an arbitrary rational point to a primitive
+positive integer seed is asserted.
+\end{proof}
+
+\begin{proposition}[Height after rational expansion]\label{rd-expanded-height}
+The integral equation \eqref{rd-expanded-equation} has individual
+and projective coefficient height bounded by
+\begin{equation}\label{rd-height-bound}
+ C\bigl(h+g+\log V_0+\log V_1+1\bigr).
+\end{equation}
+\end{proposition}
+\begin{proof}
+The coordinates of every power of $\zeta$ are in $\{0,1,-1\}$.
+The binomial expansion therefore bounds the coordinate coefficients
+of $(T+S\zeta)^n$ by $2^n$. The coordinates of $\tau_0$ are
+at most $2\sqrt{V_0}$ in absolute value, since
+$\operatorname N\tau_0=3^eV_0$ and $e\le1$. Those of $\tau_1$
+are at most $2\sqrt{V_1}$. Multiplication by these elements
+changes the bounds by an absolute factor. The coefficients in the
+first pair are thus bounded by $C\sqrt{V_0}2^h$, and those in
+the second by $C\sqrt{V_1}2^g$.
+
+Multiplying two binary forms of degree $h$ adds at most $h+1$
+terms per coefficient. Hence \eqref{rd-expanded-equation} has
+coefficients bounded by
+\[
+ C(h+1)V_0\sqrt{V_1}\,2^{2h+g}.
+\]
+Take logarithms and use $\log(h+1)\le h$. The projective height
+of an integral vector is at most the logarithm of its largest
+absolute entry: removing its common divisor only lowers the bound.
+This proves \eqref{rd-height-bound}.
+\end{proof}
+
+The sparse quadratic-field model has coefficient height
+$O(1+\log V_0+\log V_1)$; the expanded rational model has the
+valid larger bound \eqref{rd-height-bound}. The transformations
+include exponent-dependent expansions, and no exponent-free bound
+is claimed for the latter model. Neither coefficient budget bounds
+an actual point. The explicit rational maps instead identify a
+concrete compatibility problem for the two norm profiles, with all
+projective poles and branch fibers accounted for. These are ordinary
+geometric proofs, not claimed Lean formalizations.

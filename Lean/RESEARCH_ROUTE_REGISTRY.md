@@ -1,6 +1,23 @@
 # Research route registry
 
-Latest eighth continuation: September 7, 2026. A large nonsolvable
+Latest tenth continuation: September 7, 2026. Actual prime-factorization
+and real-logarithm compensation now has 24 Lean declarations; the parallel
+reciprocal-depth integer kernel has 17. An actual private-depth family
+refutes automatic membership in all five sufficient cap patterns, while
+its selected depths pay vanishing normalized height cost. The net signed
+criterion and the broader analytic route remain active.
+
+The separate geometric route now has a degree-hg actual quadratic-field
+double cover and a smooth rational descent. Sparse coefficient height and
+expanded rational coefficient height are distinguished; neither bounds
+actual point heights. The elementary block mass theorem retains an
+exceptional set and controls full multiplicity mass, not signed cost.
+All geometric and analytic results retain ordinary-proof status, with
+independent internal reviews and separate finite evidence. New candidates
+in eleventh_round directories are not part of this publication. See
+`../research/checkpoints/2026_09_07_depth_compensation/README.md`.
+
+Historical eighth continuation: September 7, 2026. A large nonsolvable
 projective image excludes every CM residual candidate for actual positive
 seeds at p>7; the associated finite CM local shadows remain valid. Two
 independent complete Sturm comparisons prove that the two non-CM fixed-level

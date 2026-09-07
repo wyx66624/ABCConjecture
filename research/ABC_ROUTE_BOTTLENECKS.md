@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, actual signed-arm compensation,
-common prime-power and totient progression support (ninth continuation).
+**Last synchronized:** 2026-09-07, actual prime-log compensation,
+three-arm private depths and double oriented covers (tenth continuation).
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -32,6 +32,32 @@ rigorous complete-premise disproof.
 - [x] Maintain the English journal manuscript with author ChatGPT.
 
 ## Shared exponent generators: September 7 positive frontier
+
+- [x] Generalize the signed budget to reciprocal caps and classify its five
+  maximal patterns. Prove an actual infinite three-arm private-depth family
+  outside all those cap patterns. Only automatic cap membership is refuted;
+  its selected depths have normalized cost less than 1/n.
+- [x] Formalize actual natural prime factorization and real logarithmic
+  masses, with the complete finite compensation inequality from positive
+  integer arm data. Check 24 new declarations against pinned Mathlib and
+  17 reciprocal-depth declarations with 71 existing Std dependencies.
+- [x] Locate almost all actual full multiplicity mass above the moving
+  all-index window for most roots in B=n^4 blocks. Give elementary angular
+  and exact two/three-adic replacements for B>=n; the established
+  Brun--Titchmarsh input and exceptional roots remain explicit.
+- [x] Lift both actual norm profiles to a degree-hg quadratic-field cover
+  of genus 1+2hg-g-2h, with sparse coefficient height independent of h,g.
+  Descend it to a smooth rational fiber product, while retaining the
+  different O(h+g+log V0+log V1) expanded coefficient budget.
+- [ ] Control the full signed excess-minus-radical quantity pointwise at
+  arbitrary actual roots. Full-mass concentration does not imply this.
+- [ ] Prove a uniform height upper bound for the actual double-cover points,
+  or construct a compatible sequence with both residual proportions small.
+  Establish all integral reconstruction and primitivity requirements for
+  any proposed converse from rational points; coefficient size alone is
+  insufficient. These are distinct live obligations.
+- Tenth-round evidence and complete ordinary/formal scopes:
+  `checkpoints/2026_09_07_depth_compensation/README.md`.
 
 - [x] Construct the actual three integer arm quotients and prove the
   signed two-arm compensation inequality, including old-factor overlap.

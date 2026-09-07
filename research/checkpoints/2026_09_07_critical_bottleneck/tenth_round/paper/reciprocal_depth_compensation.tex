@@ -1,0 +1,194 @@
+\section{Reciprocal depth budgets for the three actual arms}
+\label{rdc-section}
+
+Retain the actual primitive unramified root and quotient domain of
+Lemma~\ref{sac-quotients}: $Q\ge7$, $3\nmid Q$, $n\ge5$ and
+$\gcd(n,6)=1$. The three nonzero integer quotients $D_i$ are
+pairwise coprime. Use its notation $T_n,T_1,c,t,c_1,\Delta$ and,
+for $Y\ge5$, put
+\[
+ S_i=\sum_{q>Y}v_q(D_i)\log q,\qquad
+ R_i=\sum_{\substack{q>Y\\q\mid D_i}}\log q,\qquad
+ L_i=\sum_{q\le Y}v_q(D_i)\log q,\qquad
+ L=\sum_{q\le Y}v_q(T_n)\log q.
+\]
+All sums are over primes. The actual height relations give
+\begin{equation}\label{rdc-height-interval}
+ t-\Delta-\log c_1-L_i\le S_i\le t,\qquad
+ L_i\ge0,\quad \sum_iL_i\le L.
+\end{equation}
+
+Choose caps $h_i\in\mathbb Z_{>0}\cup\{\infty\}$. An infinite cap
+places no depth restriction on that quotient. Let $I$ consist of the
+finite-cap indices and define
+\begin{align*}
+ \beta_i&=3/h_i\quad(i\in I),& \beta_i&=0\quad(i\notin I),\\
+ E_i^{(h_i)}&=\sum_{q>Y}(v_q(D_i)-h_i)_+\log q\quad(i\in I),&&\\
+ C_h&=\sum_i\beta_i,& A_h&=\sum_i(\beta_i-1)_+,\qquad
+ B_h=\max_i(\beta_i-1)_+.
+\end{align*}
+Thus $0\le A_h\le6$ and $0\le B_h\le2$, even for caps that vary
+with the root and exponent.
+
+\begin{theorem}[Exact finite reciprocal-cap compensation]\label{rdc-finite}
+On this actual domain,
+\begin{align}
+ \log W_Y(T_n)\le{}&(3-C_h)t+A_h(\Delta+\log c_1)
+                    +B_hL+\log T_1\notag\\
+                 &+\sum_{i\in I}\beta_iE_i^{(h_i)}
+                    -3\sum_{i\notin I}R_i.
+                    \label{rdc-finite-bound}
+\end{align}
+The complete depths of every infinite-cap arm are included and its
+negative radical contribution remains on the right.
+\end{theorem}
+\begin{proof}
+At a supported prime, $e\le h_i+(e-h_i)_+$, so
+$3R_i\ge\beta_i(S_i-E_i^{(h_i)})$ for $i\in I$.
+Pairwise coprimality gives exact signed additivity on the quotient
+product. Hence
+\[
+ \log W_Y(D_1D_2D_3)
+ \le\sum_i(1-\beta_i)S_i+
+       \sum_{i\in I}\beta_iE_i^{(h_i)}-3\sum_{i\notin I}R_i.
+\]
+When $\beta_i\le1$, use the upper bound $S_i\le t$. When
+$\beta_i>1$, its coefficient is negative and
+\eqref{rdc-height-interval} bounds its contribution by
+\[
+ (1-\beta_i)t+(\beta_i-1)(\Delta+\log c_1+L_i).
+\]
+Summation yields $(3-C_h)t+A_h(\Delta+\log c_1)+B_hL$.
+Finally use $T_n=T_1|D_1D_2D_3|$ and the general overlap inequality
+$\log W_Y(UV)\le\log W_Y(V)+\log|U|$ proved in
+Theorem~\ref{sac-finite}. No coprimality of $T_1$ and the quotient
+product is assumed.
+\end{proof}
+
+Write
+\[
+ \mathcal E_h=\sum_{i\in I}\beta_iE_i^{(h_i)}-
+                       3\sum_{i\notin I}R_i.
+\]
+\begin{theorem}[Uniform signed-tail subclasses]\label{rdc-uniform}
+With the absolute effective constants of Theorem~\ref{sac-subclass},
+\begin{equation}\label{rdc-normalized}
+ \frac{\log W_Y(T_n)}t
+ \le3-C_h+\epsilon_h(n,Y)+\frac{\mathcal E_h}{t},
+\end{equation}
+where
+\[
+ \epsilon_h(n,Y)=A_hA_1\frac{\log(4n)}n+\frac{2A_h+3}{n}
+       +B_hA_2\frac{Y^3\log Y\log^2(4n)}n.
+\]
+For $Y=n^{1/6}$, this error tends to zero uniformly in all actual
+moving roots and caps. In particular, if
+\begin{equation}\label{rdc-capacity}
+ \sum_{i\in I}\frac1{h_i}\ge1
+\end{equation}
+and the actual finite-cap arms satisfy $v_q(D_i)\le h_i$ at every
+$q>Y$, then $(\log W_Y(T_n))_+/t\to0$ uniformly as $n\to\infty$.
+The same conclusion follows under the more general condition
+$(\mathcal E_h)_+/t\to0$. If $C_h\ge3+\delta$ for a fixed
+$\delta>0$ and the caps are met, then
+\[
+ \limsup\frac{\log W_Y(T_n)}t\le-\delta.
+\]
+\end{theorem}
+\begin{proof}
+Sector normalization gives the same unit-residual representation
+with $\lambda=1/n$ as in Theorem~\ref{sac-subclass}. Thus its
+all-prime two-place bounds control $\Delta/t$ and $L/t$ as stated
+there. The remaining numerator obeys
+\[
+ A_h\log c_1+\log T_1
+ \le\left(\frac{A_h}{2}+\frac32\right)\log Q
+                          +A_h\log(2/\sqrt3).
+\]
+Divide by $t\ge n\log Q/2$, use $Q\ge7$ and
+$2\log(2/\sqrt3)<\log7$, and obtain the bound $(2A_h+3)/n$.
+Substitution proves \eqref{rdc-normalized}. The bounds $A_h\le6$,
+$B_h\le2$ give uniform convergence of the error. Under the depth
+caps all finite excesses vanish, so $\mathcal E_h\le0$.
+Condition~\eqref{rdc-capacity} is exactly $C_h\ge3$.
+The positive-part and fixed negative-margin conclusions follow.
+\end{proof}
+
+The earlier absorption therefore gives the restricted ABC estimate
+for these specified subclasses, uniformly for sufficiently large $n$
+for each fixed target epsilon. Bounded indices with arbitrarily
+moving roots remain outside this argument. The signed estimate is
+one-sided, rather than a claim that negative contributions disappear.
+
+\begin{proposition}[The five maximal depth-cap patterns]\label{rdc-five}
+Up to permutation, the maximal integer-cap patterns satisfying
+\eqref{rdc-capacity}, under componentwise enlargement, are
+\begin{equation}\label{rdc-patterns}
+ (1,\infty,\infty),\quad(2,2,\infty),\quad
+ (2,3,6),\quad(2,4,4),\quad(3,3,3).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Sort $h_1\le h_2\le h_3$, with infinity largest. If $h_1=1$ the
+triple is below the first pattern. If $h_1=h_2=2$, it is below the
+second. If $h_1=2,h_2=3$, the reciprocal condition forces $h_3\le6$.
+If $h_1=2,h_2\ge4$, it forces $h_2=h_3=4$.
+If $h_1=3$, the other two must also be three; $h_1\ge4$ is
+impossible. Each displayed pattern has reciprocal sum exactly one.
+\end{proof}
+
+The first pattern is a new useful form of the compensation mechanism:
+one quotient that is squarefree above $Y$ pays for the full depths
+in both other arms. More precisely, at that pattern
+\begin{equation}\label{rdc-one-arm}
+ \log W_Y(T_n)\le2\Delta+2\log c_1+2L+\log T_1
+                 +3\bigl(E_i^{(1)}-R_j-R_k\bigr).
+\end{equation}
+Thus squarefreeness can be weakened to
+$(E_i^{(1)}-R_j-R_k)_+/t\to0$. The pattern $(2,2,\infty)$
+recovers the preceding SA criterion. Patterns $(2,3,6)$ and $(2,4,4)$
+permit positive signed contributions at depth above three, while
+another actual arm compensates them; both have $A_h=B_h=1/2$.
+No automatic arithmetic membership is asserted for these conditions.
+
+\begin{proposition}[Sharpness only for the abstract finite ledger]
+\label{rdc-abstract-sharpness}
+When fixed caps have $C_h<3$, their depth restrictions and equal
+total arm masses alone do not force a sublinear signed integer-weight
+ledger. This statement does not give an actual Eisenstein counterexample.
+\end{proposition}
+\begin{proof}
+Let $H$ be the least common multiple of the finite caps, or one if
+there are none, and set $t_m=mH$. For a finite cap $h_i$, take a
+one-entry list of depth $h_i$ and integer weight $t_m/h_i$.
+For an infinite cap take depth $t_m$ and weight one. All finite caps
+hold and all three masses $S_i$ equal $t_m$. If $r$ caps are infinite,
+the exact signed sum is
+\[
+ \sum_i(S_i-3R_i)=(3-C_h)t_m-3r.
+\]
+Its ratio to $t_m$ tends to $3-C_h>0$. These finite lists are not
+asserted to be prime factorizations or to satisfy the actual additive
+arm relation and common norm. They show that extra arithmetic input
+is needed beyond this ledger; they exclude no actual norm route.
+\end{proof}
+
+\paragraph{Formal verification and unresolved scope.}
+The separate \texttt{ReciprocalDepthArithmetic} module proves seventeen
+declarations using finite natural depths and nonnegative integer
+weights. It proves arbitrary-cap depth/radical inequalities, their
+common-denominator interface $b_ih_i=3d$, the negative-coefficient
+height costs, the canonical three-arm budget and its uniform bounds,
+and exact one-, two- and three-finite-cap classifications after
+clearing positive denominators. The fresh Lean~4.32.0 build checks all
+seventeen new declarations and seventy-one dependency declarations
+with warnings treated as errors and only the standard three axioms.
+This module does not define actual prime factorizations or real
+logarithms, formalize the analytic estimates, or prove cap membership.
+
+The unresolved arithmetic object is the actual excess-minus-radical
+term $\mathcal E_h$, constrained by the common power, additive arm
+relation and norm. Large private depths can invalidate every simple
+cap pattern without refuting its net-credit sufficient condition.
+Neither the abstract sharpness family nor the proved sufficient
+classes settle the general signed tail or ABC.

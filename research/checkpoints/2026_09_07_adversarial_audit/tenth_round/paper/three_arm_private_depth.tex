@@ -1,0 +1,190 @@
+\section{Simultaneous private top-rank depths in all three actual arms}
+\label{td-section}
+
+The sufficient signed-compensation classes do not have automatic
+membership. This section constructs actual primitive unramified roots
+whose three quotient arms simultaneously have prescribed private deep
+primes above the moving cutoff. It also accounts for the height paid by
+the construction. Neither the net-credit criterion nor the full signed
+tail is refuted.
+
+\begin{theorem}[Three prescribed actual first depths]\label{td-three-depths}
+Let $n\ge5$ be an integer coprime to six, and let $s_1,s_2,s_3\ge4$
+be integers. There are distinct primes $q_i\equiv1\pmod{6n}$ and
+infinitely many positive integers $a\equiv0\pmod3$ such that
+$w=a+\zeta$ is primitive and unramified and has the following properties.
+Form the normalized power
+\[
+ z_n=A+B\zeta=
+ \begin{cases}w^n,&n\equiv1\pmod6,\\
+ \bar w^{\,n},&n\equiv5\pmod6,
+ \end{cases}
+ \qquad
+ D_1=A/a,\quad D_2=B,\quad D_3=(A+B)/(a+1).
+\]
+These are the actual integer quotients of Lemma~\ref{sac-quotients}.
+For $i\ne j$,
+\begin{equation}\label{td-depths}
+ v_{q_i}(D_i)=s_i,\qquad v_{q_i}(D_j)=0,\qquad
+ q_i\nmid a(a+1)N(w),\qquad
+ \operatorname{ord}\bigl((w/\bar w)^3\bmod q_i\bigr)=n.
+\end{equation}
+In particular $v_{q_i}(T_n)=s_i$ for $T_n=|P(w^n)|$, and these
+are genuinely new first depths at rank $n$.
+\end{theorem}
+
+\begin{proof}
+We first give an elementary supply of distinct primes. For any integer
+$N\ge3$ and finite set of previously chosen primes, put $X$ equal to
+$N$ times their product. The integer $\Phi_N(X)$ is greater than one:
+pairing primitive roots with their conjugates gives positive factors
+at least $(X-1)^2>1$. Its constant term is one, so any prime divisor
+$q$ is coprime to $X$, and hence to $N$ and all the previous primes.
+The polynomial $Z^N-1$ is separable over $\mathbb F_q$. Its cyclotomic
+factors are therefore pairwise coprime after reduction. A root of
+$\Phi_N$ cannot also be a root of $Z^d-1$ at a proper divisor $d$ of
+$N$. Thus $X\bmod q$ has order exactly $N$, and $q\equiv1\pmod N$.
+Repeat this three times with $N=6n$ to obtain the required distinct
+$q_i$ and elements $t_i$ of order $6n$. No prime-density theorem is used.
+
+Fix such a pair $q,t$ and put $\theta=t^n$ in $\mathbb F_q$. It is
+a primitive sixth root, with $\theta^2-\theta+1=0$ and
+$\bar\theta=1-\theta=\theta^{-1}$. On the norm-unit locus define
+\[
+ \alpha(X)=\frac{X+\theta}{X+\bar\theta}.
+\]
+For $\alpha_0\ne1$ the inverse coordinate is
+\begin{equation}\label{td-inverse}
+ X_0=\frac{\alpha_0\bar\theta-\theta}{1-\alpha_0}.
+\end{equation}
+In particular
+\[
+ X_0+\bar\theta=\frac{\bar\theta-\theta}{1-\alpha_0},
+ \qquad X_0+\theta=
+   \alpha_0\frac{\bar\theta-\theta}{1-\alpha_0}.
+\]
+Choose $\alpha_0$ successively as $t^2,t^6,t^4$. Their $n$th powers
+are $\theta^2,1,\theta^4$, respectively, and their cubes each have
+order exactly $n$. Their orders exceed three, so $X_0$ is neither
+zero nor minus one. The two displayed expressions are nonzero,
+so the norm and all input arms are units at $X_0$.
+
+Write the raw power as
+$(X+\zeta)^n=A_n(X)+B_n(X)\zeta$. Its ratio to its conjugate is
+$\alpha(X)^n$. Cross multiplication on the norm-unit locus gives
+\[
+ \begin{array}{c|c}
+ \alpha(X)^n&\text{vanishing raw arm}\\ \hline
+ \theta^2&A_n(X)\\
+ 1&B_n(X)\\
+ \theta^4&A_n(X)+B_n(X).
+ \end{array}
+\]
+Two arms cannot vanish together there. Each difference of ratios is
+a nonzero constant times the corresponding arm divided by the unit
+$(X+\bar\theta)^n$. Moreover
+\[
+ \alpha'(X)=\frac{\bar\theta-\theta}{(X+\bar\theta)^2}\ne0.
+\]
+Since $q>n$, the indicated raw arm has a simple zero at $X_0$.
+Dividing by the relevant input $X$, $1$ or $X+1$, all units there,
+preserves this simple zero of the actual quotient polynomial.
+
+For $n\equiv1\pmod6$, the choices $t^2,t^6,t^4$ target
+$D_1,D_2,D_3$ in that order. For $n\equiv5\pmod6$, conjugation
+sends the raw coordinates to $(A_n+B_n,-B_n)$. The correct choices
+are then $t^4,t^6,t^2$. This exchange is what identifies the
+labeled actual quotients in \eqref{td-depths}.
+
+An integer polynomial with a simple root modulo $q$ has exactly one
+lift to a root at the next precision: for $e\ge1$,
+\[
+ D_i(r+jq^e)\equiv D_i(r)+jq^eD_i'(r)\pmod{q^{e+1}}.
+\]
+Lift the chosen root uniquely through precision $q^{s_i}$. At the
+next step choose any of the $q-1$ nonroot digits. This gives a residue
+$r_i\bmod q_i^{s_i+1}$ of exact depth $s_i$. The other quotient
+arms, input arms and norm remain units modulo $q_i$, and the cube
+ratio keeps exact order $n$.
+
+The Chinese remainder theorem combines the three residues with
+$a\equiv0\pmod3$. Write
+\begin{equation}\label{td-crt-modulus}
+ M_0=3\prod_{i=1}^3q_i^{s_i+1},\qquad 0\le r<M_0
+\end{equation}
+for the resulting modulus and representative. Every $a=r+jM_0$,
+$j\ge1$, is positive and preserves all those exact depths.
+The root has coordinate gcd one, and $N(w)=a^2+a+1\equiv1\pmod3$.
+It is an actual primitive unramified nonunit root. Its powers have
+nonzero primitive boundary by the established oriented factorization.
+Since $T_1=a(a+1)$ is coprime to each chosen prime and
+$T_n=T_1|D_1D_2D_3|$, the stated full depths and first ranks follow.
+\end{proof}
+
+\begin{corollary}[Failure of automatic depth-cap membership]
+\label{td-cap-boundary}
+The constructed roots give a family with $n\to\infty$ and unit
+residual, hence $\lambda=1/n$ and $\rho=\log(4+n)/n$.
+Every $q_i>n^{1/6}$. No pair of actual quotient arms has all its
+prime depths above that cutoff at most two.
+
+More generally, if caps $h_i\in\mathbb Z_{>0}\cup\{\infty\}$
+bound all those actual depths, with $1/\infty=0$, then
+\[
+ \sum_{i=1}^3\frac1{h_i}\le\frac34<1.
+\]
+Thus the union of reciprocal-cap sufficient classes does not contain
+every actual root, even when a cap may be selected separately for
+each root. This does not refute the quantitative net-credit criteria.
+\end{corollary}
+\begin{proof}
+The representation uses exponent $n$ and unit residual. The selected
+primes are at least $6n+1$, and every selected depth is at least four.
+Every finite valid cap is consequently at least four; an infinite
+cap contributes zero to the reciprocal sum. The assertions follow
+directly from Theorem~\ref{td-three-depths} for each allowed $n$.
+\end{proof}
+
+\begin{proposition}[The selected depths have a visible height cost]
+\label{td-selected-cost}
+For the representatives $a\ge M_0$ used above, put
+$c=\max(|A|,|B|,|A+B|)$ and $t_{\rm ht}=\log c$. The contribution
+of the selected primes alone to the excess above depth two satisfies
+\begin{equation}\label{td-cost}
+ E_{\rm selected}=\sum_{i=1}^3(s_i-2)\log q_i
+       <\frac{t_{\rm ht}}n.
+\end{equation}
+The selected positive signed depths $(s_i-3)\log q_i$ have a
+smaller total. The estimate is uniform even when all prescribed
+depths vary with $n$.
+\end{proposition}
+\begin{proof}
+The actual quadratic height gives $Q^n\le c^2$, while
+$Q=a^2+a+1>a^2$. Hence
+\[
+ t_{\rm ht}>n\log a\ge n\log M_0.
+\]
+From \eqref{td-crt-modulus},
+$E_{\rm selected}<\log M_0$, which proves \eqref{td-cost}.
+\end{proof}
+
+\paragraph{Evidence and remaining scope.}
+The root researcher and both research peers independently reviewed the
+complete ordinary proof. The exact finite replay checks
+$n=5,7,11,25,35$, with depths $(4,5,6)$ and two actual CRT roots
+per exponent: ten actual roots and thirty selected full-depth checks.
+It proves the selected primes prime by trial division, checks every
+required order against all proper divisors, and exhaustively checks
+each selected lifting level. All actual coordinates, norm and quotient
+identities, coprimality, selected depths and the integer height-cost
+certificate are recomputed exactly. One other researcher independently
+reread the replay and reran its canonical check successfully.
+
+The quotient arms are not completely factored in that replay. No
+simultaneous second pure norm, full signed-tail failure or Lean proof
+of this construction is asserted. The unselected prime factors may
+supply substantial negative radical credit. Equation~\eqref{td-cost}
+also shows that these selected deep primes alone pay only a vanishing
+normalized cost. General control of the actual excess-minus-radical
+quantity, including unusually short congruence directions and all
+unselected factors, remains open.

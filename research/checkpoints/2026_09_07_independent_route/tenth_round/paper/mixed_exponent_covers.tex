@@ -1,0 +1,244 @@
+\section{Mixed exponent covers from an actual first-profile coefficient}
+\label{mx-section}
+
+The two norm exponents in this section may be relatively prime, and
+either residual may be a nonunit. The construction controls a finite
+list of covers and their coefficient heights. It gives no upper bound
+on the heights of their points.
+
+Let $\zeta^2-\zeta+1=0$, $K_0=\mathbb Q(\zeta)$, and
+$\gamma=1+\zeta$. Retain the degree-eight splitting field $K$ of
+Lemma~\ref{qc-fixed-field}, which contains $K_0$ and the four roots
+$\alpha_1,\ldots,\alpha_4$ of
+\[
+ f(X)=X^4+3X^3+5X^2+3X+1.
+\]
+Put $\beta_+=-\zeta$ and $\beta_-=-\bar\zeta$, the roots of
+$N(X)=X^2+X+1$. These six branch values are distinct: both
+polynomials are separable, and $f\bmod N=X^2$, so
+$\operatorname{Res}(N,f)=1$.
+
+For positive coprime integers $a,b$, write
+$c=a+b$, $x=a/b$, $M=a^2+ab+b^2$, and $F=b^4f(x)$.
+Consider genuine oriented profiles
+\begin{equation}\label{mx-first-profile}
+ a+b\zeta=u\gamma^e v w^h,\qquad
+ M=3^eV_0R^h,\qquad V_0=\operatorname N v,\quad R=\operatorname N w\ge7,
+\end{equation}
+where $u$ is an Eisenstein unit, $e\in\{0,1\}$, $h\ge2$, and
+$v,w$ are primitive oriented unramified Eisenstein integers as in
+\eqref{lr-profile}. Their oriented supports may overlap. Also suppose
+\begin{equation}\label{mx-second-profile}
+ F=V_1Q^g,\qquad g\ge9,\quad V_1,Q\in\mathbb Z_{>0},\quad
+ Q>1,\quad 1\le V_1<2^g.
+\end{equation}
+All exponents are integers. The last condition ensures that $V_1$ is
+$g$-free. No condition relates $h$ and $g$.
+
+The domain $Q\ge7$ used in Section~\ref{qc-section} follows from
+these hypotheses. Indeed, $F$ is odd and $F\equiv1\pmod3$.
+The values of $f(r)$ for $r=0,1,2,3,4$ modulo five are
+$1,3,2,2,1$. If $5\mid b$, primitivity gives $F\equiv a^4\ne0$
+instead. Thus $2,3,5$ do not divide $F$, and $Q>1$ implies $Q\ge7$.
+
+\begin{lemma}[An actual first-profile coefficient]\label{mx-actual-coefficient}
+Define
+\[
+ \xi_0=(u^2\zeta^e v/\bar v)^{-1}.
+\]
+Then
+\begin{equation}\label{mx-first-kummer}
+ (w/\bar w)^h=\xi_0\frac{x-\beta_+}{x-\beta_-},
+ \qquad h_K(\xi_0)=\frac12\log V_0,
+\end{equation}
+where $h_K$ denotes absolute logarithmic Weil height. Over all actual
+residuals with $V_0\le X$, $X\ge1$, there are at most $CX$
+possible $\xi_0$, for an absolute constant $C$. If $v$ is a unit,
+the coefficients lie in a fixed finite group of roots of unity,
+including when $h$ is divisible by two or three.
+\end{lemma}
+\begin{proof}
+Conjugating \eqref{mx-first-profile}, using $u\bar u=1$ and
+$\gamma/\bar\gamma=\zeta$, gives
+\[
+ \frac{a+b\zeta}{a+b\bar\zeta}
+   =u^2\zeta^e\frac{v}{\bar v}
+      \left(\frac w{\bar w}\right)^h.
+\]
+Divide by $b$ and rearrange. The exact oriented-height calculation
+of Lemma~\ref{lr-heights} gives
+$h_K(v/\bar v)=\tfrac12\log\operatorname N v$:
+all archimedean absolute values are one, and the numerator and
+denominator ideals are disjoint conjugates. Overlap between the
+supports of $v$ and $w$ does not create a conjugate pair within $v$.
+Height is unchanged by extending the number field, multiplication
+by a root of unity, or inversion. No $h$-th root of $u$ is taken.
+
+Write $v=r+s\zeta$. Since
+$\operatorname N v=r^2+rs+s^2\ge3r^2/4,3s^2/4$, the number of
+integer coordinate pairs with norm at most $X$ is at most
+\[
+ \left(\frac{4\sqrt X}{\sqrt3}+1\right)^2\le16X.
+\]
+The finitely many choices of $u,e$ change only the constant.
+This already counts the entire range $V_0\le X$; it is not a
+count to be summed again over possible norm values.
+\end{proof}
+
+Theorems~\ref{qc-cover-count} and~\ref{qc-coefficient-height}
+provide a finite list of $\xi_1,\xi_2,\xi_3\in K^\times$ and
+actual coordinates $Z_i\in K^\times$ satisfying
+\begin{equation}\label{mx-second-kummer}
+ Z_i^g=\xi_i\frac{x-\alpha_i}{x-\alpha_4},\qquad i=1,2,3.
+\end{equation}
+Here we replace the coefficients of \eqref{qc-covers} by their
+inverses; the list sizes and heights are unchanged.
+
+\begin{theorem}[The mixed cover at arbitrary exponents]\label{mx-cover}
+Combine \eqref{mx-second-kummer} with
+\begin{equation}\label{mx-cover-first-equation}
+ Y^h=\xi_0\frac{x-\beta_+}{x-\beta_-}.
+\end{equation}
+The smooth projective normalization $C_{h,g,\xi}$ is geometrically
+connected. Its degree over $\mathbb P^1_x$ and its genus are
+\begin{equation}\label{mx-degree-genus}
+ D=hg^3,\qquad
+ G=1+D\left(2-\frac1h-\frac2g\right)
+   =1+2hg^3-g^3-2hg^2.
+\end{equation}
+Every actual profile \eqref{mx-first-profile}--\eqref{mx-second-profile}
+gives a $K$-point of one such curve above $x=a/b$.
+\end{theorem}
+\begin{proof}
+Work over $\bar K$, which contains all required roots of unity
+and roots of the nonzero twist coefficients. The three quartic
+ratios are independent modulo $g$-th powers even when $g$ is
+composite: valuation at $\alpha_i$ is one for its own ratio and
+zero for the other two. Their Kummer cover is Galois of degree
+$g^3$. Its four branch points are the $\alpha_i$, each of inertia
+$g$. At $\alpha_4$ the three simple poles adjoin the same root of
+a local uniformizer, so the inertia is diagonal cyclic of order
+$g$. Infinity is unramified, as in the proof of
+Theorem~\ref{qc-cover-count}.
+
+The first cover is cyclic of degree $h$, by its simple zero at
+$\beta_+$, and is branched exactly at $\beta_+,\beta_-$,
+each of inertia $h$. Its branch set is disjoint from that of the
+quartic cover. The intersection of their function fields over
+$\bar K(x)$ is therefore unramified at every point of the
+projective line: an intermediate extension can ramify only where
+its containing extension ramifies. Riemann--Hurwitz excludes a
+nontrivial connected unramified cover of $\mathbb P^1$ in
+characteristic zero. Thus this intersection is trivial. Both
+extensions are Galois, so their compositum is a field of degree
+$hg^3$. This proves geometric connectedness without any
+coprimality condition on the exponents.
+
+In the compositum the six ramification contributions sum to
+$2D(1-1/h)+4D(1-1/g)$. Infinity remains unramified, and hence
+\[
+ 2G-2=-2D+2D(1-1/h)+4D(1-1/g),
+\]
+which gives \eqref{mx-degree-genus}. The actual positive rational
+$x$ lies outside the six branch values. All four Kummer coordinates
+are nonzero, so the affine cover is smooth there in characteristic
+zero. The actual point therefore lifts to the normalization over
+$K$. This does not assert that every $K$-point arises from a
+primitive positive integer seed.
+\end{proof}
+
+\begin{theorem}[A mixed residual budget]\label{mx-count-height}
+For fixed $h,g,V_1$ as above and all first residuals $V_0\le X$,
+$X\ge1$, the actual seeds lift to a list of at most
+\begin{equation}\label{mx-fixed-count}
+ C_KXg^9 4^{8\omega(V_1)}
+\end{equation}
+mixed covers. For $L_0\ge0$ and $0\le L_1<\log2$, the union over
+$V_0\le\exp(L_0h)$ and $V_1\le\exp(L_1g)$ is covered by at most
+\begin{equation}\label{mx-union-count}
+ C_Kg^9\exp(L_0h+17L_1g)
+\end{equation}
+models. The maximum absolute Weil height of an individual
+coefficient of the defining equations can be bounded by
+\begin{equation}\label{mx-coefficient-bound}
+ C_K\bigl(g+\log V_0+\log V_1+1\bigr).
+\end{equation}
+The same bound, with a different constant, holds for their
+projective coefficient height. The degrees in $Y$ and $Z_i$
+remain $h$ and $g$, respectively.
+\end{theorem}
+\begin{proof}
+The QC count gives $C_Kg^94^{8\omega(V_1)}$ second-norm
+models for fixed $g,V_1$, with
+$h_K(\xi_i)\le2\log V_1+C_Kg$. Its proof includes the fixed
+field's unit rank three, class-group choices and the actual
+depth-one contribution above thirteen. Lemma~\ref{mx-actual-coefficient}
+adds at most $CX$ first coefficients for the entire residual range.
+There is no additional independent $h^3$ unit-class factor:
+the actual first profile has already supplied its precise
+coefficient. This proves \eqref{mx-fixed-count}.
+
+Since $V_1\ge2^{\omega(V_1)}$, one has
+$4^{8\omega(V_1)}\le V_1^{16}$. Summing over the integers
+$V_1\le Z$, $Z\ge1$, costs at most $Z^{17}$. Substituting
+$X=\exp(L_0h)$ and $Z=\exp(L_1g)$ proves
+\eqref{mx-union-count}. No second summation over first residual
+norms is required.
+
+Clear the linear denominators to obtain
+\[
+ (x-\beta_-)Y^h-\xi_0(x-\beta_+)=0,
+ \qquad
+ (x-\alpha_4)Z_i^g-\xi_i(x-\alpha_i)=0.
+\]
+The branch values are fixed, and product heights are bounded by
+the sums of factor heights. Equation~\eqref{mx-first-kummer}
+and the QC coefficient bound prove
+\eqref{mx-coefficient-bound}. There are a fixed number of
+nonzero coefficients, so their projective coefficient height
+has the same bound up to a constant. This reasoning supplies
+no point-height estimate.
+\end{proof}
+
+\begin{corollary}[Height separation when the first exponent dominates]
+\label{mx-height-separation}
+Consider any sequence of actual profiles as above with
+\begin{equation}\label{mx-sequence-domain}
+ h\longrightarrow\infty,\qquad g/h\longrightarrow0,\qquad
+ \frac{\log V_0}{h}\longrightarrow0,\qquad
+ \frac{\log V_1}{g}\ \hbox{bounded}.
+\end{equation}
+For the chosen models, let $H_{\rm coef}$ be the coefficient-height
+bound in \eqref{mx-coefficient-bound}, and put
+$H_{\rm point}=h_K(a/b)=\log\max(a,b)$. Then
+\begin{equation}\label{mx-height-ratio}
+ \frac{H_{\rm coef}+\log h+\log g}{H_{\rm point}}
+ \longrightarrow0.
+\end{equation}
+\end{corollary}
+\begin{proof}
+The hypotheses give $H_{\rm coef}=o(h)$. In the other direction,
+\eqref{mx-first-profile} implies $M\ge R^h\ge7^h$, while
+$M<c^2$. Consequently
+\[
+ H_{\rm point}\ge\log c-\log2
+   \ge\frac h2\log7-\log2.
+\]
+Also $\log h=o(h)$ and $\log g=o(h)$ because $9\le g=o(h)$.
+Division proves \eqref{mx-height-ratio}.
+\end{proof}
+
+This separation allows two nonunit residuals and relatively prime
+exponents. It asserts neither the existence of the displayed
+sequence nor a contradiction. A sufficient further input would be
+an upper bound
+\[
+ H_{\rm point}\le A\bigl(H_{\rm coef}+\log h+\log g+1\bigr)
+\]
+for the actual lifted points in this family, with $A$ independent
+of the exponents and residuals. Such a point-height theorem is
+not proved here. Comparable exponents, larger moving residuals,
+and points whose heights exceed the coefficient budget remain
+unresolved. The present ordinary arithmetic-geometric proof is
+independently reviewed; the Kummer, ramification and height
+arguments in this section are not Lean formalizations.

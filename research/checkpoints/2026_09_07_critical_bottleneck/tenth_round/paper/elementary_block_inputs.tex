@@ -1,0 +1,155 @@
+\section{Elementary inputs for the actual root-block mass theorem}
+\label{ebi-section}
+
+For the actual blocks in Section~\ref{fml-section}, the archimedean
+and two fixed-prime inputs have an elementary replacement when $B\ge n$.
+This gives a proof of their full-mass conclusion without logarithmic
+forms. It does not estimate the signed cost of the remaining primes.
+Throughout this section $B\ge n\ge1$ and $B\le k<2B$ are integers,
+\[
+ a=3k,\quad w=a+\zeta,\quad Q=a^2+a+1,\quad
+ T_d=|P(w^d)|,\quad t=\log c_n,\quad \Delta=3t-\log T_n.
+\]
+The auxiliary index $d$ is a positive integer. Here $c_n$ is the largest absolute boundary arm. The elementary norm
+bounds give
+\begin{equation}\label{ebi-norm}
+ Q^{n/2}\le c_n\le\frac2{\sqrt3}Q^{n/2},\qquad
+ t\ge n\log(3B),\qquad \log T_d\le3d\log(6B+1).
+\end{equation}
+These primitive unramified nonunit roots have nonzero boundaries;
+for the index $n$ this also follows directly from the angle below.
+
+\begin{lemma}[A direct angular estimate]\label{ebi-angle}
+On every such actual block,
+\begin{equation}\label{ebi-angular-bound}
+ T_n\ge\frac{2n}{\pi(12B+1)}Q^{3n/2},\qquad
+ 0\le\frac\Delta t\le\frac4n.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $w=\sqrt Q\,e^{i\theta}$, where
+$\theta=\arctan(\sqrt3/(6k+1))$. The elementary bounds
+$x/2\le\arctan x\le x$ for $0\le x\le1$ imply
+\[
+ \frac{\sqrt3}{2(12B+1)}\le\theta,\qquad
+ 0<3n\theta<\frac{\sqrt3}{2}<\frac\pi2.
+\]
+Thus $\sin(3n\theta)\ge3n\sqrt3/(\pi(12B+1))$.
+The exact identity
+$z^3-\bar z^3=3\sqrt{-3}\,P(z)$ gives
+\[
+ T_n=\frac2{3\sqrt3}Q^{3n/2}\sin(3n\theta),
+\]
+proving the first bound. Every arm has absolute value at most $c_n$,
+so $\Delta\ge0$. Combining the first bound with
+\eqref{ebi-norm} gives
+\[
+ \Delta\le\log\frac{4\pi(12B+1)}{3\sqrt3\,n}
+          \le4\log(3B).
+\]
+For the last inequality, $12B+1\le13B$, $\pi<4$ and $\sqrt3>1$
+bound the logarithm's argument by $81B/n\le(3B)^4$.
+Division by $t\ge n\log(3B)$ completes the proof.
+\end{proof}
+
+\begin{lemma}[Exact fixed-prime depths]\label{ebi-fixed-depth}
+For all the above roots and indices,
+\begin{equation}\label{ebi-three}
+ v_3(T_n)=v_3(T_1)+v_3(n),
+\end{equation}
+\begin{equation}\label{ebi-two}
+ v_2(T_n)=
+ \begin{cases}
+  v_2(T_1),&n\text{ odd},\\
+  v_2(T_2)+v_2(n/2),&n\text{ even}.
+ \end{cases}
+\end{equation}
+Consequently
+\begin{equation}\label{ebi-small-cost}
+ \frac{v_2(T_n)\log2+v_3(T_n)\log3}{t}\le\frac{20}{n}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+We first supply the lifting step. Let $v$ be a nonarchimedean
+valuation above $p$, normalized by $v(p)=1$, and write $u=1+\delta$.
+If $e=v(\delta)>1/(p-1)$, the linear term in
+$(1+\delta)^p-1$ has valuation $1+e$. Every intermediate term
+has valuation $1+je>1+e$, and the last has valuation $pe>1+e$.
+Thus $v(u^p-1)=e+1$. For an exponent $r$ prime to $p$, the weaker
+condition $e>0$ suffices: the linear term has valuation $e$ and all
+higher terms have larger valuation. Hence $v(u^r-1)=e$.
+Iteration proves $v(u^m-1)=v(u-1)+v_p(m)$ under the first threshold.
+This binomial argument applies also at the ramified quadratic place.
+
+Put $\eta=(w/\bar w)^3$. Since $Q$ is prime to both two and three,
+$w,\bar w$ are units there, and
+\begin{equation}\label{ebi-local-identity}
+ \eta^d-1=\frac{3\sqrt{-3}\,P(w^d)}{\bar w^{3d}}.
+\end{equation}
+At three its valuation is $v_3(T_d)+3/2$. The integer
+$T_1=a(a+1)$ is divisible by three, so $v_3(\eta-1)\ge5/2>1/2$.
+Apply the lifting step and subtract $3/2$ to obtain
+\eqref{ebi-three}.
+
+At two the constant $3\sqrt{-3}$ is a unit and $T_1$ is even,
+so the odd-exponent assertion follows from the weaker lifting step.
+For an even exponent, direct multiplication gives
+\begin{equation}\label{ebi-t2}
+ T_2=a(a-1)(a+1)(a+2)(2a+1).
+\end{equation}
+The four consecutive factors $a-1,a,a+1,a+2$ have product divisible
+by eight. Thus $v_2(\eta^2-1)=v_2(T_2)\ge3>1$.
+Apply the stronger lifting step to $\eta^2$ at exponent $n/2$ to
+obtain \eqref{ebi-two}.
+
+Write $L=\log(6B+1)$. Equations~\eqref{ebi-norm}--\eqref{ebi-two}
+bound the two-prime cost by $9L+2\log n$; the odd case even has
+a smaller bound. Since $L\le2\log(3B)$ and
+$\log n\le\log(3B)$, this is at most $20\log(3B)$.
+Normalize by $t\ge n\log(3B)$.
+\end{proof}
+
+\begin{theorem}[An elementary replacement in the mass-location chain]
+\label{ebi-location}
+Set $B=n^4$,
+\[
+ Z=\left\lfloor\frac{B\sqrt{\log n}}{1+\log\log n}\right\rfloor,
+ \qquad \eta_n=(\log n)^{-1/4}.
+\]
+For all sufficiently large integers $n$, outside at most a proportion
+$C\eta_n$ of the actual roots in the block,
+\begin{equation}\label{ebi-tail}
+ 3-\frac4n-\eta_n
+ \le\frac1{t_k}\sum_{p>Z}v_p(T_n(k))\log p\le3.
+\end{equation}
+If $n$ is prime, the same roots also satisfy
+\begin{equation}\label{ebi-top}
+ 3-\frac7n-\eta_n
+ \le\frac1{t_k}\sum_{\substack{p>Z\\d_p(k)=n}}
+       v_p(T_n(k))\log p\le3.
+\end{equation}
+Every included valuation in \eqref{ebi-top} is its top-rank first depth.
+\end{theorem}
+\begin{proof}
+The full-mass interval estimate of Section~\ref{fml-section} for primes
+at least five uses actual rank counts, a harmonic sum and
+Brun--Titchmarsh. Its all-index specialization has mean
+$O((\log n)^{-1/2})$, by the proved elementary divisor estimates.
+Add \eqref{ebi-small-cost}. Markov at $\eta_n$ bounds the full
+small-prime mass by $\eta_n t_k$ outside the stated proportion.
+Subtract this mass from $\log T_n=3t_k-\Delta$ and apply
+\eqref{ebi-angular-bound}, obtaining \eqref{ebi-tail}.
+At prime index the only ranks are one and $n$. Above $Z>n$ there
+is no exponent lifting, and the entire rank-one mass is at most
+$\log T_1\le3t_k/n$. Subtract it to obtain \eqref{ebi-top}.
+\end{proof}
+
+This proof retains the established Brun--Titchmarsh input but uses no
+logarithmic-form estimate. Its exceptional roots and the signed
+prime costs remain uncontrolled. Full mass at an exponent-one prime
+is positive while its signed cost is $-2\log p$; the displayed
+concentration therefore asserts neither a radical lower bound nor a
+failure of the signed-tail gate. The ordinary proofs were independently
+reviewed. A separate exact replay checks 571 actual roots and 1142
+valuation equalities, without using floating-point angles as proof.
+The present estimates are not claimed as Lean formalizations.

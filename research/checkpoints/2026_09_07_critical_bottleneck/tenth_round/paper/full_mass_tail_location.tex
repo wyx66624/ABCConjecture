@@ -1,0 +1,156 @@
+\section{The remaining tail carries almost all actual boundary mass}
+\label{fml-section}
+
+Keep the actual roots $w_k=3k+\zeta$ for $B\le k<2B$, where
+$B,n$ are positive integers. Put
+\[
+ Q_k=9k^2+3k+1,\qquad T_n(k)=|P(w_k^n)|,\qquad
+ t_k=\log c_n(k).
+\]
+Their primitive unramified powers have nonzero boundary, and
+\begin{equation}\label{fml-heights}
+ t_k\ge n\log(3B),\qquad
+ \log|P(w_k^d)|\le3d\log(6B+1).
+\end{equation}
+Here the observable is full valuation mass, including shallow primes.
+It is different from both positive excess and signed cost.
+
+\begin{theorem}[Full-mass mean with rank spacing]\label{fml-mean}
+For real $Z\ge5$ with $Z>3n$, define
+$H_Z(k)=\sum_{5\le q\le Z}v_q(T_n(k))\log q$, over primes.
+Then
+\begin{align}
+ \frac1B\sum_{B\le k<2B}\frac{H_Z(k)}{t_k}
+ \le{}&\frac{6\tau(n)\log Z(1+\log Z)}{n\log(3B)}\notag\\
+      &+\frac{36Z\sigma(n)}{Bn\log(Z/(3n))}
+          +\frac{\log n}{n\log(3B)}.
+          \label{fml-mean-bound}
+\end{align}
+The first $\tau(n)$ can be replaced by $\sum_{d\mid n}\varphi(d)/d$.
+\end{theorem}
+\begin{proof}
+Partition supported actual roots at $q\ge5$ by their rank
+$d=\operatorname{ord}((w_k/\bar w_k)^3\bmod q)$. It divides $n$,
+and its first depth $s=v_q(T_d(k))$ satisfies
+$v_q(T_n(k))=s+v_q(n)$. Primes dividing $Q_k$ have no boundary
+contribution. The total additional lifting is at most $\log n$
+at each root.
+
+For fixed $d,q$, the established exact-rank count has at most
+$3\varphi(d)$ simple roots, each lifting uniquely. Thus the actual
+interval count at depth at least $e$ is at most
+$3\varphi(d)(B/q^e+1)$. Sum from $e=1$, with the cap
+$\lfloor3d\log(6B+1)/\log q\rfloor$ from \eqref{fml-heights}.
+The full first-depth contribution, summed over the actual block, is
+at most
+\begin{equation}\label{fml-prime-rank}
+ \frac{3\varphi(d)B\log q}{q-1}
+                      +9\varphi(d)d\log(6B+1).
+\end{equation}
+This remains valid if the cap is zero; no actual simplicity of depth
+is assumed.
+
+Eligible primes have $q=3dj+1$ or $q=3dj-1$, $j\ge1$.
+In the first progression $1/(q-1)=1/(3dj)$; in the second it is
+at most $1/(dj)$, since $3dj-2\ge dj$. All relevant $j$ are at
+most $Z$, and the harmonic sum gives
+\[
+ \sum_{\substack{q\le Z\\q\text{ eligible at }d}}
+        \frac{\log q}{q-1}
+ \le\frac{2\log Z(1+\log Z)}d.
+\]
+The first part of \eqref{fml-prime-rank}, summed over $d\mid n$
+and divided by $Bn\log(3B)$, gives the first term of
+\eqref{fml-mean-bound}. We used $\varphi(d)/d\le1$.
+
+For the endpoint part, the previously stated Brun--Titchmarsh bound
+counts at most $4Z/[\varphi(3d)\log(Z/(3d))]$ eligible primes.
+Its premise holds for every divisor since $Z>3n$.
+Using $\varphi(3d)\ge2\varphi(d)$ gives a total endpoint cost at
+most $18Z\sigma(n)\log(6B+1)/\log(Z/(3n))$.
+Divide by $Bn\log(3B)$ and use $\log(6B+1)\le2\log(3B)$.
+Finally append the lifting contribution. All normalized costs are
+nonnegative, so the lower height in \eqref{fml-heights} is sufficient.
+This proves the theorem using actual interval counts.
+\end{proof}
+
+\begin{theorem}[Actual full mass beyond the all-index window]
+\label{fml-concentration}
+Let $n\to\infty$ through all positive integers, and put
+\[
+ B=n^4,\qquad
+ Z=\left\lfloor\frac{B\sqrt{\log n}}{1+\log\log n}\right\rfloor,
+ \qquad \eta_n=(\log n)^{-1/4}.
+\]
+There are absolute constants $C,N$ such that for every $n\ge N$,
+\begin{equation}\label{fml-all-prime-mean}
+ \frac1B\sum_{B\le k<2B}
+    \frac{\displaystyle\sum_{q\le Z}v_q(T_n(k))\log q}{t_k}
+ \le C(\log n)^{-1/2}.
+\end{equation}
+This sum includes $q=2,3$. Outside a proportion at most $C\eta_n$
+of the actual roots,
+\begin{equation}\label{fml-tail-three}
+ 3-A_1\frac{\log(4n)}n-\eta_n
+ \le\frac{\displaystyle\sum_{q>Z}v_q(T_n(k))\log q}{t_k}
+ \le3.
+\end{equation}
+If $n$ tends to infinity through primes at least five, the mass
+restricted further to exact rank $n$ obeys, on that same set,
+\begin{equation}\label{fml-top-three}
+ \frac{\displaystyle\sum_{\substack{q>Z\\d_q(k)=n}}
+                    v_q(T_n(k))\log q}{t_k}\longrightarrow3.
+\end{equation}
+At these primes the valuation is exactly the first depth.
+\end{theorem}
+\begin{proof}
+The elementary inequality $\tau(n)\le2\sqrt n$ makes the first
+term in \eqref{fml-mean-bound} $O(\log n/\sqrt n)$.
+Lemma~\ref{aw-sigma} bounds $\sigma(n)/n$ by
+$e^{18}(1+\log\log n)$; its extra factor is canceled by the same
+factor in the denominator of $Z/B$. Since
+$\log(Z/(3n))\sim3\log n$, the endpoint term is
+$O((\log n)^{-1/2})$, and the lifting term is $O(1/n)$.
+
+The all-prime theorem with unit residual and $\lambda=1/n$ gives
+\[
+ \frac{v_2(T_n)\log2+v_3(T_n)\log3}{t_k}
+ \le A_2(4\log2+9\log3)\frac{\log^2(4n)}n.
+\]
+Sector normalization meets its positive-coordinate domain and preserves
+these valuations and the height. This proves
+\eqref{fml-all-prime-mean}. Markov's inequality at $\eta_n$ leaves
+at most the stated exceptional proportion. For every remaining root,
+subtract its complete small-prime mass from
+\[
+ \frac{\log T_n}{t_k}=3-\frac{\Delta_n}{t_k},\qquad
+ 0\le\frac{\Delta_n}{t_k}\le A_1\frac{\log(4n)}n.
+\]
+This proves \eqref{fml-tail-three}.
+
+When $n$ is prime, only ranks one and $n$ occur. Above $Z>3n$
+there is no exponent lifting. The rank-one full mass is bounded by
+$\log T_1(k)$, and
+\[
+ \frac{\log T_1(k)}{t_k}
+ \le\frac{(3/2)\log Q_k}{(n/2)\log Q_k}=\frac3n.
+\]
+Removing it from \eqref{fml-tail-three} proves
+\eqref{fml-top-three}, uniformly on the nonexceptional set.
+\end{proof}
+
+This locates the main amount of integer boundary size in the actual
+remaining tail. At prime index, it is the first-depth top-rank packet,
+not an old lower-rank contribution. It does not supply a lower bound
+on the signed cost: a prime of depth one contributes positive full
+mass but signed credit $-2\log q$. Almost all the mass above the
+window could have that useful shallow form. Neither its radical nor
+its deep private owners are controlled by the theorem.
+
+The proof is an ordinary analytic argument using the established
+actual rank/lifting counts, the Brun--Titchmarsh estimate already
+used in Theorem~\ref{sw-estimate}, and the two-place theorem only
+for the fixed primes two and three and the archimedean place.
+It uses no modularity or probabilistic independence and is not a
+claim of a Lean formalization. Exceptional roots and the net signed
+tail remain open.
