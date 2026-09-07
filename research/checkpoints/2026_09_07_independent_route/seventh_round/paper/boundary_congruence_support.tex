@@ -1,0 +1,197 @@
+\section{Boundary congruences force pure norms and moving Frobenius support}
+\label{bc-section}
+
+This section assumes an actual isomorphism of residual Galois modules.
+Its arithmetic and density conclusions do not require an eigenform
+identification. The final corollary separately uses the boundary orbit
+identified in Theorem~\ref{bm-orbit}. No existence of such a congruence,
+uniform point-height theorem, or Frey--Mazur statement is assumed.
+
+Put $K=\mathbb Q(r)$, $r^2=-3$, and write
+\[
+ F=a^4+3a^3b+5a^2b^2+3ab^3+b^4,\qquad
+ x=a^2+b^2,\quad y=a+b,
+\]
+\[
+ E_{a,b}:Y^2=X^3+12yX^2+6(3y^2+xr)X,
+ \qquad E_0=E_{0,1}.
+\]
+The local results of Section~\ref{fm-section} give the following actual
+seed facts. For coprime positive $a,b$, $F$ is prime to $6$, each
+rational prime $q\mid F$ splits in $K$, and both places are
+multiplicative with minimal discriminant valuations $m,2m$, where
+$m=v_q(F)$. The fixed curve $E_0$ has good reduction above every
+$q>3$ and no geometric CM, as proved in the boundary section.
+
+\begin{theorem}[A boundary congruence forces a pure norm]\label{bc-pure}
+Let $p>7$ be prime, let $a,b$ be coprime positive integers, and let
+$\nu$ be a quadratic character of $G_K$ unramified outside the primes
+over $6$, including the trivial character. Suppose
+\begin{equation}\label{bc-module}
+ E_{a,b}[p]\otimes\overline{\mathbb F}_p
+ \simeq (E_0[p]\otimes\overline{\mathbb F}_p)\otimes\nu
+ \quad\text{as }G_K\text{-modules}.
+\end{equation}
+Then $F(a,b)=Q^p$ for an integer $Q>1$. Every prime $q\mid Q$ satisfies
+\begin{equation}\label{bc-cutoff}
+ q\ge(\sqrt p-1)^2.
+\end{equation}
+For $q\ne p$, at either place of $K$ above $q$, let $t_q$ be the
+trace of $E_0$ over $\mathbb F_q$. Then
+\begin{equation}\label{bc-trace-divisor}
+ p\mid(q+1)^2-t_q^2.
+\end{equation}
+In addition, neither $7$ nor $13$ divides $Q$.
+\end{theorem}
+\begin{proof}
+For $q\mid F$ with $q\ne p$, the boundary representation and its
+allowed quadratic twist are unramified. At a multiplicative place the
+Tate representation modulo $p$ is unramified exactly when the valuation
+of its Tate parameter is divisible by $p$. Its valuations here are
+$m,2m$, and $p$ is odd. Thus \eqref{bc-module} forces $p\mid m$.
+
+If $p\mid F$, the prime $p$ splits in $K$ and both completions are
+$\mathbb Q_p$. The good boundary representation has Serre weight $2$;
+the unramified character $\nu$ does not change this inertia condition.
+For a multiplicative elliptic curve over $\mathbb Q_p$, the semistable
+weight formula of \cite[\S2.9, Proposition~5]{Serre1987Modular} gives
+weight $2$ exactly when $p$ divides the negative valuation of $j$.
+These negative valuations are $m,2m$, so again $p\mid m$.
+Equivalently, the full local representation retains its finite-flat
+property under the isomorphism. This argument concerns the full
+representations, rather than only local semisimplified traces, and is
+unchanged after extending the coefficient field.
+
+Every prime valuation of $F$ is now a multiple of $p$. Since $F\ge13$,
+unique factorization gives $F=Q^p$ with $Q>1$.
+For a divisor $q\ne p$, the unramified residual Tate representation
+has trace $\pm(q+1)$. The additional sign of $\nu$ is absorbed in
+this sign, so $t_q\equiv\pm(q+1)\pmod p$, proving
+\eqref{bc-trace-divisor}. The Hasse bound makes the corresponding
+integer difference nonzero and gives
+\[
+ p\le |t_q\mp(q+1)|\le q+1+2\sqrt q=(\sqrt q+1)^2.
+\]
+This is \eqref{bc-cutoff}. If $q=p$, that cutoff holds directly;
+no unramified Frobenius assertion at $p$ is used.
+The actual depth-one theorem at $13$ excludes $13\mid Q$.
+Complete boundary point counts at $7$ give $t_7=\pm4$, so
+$p\mid 8^2-4^2=48$ would be necessary if $7\mid Q$. This is
+impossible for $p>7$.
+\end{proof}
+
+\begin{lemma}[An exact Frobenius count]\label{bc-count}
+For an odd prime $p$, put
+\[
+ C_p=\{A\in\operatorname{GL}_2(\mathbb F_p):
+             (\operatorname{tr}A)^2=(\det A+1)^2\}.
+\]
+Then
+\begin{equation}\label{bc-count-formula}
+ |C_p|=p(2p^2-p-5),\qquad
+ \frac{|C_p|}{|\operatorname{GL}_2(\mathbb F_p)|}
+ =\frac{2p^2-p-5}{(p-1)^2(p+1)}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The equation $\operatorname{tr}A=\det A+1$ means that $1$ is an
+eigenvalue. For each other eigenvalue $u\in\mathbb F_p^*\setminus\{1\}$,
+the class of $\operatorname{diag}(1,u)$ has size $p(p+1)$; there
+are $p-2$ choices. With repeated eigenvalue $1$, the identity and the
+nontrivial unipotent class together have size $p^2$. Thus the number
+of matrices with eigenvalue $1$ is
+\[
+ (p-2)p(p+1)+p^2=p(p^2-2).
+\]
+Negation gives the same count for eigenvalue $-1$. Their intersection
+is exactly the class of $\operatorname{diag}(1,-1)$, of size $p(p+1)$.
+Inclusion--exclusion gives the first formula, and the second follows
+from $|\operatorname{GL}_2(\mathbb F_p)|=p(p-1)^2(p+1)$.
+\end{proof}
+
+\begin{theorem}[Density of the permitted support]\label{bc-density}
+Fix an odd prime $p$ for which the residual image of $E_0$ over $K$
+is $\operatorname{GL}_2(\mathbb F_p)$. Among the good prime ideals
+away from $p$, let $S_p$ consist of those whose residue-field order
+$n$ and trace $t$ satisfy $t^2\equiv(n+1)^2\pmod p$.
+Then $S_p$ has natural density
+\begin{equation}\label{bc-density-formula}
+ \delta_p=\frac{2p^2-p-5}{(p-1)^2(p+1)}
+\end{equation}
+among the prime ideals of $K$, ordered by norm. The corresponding
+permitted split rational primes have natural density $\delta_p/2$
+among all rational primes. The full-image hypothesis holds for every
+sufficiently large $p$, with no effective threshold asserted here;
+along those primes, $\delta_p\sim2/p$.
+\end{theorem}
+\begin{proof}
+In $K(E_0[p])/K$, Frobenius has trace $t$ and determinant $n$ modulo
+$p$. The condition defining $C_p$ is conjugacy invariant. Chebotarev
+natural density, in the form of \cite[Definition~8.30 and
+Theorem~8.31]{MilneANT2020}, and Lemma~\ref{bc-count} give
+\eqref{bc-density-formula}.
+
+At a split rational prime, the traces at the two places have the same
+square. Indeed, the explicit two-isogeny relates $E_0$ to the
+$(-2)$-twist of its conjugate, so these traces differ by the quadratic
+sign $(-2/q)$. Hence both places are permitted or neither is.
+Prime ideals above inert rational primes counted up to norm $X$ make
+only an $O(\sqrt X)$ contribution. Each permitted split rational
+prime contributes two prime ideals, giving density $\delta_p/2$
+among rational primes. The split primes themselves have density $1/2$.
+
+Finally $E_0$ has no geometric CM. Serre's open-image theorem gives
+full mod-$p$ image over the fixed number field for all but finitely
+many $p$; see \cite[pp.~259--260, assertions (3), (6), (7)]{Serre1972OpenImage}.
+The displayed expression for $\delta_p$ has the stated asymptotic.
+\end{proof}
+
+These density assertions concern each fixed $p$. They provide no
+Chebotarev error bound uniform in $p$ and the norm cutoff. For every
+fixed sufficiently large $p$, the permitted support still has positive
+density and is infinite. The allowed twists $\nu$ only change traces
+by sign away from $6p$, so this support set is unchanged; no image
+threshold uniform over varying twists is required. Under
+\eqref{bc-module}, every prime divisor other than possibly $p$ belongs
+to this permitted split support and also satisfies \eqref{bc-cutoff}.
+Neither restriction alone excludes all prime factors of a polynomial
+value from lying in that support.
+
+\begin{corollary}[All embeddings of the boundary orbit]\label{bc-orbit}
+Suppose the descended residual representation of a coprime positive
+seed, at a prime $p>7$, is congruent to any coefficient embedding of
+the level-$576$ boundary orbit identified in Theorem~\ref{bm-orbit}.
+Then $F(a,b)$ is a pure $p$-th power and satisfies the support
+conditions of Theorem~\ref{bc-pure}. In particular, in the canonical
+decomposition $F=VQ^p$ with $V$ $p$-power-free, that orbit cannot
+occur when $V>1$.
+\end{corollary}
+\begin{proof}
+The specified order-four character in the descent is $\chi$.
+Compatibility and the algebraic Frobenius identities of the boundary
+identification show that restriction to $G_K$ compares
+$E_{a,b}[p]\otimes\chi$ with $E_0[p]\otimes\chi^\sigma$.
+This comparison uses the compatible representations, not finitely
+many coefficient values. The checked large-image input gives absolute
+irreducibility for the actual representation, so the resulting
+semisimplified isomorphism is the full module isomorphism needed above.
+An embedding either fixes or inverts the values of $\chi$, and hence
+\[
+ \chi^\sigma/\chi\in\{1,\chi^{-2}\}
+       =\{1,\psi_3|_{G_K}\}.
+\]
+Both possibilities are quadratic and unramified outside $6$.
+Cancelling the specified $\chi$ therefore gives
+\eqref{bc-module}, possibly with its nontrivial quadratic twist.
+Theorem~\ref{bc-pure} applies. This does not exclude the pure branch.
+\end{proof}
+
+\paragraph{Verification and remaining scope.}
+The ordinary proofs have independent reviews. Exact standard-library
+replay exhausts all matrices for $p=3,5,7,11,13,17,19$ and all points
+of the eight boundary reductions over $q=7,13,19,31$. The general
+matrix formula is proved above; the finite checks supplement it.
+The local trace divisibility test always retains the condition $q\ne p$.
+The orbit corollary has the additional modular-identification dependency
+stated in its hypothesis. No Lean formalization of the Tate, Serre,
+Chebotarev or modular comparison theorems is asserted by these checks.

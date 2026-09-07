@@ -1,0 +1,67 @@
+\section{The homogeneous integer conclusion}
+\label{im-section}
+
+The integral map in Lemma~\ref{q13-integral-map} has only the
+nonzero difference $c=a-b$ as a denominator condition. It therefore
+gives the following stronger domain statement, beyond positive primitive
+seeds.
+
+\begin{corollary}[All integer points of the thirteen square class]
+\label{im-all-integers}
+For arbitrary integers $a,b,s$,
+\[
+ F(a,b)=13s^2\quad\Longleftrightarrow\quad
+ a=b\ \text{ and }\ (s=a^2\ \text{ or }\ s=-a^2).
+\]
+\end{corollary}
+\begin{proof}
+If $a\ne b$, Lemma~\ref{q13-integral-map} contradicts
+Lemma~\ref{q13-group}. Otherwise $F(a,a)=13a^4$, and
+$(s-a^2)(s+a^2)=0$ gives the two signs. The converse follows by
+substitution, including $a=b=s=0$.
+\end{proof}
+
+\section{Formal scope of the square gap and integral bridge}
+\label{seventh-formal-scope}
+
+Two new modules contain 23 declarations accepted by a fresh scoped Lean
+4.32.0 build. The same build recompiles 65 unchanged dependency
+declarations, with warnings treated as errors and an axiom inventory for
+every declaration. Only \texttt{propext}, \texttt{Classical.choice} and
+\texttt{Quot.sound} occur. This is a scoped build, not a full repository
+build.
+
+\texttt{SquareGapArithmetic} contains 16 declarations. It proves the
+actual polynomial gap, transfers the modulo-eight residue table to all
+primitive integer seeds, establishes positivity and the required integer
+square separation, and concludes, for arbitrary signed integer $q$,
+\[
+ a,b>0,\quad \gcd(a,b)=1,\quad F(a,b)=q^2
+ \quad\Longrightarrow\quad
+ 2a<3b^3,\quad 2b<3a^3,\quad a,b>1.
+\]
+The gap is derived from the actual power equation; it is not an extra
+hypothesis. The sharper residue-dependent coefficient $2r$ in the
+ordinary argument is not claimed as the conclusion of this module.
+
+\texttt{ThirteenMapArithmetic} contains seven declarations: the three
+integral identities above, the actual weighted curve equation,
+nonvanishing of $U$, construction of a nontrivial integral point, and
+an explicitly conditional diagonal consequence. The final theorem takes
+the following antecedent as an ordinary theorem parameter:
+\[
+ \forall U,V,c\in\mathbb Z,\quad c\ne0,\quad
+ V^2=U^3-13U^2c^2-507Uc^4\ \Longrightarrow\ U=0.
+\]
+It does not declare that antecedent as an axiom or prove it. The passage
+to rational coordinates and the elliptic group, isogeny descent,
+Mordell--Weil and torsion arguments are not formalized by these seven
+declarations. Thus the complete thirteen-square-class classification
+has an independently reviewed ordinary proof, while its integral bridge
+has the stated narrower formal verification.
+
+The sieved interval estimate, effective affine-slice theorems, boundary
+modularity, residual support and density arguments retain their named
+external inputs. None of the new modules proves the large-prime tail,
+a uniform actual-point height bound, candidate elimination in all
+residual classes, or standard ABC.

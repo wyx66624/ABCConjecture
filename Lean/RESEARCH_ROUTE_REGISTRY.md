@@ -1,5 +1,24 @@
 # Research route registry
 
+Latest seventh continuation: September 7, 2026. Exact actual interval
+counts combined with Brun--Titchmarsh reach beyond the root-block length
+on specified exponent subclasses. Effective three-chart bounds constrain
+all global powers on fixed affine slices. Elementary square-axis bounds
+have complete scoped Lean proofs. A separate ordinary two-isogeny descent
+closes the whole actual residual square class thirteen, including the
+complete homogeneous integer classification. Only its integral map has
+the stated narrower formal verification.
+
+The fixed boundary descent is identified by an ordinary modularity and
+conductor argument before using a complete exact newspace enumeration.
+Congruence to any embedding of its 576 orbit forces the pure-power branch
+and a moving Frobenius support condition, without constructing a congruence
+or ruling out all pure powers. These results retire only the displayed
+class-thirteen non-diagonal claim. Other residual classes, odd exponents,
+moving slices, exceptional roots and the complete signed tail remain active.
+Twenty-three new scoped Lean declarations are separate from the full
+ordinary elliptic, modular and effective Diophantine arguments.
+
 Latest sixth continuation: September 7, 2026. Actual integer-root interval
 averages now reach growing prime windows using exact rank stratification.
 The exceptional roots and unbounded prime tail stay open. A compatible

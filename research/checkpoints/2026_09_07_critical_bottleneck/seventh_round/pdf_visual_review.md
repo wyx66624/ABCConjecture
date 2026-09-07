@@ -1,0 +1,5 @@
+# Actual seventh-round PDF visual review
+
+Reviewer: critical_bottleneck, 2026-09-07. I actually opened all three PNG images with `view_image`: `tmp/abc_20260907/round7pdf/page-418.png`, `page-419.png` and `page-420.png`. This was a visual inspection of rendered pages, not only a log or text-extraction check.
+
+All three pages PASS layout and mathematical transcription. Page 418 displays the sieved actual estimate, the uniform Brun--Titchmarsh denominator, constants 36 and 18, the Markov corollary, and the unresolved tail scope without clipping or overflow. Page 419 includes the explicit integer domains, both affine polynomial charts, the effective exponent and finiteness arguments, and the complete residue-sensitive square-gap statement. The statement ends legibly at the page boundary and its proof begins on page 420. Page 420 shows the full square-gap proof, the q>0 diagonal proposition and its finite divisor classification, and a clear transition into the boundary-modularity section. Proof labels, QED marks, displayed formulas, references and margins are present and readable. No correction was requested.

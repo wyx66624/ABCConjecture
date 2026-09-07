@@ -1,5 +1,35 @@
 # Research status
 
+## September 7, 2026: boundary descent, square gaps and effective escape
+
+Standard ABC remains unproved and undisproved. The seventh continuation
+proves an actual sieved interval estimate beyond the root-block length for
+specified exponent subclasses, while retaining the large-prime tail and
+exceptional roots. Effective Diophantine inputs give a three-chart exponent
+bound and global finiteness on fixed affine slices. The actual square class
+also has explicit axis inequalities.
+
+The specified non-CM boundary descent now has an ordinary modularity and
+conductor proof; the previously complete exact newspace enumeration then
+identifies its level-576 orbit. Residual congruence to any embedding of that
+orbit, including its possible quadratic character twist, forces a pure norm
+with explicit moving prime-support restrictions. No such congruence or pure
+power family is constructed. Sparse allowed support alone is not exclusion.
+
+An independent ordinary rational two-isogeny descent proves that
+F(a,b)=13s^2 has only a=b and s=+/-a^2 over all integers. For primitive
+positive seeds this means only (1,1,+/-1). This closes exactly the residual
+square class thirteen and leaves other classes and odd exponents active.
+
+Fresh scoped Lean verification accepts 23 new and 65 unchanged dependency
+declarations. Sixteen prove actual square-gap inequalities, including
+2a<3b^3 and its symmetric version and both coordinates greater than one.
+Seven verify the integral thirteen-twist map and its nonzero point, with
+an explicit obstruction premise in the final conditional diagonal theorem.
+The elliptic group classification, modularity, analytic and transcendence
+inputs remain ordinary proofs. Neither full Q13 nor ABC is formalized by
+those modules. See `../research/checkpoints/2026_09_07_boundary_descent/`.
+
 ## September 7, 2026: actual intervals, compatible quartics and modular budgets
 
 Standard ABC remains unproved and undisproved. The sixth continuation bounds

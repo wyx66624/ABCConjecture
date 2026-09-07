@@ -1,0 +1,177 @@
+\section{Complete classification of the residual square class thirteen}
+\label{q13-section}
+
+The following closes one actual nonunit residual class. It is independent
+of the modular candidate enumeration and does not assert uniformity over
+moving residual classes or exponents. The rank conclusion below is proved
+by explicit descent; a preliminary software rank calculation is not an
+input to the proof.
+
+\begin{lemma}[The required rational elliptic group]\label{q13-group}
+For
+\[
+ E:\quad Y^2=X^3-13X^2-507X
+\]
+one has $E(\mathbb Q)=\{O,(0,0)\}$.
+\end{lemma}
+\begin{proof}
+Its rational two-isogenous curve is
+\[
+ E':\quad Y^2=X^3+26X^2+2197X.
+\]
+Use the explicit descent of \eqref{qg-isogeny}--\eqref{qg-covering-quartic}.
+For $Y^2=X^3+AX^2+BX$, the homomorphism to rational square classes
+has values $1$ at $O$, $B$ at $(0,0)$, and $X$ elsewhere.
+Its kernel is the image of the dual isogeny. Every nonexceptional
+image class is represented by a signed square-free divisor $d$ of $B$
+with a cover
+\begin{equation}\label{q13-cover}
+ N^2=dU^4+AU^2V^2+(B/d)V^4,\qquad \gcd(U,V)=1.
+\end{equation}
+These statements include the exceptional points: the dual preimage of
+$(0,0)$ exists exactly when $B$ is a square. They follow from the
+explicit isogeny and substitution $X=d(U/V)^2$, as in the earlier
+ordinary descent proof.
+
+For $E$, the candidate classes are $\pm1,\pm3,\pm13,\pm39$.
+The classes $1,-3$ occur at $O,(0,0)$. Multiplication by $-3$ pairs
+the other classes, so it suffices to exclude $-1,13,-13$.
+For $d=-1$, the cover is
+\[
+ N^2=-U^4-13U^2V^2+507V^4.
+\]
+Coprimality leaves the following exhaustive possibilities modulo $16$:
+\[
+\begin{array}{c|c}
+ \text{parity}&\text{right side modulo }16\\\hline
+ U\text{ odd},\ V\text{ even}&15,11\\
+ U\text{ even},\ V\text{ odd}&11,7\\
+ U,V\text{ odd}&13,5
+\end{array}
+\]
+None is a square residue.
+
+For $d=13$, the cover gives
+$N^2=13(U^4-U^2V^2-3V^4)$, so $13\mid N$ and
+$U^4-U^2V^2-3V^4\equiv0\pmod{13}$. If $13\mid V$, then also
+$13\mid U$, a contradiction. Otherwise $z=(U/V)^2$ modulo $13$
+satisfies
+\[
+ z^2-z-3=(z-7)^2\equiv0\pmod{13},
+\]
+but $7$ is not a square modulo $13$. The class $d=-13$ similarly
+forces $z^2+z-3=(z-6)^2\equiv0$, and $6$ is not a square either.
+Thus the image is exactly $\alpha(E)=\{1,-3\}$.
+
+On $E'$, the quadratic factor
+$X^2+26X+2197=(X+13)^2+2028$ is positive, so every affine
+point with $X\ne0$ has positive $X$. The signed-divisor test for $2197=13^3$
+leaves only classes $1,13$, both attained by $O$ and
+$T'=(0,0)$. Hence $\alpha'(E')=\{1,13\}$.
+Writing the isogenies as $\phi:E\to E'$ and $\psi:E'\to E$,
+every $P'\in E'(\mathbb Q)$ has either $P'$ or $P'+T'$ in
+$\ker\alpha'=\phi(E(\mathbb Q))$. Since $\psi(T')=O$ and
+$\psi\phi=[2]$, this proves
+\[
+ \psi(E'(\mathbb Q))=2E(\mathbb Q),\qquad
+ \ker\alpha=2E(\mathbb Q),\qquad
+ [E(\mathbb Q):2E(\mathbb Q)]=2.
+\]
+There is exactly one nonzero rational point of order two: the other
+quadratic factor has discriminant $2197$, a nonsquare. Mordell--Weil
+finite generation therefore identifies this index as $2^{\operatorname{rank}E+1}$,
+giving rank zero.
+
+The discriminant $16\cdot507^2\cdot2197$ has support in $\{2,3,13\}$.
+At the good primes $5,7$, complete counts of affine ordinates at
+successive abscissas are
+\[
+ (1,2,0,2,0),\qquad (1,0,0,0,0,2,0).
+\]
+Including infinity gives orders $6$ and $4$. Good-reduction injection
+on prime-to-residue-characteristic torsion shows that the rational
+torsion order divides $2$: its $5$-primary part is excluded at $7$,
+its $7$-primary part at $5$, and every other primary part divides both
+orders. The known point $(0,0)$ gives equality. This proves the lemma.
+The finite-generation and torsion-injection inputs are the standard
+ones already specified in the preceding descent section.
+\end{proof}
+
+\begin{lemma}[An integral map to the thirteen twist]\label{q13-integral-map}
+For arbitrary integers $a,b,s$, put
+\[
+ c=a-b,\quad y=a+b,\quad A=7a^2+12ab+7b^2,
+ \qquad U=13(A-26s),\quad V=13Uy.
+\]
+Then
+\begin{align}
+ A^2+3c^4&=52F(a,b),&c^2+13y^2&=2A,\label{q13-integral-basic}\\
+ V^2-U^3+13U^2c^2+507Uc^4
+   &=8788U\bigl(F(a,b)-13s^2\bigr).\label{q13-integral-cubic}
+\end{align}
+If $F(a,b)=13s^2$ and $c\ne0$, then $U\ne0$, and
+\[
+ (X,Y)=(U/c^2,V/c^3)
+\]
+is a finite rational point of $E$ with $X\ne0$.
+\end{lemma}
+\begin{proof}
+The first two identities follow by expansion. Factoring the left side
+of \eqref{q13-integral-cubic} by $U$, its bracket becomes
+\[
+ 169Uy^2-U^2+13Uc^2+507c^4
+ =26AU-U^2+507c^4
+ =169(A^2-676s^2+3c^4),
+\]
+which is $8788(F-13s^2)$ by \eqref{q13-integral-basic}.
+If $U=0$, then $A=26s$, and the first identity with $F=13s^2$
+forces $3c^4=0$, a contradiction. Dividing the resulting homogeneous
+cubic identity by $c^6$ proves the curve equation. The only denominator
+condition is $c\ne0$; there is no division by $a,b,s,A$ or $V$.
+\end{proof}
+
+\begin{theorem}[The actual thirteen-square class]\label{q13-classification}
+Let $a,b$ be coprime positive integers and let $s\in\mathbb Z$.
+Then
+\[
+ F(a,b)=13s^2
+ \quad\Longleftrightarrow\quad
+ a=b=1\ \text{ and }\ s\in\{-1,1\}.
+\]
+Consequently no such seed has $F=13Q^g$ with $Q>1$ and a positive
+even exponent $g$.
+\end{theorem}
+\begin{proof}
+If $a\ne b$, Lemma~\ref{q13-integral-map} gives a finite point of
+$E$ with nonzero $X$, contradicting Lemma~\ref{q13-group}.
+Thus $a=b$, and positivity and coprimality give $a=b=1$.
+Substitution gives $s^2=1$. The converse is direct. For the final
+assertion put $s=Q^{g/2}$; the classification gives $Q^{g/2}=1$,
+contrary to $Q>1$.
+\end{proof}
+
+\begin{corollary}[The homogeneous integer classification]\label{q13-all-integers}
+For arbitrary integers $a,b,s$,
+\[
+ F(a,b)=13s^2
+ \quad\Longleftrightarrow\quad a=b\ \text{ and }\ s\in\{-a^2,a^2\}.
+\]
+\end{corollary}
+\begin{proof}
+The integral map and rational group classification impose $a=b$
+without positivity or coprimality. Substitution gives $s^2=a^4$, hence
+$(s-a^2)(s+a^2)=0$. The converse follows by the same substitution,
+including $a=b=s=0$.
+\end{proof}
+
+\paragraph{Verification scope.}
+The three local descent exclusions, both good-prime point counts and
+the explicit rational map were independently reviewed. The integral
+map is a separately reviewed simplification whose sole denominator is
+$a-b$. Exact replay checks the polynomial identities and all admissible
+residue pairs and the original rational-map identities; it does not
+supply the elliptic group theorem by a rank database call. Scoped Lean
+verification of the integer identities and nonvanishing verifies that
+bridge, not Mordell--Weil, the two-isogeny descent, or the complete
+rational-point classification. The final Lean diagonal statement has
+the integral-point obstruction as an explicit hypothesis.

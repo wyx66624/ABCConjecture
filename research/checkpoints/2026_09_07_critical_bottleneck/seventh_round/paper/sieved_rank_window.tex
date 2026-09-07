@@ -1,0 +1,90 @@
+\section{A sieved endpoint for actual root intervals}
+\label{sw-section}
+
+For positive integers $n,B$ and $B\le k<2B$, put
+$w_k=3k+\zeta$, $T_n(k)=|P(w_k^n)|$, and let $t_k$ be the logarithm
+of the largest side of its primitive positive sector normalization.
+The preceding actual root-interval argument proves
+\[
+ t_k\ge n\log(3B),\qquad
+ \log|P(w_k^d)|\le3d\log(6B+1).
+\]
+For real $5\le Y\le Z$, write
+\[
+ E_{Y,Z}(k)=\sum_{Y<p\le Z}(v_p(T_n(k))-3)_+\log p.
+\]
+These are actual integer roots and valuations, not a uniform reference
+distribution substituted for a power orbit.
+
+\begin{theorem}[A sieved actual interval estimate]\label{sw-estimate}
+If $Z>3n$, and $\sigma(n)=\sum_{d\mid n}d$, then
+\[
+ \frac1B\sum_{B\le k<2B}\frac{E_{Y,Z}(k)}{t_k}
+ \le \frac{10\log Y}{Y^3\log(3B)}
+ +\frac{36Z\sigma(n)}{Bn\log(Z/(3n))}
+ +\frac{\log n}{n\log(3B)}.
+\]
+The middle term may also be replaced by its minimum with $12(Z+1)/B$.
+\end{theorem}
+\begin{proof}
+At an eligible prime of exact homogeneous rank $d\mid n$, the
+actual root count is $3\varphi(d)-\mathbf1_{d=1}$, and each root
+lifts uniquely. The first-depth positive cost summed over the interval
+is therefore at most
+\[
+ \frac{3\varphi(d)B\log p}{p^3(p-1)}
+       +9\varphi(d)d\log(6B+1).
+\]
+The first term follows by summing depth layers at least four; the
+second uses their actual polynomial-height cap. At a fixed prime,
+the sum of $\varphi(d)$ over eligible divisors of $n$ is at most $n$.
+The already proved elementary prime sum gives the first term of the
+asserted normalized estimate.
+
+For the endpoint term, a rank-$d$ prime lies in a reduced class
+$1$ or $-1$ modulo $3d$. The established Brun--Titchmarsh inequality
+gives, for $X>q$ and $(a,q)=1$,
+\[
+ \pi(X;q,a)\le\frac{2X}{\varphi(q)\log(X/q)}.
+\]
+The precise source is Montgomery--Vaughan, \emph{The large sieve},
+Theorem~2, printed page~121, equation~(1.10), in the
+\href{https://personal.science.psu.edu/rcv4/personal/Publications/large_sieve.pdf}{author-hosted primary paper}.
+Its interval form gives the displayed version by taking the left
+endpoint down to zero. The bound is uniform for $X>q$.
+Thus the two classes through $Z$ contain at most
+$4Z/(\varphi(3d)\log(Z/(3d)))$ primes. Since $Z>3n$ and
+$\varphi(3d)\ge2\varphi(d)$, their total endpoint cost is at most
+\[
+ 36Z\log(6B+1)\sum_{d\mid n}
+ \frac{d\varphi(d)}{\varphi(3d)\log(Z/(3d))}
+ \le\frac{18Z\sigma(n)\log(6B+1)}{\log(Z/(3n))}.
+\]
+Divide by $Bn\log(3B)$ and use $6B+1\le(3B)^2$.
+The actual additional lifting cost is at most $\log n$ at each root,
+by $(s+u-3)_+\le(s-3)_++u$ and $\sum_pv_p(n)\log p=\log n$.
+This proves the estimate. Minimizing with the previously proved
+unsieved endpoint bound gives the last assertion.
+\end{proof}
+
+\begin{corollary}[A window beyond the root-interval length]\label{sw-beyond}
+Let $n\to\infty$ with $\sigma(n)/n\le C$ for a fixed constant.
+Set $B=n^4$, $Y=n^{1/6}$ and $Z=\lfloor B\sqrt{\log n}\rfloor$.
+Then the mean in Theorem~\ref{sw-estimate} is
+$O_C((\log n)^{-1/2})$, and the proportion exceeding
+$(\log n)^{-1/4}$ is $O_C((\log n)^{-1/4})$.
+\end{corollary}
+\begin{proof}
+The first and last terms are at most $5/(12\sqrt n)$ and $1/(4n)$.
+Furthermore
+$\log(Z/(3n))=3\log n+\tfrac12\log\log n-\log3+o(1)$.
+This bounds the middle term as asserted. Apply Markov's inequality
+to the nonnegative actual cost.
+\end{proof}
+
+Prime-power indices satisfy the divisor-sum hypothesis with $C=2$.
+Here $Z/B\to\infty$; for prime indices the window extends beyond the
+first possible top-rank progression, without asserting that it contains
+a prime. Every prime above $Z$ and every exceptional root remain
+uncontrolled. No estimate for a prescribed root's full signed packet
+has been deduced from this average.

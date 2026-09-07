@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, actual integer-root intervals, compatible
-quartic covers, Frey modular budgets and scoped actual-seed arithmetic.
+**Last synchronized:** 2026-09-07, actual sieved intervals, effective affine
+escape, boundary modular identification and complete ordinary thirteen descent.
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -33,6 +33,28 @@ rigorous complete-premise disproof.
 
 ## Shared exponent generators: September 7 positive frontier
 
+- [x] Combine actual rank counts with Brun--Titchmarsh to extend controlled
+  windows beyond the root-block length for bounded sigma(n)/n subclasses.
+- [ ] Control the entire signed top-rank packet at prescribed actual roots;
+  growing finite windows and density-one statements do not settle this.
+- [x] Derive an effective three-chart exponent bound and global finiteness
+  on fixed affine slices for every fixed residual V and all exponents g>=2.
+- [ ] Control moving slices and residuals with log V=o(g) uniformly; the
+  three-chart logarithmic exponent bound is insufficient in that full regime.
+- [x] Prove ordinary boundary modularity and conductor, then identify its
+  576 orbit through the already complete exact newspace enumeration.
+- [x] Handle all embeddings, retaining the possible quadratic character
+  twist; a boundary residual congruence forces a pure norm and a moving
+  Frobenius support condition with a lower prime cutoff.
+- [ ] Exclude the remaining actual pure branch and other modular candidates;
+  sparse allowed support by itself does not exclude polynomial values.
+- [x] Classify the entire actual thirteen-square class by ordinary elliptic
+  descent: all integer solutions have a=b and s=+/-a^2. Only this class closes.
+- [x] Kernel-check the actual square-axis inequalities and integral thirteen
+  map, with the elliptic point obstruction explicitly a conditional parameter.
+- [ ] Formalize the separate elliptic group classification if upgrading the
+  complete ordinary Q13 theorem to a full Lean theorem.
+
 - [x] Prove actual integer-root prime-window averages with exact rank counts
   and forced progressions, removing an exponent loss from endpoint errors.
 - [ ] Control exceptional individual roots and primes beyond those windows.
@@ -45,8 +67,9 @@ rigorous complete-premise disproof.
 - [ ] Exclude the remaining modular candidates with all actual-seed conditions.
 - [x] Prove the non-CM boundary and its unbounded actual local shadows; derive
   failure of the specified Mazur product conditional on boundary membership.
-- [ ] Identify that specified boundary descent globally in its candidate
-  newspace; finite coefficient agreement alone is insufficient.
+- [x] Identify that specified boundary descent globally in its candidate
+  newspace using the seventh-round ordinary membership proof and complete
+  exact enumeration; finite coefficient agreement alone is insufficient.
 - [x] Kernel-check 18 actual-seed identities and primitive arithmetic claims,
   separately from the full ordinary geometric and modular arguments.
 

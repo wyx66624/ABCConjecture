@@ -1,0 +1,75 @@
+\section{Elementary gaps between actual norm squares}
+\label{sgap-section}
+
+The following bounds are elementary restrictions on particular residual
+square classes. They use actual polynomial identities and integer
+square gaps, with no probabilistic transfer.
+
+\begin{theorem}[A residue-sensitive axis gap]\label{sgap-axis}
+Let $a,b$ be positive coprime integers and $F(a,b)=q^2$, $q>0$.
+Put $S=8a^2+12ab+11b^2$ and let $r\in\{1,\ldots,8\}$ be its
+least positive residue modulo eight. Then
+\[
+ 2ra<9b^3,\qquad
+ \max\{a,b\}<\tfrac32\min\{a,b\}^3.
+\]
+In particular no such seed has $\min\{a,b\}=1$.
+\end{theorem}
+\begin{proof}
+Expansion gives
+\[
+ D:=S^2-64F=72ab^3+57b^4>0.
+\]
+Thus $8q<S$, and congruence modulo eight gives $8q\le S-r$.
+Both sides are nonnegative, so $D\ge r(2S-r)$. If $2ra\ge9b^3$,
+then $72ab^3\le16ra^2$ and $24rab\ge108b^4$, giving
+\[
+ r(2S-r)-D\ge51b^4+22rb^2-r^2>0
+\]
+because $b\ge1$ and $r\le8$. This is a contradiction. For odd $b$,
+$S\equiv4a+3\pmod8$, so $r=3$ or $7$. For even $b$, primitivity
+forces $a$ odd, giving $r=4$ or $8$. Hence $r\ge3$ and $2a<3b^3$;
+interchange $a,b$. If the minimum is one, the bound forces both to
+be one, whereas $F(1,1)=13$ is not a square.
+\end{proof}
+
+This applies to every actual even exponent with a square residual,
+and in particular to pure even powers. It gives an explicit finite
+axis search bound, while remaining compatible with the earlier
+infinite family of positive square second norms.
+
+\begin{proposition}[A complementary diagonal identity]\label{sgap-diagonal}
+Let $a,b$ be positive coprime integers and $F(a,b)=13q^2$ with $q>0$.
+If $c=a-b\ne0$, then
+\[
+ 52ab+14c^2+1\le3c^4.
+\]
+For each fixed nonzero $c$, all positive solutions in this square
+class admit a finite exact divisor parametrization.
+\end{proposition}
+\begin{proof}
+Set $A=7a^2+12ab+7b^2=26ab+7c^2$. The exact identity
+\[
+ 52F=A^2+3c^4
+\]
+gives $(26q-A)(26q+A)=3c^4$. The smaller factor is positive, so
+the difference of squares is at least $2A+1$, proving the inequality.
+
+For completeness, choose positive divisor pairs $d_1<d_2$ of $3c^4$.
+Retain only integral positive
+\[
+ q=(d_1+d_2)/52,\qquad A=(d_2-d_1)/2,
+ \qquad u=(A-7c^2)/26.
+\]
+Require $c^2+4u=h^2$ for a positive integer $h>|c|$ with $h-c$ even.
+Then $a=(h+c)/2$, $b=(h-c)/2$ give exactly all positive solutions;
+impose their gcd condition if desired. Indeed these tests are precisely
+$a-b=c$, $ab=u$ and the displayed difference of squares. Conversely
+each solution supplies $d_1=26q-A$, $d_2=26q+A$.
+\end{proof}
+
+The diagonal identity and its divisor classification remain useful
+explicit arithmetic even if a separate global argument further
+restricts that square class. These gap arguments alone assert neither
+such a global exclusion nor control of odd exponents, arbitrary
+residual classes, or a full signed top-rank packet.

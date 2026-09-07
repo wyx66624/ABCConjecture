@@ -1,0 +1,39 @@
+{
+  "status": "PASS: all four new finite replays independently rerun by root",
+  "records": [
+    {
+      "name": "actual square gaps and affine charts",
+      "artifact": "research/checkpoints/2026_09_07_critical_bottleneck/seventh_round/finite_replay.json",
+      "artifact_sha256": "98895ac742b8e6daf11c26fb4edbe410e3246c918f919adf1b1c9a19cf63fb54",
+      "reported_digest": "8adf608d3e4da55f3b966e23a691a15476d230d92fefaf36b7a84690a02a5fce",
+      "reported_digest_kind": "canonical payload"
+    },
+    {
+      "name": "full GL2 and boundary counts",
+      "artifact": "research/checkpoints/2026_09_07_independent_route/seventh_round/boundary_support_results.json",
+      "artifact_sha256": "d00b5cdcde7f73384dce4a6da72970938fcfb0d94e1f1419be9bbec6122c34a4",
+      "reported_digest": "d00b5cdcde7f73384dce4a6da72970938fcfb0d94e1f1419be9bbec6122c34a4",
+      "reported_digest_kind": "whole artifact"
+    },
+    {
+      "name": "thirteen descent exact arithmetic",
+      "artifact": "research/checkpoints/2026_09_07_independent_route/seventh_round/quartic_13_results.json",
+      "artifact_sha256": "4eef13317b23f01fd6240236071857efbb0add693d48b2215423c327f5e98e31",
+      "reported_digest": "4eef13317b23f01fd6240236071857efbb0add693d48b2215423c327f5e98e31",
+      "reported_digest_kind": "whole artifact"
+    },
+    {
+      "name": "independent thirteen descent replay",
+      "artifact": "research/checkpoints/2026_09_07_boundary_descent/verification/q13_independent_replay.json",
+      "artifact_sha256": "b1170459ce36c92d727a7fa0e534b623ce6452ed5c5e4eef04fa3bc54800c3b8",
+      "reported_digest": "b1170459ce36c92d727a7fa0e534b623ce6452ed5c5e4eef04fa3bc54800c3b8",
+      "reported_digest_kind": "whole artifact"
+    }
+  ],
+  "not_claimed": [
+    "infinite theorem from finite scan",
+    "elliptic rank from software as a proof premise",
+    "ABC proof or disproof",
+    "formal modularity or transcendence theorems"
+  ]
+}

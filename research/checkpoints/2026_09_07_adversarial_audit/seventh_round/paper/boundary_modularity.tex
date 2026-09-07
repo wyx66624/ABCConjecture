@@ -1,0 +1,205 @@
+\section{Identification of the fixed boundary descent}
+\label{bm-section}
+
+We discharge the explicit modular-membership premise for the boundary
+curve of Section~\ref{bs-section}. The argument uses one fixed
+Tate-module prime and a finite character comparison, followed by
+the compatibility of an already constructed modular form. It does not
+assume that unrelated choices of descent at different primes are
+compatible. The resulting orbit identification combines ordinary
+modularity theorems with the independently repeated exact newspace
+enumeration; it is not a Lean formalization of these inputs.
+
+Write $K=\mathbb Q(r)$, $r^2=-3$, and
+\[
+ E_0:\quad Y^2=X^3+12X^2+6(3+r)X.
+\]
+Theorem~\ref{bs-noncm} proves geometric non-CM. The same explicit
+two-isogeny as in the actual family identifies its quotient with the
+$(-2)$-twist of its conjugate, so $E_0$ is a Q-curve. Fix the
+order-four character $\chi$ used in the earlier descent. Its square
+is $\psi_3|_{G_K}$, and its conjugation relation cancels the character
+of that isogeny.
+
+\begin{lemma}[Finite-character comparison]\label{bm-character}
+Let $H$ be a finite-index normal subgroup of $G$. Let $\rho_1,\rho_2$
+be representations over an algebraically closed characteristic-zero
+field whose restrictions to $H$ are isomorphic and absolutely
+irreducible. Then $\rho_2\simeq\rho_1\otimes\nu$ for a character
+$\nu$ of the finite group $G/H$.
+\end{lemma}
+\begin{proof}
+Identify the two restrictions. For $g\in G$, the matrix
+$\rho_2(g)\rho_1(g)^{-1}$ commutes with their common action of $H$,
+by normality. Schur's lemma makes it scalar, say $\nu(g)$. The two
+representation laws give $\nu(gg')=\nu(g)\nu(g')$, and $\nu|_H=1$.
+For continuous Galois representations this is a finite continuous
+character; over $G_{\mathbb Q}$ it is a Dirichlet character.
+\end{proof}
+
+\begin{theorem}[Modularity of the specified boundary descent]
+\label{bm-modular}
+Either extension of $V_{17}(E_0)\otimes\chi$ to $G_{\mathbb Q}$
+is the representation of a weight-two newform with nebentypus
+$\psi_3$.
+\end{theorem}
+\begin{proof}
+The conjugation relation and Schur normalization in the proof of
+\cite[Theorem~4.2]{PacettiVillagra2022QCurves} give the extension.
+Its two choices differ by $\psi_{-3}$. Here only the general
+representation argument is used, not that source's equation-specific
+conductor formula.
+
+Ribet's Theorem~6.1 and its construction give a primitive abelian
+variety $A$ of GL$_2$-type over $\mathbb Q$ and a finite Galois
+extension $L/\mathbb Q$ such that $A_L$ is isogenous to a power of
+$E_0$; see the
+\href{https://math.berkeley.edu/~ribet/Articles/korea.pdf}{author's
+\emph{Abelian varieties over $\mathbb Q$ and modular forms}},
+Section~6. Enlarge $L$ to contain $K$ and kill $\chi$.
+The completed modularity theorem for GL$_2$-type abelian varieties,
+\cite[Corollary~10.2(i)]{KhareWintenberger2009Serre}, makes $A$
+modular. Choose a two-dimensional coefficient-field component
+$\rho_A$ of its Tate module at $17$. It comes from a weight-two
+newform $f_A$.
+
+On $G_L$, this component is isomorphic to $V_{17}(E_0)$ after
+scalar extension: the whole Tate module is a sum of copies and the
+chosen component has dimension two. Faltings' semisimplicity and
+endomorphism theorem, together with
+$\operatorname{End}_L(E_0)\otimes\mathbb Q=\mathbb Q$, make
+this restriction absolutely irreducible. The specified extension
+$\widetilde\rho$ has the same restriction, since $\chi$ is killed
+there. Lemma~\ref{bm-character} gives
+\[
+ \widetilde\rho\simeq\rho_A\otimes\nu
+\]
+for a finite Dirichlet character $\nu$. The primitive newform
+associated to $f_A\otimes\nu$ still has weight two, and realizes
+$\widetilde\rho$. In particular it is odd: a finite character
+has square $1$ on complex conjugation. On $G_K$ the determinant
+is $\psi_3$ times the cyclotomic character; oddness gives equality
+on complex conjugation and therefore on $G_{\mathbb Q}$. Its
+nebentypus is exactly $\psi_3$.
+\end{proof}
+
+The multiplicative-prime large-image result for positive seeds has
+not been used; it would not apply to $F(0,1)=1$. Nor has any
+nonzero Tate twist been introduced.
+
+\begin{lemma}[Compatibility supplied by the identified modular form]
+\label{bm-compatible}
+For the form $f$ in Theorem~\ref{bm-modular} and every auxiliary
+prime $\ell$, after fixing compatible coefficient embeddings,
+\[
+ \rho_{f,\ell}|_{G_K}
+       \simeq V_\ell(E_0)\otimes\chi_\ell.
+\]
+\end{lemma}
+\begin{proof}
+At every prime of $K$ outside a finite set, the restricted
+Frobenius polynomials agree by the isomorphism at $17$. They are
+polynomials in algebraic numbers, and the embedding into
+$\overline{\mathbb Q}_{17}$ is injective. Compatibility for the
+elliptic curve, finite character and already constructed modular
+form gives equality at any other auxiliary prime. Chebotarev and
+semisimplicity then give the displayed isomorphism.
+\end{proof}
+
+\begin{proposition}[The actual characteristic-zero level]
+\label{bm-level}
+The newform in Theorem~\ref{bm-modular} has exact level
+\[
+ N=2^e3^2,\qquad 2\le e\le6.
+\]
+\end{proposition}
+\begin{proof}
+The local Tate branches hold at $(a,b)=(0,1)$, and can be checked
+directly. At the inert prime over $2$, translate $X$ by $1+r$ and
+$Y$ by $4$. The new coefficients are
+\[
+ a'_1=0,\quad a'_2=15+3r,\quad a'_3=8,\quad
+ a'_4=36+36r,\quad a'_6=-48+48r.
+\]
+Their relevant valuations are $1,3,3,5$. For example
+$a'_6=96(\zeta-1)$ with $\zeta=(1+r)/2$ and $\zeta-1$ a unit
+at $2$. The discriminant valuation is $12$. The first Tate cubic
+has the form $Z^2(Z+b)$ with $b$ a unit; the first starred
+quadratic has double root zero, and the next has unit linear
+coefficient $a'_4/8$. Thus the minimal type is $I_2^*$ and its
+conductor exponent is $6$, by the earlier reviewed Tate algorithm.
+
+At $r$ over $3$, with $v_r(3)=2$, the original coefficients have
+$v_r(a_2)=2$, $v_r(a_4)=3$, $a_1=a_3=a_6=0$ and
+$v_r(\Delta)=9$. The successive multiple roots are zero and
+$a_4/r^3$ is a unit. The minimal type is $III^*$, of conductor
+exponent $2$. At all primes above $q>3$ the original curve has good
+reduction.
+
+The character $\chi$ is unramified at $3$ and has conductor
+exponent $3$ at $2$. At $2$ the elliptic representation has finite
+inertia and unramified determinant. Every inertia-subgroup fixed
+space has dimension zero or two: a finite determinant-one matrix
+fixing a nonzero vector must be the identity. The conductor $6$
+therefore consists of tame codimension $2$ and Swan conductor $4$,
+so its final upper break is $2$. The character also has upper break
+$2$. Their tensor product is trivial on all upper groups with
+index greater than $2$, giving conductor at most $6$.
+Unramified restriction from $\mathbb Q_2$ to $K_2$ preserves the
+exponent. The determinant $\psi_3$ has conductor exponent $2$
+there, giving the lower bound $2$.
+
+At $3$ the restricted representation is tame with no inertia
+invariants. The extension $K_3/\mathbb Q_3$ is tame, so its wild
+inertia groups agree. The descent is tame, and its inertia
+invariants are contained in those of the restriction. Its conductor
+exponent is consequently exactly $2$ for either descent.
+
+For $q>3$ choose $\ell\ne q$ and apply
+Lemma~\ref{bm-compatible}. The elliptic curve and character are
+unramified at $q$, and $K/\mathbb Q$ is unramified there, so the
+descent is unramified. In particular the rational prime $17$ can
+be checked using $\ell=19$. Equality of characteristic-zero
+newform conductor and the conductor of its representation away
+from the auxiliary prime now gives the asserted level.
+\end{proof}
+
+\begin{theorem}[The non-CM level-$576$ orbit]\label{bm-orbit}
+Together with the complete exact newspace enumeration recorded in
+Section~\ref{bs-section}, the preceding propositions identify either
+fixed boundary descent with the unique non-CM Galois orbit of weight
+two, nebentypus $\psi_3$, and level $576$.
+\end{theorem}
+\begin{proof}
+The form cannot have CM. Over a finite extension a CM form's
+two-dimensional representation decomposes into characters, whereas
+the Tate representation of $E_0$ remains absolutely irreducible.
+Lemma~\ref{bm-compatible} gives a contradiction after enlarging
+the finite extension to kill $\chi$.
+
+Among the five levels of Proposition~\ref{bm-level}, the complete
+enumeration has exactly two non-CM orbits, at $288$ and $576$.
+Their rational coefficients $a_{13}$ are $4$ and $-4$ respectively.
+Lemma~\ref{bs-character-sign} gives $a_{13}=-4$. Since thirteen
+splits in $K$, the ambiguity $\psi_{-3}$ between the two descents
+does not change that trace. The level-$576$ orbit is therefore the
+unique possibility.
+\end{proof}
+
+This uses a proved membership theorem followed by a complete finite
+enumeration. It is not a conclusion of equality of representations
+from a few matching coefficients. The finite computation and its
+independent exact replay remain a separate, explicit dependency.
+
+For the specified descent, this discharges the premise in
+Proposition~\ref{bs-conditional-mazur}: those particular finite-state
+products have a zero factor at every auxiliary prime. It supplies
+no global power equation for their positive local shadows. Additional
+global covers or other restrictions can still eliminate actual
+integer seeds. In particular the independent effective affine-slice
+argument limits the consecutive shadow family globally.
+
+The complete ordinary comparison, local-conductor calculation and
+orbit-identification argument passed two independent reviews. Both
+reviewers opened Ribet's construction and Khare--Wintenberger's
+GL$_2$-type modularity corollary. No new Lean theorem is asserted.

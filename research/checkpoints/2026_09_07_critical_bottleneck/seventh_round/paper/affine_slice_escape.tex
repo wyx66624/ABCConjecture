@@ -1,0 +1,75 @@
+\section{Effective escape from fixed affine slices}
+\label{as-section}
+
+Let $a,b$ be positive coprime integers, let $V,Q,g$ be integers, and suppose
+\[
+ F(a,b)=VQ^g,\qquad V\ge1,\quad Q>1,\quad g\ge2.
+\]
+No power-free or disjoint-support premise on $V$ is needed here.
+
+\begin{theorem}[Three-chart effective exponent bound]\label{as-exponent}
+There is an effectively computable constant $C\ge1$, depending only
+on the fixed quartic, such that
+\[
+ \log g\le C(1+\log V+\log(1+M)),\qquad
+ M=\min\{a,b,|a-b|\}.
+\]
+Consequently $1+M\ge e^{-1}g^{1/C}/V$.
+\end{theorem}
+\begin{proof}
+For a nonzero integer $c$, the three seed charts use the two polynomials
+\[
+ \begin{split}
+ P_c(T)&=F(T+c,T)
+   =13T^4+26cT^3+20c^2T^2+7c^3T+c^4,\\
+ R_c(T)&=F(T,c)=T^4+3cT^3+5c^2T^2+3c^3T+c^4.
+ \end{split}
+\]
+Their discriminants are $117c^{12}$ and their logarithmic coefficient
+heights are at most $\log26+4\log(1+|c|)$. Equivalently their roots
+are $c/(\alpha_i-1)$ and $c\alpha_i$, respectively, where the
+$\alpha_i$ are the four distinct roots of $F(X,1)$. The denominators
+do not vanish since $F(1,1)=13$.
+
+Apply B\'erczes--Evertse--Gy\H{o}ry, \emph{Effective results for
+Diophantine equations over finitely generated domains}, Theorem~2.3,
+in the \href{https://arxiv.org/pdf/1301.7175}{primary paper}.
+Use the fixed presentation $\mathbb Z=\mathbb Z[U]/(U)$, with
+$r=d=1$ in their notation and polynomial degree four. Their
+equation $H(t)=\delta_0y^m$ then has the effective bound
+$\log m\le C_0(h+1)$, where $h$ bounds the logarithmic coefficient
+and $\delta_0$ heights. Take $\delta_0=V$, $y=Q$ and $m=g$.
+The root-of-unity exception is absent because $Q>1$.
+
+The coefficient bounds above give the asserted inequality with
+$|c|$ in place of $M$. Apply this with $c=a$, $b$, and $a-b$,
+using symmetry for the first choice. All are nonzero: $a=b$ would
+force $(a,b)=(1,1)$ and $F=13$, which has no such nontrivial power
+divisor. Taking the minimum proves the claim and its rearrangement.
+\end{proof}
+
+\begin{theorem}[Effective finiteness on bounded slices]\label{as-finite}
+For each fixed $V$ and fixed $H$, only finitely many such primitive
+positive seeds have $\min\{a,b,|a-b|\}\le H$. They are effectively
+determinable in principle.
+\end{theorem}
+\begin{proof}
+For each nonzero fixed $c$ and fixed $V$, the preceding argument bounds
+all possible exponents in $P_c(t)=VQ^g$ or $R_c(t)=VQ^g$ effectively,
+even without primitivity. For each of the finitely many exponents,
+Theorem~2.2 of the same primary paper supplies an effective finite
+list. Its hypotheses hold for these degree-four polynomials with
+nonzero discriminant, including exponent two. There are only finitely
+many charts and nonzero parameters with $|c|\le H$.
+\end{proof}
+
+Thus pure profiles with $g\to\infty$ must escape all three boundaries
+at least polynomially in $g$. If $V=g^{o(1)}$ the same holds with
+exponent $1/C-o(1)$. This does not exclude general small
+$\lambda=\max\{1,\log V\}/g$, which permits much larger residuals.
+The consecutive local shadows $(Lk,Lk+1)$ all have fixed difference
+$-1$, even when $L$ varies, so only finitely many can be global pure
+powers across all $g\ge2$. This is a global restriction beyond their
+finite local compatibility; it does not settle moving affine slices.
+The two cited effective Diophantine theorems remain external inputs,
+not Lean theorems proved in this checkpoint.

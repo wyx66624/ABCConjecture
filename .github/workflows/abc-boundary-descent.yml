@@ -1,0 +1,51 @@
+name: Boundary descent and actual square gap scoped verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research/checkpoints/2026_09_07_boundary_descent/**'
+      - 'research/checkpoints/2026_09_07_adversarial_audit/seventh_round/**'
+      - 'research/checkpoints/2026_09_07_critical_bottleneck/seventh_round/**'
+      - 'research/checkpoints/2026_09_07_independent_route/seventh_round/**'
+      - 'research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean'
+      - 'research/checkpoints/2026_09_07_support_power_classes/Lean/LocalPowerArithmetic.lean'
+      - 'research/checkpoints/2026_09_07_cyclotomic_covers/Lean/**'
+      - 'Lean/lean-toolchain'
+      - '.github/workflows/abc-boundary-descent.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  square-gap-and-integral-bridge:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Install the repository-pinned compiler
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: 'false'
+          build: 'false'
+          use-mathlib-cache: 'false'
+      - name: Fresh scoped Lean build and complete theorem axiom audit
+        run: python3 research/checkpoints/2026_09_07_boundary_descent/verify_round.py
+      - name: Exact square-gap, support and two independent descent replays
+        run: |
+          python3 research/checkpoints/2026_09_07_critical_bottleneck/seventh_round/replay.py --check
+          python3 research/checkpoints/2026_09_07_independent_route/seventh_round/replay_boundary_support.py --check
+          python3 research/checkpoints/2026_09_07_independent_route/seventh_round/replay_quartic_13.py --check
+          python3 research/checkpoints/2026_09_07_adversarial_audit/seventh_round/replay_q13_review.py > "$RUNNER_TEMP/q13-review.json"
+          cmp "$RUNNER_TEMP/q13-review.json" research/checkpoints/2026_09_07_boundary_descent/verification/q13_independent_replay.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: boundary-descent-proof-evidence
+          path: |
+            research/checkpoints/2026_09_07_boundary_descent/verification/
+            research/checkpoints/2026_09_07_critical_bottleneck/seventh_round/finite_replay.json
+            research/checkpoints/2026_09_07_independent_route/seventh_round/boundary_support_results.json
+            research/checkpoints/2026_09_07_independent_route/seventh_round/quartic_13_results.json
