@@ -1,6 +1,23 @@
 # Research route registry
 
-Latest twelfth continuation: September 7, 2026. Actual multiplicative
+Latest thirteenth continuation: September 7, 2026. Uniform moments now
+control every positive layer in (8B, Bn(log n)^(1-delta)] on an actual
+domain of asymptotic fraction at least one half. Explicit norm-support
+coloring gives (5-kappa)/8 at B n^kappa(log n)^(1-delta), with uniform
+theta constants only on fixed compact ranges. The far signed cost remains.
+
+The identity-unit branch for odd exponents divisible by three is excluded
+by a complete Q_3 obstruction. Both nontrivial units remain live. One cubic
+quotient has a Q-isogenous elliptic product and exact square lifting gate;
+its rank-at-least-two proof rules out only its rank-less-than-genus criterion.
+The parent positive-locus, higher descent and moving-residual routes persist.
+
+All 37 new finite declarations compile and pass their complete axiom audit.
+They do not formalize the analytic or geometric arguments. Subsequent
+adaptive-precision and owner-concentration candidates are separate.
+See `../research/checkpoints/2026_09_07_uniform_moments/README.md`.
+
+Historical twelfth continuation: September 7, 2026. Actual multiplicative
 coherence gives a cap-three interval for most block roots. A private-norm
 class of relative size at least one half asymptotically admits higher-moment
 positive-excess bounds on a larger finite interval. Fixed-moment constants,

@@ -1,0 +1,325 @@
+\section{Colored norm support and a density--window tradeoff}
+\label{ncs-section}
+
+For an integer \(B\geq1\), retain the actual block
+\[
+ I_B=\{k\in\mathbb Z:B\leq k<2B\},\qquad
+ a_k=3k,\quad w_k=a_k+\zeta,\quad
+ Q_k=a_k^2+a_k+1,\quad \alpha_k=w_k/\bar w_k.
+\]
+Here \(\zeta^2=\zeta-1\). The roots are primitive and unramified,
+and \(9B^2\leq Q_k<49B^2\). For real \(x\geq3\), define
+\[
+ \mathcal S(B,x)=\{k\in I_B:\text{some prime }p>x\text{ divides }Q_k\}.
+\]
+This is a condition on the actual norms, fixed before a boundary
+prime, depth or tuple length is chosen. All prime sums below range
+over rational primes.
+
+\begin{theorem}[An explicit finite independent coloring]\label{ncs-colors}
+For every integer \(B\geq1\) and real \(x\geq3\), put
+\[
+ m=\left\lfloor\frac{\log(49B^2)}{\log x}\right\rfloor,
+ \qquad D=1+m\left(2\left\lfloor\frac Bx\right\rfloor+1\right).
+\]
+Then \(\mathcal S(B,x)\) is a disjoint union of at most \(D\)
+classes on each of which the actual ratios \(\alpha_k\) are
+multiplicatively independent. The empty case is included.
+\end{theorem}
+\begin{proof}
+A prime dividing \(Q_k\) is neither 2 nor 3. Since
+\(a_k^3\equiv1\pmod p\) and \(a_k\not\equiv1\pmod p\), it is
+1 modulo 3. The polynomial \(9X^2+3X+1\) has exactly two simple
+roots modulo such a prime: its discriminant is \(-27\).
+
+Join distinct indices in \(\mathcal S(B,x)\) if their norms share
+some prime above \(x\). A norm has at most \(m\) distinct such
+primes, since their product is at most \(Q_k<49B^2\).
+For each one of them, the two residue classes meet the block in
+at most \(2\lfloor(B-1)/p\rfloor+2\) indices. Removing the given
+vertex leaves at most
+\[
+ 2\left\lfloor\frac{B-1}p\right\rfloor+1
+ \leq2\left\lfloor\frac Bx\right\rfloor+1
+\]
+possible neighbors. Thus every vertex has degree at most \(D-1\).
+Color vertices in increasing order, always taking the first of
+\(D\) colors not used by earlier neighbors. At most \(D-1\)
+colors are forbidden, so this finite algorithm succeeds. It does
+not invoke a matroid-partition theorem.
+
+Within a color, choose for each root one prime \(p>x\) dividing
+its norm. It divides no other norm of that color. At one oriented
+prime ideal above \(p\), the ratio \(\alpha_k\) has nonzero
+integer valuation \(d_k\). Both conjugate factors cannot occur,
+since a common ideal divisor would divide
+\(w_k-\bar w_k=\sqrt{-3}\). Every other ratio in the same color
+has valuation zero at this ideal. Applying the valuation to a
+multiplicative relation gives \(c_kd_k=0\), hence \(c_k=0\),
+for each index. The witness need not have depth one; nonzero depth
+suffices. Small norm primes may be shared. If \(m=0\), the
+norm inequality forces the original vertex set to be empty.
+\end{proof}
+
+The colors depend on the actual norm factorizations, \(B,x\),
+and the chosen finite ordering, but not on any later boundary
+prime. No independent coloring of the norm-smooth complement has
+been proved by this argument.
+
+\begin{theorem}[Full valuation mass with its cutoff endpoint]
+\label{ncs-small-mass}
+There is an absolute constant \(C\) such that, for all integers
+\(B\geq3\) and reals \(3\leq x\leq B\), with
+\(\Lambda_B=\log(49B^2)\),
+\begin{equation}\label{ncs-endpoint}
+ \sum_{k\in I_B}\sum_{p\leq x}v_p(Q_k)\log p
+ \leq B\log x+CB\log\log(3x)
+                    +\frac{Cx\Lambda_B}{\log x}.
+\end{equation}
+Consequently
+\begin{equation}\label{ncs-domain-finite}
+ |\mathcal S(B,x)|\geq
+ \max\left\{0,
+ \frac{2B\log B-B\log x-CB\log\log(3x)-Cx\Lambda_B/\log x}
+      {\Lambda_B}\right\}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+For a supported prime \(p\), each of the two simple residue roots
+lifts uniquely at every depth. Put
+\(H_p=\lfloor\Lambda_B/\log p\rfloor\).
+Counting the two residue classes at every level gives
+\[
+ \sum_{k\in I_B}v_p(Q_k)\log p
+ \leq \frac{2B\log p}{p-1}+2H_p\log p.
+\]
+Only \(p\equiv1\pmod3\) occur. The fixed-modulus estimate
+\(\vartheta(x;3,1)=x/2+O(x/\log x)\), from Theorem~1.2,
+printed page~5, formula~(1.12), of
+\href{https://arxiv.org/abs/1802.00085v3}
+{Bennett, Martin, O'Bryant and Rechnitzer}, implies by partial
+summation
+\[
+ \sum_{\substack{p\leq x\\p\equiv1\ (3)}}\frac{\log p}{p-1}
+       =\frac12\log x+O(\log\log(3x)).
+\]
+The error integral is \(O(\int^x dt/(t\log t))\), and replacing
+\(1/p\) by \(1/(p-1)\) costs a convergent series. Increasing an
+absolute constant covers all \(x\geq3\). For the complete endpoint,
+\[
+ \sum_{\substack{p\leq x\\p\equiv1\ (3)}}2H_p\log p
+ \leq2\Lambda_B\pi(x)\ll\frac{x\Lambda_B}{\log x}.
+\]
+This proves \eqref{ncs-endpoint}. The total actual norm mass is
+at least \(2B\log B\); the mass above \(x\) is supported on
+\(\mathcal S(B,x)\) and is at most \(\Lambda_B\) per member.
+Subtraction and division prove \eqref{ncs-domain-finite}.
+\end{proof}
+
+\begin{corollary}[Uniformity on a fixed range of support exponents]
+\label{ncs-theta}
+Fix \(0<\theta_0\leq1\). Uniformly for
+\(\theta\in[\theta_0,1]\), as integer \(B\) tends to infinity,
+\begin{align}
+ |\mathcal S(B,B^\theta)|
+ &\geq(1-\theta/2)B
+          -O_{\theta_0}(B\log\log B/\log B),\label{ncs-density}\\
+ D&\leq(1+9/\theta_0)B^{1-\theta}.\label{ncs-D}
+\end{align}
+The second bound holds already for \(B\geq49\) and \(B^\theta\geq3\).
+\end{corollary}
+\begin{proof}
+Here \(\Lambda_B\leq3\log B\), so the endpoint in
+\eqref{ncs-endpoint} is at most \(3CB^\theta/\theta_0\).
+The main term is \(\theta B\log B\); division by
+\(\Lambda_B=2\log B+O(1)\) gives \eqref{ncs-density}.
+Also \(m\leq3/\theta_0\) and
+\(2\lfloor B^{1-\theta}\rfloor+1\leq3B^{1-\theta}\), proving
+\eqref{ncs-D}. No uniform limit as \(\theta_0\) tends to zero
+is asserted. This uses the whole block, not an iteration of its
+mass estimate on an arbitrary discarded subset.
+\end{proof}
+
+For the boundary estimates, let \(n>324\) be prime and \(B=n^4\).
+Writing \(w_k^n=A+C\zeta\), put
+\[
+ T_n(k)=|AC(A+C)|,\qquad
+ c_n(k)=\max\{|A|,|C|,|A+C|\},\qquad t_k=\log c_n(k).
+\]
+A positive-sector unit rotation preserves \(c_n,T_n\).
+The elementary actual bounds are
+\[
+ t_k\geq n\log(3B),\qquad
+ \log T_n(k)\leq3n\log(6B+1).
+\]
+There are no zero boundary coordinates for these primitive
+unramified powers.
+
+\begin{theorem}[Uniform moments summed over the actual colors]
+\label{ncs-eighty}
+For every prime \(n>324\), \(B=n^4\), real \(x\geq3\) and
+\(8B<Z\leq B^2\), define
+\[
+ F_{8B,Z}(k)=\sum_{8B<q\leq Z}(v_q(T_n(k))-3)_+\log q.
+\]
+With the exact color budget \(D\) from Theorem~\ref{ncs-colors},
+\begin{equation}\label{ncs-mean-finite}
+ \frac1B\sum_{k\in\mathcal S(B,x)}\frac{F_{8B,Z}(k)}{t_k}
+ \leq\frac{80DZ}{Bn\log(Z/(3n))}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+We spell out why the uniform-moment proof applies to each color.
+For every positive integer \(\nu\), two actual \(\nu\)-fold
+products of block roots have coordinates satisfying
+\[
+ |R|,|R'|\leq2(7B)^\nu,\qquad
+ |S|,|S'|\leq2\nu(7B)^{\nu-1}.
+\]
+The second estimate is the finite telescoping bound for the
+imaginary coordinate. For a prime \(q>8B\), the determinant
+height divided by \(q^{2\nu}\) is strictly less than
+\[
+ \frac8{7B}\nu(49/64)^\nu
+ <\frac{512}{105B}<1.
+\]
+The finite geometric sum proves this uniformly for every finite
+\(\nu\). Thus congruent ratio products with unit denominators
+are exactly equal over \(\mathbb Q(\zeta)\).
+
+Every actual \(q^{2\nu}\)-hit has unit norm and gives a norm-one
+\(3n\)-torsion element modulo \(q^{2\nu}\). Since \(q>n\), the
+split/inert simple-lifting calculation of Lemma~\ref{mc-torsion}
+gives at most \(3n\) such elements at every depth. Within a color,
+Theorem~\ref{ncs-colors} recovers the multiplicities from equal
+actual products. Thus multisets of \(\nu\) deep roots inject into
+this group, giving
+\[
+ \binom{M_\nu+\nu-1}{\nu}\leq3n
+\]
+when \(M_\nu>0\), with zero positive-length multisets when it is
+empty. In particular \(M_2\leq\sqrt{6n}\). For
+\(r=\lceil\sqrt n\rceil\), four roots would give
+\(3n\geq\binom{r+3}3>n^{3/2}/6>3n\). Hence \(M_r\leq3\).
+
+Every positive layer is paid by
+\((e-3)_+=\sum_{j\geq4}{\bf1}_{e\geq j}\).
+In one color the layers \(4\leq j<2r\) contribute at most
+\(4\sqrt6\,n\log q<10n\log q\). The remaining layers have at
+most three roots and the full height cap gives at most \(9nL\),
+where \(L=\log(6B+1)\). Summing colors therefore gives
+\[
+ \sum_{k\in\mathcal S(B,x)}(v_q(T_n(k))-3)_+\log q
+                  \leq D(10n\log q+9nL).
+\]
+For \(q\leq Z\leq B^2\), both \(\log q\) and \(L\) are at
+most \(2\log B\). The full-block normalized cost is at most
+\(38D/B\) per prime.
+
+Positive excess has homogeneous rank \(n\). Rank one would,
+since \(q>n\), force \(q^2\) into one of the coprime old factors
+\(a_k,a_k+1<6B+1\), which is impossible. Thus \(n\) divides
+the norm-one group order \(q-\chi(q)\), where
+\(\chi(q)=(-3/q)\). That order is also divisible by 3, and
+\((n,3)=1\), so \(3n\mid q-\chi(q)\). The order of
+\(\alpha_k\) itself may be \(n\) or \(3n\); the argument does
+not require the latter. In particular \(q\equiv\pm1\pmod{3n}\).
+
+Montgomery--Vaughan's Brun--Titchmarsh inequality, Theorem~2,
+printed page~121, formula~(1.10), in the
+\href{https://personal.science.psu.edu/rcv4/personal/Publications/large_sieve.pdf}
+{author-hosted primary paper}, bounds these two classes through
+\(Z\) by
+\[
+ \frac{2Z}{(n-1)\log(Z/(3n))}.
+\]
+Its interval form gives the through-\(Z\) version by decreasing
+the left endpoint to zero. Multiply by \(38D/B\), and use
+\(76n/(n-1)<80\), to obtain \eqref{ncs-mean-finite}.
+\end{proof}
+
+\begin{theorem}[A density--window tradeoff]\label{ncs-tradeoff}
+Fix \(3/4<\theta\leq1\) and \(\delta>0\). For sufficiently
+large prime \(n\), put \(B=n^4\), \(\kappa=4\theta-3\), and
+\[
+ Z_n=\left\lfloor Bn^\kappa(\log n)^{1-\delta}\right\rfloor.
+\]
+Then \(8B<Z_n\leq B^2\), the complete positive-excess mean on
+\(\mathcal S(B,B^\theta)\) is \(O_{\theta,\delta}((\log n)^{-\delta})\),
+and there is an actual subset \(\mathcal P_{n,\theta,\delta}\)
+of \(I_B\) with relative size at least
+\[
+ 1-\frac\theta2-
+ O_{\theta,\delta}\!\left(\frac{\log\log n}{\log n}
+              +(\log n)^{-\delta/2}+(\log n)^{-1/2}\right)
+\]
+on which
+\[
+ k\in\mathcal S(B,B^\theta),\qquad
+ \frac{F_{8B,Z_n}(k)}{t_k}\leq(\log n)^{-\delta/2},\qquad
+ \frac{L_{8B}(T_n(k))}{t_k}\leq(\log n)^{-1/2}.
+\]
+Here \(L_X(T)=\sum_{q\leq X}v_q(T)\log q\) is the full mass.
+\end{theorem}
+\begin{proof}
+For fixed \(\kappa>0\), the factor
+\(n^\kappa(\log n)^{1-\delta}\) tends to infinity and is
+\(o(n^4)\). Thus the cutoff satisfies the asserted domain, and
+\[
+ \log(Z_n/(3n))=(3+\kappa)\log n
+                 +(1-\delta)\log\log n-\log3+o(1).
+\]
+By \eqref{ncs-D}, \(D=O_\theta(n^{4(1-\theta)})\), and the
+power of \(n\) in \eqref{ncs-mean-finite} cancels exactly:
+\(4(1-\theta)+\kappa-1=0\). This proves the mean bound.
+Markov at \((\log n)^{-\delta/2}\) removes the corresponding
+fraction of the entire block. Theorem~\ref{fml-mean}, with
+Section~\ref{ebi-section}'s elementary inputs, gives at cutoff
+\(8B\) a full-block mean \(O(1/\log n)\); Markov removes
+\(O((\log n)^{-1/2})\) more. Intersect these two actual good
+sets with \eqref{ncs-density}. All means remain normalized by
+\(B\). In particular \((B,8B]\) is paid as full mass, without
+a cap imposed there. For fixed \(\theta_0>3/4\) the constants
+and sufficiently-large threshold are uniform in
+\(\theta\in[\theta_0,1]\), with fixed \(\delta\).
+\end{proof}
+
+Define \(J(T)=\log T-3\log\operatorname{rad}(T)\) and let
+\(W_Z(T)\) be the signed contribution of supported primes above
+\(Z\). On the preceding set, with
+\(\varepsilon_n=(\log n)^{-\delta/2}+(\log n)^{-1/2}\),
+exact disjoint prime decomposition gives
+\begin{align}
+ \frac{J(T_n(k))}{t_k}
+ &\leq\frac{W_{Z_n}(T_n(k))}{t_k}+\varepsilon_n,
+       \label{ncs-signed}\\
+ \frac{\log\operatorname{rad}(T_n(k))}{t_k}
+ &\geq1-\frac4{3n}-\frac{\varepsilon_n}{3}
+                 -\frac{(W_{Z_n}(T_n(k)))_+}{3t_k}.
+       \label{ncs-radical}
+\end{align}
+The first inequality uses the full low mass and the middle positive
+excess. The second uses the elementary block bound
+\(\log T_n(k)/t_k\geq3-4/n\). The far signed term keeps its
+negative credit; its positive part remains an unproved membership
+gate, not a consequence of this finite-window average.
+
+The exponent \(\kappa\in(0,1]\) has proved domain fraction
+\((5-\kappa)/8\). For example \(\theta=15/16\) gives
+\(\kappa=3/4\), fraction \(17/32\), and cutoff
+\(\lfloor Bn^{3/4}(\log n)^{1-\delta}\rfloor\).
+For \(\kappa<1/2\), the earlier MC result already gives an
+intermediate-window domain of fraction tending to one, so this
+coloring is additional structure rather than improved coverage
+there. The useful coverage tradeoff is \(1/2<\kappa<1\), beyond
+the MC power range and with a fraction larger than one half.
+No unproved endpoint comparison at \(\kappa=1/2\) is asserted.
+
+The norm-smooth complement, its possible rank deficiency, and the
+unbounded farther signed tail remain open. Exact pair-product
+collisions disprove a universal one-color assertion, but do not
+refute a stronger multi-color theorem for all actual roots.
+The full-block norm-mass proof cannot simply be iterated on an
+arbitrary discarded subset. The coloring and ideal witnesses above
+are ordinary proofs; no new Lean formalization of them or of the
+analytic domain theorem is claimed by this section.

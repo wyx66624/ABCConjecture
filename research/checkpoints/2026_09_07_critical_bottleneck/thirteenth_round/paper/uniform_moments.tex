@@ -1,0 +1,211 @@
+\section{Uniform moments and a positive-excess window near \(n^5\)}
+\label{um-section}
+
+Retain the actual roots \(a_k=3k\), \(w_k=a_k+\zeta\),
+\(Q_k=a_k^2+a_k+1\), \(\alpha_k=w_k/\bar w_k\), for integers
+\(B\leq k<2B\). The subset \(\mathcal S_B\) consists of roots
+whose norm has a prime factor above \(12B\).
+Theorem~\ref{pn-private} proves, for the actual roots,
+\[
+ |\mathcal S_B|\geq B/2-O(B\log\log B/\log B),
+\]
+and proves multiplicative independence of all their ratios.
+The following uniform estimate removes the former fixed-moment
+restriction while retaining this proved domain.
+
+\begin{lemma}[Tuple rigidity uniform in its length]\label{um-rigidity}
+Let \(B\geq5\) be an integer and \(q>8B\) a prime.
+For every integer \(\nu\geq1\), two ordered \(\nu\)-tuples of
+block roots, with unit conjugate denominators modulo \(q\),
+whose ratio products agree modulo \(q^{2\nu}\), have exactly
+equal algebraic ratio products in \(\mathbb Q(\zeta)\).
+\end{lemma}
+\begin{proof}
+Write their actual element products as \(z=R+S\zeta\) and
+\(z'=R'+S'\zeta\).
+The norm coordinate bound and the finite telescoping expansion,
+valid at every finite \(\nu\), give
+\[
+ |R|\leq2(7B)^\nu,\qquad |S|\leq2\nu(7B)^{\nu-1}.
+\]
+Thus for \(D=RS'-R'S\),
+\[
+ |D|\leq8\nu\,7^{2\nu-1}B^{2\nu-1}.
+\]
+The conjugate cross difference implies \(q^{2\nu}\mid D\).
+Put \(x=49/64\). Since \(q>8B\), the height bound divided by
+\(q^{2\nu}\) is less than
+\[
+ \frac8{7B}\nu x^\nu
+ <\frac8{7B}\sum_{j=0}^{\nu-1}x^j
+ <\frac8{7B}\frac1{1-x}
+ =\frac{512}{105B}<\frac5B\leq1.
+\]
+Therefore \(D=0\), and \(z\bar z'=z'\bar z\) over the number
+field. Their ratios agree. The products are nonzero; no sign
+condition on \(R,S\) or bound on \(\nu\) is needed.
+The hypothesis \(q>8B\) is used explicitly and is not replaced
+by the earlier smaller cutoff.
+\end{proof}
+
+\begin{theorem}[A multiset bound at every precision]\label{um-multisets}
+Let \(n>324\) be prime and \(B=n^4\). For a prime \(q>8B\)
+and a positive integer \(\nu\), put
+\[
+ M_\nu(q)=\#\{k\in\mathcal S_B:q^{2\nu}\mid T_n(k)\}.
+\]
+If \(M_\nu(q)>0\), then
+\begin{equation}\label{um-binomial}
+ \binom{M_\nu(q)+\nu-1}{\nu}\leq3n.
+\end{equation}
+For an empty set the number of positive-length multisets is zero.
+In particular, with \(r=\lceil\sqrt n\rceil\),
+\[
+ M_2(q)\leq\sqrt{6n},\qquad M_r(q)\leq3.
+\]
+\end{theorem}
+\begin{proof}
+Every hit gives a norm-one element killed by \(3n\) modulo
+\(q^{2\nu}\). The split and inert simple-lifting proof of
+Lemma~\ref{mc-torsion} bounds the group by \(3n\), since \(q>n\).
+Every multiset of \(\nu\) roots gives one group product.
+Equal images imply equality of actual ratio products by
+Lemma~\ref{um-rigidity}. Independence from
+Theorem~\ref{pn-private} then recovers all index multiplicities.
+The multiset map is injective. Stars and bars gives
+\eqref{um-binomial}, keeping repeated entries.
+
+At \(\nu=2\), the inequality \(M(M+1)/2\leq3n\) proves the
+first bound. If \(M_r\geq4\), the multisets on just four roots
+would instead give
+\[
+ 3n\geq\binom{r+3}{3}
+      =\frac{(r+1)(r+2)(r+3)}6
+      >\frac{r^3}6
+      \geq\frac{n^{3/2}}6>3n.
+\]
+The last inequality uses \(\sqrt n>18\), a contradiction.
+Here \(r\) grows with \(n\); the determinant estimate was first
+proved uniformly for all finite lengths.
+\end{proof}
+
+\begin{theorem}[An explicit complete excess mean]\label{um-mean}
+For every prime \(n>324\), \(B=n^4\), and real \(8B<Z\leq B^2\),
+put
+\[
+ F_{8B,Z}(k)=\sum_{8B<q\leq Z}(v_q(T_n(k))-3)_+\log q.
+\]
+Then
+\begin{equation}\label{um-eighty}
+ \frac1B\sum_{k\in\mathcal S_B}\frac{F_{8B,Z}(k)}{t_k}
+       \leq\frac{80Z}{Bn\log(Z/(3n))}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The complete positive excess satisfies
+\((e-3)_+=\sum_{j\geq4}{\bf1}_{e\geq j}\).
+Fix \(q>8B\), and put \(r=\lceil\sqrt n\rceil\).
+Every layer \(4\leq j<2r\) has at most \(\sqrt{6n}\) roots
+in \(\mathcal S_B\). There are at most \(2r\) layers, with
+\(r\leq2\sqrt n\), so their contribution is at most
+\[
+ 4\sqrt6\,n\log q<10n\log q.
+\]
+Every higher layer has at most three roots.
+Writing \(L=\log(6B+1)\), the actual height bound
+\(\log T_n(k)\leq3nL\) caps its depth by \(3nL/\log q\).
+All higher layers together contribute at most \(9nL\).
+Consequently
+\begin{equation}\label{um-prime-ledger}
+ \sum_{k\in\mathcal S_B}(v_q(T_n(k))-3)_+\log q
+       \leq10n\log q+9nL.
+\end{equation}
+This includes empty layer ranges and pays every positive depth.
+
+For \(q\leq Z\leq B^2\) and \(B\geq7\),
+\(\log q\leq2\log B\) and \(L\leq2\log B\).
+Also \(t_k\geq n\log(3B)\geq n\log B\). Thus the normalized
+contribution at one prime is at most \(38/B\).
+Positive excess excludes rank one: \(q>n\) gives no exponent
+lifting, and \(q^2\) cannot divide either coprime old factor
+\(a_k,a_k+1<6B+1\). Hence the exact rank is \(n\), and
+\(q\equiv\pm1\pmod{3n}\).
+The two-progression Brun--Titchmarsh estimate bounds the number
+of eligible primes up to \(Z\) by
+\[
+ \frac{2Z}{(n-1)\log(Z/(3n))}.
+\]
+Multiplying by \(38/B\) and using \(76n/(n-1)<80\) proves
+\eqref{um-eighty}. The normalization is by the whole block \(B\).
+\end{proof}
+
+\begin{corollary}[A logarithmic expansion beyond \(n^5\)]
+\label{um-domain}
+Fix \(\delta>0\). For all sufficiently large prime \(n\), put
+\[
+ Z_n=\left\lfloor Bn(\log n)^{1-\delta}\right\rfloor,\qquad B=n^4.
+\]
+There is an actual subset \(\mathcal P_{n,\delta}\) of relative
+size at least
+\[
+ \frac12-
+ O_\delta\!\left(\frac{\log\log n}{\log n}
+                  +(\log n)^{-\delta/2}+(\log n)^{-1/2}\right)
+\]
+on which
+\[
+ \frac{F_{8B,Z_n}(k)}{t_k}\leq(\log n)^{-\delta/2},\qquad
+ \frac{L_{8B}(T_n(k))}{t_k}\leq(\log n)^{-1/2}.
+\]
+\end{corollary}
+\begin{proof}
+For fixed \(\delta\), \(8B<Z_n\leq B^2\) eventually, and
+\[
+ \log(Z_n/(3n))
+   =4\log n+(1-\delta)\log\log n-\log3+o(1)
+   \sim4\log n.
+\]
+Theorem~\ref{um-mean} gives mean \(O_\delta((\log n)^{-\delta})\).
+Markov at \((\log n)^{-\delta/2}\) gives its displayed error.
+The full-mass estimate in Theorem~\ref{fml-mean}, with
+Section~\ref{ebi-section}'s elementary inputs, at cutoff \(8B\)
+has mean \(O(1/\log n)\).
+Markov at \((\log n)^{-1/2}\) gives the other error. Intersect
+these sets with Theorem~\ref{pn-private}.
+In particular the interval \((B,8B]\) is paid within the full
+mass up to \(8B\), without imposing a new cap on its depths.
+\end{proof}
+
+Let \(W_{Z_n}(k)\) denote the signed contribution above \(Z_n\).
+The exact prime decomposition gives on this set
+\begin{align}
+ \frac{J(T_n(k))}{t_k}
+ &\leq\frac{W_{Z_n}(k)}{t_k}
+                   +(\log n)^{-\delta/2}+(\log n)^{-1/2},
+       \label{um-signed}\\
+ \frac{\log\operatorname{rad}(T_n(k))}{t_k}
+ &\geq1-\frac4{3n}
+       -\frac{(\log n)^{-\delta/2}+(\log n)^{-1/2}}3
+       -\frac{(W_{Z_n}(k))_+}{3t_k}. \label{um-radical}
+\end{align}
+The second inequality uses the actual elementary angular estimate.
+Taking \(\delta=1\) reaches \(Z_n=n^5\); any fixed \(0<\delta<1\)
+gives the stated logarithmic expansion.
+The complete positive excess in this interval is controlled on
+the proved domain. Its full mass need not be small, and no size
+of compensating negative credit is presumed.
+
+The fifteen declarations of
+\texttt{UniformMoment\allowbreak Arithmetic.lean} formalize the
+numeric binomial gate, an explicit integer square-root threshold,
+the full finite-depth list ledger and its real weighted versions,
+and the constants \(38\) and \(80\) under explicit interfaces.
+The list count equals the actual filtered-list length.
+The threshold \(\lfloor\sqrt n\rfloor+1\) used in the code has
+the same required bounds and also permits square \(n\) in the
+numeric statements. Finite-ring construction, ideal valuations,
+the uniform tuple height estimate and the analytic estimates are
+not included in those fifteen formal claims.
+The unbounded farther signed cost, the complementary roots whose
+norms are smooth at this threshold, and the remaining exceptional
+subsets are still unresolved.

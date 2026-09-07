@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, actual multiplicative coherence,
-private support and rational quotient curves (twelfth continuation).
+**Last synchronized:** 2026-09-07, uniform moments, colored norm support
+and cubic local/elliptic gates (thirteenth continuation).
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -32,6 +32,24 @@ rigorous complete-premise disproof.
 - [x] Maintain the English journal manuscript with author ChatGPT.
 
 ## Shared exponent generators: September 7 positive frontier
+
+- [x] Prove determinant rigidity uniformly for every finite moment at
+  q>8B, and pay all positive layers up to Bn(log n)^(1-delta) on actual
+  private norm support. Prove an explicit color/density window tradeoff.
+- [x] Formalize 37 new finite statements, including the actual-private-
+  witness connection to weighted depth budgets and the mod-27 local gate.
+- [x] Exclude exactly the identity-unit curves at every odd exponent
+  divisible by three over Q_3. Preserve both nontrivial unit classes.
+- [x] Construct two elliptic quotients, their Q-isogeny and exact rational
+  lifting condition for a surviving cubic-unit genus-two curve. Prove
+  rank at least two without software rank certificates.
+- [ ] Control the full unbounded signed cost and the norm-smooth or
+  exceptional roots; finite-window averages do not discharge this gate.
+- [ ] Determine the simultaneous squares at the same source in the
+  surviving unit curves; obtain uniform exponent/height or residual bounds.
+- Thirteenth-round proofs, scoped formal verification and final artifact:
+  `checkpoints/2026_09_07_uniform_moments/README.md`.
+
 
 - [x] Prove actual fourth-depth pair-product rigidity and positive divisor
   fibers. Formalize 21 new finite declarations with 29 old dependencies;

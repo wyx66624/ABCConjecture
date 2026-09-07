@@ -1,0 +1,101 @@
+\section{A complete local obstruction for the identity cubic unit}
+\label{cl-section}
+
+The identity unit \(u=1\) must be distinguished from \(u=\zeta\).
+The explicit cubic quotient in Section~\ref{hg-section} gives a
+complete local exclusion for the former, while leaving the two
+nonidentity unit classes open.
+
+\begin{theorem}[The projective cubic quotient has no \(3\)-adic point]
+\label{cl-no-local-point}
+Put
+\begin{align*}
+ C(S,T)&=S^3+3S^2T-T^3,\\
+ E_3(S,T)&=S^3-S^2T-4ST^2-T^3,\qquad D(S,T)=-3E_3(S,T).
+\end{align*}
+Let \(H\) be the smooth projective double cover
+\begin{equation}\label{cl-sextic}
+ Y^2=C(S,T)D(S,T),
+\end{equation}
+where \(Y\) has weight \(3\). Then \(H(\mathbb Q_3)=\varnothing\).
+This is the third quotient in Theorem~\ref{hg-three-quotients}
+at \(g=3\), \(u=1\).
+\end{theorem}
+\begin{proof}
+The binary sextic has six simple branch points by the proved HG
+calculation. A rational point maps to \(\mathbb P^1(\mathbb Q_3)\).
+Choose \(S,T\in\mathbb Z_3\) with \(\min(v_3(S),v_3(T))=0\).
+Its fibre would supply a \(Y\in\mathbb Q_3\) satisfying
+\[
+ Y^2=-3C(S,T)E_3(S,T).
+\]
+This includes infinity, represented by \((1,0)\). Scaling the base
+coordinates changes the right side by a sixth power, so the square
+criterion does not depend on that choice.
+
+On the four residue points represented by
+\((1,0),(0,1),(1,1),(-1,1)\), the values of \(E_3\) are respectively
+\(1,-1,1,1\) modulo \(3\). Thus \(E_3(S,T)\) is always a unit.
+If \(S\not\equiv T\pmod3\), then
+\(C(S,T)\equiv(S-T)^3\) is a unit as well. The right side has
+valuation \(1\), so cannot be a square.
+
+Otherwise \(T\) is a unit and \(S=T+3K\), with \(K\in\mathbb Z_3\).
+The exact expansion is
+\begin{equation}\label{cl-shift}
+ C(T+3K,T)=3(T^3+9KT^2+18K^2T+9K^3).
+\end{equation}
+Hence \(v_3(C)=1\), \(C/3\equiv T^3\pmod3\), and also
+\(E_3\equiv T^3\pmod3\). The right side has valuation \(2\), but
+after division by \(9\) its unit part is
+\(-T^6\equiv-1\pmod3\). A \(3\)-adic unit square has residue \(1\).
+This is another contradiction, covering every projective fibre.
+\end{proof}
+
+\begin{corollary}[Propagation to identity-unit exponents divisible by three]
+\label{cl-propagation}
+For every odd positive integer \(g\) divisible by \(3\), the curves
+of Section~\ref{rl-section} satisfy
+\[
+ D_{g,1}(\mathbb Q_3)=C_{g,1}(\mathbb Q_3)=\varnothing.
+\]
+Their entire \(\mathbb Q\)-rational loci are therefore empty.
+\end{corollary}
+\begin{proof}
+For \(g=3\), the quotient morphism
+\(D_{3,1}\to H\) from Theorem~\ref{hg-three-quotients} and
+Theorem~\ref{cl-no-local-point} give the claim.
+For \(g=3k\), successive powers give the identity of projective maps
+\[
+ L_{1,g}=L_{1,3}\circ L_{1,k}.
+\]
+On the generic fibre, \((t,s)\mapsto(t,L_{1,k}(s))\) defines a
+nonconstant rational map \(D_{g,1}\dashrightarrow D_{3,1}\).
+The curve extension theorem~\cite{StacksCurves2026} extends it
+over the smooth projective source, including all infinite and
+zero-denominator chart points. It is defined over \(\mathbb Q\),
+hence over \(\mathbb Q_3\). A local point would map to a forbidden
+point of \(D_{3,1}\). The forgetful morphism
+\(C_{g,1}\to D_{g,1}\) proves the assertion for the higher cover.
+\end{proof}
+
+For an actual primitive seed with \(M=a^2+ab+b^2=U^2\),
+the elementary norm calculation already gives \(3\nmid M\):
+its primitive \(3\)-adic depth is at most one and must be even.
+An identity-unit integral cube \((S+T\zeta)^3\), however, has
+\(\zeta\)-coefficient \(3ST(S+T)\), so cannot equal \(ab+M\zeta\).
+Thus this integral subcase already has an elementary obstruction.
+The new curve statement records the full local obstruction,
+including nonpositive and infinite charts, and its projective
+propagation. It does not exclude \(u=\zeta,\zeta^2\), moving
+residuals, or exponents not divisible by three.
+
+The six declarations of
+\texttt{CubicUnitLocal\allowbreak Arithmetic.lean} prove the
+actual shift identity, modular reduction of the sextic, the full
+kernel-checked \(\operatorname{Fin}(27)\) table, its transfer to
+all integer coordinates, and the impossibility of an integer
+square at primitive integer coordinates. The finite table has
+no axiom dependencies; the other queries use only the standard
+Lean axioms. These arithmetic statements do not formalize
+\(\mathbb Q_3\), the projective curves, or the propagation morphism.

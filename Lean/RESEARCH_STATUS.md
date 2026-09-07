@@ -1,5 +1,26 @@
 # Research status
 
+## September 7, 2026: uniform moments and cubic local gates
+
+The thirteenth continuation has 37 new finite Lean declarations, all freshly
+compiled with complete standard-three axiom audit. They prove injectivity
+from actual private integer homomorphisms, derive complete weighted depth
+budgets on actual finite index subtypes, and exclude primitive square values
+of the actual cubic-unit sextic modulo 27. Arithmetic ideal and finite-ring
+constructions, logarithmic inputs and geometry retain their ordinary scope.
+
+The independently reviewed ordinary results give uniform finite moments,
+explicit coloring/density tradeoffs and larger complete positive-excess
+windows. They exclude the identity-unit curves for odd exponents divisible
+by three over Q_3. A surviving cubic-unit genus-two quotient has two explicit
+elliptic factors, an exact rational lifting condition and Jacobian rank at
+least two. Its common-source rational locus remains open.
+
+The full signed far tail, norm-smooth complement, exceptional roots and
+moving-residual geometric height problems remain substantive obligations.
+ABC is still unproved and undisproved. See
+`../research/checkpoints/2026_09_07_uniform_moments/README.md`.
+
 ## September 7, 2026: multiplicative coherence and rational quotient curves
 
 The twelfth continuation proves actual deep pair-product rigidity and

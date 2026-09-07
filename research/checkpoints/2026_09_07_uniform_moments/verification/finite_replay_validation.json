@@ -1,0 +1,30 @@
+{
+  "status": "PASS: exact finite replay with unchanged source and certificate bytes",
+  "records": [
+    {
+      "script": "research/checkpoints/2026_09_07_independent_route/thirteenth_round/replay_genus_two_probe.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_independent_route/thirteenth_round/replay_genus_two_probe.py": "5f8a7177826b1667ce5cd24618becbe3fd09bade6aad70853f73407342a5854c",
+        "research/checkpoints/2026_09_07_independent_route/thirteenth_round/verification/genus_two_probe.json": "6f6150df50428609e6ffaf24f0251d870430e8b7cab951041d952e0d8cf7f82e",
+        "research/checkpoints/2026_09_07_independent_route/thirteenth_round/genus_two_probe.gp": "76cebdf38b85f5a88b9590c90156dbb7be01f78f63f3987d376d23739bb8db65"
+      },
+      "result": {
+        "affine_points": 24,
+        "curves": 9,
+        "independent_abscissas": 70767,
+        "local_pairs": 648,
+        "sha256": "6f6150df50428609e6ffaf24f0251d870430e8b7cab951041d952e0d8cf7f82e",
+        "status": "PASS"
+      }
+    }
+  ],
+  "not_claimed": [
+    "ABC proof or disproof",
+    "all rational points",
+    "complete elliptic or Jacobian rank computation",
+    "analytic or geometric theorem proved by sampling"
+  ]
+}

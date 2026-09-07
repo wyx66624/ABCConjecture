@@ -1,0 +1,48 @@
+{
+  "reviewer": "independent_route",
+  "pdf": "E:/agent/ABCConjecture/tmp/abc_20260907/round13pdf/ChatGPT_ABC_Uniformity_2026.pdf",
+  "pdf_sha256": "fefb61573ea9408f26f5c7d85f5383899bd9f29e8175033cc1f86998a993a74a",
+  "pdf_pages": 513,
+  "actual_review_pages": [
+    504,
+    505,
+    506
+  ],
+  "status": "PASS",
+  "checks": [
+    "actual rendered image inspection",
+    "formula and paragraph clipping",
+    "horizontal overflow",
+    "glyph legibility",
+    "section and proof page transitions"
+  ],
+  "pdf_and_raster_hashes_independently_recomputed": true,
+  "source_changes": false,
+  "pages": [
+    {
+      "page": 504,
+      "raster": "E:/agent/ABCConjecture/tmp/abc_20260907/round13pdf/view-504.png",
+      "sha256": "70c3003aa90f73d03c8ae8dae4c762c6bc88af4d282d33062426fa474865b1ae",
+      "actually_viewed_with": "view_image",
+      "status": "PASS",
+      "note": "CL theorem 255.1, the normalized Q3 proof including infinity and formula 930, propagation corollary and six-declaration scope fit without clipping or garbled glyphs."
+    },
+    {
+      "page": 505,
+      "raster": "E:/agent/ABCConjecture/tmp/abc_20260907/round13pdf/view-505.png",
+      "sha256": "c876cebf6e26febeb5e93874fc4b039010b403bad70f8f5e3a1a1f3eeee738f0",
+      "actually_viewed_with": "view_image",
+      "status": "PASS",
+      "note": "EQ section 256, elliptic equations, both quotient maps and norm/pullback identity are legible and within margins. The exact-image proof continues coherently onto page 506."
+    },
+    {
+      "page": 506,
+      "raster": "E:/agent/ABCConjecture/tmp/abc_20260907/round13pdf/view-506.png",
+      "sha256": "5080479dd6676d83153c423fcbe5cf6a10b384e83933b1fcf2e44859fe87e899",
+      "actually_viewed_with": "view_image",
+      "status": "PASS",
+      "note": "The exact-image converse resumes cleanly. Both doubling calculations, the rank lower-bound proof and finite-evidence scope fit. Section 257 and its first lemma begin without clipping."
+    }
+  ],
+  "scope": "Actual visual review of the three listed pages; not a claim to have viewed the other pages."
+}

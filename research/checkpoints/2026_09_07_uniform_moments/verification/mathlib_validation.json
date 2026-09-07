@@ -1,0 +1,93 @@
+{
+  "status": "PASS: fresh scoped source compilation and complete axiom audit",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "modules": {
+    "PrivateValuationMultisets": {
+      "source": "research/checkpoints/2026_09_07_uniform_moments/Lean/PrivateValuationMultisets.lean",
+      "sha256": "0a28ed0c5ea812ba89c64b3dec801e86e83293dc9db8d6a99b9c7312ec4871f7",
+      "new": true,
+      "declarations": 8,
+      "queries": [
+        "ABCPrivateValuationMultisets20260907.actual_product_eq_counts",
+        "ABCPrivateValuationMultisets20260907.private_valuation_product",
+        "ABCPrivateValuationMultisets20260907.private_valuation_counts_equal",
+        "ABCPrivateValuationMultisets20260907.private_actual_product_injective",
+        "ABCPrivateValuationMultisets20260907.private_symmetric_product_injective",
+        "ABCPrivateValuationMultisets20260907.rigid_symmetric_product_injective",
+        "ABCPrivateValuationMultisets20260907.actual_symmetric_count_bound",
+        "ABCPrivateValuationMultisets20260907.actual_symmetric_three_n_bound"
+      ]
+    },
+    "UniformMomentArithmetic": {
+      "source": "research/checkpoints/2026_09_07_critical_bottleneck/thirteenth_round/Lean/UniformMomentArithmetic.lean",
+      "sha256": "646308163a102479ea842b33b2f06eb8b1adf342e459f13cf8b4a51c597d1568",
+      "new": true,
+      "declarations": 15,
+      "queries": [
+        "ABCUniformMoment20260907.six_choose_three",
+        "ABCUniformMoment20260907.choose_three_exceeds_three_n",
+        "ABCUniformMoment20260907.count_le_three_of_multiset_bound",
+        "ABCUniformMoment20260907.explicit_root_threshold",
+        "ABCUniformMoment20260907.count_le_three_at_explicit_threshold",
+        "ABCUniformMoment20260907.low_layer_count_bound",
+        "ABCUniformMoment20260907.countAbove_eq_filter_length",
+        "ABCUniformMoment20260907.pointwise_complete_excess",
+        "ABCUniformMoment20260907.finite_complete_excess",
+        "ABCUniformMoment20260907.actual_depth_list_budget",
+        "ABCUniformMoment20260907.weighted_complete_prime_budget",
+        "ABCUniformMoment20260907.actual_depth_budget_from_multisets",
+        "ABCUniformMoment20260907.weighted_prime_budget_from_multisets",
+        "ABCUniformMoment20260907.normalized_prime_budget",
+        "ABCUniformMoment20260907.normalized_progression_budget"
+      ]
+    },
+    "ActualUniformDepthBudget": {
+      "source": "research/checkpoints/2026_09_07_uniform_moments/Lean/ActualUniformDepthBudget.lean",
+      "sha256": "20a0b16f9b72aa11fe322bfad777090060ab415b915a2409d75eed63c5233af4",
+      "new": true,
+      "declarations": 8,
+      "queries": [
+        "ABCActualUniformDepth20260907.restricted_private_symmetric_count",
+        "ABCActualUniformDepth20260907.square_bound_from_pair_multisets",
+        "ABCActualUniformDepth20260907.sum_indicator_eq_deep_card",
+        "ABCActualUniformDepth20260907.actual_finite_index_excess",
+        "ABCActualUniformDepth20260907.actual_finite_index_excess_from_multisets",
+        "ABCActualUniformDepth20260907.actual_private_depth_budget",
+        "ABCActualUniformDepth20260907.actual_private_weighted_depth_budget",
+        "ABCActualUniformDepth20260907.actual_private_normalized_depth_budget"
+      ]
+    },
+    "CubicUnitLocalArithmetic": {
+      "source": "research/checkpoints/2026_09_07_independent_route/thirteenth_round/Lean/CubicUnitLocalArithmetic.lean",
+      "sha256": "ec5f2f2d1783d4c8c6a1d698c5b2f6555a95ef0d0af8dc14489e01a82e90147a",
+      "new": true,
+      "declarations": 6,
+      "queries": [
+        "ABCCubicUnitLocal20260907.shifted_cubic_identity",
+        "ABCCubicUnitLocal20260907.sextic_mod",
+        "ABCCubicUnitLocal20260907.mod_twenty_seven_table",
+        "ABCCubicUnitLocal20260907.actual_congruence_forces_three",
+        "ABCCubicUnitLocal20260907.actual_square_forces_three",
+        "ABCCubicUnitLocal20260907.primitive_sextic_not_square"
+      ]
+    }
+  },
+  "new_declarations": 37,
+  "dependency_declarations": 0,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "dependency_build_scope": "Pinned Mathlib compiled cache reused; listed source modules freshly compiled.",
+  "not_claimed": [
+    "ABC proof or disproof",
+    "whole repository or Mathlib rebuild",
+    "arithmetic private valuation construction",
+    "finite-ring torsion or lifting",
+    "arbitrary-root signed membership",
+    "divisor asymptotics or sieve",
+    "complete rational locus formalization"
+  ]
+}

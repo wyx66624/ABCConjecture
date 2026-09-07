@@ -1,0 +1,110 @@
+\section{Actual private valuations and complete finite depth budgets in Lean}
+\label{apd-section}
+
+The finite formalization starts with actual products and actual index sets.
+Let $I$ be a finite set, $G$ a commutative monoid, and $a_i\in G$.
+Suppose homomorphisms $v_i:G\to(\mathbb Z,+)$ satisfy
+\[
+ v_i(a_j)=0\quad(j\ne i),\qquad d_i=v_i(a_i)\ne0.
+\]
+In Lean the additive target is expressed as
+\texttt{Multiplicative Int}, so these are ordinary multiplicative
+monoid homomorphisms. The integers $d_i$ may have either sign.
+
+\begin{lemma}[Actual multiset injectivity]\label{apd-private}
+The map taking a finite multiset of indices to the product of its
+actual elements $a_i$ is injective.
+\end{lemma}
+\begin{proof}
+For a multiset $s$, write $c_i(s)$ for its multiplicity at $i$.
+Commutativity gives
+\[
+ \prod_{i\in s}a_i=\prod_{i\in I}a_i^{c_i(s)},\qquad
+ v_i\Bigl(\prod_{j\in s}a_j\Bigr)=c_i(s)d_i.
+\]
+Equal products therefore imply $c_i(s)d_i=c_i(t)d_i$ for every $i$.
+Cancel the nonzero integer $d_i$ to obtain equality of all multiplicities,
+and hence of the multisets. No tuple-injectivity assumption is needed.
+\end{proof}
+
+Give each actual index a natural depth $e_i$, and define
+$I_h=\{i\in I:e_i\ge h\}$. Private witnesses restrict to every $I_h$.
+Let $H_h$ be a finite commutative monoid with $|H_h|\le3n$, and suppose
+$\phi_h:I_h\to H_h$. At a specified positive integer moment $\nu$, assume that equality
+of the mapped products of two $\nu$-multisets implies equality of
+their original products in $G$. Lemma~\ref{apd-private} then gives
+\begin{equation}\label{apd-count}
+ \binom{|I_h|+\nu-1}{\nu}\le3n.
+\end{equation}
+This counts actual multisets with repetitions, including the empty-index
+case when $\nu>0$. In the formal library the cardinality is that of
+\texttt{Sym} applied to the actual depth subtype.
+
+\begin{proposition}[The finite private-root depth bridge]\label{apd-budget}
+Let $n>324$ and $C$ be natural numbers, put $r=\lfloor\sqrt n\rfloor+1$,
+and assume $e_i\le C$ for every $i$. Suppose the two finite targets
+and actual-product rigidity assumptions above are supplied at
+$(h,\nu)=(4,2)$ and $(2r,r)$. Then
+\begin{equation}\label{apd-excess}
+ \sum_{i\in I}(e_i-3)_+\le10n+3C.
+\end{equation}
+For $w\ge0$ with $Cw\le3nL$, one also has
+\begin{equation}\label{apd-weighted}
+ w\sum_{i\in I}(e_i-3)_+\le10nw+9nL.
+\end{equation}
+If $B,s>0$, $w\le2s$ and $L\le2s$, division by $Bns$ bounds
+the left side of \eqref{apd-weighted} after normalization by $38/B$.
+\end{proposition}
+\begin{proof}
+The two-multiset instance of \eqref{apd-count} gives $|I_4|^2\le6n$.
+Also $n\le r^2\le4n$. If $|I_{2r}|\ge4$, then
+\[
+ 3n\ge\binom{|I_{2r}|+r-1}{r}
+ \ge\binom{r+3}{3}>\frac{r^3}{6}\ge\frac{n^{3/2}}6>3n,
+\]
+a contradiction. Hence $|I_{2r}|\le3$. For each index separately,
+\[
+ (e_i-3)_+\le 2r\,\mathbf1_{e_i\ge4}
+                  +C\,\mathbf1_{e_i\ge2r}.
+\]
+Summing counts each actual index once, even when different indices
+have the same depth. The first contribution is at most
+$2\sqrt{4n}\sqrt{6n}<10n$ and the second at most $3C$.
+Multiplication by the nonnegative weight and the stated height bound
+prove \eqref{apd-weighted}. Finally its right side is at most $38ns$;
+all three factors in the denominator are positive.
+\end{proof}
+
+\paragraph{The precise formal scope.}
+There are 37 new declarations in four modules.
+\texttt{PrivateValuation\allowbreak Multisets} contributes eight actual
+product, private-valuation, symmetric-product and finite-count theorems.
+\texttt{UniformMoment\allowbreak Arithmetic} contributes 15 numerical,
+actual-list, complete-layer and normalization theorems.
+\texttt{ActualUniform\allowbreak DepthBudget} contributes eight theorems
+on restricted private witnesses, actual depth subtypes, finite sums,
+and the complete connection in Proposition~\ref{apd-budget}.
+The formal weighted sums explicitly perform natural-number truncated
+subtraction before casting the complete sum to the reals.
+
+Finally, \texttt{CubicUnit\allowbreak LocalArithmetic} contributes six
+theorems on the actual integer sextic in the local obstruction. A
+kernel-checked table modulo $27$ implies that an integer square value
+forces both homogeneous coordinates to be divisible by three.
+It therefore excludes every primitive integer coordinate pair.
+The finite table uses \texttt{decide}, with no native computation axiom.
+
+All four sources were freshly compiled together with Lean 4.32.0 and
+Mathlib revision \texttt{81a5d257c8e410db227a6665ed08f64fea08e997}.
+All 37 explicit axiom queries passed; their union consists only of
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}.
+The fixed Mathlib compiled cache was reused. The ordinary proofs and
+independent internal review preceded the corresponding implementation.
+
+The final private-root theorem derives both binomial count premises
+from the supplied private witnesses and actual product rigidity.
+It does not construct the arithmetic ideal valuations, finite torsion
+groups, their lifts, or the height cap. The formal natural depths remain
+a supplied function on a finite index type. The ideal, sieve, density,
+$\mathbb Q_3$-geometric and elliptic arguments retain their separately
+reviewed ordinary-proof status. None of these declarations proves $abc$.

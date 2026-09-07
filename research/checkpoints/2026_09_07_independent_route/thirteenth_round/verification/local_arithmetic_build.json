@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "Fresh source compilation and six axiom queries; no formal Q_3 or curve geometry claim.",
+  "source": "E:/agent/ABCConjecture/research/checkpoints/2026_09_07_independent_route/thirteenth_round/Lean/CubicUnitLocalArithmetic.lean",
+  "source_sha256": "ec5f2f2d1783d4c8c6a1d698c5b2f6555a95ef0d0af8dc14489e01a82e90147a",
+  "lean_version": "4.32.0",
+  "lean_commit": "8c9756b28d64dab099da31a4c09229a9e6a2ef35",
+  "source_imports": ["Std"],
+  "compiler_exit_code": 0,
+  "proved_declarations": 6,
+  "axiom_queries": {
+    "shifted_cubic_identity": ["propext", "Classical.choice", "Quot.sound"],
+    "sextic_mod": ["propext"],
+    "mod_twenty_seven_table": [],
+    "actual_congruence_forces_three": ["propext", "Classical.choice", "Quot.sound"],
+    "actual_square_forces_three": ["propext", "Classical.choice", "Quot.sound"],
+    "primitive_sextic_not_square": ["propext", "Classical.choice", "Quot.sound"]
+  },
+  "kernel_decide_used": true,
+  "native_decide_used": false,
+  "oleans_written_outside_source": "E:/agent/ABCConjecture/tmp/abc_20260907/CubicUnitLocalArithmetic.olean"
+}

@@ -1,0 +1,154 @@
+\section{An exact elliptic gate for a nonidentity cubic unit}
+\label{eqg-section}
+
+The unit \(u=\zeta\) at \(g=3\) remains after the identity-unit
+exclusion. Its first quotient gives a concrete genus-two curve
+and an elliptic lifting condition. The following ordinary
+proofs use no software rank output.
+
+\begin{theorem}[Two explicit elliptic quotients]\label{eqg-quotients}
+Let \(H\) be the smooth projective genus-two curve
+\begin{equation}\label{eqg-sextic}
+ y^2=P(s),\qquad
+ P(s)=s^6+3s^5-3s^4-11s^3-3s^2+3s+1.
+\end{equation}
+This is the first HG quotient for \(g=3,u=\zeta\).
+It has degree-two morphisms to
+\begin{equation}\label{eqg-elliptic-curves}
+ E:\ Y^2=X^3-9X-9,\qquad
+ E':\ (Y')^2=(X')^3-189X'+999,
+\end{equation}
+given on finite charts by
+\begin{align}
+ X&=-\frac{2s^2+5s+2}{(s+1)^2},
+ &Y&=\frac{y}{(s+1)^3},\label{eqg-first-map}\\
+ X'&=\frac{3(2s^2-7s+2)}{(s-1)^2},
+ &Y'&=-\frac{9y}{(s-1)^3}.\label{eqg-second-map}
+\end{align}
+Moreover \(\operatorname{Jac}(H)\) is isogenous over
+\(\mathbb Q\) to \(E\times E'\).
+\end{theorem}
+\begin{proof}
+The identity-unit cubic coordinates are
+\(A_0=s^3-3s-1\), \(B_0=3s(s+1)\).
+Multiplication by \(\zeta\) gives \(A=-B_0\), \(B=A_0+B_0\);
+thus \(B(A+B)=A_0(A_0+B_0)=P\).
+On the chart \(s\ne1\), put
+\[
+ t=\frac{s+1}{s-1},\qquad v=y(t-1)^3.
+\]
+Direct expansion yields
+\begin{equation}\label{eqg-even-sextic}
+ v^2=-9t^6+99t^4-27t^2+1.
+\end{equation}
+The inverse is \(s=(t+1)/(t-1)\), \(y=v/(t-1)^3\);
+the birational change extends to the smooth projective models.
+In this chart the elliptic coordinates are
+\begin{align*}
+ X&=(1/t^2-9)/4,&Y&=v/(8t^3),\\
+ X'&=(33-9t^2)/4,&Y'&=-9v/8.
+\end{align*}
+Substitution proves the equations and
+\eqref{eqg-first-map}--\eqref{eqg-second-map}.
+The two discriminants are \(11664\) and \(944784\), respectively.
+The second map is the quotient by \(\sigma:(t,v)\mapsto(-t,v)\);
+the first is the quotient by \(\sigma\iota:(t,v)\mapsto(-t,-v)\),
+where \(\iota\) is the hyperelliptic involution. The indicated
+invariants together with \(t^2\) generate the quotient fields.
+The involutions are nontrivial, so both maps have degree two,
+and extend over the smooth projective models.
+
+Let \(\Phi\) be the pair of quotient norms and \(\Psi\) the sum
+of pullbacks. The hyperelliptic quotient is \(\mathbb P^1\);
+its divisor norm/pullback identity gives \(\iota=-1\) on
+\(\operatorname{Jac}(H)\). The other two double covers therefore give
+\begin{equation}\label{eqg-times-two}
+ \Psi\Phi=(1+\sigma)+(1+\sigma\iota)=[2].
+\end{equation}
+These divisor identities include the ramified fibres.
+Multiplication by two is surjective, hence so is \(\Psi\).
+Both sides have dimension two, so \(\Psi\) is a
+\(\mathbb Q\)-isogeny. This is the explicit arithmetic
+norm/pullback argument of Theorem~\ref{hg-isogeny}.
+\end{proof}
+
+\begin{theorem}[The complete rational image of the first quotient]
+\label{eqg-image}
+Under \eqref{eqg-first-map}, the image of \(H(\mathbb Q)\) is exactly
+\begin{equation}\label{eqg-square-gate}
+ \{O\}\ \cup\
+ \{(X,Y)\in E(\mathbb Q):4X+9\text{ is a square in }\mathbb Q\}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Clearing the abscissa formula gives
+\begin{equation}\label{eqg-inverse-quadratic}
+ (X+2)s^2+(2X+5)s+(X+2)=0,
+\end{equation}
+with discriminant \(4X+9\). At \(s=-1\), \(P(-1)=1\),
+and the two rational points map to \(O\). The two rational
+points at infinity, and those at \(s=0\), map to
+\((-2,1)\), \((-2,-1)\). Thus every chart exception is
+also in \eqref{eqg-square-gate}.
+
+Conversely, let a finite elliptic point have \(4X+9\) square.
+If \(X=-2\), then \(Y=\pm1\), and \(s=0,y=Y\) is a preimage.
+Otherwise \eqref{eqg-inverse-quadratic} has a rational root \(s\).
+This root cannot be \(-1\), since the left side at \(-1\)
+is \(-1\). Put \(y=Y(s+1)^3\). The polynomial identity
+behind \eqref{eqg-first-map} gives \(y^2=P(s)\).
+The repeated-discriminant case cannot occur on \(E(\mathbb Q)\):
+at \(X=-9/4\) its cubic has value \(-9/64\).
+Finally \(O\) has the two rational preimages already listed.
+\end{proof}
+
+This is one quotient condition for the actual seed problem.
+A point of \(D_{3,\zeta}\) must also have the second HG square
+root at the same source \(s\), with \(0<A(s)/B(s)<1/3\).
+Arbitrary elliptic points, or quotient points at different
+source parameters, do not construct an actual seed.
+
+\begin{theorem}[Two independent rank contributions]\label{eqg-rank-lower}
+Both elliptic curves in \eqref{eqg-elliptic-curves} have points
+of infinite order. Thus \(\operatorname{Jac}(H)(\mathbb Q)\)
+has Mordell--Weil rank at least two.
+\end{theorem}
+\begin{proof}
+Take \(P=(-2,1)\in E(\mathbb Q)\) and \(P'=(6,9)\in E'(\mathbb Q)\).
+Direct doubling gives
+\[
+ 2P=(25/4,-107/8),\qquad 2P'=(33/4,9/8).
+\]
+For a short integral equation \(y^2=x^3+ax+b\) with \(a,b\) odd,
+\[
+ x(2Q)=\frac{x^4-2ax^2-8bx+a^2}{4(x^3+ax+b)}.
+\]
+If \(v_2(x)=s<0\), the unique smallest numerator and denominator
+valuations are \(4s\) and \(2+3s\). Hence
+\(v_2(x(2Q))=s-2\). Both displayed doubled points start at
+valuation \(-2\), and their repeated doublings have distinct
+abscissas with valuations \(-2,-4,-6,\ldots\).
+Both original points therefore have infinite order.
+The \(\mathbb Q\)-isogeny of Theorem~\ref{eqg-quotients} and
+the Mordell--Weil theorem give the rank lower bound.
+No assertion that these points generate the full groups is used.
+\end{proof}
+
+Consequently a rank-less-than-genus argument for this genus-two
+quotient cannot be justified. Other descents and simultaneous
+square conditions remain available. The gate itself is strict:
+\(P\) lifts but \(2P\) does not, since \(4(25/4)+9=34\) is
+not a rational square. This makes no claim about all higher multiples.
+
+The separate bounded PARI/GP search, checked by exact rational
+arithmetic, found \(24\) affine points across the nine cubic
+quotient models with numerator and denominator bounded by \(1000\).
+All had \(s=0\) or \(-1\), and none supplied the positive
+common-source locus. A distinct exhaustive rational-abscissa check
+at bound \(80\) checked \(70767\) curve-abscissa cases.
+The same replay checked all \(648\) primitive coordinate classes
+modulo \(27\) for Theorem~\ref{cl-no-local-point}.
+These finite checks do not determine all rational points.
+Diagnostic software rank outputs are not used in the ordinary
+proofs above, and no genus-two or elliptic-curve theorem here is
+claimed as a complete Lean formalization.
