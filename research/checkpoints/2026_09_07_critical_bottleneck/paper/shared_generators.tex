@@ -1,0 +1,282 @@
+\section{Shared exponent generators and a strict improvement of the profile envelope}
+\label{sec:sg-start}
+\noindent\textbf{Status.} This continuation proves new ordinary mathematical
+results using established logarithmic-form estimates. It gives unconditional
+balance and small-prime estimates on actual content-one families, and a
+conditional $abc$ class with a visibly retained large-prime hypothesis. It does
+not prove or disprove standard $abc$. The elementary two-column reconstruction
+has a separate Lean verification; the analytic theorems below are not thereby
+kernel-checked.
+
+Write $T=abc$, $R=\operatorname{rad}(T)$, $t=\log c$, $c=a+b$, where $a,b$ are
+positive coprime integers. Retain the actual factorization from the preceding
+exponent-profile supplement:
+\[
+ z=a+b\zeta=u(1+\zeta)^{e_0}\prod_{i=1}^r\pi_i^{e_i},\qquad
+ M=N(z)=3^{e_0}\prod_{i=1}^r q_i^{e_i},
+ \quad q_i=N(\pi_i)\ge7.
+\]
+The $q_i$ are distinct split primes, $e_0\in\{0,1\}$, and each split prime is
+used with only one conjugate orientation. The prior identities are
+\begin{equation}\label{eq:sg-baseline}
+ \gcd(M,T)=1,\qquad \frac34c^2\le M\le c^2,\qquad
+ z^3-\bar z^3=3\sqrt{-3}\,T.
+\end{equation}
+The case with no split factors is $(1,1,2)$ and satisfies $c\le R$ directly.
+It is excluded from all logarithmic-form applications below.
+
+\subsection{Allowing the same oriented prime in several generators}
+\begin{definition}\label{def:sg-matrix}
+A shared exponent representation has $m\ge1$ columns, integers $k_j\ge1$,
+and nonnegative integers $f_{ij}$ such that
+\[
+ e_i=\sum_{j=1}^m k_j f_{ij},\qquad
+ w_j=\prod_i\pi_i^{f_{ij}},\qquad Q_j=N(w_j),\qquad S=\sum_jk_j.
+\]
+Every column has a positive entry. Different columns may contain the same
+oriented prime. The ramified factor stays outside the matrix.
+\end{definition}
+
+\begin{lemma}[Exact shared reconstruction]\label{lem:sg-reconstruction}
+Every such representation satisfies
+\[
+ z=u(1+\zeta)^{e_0}\prod_jw_j^{k_j},\qquad
+ \sum_j k_j\log Q_j=\log M-e_0\log3\le2t,\qquad Q_j\ge7.
+\]
+\end{lemma}
+\begin{proof}
+Expand the powers and commute the finite products. The total exponent of
+$\pi_i$ is $\sum_j k_jf_{ij}=e_i$. Apply the multiplicative norm and take
+logarithms. A nonempty column contains a prime of norm at least seven.
+\end{proof}
+
+\begin{theorem}[Shared-generator bounds at both kinds of places]
+\label{thm:sg-two-place}
+There is an effective absolute $C>2$ such that, for every representation,
+\[
+ \mathcal B=C^{m+1}\log(3+S)\prod_j\log Q_j
+\]
+satisfies, with $\lambda=(z/\bar z)^3$,
+\begin{align}
+ |\lambda-1|&\ge e^{-\mathcal B},&
+ v_p(T)&\le p^2\mathcal B\quad(p\mid T),\label{eq:sg-local}\\
+ \log\prod_{\substack{p\mid T\\p\le Y}}p^{v_p(T)}
+ &\le\mathcal B Y^3\log Y\quad(Y\ge2),\label{eq:sg-small}\\
+ c^3&\le8e^{\mathcal B}R^3\frac{E_3(T)}{C_3(T)}.\label{eq:sg-cubic}
+\end{align}
+Here $E_3(T)=\prod_{p\mid T}p^{(v_p(T)-3)_+}$ and
+$C_3(T)=\prod_{p\mid T}p^{(3-v_p(T))_+}$.
+\end{theorem}
+\begin{proof}
+Put $\eta_j=(w_j/\bar w_j)^3$. Both complex conjugates of $w_j$ have
+absolute value $\sqrt{Q_j}$, so $h(w_j)=\tfrac12\log Q_j$ and the Weil
+height inequalities imply $h^*(\eta_j)\le3\log Q_j$. No $\eta_j$ equals
+one: otherwise the prime-ideal factorizations of $w_j^3$ and $\bar w_j^3$
+would agree, although a selected split prime occurs only on the first side.
+This argument needs no coprimality between different columns.
+
+The unit contribution disappears and the ramified factor contributes
+$(-1)^{e_0}$; hence $\lambda=(-1)^{e_0}\prod_j\eta_j^{k_j}\ne1$ by
+\eqref{eq:sg-baseline}. Choose principal logarithms and an integer $v$ so that
+\[
+ \Lambda=\sum_jk_j\log\eta_j+(e_0-2v)\log(-1)
+\]
+has imaginary part in $[-\pi,\pi]$. It is nonzero and
+$|e_0-2v|\le S+1$. Apply Bugeaud's Theorem 1.1, equation (1.2)
+\cite{EPBugeaud2022}, with at most $m+1$ logarithms and field degree at most
+two. Delete zero coefficients if needed and select a nonzero last coefficient.
+Use $|e^{ix}-1|\ge2|x|/\pi$ on the displayed interval. Absorb the height
+factors and fixed constants into one absolute $C$.
+
+For $p\mid T$, the norm coprimality in \eqref{eq:sg-baseline} shows that
+every $w_j,\bar w_j,z,\bar z$ is a unit at each place above $p$, including
+when the $w_j$ overlap. With valuation normalized by $v_p(p)=1$,
+\[
+ v_p(\lambda-1)=v_p(T)+v_p(3\sqrt{-3})\ge v_p(T).
+\]
+Apply the first inequality of Bugeaud's Theorem 1.3 to
+$\eta_1,\ldots,\eta_m,-1$ and coefficients $k_1,\ldots,k_m,e_0$.
+It permits zero coefficients and does not require multiplicative independence.
+Its $p^D$ factor is at most $p^2$. This proves \eqref{eq:sg-local} after
+enlarging $C$ once; summation with
+$\sum_{p\le Y}p^2\log p\le Y^3\log Y$ gives \eqref{eq:sg-small}.
+Finally \eqref{eq:sg-baseline} gives
+$T\ge c^3e^{-\mathcal B}/8$. Combine this with the exact identity
+$TC_3(T)=R^3E_3(T)$ to prove \eqref{eq:sg-cubic}.
+\end{proof}
+
+Only the two explicitly identified established inequalities are used. In
+particular the conditional refinements and open improvements later in the
+non-Archimedean source are not substituted for its first inequality.
+
+\subsection{Quotients, remainders, and a new uniform class}
+Choose $g\ge1$ and nonnegative profiles $f_i,r_i$ with
+$e_i=gf_i+r_i$ and some $f_i>0$. Set
+\[
+\begin{gathered}
+ w=\prod_i\pi_i^{f_i},\qquad v=\prod_i\pi_i^{r_i},\qquad
+ Q=N(w)\ge7,\qquad V=N(v),\\
+ h=\max(1,\log V),\qquad \rho=\frac{h\log(4+g)}g.
+\end{gathered}
+\]
+Then $z=u(1+\zeta)^{e_0}vw^g$. If $v$ is a unit, its column is omitted.
+The parameter $g$ need not divide the original exponents.
+
+\begin{corollary}\label{cor:sg-rho}
+There is an effective absolute $A\ge1$ for which an admissible penalty satisfies
+$\mathcal B\le A\rho t$. If $0<\rho\le1/64$ and $Y=\rho^{-1/6}$, then
+\[
+ \log\prod_{\substack{p\mid T\\p\le Y}}p^{v_p(T)}
+ \le\frac A6\sqrt\rho\log(1/\rho)t.
+\]
+\end{corollary}
+\begin{proof}
+When $V>1$, use
+$\mathcal B=C^3\log(4+g)\log V\log Q$ and $g\log Q\le2t$.
+When $V=1$, the one-column bound is smaller than the same estimate with
+$h=1$. Thus $A=2C^3$ suffices. Substitute
+$Y^3=\rho^{-1/2}$ and $\log Y=\log(1/\rho)/6$ in
+\eqref{eq:sg-small}; the threshold ensures $Y\ge2$.
+\end{proof}
+
+\begin{theorem}[Unconditional balance]\label{thm:sg-balance}
+For every $0<\eta<1$ there is an effective $\rho_\eta>0$ such that every
+triple with this representation and $\rho\le\rho_\eta$ satisfies
+$\min(a,b)>c^{1-\eta}$. No hypothesis on its radical or large-prime tail is
+required.
+\end{theorem}
+\begin{proof}
+If $\min(a,b)\le c^{1-\eta}$, then $T\le c^{3-\eta}$ and
+$\eta t\le\log8+\mathcal B$. Also $t\ge g\log7/2$ and $\rho\ge1/g$.
+Consequently
+$\eta\le(A+2\log8/\log7)\rho$, a contradiction after choosing a smaller
+positive threshold.
+\end{proof}
+
+\begin{theorem}[An explicit conditional $abc$ class]\label{thm:sg-tail}
+For every $B_0\ge0$ and $\varepsilon>0$ there is an effective
+$\rho_{B_0,\varepsilon}>0$ such that
+\[
+ 0<\rho\le\rho_{B_0,\varepsilon},\qquad
+ W_{\rho^{-1/6}}(T):=\frac{E_3^{>\rho^{-1/6}}(T)}
+ {C_3^{>\rho^{-1/6}}(T)}\le g^{B_0}
+ \quad\Longrightarrow\quad c\le R^{1+\varepsilon}.
+\]
+The threshold is independent of the norm primes and their number.
+\end{theorem}
+\begin{proof}
+Make the threshold at most $1/64$. The small-prime part of
+$\log(E_3/C_3)$ is at most the full mass in Corollary~\ref{cor:sg-rho}, and
+the remaining part is at most $B_0\log g$. Since $t\ge g\log7/2$ and
+$\log g\le\log(4+g)$, the remainder in \eqref{eq:sg-cubic}, divided by
+$t$, is at most
+\[
+ A\rho+\frac A6\sqrt\rho\log(1/\rho)
+ +\frac{2(\log8+B_0)}{\log7}\rho.
+\]
+Choose the threshold to make this at most
+$3\varepsilon/(1+\varepsilon)$. Taking logarithms in
+\eqref{eq:sg-cubic} and rearranging gives
+$t\le(1+\varepsilon)\log R$.
+\end{proof}
+The signed tail is an explicit unproved condition. The theorem asserts no
+global bound on it and no infinitude of the class satisfying that condition.
+
+\subsection{A strict separation from all disjoint partition envelopes}
+\begin{theorem}\label{thm:sg-strict-separation}
+There are height-unbounded primitive positive triples with split-exponent gcd
+one such that every old disjoint partition penalty satisfies
+\[
+ \mathcal B_{\mathcal P}\ge\frac{\log4}{8}\log M,
+\]
+whereas a shared representation with two columns has
+$\mathcal B_{\rm shared}=o(\log c)$. These triples satisfy the unconditional
+balance and small-prime estimates above. Their large-prime tail remains open.
+\end{theorem}
+\begin{proof}
+Take $r$ distinct split primes $q_i\in[X,2X]$, put $L=\log X\ge\log7$,
+$g=\lceil r^4L^2\rceil$, and $e_i=g+i$. Choose one orientation $\pi_i$ of
+each and form $z=\prod_i\pi_i^{e_i}$. A rational prime dividing both
+coordinates would force a conjugate factor to occur, so $z$ is primitive.
+A primitive zero-boundary pair is a unit, whereas $N(z)>1$. Unit rotation
+therefore gives an actual positive triple. For $r\ge2$ the exponent gcd is one.
+Writing $V_{\rm tot}=\log M$, we have
+\begin{equation}\label{eq:sg-total}
+ grL\le V_{\rm tot}\le4grL\le8r^5L^3.
+\end{equation}
+For $w=\prod_i\pi_i$ and $v=\prod_i\pi_i^i$,
+$\log N(v)\le2r^2L$, and hence
+\[
+ \rho\le\frac{2\log(4+g)}{r^2L}\longrightarrow0
+\]
+uniformly in $L\ge\log7$. Indeed
+$\log(4+g)\le\log6+4\log r+2\log L$; use the lower bound on $L$ and
+boundedness of $(\log L)/L$. Corollary~\ref{cor:sg-rho} proves the new
+sublinear estimate.
+
+Consider any old partition into $m$ blocks. For a block of size $h_j$, write
+$k_j$ for its exponent gcd and $L_j=\log Q_j$. Always $L_j\ge L$.
+If $h_j\ge2$, its indices are distinct and congruent modulo $k_j$; therefore
+\[
+ k_j\le\frac{r-1}{h_j-1},\qquad
+ L_j\ge\frac{g h_j(h_j-1)L}{r}.
+\]
+If $m\le r/2$, a largest block has $h\ge r/m\ge2$, giving
+$L_j\ge grL/(2m^2)$. Bound the other columns by $L$ and use
+\eqref{eq:sg-total} to obtain
+\[
+ \frac{\mathcal B_{\mathcal P}}{V_{\rm tot}}
+ \ge\frac{C^{m+1}\log4\,L^{m-1}}{8m^2}\ge\frac{\log4}{8}.
+\]
+The last inequality uses $C>2$, $L>1$, and $2^{m+1}\ge m^2$. This elementary
+inequality holds directly for $m=1,2,3$ and propagates for $m\ge3$ because
+$(m+1)^2\le2m^2$.
+
+If $m>r/2$, use $L_j\ge L$ in every column:
+\[
+ \frac{\mathcal B_{\mathcal P}}{V_{\rm tot}}
+ \ge\frac{C^{m+1}\log4\,L^{m-3}}{8r^5}.
+\]
+For $r\ge8$, this is at least
+\[
+ \frac{\log4}{4(\log7)^3}\frac{(2\log7)^{r/2}}{r^5},
+\]
+which tends to infinity independently of $X$. Thus all partitions, including
+those whose number of columns grows with $r$, satisfy the required lower bound
+once $r$ is large.
+
+Finally such prime lists exist with $r\to\infty$. As a separately identified
+established input, the explicit fixed-modulus estimate of
+\href{https://arxiv.org/abs/1802.00085v3}{Bennett, Martin, O'Bryant, and Rechnitzer}
+gives $|\theta(x;3,1)-x/2|<x/(160\log x)$ for $x\ge8\cdot10^9$.
+Subtract the estimates at $2X$ and $X$ to get
+$\theta(2X;3,1)-\theta(X;3,1)\ge X/3$ eventually. The interval consequently
+contains at least $X/(3\log(2X))$ such primes. This supplies $r\to\infty$;
+\eqref{eq:sg-total} supplies unbounded height. This completes the proof.
+\end{proof}
+
+The lower bound is for the previous explicit envelope, not for the true angle.
+The new representation therefore improves the available estimate on genuine
+arithmetic inputs, without contradicting the earlier theorems. Its conditional
+tail conclusion is not silently promoted to an unconditional $abc$ result.
+
+\subsection{Dependencies, review, and precise formal scope}
+The ordinary proof chain is actual oriented factorization, nonnegative matrix
+reconstruction, the two stated established logarithmic-form bounds, and then
+uniform balance and small-prime control. The conditional $abc$ arrow requires
+the independent signed-tail hypothesis in Theorem~\ref{thm:sg-tail}.
+Prime availability in Theorem~\ref{thm:sg-strict-separation} is an additional
+established input used only in that family's infinitude argument.
+
+The companion \texttt{OverlapColumns.lean} proves reconstruction and the norm
+identity for a finite list of actual integer pairs with two shared exponent
+columns, as well as Euclidean quotient--remainder splitting of exponents. Its
+signature imposes no disjoint-support assumption. It does not formalize the
+external analytic estimates, the splitting classification, all asymptotic
+absorption, or standard $abc$.
+
+The remaining arithmetic node for this new class is
+$W_{\rho^{-1/6}}(T)\le g^{B_0}$ or a comparably sufficient correlated bound.
+Prime-norm terminal profiles remain outside $\rho\to0$. Existing parent
+routes remain open, and no claim of a closed Lean term proving
+\texttt{ABCConjecture} is made.

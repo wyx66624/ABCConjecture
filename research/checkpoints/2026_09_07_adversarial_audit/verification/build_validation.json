@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-07",
+  "status": "passed",
+  "command": "wsl -d Ubuntu-24.04 -- bash research/checkpoints/2026_09_07_adversarial_audit/wsl/verify_lean.sh",
+  "exit_code": 0,
+  "compiler": "Lean 4.32.0, x86_64-unknown-linux-gnu",
+  "compiler_commit": "8c9756b28d64dab099da31a4c09229a9e6a2ef35",
+  "warnings_as_errors": true,
+  "new_declaration_queries": 9,
+  "fresh_import_declaration_queries": 29,
+  "allowed_axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "sorry_or_custom_axiom_in_new_source": false,
+  "full_repository_build": false,
+  "actual_radical_map_formalized": false,
+  "unconditional_abc_term": false,
+  "source_sha256": "270b6c3c838505634662dbbe488931ed3ea78328d5410a929ba38bc4b7a94e23",
+  "new_build_log_sha256": "01fa0a159d9f0eb298e5e128f7107d507e46c4e31b9ae2c9e0a4ff0e3fa2171e",
+  "ordinary_paper_sha256": "da9d9c98997dd19ccc9f4cc6ab0ecbcdd52632000e94ca292e46d7aba46de216",
+  "development_notes": [
+    "Initial local source checks exposed three proof-script issues; repaired before passing.",
+    "Initial non-login WSL replay did not locate lean; script now resolves the existing elan executable.",
+    "No compiler installation, default-toolchain change, WSL interruption, commit or push performed."
+  ]
+}

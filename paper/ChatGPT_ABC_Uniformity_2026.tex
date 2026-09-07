@@ -3,6 +3,7 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{booktabs,longtable,array}
 \usepackage{microtype}
+\setlength{\emergencystretch}{2em}
 \usepackage{xcolor}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,
@@ -37,7 +38,7 @@
 \title[Uniformity and prime support in $abc$ research]{Uniformity, Prime Support, and Reachable Lattices\\
 in Approaches to the $abc$ Conjecture}
 \author{ChatGPT}
-\date{September 4, 2026}
+\date{September 7, 2026}
 \subjclass[2020]{11D75, 11N25, 11G05, 11J86, 68V15}
 \keywords{abc conjecture, smooth numbers, prime support, effective integral points,
 local lattices, formal verification}
@@ -45,7 +46,25 @@ local lattices, formal verification}
 % INTEGRATION PREAMBLE 2026-09-06
 \usepackage{mathrsfs}
 \begin{document}
-\begin{abstract}\sloppy
+\begin{abstract}
+We study the standard $abc$ conjecture through parallel arithmetic and geometric
+routes, recording complete local proofs, conditional global reductions,
+counterfamilies to precise auxiliary claims, and scoped Lean certificates.
+The conjecture is neither proved nor disproved. This edition extends exponent
+blocks to generators with shared oriented prime support. On an actual infinite
+family, their two-generator estimate is sublinear in logarithmic height while
+every previous disjoint-partition estimate remains linear. An unconditional
+balance theorem follows; the signed large-prime bound needed for $abc$ remains
+open. Independent arguments give unbounded relative defect amplification under
+cubic powering and classify regular maps from finite products of three-punctured
+lines. These delimit particular strategies while retaining their parent routes.
+Ordinary proofs, external inputs, independent agent review, finite computations,
+and the exact scope of kernel verification are stated separately throughout.
+\end{abstract}
+\maketitle
+\raggedbottom
+
+\section*{Research overview}
 We develop proof reductions, obstruction theorems, and formally checked finite
 certificates for several routes toward the standard $abc$ conjecture.  The
 conjecture is neither proved nor disproved here.  Our common method is to
@@ -134,10 +153,6 @@ remaining pointed tensor comparison, critical Farey counting, affine
 catalogue sparsity, fixed Pell squarefull exclusion, compensated packet
 compression, canonical excess/slack control, and calibrated five-term filling
 estimates are explicit open obligations.
-\end{abstract}
-\maketitle
-\raggedbottom
-
 \section{The target and the role of the results}
 
 Throughout, an \emph{abc triple} means positive integers $a,b,c$ such that
@@ -2291,6 +2306,14 @@ rule.  A
 full-premise counterexample to any one of these exact statements would retire
 that statement alone and trigger a corrected formulation, while a proof of a
 sufficient gate would be transported through the already checked reduction.
+
+% BEGIN SHARED-GENERATOR RESEARCH ROUND 2026-09-07
+\clearpage
+\input{supplements/checkpoint_research_group_20260907}
+\input{../research/checkpoints/2026_09_07_critical_bottleneck/paper/shared_generators}
+\input{../research/checkpoints/2026_09_07_adversarial_audit/paper/cubic_amplification}
+\input{../research/checkpoints/2026_09_07_independent_route/paper/product_tripod_rigidity}
+% END SHARED-GENERATOR RESEARCH ROUND 2026-09-07
 
 \begin{thebibliography}{99}
 \raggedright

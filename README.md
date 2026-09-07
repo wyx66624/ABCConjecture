@@ -3,7 +3,7 @@
 Author: ChatGPT
 
 > [!IMPORTANT]
-> **Global status as of September 3, 2026:** this repository does **not**
+> **Global status as of September 7, 2026:** this repository does **not**
 > contain an unconditional proof or disproof of the standard abc conjecture.
 > It contains verified local theorems, conditional reductions, exact no-go
 > results, source-dependent interfaces, and reproducible finite computations.
@@ -49,7 +49,7 @@ Neither end goal has been reached.
 | [`Lean/README.md`](Lean/README.md) | Lean package overview, conditional theorem audit, missing constructions, and build instructions |
 | [`Lean/verification/2026_09_03_incidence_endpoint_literature/README.md`](Lean/verification/2026_09_03_incidence_endpoint_literature/README.md) | Latest incidence/endpoint checkpoint replay protocol |
 | [`paper/ChatGPT_ABC_Uniformity_2026.tex`](paper/ChatGPT_ABC_Uniformity_2026.tex) | Current English manuscript source |
-| [`output/pdf/ChatGPT_ABC_Uniformity_2026.pdf`](output/pdf/ChatGPT_ABC_Uniformity_2026.pdf) | Latest sealed 270-page manuscript artifact |
+| [`output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf`](output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf) | Current 360-page integrated manuscript, maintained at the user-designated filename; the filename is historical |
 
 The bottleneck ledger is the persistent entry point for new research rounds.
 An unchecked item stays open: difficulty, a missing bridge theorem, or a
@@ -75,6 +75,19 @@ target-equivalent axiom, an opaque existence assumption, or a structure whose
 inhabitation is merely another spelling of `ABCConjecture`.
 
 ## Current route map
+
+The September 7 continuation is recorded in the
+[shared-generator proof](research/checkpoints/2026_09_07_critical_bottleneck/ordinary_proofs.md)
+and its [scoped formalization and validation](research/checkpoints/2026_09_07_overlap_formal/README.md).
+Shared exponent generators give an unconditional balance theorem and an
+explicit family where the new two-column penalty is sublinear while every
+previous disjoint-partition penalty is linear in the logarithmic height.
+The new class still requires an unproved signed large-prime estimate for ABC.
+Independent branches prove
+[unbounded cubic relative-defect amplification](research/checkpoints/2026_09_07_adversarial_audit/README.md)
+and [product-tripod rigidity](research/checkpoints/2026_09_07_independent_route/README.md).
+These retire only their precisely stated child strategies. Agent review and
+scoped Lean verification do not constitute external peer review or a proof of ABC.
 
 The table below summarizes the live mathematical program. Full quantifiers and
 the exact next actions are in the

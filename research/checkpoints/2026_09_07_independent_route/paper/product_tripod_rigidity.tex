@@ -1,0 +1,146 @@
+\section{Product-tripod rigidity and the unavoidable mixing divisor}
+\label{pr-section-20260907}
+\noindent\textbf{Status.} The geometric statements in this section are ordinary
+mathematical theorems, checked by a separate adversarial research agent. The
+companion Lean file verifies ten integer algebra statements, including a
+two-coordinate matrix separation theorem. It does not encode the geometric
+classification or prove the standard $abc$ conjecture.
+
+Let $k$ be a field of characteristic zero, $n\ge1$, and
+\[
+ U=\mathbb P^1_k\setminus\{0,1,\infty\},\qquad
+ R_n=k[x_1,\ldots,x_n,x_1^{-1},(1-x_1)^{-1},\ldots,
+ x_n^{-1},(1-x_n)^{-1}].
+\]
+The one-dimensional Riemann--Hurwitz obstruction does not by itself classify
+maps from a fixed product of tripods. The following theorem supplies that
+separate higher-dimensional obstruction.
+
+\begin{lemma}[A rectangle and its complement]
+\label{pr-rectangle}
+In an integral domain, suppose
+\[
+ AD=BC,\qquad(1-A)(1-D)=(1-B)(1-C).
+\]
+Then $A+D=B+C$ and $(A-B)(A-C)=0$. Consequently either $A=B$, $C=D$,
+or $A=C$, $B=D$.
+\end{lemma}
+\begin{proof}
+Expand the second equality and cancel the first to obtain $A+D=B+C$.
+Substitute $D=B+C-A$ in $AD=BC$ and factor. The zero-product law and
+the additive equality give the two alternatives.
+\end{proof}
+
+\begin{theorem}[Product-tripod rigidity]
+\label{pr-rigidity}
+Every nonconstant regular $k$-morphism $U^n\to U$ is one of
+\[
+ x_i,\quad 1-x_i,\quad x_i^{-1},\quad (1-x_i)^{-1},\quad
+ \frac{x_i}{x_i-1},\quad\frac{x_i-1}{x_i}
+\]
+for some $i$. Every dominant regular endomorphism of $U^n$ is therefore
+a coordinate permutation followed by these transformations coordinate by
+coordinate, and is an automorphism.
+\end{theorem}
+\begin{proof}
+The polynomial ring is a unique factorization domain. After inverting the
+irreducibles $x_i,1-x_i$, every unit is
+$c\prod_i x_i^{a_i}(1-x_i)^{b_i}$ with $c\in k^*$ and $a_i,b_i\in\mathbb Z$.
+Indeed a different irreducible cannot divide a unit or its inverse.
+A map to $U$ is exactly a function $f\in R_n$ such that $f$ and $1-f$ are
+units. Thus both have separated product expressions
+\[
+ f=c\prod_i u_i(x_i),\qquad 1-f=d\prod_i v_i(x_i).
+\]
+Pass to an algebraic closure $K$. If $u_i$ is nonconstant, choose
+$s_i,t_i\in U(K)$ with $u_i(s_i)\ne u_i(t_i)$. Fix $j\ne i$, arbitrary
+$s_j,t_j\in U(K)$, and all other coordinates. The four values of $f$
+at the rectangle, with rows indexed by $s_i,t_i$, satisfy both determinant
+identities of Lemma~\ref{pr-rectangle}. Its first-column
+entries differ because all factors are nonzero. The lemma therefore forces
+each row to be constant. Cancelling the other nonzero factors gives
+$u_j(s_j)=u_j(t_j)$. Infinitude of $K$ implies that $u_j$ is constant as
+a rational function. Thus a nonconstant $f$ depends on one coordinate only.
+
+Set every other coordinate equal to $2$; this is a valid localization
+retraction in characteristic zero. It shows explicitly that $f$ and $1-f$
+are units in the corresponding one-variable localization. Write $f=P/Q$
+in lowest terms. The nonzero polynomials $P,Q,Q-P$ are pairwise coprime,
+and every root of their product lies in $\{0,1\}$. Its reduced radical has
+degree at most two. Mason--Stothers yields
+$\max(\deg P,\deg Q,\deg(Q-P))<2$; its derivative-zero alternative
+would make all three polynomials constant in characteristic zero.
+The nonconstant map therefore has degree one and permutes the three
+boundary points. Their six permutations give the displayed list.
+
+Finally, dominance of an endomorphism requires its output functions to be
+algebraically independent. None can be constant and no two can read the
+same input coordinate. The resulting coordinate assignment is a permutation;
+the inverse coordinate assignment and inverse boundary permutations are
+regular on $U^n$.
+\end{proof}
+
+The one-active-coordinate argument is characteristic-free after passage to
+an algebraic closure. Degree-one rigidity is not: in characteristic $p$,
+$f=x_i^p$ is a regular map to $U$, since $1-f=(1-x_i)^p$, and has degree
+$p$ in that coordinate. This is a complete-premise counterexample only to
+the characteristic-free strengthening.
+
+\begin{corollary}[Codimension-two deletion does not create an amplifier]
+\label{pr-codimension-two}
+If $Z\subset U^n$ is closed of codimension at least two, every regular map
+$U^n\setminus Z\to U$ extends uniquely to $U^n$ and satisfies
+Theorem~\ref{pr-rigidity}.
+\end{corollary}
+\begin{proof}
+The rational functions $f,1/f,1-f,1/(1-f)$ are regular at the generic point
+of every irreducible divisor of $\operatorname{Spec}R_n$, since that point
+is outside $Z$. In a reduced fraction in the factorial ring $R_n$, this
+excludes every nonunit irreducible denominator factor. All four functions
+therefore belong to $R_n$. Hence $f$ and $1-f$ are units and define the
+extension; uniqueness follows from equality in the function field.
+\end{proof}
+
+This closes the specific gate of globally regular, genuinely mixed or
+degree-amplifying maps of a fixed finite product of tripods with no new
+boundary. It does not close the routes through correspondences, proper
+subvarieties, non-product moduli spaces, moving maps, or explicitly charged
+new divisors.
+
+\subsection{The exact arithmetic cost of a minimal mixed map}
+The function $f(x,y)=xy$ defines a mixed map
+$U^2\setminus\{xy=1\}\to U$. At the primitive positive point
+$(x,y)=(a/c,b/c)$ with $a+b=c$, put
+\[
+ N=c^2-ab=a^2+ab+b^2.
+\]
+The output is the primitive triple $(ab,N,c^2)$. A prime dividing $N$
+and one of $a,b,c$ would divide a second entry of the original triple,
+by reducing the displayed formula modulo the first. Thus
+\[
+ \gcd(N,abc)=1,\qquad
+ \operatorname{rad}(abNc^2)=\operatorname{rad}(abc)\operatorname{rad}(N),
+ \qquad \frac34c^2\le N<c^2.
+\]
+The size inequalities follow from $(a-b)^2\ge0$ and $ab>0$.
+Writing $h=\log c$, $r=\log\operatorname{rad}(abc)$, and
+$s=\log\operatorname{rad}(N)$, the output quality and excess are exactly
+\[
+ q'=\frac{2h}{r+s},\qquad
+ E'_\varepsilon
+ =2E_\varepsilon+(1+\varepsilon)(r-s),
+ \quad E_\varepsilon=h-(1+\varepsilon)r.
+\]
+The new factor has quadratic size and no overlap with the original radical.
+Its radical need not have quadratic size. Any argument using this mixed map
+must supply independent arithmetic control of $s$ or another way to pay for
+the new divisor. No such uniform control is proved or assumed here.
+
+The formal file \texttt{ProductTripodRectangle.lean} verifies the integer
+rectangle identities, the row-or-column dichotomy, a global one-coordinate
+dependence theorem for integer-valued matrices with those identities, and
+the four displayed mixed-map algebra and size statements. Its ten axiom
+queries report only \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}. Unit classification, scheme extension, and the full
+geometric theorem remain outside that formal scope.
+

@@ -1,5 +1,42 @@
 # Research status
 
+## September 7, 2026: shared exponent generators and independent branches
+
+Standard ABC remains unproved and undisproved. The positive ordinary theorem
+allows overlapping oriented prime support in exponent generators. It proves
+sublinear two-place costs on a new actual content-one class where **every**
+old disjoint partition has linear cost. A uniform balance conclusion is
+unconditional relative to the explicitly cited established logarithmic-form
+inputs. The ABC class theorem still has its explicit signed large-prime-tail
+hypothesis; this hypothesis has not been proved globally or for all new profiles.
+
+Fresh local WSL Lean 4.32.0 compilation and a clean scoped `lake build` accepted
+22 new theorem declarations and 74 unchanged dependency declarations, all with
+one-for-one axiom queries. The dependency union is exactly `propext`,
+`Classical.choice`, and `Quot.sound`. The source inventory, compiler output,
+and reproducible build script are in
+`../research/checkpoints/2026_09_07_overlap_formal/`.
+
+The three new modules have deliberately narrower formal scope:
+
+- `OverlapColumns`: actual integer-pair shared exponent reconstruction, norm
+  identity and quotient-remainder exponent identity (3 theorems).
+- `CubicAmplification`: unbounded normalized roots and the cleared relative
+  amplification under explicitly stated compression premises (9 theorems).
+  The complete ordinary proof supplies actual radical compression; its general
+  radical mapping is not silently imported into the Std module.
+- `ProductTripodRectangle`: integer rectangle rigidity, arbitrary-index matrix
+  separation, and mixed-map algebra and size identities (10 theorems).
+  The full geometric classification remains an ordinary proof.
+
+The ordinary cubic counterfamily refutes only the universal bounded-loss
+relative-defect comparison. The ordinary geometric theorem refutes only a
+globally regular mixing or amplifying map of a fixed product of tripods, even
+after deleting codimension at least two. Parent routes remain active.
+Different agents reviewed the ordinary proofs and the critical strengthened
+separation argument before integration. This is not external peer review,
+whole-manuscript formalization, or a full-repository Lean build.
+
 ## Trust and dependency policy
 
 Kernel dependency reports are used for transparency, not as an aesthetic

@@ -1,5 +1,15 @@
 # Research route registry
 
+Latest continuation: September 7, 2026. Shared exponent generators remain a
+positive route with an explicit open signed large-prime tail. Their strict
+comparison with all previous disjoint partition envelopes is an ordinary
+proved result, not a new axiom or a closure of ABC. The two newly retired child
+claims are universal bounded-loss cubic relative-defect transfer and globally
+regular degree amplification/mixing on a fixed product of tripods (including
+codimension-two deletions). Seed-dependent transfer, new-divisor geometry,
+correspondences and all other unrefuted parent gates remain active. See the
+dated checkpoints and the current bottleneck ledger for their exact premises.
+
 This repository deliberately preserves mathematically distinct routes toward the
 abc conjecture. A route is not deleted merely because it is incomplete, has been
 superseded by a stronger implementation, or currently fails to compile against a

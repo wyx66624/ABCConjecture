@@ -1,0 +1,169 @@
+{
+  "status": "PASS: fresh scoped Lake build and complete theorem axiom inventory",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "command": [
+    "lake",
+    "build"
+  ],
+  "new_theorems": 22,
+  "dependency_theorems": 74,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "modules": {
+    "EisensteinDescent": {
+      "source": "research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean",
+      "sha256": "e5e15c14c4771fcf6bffd1d87bac67d23895cf02f40606188b2059d4cf3c944e",
+      "theorems": 29,
+      "queries": [
+        "ABCEisenstein20260905.mul_comm",
+        "ABCEisenstein20260905.mul_assoc",
+        "ABCEisenstein20260905.mul_one",
+        "ABCEisenstein20260905.norm_mul",
+        "ABCEisenstein20260905.conjugate_product",
+        "ABCEisenstein20260905.rotate_boundary",
+        "ABCEisenstein20260905.rotate_norm",
+        "ABCEisenstein20260905.norm_height_identity",
+        "ABCEisenstein20260905.inverse_numerators",
+        "ABCEisenstein20260905.boundary_remainder_x",
+        "ABCEisenstein20260905.boundary_remainder_y",
+        "ABCEisenstein20260905.boundary_remainder_sum",
+        "ABCEisenstein20260905.step_is_mul",
+        "ABCEisenstein20260905.step_norm",
+        "ABCEisenstein20260905.orbit_norm",
+        "ABCEisenstein20260905.orbit_add",
+        "ABCEisenstein20260905.orbit_six",
+        "ABCEisenstein20260905.orbit_six_shift",
+        "ABCEisenstein20260905.orbit_mod_four",
+        "ABCEisenstein20260905.orbit_mod_seven",
+        "ABCEisenstein20260905.cubic_coordinate",
+        "ABCEisenstein20260905.boundary_step_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_lucas",
+        "ABCEisenstein20260905.cubic_difference",
+        "ABCEisenstein20260905.orbit_cubic_difference",
+        "ABCEisenstein20260905.exact_small_orbits",
+        "ABCEisenstein20260905.boundary_factor_certificates",
+        "ABCEisenstein20260905.defect_ratio_increases"
+      ],
+      "new": false
+    },
+    "ExponentProfiles": {
+      "source": "research/checkpoints/2026_09_06_exponent_profiles/Lean/ExponentProfiles.lean",
+      "sha256": "c0ed12c413176a7362d2f9d4da98429ab76355239f785a9ff9b21e1ab94ccc49",
+      "theorems": 16,
+      "queries": [
+        "ABCExponentProfiles20260906.one_mul",
+        "ABCExponentProfiles20260906.mul_interchange",
+        "ABCExponentProfiles20260906.epow_add",
+        "ABCExponentProfiles20260906.epow_mul",
+        "ABCExponentProfiles20260906.epow_product",
+        "ABCExponentProfiles20260906.norm_epow",
+        "ABCExponentProfiles20260906.eprod_power",
+        "ABCExponentProfiles20260906.content_extraction",
+        "ABCExponentProfiles20260906.norm_weighted_product",
+        "ABCExponentProfiles20260906.endpoint_expansion",
+        "ABCExponentProfiles20260906.endpoint_fourth_divides",
+        "ABCExponentProfiles20260906.endpoint_fifth_not_divides",
+        "ABCExponentProfiles20260906.endpoint_progression",
+        "ABCExponentProfiles20260906.endpoint_lower_bound",
+        "ABCExponentProfiles20260906.primitive_neighbour",
+        "ABCExponentProfiles20260906.compensated_shape_identity"
+      ],
+      "new": false
+    },
+    "PowerDescent": {
+      "source": "research/checkpoints/2026_09_05_power_descent/Lean/PowerDescent.lean",
+      "sha256": "f0a7d2d1340a0ae26fd02036c056d63e9d5e8e29d31e8538c5bfe3568123544e",
+      "theorems": 29,
+      "queries": [
+        "ABCPowerDescent20260905.phi_step",
+        "ABCPowerDescent20260905.step_mod49",
+        "ABCPowerDescent20260905.factor_mod49",
+        "ABCPowerDescent20260905.step_mod4",
+        "ABCPowerDescent20260905.factor_decomposition",
+        "ABCPowerDescent20260905.orbit_residues",
+        "ABCPowerDescent20260905.step_increases",
+        "ABCPowerDescent20260905.orbit_increases",
+        "ABCPowerDescent20260905.orbit_lower",
+        "ABCPowerDescent20260905.orbit_unit_factor",
+        "ABCPowerDescent20260905.exact_from_unit",
+        "ABCPowerDescent20260905.orbit_exact_phi",
+        "ABCPowerDescent20260905.orbit_order_three",
+        "ABCPowerDescent20260905.mod_four_not_power",
+        "ABCPowerDescent20260905.orbit_not_perfect_power",
+        "ABCPowerDescent20260905.cubic_factorization",
+        "ABCPowerDescent20260905.orbit_exact_cubic_difference",
+        "ABCPowerDescent20260905.infinite_first_appearance_certificate",
+        "ABCPowerDescent20260905.small_root_residues",
+        "ABCPowerDescent20260905.phi_mod_congr",
+        "ABCPowerDescent20260905.small_root_divisibility",
+        "ABCPowerDescent20260905.small_root_size",
+        "ABCPowerDescent20260905.normalized_small_first_appearance",
+        "ABCPowerDescent20260905.transfer_criterion",
+        "ABCPowerDescent20260905.difference_subcritical",
+        "ABCPowerDescent20260905.sum_subcritical",
+        "ABCPowerDescent20260905.difference_obstruction",
+        "ABCPowerDescent20260905.budget_cocycle",
+        "ABCPowerDescent20260905.exchange_identity"
+      ],
+      "new": false
+    },
+    "OverlapColumns": {
+      "source": "research/checkpoints/2026_09_07_overlap_formal/Lean/OverlapColumns.lean",
+      "sha256": "d412a09c20fceeae2ed569410712c3c81befb88fb2fbca3f21c62cea7e5d4b9f",
+      "theorems": 3,
+      "queries": [
+        "ABCOverlapColumns20260907.shared_columns_reconstruct",
+        "ABCOverlapColumns20260907.shared_columns_norm",
+        "ABCOverlapColumns20260907.euclidean_exponent_split"
+      ],
+      "new": true
+    },
+    "CubicAmplification": {
+      "source": "research/checkpoints/2026_09_07_adversarial_audit/Lean/CubicAmplification.lean",
+      "sha256": "270b6c3c838505634662dbbe488931ed3ea78328d5410a929ba38bc4b7a94e23",
+      "theorems": 9,
+      "queries": [
+        "ABCCubicAmplification20260907.phi_le_three_square",
+        "ABCCubicAmplification20260907.phi_mono",
+        "ABCCubicAmplification20260907.seven_power_exceeds_index",
+        "ABCCubicAmplification20260907.small_root_exceeds",
+        "ABCCubicAmplification20260907.unbounded_normalized_roots",
+        "ABCCubicAmplification20260907.compression_bound",
+        "ABCCubicAmplification20260907.cleared_amplification",
+        "ABCCubicAmplification20260907.root_cleared_amplification",
+        "ABCCubicAmplification20260907.no_uniform_relative_bound"
+      ],
+      "new": true
+    },
+    "ProductTripodRectangle": {
+      "source": "research/checkpoints/2026_09_07_independent_route/Lean/ProductTripodRectangle.lean",
+      "sha256": "09846b89e181ac5125f9aae64d61eeb75258981fff5449fc21a20e8a45e87d96",
+      "theorems": 10,
+      "queries": [
+        "ProductTripodRectangle.rectangle_additive",
+        "ProductTripodRectangle.rectangle_zero_product",
+        "ProductTripodRectangle.rectangle_dichotomy",
+        "ProductTripodRectangle.rectangle_nonzero_variation",
+        "ProductTripodRectangle.separated_rectangle",
+        "ProductTripodRectangle.matrix_coordinate_separation",
+        "ProductTripodRectangle.mixed_numerator",
+        "ProductTripodRectangle.mixed_addition",
+        "ProductTripodRectangle.mixed_size_lower",
+        "ProductTripodRectangle.mixed_size_upper"
+      ],
+      "new": true
+    }
+  },
+  "not_claimed": [
+    "ABC proof or disproof",
+    "full repository build",
+    "analytic theorem formalization",
+    "geometric classification formalization",
+    "general radical compression formalization",
+    "external peer review"
+  ]
+}

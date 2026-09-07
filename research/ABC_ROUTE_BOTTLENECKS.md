@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-04, proper-subface flagged CRT surplus,
-endpoint residue cubes, exact independent replay, and primary-literature audit.
+**Last synchronized:** 2026-09-07, shared exponent generators, strict separation
+from all disjoint partition envelopes, cubic defect amplification and product-tripod rigidity.
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -30,6 +30,47 @@ rigorous complete-premise disproof.
 - [x] Keep all conditional reductions, finite searches, and source-dependent
   results visibly separate from either global conclusion.
 - [x] Maintain the English journal manuscript with author ChatGPT.
+
+## Shared exponent generators: September 7 positive frontier
+
+- [x] Prove actual reconstruction with a nonnegative exponent matrix, allowing
+  the same oriented Eisenstein prime in different columns.
+- [x] Derive two-place logarithmic-form estimates with the same explicit
+  degree-two external inputs as the earlier exponent-profile theorem.
+- [x] For `e_i=g*f_i+r_i`, prove a uniform penalty `B<=A*rho*log c`, where
+  `rho=max(1,log N(v))*log(4+g)/g`, and the associated full small-prime bound.
+- [x] Prove unconditional balance `min(a,b)>c^(1-eta)` for sufficiently small rho.
+- [x] Construct actual content-one profiles where every old disjoint partition
+  penalty is at least `kappa*log M`, while the shared two-column penalty is
+  `o(log c)`. This is a comparison of explicit estimates, not an ABC proof.
+- [x] Prove the conditional class theorem with the explicit signed tail
+  `W_(rho^(-1/6))(abc)<=g^B0`.
+- [ ] Prove that signed tail on a sufficiently broad actual arithmetic class,
+  or construct a full-premise counterfamily to that exact restricted estimate.
+- [ ] Address the low-content and prime-norm profiles outside small rho.
+- [x] Refute the universal bounded-loss *relative* cubic-defect comparison on
+  normalized bases, using an infinite family for every `0<epsilon<1`.
+- [ ] Control seed credit jointly with first-appearance losses; unbounded
+  relative amplification does not decide absolute ABC defects.
+- [x] Classify globally regular `U^n -> U` for `U=P^1-{0,1,infinity}` in
+  characteristic zero; deleting codimension at least two does not evade it.
+- [ ] For mixed maps with new divisors, control the specialized new radical;
+  retain correspondences, moving spaces and non-product varieties.
+
+Ordinary proofs and review records:
+`research/checkpoints/2026_09_07_critical_bottleneck/`,
+`research/checkpoints/2026_09_07_adversarial_audit/`, and
+`research/checkpoints/2026_09_07_independent_route/`.
+The scoped formal certificates and exact compiler inventory are in
+`research/checkpoints/2026_09_07_overlap_formal/verification/`.
+No analytic input, full geometric classification, or ABC conclusion is
+silently promoted to kernel-checked status.
+
+Next positive action: decompose the signed tail by actual overlapping-generator
+rank and first-depth data without discarding the low-depth credit. Next
+adversarial action: preserve the small-rho premise while testing the proposed
+tail; global raw-excess examples alone do not refute it. Reserve an independent
+route for arithmetic costs of new geometric boundary divisors.
 
 ## IUT / pointed same-pilot route
 

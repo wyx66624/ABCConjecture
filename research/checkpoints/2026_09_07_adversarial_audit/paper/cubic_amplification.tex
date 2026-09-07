@@ -1,0 +1,144 @@
+\section{An unbounded obstruction to uniform cubic defect descent}
+\label{sec:aa-cubic-amplification}
+This section gives an unconditional obstruction to one precise child of the
+power-descent route. It concerns actual radicals of actual primitive triples,
+and is stronger than an obstruction to an independently estimated lifting
+factor. The parent route using the defect of the seed remains open.
+
+For $x\ge2$ put
+\[
+ S_x=(1,x-1,x),\qquad L_x=(1,x^3-1,x^3),\qquad
+ R_1=\operatorname{rad}(x(x-1)),\quad
+ R_3=\operatorname{rad}(x(x^3-1)).
+\]
+For an integer $m\ge1$ write
+\[
+ \mathcal Q_m(a,b,c)=c^m/\operatorname{rad}(abc)^{m+1}.
+\]
+Both displayed triples are positive and primitive.
+
+\begin{lemma}[A direct radical compression bound]
+\label{lem:aa-compression}
+Suppose that $h\ge1$ and $7^h\mid x^2+x+1$. Then
+\[
+ 7^{h-1}R_3\le R_1(x^2+x+1).
+\]
+If also $x<4\cdot7^h$, then $R_3<84xR_1$.
+\end{lemma}
+\begin{proof}
+Set $G=x^2+x+1$. The factorization $x^3-1=(x-1)G$ gives
+$R_3\le R_1\operatorname{rad}(G)$. Write $G=7^v u$ with
+$v\ge h$ and $7\nmid u$. Then
+\[
+ 7^{h-1}\operatorname{rad}(G)
+ =7^h\operatorname{rad}(u)\le7^h u\le G.
+\]
+This proves the first inequality without requiring any unproved information
+about the other prime factors of $G$. Since $x\ge2$, $G\le3x^2$.
+Also $x<4\cdot7^h=28\cdot7^{h-1}$, so
+$R_3\le3x^2R_1/7^{h-1}<84xR_1$.
+\end{proof}
+
+\begin{lemma}[Infinitely many normalized compressed bases]
+\label{lem:aa-bases}
+For every integer $h\ge2$ there exists an integer $x_h$ such that
+\[
+ 2\le x_h<4\cdot7^h,\qquad x_h\equiv2\pmod4,\qquad
+ x_h\equiv2\pmod7,\qquad 7^h\mid x_h^2+x_h+1.
+\]
+Every $x_h$ is not a perfect power of exponent at least two, and
+$x_h\longrightarrow\infty$ as $h\longrightarrow\infty$.
+\end{lemma}
+\begin{proof}
+The polynomial $F(X)=X^2+X+1$ satisfies $F(2)=7$ and
+$F'(2)=5\not\equiv0\pmod7$. A completely elementary digit lift suffices:
+if $r$ is a root modulo $7^j$, choose the unique $d\in\{0,\ldots,6\}$
+such that
+\[
+ F(r)/7^j+d(2r+1)\equiv0\pmod7.
+\]
+Then $r+d7^j$ is a root modulo $7^{j+1}$ and is still $2$ modulo seven.
+Induction gives a root $r_h$ modulo $7^h$. The Chinese remainder theorem
+gives the unique $x_h\in[0,4\cdot7^h)$ satisfying
+$x_h\equiv r_h\pmod{7^h}$ and $x_h\equiv2\pmod4$.
+Its latter residue implies $x_h\ge2$ and $v_2(x_h)=1$, excluding every
+nontrivial perfect power. Finally $7^h\le F(x_h)$; since $F$ is bounded
+on every bounded interval of nonnegative integers, this proves
+$x_h\to\infty$. The sequence need not be monotone.
+\end{proof}
+
+\begin{theorem}[Unbounded amplification of the actual cleared defect]
+\label{thm:aa-amplification}
+For every integer $m\ge2$, the normalized bases in
+Lemma~\ref{lem:aa-bases} satisfy
+\[
+ \boxed{\quad
+ \frac{\mathcal Q_m(L_{x_h})}{\mathcal Q_m(S_{x_h})}
+ >\frac{x_h^{m-1}}{84^{m+1}}\longrightarrow\infty.
+ \quad}
+\]
+Consequently there is no finite constant $A_m$ such that
+$\mathcal Q_m(L_x)\le A_m\mathcal Q_m(S_x)$ for every integer
+$x\ge2$ which is not a nontrivial perfect power.
+\end{theorem}
+\begin{proof}
+The exact quotient of the two positive defects is
+\[
+ \frac{\mathcal Q_m(L_x)}{\mathcal Q_m(S_x)}
+ =x^{2m}(R_1/R_3)^{m+1}.
+\]
+Lemma~\ref{lem:aa-compression} bounds this from below by
+$x^{2m}/(84x)^{m+1}=x^{m-1}/84^{m+1}$. For $m\ge2$ this tends to
+infinity along Lemma~\ref{lem:aa-bases}. All arithmetic premises of the
+refuted estimate, including normalization, hold throughout this family.
+\end{proof}
+
+\begin{corollary}[The entire relevant real-exponent interval]
+\label{cor:aa-real-amplification}
+For $\varepsilon>0$ define
+$D_\varepsilon(a,b,c)=c/\operatorname{rad}(abc)^{1+\varepsilon}$.
+For every fixed $0<\varepsilon<1$,
+\[
+ \frac{D_\varepsilon(L_{x_h})}{D_\varepsilon(S_{x_h})}
+ >\frac{x_h^{1-\varepsilon}}{84^{1+\varepsilon}}
+ \longrightarrow\infty.
+\]
+\end{corollary}
+\begin{proof}
+The exact quotient is $x_h^2(R_1/R_3)^{1+\varepsilon}$.
+Apply Lemma~\ref{lem:aa-compression}. The exponent $1-\varepsilon$ is
+positive.
+\end{proof}
+
+\paragraph{Scope and the surviving bottleneck.}
+The theorem refutes even a bounded-loss universal cubic defect comparison,
+not only a universal nonincrease comparison. It does not prove the target
+defects themselves unbounded: their seed defects may tend to zero. In
+particular the precise remaining obligation in a seed-sensitive approach is
+to control the product
+\[
+ \mathcal Q_m(S_x)\,
+ x^{2m}(R_1/R_3)^{m+1}
+ =\mathcal Q_m(L_x).
+\]
+Treating this identity as a new independent estimate would be circular.
+The counterfamily excludes only the universal relative-comparison child;
+power descent with arithmetic seed credit and all other parent routes remain
+active. The endpoint $\varepsilon=1$ is not decided by this lower bound.
+Neither this theorem nor finite computations below prove or disprove standard
+$abc$.
+
+\paragraph{Formal and computational scope.}
+The companion \texttt{CubicAmplification.lean} was checked using Lean 4.32.0
+with warnings as errors. Its nine named declarations prove the cofactor cap
+and monotonicity, an explicit normalized root above any prescribed bound, the
+compression-to-amplification implications, and the impossibility of a uniform
+relative bound conditional on the displayed compression inequalities.
+The imported 29-declaration power-descent module was freshly compiled with
+the same compiler. The reported axiom dependencies are limited to
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}.
+This is a scoped check; the actual radical function and its prime-factorization
+inequality in Lemma~\ref{lem:aa-compression} remain ordinary proofs, and are
+not claimed as formalized by this module. An independent exact-integer replay
+checks six fully factorized rows and 100 lifting levels. These finite checks
+neither certify an asymptotic estimate nor replace the infinite argument.

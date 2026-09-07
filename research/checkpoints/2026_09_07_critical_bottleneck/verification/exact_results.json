@@ -1,0 +1,110 @@
+{
+  "counts": {
+    "large_block_bound": 9924,
+    "matrix_reconstruction": 240,
+    "partition_blocks": 63435,
+    "partition_profiles": 15882,
+    "power_over_quadratic_bound": 1000,
+    "primitive_norm_and_cubic_identity": 240,
+    "quotient_remainder_reconstruction": 66
+  },
+  "prime_norm_pairs": [
+    {
+      "norm": 7,
+      "pair": [
+        2,
+        1
+      ]
+    },
+    {
+      "norm": 13,
+      "pair": [
+        3,
+        1
+      ]
+    },
+    {
+      "norm": 19,
+      "pair": [
+        3,
+        2
+      ]
+    },
+    {
+      "norm": 31,
+      "pair": [
+        5,
+        1
+      ]
+    },
+    {
+      "norm": 37,
+      "pair": [
+        4,
+        3
+      ]
+    },
+    {
+      "norm": 43,
+      "pair": [
+        6,
+        1
+      ]
+    }
+  ],
+  "sample_reconstruction_hashes": [
+    {
+      "coefficients": [
+        4,
+        2
+      ],
+      "coordinate_sha256": "7e12b0219d58843511b1e2dc1bb84bd343b028e8676efeac5210efe3344be15f",
+      "matrix": [
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "coefficients": [
+        3,
+        5
+      ],
+      "coordinate_sha256": "74aa4e404baddbb0dc3c1c4b3d5954e59c771da756cccf33d5e9dcdf29e1778b",
+      "matrix": [
+        [
+          3,
+          2
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "coefficients": [
+        1
+      ],
+      "coordinate_sha256": "34e6f08aad18ac9868a9da1b5d2ad0bf2fabf191e92652264ecfc9bde7460695",
+      "matrix": [
+        [
+          1
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ]
+    }
+  ],
+  "seed": 20260907,
+  "status": "exact finite verification only; no global ABC or asymptotic proof"
+}
