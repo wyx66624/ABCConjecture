@@ -1,5 +1,40 @@
 # Research status
 
+## September 7, 2026: private depth, reference measures and elliptic geometry
+
+Standard ABC remains unproved and undisproved. The third continuation proves
+an exact cross-residual boundary gcd and a linear common-prime-power bound.
+For nonassociate residuals of norm at most B, every nonowned full-depth
+contribution is at most `log lcm(1,...,floor(2B/sqrt(3))) < 4B`, pointwise
+for every residual and every cutoff. The maximum depth assigned to a prime's
+owner is still uncontrolled. Exact annotated lattices bound two independent
+short directions; they do not lower-bound the first direction.
+
+A finite joint residue measure gives an exact capped valuation law, a
+uniform large-prime positive-excess moment, and an actual first-minimum
+probability bound. These apply to their specified ensembles. Full-state
+small-entropy transfer to small-height residuals has a proved cardinality
+obstruction. The lossless excess-observable quotient avoids that obstruction,
+but its entropy is comparable to the positive excess target itself. No
+arithmetic distribution or private-depth estimate is assumed from the model.
+
+Independently, an explicit elliptic curve gives infinitely many primitive
+positive seeds with a square second norm. A separate complete ordinary
+two-isogeny descent proves that the product of the first two norms is neither
+a square nor three times a square. This excludes simultaneous even extraction
+with square residual norms, even for moving roots. Odd exponents and nonsquare
+residuals remain open. A dynamic square-root tower has genus
+`1+2^(k-2)*(2^(k+1)-6)`; Faltings gives fixed-class finiteness for k>=2,
+without an effective bound or uniformity over moving twists.
+
+Fresh scoped Lean verification accepted 27 new declarations and recompiled
+52 unchanged dependency declarations. The actual statements cover residual
+gcd cancellation, annotated determinant bounds, four primitive integer
+congruence exclusions in the elliptic descent, polynomial identities and a
+concrete square second norm. This is not a formalization of the full elliptic
+group, rank argument, Faltings theorem, reference probability, or ABC. Exact
+source and axiom inventories are in the residual-collisions checkpoint.
+
 ## September 7, 2026: remainder proportion, shifted ranks and actual radicals
 
 Standard ABC remains unproved and undisproved. The next ordinary theorem

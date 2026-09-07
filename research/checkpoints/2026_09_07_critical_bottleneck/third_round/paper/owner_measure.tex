@@ -1,0 +1,264 @@
+\section{A joint finite residue object for private depth}
+\label{om-section}
+This section proves a large-prime positive-excess law and a first-minimum
+distribution theorem for explicitly defined finite reference measures.
+These measures are not asserted to describe small-height integer residuals
+or a specified power orbit. The entropy transfer cost, and precise obstacles
+to two proposed shortcuts, are retained in the statements.
+
+\subsection{Exact local counts and a common multiplication action}
+Let $S$ be a finite set of primes greater than a real $Y\ge5$, choose
+integers $E_p\ge1$, and set $m=\prod_{p\in S}p^{E_p}$. Put uniform product
+measure $\mu$ on
+\[
+ \Omega=\prod_{p\in S}(\mathcal O/p^{E_p}\mathcal O)^\times,
+ \qquad\mathcal O=\mathbb Z[\zeta],\quad\zeta^2-\zeta+1=0.
+\]
+Fix $H\in\mathcal O$ with $\gcd(N(H),m)=1$. For a finite residual state
+define $\nu_p(vH)$ as the largest $e\in\{0,\ldots,E_p\}$ for which
+$P(vH)\equiv0\pmod{p^e}$. This is a \emph{capped} valuation, determined
+by the finite state; it is not the uncapped valuation of a chosen integer lift.
+Multiplication by the same $H$ permutes the product space. In particular,
+all actions $v\mapsto vw^g$ preserve this measure when $w$ is a unit at the
+retained primes.
+
+\begin{theorem}[Exact joint local law]\label{om-local}
+Write $\chi_p=1$ if $p\equiv1\pmod3$ and $\chi_p=-1$ otherwise. For
+$1\le e\le E_p$,
+\[
+ \Pr_\mu(\nu_p(vH)\ge e)=\frac3{p^{e-1}(p-\chi_p)}.
+\]
+The depth variables are independent across primes and their joint law is
+independent of $H$.
+\end{theorem}
+\begin{proof}
+The unit count modulo $p^e$ is $p^{2e-2}(p-1)(p-\chi_p)$: modulo $p$
+the algebra is split or quadratic inert, and each further pair of digits
+multiplies the count by $p^2$. Each boundary arm $a=0$, $b=0$, or $a+b=0$
+has exactly $\varphi(p^e)$ unit solutions. The three sets are disjoint on
+units. If the boundary product vanishes modulo $p^e$, only one factor can
+be divisible by $p$, so that factor contains the entire depth. Divide the
+count $3\varphi(p^e)$ by the unit count. Projection from $E_p$ to $e$ is
+uniform, multiplication by $H$ is a permutation, and product measure gives
+independence.
+\end{proof}
+
+Define the retained nonnegative large-prime excess
+\[
+ F_Y(v;H)=\sum_{p\in S}(\nu_p(vH)-3)_+\log p.
+\]
+\begin{theorem}[Whole retained positive tail]\label{om-mean}
+Uniformly in the precision, number of primes and common factor,
+\[
+ \mathbb E_\mu F_Y
+ \le\sum_{p\in S}\frac{3\log p}{p^2(p-1)(p-\chi_p)}
+ \le\frac{10\log Y}{Y^3}.
+\]
+\end{theorem}
+\begin{proof}
+Use $(n-3)_+=\sum_{e\ge4}\mathbf1_{n\ge e}$, then
+Theorem~\ref{om-local} and the geometric series. For $p\ge5$ the summand
+is at most $5\log p/p^4$. The decreasing function $\log x/x^4$ has integral
+$\log a/(3a^3)+1/(9a^3)$ on $[a,\infty)$. Compare the integer sum with
+the integral from $\lfloor Y\rfloor\ge4Y/5$ and enlarge the constant to ten.
+\end{proof}
+This controls primes \emph{above} the cutoff in the stated reference measure.
+It follows from exact counts, without assuming that large primes usually
+have valuation one.
+
+\subsection{A reference first-minimum theorem}
+Now let $q=\prod p^{e_p}$ have primes at least five, and sample $H$ uniformly
+among the units of $\mathcal O/q\mathcal O$. At each prime specify one arm
+$\sigma(p)$, and form the actual lattice $\mathcal L(q,\sigma;H)$ from
+Theorem~\ref{rc-lattice}.
+
+\begin{theorem}[First-minimum distribution]\label{om-minimum}
+For $B\ge1$,
+\begin{align*}
+ \Pr_H\bigl(\exists\text{ primitive }v:\ N(v)\le B,
+                     \ v\in\mathcal L(q,\sigma;H)\bigr)
+ &\le\frac{25B(5/4)^{\omega(q)}}q,\\
+ \Pr_H\bigl(\exists\text{ primitive }v:\ N(v)\le B,
+                     \ q\mid P(vH)\bigr)
+ &\le\frac{25B(15/4)^{\omega(q)}}q.
+\end{align*}
+\end{theorem}
+\begin{proof}
+The norm ball contains at most $25B$ integer pairs, since each coordinate
+has absolute value at most $2\sqrt B$. Fix a primitive $v$. If a retained
+prime divides $N(v)$, its arm event is impossible: $vH$ has zero norm but
+a nonzero coordinate vector modulo that prime, whereas every nonzero
+boundary-arm vector has nonzero norm. Otherwise multiplication by $v$
+permutes the local units. One specified arm then has probability
+$1/[p^{e_p-1}(p-\chi_p)]$. The product probability is
+\[
+ \frac1q\prod_{p\mid q}\frac p{p-\chi_p}
+ \le\frac{(5/4)^{\omega(q)}}q.
+\]
+Sum over residuals, then over at most $3^{\omega(q)}$ annotations.
+\end{proof}
+The packet is specified, and the random common factor is sampled from the
+stated unit space. A special sequence $H=w^g$ is not thereby uniform. The
+common multiplication action supplies exact covariance, but controlling the
+visits of that arithmetic orbit to a rare first-minimum event remains open.
+
+\subsection{An exponential moment and its finite entropy cost}
+\begin{theorem}[Finite entropy transfer]\label{om-transfer}
+One has
+\[
+ \log\mathbb E_\mu e^{F_Y/2}\le4Y^{-5/2}.
+\]
+For every probability measure $\nu$ on the same finite space,
+\[
+ \mathbb E_\nu F_Y\le2D(\nu\Vert\mu)+8Y^{-5/2},
+ \qquad
+ D(\nu\Vert\mu)=\sum_x\nu(x)\log\frac{\nu(x)}{\mu(x)}.
+\]
+Zero-probability summands are set to zero.
+\end{theorem}
+\begin{proof}
+For $K_p=(\nu_p-3)_+$ and $0<\theta<1$, summation by tails yields
+\[
+ \mathbb E_\mu p^{\theta K_p}
+ \le1+\frac{3(p^\theta-1)}
+ {p^3(p-\chi_p)(1-p^{\theta-1})}.
+\]
+At $\theta=1/2$, $(\sqrt p-1)/(1-1/\sqrt p)=\sqrt p$.
+Independence and $\log(1+x)\le x$ therefore give
+\[
+ \log\mathbb E_\mu e^{F_Y/2}
+ \le\sum_{p>Y}\frac3{p^{5/2}(p-\chi_p)}
+ \le\frac{15}4\sum_{n>Y}n^{-7/2}\le4Y^{-5/2}.
+\]
+The integral from $\lfloor Y\rfloor\ge4Y/5$ gives the last constant
+$(3/2)(5/4)^{5/2}<4$. Tilt $\mu$ by $e^{F_Y/2}$ and normalize by
+$Z=\mathbb E_\mu e^{F_Y/2}$. Nonnegativity of relative entropy against
+this tilted measure gives $\frac12\mathbb E_\nu F_Y\le D(\nu\Vert\mu)+\log Z$.
+The nonnegativity itself follows from $\log x\le x-1$.
+\end{proof}
+
+\begin{theorem}[A full-state entropy obstruction]\label{om-cardinality}
+If $\nu$ is supported on at most $K$ states, then
+\[
+ D(\nu\Vert\mu)\ge
+ \left(2-\frac2{(Y-1)\log Y}\right)\log m-\log K.
+\]
+\end{theorem}
+\begin{proof}
+Uniformity gives $D=\log|\Omega|-\mathcal H(\nu)$, and the Shannon entropy
+is at most $\log K$. The exact count is
+\[
+ |\Omega|=m^2\prod_{p\in S}(1-1/p)(1-\chi_p/p).
+\]
+Each logarithmic factor is at least $-2/(p-1)$, using
+$-\log(1-1/p)\le1/(p-1)$ and noting that the inert second term is positive.
+Now $\omega(m)\le\log m/\log Y$ proves the bound.
+\end{proof}
+If $\log m\ge\delta t$, $\log K=o(t)$ and $Y\to\infty$, this implies
+$\liminf D/t\ge2\delta$. Residuals of norm at most $B$ provide at most
+$25B$ states. Thus $\log B=o(t)$ cannot give negligible full-state entropy
+loss when the retained modulus has logarithmic size comparable with $t$.
+This rules out that concrete shortcut; it does not exclude probability or
+entropy methods using more appropriate observables or conditioned measures.
+
+\subsection{A primitive-state reference containing every integer residual}
+Let $\Omega_p^{\rm prim}$ be the pairs modulo $p^{E_p}$ not simultaneously
+zero modulo $p$, and put uniform product measure $\mu_{\rm prim}$ on their
+product. Every primitive integer residual reduces to this space.
+Multiplication by $H$ with norm coprime to $m$ still permutes it.
+
+\begin{theorem}[Primitive reference law]\label{om-primitive}
+Its independent capped depths satisfy
+\[
+ \Pr_{\mu_{\rm prim}}(\nu_p(vH)\ge e)
+       =\frac3{p^{e-1}(p+1)},\qquad1\le e\le E_p.
+\]
+Theorems~\ref{om-mean} and~\ref{om-transfer} hold with the same numerical
+bounds and this measure. If a distribution has at most $K$ states, then
+\[
+ D(\nu\Vert\mu_{\rm prim})\ge
+ \left(2-\frac1{(Y^2-1)\log Y}\right)\log m-\log K.
+\]
+\end{theorem}
+\begin{proof}
+There are $p^{2e-2}(p^2-1)$ primitive pairs modulo $p^e$.
+Each arm has $\varphi(p^e)$ such points, and the arms are mutually
+exclusive; this proves the law. Replacing $p-\chi_p$ by the larger $p+1$
+in the previous moment proofs preserves their bounds. Finally
+\[
+ |\Omega^{\rm prim}|=m^2\prod_{p\in S}(1-p^{-2}),
+\]
+and $-\log(1-p^{-2})\le1/(p^2-1)$ proves the entropy bound.
+\end{proof}
+This variant fixes the norm-unit conditioning mismatch for actual residuals,
+but retains the full-state cardinality obstruction.
+
+\subsection{The excess observable: lossless quotient and an exact boundary}
+Push the primitive reference measure to the vector $K=(K_p)$, where
+$K_p=(\nu_p-3)_+$, and call its law $\pi$. Then
+$F_Y=\sum_pK_p\log p$ descends exactly to this observable.
+
+\begin{theorem}[Observable transfer and comparability]\label{om-observable}
+For any residual-state distribution and its observable pushforward $\nu_K$,
+\[
+ \mathbb E F_Y\le2D(\nu_K\Vert\pi)+8Y^{-5/2},\qquad
+ D(\nu_K\Vert\pi)\le D(\nu\Vert\mu_{\rm prim}).
+\]
+Moreover
+\[
+ \tfrac12\mathbb E F_Y-4Y^{-5/2}
+ \le D(\nu_K\Vert\pi)\le4\mathbb E F_Y+10Y^{-3}.
+\]
+If the observable distribution has at most $K$ states, the additional bound is
+\[
+ D(\nu_K\Vert\pi)\ge\mathbb E F_Y+
+ \mathbb E\sum_{p:K_p>0}(3\log p-\log3)-\log K.
+\]
+\end{theorem}
+\begin{proof}
+Pushforward preserves the exponential moment of $F_Y$, so the same tilted
+measure proof applies. The finite entropy chain rule gives the second
+inequality by dropping the nonnegative conditional entropies in the fibers.
+For $k\ge1$, the nonterminal atom and terminal cap atom are respectively
+\[
+ \pi_p(k)=\frac{3(p-1)}{(p+1)p^{k+3}},\qquad
+ \pi_p(k)=\frac{3p}{(p+1)p^{k+3}}.
+\]
+Both lie between $p^{-(k+3)}$ and $3p^{-(k+3)}$.
+For caps at least four, $\pi_p(0)=1-3/[p^3(p+1)]$; smaller caps give a
+certain zero. The total zero-coordinate surprisal is at most $10Y^{-3}$,
+by $-\log(1-x)\le2x$ and integral comparison of $\sum_{n>Y}n^{-4}$.
+The positive atoms have surprisal at most $(k+3)\log p\le4k\log p$.
+Subtracting nonnegative Shannon entropy proves the upper bound.
+Their lower surprisal is $(k+3)\log p-\log3$, while zero-coordinate
+cost is nonnegative; subtract at most $\log K$ to get the final inequality.
+The first transfer inequality gives the remaining lower bound.
+\end{proof}
+
+The full-state obstruction need not pass to this quotient. For the actual
+primitive pair $v=(1,1)$ and $H=1$, the boundary is two, so every retained
+excess is zero and
+\[
+ D(\delta_0\Vert\pi)=
+ -\sum_{p:E_p\ge4}\log\left(1-\frac3{p^3(p+1)}\right)\le10Y^{-3}.
+\]
+Increasing the caps at a fixed retained prime makes the full-state Dirac
+entropy unbounded while this observable entropy remains bounded. This example
+only compares entropy losses; it is not a theorem about nontrivial
+small-lambda power profiles.
+
+The comparability theorem also gives a precise remaining boundary:
+at growing height, $D(\nu_K\Vert\pi)=o(t)$ is equivalent to
+$\mathbb E F_Y=o(t)$ for this retained target. The quotient removes an
+irrelevant state-space cost, but it is not a newly proved weaker arithmetic
+premise. An upper bound must come from independent geometry or orbit structure;
+computing it from the same unbounded depths would be circular.
+
+Finally $F_Y$ is the sum of positive parts \emph{at individual primes}.
+It upper-bounds the positive part of the signed logarithm, but negative
+prime credits can make these quantities different. The signed compensation
+in Theorem~\ref{rc-signed} remains available. This probability direction
+pursues a stronger sufficient target and does not discard methods using
+negative credits. Neither the reference law, its first-minimum estimate,
+nor the entropy reformulation proves the required special-orbit transfer
+or establishes standard $abc$.

@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, remainder-proportion refinement, shifted-rank
-windows, successive norm transport and actual radical formalization.
+**Last synchronized:** 2026-09-07, private-depth collisions, finite reference
+measures, explicit elliptic families and dynamic square-class covers.
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -32,6 +32,28 @@ rigorous complete-premise disproof.
 - [x] Maintain the English journal manuscript with author ChatGPT.
 
 ## Shared exponent generators: September 7 positive frontier
+
+- [x] Cancel the actual common factor in cross-residual boundary gcds,
+  including full multiplicity at two and three.
+- [x] Prove the linear common-prime-power bound and the pointwise lcm envelope
+  `<4B` for each residual's nonowned depth, without an exceptional set.
+- [x] Prove exact annotated lattice index and determinant packing, while
+  retaining the first-minimum gap.
+- [ ] Bound the actual signed owner packets, including private large-prime depth.
+- [x] Construct joint finite unit/primitive reference objects with exact
+  capped depth laws, large-prime moments and a first-minimum probability bound.
+- [x] Prove the full-state entropy cardinality obstruction and the precise
+  comparability of excess-observable entropy with the positive-excess target.
+- [ ] Supply independent arithmetic control of the special power orbit or its
+  short-vector events; reference-measure rarity alone is insufficient.
+- [x] Construct infinitely many primitive positive seeds with square second
+  norm using explicit rational elliptic maps and a proved infinite-order point.
+- [x] Prove that M0*M1 is neither square nor three times square, ruling out
+  simultaneous even extraction with square residual norms for all moving roots.
+- [x] Construct the dynamic square-class covers of genus
+  `1+2^(k-2)*(2^(k+1)-6)` and prove fixed-class finiteness for k>=2.
+- [ ] Resolve the two-step gate for odd exponents or moving nonsquare residual
+  classes; fixed-class finiteness provides no uniform bound over those classes.
 
 - [x] Refine both places to depend on `lambda=max(1,log V)/g` alone, with
   normalized costs `O(lambda log(4/lambda))` and

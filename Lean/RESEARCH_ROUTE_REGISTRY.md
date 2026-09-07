@@ -1,5 +1,17 @@
 # Research route registry
 
+Latest third continuation: September 7, 2026. The private-depth route now
+has an exact repeated-factor envelope, a finite reference law, and a proved
+boundary for full-state entropy transfer. Its lossless observable quotient
+still requires an independent arithmetic estimate. The separate geometric
+route supplies an infinite square-second-norm family, an exact obstruction
+to simultaneous even extraction with square residual norms, and higher-genus
+dynamic covers restricting fixed square classes. Only the stated square
+subcase is ruled out; moving nonsquare residual classes and odd exponents
+remain active. The signed owner tail and the unbounded two-norm radical
+family remain open. Twenty-seven new scoped Lean declarations are distinct
+from the complete ordinary geometric and probability arguments.
+
 Latest second continuation: September 7, 2026. A two-place refinement now
 depends on lambda alone, including all ramified, unit and dependent cases.
 It excludes a second lambda tending to zero for a fixed first root and

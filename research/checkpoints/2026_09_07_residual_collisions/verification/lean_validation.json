@@ -1,0 +1,144 @@
+{
+  "status": "PASS: fresh scoped Lake build and complete theorem axiom inventory",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "command": [
+    "lake",
+    "build"
+  ],
+  "new_theorems": 27,
+  "dependency_theorems": 52,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "modules": {
+    "EisensteinDescent": {
+      "source": "research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean",
+      "sha256": "e5e15c14c4771fcf6bffd1d87bac67d23895cf02f40606188b2059d4cf3c944e",
+      "theorems": 29,
+      "queries": [
+        "ABCEisenstein20260905.mul_comm",
+        "ABCEisenstein20260905.mul_assoc",
+        "ABCEisenstein20260905.mul_one",
+        "ABCEisenstein20260905.norm_mul",
+        "ABCEisenstein20260905.conjugate_product",
+        "ABCEisenstein20260905.rotate_boundary",
+        "ABCEisenstein20260905.rotate_norm",
+        "ABCEisenstein20260905.norm_height_identity",
+        "ABCEisenstein20260905.inverse_numerators",
+        "ABCEisenstein20260905.boundary_remainder_x",
+        "ABCEisenstein20260905.boundary_remainder_y",
+        "ABCEisenstein20260905.boundary_remainder_sum",
+        "ABCEisenstein20260905.step_is_mul",
+        "ABCEisenstein20260905.step_norm",
+        "ABCEisenstein20260905.orbit_norm",
+        "ABCEisenstein20260905.orbit_add",
+        "ABCEisenstein20260905.orbit_six",
+        "ABCEisenstein20260905.orbit_six_shift",
+        "ABCEisenstein20260905.orbit_mod_four",
+        "ABCEisenstein20260905.orbit_mod_seven",
+        "ABCEisenstein20260905.cubic_coordinate",
+        "ABCEisenstein20260905.boundary_step_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_lucas",
+        "ABCEisenstein20260905.cubic_difference",
+        "ABCEisenstein20260905.orbit_cubic_difference",
+        "ABCEisenstein20260905.exact_small_orbits",
+        "ABCEisenstein20260905.boundary_factor_certificates",
+        "ABCEisenstein20260905.defect_ratio_increases"
+      ],
+      "new": false
+    },
+    "BoundaryGcd": {
+      "source": "research/checkpoints/2026_09_05_eisenstein_descent/Lean/BoundaryGcd.lean",
+      "sha256": "bf3d463bbd3409f38c2340d8f691cb3fff9b5c3be9116c5aab770267fb4f5a1b",
+      "theorems": 11,
+      "queries": [
+        "ABCEisenstein20260905.nat_gcd_product",
+        "ABCEisenstein20260905.int_gcd_product",
+        "ABCEisenstein20260905.int_gcd_cancel",
+        "ABCEisenstein20260905.int_gcd_cancel_cube",
+        "ABCEisenstein20260905.gcd_of_remainder",
+        "ABCEisenstein20260905.boundary_gcd",
+        "ABCEisenstein20260905.gcd_seven_of_nonzero_residue",
+        "ABCEisenstein20260905.orbit_primitive",
+        "ABCEisenstein20260905.mass_gcd_add",
+        "ABCEisenstein20260905.mass_gcd_multiple",
+        "ABCEisenstein20260905.mass_strong_divisibility"
+      ],
+      "new": false
+    },
+    "MovingSupport": {
+      "source": "research/checkpoints/2026_09_06_moving_support/Lean/MovingSupport.lean",
+      "sha256": "c5f059779139cb80cd62f7d35ac78375d22cefe419a66ceff74b8df6a881b569",
+      "theorems": 12,
+      "queries": [
+        "ABCMovingSupport20260906.gcd_square",
+        "ABCMovingSupport20260906.norm_boundary_coprime",
+        "ABCMovingSupport20260906.cubic_boundary_identity",
+        "ABCMovingSupport20260906.cubic_boundary_upper",
+        "ABCMovingSupport20260906.cubic_conjugate_coordinates",
+        "ABCMovingSupport20260906.truncation_exponents",
+        "ABCMovingSupport20260906.single_compensated_identity",
+        "ABCMovingSupport20260906.compensated_identity",
+        "ABCMovingSupport20260906.credit_positive",
+        "ABCMovingSupport20260906.truncated_bound",
+        "ABCMovingSupport20260906.cubic_height_bridge",
+        "ABCMovingSupport20260906.exact_balance_bridge"
+      ],
+      "new": false
+    },
+    "ResidualCollisions": {
+      "source": "research/checkpoints/2026_09_07_residual_collisions/Lean/ResidualCollisions.lean",
+      "sha256": "9887fcba9924c858f56dbd376fd31529d8e57b60ab8b2aba1b64c5b763879dc0",
+      "theorems": 15,
+      "queries": [
+        "ABCResidualCollisions20260907.boundary_scalar",
+        "ABCResidualCollisions20260907.cross_product",
+        "ABCResidualCollisions20260907.residual_norm_boundary_coprime",
+        "ABCResidualCollisions20260907.cross_residual_boundary_gcd",
+        "ABCResidualCollisions20260907.gram_identity",
+        "ABCResidualCollisions20260907.determinant_mul",
+        "ABCResidualCollisions20260907.norm_linear_factor_identities",
+        "ABCResidualCollisions20260907.integer_square_nonnegative",
+        "ABCResidualCollisions20260907.norm_linear_factor_bounds",
+        "ABCResidualCollisions20260907.gram_bound",
+        "ABCResidualCollisions20260907.nonzero_divisor_square",
+        "ABCResidualCollisions20260907.independent_lattice_norm_bound",
+        "ABCResidualCollisions20260907.same_arm_determinant_dvd",
+        "ABCResidualCollisions20260907.multiplied_same_arm_determinant_dvd",
+        "ABCResidualCollisions20260907.annotated_prime_power_norm_bound"
+      ],
+      "new": true
+    },
+    "QuarticTwistArithmetic": {
+      "source": "research/checkpoints/2026_09_07_residual_collisions/Lean/QuarticTwistArithmetic.lean",
+      "sha256": "00dc490f254853d87f478e7577a890cab265c529df79a1f4505ac9497bf042ee",
+      "theorems": 12,
+      "queries": [
+        "ABCQuarticTwistArithmetic20260907.square_residue_table",
+        "ABCQuarticTwistArithmetic20260907.dual_parity_tables",
+        "ABCQuarticTwistArithmetic20260907.quartic_mod",
+        "ABCQuarticTwistArithmetic20260907.primitive_not_both_zero_mod",
+        "ABCQuarticTwistArithmetic20260907.integer_square_not_bad16",
+        "ABCQuarticTwistArithmetic20260907.primitive_dual_rhs_bad16",
+        "ABCQuarticTwistArithmetic20260907.three_dual_class_exclusions",
+        "ABCQuarticTwistArithmetic20260907.mod_three_table",
+        "ABCQuarticTwistArithmetic20260907.square_zero_mod_three",
+        "ABCQuarticTwistArithmetic20260907.dual_three_class_exclusion",
+        "ABCQuarticTwistArithmetic20260907.reciprocal_twist_identity",
+        "ABCQuarticTwistArithmetic20260907.actual_square_second_norm"
+      ],
+      "new": true
+    }
+  },
+  "not_claimed": [
+    "ABC proof or disproof",
+    "full repository build",
+    "private-depth estimate",
+    "global probability transfer",
+    "complete third-round formalization",
+    "external peer review"
+  ]
+}

@@ -1,0 +1,59 @@
+\section{Formal cross-residual cancellation and annotated determinants}
+\label{sec:formal-residual-collisions}
+
+The preceding integer collision mechanism admits a direct formalization
+using the repository's existing Eisenstein multiplication, norm, boundary,
+and exact boundary gcd theorem.  The new module
+\texttt{ResidualCollisions.lean} contains fifteen declarations.  Its central
+statement is the actual integer equality
+\[
+ \gcd\bigl(P(v_1H),P(v_2H)\bigr)
+ =\gcd\bigl(P(v_1H),P(v_2\overline{v_1})\bigr),
+ \qquad v_1H\text{ primitive}.
+\]
+Only the first product needs to be primitive in this formal statement.
+Integer gcd retains signs by taking the usual nonnegative gcd; zero second
+boundary and the primes two and three are included.  The proof first
+establishes coprimality of $N(v_1)$ with $P(v_1H)$, and then cancels the
+actual scalar cube in
+$(v_2\overline{v_1})(v_1H)=N(v_1)v_2H$.
+
+The module also verifies the exact Gram identity and its integer norm
+consequence.  For a specified boundary arm $\ell\in\{a,b,a+b\}$, it proves
+\[
+ \begin{gathered}
+  q\mid\ell(vH),\qquad q\mid\ell(wH),\qquad
+  \gcd(q,N(H))=1,\qquad \det(v,w)\ne0
+  \\
+  \Longrightarrow\qquad 3q^2\le4N(v)N(w).
+ \end{gathered}
+\]
+Here $q$ is an arbitrary integer.  The chosen arm is the same for the entire
+modulus.  The proof obtains divisibility of the determinant after
+multiplication, cancels $N(H)$, and uses the nonzero integer quotient to
+deduce $q^2\le\det(v,w)^2$.  Different arm choices at different primes,
+the full CRT lattice index, and the first-minimum question are not silently
+inserted into this formal signature.
+
+The separate module \texttt{QuarticTwistArithmetic.lean} adds twelve
+declarations supporting the independent elliptic descent.  Its actual
+primitive integer statements exclude squares for the three dual quartics
+with coefficients $(2,-4,8)$, $(2,-12,72)$, and $(6,-12,24)$ modulo sixteen,
+and for the quartic with coefficients $(3,-12,48)$ modulo three.
+Finite residue propositions are proved by kernel reduction, and a general
+polynomial congruence lemma transfers them to arbitrary coprime integer
+coordinates.  The module also proves the cleared-denominator identity
+linking the two norms to the elliptic twist, and the exact example
+$M_1(101,355)=192529^2$.  It does not formalize the elliptic group law,
+isogeny descent, Mordell--Weil theorem, torsion classification, or the
+complete combined-norm obstruction.
+
+A fresh standalone Lake build with Lean~4.32.0 and warnings treated as
+errors accepted these twenty-seven declarations and recompiled all fifty-two
+declarations in the three unchanged local dependency modules.  Every
+declaration was subjected to a printed-axiom audit; the union consists of
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+The saved inventory identifies the exact source bytes by SHA-256.
+The full lcm envelope and finite-reference probability theorems remain
+ordinary proofs.  No private-depth estimate, height-to-measure transfer,
+or complete ABC proof is asserted by this scoped formal verification.

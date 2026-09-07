@@ -1,0 +1,257 @@
+\section{Residual divisor collisions and private depth}
+\label{rc-section}
+The results in this section use exact integer identities and finite lattice
+geometry. They control prime-power depth repeated across small residuals;
+the maximal depth belonging to one residual remains a separate problem.
+No logarithmic-form estimate or hypothesis that large primes are simple is
+used. Write $\mathcal O=\mathbb Z[\zeta]$, $\zeta^2-\zeta+1=0$,
+$P(a+b\zeta)=ab(a+b)$ and $N(a+b\zeta)=a^2+ab+b^2$.
+
+\subsection{Exact cancellation of a common large factor}
+Recall the established primitive boundary identities
+\begin{equation}\label{rc-old-gcd}
+ \gcd(N(x),|P(x)|)=1,\qquad
+ \gcd(|P(x)|,|P(yx)|)=\gcd(|P(x)|,|P(y)|),
+\end{equation}
+where $x$ is primitive and $y$ is arbitrary. For completeness, if $x=(a,b)$
+and $y=(r,s)$, the transformed boundary is congruent to
+$-P(y)b^3$, $P(y)a^3$, and $P(y)b^3$ modulo $a$, $b$, and $a+b$,
+respectively. These three boundary factors are pairwise coprime, so the
+unit factors can be cancelled in their gcds. Multiplication of the three
+gcd equalities proves the second identity. Reducing the norm modulo each
+boundary factor proves the first.
+
+\begin{theorem}[Exact cross-residual overlap]\label{rc-cross}
+Let $H,v_1,v_2\in\mathcal O$, suppose $z_i=v_iH$ are primitive, and put
+$A_i=|P(z_i)|>0$, $V_i=N(v_i)$. Then
+\[
+ \gcd(A_1,A_2)=\gcd\bigl(A_1,|P(v_2\bar v_1)|\bigr).
+\]
+This equality retains all prime-power multiplicities, including those at
+two and three.
+\end{theorem}
+\begin{proof}
+In \eqref{rc-old-gcd} take $x=z_1$, $y=v_2\bar v_1$.
+Then $yx=V_1z_2$ and $|P(yx)|=V_1^3A_2$.
+Since $N(z_1)=V_1N(H)$, the first identity in \eqref{rc-old-gcd}
+gives $\gcd(A_1,V_1)=1$. Cancel $V_1^3$ in the left gcd.
+\end{proof}
+
+\begin{lemma}[Small residual overlap]\label{rc-height}
+If the residuals in Theorem~\ref{rc-cross} are not associates under the six
+units, then $P(v_2\bar v_1)\ne0$ and
+\[
+ \gcd(A_1,A_2)\le(V_1V_2)^{3/2}.
+\]
+\end{lemma}
+\begin{proof}
+Each $v_i$ is primitive because $v_iH$ is primitive. A nonzero Eisenstein
+integer has zero boundary exactly when it is an integer multiple of a unit.
+Thus zero cross-boundary would imply $v_2=(m/V_1)uv_1$ for an integer $m$
+and a unit $u$. A rational scalar between primitive integer coordinate pairs
+is $1$ or $-1$, by cancelling its denominator and then its numerator.
+This would make the residuals associates. Finally the exact cubic identity gives
+\[
+ 3\sqrt3\,|P(D)|=|D^3-\bar D^3|\le2N(D)^{3/2}.
+\]
+Apply this to $D=v_2\bar v_1$, of norm $V_1V_2$, and use
+Theorem~\ref{rc-cross}.
+\end{proof}
+
+\subsection{A total budget and exact signed compensation}
+Let $v_1,\ldots,v_K$ be pairwise nonassociate residuals, $K\ge1$, with all
+$z_i=v_iH$ primitive and $A_i=|P(z_i)|>0$. Set $V_i=N(v_i)$ and
+$L=\operatorname{lcm}(A_1,\ldots,A_K)$.
+
+\begin{theorem}[Repeated-multiplicity budget]\label{rc-duplicate}
+The integer $D=\prod_iA_i/L$ satisfies
+\[
+ D\mid\prod_{i<j}\gcd(A_i,A_j),\qquad
+ \log D\le\frac32(K-1)\sum_i\log V_i.
+\]
+In particular $V_i\le B$ implies $\log D\le\frac32K(K-1)\log B$.
+\end{theorem}
+\begin{proof}
+At a fixed prime, arrange its valuations increasingly as $e_1\le\cdots\le e_K$.
+The valuation in $D$ is $\sum_{i<K}e_i$, while that in the product of pairwise
+gcds is $\sum_{i<K}(K-i)e_i$. This proves the divisibility. Bound each gcd
+by Lemma~\ref{rc-height}; each $\log V_i$ occurs in $K-1$ pairs.
+\end{proof}
+
+For $Y\ge1$ put $W_Y(A)=\prod_{p\mid A,\ p>Y}p^{v_p(A)-3}$.
+Assign each prime dividing $L$ to an index of maximal valuation, breaking ties
+by the smallest index. This index is its \emph{owner}; ownership is defined
+from actual integer valuations.
+
+\begin{theorem}[Signed compensation]\label{rc-signed}
+Define
+\[
+ D_Y=\prod_{p>Y}p^{\sum_i v_p(A_i)-v_p(L)},\qquad
+ E_Y=\prod_{p\mid L,\ p>Y}p^{\#\{i:p\mid A_i\}-1}.
+\]
+Then $D_Y\mid D$ and
+\[
+ \prod_iW_Y(A_i)=W_Y(L)\frac{D_Y}{E_Y^3}.
+\]
+For each index define
+\[
+ U_i(Y)=\prod_{\substack{p>Y\\i\text{ owns }p}}p^{v_p(A_i)-3},\qquad
+ R_i(Y)=\sum_{\substack{p>Y, p\mid A_i\\i\text{ does not own }p}}
+                       v_p(A_i)\log p.
+\]
+Then
+\[
+ \log W_Y(A_i)\le\log U_i(Y)+R_i(Y),\qquad
+ \sum_iR_i(Y)=\log D_Y.
+\]
+\end{theorem}
+\begin{proof}
+At a prime occurring in $s$ of the $A_i$, the signed exponent identity is
+\[
+ \sum_i e_i-3s=(\max_i e_i-3)+(\sum_i e_i-\max_i e_i)-3(s-1).
+\]
+This proves the product formula. The individual inequality drops only the
+negative $-3$ credits at nonowned primes, and their full multiplicities sum
+to the exponent of $D_Y$.
+\end{proof}
+
+Suppose additionally $H=w^g$, $Q=N(w)\ge7$, and $V_i\le B$.
+After rotating each product to the positive sector, let $t_i=\log c_i$;
+then $t_i\ge g\log Q/2$. Consequently
+\begin{equation}\label{rc-average}
+ \frac1K\sum_i\frac{R_i(Y)}{t_i}
+ \le\delta:=\frac{3(K-1)\log B}{g\log Q}.
+\end{equation}
+Apply Markov to the nonnegative quantities $R_i(1)/t_i$. If $\delta>0$,
+outside at most a $\sqrt\delta$ proportion of indices, \emph{every} $Y\ge1$
+satisfies $R_i(Y)/t_i\le\sqrt\delta$. If $\delta=0$, every contribution is zero.
+Thus $K\log B=o(g\log Q)$ gives a simultaneous sublinear repeated-depth
+cost for most residuals. No Markov inequality is applied to a signed aggregate:
+negative credit could conceal positive individual signed costs.
+
+\begin{corollary}[A specified packet]\label{rc-packet}
+If $V_i\le B$ and an integer $q>B^3$ divides two of the $A_i$, those
+residuals are associates. In a pairwise nonassociate family, at most one member
+can therefore contain a specified such packet.
+\end{corollary}
+\begin{proof}
+Otherwise $q\le\gcd(A_i,A_j)\le(V_iV_j)^{3/2}\le B^3$.
+\end{proof}
+
+\subsection{Annotated congruences and a lattice of exact index}
+Let $q=\prod p^{e_p}$ be coprime to $N(H)$. At each prime choose one of the
+three boundary linear forms $\ell_{\sigma(p)}\in\{a,b,a+b\}$ and define
+\[
+ \mathcal L(q,\sigma;H)=
+ \{v\in\mathbb Z^2:\ell_{\sigma(p)}(vH)\equiv0\pmod{p^{e_p}}
+                              \text{ for all }p\mid q\}.
+\]
+
+\begin{theorem}[Annotated lattice]\label{rc-lattice}
+This lattice has index $q$. Any two rationally independent $v,v'$ in it satisfy
+\[
+ N(v)N(v')\ge\frac34q^2.
+\]
+If $q>2B/\sqrt3$, all primitive vectors in it of norm at most $B$ belong
+to at most one opposite pair.
+\end{theorem}
+\noindent\textit{Proof.}\quad For $H=r+s\zeta$, multiplication has matrix
+\[
+ \begin{pmatrix}r&-s\\s&r+s\end{pmatrix}
+\]
+of determinant $N(H)$, invertible modulo each retained prime power.
+Each chosen row is unimodular modulo that prime, so its map onto
+$\mathbb Z/p^{e_p}\mathbb Z$ is surjective. The Chinese remainder theorem
+on the two coordinates makes the combined map surjective, proving the index.
+The same row vanishes on both vectors modulo each prime power, so
+$q\mid\det(v,v')$. Write $v=(a,b)$, $v'=(a',b')$. The exact identity
+\[
+ 4N(v)N(v')-(2aa'+ab'+ba'+2bb')^2=3(ab'-ba')^2
+\]
+gives the norm-product bound. Primitive integer vectors on one rational
+line differ only by sign.\qed\par
+
+\begin{corollary}[Fixed-packet capacity]\label{rc-capacity}
+If $\gcd(q,N(H))=1$ and $q>2B/\sqrt3$, at most $2\cdot3^{\omega(q)}$
+primitive integer pairs of norm at most $B$ satisfy $q\mid P(vH)$.
+For $B\ge1$ this is at most $3^{\omega(q)-1}$ associate classes.
+\end{corollary}
+\begin{proof}
+At each prime, primitive coordinates and invertible multiplication imply that
+exactly one boundary arm contains the full prime power. There are at most
+$3^{\omega(q)}$ annotations, each with at most one opposite pair by
+Theorem~\ref{rc-lattice}. The raw solution set is freely closed under the
+six units, which preserve norm and boundary divisibility. Divide its bound
+by six. The threshold implies $q>1$ when $B\ge1$.
+\end{proof}
+The packet in this corollary is specified. A sum over packets chosen after
+seeing the residual needs an additional bound on that collection. Likewise,
+the lattice theorem constrains the product of two independent solution heights;
+it does not lower-bound the first minimum. A lattice may have one very short
+primitive vector and a very long independent vector.
+
+\subsection{A pointwise repeated-depth bound}
+\begin{theorem}[Linear prime-power collision]\label{rc-linear}
+For nonassociate residuals in Theorem~\ref{rc-cross}, any common prime satisfies
+\[
+ p^{\min(v_p(A_1),v_p(A_2))}\le\frac2{\sqrt3}\sqrt{V_1V_2}.
+\]
+\end{theorem}
+\begin{proof}
+A common boundary prime divides neither residual norm. Thus the cross element
+$D=v_2\bar v_1$ has unit norm modulo that prime, and at most one of its three
+boundary factors is divisible by it. The whole common prime power in
+Theorem~\ref{rc-cross} lies in that one nonzero factor.
+Each factor has absolute value at most $2\sqrt{N(D)}/\sqrt3$, by
+\[
+ 4N(a,b)=3a^2+(a+2b)^2=3b^2+(2a+b)^2
+       =3(a+b)^2+(a-b)^2.
+\]
+Use $N(D)=V_1V_2$.
+\end{proof}
+
+\begin{theorem}[Pointwise nonowner budget]\label{rc-pointwise}
+When $V_i\le B$, every index and every $Y\ge1$ satisfy
+\[
+ R_i(Y)\le\log\operatorname{lcm}(1,\ldots,\lfloor2B/\sqrt3\rfloor)<4B.
+\]
+For $H=w^g$ as above, $R_i(Y)/t_i\le8B/(g\log Q)$. Hence
+$B=o(g\log Q)$ gives sublinear nonowner cost at every residual, with no
+exceptional indices.
+\end{theorem}
+\begin{proof}
+For a nonowned prime the owner has at least the same depth, so
+Theorem~\ref{rc-linear} gives $p^{v_p(A_i)}\le X=2B/\sqrt3$.
+Their product divides $\operatorname{lcm}(1,\ldots,\lfloor X\rfloor)$,
+whose logarithm is $\psi(X)=\sum_{p^e\le X}\log p$.
+Every prime power in $(m,2m]$ contributes to the corresponding valuation of
+$\binom{2m}{m}$, with nonnegative contributions at other levels. Thus
+$\psi(2m)-\psi(m)\le2m\log2$. Dyadic summation yields
+$\psi(X)<4X\log2\le3X$, where $\log2\le3/4$ follows from the trapezoidal
+upper bound for $\int_1^2dx/x$. Therefore $\psi(X)\le2\sqrt3B<4B$.
+The height lower bound proves the final assertion.
+\end{proof}
+
+\subsection{An exact limit of the collision argument}
+Take $w=2+\zeta$, $v_1=1$, $v_2=1+5\zeta$ and $g_k=2\cdot5^k$ for
+$k\ge1$. The products are primitive since the residual norm $31$ is disjoint
+from $N(w)=7$. Their displayed lambda parameters tend to zero. The elementary
+homogeneous rank law at five has rank two and first depth one:
+$w^2=3+5\zeta$ has boundary $120$. Hence
+\[
+ v_5(|P(w^{g_k})|)=k+1.
+\]
+But $P(v_2)=30$, so Theorem~\ref{rc-cross} forces
+$v_5(|P(v_2w^{g_k})|)=1$. The maximal depth is unbounded while its repeated
+depth is exactly one. This disproves only the attempted inference that a
+collision budget bounds maximal depth. The fixed prime five is eventually
+below the moving lambda cutoff, so the family does not refute that tail gate.
+
+The exact signed formulas, capacity bound and pointwise nonowner theorem leave
+the owner packets $U_i(Y)$ unbounded. For primes greater than $2B/\sqrt3$,
+all supported depth is already private to one associate class. The new
+arithmetic task is to constrain that private first short direction using the
+special common factor $w^g$, without replacing a specified packet by an
+uncontrolled union or assuming prime simplicity. The companion finite residue
+measure section develops one such reference object and states its transfer
+gap explicitly. The results here do not establish standard $abc$.

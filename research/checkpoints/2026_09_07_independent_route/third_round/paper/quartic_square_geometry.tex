@@ -1,0 +1,339 @@
+\section{Square norm families, exact parity obstructions, and a dynamic cover tower}
+\label{qg-section}
+
+This section gives a positive infinite family whose second norm is an actual
+square, and a precise obstruction to making both norms squares up to the
+ramified factor three. The proofs use explicit elliptic curves and descent.
+A separate multiquadratic tower gives fixed-square-class finiteness for
+successive mixed transforms. None of these conclusions supplies the unbounded
+family required by the two-step radical criterion. The geometric arguments
+are ordinary mathematics; any companion Lean arithmetic identities have
+their narrower scope stated separately.
+
+Put
+\[
+ N(x)=x^2+x+1,\qquad F(x)=x^4+3x^3+5x^2+3x+1.
+\]
+For coprime positive integers $a,b$, write $c=a+b$, $U=ab$ and
+\[
+ M_0=a^2+ab+b^2,\qquad
+ M_1=U^2+UM_0+M_0^2
+     =a^4+3a^3b+5a^2b^2+3ab^3+b^4.
+\]
+
+\subsection{An actual infinite family with square second norm}
+\begin{lemma}[Explicit elliptic coordinates]\label{qg-birational}
+The smooth projective curve $y^2=F(x)$ is birational over $\mathbb Q$ to
+\begin{equation}\label{qg-elliptic-model}
+ E:\quad Y^2=X^3-X^2-3X.
+\end{equation}
+On the open sets where the displayed denominators are nonzero, the maps are
+\begin{align}
+ u&=\frac{y-1-3x/2}{x^2},\quad X=2-2u,
+ &Y&=\frac X2\bigl((X-4)x-3\bigr),\label{qg-forward}\\
+ x&=\frac{2Y+3X}{X(X-4)},
+ &y&=1+\frac32x+\left(1-\frac X2\right)x^2.
+ \label{qg-inverse}
+\end{align}
+\end{lemma}
+\begin{proof}
+Substitute $y=1+3x/2+ux^2$ and divide the quartic equation by $x^2$:
+\[
+ (u^2-1)x^2+3(u-1)x+2u-\frac{11}4=0.
+\]
+The discriminant of this quadratic in $x$ is
+$-8u^3+20u^2-10u-2$. Substitution $X=2-2u$ changes this to
+$X^3-X^2-3X$, and completing the square gives \eqref{qg-forward}.
+Equivalently, after $u=1-X/2$ the quartic difference is
+\[
+ \frac{x^2}4\bigl(X(X-4)x^2-6Xx-4X-3\bigr).
+\]
+Solving for $x$ gives \eqref{qg-inverse}; the two maps are inverse on their
+open domains. The discriminant of $F$ is $117$, and the cubic in
+\eqref{qg-elliptic-model} also has distinct roots, so their projective
+normalizations are smooth genus-one curves.
+\end{proof}
+
+\begin{theorem}[Infinitely many positive square second norms]
+\label{qg-square-family}
+There are infinitely many coprime positive pairs $(a,b)$, with unbounded
+$a+b$, for which $M_1$ is an integer square. Each such pair gives an actual
+second Eisenstein extraction with exponent two and unit residual, hence
+$\lambda_1=1/2$ for that extraction.
+\end{theorem}
+\begin{proof}
+On $E$ take $P=(3,3)$. Exact group operations give
+\[
+ 2P=(4,-6),\qquad 3P=(75,645),\qquad
+ 4P=\left(\frac{361}{144},\frac{2413}{1728}\right).
+\]
+The doubling formula is
+\begin{equation}\label{qg-doubling}
+ X(2Q)=\frac{(X(Q)^2+3)^2}{4X(Q)(X(Q)^2-X(Q)-3)}.
+\end{equation}
+If $s=v_2(X(Q))<0$, the numerator and denominator have valuations $4s$
+and $2+3s$. Thus $v_2(X(2Q))=s-2$. Starting at $4P$, whose $X$ coordinate
+has valuation $-4$, gives infinitely many distinct doubles. Therefore $P$
+has infinite order without a database rank computation.
+
+The real identity component contains infinity and the branch
+$X\ge(1+\sqrt{13})/2$, hence contains $P$. It is a compact connected
+one-dimensional Lie group, isomorphic to a circle by integration of an
+invariant differential. The infinite-order point $P$ corresponds to an
+irrational angle, so its integer multiples are dense. At $3P$, the inverse
+map gives
+\[
+ x=\frac{101}{355}>0,\qquad y=-\frac{192529}{126025}.
+\]
+A neighborhood avoids the exceptional denominators and maps continuously
+to $x>0$. Infinitely many distinct multiples lie there. Birationality and
+the fact that each $x$ supports at most two $y$ give infinitely many
+distinct positive rational ratios $x=a/b$ in lowest terms.
+Now $(yb^2)^2=F(a,b)\in\mathbb Z$, and a rational number whose square is
+integral is integral. Thus $M_1$ is an integer square. Infinitely many
+reduced positive ratios have unbounded numerator plus denominator.
+
+The first mixed output $(ab,M_0,c^2)$ is primitive and its norm $M_1$ has
+no factor three. In its oriented Eisenstein factorization all split
+exponents are therefore even. Unique factorization gives
+$z_1=\text{unit}\cdot W^2$, so the specified unit-residual extraction has
+$\lambda_1=1/2$.
+\end{proof}
+For example, $F(101,355)=192529^2$. Exponent two alone is much weaker than
+the NT4 sufficient threshold; no stronger extraction or high ABC quality
+is inferred. Exact searches of the existing repository found no prior use
+of this pair or elliptic model in this connection. The elliptic curve itself
+is familiar, and no assertion of literature novelty is made.
+
+\subsection{Two explicit descent calculations}
+We use Mordell--Weil finite generation and prime-to-$p$ torsion injectivity
+at good reduction, as stated in the author-hosted J.~S.~Milne,
+\emph{Elliptic Curves}, second edition, Chapter~IV, finite-basis theorem,
+and Chapter~II, Corollary~4.2:
+\url{https://www.jmilne.org/math/Books/EC2.pdf}.
+The following descent maps and local exclusions are explicit, so no rank
+or torsion assertion is taken from a database.
+
+For integers $a,b$, let $E(a,b):y^2=x^3+ax^2+bx$, where
+$b(a^2-4b)\ne0$, and let
+$E'=E(-2a,a^2-4b)$. The two-isogeny is
+\begin{equation}\label{qg-isogeny}
+ \phi(x,y)=\left(x+a+\frac bx,\ y\left(1-\frac b{x^2}\right)\right).
+\end{equation}
+Applying the same formula to $E'$ and scaling by $1/4,1/8$ gives the dual
+$\psi$, with $\psi\phi=[2]$. The square-class map
+$\alpha:E(\mathbb Q)\to\mathbb Q^\times/\mathbb Q^{\times2}$ takes
+the class of $x$ away from $O,(0,0)$ and satisfies
+$\alpha(O)=1$, $\alpha((0,0))=[b]$. Its kernel is $\psi(E'(\mathbb Q))$.
+
+Here the image criterion can be checked directly. The first coordinate in
+\eqref{qg-isogeny} is $(y/x)^2$. Conversely, for a target $X=t^2\ne0$, the
+equation $x^2+(a-X)x+b=0$ has discriminant
+$(X-a)^2-4b=(Y/t)^2$. Choosing its root and the sign in $y=tx$ gives a
+rational preimage. A target $(0,0)$ has a preimage exactly when the target's
+$b$ coefficient is square, in agreement with its square-class value.
+The homomorphism property follows from the product of the three $x$
+coordinates cut out by a line $y=mx+n$ being $n^2$. For $n=0$, the product
+of the other two roots is $b$, which is consistent with the assigned
+value at $(0,0)$; vertical lines and tangencies give the remaining cases.
+More explicitly, $T=(0,0)$ on $E$ lies in $\psi(E')$ exactly when $b$ is
+square, and $O$ always lies in the image. The formula
+$x(P+T)=b/x(P)$ verifies the class law through $T$, while vertical lines
+give $\alpha(P)\alpha(-P)=1$.
+
+Every image class is a signed squarefree divisor $d$ of $b$. A prime
+outside $b$ cannot have odd positive valuation in $x$, and a negative
+valuation in $x$ is even by comparing $y^2$ with the monic cubic.
+Writing $x=dU^2/V^2$ and clearing denominators gives, for any such
+nontrivial class, primitive integers satisfying
+\begin{equation}\label{qg-covering-quartic}
+ W^2=dU^4+aU^2V^2+(b/d)V^4,\qquad \gcd(U,V)=1.
+\end{equation}
+The covering coordinate $W$ is initially rational with integral square,
+so it is an integer.
+
+\begin{lemma}[Complete points on two small twists]\label{qg-small-twists}
+The rational points of $E_1:y^2=x(x-1)(x+3)$ are exactly
+\[
+ O,\ (0,0),\ (1,0),\ (-3,0),\ (-1,\pm2),\ (3,\pm6).
+\]
+The rational points of $E_3:y^2=x(x-3)(x+9)$ are exactly
+$O,(0,0),(3,0),(-9,0)$.
+\end{lemma}
+\begin{proof}
+For $E_1$ one has $a=2,b=-3$, and its dual has $a'=-4,b'=16$.
+The image of $\alpha$ consists of the four classes $1,-1,3,-3$, all
+realized by the listed points. On the dual, $x\ge0$ because
+$x^2-4x+16=(x-2)^2+12>0$. Thus the possible image classes are $1,2$.
+Class two would force
+\[
+ W^2=2U^4-4U^2V^2+8V^4.
+\]
+In the primitive parity cases (odd,even), (odd,odd), (even,odd), the right
+side is respectively $2,6,8$ modulo sixteen, all nonsquares. The dual
+image is therefore trivial and $E_1'(\mathbb Q)=\phi(E_1(\mathbb Q))$.
+Hence $\ker\alpha=\psi(E_1')=2E_1$ and
+$|E_1(\mathbb Q)/2E_1(\mathbb Q)|=4$. There are four rational
+two-torsion points; finite generation then gives rank zero.
+Both good reductions at five and seven have eight points. The two
+prime-to-$p$ torsion injections eliminate odd torsion and bound the
+two-primary torsion by eight. All eight listed points occur, so the list
+is complete.
+
+For $E_3$, $a=6,b=-27$, and its dual has $a'=-12,b'=144$.
+The four rational two-torsion points already realize the four classes
+$1,-1,3,-3$ of $\alpha$. The dual has $x\ge0$, since
+$x^2-12x+144=(x-6)^2+108>0$, and its possible classes are $1,2,3,6$.
+For classes two and six the quartics in \eqref{qg-covering-quartic} are
+\[
+ 2U^4-12U^2V^2+72V^4,\qquad
+ 6U^4-12U^2V^2+24V^4.
+\]
+Their residues for the same three parity cases are respectively
+$(2,14,8)$ and $(6,2,8)$ modulo sixteen, excluding both.
+For class three one would have
+\[
+ W^2=3U^4-12U^2V^2+48V^4.
+\]
+Writing $W=3W_0$ and dividing by three gives, modulo three,
+$0=U^4-U^2V^2+V^4$. Its right side is one unless both $U,V$ are
+divisible by three, contradicting primitivity. Thus the dual image is
+again trivial, the quotient by doubling has order four, and the rank is
+zero. The good reductions at five and seven have four and eight points,
+so the torsion order divides four. Its four rational two-torsion points
+exhaust the group.
+\end{proof}
+
+\begin{theorem}[The combined norm is neither a square nor three times one]
+\label{qg-combined-obstruction}
+For every positive rational $x$, neither $N(x)F(x)$ nor $N(x)F(x)/3$ is
+a rational square. Consequently, for every primitive positive integer
+seed $(a,b)$, neither $M_0M_1$ nor $M_0M_1/3$ is a rational square.
+\end{theorem}
+\begin{proof}
+Suppose $N(x)F(x)=dh^2$ with $d\in\{1,3\}$. Set
+\[
+ u=x+x^{-1},\qquad v=2u+3,\qquad t=4h(x+1)/x^2.
+\]
+Since $N(x)/x=u+1$ and $F(x)/x^2=u^2+3u+3$,
+\begin{equation}\label{qg-reciprocal-identity}
+ dt^2=16(u+2)(u+1)(u^2+3u+3)
+     =v^4+2v^2-3=(v^2-1)(v^2+3).
+\end{equation}
+Thus $(X,Y)=(v^2,vt)$ lies on $dY^2=X(X-1)(X+3)$.
+For $d=1$ this is $E_1$; for $d=3$ the coordinates $(3X,9Y)$ lie on
+$E_3$. Positivity gives $u\ge2,v\ge7$. The respective $x$ coordinates
+are at least $49$ and $147$, contradicting Lemma~\ref{qg-small-twists}.
+Finally $M_0M_1=b^6N(a/b)F(a/b)$, and $b^6$ is a square.
+\end{proof}
+
+\begin{corollary}[A precise even-exponent obstruction]
+\label{qg-even-exponents}
+In actual successive norm representations
+\[
+ M_0=3^eV_0Q_0^{g_0},\qquad M_1=V_1Q_1^{g_1},
+ \qquad e\in\{0,1\},
+\]
+the exponents $g_0,g_1$ cannot both be even when both residual norms
+$V_0,V_1$ are squares. In particular, two unit-residual even extractions
+are impossible, even with arbitrarily moving roots.
+\end{corollary}
+\begin{proof}
+Those assumptions would make $M_0M_1$ equal to $3^e$ times a square,
+contrary to Theorem~\ref{qg-combined-obstruction}.
+\end{proof}
+This excludes a specific exact route, not arbitrary residuals, odd
+extraction exponents, or the general finite lambda threshold.
+
+\subsection{Fixed residual square classes and a genus-three curve}
+\begin{theorem}[Fixed-class finiteness]\label{qg-fixed-classes}
+For any fixed positive rational square classes $d_0,d_1$, only finitely
+many coprime positive pairs $(a,b)$ satisfy
+$M_0=d_0A^2$, $M_1=d_1B^2$ with rational $A,B$.
+No effective height bound is asserted.
+\end{theorem}
+\begin{proof}
+Take the smooth projective normalization with function field
+\[
+ \mathbb Q(x)\left(\sqrt{N(x)/d_0},\sqrt{F(x)/d_1}\right).
+\]
+The discriminants are $-3$ and $117$. The polynomials have no common root,
+since $F\bmod N=x^2$ and $N(0)=1$; indeed their resultant is one.
+Disjoint simple zeros prove that their geometric square classes are
+independent. The cover is therefore geometrically connected of degree four.
+There are six finite branch points. Each has two points of ramification
+index two, contributing two to Riemann--Hurwitz. Infinity is unramified
+because both degrees are even. Thus $2g-2=-8+12=4$, so $g=3$.
+Faltings's theorem gives finitely many rational points on this fixed curve.
+Every seed gives $x=a/b$ with square coordinates $A/b,B/b^2$, and a reduced
+positive ratio determines its primitive pair uniquely.
+\end{proof}
+The external finiteness input is G.~Faltings,
+\emph{Endlichkeitss\"atze f\"ur abelsche Variet\"aten \"uber Zahlk\"orpern},
+Inventiones Mathematicae \textbf{73} (1983), 349--366, with the 1984 erratum;
+the original article is indexed at \url{https://eudml.org/doc/143051}.
+
+For two actual even extractions the square classes are
+$([3^eV_0],[V_1])$. Along a family whose seed height tends to infinity,
+this \emph{pair} must eventually leave each fixed finite product of
+square-class sets. The quantifier is joint: it need not be one fixed
+coordinate that escapes along the whole sequence. Moving square classes
+and odd exponents remain possible.
+
+\subsection{A dynamic tower with explicit genus}
+Define
+\begin{equation}\label{qg-polynomial-recursion}
+ A_0=x,\ B_0=1,\quad
+ A_{j+1}=A_jB_j,\quad B_{j+1}=A_j^2+A_jB_j+B_j^2,
+ \quad f_j=B_{j+1}.
+\end{equation}
+Then $A_j/B_j$ is the $j$th iterate of $r(x)=x/(x^2+x+1)$, and
+$f_0=N,f_1=F$.
+
+\begin{theorem}[Dynamic multiquadratic covers]\label{qg-dynamic-tower}
+Every $f_j$ is squarefree of degree $2^{j+1}$, and distinct $f_j$ have
+disjoint root sets. For fixed nonzero rational $d_0,\ldots,d_{k-1}$, the
+smooth projective cover with function field
+\[
+ \mathbb Q(x)\left(\sqrt{f_0/d_0},\ldots,
+                         \sqrt{f_{k-1}/d_{k-1}}\right)
+\]
+is geometrically connected of degree $2^k$ and has genus
+\begin{equation}\label{qg-tower-genus}
+ G_k=1+2^{k-2}(2^{k+1}-6),\qquad k\ge1.
+\end{equation}
+In particular $G_1=0,G_2=3,G_3=21$. For $k\ge2$, fixing this vector
+of square classes allows only finitely many primitive positive seeds for
+the successive mixed transforms.
+\end{theorem}
+\begin{proof}
+The degree-two map $r$ has exactly the critical points $1,-1$, since
+$r'(x)=(1-x^2)/(x^2+x+1)^2$. The point $-1$ is fixed, and the forward
+orbit of $1$ remains positive and finite. Neither orbit reaches infinity;
+infinity maps to the fixed point zero. Thus infinity is not postcritical.
+All points in $(r^{j+1})^{-1}(\infty)$ are unramified, giving exactly
+$2^{j+1}$ distinct finite points.
+
+The numerator and denominator in \eqref{qg-polynomial-recursion} are
+coprime by induction: a common zero after one step would be a common zero
+before it. For $j\ge1$ their degrees are $2^j-1,2^j$, with monic leading
+coefficients. Hence these preimages are exactly the roots of $f_j$ and
+$\deg f_j=2^{j+1}$. If two different levels shared a root, a positive
+iterate of infinity would return to infinity, contrary to its orbit.
+
+Any nonempty product of distinct $f_j$ has an odd valuation at a root of
+one selected factor. Thus their geometric square classes are independent,
+proving degree $2^k$ and geometric connectedness. There are
+$2^{k+1}-2$ finite branch points, each with inertia group of order two and
+total ramification contribution $2^{k-1}$. All degrees are even, so
+infinity is unramified. Riemann--Hurwitz gives
+\[
+ 2G_k-2=-2\cdot2^k+(2^{k+1}-2)2^{k-1},
+\]
+which is \eqref{qg-tower-genus}. Faltings gives finiteness for $k\ge2$.
+Homogenizing $f_j(a/b)$ multiplies it by $b^{2^{j+1}}$, a square.
+Consequently the classes are those of the actual successive norm integers.
+\end{proof}
+The tower gives explicit higher-genus objects and a fixed-class restriction.
+It does not control the rational points uniformly over twists or settle the
+moving-class two-step compression problem.
