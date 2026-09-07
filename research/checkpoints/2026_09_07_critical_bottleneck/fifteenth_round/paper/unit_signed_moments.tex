@@ -1,0 +1,285 @@
+\section{Unit-normalized signed moments and a single maximal depth}
+\label{usm-section}
+
+Let \(n>324\) be prime, \(B=n^4\), \(L=\log(8B)\), and
+\[
+ w_k=3k+\zeta,\qquad \alpha_k=w_k/\bar w_k,\qquad \zeta^2=\zeta-1,
+ \qquad B\leq k<2B .
+\]
+Fix a subset \(I\) of this actual integer block on which the
+\(\alpha_k\) are multiplicatively independent. Write
+\[
+ w_k^n=A_k+C_k\zeta,\quad T_k=|A_kC_k(A_k+C_k)|,\quad
+ t_k=\log\max(|A_k|,|C_k|,|A_k+C_k|).
+\]
+The primitive and unramified power identities, together with the
+individual-arm cap of Lemma~\ref{adp-arm-cap}, give
+\begin{equation}\label{usm-height}
+ N(w_k)<36B^2,\qquad
+ n\log(3B)\leq t_k<nL,\qquad v_q(T_k)\log q\leq t_k .
+\end{equation}
+The last bound holds for primes \(q>8B\). In fact the three nonzero
+arms are pairwise coprime, so every such prime divides exactly one
+arm and its entire power divides that arm.
+
+\begin{lemma}[A coherent unit choice at one actual prime]
+\label{usm-unit}
+Fix a prime \(q>8B\). For every \(k\in I\) with \(q\mid T_k\), there
+is a global \(\tau_{q,k}\in\{1,\zeta^2,\zeta^4\}\), independent of
+the precision, such that
+\[
+ \beta_{q,k}=\tau_{q,k}\alpha_k,\qquad
+ \beta_{q,k}^n=1\pmod {q^e}\quad(1\leq e\leq v_q(T_k)).
+\]
+The \(\beta_{q,k}\) remain multiplicatively independent and are
+ratios of unit-rotated actual roots to their conjugates. The
+norm-one \(n\)-torsion group modulo \(q^e\) has at most \(n\)
+elements in both the split and inert cases.
+\end{lemma}
+\begin{proof}
+In the Eisenstein residue algebra the unique zero arm gives
+\[
+ \alpha_k^n=
+ \begin{cases}
+ 1,&C_k=0,\\
+ \zeta^2,&A_k=0,\\
+ \zeta^4,&A_k+C_k=0.
+ \end{cases}
+\]
+For the third identity use \(\zeta-1=\zeta^2\) and
+\(\bar\zeta-1=-\zeta\). All denominators are units: a prime dividing
+a primitive boundary arm does not divide the norm. The arm is
+already determined modulo \(q\), and remains the same at every
+available precision. Since \(\gcd(n,3)=1\), its global cube root
+of unity has a unique inverse \(n\)-th root in this group. Choose
+that root as \(\tau_{q,k}\).
+
+The map \(v\mapsto v/\bar v\) on the six global units has image
+exactly \(\{1,\zeta^2,\zeta^4\}\). Thus \(\beta_{q,k}\) has the
+claimed actual representation. Cubing any integer-exponent
+relation among the \(\beta_{q,k}\) eliminates all unit factors;
+independence of the \(\alpha_k\) then recovers every exponent.
+
+At precision one the norm-one group is cyclic: it is
+\(\mathbb F_q^\times\) in the split case, and the norm-one subgroup
+of \(\mathbb F_{q^2}^\times\) in the inert case. It has at most
+\(n\) elements killed by \(n\). Since \(q\nmid n\), the \(n\)-th
+power map is invertible on the principal \(q\)-kernels, and each
+such element has exactly one lift through each successive
+precision. This proves the same cardinal bound at every level.
+\end{proof}
+The choices in Lemma~\ref{usm-unit} are coherent for each fixed
+\(q\), but can change when \(q\) changes. They do not define one
+common normalized map for all primes.
+
+\begin{theorem}[An actual signed-ball injection]\label{usm-ball}
+Let \(q>8B\) be prime and let \(e,\nu\) be positive integers with
+\(e\log q\geq2\nu L\). Put
+\[
+ I_e(q)=\{k\in I:q^e\mid T_k\},\qquad M_e=|I_e(q)|.
+\]
+Then
+\begin{equation}\label{usm-ball-count}
+ C(M_e,\nu):=\sum_{j=0}^{\min(M_e,\nu)}
+    2^j\binom{M_e}{j}\binom{\nu}{j}\leq n .
+\end{equation}
+\end{theorem}
+\begin{proof}
+For an integer vector \(x=(x_k)\) with \(\sum_k|x_k|\leq\nu\),
+represent \(\prod_k\beta_{q,k}^{x_k}\) by \(z_x/\bar z_x\), using
+the unit-rotated \(w_k\) for positive exponents and its conjugate
+for negative exponents, with their indicated multiplicities.
+The empty product is \(z_0=1\). These are nonzero actual
+Eisenstein integers with
+\[
+ |z_x|=\sqrt{N(z_x)}\leq(6B)^\nu .
+\]
+Units and conjugation preserve the norm. For \(z=R+S\zeta\) and
+\(z'=R'+S'\zeta\), the exact integer Gram identity is
+\begin{equation}\label{usm-gram}
+ 4N(z)N(z')-(2RR'+RS'+SR'+2SS')^2
+       =3(RS'-R'S)^2 .
+\end{equation}
+Consequently the determinant \(D=RS'-R'S\) of two representatives
+obeys
+\begin{equation}\label{usm-determinant}
+ |D|\leq\frac2{\sqrt3}|z_x||z_y|
+ \leq\frac2{\sqrt3}(6B)^{2\nu}<(8B)^{2\nu}.
+\end{equation}
+Indeed \((2/\sqrt3)(3/4)^{2\nu}\leq9/(8\sqrt3)<1\) for every
+\(\nu\geq1\). This includes unequal lengths and empty products.
+
+If the two residue products agree modulo \(q^e\), their conjugate
+cross difference is divisible by \(q^e\). The factor
+\(\zeta-\bar\zeta\) is a unit at \(q>3\), so \(q^e\mid D\).
+The strict bound \eqref{usm-determinant} and the precision
+assumption force \(D=0\). The exact algebraic ratios are equal,
+and Lemma~\ref{usm-unit} recovers \(x=y\). Thus the actual integer
+\(\ell^1\) ball injects into the norm-one \(n\)-torsion group.
+
+To count this ball, select its \(j\) nonzero coordinates and
+their signs. The positive absolute values with sum at most
+\(\nu\) have cardinality \(\binom{\nu}{j}\), by subtracting one
+from each and adjoining a slack coordinate. The \(j=0\) term
+counts the zero vector, including \(M_e=0\). This gives
+\eqref{usm-ball-count}. The slack coordinate is only part of
+the counting argument; it is not an extra independent root.
+\end{proof}
+Expanding this finite sum gives
+\begin{equation}\label{usm-special-counts}
+ \begin{gathered}
+ C(M,2)=2M^2+2M+1,\qquad
+ 3C(M,3)=4M^3+6M^2+8M+3,\\
+ C(2,\nu)=2\nu^2+2\nu+1 .
+ \end{gathered}
+\end{equation}
+The formulas include the small-dimensional and zero-radius cases
+where applicable.
+
+\begin{theorem}[The complete single-prime budget]\label{usm-budget}
+Put \(r=\lceil\sqrt{n/2}\rceil\). For every prime \(q>8B\),
+\begin{equation}\label{usm-five}
+ \begin{gathered}
+ \sum_{k\in I}(v_q(T_k)-3)_+\log q\leq\frac52 nL,\\
+ \frac1B\sum_{k\in I}
+       \frac{(v_q(T_k)-3)_+\log q}{t_k}\leq\frac5B .
+ \end{gathered}
+\end{equation}
+There is no upper restriction on \(q\).
+\end{theorem}
+\begin{proof}
+One has \(2r^2\geq n\) and \(r\leq\sqrt n\): use
+\(\sqrt{n/2}\leq(3/4)\sqrt n\) and \(1\leq\sqrt n/4\).
+Write \(w=\log q\) and \(h=\max(4,\lceil2rL/w\rceil)\).
+Theorem~\ref{usm-ball} at \((e,\nu)=(4,2)\) gives
+\(M_4\leq\sqrt{n/2}\). At \((e,\nu)=(h,r)\), two indices would
+give \(n\geq C(2,r)=2r^2+2r+1>n\). Thus \(M_h\leq1\).
+
+All layers from four through \(h-1\) cost at most
+\[
+ (h-4)M_4w\leq2r\sqrt{n/2}L
+       \leq\sqrt2\,nL<\frac32 nL .
+\]
+The subtraction of four absorbs the ceiling error; the range is
+empty when \(h=4\). The remaining layers have at most one actual
+index, whose entire depth costs at most \(nL\) by
+\eqref{usm-height}. This proves the first inequality.
+Since \(L\leq2\log(3B)\), the lower height in
+\eqref{usm-height} proves the second.
+\end{proof}
+
+\begin{theorem}[One actual maximum and two support thresholds]
+\label{usm-one-owner}
+For a prime \(q>8B\), set
+\[
+ h_0=\max(4,\lceil6L/\log q\rceil),\qquad
+ h_1=\max(h_0,\lceil2rL/\log q\rceil).
+\]
+Let \(O_q\) contain one index of maximal actual depth, or be empty
+if \(I\) is empty. Then
+\begin{equation}\label{usm-remainder}
+ \begin{split}
+ \sum_{k\in I\setminus O_q}(v_q(T_k)-3)_+\log q
+ &\leq(6M_4+2rM_{h_0})L\\
+ &\leq7n^{5/6}L .
+ \end{split}
+\end{equation}
+Its normalized remainder is at most \(14n^{-1/6}/B\) per prime.
+If \(\log q\geq(r/2)L\), at most one root of \(I\) has depth at
+least four. If \(\log q\geq2rL\), at most one root of \(I\) has
+any positive depth.
+\end{theorem}
+\begin{proof}
+The signed counts give
+\[
+ M_4\leq\sqrt{n/2},\qquad M_{h_0}<n^{1/3},\qquad M_{h_1}\leq1.
+\]
+For the middle inequality use
+\((4/3)M^3<C(M,3)\leq n\). Maximality implies that \(O_q\)
+contains every \(h_1\)-deep index. For each remaining depth
+\(e<h_1\), the complete truncated inequality is
+\[
+ (e-3)_+\leq(h_0-4)\boldsymbol1_{e\geq4}
+              +(h_1-h_0)\boldsymbol1_{e\geq h_0}.
+\]
+The two ceiling inequalities
+\((h_0-4)\log q\leq6L\) and
+\((h_1-h_0)\log q\leq2rL\) prove the first bound in
+\eqref{usm-remainder}, including empty ranges. For the second,
+\[
+ 6M_4+2rM_{h_0}\leq5\sqrt n+2n^{5/6}\leq7n^{5/6}.
+\]
+The height lower bound gives the normalized statement. Adding
+back the entire selected index costs at most \(nL\).
+
+At \(\log q\geq(r/2)L\), both thresholds equal four, hence the
+positive-excess support has at most one index. At the stronger
+threshold, Theorem~\ref{usm-ball} applies with \(e=1,\nu=r\),
+which bounds the full positive-depth support by one.
+\end{proof}
+The first threshold allows other roots of depth one, two or three;
+the second excludes them. Neither bounds the number of different
+prime labels that can occur on one root.
+
+\paragraph{Prime summation and the remaining problem.}
+Every supported \(q>8B\) has rank \(n\), hence \(q\equiv1\) or
+\(-1\pmod {3n}\). The same primary Brun--Titchmarsh bound used in
+the adaptive-precision section, together with \eqref{usm-five},
+gives, for real \(Z>8B\),
+\begin{equation}\label{usm-progression}
+ \frac1B\sum_{k\in I}
+ \frac{\sum_{8B<q\leq Z}(v_q(T_k)-3)_+\log q}{t_k}
+ \leq\frac{10Z}{B(n-1)\log(Z/(3n))}
+ \leq\frac{11Z}{Bn\log(Z/(3n))}.
+\end{equation}
+For the actual finite set
+\[
+ \mathcal D_Z(I)=\{q>Z:q\text{ prime},\
+                  \exists k\in I,\ v_q(T_k)\geq4\},
+\]
+the far positive mean is at most
+\(5|\mathcal D_Z(I)|/B\). The needed bound
+\(|\mathcal D_Z(I)|=o(B)\) has not been proved. The constants and
+support thresholds improve; this result alone does not enlarge
+the known useful asymptotic prime window.
+
+In the strongest support region, a prime cannot supply both a
+high-depth debit at one root of \(I\) and a depth-one or depth-two
+credit at another root of \(I\). Credits at different primes and
+outside \(I\) remain possible. The unit choices also depend on the
+prime. Repeating the fixed-prime argument therefore supplies
+neither one common finite target nor a bound for the full signed
+far tail. Private-label counts and weights, pointwise exceptions,
+and the independent-domain complement remain separate problems.
+
+\paragraph{The finite arithmetic formally checked here.}
+The module
+\texttt{SignedMoment\allowbreak Arithmetic.lean} contains
+22 new theorems, freshly compiled with its 27 unchanged local
+dependencies under the pinned Lean \(4.32.0\) and Mathlib snapshot.
+Every declaration has a complete axiom query using only the
+standard three axioms. Its \texttt{ballCount} is the actual finite
+binomial sum: its special formulas, monotonicity and numerical
+consequences are proved. Interpreting that sum as an arithmetic
+torsion image remains an explicit input to this module.
+
+The actual finite depth filters, a singleton of maximal depth,
+natural truncated subtraction, every remaining positive layer and
+the per-index whole-depth caps enter the final finite theorems.
+They prove the \(5/2\) total budget, the exact two-range remainder,
+and the normalized \(5/B\) bound using individual heights
+\(t_i\geq t_0>0\) with \(nL\leq2t_0\). A separate numerical bridge
+accepts the concrete two-coordinate diamond lower bound.
+For a completely natural threshold the module uses
+\(r=\lfloor\sqrt{\lfloor n/2\rfloor}\rfloor+1\); it proves
+\(2r^2\geq n\) and \(r^2\leq n\) for \(n\geq18\).
+This is not asserted to equal the real ceiling in every even
+perfect-square case. The polynomial inequality
+\[
+ 4rM_4\leq r^2+4M_4^2\leq3n
+\]
+proves the finite \(5/2\) budget without a real square-root input.
+The coefficient change from \(10/(n-1)\) to \(11/n\) is also
+formally checked. The \(7n^{5/6}\) simplification, prime
+distribution, actual residue torsion, and global tail membership
+are not claimed as formal consequences of this numerical module.

@@ -1,0 +1,96 @@
+{
+  "status": "PASS: fresh signed-moment finite arithmetic, complete axiom audit",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "new_declarations": 22,
+  "dependency_declarations": 27,
+  "modules": {
+    "UniformMomentArithmetic": {
+      "source": "research/checkpoints/2026_09_07_critical_bottleneck/thirteenth_round/Lean/UniformMomentArithmetic.lean",
+      "sha256": "646308163a102479ea842b33b2f06eb8b1adf342e459f13cf8b4a51c597d1568",
+      "new": false,
+      "declarations": 15,
+      "queries": [
+        "ABCUniformMoment20260907.six_choose_three",
+        "ABCUniformMoment20260907.choose_three_exceeds_three_n",
+        "ABCUniformMoment20260907.count_le_three_of_multiset_bound",
+        "ABCUniformMoment20260907.explicit_root_threshold",
+        "ABCUniformMoment20260907.count_le_three_at_explicit_threshold",
+        "ABCUniformMoment20260907.low_layer_count_bound",
+        "ABCUniformMoment20260907.countAbove_eq_filter_length",
+        "ABCUniformMoment20260907.pointwise_complete_excess",
+        "ABCUniformMoment20260907.finite_complete_excess",
+        "ABCUniformMoment20260907.actual_depth_list_budget",
+        "ABCUniformMoment20260907.weighted_complete_prime_budget",
+        "ABCUniformMoment20260907.actual_depth_budget_from_multisets",
+        "ABCUniformMoment20260907.weighted_prime_budget_from_multisets",
+        "ABCUniformMoment20260907.normalized_prime_budget",
+        "ABCUniformMoment20260907.normalized_progression_budget"
+      ]
+    },
+    "AdaptiveOwnerArithmetic": {
+      "source": "research/checkpoints/2026_09_07_critical_bottleneck/fourteenth_round/Lean/AdaptiveOwnerArithmetic.lean",
+      "sha256": "9501eb516dac1f78bf1c9d54a16623b4aed7631beb034560f07699c334717e1a",
+      "new": false,
+      "declarations": 12,
+      "queries": [
+        "ABCAdaptiveOwner20260907.cubic_count_bound",
+        "ABCAdaptiveOwner20260907.count_le_two",
+        "ABCAdaptiveOwner20260907.adaptive_ceiling_bounds",
+        "ABCAdaptiveOwner20260907.complete_middle_layers",
+        "ABCAdaptiveOwner20260907.exists_two_maximal",
+        "ABCAdaptiveOwner20260907.two_maximal_contains_deep",
+        "ABCAdaptiveOwner20260907.complete_finite_middle_budget",
+        "ABCAdaptiveOwner20260907.weighted_finite_middle_budget",
+        "ABCAdaptiveOwner20260907.removed_two_cost",
+        "ABCAdaptiveOwner20260907.finite_global_from_two_cost",
+        "ABCAdaptiveOwner20260907.two_stage_ceiling_bounds",
+        "ABCAdaptiveOwner20260907.exists_actual_two_owner_budget"
+      ]
+    },
+    "SignedMomentArithmetic": {
+      "source": "research/checkpoints/2026_09_07_critical_bottleneck/fifteenth_round/Lean/SignedMomentArithmetic.lean",
+      "sha256": "01d03813915c7fcffcf2994cfde948a0d961ac5b6dcc69af77fb05beb5c65327",
+      "new": true,
+      "declarations": 22,
+      "queries": [
+        "ABCSignedMoment20260907.ballCount_radius_two",
+        "ABCSignedMoment20260907.ballCount_radius_three",
+        "ABCSignedMoment20260907.ballCount_two_coordinates",
+        "ABCSignedMoment20260907.ballCount_mono",
+        "ABCSignedMoment20260907.signed_low_count",
+        "ABCSignedMoment20260907.signed_cubic_count",
+        "ABCSignedMoment20260907.signed_count_le_one",
+        "ABCSignedMoment20260907.count_le_one_of_actual_diamond",
+        "ABCSignedMoment20260907.half_root_threshold",
+        "ABCSignedMoment20260907.half_root_threshold_upper",
+        "ABCSignedMoment20260907.signed_low_layer_coefficient",
+        "ABCSignedMoment20260907.exists_one_maximal",
+        "ABCSignedMoment20260907.one_maximal_contains_deep",
+        "ABCSignedMoment20260907.complete_one_range_budget",
+        "ABCSignedMoment20260907.removed_one_cost",
+        "ABCSignedMoment20260907.finite_global_from_one_cost",
+        "ABCSignedMoment20260907.actual_single_owner_budget",
+        "ABCSignedMoment20260907.single_owner_budget_from_signed_counts",
+        "ABCSignedMoment20260907.actual_one_owner_two_range",
+        "ABCSignedMoment20260907.single_prime_budget_at_natural_threshold",
+        "ABCSignedMoment20260907.normalized_actual_prime_budget",
+        "ABCSignedMoment20260907.signed_progression_normalization"
+      ]
+    }
+  },
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "dependency_build_scope": "Fresh compilation of the listed local sources; pinned Mathlib dependency cache reused.",
+  "not_claimed": [
+    "ABC proof or disproof",
+    "whole repository or Mathlib rebuild",
+    "finite-field torsion, lifting, or private norm construction",
+    "Brun--Titchmarsh or divisor asymptotics",
+    "uniform tuple determinant or density proof",
+    "actual tail membership or exceptional-root control"
+  ]
+}

@@ -1,0 +1,308 @@
+\section{Two quadratic cube descents and exact elliptic ranks}
+\label{gd-section}
+
+Keep the elliptic curves and three-isogeny of
+Theorem~\ref{ssg-isogeny}:
+\[
+ E:Y^2=f(X)=X^3-9X-9,\qquad
+ E':V^2=f_*(T)=T^3-189T+999,
+\]
+\[
+ \phi(X,Y)=(F(X),YF'(X)),\qquad
+ F(X)=X+\frac{36}{X+3}-\frac{36}{(X+3)^2}.
+\]
+Put \(\epsilon=2+\sqrt3\). We prove exact rank statements by explicit
+descent. These statements do not determine the rational points of the
+simultaneous quartic in Theorem~\ref{ssg-quartic}.
+
+\begin{theorem}[The automatic Gaussian cube]\label{gd-gaussian}
+For every finite \((X,Y)\in E(\mathbb Q)\), there is a unique
+\(\alpha+i\beta\in\mathbb Q(i)\) such that
+\begin{equation}\label{gd-gaussian-cube}
+ (\alpha+i\beta)^3=Y+3i(X+2).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Use primitive coordinates
+\[
+ X=A/d^2,\quad Y=B/d^3,\quad d>0,\quad
+ \gcd(A,d)=\gcd(B,d)=1,\quad
+ B^2=A^3-9Ad^4-9d^6.
+\]
+One has \(3\nmid B\). Otherwise \(3\mid A\), so \(3\nmid d\), and
+reduction modulo \(27\) gives \(B^2\equiv18\pmod{27}\). Writing
+\(B=3b\) would give \(b^2\equiv2\pmod3\), a contradiction.
+Set \(K=A+2d^2\) and \(S=B+3idK\). Then
+\begin{equation}\label{gd-gaussian-integral}
+ N(S)=B^2+9d^2K^2=(A+3d^2)^3>0.
+\end{equation}
+For a prime \(q>3\) dividing \(dK\), one has \(q\nmid B\): if
+\(q\mid d\), the curve equation gives \(B^2\equiv A^3\), a unit;
+if \(q\mid K\), then \(d\) is a unit and \(B^2\equiv d^6\).
+Thus no such \(q\) divides both coefficients of \(S\).
+
+In \(\mathbb Z[i]\), the unique prime above \(2\) has norm \(2\);
+its exponent in \(S\) is \(v_2(N(S))\), hence a multiple of three.
+There is no prime above \(3\) in \(S\). For \(q>3\), an inert prime
+cannot divide \(S\), since this would divide both coefficients.
+At a split prime at most one conjugate orientation occurs, for the
+same reason; its exponent is \(v_q(N(S))\), again divisible by three.
+These quadratic splitting and ramification facts follow from
+\cite{MilneANT2020}, Examples 2.41 and 3.44--3.45.
+
+The ring is norm-Euclidean: rounding both coordinates leaves a
+difference of norm at most \(1/2\). It is therefore a UFD.
+Its four units are permuted by cubing. Consequently \(S=W^3\)
+for an actual Gaussian integer \(W\), and \(W/d\) proves existence
+in \eqref{gd-gaussian-cube}. This root is nonzero. The field
+\(\mathbb Q(i)\) has no nontrivial cube root of unity, so the root
+is unique.
+\end{proof}
+The cube condition is automatic on \(E(\mathbb Q)\); it is not an
+additional exclusion of elliptic points.
+
+\begin{theorem}[The opposite isogeny is bijective on rational points]
+\label{gd-opposite}
+Define
+\begin{equation}\label{gd-psi}
+ G(T)=\frac{T+108/(T-9)+108/(T-9)^2}{9},\qquad
+ c(T)=\frac{1-108/(T-9)^2-216/(T-9)^3}{27}.
+\end{equation}
+The map \(\psi(T,V)=(G(T),Vc(T))\) extends to a degree-three
+isogeny \(E'\to E\), induces a bijection
+\(E'(\mathbb Q)\to E(\mathbb Q)\), and satisfies
+\(\psi\phi=[3]\).
+For a finite point on \(E\), the inverse is
+\begin{equation}\label{gd-psi-inverse}
+ T=9+\frac3{\beta-1},\qquad V=\frac{9\alpha}{\beta-1},
+\end{equation}
+where \(\alpha+i\beta\) is the root in
+Theorem~\ref{gd-gaussian}.
+\end{theorem}
+\begin{proof}
+Clearing denominators proves \(f_*(T)c(T)^2=f(G(T))\).
+The rational map extends to the smooth projective curves and maps
+\(O\) to \(O\), so it is a homomorphism by
+\cite{MilneEC2Descent}, Chapter II, Proposition 1.5.
+For \(u=T-9\), one has \(G=1+u/9+12/u+12/u^2\).
+Its reduced numerator is cubic and nonzero at \(u=0\); the abscissa
+degree diagram gives degree three. Its geometric kernel consists of
+\(O,(9,3\sqrt3),(9,-3\sqrt3)\), so its rational kernel is trivial.
+
+Norm and imaginary-coordinate comparison in
+\eqref{gd-gaussian-cube} give
+\[
+ \alpha^2+\beta^2=X+3,\qquad
+ \beta(3\alpha^2-\beta^2)=3(X+2).
+\]
+If \(\beta=1\), these imply \(3X+5=3X+6\).
+Thus \eqref{gd-psi-inverse} is defined. Substitution proves its
+curve equation and its image under \(\psi\).
+For explicit checks in the reverse direction, if \(u=T-9\), set
+\(\beta=1+3/u\), \(\alpha=V/(3u)\). Then
+\begin{align}
+ \alpha^2&=\frac{f_*(T)}{9u^2},
+ &\alpha^2+\beta^2&=G(T)+3,\label{gd-gaussian-inverse-identities}\\
+ \beta(3\alpha^2-\beta^2)&=3(G(T)+2),
+ &\alpha(\alpha^2-3\beta^2)&=Vc(T).\notag
+\end{align}
+Conversely the two norm and imaginary equations imply
+\(4\beta^3-3(X+3)\beta+3(X+2)=0\); with \(\beta\ne1\), this
+solves for \(X\) as \(G(T)\) in \eqref{gd-psi-inverse}.
+The real coordinate recovers \(Y\).
+Every finite rational point therefore has a rational preimage.
+The only rational preimage of \(O\) is \(O\), and the trivial
+rational kernel proves uniqueness everywhere. The model scalings
+\(1/9\) and \(1/27\) in \eqref{gd-psi} are retained.
+
+Finally, on a dense chart put
+\begin{align*}
+ x_2&=\frac{(3X^2-9)^2}{4f(X)}-2X,&
+ b_2&=\frac{(3X^2-9)(X-x_2)}{2f(X)}-1,\\
+ \ell&=\frac{b_2-1}{x_2-X},&
+ x_3&=f(X)\ell^2-X-x_2,\qquad
+ b_3=\ell(X-x_3)-1.
+\end{align*}
+The chord law gives \([3](X,Y)=(x_3,Yb_3)\).
+The exact rational-function identities
+\begin{equation}\label{gd-composition}
+ G(F(X))=x_3,\qquad F'(X)c(F(X))=b_3
+\end{equation}
+follow by clearing denominators. Equality of morphisms on this dense
+chart extends over every omitted point. Thus \(\psi\phi=[3]\),
+with the asserted orientation.
+\end{proof}
+
+\begin{lemma}[Three real-quadratic classes]\label{gd-three-classes}
+For every finite \((T,V)\in E'(\mathbb Q)\), the nonzero element
+\[
+ \theta(T,V)=V+3\sqrt3(T-8)
+\]
+has cube class in the three distinct classes
+\(1,\epsilon,\epsilon^2\) in
+\(\mathbb Q(\sqrt3)^\times/\mathbb Q(\sqrt3)^{\times3}\).
+\end{lemma}
+\begin{proof}
+The value \(T=9\) is impossible because \(V^2=27\).
+Choose primitive coordinates \(T=A/d^2,V=B/d^3\).
+Then
+\begin{equation}\label{gd-real-integral}
+ S=B+3\sqrt3d(A-8d^2),\qquad N(S)=(A-9d^2)^3\ne0.
+\end{equation}
+The integer norm may be negative. For \(q>3\), if \(q\mid d\)
+the curve equation gives a unit \(B^2\equiv A^3\); if
+\(q\mid A-8d^2\), it gives
+\(B^2\equiv(8^3-189\cdot8+999)d^6=-d^6\), a unit.
+Thus \(q\) cannot divide both coefficients of \(S\).
+
+The ring of integers is \(\mathbb Z[\sqrt3]\), of discriminant \(12\).
+Each of \(2\) and \(3\) has one ramified prime of residue degree one,
+so its exponent in \(S\) is a multiple of three by
+\eqref{gd-real-integral}. At \(q>3\), inert divisibility is impossible
+and only one split orientation occurs; again the exponent is a
+multiple of three.
+
+This ring is norm-Euclidean: rounding the two coordinates gives
+\(|a|,|b|\leq1/2\), so \(|a^2-3b^2|\leq3/4<1\).
+Its units are exactly \(\{\pm\epsilon^j:j\in\mathbb Z\}\).
+Indeed norm \(-1\) is impossible modulo \(3\). After changing sign
+and dividing by a power of \(\epsilon\), a unit lies in
+\([1,\epsilon)\) in the chosen real embedding. A unit strictly
+above \(1\) has integral coordinates \(x\geq2,y\geq1\), since its
+conjugate is its positive reciprocal; it would therefore be at least
+\(\epsilon\). This proves the unit assertion.
+
+Unique factorization now gives \(S=\epsilon^jW^3\), absorbing the
+sign into \(W\). Division by \(d^3\) proves the three-class bound.
+A cube root of \(\epsilon\) or \(\epsilon^2\) in the field would be
+an integral unit by its prime valuations, contradicting the unit
+exponents just proved. The three classes are distinct.
+\end{proof}
+
+\begin{theorem}[The exact descent quotient]\label{gd-quotient}
+With \(\delta(O)=1\) and \(\delta(T,V)=[\theta(T,V)]\), the map
+\[
+ \delta:E'(\mathbb Q)\longrightarrow
+ \mathbb Q(\sqrt3)^\times/\mathbb Q(\sqrt3)^{\times3}
+\]
+is a homomorphism with kernel \(\phi(E(\mathbb Q))\) and image of
+order three. Consequently
+\begin{equation}\label{gd-index}
+ |E'(\mathbb Q)/\phi(E(\mathbb Q))|=3.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Put \(T_0=(9,-3\sqrt3)\). Its tangent is
+\(Y=m_0X+b_0\), with \(m_0=-3\sqrt3,b_0=24\sqrt3\);
+the line function is \(\theta=Y-m_0X-b_0\).
+One has the exact flex identity
+\[
+ X^3-189X+999-(m_0X+b_0)^2=(X-9)^3.
+\]
+Let a nonvertical rational chord or tangent be \(Y=mX+b\), with
+three intersections \(P,Q,R\), counted with multiplicity, so
+\(P+Q+R=O\). Its monic intersection polynomial is
+\(F_{\rm line}(X)=X^3-189X+999-(mX+b)^2\).
+If \(m\ne m_0\), set \(x_0=-(b-b_0)/(m-m_0)\).
+The two lines agree at \(x_0\), so \(F_{\rm line}(x_0)=(x_0-9)^3\).
+Multiplication of their linear evaluations at the three roots gives
+\begin{equation}\label{gd-chord}
+ \theta(P)\theta(Q)\theta(R)
+   =[b-b_0+9(m-m_0)]^3.
+\end{equation}
+For \(m=m_0\), the evaluations are all \(b-b_0\), giving the same
+conclusion. This polynomial identity includes repeated intersections.
+Its right side is nonzero: a rational line cannot contain \(T_0\),
+whose abscissa is rational and ordinate irrational.
+Moreover
+\begin{equation}\label{gd-inversion}
+ \theta(P)\theta(-P)=(9-X(P))^3\ne0.
+\end{equation}
+Equations \eqref{gd-chord}--\eqref{gd-inversion} prove the
+homomorphism; the latter also handles vertical lines, and
+\(\delta(O)=1\) handles identity cases.
+
+For the kernel, suppose
+\(\theta(T,V)=(u+v\sqrt3)^3\), \(u,v\in\mathbb Q\).
+Norm and imaginary-coordinate comparison give
+\[
+ u^2-3v^2=T-9,\qquad v(u^2+v^2)=T-8.
+\]
+Equality of rational cubes justifies the first equality for either
+sign of the norm. The value \(v=1\) would give both
+\(u^2=T-6\) and \(u^2=T-9\). Thus
+\begin{equation}\label{gd-phi-inverse}
+ X=-3+\frac3{1-v},\qquad Y=\frac{3u}{1-v}
+\end{equation}
+is defined, and substitution gives a rational point of \(E\)
+mapping to \((T,V)\) under \(\phi\).
+Explicitly, with \(z=X+3\), \(u=Y/z\), \(v=1-3/z\), the
+identities are
+\[
+ u^2-3v^2=F(X)-9,\quad
+ v(u^2+v^2)=F(X)-8,\quad
+ u(u^2+9v^2)=YF'(X).
+\]
+They also prove that every finite image has trivial cube class.
+There is no rational point with \(X=-3\), since its ordinate would
+satisfy \(Y^2=-9\). The identity point and its preimage \(O\)
+complete the kernel statement.
+
+Finally \(P'=(6,9)\) gives
+\[
+ \theta(P')=9-6\sqrt3=\epsilon^2(3-2\sqrt3)^3.
+\]
+Its class has order three. Lemma~\ref{gd-three-classes} therefore
+gives the exact image and \eqref{gd-index}.
+\end{proof}
+
+\begin{corollary}[Exact ranks, without a generator claim]\label{gd-ranks}
+The ranks of \(E(\mathbb Q)\) and \(E'(\mathbb Q)\) are both one.
+For the nontrivial-unit quotient \(H_1\), the rank of
+\(\operatorname{Jac}(H_1)(\mathbb Q)\) is exactly two.
+\end{corollary}
+\begin{proof}
+The bijective rational homomorphism \(\psi\), with \(\psi\phi=[3]\),
+identifies \eqref{gd-index} with \(|E(\mathbb Q)/3E(\mathbb Q)|=3\).
+By Mordell--Weil (\cite{MilneEC2Descent}, Chapter IV, printed
+p.~105), write \(E(\mathbb Q)\simeq\mathbb Z^r\oplus T\) with
+\(T\) finite. Then \(3=3^r|T/3T|\). The ordinary EQ doubling proof
+already gives the infinite-order point \((-2,1)\), so \(r\geq1\).
+It follows that \(r=1\); \(\psi\) gives the same rank for \(E'\).
+The established \(\mathbb Q\)-isogeny
+\(\operatorname{Jac}(H_1)\sim E\times E\) proves the final assertion.
+\end{proof}
+
+Neither this argument nor the finite arithmetic replay proves that
+\((-2,1)\) or \((6,9)\) generates its full group. The simultaneous
+same-source quartic and its positive inequalities remain to be solved.
+The Gaussian cube is a reversible descent, not a new point exclusion.
+The exact replay checks eleven rational-function identities, the
+displayed unit-class witness, and the complete primitive mod-\(27\)
+model table; it uses no software rank upper bound.
+
+
+\paragraph{The arithmetic formally checked here.}
+The module \texttt{GaussianDescent\allowbreak Arithmetic.lean} contains
+15 new theorems. A fresh copy of the source was compiled to a fresh
+\texttt{olean} with warnings treated as errors, under Lean \(4.32.0\)
+and the pinned Mathlib snapshot. All 15 complete axiom queries use
+only the standard three axioms.
+
+The module proves the two actual homogeneous integer norm identities,
+reduction modulo an arbitrary integer modulus, a complete kernel-checked
+\(\operatorname{Fin}(27)\) table, its transfer to signed integer
+congruences, and the actual primitive-curve consequence \(3\nmid B\).
+It also proves the opposite-isogeny rational-function identity, the
+three Gaussian inverse and three real-quadratic inverse identities,
+and both coordinate expressions for \(\psi\phi\) and chord-law tripling
+on the displayed rational charts. Every denominator assumption remains
+explicit in the theorem signatures; no projective exception is hidden
+inside a formal global curve assertion.
+
+The quadratic rings, their units and prime splitting, existence and
+uniqueness of cube roots, the homomorphism \(\delta\), isogeny degree,
+extension of the maps, Mordell--Weil and the exact ranks remain the
+reviewed ordinary proof above. In particular these arithmetic theorems
+do not constitute a formal proof of the entire isogeny descent or of
+the rational points of the simultaneous curve.

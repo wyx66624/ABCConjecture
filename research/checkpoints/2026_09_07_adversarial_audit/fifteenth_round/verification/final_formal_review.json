@@ -1,0 +1,197 @@
+{
+  "status": "PASS",
+  "reviewer": "adversarial_audit",
+  "method": "Independent final source-hash and complete axiom-output audit, relying on separately recorded full semantic reads of all 55 new declarations; no duplicate compiler run.",
+  "new_declarations": 55,
+  "unchanged_dependencies": 56,
+  "explicit_axiom_queries": 111,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "module_count": 8,
+  "manifest_sha256": "1a67f703679d513ab1844bdd2e479ea1907ff9c992b466df83095a2cb1ecd57b",
+  "fresh_log_sha256": "dba7968985ec4f2a0a533da935bd67d473265844416e0702f8f56f26f5e940b8",
+  "all_current_source_hashes_match": true,
+  "modules": {
+    "EisensteinDescent": {
+      "source": "research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean",
+      "sha256": "e5e15c14c4771fcf6bffd1d87bac67d23895cf02f40606188b2059d4cf3c944e",
+      "new": false,
+      "declarations": 29,
+      "queries": [
+        "ABCEisenstein20260905.mul_comm",
+        "ABCEisenstein20260905.mul_assoc",
+        "ABCEisenstein20260905.mul_one",
+        "ABCEisenstein20260905.norm_mul",
+        "ABCEisenstein20260905.conjugate_product",
+        "ABCEisenstein20260905.rotate_boundary",
+        "ABCEisenstein20260905.rotate_norm",
+        "ABCEisenstein20260905.norm_height_identity",
+        "ABCEisenstein20260905.inverse_numerators",
+        "ABCEisenstein20260905.boundary_remainder_x",
+        "ABCEisenstein20260905.boundary_remainder_y",
+        "ABCEisenstein20260905.boundary_remainder_sum",
+        "ABCEisenstein20260905.step_is_mul",
+        "ABCEisenstein20260905.step_norm",
+        "ABCEisenstein20260905.orbit_norm",
+        "ABCEisenstein20260905.orbit_add",
+        "ABCEisenstein20260905.orbit_six",
+        "ABCEisenstein20260905.orbit_six_shift",
+        "ABCEisenstein20260905.orbit_mod_four",
+        "ABCEisenstein20260905.orbit_mod_seven",
+        "ABCEisenstein20260905.cubic_coordinate",
+        "ABCEisenstein20260905.boundary_step_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_lucas",
+        "ABCEisenstein20260905.cubic_difference",
+        "ABCEisenstein20260905.orbit_cubic_difference",
+        "ABCEisenstein20260905.exact_small_orbits",
+        "ABCEisenstein20260905.boundary_factor_certificates",
+        "ABCEisenstein20260905.defect_ratio_increases"
+      ]
+    },
+    "UniformMomentArithmetic": {
+      "source": "research/checkpoints/2026_09_07_critical_bottleneck/thirteenth_round/Lean/UniformMomentArithmetic.lean",
+      "sha256": "646308163a102479ea842b33b2f06eb8b1adf342e459f13cf8b4a51c597d1568",
+      "new": false,
+      "declarations": 15,
+      "queries": [
+        "ABCUniformMoment20260907.six_choose_three",
+        "ABCUniformMoment20260907.choose_three_exceeds_three_n",
+        "ABCUniformMoment20260907.count_le_three_of_multiset_bound",
+        "ABCUniformMoment20260907.explicit_root_threshold",
+        "ABCUniformMoment20260907.count_le_three_at_explicit_threshold",
+        "ABCUniformMoment20260907.low_layer_count_bound",
+        "ABCUniformMoment20260907.countAbove_eq_filter_length",
+        "ABCUniformMoment20260907.pointwise_complete_excess",
+        "ABCUniformMoment20260907.finite_complete_excess",
+        "ABCUniformMoment20260907.actual_depth_list_budget",
+        "ABCUniformMoment20260907.weighted_complete_prime_budget",
+        "ABCUniformMoment20260907.actual_depth_budget_from_multisets",
+        "ABCUniformMoment20260907.weighted_prime_budget_from_multisets",
+        "ABCUniformMoment20260907.normalized_prime_budget",
+        "ABCUniformMoment20260907.normalized_progression_budget"
+      ]
+    },
+    "AdaptiveOwnerArithmetic": {
+      "source": "research/checkpoints/2026_09_07_critical_bottleneck/fourteenth_round/Lean/AdaptiveOwnerArithmetic.lean",
+      "sha256": "9501eb516dac1f78bf1c9d54a16623b4aed7631beb034560f07699c334717e1a",
+      "new": false,
+      "declarations": 12,
+      "queries": [
+        "ABCAdaptiveOwner20260907.cubic_count_bound",
+        "ABCAdaptiveOwner20260907.count_le_two",
+        "ABCAdaptiveOwner20260907.adaptive_ceiling_bounds",
+        "ABCAdaptiveOwner20260907.complete_middle_layers",
+        "ABCAdaptiveOwner20260907.exists_two_maximal",
+        "ABCAdaptiveOwner20260907.two_maximal_contains_deep",
+        "ABCAdaptiveOwner20260907.complete_finite_middle_budget",
+        "ABCAdaptiveOwner20260907.weighted_finite_middle_budget",
+        "ABCAdaptiveOwner20260907.removed_two_cost",
+        "ABCAdaptiveOwner20260907.finite_global_from_two_cost",
+        "ABCAdaptiveOwner20260907.two_stage_ceiling_bounds",
+        "ABCAdaptiveOwner20260907.exists_actual_two_owner_budget"
+      ]
+    },
+    "SignedMomentArithmetic": {
+      "source": "research/checkpoints/2026_09_07_critical_bottleneck/fifteenth_round/Lean/SignedMomentArithmetic.lean",
+      "sha256": "01d03813915c7fcffcf2994cfde948a0d961ac5b6dcc69af77fb05beb5c65327",
+      "new": true,
+      "declarations": 22,
+      "queries": [
+        "ABCSignedMoment20260907.ballCount_radius_two",
+        "ABCSignedMoment20260907.ballCount_radius_three",
+        "ABCSignedMoment20260907.ballCount_two_coordinates",
+        "ABCSignedMoment20260907.ballCount_mono",
+        "ABCSignedMoment20260907.signed_low_count",
+        "ABCSignedMoment20260907.signed_cubic_count",
+        "ABCSignedMoment20260907.signed_count_le_one",
+        "ABCSignedMoment20260907.count_le_one_of_actual_diamond",
+        "ABCSignedMoment20260907.half_root_threshold",
+        "ABCSignedMoment20260907.half_root_threshold_upper",
+        "ABCSignedMoment20260907.signed_low_layer_coefficient",
+        "ABCSignedMoment20260907.exists_one_maximal",
+        "ABCSignedMoment20260907.one_maximal_contains_deep",
+        "ABCSignedMoment20260907.complete_one_range_budget",
+        "ABCSignedMoment20260907.removed_one_cost",
+        "ABCSignedMoment20260907.finite_global_from_one_cost",
+        "ABCSignedMoment20260907.actual_single_owner_budget",
+        "ABCSignedMoment20260907.single_owner_budget_from_signed_counts",
+        "ABCSignedMoment20260907.actual_one_owner_two_range",
+        "ABCSignedMoment20260907.single_prime_budget_at_natural_threshold",
+        "ABCSignedMoment20260907.normalized_actual_prime_budget",
+        "ABCSignedMoment20260907.signed_progression_normalization"
+      ]
+    },
+    "ActualGramRigidity": {
+      "source": "research/checkpoints/2026_09_07_signed_moment_descent/Lean/ActualGramRigidity.lean",
+      "sha256": "611ab6ef50b8aade57b2173b6de73199b285fcc938e5f12fa8832069fd1adb1e",
+      "new": true,
+      "declarations": 4,
+      "queries": [
+        "ABCGramRigidity20260907.actual_norm_nonnegative",
+        "ABCGramRigidity20260907.actual_gram_identity",
+        "ABCGramRigidity20260907.actual_determinant_square_bound",
+        "ABCGramRigidity20260907.actual_determinant_zero_of_modulus"
+      ]
+    },
+    "ActualSignedProducts": {
+      "source": "research/checkpoints/2026_09_07_signed_moment_descent/Lean/ActualSignedProducts.lean",
+      "sha256": "0a184dda6e4a5979a16e42b0ec7a6908bb54ad1959b5281f3790994ef9429ddd",
+      "new": true,
+      "declarations": 12,
+      "queries": [
+        "ABCActualSignedProducts20260907.private_signed_valuation",
+        "ABCActualSignedProducts20260907.private_signed_coordinates_equal",
+        "ABCActualSignedProducts20260907.private_signed_product_injective",
+        "ABCActualSignedProducts20260907.actual_unit_normalized_injective",
+        "ABCActualSignedProducts20260907.actual_finite_signed_capacity",
+        "ABCActualSignedProducts20260907.actual_diamond_card",
+        "ABCActualSignedProducts20260907.actual_diamond_coordinates_injective",
+        "ABCActualSignedProducts20260907.absolute_sum_le_of_four_corners",
+        "ABCActualSignedProducts20260907.actual_diamond_radius",
+        "ABCActualSignedProducts20260907.actual_pair_vector_injective",
+        "ABCActualSignedProducts20260907.actual_private_diamond_injective",
+        "ABCActualSignedProducts20260907.actual_diamond_target_capacity"
+      ]
+    },
+    "ActualSingleOwnerBridge": {
+      "source": "research/checkpoints/2026_09_07_signed_moment_descent/Lean/ActualSingleOwnerBridge.lean",
+      "sha256": "20520467eda7614a2a3c0ebeba14f7f95892ecffc93c6d2c6ece298337068468",
+      "new": true,
+      "declarations": 2,
+      "queries": [
+        "ABCActualSingleOwner20260907.actual_pair_rigidity_card_le_one",
+        "ABCActualSingleOwner20260907.actual_product_single_prime_budget"
+      ]
+    },
+    "GaussianDescentArithmetic": {
+      "source": "research/checkpoints/2026_09_07_independent_route/fifteenth_round/Lean/GaussianDescentArithmetic.lean",
+      "sha256": "283ba4559cfe8ffbc129f6b7a901921d9d7a179654874df5bf4087aad8cfa30d",
+      "new": true,
+      "declarations": 15,
+      "queries": [
+        "ABCGaussianDescent20260907.psi_phi_tripling_x",
+        "ABCGaussianDescent20260907.psi_phi_tripling_factor",
+        "ABCGaussianDescent20260907.actual_gaussian_norm",
+        "ABCGaussianDescent20260907.actual_real_quadratic_norm",
+        "ABCGaussianDescent20260907.fHom_mod",
+        "ABCGaussianDescent20260907.mod_twenty_seven_table",
+        "ABCGaussianDescent20260907.actual_congruence_three",
+        "ABCGaussianDescent20260907.primitive_curve_three_unit",
+        "ABCGaussianDescent20260907.opposite_isogeny_identity",
+        "ABCGaussianDescent20260907.gaussian_inverse_norm",
+        "ABCGaussianDescent20260907.gaussian_inverse_imaginary",
+        "ABCGaussianDescent20260907.gaussian_inverse_real_factor",
+        "ABCGaussianDescent20260907.real_quadratic_inverse_norm",
+        "ABCGaussianDescent20260907.real_quadratic_inverse_imaginary",
+        "ABCGaussianDescent20260907.real_quadratic_inverse_real_factor"
+      ]
+    }
+  },
+  "status_tex_sha256": "80600fbea88dabf65843a280c4b4ad7df3fc4f75c31b76f7ee436d0a26cea9ab",
+  "actual_core_tex_sha256": "c1d1e42ce87fc3d554145edcd3b0883bb1168250a81e4b3e1da4f9f243ae0a27",
+  "scope": "Ordinary arithmetic, finite-ring construction, full signed-ball interpretation, UFD/descent/rank arguments and analytic estimates retain the explicit boundaries in the reviewed source. FLT compatibility probes are separate and are not among these 55 declarations."
+}

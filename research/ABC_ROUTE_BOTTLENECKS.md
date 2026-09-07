@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, adaptive precision, strict private density
-and simultaneous elliptic gates (fourteenth continuation).
+**Last synchronized:** 2026-09-07, signed moments, actual products
+and quadratic cube descents (fifteenth continuation).
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -32,6 +32,24 @@ rigorous complete-premise disproof.
 - [x] Maintain the English journal manuscript with author ChatGPT.
 
 ## Shared exponent generators: September 7 positive frontier
+
+- [x] Normalize actual root ratios coherently at a fixed prime and prove
+  signed-ball injection into an n-element torsion target; get the complete
+  5/2 cost, one actual deepest root and both singleton support thresholds.
+- [x] Prove explicit opposite three-isogeny and quadratic cube descents,
+  exact rational quotient of order three, ordinary elliptic ranks one and
+  first genus-two Jacobian rank two; retain the full simultaneous point gate.
+- [x] Freshly compile 55 new finite statements and 56 dependencies with
+  all 111 axiom queries; replay exact identities and the complete mod-27 model.
+- [ ] Bound total different-prime weights and signed credits; retain
+  actual integer incidence and the independent-domain complement.
+- [ ] Determine every point of the surviving simultaneous positive locus;
+  rank and the automatic Gaussian cube do not supply that conclusion.
+- [ ] Complete applicable larger official Fermat imports in isolation;
+  retain successful partial samples and exact unsuccessful build scope.
+- Fifteenth-round proofs and verified scope:
+  `checkpoints/2026_09_07_signed_moment_descent/README.md`.
+
 
 - [x] Bound the complete positive cost at every individual q>8B without
   an upper restriction; select actual two maximal depths with all other

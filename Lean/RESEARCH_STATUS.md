@@ -1,5 +1,26 @@
 # Research status
 
+## September 7, 2026: actual signed products and quadratic cube descents
+
+The fifteenth continuation freshly compiles 55 new declarations and 56 old
+dependencies together, with all 111 axiom queries checked. The actual product
+bridge derives a high-depth cardinality from two-element signed maps; the full
+depth budget and individual-height normalization are formal. The low-layer
+count, residue rigidity and finite target size remain explicit inputs.
+
+Reviewed ordinary proofs give one maximal-depth root at each prime, complete
+cost at most (5/2)n log(8B), and remainder at most 7n^(5/6) log(8B). Explicit
+quadratic cube descents prove rank one for both elliptic curves and rank two
+for their genus-two Jacobian quotient. These ranks and complete curve maps
+retain their ordinary scope; 15 new actual integer/rational identities are formal.
+
+The full different-prime signed cost, domain complement and simultaneous
+rational-point problem remain open. Official FLT reuse has an eighteen-module
+completed local milestone plus one additional definition compilation; the
+larger attempted batch stopped at a package-root resolution error. Full FLT
+is still not locally imported. ABC is unproved and undisproved. See
+`../research/checkpoints/2026_09_07_signed_moment_descent/README.md`.
+
 ## September 7, 2026: adaptive precision, density and simultaneous elliptic depth
 
 The fourteenth continuation has 35 new finite Lean declarations and 15

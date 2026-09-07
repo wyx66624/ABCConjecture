@@ -1,0 +1,57 @@
+{
+  "status": "PASS: exact finite replay with unchanged source and certificate bytes",
+  "records": [
+    {
+      "script": "research/checkpoints/2026_09_07_independent_route/fifteenth_round/replay_gaussian_descent.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_independent_route/fifteenth_round/replay_gaussian_descent.py": "c6d07c891d1e867aeaccb162445066c82756d3591efbbecec1165df40aa1e3c5",
+        "research/checkpoints/2026_09_07_independent_route/fifteenth_round/verification/gaussian_descent.json": "7ffd5642b4de56426616217b9d49b65aa3bd3e17e914d6448817e27cefcfa898"
+      },
+      "result": {
+        "method": "Python standard-library exact integer polynomial cross-products; no floating point or rank API",
+        "mod27_primitive_curve_hits_with_3_dividing_B": 0,
+        "mod27_primitive_curve_residue_hits": 486,
+        "rational_function_identities": [
+          "opposite_isogeny_curve",
+          "psi_phi_tripling_x",
+          "psi_phi_tripling_y_factor",
+          "gaussian_norm_inverse",
+          "gaussian_imaginary_inverse",
+          "gaussian_real_inverse",
+          "real_quadratic_norm_inverse",
+          "real_quadratic_imaginary_inverse",
+          "real_quadratic_real_inverse",
+          "gaussian_affine_norm",
+          "real_quadratic_affine_norm"
+        ],
+        "rational_function_identity_count": 11,
+        "scope": "Exact identities and complete specified modular table only. Not a proof of UFD, the Mordell-Weil theorem, rank or all rational points.",
+        "status": "PASS",
+        "unit_class_witness": [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            -2
+          ],
+          [
+            9,
+            -6
+          ]
+        ]
+      },
+      "actual_stdout": "PASS 11 identities; 486 primitive mod27 hits; 7ffd5642b4de56426616217b9d49b65aa3bd3e17e914d6448817e27cefcfa898"
+    }
+  ],
+  "not_claimed": [
+    "ABC proof or disproof",
+    "all rational points",
+    "a rank theorem proved by finite sampling",
+    "analytic or geometric theorem proved by sampling"
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "status": "PASS: bounded leaf source compatibility only",
+  "upstream_commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "max_parallel_processes": 1,
+  "lean_threads": 2,
+  "resident_memory_stop_bytes": 8589934592,
+  "resident_memory_poll_seconds": 0.25,
+  "per_process_timeout_seconds": 180,
+  "requested_C_or_object_output": false,
+  "selected_modules": [
+    "P2M.Util",
+    "Definitions.Def_AbstractHeckeOperator",
+    "Definitions.Def_AdicCompletionLocalRing",
+    "Definitions.Def_AdicCompletionRestrictScalars",
+    "Definitions.Def_Algebra_DescentCofaces",
+    "Definitions.Def_Algebra_PatchingDatum",
+    "P2M.Sol.S_AbsoluteValue_Completion_isUltrametricDist_of_isNonarchimedean",
+    "P2M.Sol.S_AbsoluteValue_Completion_norm_coe_and_exists_one_lt_norm",
+    "P2M.Sol.S_AbsoluteValue_exists_forall_sub_lt_of_pairwise_not_isEquiv",
+    "P2M.Sol.S_AddChar_exists_continuousLinearMap_fourierChar_eq",
+    "P2M.Sol.S_AddCircle_exists_eq_coe_div_of_nsmul_eq_zero_of_dvd",
+    "P2M.Sol.S_AddCommGroup_apply_zsmul_add_eq_of_forall_cube"
+  ],
+  "runs": [
+    {
+      "module": "P2M.Util",
+      "source_sha256": "66f62069b83c0cf97531f88e5bd2c249e471df011ad873b0bd034eb959b1d8da",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "P2M/Util.olean",
+        "P2M/Util.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "memory_stopped": false,
+      "observed_peak_rss_kib": 1590876,
+      "elapsed_seconds": 5.005,
+      "output": "",
+      "batch_max_child_rss_kib": 1601076
+    },
+    {
+      "module": "Definitions.Def_AbstractHeckeOperator",
+      "source_sha256": "a89b83ee3eb92a4d9fbe2ee5a406405d123c606d846ea8629b15268bfc2e19b8",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "Definitions/Def_AbstractHeckeOperator.olean",
+        "Definitions/Def_AbstractHeckeOperator.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "memory_stopped": false,
+      "observed_peak_rss_kib": 1811708,
+      "elapsed_seconds": 3.754,
+      "output": "",
+      "batch_max_child_rss_kib": 1821684
+    },
+    {
+      "module": "Definitions.Def_AdicCompletionLocalRing",
+      "source_sha256": "9a7faeda47ecd6fee70a5881e0ce2d8f746ecfe6dd812b33c3cfc63bbef850b9",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "Definitions/Def_AdicCompletionLocalRing.olean",
+        "Definitions/Def_AdicCompletionLocalRing.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "memory_stopped": false,
+      "observed_peak_rss_kib": 2851084,
+      "elapsed_seconds": 4.254,
+      "output": "'AdicCompletion.ker_eval\u2090_eq_map_pow' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AdicCompletion.isUnit_one_add_of_mem_map' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AdicCompletion.instIsLocalRingMaximalIdeal' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AdicCompletion.maximalIdeal_eq_map' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AdicCompletion.quotientMaximalIdealPowAlgEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AdicCompletion.maximalIdeal_eq_map_algEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AdicCompletion.quotientMaximalIdealPowAlgEquivOfAlgEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "batch_max_child_rss_kib": 2867532
+    },
+    {
+      "module": "Definitions.Def_AdicCompletionRestrictScalars",
+      "source_sha256": "33d8c71f6d3ffc068ef454c2e8952cbfa5b19e7ffe0501fcaf91c5999e06a1cc",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "Definitions/Def_AdicCompletionRestrictScalars.olean",
+        "Definitions/Def_AdicCompletionRestrictScalars.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "memory_stopped": false,
+      "observed_peak_rss_kib": 2271404,
+      "elapsed_seconds": 2.003,
+      "output": "@AdicCompletion.restrictScalarsEquiv.{u_1,\n    u_2} : {A : Type u_1} \u2192\n  [inst : CommRing.{u_1} A] \u2192\n    (B : Type u_2) \u2192\n      [inst_1 : CommRing.{u_2} B] \u2192\n        [inst_2 : Algebra.{u_1, u_2} A B] \u2192\n          (\ud835\udd2d : Ideal.{u_1} A) \u2192\n            LinearEquiv.{u_1, u_1, u_2, u_2} (RingHom.id.{u_1} A)\n              (AdicCompletion.{u_2, u_2} (Ideal.map.{u_1, u_2, max u_1 u_2} (algebraMap.{u_1, u_2} A B) \ud835\udd2d) B)\n              (AdicCompletion.{u_1, u_2} \ud835\udd2d B)\n'AdicCompletion.restrictScalars_map_pow_smul_top' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AdicCompletion.levelRestrictScalarsEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AdicCompletion.restrictScalarsEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AdicCompletion.restrictScalarsEquiv_of' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AdicCompletion.restrictScalarsEquiv_symm_of' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "batch_max_child_rss_kib": 2867532
+    },
+    {
+      "module": "Definitions.Def_Algebra_DescentCofaces",
+      "source_sha256": "7d263ed9554a057da3acfb57f08784af731a981be3f16d46f2b235f5a315708c",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "Definitions/Def_Algebra_DescentCofaces.olean",
+        "Definitions/Def_Algebra_DescentCofaces.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "memory_stopped": false,
+      "observed_peak_rss_kib": 6789740,
+      "elapsed_seconds": 20.02,
+      "output": "",
+      "batch_max_child_rss_kib": 6801352
+    },
+    {
+      "module": "Definitions.Def_Algebra_PatchingDatum",
+      "source_sha256": "2e3307460c6dab19ca474a98e1b4b7b8feaa26cd81e09b0fbb48a32c54b671fa",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "Definitions/Def_Algebra_PatchingDatum.olean",
+        "Definitions/Def_Algebra_PatchingDatum.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "memory_stopped": false,
+      "observed_peak_rss_kib": 2030232,
+      "elapsed_seconds": 1.002,
+      "output": "",
+      "batch_max_child_rss_kib": 6801352
+    },
+    {
+      "module": "P2M.Sol.S_AbsoluteValue_Completion_isUltrametricDist_of_isNonarchimedean",
+      "source_sha256": "9843af12095b18f2a2ceca664c72c81fa46ba3363e39f894baf98d5eea29490c",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "P2M/Sol/S_AbsoluteValue_Completion_isUltrametricDist_of_isNonarchimedean.olean",
+        "P2M/Sol/S_AbsoluteValue_Completion_isUltrametricDist_of_isNonarchimedean.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "memory_stopped": false,
+      "observed_peak_rss_kib": 6982964,
+      "elapsed_seconds": 2.753,
+      "output": "'P2MW.S_AbsoluteValue_Completion_isUltrametricDist_of_isNonarchimedean.solution' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n",
+      "batch_max_child_rss_kib": 6992184
+    },
+    {
+      "module": "P2M.Sol.S_AbsoluteValue_Completion_norm_coe_and_exists_one_lt_norm",
+      "source_sha256": "2428aef3e5ee0fd8dcc70b6aa22e46dcbf72b15395a2e4276963312efd3ba146",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "P2M/Sol/S_AbsoluteValue_Completion_norm_coe_and_exists_one_lt_norm.olean",
+        "P2M/Sol/S_AbsoluteValue_Completion_norm_coe_and_exists_one_lt_norm.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "memory_stopped": false,
+      "observed_peak_rss_kib": 6970240,
+      "elapsed_seconds": 2.503,
+      "output": "'P2MW.S_AbsoluteValue_Completion_norm_coe_and_exists_one_lt_norm.solution' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n",
+      "batch_max_child_rss_kib": 6992184
+    },
+    {
+      "module": "P2M.Sol.S_AbsoluteValue_exists_forall_sub_lt_of_pairwise_not_isEquiv",
+      "source_sha256": "e86d5f30b07678f3b67bffb6e4fc190446b7ebf5f8d56f4b90eb655e91135d64",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "P2M/Sol/S_AbsoluteValue_exists_forall_sub_lt_of_pairwise_not_isEquiv.olean",
+        "P2M/Sol/S_AbsoluteValue_exists_forall_sub_lt_of_pairwise_not_isEquiv.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "memory_stopped": false,
+      "observed_peak_rss_kib": 6999016,
+      "elapsed_seconds": 3.254,
+      "output": "",
+      "batch_max_child_rss_kib": 7010524
+    },
+    {
+      "module": "P2M.Sol.S_AddChar_exists_continuousLinearMap_fourierChar_eq",
+      "source_sha256": "be008a410baa5dd69deee303bab615b05eaf8aed2f69d5c9b6f9d63022f8282b",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "P2M/Sol/S_AddChar_exists_continuousLinearMap_fourierChar_eq.olean",
+        "P2M/Sol/S_AddChar_exists_continuousLinearMap_fourierChar_eq.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "memory_stopped": false,
+      "observed_peak_rss_kib": 3118396,
+      "elapsed_seconds": 1.502,
+      "output": "P2M/Sol/S_AddChar_exists_continuousLinearMap_fourierChar_eq.lean:43:31: warning: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead\n\nNote: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).\n",
+      "batch_max_child_rss_kib": 7010524
+    },
+    {
+      "module": "P2M.Sol.S_AddCircle_exists_eq_coe_div_of_nsmul_eq_zero_of_dvd",
+      "source_sha256": "73d7d11a301adafc396c66511018e8fc083d3688448458280458e9cf3d2003c3",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "P2M/Sol/S_AddCircle_exists_eq_coe_div_of_nsmul_eq_zero_of_dvd.olean",
+        "P2M/Sol/S_AddCircle_exists_eq_coe_div_of_nsmul_eq_zero_of_dvd.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "memory_stopped": false,
+      "observed_peak_rss_kib": 6979924,
+      "elapsed_seconds": 2.754,
+      "output": "",
+      "batch_max_child_rss_kib": 7010524
+    },
+    {
+      "module": "P2M.Sol.S_AddCommGroup_apply_zsmul_add_eq_of_forall_cube",
+      "source_sha256": "ae2f5bfdb7e5e0ae2e73d5e3198e03579937e3e08002fd4f3ec8d6fc19c39fff",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "P2M/Sol/S_AddCommGroup_apply_zsmul_add_eq_of_forall_cube.olean",
+        "P2M/Sol/S_AddCommGroup_apply_zsmul_add_eq_of_forall_cube.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "memory_stopped": false,
+      "observed_peak_rss_kib": 6976348,
+      "elapsed_seconds": 3.004,
+      "output": "",
+      "batch_max_child_rss_kib": 7017176
+    }
+  ],
+  "full_FLT_verified": false,
+  "artifacts": [
+    {
+      "path": "Definitions/Def_Algebra_PatchingDatum.olean",
+      "bytes": 706128
+    },
+    {
+      "path": "Definitions/Def_AdicCompletionLocalRing.olean",
+      "bytes": 513008
+    },
+    {
+      "path": "Definitions/Def_AbstractHeckeOperator.olean",
+      "bytes": 375808
+    },
+    {
+      "path": "Definitions/Def_AdicCompletionRestrictScalars.olean",
+      "bytes": 716232
+    },
+    {
+      "path": "Definitions/Def_Algebra_DescentCofaces.olean",
+      "bytes": 157216
+    },
+    {
+      "path": "P2M/Util.olean",
+      "bytes": 858208
+    },
+    {
+      "path": "P2M/Sol/S_AbsoluteValue_Completion_isUltrametricDist_of_isNonarchimedean.olean",
+      "bytes": 47192
+    },
+    {
+      "path": "P2M/Sol/S_AddCommGroup_apply_zsmul_add_eq_of_forall_cube.olean",
+      "bytes": 340168
+    },
+    {
+      "path": "P2M/Sol/S_AddChar_exists_continuousLinearMap_fourierChar_eq.olean",
+      "bytes": 156232
+    },
+    {
+      "path": "P2M/Sol/S_AddCircle_exists_eq_coe_div_of_nsmul_eq_zero_of_dvd.olean",
+      "bytes": 84936
+    },
+    {
+      "path": "P2M/Sol/S_AbsoluteValue_exists_forall_sub_lt_of_pairwise_not_isEquiv.olean",
+      "bytes": 335368
+    },
+    {
+      "path": "P2M/Sol/S_AbsoluteValue_Completion_norm_coe_and_exists_one_lt_norm.olean",
+      "bytes": 37304
+    }
+  ]
+}

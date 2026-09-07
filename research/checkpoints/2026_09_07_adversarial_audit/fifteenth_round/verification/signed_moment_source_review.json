@@ -1,0 +1,45 @@
+{
+  "status": "PASS: independent full semantic/source review and recorded evidence cross-check",
+  "independent_compile_rerun": false,
+  "new_theorems": 22,
+  "additional_definition": "ballCount",
+  "dependency_theorem_queries": 27,
+  "complete_logged_queries": 49,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "manifest_path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_critical_bottleneck\\fifteenth_round\\verification\\signed_validation.json",
+  "manifest_sha256": "470122c59ddcafd07e16cb268a6b00ed513615a5f3e4702d2f66351f10d047c5",
+  "log_path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_critical_bottleneck\\fifteenth_round\\verification\\signed-lean.log",
+  "log_sha256": "16c7061dc1edacd84bf3a9a912602844a947c6b7789990f11bba820a421e5007",
+  "modules": [
+    {
+      "module": "UniformMomentArithmetic",
+      "path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_critical_bottleneck\\thirteenth_round\\Lean\\UniformMomentArithmetic.lean",
+      "sha256": "646308163a102479ea842b33b2f06eb8b1adf342e459f13cf8b4a51c597d1568",
+      "queries": 15
+    },
+    {
+      "module": "AdaptiveOwnerArithmetic",
+      "path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_critical_bottleneck\\fourteenth_round\\Lean\\AdaptiveOwnerArithmetic.lean",
+      "sha256": "9501eb516dac1f78bf1c9d54a16623b4aed7631beb034560f07699c334717e1a",
+      "queries": 12
+    },
+    {
+      "module": "SignedMomentArithmetic",
+      "path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_critical_bottleneck\\fifteenth_round\\Lean\\SignedMomentArithmetic.lean",
+      "sha256": "01d03813915c7fcffcf2994cfde948a0d961ac5b6dcc69af77fb05beb5c65327",
+      "queries": 22
+    }
+  ],
+  "not_claimed": [
+    "actual finite-field n-torsion count construction",
+    "all-M signed-ball cardinality identification",
+    "Gram determinant rigidity",
+    "prime distribution or density",
+    "whole tail label budget or actual membership",
+    "new independent compiler execution"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "scope": "Reviewed US ordinary paper and 22 finite signed-moment theorems; no later candidates.",
+  "source_files": [
+    {
+      "path": "README.md",
+      "bytes": 2188,
+      "sha256": "dc21ee5f45cb048760bc3639e52d147ba07da8e6d11aadccbafbb73d220e655d"
+    },
+    {
+      "path": "review.md",
+      "bytes": 4867,
+      "sha256": "41cfc5c07fc38bb114b1d7b21dd12fcbb07c4cdfb8d8a29a266e5fdac41b1ec7"
+    },
+    {
+      "path": "unit_signed_moments.md",
+      "bytes": 9803,
+      "sha256": "c8835115cb26552950b04ee5d32c09d57c1e5b94990c977325a2c2322e61c045"
+    },
+    {
+      "path": "ordinary_signed_scope.md",
+      "bytes": 5438,
+      "sha256": "c35e1ada55d04d308cd20585b62ab993b1d291cde4275d43fe5f45f25e16f75f"
+    },
+    {
+      "path": "formal_completion.md",
+      "bytes": 3227,
+      "sha256": "7a0e9f391e6b15c55fea930d730396e79ac1d242baf837fc6ae0c12613bbc6a4"
+    },
+    {
+      "path": "Lean/SignedMomentArithmetic.lean",
+      "bytes": 15672,
+      "sha256": "01d03813915c7fcffcf2994cfde948a0d961ac5b6dcc69af77fb05beb5c65327"
+    },
+    {
+      "path": "paper/unit_signed_moments.tex",
+      "bytes": 11463,
+      "sha256": "bd6122f7c5ebfa2f25d4947725181f608503743c3d7d6bcf273fc29d43966b48"
+    },
+    {
+      "path": "verify_signed.py",
+      "bytes": 5779,
+      "sha256": "e3c5e576316640dc9c3025b1bf2ee53a8379d642e38fa3ba9fbfcb4b32947fb4"
+    },
+    {
+      "path": "verification/signed_validation.json",
+      "bytes": 4822,
+      "sha256": "470122c59ddcafd07e16cb268a6b00ed513615a5f3e4702d2f66351f10d047c5"
+    },
+    {
+      "path": "verification/signed-lean.log",
+      "bytes": 5384,
+      "sha256": "16c7061dc1edacd84bf3a9a912602844a947c6b7789990f11bba820a421e5007"
+    },
+    {
+      "path": "seal_sources.py",
+      "bytes": 2513,
+      "sha256": "cc475d6e49c7657bd7a6d097425def3238bec312223fea7f9128f88698069c37"
+    }
+  ],
+  "new_theorems": 22,
+  "old_local_dependency_theorems_freshly_compiled": 27,
+  "excluded": [
+    "sixteenth-round candidates",
+    "rendered PDF visual QA",
+    "global ABC proof",
+    "complete residue-torsion construction"
+  ]
+}

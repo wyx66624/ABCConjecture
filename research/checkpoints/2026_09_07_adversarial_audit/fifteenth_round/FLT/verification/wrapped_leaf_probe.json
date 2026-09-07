@@ -1,0 +1,205 @@
+{
+  "status": "PASS",
+  "full_FLT_verified": false,
+  "scope": "Six exact wrappers and their named exported declarations only",
+  "upstream_commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "prerequisite_report_sha256": "facc3dd46d8194b0a0f5b87a902e69029b7a95eaa4953ef668239e4222d09260",
+  "new_modules": [
+    "Theorems.Thm_AbsoluteValue_Completion_isUltrametricDist_of_isNonarchimedean",
+    "Theorems.Thm_AbsoluteValue_Completion_norm_coe_and_exists_one_lt_norm",
+    "Theorems.Thm_AbsoluteValue_exists_forall_sub_lt_of_pairwise_not_isEquiv",
+    "Theorems.Thm_AddChar_exists_continuousLinearMap_fourierChar_eq",
+    "Theorems.Thm_AddCircle_exists_eq_coe_div_of_nsmul_eq_zero_of_dvd",
+    "Theorems.Thm_AddCommGroup_apply_zsmul_add_eq_of_forall_cube"
+  ],
+  "runs": [
+    {
+      "label": "Theorems.Thm_AbsoluteValue_Completion_isUltrametricDist_of_isNonarchimedean",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "Theorems/Thm_AbsoluteValue_Completion_isUltrametricDist_of_isNonarchimedean.olean",
+        "Theorems/Thm_AbsoluteValue_Completion_isUltrametricDist_of_isNonarchimedean.lean"
+      ],
+      "cwd": "/root/abc-flt-wrapper-probe-432",
+      "exit_code": 0,
+      "resource_stop": null,
+      "elapsed_seconds": 21.777,
+      "observed_peak_rss_kib": 6900964,
+      "output": "",
+      "source_sha256": "f2f4d44b85ea4fa42c8b5ead0c08d1e448ee27ef572d411acc5189f12d641999"
+    },
+    {
+      "label": "Theorems.Thm_AbsoluteValue_Completion_norm_coe_and_exists_one_lt_norm",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "Theorems/Thm_AbsoluteValue_Completion_norm_coe_and_exists_one_lt_norm.olean",
+        "Theorems/Thm_AbsoluteValue_Completion_norm_coe_and_exists_one_lt_norm.lean"
+      ],
+      "cwd": "/root/abc-flt-wrapper-probe-432",
+      "exit_code": 0,
+      "resource_stop": null,
+      "elapsed_seconds": 2.913,
+      "observed_peak_rss_kib": 6943132,
+      "output": "",
+      "source_sha256": "f4bdd363a2195b17d939686e9890a5a9cc854d910c5267e8b52d4d7c67b93adf"
+    },
+    {
+      "label": "Theorems.Thm_AbsoluteValue_exists_forall_sub_lt_of_pairwise_not_isEquiv",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "Theorems/Thm_AbsoluteValue_exists_forall_sub_lt_of_pairwise_not_isEquiv.olean",
+        "Theorems/Thm_AbsoluteValue_exists_forall_sub_lt_of_pairwise_not_isEquiv.lean"
+      ],
+      "cwd": "/root/abc-flt-wrapper-probe-432",
+      "exit_code": 0,
+      "resource_stop": null,
+      "elapsed_seconds": 2.85,
+      "observed_peak_rss_kib": 6929188,
+      "output": "",
+      "source_sha256": "c328146bf6685bb80650db52feedd94b76083b6051d893ca226470c991df88d3"
+    },
+    {
+      "label": "Theorems.Thm_AddChar_exists_continuousLinearMap_fourierChar_eq",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "Theorems/Thm_AddChar_exists_continuousLinearMap_fourierChar_eq.olean",
+        "Theorems/Thm_AddChar_exists_continuousLinearMap_fourierChar_eq.lean"
+      ],
+      "cwd": "/root/abc-flt-wrapper-probe-432",
+      "exit_code": 0,
+      "resource_stop": null,
+      "elapsed_seconds": 1.299,
+      "observed_peak_rss_kib": 3031436,
+      "output": "",
+      "source_sha256": "f906eca53bbdf3888ba3dbad2a6e41a31d909e2d51de881a1ab2fc63b319eca1"
+    },
+    {
+      "label": "Theorems.Thm_AddCircle_exists_eq_coe_div_of_nsmul_eq_zero_of_dvd",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "Theorems/Thm_AddCircle_exists_eq_coe_div_of_nsmul_eq_zero_of_dvd.olean",
+        "Theorems/Thm_AddCircle_exists_eq_coe_div_of_nsmul_eq_zero_of_dvd.lean"
+      ],
+      "cwd": "/root/abc-flt-wrapper-probe-432",
+      "exit_code": 0,
+      "resource_stop": null,
+      "elapsed_seconds": 2.888,
+      "observed_peak_rss_kib": 6929128,
+      "output": "",
+      "source_sha256": "b5d5bc6fbb14d19904f72ba3061a367f1bd1be9b968ea310f459fe6cfc073714"
+    },
+    {
+      "label": "Theorems.Thm_AddCommGroup_apply_zsmul_add_eq_of_forall_cube",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "Theorems/Thm_AddCommGroup_apply_zsmul_add_eq_of_forall_cube.olean",
+        "Theorems/Thm_AddCommGroup_apply_zsmul_add_eq_of_forall_cube.lean"
+      ],
+      "cwd": "/root/abc-flt-wrapper-probe-432",
+      "exit_code": 0,
+      "resource_stop": null,
+      "elapsed_seconds": 2.794,
+      "observed_peak_rss_kib": 6939820,
+      "output": "",
+      "source_sha256": "110cda91dbf9e21db487c172df278fe83ed124a1994091f18516487e73845968"
+    },
+    {
+      "label": "WrapperAxiomBridge",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-o",
+        "WrapperAxiomBridge.olean",
+        "WrapperAxiomBridge.lean"
+      ],
+      "cwd": "/root/abc-flt-wrapper-probe-432",
+      "exit_code": 0,
+      "resource_stop": null,
+      "elapsed_seconds": 2.328,
+      "observed_peak_rss_kib": 6919560,
+      "output": "'AbsoluteValue.Completion.isUltrametricDist_of_isNonarchimedean' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'AbsoluteValue.Completion.norm_coe_and_exists_one_lt_norm' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AbsoluteValue.exists_forall_sub_lt_of_pairwise_not_isEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AddChar.exists_continuousLinearMap_fourierChar_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AddCircle.exists_eq_coe_div_of_nsmul_eq_zero_of_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]\n'AddCommGroup.apply_zsmul_add_eq_of_forall_cube' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "source_sha256": "42a43e0b5d6ecc70a289697b10fea992fdff2fb61af7c8c253b9d79308455bf9"
+    }
+  ],
+  "axioms": {
+    "AbsoluteValue.Completion.isUltrametricDist_of_isNonarchimedean": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "AbsoluteValue.Completion.norm_coe_and_exists_one_lt_norm": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "AbsoluteValue.exists_forall_sub_lt_of_pairwise_not_isEquiv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "AddChar.exists_continuousLinearMap_fourierChar_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "AddCircle.exists_eq_coe_div_of_nsmul_eq_zero_of_dvd": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "AddCommGroup.apply_zsmul_add_eq_of_forall_cube": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "max_parallel_processes": 1,
+  "lean_threads": 2,
+  "resident_memory_stop_bytes": 8589934592,
+  "timeout_seconds": 180,
+  "requested_C_or_object_output": false,
+  "artifacts": [
+    {
+      "path": "Theorems/Thm_AbsoluteValue_Completion_isUltrametricDist_of_isNonarchimedean.olean",
+      "bytes": 12984,
+      "sha256": "1878b72d58641f009beb71491cde749ffd0d5661582d20fddec7202b75a4116a"
+    },
+    {
+      "path": "Theorems/Thm_AbsoluteValue_Completion_norm_coe_and_exists_one_lt_norm.olean",
+      "bytes": 17928,
+      "sha256": "e6b42e55457754b42921369cda26cb41eefb3c4db324594841d5c503ee3e8fe2"
+    },
+    {
+      "path": "Theorems/Thm_AbsoluteValue_exists_forall_sub_lt_of_pairwise_not_isEquiv.olean",
+      "bytes": 17472,
+      "sha256": "7c689b0ed92e2d8b81aab8fbd895d9f8b4c488e0ba03234ec540a2d29b031504"
+    },
+    {
+      "path": "Theorems/Thm_AddChar_exists_continuousLinearMap_fourierChar_eq.olean",
+      "bytes": 20056,
+      "sha256": "e3ebebae66d99e8b3b20d036d07a65562f1b60246e9430a01c89a52f2b3e9070"
+    },
+    {
+      "path": "Theorems/Thm_AddCircle_exists_eq_coe_div_of_nsmul_eq_zero_of_dvd.olean",
+      "bytes": 17208,
+      "sha256": "deb13339fad7f22d2a3aa79fc2ac8c71e32f74459af0de3329af5b04138abbd8"
+    },
+    {
+      "path": "Theorems/Thm_AddCommGroup_apply_zsmul_add_eq_of_forall_cube.olean",
+      "bytes": 23912,
+      "sha256": "edd26e96cff37a272e3882c747e80e0ad438ee7644d64012ae961dc355dab1c5"
+    },
+    {
+      "path": "WrapperAxiomBridge.olean",
+      "bytes": 2312,
+      "sha256": "d0d771d1d3835f45da11cf6a7036ea81e6631e55bfea580e260683deb75c19a3"
+    }
+  ]
+}

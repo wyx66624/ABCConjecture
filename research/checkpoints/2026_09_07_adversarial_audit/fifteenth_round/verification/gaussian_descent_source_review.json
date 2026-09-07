@@ -1,0 +1,89 @@
+{
+  "status": "PASS: independent complete semantic and final TeX formal-scope review",
+  "independent_compiler_rerun": false,
+  "theorems": 15,
+  "source_path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_independent_route\\fifteenth_round\\Lean\\GaussianDescentArithmetic.lean",
+  "source_sha256": "283ba4559cfe8ffbc129f6b7a901921d9d7a179654874df5bf4087aad8cfa30d",
+  "manifest_path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_independent_route\\fifteenth_round\\verification\\mathlib_validation.json",
+  "manifest_sha256": "9287197556232381222c08cc7f75945ac1521a103677dd906da03de249f2350f",
+  "log_path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_independent_route\\fifteenth_round\\verification\\fresh-mathlib-build.log",
+  "log_sha256": "1df8ff36a093ea82bc33773ed1bfe3f9ef1bcbdaf3c0c2995ed4bace9b5d3deb",
+  "paper_path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_independent_route\\fifteenth_round\\paper\\gaussian_cubic_descent.tex",
+  "paper_sha256": "784cdf77ca975256558fce23c6d50ac2eb67a73ee9acaf00a1324513ee21fbe3",
+  "axiom_queries": {
+    "ABCGaussianDescent20260907.psi_phi_tripling_x": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.psi_phi_tripling_factor": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.actual_gaussian_norm": [
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.actual_real_quadratic_norm": [
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.fHom_mod": [
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.mod_twenty_seven_table": [
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.actual_congruence_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.primitive_curve_three_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.opposite_isogeny_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.gaussian_inverse_norm": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.gaussian_inverse_imaginary": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.gaussian_inverse_real_factor": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.real_quadratic_inverse_norm": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.real_quadratic_inverse_imaginary": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCGaussianDescent20260907.real_quadratic_inverse_real_factor": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "not_claimed": [
+    "formal quadratic UFDs or field cube roots",
+    "formal whole-curve isogeny composition or degree",
+    "formal descent group homomorphism or rank",
+    "rational-point completeness"
+  ]
+}

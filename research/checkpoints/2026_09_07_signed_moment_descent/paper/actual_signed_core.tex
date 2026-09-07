@@ -1,0 +1,147 @@
+\section{Actual signed products and their finite depth connection}
+\label{asc-section}
+
+The arithmetic argument of Section~\ref{usm-section} uses actual integer
+products. The following finite results give explicit formal connections
+between those products, their determinant and the single maximal-depth
+bound. The construction of the arithmetic residue maps remains a
+separate part of the ordinary proof.
+
+\begin{lemma}[An integer Gram criterion]\label{asc-gram}
+For integer coordinate pairs $z=(R,S)$ and $z'=(R',S')$, put
+\[
+ N(z)=R^2+RS+S^2,\qquad D=RS'-R'S,
+\]
+\[
+ K=2RR'+RS'+SR'+2SS'.
+\]
+Then $N(z)\ge0$ and
+\begin{equation}\label{asc-gram-identity}
+ 4N(z)N(z')-K^2=3D^2.
+\end{equation}
+If an integer $m$ divides $D$ and $4N(z)N(z')<3m^2$, then $D=0$.
+\end{lemma}
+\begin{proof}
+The identity $4N(z)=(2R+S)^2+3S^2$ proves nonnegativity.
+Expansion proves \eqref{asc-gram-identity}, hence
+$3D^2\le4N(z)N(z')<3m^2$. Since $m^2\mid D^2$, the nonnegative
+integer $D^2<m^2$ must vanish. The strict premise already excludes
+$m=0$, so no separate sign condition on $m$ is needed.
+\end{proof}
+
+\begin{proposition}[Private homomorphisms and signed products]
+\label{asc-private}
+Let $I$ be a finite type and $G$ a commutative group. Suppose $a_i\in G$
+and additive integer-valued group homomorphisms $v_i$ satisfy
+\[
+ v_i(a_j)=0\ (j\ne i),\qquad v_i(a_i)\ne0.
+\]
+Then the actual product map
+\[
+ P_a:\mathbb Z^I\longrightarrow G,\qquad
+ P_a(x)=\prod_{i\in I}a_i^{x_i}
+\]
+is injective. If $u_j\in G$ satisfy $v_i(u_j)=0$ for all $i,j$,
+the same holds for $P_{ua}$.
+
+Let $\mathcal A\subset\mathbb Z^I$ be finite, $H$ a finite commutative
+group, and $\phi_i\in H$. If, for actual $x,y\in\mathcal A$,
+\begin{equation}\label{asc-rigidity}
+ P_\phi(x)=P_\phi(y)\quad\Longrightarrow\quad P_a(x)=P_a(y),
+\end{equation}
+then $|\mathcal A|\le |H|$.
+\end{proposition}
+\begin{proof}
+Applying $v_i$ to $P_a(x)=P_a(y)$ gives
+$x_i v_i(a_i)=y_i v_i(a_i)$, and cancellation proves $x_i=y_i$.
+This allows negative exponents and negative nonzero diagonal values.
+Also $v_i(u_j a_j)=v_i(a_j)$, proving the assertion for actual unit
+normalization. Finally, \eqref{asc-rigidity} makes the actual product
+map from the membership set of $\mathcal A$ into $H$ injective.
+\end{proof}
+
+\begin{lemma}[A concrete signed diamond]\label{asc-diamond}
+For every integer $r\ge0$, the disjoint union
+\[
+ \mathcal D_r=
+ (\{0,\ldots,r\}\times\{0,\ldots,r\})\sqcup
+ (\{0,\ldots,r-1\}\times\{0,\ldots,r-1\})
+\]
+has an injective map into $\{(x,y)\in\mathbb Z^2:|x|+|y|\le r\}$.
+Its cardinality is $2r^2+2r+1$.
+\end{lemma}
+\begin{proof}
+On the first square use $(x,y)=(-r+i+j,i-j)$, and on the second
+use $(x,y)=(-r+1+i+j,i-j)$. Within either square the two linear
+equations recover $i,j$. Between squares, $x+y$ has different parity,
+so the images are disjoint. The coordinate bounds give
+$x+y,x-y,-x+y,-x-y\le r$, implying $|x|+|y|\le r$.
+The empty second square at $r=0$ is included. The cardinality is
+$(r+1)^2+r^2$. Surjectivity onto the entire lattice diamond is
+unnecessary for this lower bound.
+\end{proof}
+
+\begin{proposition}[Actual pairs give the high-depth bound]
+\label{asc-single}
+Let $s$ be a finite index set with the private homomorphisms of
+Proposition~\ref{asc-private}, and let $n,r$ be natural numbers.
+Suppose $|H|\le n\le2r^2$.
+For each distinct $i,j\in s$, assume the rigidity implication
+\eqref{asc-rigidity} for the actual two-element arrays
+$(a_i,a_j)$ and $(\phi_i,\phi_j)$ on $\mathcal D_r$.
+Then $|s|\le1$.
+\end{proposition}
+\begin{proof}
+Two distinct indices restrict the private homomorphisms to two
+nonzero diagonal values and zero off-diagonal values. The actual
+diamond products therefore inject into $H$, yielding
+$2r^2+2r+1\le |H|\le n\le2r^2$, a contradiction.
+\end{proof}
+
+For an actual finite depth function $e_i\in\mathbb N$ and real $L,w$, apply
+Proposition~\ref{asc-single} to the filtered set
+\[
+ I_h=\{i\in I:e_i\ge h\},\qquad
+ h=\max(4,\lceil2rL/w\rceil).
+\]
+If additionally $r^2\le n$, $L\ge0$, $w>0$,
+$e_iw\le nL$ and $2|I_4|^2\le n$, the complete finite-layer
+argument of Section~\ref{usm-section} gives
+\begin{equation}\label{asc-total}
+ 2\sum_{i\in I}(e_i-3)_+w\le5nL.
+\end{equation}
+Here $(e_i-3)_+$ is natural truncated subtraction. To see explicitly
+that all layers occur, remove one actual maximal-depth index $O$.
+Every remaining depth is less than $h$, so its positive excess costs
+at most $(h-4)w\le2rL$; only indices in $I_4$ contribute.
+The removed cost is at most $nL$. Finally
+$(r-2|I_4|)^2\ge0$, together with the two squared bounds, gives
+$4r|I_4|\le3n$, proving \eqref{asc-total}.
+
+If actual heights $t_i\ge t_0>0$ satisfy $nL\le2t_0$ and $B>0$,
+positivity of the excess terms also gives
+\[
+ \frac1B\sum_{i\in I}\frac{(e_i-3)_+w}{t_i}\le\frac5B.
+\]
+The low-depth count, the size of $H$ and the precise rigidity
+implication remain explicit in the formal connection; the cardinality
+conclusion is derived from the actual two-element maps.
+
+\paragraph{Formal scope.}
+\texttt{ActualGram\allowbreak Rigidity} contains four declarations and
+uses the actual previously formalized Eisenstein norm on
+$\mathbb Z\times\mathbb Z$.
+\texttt{ActualSigned\allowbreak Products} contains twelve declarations
+for actual signed products, private homomorphisms, unit normalization,
+finite injection and the two explicit squares.
+\texttt{ActualSingleOwner\allowbreak Bridge} contains two declarations
+deriving actual cardinality at most one and then
+\eqref{asc-total}. These eighteen statements complement the twenty-two
+finite signed-moment and depth declarations in
+\texttt{SignedMoment\allowbreak Arithmetic}.
+Identifying the finite binomial sum with the cardinality of the full
+integer $\ell^1$ ball retains its ordinary counting proof; the special
+binomial-sum identities and the concrete two-coordinate lower bound
+are formal.
+Constructing the arithmetic valuations, residue torsion and unit choices,
+and controlling the sum over all primes, are distinct obligations.

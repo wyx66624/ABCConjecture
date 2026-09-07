@@ -1,0 +1,89 @@
+{
+  "status": "STOPPED at first failed unchanged module",
+  "full_FLT_verified": false,
+  "scope": "Bounded unchanged-source compatibility; no exhaustive axiom audit",
+  "upstream_commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "prerequisite_reports": {
+    "leaf": "facc3dd46d8194b0a0f5b87a902e69029b7a95eaa4953ef668239e4222d09260",
+    "wrappers": "cb832fe511a0b76966189d724ab808c4e1916b8ae51e59670ab43f93a188c06a"
+  },
+  "selected_modules": [
+    "Definitions.Def_Algebra_PointDerivations",
+    "P2M.Sol.S_AddCommGroup_exists_addEquiv_prod_torsionBy_apply_eq_of_forall_exists_ne_smul",
+    "Theorems.Thm_AddCommGroup_exists_addEquiv_prod_torsionBy_apply_eq_of_forall_exists_ne_smul",
+    "Definitions.Def_AlgebraicCurve_DivisorClassGroup",
+    "P2M.Sol.S_AddCommGroup_exists_fg_saturation_of_isHomogeneous_degree",
+    "Theorems.Thm_AddCommGroup_exists_fg_saturation_of_isHomogeneous_degree",
+    "Definitions.Def_AlgebraicCurve_BaseChangeGalois",
+    "P2M.Sol.S_AddCommGroup_exists_mem_torsionBy_smul_eq_of_card_torsionBy",
+    "Theorems.Thm_AddCommGroup_exists_mem_torsionBy_smul_eq_of_card_torsionBy",
+    "Definitions.Def_AlgebraicCurve_CurveModel",
+    "P2M.Sol.S_AddCommGroup_exists_basis_smul_eq_of_card_torsionBy",
+    "Theorems.Thm_AddCommGroup_exists_basis_smul_eq_of_card_torsionBy",
+    "Definitions.Def_AlgebraicCurve_CurveModelTransport",
+    "P2M.Sol.S_AddCommGroup_exists_mvPolynomial_totalDegree_le_eval_eq_of_forall_exists_polynomial_zsmul_add",
+    "Theorems.Thm_AddCommGroup_exists_mvPolynomial_totalDegree_le_eval_eq_of_forall_exists_polynomial_zsmul_add",
+    "Definitions.Def_AlgebraicCurve_Differentials",
+    "P2M.Sol.S_AddCommGroup_exists_torsionBy_coords_of_dicyclic_relations",
+    "Theorems.Thm_AddCommGroup_exists_torsionBy_coords_of_dicyclic_relations",
+    "Definitions.Def_AlgebraicCurve_DivisorPushPull",
+    "P2M.Sol.S_AddCommGroup_finite_and_natCard_torsionBy_le_of_natCard_fixed_primaryComponent_le_of_divisible",
+    "Theorems.Thm_AddCommGroup_finite_and_natCard_torsionBy_le_of_natCard_fixed_primaryComponent_le_of_divisible",
+    "Definitions.Def_AlgebraicCurve_ConstantFieldPullback",
+    "P2M.Sol.S_AddCommGroup_moduleFinite_and_free_of_fg_saturation_of_ker_le_nsmul",
+    "Theorems.Thm_AddCommGroup_moduleFinite_and_free_of_fg_saturation_of_ker_le_nsmul",
+    "Definitions.Def_AlgebraicCurve_Correspondence",
+    "P2M.Sol.S_AddCommGroup_natCard_primaryComponent_ker_aeval_of_forall_natCard_ker_aeval_eq_natAbs_resultant",
+    "Theorems.Thm_AddCommGroup_natCard_primaryComponent_ker_aeval_of_forall_natCard_ker_aeval_eq_natAbs_resultant",
+    "Definitions.Def_AlgebraicCurve_DifferentialPushPull",
+    "P2M.Sol.S_AddCommGroup_natCard_torsionBy_pow_eq_pow_of_natCard_fixed_primaryComponent",
+    "Theorems.Thm_AddCommGroup_natCard_torsionBy_pow_eq_pow_of_natCard_fixed_primaryComponent"
+  ],
+  "prerequisite_module_count": 18,
+  "max_parallel_processes": 1,
+  "explicit_lean_threads": 2,
+  "resident_memory_stop_bytes": 8589934592,
+  "batch_timeout_seconds": 600,
+  "module_timeout_seconds": 120,
+  "requested_C_or_object_output": false,
+  "runs": [
+    {
+      "module": "Definitions.Def_Algebra_PointDerivations",
+      "source_sha256": "e54ef18402112ab66421a3eccb0a8f30ea9402cc167be91c6770da0c43d144cd",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-j2",
+        "-o",
+        "Definitions/Def_Algebra_PointDerivations.olean",
+        "Definitions/Def_Algebra_PointDerivations.lean"
+      ],
+      "cwd": "/root/abc-flt-topological-probe-432-retry1",
+      "exit_code": 0,
+      "resource_stop": null,
+      "elapsed_seconds": 21.812,
+      "observed_peak_rss_kib": 6614600,
+      "output": "",
+      "olean_sha256": "be977eeefcf2a14c3814102d2dfb141f6aef7a08a835f649e74d339dfb409e03"
+    },
+    {
+      "module": "P2M.Sol.S_AddCommGroup_exists_addEquiv_prod_torsionBy_apply_eq_of_forall_exists_ne_smul",
+      "source_sha256": "9ac5460e68eced0009383e474fefa02b332edb232c177b992cea8a569d166b13",
+      "command": [
+        "/root/.elan/toolchains/leanprover--lean4---v4.32.0/bin/lean",
+        "-j2",
+        "-o",
+        "P2M/Sol/S_AddCommGroup_exists_addEquiv_prod_torsionBy_apply_eq_of_forall_exists_ne_smul.olean",
+        "P2M/Sol/S_AddCommGroup_exists_addEquiv_prod_torsionBy_apply_eq_of_forall_exists_ne_smul.lean"
+      ],
+      "cwd": "/root/abc-flt-topological-probe-432-retry1",
+      "exit_code": 1,
+      "resource_stop": null,
+      "elapsed_seconds": 1.054,
+      "observed_peak_rss_kib": 1497376,
+      "output": "P2M/Sol/S_AddCommGroup_exists_addEquiv_prod_torsionBy_apply_eq_of_forall_exists_ne_smul.lean:1:0: error: object file '/root/abc-flt-topological-probe-432-retry1/P2M/Util.olean' of module P2M.Util does not exist\n",
+      "olean_sha256": null
+    }
+  ]
+}

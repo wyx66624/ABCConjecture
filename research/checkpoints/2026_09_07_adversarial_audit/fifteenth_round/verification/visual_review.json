@@ -1,0 +1,46 @@
+{
+  "reviewer": "adversarial_audit",
+  "method": "Actual tool view_image inspection of each listed raster",
+  "pdf": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round15pdf\\ChatGPT_ABC_Uniformity_2026.pdf",
+  "pdf_sha256": "ad6808a056037d3e3f5ded6f76f7017f9f7dc3207c0ea97443eabece01bda0b0",
+  "actual_pdf_hash_checked": true,
+  "pdf_pages": 536,
+  "reviewed_pages": [
+    523,
+    524,
+    525
+  ],
+  "actual_review_pages": [
+    523,
+    524,
+    525
+  ],
+  "status": "PASS",
+  "pages": [
+    {
+      "page": 523,
+      "raster": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round15pdf\\view-523.png",
+      "sha256": "e2a851a6ebf3a864e92959e33f0d08e359af9840d3fc5b07e48b39c33c7cc26a",
+      "status": "PASS",
+      "actual_view_image": true,
+      "findings": "Section 265 setup, phase normalization and signed-ball statement are legible; formulas and margins clear, with no clipping or overflow."
+    },
+    {
+      "page": 524,
+      "raster": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round15pdf\\view-524.png",
+      "sha256": "09bee8e0fcfbb248c9d2f08d9265c48e441c0213850cfc40f77315035b8bc40d",
+      "status": "PASS",
+      "actual_view_image": true,
+      "findings": "Gram identity, determinant bound, ball counts and complete single-owner budget are legible; aligned displays and proof transitions are clear."
+    },
+    {
+      "page": 525,
+      "raster": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round15pdf\\view-525.png",
+      "sha256": "58ad8eaab359db4d664b8f3eaf1d6c763383e0279d0f571b4fa308765d9fb85d",
+      "status": "PASS",
+      "actual_view_image": true,
+      "findings": "Complete-layer proof, prime-sum bound, explicit deep-prime set and 22-theorem formal scope are legible. The final paragraph continues normally to the next page, which is outside this review."
+    }
+  ],
+  "scope": "Only pages 523, 524 and 525 were actually inspected for this record. No all-page visual claim."
+}

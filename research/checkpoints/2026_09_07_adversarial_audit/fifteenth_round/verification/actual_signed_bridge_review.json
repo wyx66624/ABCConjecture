@@ -1,0 +1,93 @@
+{
+  "status": "PASS: full new finite-core/bridge semantic review and complete recorded evidence cross-check",
+  "independent_compile_rerun": false,
+  "new_theorems_in_manifest": 40,
+  "dependency_queries": 56,
+  "complete_logged_queries": 96,
+  "zero_axiom_queries": [
+    "ABCEisenstein20260905.orbit_six",
+    "ABCEisenstein20260905.exact_small_orbits",
+    "ABCEisenstein20260905.boundary_factor_certificates"
+  ],
+  "new_full_source_reviews_this_record": [
+    "ActualGramRigidity (4)",
+    "ActualSignedProducts (12)",
+    "ActualSingleOwnerBridge (2)"
+  ],
+  "previous_same_round_full_source_review": "SignedMomentArithmetic (22), signed_moment_source_review.md",
+  "manifest_path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_signed_moment_descent\\verification\\mathlib_validation.json",
+  "manifest_sha256": "fe2eddf45aecac8f0f3a590ab9d17951a579a2e8a9dcc565cf9a62dc5798f9fe",
+  "log_path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_signed_moment_descent\\verification\\fresh-mathlib-build.log",
+  "log_sha256": "eb1e68b4169b780d25efbf8e74d85e0b4fae2074e8ed921ae1617a2904d5ca79",
+  "modules": [
+    {
+      "module": "EisensteinDescent",
+      "path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_05_eisenstein_descent\\Lean\\EisensteinDescent.lean",
+      "sha256": "e5e15c14c4771fcf6bffd1d87bac67d23895cf02f40606188b2059d4cf3c944e",
+      "new": false,
+      "queries": 29
+    },
+    {
+      "module": "UniformMomentArithmetic",
+      "path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_critical_bottleneck\\thirteenth_round\\Lean\\UniformMomentArithmetic.lean",
+      "sha256": "646308163a102479ea842b33b2f06eb8b1adf342e459f13cf8b4a51c597d1568",
+      "new": false,
+      "queries": 15
+    },
+    {
+      "module": "AdaptiveOwnerArithmetic",
+      "path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_critical_bottleneck\\fourteenth_round\\Lean\\AdaptiveOwnerArithmetic.lean",
+      "sha256": "9501eb516dac1f78bf1c9d54a16623b4aed7631beb034560f07699c334717e1a",
+      "new": false,
+      "queries": 12
+    },
+    {
+      "module": "SignedMomentArithmetic",
+      "path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_critical_bottleneck\\fifteenth_round\\Lean\\SignedMomentArithmetic.lean",
+      "sha256": "01d03813915c7fcffcf2994cfde948a0d961ac5b6dcc69af77fb05beb5c65327",
+      "new": true,
+      "queries": 22
+    },
+    {
+      "module": "ActualGramRigidity",
+      "path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_signed_moment_descent\\Lean\\ActualGramRigidity.lean",
+      "sha256": "611ab6ef50b8aade57b2173b6de73199b285fcc938e5f12fa8832069fd1adb1e",
+      "new": true,
+      "queries": 4
+    },
+    {
+      "module": "ActualSignedProducts",
+      "path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_signed_moment_descent\\Lean\\ActualSignedProducts.lean",
+      "sha256": "0a184dda6e4a5979a16e42b0ec7a6908bb54ad1959b5281f3790994ef9429ddd",
+      "new": true,
+      "queries": 12
+    },
+    {
+      "module": "ActualSingleOwnerBridge",
+      "path": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_signed_moment_descent\\Lean\\ActualSingleOwnerBridge.lean",
+      "sha256": "20520467eda7614a2a3c0ebeba14f7f95892ecffc93c6d2c6ece298337068468",
+      "new": true,
+      "queries": 2
+    }
+  ],
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "explicit_inputs": [
+    "private integer homomorphisms",
+    "unit values vanish under the private homomorphisms",
+    "modular signed-product rigidity",
+    "finite group cardinality",
+    "Gram modulus divisibility and height inequality",
+    "low-layer cardinality",
+    "individual complete depth caps"
+  ],
+  "not_claimed": [
+    "independent compile execution",
+    "construction of arithmetic valuations or residue torsion",
+    "full dimension signed-ball arithmetic cardinality",
+    "global all-prime budget or ABC resolution"
+  ]
+}

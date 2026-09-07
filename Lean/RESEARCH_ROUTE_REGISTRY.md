@@ -1,6 +1,23 @@
 # Research route registry
 
-Latest fourteenth continuation: September 7, 2026. Adaptive precision
+Latest fifteenth continuation: September 7, 2026. Actual signed moments
+and unit normalization improve the complete fixed-prime cost to (5/2)n log(8B)
+and put the deepest layers on one actual root. Different primes may have
+different units and selected roots; their unbounded weighted sum is open.
+
+Two explicit quadratic descents determine a three-isogeny quotient and prove
+ordinary exact elliptic ranks one and first genus-two Jacobian rank two.
+The Gaussian cube is automatic, not an additional point exclusion. Complete
+points on the simultaneous positive locus and moving-residual height control
+remain live. The strict private-domain density gain remains available.
+
+All 55 new finite declarations and 56 unchanged dependencies passed fresh
+compilation and 111 axiom queries. Actual arithmetic and geometric constructions
+retain the explicitly stated ordinary scope. Official Fermat dependency reuse
+continues in isolated bounded batches; the complete import is unverified locally.
+See `../research/checkpoints/2026_09_07_signed_moment_descent/README.md`.
+
+Historical fourteenth continuation: September 7, 2026. Adaptive precision
 pays every positive layer at each q>8B with bound 13n log(8B), independent
 of an upper prime cutoff. Two actual maximal depths contain the high
 layers. The unbounded sum over changing prime labels is still uncontrolled.
