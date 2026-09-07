@@ -1,0 +1,87 @@
+\section{An actual sieved window at every exponent index}
+\label{aw-section}
+
+The sieved estimate also yields a window beyond the integer-root
+interval length without restricting the exponent to a bounded-divisor-sum
+subsequence. The endpoint is slightly smaller; the unbounded upper tail
+and exceptional actual roots remain outside this conclusion.
+
+\begin{lemma}[An elementary uniform divisor-sum bound]\label{aw-sigma}
+For every integer $n\ge8$,
+\[
+ \frac{\sigma(n)}n\le e^{18}(1+\log\log n).
+\]
+\end{lemma}
+\begin{proof}
+For $x\ge2$ put $s=1+1/\log x$. The nonnegative logarithmic series and
+$1-e^{-u}\le u$ give
+\[
+ \log\prod_{p\le x}\frac{1-p^{-s}}{1-p^{-1}}
+ =\sum_{p\le x}\sum_{j\ge1}\frac{p^{-j}-p^{-sj}}j
+ \le(s-1)\sum_{p\le x}\frac{\log p}{p-1}.
+\]
+The already proved elementary estimate $\theta(t)\le3t$ and partial
+summation imply
+\[
+ \sum_{p\le x}\frac{\log p}{p-1}
+ \le2\left(\frac{\theta(x)}x+
+               \int_2^x\frac{\theta(t)}{t^2}\,dt\right)
+ \le6+6\log x.
+\]
+Hence the logarithmic ratio is at most $6+6/\log2<15$. The finite
+Euler product with exponent $s$ is at most $\zeta(s)$, while the
+elementary integral comparison gives $\zeta(s)\le1+1/(s-1)$.
+It follows that
+\[
+ \prod_{p\le x}(1-p^{-1})^{-1}\le e^{15}(1+\log x).
+\]
+Set $x=\log n\ge2$. The number of distinct prime factors of $n$
+exceeding $x$ is at most $x/\log x$. Their additional logarithmic
+product is at most
+\[
+ \sum_{\substack{p\mid n\\p>x}}-\log(1-p^{-1})
+ \le\sum_{\substack{p\mid n\\p>x}}\frac1{p-1}
+ \le\frac{x}{(x-1)\log x}\le\frac2{\log2}<3.
+\]
+Combine the two bounds with
+$\sigma(n)/n\le\prod_{p\mid n}(1-p^{-1})^{-1}$.
+This is the standard elementary Euler-product argument, with a loose
+constant sufficient for the application.
+\end{proof}
+
+For the actual roots $w_k=3k+\zeta$, $B\le k<2B$, retain $T_n(k)$,
+$t_k$ and $E_{Y,Z}(k)$ from Section~\ref{sw-section}.
+\begin{theorem}[An all-index window beyond the root interval]
+\label{aw-window}
+Let $n$ tend to infinity through all positive integers. Put
+\[
+ B=n^4,\qquad Y=n^{1/6},\qquad
+ Z=\left\lfloor\frac{n^4\sqrt{\log n}}{1+\log\log n}\right\rfloor.
+\]
+Then $Z/B\to\infty$ and
+\[
+ \frac1B\sum_{B\le k<2B}\frac{E_{Y,Z}(k)}{t_k}
+       =O((\log n)^{-1/2}),
+\]
+with an absolute constant. The proportion of actual roots for which
+$E_{Y,Z}(k)/t_k>(\log n)^{-1/4}$ is $O((\log n)^{-1/4})$.
+\end{theorem}
+\begin{proof}
+Eventually $Z>3n$ and $5\le Y\le Z$, so Theorem~\ref{sw-estimate}
+applies. Its first and last terms are at most $5/(12\sqrt n)$ and
+$1/(4n)$. Lemma~\ref{aw-sigma} cancels the factor
+$1+\log\log n$ in the chosen endpoint, and
+\[
+ \log(Z/(3n))=3\log n+\tfrac12\log\log n
+    -\log(1+\log\log n)-\log3+o(1)\sim3\log n.
+\]
+Thus its middle term is $O((\log n)^{-1/2})$ for every index.
+Markov's inequality applied to the nonnegative actual cost gives the
+exceptional proportion. No distributional assumption on the power-map
+output is used.
+\end{proof}
+
+The larger endpoint $B\sqrt{\log n}$ remains available on the previously
+specified bounded-$\sigma(n)/n$ subclasses. Both conclusions leave all
+primes above their endpoints and the exceptional roots uncontrolled.
+Neither bounds the complete signed packet of a prescribed root.

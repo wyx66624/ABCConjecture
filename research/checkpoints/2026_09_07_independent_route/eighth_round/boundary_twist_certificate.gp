@@ -1,0 +1,22 @@
+\\ Full exact coefficient evidence; Python independently checks the relations.
+default(parisize,128000000);
+setrand(1);
+if(version()!=[2,15,4],error("Expected PARI/GP 2.15.4"));
+M288=mfinit([288,2,12],0);
+M576=mfinit([576,2,12],0);
+B288=mfeigenbasis(M288);
+B576=mfeigenbasis(M576);
+I288=select(j->mfisCM(B288[j])==0,vector(#B288,j,j));
+I576=select(j->mfisCM(B576[j])==0,vector(#B576,j,j));
+if(#I288!=1||#I576!=1,error("Non-CM orbit count changed"));
+f288=B288[I288[1]];
+f576=B576[I576[1]];
+if(mfparams(f288)[4]!=y^4+1||mfparams(f576)[4]!=y^4+1,error("Coefficient field model changed"));
+if(mfparams(f288)[3]!=12||mfparams(f576)[3]!=12,error("Character model changed"));
+cutoff=12288;
+v288=mfcoefs(f288,cutoff);
+v576=mfcoefs(f576,cutoff);
+print(["header",version(),36864,73728,cutoff,I288[1],I576[1],mfdim(M288),mfdim(M576)]);
+print(["series288",vector(cutoff+1,n,vector(4,j,polcoef(lift(v288[n]),j-1)))]);
+print(["series576",vector(cutoff+1,n,vector(4,j,polcoef(lift(v576[n]),j-1)))]);
+quit;

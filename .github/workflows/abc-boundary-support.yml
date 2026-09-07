@@ -1,0 +1,49 @@
+name: Boundary support scoped verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research/checkpoints/2026_09_07_cm_image/**'
+      - 'research/checkpoints/2026_09_07_adversarial_audit/eighth_round/**'
+      - 'research/checkpoints/2026_09_07_critical_bottleneck/eighth_round/**'
+      - 'research/checkpoints/2026_09_07_independent_route/eighth_round/**'
+      - 'research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean'
+      - 'research/checkpoints/2026_09_07_support_power_classes/Lean/LocalPowerArithmetic.lean'
+      - 'research/checkpoints/2026_09_07_cyclotomic_covers/Lean/QuarticSupportArithmetic.lean'
+      - 'Lean/lean-toolchain'
+      - '.github/workflows/abc-boundary-support.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  trace-arithmetic-and-full-sturm:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Install the repository-pinned compiler
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: 'false'
+          build: 'false'
+          use-mathlib-cache: 'false'
+      - name: Install the exact verified PARI version
+        run: |
+          PARI_DEB="$RUNNER_TEMP/pari-gp_2.15.4-2.1build1_amd64.deb"
+          curl --fail --location --retry 3 https://archive.ubuntu.com/ubuntu/pool/universe/p/pari/pari-gp_2.15.4-2.1build1_amd64.deb --output "$PARI_DEB"
+          printf '%s  %s\n' '55a95d51afe87688fe0fcfe1bca74bf8c5474533e2a42d3af45c87c1ae0d86fa' "$PARI_DEB" | sha256sum --check
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends "$PARI_DEB"
+      - name: Fresh scoped Lean build and complete theorem axiom inventory
+        run: python3 research/checkpoints/2026_09_07_cm_image/verify_round.py
+      - name: Both full-Sturm implementations and actual CM shadows
+        run: python3 research/checkpoints/2026_09_07_cm_image/verify_finite.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: boundary-support-proof-evidence
+          path: research/checkpoints/2026_09_07_cm_image/verification/

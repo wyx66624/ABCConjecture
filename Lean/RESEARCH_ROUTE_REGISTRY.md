@@ -1,5 +1,24 @@
 # Research route registry
 
+Latest eighth continuation: September 7, 2026. A large nonsolvable
+projective image excludes every CM residual candidate for actual positive
+seeds at p>7; the associated finite CM local shadows remain valid. Two
+independent complete Sturm comparisons prove that the two non-CM fixed-level
+orbits are quadratic twists, and the ordinary compatible-system argument
+gives the boundary module for every actual pure F=Q^p. Rational two-torsion
+then excludes p from the support and gives q >= (sqrt(2p)-1)^2>p for every
+prime q|Q, with necessary height and effective exponent bounds.
+
+The analytic window independently extends to all exponent indices.
+Ten new scoped Lean declarations verify elementary trace and quartic-height
+consequences; their modular antecedents remain explicit. The exact modular
+algorithms and ordinary global/local representation proofs are not claimed
+to be fully formalized. Only the CM candidate branch is removed by its
+projective-image contradiction. Non-CM pure powers, varying residual levels,
+moving point heights, actual norm compatibility and the full signed private
+tail remain active. The next signed-arm and cross-norm work is separate
+from this frozen continuation and has no completed global membership claim.
+
 Latest seventh continuation: September 7, 2026. Exact actual interval
 counts combined with Brun--Titchmarsh reach beyond the root-block length
 on specified exponent subclasses. Effective three-chart bounds constrain

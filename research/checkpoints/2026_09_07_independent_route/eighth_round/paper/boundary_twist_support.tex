@@ -1,0 +1,176 @@
+\section{Exact twists of the two non-CM boundary orbits}
+\label{bt-section}
+
+The two surviving pure-branch orbits are related by quadratic twists.
+This section proves the relation using a complete exact coefficient
+comparison and a proved common-level determination bound. It then
+derives the boundary module premise for every actual pure prime power.
+The modular-form coefficients are exact software inputs, independently
+repeated; they are not asserted to have Lean proofs.
+
+Retain $K=\mathbb Q(\sqrt{-3})$, the actual quartic $F$, the Frey
+curves $E_{a,b}$, the boundary curve $E_0$, and the order-four character
+$\chi$ from the preceding sections. Write $\epsilon=\psi_3$ for the
+quadratic character of conductor $12$. Let $f$ be the normalized
+representative of the non-CM orbit at level $576$ identified in
+Theorem~\ref{bm-orbit}, and let $g$ be the representative of the
+unique non-CM orbit at level $288$ in the exact enumeration.
+For both, fix the recorded field model $L=\mathbb Q[z]/(z^4+1)$.
+
+\begin{lemma}[Common level and coefficient determination]\label{bt-common-level}
+Both a coefficient embedding of $g$ and either quadratic coefficient
+twist $f\otimes\psi_{-2}$ or $f\otimes\psi_2$ belong to
+\[
+ S_2(\Gamma_0(M),\epsilon),\qquad M=36864.
+\]
+Equality of their Fourier coefficients in degrees $0$ through $12288$
+implies equality of the modular forms.
+\end{lemma}
+\begin{proof}
+A quadratic twist of conductor $m=8$ has a valid level bound $Nm^2$
+and the same character as a form of level $N$ and character $\epsilon$.
+Here is a direct check. For $T_u=\left(\begin{smallmatrix}1&u/m\\0&1\end{smallmatrix}\right)$,
+the nonzero Gauss sum gives the twist as
+\[
+ \tau(\psi)^{-1}\sum_{u\bmod m}\psi(u)f|_2T_u.
+\]
+Its coefficients are $\psi(n)a_n(f)$. Given
+$\gamma=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)
+\in\Gamma_0(Nm^2)$, choose $v\equiv ud^2\pmod m$. Then
+\[
+ T_u\gamma T_{-v}=
+ \begin{pmatrix}
+ a+uc/m&b+(ud-av)/m-ucv/m^2\\
+ c&d-cv/m
+ \end{pmatrix}
+ \in\Gamma_0(N).
+\]
+Its lower-right entry equals $d$ modulo $N$. The permutation
+$u\mapsto ud^2$ preserves the quadratic character, giving exactly
+the transformation character $\epsilon(d)$. Rational translates
+preserve holomorphy and vanishing at cusps. This proves the level
+bound, independently of a software metadata level.
+
+Take $N=576$. Then $M=576\cdot8^2=36864$, and $288\mid M$.
+The index and safe cutoff are
+\begin{equation}\label{bt-sturm-bound}
+ I=[\operatorname{SL}_2(\mathbb Z):\Gamma_0(M)]
+   =M(1+1/2)(1+1/3)=73728,
+ \qquad B=\left\lfloor\frac{2I}{12}\right\rfloor=12288.
+\end{equation}
+To prove coefficient determination, suppose a nonzero difference $H$
+vanishes through degree $B$. Form the product of its weight-two
+translates over the $I$ right cosets of $\Gamma_0(M)$ in
+$\operatorname{SL}_2(\mathbb Z)$. Its square is a nonzero
+holomorphic level-one form of weight $4I$: squaring removes the
+possible transformation signs of the quadratic character. Its order
+at infinity is at least $2(B+1)$, as every other cusp contribution
+is nonnegative. This exceeds $4I/12$, contradicting the level-one
+valence formula; see \cite[Proposition~4.12 and Example~4.13]{MilneModularFunctions}.
+\end{proof}
+
+\begin{theorem}[The two exact boundary twists]\label{bt-twists}
+In the recorded common field model, let $\sigma_j(z)=z^j$ for odd
+$j$ modulo $8$. The normalized forms satisfy
+\begin{equation}\label{bt-twist-identities}
+ g^{\sigma_7}=f\otimes\psi_{-2},\qquad
+ g^{\sigma_5}=f\otimes\psi_2.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The polynomial $z^4+1$ is the eighth cyclotomic polynomial, so these
+are field automorphisms. In the basis $(1,z,z^2,z^3)$ they act by
+\begin{align*}
+ \sigma_7(c_0,c_1,c_2,c_3)&=(c_0,-c_3,-c_2,-c_1),\\
+ \sigma_5(c_0,c_1,c_2,c_3)&=(c_0,-c_1,c_2,-c_3).
+\end{align*}
+The retained PARI/GP~2.15.4 computation initializes both complete
+newspaces, selects the unique non-CM form in each by its CM test,
+and checks their field and character models. Their dimensions are
+$4,8$, and the automatically selected orbit indices are $1,3$.
+It outputs every coefficient from degree $0$ to degree $12288$ in
+four rational coordinates. The independent Python comparison applies
+the two displayed coordinate transformations and the quadratic
+Kronecker values of discriminants $-8,8$. All coefficients agree,
+including every degree divisible by $2$ or $3$.
+
+The canonical evidence retains both complete arrays, each with $12289$
+rows. A second independent implementation selects the forms afresh,
+uses PARI's actual twist operator, and compares the four coordinates;
+all $98312$ coordinate equalities agree. It does not reuse the first
+program's coefficient cache or polynomial substitution. These are
+complete exact modular-form computations, rather than floating point
+approximations. Lemma~\ref{bt-common-level} upgrades these full-cutoff
+equalities to \eqref{bt-twist-identities}.
+\end{proof}
+
+\begin{theorem}[The common boundary module for every actual pure power]
+\label{bt-pure-module}
+Let $a,b$ be positive coprime integers, let $p>7$ be prime, and
+suppose $F(a,b)=Q^p$ for an integer $Q>1$. Then for some character
+\[
+ \nu\in\{1,\psi_3|_{G_K},\psi_{-2}|_{G_K},\psi_{-6}|_{G_K}\}
+\]
+one has the full residual module isomorphism
+\begin{equation}\label{bt-module-isomorphism}
+ E_{a,b}[p]\otimes\overline{\mathbb F}_p
+ \simeq (E_0[p]\otimes\overline{\mathbb F}_p)\otimes\nu.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The actual pure-branch modular theorem, the CM exclusion and the
+complete enumeration give exactly the two possible orbits in
+Corollary~\ref{cb-two-orbits}. By \eqref{bt-twist-identities}, every
+embedding of the $g$ orbit is the quadratic twist by $\psi_{-2}$ of
+some embedding of the $f$ orbit; rational character values commute
+with embeddings.
+
+For the $f$ orbit, the compatible boundary identification restricts
+to the system of $E_0$ times $\chi^\sigma$, whereas the actual system
+restricts to $E_{a,b}$ times $\chi$. The ratio is either $1$ or
+$\chi^{-2}=\psi_3|_{G_K}$. The $g$ orbit adds
+$\psi_{-2}|_{G_K}$, producing exactly the four displayed characters.
+An equality of twisted modular forms gives the corresponding twist
+of compatible representations: their Frobenius polynomials agree at
+every prime outside the finite ramification set, so Chebotarev and
+semisimplicity identify the representations. The checked large
+projective-image input gives absolute irreducibility of the actual
+residual representation. Hence the semisimplified congruence becomes
+the full module isomorphism \eqref{bt-module-isomorphism}.
+All four characters are quadratic and unramified outside $6$.
+\end{proof}
+
+Thus the boundary premise of Theorem~\ref{bc-pure} is now derived
+for every actual pure $p$-th power. In particular every prime $q\mid Q$
+satisfies $q\ge(\sqrt p-1)^2$, neither $7$ nor $13$ divides $Q$,
+and for $q\ne p$ one has $p\mid(q+1)^2-t_q(E_0)^2$.
+For every sufficiently large fixed $p$, its permitted split rational
+prime support has density
+\[
+ \frac{2p^2-p-5}{2(p-1)^2(p+1)}\sim\frac1p.
+\]
+This remains a fixed-$p$ statement with no uniform Chebotarev error
+term. The next section uses two-torsion to remove the exception $q=p$
+and improve the cutoff.
+
+Already the displayed cutoff and $F\le(a+b)^4$ give
+\[
+ \log(a+b)\ge\frac p2\log(\sqrt p-1).
+\]
+Alternatively $F\le13\max(a,b)^4$ gives the same lower bound for
+$\log\max(a,b)$ minus $(\log13)/4$. These are point-height lower
+bounds, compatible with an $O(p)$ coefficient-height bound for a
+defining Kummer cover. Neither is an upper bound for its points.
+
+\paragraph{Evidence and scope.}
+The exact primary coefficient output has SHA256
+\texttt{c8181912aa36023f\allowbreak f86ac94c72bc59cf\allowbreak 0279a67a42849035\allowbreak 450de866ea115549};
+the independent twist comparison has SHA256
+\texttt{9864149fe7dc844d\allowbreak 34f71306192e49b0\allowbreak 5c90d40bb22728fe\allowbreak 71940b173a9807e0}.
+The scripts, full arrays, failure checks and source references are
+retained in this checkpoint. Their modular-form algorithms are
+explicit exact-software dependencies; no Lean proof of those algorithms
+or the compatible-system comparison is claimed. Large moving prime
+factors, uniform point-height bounds, and compatibility with the first
+compressed norm remain open. Varying nonunit residual levels are not
+reduced to these two fixed orbits by this argument.

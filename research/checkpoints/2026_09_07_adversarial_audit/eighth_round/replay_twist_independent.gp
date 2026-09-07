@@ -1,0 +1,34 @@
+\\ Independent implementation: PARI mftwist and explicit rational coordinates.
+\\ No substitution code or coefficient cache from independent_route is used.
+default(parisizemax, 2000000000);
+setrand(1);
+noncm(M) = {my(es=mfeigenbasis(M), found=List()); for(j=1,#es,if(mfisCM(es[j])==0,listput(found,es[j]))); if(#found!=1,error("non-CM orbit count")); found[1]};
+coords(a) = vector(4,j,polcoef(lift(a),j-1));
+sig7(v) = [v[1],-v[4],-v[3],-v[2]];
+sig5(v) = [v[1],-v[2],v[3],-v[4]];
+M288=mfinit([288,2,12],0);
+M576=mfinit([576,2,12],0);
+g=noncm(M288);
+f=noncm(M576);
+if(mfparams(g)[4]!=y^4+1 || mfparams(f)[4]!=y^4+1,error("coefficient field"));
+level=576*8^2;
+index=level*(1+1/2)*(1+1/3);
+bound=2*index/12;
+if(level!=36864 || index!=73728 || bound!=12288,error("Sturm arithmetic"));
+twminus=mftwist(f,-8);
+twplus=mftwist(f,8);
+vg=mfcoefs(g,bound);
+vm=mfcoefs(twminus,bound);
+vp=mfcoefs(twplus,bound);
+if(#vg!=bound+1 || #vm!=bound+1 || #vp!=bound+1,error("coefficient length"));
+for(n=0,bound,if(sig7(coords(vg[n+1]))!=coords(vm[n+1]),error(Str("minus8 mismatch n=",n))));
+for(n=0,bound,if(sig5(coords(vg[n+1]))!=coords(vp[n+1]),error(Str("plus8 mismatch n=",n))));
+print(["VERSION",version()]);
+print(["ORIGINAL_PARAMETERS",mfparams(g),mfparams(f)]);
+print(["TWIST_PARAMETERS",mfparams(twminus),mfparams(twplus)]);
+print(["STURM",level,index,bound]);
+print(["ALL_COEFFICIENTS",0,bound,"MINUS8_SIGMA7_PASS","PLUS8_SIGMA5_PASS"]);
+print(["FOUR_COORDINATE_COMPARISONS",2*4*(bound+1)]);
+print(["BAD_AND_IDENTIFYING_INDICES",vector(8,j,my(n=[0,1,2,3,4,6,7,13][j]);[n,coords(vg[n+1]),coords(vm[n+1]),coords(vp[n+1])])]);
+print("INDEPENDENT_TWIST_STURM_PASS");
+quit;

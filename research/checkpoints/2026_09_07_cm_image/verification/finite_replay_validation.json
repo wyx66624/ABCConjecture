@@ -1,0 +1,63 @@
+{
+  "status": "PASS: three exact finite replays with unchanged source and certificate bytes",
+  "records": [
+    {
+      "script": "research/checkpoints/2026_09_07_adversarial_audit/eighth_round/replay_cm_shadow.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_adversarial_audit/eighth_round/replay_cm_shadow.py": "47efa2a5d8a1ffa5ceeb3f8fab4cee20dda393b034e90bd5df0142f42add13ba",
+        "research/checkpoints/2026_09_07_adversarial_audit/eighth_round/cm_shadow_results.json": "a244f2e71b150a6e8076f86e22abea176f82e1348527e760fb4d79c23e2f09bd"
+      },
+      "result": {
+        "actual_shadows": 32,
+        "enumerated_affine_states": 81376,
+        "field_rows": 16,
+        "sha256": "a244f2e71b150a6e8076f86e22abea176f82e1348527e760fb4d79c23e2f09bd",
+        "status": "PASS"
+      }
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_independent_route/eighth_round/replay_boundary_twist.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_independent_route/eighth_round/replay_boundary_twist.py": "545f890e15ececdb5c4986de99f4696339bf4e21f573169c85e56537ec2a9190",
+        "research/checkpoints/2026_09_07_independent_route/eighth_round/boundary_twist_certificate.gp": "65f11b9b52eca0c36c853f79a2d995f2aee4fd2fa63c11c0078ddc545caa14d5",
+        "research/checkpoints/2026_09_07_independent_route/eighth_round/boundary_twist_results.json": "c8181912aa36023ff86ac94c72bc59cf0279a67a42849035450de866ea115549"
+      },
+      "result": {
+        "coefficient_rows_per_form": 12289,
+        "common_level": 36864,
+        "sha256": "c8181912aa36023ff86ac94c72bc59cf0279a67a42849035450de866ea115549",
+        "status": "PASS",
+        "sturm_bound": 12288
+      }
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_adversarial_audit/eighth_round/replay_twist_independent.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_adversarial_audit/eighth_round/replay_twist_independent.py": "59ff3104f299dd8079d425254a5be451ca9ac2192aac6f4a57ff30ca5b7730fd",
+        "research/checkpoints/2026_09_07_adversarial_audit/eighth_round/replay_twist_independent.gp": "9d0a49f60d4616ab94404ea405eb2cbe8c823103827cae13f4410f22807ba72b",
+        "research/checkpoints/2026_09_07_adversarial_audit/eighth_round/independent_twist_results.json": "9864149fe7dc844d34f71306192e49b05c90d40bb22728fe71940b173a9807e0"
+      },
+      "result": {
+        "coefficient_indices_per_identity": 12289,
+        "rational_coordinate_comparisons": 98312,
+        "sha256": "9864149fe7dc844d34f71306192e49b05c90d40bb22728fe71940b173a9807e0",
+        "status": "PASS"
+      }
+    }
+  ],
+  "not_claimed": [
+    "ABC proof or disproof",
+    "Lean modular-form construction",
+    "Sturm theorem without its separate ordinary proof",
+    "global representation theorem from finite shadows"
+  ]
+}

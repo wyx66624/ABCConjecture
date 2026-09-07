@@ -1,5 +1,33 @@
 # Research status
 
+## September 7, 2026: CM elimination and actual pure-power support
+
+Standard ABC remains unproved and undisproved. The eighth continuation
+excludes CM residual candidates by global projective image. Complete
+independently repeated full-Sturm computations identify the two non-CM
+pure-branch orbits as quadratic twists. With their ordinary modular
+dependencies, this gives a common boundary residual module for every
+actual F(a,b)=Q^p with p>7 prime and positive coprime a,b.
+
+The boundary's rational two-torsion gives even traces. A separately
+reviewed local ordinary/supersingular argument excludes p dividing F;
+every prime q|Q satisfies q >= (sqrt(2p)-1)^2 > p. These yield
+p^p<F<=13H^4 and an effective exponent budget, without excluding all
+pure powers or bounding actual point heights above. The independent
+analytic window now applies at all exponent indices, leaving exceptional
+roots and the full large-prime tail open.
+
+Fresh scoped Lean verification accepts 10 new and 55 unchanged dependency
+declarations. It checks the strict Hasse interval, the even-trace unit
+residue contradiction, doubled divisibility, the trace-factor cutoff,
+and actual quartic height identities and inequalities. Factor congruence
+and p<Q remain explicit antecedents. The complete axiom union contains
+only propext, Classical.choice and Quot.sound. The modular, elliptic and
+real-analytic proofs remain ordinary arguments; the two coefficient
+certificates remain exact software inputs. No complete formal ABC proof
+or full repository build is asserted. See
+`../research/checkpoints/2026_09_07_cm_image/` for precise manifests.
+
 ## September 7, 2026: boundary descent, square gaps and effective escape
 
 Standard ABC remains unproved and undisproved. The seventh continuation

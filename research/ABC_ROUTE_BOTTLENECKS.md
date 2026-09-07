@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, actual sieved intervals, effective affine
-escape, boundary modular identification and complete ordinary thirteen descent.
+**Last synchronized:** 2026-09-07, CM elimination, full boundary twists,
+two-torsion support and all-index sieved windows (eighth continuation).
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -32,6 +32,26 @@ rigorous complete-premise disproof.
 - [x] Maintain the English journal manuscript with author ChatGPT.
 
 ## Shared exponent generators: September 7 positive frontier
+
+- [x] Exclude all actual CM residual candidates for p>7 by the nonsolvable
+  global projective image; finite CM local shadows still exist.
+- [x] Identify the two non-CM fixed-level orbits as exact quadratic twists
+  through the complete common-level Sturm bound, with two independent
+  exact software replays and every coefficient embedding retained.
+- [x] Deduce the boundary residual module for every actual pure F=Q^p;
+  ordinary local two-torsion then gives p not dividing Q and every prime
+  q|Q at least (sqrt(2p)-1)^2>p, plus the exact trace-square restriction.
+- [x] Obtain p^p<F<=13H^4 and an effective p=O(log H/log log H)
+  necessary exponent budget; kernel-check ten elementary consequences
+  with the ordinary representation antecedents explicit.
+- [ ] Convert this moving sparse support and lower height bound into a
+  uniform exclusion or control of actual polynomial values. Neither the
+  fixed-p density nor a coefficient-height budget supplies this step.
+- [x] Extend the actual finite root-window estimate to every exponent
+  index by a uniform elementary divisor-sum bound and adjusted endpoint.
+- [ ] Control the full private upper tail while retaining signed negative
+  contributions. The next actual three-arm compensation proposal requires
+  a separate proof and membership argument; it is not a closed gate here.
 
 - [x] Combine actual rank counts with Brun--Titchmarsh to extend controlled
   windows beyond the root-block length for bounded sigma(n)/n subclasses.

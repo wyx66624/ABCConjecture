@@ -1,0 +1,154 @@
+\section{Two-torsion excludes the exponent prime from the support}
+\label{ts-section}
+
+The fixed boundary curve has the nonzero rational two-torsion point
+$(0,0)$. At every split rational prime $q>3$, good reduction preserves
+it, so
+\begin{equation}\label{ts-even-trace}
+ t_q(E_0)=q+1-\#E_0(\mathbb F_q)\quad\text{is even}.
+\end{equation}
+This elementary parity condition gives a stronger consequence of the
+boundary module comparison, including at the exponent prime itself.
+
+\begin{theorem}[Boundary support with no exponent-prime exception]
+\label{ts-boundary-support}
+Let $a,b$ be positive coprime integers and $p>7$ prime. Let $\nu$
+be a quadratic character of $G_K$ unramified outside the primes over
+$6$. Suppose
+\begin{equation}\label{ts-module}
+ E_{a,b}[p]\otimes\overline{\mathbb F}_p
+ \simeq(E_0[p]\otimes\overline{\mathbb F}_p)\otimes\nu.
+\end{equation}
+Then $p\nmid F(a,b)$, and every prime $q\mid F(a,b)$ satisfies
+\begin{equation}\label{ts-strong-cutoff}
+ q\ge(\sqrt{2p}-1)^2>p,
+ \qquad p\mid(q+1)^2-t_q(E_0)^2.
+\end{equation}
+\end{theorem}
+\begin{proof}
+We first specify the local inputs at $p$. For multiplicative reduction
+over $\mathbb Q_p$, the full Tate representation is an extension
+\[
+ 0\longrightarrow\mathbb F_p(\omega\eta)
+ \longrightarrow E[p]\longrightarrow\mathbb F_p(\eta)
+ \longrightarrow0,
+\]
+where $\omega$ is the mod-$p$ cyclotomic character and $\eta$ is the
+unramified quadratic splitting character, possibly trivial.
+For good supersingular reduction over $\mathbb Q_p$, the residual
+representation is irreducible over $\mathbb F_p$. These local facts
+are the Tate and good-reduction statements of
+\cite[Propositions~2.12(b) and 2.11(c)]{DarmonDiamondTaylorLocal}.
+For good ordinary reduction, the connected--etale filtration has
+characters $\omega\lambda^{-1}$ and $\lambda$, where $\lambda$
+is unramified. Its arithmetic Frobenius value modulo $p$ is the
+unit root of $T^2-t_pT+p$, and hence is $t_p$ modulo $p$;
+see \cite[\S1.3.1 and Exercise~1.30]{BoeckleLocalGalois}.
+These are local statements over $\mathbb Q_p$, as in their proofs
+by the Tate curve and finite-flat or formal groups over $\mathbb Z_p$.
+
+Suppose $p\mid F$. The actual local calculation makes $p$ split in
+$K$, identifies both completions with $\mathbb Q_p$, and gives
+multiplicative reduction of $E_{a,b}$. Work at either completion.
+The character $\nu$ is unramified and quadratic. From the Tate
+subcharacter and \eqref{ts-module}, the boundary representation has
+a subcharacter $\omega\eta\nu$ after coefficient extension. This
+character has values in $\mathbb F_p$. Existence of an intertwiner
+after extending coefficients implies existence over $\mathbb F_p$:
+the intertwining maps are the kernel of linear equations over
+$\mathbb F_p$, and scalar extension preserves this kernel. The
+representations have finite image, so finitely many equations suffice.
+Thus the supersingular irreducibility statement just cited rules out
+supersingular reduction. No absolute-irreducibility upgrade of that
+local statement has been assumed. The good boundary curve is ordinary.
+
+Its Jordan--Holder characters after twisting by $\nu$ are
+$\lambda\nu$ and $\omega\lambda^{-1}\nu$. The actual Tate
+characters are $\eta$ and $\omega\eta$. Since $\omega$ is
+nontrivial on inertia and all other characters here are unramified,
+each pair has exactly one inertia-trivial character. The isomorphism
+therefore gives
+\begin{equation}\label{ts-unit-root}
+ \lambda\nu=\eta,
+ \qquad t_p(E_0)\equiv\pm1\pmod p.
+\end{equation}
+This compares the unique inertia-trivial Jordan--Holder character,
+even if an extension splits. It does not take an unramified trace
+of the full two-dimensional Tate representation at $p$.
+
+By \eqref{ts-even-trace}, $t_p$ is even. But the Hasse bound and
+$p>7$ give $|t_p|\le2\sqrt p<p-1$. The only integers in this
+interval congruent to $1$ or $-1$ modulo $p$ are $1$ and $-1$,
+which are odd. This contradiction proves $p\nmid F$.
+
+Now every prime divisor $q$ of $F$ differs from $p$. The boundary comparison
+of Theorem~\ref{bc-pure} gives $t_q\equiv\pm(q+1)\pmod p$.
+Both $t_q$ and $q+1$ are even, so the corresponding nonzero
+integer difference is divisible by $2p$. It is nonzero by the strict
+Hasse inequality $|t_q|\le2\sqrt q<q+1$, and thus
+\[
+ 2p\le |t_q\mp(q+1)|\le q+1+2\sqrt q=(\sqrt q+1)^2.
+\]
+This gives the first cutoff in \eqref{ts-strong-cutoff}. The strict
+inequality with $p$ follows from $p+1>2\sqrt{2p}$ for $p>7$,
+equivalently $p^2-6p+1>0$. The remaining divisibility is exactly
+the boundary trace condition, now valid at every prime divisor.
+\end{proof}
+
+\begin{corollary}[Unconditional support of the actual pure branch]
+\label{ts-pure-support}
+Let $a,b$ be positive coprime integers, let $p>7$ be prime, and
+suppose $F(a,b)=Q^p$ for an integer $Q>1$. Then $p\nmid Q$ and
+every prime $q\mid Q$ satisfies \eqref{ts-strong-cutoff}. Neither $7$
+nor $13$ divides $Q$, and
+\begin{equation}\label{ts-root-size}
+ Q\ge(\sqrt{2p}-1)^2>p.
+\end{equation}
+\end{corollary}
+\begin{proof}
+Theorem~\ref{bt-pure-module}, using the exact twist identity and its
+stated modular dependencies, gives \eqref{ts-module} with a quadratic
+character unramified outside $6$. Apply
+Theorem~\ref{ts-boundary-support} and the previously proved boundary
+exclusions at $7$ and $13$. Since $Q>1$ has a prime divisor, the
+prime cutoff gives \eqref{ts-root-size}.
+\end{proof}
+
+For every sufficiently large fixed $p$, every prime factor now lies
+in the permitted split rational-prime set of Theorem~\ref{bc-density}.
+Its density is
+\[
+ \frac{2p^2-p-5}{2(p-1)^2(p+1)}.
+\]
+There is no exponent-prime exception. Removing the finite interval
+below the cutoff does not change this fixed-$p$ density or supply
+an error term uniform in $p$.
+
+\begin{corollary}[Actual height lower bounds]\label{ts-height}
+Under the hypotheses of Corollary~\ref{ts-pure-support}, put
+$c=a+b$ and $H=\max(a,b)$. Then
+\begin{align}
+ \log c&\ge\frac p2\log(\sqrt{2p}-1),\label{ts-height-sum}\\
+ \log H&\ge\frac p2\log(\sqrt{2p}-1)-\frac{\log13}{4}.
+ \label{ts-height-max}
+\end{align}
+In particular $p^p<F(a,b)\le13H^4$.
+\end{corollary}
+\begin{proof}
+The identity $4F=(a^2+b^2)^2+3(a+b)^4$ gives $F\le c^4$;
+termwise comparison in the quartic gives $F\le13H^4$.
+Combine these with $F=Q^p$ and \eqref{ts-root-size}, then take
+logarithms. Its strict inequality $Q>p$ gives the last assertion.
+\end{proof}
+
+\paragraph{Verification and remaining scope.}
+The full local module proof, the distinction between ordinary and
+supersingular reduction, and the scalar-extension step have independent
+ordinary reviews with the cited primary passages actually opened.
+The elliptic representation inputs are not claimed to be formally
+proved in Lean by arithmetic checks of the final inequalities.
+These necessary height lower bounds remain compatible with arbitrarily
+large seeds and moving large root primes. They do not give a
+point-height upper bound, a contradiction to a cover's coefficient
+budget, or an ABC proof. The finite local residue shadows remain
+valid because they are not asserted to be global pure powers.

@@ -1,0 +1,170 @@
+\section{A CM local boundary and its global projective-image obstruction}
+\label{cb-section}
+
+The boundary considered here differs from the non-CM seed $(0,1)$.
+It supplies actual positive seeds satisfying a specified finite collection
+of local tests, while a separate global theorem excludes congruence to
+CM newforms. Both assertions concern their exact stated tests and
+representations.
+
+Write $N(a,b)=a^2+ab+b^2$ and retain the actual quartic $F(a,b)$
+and Frey curve $E_{a,b}$ defined in the preceding modular sections.
+
+\begin{lemma}[An explicit CM boundary]\label{cb-cm-boundary}
+At $(a,b)=(-1,1)$ one has $N(a,b)=F(a,b)=1$, and the actual Frey
+curve specializes over $K=\mathbb Q(r)$, $r^2=-3$, to
+\[
+ E_*:\quad Y^2=X^3+12rX.
+\]
+It has geometric CM by $\mathbb Z[i]$, good reduction away from the
+primes over $6$, and trace zero at both places over every rational
+prime $q\equiv7\pmod{12}$.
+\end{lemma}
+\begin{proof}
+The specialization follows by substitution. Its discriminant is
+$-64(12r)^3$, and its $j$-invariant is $1728$. Over $K(i)$ the
+origin-preserving automorphism $(X,Y)\mapsto(-X,iY)$ squares to
+elliptic negation, giving the stated endomorphisms.
+For $q\equiv7\pmod{12}$, the prime splits in $K$ and $-1$ is a
+quadratic nonsquare modulo $q$. At either place choose $r_q^2=-3$.
+The polynomial $f(X)=X^3+12r_qX$ is odd, so the quadratic-character
+sum of $f(X)$ cancels in pairs $X,-X$, with zero contribution at
+$X=0$. Thus the full point count is $q+1$ and its trace is zero.
+\end{proof}
+
+\begin{theorem}[Actual positive finite local shadows]\label{cb-local-shadows}
+For every positive integer $L$ and every height target, there exist
+positive coprime $a,b$ of greater height satisfying
+\[
+ (a,b)\equiv(-1,1)\pmod L,
+ \qquad N(a,b)\equiv F(a,b)\equiv1\pmod L.
+\]
+Their Frey coefficients agree with those of $E_*$ modulo $L$.
+Consequently they satisfy all direct norm power-residue tests of any
+positive exponent at divisors of $L$, and all the trace-zero tests
+at primes $q\mid L$ with $q\equiv7\pmod{12}$.
+\end{theorem}
+\begin{proof}
+Take $b=1$ and $a=Lk-1$ for arbitrarily large positive integers $k$.
+Primitivity is immediate and $a+b=Lk$ tends to infinity. Evaluate the
+two integer polynomials at $(-1,1)$ to get the norm congruences;
+the root $1$ certifies every stated power-residue test. The polynomial
+Frey coefficients also specialize modulo $L$. Their reductions at
+the stated primes are good and identical to $E_*$, so their traces
+are zero by Lemma~\ref{cb-cm-boundary}.
+Taking $L$ divisible by specified prime powers preserves any specified
+finite coefficient precision. The mixed seed remains primitive because
+a prime dividing both $ab$ and $N$ would divide both $a,b$; its square
+identities hold exactly for these actual integer seeds.
+\end{proof}
+
+These shadows assert no global power equation. In fact
+Theorem~\ref{sgap-axis} excludes a square $F$ throughout this family,
+since $b=1$. Theorem~\ref{as-finite} makes all global pure powers
+$F(a,1)=Q^g$, $Q>1$, $g\ge2$, effectively finite across all
+exponents. It does not classify the remaining odd-exponent possibilities.
+Nor does the local shadow identify a particular CM newform or supply
+an isomorphism of residual Galois modules.
+
+\begin{theorem}[Global exclusion of CM residual candidates]\label{cb-cm-exclusion}
+Let $a,b$ be positive coprime integers and $p>7$ a prime. The specified
+residual descent of $E_{a,b}[p]\otimes\chi$ used in the Frey modular
+reduction is not isomorphic, over an algebraic closure of its residue
+coefficient field, to the semisimplified residual representation of
+any characteristic-zero CM newform.
+\end{theorem}
+\begin{proof}
+The actual quartic satisfies $F\ge13$ and $\gcd(F,6)=1$, so some
+prime $q>3$ divides it. The proved local calculation makes $E_{a,b}$
+multiplicative at the places over $q$, and its explicit cyclic
+isogeny to its conjugate has square-free degree two. The general
+Q-curve large-image theorem, with the same published $N_3=7$ input
+already checked in the Frey modular section, therefore applies.
+
+For precision about its target, Ellenberg's
+\href{https://people.math.wisc.edu/~ellenberg/A4B2Cp.pdf}{author-hosted original paper},
+Theorem~3.14, displays a surjective projective extension
+\[
+ \mathbb P\bar\rho_{E,p}:G_{\mathbb Q}\longrightarrow
+       \operatorname{PGL}_2(\mathbb F_p),
+\]
+unless the curve has potentially good reduction at all primes outside
+$6$. The multiplicative place excludes that alternative. The explicit
+$N_3=7$ specialization is the general Theorem~5.2 in
+\href{https://sweet.ua.pt/apacetti/papers/Q-curves.pdf}{Pacetti--Villagra Torcomian};
+it is an external published input, not a new computation or an inference
+from a nonprimitive substitution in another Diophantine equation.
+
+On $G_K$, the image $H$ of this projective representation is a normal
+subgroup of index at most two in $\operatorname{PGL}_2(\mathbb F_p)$.
+It contains $\operatorname{PSL}_2(\mathbb F_p)$. Indeed the latter
+is perfect for $p>3$: $\operatorname{SL}_2(\mathbb F_p)$ is generated
+by upper and lower elementary unipotents, and, for $t^2\ne1$,
+\[
+ [\operatorname{diag}(t,t^{-1}), U(x/(t^2-1))]=U(x).
+\]
+The analogous lower formula proves perfectness before and after
+projectivization. Every abelian quotient of the projective group kills
+that subgroup. Its projective image is nontrivial, so it is not
+solvable; neither is $H$. We have not asserted that the image on
+$G_K$ itself must be the full projective linear group.
+
+A CM newform's characteristic-zero representation is induced from a
+one-dimensional character of the Galois group of its imaginary
+quadratic CM field. This CM representation description is also used
+explicitly in Section~6 of the same primary Q-curve paper. In an
+induced stable lattice its two cosets give diagonal matrices on the
+index-two subgroup and antidiagonal matrices on the other coset.
+After reduction, if the two inducing characters differ, the resulting
+module is irreducible of this monomial form; if they coincide, it
+splits over $\overline{\mathbb F}_p$, since $p$ is odd and the
+coset matrix has two distinct square-root eigenvalues. Thus the
+semisimplified projective image is abelian or cyclic-by-a-group-of-order
+at-most-two, and is solvable. The diagonal projective image is finite
+cyclic as a finite subgroup of $\overline{\mathbb F}_p^*$.
+
+Any proposed residual isomorphism can now be restricted to $G_K$.
+Projectivization removes the scalar character $\chi$. The actual side
+has the nonsolvable image $H$, whereas the CM side has a subgroup
+of a solvable group. This is a contradiction. Coefficient embeddings
+and scalar twists do not affect it. Large image also ensures that
+semisimplifying the actual module loses no extension in this comparison.
+\end{proof}
+
+This uses uniform large projective image. The fact that an elliptic
+curve individually has no geometric CM would not suffice to exclude
+all its CM residual congruences at the stated primes.
+
+\begin{corollary}[Two remaining pure-branch orbits]\label{cb-two-orbits}
+If an actual seed satisfies $F=Q^p$ with $Q>1$ and prime $p>7$,
+its fixed-level modular candidate belongs to one of the two non-CM
+Galois orbits at levels $288$ and $576$ in the complete exact
+newspace enumeration. All coefficient embeddings remain candidates.
+\end{corollary}
+\begin{proof}
+The pure-branch modular theorem supplies weight two, character
+$\psi_3$ and one of the five levels $36,72,144,288,576$.
+The independently repeated complete enumeration in the preceding
+manuscript lists precisely two non-CM orbits. Apply
+Theorem~\ref{cb-cm-exclusion} to all the CM candidates.
+\end{proof}
+
+The same projective-image argument removes CM candidates at the
+varying levels and non-flat weights of the other modular reductions.
+Those spaces are not reduced to the same two-orbit list. The two
+non-CM pure-branch orbits are not excluded here, and the level-$576$
+boundary comparison continues to retain the distinction between
+$\chi$ and $\chi^{-1}$.
+
+\paragraph{Verification and remaining scope.}
+All five ordinary claims passed complete independent reviews by the
+other two research agents; both reopened the original projective-image
+source and the published small-prime input. A separate exact replay
+enumerates all $81{,}376$ affine states in the sixteen listed finite
+reductions and checks thirty-two actual positive congruence shadows.
+These finite checks do not establish the global representation theorem.
+No new Lean proof of projective-image surjectivity, CM induction, or
+modular elimination is asserted. The finite local shadows and the
+global CM obstruction coexist: the latter closes that specific
+candidate route while leaving the non-CM modular and analytic tail
+routes open.

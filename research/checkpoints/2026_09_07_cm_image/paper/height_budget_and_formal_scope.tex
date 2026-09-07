@@ -1,0 +1,87 @@
+\section{An effective exponent budget and its formal arithmetic core}
+\label{hbc-section}
+
+\begin{corollary}[An explicit pure-power exponent budget]\label{hbc-budget}
+Let $a,b$ be positive coprime integers, $p>7$ prime, and
+$F(a,b)=Q^p$ for an integer $Q>1$. Put $H=\max(a,b)$ and
+$T=\log13+4\log H$. Then
+\[
+ p^p<F(a,b)\le13H^4,\qquad p\log p<T.
+\]
+If $T\ge e^2$, then
+\[
+ p<\frac{2T}{\log T}.
+\]
+In particular $p=O(\log H/\log\log H)$ as $H\to\infty$,
+with an effective absolute constant.
+\end{corollary}
+\begin{proof}
+Corollary~\ref{ts-pure-support} gives $Q>p$, and
+Corollary~\ref{ts-height} gives the polynomial height bound.
+Taking logarithms proves the first two assertions.
+For the explicit rearrangement, suppose $p\ge2T/\log T$.
+The function $x\log(x/2)$ increases for $x\ge2$, and
+$2T/\log T\ge e^2$ when $T\ge e^2$.
+For $z=\log T\ge2$, one has $2\log z<z$: the difference
+$z-2\log z$ is positive at $2$ and has nonnegative derivative
+thereafter. Therefore
+\[
+ p\log(p/2)\ge\frac{2T}{\log T}\log\frac{T}{\log T}
+   =2T\left(1-\frac{\log\log T}{\log T}\right)>T,
+\]
+contrary to $p\log p<T$. The asymptotic form follows since
+$T=4\log H+O(1)$. No rearranged bound is needed when $T<e^2$.
+\end{proof}
+
+This budget bounds the exponent in terms of the actual point height.
+It supplies no height upper bound. In particular, it does not rule out
+arbitrarily high seeds with moving prime factors, or treat nonunit
+residuals $F=VQ^p$ by the same fixed-level argument.
+
+\paragraph{Ordinary proofs before kernel verification.}
+The reviewed local proof uses the following elementary facts. If
+$q\ge7$ and $t^2\le4q$, then
+\[
+ 1-q<t<q-1,
+ \qquad (q-1)^2-4q=q(q-6)+1>0.
+\]
+Hence an even such trace cannot be congruent to $1$ or $-1$
+modulo $q$. For odd $p,q$ and even $t$, if $p$ divides either
+$q+1-t$ or $q+1+t$, then $2p$ divides that positive integer.
+The displayed interval places it below $2q$, giving $p<q$.
+The decomposition into one divisible factor uses primality in the
+separate ordinary argument; it is not hidden in the formal signature.
+
+The polynomial height estimates also have direct certificates:
+\begin{align*}
+ (a+b)^4-F(a,b)&=ab(a^2+ab+b^2),\\
+ 13a^4-F(a,b)&=(a-b)(12a^3+9a^2b+4ab^2+b^3).
+\end{align*}
+For $a,b\ge0$ the first gives $F\le(a+b)^4$; the second gives
+$F\le13a^4$ when $b\le a$. Symmetry gives $F\le13H^4$.
+
+\paragraph{Exact scope of the new Lean module.}
+The module \texttt{BoundarySupportArithmetic.lean} checks ten
+declarations: the strict Hasse interval, a small-multiple lemma,
+the exclusion of unit residues for even traces, doubling an odd
+divisor of an even number, the trace-factor prime cutoff, the
+sum-height identity, the sum-height inequality, the left-coordinate
+height inequality, its maximum-coordinate version, and the
+pure-power height implication.
+
+Its last signature explicitly assumes $p<Q$ and
+$F(a,b)=Q^p$. Its trace cutoff explicitly assumes the disjunction
+$p\mid q+1-t$ or $p\mid q+1+t$. These are ordinary modular/local
+conclusions supplied outside the module, not additional axioms or
+claims of their complete formalization. The new proofs use the
+existing actual quartic definition. A fresh scoped Lean~4.32.0
+build accepts all ten declarations and recompiles fifty-five
+unchanged dependency declarations. The complete axiom inventory is
+contained in \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}.
+
+No Lean proof of modularity, the full-Sturm modular-form algorithms,
+the local elliptic representations, the analytic logarithm estimate,
+or ABC is claimed by that arithmetic build. The exact software
+replays, ordinary independent reviews, and kernel verification remain
+separate evidence with separately recorded source hashes.
