@@ -1,5 +1,30 @@
 # Research status
 
+## September 7, 2026: actual intervals, compatible quartics and modular budgets
+
+Standard ABC remains unproved and undisproved. The sixth continuation bounds
+the mean positive prime-window excess for actual integer roots, using exact
+rank counts to remove an exponent loss. Exceptional roots and primes beyond
+the chosen window remain open. A single class-number-one quartic field gives
+compatible unit classes, smaller cover counts and explicit smooth complete
+intersections; no uniform individual point-height bound follows.
+
+An actual Frey Q-curve retains the inverse-square gate. Complete ordinary
+local reduction and named modularity inputs yield exact candidate levels,
+the weight change for a residual divisible by the exponent prime, and a
+dimension budget. No candidate is excluded. A non-CM boundary curve has
+actual unbounded local shadows; a specified Mazur product fails conditional
+on identifying its eigenform. That identification is not claimed here.
+
+Fresh scoped Lean verification accepts 18 new declarations and recompiles
+65 unchanged dependency declarations. It checks actual seed identities,
+Frey coefficients and invariants, primitive bad-prime units, discriminant
+nonvanishing, and consecutive-seed residues. The full class-number, geometric,
+Tate, modularity and interval arguments remain ordinary proofs with stated
+external inputs. This is not a full repository build or a formal ABC proof.
+Six exact finite replays and a 421-page manuscript seal are recorded in
+`../research/checkpoints/2026_09_07_quartic_compatibility/`.
+
 ## September 7, 2026: actual rank packets and quantitative covers
 
 Standard ABC remains unproved and undisproved. The fifth continuation gives

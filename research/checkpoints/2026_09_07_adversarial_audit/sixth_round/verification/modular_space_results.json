@@ -1,0 +1,20 @@
+{
+  "pari_version": "2.15.4",
+  "scope": "exact PARI modular-space diagnostics; not a Lean proof or seed exclusion",
+  "source_sha256": "8f7bfc396b7cb41c2562da4eb2fcad2edda8bcba37e26ec47fef25ab17707b79",
+  "stdout_lines": [
+    "[\"PARI_VERSION\", [2, 15, 4]]",
+    "[\"SPACE\", 36, 2, [y^2 + 2], 1]",
+    "[\"ORBIT\", 36, 1, y^2 + 2, -4, [Mod(0, y^2 + 2), Mod(1, y^2 + 2), Mod(y, y^2 + 2), Mod(0, y^2 + 2), Mod(-2, y^2 + 2), Mod(-y, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(-2*y, y^2 + 2), Mod(0, y^2 + 2), Mod(2, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(-4, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(4, y^2 + 2), Mod(5*y, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(2*y, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(3, y^2 + 2)]]",
+    "[\"SPACE\", 72, 0, [], 0]",
+    "[\"SPACE\", 144, 2, [y^2 + 2], 1]",
+    "[\"ORBIT\", 144, 1, y^2 + 2, -4, [Mod(0, y^2 + 2), Mod(1, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(3*y, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(4, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(-3*y, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(-13, y^2 + 2)]]",
+    "[\"SPACE\", 288, 4, [y^4 + 1], 1]",
+    "[\"ORBIT\", 288, 1, y^4 + 1, 0, [Mod(0, y^4 + 1), Mod(1, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(-y^3 - y, y^4 + 1), Mod(0, y^4 + 1), Mod(4*y^2, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(-4*y^3 + 4*y, y^4 + 1), Mod(0, y^4 + 1), Mod(4, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(-3*y^3 - 3*y, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(4*y^3 - 4*y, y^4 + 1), Mod(0, y^4 + 1), Mod(3, y^4 + 1)]]",
+    "[\"SPACE\", 576, 8, [y^2 + 2, y^2 + 2, y^4 + 1], 3]",
+    "[\"ORBIT\", 576, 1, y^2 + 2, -4, [Mod(0, y^2 + 2), Mod(1, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(3*y, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(-4, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(3*y, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(-13, y^2 + 2)]]",
+    "[\"ORBIT\", 576, 2, y^2 + 2, -4, [Mod(0, y^2 + 2), Mod(1, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(y, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(4, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(5*y, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(0, y^2 + 2), Mod(3, y^2 + 2)]]",
+    "[\"ORBIT\", 576, 3, y^4 + 1, 0, [Mod(0, y^4 + 1), Mod(1, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(-y^3 - y, y^4 + 1), Mod(0, y^4 + 1), Mod(4*y^2, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(-4*y^3 + 4*y, y^4 + 1), Mod(0, y^4 + 1), Mod(-4, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(3*y^3 + 3*y, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(0, y^4 + 1), Mod(-4*y^3 + 4*y, y^4 + 1), Mod(0, y^4 + 1), Mod(3, y^4 + 1)]]",
+    "EXACT_NEWSPACE_REPLAY_PASS"
+  ]
+}

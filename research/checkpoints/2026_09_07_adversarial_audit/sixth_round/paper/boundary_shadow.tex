@@ -1,0 +1,205 @@
+\section{A non-CM boundary curve and its actual local shadows}
+\label{bs-section}
+
+This section separates an exact boundary curve, its unbounded actual
+local shadows, and a conditional obstruction to one specified modular
+elimination procedure. It gives no global pure-power family and does
+not identify compatible Galois representations from finitely many
+matching traces.
+
+Put $r^2=-3$, $K=\mathbb Q(r)$, $\zeta=(1+r)/2$, and
+\[
+ F(a,b)=a^4+3a^3b+5a^2b^2+3ab^3+b^4,
+ \qquad x=a^2+b^2,\quad y=a+b.
+\]
+The actual Frey equation is
+\[
+ E_{a,b}:\quad Y^2=X^3+12yX^2+6(3y^2+xr)X.
+\]
+At the excluded boundary seed $(a,b)=(0,1)$ it specializes to
+\[
+ E_0:\quad Y^2=X^3+12X^2+6(3+r)X,
+ \qquad \Delta(E_0)=2^{11}3^4(3+r).
+\]
+Since $N_{K/\mathbb Q}(3+r)=12$, this equation has good reduction
+at every prime above a rational prime greater than three.
+
+\begin{theorem}[The boundary curve has no geometric CM]
+\label{bs-noncm}
+The elliptic curve $E_0$ has no complex multiplication over
+$\overline{\mathbb Q}$.
+\end{theorem}
+\begin{proof}
+Full finite-field enumerations give the following exact data,
+including the point at infinity:
+\[
+\begin{array}{c|c|r|r|r}
+ \text{residue field}&r&\#E_0&t&t^2-4q\\\hline
+ \mathbb F_{25}&r^2=-3&34&-8&-36\\
+ \mathbb F_7&2&12&-4&-12\\
+ \mathbb F_7&5&4&4&-12
+\end{array}
+\]
+Here $X^2+3$ is irreducible modulo five. The certificate enumerates
+all $625$ affine pairs over $\mathbb F_{25}$ and all $49$ pairs in
+each of the two prime-field reductions.
+
+Use the auxiliary Tate-module prime $17$. If $E_0$ had geometric
+CM, its geometric endomorphism algebra would be an imaginary
+quadratic field $M$. The algebra $M\otimes\mathbb Q_{17}$ embeds
+into $\operatorname{End}(V_{17}(E_0))$. All these endomorphisms are
+defined over some finite number-field extension. Consequently their
+action commutes with some positive power of Frobenius at each good
+place. These are the usual injectivity and good-reduction properties
+of Tate modules; see Milne, \emph{Elliptic Curves}, second edition,
+Proposition~II.6.7 and Proposition~V.8.3, in the
+\href{https://www.jmilne.org/math/Books/EC2.pdf}{author's text}.
+The latter Frobenius argument applies over the completion of $K$
+just as it does over a completion of $\mathbb Q$.
+
+At norm $25$ the eigenvalues are $-4\pm3i$, and their ratio is
+$(7-24i)/25$. Its real part $7/25$ excludes the roots of unity in
+$\mathbb Q(i)$. At either norm-seven place the eigenvalues are
+$2\pm r$ or $-2\pm r$, and their ratio has real part $1/7$.
+This excludes the sixth roots of unity in $\mathbb Q(r)$. Thus every
+positive power of either Frobenius still has distinct eigenvalues.
+Its centralizer has dimension two and is the same as the centralizer
+of the original Frobenius.
+
+The two-dimensional algebra $M\otimes\mathbb Q_{17}$ must therefore
+equal each centralizer. At norm $25$ the latter is
+\[
+ \mathbb Q_{17}[T]/(T^2+8T+25)
+       \simeq\mathbb Q_{17}\times\mathbb Q_{17},
+\]
+since $-1$ is a square modulo $17$. At norm seven it is
+$\mathbb Q_{17}[T]/(T^2\pm4T+7)$, a quadratic field: its
+discriminant has nonsquare unit part $-3$ modulo $17$. A product
+algebra with nontrivial idempotents is not a field. This contradiction
+proves the theorem.
+\end{proof}
+
+\begin{theorem}[Simultaneous actual positive local shadows]
+\label{bs-local-shadows}
+For every pair of integers $L\ge1$ and $H\ge0$, there are positive
+coprime integers $a,b$ with $a+b>H$ such that
+\[
+ (a,b)\equiv(0,1)\pmod L,\qquad
+ (x,y,F(a,b))\equiv(1,1,1)\pmod L,
+ \qquad 2x-y^2=(a-b)^2=1.
+\]
+The same seed passes every direct congruence test that $F(a,b)$ be
+a $g$-th power modulo every divisor of $L$, simultaneously for all
+integers $g\ge1$.
+\end{theorem}
+\begin{proof}
+Choose a sufficiently large integer $k\ge1$ and put
+$a=Lk$, $b=Lk+1$. Consecutiveness proves primitivity, positivity
+and the last equality, and their sum tends to infinity with $k$.
+The congruences follow by substitution. The residue $1$ is the
+$g$-th power of $1$ for every positive $g$.
+\end{proof}
+
+The Frey coefficients are integer polynomials in $x,y$. Thus these
+actual curves reduce to $E_0$ at every prime above any $q>3$ dividing
+$L$. Arbitrary finitely many precisions can be prescribed by including
+the required $q^e$ in $L$. This statement retains the exact inverse
+square condition and positive primitive integer seeds. It does not
+assert the integer equation $F(a,b)=Q^g$.
+
+\begin{proposition}[A specified Mazur product has a zero factor]
+\label{bs-conditional-mazur}
+Suppose a descended eigenform $f_0$ has independently been identified
+with the compatible representation of $E_0$ twisted by the fixed
+splitting character. At an auxiliary $q>3$, consider an elimination
+product over all original seed residue states admitted by positivity,
+primitivity, the inverse-square condition and the direct $F$ power
+residue condition. Suppose its factors are the differences of the
+compatible candidate and curve Frobenius traces. This product is zero
+at every such $q$.
+\end{proposition}
+\begin{proof}
+The admitted state $(0,1)$ yields the twisted trace of $E_0$, equal
+by hypothesis to the candidate trace. Its factor is zero. Theorem
+\ref{bs-local-shadows} additionally gives actual positive primitive
+seeds shadowing these states simultaneously at any finite set of
+auxiliary primes.
+\end{proof}
+
+The proposition applies to the specified product with its stated
+state space. It does not restrict auxiliary global covers, additional
+local conditions proved from those covers, deformation arguments, or
+other modular information. An identification of $f_0$ is an explicit
+premise, not a conclusion drawn from a few computed coefficients.
+
+\begin{lemma}[The fixed character gives trace minus four at thirteen]
+\label{bs-character-sign}
+For the $d=3$ splitting character in
+\cite[Table~3.3 and the following definition]{PacettiVillagra2022QCurves},
+both twisted Frobenius traces of $E_0$ at primes above thirteen are
+$-4$.
+\end{lemma}
+\begin{proof}
+The local character $\theta$ on $(\mathcal O_K/8)^\times$ has values
+\[
+ \theta(\zeta-1)=1,\quad \theta(r)=i,\quad
+ \theta(3+2r)=1,\quad \theta(-1)=1.
+\]
+The four generators have orders $3,4,2,2$. Their $48$ products are
+distinct. Indeed, reduction modulo two removes the order-three
+factor. Modulo four the remaining exponent of $r$ must be even.
+Now $r^2\equiv5\pmod8$, while $3+2r=1+4\zeta$; the $\zeta$
+coefficient removes its exponent, and the remaining scalar factors
+$5$ and $-1$ are independent modulo eight. This also verifies directly
+that the prescribed values define a character on all units. It is
+trivial on global units. Since $r^2\equiv1\pmod4$ has character
+$-1$, its conductor is exactly eight.
+
+For $\pi=3+\zeta$ and $\bar\pi=4-\zeta$, both of norm thirteen,
+\[
+ \pi\equiv(\zeta-1)(3+2r),\qquad
+ \bar\pi\equiv(\zeta-1)^2r^2(3+2r)\pmod8.
+\]
+Their local character values are therefore $1,-1$. At the associated
+primes $r$ has images $6,7$ respectively. Full point counts give
+$18,10$ points, hence untwisted traces $-4,4$ respectively. Global
+principality and the absence of other ramified finite places give
+$\chi((\pi))=\theta(\pi)^{-1}$ and the analogous equality for
+$\bar\pi$. Both twisted traces are consequently $-4$.
+\end{proof}
+
+An independent exact PARI/GP~2.15.4 newspace replay, with character
+$\psi_3=(12/\cdot)$, gives
+\[
+\begin{array}{c|r|l|l}
+ N&\dim S_2^{\mathrm{new}}(N,\psi_3)&
+       \text{eigenorbit fields}&\text{CM discriminants}\\\hline
+ 36&2&\mathbb Q(\sqrt{-2})&-4\\
+ 72&0&\text{none}&\text{none}\\
+ 144&2&\mathbb Q(\sqrt{-2})&-4\\
+ 288&4&\mathbb Q(\zeta_8)&0\\
+ 576&8&\mathbb Q(\sqrt{-2}),\mathbb Q(\sqrt{-2}),
+          \mathbb Q(\zeta_8)&-4,-4,0
+\end{array}
+\]
+Here zero is the software's non-CM return value. The field-degree
+sums equal the dimensions, and the exact coefficients through $25$
+are retained. The non-CM orbits at $288$ and $576$ have rational
+$a_{13}=4$ and $-4$, respectively. Thus an independently justified
+membership of the $E_0$ descent in this list would select the level
+$576$ orbit. The positive-seed large-image argument cannot simply
+be applied to $F(0,1)=1$, which has no multiplicative prime above
+three. A separate general modularity or sufficiently-large-prime
+argument for this fixed non-CM curve remains necessary for that
+unconditional identification.
+
+\paragraph{Verification scope.}
+The ordinary non-CM and local-shadow proofs were independently
+reviewed, and the point counts and character sign were separately
+replayed. The certificate enumerates all $48$ local units, checks all
+$2304$ multiplication pairs and both norm-thirteen reductions. The
+newspace computation is an independently repeated exact software
+calculation; it is not a Lean proof of modular-form algorithms or an
+exclusion of the remaining eigenforms. The corresponding scripts,
+canonical JSON files and exact hashes are recorded in the sixth-round
+adversarial-audit checkpoint.

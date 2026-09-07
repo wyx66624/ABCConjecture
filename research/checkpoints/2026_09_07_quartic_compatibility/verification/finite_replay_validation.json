@@ -1,0 +1,52 @@
+{
+  "status": "PASS: all six finite replays independently rerun by root",
+  "records": [
+    {
+      "name": "exact ranks",
+      "artifact": "research/checkpoints/2026_09_07_critical_bottleneck/sixth_round/rank_root_replay.json",
+      "artifact_sha256": "7eefa2aa8936d2125dc5851456d9036eaf4666a00ea4daf211c4b54dc02a56fd",
+      "reported_digest": "d4dfd5aeebe2d2eb55dcf119aa578a4f392d10ae67360afa9508c7afaf84ebe4",
+      "reported_digest_kind": "canonical payload"
+    },
+    {
+      "name": "actual windows",
+      "artifact": "research/checkpoints/2026_09_07_adversarial_audit/sixth_round/verification/root_window_results.json",
+      "artifact_sha256": "9c955ba3ed8d7a5c6f1ff1f7ac0e453377ca81d64cad08cb3b43d190d6fa80ce",
+      "reported_digest": "9c955ba3ed8d7a5c6f1ff1f7ac0e453377ca81d64cad08cb3b43d190d6fa80ce",
+      "reported_digest_kind": "whole artifact"
+    },
+    {
+      "name": "boundary Frobenius",
+      "artifact": "research/checkpoints/2026_09_07_adversarial_audit/sixth_round/verification/boundary_shadow_results.json",
+      "artifact_sha256": "fecf29fe68b332d60cfdd3143f6a1639b335b5db94d3557b8ba41fa09862f5fa",
+      "reported_digest": "fecf29fe68b332d60cfdd3143f6a1639b335b5db94d3557b8ba41fa09862f5fa",
+      "reported_digest_kind": "whole artifact"
+    },
+    {
+      "name": "boundary character",
+      "artifact": "research/checkpoints/2026_09_07_adversarial_audit/sixth_round/verification/boundary_character_results.json",
+      "artifact_sha256": "7eff33ce6623cca2544f5f4cd5c52a16d53a9cef8f0aa128903d800e7543c22a",
+      "reported_digest": "7eff33ce6623cca2544f5f4cd5c52a16d53a9cef8f0aa128903d800e7543c22a",
+      "reported_digest_kind": "whole artifact"
+    },
+    {
+      "name": "independent modular spaces",
+      "artifact": "research/checkpoints/2026_09_07_adversarial_audit/sixth_round/verification/modular_space_results.json",
+      "artifact_sha256": "a9a8d26becc22223498c7402d7d13c9ac9520eb2ba2b331cb3f7764580bb3521",
+      "reported_digest": "a9a8d26becc22223498c7402d7d13c9ac9520eb2ba2b331cb3f7764580bb3521",
+      "reported_digest_kind": "whole artifact"
+    },
+    {
+      "name": "Frey and Tate",
+      "artifact": "research/checkpoints/2026_09_07_independent_route/sixth_round/exact_frey_results.json",
+      "artifact_sha256": "876816dd1f37f6cbee6887e59bab57fa993744bb0e5f37b4de8a6ce01993bd59",
+      "reported_digest": "876816dd1f37f6cbee6887e59bab57fa993744bb0e5f37b4de8a6ce01993bd59",
+      "reported_digest_kind": "whole artifact"
+    }
+  ],
+  "not_claimed": [
+    "infinite theorem from finite scan",
+    "ABC proof or disproof",
+    "formal geometry, modularity or interval theorem"
+  ]
+}

@@ -1,5 +1,17 @@
 # Research route registry
 
+Latest sixth continuation: September 7, 2026. Actual integer-root interval
+averages now reach growing prime windows using exact rank stratification.
+The exceptional roots and unbounded prime tail stay open. A compatible
+single-quartic-field descent improves moving cover counts and realizes
+smooth complete intersections; individual point heights remain uncontrolled.
+The actual Frey Q-curve supplies ordinary conductor, level and weight
+interfaces, including the nonflat residual case, without excluding the
+remaining newforms. A non-CM boundary and its actual local shadows obstruct
+one specified finite-product test under an explicit membership premise.
+Eighteen new scoped Lean declarations verify the seed arithmetic behind
+these constructions. All unrefuted parent directions remain active.
+
 Latest fifth continuation: September 7, 2026. Exact actual cyclotomic packets
 give a totient-weight signed budget and a proved sparse-positive-packet
 subclass. A separate actual high-rank/depth family refutes only automatic

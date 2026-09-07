@@ -1,0 +1,226 @@
+\section{Actual moving roots through a growing prime window}
+\label{rw-section}
+
+We average over an actual interval of integer roots and retain every
+endpoint error in the prime-power congruence counts. Exact rank
+stratification and the spacing of its possible primes improve the
+window substantially. The conclusion concerns most roots in that
+interval; the primes beyond the window and its exceptional roots
+remain open.
+
+Write $\mathcal O=\mathbb Z[\zeta]$, $\zeta^2-\zeta+1=0$,
+$N(a+b\zeta)=a^2+ab+b^2$ and $P(a+b\zeta)=ab(a+b)$.
+For integers $n,B\ge1$ and $B\le k<2B$, put
+\[
+ w_k=3k+\zeta,\quad Q_k=N(w_k),\quad
+ T_{k,n}=|P(w_k^n)|,\quad t_{k,n}=\log c_{k,n},
+\]
+where $c_{k,n}$ is the largest side of the positive unit rotation
+of $w_k^n$. For real $5\le Y\le Z$, define
+\[
+ E_{k,n}(Y,Z)=\sum_{Y<p\le Z}(v_p(T_{k,n})-3)_+\log p.
+\]
+This is the primewise positive excess of the actual integer boundary
+in the specified finite window.
+
+\begin{lemma}[Actual heights and nonzero boundaries]\label{rw-height}
+All these roots and their powers are primitive and unramified,
+their boundaries are nonzero, and
+\[
+ t_{k,n}\ge n\log(3B),\qquad
+ \log|P(w_k^m)|\le3m\log(6B+1)\quad(m\ge1).
+\]
+\end{lemma}
+\begin{proof}
+The root is primitive and $Q_k=9k^2+3k+1\equiv1\pmod3$.
+Oriented Eisenstein factorization preserves primitivity under all
+powers. A zero boundary would make $w_k/\bar w_k$ a root of unity;
+primitivity and the absence of a ramified factor would then force
+$w_k$ to be a unit, contrary to $Q_k\ge13$. Unit rotation preserves
+norm and absolute boundary. Its positive coordinates give
+$Q_k^n\le c_{k,n}^2$, while $Q_k\ge(3B)^2$.
+Also $Q_k\le(6B+1)^2$ and the cubic difference identity yields
+$|P(w_k^m)|\le Q_k^{3m/2}$.
+\end{proof}
+
+\begin{lemma}[Simple roots after removing the exponent's prime part]
+\label{rw-simple}
+For $p>3$ and $p\nmid m$, every root modulo $p$ of
+$G_m(X)=P((3X+\zeta)^m)\in\mathbb Z[X]$ is simple. There are at
+most $3m$ such roots, each lifting uniquely at every precision.
+If $a_p=v_p(n)$ and $m_p=n/p^{a_p}$, then at each actual $k$
+\[
+ v_p(T_{k,n})=
+ \begin{cases}
+ v_p(|G_{m_p}(k)|)+a_p,&v_p(|G_{m_p}(k)|)>0,\\
+ 0,&v_p(|G_{m_p}(k)|)=0.
+ \end{cases}
+\]
+\end{lemma}
+\begin{proof}
+Over the split algebra or the quadratic extension of $\mathbb F_p$,
+let $z,\bar z$ be the distinct roots of $X^2-X+1$. The identity
+\[
+ 3(z-\bar z)G_m(X)
+   =(3X+z)^{3m}-(3X+\bar z)^{3m}
+\]
+shows that neither factor $3X+z$, $3X+\bar z$ can vanish at a root.
+Their ratio has derivative $3(\bar z-z)/(3X+\bar z)^2\ne0$.
+Since $p\nmid3m$, differentiating its $3m$-th power at the root
+gives a nonzero result. Thus the root is simple, and the polynomial
+degree bound and simple-root lifting prove the first assertions.
+
+If $p\nmid Q_k$, its homogeneous rank is prime to $p$, so it
+divides $n$ if and only if it divides $m_p$. The established rank
+and lifting law gives the displayed identity. If $p\mid Q_k$,
+primitivity implies that $p$ divides neither boundary; both
+valuations are zero. Consequently, at every actual root,
+\[
+ (v_p(T_{k,n})-3)_+
+ \le (v_p(|G_{m_p}(k)|)-3)_++v_p(n).
+\]
+The total additional lifting cost in any window is at most $\log n$.
+\end{proof}
+
+\begin{proposition}[An unstratified actual interval estimate]
+\label{rw-unstratified}
+One has
+\[
+ \frac1B\sum_{B\le k<2B}\frac{E_{k,n}(Y,Z)}{t_{k,n}}
+ \le \frac{10\log Y}{Y^3\log(3B)}
+       +\frac{18n\pi(Z)}B+\frac{\log n}{n\log(3B)}.
+\]
+\end{proposition}
+\begin{proof}
+For $m=m_p$, each of the at most $r_{p,m}\le3m$ lifted residue
+classes meets the interval in at most $B/p^e+1$ integers. The cap
+$H=\lfloor3m\log(6B+1)/\log p\rfloor$ covers every actual depth.
+Summing the positive-excess layers $4\le e\le H$ gives
+\[
+ \sum_k(v_p(|G_m(k)|)-3)_+\log p
+ \le\frac{3mB\log p}{p^3(p-1)}+9m^2\log(6B+1).
+\]
+Empty layer ranges contribute zero. Use $m\le n$, divide by
+$Bn\log(3B)$, and use $\log(6B+1)\le2\log(3B)$.
+The elementary estimate
+\begin{equation}\label{rw-prime-series}
+ 3\sum_{p>Y}\frac{\log p}{p^3(p-1)}
+       \le\frac{10\log Y}{Y^3}\qquad(Y\ge5)
+\end{equation}
+follows by $p/(p-1)\le5/4$ and comparison of the decreasing
+function $\log x/x^4$ with its integral from $\lfloor Y\rfloor$.
+Its integral is $(\log\lfloor Y\rfloor/3+1/9)/\lfloor Y\rfloor^3$;
+$\lfloor Y\rfloor\ge4Y/5$ gives the stated loose constant.
+Add the lifting cost from Lemma~\ref{rw-simple}. Every denominator
+comparison has a nonnegative numerator.
+\end{proof}
+
+\begin{lemma}[The exact rank count]\label{rw-exact-rank}
+For $p>3$, put $\chi_p=1$ at split primes and $-1$ at inert primes,
+and $N_p=p-\chi_p$. For each integer $d\ge1$, the number of residues $k\bmod p$ for which
+$((3k+\zeta)/(3k+\bar\zeta))^3$ has exact order $d$ is
+\[
+ r_p(d)=
+ \begin{cases}
+ 3\varphi(d)-\mathbf1_{d=1},&d\mid N_p/3,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\]
+Only nonzero-norm residues enter this definition. Each counted root
+of $G_d$ lifts uniquely to every $p^e$, retaining its exact rank
+modulo $p$.
+\end{lemma}
+\begin{proof}
+The fractional-linear map $a\mapsto(a+\zeta)/(a+\bar\zeta)$ is
+a bijection onto the norm-one group minus its identity. Its inverse
+is $(R\bar\zeta-\zeta)/(1-R)$; conjugation fixes this inverse in
+the inert case, and the split case follows directly in the split
+algebra. The norm-one group is cyclic of order $N_p$, divisible by
+three. Cubing has kernel three and image of order $N_p/3$.
+Each order-$d$ element has three preimages, and only at $d=1$ must
+the omitted identity be subtracted. Multiplication by three permutes
+the parameter residues. Since $p\nmid d$, Lemma~\ref{rw-simple}
+applies. Retaining the initial residue retains its rank.
+\end{proof}
+
+\begin{theorem}[A rank-stratified actual prime window]
+\label{rw-main}
+For all the above data,
+\begin{equation}\label{rw-final-bound}
+ \frac1B\sum_{B\le k<2B}\frac{E_{k,n}(Y,Z)}{t_{k,n}}
+ \le \frac{10\log Y}{Y^3\log(3B)}
+       +\frac{12(Z+1)}B+\frac{\log n}{n\log(3B)}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+At each supported prime use its actual rank $d$ and first depth
+$s=v_p(T_{k,d})$. Then $d\mid n$, $d\mid N_p/3$, and
+$v_p(T_{k,n})=s+v_p(n)$. It suffices to count $(s-3)_+$, with
+at most $\log n$ additional lifting cost at each root.
+
+For each fixed rank-prime pair, Lemma~\ref{rw-exact-rank} gives
+at most $3\varphi(d)(B/p^e+1)$ parameters at depth at least $e$.
+The cap $\log|G_d(k)|\le3d\log(6B+1)$ yields the bound
+\[
+ \frac{3\varphi(d)B\log p}{p^3(p-1)}
+       +9\varphi(d)d\log(6B+1)
+\]
+for their first-depth positive cost. At fixed $p$, summing the first
+term over $d\mid\gcd(n,N_p/3)$ uses
+$\sum\varphi(d)=\gcd(n,N_p/3)\le n$ and
+\eqref{rw-prime-series}.
+
+For the endpoint errors, reverse the order of summation. A prime
+of rank $d$ lies in $p=3dj+1$ or $p=3dj-1$, with $j\ge1$.
+Thus at most $2(Z+1)/(3d)$ candidates occur up to $Z$. The excluded
+integer $p=1$ is not counted, including when $d=1$. Therefore
+\[
+ \sum_{d\mid n}9\varphi(d)d\log(6B+1)\frac{2(Z+1)}{3d}
+       =6n(Z+1)\log(6B+1).
+\]
+Here the depth-cap factor $d$ cancels the progression spacing.
+Divide by $Bn\log(3B)$, use $\log(6B+1)\le2\log(3B)$, and add
+the lifting cost. Norm-dividing primes have zero boundary valuation,
+so the rank partition omits no supported prime.
+\end{proof}
+
+\begin{corollary}[A window entering the maximal-rank range]
+\label{rw-polynomial}
+Take $B=n^4$, $Y=n^{1/6}$ and $Z=n^3$. For sufficiently large $n$,
+\[
+ \frac1B\sum_k\frac{E_{k,n}(Y,Z)}{t_{k,n}}
+ \le\frac5{12\sqrt n}+\frac{12}n+\frac{12}{n^4}+\frac1{4n}.
+\]
+The proportion for which $E_{k,n}/t_{k,n}>n^{-1/4}$ is at most
+\[
+ \frac5{12n^{1/4}}+\frac{12+1/4}{n^{3/4}}+\frac{12}{n^{15/4}}.
+\]
+\end{corollary}
+\begin{proof}
+Substitute into \eqref{rw-final-bound}, use
+$\log(3B)\ge4\log n$, and apply Markov's inequality to the
+nonnegative actual cost.
+\end{proof}
+
+All these profiles are actual homogeneous profiles with unit residual
+and $\lambda=1/n$; their root norms are comparable to $n^8$. The
+window includes possible maximal-rank primes even when $n$ is prime.
+More generally, $Z=o(B)$ makes the discrepancy vanish whenever the
+main and lifting terms vanish. For $B=n^4$ one may take
+$Z=\lfloor B/(\log n)^2\rfloor$, obtaining average
+$O((\log n)^{-2}+n^{-1/2})$ and exceptional proportion $O(1/\log n)$
+at threshold $1/\log n$.
+
+These are finite-window statements about most actual roots. They do
+not bound a specified exceptional root, primes above $Z$, or the
+complete signed tail of any prescribed orbit. The original
+unstratified bound also gives, for every fixed integer $A\ge2$,
+vanishing average in $B=n^{A+2}$ through $Z=n^A$. The rank
+stratification is stronger and uses no prime-distribution estimate.
+
+The full ordinary proof was independently reviewed, including the
+split and inert rank counts, the prime-part removal, endpoint caps,
+and the exceptional-proportion constants. Separate exact replays
+check actual integer blocks and complete finite residue spaces at
+specified precisions. They are diagnostics of the ordinary proof,
+not a complete-tail certificate or a Lean formalization.

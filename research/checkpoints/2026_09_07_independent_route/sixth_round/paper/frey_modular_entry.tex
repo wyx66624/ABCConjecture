@@ -1,0 +1,371 @@
+\section{A Frey Q-curve and a residual modular-level budget}
+\label{fm-section}
+
+This section gives a modular entry for the second mixed norm. Let
+\[
+ F=F(a,b)=a^4+3a^3b+5a^2b^2+3ab^3+b^4,
+ \qquad a,b\in\mathbb Z_{>0},\quad\gcd(a,b)=1,
+\]
+and put $x=a^2+b^2$, $y=a+b$. We derive an exact conductor over
+$\mathbb Q(\sqrt{-3})$ and a finite set of necessary modular levels for
+the pure-power branch. The remaining newforms are not eliminated.
+All representation-theoretic inputs are ordinary mathematical inputs;
+this is not a full Lean formalization of Tate's algorithm or modularity.
+
+\subsection{The actual generalized-Fermat coordinates}
+
+\begin{lemma}[The square gate and two parity charts]\label{fm-square-gate}
+One has
+\begin{equation}\label{fm-coordinates}
+ x^2+3y^4=4F,\qquad 2x-y^2=(a-b)^2,\qquad\gcd(x,y)\mid2.
+\end{equation}
+If $a,b$ have opposite parity, then $x,y,d=a-b$ are odd,
+$\gcd(x,y)=1$, $d^2=2x-y^2$, and $|d|<y$. Conversely, these conditions
+with $y>0$ recover a primitive positive seed by
+$a=(y+d)/2$, $b=(y-d)/2$.
+
+If $a,b$ are both odd, then
+$X=x/2$, $Y=y/2$, $D=(a-b)/2$ satisfy
+\begin{equation}\label{fm-odd-chart}
+ X^2+12Y^4=F,\quad X-Y^2=D^2,\quad |D|<Y,
+ \quad X\text{ odd},\quad\gcd(X,Y)=1.
+\end{equation}
+Conversely these conditions with $Y>0$ recover the primitive positive
+odd seed $a=Y+D$, $b=Y-D$.
+\end{lemma}
+\begin{proof}
+The identities follow by expansion. A common divisor of $x,y$ divides
+$2ab$, while $\gcd(ab,a+b)=1$. In the first inverse, an odd common
+prime of $a,b$ would divide $x,y$, and both seeds cannot be even since
+$x$ is odd. In the second inverse, $X=Y^2+D^2$ odd makes $Y,D$
+opposite in parity, and $\gcd(X,Y)=1$ implies $\gcd(Y,D)=1$.
+The strict inequalities give positivity in both cases.
+\end{proof}
+
+An arbitrary solution of $x^2+3y^4=4VQ^g$ is therefore not yet an
+actual seed: it must satisfy the additional square and positivity gate.
+Also, the known equation $A^4+3B^2=C^p$ has different coefficients.
+The substitution $A=3y,B=3x$ gives $A^4+3B^2=108VQ^g$ with non-coprime
+parameters, so its equation-specific non-existence results do not apply.
+
+The quartic $F$ is odd and $F\equiv1\pmod3$. The latter follows from
+$F\equiv(a^2+b^2)^2\pmod3$; in particular $3\nmid x$.
+Lemma~\ref{qc-bad-depth} gives the exact additional fact
+$13\mid F\Rightarrow v_{13}(F)=1$. Thus
+\begin{equation}\label{fm-pure-support}
+ F=Q^g,\quad g\ge2\quad\Longrightarrow\quad\gcd(Q,78)=1.
+\end{equation}
+
+\subsection{An explicit degree-two Q-curve}
+
+Put $r=\sqrt{-3}$, $K=\mathbb Q(r)$ and
+$\alpha_\pm=3y^2\pm xr$. Attach
+\begin{equation}\label{fm-frey-curve}
+ E_{a,b}:\quad \mathcal Y^2=\mathcal X^3+
+                 12y\mathcal X^2+6\alpha_+\mathcal X.
+\end{equation}
+
+\begin{lemma}[Isogeny and invariant identities]\label{fm-invariants}
+The curve~\eqref{fm-frey-curve} is a degree-two Q-curve, with the
+displayed isogenies defined over $K(\sqrt{-2})$. Its invariants are
+\begin{equation}\label{fm-invariant-formulas}
+ \begin{aligned}
+ \alpha_+\alpha_-&=12F,&
+ c_4&=2^5 3^2(5y^2-xr),\\
+ c_6&=2^8 3^3y(3xr-7y^2),&
+ \Delta&=2^{11}3^4F\alpha_+.
+ \end{aligned}
+\end{equation}
+At every rational prime $q>3$ not dividing $F$ it has good reduction.
+If $q\mid F$, then $q$ splits in $K$, the displayed equation is minimal
+and multiplicative at both primes, and, for $m=v_q(F)$,
+\begin{equation}\label{fm-split-valuations}
+ \{v_{\mathfrak q}(\Delta_{\min}),
+       v_{\bar{\mathfrak q}}(\Delta_{\min})\}=\{m,2m\}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $A=12y$ and $B=6\alpha_+$. The quotient by the order-two point
+$(0,0)$ has coefficients $-2A=-24y$ and
+$A^2-4B=24\alpha_-$. Hence it is the quadratic twist by $-2$ of the
+conjugate curve. This is the explicit isogeny construction also used in
+\cite[Proposition~2.2]{PacettiVillagra2022QCurves}; it does not require a
+primitive solution of the equation studied there.
+The formulas
+$c_4=16(A^2-3B)$, $c_6=-64A^3+288AB$ and
+$\Delta=16B^2(A^2-4B)$ prove~\eqref{fm-invariant-formulas}.
+
+If $q\nmid F$, the discriminant is a unit. If $q\mid F$, neither $x$
+nor $y$ is divisible by $q$: otherwise~\eqref{fm-coordinates} would
+force both, contradicting $\gcd(x,y)\mid2$. The same equation makes
+$-3$ a nonzero square modulo $q$, so $q$ splits. The elements
+$\alpha_+,\alpha_-$ cannot both vanish at a prime above $q$, since their
+sum and difference would force $x,y$ to vanish. Their local valuations
+are $m,0$ in one order. The factor $5y^2-xr$ in $c_4$ reduces to
+$8y^2$ or $2y^2$, a unit. Thus the equation is minimal and multiplicative,
+with the two valuations in~\eqref{fm-split-valuations}.
+
+Since $F\ge13$ and $\gcd(F,6)=1$, such a multiplicative prime always
+exists. Its negative valuation of $j$ excludes complex multiplication,
+because CM $j$-invariants are algebraic integers. In the non-CM case the
+isogenies to the conjugate form a rank-one module, so their degrees are
+the minimum degree times integer squares. The existing degree-two
+isogeny forces the minimum degree to be exactly two.
+\end{proof}
+
+\subsection{Uniform Tate calculations at two and three}
+
+Let $\mathfrak p_2=(2)$, an inert prime with residue field $\mathbb F_4$,
+and $\mathfrak p_3=(r)$, with $v_{\mathfrak p_3}(3)=2$.
+We use valuations normalized by $v_{\mathfrak p_2}(2)=1$ and
+$v_{\mathfrak p_3}(r)=1$.
+
+\begin{theorem}[The exact conductor over the quadratic field]
+\label{fm-quadratic-conductor}
+The curve has minimal discriminant valuation $12$, Kodaira type $I_2^*$
+and conductor exponent $6$ at $\mathfrak p_2$. At $\mathfrak p_3$ the
+corresponding data are $9$, $III^*$ and $2$. Consequently
+\begin{equation}\label{fm-exact-conductor}
+ \mathcal N(E)=\mathfrak p_2^6\mathfrak p_3^2
+       \prod_{q\mid F,\ q>3}\mathfrak q\bar{\mathfrak q}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+At $\mathfrak p_3$, $3\nmid x$ gives $v(\alpha_+)=1$, hence
+$v(\Delta)=9$. The coefficients satisfy
+\[
+ a_1=a_3=a_6=0,\qquad v(a_2)\ge2,\qquad v(a_4)=3.
+\]
+The auxiliary cubic in Tate's additive normalization is $T^3$.
+After its zero triple root, the quadratic for the $IV^*$ test is $T^2$.
+The stronger divisibility of $a_3,a_6$ after its zero repeated root
+already holds. The next test is nonzero since $a_4/r^3$ is a unit;
+thus the type is $III^*$. Its eight geometric components give conductor
+exponent $9+1-8=2$. These branch tests also establish minimality.
+
+At $\mathfrak p_2$, put $\zeta=(1+r)/2$. For integers $U,V$ and $n\ge1$,
+the integral-basis identity $U+Vr=(U-V)+2V\zeta$ gives
+\begin{equation}\label{fm-integral-basis-test}
+ U+Vr\in2^n\mathcal O_{K,\mathfrak p_2}
+ \ \Longleftrightarrow\ 2^n\mid U-V,\quad 2^{n-1}\mid V.
+\end{equation}
+Conjugation preserves the valuation and $\alpha_+\alpha_-=12F$, so
+$v(\alpha_+)=1$ and $v(\Delta)=12$.
+Make the integral substitution $\mathcal X=X'+R$, $\mathcal Y=Y'+T$
+specified by the following table.
+\[
+\begin{array}{c|c|c}
+\text{condition}&R&T\\ \hline
+y\equiv0\pmod4&2&2(r+1)\\
+y\equiv2\pmod4&2&2(r-1)\\
+y\text{ odd, even seed }0\pmod4&1+r&4\\
+y\text{ odd, even seed }2\pmod4&1+r&2(r+1)
+\end{array}
+\]
+The transformed coefficients are
+\begin{equation}\label{fm-transformed-coefficients}
+\begin{aligned}
+ a'_1&=0,&a'_2&=A+3R,&a'_3&=2T,\\
+ a'_4&=B+2AR+3R^2,&
+ a'_6&=R^3+AR^2+BR-T^2.
+\end{aligned}
+\end{equation}
+We verify the uniform pattern
+\begin{equation}\label{fm-tate-pattern}
+ v(a'_2)=1,\quad v(a'_3)\ge3,\quad v(a'_4)=3,\quad v(a'_6)\ge5.
+\end{equation}
+
+First suppose $y$ is even. Then $x\equiv2\pmod8$ and $a'_2=12y+6$
+has valuation one. With $T=2(r+s)$, where $s=1$ or $-1$ according to
+the table, write
+\[
+ a'_4=6(H+xr),\quad H=3y^2+8y+2,
+ \qquad
+ a'_6=C+Dr,
+\]
+where $C=16+48y+36y^2$ and $D=12x-8s$.
+Both $H/2,x/2$ are odd. For odd integers $u,v$, the norm
+$u^2+3v^2\equiv4\pmod8$ makes $v_{\mathfrak p_2}(u+vr)=1$.
+This proves $v(a'_4)=3$. Also $16\mid D$ and
+\[
+ (C-D)/4=4+12y+9y^2-3x+2s\equiv0\pmod8,
+\]
+using $x\equiv2\pmod8$ and the two even values of $y\pmod4$.
+Equation~\eqref{fm-integral-basis-test} gives $v(a'_6)\ge5$.
+Finally $v(T)=2$, giving $v(a'_3)=3$.
+
+If $y$ is odd, then
+\[
+ a'_2=3(4y+1+r),\quad a'_4=6(H+Jr),\quad
+ H=3y^2+4y-1,\quad J=x+4y+1.
+\]
+The first bracket has valuation one; $H/2,J/2$ are odd, so again
+$v(a'_4)=3$. For $T=4$, the coefficients of $a'_6=C+Dr$ obey
+\[
+ D=24y+18y^2+6x,\qquad C-D=-24(1+2y+x).
+\]
+Here $x\equiv1\pmod8$ makes $16\mid D$, and $x\equiv1\pmod4$ gives
+$32\mid C-D$. For $T=2(r+1)$ the corresponding formulas are
+\[
+ D=24y+18y^2+6x-8,\qquad C-D=8(1-6y-3x).
+\]
+Now $x\equiv5\pmod8$ proves $16\mid D$, and again $32\mid C-D$.
+In both cases $v(a'_3)=3$, completing~\eqref{fm-tate-pattern}.
+
+Tate's auxiliary cubic is $Z^2(Z+b)$, where $b=a'_2/2$ is nonzero in
+$\mathbb F_4$. Its double root is zero. The first quadratic in the
+$I_n^*$ branch is $Z^2$, since $a'_3/4,a'_6/16$ vanish in the residue
+field. No further translation is needed: $8\mid a'_3$ and $32\mid a'_6$
+already hold. The second quadratic is
+\[
+ (a'_2/2)Z^2+(a'_4/8)Z+a'_6/32,
+\]
+whose derivative $a'_4/8$ is a unit. The algorithm stops at $I_2^*$;
+its seven geometric components give conductor exponent $12+1-7=6$.
+All changes have scaling one. These are residue-field polynomial tests,
+valid over $\mathbb F_4$; no shortcut peculiar to $\mathbb F_2$ is used.
+For the explicit double-root and triple-root branches see
+\cite[Chapter~3, pp.~66--68]{Cremona1997Algorithms}.
+\end{proof}
+
+\subsection{Five necessary levels in the pure-power branch}
+
+\begin{theorem}[Residual modular levels]\label{fm-five-levels}
+If $F(a,b)=Q^p$ for $Q\in\mathbb Z_{>0}$ and a prime $p>7$, then
+there is a weight-two newform
+with character $\epsilon=\psi_3$ of conductor $12$, and level
+\begin{equation}\label{fm-five-level-list}
+ N=2^e3^2,\quad2\le e\le6,
+ \qquad N\in\{36,72,144,288,576\},
+\end{equation}
+whose residual representation restricts to the specified twist of
+$E_{a,b}[p]$ over $K$.
+\end{theorem}
+\begin{proof}
+We spell out the external representation inputs because the level formula
+for the different Fermat equation cannot be copied.
+By \cite[Theorem~3.2 and Table~3.3]{PacettiVillagra2022QCurves}, with
+$d=3$, there is a fixed order-four character $\chi$ of $G_K$ satisfying
+\[
+ \operatorname{cond}(\chi)\mid\mathfrak p_2^3,\qquad
+ \chi^2=\epsilon|_{G_K},\qquad
+ {}^\sigma\chi=\chi\psi_{-2}|_{G_K}.
+\]
+In particular it is unramified at three. This character construction
+does not require a primitive Fermat solution. The isogeny of
+Lemma~\ref{fm-invariants} makes $\rho_E\otimes\chi$ invariant under
+quadratic conjugation. The extension proof in
+\cite[Theorem~4.2]{PacettiVillagra2022QCurves} applies to this non-CM
+Q-curve. Its oddness invokes the general Q-curve result of Ribet cited
+there; it does not follow from Schur's lemma alone. The determinant is
+$\epsilon\chi_{\mathrm{cyc}}$.
+
+At every $q>3$, Lemma~\ref{fm-invariants} makes the minimal discriminant
+valuations divisible by $p$. The Tate-curve criterion gives unramified
+$p$-torsion away from $6p$ and finite flat $p$-torsion at $p$.
+Indeed, at $p$ the Tate parameter has valuation divisible by $p$, so
+its Kummer class has a unit representative; good reduction gives finite
+flatness directly. The extension $K/\mathbb Q$ and the character $\chi$
+are unramified at $p$, preserving these properties under twist and descent.
+The same local mechanism is explained in
+\cite[Propositions~3.6--3.9]{Koutsianas2020GeneralizedFermat}.
+
+At $\mathfrak p_2$, the curve is potentially good: the invariant formulas
+give $v(c_4)=6$, $v(\Delta)=12$, hence $v(j)=6>0$.
+On every finite higher inertia group its characteristic-zero
+representation has determinant one. Its fixed subspace cannot have
+dimension one: semisimplicity would make the complementary character
+equal to the determinant, hence trivial as well. Thus its ramification
+has a single break. The conductor exponent $6$ gives break $2$.
+The character $\chi$ has break at most $2$, so the twist has conductor
+exponent at most $6$. Since $K_{\mathfrak p_2}/\mathbb Q_2$ is unramified,
+restriction preserves that exponent. Its determinant has conductor
+exponent $2$, furnishing the lower bound $e\ge2$.
+
+At three, the curve is potentially good and has conductor exponent two,
+so it has no wild ramification. Twisting by $\chi$ preserves this.
+The quadratic extension $K_{\mathfrak p_3}/\mathbb Q_3$ is tame, so both
+extensions to $G_{\mathbb Q_3}$ have trivial wild inertia and conductor
+exponent at most two. They differ by $\psi_{-3}$. The conductor of their
+direct sum, the induced representation, has exponent
+$2\cdot1+1\cdot2=4$ by
+\cite[Theorem~4.1]{PacettiVillagra2022QCurves}. Hence each exponent
+equals two.
+
+The big-image input is the general Q-curve statement
+\cite[Theorem~5.2]{PacettiVillagra2022QCurves}: squarefree isogeny degree
+and a multiplicative prime greater than three suffice. Lemma~\ref{fm-invariants}
+checks both conditions, independently of the nonprimitive substitution
+$(3y,3x)$. For $K=\mathbb Q(\sqrt{-3})$ the source gives $N_3=7$;
+the improvement uses
+\cite[Proposition~5.4]{Koutsianas2020GeneralizedFermat}.
+This is a published external input, not a new modular-symbol certificate
+in this repository.
+
+Large image, oddness and finite flatness give Serre weight two and the
+listed prime-to-$p$ levels, by the modularity and lowering arguments in
+the cited sources. The finite inertial images at two and three have
+order supported at two and three; adjoining the order-four character
+and the quadratic descent does not change that support. Reduction
+modulo $p>7$ therefore preserves their conductors and the character
+$\epsilon$. This proves the necessary level list.
+\end{proof}
+
+\subsection{A direct budget for moving residual support}
+
+\begin{theorem}[Residual level and dimension budgets]\label{fm-residual-budget}
+Suppose $F=VQ^p$, where $V,Q\in\mathbb Z_{>0}$, $p>7$ is prime,
+$V$ is $p$-power-free, and
+$p\nmid V$. Then the necessary weight-two newform has character
+$\epsilon=\psi_3$ and exact prime-to-$p$ level
+\begin{equation}\label{fm-residual-level}
+ N=2^e3^2\operatorname{rad}(V),\qquad2\le e\le6.
+\end{equation}
+For $\lambda=\max\{1,\log V\}/p$ this implies
+\begin{equation}\label{fm-log-level}
+ \frac{\log N}{p}\le\lambda+\frac{\log576}{p}.
+\end{equation}
+For all $1\le V\le\exp(Lp)$ together, with $L\ge0$, the sum of the
+dimensions of the five possible newspaces is at most
+$965\exp(3Lp)$. In particular this budget is subexponential when
+$L\to0$ and $p\to\infty$.
+\end{theorem}
+\begin{proof}
+At $q>3$, write $m=v_q(V)+p v_q(Q)$. The two local minimal discriminant
+valuations are $m,2m$. The Tate residual inertia is nontrivial precisely
+when $p$ does not divide its parameter's valuation. Since $p$ is odd and
+$V$ is $p$-power-free, this occurs precisely at $q\mid V$.
+The twist is unramified at these primes. At $p$, the condition $p\nmid V$
+ensures finite flatness. All other steps in Theorem~\ref{fm-five-levels}
+are unchanged, proving~\eqref{fm-residual-level}.
+Then $N\le576V$ gives~\eqref{fm-log-level}.
+
+Let $D=\operatorname{rad}(V)$; it is prime to six. The index satisfies
+\[
+ I=[\mathrm{SL}_2(\mathbb Z):\Gamma_0(N)]
+  =2N\prod_{q\mid D}(1+q^{-1})
+  \le2ND\le1152V^2.
+\]
+The weight-two Sturm bound gives dimension at most
+$\lfloor I/6\rfloor+1\le193V^2$ for each space. The five dimensions
+sum to at most $965V^2$. Put $H=\lfloor\exp(Lp)\rfloor$.
+Even allowing inadmissible $V$, there are at most $H$ terms of size at
+most $965H^2$, giving the asserted bound. Dimensions count a Galois
+orbit with its coefficient-field degree, not merely as one orbit.
+The index and Sturm-bound conventions agree with
+\cite[\texttt{mfsturm}]{PARIModularForms}.
+\end{proof}
+
+The condition $p\nmid V$ cannot be inferred from a small $\lambda$;
+Section~\ref{fm7-section} includes the non-finite-flat branch $p\mid V$
+at weight $p+1$, with uniform candidate elimination still open.
+The level budget does not make the newspaces empty and gives no seed
+height bound. Even in the pure branch the five spaces must be examined
+against the actual seed family and its inverse square gate.
+If a prime $p$ divides a larger pure exponent $g$, write
+$Q^g=(Q^{g/p})^p$. An eventual contradiction for all large $p$, together
+with the earlier fixed-exponent finiteness, would give finiteness for
+pure-power seeds admitting an exponent $g\ge3$. No such contradiction
+is proved here. The known infinite square family is outside that
+proposed implication. The moving Kummer-cover and point-height routes
+remain open alongside this modular entry.

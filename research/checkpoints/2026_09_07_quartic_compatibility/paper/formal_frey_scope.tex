@@ -1,0 +1,61 @@
+\section{Formal arithmetic of the actual Frey seed}
+\label{sec:formal-frey-seed}
+
+The module \texttt{FreySeedArithmetic.lean} contains eighteen new
+declarations. It imports the actual second norm and the previously
+checked primitive residue statements. For all integers $a,b$, it defines
+$x=a^2+b^2$, $y=a+b$ and proves
+\[
+ x^2+3y^4=4F(a,b),\qquad 2x-y^2=(a-b)^2.
+\]
+It also checks the two polynomial identities for the odd-seed chart
+$a=Y+D$, $b=Y-D$, including
+$F(Y+D,Y-D)=(Y^2+D^2)^2+12Y^4$. These chart identities do not silently
+assert positivity, primitivity or the full inverse parametrization.
+
+All algebraic coefficients are actual Eisenstein integer pairs, with
+$r=2\zeta-1$ and $r^2=-3$. The module defines
+\[
+ \alpha_+=3y^2+xr,\quad \alpha_-=3y^2-xr,
+ \qquad A=12y,\quad B=6\alpha_+,
+\]
+and checks conjugation, $N(\alpha_+)=12F$, and
+$\alpha_+\alpha_-=12F$. It defines the usual polynomial invariants of
+$Y^2=X^3+AX^2+BX$ by
+\[
+ c_4=16(A^2-3B),\quad c_6=-64A^3+288AB,
+ \quad\Delta=16B^2(A^2-4B).
+\]
+The kernel verifies their actual values
+\[
+ \begin{split}
+ c_4&=288(5y^2-xr),\\
+ c_6&=6912y(3xr-7y^2),\\
+ \Delta&=165888F\alpha_+,
+ \qquad A^2-4B=24\alpha_-=4\overline B.
+ \end{split}
+\]
+Thus the quotient-coefficient and twisted-conjugate identities are checked
+as actual polynomial equalities. The complete elliptic isogeny construction
+is not itself encoded by those coefficient identities.
+
+Finite kernel-reduced residue tables, transferred to all integers under
+the actual hypothesis $\gcd(a,b)=1$, prove that $F$ is odd and
+$3\nmid x$. These and the norm identity give $\Delta\ne0$ for every
+primitive integer pair, including negative and boundary inputs. Finally
+the module proves, for every pair of integers $L,k$,
+\[
+ L\mid x(Lk,Lk+1)-1,\quad L\mid y(Lk,Lk+1)-1,
+ \quad L\mid F(Lk,Lk+1)-1.
+\]
+The preceding module supplies the corresponding positive unbounded
+primitive family; the new statements check its actual Frey residues.
+
+A fresh standalone Lake build with Lean~4.32.0 and warnings treated as
+errors accepts all eighteen new declarations and recompiles sixty-five
+unchanged dependency declarations. Every declaration has an axiom
+inventory, using only \texttt{propext}, \texttt{Classical.choice} and
+\texttt{Quot.sound}. Exact source hashes, logs and an independent signature
+review are recorded. These are scoped formal arithmetic results, not a
+full repository build or a formal proof of Tate reduction, class number,
+modularity, the prime-window theorem, or standard ABC.

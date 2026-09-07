@@ -1,0 +1,60 @@
+name: Quartic and modular seed scoped verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research/checkpoints/2026_09_07_quartic_compatibility/**'
+      - 'research/checkpoints/2026_09_07_adversarial_audit/sixth_round/**'
+      - 'research/checkpoints/2026_09_07_critical_bottleneck/sixth_round/**'
+      - 'research/checkpoints/2026_09_07_independent_route/sixth_round/**'
+      - 'research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean'
+      - 'research/checkpoints/2026_09_07_support_power_classes/Lean/LocalPowerArithmetic.lean'
+      - 'research/checkpoints/2026_09_07_cyclotomic_covers/Lean/**'
+      - 'Lean/lean-toolchain'
+      - '.github/workflows/abc-quartic-modular.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frey-arithmetic-and-exact-replays:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Install the repository-pinned compiler
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: 'false'
+          build: 'false'
+          use-mathlib-cache: 'false'
+      - name: Install the exact verified PARI version
+        run: |
+          PARI_DEB="$RUNNER_TEMP/pari-gp_2.15.4-2.1build1_amd64.deb"
+          curl --fail --location --retry 3 https://archive.ubuntu.com/ubuntu/pool/universe/p/pari/pari-gp_2.15.4-2.1build1_amd64.deb --output "$PARI_DEB"
+          printf '%s  %s\n' '55a95d51afe87688fe0fcfe1bca74bf8c5474533e2a42d3af45c87c1ae0d86fa' "$PARI_DEB" | sha256sum --check
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends "$PARI_DEB"
+      - name: Fresh scoped Lean build and complete theorem axiom audit
+        run: python3 research/checkpoints/2026_09_07_quartic_compatibility/verify_round.py
+      - name: Exact actual windows, boundary fields, character and modular-space replays
+        run: |
+          python3 research/checkpoints/2026_09_07_critical_bottleneck/sixth_round/rank_root_replay.py --check
+          python3 research/checkpoints/2026_09_07_adversarial_audit/sixth_round/replay_root_windows.py --check
+          python3 research/checkpoints/2026_09_07_adversarial_audit/sixth_round/replay_boundary_shadow.py --check
+          python3 research/checkpoints/2026_09_07_adversarial_audit/sixth_round/replay_boundary_character.py --check
+          python3 research/checkpoints/2026_09_07_adversarial_audit/sixth_round/replay_modular_spaces.py --check
+          python3 research/checkpoints/2026_09_07_independent_route/sixth_round/exact_frey_replay.py
+          git diff --exit-code -- research/checkpoints/2026_09_07_independent_route/sixth_round/exact_frey_results.json research/checkpoints/2026_09_07_independent_route/sixth_round/frey_local_probe_results.txt research/checkpoints/2026_09_07_independent_route/sixth_round/modular_spaces_probe_results.txt research/checkpoints/2026_09_07_independent_route/sixth_round/boundary_probe_results.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: quartic-modular-proof-evidence
+          path: |
+            research/checkpoints/2026_09_07_quartic_compatibility/verification/
+            research/checkpoints/2026_09_07_critical_bottleneck/sixth_round/rank_root_replay.json
+            research/checkpoints/2026_09_07_adversarial_audit/sixth_round/verification/
+            research/checkpoints/2026_09_07_independent_route/sixth_round/exact_frey_results.json

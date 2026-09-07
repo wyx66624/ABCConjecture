@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, actual cyclotomic rank packets, maximal-rank
-depth boundaries, quantitative covers and scoped Lucas/support arithmetic.
+**Last synchronized:** 2026-09-07, actual integer-root intervals, compatible
+quartic covers, Frey modular budgets and scoped actual-seed arithmetic.
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -32,6 +32,23 @@ rigorous complete-premise disproof.
 - [x] Maintain the English journal manuscript with author ChatGPT.
 
 ## Shared exponent generators: September 7 positive frontier
+
+- [x] Prove actual integer-root prime-window averages with exact rank counts
+  and forced progressions, removing an exponent loss from endpoint errors.
+- [ ] Control exceptional individual roots and primes beyond those windows.
+- [x] Prove class number one in the actual quartic field, use one compatible
+  unit class across conjugates, and construct smooth complete intersections.
+- [ ] Convert the smaller moving-cover count into a uniform actual-point
+  height bound; cover counts alone do not settle this obligation.
+- [x] Retain the inverse-square gate in an actual Frey Q-curve and establish
+  ordinary local conductors, candidate levels, weight and dimension budgets.
+- [ ] Exclude the remaining modular candidates with all actual-seed conditions.
+- [x] Prove the non-CM boundary and its unbounded actual local shadows; derive
+  failure of the specified Mazur product conditional on boundary membership.
+- [ ] Identify that specified boundary descent globally in its candidate
+  newspace; finite coefficient agreement alone is insufficient.
+- [x] Kernel-check 18 actual-seed identities and primitive arithmetic claims,
+  separately from the full ordinary geometric and modular arguments.
 
 - [x] Factor actual homogeneous orbit boundaries into integer cyclotomic
   packets and classify their exact first-rank and lifting valuations.

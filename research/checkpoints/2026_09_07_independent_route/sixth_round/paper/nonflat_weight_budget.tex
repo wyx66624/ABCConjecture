@@ -1,0 +1,152 @@
+\subsection{The non-finite-flat branch and a uniform modular budget}
+\label{fm7-section}
+
+The condition $p\nmid V$ in Theorem~\ref{fm-residual-budget} can be
+removed by retaining a second weight. This is a necessary modular
+condition and a dimension estimate; candidate elimination remains an
+additional problem.
+
+\begin{theorem}[Both residual-weight branches]\label{fm7-weight-level}
+Let $a,b$ be coprime positive integers, let $p>7$ be prime, and suppose
+\[
+ F(a,b)=VQ^p,\qquad V,Q\in\mathbb Z_{>0},
+\]
+where $V$ is $p$-power-free. Put $r=v_p(V)$, $R=V/p^r$, and
+\begin{equation}\label{fm7-weight}
+ k(V,p)=\begin{cases}2,&r=0,\\p+1,&r>0.\end{cases}
+\end{equation}
+The descended residual representation constructed in
+Theorem~\ref{fm-five-levels} arises from a normalized characteristic-zero
+newform of weight $k(V,p)$, nebentypus $\psi_3$ of conductor $12$, and
+exact prime-to-$p$ level
+\begin{equation}\label{fm7-level}
+ N=2^e3^2\operatorname{rad}(R),\qquad 2\le e\le6.
+\end{equation}
+If $r>0$, then $p\equiv1\pmod3$. In both branches, for
+$\lambda=\max\{1,\log V\}/p$,
+\begin{equation}\label{fm7-level-height}
+ \frac{\log N}{p}\le\lambda+\frac{\log576}{p}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The actual Frey curve is the non-CM Q-curve of minimum degree $2$
+already studied above. Its multiplicative prime greater than $3$, the
+fixed order-four splitting character $\chi$, the odd descent with
+determinant $\psi_3$ times the cyclotomic character, and the general
+large-image theorem giving residual absolute irreducibility for $p>7$
+do not require $p\nmid V$.
+
+Suppose $r>0$. Since $p\mid F(a,b)$, the local calculation of the Frey
+curve shows that $p$ splits in $K=\mathbb Q(\sqrt{-3})$, and either
+completion is $\mathbb Q_p$. The two minimal discriminant valuations
+are $m,2m$, where
+\begin{equation}\label{fm7-tate-depth}
+ m=r+p\,v_p(Q),\qquad1\le r\le p-1.
+\end{equation}
+The corresponding $c_4$ valuations are zero, so the $j$ valuations are
+$-m,-2m$, neither divisible by $p$. The character $\chi$ is unramified
+at $p$, so it leaves the inertia representation and Serre weight
+unchanged. Serre's semistable weight formula
+\cite[\S2.9, Proposition~5]{Serre1987Modular} therefore gives exactly
+$k=p+1$. That formula includes nonsplit multiplicative reduction by
+an unramified quadratic extension. If $r=0$, the good-reduction or
+finite-flat Tate argument of Theorem~\ref{fm-residual-budget} instead
+gives weight $2$, including an inert prime $p$ in the good-reduction
+case.
+
+For $q>3$, $q\ne p$, the Tate monodromy modulo $p$ is nonzero precisely
+when $p\nmid v_q(F)$. Since $V$ is $p$-power-free, this is equivalent
+to $q\mid V$. Thus the prime-to-$p$ conductor factor away from $6$ is
+$\operatorname{rad}(R)$. The conductor arguments at $2$ and $3$ are
+unchanged: their exponents are $2\le e\le6$ and exactly $2$. Reduction
+modulo $p>7$ preserves these finite inertia conductors. This proves
+\eqref{fm7-level} for the residual conductor.
+
+The completed strong form of Serre modularity, due to
+Khare--Wintenberger with the Kisin input described in their work
+\cite{KhareWintenberger2009Serre}, supplies a residual eigensystem at
+this Serre weight and conductor. Serre's 1987 paper supplies the local
+weight formula and characteristic-zero lifting, not a proof of the
+then-conjectural full modularity theorem. Both weights satisfy
+$k-1\equiv1\pmod{p-1}$, so the determinant identifies the residual
+nebentypus as $\psi_3$. Its Teichm\"uller lift is the same quadratic
+character. The characteristic-zero eigensystem lift preserves weight,
+level and this character \cite[\S3.1.6]{Serre1987Modular}.
+It can be chosen new at exact level $N$: an oldform from a proper divisor
+of $N$ would give residual conductor dividing that smaller level,
+contradicting the exact conductor just computed. Finally $N\le576V$
+gives \eqref{fm7-level-height}.
+\end{proof}
+
+\begin{corollary}[Uniform dimension budget]\label{fm7-budget}
+For each $p>7$ and each positive $p$-power-free $V$ coprime to $6$, the
+sum of the dimensions of the five newspaces in
+\eqref{fm7-weight}--\eqref{fm7-level} is at most
+\begin{equation}\label{fm7-fixed-budget}
+ 485(p+1)V^2.
+\end{equation}
+For every $L\ge0$, their dimension sum over all $1\le V\le e^{Lp}$
+satisfying these hypotheses is at most
+\begin{equation}\label{fm7-moving-budget}
+ 485(p+1)e^{3Lp}.
+\end{equation}
+Each $V$ contributes its one prescribed weight $k(V,p)$. This counts
+Galois orbits with their coefficient-field degrees, and includes
+residual integers for which no actual seed exists.
+\end{corollary}
+
+\begin{proof}
+Put $D=\operatorname{rad}(R)$. Since $\gcd(V,6)=1$, the modular-group
+index satisfies
+\[
+ I=[\mathrm{SL}_2(\mathbb Z):\Gamma_0(N)]
+   =2N\prod_{q\mid D}(1+q^{-1})\le2ND\le1152V^2.
+\]
+The factors at $2$ and $3$ have product $2$, and
+$1+q^{-1}\le q$ bounds the other factors. The Sturm coefficient bound
+\cite{PARIModularForms} bounds the whole cusp space, hence its newspace,
+by $1+\lfloor kI/12\rfloor\le1+96(p+1)V^2$. Summing over five
+exponents $e$ gives \eqref{fm7-fixed-budget}. For
+$H=\lfloor e^{Lp}\rfloor$, use $\sum_{V=1}^H V^2\le H^3$ to obtain
+\eqref{fm7-moving-budget}. In particular,
+\[
+ \frac{\log(485(p+1)e^{3Lp})}{p}
+   =3L+\frac{\log485+\log(p+1)}p\longrightarrow0
+\]
+when $L\to0$ and $p\to\infty$.
+\end{proof}
+
+\paragraph{The remaining condition.}
+Every actual power profile in this budget gives a congruence, at a place
+above $p$, between its descended Frey representation and a member of
+the indicated finite newform collection. Its seed also satisfies the
+exact inverse-square and positivity conditions above. The missing input
+is an exclusion of these congruences for actual integer seeds, uniformly
+in moving residual integers and primes. A dimension bound does not
+bound seed height or exclude a single congruence.
+The nontrivial compression target has $Q>1$. The necessary theorem
+also includes $Q=1$; fixed seeds can have such trivial representations
+for arbitrarily large $p$, so no blanket exclusion of every profile
+is intended.
+
+For example, a theorem forcing every such congruence into a finite
+explicitly classified seed list, together with verification that the
+list contains no required profiles, would close that branch. No such
+theorem is asserted here. A Frey--Mazur type claim turning a congruence
+with the boundary curve into an isogeny is likewise an additional
+conditional input; finite matching traces do not prove it. The local
+boundary shadows are not asserted to be global power profiles.
+
+For $V=1$, exclusion at all sufficiently large prime exponents, combined
+with the earlier fixed-exponent finiteness, would settle the pure
+second-norm family with exponent at least $3$. It would not settle
+arbitrary residual profiles or ABC. Moreover, if $p\mid g$, first
+write $V=V_pC^p$ with $V_p$ $p$-power-free. The new profile is
+$F=V_p(CQ^{g/p})^p$, and its parameter satisfies
+$\lambda_p=\max\{1,\log V_p\}/p\le\max\{1,\log V\}/p$.
+It is at most $1/\theta$ times $\max\{1,\log V\}/g$ when
+$p\ge\theta g$ for a fixed $\theta>0$; without this condition its
+smallness does not follow from the original parameter's smallness.
+The independent Kummer point-height route and these remaining modular
+branches stay open.

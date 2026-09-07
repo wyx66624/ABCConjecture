@@ -1,0 +1,159 @@
+\section{Actual conjugate compatibility in one quartic field}
+\label{sec:single-quartic-compatible}
+
+The splitting-field bound can be sharpened by retaining the fact that
+the four linear factors come from one actual algebraic integer. Put
+\[
+ f(X)=X^4+3X^3+5X^2+3X+1,\qquad L=\mathbb Q(\alpha),\quad f(\alpha)=0,
+\]
+and let $K$ be its degree-eight splitting field. In this section $a,b$
+are positive coprime integers and
+\[
+ F(a,b)=VQ^g,\qquad g\ge3,\qquad V,Q\ge1,\qquad V\text{ is }g\text{-free}.
+\]
+Shared support of $V$ and $Q$ is allowed. All heights are absolute
+logarithmic Weil heights.
+
+\begin{theorem}[A principal quartic root field]
+The field $L$ has degree four, signature $(0,2)$, class number one, and
+unit rank one. Its discriminant has absolute value at most $117$.
+\end{theorem}
+\begin{proof}
+Over $\mathbb Q(\zeta)$ the two factors of $f$ are
+$X^2+(2-\zeta)X+1$ and $X^2+(1+\zeta)X+1$. Choose $\alpha$ in the
+first. Then $\zeta=\alpha+\alpha^{-1}+2$ and
+$L=\mathbb Q(\zeta,\sqrt{-1-3\zeta})$. The norm of $-1-3\zeta$ is
+$13$, so it is not a square in $\mathbb Q(\zeta)$. This proves the
+degree and signature. The exact resultant calculation gives order
+discriminant $117$, so the field discriminant is no larger and the
+order index is supported only at three. Minkowski's ideal-class bound
+\cite[Theorem~4.3]{MilneANT2020} gives every class an integral representative
+of norm at most
+\[
+ \left(\frac4\pi\right)^2\frac{4!}{4^4}\sqrt{|\operatorname{Disc}L|}
+ \le\frac{3\sqrt{117}}{2\pi^2}<\frac{11}{6}<2.
+\]
+The integral norm must be one, so every class is trivial. Dirichlet's
+unit theorem gives rank one. Fix
+$\mathcal O_L^*=\mu_L\langle\epsilon\rangle$ and $w_L=|\mu_L|$.
+These classical number-field theorems are external inputs.
+\end{proof}
+
+\begin{theorem}[Extraction in the actual root field]
+There are integral ideals $\mathfrak A,\mathfrak B$ with
+\[
+ (a-\alpha b)=\mathfrak A\mathfrak B^g,
+ \qquad N\mathfrak A=V,\quad N\mathfrak B=Q.
+\]
+For fixed $V$, at most $4^{\omega(V)}$ choices for $\mathfrak A$ occur.
+Choosing one integral generator $\delta$ of each such ideal, every actual
+seed has an expression
+\[
+ a-\alpha b=\delta u\beta^g,
+ \quad\beta\in\mathcal O_L,\quad
+ u\in\{\xi\epsilon^k:\xi\in\mu_L,\ 0\le k<g\}.
+\]
+\end{theorem}
+\begin{proof}
+The norm of $a-\alpha b$ is $F(a,b)$. If $p\nmid117$ divides this
+norm, then $b$ is nonzero modulo $p$. Every prime ideal dividing the
+element has $\alpha\equiv a/b$ in its residue field. Factorization away
+from the order index and the distinct roots of $f$ modulo $p$ show
+that exactly one prime ideal above $p$ divides the element. Its residue
+degree is one and its valuation is $v_p(F)$; there are at most four
+possible such ideals as the seed varies.
+
+At three no factor occurs. At thirteen the primitive exact-depth
+theorem gives $v_{13}(F)=1$ whenever thirteen occurs. The norm formula
+$\sum_{\mathfrak p\mid13}f_{\mathfrak p}v_{\mathfrak p}(a-\alpha b)=1$
+again forces one degree-one prime of depth one. This argument makes no
+unramifiedness assumption at thirteen. Write
+$v_p(F)=r_p+gq_p$ with $r_p=v_p(V)<g$ and $q_p=v_p(Q)$, and allocate
+these exponents at the unique prime above $p$. This proves the ideal
+identities and the count. Principality supplies integral generators;
+their quotient is a unit, which can be reduced modulo unit $g$th powers
+by changing $\beta$.
+\end{proof}
+
+\begin{theorem}[A smaller compatible cover budget]
+For fixed $V,g$, every actual seed lifts to one of at most
+\[
+ 4w_L4^{\omega(V)}g
+\]
+covers over the fixed field $K$. Each is geometrically connected of
+degree $g^3$ over $\mathbb P^1$ and genus $1+g^2(g-2)$. Its three
+coefficients $\xi_i$ can be chosen with
+\[
+ h(\xi_i)\le\tfrac12\log V+C_Lg.
+\]
+For $\lambda=\max\{1,\log V\}/g$ the logarithm of the cover count
+divided by $g$ is at most
+\[
+ 2\lambda+\frac{\log g+\log(4w_L)}g.
+\]
+Allowing all integral $V\le e^{Ag}$ costs at most $4w_Lg e^{3Ag}$ covers.
+\end{theorem}
+\begin{proof}
+Put $\kappa=\delta u$ and apply the four embeddings $\sigma_i:L\to K$.
+All four equations are conjugates of the same equation. Their ratios give
+\[
+ y_i^g=\frac{x-\alpha_i}{\xi_i(x-\alpha_4)},\qquad
+ \xi_i=\frac{\sigma_i(\kappa)}{\sigma_4(\kappa)},\quad
+ x=a/b,\quad 1\le i\le3.
+\]
+The ideal choice and the single unit class determine all three ratios;
+there are no three independent splitting-field unit choices. The looser
+factor four in the stated count is harmless. Divisors at the four distinct
+roots give Kummer independence also for composite $g$. Each of the four
+inertia groups has order $g$, so Riemann--Hurwitz gives the stated genus.
+
+Balance the two complex logarithmic absolute values of $\delta$ in a
+fixed interval for the unit lattice. Their mean is $(\log V)/4$, and
+integrality gives $h(\delta)\le(\log V)/4+C$. Since
+$h(u)\le g h(\epsilon)$, the height inequalities for a ratio yield
+$h(\xi_i)\le2h(\delta u)\le(\log V)/2+C_Lg$.
+Finally $4^{\omega(V)}\le V^2$. Summing the resulting bound over at most
+$e^{Ag}$ residual integers proves the union estimate, including the cost
+of choosing $V$.
+\end{proof}
+
+\begin{theorem}[A rational complete-intersection model]
+Each compatible class above has a smooth geometrically connected
+complete-intersection model of degrees $(g,g)$ in $\mathbb P^3_{\mathbb Q}$,
+capturing all its actual seeds. Its defining forms have logarithmic
+projective coefficient heights $O(\log V+g)$, with fixed-field constants.
+\end{theorem}
+\begin{proof}
+Write $\beta=X_0+X_1\alpha+X_2\alpha^2+X_3\alpha^3$. Expand
+$\kappa\beta^g$ in this rational basis and set the coefficients of
+$\alpha^2,\alpha^3$ equal to zero. These are two homogeneous degree-$g$
+forms over $\mathbb Q$. Every actual seed supplies a rational point;
+the reverse implication needs separate integral and primitive conditions.
+
+Over an algebraic closure use the invertible embedding coordinates
+$Z_i=\sigma_i(\beta)$. The image
+$(\sigma_i(\kappa)Z_i^g)_i$ must lie on the projective line
+$(a-\alpha_i b)_i$. The line meets the four coordinate hyperplanes at
+distinct points, so at most one $Z_i$ vanishes. The intersection is
+nonempty by taking $g$th roots of any line point. A dependence of the
+two gradients would give a nonzero vector in the annihilator of the
+line supported solely on a vanishing coordinate. No coordinate vanishes
+identically on the line, so this is impossible. The intersection is
+therefore smooth of pure dimension one. Kummer independence makes the
+chart $Z_4\ne0$ connected; its complement is finite and contains no
+hidden curve component. The genus is $1+g^2(g-2)$.
+
+In the fixed basis, the rational coordinate height of $\kappa$ is
+$O(\log V+g)$. Clear its common denominator first. The monic relation
+for $\alpha$ bounds all multiplication coefficients in its powers
+exponentially in $g$, while the multinomial coefficients have total
+sum $4^g$. Thus both defining forms have the asserted coefficient height.
+\end{proof}
+
+These statements keep actual conjugate compatibility and improve the
+preceding cover budget. They do not identify generic hard unit classes
+with actual seeds. A small number of covers and controlled coefficient
+heights still supply no uniform height bound for their individual points.
+The actual lower bound
+$h(a/b)\ge(g\log Q+\log V)/4-\log2$ is consistent with all these results.
+The uniform actual-point and simultaneous-compression questions remain open.
