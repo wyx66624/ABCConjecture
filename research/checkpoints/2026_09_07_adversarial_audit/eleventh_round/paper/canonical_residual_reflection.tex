@@ -1,0 +1,151 @@
+\section{Exact canonical residual reflection after projective cancellation}
+\label{crr-section}
+
+The general residual bill admits an exact formula when the initial
+residual is power-free. Work in $\mathcal O=\mathbb Z[\zeta]$, where
+$\zeta^2-\zeta+1=0$, and put $\gamma=1+\zeta$.
+Fix an integer $n\ge2$ and
+\[
+ \tau=u\gamma^e v,\qquad e\in\{0,1\},\qquad V=N(v),
+\]
+where $u$ is a unit and $v$ is primitive and unramified. Let $w$ be
+primitive and unramified with $R=N(w)>1$. In this section assume
+that $V$ is $n$-free: $0\le v_p(V)<n$ for every rational prime $p$.
+The case $V=1$ is included, and $V$ and $R$ need not be coprime.
+Write
+\[
+ C=\gcd\bigl(|\operatorname{coord}_1(\tau w^n)|,
+              |\operatorname{coord}_2(\tau w^n)|\bigr)>0,
+ \qquad D=\operatorname{rad}(C).
+\]
+Primitive reduction gives the actual integer norm
+\begin{equation}\label{crr-norm}
+ M=N(\tau w^n/C)=3^eVR^n/C^2.
+\end{equation}
+
+\begin{theorem}[Exact canonical pair]\label{crr-pair}
+There are unique positive integers $V_{\rm can},R_{\rm can}$ with
+$V_{\rm can}$ $n$-free, $3\nmid V_{\rm can}R_{\rm can}$, and
+$M=3^eV_{\rm can}R_{\rm can}^n$. They satisfy
+\begin{gather}
+ C\mid V,\qquad \gcd(C,V/C)=1,\qquad D\mid R,\label{crr-divisions}\\
+ V_{\rm can}=\frac{VD^n}{C^2},\qquad
+ R_{\rm can}=\frac RD.\label{crr-formulas}
+\end{gather}
+In particular, each canceled prime removes exactly one layer from
+the canonical root norm, independently of its content depth.
+\end{theorem}
+\begin{proof}
+Primitive unramified norm supports contain only split rational primes
+$p\equiv1\pmod3$, hence $p\ge7$. The exponent of $\gamma$ in
+$\tau w^n$ is exactly $e\le1$, so no rational factor $3$ is removed.
+At a prime common to $V$ and $R$, set $a=v_p(V)$ and $f=v_p(R)$.
+Each primitive factor chooses only one of the two prime elements
+over $p$. If those choices agree, there is no rational $p$-content
+and the reduced norm has depth $a+nf$.
+
+If the choices are opposite, the rational content depth is
+$\min(a,nf)$. Here $1\le a<n\le nf$, so this depth is exactly $a$,
+and the reduced output depth is
+\begin{equation}\label{crr-reflection}
+ nf-a=(n-a)+n(f-1),\qquad 1\le n-a<n.
+\end{equation}
+Thus a canceled prime contributes its complete factor $p^a$ from
+$V$ to $C$, contributes $p$ to $D$, changes the canonical residual
+depth from $a$ to $n-a$, and changes the root depth from $f$ to $f-1$.
+Every other prime keeps its residual and root depths, allowing zero
+depths when it appears in only one input norm. This proves
+\eqref{crr-divisions} and the primewise formulas
+\eqref{crr-formulas}. In particular, $V/C$ and $D^n/C$ are coprime
+integers whose positive prime exponents are less than $n$; their product
+$VD^n/C^2$ is therefore an $n$-free integer. Together with
+\eqref{crr-norm} this proves existence and uniqueness of the canonical
+pair, with the first ramified contribution $3^e$ unchanged.
+\end{proof}
+
+The canonical root may be one. It is a nonunit precisely when $R>D$;
+if $R=D$, every root prime has depth one and every root orientation
+is canceled against its opposite residual orientation. The theorem
+is a statement about the norm and the actual reduced output. It does
+not assert that an oriented algebraic root is divided by the rational
+integer $D$ inside $\mathcal O$.
+
+\begin{corollary}[Exact residual bill]\label{crr-bill}
+Under the same hypotheses,
+\begin{equation}\label{crr-exact-bill}
+ VV_{\rm can}=(V/C)^2D^n,
+ \qquad
+ \frac{\log V+\log V_{\rm can}}n
+   =\log D+\frac2n\log(V/C).
+\end{equation}
+If $C>1$, this logarithmic bill is at least $\log D\ge\log7$.
+Equality with $\log D$ holds exactly when $V=C$, and equality with
+$\log7$ holds exactly when $D=7$ and $V=C$.
+Every other positive integer decomposition
+$M=3^eV'(R')^n$ has
+\begin{equation}\label{crr-other-pair}
+ V'=V_{\rm can}S^n,\qquad R_{\rm can}=SR'
+\end{equation}
+for a positive integer $S$.
+\end{corollary}
+\begin{proof}
+The identity and its logarithm follow by substituting
+\eqref{crr-formulas}. The equality criteria use $V/C\ge1$ and,
+when $C>1$, the fact that all its primes are at least seven.
+For the final assertion, each prime exponent in $V'$ has remainder
+equal to its exponent in $V_{\rm can}$ modulo $n$. The quotient
+is a nonnegative integer. Multiplying the corresponding prime powers
+gives $S$;
+the equality of norms then gives the root identity in
+\eqref{crr-other-pair}. Thus a noncanonical residual can only
+increase the canonical bill.
+\end{proof}
+
+The actual norm-seven family gives equality for every $n\ge2$.
+With $\pi=2+\zeta$ and $w=\bar\pi=3-\zeta$, choose a unit $u_n$
+so that $u_nw^{n-1}$ has positive coordinates. The identity
+\[
+ (u_n\pi)w^n=7u_nw^{n-1}
+\]
+has $V=R=C=D=7$, hence
+$R_{\rm can}=1$ and $V_{\rm can}=7^{n-1}$.
+The previously proved primitivity of every $w^m$ makes this the actual
+content and the actual reduced norm. Its bill is exactly $\log7$.
+It remains a single-map inverse example and does not assert a point
+on a prescribed simultaneous double fiber product.
+
+\begin{proposition}[The power-free premise cannot be omitted]
+\label{crr-boundary}
+The exact canonical-pair formula need not hold for a primitive
+unramified multiplier whose norm is not $n$-free.
+\end{proposition}
+\begin{proof}
+Keep $\pi=2+\zeta$ and let $n\ge3$. First take
+$\tau=\pi^{n+1}$ and $w=\bar\pi$. Then
+\[
+ \tau w^n=7^n\pi,\qquad
+ V=7^{n+1},\quad R=7,\quad C=7^n.
+\]
+Here $C$ no longer contains the complete prime-power factor of $V$,
+so $\gcd(C,V/C)=1$ already fails, although the displayed canonical
+pair formulas happen to give the correct pair $(7,1)$.
+
+For an actual failure of the formulas themselves, take instead
+$\tau=\pi^{n+1}$ and $w=\bar\pi^2$. Primitivity and the oriented
+prime factorization give
+\[
+ V=7^{n+1},\qquad R=7^2,\qquad C=7^{n+1},\qquad
+ N(\tau w^n/C)=7^{n-1}.
+\]
+The canonical pair is $(7^{n-1},1)$, whereas $R/D=7$ and
+$VD^n/C^2=1/7$. All ring inputs remain primitive and unramified;
+the failed hypothesis is precisely the $n$-freeness of $V$.
+\end{proof}
+
+This exact reflection result determines cancellation for supplied
+actual inputs and their orientations. It does not construct rational
+points on the simultaneous inverse curves, provide upper bounds for
+their heights, or settle arbitrary-root signed-tail membership. The
+general residual-divisibility bill continues to apply outside this
+power-free subdomain. No Lean formalization of the exact canonical
+pair formula is claimed here.

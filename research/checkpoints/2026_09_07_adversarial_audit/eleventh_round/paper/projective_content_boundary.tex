@@ -1,0 +1,114 @@
+\section{Projective content and a boundary to the single-map inverse}
+\label{pc-section}
+
+The rational maps of Section~\ref{rd-section} send every actual profile
+to a rational point. A converse must account for integral content.
+That content admits a bound independent of the exponent, but the bound
+alone does not preserve the prescribed exponent after primitive reduction.
+The following counterfamily concerns a single power map; it does not
+assert a rational point on the full double fiber product.
+
+Retain $\mathcal O=\mathbb Z[\zeta]$, $\zeta^2-\zeta+1=0$.
+For $z=A+B\zeta\ne0$, write
+$\operatorname{cont}(z)=\gcd(|A|,|B|)$.
+
+\begin{lemma}[A content divisor]\label{pc-content}
+If $0\ne\tau\in\mathcal O$ and $W\in\mathcal O$ is primitive, then
+\[
+ \operatorname{cont}(\tau W)\mid\operatorname N\tau.
+\]
+\end{lemma}
+\begin{proof}
+Write $\tau=r+s\zeta$, $W=u+v\zeta$ and $\tau W=A+B\zeta$.
+Multiplication and its adjugate give
+\[
+ A=ru-sv,\quad B=su+(r+s)v,
+\]
+\[
+ (r+s)A+sB=(\operatorname N\tau)u,\qquad
+ -sA+rB=(\operatorname N\tau)v.
+\]
+The content divides both right sides. Bezout for $\gcd(|u|,|v|)=1$
+proves the claim. No coprimality between $\tau$ and $W$ is needed.
+\end{proof}
+
+For an unramified primitive root $w$, its powers are primitive by the
+reviewed power theorem. Thus the content $C$ of $\tau w^n$ divides
+$\operatorname N\tau$, independently of $n$. If $(a,b)$ is the
+primitive output, however, its norm is
+\begin{equation}\label{pc-reduced-norm}
+ a^2+ab+b^2=\frac{\operatorname N\tau}{C^2}
+                         (\operatorname Nw)^n.
+\end{equation}
+The residual displayed here is rational and need not be integral.
+
+\begin{theorem}[Bounded content does not preserve the specified exponent]
+\label{pc-inverse-boundary}
+Put $\pi=2+\zeta$ and $w=\bar\pi=3-\zeta$.
+For every integer $n\ge2$ there is a unit $u_n$ such that, with
+$\tau_n=u_n\pi$, the primitive output of $\tau_nw^n$ has positive
+coordinates $a_n,b_n$ and
+\begin{gather}
+ \gcd(a_n,b_n)=1,\qquad a_n^2+a_nb_n+b_n^2=7^{n-1},
+ \label{pc-positive-norm}\\
+ \operatorname{cont}(\tau_nw^n)=7,
+ \qquad\operatorname N\tau_n=\operatorname Nw=7.\notag
+\end{gather}
+There are no positive integers $V,R$ with $R>1$ satisfying
+\[
+ a_n^2+a_nb_n+b_n^2=VR^n.
+\]
+The multipliers $\tau_n$ belong to a fixed set of six elements, and
+the input parameter in the rational power map is always $t=-3$.
+\end{theorem}
+\begin{proof}
+The identity $\pi\bar\pi=7$ gives
+\[
+ \pi w^n=7w^{n-1}.
+\]
+Every power $w^m$, $m\ge1$, is primitive. Indeed, its norm is $7^m$,
+so any common rational prime divisor of its coordinates would be seven.
+Evaluation at $\zeta=5$ defines a homomorphism
+$\mathcal O\to\mathbb F_7$, since $5^2-5+1=0$ modulo seven.
+It sends $w$ to $-2\ne0$, so $w^m$ cannot have both coordinates
+divisible by seven.
+
+No boundary arm of $w^m$ vanishes: for a primitive element this would
+force norm one. A unit sends it into the open positive sector. To see
+all sign cases explicitly, multiplication by $\zeta$ and $\zeta^2$
+sends $(A,B)$ to $(-B,A+B)$ and $(-A-B,A)$. If the signs are opposite,
+negate first if needed to have $A>0>B$; the two transformations work
+respectively when $A+B>0$ and when $A+B<0$. Equal signs require only
+the identity or negation. Choose $u_n$ for $w^{n-1}$ in this way.
+Units preserve content and norm, proving \eqref{pc-positive-norm}.
+
+If $VR^n=7^{n-1}$ with $R>1$, every prime divisor of $R$ is seven.
+Thus $R=7^j$ for some $j\ge1$, and the valuation of $VR^n$ at seven
+is at least $n$, a contradiction. Finally the root $w=3-\zeta$
+has rational parameter $3/(-1)=-3$. Replacing it by $t+\zeta=-w$
+only scales the output by $(-1)^n$, so the projective output is unchanged.
+\end{proof}
+
+An explicit positive instance is $n=5$, $u_5=\zeta^2$. Then
+\[
+ \tau_5=-3+2\zeta,\qquad w^4=39-55\zeta,
+\]
+\[
+ \tau_5w^5=112+273\zeta=7(16+39\zeta),\qquad
+ 16^2+16\cdot39+39^2=2401=7^4.
+\]
+
+In this family the canonical $n$-free residual of the reduced norm
+is $7^{n-1}$ and its canonical $n$-th-power root is one. Thus its
+normalized logarithmic residual tends to $\log7$, although the
+given multiplier norm has normalized logarithm $\log7/n\to0$.
+The bounded cancellation leaves the rational residual $1/7$ in
+\eqref{pc-reduced-norm}; integral normalization then changes the
+residual exponent by almost $n$.
+
+This excludes only an automatic single-map inverse with the same
+prescribed exponent and an integral nonunit root. The evident alternative
+exponent $n-1$ remains available. The family is not asserted to meet
+the second map of the RD fiber product, and does not refute the forward
+DC lift, simultaneous compatibility, signed compensation, or $abc$.
+The statements here are ordinary proofs; no Lean verification is claimed.

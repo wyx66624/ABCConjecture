@@ -1,0 +1,172 @@
+\section{An actual Gaussian profile at an even first exponent}
+\label{ge-section}
+
+Let $a,b$ be positive coprime integers, and write
+\[
+ c=a+b,\quad A=ab,\quad M=a^2+ab+b^2=c^2-A,\qquad
+ F=a^4+3a^3b+5a^2b^2+3ab^3+b^4.
+\]
+The elementary primitive identities give
+\begin{equation}\label{ge-norm-identities}
+ F=M^2+Ac^2=A^2+Mc^2,
+ \qquad \gcd(A,c)=\gcd(A,M)=\gcd(M,c)=1,
+ \qquad \gcd(F,AMc)=1.
+\end{equation}
+Also $F$ is odd, prime to $3$, and at least $13$. Every prime divisor
+$q$ of $F$ is $1$ modulo $3$: the nonzero residue $M/A$ satisfies
+$X^2+X+1=0$ and has exact order $3$, since $q\ne3$.
+
+\begin{theorem}[Quadratic support condition]\label{ge-character}
+Suppose $M=DU^2$ with positive integers $D,U$, without requiring $D$ to
+be squarefree. Every prime $q\mid F$ satisfies
+\begin{equation}\label{ge-quadratic-character}
+ q\nmid DUc,\qquad \left(\frac{-D}{q}\right)=1.
+\end{equation}
+Thus an actual first profile $M=3^eV_0R^h$, where $e\in\{0,1\}$ and
+$h\ge2$ is even, imposes on every prime divisor $q$ of the whole second
+norm, and hence on every prime divisor of any second root $Q$, the
+conditions
+\begin{equation}\label{ge-residual-character}
+ e=0:\quad\left(\frac{-V_0}{q}\right)=1;
+ \qquad
+ e=1:\quad\left(\frac{V_0}{q}\right)=1.
+\end{equation}
+No equality of the two exponents or power-free residual is assumed.
+\end{theorem}
+\begin{proof}
+Equation~\eqref{ge-norm-identities} becomes
+$F=A^2+D(Uc)^2$, with $\gcd(A,Uc)=1$. At a prime divisor $q$ of $F$,
+the quotient $A/(Uc)$ is nonzero and its square is $-D$.
+Set $D=3^eV_0$ and use $(-3/q)=1$, which follows from $q\equiv1\pmod3$,
+to obtain~\eqref{ge-residual-character}.
+\end{proof}
+The corresponding quadratic field has discriminant dividing $4D$;
+the logarithm of its absolute value is at most $\log12+\log V_0$.
+This gives no uniform prime
+distribution estimate while the residual, and therefore the field, moves.
+
+\begin{theorem}[An actual Gaussian decomposition]\label{ge-gaussian-lift}
+Assume $M=U^2$ for a positive integer $U$. Then
+\begin{equation}\label{ge-gaussian-element}
+ z_G=A+iUc\in\mathbb Z[i],\qquad
+ \operatorname N(z_G)=F,\qquad \gcd(A,Uc)=1.
+\end{equation}
+The Gaussian integer is unramified at $2$, and every prime $q\mid F$
+satisfies $q\equiv1\pmod{12}$.
+For any integers $g\ge2$, $V_1>0$, $Q>1$ with $F=V_1Q^g$, there are
+primitive Gaussian integers $v_G,w_G$ and a unit $u_G\in\{1,-1,i,-i\}$
+such that
+\begin{equation}\label{ge-gaussian-profile}
+ z_G=u_Gv_Gw_G^g,\qquad
+ \operatorname N(v_G)=V_1,\qquad \operatorname N(w_G)=Q.
+\end{equation}
+Neither factor contains a pair of conjugate primes or a prime over $2$.
+Their supports may overlap; $V_1$ need not be $g$-free.
+\end{theorem}
+\begin{proof}
+Primitivity and the norm identity follow from
+\eqref{ge-norm-identities}; $F$ odd excludes the prime over $2$.
+The Gaussian Euclidean algorithm follows by choosing a nearest Gaussian
+integer to a complex quotient, leaving a remainder of norm at most half
+the divisor norm. Thus $\mathbb Z[i]$ is a UFD. An inert rational prime
+cannot divide a primitive Gaussian integer, and the two conjugate primes
+over a split rational prime cannot both divide it. Hence every $q\mid F$
+is $1$ modulo $4$, and also $1$ modulo $3$ as above.
+
+For its uniquely occurring orientation $\pi_q$, the exponent in $z_G$
+is exactly
+$v_q(F)=v_q(V_1)+g v_q(Q)$. Assign these two nonnegative parts to
+$v_G$ and $w_G$. Equality is then up to a Gaussian unit, proving the
+decomposition and its stated primitive properties.
+\end{proof}
+If $V_1=1$, this is the pure power $z_G=u_Gw_G^g$. For odd $g$, the
+unit can be absorbed into $w_G$, since the $g$-power map permutes the
+four Gaussian units. The unit is retained for a general exponent.
+
+At the same time the actual second Eisenstein element has the reviewed
+oriented decomposition
+\begin{equation}\label{ge-two-domains}
+ z_E=A+U^2\zeta=u_Ev_Ew_E^g,
+ \qquad \operatorname N(v_E)=V_1,\quad\operatorname N(w_E)=Q.
+\end{equation}
+Thus the two powers in different quadratic UFDs share the rational
+coordinate $A$, with the further constraint
+\begin{equation}\label{ge-shared-coordinate}
+ (Uc)^2=U^2(A+U^2).
+\end{equation}
+Independently chosen powers need not satisfy either this constraint or
+equality of their rational coordinates.
+
+\begin{corollary}[Height of the actual Gaussian coefficient]
+\label{ge-coefficient-height}
+With the data of~\eqref{ge-gaussian-profile}, put
+$\eta_G=(u_G^2v_G/\overline v_G)^{-1}$. Then
+\[
+ \left(\frac{w_G}{\overline w_G}\right)^g
+   =\eta_G\frac{z_G}{\overline z_G},
+ \qquad h(\eta_G)=\frac12\log V_1,
+\]
+where $h$ is absolute logarithmic Weil height.
+\end{corollary}
+\begin{proof}
+Conjugating the decomposition proves the identity. There is no
+conjugate-prime cancellation in $v_G/\overline v_G$, whose denominator
+ideal has norm $V_1$ and whose complex absolute value is one.
+The normalized height is therefore $\frac12\log V_1$; roots of unity
+and inversion leave it unchanged.
+\end{proof}
+This is a coefficient-height statement for actual points, with no
+point-height upper bound or independence assertion for the two covers.
+
+\begin{theorem}[Cyclotomic equation and exact integer inverse]
+\label{ge-cyclotomic-inverse}
+If $M=U^2$ for a positive integer $U$, then, with $d=a-b$,
+\begin{equation}\label{ge-phi12}
+ F=U^4-U^2c^2+c^4=\Phi_{12}(U,c),\qquad
+ d^2=4U^2-3c^2,\qquad |d|<c,
+\end{equation}
+and
+\[
+ \gcd(U,c)=1,\qquad \frac{\sqrt3}{2}<\frac Uc<1.
+\]
+Conversely, let $U,c$ be positive coprime integers with $U<c$ and let
+$d\in\mathbb Z$ satisfy $d^2=4U^2-3c^2$ and $|d|<c$. Then
+\begin{equation}\label{ge-inverse-seed}
+ a=(c+d)/2,\qquad b=(c-d)/2
+\end{equation}
+are positive coprime integers with $a^2+ab+b^2=U^2$, and their second
+norm is $\Phi_{12}(U,c)$.
+\end{theorem}
+\begin{proof}
+Use $A=c^2-U^2$ and $d^2=c^2-4A$ in
+\eqref{ge-norm-identities}. The upper interval bound follows from $A>0$.
+Equality in the lower bound would give $a=b$, hence the primitive seed
+$(1,1)$ with nonsquare first norm $3$; it cannot occur here.
+
+For the inverse, $d^2\equiv c^2\pmod4$ gives matching parity, and
+$|d|<c$ gives positivity. Substitution proves $a^2+ab+b^2=U^2$ and
+$ab=c^2-U^2$. An odd prime dividing both $a,b$ would divide $c,d$ and
+therefore $4U^2$, contrary to $\gcd(U,c)=1$. If both $a,b$ are even,
+their norm identity forces $U$ even, while $c$ is even, the same
+contradiction. This proves coprimality and all the claimed identities.
+\end{proof}
+The extra square condition in~\eqref{ge-phi12} is part of the inverse.
+No identification with arbitrary rational points of
+$y^g=\Phi_{12}(x,1)$ is made. To retain a specified larger even first
+exponent $h$, one must additionally impose $U=R^{h/2}$ with an integer
+$R>1$. The ramified branch $M=3U^2$ instead gives
+$F=9U^4-3U^2c^2+c^4$ and has not been replaced by the same integral
+cyclotomic equation.
+
+\paragraph{Remaining scope.}
+These statements apply through the pure-coefficient inverse theorem to
+every finite positive rational point whose reconstructed first norm is
+an unramified even power. The even/even exclusion is the earlier
+combined-square result. The odd second exponent remains unresolved.
+For a pure second prime exponent $p>7$, the earlier modular support
+theorem gives, for every prime $q\mid Q$,
+$q\ge(\sqrt{2p}-1)^2>p$, now intersected with $q\equiv1\pmod{12}$.
+This is a necessary support condition, not control of the large-prime
+tail. The ramified first branch and moving nonunit residuals remain
+open. The proofs here are ordinary arithmetic proofs, independently
+reviewed; no complete geometric or modular Lean formalization is claimed.

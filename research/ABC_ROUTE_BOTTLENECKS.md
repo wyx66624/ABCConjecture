@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, actual prime-log compensation,
-three-arm private depths and double oriented covers (tenth continuation).
+**Last synchronized:** 2026-09-07, actual content, integral lifting,
+global signed radical and simultaneous quadratic-domain covers (eleventh continuation).
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -32,6 +32,35 @@ rigorous complete-premise disproof.
 - [x] Maintain the English journal manuscript with author ChatGPT.
 
 ## Shared exponent generators: September 7 positive frontier
+
+- [x] Prove actual integer gcd content dividing the multiplier norm,
+  with primitive reduction identities. Identify an infinite actual
+  norm-seven counterfamily to the automatic same-exponent single-map
+  inverse. Do not infer a double-profile counterexample from it.
+- [x] Prove rad(C)^n divides V Vprime, the strict log-seven content-one
+  threshold, and exact canonical reflection on the n-free subdomain.
+  Give the explicit local integral domain and full pure-coefficient
+  positive converse, including ramified and infinite input coordinates.
+- [x] Exclude the even/even positive rational locus using that converse
+  and the previous combined-square obstruction. Construct simultaneous
+  actual Gaussian/Eisenstein profiles and a fixed-biquadratic cover with
+  gcd(g,2) components, each of degree g^2/gcd(g,2).
+- [x] Transfer the actual signed tail to the global integer radical;
+  formally check 31 new declarations and 53 unchanged local dependencies.
+  Keep the actual oriented reflection law explicit at the formal boundary.
+- [x] Prove a common large-cutoff root set independent of all moving caps,
+  and joint depth-one membership in (B, B log n/log log n] for most
+  prime-index roots. Prove its typical window mass is sublinear, while
+  the farther rank-n first-depth packet carries almost all full mass.
+- [ ] Bound the signed cost of that far packet at every actual moving
+  root, including the exceptional roots. Joint window squarefreeness
+  alone does not give this bound.
+- [ ] Control actual points on the now-explicit integral domains,
+  including odd exponents in the biquadratic cover, ramified first norms
+  and moving nonunit residuals. Prove a uniform height bound or construct
+  a compatible sequence meeting all arithmetic conditions.
+- Eleventh-round evidence and exact scopes:
+  `checkpoints/2026_09_07_integral_lifting/README.md`.
 
 - [x] Generalize the signed budget to reciprocal caps and classify its five
   maximal patterns. Prove an actual infinite three-arm private-depth family

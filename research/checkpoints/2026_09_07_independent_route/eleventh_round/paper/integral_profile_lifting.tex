@@ -1,0 +1,185 @@
+\section{An integral inverse gate and the residual cost of cancellation}
+\label{il-section}
+
+The rational models of Section~\ref{rd-section} require an integral
+inverse condition. We give both a sufficient local domain and a sharp
+cost of cancellation for any residual at the prescribed exponent.
+Neither supplies a point-height upper bound.
+
+Let $\mathcal O=\mathbb Z[\zeta]$, $\zeta^2-\zeta+1=0$ and
+$\gamma=1+\zeta$. For an integer $n\ge2$, suppose
+\begin{equation}\label{il-input}
+ \tau=u\gamma^e v,\quad e\in\{0,1\},\quad V=\operatorname N v,
+ \qquad w\text{ primitive unramified},\quad R=\operatorname N w>1,
+\end{equation}
+where $u$ is a unit and $v$ is primitive oriented unramified.
+Then $\tau$ is primitive, $\operatorname N\tau=3^eV$ and
+$3\nmid VR$. Put
+\begin{equation}\label{il-reduced}
+ z=\tau w^n=A+B\zeta,\quad C=\gcd(|A|,|B|),\quad
+ M_{\rm red}=\operatorname N(z/C)=\frac{3^eVR^n}{C^2}.
+\end{equation}
+Here $C>0$. The reduced pair is primitive, without a positivity
+assumption in the following single-profile statements.
+
+\begin{lemma}[The exact opposite-orientation content]\label{il-content}
+The integer $C$ is prime to three and divides $V$. Its prime divisors
+are exactly the split rational primes where $\tau$ and $w$ have
+opposite orientations. At such a prime $p$, put
+$a_p=v_p(V)>0$ and $f_p=v_p(R)>0$. Then
+\begin{equation}\label{il-opposite-depths}
+ v_p(C)=\min(a_p,nf_p),\qquad
+ v_p(M_{\rm red})=|a_p-nf_p|.
+\end{equation}
+A shared prime with the same orientation contributes no content.
+\end{lemma}
+\begin{proof}
+Primitivity in the Eisenstein UFD means that at a split rational
+prime each input contains at most one orientation. No inert prime
+occurs in either primitive norm. At the ramified prime $\gamma$,
+the root is a unit and the multiplier has depth $e\le1$.
+Rational divisibility by three would require depth at least two,
+because $\gamma^2=3\zeta$. Thus $3\nmid C$.
+
+At a split $p$, divisibility by the rational prime is divisibility
+by both conjugate Eisenstein primes. Equal orientations retain only
+one factor. Opposite orientations give depths $a_p$ and $nf_p$,
+so the rational content has their minimum as depth. After division,
+the norm exponent is their absolute difference. This proves
+\eqref{il-opposite-depths} and the support assertion. Finally
+$\min(a_p,nf_p)\le a_p$, so $C\mid V$.
+\end{proof}
+
+The more general content bound of Lemma~\ref{pc-content} follows
+from an adjugate and Bezout argument. The exact minimum above uses
+primitive oriented factors; primitivity of $\tau$ is material to
+the next result.
+
+\begin{theorem}[A bill for any output residual]\label{il-residual-bill}
+Suppose the reduced norm has any representation
+\begin{equation}\label{il-output-profile}
+ M_{\rm red}=3^eV'(R')^n,\qquad V',R'\in\mathbb Z_{>0}.
+\end{equation}
+The root $R'$ may differ from $R$ and may be one. Then
+\begin{equation}\label{il-radical-bill}
+ \operatorname{rad}(C)^n\mid VV',
+\end{equation}
+where $\operatorname{rad}(1)=1$. In particular $C>1$ implies
+\begin{equation}\label{il-log-threshold}
+ \frac{\log V+\log V'}n\ge\log7.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Every prime $p\mid C$ is split, so $p\ge7$. If $a_p\ge n$,
+$V$ alone contains $p^n$. If $1\le a_p<n$, then
+$nf_p\ge n>a_p$, and \eqref{il-opposite-depths} gives
+$v_p(M_{\rm red})=nf_p-a_p$. The nonnegative valuation $v_p(V')$
+in \eqref{il-output-profile} is congruent to $-a_p$ modulo $n$,
+so it is at least $n-a_p$. Thus in both cases
+\[
+ v_p(V)+v_p(V')\ge n.
+\]
+Multiplication over the distinct primes dividing $C$ proves
+\eqref{il-radical-bill}. Its logarithm gives
+$(\log V+\log V')/n\ge\log\operatorname{rad}(C)$, which is
+at least $\log7$ when $C>1$.
+\end{proof}
+
+A canonical $n$-free representation \eqref{il-output-profile}
+always exists by taking the norm exponents modulo $n$ away from
+three. The exponent at three remains exactly $e$ by
+\eqref{il-reduced}. Thus the theorem bounds the smallest possible
+output residual and continues to hold when the numerical root is
+changed. Its threshold is sharp: the family of
+Theorem~\ref{pc-inverse-boundary} has
+\[
+ C=7,\qquad V=7,\qquad V'=7^{n-1},
+\]
+so equality holds in \eqref{il-radical-bill} and
+\eqref{il-log-threshold}. This is a single-map example, not a
+rational point asserted to lie on the full double fiber product.
+
+\begin{theorem}[An explicit integral inverse domain]\label{il-double-inverse}
+Fix integers $h,g\ge2$ and $\tau_0=u_0\gamma^e v_0$,
+$\tau_1=u_1v_1$ as in
+Section~\ref{rd-section}, with primitive oriented unramified
+$v_i$ and $V_i=\operatorname N v_i$. Let $(t_0,t_1)$ be a
+rational point of the full fiber product, with
+\begin{equation}\label{il-point-domain}
+ x=L_{\tau_0,h}(t_0)>0\text{ finite},\qquad
+ L_{\tau_1,g}(t_1)=\frac{x}{x^2+x+1}.
+\end{equation}
+Choose primitive integral homogeneous coordinates for $t_i$ and
+write $w_i=r_i+s_i\zeta$. Assume these roots are unramified
+nonunits. Put
+\[
+ R=\operatorname N w_0,\quad Q=\operatorname N w_1,\qquad
+ C_0=\operatorname{cont}(\tau_0w_0^h),\quad
+ C_1=\operatorname{cont}(\tau_1w_1^g).
+\]
+If $x=a/b$ in lowest positive terms, then
+\begin{equation}\label{il-two-norms}
+ a^2+ab+b^2=\frac{3^eV_0R^h}{C_0^2},\qquad
+ F(a,b)=\frac{V_1Q^g}{C_1^2}.
+\end{equation}
+In particular $C_0=C_1=1$ gives actual oriented profiles with
+the original residuals and exponents, up to unit signs. More
+generally, numerical profiles with the same $R,Q,h,g$ and
+positive integral residuals at most $V_0,V_1$ exist exactly when
+\begin{equation}\label{il-square-content-condition}
+ C_0^2\mid V_0,\qquad C_1^2\mid V_1.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The first output has ratio $a/b$. Dividing its coordinates by
+their content and changing the common sign gives exactly $(a,b)$.
+Taking norms proves the first equation of \eqref{il-two-norms}.
+Put $M=a^2+ab+b^2$. Since $\gcd(ab,M)=1$, the second output,
+whose ratio is $ab/M>0$, reduces in the same way to $(ab,M)$.
+Its norm is $F(a,b)$, proving the other equation. All actual
+denominators are nonzero since $a,b,M>0$. A coordinate $s_i=0$
+would make the primitive root a unit, already excluded here.
+
+When both contents are one these are the actual oriented
+factorizations, with at most sign changes to their units. For
+general content, \eqref{il-two-norms} determines the residuals
+with the same numerical root norms uniquely as $V_i/C_i^2$.
+They are positive integers precisely under
+\eqref{il-square-content-condition}, and then are at most $V_i$.
+The numerical profiles have actual oriented liftings by the same
+UFD argument as Lemma~\ref{dc-second-lift}. The original root
+orientations need not be preserved after division. Nor does failure
+of \eqref{il-square-content-condition} exclude a profile with a
+different numerical root norm.
+\end{proof}
+
+\paragraph{The finite local condition in a low-residual domain.}
+On either side, write $n$ for its exponent, $V$ for the initial
+residual, and $V'$ for any desired output residual at that exponent.
+If $(\log V+\log V')/n<\log7$, Theorem~\ref{il-residual-bill}
+forces content one, even if the numerical root is changed.
+
+Content one has a finite local description. For each $p\mid V$,
+the primitive multiplier is divisible by one split prime factor.
+Its product with $w^n$ has no content at $p$ exactly when $w$ is
+not divisible by the opposite factor. In primitive coordinates
+$[r:s]$, this excludes the single point $r/s=-\theta$ of
+$\mathbb P^1(\mathbb F_p)$, where $\theta$ is the image of
+$\zeta$ for the opposite factor. A norm-zero primitive residue
+has $s\ne0$, so no point at infinity is omitted. No other prime
+gives a content condition; unramifiedness of the root at three
+is the separate hypothesis already stated.
+
+These exclusions on both sides suffice to reconstruct the original
+integral residuals $V_0,V_1$. They do not guarantee an arbitrarily
+specified smaller output-residual budget. For such a smaller
+target, the assertion is the necessary exclusion of nonzero content
+under the joint input/output bound. The statement concerns the
+particular rational point and its root coordinates, not uniqueness
+of every profile of the resulting seed.
+
+The bill \eqref{il-radical-bill} and the integral inverse domain
+do not prove the existence of suitable points or bound their heights.
+They identify the arithmetic domain on which that remaining question
+must be addressed. These are ordinary proofs; no full Lean
+formalization of the oriented or geometric assertions is claimed.

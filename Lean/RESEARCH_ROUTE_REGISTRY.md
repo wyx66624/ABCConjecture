@@ -1,6 +1,27 @@
 # Research route registry
 
-Latest tenth continuation: September 7, 2026. Actual prime-factorization
+Latest eleventh continuation: September 7, 2026. Actual projective
+content and residual reflection identify an integral inverse domain.
+The norm-seven family retires only automatic single-map preservation of
+the same nonunit exponent. The pure-coefficient inverse is proved on the
+full positive rational locus, including ramified and infinite inputs;
+only the even/even positive branch is excluded by the earlier obstruction.
+
+The analytic route has a common large-cutoff set and actual joint
+squarefreeness in a growing window. Its farther top-rank signed cost and
+exceptional roots remain open. The independent Gaussian/Eisenstein cover
+keeps the exact even-exponent two-component relation and does not infer a
+uniform point-height bound from genus. Its odd branch, ramified first
+branch and moving residuals remain active.
+
+There are 31 new scoped Lean declarations and 53 freshly compiled local
+dependencies, with complete standard-axiom audits. Oriented UFD,
+analytic and geometric results retain their separately reviewed ordinary
+status. Two exact replays remain finite evidence. Twelfth-round candidates
+are separate from this publication. See
+`../research/checkpoints/2026_09_07_integral_lifting/README.md`.
+
+Historical tenth continuation: September 7, 2026. Actual prime-factorization
 and real-logarithm compensation now has 24 Lean declarations; the parallel
 reciprocal-depth integer kernel has 17. An actual private-depth family
 refutes automatic membership in all five sufficient cap patterns, while
@@ -13,8 +34,7 @@ expanded rational coefficient height are distinguished; neither bounds
 actual point heights. The elementary block mass theorem retains an
 exceptional set and controls full multiplicity mass, not signed cost.
 All geometric and analytic results retain ordinary-proof status, with
-independent internal reviews and separate finite evidence. New candidates
-in eleventh_round directories are not part of this publication. See
+independent internal reviews and separate finite evidence. The subsequent eleventh continuation is recorded separately above. See
 `../research/checkpoints/2026_09_07_depth_compensation/README.md`.
 
 Historical eighth continuation: September 7, 2026. A large nonsolvable

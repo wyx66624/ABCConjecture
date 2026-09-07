@@ -1,0 +1,163 @@
+\section{Joint squarefreeness beyond the actual root interval}
+\label{sqw-section}
+
+The following result proves simultaneous first-depth membership on a
+growing interval of primes for a majority of actual roots. It does not
+assume that supported primes are usually simple. The larger-prime tail
+and the exceptional roots remain separate problems.
+
+Let $n\ge5$ be prime, put $B=n^4$, and for integers $B\le k<2B$ write
+\[
+ a=3k,\qquad w_k=a+\zeta,\qquad Q_k=a^2+a+1,\qquad
+ T_n(k)=|P(w_k^n)|,\qquad t_k=\log c_n(k).
+\]
+These are primitive unramified roots, and $T_1(k)=a(a+1)$.
+At a supported prime $q\ge5$, the rank is
+$d_q=\operatorname{ord}((w_k/\bar w_k)^3\bmod q)$.
+
+\begin{theorem}[An actual joint repeated-prime bound]\label{sqw-joint}
+For a real number $U>B$, let $\mathcal B(n,U)$ be the set of indices
+in the block for which some prime $B<q\le U$ satisfies $q^2\mid T_n(k)$.
+Then
+\begin{equation}\label{sqw-bad-bound}
+ \frac{|\mathcal B(n,U)|}{B}
+ \le \frac{3n}{B}+
+       \frac{6U}{B\log(U/(3n))}.
+\end{equation}
+In particular, with
+\[
+ U_n=\left\lfloor\frac{B\log n}{\log\log n}\right\rfloor,
+\]
+one has $U_n>B$ for all sufficiently large prime $n$, and
+$|\mathcal B(n,U_n)|/B=O(1/\log\log n)$.
+Outside this single exceptional set, every supported prime in
+$(B,U_n]$ has exact depth one simultaneously.
+\end{theorem}
+\begin{proof}
+A supported prime does not divide $Q_k$. Since $q>B>n$, the
+homogeneous valuation law has no exponent-lifting term and its rank
+divides $n$. Thus its rank is one or $n$.
+
+Rank one cannot produce a repeated prime in this interval. Its depth
+equals its depth in $T_1=a(a+1)$. These two factors are coprime, so
+$q^2\mid T_1$ would force $q^2$ to divide one individual factor.
+Each is less than $6B+1$, whereas $q^2>B^2>6B+1$ for $B\ge625$.
+The comparison is with the individual factors, not their product.
+
+Every bad prime therefore has rank $n$. The reviewed finite-field
+rank calculation gives at most $3\varphi(n)$ simple roots in the
+$k$-variable modulo $q$. Each has a unique lift modulo $q^2$,
+with rank unchanged. Counting actual integers in the block gives
+\[
+ \#\{k:d_q=n,\ q^2\mid T_n(k)\}
+ \le3\varphi(n)(B/q^2+1).
+\]
+Every eligible prime lies in one of the two classes $\pm1\bmod 3n$.
+The first term in the union bound, after division by $B$, is at most
+\[
+ 3\varphi(n)\sum_{m>B}m^{-2}\le3n/B.
+\]
+The two-progression Brun--Titchmarsh bound used in the earlier
+rank-window proof gives
+\[
+ \#\{q\le U:q\equiv\pm1\bmod 3n\}
+ \le\frac{4U}{\varphi(3n)\log(U/(3n))}.
+\]
+Here $U>B>3n$ and $\varphi(3n)=2\varphi(n)$, yielding the second
+term of \eqref{sqw-bad-bound}. No independence of primes or uniform
+distribution of actual roots has been assumed. Finally
+$U_n/B\sim\log n/\log\log n$ and
+$\log(U_n/(3n))\sim3\log n$, giving the stated asymptotic bound.
+The exceptional set is defined by the existence of any repeated
+prime, so its complement gives the simultaneous assertion.
+\end{proof}
+
+The exact rank and simple-lifting inputs are the ordinary results
+underlying the sixth-round actual-root window. The sieve input is
+the same real-endpoint specialization of Montgomery--Vaughan's
+Theorem~2, equation~(1.10), already verified in the seventh-round
+sieved-window proof. No stronger version of that input is invoked.
+
+\begin{lemma}[Actual negative credit in the window]\label{sqw-credit}
+For $k\notin\mathcal B(n,U_n)$, define, over supported primes,
+\[
+ M_{\rm win}=\sum_{B<q\le U_n}v_q(T_n)\log q,\qquad
+ W_{\rm far}=\sum_{q>U_n}(v_q(T_n)-3)\log q,\qquad
+ H_{\rm low}=\sum_{q\le B}(v_q(T_n)-3)\log q.
+\]
+Then
+\begin{align}
+ M_{\rm win}&=\sum_{\substack{B<q\le U_n\\q\mid T_n}}\log q,
+ \label{sqw-window-rad}\\
+ \mathcal J(T_n)&=W_{\rm far}-2M_{\rm win}+H_{\rm low}
+ \le W_{\rm far}-2M_{\rm win}+L_B(T_n).
+ \label{sqw-credit-identity}
+\end{align}
+\end{lemma}
+\begin{proof}
+The preceding theorem makes each supported depth in the window equal
+to one. Its signed contribution is therefore $-2\log q$. Partition
+the global supported-prime sum at $B$ and $U_n$, and bound the
+remaining small-prime signed contribution by its full mass.
+\end{proof}
+
+This is proved credit for actual roots, but there is no positive lower
+bound for $M_{\rm win}$. The window may contain no supported primes.
+The next result also shows that its typical mass is sublinear.
+
+\begin{theorem}[The remaining packet still carries the full mass]
+\label{sqw-far-mass}
+Put $\epsilon_n=(\log\log n)^{-1/2}$. There is an absolute constant
+$C$ and, for every sufficiently large prime $n$, a set $\mathcal H_n$
+of actual indices of size at least $(1-C\epsilon_n)B$, such that every
+member has the joint squarefree property above and
+\begin{align}
+ L_{U_n}(T_n(k))/t_k&\le\epsilon_n,&
+ 0\le M_{\rm win}(k)/t_k&\le\epsilon_n, \label{sqw-small-mass}\\
+ 3-\frac4n-\epsilon_n
+ &\le\frac1{t_k}\sum_{q>U_n}v_q(T_n(k))\log q
+ \le3. \label{sqw-top-mass}
+\end{align}
+Every supported prime in \eqref{sqw-top-mass} has exact rank $n$,
+and its valuation is its first depth.
+\end{theorem}
+\begin{proof}
+Apply the full-mass mean in Section~\ref{fml-section} at $U_n$.
+For prime $n$, $\tau(n)=2$ and $\sigma(n)/n=1+1/n$.
+The three terms of that bound are respectively
+$O(\log n/n)$, $O(1/\log\log n)$ and $O(1/n)$.
+The elementary estimate of Section~\ref{ebi-section} adds at most
+$20/n$ for primes two and three. Hence
+\[
+ \frac1B\sum_{B\le k<2B}\frac{L_{U_n}(T_n(k))}{t_k}
+ \le\frac{C}{\log\log n}.
+\]
+Markov at $\epsilon_n$ excludes at most $C\epsilon_n$ of the
+relative mass of indices. Intersect with the complement of
+$\mathcal B(n,U_n)$, whose exceptional fraction is
+$O(\epsilon_n^2)$. This proves \eqref{sqw-small-mass}.
+The elementary angular estimate
+$3-4/n\le\log T_n/t_k\le3$ gives \eqref{sqw-top-mass}
+by subtraction.
+
+Eventually $U_n>6B+1$, so no prime above $U_n$ divides either old
+input factor $a,a+1$. Rank one is therefore absent altogether.
+Also $q>n$, so there is no exponent lifting. The homogeneous
+valuation law identifies its depth with its rank-$n$ first depth.
+\end{proof}
+
+For an actual sequence in $\mathcal H_n$, the condition
+\[
+ (W_{\rm far}-2M_{\rm win})_+/t_k\longrightarrow0
+\]
+is sufficient for $\limsup\mathcal J(T_n)/t_k\le0$ and hence for the
+restricted ABC estimate, for each fixed positive tolerance at
+sufficiently large indices. This is a conditional conclusion.
+On the proved set, the available window credit is itself $o(t_k)$,
+whereas the farther packet carries $(3-o(1))t_k$ of full valuation
+mass. The squarefree window does not pay for a positive linear
+signed cost in that packet. Neither that signed cost nor the
+excluded roots have been controlled. The analytic membership
+theorem here is an independently reviewed ordinary proof; no
+completed Lean proof of its sieve or exceptional-set statements
+is asserted.

@@ -1,0 +1,147 @@
+\section{Actual content and the logarithmic cancellation bill in Lean}
+\label{acr-section}
+
+The ordinary content and residual theorems have finite arithmetic cores
+that can be checked directly on integer coordinates and actual prime
+factorizations. Their formalization retains the boundary between the
+adjugate argument and the oriented factorization argument.
+
+For an integer pair $z=(x,y)$ put
+\[
+ C(z)=\gcd(|x|,|y|),\qquad
+ z_{\rm red}=(x/C(z),y/C(z)),\qquad N(z)=x^2+xy+y^2.
+\]
+In the Lean definition, $C(z)$ is \texttt{Int.gcd} and the divisions
+are integer division. All reconstruction identities below also hold at
+the zero pair, under the library's total convention for division by zero.
+Primitivity and positivity assertions explicitly exclude the zero pair.
+
+\begin{proposition}[The actual coordinate core]\label{acr-content-core}
+For every integer pair $z$,
+\[
+ C(z)z_{\rm red}=z,\qquad C(z)^2N(z_{\rm red})=N(z).
+\]
+If $z\ne0$, then $C(z)>0$, $N(z)>0$ and $C(z_{\rm red})=1$.
+With the multiplication of $\mathbb Z[\zeta]$, for arbitrary $\tau,W$,
+\[
+ C(\tau W)^2N((\tau W)_{\rm red})=N(\tau)N(W).
+\]
+If $C(W)=1$, then $C(\tau W)$, cast to an integer, divides $N(\tau)$.
+If also $\tau\ne0$, then $C(\tau W)>0$.
+\end{proposition}
+\begin{proof}
+The actual gcd divides both coordinates, so multiplying their integer
+quotients by the gcd reconstructs them, including at zero. Substitute
+these two identities into the quadratic norm to obtain its scaling law.
+Dividing a nonzero pair by its gcd makes it primitive. Positivity of
+the norm follows from $4N(x,y)=(2x+y)^2+3y^2$. Its multiplicativity
+gives the product norm identity. Finally the adjugate identities in
+Lemma~\ref{pc-content}, combined with the integer gcd's own Bezout
+coefficients for the primitive pair $W$, prove the stated divisibility.
+The product is nonzero by positivity and norm multiplicativity.
+\end{proof}
+
+The module \texttt{ActualProjectiveContent} checks these statements
+in nine declarations, including the actual norm-seven example
+\[
+ (-3+2\zeta)(62-149\zeta)=112+273\zeta=7(16+39\zeta).
+\]
+It checks both gcds and all displayed norms in this finite instance.
+The infinite family of Section~\ref{pc-section} is an ordinary proof;
+it is not inferred from this closed instance.
+
+\begin{lemma}[A local reflected depth]\label{acr-local-depth}
+Let $n,a,f$ be positive integers and $b,r$ nonnegative integers.
+If $|a-nf|=b+nr$, then $n\le a+b$.
+\end{lemma}
+\begin{proof}
+If $a\ge n$, use $b\ge0$. Otherwise $nf\ge n>a$, so the equality
+becomes $a+b=n(f-r)>0$. A positive integer multiple of the positive
+integer $n$ is at least $n$.
+\end{proof}
+
+For a natural number $C$, define the actual prime product
+\[
+ D(C)=\prod_{p\in\operatorname{primeFactors}(C)}p.
+\]
+It is positive, with empty product one. For positive $C$ it is the
+ordinary radical; the formal total convention also assigns one at zero.
+
+\begin{proposition}[An actual product bill and its strict log threshold]
+\label{acr-actual-bill}
+Let $n,C,V,V',R,R'$ be positive integers. Suppose that at every prime
+$p\mid C$ one has $v_p(V)>0$, $v_p(R)>0$, and
+\[
+ |v_p(V)-n v_p(R)|=v_p(V')+n v_p(R').
+\]
+Then $D(C)^n\mid VV'$. If also every prime divisor of $C$ is at least
+seven and
+\begin{equation}\label{acr-strict-log}
+ \log V+\log V'<n\log7,
+\end{equation}
+then $C=1$.
+\end{proposition}
+\begin{proof}
+Lemma~\ref{acr-local-depth} gives
+$n\le v_p(V)+v_p(V')=v_p(VV')$. Thus $p^n\mid VV'$ at every
+prime in the actual support of $C$. Distinct prime powers are coprime;
+their product is $D(C)^n$, proving the bill.
+
+Strict monotonicity of the logarithm on positive reals and the finite
+product and power laws give the exact equivalence
+\[
+ \log V+\log V'<n\log7\quad\Longleftrightarrow\quad VV'<7^n.
+\]
+If $C>1$, choose an actual prime divisor $p$ of $C$. Its $n$th power
+divides $VV'$, so $7^n\le p^n\le VV'$, a contradiction.
+\end{proof}
+
+The local depth premise is supplied ordinarily by the oriented
+calculation of Lemma~\ref{il-content}. It has not been silently
+discharged from the integer gcd theorem in Lean. The bill is for the
+product of distinct prime divisors, not for $C$ itself. The strict
+inequality cannot be weakened to a non-strict one: the norm-seven
+family has $C=7$, $V=7$, $V'=7^{n-1}$ and equality.
+
+\paragraph{Connecting the global radical to a positive integer.}
+With the actual prime-logarithm definitions of Section~\ref{apl-section},
+the finite product formula proves, for every natural $C$,
+\[
+ R_0(C)=\log D(C).
+\]
+Consequently the identity and height transfer of Section~\ref{ags-section}
+become
+\[
+ \mathcal S_0(N)=\log N-3\log D(N),\qquad
+ t-(\delta+b+l)/3\le\log D(N),
+\]
+with exactly the same explicit height, signed-tail and small-mass
+hypotheses. This verifies the passage from finite prime sums to the
+usual integer radical without adding any analytic premise.
+
+\paragraph{Exact formal scope.}
+The modules \texttt{ResidualReflection\allowbreak Arithmetic} and
+\texttt{ActualResidual\allowbreak LogThreshold} contain seven and six proved
+declarations respectively. They use integer absolute values,
+\texttt{Nat.factorization}, actual finite prime products and
+\texttt{Real.log}. Their source-level audit checks the explicit
+local reflection premise, positivity, the prime lower bound and
+strictness of the threshold. The total natural-number statements
+occasionally allow zero where the mathematical application uses
+positive inputs; this does not omit any required positive-domain premise.
+
+Together with the nine content declarations and the nine declarations
+in \texttt{ActualGlobal\allowbreak SignedBridge}, the joint fresh run checks
+31 new declarations and 53 unchanged local dependency declarations.
+It uses Lean 4.32.0, warnings as errors, and the pinned Mathlib revision
+\texttt{81a5d257c8e410db227a6665ed08f64fea08e997}.
+The compiled Mathlib cache is reused. All 84 declarations have explicit
+axiom queries; the union is only \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}.
+The ordinary proofs precede these implementations.
+
+The Eisenstein UFD, general integral inverse, rational-point existence,
+analytic mean estimates and arbitrary-root signed bounds are not
+formalized by these modules. Independent review and exact finite
+replay complement the scoped compilation; none constitutes a proof
+or disproof of $abc$.

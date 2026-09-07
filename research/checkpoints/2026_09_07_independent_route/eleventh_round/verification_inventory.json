@@ -1,0 +1,44 @@
+{
+  "round": 11,
+  "mathematical_sources_frozen": true,
+  "ordinary_reviewers": [
+    "root",
+    "critical_bottleneck",
+    "adversarial_audit"
+  ],
+  "ordinary_status": "PASS",
+  "tex_reviewers": [
+    "root",
+    "critical_bottleneck",
+    "adversarial_audit"
+  ],
+  "tex_status": "PASS",
+  "new_lean_modules": [],
+  "replay": {
+    "script": "replay_gaussian_cover.py",
+    "artifact": "gaussian_cover_replay.json",
+    "author_write_and_check": "PASS",
+    "parent_independent_check": "PASS",
+    "relation_kernel_rows": 119,
+    "actual_square_first_seed_rows": 52,
+    "integer_inverse_rows": 74,
+    "scope": "Exact finite supplement only; no full rational-point determination."
+  },
+  "files": {
+    "README.md": "bd860665ade9a809cffa01afef588863282a6069315bab940f4fefadf9850f4d",
+    "REVIEW.md": "daa8cff5d9fa1b72452264852fb3f5c10744133fa742bc89a08d5b762a95243b",
+    "biquadratic_power_cover.md": "64e203335a8f59e7d5aeb28bf35e6e9019884137604254c20380d1ff0c72504d",
+    "canonical_reflection_review.md": "815f8e65928897becce569158cad2c3b44a8876089eb1c44378c92f96fd471d0",
+    "gaussian_cover_replay.json": "524ee503761baafb19d1c25e2587562dfd57c939437fdcbc46a3336a14304d9f",
+    "gaussian_even_profile.md": "31762b81367d7c202da6f3a25d9694e4bb6ffd69312a558b33ed22d0295f9ed8",
+    "integral_profile_lifting.md": "20a89c903483a1c5d8c5c0e5315b17a5617c61ce803c2ae5203f0e79da71d6e8",
+    "paper/biquadratic_power_cover.tex": "fe2ba408d73647a512b32b870ec9ec4754fe3b5a948f17b4e8f44060d487d647",
+    "paper/gaussian_even_profile.tex": "0caee55686c8508869598243b08f7fe42ce9090960f7ee781afe099295be8ab9",
+    "paper/integral_profile_lifting.tex": "e0179d67c0c56a44bc2afb983d0f88f57294ac7f7db2cb50a28eca7bdfb7bf95",
+    "paper/pure_coefficient_inverse.tex": "9bc3bc6d2655488349dfa52e646222e3d7deb0ebebd9fbd6e5e860a7bb84e86b",
+    "peer_and_root_review.md": "93b9a1b9316bd7f9e218239cc111b1551fb428cee2d33f23db8d63a44174c591",
+    "projective_content_review.md": "331925e64c78ede0e089836e30208cada0ce11911ef24d037edeee148516431a",
+    "pure_coefficient_inverse.md": "25a5ac6a91c3600c2b82ce874e2674a5a3b7335468cec2e5f2d720e76e2b01d8",
+    "replay_gaussian_cover.py": "f2b5495626c0eabdc57d72c391e74ded678f7a8b803a86d2fee49c3cc9bbebeb"
+  }
+}

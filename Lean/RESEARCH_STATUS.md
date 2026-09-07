@@ -1,5 +1,30 @@
 # Research status
 
+## September 7, 2026: actual content, integral lifting and the global radical
+
+The eleventh continuation adds 31 proved declarations: nine actual gcd and
+content statements, seven residual-reflection arithmetic statements, six
+actual integer-radical/logarithm statements and nine global signed-bridge
+statements. A fresh joint run also compiles 53 old local declarations and
+audits all 84 axiom queries, using only the standard three axioms and the
+pinned Mathlib cache. The oriented local depth law remains an explicit
+formal premise; the ordinary UFD is not introduced as an axiom.
+
+Reviewed ordinary proofs give exact canonical residual reflection under
+the n-free premise, a positive integral inverse for pure coefficients,
+the even/even positive-locus obstruction, a common large-cutoff set and
+joint squarefreeness beyond the root block. The Gaussian/Eisenstein
+construction supplies a fixed-biquadratic-field cover with its exact
+even-exponent component defect. The two exact replays remain finite
+evidence. Uniform actual signed-tail bounds, exceptional roots and uniform
+point-height bounds are open; ABC remains unproved and undisproved.
+
+The designated manuscript now has 486 pages. The seal preserves all 164
+predecessor child TeX sources and the first 463 pages of extracted text;
+24 rendered pages were actually reviewed. See
+`../research/checkpoints/2026_09_07_integral_lifting/README.md` for the full
+ordinary/formal scope, commands and source/PDF hashes.
+
 ## September 7, 2026: actual prime-log and reciprocal-depth compensation
 
 The tenth continuation adds 41 proved declarations in checkpoint modules:

@@ -1,0 +1,118 @@
+\section{An integral converse for the pure-coefficient curves}
+\label{ci-section}
+
+For unit residuals, every rational point above a positive finite base
+coordinate has a genuine integral interpretation, including inputs
+at the ramified prime or at infinity. Retain $\gamma=1+\zeta$,
+$\gamma^2=3\zeta$, and integers $h,g\ge2$. Fix units $u_0,u_1$
+and $e_0\in\{0,1\}$, and set
+\[
+ \tau_0=u_0\gamma^{e_0},\qquad\tau_1=u_1.
+\]
+Consider the full rational fiber product of Section~\ref{rd-section},
+\begin{equation}\label{ci-fiber-product}
+ L_{\tau_1,g}(t_1)=r(L_{\tau_0,h}(t_0)),\qquad
+ r(x)=\frac{x}{x^2+x+1}.
+\end{equation}
+
+\begin{theorem}[Every positive point gives actual pure profiles]
+\label{ci-pure-inverse}
+For every rational point $(t_0,t_1)$ of \eqref{ci-fiber-product}
+with $x=L_{\tau_0,h}(t_0)>0$ finite, write $x=a/b$ in lowest
+positive terms. There are $e\in\{0,1\}$ and integers $R,Q\ge7$
+such that
+\begin{equation}\label{ci-pure-norms}
+ a^2+ab+b^2=3^eR^h,\qquad F(a,b)=Q^g.
+\end{equation}
+Both are actual oriented profiles with unit residuals. No
+unramifiedness or nonunit assumption is imposed on the input
+coordinates. If $h$ is even, $e=e_0$; for odd $h$ the first
+ramified parity may change.
+\end{theorem}
+\begin{proof}
+Represent each rational projective input by a primitive integer
+pair $(r_i,s_i)$ and put $w_i=r_i+s_i\zeta$. This includes
+$s_i=0$ and the point at infinity. The element $w_i$ is nonzero.
+Its $\gamma$-depth $\epsilon_i$ is zero or one: depth at least
+two would imply that the rational prime three divides both
+coordinates. Write
+\[
+ w_i=\gamma^{\epsilon_i}v_i,\qquad
+ \epsilon_i\in\{0,1\},\quad v_i\text{ primitive unramified}.
+\]
+Dividing by $\gamma$ cannot introduce a common rational factor
+into the coordinates, since that factor would then divide $w_i$.
+The oriented UFD factorization shows that every power of $v_i$
+is primitive and unramified.
+
+For either output set $E=e_{\rm initial}+\epsilon_i n$, where
+the initial exponent is $e_0$ on the first side and zero on the
+second. The exact identity
+\begin{equation}\label{ci-gamma-content}
+ u\gamma^Ev_i^n
+ =3^{\lfloor E/2\rfloor}u\zeta^{\lfloor E/2\rfloor}
+                  \gamma^{E\bmod2}v_i^n
+\end{equation}
+has a primitive final factor: it has only one split orientation
+at every prime and $\gamma$-depth at most one. Thus the full
+content is exactly $3^{\lfloor E/2\rfloor}$, and the reduced norm is
+\begin{equation}\label{ci-reduced-norm}
+ 3^{E\bmod2}(\operatorname N v_i)^n.
+\end{equation}
+
+Put $M=a^2+ab+b^2$. The first primitive output, after changing
+the common sign if necessary, is exactly $(a,b)$. Therefore
+\[
+ M=3^eR^h,\qquad R=\operatorname N v_0,
+ \qquad e=(e_0+\epsilon_0h)\bmod2.
+\]
+The second primitive output has ratio $ab/M$, with
+$\gcd(ab,M)=1$, so its positive primitive coordinates are
+$(ab,M)$. Consequently
+\[
+ F(a,b)=3^{\epsilon_1g\bmod2}Q^g,
+ \qquad Q=\operatorname N v_1.
+\]
+Since $3\nmid F$, the displayed parity is zero. Also
+$F(a,b)\ge13$, so $Q>1$. A nonunit primitive unramified
+norm is an integer at least seven.
+
+If $R=1$, then $M=3^e\le3$. Positive $a,b$ give $M\ge3$,
+with equality only at $a=b=1$. This would imply $13=Q^g$,
+impossible for $g\ge2$ and $Q>1$ because thirteen is prime.
+Thus $R>1$ and $R\ge7$ as well. The primitive factorizations
+remaining in \eqref{ci-gamma-content} give the actual oriented
+identities after the unit sign adjustments. All projective input
+cases have been included. The formula for $e$ proves the stated
+parity distinction.
+\end{proof}
+
+Conversely, every actual positive pure-profile seed gives a
+rational point of one of these curves by Sections~\ref{dc-section}
+and~\ref{rd-section}. Hence, after allowing the finite unit choices
+and both initial ramified parities, their positive rational points
+correspond exactly to actual pure-profile seeds. This asserts
+neither uniqueness of the point nor uniqueness of factorization.
+
+\begin{corollary}[The even/even positive rational locus is empty]
+\label{ci-even-even}
+If both $h$ and $g$ are even, no curve \eqref{ci-fiber-product}
+has a rational point whose base coordinate $x$ is positive and finite.
+\end{corollary}
+\begin{proof}
+Such a point would give \eqref{ci-pure-norms}. Thus $MF/3^e$
+would be a rational square. The exact combined-norm obstruction
+of Theorem~\ref{qg-combined-obstruction} says that neither $MF$
+nor $MF/3$ is a rational square for a positive primitive seed.
+This is a contradiction.
+\end{proof}
+
+Only the positive rational base locus is excluded. Points over other
+fields, negative coordinates and boundary base values are not ruled
+out by this argument. The remaining exponent pairs stay open unless
+a separate proved obstruction applies. The nonunit-multiplier
+counterfamily of Section~\ref{pc-section} is consistent with this
+converse: here the only cancellation is the ramified power of three
+accounted for in \eqref{ci-gamma-content}. No general point-height
+upper bound follows. These statements are ordinary results; the
+complete geometric and oriented converse is not claimed as a Lean proof.

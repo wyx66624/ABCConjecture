@@ -1,0 +1,156 @@
+\section{A common actual set for large-cutoff signed compensation}
+\label{lcs-section}
+
+The full-mass theorem and the reciprocal-depth ledger can be combined
+without discarding the signed radical credits. This replaces a
+small-cutoff sufficient test by a test only above the root interval,
+on an explicitly specified majority of actual roots. Membership in
+that new sufficient class remains a separate arithmetic problem.
+
+Let $n\ge5$ be an integer prime to six, and set
+\[
+ B=n^4,\qquad
+ Z=\left\lfloor\frac{B\sqrt{\log n}}{1+\log\log n}\right\rfloor,
+ \qquad \eta_n=(\log n)^{-1/4}.
+\]
+For $B\le k<2B$ use $w=3k+\zeta$ and the actual normalized quotient
+arms $D_1,D_2,D_3$ of Section~\ref{sac-section}. Write
+\[
+ T=T_n(k),\quad t=\log c_n(k),\quad
+ T_1=|P(w)|,\quad \Delta=3t-\log T,
+\]
+and let $c_1$ be the largest input arm. The quotients are nonzero and
+pairwise coprime, and $T=T_1|D_1D_2D_3|$. Define
+\[
+ L_Z(T)=\sum_{p\le Z}v_p(T)\log p,\qquad
+ \mathcal J(T)=\log T-3\log\operatorname{rad}(T).
+\]
+The global cost $\mathcal J$ is signed; it is not replaced by its
+positive part in the finite argument.
+
+\begin{theorem}[One root set for all cap choices]\label{lcs-common-set}
+There are absolute constants $C,N_0$ such that for every eligible
+$n\ge N_0$ there is a set $G_n$ of actual root indices with
+\begin{equation}\label{lcs-good-set}
+ |G_n|\ge(1-C\eta_n)B,\qquad
+ L_Z(T_n(k))/t_k\le\eta_n\quad(k\in G_n).
+\end{equation}
+The set is independent of every cap choice below. For any $k\in G_n$
+and any
+\[
+ h_i\in\mathbb Z_{\ge1}\cup\{\infty\},\qquad
+ \sum_i1/h_i\ge1,\qquad 1/\infty=0,
+\]
+put $\beta_i=3/h_i$ for finite $h_i$, and zero otherwise, and define
+\begin{align}
+ \mathcal E_Z(h;k)={}&
+ \sum_{h_i<\infty}\beta_i
+       \sum_{p>Z}(v_p(|D_i|)-h_i)_+\log p
+ \label{lcs-net-budget}\\
+ &-3\sum_{h_i=\infty}\sum_{\substack{p>Z\\p\mid D_i}}\log p.
+ \notag
+\end{align}
+Then, simultaneously for all such moving choices,
+\begin{equation}\label{lcs-global-cost}
+ \frac{\mathcal J(T)}t
+ \le\frac{39}{n}+3\eta_n+\frac{\mathcal E_Z(h;k)}t,
+\end{equation}
+\begin{equation}\label{lcs-radical}
+ \frac{\log\operatorname{rad}(T)}t
+ \ge1-\frac{43}{3n}-\eta_n-\frac{(\mathcal E_Z(h;k))_+}{3t}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The reviewed full small-prime mean in Sections~\ref{fml-section}
+and~\ref{ebi-section} is $O((\log n)^{-1/2})$.
+Markov at $\eta_n$ gives \eqref{lcs-good-set}. This construction
+only tests $L_Z/t$, so the same set works for every cap triple.
+
+The direct angle bound gives $\Delta/t\le4/n$. Also
+\begin{equation}\label{lcs-input-bounds}
+ \frac{\log c_1}t\le\frac2n,\qquad
+ \frac{\log T_1}t\le\frac3n.
+\end{equation}
+Indeed $c_1\le(2/\sqrt3)\sqrt Q\le Q$ for $Q\ge7$,
+while $t\ge(n/2)\log Q$. The cubic boundary identity gives
+$T_1\le2Q^{3/2}/(3\sqrt3)\le Q^{3/2}$.
+Thus $\delta=\Delta+\log c_1$ satisfies $\delta/t\le6/n$.
+
+In the reciprocal-depth ledger write
+\[
+ C_h=\sum_i\beta_i,\qquad
+ A_h=\sum_i(\beta_i-1)_+,\qquad
+ B_h=\max_i(\beta_i-1)_+.
+\]
+Then $C_h\ge3$, $A_h\le6$ and $B_h\le2$. Its exact inequality
+at cutoff $Z$ is
+\[
+ \log W_Z(T)\le(3-C_h)t+A_h\delta+B_hL_Z(T)
+                         +\log T_1+\mathcal E_Z(h;k).
+\]
+The first term is nonpositive. Insert the good-set and input bounds
+to obtain
+\[
+ \log W_Z(T)/t\le39/n+2\eta_n+\mathcal E_Z(h;k)/t.
+\]
+The omitted signed cost is at most its full mass:
+\[
+ \mathcal J(T)-\log W_Z(T)
+ =\sum_{\substack{p\le Z\\p\mid T}}(v_p(T)-3)\log p\le L_Z(T).
+\]
+This proves \eqref{lcs-global-cost}. Finally
+$3\log\operatorname{rad}(T)=3t-\Delta-\mathcal J(T)$.
+Use $\Delta/t\le4/n$ and replace the net excess by its positive
+part to obtain \eqref{lcs-radical}. No union bound over cap choices
+appears, and the constants are uniform even for infinite caps.
+\end{proof}
+
+\begin{corollary}[A sufficient large-prime subclass]\label{lcs-subclass}
+If $k\in G_n$ and every finite-cap arm has all actual prime depths
+above $Z$ at most its chosen cap, then
+\begin{equation}\label{lcs-cap-radical}
+ \log\operatorname{rad}(T)/t\ge1-43/(3n)-\eta_n.
+\end{equation}
+Any of the five maximal reciprocal patterns may be used, now only
+at primes above $Z$. In particular one quotient arm squarefree
+above $Z$ suffices, with the other two arms unrestricted.
+More generally, along any sequence of roots in $G_n$ with admissible
+moving caps and $(\mathcal E_Z)_+/t\to0$, for each $\epsilon>0$
+all sufficiently large members satisfy
+\[
+ c_n\le\operatorname{rad}(T_n)^{1+\epsilon}.
+\]
+\end{corollary}
+\begin{proof}
+Under the actual finite caps every finite excess is zero and the
+unrestricted-arm terms are nonpositive. Apply
+\eqref{lcs-radical}. For the general sequence its error tends to zero,
+so the radical logarithm is at least $t/(1+\epsilon)$ eventually.
+\end{proof}
+
+The cap-only estimate is uniform at sufficiently large $n$ for each
+fixed $\epsilon$. No positive proportion of $G_n$ is proved to meet
+the cap or net-budget condition. The excluded roots remain excluded,
+and bounded exponents with moving roots are not handled by a
+finite-seed argument. The gain is the location of the test: $Z/B\to\infty$,
+and arbitrary smaller-prime depths are allowed on $G_n$ because
+their entire mass is already negligible there.
+
+\paragraph{The scope of the known private-depth family.}
+The TD construction selects $a\ge M_0=3\prod_iq_i^{s_i+1}$,
+with $s_i\ge4$. Thus $q_i\le(a/3)^{1/(s_i+1)}\le a^{1/5}$.
+If a chosen representative belongs to a comparable block $a=3k$,
+$B\le k<2B$, its selected primes satisfy $q_i<(2B)^{1/5}$,
+well below $Z$ for sufficiently large $n$, when $Z>B$. In fact the published representatives
+obey $a\ge3(6n+1)^{15}$ and therefore do not belong to $B=n^4$
+for $n\ge5$. The conditional cutoff comparison does not assert
+otherwise.
+
+Those selected depths alone cannot refute the new large-cutoff test.
+Their other prime factors were not controlled, so neither can that
+construction prove membership in it. The old automatic lower-cutoff
+cap assertion remains refuted exactly as stated. The unresolved
+problem is actual excess-minus-credit control above $Z$, including
+a treatment of the exceptional roots. This section is an independently
+reviewed ordinary proof, not a claim that the sufficient condition
+holds on every root.

@@ -1,0 +1,45 @@
+{
+  "status": "PASS: two exact finite replays with unchanged source and certificate bytes",
+  "records": [
+    {
+      "script": "research/checkpoints/2026_09_07_adversarial_audit/eleventh_round/replay_projective_content.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_adversarial_audit/eleventh_round/replay_projective_content.py": "139522b9b62df6cbc076b9f45833ac9cd5f3b313d8de820529946cff5e829518",
+        "research/checkpoints/2026_09_07_adversarial_audit/eleventh_round/projective_content_results.json": "92bf3f119d79dde439aa3477a31cba2c70b09af6f1b1a72cb19536b358a0d025"
+      },
+      "result": {
+        "family_rows": 128,
+        "file_sha256": "92bf3f119d79dde439aa3477a31cba2c70b09af6f1b1a72cb19536b358a0d025",
+        "multiplier_rows": 24192,
+        "payload_sha256": "ea8d21c0004833e5d067679bdd18496856019d39e17c7e121beaee5d24dfe2e6",
+        "status": "PASS"
+      }
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_independent_route/eleventh_round/replay_gaussian_cover.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_independent_route/eleventh_round/replay_gaussian_cover.py": "f2b5495626c0eabdc57d72c391e74ded678f7a8b803a86d2fee49c3cc9bbebeb",
+        "research/checkpoints/2026_09_07_independent_route/eleventh_round/gaussian_cover_replay.json": "524ee503761baafb19d1c25e2587562dfd57c939437fdcbc46a3336a14304d9f"
+      },
+      "result": {
+        "status": "PASS",
+        "sha256": "524ee503761baafb19d1c25e2587562dfd57c939437fdcbc46a3336a14304d9f",
+        "kernel_rows": 119,
+        "seed_rows": 52,
+        "inverse_rows": 74
+      }
+    }
+  ],
+  "not_claimed": [
+    "ABC proof or disproof",
+    "asymptotic signed-tail membership",
+    "existence of simultaneous pure-power seeds",
+    "universal prime allocation from a finite sample"
+  ]
+}

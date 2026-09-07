@@ -1,0 +1,78 @@
+{
+  "status": "PASS: fresh actual-global bridge and local dependencies, complete axiom audit",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "new_declarations": 9,
+  "dependency_declarations": 24,
+  "modules": {
+    "ActualPrimeLogCompensation": {
+      "source": "research/checkpoints/2026_09_07_depth_compensation/Lean/ActualPrimeLogCompensation.lean",
+      "sha256": "e032065e14cb3f917cccbe100d9e6e81c29b83827b53bbc6cb5310c33923307b",
+      "new": false,
+      "declarations": 17,
+      "queries": [
+        "ABCActualPrimeLogCompensation20260907.prime_weight_nonnegative",
+        "ABCActualPrimeLogCompensation20260907.mass_nonnegative",
+        "ABCActualPrimeLogCompensation20260907.small_mass_nonnegative",
+        "ABCActualPrimeLogCompensation20260907.mass_partition",
+        "ABCActualPrimeLogCompensation20260907.mass_le_log",
+        "ABCActualPrimeLogCompensation20260907.actual_depth_cap_budget",
+        "ABCActualPrimeLogCompensation20260907.mass_mul",
+        "ABCActualPrimeLogCompensation20260907.radical_mul_coprime",
+        "ABCActualPrimeLogCompensation20260907.signed_mul_coprime",
+        "ABCActualPrimeLogCompensation20260907.radical_mul_ge_right",
+        "ABCActualPrimeLogCompensation20260907.actual_overlap_budget",
+        "ABCActualPrimeLogCompensation20260907.actual_three_factor_additivity",
+        "ABCActualPrimeLogCompensation20260907.actual_two_arm_prime_log_budget",
+        "ABCActualPrimeLogCompensation20260907.actual_two_arm_with_height_budget",
+        "ABCActualPrimeLogCompensation20260907.actual_two_arm_with_old_factor",
+        "ABCActualPrimeLogCompensation20260907.excess_zero_of_actual_cap",
+        "ABCActualPrimeLogCompensation20260907.actual_one_squarefree_prime_log_budget"
+      ]
+    },
+    "ActualPrimeLogHeight": {
+      "source": "research/checkpoints/2026_09_07_depth_compensation/Lean/ActualPrimeLogHeight.lean",
+      "sha256": "e91a8cb4fbb8d708c2bf8d9f8207179565479bc1382cda592edbd2034e7d6581",
+      "new": false,
+      "declarations": 7,
+      "queries": [
+        "ABCActualPrimeLogHeight20260907.nat_log_mul",
+        "ABCActualPrimeLogHeight20260907.small_mass_mul",
+        "ABCActualPrimeLogHeight20260907.nat_log_monotone",
+        "ABCActualPrimeLogHeight20260907.output_log_lower",
+        "ABCActualPrimeLogHeight20260907.actual_arm_mass_bounds",
+        "ABCActualPrimeLogHeight20260907.two_small_parts_le_product",
+        "ABCActualPrimeLogHeight20260907.finite_actual_arm_compensation"
+      ]
+    },
+    "ActualGlobalSignedBridge": {
+      "source": "research/checkpoints/2026_09_07_critical_bottleneck/eleventh_round/Lean/ActualGlobalSignedBridge.lean",
+      "sha256": "92145cb1ee76d9e125fcb91fd695f2ffb1fe673d58d0148b80a12ada2b90b26e",
+      "new": true,
+      "declarations": 9,
+      "queries": [
+        "ABCActualGlobalSignedBridge20260907.prime_weight_antitone",
+        "ABCActualGlobalSignedBridge20260907.radical_antitone",
+        "ABCActualGlobalSignedBridge20260907.small_mass_zero_cutoff",
+        "ABCActualGlobalSignedBridge20260907.mass_zero_cutoff",
+        "ABCActualGlobalSignedBridge20260907.signed_zero_cutoff",
+        "ABCActualGlobalSignedBridge20260907.global_signed_le_tail_plus_small",
+        "ABCActualGlobalSignedBridge20260907.global_radical_height_transfer",
+        "ABCActualGlobalSignedBridge20260907.large_cutoff_numerical_transfer",
+        "ABCActualGlobalSignedBridge20260907.finite_actual_global_arm_compensation"
+      ]
+    }
+  },
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "dependency_build_scope": "Fresh compilation of all three listed local modules; pinned Mathlib dependency cache reused.",
+  "not_claimed": [
+    "ABC proof or disproof",
+    "whole repository or Mathlib rebuild",
+    "analytic full-mass estimate",
+    "actual tail membership or exceptional-root control"
+  ]
+}

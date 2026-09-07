@@ -1,0 +1,88 @@
+\section{A formal passage from the signed tail to the global radical}
+\label{ags-section}
+
+Retain the actual prime-factorization observables of
+Section~\ref{apl-section}: $S_Y,L_Y,R_Y$ and the signed logarithmic
+cost $\mathcal S_Y=S_Y-3R_Y$, with a natural cutoff $Y$.
+For positive $N$, $R_0(N)=\log\operatorname{rad}(N)$.
+The following finite step is independent of how a tail estimate
+or a small-prime estimate is obtained.
+
+\begin{lemma}[Global signed comparison]\label{ags-global}
+For every positive integer $N$ and natural $Y$,
+\begin{equation}\label{ags-comparison}
+ \mathcal S_0(N)\le\mathcal S_Y(N)+L_Y(N).
+\end{equation}
+If real numbers $t,\delta,b,l$ satisfy
+\[
+ 3t-\delta\le\log N,\qquad
+ \mathcal S_Y(N)\le b,\qquad L_Y(N)\le l,
+\]
+then
+\begin{equation}\label{ags-height}
+ t-(\delta+b+l)/3\le R_0(N).
+\end{equation}
+\end{lemma}
+\begin{proof}
+A prime's logarithmic weight can only decrease when the cutoff
+increases. Summing over the actual prime support gives $R_Y(N)\le R_0(N)$.
+There is no prime at most zero, so $L_0(N)=0$ and
+$S_0(N)=\log N=S_Y(N)+L_Y(N)$. Substitute these identities into
+the signed costs to obtain \eqref{ags-comparison}. Since
+$\mathcal S_0(N)=\log N-3R_0(N)$, the three assumed inequalities
+then give \eqref{ags-height}.
+\end{proof}
+
+In particular, for a positive integer $n$ and $t>0$, the finite
+hypotheses
+\[
+ 3t-4t/n\le\log N,\qquad
+ \mathcal S_Y(N)\le39t/n+2\eta t+e,\qquad
+ L_Y(N)\le\eta t
+\]
+imply exactly
+\begin{equation}\label{ags-numerical}
+ 1-43/(3n)-\eta-e/(3t)\le R_0(N)/t.
+\end{equation}
+This is the numerical step used by the large-cutoff bridge; the
+analytic availability of its hypotheses is not assumed universally.
+
+Under the positive integer arm hypotheses of
+Theorem~\ref{apl-finite-compensation}, with $T=(aA)(bB)(dC)$,
+$U=abd$ and $\Delta=3\log H-\log T$, the same comparison proves
+\begin{align}
+ \mathcal S_0(T)\le{}&\Delta+\log H_1+\log U+\tfrac32 L_Y(T)
+ \label{ags-arm}\\
+ &+\tfrac32(E_{2,Y}(A)+E_{2,Y}(B))-3R_Y(C).\notag
+\end{align}
+The coefficient of the small-prime mass is three halves because
+\eqref{ags-comparison} adds its full mass to the half-mass term
+already present in the actual finite tail theorem. This argument
+preserves arbitrary overlap with the old factor $U$.
+
+\paragraph{Formal scope and verification.}
+The module \texttt{ActualGlobalSignedBridge} contains nine proved
+declarations. They establish antitonicity of actual prime weights
+and radical sums, the zero-cutoff identities, the global comparison,
+the height transfer, the numerical constants in
+\eqref{ags-numerical}, and the actual finite global arm theorem
+\eqref{ags-arm}. Its definitions are the actual
+\texttt{Nat.factorization}, \texttt{Nat.primeFactors} and
+\texttt{Real.log} observables imported from the preceding two modules.
+The formal radical is the actual finite sum of prime logarithms.
+
+A fresh scoped run compiled these nine declarations and all 24 local
+prime-logarithm dependency declarations with Lean 4.32.0 and warnings
+as errors. The pinned Mathlib cache was reused at revision
+\texttt{81a5d257c8e410db227a6665ed08f64fea08e997}; no complete Mathlib
+rebuild is claimed. All 33 declarations were queried for axioms, with
+only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}
+in the union. Independent source review checked all nine statements
+and proofs and matched the final source hashes to the manifest.
+
+The numerical theorem explicitly assumes its height, tail and
+small-mass bounds, as well as $t>0$ and a nonzero natural $n$.
+It does not prove the common-set analytic estimate, actual cap
+membership, or exceptional-root control. Thus the finite global
+prime-factorization step is formalized, while the large-cutoff
+analytic and pointwise number-theoretic obligations remain distinct.
