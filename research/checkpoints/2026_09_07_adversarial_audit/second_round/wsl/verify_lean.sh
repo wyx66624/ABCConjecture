@@ -2,6 +2,10 @@
 set -euo pipefail
 round_dir=$(cd "$(dirname "$0")/.." && pwd)
 repo_dir=$(cd "$round_dir/../../../.." && pwd)
+# Elan has no default toolchain on a clean CI runner. Resolve the repository
+# pin explicitly even though this standalone Std module runs from repo_dir.
+ELAN_TOOLCHAIN=$(tr -d '\r\n' < "$repo_dir/Lean/lean-toolchain")
+export ELAN_TOOLCHAIN
 lean_bin=${LEAN_BIN:-$(command -v lean || true)}
 if [[ -z "$lean_bin" && -x "$HOME/.elan/bin/lean" ]]; then
   lean_bin="$HOME/.elan/bin/lean"
