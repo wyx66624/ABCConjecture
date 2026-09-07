@@ -1,0 +1,156 @@
+{
+  "actual_ordered_block_pairs": 2870,
+  "block_B_range": [
+    1,
+    20
+  ],
+  "bounded_search": {
+    "B": 2401,
+    "max_unordered_pairs": 3,
+    "maximizing_u": [
+      4799
+    ],
+    "phase_denominator": 1,
+    "phases_checked": 1201,
+    "u_interval": [
+      3601,
+      7203
+    ],
+    "u_mod_3": 2,
+    "upper_exclusive": true
+  },
+  "conditional_injective_fibers": 1449,
+  "distinct_block_phase_checks": 1540,
+  "examples": [
+    {
+      "B": 2401,
+      "K": 20489203,
+      "all_ordered_block_pairs": [
+        [
+          7809,
+          10767
+        ],
+        [
+          8397,
+          9819
+        ],
+        [
+          9819,
+          8397
+        ],
+        [
+          10767,
+          7809
+        ]
+      ],
+      "displayed_factor_pairs": [
+        [
+          3283,
+          6241
+        ],
+        [
+          3871,
+          5293
+        ]
+      ],
+      "n": 7,
+      "prime_factorization": [
+        [
+          7,
+          2
+        ],
+        [
+          67,
+          1
+        ],
+        [
+          79,
+          2
+        ]
+      ],
+      "u": 4526,
+      "v": 1
+    },
+    {
+      "B": 2401,
+      "K": 23035201,
+      "all_ordered_block_pairs": [
+        [
+          7668,
+          12828
+        ],
+        [
+          8922,
+          10386
+        ],
+        [
+          9480,
+          9720
+        ],
+        [
+          9720,
+          9480
+        ],
+        [
+          10386,
+          8922
+        ],
+        [
+          12828,
+          7668
+        ]
+      ],
+      "displayed_factor_pairs": [
+        [
+          2869,
+          8029
+        ],
+        [
+          4123,
+          5587
+        ],
+        [
+          4681,
+          4921
+        ]
+      ],
+      "n": 7,
+      "prime_factorization": [
+        [
+          7,
+          1
+        ],
+        [
+          19,
+          1
+        ],
+        [
+          31,
+          1
+        ],
+        [
+          37,
+          1
+        ],
+        [
+          151,
+          1
+        ]
+      ],
+      "u": 4799,
+      "v": 1
+    }
+  ],
+  "not_claimed": [
+    "deep-prime membership of examples",
+    "maximum over all rational phases",
+    "uniform phase-fiber bound proved by testing",
+    "ABC proof or disproof"
+  ],
+  "positive_input_checks": 1599,
+  "positive_input_range": [
+    1,
+    40
+  ],
+  "status": "PASS: exact bounded arithmetic only"
+}

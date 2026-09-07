@@ -1,0 +1,72 @@
+{
+  "status": "PASS: three exact finite replays with unchanged source and certificate bytes",
+  "records": [
+    {
+      "script": "research/checkpoints/2026_09_07_adversarial_audit/twelfth_round/replay_phase_fibers.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_adversarial_audit/twelfth_round/replay_phase_fibers.py": "8c8e69bdf09ae2b4abde8a653c98430be0f7f76207bff7e27c1e9c3ad3dc2c18",
+        "research/checkpoints/2026_09_07_adversarial_audit/twelfth_round/phase_fiber_results.json": "eb755ef6d4d1ec5e56cbd0d449f90db926a0e2c1b72bcbee8264e4602f8cefef"
+      },
+      "result": {
+        "status": "PASS",
+        "sha256": "eb755ef6d4d1ec5e56cbd0d449f90db926a0e2c1b72bcbee8264e4602f8cefef",
+        "actual_pairs": 2870,
+        "phase_checks": 1540,
+        "positive_input_checks": 1599,
+        "searched_integer_phases": 1201
+      }
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_critical_bottleneck/twelfth_round/replay_private_norm.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_critical_bottleneck/twelfth_round/replay_private_norm.py": "64e0bd4ffbfd6b5194dafd7305ad6e5f2bf8da46d79eaae959344b96e1f1696b",
+        "research/checkpoints/2026_09_07_critical_bottleneck/twelfth_round/verification/private_norm_replay.json": "42b72e6f95b1822f9bce3b708bcfdf5cc876641725a469d9f71365979955313a"
+      },
+      "result": {
+        "canonical_payload_sha256": "fcd8227dff68842b8feacef9a11281babc2594644b2a0ded2b968b1cd9b47f45",
+        "full_norm_factorizations": 3522,
+        "json_file_sha256": "42b72e6f95b1822f9bce3b708bcfdf5cc876641725a469d9f71365979955313a",
+        "mode": "check",
+        "ordered_tuples": 7700,
+        "private_prime_witnesses": 2502,
+        "status": "PASS"
+      }
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_independent_route/twelfth_round/replay_rational_geometry.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_independent_route/twelfth_round/replay_rational_geometry.py": "cb8d01a395a0be3d582da52af2976b489efee18e7c67c1d1e149c7cf46e60565",
+        "research/checkpoints/2026_09_07_independent_route/twelfth_round/verification/rational_geometry_replay.json": "9ccf3ce5e8c3e4316f880afdb44edfd0687744935beb98b17baa70a18efd9efa"
+      },
+      "result": {
+        "sha256": "9ccf3ce5e8c3e4316f880afdb44edfd0687744935beb98b17baa70a18efd9efa",
+        "status": "PASS",
+        "summary": {
+          "actual_first_square_chart_samples": 360,
+          "homogeneous_branch_cases": 21,
+          "integral_group_ring_identities": 1,
+          "odd_exponent_lattice_and_RH_cases": 50,
+          "polynomial_identities": 6,
+          "rho_finite_inverse_checks": 614,
+          "rho_infinity_branches": 2
+        }
+      }
+    }
+  ],
+  "not_claimed": [
+    "ABC proof or disproof",
+    "asymptotic density or signed-tail bound",
+    "deep-prime membership of phase examples",
+    "complete rational-point or Jacobian-rank computation",
+    "geometric theorem proved by finite sampling"
+  ]
+}

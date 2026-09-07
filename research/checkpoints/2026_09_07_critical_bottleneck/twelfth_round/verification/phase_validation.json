@@ -1,0 +1,83 @@
+{
+  "status": "PASS: fresh actual pair-phase arithmetic and local dependencies, complete axiom audit",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "new_declarations": 15,
+  "dependency_declarations": 29,
+  "modules": {
+    "EisensteinDescent": {
+      "source": "research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean",
+      "sha256": "e5e15c14c4771fcf6bffd1d87bac67d23895cf02f40606188b2059d4cf3c944e",
+      "new": false,
+      "declarations": 29,
+      "queries": [
+        "ABCEisenstein20260905.mul_comm",
+        "ABCEisenstein20260905.mul_assoc",
+        "ABCEisenstein20260905.mul_one",
+        "ABCEisenstein20260905.norm_mul",
+        "ABCEisenstein20260905.conjugate_product",
+        "ABCEisenstein20260905.rotate_boundary",
+        "ABCEisenstein20260905.rotate_norm",
+        "ABCEisenstein20260905.norm_height_identity",
+        "ABCEisenstein20260905.inverse_numerators",
+        "ABCEisenstein20260905.boundary_remainder_x",
+        "ABCEisenstein20260905.boundary_remainder_y",
+        "ABCEisenstein20260905.boundary_remainder_sum",
+        "ABCEisenstein20260905.step_is_mul",
+        "ABCEisenstein20260905.step_norm",
+        "ABCEisenstein20260905.orbit_norm",
+        "ABCEisenstein20260905.orbit_add",
+        "ABCEisenstein20260905.orbit_six",
+        "ABCEisenstein20260905.orbit_six_shift",
+        "ABCEisenstein20260905.orbit_mod_four",
+        "ABCEisenstein20260905.orbit_mod_seven",
+        "ABCEisenstein20260905.cubic_coordinate",
+        "ABCEisenstein20260905.boundary_step_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_lucas",
+        "ABCEisenstein20260905.cubic_difference",
+        "ABCEisenstein20260905.orbit_cubic_difference",
+        "ABCEisenstein20260905.exact_small_orbits",
+        "ABCEisenstein20260905.boundary_factor_certificates",
+        "ABCEisenstein20260905.defect_ratio_increases"
+      ]
+    },
+    "DeepRootPhaseArithmetic": {
+      "source": "research/checkpoints/2026_09_07_critical_bottleneck/twelfth_round/Lean/DeepRootPhaseArithmetic.lean",
+      "sha256": "d001e6d61dfa6a9d98cdef75737cac15395033f2fd305ed5134d5326dce4a6c9",
+      "new": true,
+      "declarations": 15,
+      "queries": [
+        "ABCDeepRootPhase20260907.actual_pair_coordinates",
+        "ABCDeepRootPhase20260907.actual_cross_difference",
+        "ABCDeepRootPhase20260907.phase_defect_factorization",
+        "ABCDeepRootPhase20260907.phase_factorization",
+        "ABCDeepRootPhase20260907.phase_factors_positive",
+        "ABCDeepRootPhase20260907.phase_constant_positive",
+        "ABCDeepRootPhase20260907.phase_factor_mem_divisors",
+        "ABCDeepRootPhase20260907.phase_first_factor_injective",
+        "ABCDeepRootPhase20260907.phase_fiber_card_le_divisors",
+        "ABCDeepRootPhase20260907.actual_pair_height_bounds",
+        "ABCDeepRootPhase20260907.coordinate_cross_bound",
+        "ABCDeepRootPhase20260907.actual_determinant_height_bound",
+        "ABCDeepRootPhase20260907.actual_large_modulus_phase_rigidity",
+        "ABCDeepRootPhase20260907.reduced_phase_constant_bound",
+        "ABCDeepRootPhase20260907.actual_nontrivial_phase_collision"
+      ]
+    }
+  },
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "dependency_build_scope": "Fresh compilation of both listed local modules; pinned Mathlib dependency cache reused.",
+  "not_claimed": [
+    "ABC proof or disproof",
+    "whole repository or Mathlib rebuild",
+    "finite-field torsion or lifting",
+    "Brun--Titchmarsh or divisor asymptotics",
+    "analytic full-mass estimate",
+    "actual tail membership or exceptional-root control"
+  ]
+}

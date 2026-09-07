@@ -1,5 +1,33 @@
 # Research status
 
+## September 7, 2026: multiplicative coherence and rational quotient curves
+
+The twelfth continuation proves actual deep pair-product rigidity and
+finite divisor-fiber counting. Its 21 new Lean declarations and 29 unchanged
+local dependencies pass a fresh joint compilation and complete standard-three
+axiom audit. The finite target size and same-image divisibility stay explicit;
+the finite-ring, lifting, asymptotic and geometric steps remain ordinary proofs.
+
+Reviewed ordinary results give a cap-three window for most prime-index roots,
+a proved multiplicatively independent private-norm class of density at least
+one half asymptotically, and a larger bounded positive-excess window using
+fixed higher moments. Exact phase collisions refute only specific stronger
+fiber bounds. The farther signed packet and the complementary roots are open.
+
+The geometric route now has an exact positive rational inverse and unique
+Gaussian lifting, an unramified cover with exact-order Jacobian torsion, and
+three smaller hyperelliptic quotient Jacobians with a Q-defined product
+isogeny. This does not determine their full rational-point sets or uniform
+heights. ABC remains unproved and undisproved. The full manuscript seal and
+all ordinary/formal boundaries are recorded in
+`../research/checkpoints/2026_09_07_multiplicative_coherence/README.md`.
+
+The full manuscript has 502 pages. Its seal verifies 185 actual TeX inputs,
+preserves all 175 predecessor child sources and the first 481 pages of
+extracted text, and records actual visual inspection of 22 page rasters.
+Three canonical exact finite replays pass with unchanged source and JSON
+bytes. The manuscript and formal certificates remain separately scoped.
+
 ## September 7, 2026: actual content, integral lifting and the global radical
 
 The eleventh continuation adds 31 proved declarations: nine actual gcd and

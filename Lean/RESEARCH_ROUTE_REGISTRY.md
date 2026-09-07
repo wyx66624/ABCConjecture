@@ -1,6 +1,27 @@
 # Research route registry
 
-Latest eleventh continuation: September 7, 2026. Actual projective
+Latest twelfth continuation: September 7, 2026. Actual multiplicative
+coherence gives a cap-three interval for most block roots. A private-norm
+class of relative size at least one half asymptotically admits higher-moment
+positive-excess bounds on a larger finite interval. Fixed-moment constants,
+the exceptional complement and the unbounded signed packet remain explicit.
+Only universal phase injectivity and the universal two-unordered-pair bound
+are retired by actual examples; common deep-prime membership is not asserted.
+
+The distinct geometric branch retains the positive rational point problem.
+The Gaussian cover has a unique rational lift over every such Eisenstein
+point, so its additional equation excludes none of that domain. Its exact
+torsion class and three smaller hyperelliptic quotient Jacobians provide
+explicit further objects, not a height bound or complete point calculation.
+Odd exponents, ramified first norms and moving residuals remain live.
+
+There are 21 new scoped Lean declarations and 29 freshly compiled dependency
+declarations, with complete standard-axiom audit. The analytic, ideal and
+geometric results retain their independently reviewed ordinary-proof status.
+Later variable-moment and matroid candidates are outside this sealed package.
+See `../research/checkpoints/2026_09_07_multiplicative_coherence/README.md`.
+
+Historical eleventh continuation: September 7, 2026. Actual projective
 content and residual reflection identify an integral inverse domain.
 The norm-seven family retires only automatic single-map preservation of
 the same nonunit exponent. The pure-coefficient inverse is proved on the
@@ -17,8 +38,8 @@ branch and moving residuals remain active.
 There are 31 new scoped Lean declarations and 53 freshly compiled local
 dependencies, with complete standard-axiom audits. Oriented UFD,
 analytic and geometric results retain their separately reviewed ordinary
-status. Two exact replays remain finite evidence. Twelfth-round candidates
-are separate from this publication. See
+status. Two exact replays remain finite evidence. The subsequent twelfth
+continuation is recorded separately above. See
 `../research/checkpoints/2026_09_07_integral_lifting/README.md`.
 
 Historical tenth continuation: September 7, 2026. Actual prime-factorization

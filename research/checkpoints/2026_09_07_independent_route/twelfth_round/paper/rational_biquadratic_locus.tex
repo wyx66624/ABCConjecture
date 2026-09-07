@@ -1,0 +1,192 @@
+\section{The exact rational domain of the simultaneous quadratic cover}
+\label{rl-section}
+
+Put $K_E=\mathbb Q(\zeta)$, $K_G=\mathbb Q(i)$ and $K=K_EK_G$,
+where $\zeta^2-\zeta+1=0$. Throughout this section $g\geq3$ is an odd
+integer. Define homogeneous degree-$g$ integer forms by
+\[
+ (S+T\zeta)^g=A_E(S,T)+B_E(S,T)\zeta,\qquad
+ (S+Ti)^g=A_G(S,T)+B_G(S,T)i.
+\]
+For $u\in\{1,\zeta,\zeta^2\}$, let $A_{E,u},B_{E,u}$ be the
+coordinates of $u(S+T\zeta)^g$. These three choices suffice
+projectively, since changing the sign of $u$ changes neither
+coordinate ratio. Retain the functions
+\begin{gather}
+ a_0=t^2-1,\quad b_0=2t+1,\quad c_0=t^2+2t,\quad
+ U_0=t^2+t+1,\quad A_0=a_0b_0,\label{rl-parameters}\\
+ E=A_0+\zeta U_0^2,\qquad G=A_0+iU_0c_0.\label{rl-elements}
+\end{gather}
+In homogeneous coordinates $[T_0:W_0]$, the form $b_0$ means
+$W_0(2T_0+W_0)$; all four forms $a_0,b_0,c_0,U_0$ have degree two.
+
+\begin{lemma}[Rational norm-one coordinates]\label{rl-norm-one}
+The maps
+\[
+ \rho_E(s)=\frac{s+\zeta}{s+\bar\zeta},\qquad
+ \rho_G(v)=\frac{v+i}{v-i},
+ \qquad \rho_E(\infty)=\rho_G(\infty)=1
+\]
+are bijections from $\mathbb P^1(\mathbb Q)$ to the norm-one
+elements of $K_E$ and $K_G$, respectively. The $g$-power map on
+the latter group is injective. It is also injective on the former
+when $\gcd(g,6)=1$.
+\end{lemma}
+\begin{proof}
+The finite denominators do not vanish at rational parameters, and
+conjugation proves norm one. For a norm-one element different from
+one the unique inverse formulas are
+\[
+ s=\frac{\zeta-Y\bar\zeta}{Y-1},\qquad
+ v=i\,\frac{Z+1}{Z-1}.
+\]
+Their conjugates equal themselves because $\bar Y=Y^{-1}$ and
+$\bar Z=Z^{-1}$; hence they are rational. The value one corresponds
+exactly to infinity.
+
+The quotient of two $g$-th roots is a $g$-th root of unity.
+The roots of unity in $K_G$ and $K_E$ are $\mu_4$ and $\mu_6$.
+Indeed the trace of a root of unity in an imaginary quadratic field
+is an integer in $\{-2,-1,0,1,2\}$ and its norm is one. The
+resulting quadratic polynomials give only orders $1,2,3,4,6$;
+the two distinct fields exclude respectively orders $3,6$ or order
+$4$. The asserted injectivity follows.
+\end{proof}
+
+\begin{theorem}[A complete model over $\mathbb Q$]\label{rl-rational-model}
+Let $C_{g,u}$ be the smooth projective normalization of the fiber
+product in $\mathbb P^1_t\times\mathbb P^1_s\times\mathbb P^1_v$
+defined by
+\begin{equation}\label{rl-fiber}
+ U_0^2 A_{E,u}(s)-A_0B_{E,u}(s)=0,\qquad
+ U_0c_0 A_G(v)-A_0B_G(v)=0.
+\end{equation}
+It is a curve defined over $\mathbb Q$. After base change to $K$
+it is isomorphic to the smooth projective model of
+\begin{equation}\label{rl-kummer}
+ Y^g=u^{-2}\frac{E}{\bar E},\qquad
+ Z^g=\frac{G}{\bar G}.
+\end{equation}
+It is geometrically connected, has degree $g^2$ over
+$\mathbb P^1_t$, and has genus $1+3g^2-4g$.
+\end{theorem}
+\begin{proof}
+The coordinate pairs $(A_{E,u},B_{E,u})$ and $(A_G,B_G)$ have no
+common projective zero: such a zero would make powers of both
+distinct conjugate linear forms vanish. They therefore define
+finite degree-$g$ maps of projective lines.
+The target pairs $(A_0,U_0^2)$ and $(A_0,U_0c_0)$ are coprime too.
+The finite numerator zeros are $1,-1,-1/2$; none is a zero of
+$U_0$, and the zeros of $c_0$ are $0,-2$. At infinity the
+numerator vanishes but both denominators are nonzero. Both target
+maps have degree four. The fiber product is finite over the base,
+has total generic degree $g^2$, and has no vertical curve component.
+
+On a dense open set, use $Y=\rho_E(s)$ and $Z=\rho_G(v)$.
+The power identities give
+\[
+ \rho_E(A_{E,u}/B_{E,u})=u^2\rho_E(s)^g,\qquad
+ \rho_G(A_G/B_G)=\rho_G(v)^g.
+\]
+They turn \eqref{rl-fiber} into \eqref{rl-kummer}; the fractional
+linear inverses supply the inverse function-field map.
+The odd-exponent calculation in Theorem~\ref{bk-degree-genus}
+gives geometric connectedness, degree and genus. Uniqueness of
+the smooth projective model extends the birational map to an
+isomorphism \cite{StacksCurves2026}.
+For real $t>1$, both norms of $E$ and $G$ are
+$F(a_0,b_0)>0$, so this chart avoids every branch point.
+The raw fiber product is already smooth there.
+The even-exponent component defect is not omitted: $g$ is odd
+throughout this theorem.
+\end{proof}
+
+\begin{theorem}[An exact rational descent test]\label{rl-descent}
+On \eqref{rl-kummer}, let $t\in\mathbb Q$ and $t>1$.
+The conditions
+\begin{equation}\label{rl-norm-tests}
+ Y\in K_E,\quad Y\bar Y=1,\qquad
+ Z\in K_G,\quad Z\bar Z=1
+\end{equation}
+are exactly the conditions for a $K$-point on this chart to come
+from a rational point of $C_{g,u}$. They imply positive coprime
+integers $a,b$ and integers $U,Q\geq7$ such that
+\begin{equation}\label{rl-actual-seeds}
+ a^2+ab+b^2=U^2,\qquad F(a,b)=Q^g.
+\end{equation}
+Equivalently, if $\sigma_E$ conjugates $K_E$ and fixes $i$, and
+$\sigma_G$ conjugates $i$ and fixes $K_E$, the descent test is
+\[
+ \sigma_E(Y)=Y^{-1},\quad \sigma_G(Y)=Y,\qquad
+ \sigma_E(Z)=Z,\quad \sigma_G(Z)=Z^{-1}.
+\]
+\end{theorem}
+\begin{proof}
+Lemma~\ref{rl-norm-one} recovers unique rational projective
+parameters $s,v$, proving both directions of the rationality test.
+Reduce the positive rational number
+$x=a_0/b_0=(t^2-1)/(2t+1)$ to $a/b$. Then
+\[
+ a^2+ab+b^2=(bU_0/b_0)^2.
+\]
+A rational square root of an integer is an integer, by valuations
+in a reduced fraction, so $U=bU_0/b_0$ is a positive integer.
+The first map is $x=L_{1,2}(t)$. The Eisenstein equation gives a
+rational power-map input with output
+$A_0/U_0^2=ab/(a^2+ab+b^2)$. These are precisely the two maps
+in the pure-coefficient inverse at exponents $(2,g)$, with
+coefficients $1,u$. Theorem~\ref{ci-pure-inverse} supplies
+\eqref{rl-actual-seeds} and $U,Q\geq7$. Its first ramified parity
+is zero because the first exponent is two and its coefficient is
+one. Its proof includes ramified and infinite projective inputs;
+none is silently excluded here. In particular $3\nmid F$ and
+oddness force the second primitive input to be unramified.
+The Gaussian equation provides a coordinate on the cover but is
+not needed for this integer norm conclusion once the positive
+rational Eisenstein input is given.
+\end{proof}
+
+\begin{theorem}[Unique Gaussian lifting on the positive rational locus]
+\label{rl-unique-lift}
+Let $D_{g,u}$ be the smooth projective normalization of the first
+equation in \eqref{rl-fiber}. Each point of $D_{g,u}(\mathbb Q)$
+with finite $t>1$ has exactly one rational lift to $C_{g,u}$.
+If $\gcd(g,6)=1$, the points of the single curve
+$C_{g,1}(\mathbb Q)$ with $t>1$ are in bijection with the ordered
+positive primitive seeds satisfying \eqref{rl-actual-seeds}.
+\end{theorem}
+\begin{proof}
+The same pure inverse just used gives an actual seed from the
+point of $D_{g,u}$. Theorem~\ref{ge-gaussian-lift} writes
+$ab+iUc=u_Gw_G^g$. Since $g$ is odd, raising to $g$ permutes
+$\mu_4$ and the unit is absorbed into $w_G$. The ratio
+$Z=w_G/\bar w_G$ is a Gaussian norm-one $g$-th root of the
+actual ratio; the positive rational scale from $t$ cancels.
+Lemma~\ref{rl-norm-one} yields $v\in\mathbb P^1(\mathbb Q)$.
+Two lifts would have ratios differing by an element of
+$\mu_g(K_G)=\{1\}$, so $v$ is unique. The chart is smooth and
+nonbranch, so normalization introduces no further lifts there.
+
+When $\gcd(g,6)=1$, an actual seed gives
+$t=(a+U)/b>1$. In addition to the Gaussian unit, the unit in
+$ab+U^2\zeta=u_Ew_E^g$ can now be absorbed because raising to
+$g$ permutes $\mu_6$. The two norm-one ratios give rational
+$s,v$, and hence a point of $C_{g,1}$. Conversely the earlier
+theorem gives the seed. The parameter $t$ is the unique root
+greater than one of
+$t^2-2(a/b)t-a/b-1=0$, the other root being negative.
+The Eisenstein root is unique by $\gcd(g,6)=1$, and the Gaussian
+root by oddness. This proves the bijection.
+\end{proof}
+
+For odd $g$ divisible by three the three unit choices must be
+retained; single-curve uniqueness is not asserted. The Gaussian
+lift remains unique over each positive rational Eisenstein point.
+Thus the higher cover removes none of those points. An actual
+point computation or a further theorem is still needed to use it.
+For a prescribed first exponent $h>2$ even, additionally impose
+$U=R^{h/2}$; the first-square inverse does not preserve that larger
+exponent automatically. No uniform height bound, odd-exponent
+emptiness or ABC theorem follows here. All curves called rational
+models in this section are curves defined over $\mathbb Q$, not
+elliptic Q-curves in the modularity terminology.

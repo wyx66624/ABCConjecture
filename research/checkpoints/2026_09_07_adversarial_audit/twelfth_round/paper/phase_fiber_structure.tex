@@ -1,0 +1,208 @@
+\section{Exact positive phase fibers and their denominator boundary}
+\label{pfs-section}
+
+For a positive integer $B$, put
+\[
+ \mathcal A_B=\{3k:k\in\mathbb Z,\ B\leq k<2B\}.
+\]
+Since $(a+\zeta)(b+\zeta)=(ab-1)+(a+b+1)\zeta$, the phase of
+an ordered pair is $(ab-1)/(a+b+1)$. An unordered pair below permits
+$a=b$, counted once. These are actual root parameters; no common
+deep-prime condition is implicit in the definition.
+
+\begin{theorem}[Exact divisor parameterization]\label{pfs-divisors}
+Let $u,v$ be coprime positive integers and $K=u^2+uv+v^2$.
+Positive integer pairs of phase $u/v$ are in bijection with
+positive divisors $P\mid K$ satisfying $P\equiv-u\pmod v$,
+by
+\begin{equation}\label{pfs-inverse}
+ P=va-u,\quad Q=vb-u,\qquad
+ a=\frac{P+u}{v},\quad b=\frac{K/P+u}{v}.
+\end{equation}
+For pairs with both coordinates divisible by three, the phase
+necessarily satisfies
+\begin{equation}\label{pfs-three}
+ u+v\equiv0\pmod3,\qquad 3\nmid uv.
+\end{equation}
+Under \eqref{pfs-three}, the exact divisor congruence is
+$P\equiv-u\pmod{3v}$. The additional conditions for the actual
+block are
+\begin{equation}\label{pfs-interval}
+ 3vB-u\leq P<6vB-u,\qquad
+ 3vB-u\leq K/P<6vB-u.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The phase equation gives
+\[
+ (va-u)(vb-u)=K,\qquad
+ b(va-u)=u(a+1)+v>0,\quad a(vb-u)=u(b+1)+v>0.
+\]
+Thus both factors are positive. Conversely the congruence for $P$
+implies $\gcd(P,v)=1$. Since $K\equiv u^2\pmod v$, its complementary
+divisor $Q$ automatically satisfies $Q\equiv-u\pmod v$.
+Both reconstructed coordinates are positive integers, and expansion
+of $PQ=K$ proves their phase equation. These constructions are inverse.
+
+For coordinates divisible by three the unreduced numerator is $-1$
+modulo three and its denominator is $1$ modulo three. Their gcd is
+prime to three, so reduction proves \eqref{pfs-three}. Under that
+condition $\gcd(u,3v)=1$ and $K-u^2=v(u+v)$ is divisible by $3v$.
+The same complementary-divisor argument now works modulo $3v$.
+The coordinate interval is exactly \eqref{pfs-interval}.
+Before knowing that a candidate phase has a nonempty block fiber,
+positivity of $P,Q$ must still be imposed. The next theorem proves
+that its lower endpoint is positive whenever the fiber is nonempty.
+\end{proof}
+
+\begin{theorem}[A denominator-sensitive fiber bound]\label{pfs-denominator}
+A nonempty block fiber of reduced phase $u/v$ satisfies
+\begin{gather}
+ \frac{9B^2-1}{6B+1}\leq\frac uv
+ \leq\frac{(6B-3)^2-1}{12B-5},\qquad
+ B<\frac uv<3B.\label{pfs-phase-range}
+\end{gather}
+Its unordered and ordered cardinalities satisfy respectively
+\begin{align}
+ N_{\rm unordered}&\leq1+\left\lfloor\frac{2B-2}{v}\right\rfloor,
+ \label{pfs-unordered}\\
+ N_{\rm ordered}&\leq
+ \min\left\{\tau(K),\,2\left(1+\left\lfloor\frac{2B-2}{v}\right\rfloor\right)\right\}.
+ \label{pfs-ordered}
+\end{align}
+In particular $v>2B-2$ implies at most one unordered pair.
+\end{theorem}
+\begin{proof}
+At fixed $b$, the difference of phases at $a$ and $a'$ is
+\[
+ \frac{(a-a')(b^2+b+1)}{(a+b+1)(a'+b+1)}.
+\]
+Monotonicity in both coordinates proves the first two bounds of
+\eqref{pfs-phase-range}. Its lower endpoint exceeds $B$ because
+$3B^2-B-1>0$ for $B\geq1$. Also
+$(ab-1)/(a+b+1)<ab/(a+b)<3B$ when $a,b<6B$.
+Consequently $L=3vB-u>0$. With $U=6vB-u$, the interval condition
+can equivalently be written
+$L\leq P<U$ and $K/U<P\leq K/L$, with the displayed strict endpoints.
+
+Put $s=a+b+1$. The reduced phase forces $v\mid s$, while the
+block gives
+\[
+ 6B+1\leq s\leq12B-5,\qquad s\equiv1\pmod3.
+\]
+Since $3\nmid v$, the possible sums form one progression of step
+$3v$. The interval length is $6B-6$, so there are at most
+$1+\lfloor(2B-2)/v\rfloor$ such sums. For each $s$, the product is
+$ab=us/v+1$. The quadratic with this product and sum $s-1$
+determines at most one unordered pair. This proves
+\eqref{pfs-unordered}; ordering at most doubles the number, and
+Theorem~\ref{pfs-divisors} supplies the bound $\tau(K)$.
+Diagonal pairs contribute only one ordered pair. The proof includes
+$B=1$ and both endpoints of the sum interval.
+\end{proof}
+
+This proves an actual subclass with an explicit denominator
+condition. It does not establish that small-denominator fibers
+are rare in a specified deep-root set.
+
+\begin{proposition}[Two actual failures of stronger injectivity]
+\label{pfs-examples}
+For $n=7$, $B=n^4=2401$, phase $4526$ has the distinct unordered
+pairs
+\[
+ (7809,10767),\quad(8397,9819).
+\]
+Phase $4799$ has at least three distinct unordered pairs,
+\[
+ (7668,12828),\quad(8922,10386),\quad(9480,9720).
+\]
+All coordinates belong to $\mathcal A_B$.
+\end{proposition}
+\begin{proof}
+For the first phase,
+\[
+ K=20489203=7^2\cdot67\cdot79^2
+   =3283\cdot6241=3871\cdot5293.
+\]
+The factors are $(a-4526,b-4526)$ in the two rows. For the second,
+\begin{gather*}
+ K=23035201=7\cdot19\cdot31\cdot37\cdot151,\\
+ K=2869\cdot8029=4123\cdot5587=4681\cdot4921.
+\end{gather*}
+These factors are $(a-4799,b-4799)$. The inverse formulas in
+Theorem~\ref{pfs-divisors} prove all phase equalities. Each
+coordinate is a multiple of three in $[7203,14406)$.
+\end{proof}
+
+The first example rules out unconditional unordered injectivity;
+the second rules out a universal bound of two unordered pairs.
+Neither meets the large-denominator hypothesis of
+Theorem~\ref{pfs-denominator}. They do not assert common
+fourth-depth membership at a prime, and they do not refute the
+signed-tail gate.
+
+\begin{theorem}[A finite multiple-mark interface]\label{pfs-marks}
+Let $S\subseteq\mathcal A_B$, and let $H$ be a finite set with
+a binary operation. Assign images $\phi(a)\in H$ for $a\in S$.
+Suppose an integer $m>864B^3$ has the property
+\begin{equation}\label{pfs-div-input}
+ \phi(a)\phi(b)=\phi(c)\phi(d)
+ \quad\Longrightarrow\quad
+ m\mid(ab-1)(c+d+1)-(cd-1)(a+b+1)
+\end{equation}
+for $a,b,c,d\in S$. For a positive integer $v_0$, let $E_{<v_0}$
+count the ordered pairs in $S^2$ whose reduced phase denominator
+is less than $v_0$. Then
+\begin{equation}\label{pfs-low-denominator-remainder}
+ |S|^2\leq E_{<v_0}
+  +2|H|\left(1+\left\lfloor\frac{2B-2}{v_0}\right\rfloor\right).
+\end{equation}
+\end{theorem}
+\begin{proof}
+The actual degree-three determinant has absolute value at most
+$864B^3$: each pair has coordinates between zero and $36B^2$,
+and between zero and $12B$, respectively. Its divisibility by
+$m$ therefore forces it to vanish. Every nonempty product-image
+fiber has a single phase. Remove the low-denominator ordered pairs
+and partition the rest by their image in $H$. Each occupied fiber
+has denominator at least $v_0$, so Theorem~\ref{pfs-denominator}
+gives its stated bound. Summing over $H$ proves the result.
+No bound on $E_{<v_0}$ is presumed.
+\end{proof}
+
+For an application with several marked primes, let $q_i>3$ be
+distinct, $q_i\nmid n$, and impose actual conditions
+$q_i^{e_i}\mid T_n(a)$, with $e_i\geq1$, where $T_n(a)$ is
+the absolute cubic boundary of $(a+\zeta)^n$. A hit forces
+$N(a+\zeta)$ to be a unit modulo $q_i$: the cubic difference
+would otherwise force both conjugates to vanish, while their
+difference is a unit at $q_i>3$. Thus
+$\alpha_a=(a+\zeta)/(a+\bar\zeta)$ is defined and belongs to
+the $3n$-torsion subgroup $H_i$ modulo $q_i^{e_i}$.
+The split or inert norm-one residue group is cyclic of order
+$q_i-\chi_i$, where $\chi_i=1$ or $-1$, respectively. Simple
+lifting of $X^{3n}-1$, using $q_i\nmid3n$, gives
+\[
+ |H_i|=\gcd(3n,q_i-\chi_i).
+\]
+Take $H=\prod_i H_i$ and $m=\prod_i q_i^{e_i}$. Equal pair images
+give the conjugate-cross-product divisibility at every prime power,
+and coprimality gives \eqref{pfs-div-input}. If $m>864B^3$,
+Theorem~\ref{pfs-marks} applies.
+
+This uses combined precision, but its target size is
+$\prod_i|H_i|$, not one copy of $3n$. It yields no pointwise
+far-tail bound by itself. Actual incidence of small phase
+denominators, or additional dependence among product images,
+remains an explicit question.
+
+The accompanying exact integer replay checks $2870$ ordered pairs
+from blocks $1\leq B\leq20$, their $1540$ distinct block fibers,
+and $1599$ positive input pairs from $1\leq a,b\leq40$.
+It fully factors the two displayed constants and enumerates their
+divisors. A bounded search of $1201$ integer phases
+$u\equiv2\pmod3$ in $[\lfloor3B/2\rfloor,3B)$ at $B=2401$
+finds the displayed three-pair phase. This is not a search over all
+rational phases and proves no uniform bound by testing.
+The ordinary proofs above and the finite evidence are separate;
+no Lean proof of the new denominator refinement is claimed.

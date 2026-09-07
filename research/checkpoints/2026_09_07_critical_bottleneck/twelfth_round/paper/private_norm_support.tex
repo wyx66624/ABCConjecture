@@ -1,0 +1,230 @@
+\section{Private norm primes and higher moments on a positive-density class}
+\label{pn-section}
+
+For a positive integer \(B\), retain the actual roots
+\[
+ a_k=3k,\quad w_k=a_k+\zeta,\quad Q_k=a_k^2+a_k+1,\quad
+ \alpha_k=w_k/\bar w_k,\qquad B\leq k<2B.
+\]
+Define the actual subset
+\[
+ \mathcal{S}_B=\{k:B\leq k<2B,\ Q_k
+                    \text{ has a prime divisor greater than }12B\}.
+\]
+This section proves membership in a useful subclass; it does not
+assume that the actual roots have independent random prime factors.
+
+\begin{theorem}[A positive-density class of independent ratios]
+\label{pn-private}
+As \(B\to\infty\),
+\[
+ |\mathcal{S}_B|\geq\frac B2
+               -O\!\left(\frac{B\log\log B}{\log B}\right).
+\]
+For every \(k\in\mathcal{S}_B\) there is exactly one prime
+\(r_k>12B\) in \(Q_k\), its depth is one, and it divides no other
+norm in the entire block. The algebraic numbers
+\(\{\alpha_k:k\in\mathcal{S}_B\}\) are multiplicatively independent.
+\end{theorem}
+\begin{proof}
+Uniformly in the block,
+\[
+ 9B^2\leq Q_k<49B^2,\qquad
+ \sum_k\log Q_k=2B\log B+O(B).
+\]
+The polynomial \(9X^2+3X+1\) has no factor two or three.
+Every supported prime is \(1\pmod3\), and at such a prime \(r\)
+it has exactly two simple roots, each with one lift at every
+depth. Its discriminant is \(-27\).
+Put \(H_r=\lfloor\log(49B^2)/\log r\rfloor\).
+Counting the actual interval at each depth gives
+\[
+ \sum_k v_r(Q_k)\log r
+     \leq\frac{2B\log r}{r-1}+2H_r\log r.
+\]
+
+We use only the fixed-modulus consequence
+\[
+ \vartheta(x;3,1)=\frac x2+O(x/\log x)
+\]
+of Theorem~1.2, formula~(1.12), of
+\href{https://arxiv.org/abs/1802.00085v3}
+{Bennett, Martin, O'Bryant and Rechnitzer}.
+Partial summation and the convergent change from \(1/r\) to
+\(1/(r-1)\) give
+\[
+ \sum_{\substack{r\leq x\\r\equiv1\ (3)}}\frac{\log r}{r-1}
+       =\frac12\log x+O(\log\log x).
+\]
+Indeed the error integral is \(O(\int^x dt/(t\log t))\).
+The sum of the endpoint terms at \(r\leq12B\) is \(O(B)\):
+each is at most \(2\log(49B^2)\), and
+\(\pi(12B)=O(B/\log B)\). Thus all small norm primes together
+contribute at most
+\[
+ B\log B+O(B\log\log B).
+\]
+The mass above \(12B\) is at least
+\(B\log B-O(B\log\log B)\).
+Each root contributes at most \(2\log B+O(1)\), proving the count.
+This is a fixed progression estimate, not a moving-field input.
+
+Since \((12B)^2>49B^2\), a norm has at most one such prime,
+and its valuation is one. If \(r>12B\) divided norms at two
+distinct parameters \(a,b\), it would divide
+\[
+ Q(a)-Q(b)=(a-b)(a+b+1).
+\]
+Both nonzero factors have absolute value less than \(r\), which
+is impossible. Finally, the primitive unramified \(w_k\) has
+one orientation above \(r_k\). At that prime ideal \(\alpha_k\)
+has valuation \(1\) or \(-1\), while every other block ratio
+has valuation zero. Applying these valuations to a multiplicative
+relation forces every exponent to vanish.
+\end{proof}
+
+\begin{theorem}[Higher moments at deep boundary primes]\label{pn-moment}
+Fix an integer \(\nu\geq2\). For every sufficiently large prime
+\(n\), put \(B=n^4\). For every prime \(q>B\),
+\[
+ \#\{k\in\mathcal{S}_B:q^{2\nu}\mid T_n(k)\}
+             \leq(3\nu!n)^{1/\nu}.
+\]
+The sufficiently-large condition depends on the fixed \(\nu\).
+\end{theorem}
+\begin{proof}
+At every hit, the root ratio lies in the norm-one group killed by
+\(3n\) modulo \(q^{2\nu}\).
+The split and inert lifting proof of Lemma~\ref{mc-torsion}
+works at this precision too and bounds that group by \(3n\).
+
+For two ordered \(\nu\)-tuples write
+\[
+ z=\prod_{j=1}^{\nu}(a_j+\zeta)=R+S\zeta,\qquad
+ z'=R'+S'\zeta.
+\]
+The norm coordinate bound and a telescoping expansion give
+\[
+ |R|\leq2(7B)^\nu,\qquad
+ \left|z-\prod_j a_j\right|\leq\nu(7B)^{\nu-1},
+ \qquad |S|\leq2\nu(7B)^{\nu-1}.
+\]
+The middle comparison is with a real integer. Hence
+\[
+ |RS'-R'S|\leq C_\nu B^{2\nu-1},\qquad
+ C_\nu=8\nu\,7^{2\nu-1}.
+\]
+When \(B>C_\nu\), this is smaller than \(q^{2\nu}\).
+Equal tuple images imply divisibility of this integer by
+\(q^{2\nu}\), so their actual algebraic ratio products are equal.
+The independence in Theorem~\ref{pn-private} implies equal
+multiplicity of every root index. Thus each image has at most
+\(\nu!\) ordered tuples, also when entries repeat.
+If the set of hits has size \(M\), its \(M^\nu\) tuples have at
+most \(3n\) images. Therefore \(M^\nu\leq3n\nu!\).
+No assertion uniform in a varying \(\nu\) is used.
+\end{proof}
+
+\begin{theorem}[Full positive excess in a farther interval]
+\label{pn-excess}
+Fix an integer \(\nu\geq3\) and \(0<\delta<1-1/\nu\), and for
+sufficiently large prime \(n\) put
+\[
+ B=n^4,\qquad Z=\lfloor Bn^{1-1/\nu-\delta}\rfloor>B,\qquad
+ F_{B,Z}(k)=\sum_{B<q\leq Z}(v_q(T_n(k))-3)_+\log q.
+\]
+Then
+\[
+ \frac1B\sum_{k\in\mathcal{S}_B}\frac{F_{B,Z}(k)}{t_k}
+       =O_{\nu,\delta}\!\left(\frac{n^{-\delta}}{\log n}\right).
+\]
+\end{theorem}
+\begin{proof}
+Use the exact identity
+\((e-3)_+=\sum_{j\geq4}{\bf1}_{e\geq j}\).
+For each prime, every layer \(4\leq j<2\nu\) has at most
+\(\sqrt{6n}\) roots in \(\mathcal{S}_B\), by
+Theorem~\ref{pn-moment} with parameter two. Every higher layer
+has at most \((3\nu!n)^{1/\nu}\) roots.
+The elementary actual height bound caps the depth by
+\[
+ H_q\leq\frac{3nL}{\log q},\qquad L=\log(6B+1).
+\]
+Consequently the complete positive excess at a single prime obeys
+\begin{align}
+ \sum_{k\in\mathcal{S}_B}(v_q(T_n(k))-3)_+\log q
+ &\leq(2\nu-4)\sqrt{6n}\log q \notag\\
+ &\quad+3nL(3\nu!n)^{1/\nu}. \label{pn-layer-bill}
+\end{align}
+This remains an upper bound if a range of layers is empty.
+It explicitly pays for the intermediate depths as well as the
+deepest ones.
+
+Since \(t_k\geq n\log(3B)\), \(q\leq Z\leq Bn\), and \(B=n^4\),
+division by \(Bn\log(3B)\) bounds \eqref{pn-layer-bill} by
+\(C_\nu n^{1/\nu}/B\).
+A prime contributing positive excess has rank \(n\): rank one
+would put \(q^2\) in one of \(a_k,a_k+1\), each below
+\(6B+1<q^2\). Thus \(q\equiv\pm1\pmod{3n}\).
+Brun--Titchmarsh bounds the number of eligible primes by
+\[
+ \frac{2Z}{(n-1)\log(Z/(3n))}.
+\]
+The total is therefore
+\[
+ O_\nu\!\left(\frac{Zn^{1/\nu}}{Bn\log n}\right)
+       =O_{\nu,\delta}\!\left(\frac{n^{-\delta}}{\log n}\right).
+\]
+The normalization is by the entire block size \(B\), not an
+unstated replacement by \(|\mathcal{S}_B|\).
+\end{proof}
+
+\begin{corollary}[An actual positive-density domain]\label{pn-domain}
+For fixed \(\nu,\delta\) as above, there is a set
+\(\mathcal{P}_{n,\nu,\delta}\) of actual roots of relative size at
+least \(1/2-o(1)\), lying in \(\mathcal{S}_B\), such that
+\[
+ \frac{F_{B,Z}(k)}{t_k}\leq n^{-\delta/2},\qquad
+ \frac{L_B(T_n(k))}{t_k}\leq(\log n)^{-1/2}.
+\]
+Writing
+\[
+ W_Z(k)=\sum_{\substack{q>Z\\q\mid T_n(k)}}
+                         (v_q(T_n(k))-3)\log q,
+\]
+one has on this set
+\begin{align}
+ \frac{J(T_n(k))}{t_k}
+   &\leq\frac{W_Z(k)}{t_k}+(\log n)^{-1/2}+n^{-\delta/2},
+       \label{pn-signed}\\
+ \frac{\log\operatorname{rad}(T_n(k))}{t_k}
+   &\geq1-\frac4{3n}
+       -\frac{(\log n)^{-1/2}+n^{-\delta/2}}3
+       -\frac{(W_Z(k))_+}{3t_k}. \label{pn-radical}
+\end{align}
+\end{corollary}
+\begin{proof}
+Markov's inequality in Theorem~\ref{pn-excess} removes
+\(O_{\nu,\delta}(n^{-\delta/2}/\log n)\) of the whole block.
+The full-mass mean of Theorem~\ref{fml-mean}, with the elementary
+inputs of Section~\ref{ebi-section}, at \(B\) is \(O(1/\log n)\).
+Markov at \((\log n)^{-1/2}\) removes \(O((\log n)^{-1/2})\).
+Intersect with Theorem~\ref{pn-private}.
+The signed cost up to \(B\) is at most \(L_B\), and that between
+\(B\) and \(Z\) is at most \(F_{B,Z}\).
+This proves \eqref{pn-signed}; the angular estimate
+\(\log T_n/t_k\geq3-4/n\) proves \eqref{pn-radical}.
+\end{proof}
+
+The intermediate interval need not have negligible full mass.
+Its negative credits can be retained in a sharper application.
+For arbitrarily large \emph{fixed} \(\nu\), its upper exponent
+\(1-1/\nu-\delta\) can approach one; this does not interchange
+the \(\nu\) and \(n\) limits. The private-norm condition is proved
+for at least half the roots asymptotically, while the remaining
+roots and the unbounded farther signed cost are not controlled.
+The independent ordinary reviews cover these conclusions.
+No formalization of the progression estimate, the private-norm
+density theorem, or the higher-moment analytic consequences is
+claimed. A vanishing positive far cost is still required for
+the restricted ABC consequence along a sequence of these roots.

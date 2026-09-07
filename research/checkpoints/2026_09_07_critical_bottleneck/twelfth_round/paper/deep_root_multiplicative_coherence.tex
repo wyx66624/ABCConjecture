@@ -1,0 +1,237 @@
+\section{Actual deep roots and multiplicative phase coherence}
+\label{mc-section}
+
+Let \(n\geq7\) be prime, \(B=n^4\), and let \(k\) range over the
+integers \(B\leq k<2B\). Put
+\[
+ a_k=3k,\quad w_k=a_k+\zeta,\quad Q_k=a_k^2+a_k+1,\qquad
+ T_n(k)=|P(w_k^n)|,\quad t_k=\log c_n(k),\quad Y=6n^3.
+\]
+The elements and their powers are primitive and unramified.
+Here \(P(A+B\zeta)=AB(A+B)\), and \(c_n(k)\) is the largest
+side after positive-sector normalization. Thus \(n<Y<B\).
+In the pair arguments, \(a,b,c,d\) denote root parameters \(a_k\),
+not the three entries of the resulting ABC triple.
+
+\begin{lemma}[A finite group at actual fourth depth]\label{mc-torsion}
+For a prime \(q>Y\), put
+\[
+ \mathcal{A}_q=\{k:B\leq k<2B,\ q^4\mid T_n(k)\}.
+\]
+For each such root, \(Q_k\) is a unit modulo \(q\), and
+\[
+ \alpha_k=\frac{a_k+\zeta}{a_k+\bar\zeta}
+ \quad\hbox{belongs to}\quad
+ H_q=\{x\in((\mathbb Z/q^4\mathbb Z)[\zeta])^\times:
+                 x\bar x=1,\ x^{3n}=1\}.
+\]
+One has \(|H_q|\leq3n\).
+\end{lemma}
+\begin{proof}
+The exact identity
+\[
+ z^3-\bar z^3=3\sqrt{-3}\,P(z)
+\]
+has a unit scalar at \(q>3\). If \(q\mid Q_k\), in the inert case
+the reduction of \(w_k\) would be zero, contrary to its second
+coordinate being one. In the split case exactly one component is
+zero and the other is not, so the cubes of \(w_k^n\) and
+\(\bar w_k^n\) could not coincide. Thus a boundary hit implies
+\(q\nmid Q_k\), and the identity proves the stated group membership.
+
+In the split case the quadratic ring is a product of two copies of
+\(\mathbb Z/q^e\mathbb Z\), and a norm-one element is \((u,u^{-1})\).
+Modulo \(q\), at most \(3n\) elements are killed by \(3n\).
+Each lifts uniquely at every depth because the derivative of
+\(X^{3n}-1\) is a unit at a root. In the inert case the residue
+norm-one group is cyclic of order \(q+1\). It too has at most
+\(3n\) such elements. Substituting \(x+q^e y\) gives a unique
+linear lifting equation over \(\mathbb F_{q^2}\), with invertible
+derivative. Reduction therefore injects \(H_q\) into a set of size
+at most \(3n\). This counts a finite group; no distribution
+assumption is made for the actual roots.
+\end{proof}
+
+\begin{lemma}[Integer phase rigidity and positive divisor fibers]
+\label{mc-phase}
+Two ordered pairs of roots in \(\mathcal{A}_q\) having the same product
+in \(H_q\) have the same actual rational phase:
+\[
+ \frac{ab-1}{a+b+1}=\frac{cd-1}{c+d+1}.
+\]
+For a fixed nonempty phase \(u/v\), in lowest positive terms, its
+ordered-pair fiber in the whole block has at most
+\(\tau(u^2+uv+v^2)\) members, and
+\[
+ 1\leq u^2+uv+v^2\leq2500B^4.
+\]
+\end{lemma}
+\begin{proof}
+The actual product coordinates are
+\[
+ (a+\zeta)(b+\zeta)=(ab-1)+(a+b+1)\zeta.
+\]
+Their positive coordinates satisfy \(ab-1\leq36B^2\) and
+\(a+b+1\leq12B\). Equality of the two ratio products modulo
+\(q^4\), after multiplication by unit denominators, implies
+\[
+ q^4\mid D,\qquad
+ D=(ab-1)(c+d+1)-(cd-1)(a+b+1).
+\]
+The conjugate cross difference is a unit multiple of this integer.
+But
+\[
+ |D|\leq864B^3<1296B^3<q^4
+\]
+because \(q>6B^{3/4}\), so \(D=0\).
+
+Reducing the positive phase gives \(u\leq36B^2\), \(v\leq12B\).
+For any pair with that phase,
+\begin{equation}\label{mc-divisor-fiber}
+ (va-u)(vb-u)=u^2+uv+v^2=:K.
+\end{equation}
+Both factors are positive, since
+\((ab-1)/(a+b+1)<\min(a,b)\).
+The first factor is a positive divisor of \(K\), determines \(a\),
+and then determines \(b\). This is an injection of the actual
+ordered fiber into the positive divisors, including diagonal and
+exchanged pairs. Finally
+\[
+ K\leq1296B^4+432B^3+144B^2\leq2500B^4.
+\]
+\end{proof}
+
+\begin{theorem}[A uniform count of actual deep roots]\label{mc-count}
+For every \(\varepsilon>0\) there is a constant \(C_\varepsilon\),
+independent of \(n,q\), such that
+\[
+ |\mathcal{A}_q|\leq C_\varepsilon\sqrt n\,B^{2\varepsilon}.
+\]
+If \(\mathcal{A}_q\ne\varnothing\), its prime \(q\) has exact
+homogeneous rank \(n\) and \(q\equiv1\) or \(-1\pmod{3n}\).
+\end{theorem}
+\begin{proof}
+For every \(m\geq1\), the elementary divisor estimate is
+\(\tau(m)\leq C_\varepsilon m^\varepsilon\).
+Indeed for \(p\geq2^{1/\varepsilon}\) and \(j\geq0\),
+\(j+1\leq2^j\leq p^{\varepsilon j}\).
+For each of the finitely many smaller primes,
+\(\sup_{j\geq0}(j+1)p^{-\varepsilon j}\) is finite. Multiplication
+over prime powers proves the estimate.
+
+All \(|\mathcal{A}_q|^2\) ordered pairs map into \(H_q\).
+Each occupied image has one actual phase by Lemma~\ref{mc-phase},
+and at most \(C_\varepsilon(2500B^4)^\varepsilon\) pairs.
+There are at most \(3n\) images. Taking square roots proves the
+bound, including the empty-set case.
+
+The rank of \(((w_k/\bar w_k)^3\bmod q)\) divides the prime \(n\).
+Rank one would give
+\(v_q(T_n(k))=v_q(T_1(k))\), since \(q>Y>n\).
+Here \(T_1(k)=a_k(a_k+1)\) has two coprime factors, each below
+\(6B+1\), whereas \(q^2>36n^6>6B+1\). Rank one cannot even
+have depth two. The rank is therefore \(n\).
+The norm-one group gives \(n\mid q-\chi_q\), where
+\(\chi_q=1\) in the split case and \(-1\) in the inert case.
+Also \(3\mid q-\chi_q\), and \(\gcd(3,n)=1\); hence the stated
+two progressions.
+\end{proof}
+
+\begin{theorem}[A simultaneous interval of depth at most three]
+\label{mc-window}
+For real \(Z>Y\), let \(\mathcal{E}(n,Z)\) be the actual set of indices
+with some prime \(Y<q\leq Z\) of boundary depth at least four. Then
+\[
+ \frac{|\mathcal{E}(n,Z)|}{B}
+ \leq
+ \frac{C_\varepsilon ZB^{2\varepsilon}}
+      {B\sqrt n\,\log(Z/(3n))}.
+\]
+Fix \(0<\delta<1/2\). For all sufficiently large prime \(n\), put
+\(Z_\delta=\lfloor Bn^{1/2-\delta}\rfloor\). Then
+\begin{equation}\label{mc-exception}
+ \frac{|\mathcal{E}(n,Z_\delta)|}{B}
+       =O_\delta\!\left(\frac{n^{-\delta/2}}{\log n}\right).
+\end{equation}
+Outside this one set, every supported prime in the entire interval
+\((Y,Z_\delta]\) has depth at most three.
+\end{theorem}
+\begin{proof}
+The two-progression Brun--Titchmarsh estimate used in
+Section~\ref{sw-section} gives at most
+\[
+ \frac{4Z}{\varphi(3n)\log(Z/(3n))}
+ =\frac{2Z}{(n-1)\log(Z/(3n))}
+\]
+eligible primes. Apply Theorem~\ref{mc-count} at every such prime
+and take a union of actual index sets. This proves the first bound,
+with \(n/(n-1)\) absorbed into the constant.
+For the second take \(\varepsilon=\delta/16\).
+Since \(B^{2\varepsilon}=n^{8\varepsilon}\), the remaining power is
+\(-\delta+8\varepsilon=-\delta/2\); the denominator is asymptotic
+to \((7/2-\delta)\log n\). The floor has no effect on this limit.
+\end{proof}
+
+Write
+\begin{gather*}
+ J(T)=\sum_{q\mid T}(v_q(T)-3)\log q,\qquad
+ L_Y(T)=\sum_{\substack{q\leq Y\\q\mid T}}v_q(T)\log q,\\
+ W_\delta(k)=\sum_{\substack{q>Z_\delta\\q\mid T_n(k)}}
+                  (v_q(T_n(k))-3)\log q .
+\end{gather*}
+For every root outside \(\mathcal{E}(n,Z_\delta)\), the intermediate
+signed cost is exactly
+\[
+ -2\!\sum_{\substack{Y<q\leq Z_\delta\\v_q(T_n)=1}}\log q
+ -\!\sum_{\substack{Y<q\leq Z_\delta\\v_q(T_n)=2}}\log q\leq0.
+\]
+Thus \(J(T_n)\leq W_\delta+L_Y(T_n)\), without assuming that the
+full mass in this interval is small.
+
+Theorem~\ref{fml-mean} and the elementary fixed-prime estimates in
+Section~\ref{ebi-section}, evaluated at \(Y=6n^3\), give
+\[
+ \frac1B\sum_k\frac{L_Y(T_n(k))}{t_k}
+       =O\!\left(\frac{\log n}{n}\right).
+\]
+The harmonic term is \(O(\log n/n)\), the endpoint is
+\(O(1/(n\log n))\), and lifting with primes two and three costs
+\(O(1/n)\). Put \(\eta_n=\sqrt{\log n/n}\).
+Markov's inequality and \eqref{mc-exception} give one actual set of
+relative size at least
+\[
+ 1-C_\delta\left(\eta_n+\frac{n^{-\delta/2}}{\log n}\right)
+\]
+on which
+\begin{align}
+ \frac{J(T_n)}{t_k}&\leq\frac{W_\delta}{t_k}+\eta_n,
+       \label{mc-signed}\\
+ \frac{\log\operatorname{rad}(T_n)}{t_k}
+   &\geq1-\frac4{3n}-\frac{\eta_n}{3}
+                    -\frac{(W_\delta)_+}{3t_k}.
+       \label{mc-radical}
+\end{align}
+The second exceptional term is not absorbed into \(\eta_n\).
+The last inequality uses
+\(\log T_n/t_k\geq3-4/n\) from Lemma~\ref{ebi-angle}.
+A sequence in these sets with \((W_\delta)_+/t_k\to0\) satisfies
+the restricted ABC estimate at every fixed tolerance eventually.
+The far condition has not been proved.
+
+The new mechanism is that congruences at an actual fourth depth
+become integer phase identities with finite divisor fibers.
+The fifteen declarations of \texttt{DeepRootPhase\allowbreak Arithmetic.lean}
+formalize the actual product identities, positivity, injection into
+\texttt{Nat.divisors}, the fiber cardinality bound, the determinant
+height bound, and large-modulus rigidity. Its independent source
+reviews and fresh Lean~4.32.0 verification are recorded separately.
+Finite-ring torsion, lifting, the asymptotic divisor estimate,
+Brun--Titchmarsh, and the final analytic consequences remain ordinary
+proofs. No assertion that all those steps are formalized is made.
+
+The interval has nonpositive signed cost on the stated majority,
+but its negative credit has no proved positive proportion of the
+height. Its full mass has not been shown negligible at this larger
+cutoff, so the earlier almost-full far-mass statement is not
+transferred here. The farther private top-rank primes and the
+exceptional roots remain unresolved.

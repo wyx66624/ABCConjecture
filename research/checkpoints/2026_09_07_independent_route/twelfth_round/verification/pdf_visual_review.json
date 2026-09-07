@@ -1,0 +1,66 @@
+{
+  "reviewer": "independent_route",
+  "pdf": "E:/agent/ABCConjecture/tmp/abc_20260907/round12pdf/ChatGPT_ABC_Uniformity_2026.pdf",
+  "pdf_sha256": "78fa137947ea385f432d4e97394270d2064283b3a0062595544676057e02e024",
+  "pdf_pages": 502,
+  "actual_review_pages": [
+    491,
+    492,
+    493,
+    494,
+    495
+  ],
+  "status": "PASS",
+  "checks": [
+    "actual rendered image inspection",
+    "formula and paragraph clipping",
+    "horizontal overflow",
+    "glyph legibility",
+    "section and proof page transitions"
+  ],
+  "pdf_and_raster_hashes_independently_recomputed": true,
+  "source_changes": false,
+  "pages": [
+    {
+      "page": 491,
+      "raster": "E:/agent/ABCConjecture/tmp/abc_20260907/round12pdf/view-491.png",
+      "sha256": "903cf12d0ac33a7a31d81042a772216e40dcf4d032df7d4275969b5bfbfc1623",
+      "actually_viewed_with": "view_image",
+      "status": "PASS",
+      "note": "RL model and exact rational-descent theorems, formulas 899-902 and Galois tests are legible; proof endings and margins fit."
+    },
+    {
+      "page": 492,
+      "raster": "E:/agent/ABCConjecture/tmp/abc_20260907/round12pdf/view-492.png",
+      "sha256": "2e318782539a239094258f71f61c0a5b45590b38c2043cc6ccdd637dbc10c9d6",
+      "actually_viewed_with": "view_image",
+      "status": "PASS",
+      "note": "RL unique-lifting theorem and scope finish cleanly; UG starts with the field and genus displays; base P1 simple-zero wording is visible and correct."
+    },
+    {
+      "page": 493,
+      "raster": "E:/agent/ABCConjecture/tmp/abc_20260907/round12pdf/view-493.png",
+      "sha256": "89bfb0f081ccc9020f3f68cf61e316ce236cdfee14788428514c49eb5566f710",
+      "actually_viewed_with": "view_image",
+      "status": "PASS",
+      "note": "UG exact torsion proof, long W identity and polynomial factorization fit. Mu_g torsor qualifications are legible; final scope paragraph continues cleanly on 494."
+    },
+    {
+      "page": 494,
+      "raster": "E:/agent/ABCConjecture/tmp/abc_20260907/round12pdf/view-494.png",
+      "sha256": "f3ef518d730f1d699f210f6ca6f440c3da0c40a218f19715c20b422ede849710",
+      "actually_viewed_with": "view_image",
+      "status": "PASS",
+      "note": "UG scope completes, followed by HG quotient equations and conic inverse. All three hyperelliptic equations fit; isogeny statement and maps continue onto 495."
+    },
+    {
+      "page": 495,
+      "raster": "E:/agent/ABCConjecture/tmp/abc_20260907/round12pdf/view-495.png",
+      "sha256": "9208441f2ce5dd66ffbdf2a0eef20e68d018f28df5e538dc8a0923301bfcbc88",
+      "actually_viewed_with": "view_image",
+      "status": "PASS",
+      "note": "HG isogeny statement resumes coherently. Pullback/norm proof, positive rational chart and explicit cubic forms fit. Remaining scope and the next formal section are visible without clipping."
+    }
+  ],
+  "scope": "Actual visual review of the five listed pages; not a claim to have viewed the other pages."
+}

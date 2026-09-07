@@ -1,0 +1,71 @@
+{
+  "author_replay": [
+    "--write PASS",
+    "--check PASS"
+  ],
+  "files": [
+    {
+      "path": "rational_biquadratic_locus.md",
+      "sha256": "a12d410e3966f793f81c7d10a074a541bbc0ca9f4e30c209c33273c88d9c6d56"
+    },
+    {
+      "path": "unramified_gaussian_cover.md",
+      "sha256": "7227fbf67b35da43c6902ee73d8f9813c91a221b60d02bf02b241341595c70cd"
+    },
+    {
+      "path": "hyperelliptic_quotients.md",
+      "sha256": "23d4bce837ef6ad7c6653a0ab2183203fea5e4b4ffa0fb76f3b20f921994ca4f"
+    },
+    {
+      "path": "paper/rational_biquadratic_locus.tex",
+      "sha256": "300f4c9403cc188a0ee29d758e1d42fd63f737bafd31397d2b97c6f0eb5cc5d5"
+    },
+    {
+      "path": "paper/unramified_gaussian_cover.tex",
+      "sha256": "9c54990e807e9086de902cf8b1f51efb49bb535a449e40d15fa4249fdf6b06f6"
+    },
+    {
+      "path": "paper/hyperelliptic_quotients.tex",
+      "sha256": "829c397b5cb825f2981d45232b3e4daf630e9bdff804d7da8881162351cda518"
+    },
+    {
+      "path": "paper/geometry_bibliography.tex",
+      "sha256": "31e74e445b1a19a2c33ca6832db7aae07113ae3a087cd56066da57fd92ce08f1"
+    },
+    {
+      "path": "replay_rational_geometry.py",
+      "sha256": "cb8d01a395a0be3d582da52af2976b489efee18e7c67c1d1e149c7cf46e60565"
+    },
+    {
+      "path": "verification/rational_geometry_replay.json",
+      "sha256": "9ccf3ce5e8c3e4316f880afdb44edfd0687744935beb98b17baa70a18efd9efa"
+    },
+    {
+      "path": "README.md",
+      "sha256": "ba74c5eec4c8e0ef487475d91c164bb887e7802a55d9792e5dbb7c9edafb1e2d"
+    },
+    {
+      "path": "REVIEW.md",
+      "sha256": "28f45aa16f4fbd651d977f37e76b2e148391e3a9e499c47e713ca0aebe824214"
+    },
+    {
+      "path": "phase_fiber_review.md",
+      "sha256": "d8711bedd7df48e2a35125ea6c46fe599d8cfe41f4025d760bc25f4d06af906c"
+    },
+    {
+      "path": "multiplicative_coherence_review.md",
+      "sha256": "23eb1135b4c8d672fcce6ef9356198c6c774a6168f3775b0431384c79693c2bd"
+    }
+  ],
+  "ordinary_reviews": [
+    "root",
+    "critical_bottleneck",
+    "adversarial_audit"
+  ],
+  "schema": 1,
+  "scope": "reviewed ordinary geometry and bounded exact software evidence; no geometry Lean or complete point computation",
+  "tex_reviews": [
+    "critical_bottleneck",
+    "adversarial_audit"
+  ]
+}

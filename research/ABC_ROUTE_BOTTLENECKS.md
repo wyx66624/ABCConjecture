@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, actual content, integral lifting,
-global signed radical and simultaneous quadratic-domain covers (eleventh continuation).
+**Last synchronized:** 2026-09-07, actual multiplicative coherence,
+private support and rational quotient curves (twelfth continuation).
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -32,6 +32,33 @@ rigorous complete-premise disproof.
 - [x] Maintain the English journal manuscript with author ChatGPT.
 
 ## Shared exponent generators: September 7 positive frontier
+
+- [x] Prove actual fourth-depth pair-product rigidity and positive divisor
+  fibers. Formalize 21 new finite declarations with 29 old dependencies;
+  keep the finite target size and modular divisibility as explicit inputs.
+- [x] Prove a simultaneous cap-three interval from 6n^3 to
+  B n^(1/2-delta) for most roots, without assuming negligible full mass.
+- [x] Prove an actual private-norm multiplicatively independent class of
+  relative size at least one half asymptotically. For each fixed nu,
+  control positive excess up to B n^(1-1/nu-delta) on that class.
+- [x] Give the exact phase divisor congruence and denominator bound;
+  refute only the displayed universal one- and two-unordered-pair bounds.
+- [x] Identify the exact positive rational locus, its unique Gaussian
+  lift, an unramified degree-g cover and exact-order-g Jacobian class.
+  Prove a Q-isogeny from three genus-(g-1) quotient Jacobians and retain
+  the positive point domain and exact odd torsion order in the product.
+- [ ] Control the unbounded signed packet and the roots outside the
+  proved private-support domain. Audit any varying-moment constants
+  separately; do not interchange the fixed-nu and n limits implicitly.
+- [ ] Bound low-denominator incidence or multiplicative rank deficiency
+  on actual exceptional roots; exact phase collisions alone do not
+  exclude a bounded decomposition into independent classes.
+- [ ] Determine actual rational points on the new hyperelliptic quotients
+  with common source coordinate, and obtain uniform height or exponent
+  control. Genus and a varying-dimensional torsion point do not imply it.
+- Twelfth-round evidence and exact scopes:
+  `checkpoints/2026_09_07_multiplicative_coherence/README.md`.
+
 
 - [x] Prove actual integer gcd content dividing the multiplier norm,
   with primitive reduction identities. Identify an infinite actual

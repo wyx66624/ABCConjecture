@@ -1,0 +1,117 @@
+\section{Actual pair phases and a finite root-count bridge in Lean}
+\label{afc-section}
+
+The integer rigidity step in multiplicative coherence admits a finite
+formalization that retains the actual pairs. For integers $a,b$ put
+\[
+ r(a,b)=ab-1,\qquad s(a,b)=a+b+1,
+ \qquad K(u,v)=u^2+uv+v^2.
+\]
+Then $(a+\zeta)(b+\zeta)=r(a,b)+s(a,b)\zeta$. For two such pairs,
+the conjugate cross difference has coordinates $(D,-2D)$, where
+\[
+ D=r(a,b)s(c,d)-r(c,d)s(a,b).
+\]
+These are identities in the actual integer-coordinate multiplication
+of $\mathbb Z[\zeta]$.
+
+\begin{lemma}[An actual divisor fiber]\label{afc-divisor}
+Let $u,v$ be positive integers and let $T$ be a finite set of ordered
+positive integer pairs $(a,b)$ satisfying $v(ab-1)=u(a+b+1)$.
+Then
+\[
+ |T|\le\tau(K(u,v)).
+\]
+There is no coprimality requirement on $u,v$.
+\end{lemma}
+\begin{proof}
+Expansion gives $(va-u)(vb-u)=K(u,v)$. Also
+$b(va-u)=u(a+1)+v>0$, and similarly $a(vb-u)>0$.
+Thus both factors are positive. The map $(a,b)\mapsto va-u$
+lands in the actual positive divisors of $K(u,v)$. Its value determines
+$a$ since $v>0$, then determines $vb-u=K(u,v)/(va-u)$ and hence $b$.
+It is injective, including on diagonal and exchanged pairs.
+\end{proof}
+
+For a natural number $N$, define the finite envelope
+\[
+ \mathcal D(N)=\max_{0\le k\le N}
+       |\operatorname{divisors}(k)|.
+\]
+The formal definition is a finite supremum over
+\texttt{Finset.range}$(N+1)$, with the library's empty divisor set at zero.
+Only positive $K$ occurs below. No asymptotic divisor estimate is part
+of this definition.
+
+\begin{proposition}[Finite counting with an explicit image interface]
+\label{afc-count}
+Let $n$ be a natural number, and let $B,m$ be integers with $B>0$
+and $m>864B^3$. Let $S$ be a finite
+set of integers in $[3B,6B)$, and let $H$ be a finite set with a binary
+operation. Suppose $\phi:S\to H$, $|H|\le3n$, and for every
+$a,b,c,d\in S$,
+\[
+ \phi(a)\phi(b)=\phi(c)\phi(d)\quad\Longrightarrow\quad m\mid D.
+\]
+Then
+\begin{equation}\label{afc-square}
+ |S|^2\le3n\,\mathcal D(2500B^4).
+\end{equation}
+\end{proposition}
+\begin{proof}
+On this block the positive coordinates satisfy $r\le36B^2$ and
+$s\le12B$. Thus $|D|\le864B^3<m$, and the assumed divisibility forces
+$D=0$. Partition $S^2$ by the product image in $H$. In every nonempty
+fiber choose an actual representative $(a,b)$ and take
+$u=r(a,b)$, $v=s(a,b)$, without reducing their fraction.
+All pairs in the fiber have this phase. Lemma~\ref{afc-divisor} applies,
+and
+\[
+ 0<K(u,v)\le2500B^4.
+\]
+The last bound follows from the coordinate bounds and $B\ge1$:
+$u^2+uv+v^2\le1296B^4+432B^3+144B^2\le2500B^4$.
+Every fiber therefore has size at most the displayed envelope, including
+empty fibers. Summing over all $H$ proves~\eqref{afc-square}.
+\end{proof}
+
+For natural numbers $n,q$ with $n>0$ and $q>6n^3$ one has
+\[
+ q^4>1296n^{12}>864(n^4)^3.
+\]
+Consequently, when $B=n^4$ and the explicit divisibility modulus is $q^4$,
+the same finite theorem gives
+\[
+ |S|^2\le3n\,\mathcal D(2500n^{16}),\qquad
+ |S|\le\sqrt{3n}\sqrt{\mathcal D(2500n^{16})}.
+\]
+The square-root conclusion is a statement in the real numbers, obtained
+by casting the natural-number inequality and using monotonicity of
+the real square root. The finite theorem itself does not require
+primality or any group law beyond the specified binary operation.
+The ordinary number-theoretic application supplies a group and the
+two explicit interface hypotheses; it is not built into the formal
+statement by an extra axiom.
+
+\paragraph{Formal inventory and limits.}
+\texttt{DeepRootPhase\allowbreak Arithmetic} contains 15 declarations:
+actual product and conjugate-difference identities, positive divisor
+factorization and injectivity, actual finite fiber counting, block
+height and determinant bounds, large-modulus rigidity, a bound for
+$K$, and a closed nontrivial pair collision.
+\texttt{ActualDeepRoot\allowbreak Count} adds six declarations for the
+finite envelope, image fiber, total square count, fourth-power threshold,
+specialized count and real square-root bound. All 21 new declarations
+and 29 unchanged Eisenstein dependency declarations were freshly compiled
+with Lean 4.32.0 and pinned Mathlib revision
+\texttt{81a5d257c8e410db227a6665ed08f64fea08e997}.
+All 50 explicit axiom queries passed; their union is only
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}.
+The existing compiled Mathlib cache was reused. Ordinary proofs and
+independent internal review preceded the formal implementation.
+
+This formal core does not construct the finite norm-one torsion group,
+prove its lifting theorem, formalize divisor asymptotics or the sieve,
+or control the unbounded signed packet. The ordinary private-support
+and geometric results in this continuation are separate from these
+21 formal declarations. There is still no formal proof or disproof of $abc$.

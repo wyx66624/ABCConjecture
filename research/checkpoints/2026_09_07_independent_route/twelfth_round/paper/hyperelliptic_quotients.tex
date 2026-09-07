@@ -1,0 +1,183 @@
+\section{Three smaller Jacobians for the actual first-square locus}
+\label{hg-section}
+
+Fix an odd integer $g\geq3$ and $u\in\{1,\zeta,\zeta^2\}$.
+Write $A=A_{E,u}(S,T)$ and $B=B_{E,u}(S,T)$ for the homogeneous
+degree-$g$ integer forms in Section~\ref{rl-section}, so that
+$A+B\zeta=u(S+T\zeta)^g$, and put $r=A/B$.
+The curve $D=D_{g,u}$ is the smooth projective normalization of
+\begin{equation}\label{hg-original}
+ r(s)=\frac{a_0(t)b_0(t)}{U_0(t)^2},\qquad
+ a_0=t^2-1,\quad b_0=2t+1,\quad U_0=t^2+t+1.
+\end{equation}
+
+\begin{theorem}[Three hyperelliptic quotients]\label{hg-three-quotients}
+There is an equality of function fields over $\mathbb Q$
+\begin{equation}\label{hg-biquadratic}
+ \mathbb Q(D)=\mathbb Q(s)(v,w),\qquad
+ v^2=1+r,\quad w^2=1-3r.
+\end{equation}
+This is a geometrically connected $V_4$ cover of $\mathbb P^1_s$,
+of degree four and genus $3g-3$. Its three quadratic quotient
+curves have homogeneous hyperelliptic equations
+\begin{equation}\label{hg-hyperelliptic}
+ H_1:\ y_1^2=B(A+B),\qquad
+ H_2:\ y_2^2=B(B-3A),\qquad
+ H_3:\ y_3^2=(A+B)(B-3A).
+\end{equation}
+Each right side is a squarefree binary form of degree $2g$;
+the $y_j$ have weight $g$, and the equations denote their smooth
+projective models. Each $H_j$ has genus $g-1$. On a dense affine
+chart the quotient maps are
+\[
+ y_1=Bv,\qquad y_2=Bw,\qquad y_3=Bvw.
+\]
+\end{theorem}
+\begin{proof}
+Put $c_0=t^2+2t$ and $d_0=t^2-2t-2=a_0-b_0$.
+The identities
+\[
+ c_0^2=U_0^2+a_0b_0,\qquad d_0^2=U_0^2-3a_0b_0
+\]
+give $v=c_0/U_0$ and $w=d_0/U_0$. Conversely the inverse on a
+dense open is
+\begin{equation}\label{hg-inverse}
+ t=\frac{v+w+2}{v-w}.
+\end{equation}
+Indeed $w^2+3v^2=4$ and
+$a_*=(v+w)/2$, $b_*=(v-w)/2$ satisfy
+$a_*^2+a_*b_*+b_*^2=1$. Substitution gives
+$a_0/b_0=a_*/b_*$ and $U_0/b_0=1/b_*$, recovering both $v,w$
+and $r=a_*b_*$. This proves the function-field identity, which
+extends to the smooth projective models
+\cite{StacksCurves2026}. The dense-open formulas do not discard
+exceptional points from that projective assertion.
+
+Over $K_E$, the map $r(s)$ is conjugate by $\rho_E$ to a nonzero
+scalar times a $g$-th power. Its only branch values are
+$-\zeta,-\bar\zeta$. The rational target values
+$\infty,-1,1/3$ are distinct and avoid those values. Their
+inverse images are therefore three disjoint sets of $g$ simple
+points. They are exactly the zeros of $B,A+B,B-3A$, including
+any zero at infinity in homogeneous coordinates.
+
+At a zero of $A+B$ the valuation of $1+r$ detects its nontrivial
+square class, and at a zero of $B-3A$ the valuation of $1-3r$
+detects the other class. They are independent, so the extension
+in \eqref{hg-biquadratic} has geometric group $V_4$.
+At zeros of $A+B$ only $v$ ramifies, at zeros of $B-3A$ only
+$w$ ramifies, and at zeros of $B$ their common simple poles
+give the diagonal inertia subgroup of order two. There are no
+other branch points. Thus
+\[
+ 2g(D)-2=-8+(3g)\,2=6g-8.
+\]
+The three nontrivial square classes give the three quadratic
+subfields. Clearing by the square $B^2$ gives
+\eqref{hg-hyperelliptic}. Each has $2g$ simple branch points,
+so $2g(H_j)-2=-4+2g$.
+This argument includes infinity and the normalization at common
+branch points of the raw fiber product of $H_1$ and $H_2$.
+\end{proof}
+
+\begin{theorem}[An isogeny over $\mathbb Q$ and transport of odd torsion]
+\label{hg-isogeny}
+Let $p_j:D\to H_j$ be the quotient maps, with Jacobians $J_D,J_j$.
+Define homomorphisms over $\mathbb Q$ by
+\begin{align}
+ \Phi:J_D&\longrightarrow J_1\times J_2\times J_3,
+ &P&\longmapsto ((p_1)_*P,(p_2)_*P,(p_3)_*P),\label{hg-norm-map}\\
+ \Psi:J_1\times J_2\times J_3&\longrightarrow J_D,
+ &(P_1,P_2,P_3)&\longmapsto
+ p_1^*P_1+p_2^*P_2+p_3^*P_3.\label{hg-pullback-map}
+\end{align}
+Then $\Psi\Phi=[2]$, and $\Psi$ is an isogeny over $\mathbb Q$.
+For $u=1$, the class $\Theta$ of
+Theorem~\ref{ug-exact-torsion} maps under $\Phi$ to a
+$K$-rational point of exact order $g$ on the product.
+For prime $g$, at least one coordinate has exact order $g$.
+\end{theorem}
+\begin{proof}
+Finite maps of smooth curves are finite locally free. Pullback
+and norm of line bundles therefore induce the displayed
+homomorphisms on Jacobians. On divisors these are the usual
+pullback and pushforward, with norms of rational functions
+ensuring that principal divisors map to principal divisors.
+The constructions and all $p_j$ are defined over $\mathbb Q$;
+this is the standard Picard/Jacobian functoriality
+\cite{MilneJV2021}.
+
+If $\sigma_j$ generates the group of $D\to H_j$, the geometric
+divisor identity is $p_j^*(p_j)_*=1+\sigma_j$.
+At ramified points it still holds: the pullback multiplicity
+is two and the two right-hand terms coincide.
+For $q:D\to\mathbb P^1_s$, the analogous identity is
+\[
+ q^*q_*=1+\sigma_1+\sigma_2+\sigma_3.
+\]
+It vanishes on the Jacobian because
+$\operatorname{Pic}^0(\mathbb P^1)=0$. Hence
+\begin{equation}\label{hg-times-two}
+ \Psi\Phi=3+\sigma_1+\sigma_2+\sigma_3=[2].
+\end{equation}
+The equality of homomorphisms holds over $\mathbb Q$ since
+it holds after algebraic closure. Multiplication by two is
+surjective, so $\Psi$ is surjective. The source and target
+dimensions are both $3(g-1)$, and its kernel is therefore
+finite. This proves the isogeny.
+
+The point $\Phi(\Theta)$ is killed by $g$. If it is killed by
+an integer $n$, \eqref{hg-times-two} shows that $2n$ kills
+$\Theta$. Since $\Theta$ has exact odd order $g$, this forces
+$g\mid n$. Thus the tuple has exact order $g$. For prime $g$
+at least one nonzero coordinate has that order; for composite
+$g$ the tuple's exact order need not occur in one coordinate,
+and no such stronger statement is made.
+\end{proof}
+
+\begin{theorem}[The positive rational chart]\label{hg-positive}
+On the nonbranch rational chart, the points of $D$ with $t>1$
+are exactly the rational triples $(s,v,w)$ in
+\eqref{hg-biquadratic} satisfying
+\begin{equation}\label{hg-real-gate}
+ 0<r(s)<1/3,\qquad v>0.
+\end{equation}
+\end{theorem}
+\begin{proof}
+These conditions imply $1<v<2/\sqrt3$ and $|w|<1$.
+The denominator $v-w$ in \eqref{hg-inverse} is positive,
+and the numerator exceeds it by $2(w+1)>0$, so $t>1$.
+Conversely rational $t>1$ gives $v=c_0/U_0>0$ and
+$r=a_0b_0/U_0^2>0$. The identity for $d_0^2$ gives
+$r\leq1/3$. Equality would require
+$t^2-2t-2=0$, whose roots $1\pm\sqrt3$ are irrational.
+Thus the inequality is strict. The dense-open inverse formulas
+are defined throughout this chart, and keep the ordered sign
+choice of $w$.
+\end{proof}
+
+By Section~\ref{rl-section}, these points give actual primitive
+seeds with square first norm and $g$-th-power second norm.
+When $\gcd(g,6)=1$, the single $u=1$ curve gives the
+ordered-seed bijection. For $3\mid g$, retain all three unit
+choices. A point on one quotient alone is merely necessary:
+the points on $H_1,H_2$ must have the same source coordinate
+$s$ and satisfy \eqref{hg-real-gate}.
+
+For the explicit case $g=3,u=1$, the affine forms are
+\begin{gather}
+ A=s^3-3s-1,\qquad B=3s(s+1),\label{hg-cubic-forms}\\
+ A+B=s^3+3s^2-1,\qquad
+ B-3A=-3s^3+3s^2+12s+3.\nonumber
+\end{gather}
+They define three genus-two curves in
+\eqref{hg-hyperelliptic}, whose Jacobian product is isogenous
+to the genus-six Jacobian of $D_{3,1}$. The homogeneous
+degree-three $B$ includes a simple zero at infinity.
+The other unit choices follow by integer coordinate
+multiplication and have not been discarded.
+This explicit reduction supplies a smaller computation problem.
+It is not a rank computation or a determination of all rational
+points on any quotient. No fixed-exponent solution, uniform
+height bound, or control of varying residuals follows without
+additional work.
