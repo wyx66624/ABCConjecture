@@ -1,0 +1,274 @@
+\section{Uniform cover counts for small second-norm residuals}
+\label{qc-section}
+
+We quantify the arithmetic covers of Section~\ref{pl-section} in a
+fixed number field as the exponent varies. Write
+\[
+ F(a,b)=a^4+3a^3b+5a^2b^2+3ab^3+b^4=VQ^g,
+ \qquad \gcd(a,b)=1,\quad a,b,V>0,\quad Q\ge7,
+\]
+with all displayed parameters integers. Put
+$\lambda=\max\{1,\log V\}/g$. The results control the number of covers
+and the heights of their coefficients. They supply no uniform bound
+on the heights of points on those covers.
+
+\subsection{The fixed field and the bad primes}
+
+\begin{lemma}[A fixed splitting field]\label{qc-fixed-field}
+Let $\zeta^2-\zeta+1=0$, $K_0=\mathbb Q(\zeta)$, and
+$d_0=-1-3\zeta$. The splitting field of $F(x)=F(x,1)$ is
+\[
+ K=K_0(\sqrt{d_0},\sqrt{13}).
+\]
+It has degree eight, signature $(0,4)$, and unit rank three, and is
+unramified outside $3$ and $13$.
+\end{lemma}
+\begin{proof}
+With $t=x+x^{-1}$, one has $F(x)/x^2=t^2+3t+3$. The two values of
+$t$ are $\zeta-2$ and $-1-\zeta$; the corresponding quadratic
+discriminants are $d_0$ and $\bar d_0$, with product $13$. This gives
+the stated splitting field. Neither $d_0$ nor $\bar d_0$ is a square
+in $K_0$, since each has norm $13$. Also $\sqrt{13}\notin K_0$,
+whose real elements are rational. For a nonsquare $d$ in a field of
+characteristic zero, an element $t$ becomes a square in the quadratic
+extension by $\sqrt d$ only if $t$ or $t/d$ was already a square:
+expand $(u+v\sqrt d)^2=t$ and use $uv=0$. Applying this to
+$t=13$, $d=d_0$, gives degree $2\cdot2\cdot2=8$.
+The field contains the imaginary quadratic field $K_0$, so its
+signature is $(0,4)$; the unit theorem gives rank three.
+
+The discriminant of $F$ is $117$. At a prime outside $117$ its
+residual polynomial is separable. Its roots lift in an unramified
+extension after extending the residue field to split it, by simple-root
+Hensel lifting. Hence its splitting field is unramified there.
+The root differences are also units at all such primes.
+\end{proof}
+
+Fix roots $\alpha_1,\ldots,\alpha_4$ in $K$. Let $H$ be the class
+number of $K$, and $w$ the number of its roots of unity. Their values
+are not assumed. The standard ideal and unit inputs, including the full
+logarithmic unit lattice, are supplied by
+\cite[Chapters~3--5, Theorems~5.1 and~5.9]{MilneANT2020}.
+There is no need to adjoin $g$-th roots of unity to the arithmetic
+field: the geometric Kummer calculations take place over its algebraic
+closure.
+
+\begin{lemma}[Bad-prime depth]\label{qc-bad-depth}
+For every primitive positive seed, $F(a,b)\equiv1\pmod3$, and
+$13\mid F(a,b)$ implies $v_{13}(F(a,b))=1$.
+\end{lemma}
+\begin{proof}
+Modulo three, $F(a,b)=(a^2+b^2)^2=1$. Modulo thirteen,
+\[
+ F(a,b)\equiv(a-b)^2(a^2+5ab+b^2).
+\]
+The quadratic factor has nonsquare discriminant $8$ modulo thirteen.
+Thus $13\mid F$ forces $a\equiv b\not\equiv0\pmod{13}$. Writing
+$a=b+13t$ and using $F(1,1)=13$, $F_x(1,1)=26$ gives
+$F(b+13t,b)\equiv13b^4\pmod{169}$, proving exact depth one.
+\end{proof}
+
+\subsection{A count uniform in the exponent}
+
+\begin{theorem}[Fixed-residual cover count]\label{qc-cover-count}
+Let $g>8$ and let $V$ be a positive $g$-free integer. For fixed $g,V$,
+all primitive positive seeds $F(a,b)=VQ^g$, with arbitrary $Q$, lift to
+one of at most
+\begin{equation}\label{qc-count}
+ C_K4^{8\omega(V)}g^9,\qquad C_K=9^{32}H^4w^3,
+\end{equation}
+curves over $K$, of the form
+\begin{equation}\label{qc-covers}
+ y_i^g=\frac{x-\alpha_i}{\xi_i(x-\alpha_4)},\qquad i=1,2,3,
+ \qquad \xi_i\in K^\times.
+\end{equation}
+Each smooth projective normalization is geometrically connected, with
+degree $g^3$ over $\mathbb P^1$ and genus $1+g^2(g-2)$.
+The constant is independent of $g,V,Q$; repetitions in this list are
+allowed.
+\end{theorem}
+\begin{proof}
+Set $L_i=a-\alpha_i b$ and factor ideals as
+\[
+ (L_i)=A_iB_i^g,
+ \qquad 0\le v_{\mathfrak p}(A_i)<g.
+\]
+All these ideals are integral. Outside $3,13$, at most one $L_i$ is
+divisible by a given prime $\mathfrak p$: otherwise the unit root
+difference forces divisibility of both $a$ and $b$. Unramifiedness
+and $\prod_iL_i=VQ^g$ show that the nonzero remainder valuation is
+exactly $v_p(V)$. At each prime above $p\mid V$ it can be assigned
+to one of four ideals $A_i$. There are at most eight primes above $p$,
+giving at most $4^8$ choices per rational prime.
+
+There is no contribution above three. At a prime above thirteen the
+total valuation of $\prod_iL_i$ is at most its ramification index,
+which is at most eight. As $g>8$, this entire contribution remains
+in the $A_i$. Bound its four allocations by $9^4$ for each of at most
+eight primes above thirteen. The possible ordered quadruples $(A_i)$
+therefore number at most $9^{32}4^{8\omega(V)}$. These are deliberately
+coarse bounds. The valuation argument also gives
+\begin{equation}\label{qc-ideal-product}
+ \prod_i A_i=(V),\qquad \operatorname N A_i\le V^8.
+\end{equation}
+
+For each $A_i$, the class $[B_i]$ solves
+$[B_i]^g=[A_i]^{-1}$ and has at most $H$ possibilities. Choose an
+integral ideal $C_i$ in each possible class and a generator $\delta_i$
+of $A_iC_i^g$. Write $B_i=(t_i)C_i$; then
+\[
+ L_i=\delta_i\varepsilon_i t_i^g,
+ \qquad \varepsilon_i\in\mathcal O_K^\times.
+\]
+The four ideal classes have at most $H^4$ choices. For the three
+ratios $L_i/L_4$ only the three unit classes of
+$\varepsilon_i/\varepsilon_4$ matter. The unit theorem gives
+\[
+ |\mathcal O_K^\times/(\mathcal O_K^\times)^g|
+   =\gcd(g,w)g^3\le wg^3.
+\]
+Thus there are at most $w^3g^9$ ratio-class choices, proving
+\eqref{qc-count}. These give actual $K$-points of
+\eqref{qc-covers}, with $x=a/b$; positive $x$ avoids the roots.
+
+Over the algebraic closure, valuation at each $\alpha_i$ for $i\le3$
+proves the three Kummer classes independent modulo $g$, including
+composite $g$. The degree is $g^3$. The inertia at each of the four
+roots is $g$; at $\alpha_4$ it is the diagonal subgroup because the
+three simple poles adjoin the same root of a uniformizer. Infinity
+is unramified. Thus
+\[
+ 2G_g-2=-2g^3+4g^2(g-1),\qquad G_g=1+g^2(g-2).
+\]
+\end{proof}
+
+\begin{corollary}[Small residuals, fixed and varying]\label{qc-lambda-count}
+If $g>8$ and $\lambda=\max\{1,\log V\}/g<\log2$, then $V$ is
+$g$-free, and a fixed $(g,V)$ list has size $N_{g,V}$ satisfying
+\begin{equation}\label{qc-fixed-logcount}
+ \frac{\log\max\{1,N_{g,V}\}}g
+ \le16\lambda+\frac{9\log g+\log C_K}g.
+\end{equation}
+For $0<L<\log2$, all seeds with exponent $g>8$ and
+$1\le V\le\exp(Lg)$ are covered by a combined list of size at most
+\begin{equation}\label{qc-union-count}
+ C_Kg^9\exp(17Lg).
+\end{equation}
+In particular, when $L=L_g\to0$ and $g\to\infty$, the logarithm of
+this combined list size divided by $g$ tends to zero.
+\end{corollary}
+\begin{proof}
+For each $p$, $v_p(V)\le\log V/\log2<g$. Also
+$\omega(V)\le\log V/\log2$, so
+$8\log4\,\omega(V)\le16\log V$. This proves
+\eqref{qc-fixed-logcount}. For the union, there are at most
+$\exp(Lg)$ integer residuals, each with at most
+$C_Kg^9\exp(16Lg)$ covers. Sum these bounds.
+\end{proof}
+
+The factor for the choice of $V$ is retained in
+\eqref{qc-union-count}; a bound for one fixed residual is not silently
+used as a bound for all moving residuals. The construction applies
+to prime exponents, twice a prime, and other $g>8$ alike.
+
+\subsection{Coefficient heights and a strict unit-class boundary}
+
+Write $h_K$ for the absolute logarithmic Weil height. For a reduced
+positive rational $a/b$, it is $\log\max(a,b)$.
+
+\begin{theorem}[Coefficient normalization]\label{qc-coefficient-height}
+The lists above may be chosen so that
+\begin{equation}\label{qc-xi-height}
+ h_K(\xi_i)\le2\log V+C'_Kg.
+\end{equation}
+Consequently the coefficient heights of the three equations are
+$O_K(\log V+g)$, uniformly in $g,V,Q$.
+\end{theorem}
+\begin{proof}
+Choose a fixed integral representative of every ideal class, of norm
+at most $M_K$. By \eqref{qc-ideal-product},
+\[
+ \log\operatorname N(A_iC_i^g)\le8\log V+g\log M_K.
+\]
+A principal integral ideal $J$ has a generator $\delta$ satisfying
+\begin{equation}\label{qc-balanced-generator}
+ h_K(\delta)\le\tfrac18\log\operatorname N J+B_K.
+\end{equation}
+Indeed, subtract the average $\log\operatorname N J/8$ from the
+four complex logarithmic absolute values of an integral generator.
+Reduce this sum-zero vector modulo the full logarithmic unit lattice
+into a fixed bounded fundamental domain. Multiplication by the
+corresponding unit keeps the generator integral and bounds every
+logarithmic absolute value by that average plus a fixed constant.
+The average is nonnegative; summing positive parts proves
+\eqref{qc-balanced-generator}.
+
+Choose the $\delta_i$ in this way. Then
+\[
+ h_K(\delta_i)\le\log V+\tfrac g8\log M_K+B_K.
+\]
+For fixed fundamental units $\epsilon_1,\epsilon_2,\epsilon_3$,
+every unit class modulo $g$-th powers has a representative
+$\rho=\omega\prod_j\epsilon_j^{e_j}$, with $0\le e_j<g$ and
+$\omega$ a root of unity. Its height is at most
+$g\sum_jh_K(\epsilon_j)$. Taking
+$\xi_i=(\delta_i/\delta_4)\rho$ for each required ratio class and
+using the multiplication and inversion height inequalities gives
+\eqref{qc-xi-height}. These choices preserve every actual lift.
+\end{proof}
+
+\begin{lemma}[Linear height is necessary for some unit classes]
+\label{qc-unit-lower-bound}
+For a fixed fundamental unit $\epsilon_1$ there is $c_K>0$ such that,
+for every $g\ge3$, every representative in $K^\times$ of the class
+$[\epsilon_1^{\lfloor g/2\rfloor}]$ modulo $K^{\times g}$ has
+height at least $c_Kg$.
+\end{lemma}
+\begin{proof}
+Write $k=\lfloor g/2\rfloor$ and $\xi=\epsilon_1^kt^g$. If $t$
+is not a unit, some finite valuation of $\xi$ has absolute value at
+least $g$. Applying the denominator contribution to $\xi$ or to
+$\xi^{-1}$, whose heights agree, gives
+$h_K(\xi)\ge g\log2/8$.
+
+If $t$ is a unit, its coordinates in the fundamental-unit basis give
+the exponent vector $(k+gn_1,gn_2,gn_3)$ for $\xi$, up to torsion.
+Its first coordinate has absolute value at least $\lfloor g/2\rfloor
+\ge g/3$. Weil height on the real logarithmic unit space is a norm:
+the weighted sum is zero, so the sum of positive parts is half the
+weighted absolute sum. The fundamental-unit logarithms are linearly
+independent. Equivalence with the maximum norm in these fixed coordinates
+therefore gives $h_K(\xi)\ge c'_Kg/3$.
+\end{proof}
+
+Thus arbitrary unit classes cannot all be normalized to height $o(g)$.
+They are already present in the unrestricted class list with trivial
+residual ideals. This does not show that these particular classes have
+actual positive seeds. To remove their possible contribution one must
+use the compatibility of actual points, rather than merely choosing
+different class representatives. The order-$g$ term in
+\eqref{qc-xi-height} is not absorbed into $O(\log V)$.
+
+\subsection{The remaining point-height problem}
+
+Put $u=ab/(a+b)^2\in(0,1/4]$. Then
+\[
+ \frac{F(a,b)}{(a+b)^4}=1-u+u^2,\qquad
+ \frac{13}{16}(a+b)^4\le F(a,b)<(a+b)^4.
+\]
+Every actual seed therefore satisfies
+\begin{equation}\label{qc-point-height-lower}
+ h_K(a/b)\ge\frac{g\log Q+\log V}{4}-\log2
+          \ge\frac{g\log7}{4}-\log2.
+\end{equation}
+A family with $\lambda\to0$ would require points of height at least
+linear in $g$, on a list whose logarithmic size is $o(g)$ and whose
+coefficient heights are $O(g)$. These facts are compatible: the
+number of possible curves gives no height bound for a point on one
+curve. No estimate uniform in $g$ for these point heights has been
+proved here. Moving residual support, large-prime exponents, and the
+two-step small-residual threshold remain unresolved.
+
+This section proves ordinary arithmetic-geometric reductions. It does
+not assert a uniform Faltings theorem or Lean verification of the
+number-field, unit-lattice, or geometric arguments.

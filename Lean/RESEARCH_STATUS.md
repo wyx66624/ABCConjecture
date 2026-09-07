@@ -1,5 +1,27 @@
 # Research status
 
+## September 7, 2026: actual rank packets and quantitative covers
+
+Standard ABC remains unproved and undisproved. The fifth continuation gives
+an exact cyclotomic first-rank valuation decomposition and a totient-weight
+budget for actual homogeneous Eisenstein orbits. A specified sparse-positive-
+packet subclass is proved, but the net primitive top-rank saving remains open.
+An actual maximal-rank high-depth family refutes automatic deep-hit rank
+sparsity; it does not determine complete signed packets or violate ABC.
+
+A separate fixed-field descent bounds the number of varying-exponent covers
+and their coefficient heights, including the cost of varying a small residual.
+A generic unit-class height barrier is proved without asserting that those
+classes carry actual seeds. The uniform actual-point height problem remains.
+
+Fresh scoped Lean verification accepts 21 new declarations and recompiles
+44 unchanged dependency declarations. The actual statements are a general
+Lucas recurrence and its solution for all integer Eisenstein pairs, plus
+primitive second-norm support at three and exact depth one at thirteen.
+The complete cyclotomic, number-field and geometric arguments are ordinary
+proofs with stated external inputs. This is not a full repository build or
+a formal ABC proof. See `../research/checkpoints/2026_09_07_cyclotomic_covers/`.
+
 ## September 7, 2026: signed support and higher-power arithmetic classes
 
 Standard ABC remains unproved and undisproved. The fourth continuation retains

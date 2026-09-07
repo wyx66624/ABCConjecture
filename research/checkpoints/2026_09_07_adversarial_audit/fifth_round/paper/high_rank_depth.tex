@@ -1,0 +1,125 @@
+\section{A high-depth prime at the maximal actual rank}
+\label{hr-section}
+
+The net sign of a rank packet differs from the occurrence of a single
+high-depth prime in that packet. We give actual homogeneous profiles
+with small $\lambda$ for which the latter event occupies the maximal
+rank. The construction does not determine the net packet sign.
+
+Write $\mathcal O=\mathbb Z[\zeta]$, $\zeta^2-\zeta+1=0$,
+$P(A+B\zeta)=AB(A+B)$ and $N(A+B\zeta)=A^2+AB+B^2$.
+For an unramified primitive root $w$ with $N(w)>1$, and $p>3$ prime
+to $N(w)$, let
+$d_p=\operatorname{ord}((w/\bar w)^3\bmod p)$ and
+$s_p=v_p(P(w^{d_p}))$. At a cutoff $Y$, distinguish
+\begin{align*}
+ E_{\rm net}(g,Y)&=\left\{d\mid g:
+    \sum_{\substack{p>Y\\d_p=d}}(s_p-3)\log p>0\right\},\\
+ E_{\rm hit}(g,Y)&=\{d\mid g:\text{ some }p>Y
+                            \text{ has }d_p=d,\ s_p\ge4\}.
+\end{align*}
+These sums and sets range only over $p>3$ with $p\nmid N(w)$,
+as in the rank definition, even if an initial cutoff is below three.
+One always has $E_{\rm net}\subseteq E_{\rm hit}$, but the reverse
+inclusion need not follow. Our counterfamily addresses only automatic
+totient sparsity of the larger set.
+
+\begin{lemma}[An elementary prime with the required order]\label{hr-prime}
+For each prime $\ell\ge5$ there is a prime $p\equiv1\pmod{6\ell}$.
+\end{lemma}
+\begin{proof}
+Put $n=6\ell$ and take a prime divisor $p$ of $\Phi_n(n)$.
+Its complex product has absolute value at least $(n-1)^{\varphi(n)}>1$.
+The constant term is one, so no prime dividing $n$ divides this value.
+In particular $p\nmid n$. Modulo $p$, the factorization
+$X^n-1=\prod_{d\mid n}\Phi_d(X)$ is squarefree. The residue $n$
+is a root of $\Phi_n$ and of no factor at a proper divisor of $n$.
+It therefore has multiplicative order $n$, giving $n\mid p-1$.
+\end{proof}
+Only this elementary existence is needed, with no least-prime estimate.
+
+\begin{theorem}[Prescribed first depth at a maximal rank]\label{hr-depth}
+Fix a prime $\ell\ge5$, a prime $p\equiv1\pmod{6\ell}$ and $s\ge4$.
+There is a positive integer $a\equiv0\pmod3$ such that $w=a+\zeta$
+satisfies
+\[
+ \gcd(N(w),3p)=1,\qquad d_p=\ell,\qquad s_p=s,
+ \qquad p^s\le a<3p^{s+1}.
+\]
+\end{theorem}
+\begin{proof}
+In $\mathbb F_p$ choose $z$ of order six and $R$ of order $\ell$,
+and put $\bar z=1-z$. Set
+\[
+ a_0=\frac{R\bar z-z}{1-R}.
+\]
+Then $a_0+\bar z=(\bar z-z)/(1-R)\ne0$ and
+$a_0+z=R(a_0+\bar z)\ne0$. Their cubed ratio has exact order
+$\ell$, and their product is nonzero. For the integer polynomial
+$G_\ell(T)=P((T+\zeta)^\ell)$ the cubic identity gives
+\[
+ 3(z-\bar z)G_\ell(T)=(T+z)^{3\ell}-(T+\bar z)^{3\ell}
+ \quad\text{over }\mathbb F_p.
+\]
+At $a_0$ the right side vanishes. If $R(T)=(T+z)/(T+\bar z)$,
+its derivative there is the derivative of
+$(T+\bar z)^{3\ell}(R(T)^{3\ell}-1)$, which is nonzero since
+$p\nmid3\ell$ and
+$R'(a_0)=(\bar z-z)/(a_0+\bar z)^2\ne0$.
+Thus $a_0$ is a simple root of $G_\ell$.
+
+Lift it to the unique root $b$ modulo $p^s$, with $0\le b<p^s$.
+Of the $p$ residues $b+jp^s$ modulo $p^{s+1}$, exactly one lifts
+to a root. Choose a nonlifting $j\in\{1,2\}$. Then
+$A=b+jp^s$ has exact depth $s$ and $p^s\le A<3p^s$.
+Choose $k\in\{0,1,2\}$ by CRT so that
+$a=A+kp^{s+1}\equiv0\pmod3$. Since $p>3$, this preserves the
+depth and gives the stated upper bound. The norm is a unit modulo
+$p$ by the first calculation, and it is one modulo three.
+\end{proof}
+
+\begin{theorem}[Failure of automatic coarse rank sparsity]\label{hr-sparsity}
+There is a sequence of actual primitive homogeneous profiles $w^g$,
+with unit residual and $g\to\infty$, for which $\lambda=1/g\to0$
+and, at the actual cutoff $Y=g^{1/6}$,
+\[
+ \frac1g\sum_{d\in E_{\rm hit}(g,Y)}\varphi(d)
+       \ge\frac{g-1}{g}\longrightarrow1.
+\]
+Thus this coarse exceptional-rank mass is not automatically $o(g)$.
+\end{theorem}
+\begin{proof}
+Take $g=\ell$ through the primes at least five and apply the previous
+two results, for example with $s=4$. The root $w=a+\zeta$ is
+primitive and has norm prime to three. Oriented factorization has
+no inert prime and no pair of conjugate split factors, so every
+$w^g$ is primitive. A root-of-unity quotient $w/\bar w$ would make
+their coprime ideals equal and force $w$ to be a unit. Its norm
+exceeds one, so no power has zero boundary. A unit rotation gives
+an actual positive primitive triple and preserves the absolute
+boundary and the norm. The profile has unit residual.
+
+The selected prime satisfies $p\ge6g+1>g^{1/6}$, $d_p=g$ and
+$s_p=4$. Therefore $g\in E_{\rm hit}$, while $\varphi(g)=g-1$.
+\end{proof}
+
+This construction quantifies the loss in marking a whole rank after
+seeing one deep prime. For its positive rotation with $t=\log c$,
+the size choice in Theorem~\ref{hr-depth} gives
+\[
+ N(w)\ge p^{2s},\qquad t\ge\frac g2\log N(w)\ge gs\log p,
+ \qquad \frac{(s-3)\log p}{t}\le\frac{s-3}{gs}\le\frac1g.
+\]
+An arbitrarily large prescribed first depth can therefore occur at
+the maximal totient rank while its own signed cost is sublinear in
+height. Other primes in the same rank may supply negative credits;
+their full packet sign and size have not been determined here.
+
+In particular this is not a counterexample to a condition on
+$E_{\rm net}$, a rankwise saving hypothesis, or the global signed
+tail. The selected prime moves beyond the actual cutoff, but every
+other retained contribution must still be accounted for. Exact
+integer replay checks fourteen profiles with varied ranks and depths,
+including primitivity, positive unit rotations, exact first depth and
+all displayed size premises. It does not factor the whole boundary
+or claim a net packet sign. No ABC proof or disproof follows.

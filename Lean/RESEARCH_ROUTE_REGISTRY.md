@@ -1,5 +1,16 @@
 # Research route registry
 
+Latest fifth continuation: September 7, 2026. Exact actual cyclotomic packets
+give a totient-weight signed budget and a proved sparse-positive-packet
+subclass. A separate actual high-rank/depth family refutes only automatic
+sparsity of ranks containing a deep prime, not sparsity of net-positive
+packets. Fixed-field ideal and unit arithmetic bounds moving-exponent cover
+counts and coefficient heights; generic hard unit classes need not be actual
+seed classes. Uniform point heights and the signed primitive packet remain
+open. Twenty-one new scoped Lean declarations verify the actual general
+Lucas bridge and bad-prime support, separately from the full ordinary
+cyclotomic and geometric arguments. All unrefuted parent routes remain active.
+
 Latest fourth continuation: September 7, 2026. Signed support conditioning
 retains the negative low-depth prime credits and yields an exact allowance
 criterion, whose arithmetic bound remains open. A separate Kummer descent

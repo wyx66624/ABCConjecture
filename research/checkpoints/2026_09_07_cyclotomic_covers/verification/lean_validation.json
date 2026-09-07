@@ -1,0 +1,124 @@
+{
+  "status": "PASS: fresh scoped Lake build and complete theorem axiom inventory",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "command": [
+    "lake",
+    "build"
+  ],
+  "new_theorems": 21,
+  "dependency_theorems": 44,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "modules": {
+    "EisensteinDescent": {
+      "source": "research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean",
+      "sha256": "e5e15c14c4771fcf6bffd1d87bac67d23895cf02f40606188b2059d4cf3c944e",
+      "theorems": 29,
+      "queries": [
+        "ABCEisenstein20260905.mul_comm",
+        "ABCEisenstein20260905.mul_assoc",
+        "ABCEisenstein20260905.mul_one",
+        "ABCEisenstein20260905.norm_mul",
+        "ABCEisenstein20260905.conjugate_product",
+        "ABCEisenstein20260905.rotate_boundary",
+        "ABCEisenstein20260905.rotate_norm",
+        "ABCEisenstein20260905.norm_height_identity",
+        "ABCEisenstein20260905.inverse_numerators",
+        "ABCEisenstein20260905.boundary_remainder_x",
+        "ABCEisenstein20260905.boundary_remainder_y",
+        "ABCEisenstein20260905.boundary_remainder_sum",
+        "ABCEisenstein20260905.step_is_mul",
+        "ABCEisenstein20260905.step_norm",
+        "ABCEisenstein20260905.orbit_norm",
+        "ABCEisenstein20260905.orbit_add",
+        "ABCEisenstein20260905.orbit_six",
+        "ABCEisenstein20260905.orbit_six_shift",
+        "ABCEisenstein20260905.orbit_mod_four",
+        "ABCEisenstein20260905.orbit_mod_seven",
+        "ABCEisenstein20260905.cubic_coordinate",
+        "ABCEisenstein20260905.boundary_step_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_lucas",
+        "ABCEisenstein20260905.cubic_difference",
+        "ABCEisenstein20260905.orbit_cubic_difference",
+        "ABCEisenstein20260905.exact_small_orbits",
+        "ABCEisenstein20260905.boundary_factor_certificates",
+        "ABCEisenstein20260905.defect_ratio_increases"
+      ],
+      "new": false
+    },
+    "LocalPowerArithmetic": {
+      "source": "research/checkpoints/2026_09_07_support_power_classes/Lean/LocalPowerArithmetic.lean",
+      "sha256": "b17af29c82e564816d09ef9d581535f2a110ec1ba5d23dff6ca2490128ce8661",
+      "theorems": 15,
+      "queries": [
+        "ABCLocalPowerArithmetic20260907.second_quartic",
+        "ABCLocalPowerArithmetic20260907.consecutive_primitive",
+        "ABCLocalPowerArithmetic20260907.consecutive_norm",
+        "ABCLocalPowerArithmetic20260907.consecutive_second",
+        "ABCLocalPowerArithmetic20260907.consecutive_mixed_primitive",
+        "ABCLocalPowerArithmetic20260907.consecutive_norm_power_residue",
+        "ABCLocalPowerArithmetic20260907.consecutive_second_power_residue",
+        "ABCLocalPowerArithmetic20260907.unbounded_simultaneous_residue_family",
+        "ABCLocalPowerArithmetic20260907.norm_simple_root_linearization",
+        "ABCLocalPowerArithmetic20260907.second_simple_root_linearization",
+        "ABCLocalPowerArithmetic20260907.extraction_root_data",
+        "ABCLocalPowerArithmetic20260907.residual_depth_one_data",
+        "ABCLocalPowerArithmetic20260907.hfree_valuation_nonnegative",
+        "ABCLocalPowerArithmetic20260907.minimal_denominator_exponent",
+        "ABCLocalPowerArithmetic20260907.denominator_clearing_degree"
+      ],
+      "new": false
+    },
+    "GeneralLucasBoundary": {
+      "source": "research/checkpoints/2026_09_07_cyclotomic_covers/Lean/GeneralLucasBoundary.lean",
+      "sha256": "990334699d402ebc75f424f723e31636fee7df7f02d7d1524a04e9411faf8c77",
+      "theorems": 10,
+      "queries": [
+        "ABCGeneralLucasBoundary20260907.cubic_trace_identity",
+        "ABCGeneralLucasBoundary20260907.trace_discriminant_identity",
+        "ABCGeneralLucasBoundary20260907.general_shifted_boundary_recurrence",
+        "ABCGeneralLucasBoundary20260907.norm_power",
+        "ABCGeneralLucasBoundary20260907.boundary_orbit_recurrence",
+        "ABCGeneralLucasBoundary20260907.lucas_recurrence",
+        "ABCGeneralLucasBoundary20260907.linear_recurrence_solution",
+        "ABCGeneralLucasBoundary20260907.actual_shifted_lucas_solution",
+        "ABCGeneralLucasBoundary20260907.actual_power_boundary_lucas",
+        "ABCGeneralLucasBoundary20260907.actual_boundary_divides_powers"
+      ],
+      "new": true
+    },
+    "QuarticSupportArithmetic": {
+      "source": "research/checkpoints/2026_09_07_cyclotomic_covers/Lean/QuarticSupportArithmetic.lean",
+      "sha256": "4faafbf700665bd43afa65509ee9c7df0740353328b6bc6b3ac5283c50de6aea",
+      "theorems": 11,
+      "queries": [
+        "ABCQuarticSupportArithmetic20260907.second_mod",
+        "ABCQuarticSupportArithmetic20260907.primitive_not_both_zero_mod",
+        "ABCQuarticSupportArithmetic20260907.second_three_table",
+        "ABCQuarticSupportArithmetic20260907.primitive_second_mod_three",
+        "ABCQuarticSupportArithmetic20260907.second_thirteen_table",
+        "ABCQuarticSupportArithmetic20260907.thirteen_remainder_diagonal",
+        "ABCQuarticSupportArithmetic20260907.thirteen_shift_identity",
+        "ABCQuarticSupportArithmetic20260907.fourth_power_zero_thirteen_table",
+        "ABCQuarticSupportArithmetic20260907.thirteen_divides_of_divides_fourth_power",
+        "ABCQuarticSupportArithmetic20260907.primitive_second_thirteen_exact_depth",
+        "ABCQuarticSupportArithmetic20260907.thirteen_cannot_divide_extraction_root"
+      ],
+      "new": true
+    }
+  },
+  "not_claimed": [
+    "ABC proof or disproof",
+    "full repository build",
+    "private-depth estimate",
+    "global probability transfer",
+    "complete fifth-round formalization",
+    "Hensel or Faltings theorem",
+    "finite Kummer descent",
+    "external peer review"
+  ]
+}

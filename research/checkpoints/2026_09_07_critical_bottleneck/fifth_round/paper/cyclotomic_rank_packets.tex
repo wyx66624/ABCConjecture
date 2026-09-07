@@ -1,0 +1,219 @@
+\section{Actual cyclotomic rank packets and the totient budget}
+\label{cp-section}
+The support-conditioned entropy criterion retains signed credit but
+does not itself estimate the arithmetic allowance. We now use an
+integer factorization of the actual homogeneous orbit. Its first-depth
+packets have a $\varphi(d)$ budget, whose sum over the divisors of the
+exponent is exactly the exponent. This proves a sparse-rank subclass
+while retaining the primitive top-layer saving as an open step.
+
+Let $\mathcal O=\mathbb Z[\zeta]$, $\zeta^2-\zeta+1=0$, and let $w$
+be primitive and unramified, with $Q=N(w)\ge7$ and $3\nmid Q$.
+Put $\eta=w^3$, $\bar\eta=\bar w^3$, and, for $n\ge1$, let
+$T_n=|P(w^n)|$, where $P(a+b\zeta)=ab(a+b)$.
+Oriented factorization shows that all $w^n$ remain primitive.
+
+\subsection{An integer factorization with exact rank valuations}
+\begin{theorem}[Actual cyclotomic integer factors]\label{cp-integers}
+For the homogeneous cyclotomic polynomials, define
+\[
+ C_1=P(w),\qquad C_d=\Phi_d(\eta,\bar\eta)\quad(d\ge2).
+\]
+Every $C_d$ is a nonzero rational integer, and
+\[
+ P(w^n)=\prod_{d\mid n}C_d.
+\]
+For $d\ge2$,
+\[
+ \log|C_d|\le\varphi(d)\bigl(\tfrac32\log Q+\log2\bigr),
+\]
+while $\log|C_1|\le\tfrac32\log Q$. In particular,
+$\log|C_d|\le2\varphi(d)\log Q$ for every $d\ge1$.
+\end{theorem}
+\begin{proof}
+The ideals $(w)$ and $(\bar w)$ are coprime. A common prime away from
+three would divide $b\sqrt{-3}$ and then both integer coordinates;
+a prime above three is excluded by $3\nmid Q$. If
+$\eta/\bar\eta$ were a root of unity, unique ideal factorization
+would give $(w)^3=(\bar w)^3$ and hence force $w$ to be a unit,
+contrary to $Q\ge7$.
+
+For $d\ge2$, reciprocity gives
+$\Phi_d(X,Y)=\Phi_d(Y,X)$, including $\Phi_2(X,Y)=X+Y$.
+Its value is an algebraic integer fixed by conjugation in
+$\mathbb Q(\sqrt{-3})$, so it lies in $\mathbb Z$; nonvanishing
+follows from the non-root-of-unity ratio. Direct expansion gives
+\[
+ (a+b\zeta)^3-(a+b\bar\zeta)^3
+       =3\sqrt{-3}\,ab(a+b).
+\]
+Apply the homogeneous cyclotomic factorization to
+$\eta^n-\bar\eta^n$ and cancel its first factor
+$3\sqrt{-3}P(w)$. This proves the exact signed integer product.
+Each complex linear factor of $\Phi_d(\eta,\bar\eta)$ has modulus
+at most $2Q^{3/2}$. The same cubic identity gives
+$|P(w)|\le2Q^{3/2}/(3\sqrt3)\le Q^{3/2}$.
+Finally $\log2\le\tfrac12\log Q$ for $Q\ge7$.
+\end{proof}
+
+For a prime $p>3$, $p\nmid Q$, let
+\[
+ d_p=\operatorname{ord}\bigl((w/\bar w)^3\bmod p\bigr),
+ \qquad s_p=v_p(T_{d_p}).
+\]
+The norm-one group has order $p-\chi_p$, where $\chi_p=1$ in the
+split case and $-1$ in the inert case. Thus $p\nmid d_p$.
+The previously proved homogeneous rank and LTE law is
+\[
+ v_p(T_n)=\begin{cases}
+ 0,&d_p\nmid n,\\
+ s_p+v_p(n),&d_p\mid n.
+ \end{cases}
+\]
+
+\begin{theorem}[The only cyclotomic occurrences of a prime]
+\label{cp-valuations}
+For every $n\ge1$,
+\[
+ v_p(C_n)=\begin{cases}
+ s_p,&n=d_p,\\
+ 1,&n=d_pp^j\text{ for some }j\ge1,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\]
+\end{theorem}
+\begin{proof}
+The integer factorization says that $v_p(T_n)$ is the divisor sum
+of $v_p(C_d)$. The proposed right side has divisor sum zero if
+$d_p\nmid n$. Otherwise its divisor sum is $s_p$ plus the number
+of positive $j$ for which $d_pp^j\mid n$, which is $s_p+v_p(n)$
+because $p\nmid d_p$. Uniqueness of divisor inversion proves the
+claim. In particular, at the first rank the M\"obius product has
+only one term of positive valuation, and all later occurrences lie
+on that rank's $p$-power tower with depth one per factor.
+\end{proof}
+
+\subsection{Totient-sized packets and exact signed assembly}
+For $Y\ge5$ put
+\[
+ B_d=\prod_{\substack{p>Y\\d_p=d}}p^{s_p},\qquad
+ R_d=\prod_{\substack{p>Y\\d_p=d}}p,\qquad A_d=B_d/R_d^3.
+\]
+These finite products depend on $Y,w$. Every prime in them divides
+$T_d$. A prime dividing $Q$ cannot divide a primitive boundary:
+one zero boundary arm together with zero norm would force both
+coordinates to vanish. Thus no supported prime above the cutoff
+is missing from this rank notation.
+
+\begin{theorem}[Actual packet budget and signed assembly]
+\label{cp-packets}
+For every $d\ge1$,
+\[
+ B_d\mid |C_d|,\qquad \log B_d\le2\varphi(d)\log Q.
+\]
+For every $n\ge1$,
+\[
+ \log W_Y(T_n)=\sum_{d\mid n}\log A_d+\ell_{n,Y},
+ \qquad
+ \ell_{n,Y}=\sum_{\substack{p>Y\\p\mid T_n}}v_p(n)\log p,
+ \quad 0\le\ell_{n,Y}\le\log n.
+\]
+\end{theorem}
+\begin{proof}
+The primes of rank $d$ occur to exact depth $s_p$ in $C_d$, so their
+full product divides that integer. Apply Theorem~\ref{cp-integers}.
+For every supported prime the rank law gives
+$v_p(T_n)-3=(s_p-3)+v_p(n)$. Partition the first terms by their
+unique rank. The product represented by the remaining sum divides $n$.
+\end{proof}
+
+The identity $\sum_{d\mid n}\varphi(d)=n$ bounds the total full
+packet mass by $2n\log Q$. There is no $\sigma(n)$ or divisor-count
+loss. This is still a linear budget and supplies no sublinear
+radical saving by itself.
+
+Let $E(n,w,Y)$ be the divisors $d\mid n$ for which the \emph{net}
+signed packet $\log A_d$ is positive, and write
+\[
+ m_\varphi(n,w,Y)=\frac1n\sum_{d\in E(n,w,Y)}\varphi(d).
+\]
+\begin{theorem}[A quantitative sparse-rank subclass]\label{cp-sparse}
+Let $c_n$ be the largest side of the primitive positive triple from
+the three boundary arms of $w^n$, and $t_n=\log c_n$. Then
+\[
+ \frac{\log W_Y(T_n)}{t_n}
+ \le4m_\varphi(n,w,Y)+\frac{2\log n}{n\log Q}.
+\]
+If every positive net packet has rank at most an integer $D\ge0$, the right side
+may instead be bounded by
+\[
+ \frac{2D(D+1)}n+\frac{2\log n}{n\log Q}.
+\]
+Thus $m_\varphi\to0$, or the sufficient condition $D=o(\sqrt n)$,
+gives a vanishing positive part of the signed ratio as $n\to\infty$,
+uniformly in moving $Q\ge7$ and the cutoff. At most $K$ exceptional
+ranks, all at most $D$, also suffice when $KD=o(n)$.
+\end{theorem}
+\begin{proof}
+Discard only the nonpositive whole rank packets and apply their
+full-mass bounds. The norm satisfies $Q^n\le c_n^2$, so
+$t_n\ge(n/2)\log Q$. This proves the first inequality.
+Use $\varphi(d)\le d$ and
+$\sum_{d\le D}d=D(D+1)/2$, or bound the sum for $K$ ranks by $KD$.
+The resulting nonnegative upper bounds give the positive-part
+conclusion, not two-sided convergence of a signed quantity.
+\end{proof}
+
+At the established small-$\lambda$ homogeneous cutoff
+$Y=n^{1/6}$, $\lambda=1/n$, this supplies the required one-sided
+signed tail on the stated subclass. It combines with the earlier
+low-prime and archimedean estimates along sequences with $n\to\infty$.
+It does not control bounded exponents with arbitrarily moving roots,
+and membership of a general actual orbit in this subclass is unproved.
+
+\subsection{A saving condition with no divisor-count inflation}
+\begin{theorem}[Totient-normalized rank saving]\label{cp-saving}
+Consider any sequence of actual data $(n,w,Y)$ with $n\to\infty$ and
+$Q\ge7$. Suppose a function $\epsilon(d)\ge0$, tending to zero,
+satisfies
+\[
+ \log A_d(Y;w)\le\epsilon(d)\varphi(d)\log Q
+\]
+at every divisor $d$ of each actual $n$ in the sequence. Then
+$\limsup\log W_Y(T_n)/t_n\le0$.
+\end{theorem}
+\begin{proof}
+Given $\delta>0$, choose $D$ so that $\epsilon(d)\le\delta$ for
+$d>D$. Bound the finitely many smaller ranks by the unconditional
+packet bound. The exact totient sum gives
+\[
+ \log W_Y(T_n)\le2\log Q\sum_{d\le D}\varphi(d)
+                     +\delta n\log Q+\log n.
+\]
+Divide by $t_n\ge(n/2)\log Q$, first let $n\to\infty$ and then
+$\delta\downarrow0$. The small-rank bound is uniform in $Q$ and $Y$.
+\end{proof}
+The older hypothesis $A_d\le(Qd)^\kappa$ implies this saving condition.
+Indeed $\varphi(d)\ge\sqrt{d/2}$: in $\varphi(d)^2/d$, all odd
+prime-power factors are at least one, while the only factor below one
+is $1/2$ from $2^1$. Thus
+$\kappa(1+\log d/\log7)/\varphi(d)\to0$.
+The new hypothesis permits larger upper budgets, such as
+$\log Q\sqrt{\varphi(d)}$. This compares hypotheses; it does not
+exhibit an arithmetic family violating the earlier hypothesis.
+
+It is essential to distinguish $E$ from the larger set of ranks
+containing one prime with $s_p\ge4$. Other primes at the same rank
+may cancel that prime's positive contribution. Also one rank near
+$n$ can carry totient mass comparable to $n$; rank cardinality alone
+is insufficient. For prime $n$, the factorization has only ranks one
+and $n$. The first rank costs $O(\log Q)$ and the lifting term costs
+$O(\log n)$. The unproved issue is precisely the net primitive
+top-layer packet on the scale $n\log Q$.
+
+These ordinary statements use actual Eisenstein ideals, cyclotomic
+factorization, the previously established homogeneous LTE law, and
+elementary divisor identities. No assertion that actual large primes
+usually have simple depth enters them. Neither these packet budgets
+nor their finite arithmetic checks prove the unrestricted signed-tail
+gate or ABC, and no new Lean coverage is asserted for this section.

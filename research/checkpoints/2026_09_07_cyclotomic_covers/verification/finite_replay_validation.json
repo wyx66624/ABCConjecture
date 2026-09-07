@@ -1,0 +1,31 @@
+{
+  "status": "PASS: all three finite replays independently rerun by root",
+  "records": [
+    {
+      "name": "critical",
+      "artifact": "research/checkpoints/2026_09_07_critical_bottleneck/fifth_round/finite_replay.json",
+      "artifact_sha256": "6bb53d811132ccd5cd530f18381b6224f5fc7b5e862645a7549048c069add0f7",
+      "reported_digest": "81941c0830df549d9998b5e75d8687d82534ba328522e318e25ab2303edaf5db",
+      "reported_digest_kind": "canonical payload"
+    },
+    {
+      "name": "adversarial",
+      "artifact": "research/checkpoints/2026_09_07_adversarial_audit/fifth_round/verification/high_rank_results.json",
+      "artifact_sha256": "0dd4ea0a667c7607db490684126ff827a34f1fa8b285276fd4369d32d3fcba9a",
+      "reported_digest": "0dd4ea0a667c7607db490684126ff827a34f1fa8b285276fd4369d32d3fcba9a",
+      "reported_digest_kind": "whole artifact"
+    },
+    {
+      "name": "independent",
+      "artifact": "research/checkpoints/2026_09_07_independent_route/fifth_round/exact_cover_arithmetic_results.json",
+      "artifact_sha256": "860bc44890b89079ad72911ff9cd038bd43920a4bd8406de23f02e804b94ee52",
+      "reported_digest": "860bc44890b89079ad72911ff9cd038bd43920a4bd8406de23f02e804b94ee52",
+      "reported_digest_kind": "whole artifact"
+    }
+  ],
+  "not_claimed": [
+    "infinite theorem from finite scan",
+    "ABC proof or disproof",
+    "formal cyclotomic or geometry results"
+  ]
+}

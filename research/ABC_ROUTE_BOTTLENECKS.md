@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, signed support entropy, fixed higher-power
-class descent, actual extraction families and scoped denominator arithmetic.
+**Last synchronized:** 2026-09-07, actual cyclotomic rank packets, maximal-rank
+depth boundaries, quantitative covers and scoped Lucas/support arithmetic.
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -32,6 +32,23 @@ rigorous complete-premise disproof.
 - [x] Maintain the English journal manuscript with author ChatGPT.
 
 ## Shared exponent generators: September 7 positive frontier
+
+- [x] Factor actual homogeneous orbit boundaries into integer cyclotomic
+  packets and classify their exact first-rank and lifting valuations.
+- [x] Prove the totient-weight budget and a specified sparse-net-positive-
+  rank subclass, without a divisor-count loss.
+- [ ] Prove sufficient saving for the actual net primitive top-rank packet;
+  even prime exponents retain this arithmetic problem.
+- [x] Construct an infinite actual maximal-rank deep-prime family refuting
+  automatic deep-hit rank sparsity, with its selected normalized cost vanishing.
+- [x] Bound varying-exponent cover counts and coefficient heights in a fixed
+  splitting field, explicitly charging for the moving residual choice.
+- [x] Prove the generic unit-class linear height barrier while retaining the
+  separate question of which classes actually carry primitive seeds.
+- [ ] Bound heights of individual actual points uniformly in the relevant
+  moving cover family; subexponential cover count alone does not supply this.
+- [x] Kernel-check the general actual Lucas bridge and primitive second-norm
+  bad-prime arithmetic, including exact thirteen depth and root exclusion.
 
 - [x] Retain the actual prime support and prove the exact signed conditional
   depth-entropy identity with uniform common-height error bounds.

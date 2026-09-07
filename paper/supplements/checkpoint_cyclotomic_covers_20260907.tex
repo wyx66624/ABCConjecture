@@ -1,0 +1,29 @@
+\section{Actual rank packets and varying-exponent covers}
+\label{sec:cyclotomic-covers-checkpoint}
+
+The fifth continuation attacks the arithmetic content left open by the
+support-entropy and fixed-class reductions. On a homogeneous actual
+Eisenstein orbit, integer cyclotomic factors isolate each prime's first
+rank and its later lifting tower. The resulting packet bound has totient
+weight, whose sum over the divisors is the exponent itself. It proves a
+specified sparse-rank subclass without a divisor-count loss. A separate
+actual construction places a deep prime at the maximal rank beyond the
+moving cutoff, refuting automatic sparsity of ranks merely containing a
+deep prime. It does not determine the sign of the complete rank packet.
+
+The independent geometric direction works in a fixed splitting field
+while the extraction exponent varies. Ideal allocations and the unit
+lattice give an explicit bound for the number of covers, including the
+cost of choosing a moving small residual, and a bound for their coefficient
+heights. Some unit power classes necessarily retain a linear height cost.
+The number of possible covers supplies no height bound for their individual
+points. The actual-point and moving-exponent issues therefore remain open.
+
+The ordinary proofs were independently reviewed before formalization.
+Twenty-one new Lean declarations verify a general actual Lucas recurrence
+and its full solution, together with exact bad-prime support statements
+for every primitive integer second norm. The full cyclotomic, totient,
+number-field and geometric arguments remain ordinary proofs with their
+stated dependencies. Neither the unrestricted signed tail nor the
+two-step radical threshold is resolved; standard $abc$ remains unproved
+and undisproved.

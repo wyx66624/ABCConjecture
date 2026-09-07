@@ -1,0 +1,71 @@
+\section{Formal general Lucas identities and actual bad-prime support}
+\label{sec:formal-lucas-support}
+
+The module \texttt{GeneralLucasBoundary.lean} contains ten declarations
+using the existing actual Eisenstein pair multiplication, norm and
+boundary. For arbitrary $w=a+b\zeta$ it defines
+\[
+ \tau(w)=2a^3+3a^2b-3ab^2-2b^3,\qquad R(w)=N(w)^3.
+\]
+The kernel checks the cubic trace and discriminant identities and the
+general shifted recurrence
+\[
+ \tau(w)^2+27P(w)^2=4N(w)^3,\qquad
+ P(w^2z)+R(w)P(z)=\tau(w)P(wz).
+\]
+These are actual polynomial identities for all integer pairs $w,z$,
+with no primitivity or nonzero assumption. Ordinarily, the recurrence
+follows by multiplying the characteristic equation of $w^3$ by $z^3$
+and taking its difference with its conjugate. The formal proof directly
+checks the integer polynomial identity.
+
+For arbitrary integer parameters $t,r$, put $U_0=0$, $U_1=1$ and
+$U_{n+2}=tU_{n+1}-rU_n$. A general formal recurrence theorem proves
+\[
+ f(n+1)=U_{n+1}f(1)-rU_nf(0)
+\]
+for every integer sequence with that recurrence. Applied to the actual
+Eisenstein powers, it gives
+\[
+ \begin{split}
+ P(w^{n+1}z)&=U_{n+1}P(wz)-N(w)^3U_nP(z),\\
+ P(w^n)&=P(w)U_n,\qquad P(w)\mid P(w^n),
+ \end{split}
+ \quad (t,r)=(\tau(w),N(w)^3).
+\]
+The zero exponent and zero-boundary cases are included. Norm
+multiplicativity is also lifted to every actual power. This is a general
+actual Lucas bridge; the whole cyclotomic factorization and its rank
+valuation classification are not silently inserted into its signature.
+
+The separate module \texttt{QuarticSupportArithmetic.lean} contains
+eleven declarations. It imports the actual second norm
+$F(a,b)=N(ab,N(a,b))$ from the preceding continuation, proves polynomial
+congruence transfer for arbitrary integer coordinates, and checks
+\[
+ \gcd(a,b)=1\ \Longrightarrow\ F(a,b)\equiv1\pmod3,
+\]
+\[
+ \gcd(a,b)=1,\quad 13\mid F(a,b)
+ \ \Longrightarrow\quad 169\nmid F(a,b).
+\]
+The proof uses finite residue tables reduced in the kernel, transfers
+them to all coprime integers, and applies the exact identity
+\[
+ F(b+13t,b)=13b^4+
+ 169\bigl(2b^3t+20b^2t^2+91bt^3+169t^4\bigr).
+\]
+It then proves that, whenever $g\ge2$ and
+$F(a,b)=VQ^g$ is an actual primitive integer profile, one has
+$13\nmid Q$. Thus thirteen cannot be absorbed into a high-exponent
+extraction root. No positivity restriction is needed in these formal
+integer conclusions.
+
+A fresh standalone Lake build with Lean~4.32.0 and warnings treated as
+errors accepted all twenty-one new declarations and recompiled forty-four
+unchanged dependency declarations. Each declaration has a printed-axiom
+inventory; only \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound} occur. The exact source hashes and independent
+signature review are recorded in the checkpoint. This verifies neither
+the complete cyclotomic and geometric sections nor standard ABC, and is
+not a full repository build.
