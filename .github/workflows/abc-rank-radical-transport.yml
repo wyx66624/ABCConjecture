@@ -1,0 +1,55 @@
+name: Shifted ranks and actual radical transport verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research/checkpoints/2026_09_07_radical_transport/**'
+      - 'research/checkpoints/2026_09_07_adversarial_audit/second_round/**'
+      - 'research/checkpoints/2026_09_07_independent_route/computation/**'
+      - 'Lean/IUTThreeClosures/ABCStatement.lean'
+      - 'Lean/IUTThreeClosures/DivisionPolynomialTwoTorsionNumerics.lean'
+      - 'Lean/lean-toolchain'
+      - 'Lean/lake-manifest.json'
+      - '.github/workflows/abc-rank-radical-transport.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  actual-radical-and-residue-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Install the repository-pinned compiler
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: 'false'
+          build: 'false'
+          use-mathlib-cache: 'false'
+      - name: Resolve pinned dependencies and restore Mathlib cache
+        working-directory: Lean
+        run: |
+          lake update
+          lake exe cache get
+      - name: Compile actual radical statements against fresh local dependencies
+        working-directory: Lean
+        run: lake env python3 ../research/checkpoints/2026_09_07_radical_transport/verify_mathlib.py
+      - name: Compile exact residue counts and the all-index stopping orbit
+        run: bash research/checkpoints/2026_09_07_adversarial_audit/second_round/wsl/verify_lean.sh
+      - name: Independently replay finite arithmetic
+        run: |
+          python3 research/checkpoints/2026_09_07_adversarial_audit/second_round/verify.py
+          python3 research/checkpoints/2026_09_07_independent_route/computation/two_step_compatibility.py
+          git diff --exit-code -- research/checkpoints/2026_09_07_adversarial_audit/second_round/verification/exact_results.json research/checkpoints/2026_09_07_independent_route/computation/two_step_compatibility_output.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: rank-radical-transport-proof-evidence
+          path: |
+            research/checkpoints/2026_09_07_radical_transport/verification/
+            research/checkpoints/2026_09_07_adversarial_audit/second_round/verification/
+            research/checkpoints/2026_09_07_independent_route/computation/two_step_compatibility_output.json

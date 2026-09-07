@@ -1,0 +1,410 @@
+\section{A remainder-proportion refinement of the two-place bounds}
+\label{lr-section}
+
+The bounds in this section depend on
+$\lambda=\max\{1,\log V\}/g$, instead of requiring
+$\rho=\lambda\log(4+g)$ to be small. They give unconditional balance and
+small-prime estimates, a stronger obstruction to fixed-root two-step
+compression, and two actual separation families. The complementary large-prime
+tail and the existence of a family meeting the two-step radical gate remain
+unproved. The transcendence and height arguments here are ordinary proofs;
+they are not claimed as completed Lean formalizations.
+
+\subsection{Actual representations and exact heights}
+Let $a,b$ be coprime positive integers, $c=a+b$, $T=abc$, $t=\log c$, and
+$M=a^2+ab+b^2$. In $\mathbb Z[\zeta]$, where $\zeta^2-\zeta+1=0$, set
+$\gamma=1+\zeta$ and suppose there is an actual factorization
+\begin{equation}\label{lr-profile}
+ z=a+b\zeta=u\gamma^e v w^g,\qquad
+ e\in\{0,1\},\quad g\ge1,\quad Q=N(w)\ge7,\quad V=N(v)\ge1.
+\end{equation}
+Here $u$ is a unit and $v,w$ contain only split prime elements, with at most
+one of each conjugate pair in their combined support. Shared prime factors
+are allowed. The ramified factor is kept outside $v$ and $w$. Write
+\[
+ h=\max\{1,\log V\},\qquad \lambda=h/g,\qquad
+ \rho=\lambda\log(4+g).
+\]
+The elementary norm and boundary relations give
+\begin{equation}\label{lr-norm}
+ \gcd(M,T)=1,\qquad \frac34c^2\le M\le c^2,\qquad
+ M=3^eVQ^g,\qquad 2t\ge g\log Q.
+\end{equation}
+
+\begin{lemma}[Exact oriented heights]\label{lr-heights}
+For an oriented split nonunit $x$ of norm $q$,
+\[
+ h_{\mathrm W}(x/\bar x)=\frac12\log q,\qquad
+ h^*((x/\bar x)^3)=\frac32\log q,
+\]
+where $h_{\mathrm W}$ is the absolute logarithmic Weil height and
+$h^*=\max\{1,h_{\mathrm W}\}$. In particular, for
+\[
+ \eta=(w/\bar w)^3,\qquad \xi=(-1)^e(v/\bar v)^3,
+ \qquad R=\xi\eta^g=(z/\bar z)^3,
+\]
+one has
+\begin{equation}\label{lr-height-bounds}
+ h^*(\eta)=\frac32\log Q,\qquad h\le h^*(\xi)\le\frac32h.
+\end{equation}
+Moreover $R\ne1$ and
+\begin{equation}\label{lr-boundary}
+ |R-1|=\frac{3\sqrt3\,T}{M^{3/2}},\qquad
+ v_p(R-1)=v_p(T)+\frac32v_p(3)\ge v_p(T)\quad(p\mid T).
+\end{equation}
+The valuations in the second identity are normalized by $v_p(p)=1$ at
+any place of the quadratic field above $p$.
+\end{lemma}
+\begin{proof}
+The ideals $(x)$ and $(\bar x)$ are coprime, the two complex absolute values
+of $x/\bar x$ are one, and its denominator ideal has norm $q$. The degree-two
+normalized height formula therefore gives $(\log q)/2$. Cubing multiplies
+the height by three, and $q\ge7$ makes the result larger than one.
+Multiplication by a root of unity does not change the height. If $v$ is a
+unit, both $h$ and $h^*(\xi)$ equal one; otherwise they are $\log V$ and
+$(3/2)\log V$ respectively.
+
+The equalities $u^6=1$, $\gamma/\bar\gamma=\zeta$, and $\zeta^3=-1$
+prove the formula for $R$. Direct expansion gives
+\[
+ z^3-\bar z^3=3(\zeta-\bar\zeta)T.
+\]
+Its absolute value gives the first formula in \eqref{lr-boundary}; it is
+nonzero since $T>0$. If $p\mid T$, then $\bar z$ is a unit at every place
+above $p$, by \eqref{lr-norm}. Taking normalized valuations gives the
+second formula. This includes $p=3$ when $e=0$; when $e=1$, the condition
+$\gcd(M,T)=1$ excludes $3\mid T$.
+\end{proof}
+
+\subsection{A uniform theorem covering dependence and units}
+We use two precise established estimates from Bugeaud, \emph{$B'$},
+arXiv:2209.00275v1, Theorem~1.1, equation~(1.3), and Theorem~1.4.
+The former bounds a nonzero complex linear form in logarithms from below
+using the height product times $\log B'$, with
+\[
+ B'=\max\left\{3,\max_{j<n}
+ \left(\frac{|b_n|}{h^*(\alpha_j)}+
+       \frac{|b_j|}{h^*(\alpha_n)}\right)\right\},\qquad b_n\ne0.
+\]
+For fixed number of logarithms and field degree its constant is effective
+and absolute; it requires no multiplicative independence. Theorem~1.4
+states that for multiplicatively independent $p$-units $\alpha,\beta$
+and positive integers $k,l$,
+\begin{equation}\label{lr-source-padic}
+ v_p(\alpha^k-\beta^l)
+ \le C p^D h^*(\alpha)h^*(\beta)(\log B')^2,\qquad
+ B'=\max\left\{3,\frac{k}{h^*(\beta)}+
+                       \frac{l}{h^*(\alpha)}\right\},
+\end{equation}
+where $D=[\mathbb Q(\alpha,\beta):\mathbb Q]$ and $C$ is absolute and
+effective. We do not discard the alternative in the distinct disjunctive
+refinement of that source's Theorem~1.3.
+
+\begin{theorem}[Remainder-proportion two-place estimates]\label{lr-two-place}
+There are absolute effective constants $A_1,A_2$ such that every actual
+representation \eqref{lr-profile} with $0<\lambda\le1$ satisfies
+\begin{align}
+ 3t-\log T&\le A_1\lambda\log(4/\lambda)t,
+      \label{lr-arch-bound}\\
+ v_p(T)&\le A_2p^2\lambda\log^2(4/\lambda)t
+      \qquad(p\mid T).\label{lr-padic-bound}
+\end{align}
+The constants are independent of all prime supports, norms, units,
+ramified exponents, and multiplicative dependence between $v$ and $w$.
+\end{theorem}
+\begin{proof}
+Take principal logarithms of $\eta$ and $\xi$. Choose $k\in\mathbb Z$ so
+\[
+ \Lambda=g\log\eta-2k\log(-1)+\log\xi
+\]
+lies in $i[-\pi,\pi]$. Then $|2k|\le g+2$. Since $\exp\Lambda=R\ne1$,
+the form is nonzero. Apply the complex estimate with three logarithms and
+put $\xi$ last with coefficient one. The degree is at most two, even when
+$\xi=\pm1$. By \eqref{lr-height-bounds},
+\[
+ B'\le\max\{3,1+(g+2)/h\}\le4/\lambda,\qquad
+ h^*(\eta)h^*(-1)h^*(\xi)\le\frac94h\log Q.
+\]
+Here $h\ge1$ and $g\ge h$ give $h+g+2\le4g$. Hence
+$\log|\Lambda|\ge-C h\log Q\log(4/\lambda)$.
+The elementary chord bound
+$|\exp\Lambda-1|\ge2|\Lambda|/\pi$ now combines with
+\eqref{lr-boundary} and $M\ge3c^2/4$ to give
+\[
+ 3t-\log T\le C h\log Q\log(4/\lambda)+C'.
+\]
+Since $2t\ge g\log Q$ and $\lambda t\ge(\log7)/2$, the absolute
+constant and the height term are absorbed into \eqref{lr-arch-bound}.
+This argument includes unit $v$ and needs no independence.
+
+For the non-Archimedean estimate put
+$\alpha=\eta$ and $\beta=\xi^{-1}=(-1)^e(\bar v/v)^3$.
+First suppose that they are multiplicatively independent. Then $v$ is a
+nonunit. They are $p$-units at every $p\mid T$, and
+$\alpha^g-\beta$ differs from $R-1$ by a $p$-unit. Equation
+\eqref{lr-source-padic} applies with positive coefficients $g,1$ and
+degree at most two. Moreover
+\[
+ B'\le\max\{3,g/h+1\}\le3/\lambda,\qquad
+ \frac{h^*(\alpha)h^*(\beta)}t\le\frac92\lambda.
+\]
+Together with \eqref{lr-boundary}, this proves \eqref{lr-padic-bound}
+in this branch.
+
+It remains to cover multiplicative dependence, including unit $v$.
+Choose oriented prime elements on the union of the supports and let
+$f_i,r_i$ be their exponents in $w,v$. A relation
+$\alpha^m\beta^n=1$ implies $mf_i=nr_i$ at each corresponding prime
+ideal. If $r$ is the zero vector, write $f=s d$ with $d$ primitive and
+set $\ell=0$. Otherwise a nontrivial relation forces $m,n$ to be nonzero
+with the same sign and the vectors to be proportional. Since
+$\gcd(d_i)=1$, the proportionality factor in $r=\ell d$ is an integer.
+Thus in all cases $s\ge1$, $\ell\ge0$, and actual unique factorization
+gives, for $x=\prod_i\pi_i^{d_i}$,
+\[
+ w=\text{unit}\cdot x^s,\quad
+ v=\text{unit}\cdot x^\ell,\quad
+ z=\text{unit}\cdot\gamma^e x^H,\qquad H=sg+\ell\ge g.
+\]
+The exponent $H$ concerns split primes; the ramified factor is still
+$\gamma^e$. To bound this branch directly, apply the first inequality of
+Bugeaud Theorem~1.3 to the two algebraic numbers
+$((x/\bar x)^3,-1)$ with integer coefficients $(H,e)$.
+Their product is $R\ne1$. That inequality allows $e=0$ and needs no
+independence. The degree is at most two, the height product is
+$(3/2)\log N(x)$, and its exponent parameter is at most $3+H$.
+Consequently
+\[
+ v_p(T)\le C_0 p^2\log N(x)\log(3+H),\qquad
+ \frac{v_p(T)}t\le2C_0p^2\frac{\log(3+H)}H.
+\]
+The latter uses $2t\ge H\log N(x)$. The function
+$x\mapsto\log(3+x)/x$ is decreasing for $x>0$. Since
+$H\ge g\ge1/\lambda$,
+\[
+ \frac{\log(3+H)}H
+ \le\lambda\log(3+1/\lambda)
+ \le\lambda\log(4/\lambda).
+\]
+Finally $\log(4/\lambda)>1$ absorbs this into
+\eqref{lr-padic-bound}. The two branches exhaust all cases.
+\end{proof}
+
+\begin{corollary}[Balance and full small-prime mass]\label{lr-balance}
+Consider an actual representation \eqref{lr-profile} with $0<\lambda\le1$.
+For every $\delta>0$, sufficiently small effective $\lambda$ in
+\eqref{lr-profile} implies $\min(a,b)>c^{1-\delta}$. For every $Y\ge2$,
+\begin{equation}\label{lr-small-mass}
+ \sum_{\substack{p\le Y\\p\mid T}}v_p(T)\log p
+ \le A_2\lambda\log^2(4/\lambda)Y^3\log Y\,t.
+\end{equation}
+For $\lambda\le1/64$ and $Y=\lambda^{-1/6}$, the ratio of this mass to
+$t$ is at most
+\[
+ \frac{A_2}{6}\sqrt\lambda\log^2(4/\lambda)\log(1/\lambda)
+ \longrightarrow0.
+\]
+\end{corollary}
+\begin{proof}
+If $\min(a,b)\le c^{1-\delta}$, then $T\le c^{3-\delta}$, which
+contradicts \eqref{lr-arch-bound} once
+$A_1\lambda\log(4/\lambda)<\delta$. Summing
+\eqref{lr-padic-bound} and bounding $\sum_{p\le Y}p^2\log p$ by
+$Y^3\log Y$ proves the remaining assertions.
+\end{proof}
+These are unconditional balance and small-prime conclusions, not an ABC
+quality bound above one half. The complementary large-prime multiplicity
+excess is still unbounded by these arguments.
+
+\subsection{Second remainder floors and necessary escape of prime support}
+\begin{corollary}[Fixed first roots force a second remainder floor]
+\label{lr-fixed-root}
+Fix a nonunit oriented $w_0$, $Q_0=N(w_0)$, and a finite constant $L_0$.
+For every first representation \eqref{lr-profile} with this $w_0$ and
+$\lambda_0\le L_0$, every actual two-column representation of
+$(ab,M_0,c^2)$ has $\lambda_1$ bounded below by a positive effective
+constant depending only on $w_0,L_0$.
+\end{corollary}
+\begin{proof}
+Choose $p\mid Q_0$ and put $d=v_p(Q_0)>0$.
+Writing $T_1=abM_0c^2$ and $t_1=\log(c^2)$, the inherited prime support
+and \eqref{lr-norm} give
+\[
+ v_p(T_1)\ge g_0d,\qquad
+ t_1\le g_0\log Q_0+\log V_0+\log4.
+\]
+Hence
+\[
+ \frac{v_p(T_1)}{t_1}
+ \ge\frac{d}{\log Q_0+L_0+\log4}=:\delta_0>0.
+\]
+If $\lambda_1\le1$, Theorem~\ref{lr-two-place} gives
+$\delta_0\le A_2p^2\lambda_1\log^2(4/\lambda_1)$.
+The right side tends to zero with $\lambda_1$, yielding an effective
+positive floor; $\lambda_1>1$ is harmless. All estimates hold for every
+choice of the second representation.
+\end{proof}
+This closes the asymptotic fixed-root remainder window left by the earlier
+$\rho_1$ estimate. Its constant has not been compared with the finite
+threshold in Theorem~\ref{tt-two-step-criterion}. Thus that finite gate is
+not excluded, and moving roots need a separate analysis.
+
+\begin{corollary}[Necessary escape of moving first-root support]
+\label{lr-moving-support}
+For any individual first representation, set
+\[
+ J_0=\max_{p\mid Q_0}
+ \frac{v_p(Q_0)}{p^2(\log Q_0+\lambda_0+(\log4)/g_0)}.
+\]
+Every second representation with $\lambda_1\le1$ satisfies
+\begin{equation}\label{lr-support-invariant}
+ \lambda_1\log^2(4/\lambda_1)\ge J_0/A_2.
+\end{equation}
+Under the same assumption $\lambda_1\le1$, if
+$S_Y(Q_0)=\sum_{p\le Y,\,p\mid Q_0}v_p(Q_0)\log p$, then
+\begin{equation}\label{lr-support-mass}
+ \frac{S_Y(Q_0)}{\log Q_0}
+ \le A_2\lambda_1\log^2(4/\lambda_1)Y^3\log Y
+ \left(1+\frac{\lambda_0+(\log4)/g_0}{\log Q_0}\right)
+ \quad(Y\ge2).
+\end{equation}
+Consequently, along any family with bounded $\lambda_0$ and
+$\lambda_1\to0$, one necessarily has
+\[
+ \frac{S_{\lambda_1^{-1/6}}(Q_0)}{\log Q_0}\longrightarrow0.
+\]
+\end{corollary}
+\begin{proof}
+Retain the individual $\lambda_0,g_0$ in the preceding proof and divide
+\eqref{lr-padic-bound} by $g_0$. This proves
+\eqref{lr-support-invariant}; multiplying the resulting primewise
+inequalities by $\log p$ and summing proves \eqref{lr-support-mass}.
+If $\lambda_0\le L_0$, its parenthesis is at most
+$1+(L_0+\log4)/\log7$. Substitute $Y=\lambda_1^{-1/6}$ as in
+Corollary~\ref{lr-balance}.
+\end{proof}
+These necessary conditions are computed from the first representation.
+They still allow sufficiently large moving primes; they do not presuppose
+any depth or radical bound on the second norm.
+
+\subsection{A strict separation from all old disjoint penalties}
+\begin{theorem}[A family with small $\lambda$ and divergent $\rho$]
+\label{lr-partition-separation}
+There are actual primitive positive triples and specified two-column
+representations for which $\lambda\to0$, $\rho\to\infty$, while every
+old disjoint-partition penalty is at least $\kappa\log M$ for an absolute
+$\kappa>0$. Nevertheless both normalized bounds of
+Theorem~\ref{lr-two-place} tend to zero.
+\end{theorem}
+\begin{proof}
+Choose $r\ge3$ distinct primes $q_i\equiv1\pmod3$ in $[X,2X]$, $X\ge7$,
+and oriented elements $N(\pi_i)=q_i$. Put
+\[
+ L=\log X,\quad j=\lceil\sqrt{\log r}\rceil,\quad
+ g=r^2\lceil L\rceil j,\quad e_i=g+i,
+ \quad z=\prod_{i=1}^r\pi_i^{e_i}.
+\]
+Its support is oriented, so its coordinates are primitive. A unit rotation
+makes both coordinates strictly positive: a sector boundary would make $z$
+a unit times a rational integer, contradicting its nonempty oriented
+support. The consecutive exponents have gcd one. Use the actual shared
+representation $w=\prod_i\pi_i$, $v=\prod_i\pi_i^i$.
+Since $L\le\log q_i\le2L$, $\lceil L\rceil\le2L$, and
+$\sqrt{\log r}\le j\le2\sqrt{\log r}$,
+\[
+ \frac{r(r+1)L}{2}\le h=\log V\le2r^2L,\qquad
+ r^2L\sqrt{\log r}\le g\le4r^2L\sqrt{\log r}.
+\]
+It follows that, uniformly in $L\ge\log7$,
+\begin{equation}\label{lr-separation-lambda}
+ \frac1{8\sqrt{\log r}}\le\lambda\le\frac2{\sqrt{\log r}},
+ \qquad \rho\ge\frac14\sqrt{\log r}\longrightarrow\infty.
+\end{equation}
+The last inequality uses $\log(4+g)\ge2\log r$.
+Thus $\lambda\log(4/\lambda)$ and $\lambda\log^2(4/\lambda)$ tend
+to zero, and the new bounds apply.
+
+Write $S=\log M$. An old partition into $m$ blocks has penalty
+\[
+ B_{\mathcal P}=C^{m+1}\log(3+\textstyle\sum_j k_j)\prod_j L_j,
+\]
+where $C>2$, $k_j$ is the gcd of its block's exponents, and $L_j$ is its
+reduced logarithmic norm. Here
+\[
+ grL\le S\le4grL\le16r^3L^2\sqrt{\log r},\qquad L_j\ge L.
+\]
+For a block of size $h_j\ge2$, the index differences imply
+$k_j\le(r-1)/(h_j-1)$, hence
+$L_j\ge gh_j(h_j-1)L/r$. If $m\le r/2$, a largest block has size
+at least $r/m$, so its reduced logarithmic norm is at least
+$grL/(2m^2)$. Therefore
+\[
+ \frac{B_{\mathcal P}}S
+ \ge\frac{C^{m+1}\log4\,L^{m-1}}{8m^2}
+ \ge\frac{\log4}{8},
+\]
+using $L>1$ and $2^{m+1}\ge m^2$ for every integer $m\ge1$.
+If $m>r/2$, use $L_j\ge L$ for every block to obtain
+\[
+ \frac{B_{\mathcal P}}S
+ \ge\frac{C^{m+1}\log4\,L^{m-2}}{16r^3\sqrt{\log r}}
+ \ge\frac{\log4}{8(\log7)^2}
+       \frac{(2\log7)^{r/2}}{r^3\sqrt{\log r}}
+\]
+for sufficiently large $r$. The last expression tends to infinity
+uniformly in $X$. Thus $\kappa=\log4/8$ works eventually for all
+partitions, including those with growing block count.
+
+The established prime number theorem in the fixed progression $1\pmod3$
+supplies dyadic lists with $r\to\infty$. As in the preceding shared-generator
+separation theorem, a quantitative primary source is
+Bennett--Martin--O'Bryant--Rechnitzer, arXiv:1802.00085v3, Theorem~1.2.
+This input supplies prime availability only; the representation and penalty
+comparisons above are explicit.
+\end{proof}
+This compares the specified old $\rho$ sufficient test and all old disjoint
+penalties with the new estimates. It does not assert that every alternative
+shared representation has large $\rho$, nor that these triples have high
+ABC quality.
+
+\subsection{An explicit fixed-root family without factorization}
+\begin{theorem}[An explicit parameter separation]\label{lr-explicit-family}
+For $k\ge1$, define
+\[
+ g_k=2^{k^2},\quad m_k=\lfloor g_k/k\rfloor,\quad
+ y_k=42+84\cdot2^{m_k},\quad v_k=1+y_k\zeta,\quad
+ w=2+\zeta,\quad z_k=v_kw^{g_k}.
+\]
+These are primitive elements which rotate to positive triples. Their
+split exponent content is one, and the specified representation satisfies
+\[
+ \lambda_k\sim\frac{2\log2}{k}\longrightarrow0,\qquad
+ \rho_k\sim2(\log2)^2k\longrightarrow\infty.
+\]
+No prime availability or complete factorization is required for these
+assertions.
+\end{theorem}
+\begin{proof}
+The coordinates $1,y_k$ are primitive, and $y_k$ is divisible by $3,7$.
+Thus $V_k=1+y_k+y_k^2$ is coprime to $21$, and $v_k$ has oriented split
+support disjoint from both factors above seven. The product with $w^{g_k}$
+remains primitive and oriented and rotates to strictly positive coordinates.
+Since $y_k\equiv2\pmod4$, one has $V_k\equiv3\pmod4$, so some prime
+factor of $V_k$ has odd valuation. The valuation at seven of $N(z_k)$ is
+exactly $g_k$, a power of two. Hence the gcd of all split exponents is one.
+
+Finally $y_k/2^{m_k}=84+42/2^{m_k}$ stays in a fixed positive interval, as
+does $V_k/y_k^2$. It follows that
+\[
+ \log V_k=2m_k\log2+O(1),\qquad m_k=g_k/k+O(1),
+\]
+with absolute constants. Dividing by $g_k$ and multiplying in turn by
+$\log(4+g_k)=k^2\log2+o(1)$ gives the stated asymptotics.
+\end{proof}
+The preceding explicit family makes parameter separation independent of
+prime selection, while Theorem~\ref{lr-partition-separation} gives the
+stronger all-disjoint-penalties comparison. Because the first root $w$ here
+is fixed and $\lambda_k$ is bounded, Corollary~\ref{lr-fixed-root} also
+gives a positive floor for every second representation's $\lambda_1$ on
+this family. This is compatible with its unconditional balance and
+small-prime conclusions; neither is a claim of two-step whole-norm compression.

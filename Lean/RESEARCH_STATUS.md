@@ -1,5 +1,40 @@
 # Research status
 
+## September 7, 2026: remainder proportion, shifted ranks and actual radicals
+
+Standard ABC remains unproved and undisproved. The next ordinary theorem
+replaces the older two-column `rho=lambda*log(4+g)` criterion by archimedean
+cost `O(lambda*log(4/lambda))` and local cost
+`O(p^2*lambda*log^2(4/lambda))`, relative to logarithmic height. All unit,
+ramified and multiplicative-dependence cases are addressed. Its inputs are
+Bugeaud Theorem 1.1 (1.3), Theorem 1.4, and the established one-block bound;
+the disjunction later in Theorem 1.3 is not silently strengthened. Two other
+agents independently reviewed the complete ordinary proof.
+
+The refinement gives balance and full small-prime control for small lambda,
+a new actual separation family, and a positive lower bound for every second
+lambda when the first root is fixed and its first lambda is bounded. It
+does not compare that floor with the finite two-step disproof threshold, and
+does not give a uniform floor for unbounded moving roots.
+
+Separately, exact shifted residue layers and the full norm-height denominator
+give the elementary block average `mean(F_Z(n)/log c_n)<=10*pi(Z)/N`, uniform
+in arbitrary compatible residual/root norms. Finite-box unions yield a
+common good-index set. The exceptional indices and primes beyond the chosen
+cutoff remain open; a density-one statement is not a pointwise ABC proof.
+
+The new formal scope comprises 13 declarations in `RadicalTransport` and
+`TwoStepABCObstruction`, plus eight in `ShiftedResidueCounts`. They verify
+actual radicals, primitive transforms, an explicit conditional consequence
+for the original `ABCConjecture`, exact residue counting and an actual
+all-index stopping orbit. The unbounded family in the conditional theorem
+is not constructed. The source/axiom inventories and independent reviews are
+in `../research/checkpoints/2026_09_07_radical_transport/` and
+`../research/checkpoints/2026_09_07_adversarial_audit/second_round/`.
+These counts are separate from the first-round 22 new/74 dependency totals.
+The analytic, local-group and complete geometric arguments are ordinary
+proofs, not silently imported as custom Lean axioms.
+
 ## September 7, 2026: shared exponent generators and independent branches
 
 Standard ABC remains unproved and undisproved. The positive ordinary theorem

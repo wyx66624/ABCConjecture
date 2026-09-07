@@ -1,0 +1,44 @@
+{
+  "status": "PASS: fresh compiler outputs and complete theorem axiom audit",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_revision": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "modules": {
+    "IUTThreeClosures.DivisionPolynomialTwoTorsionNumerics": {
+      "source": "Lean/IUTThreeClosures/DivisionPolynomialTwoTorsionNumerics.lean",
+      "sha256": "0363107482cda7c16ceb9a0887991b66da269172d843c791d0535a90f39b2523",
+      "theorems": 6,
+      "new": false
+    },
+    "IUTThreeClosures.ABCStatement": {
+      "source": "Lean/IUTThreeClosures/ABCStatement.lean",
+      "sha256": "1da397c7959c179809ad091f0bcd619583339cc5100844363a35c25c0f4ee457",
+      "theorems": 0,
+      "new": false
+    },
+    "RadicalTransport": {
+      "source": "research/checkpoints/2026_09_07_radical_transport/Lean/RadicalTransport.lean",
+      "sha256": "87ba952acb60184b1c4af16019539d3045a490ad47e45bde13a17cbd8bc53096",
+      "theorems": 9,
+      "new": true
+    },
+    "TwoStepABCObstruction": {
+      "source": "research/checkpoints/2026_09_07_radical_transport/Lean/TwoStepABCObstruction.lean",
+      "sha256": "bf021a8ff16157f0e53f815da4f09511c380a113f3ed57656445bd19417b295a",
+      "theorems": 4,
+      "new": true
+    }
+  },
+  "new_theorems": 13,
+  "dependency_theorems": 6,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "not_claimed": [
+    "existence of the unbounded two-norm gate family",
+    "ABC proof or disproof",
+    "full repository build",
+    "fresh build of all Mathlib source"
+  ]
+}

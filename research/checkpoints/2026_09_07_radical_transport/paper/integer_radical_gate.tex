@@ -1,0 +1,78 @@
+\section{Actual radicals and a conditional ABC obstruction}
+\label{sec:rt-integer-radical-gate}
+The preceding sufficient conditions involve actual radical arithmetic. The
+following elementary bridge is also checked against the standard logarithmic
+$abc$ definition in the repository. Its family-existence premise remains open.
+
+For coprime positive integers $a,b$, put $c=a+b$ and
+\[
+ M=a^2+ab+b^2,\qquad N=(ab)^2+abM+M^2.
+\]
+The two transformed triples are $(ab,M,c^2)$ and $(abM,N,c^4)$.
+The next identities charge the new prime supports exactly; no upper bound
+for them is assumed in the identities.
+
+\begin{proposition}[Exact two-step radical transport]
+\label{prop:rt-two-step-radical}
+Both displayed triples are primitive, and
+\begin{align*}
+ \operatorname{rad}(abMc^2)
+   &=\operatorname{rad}(abc)\operatorname{rad}(M),\\
+ \operatorname{rad}(abMNc^4)
+   &=\operatorname{rad}(abc)\operatorname{rad}(M)\operatorname{rad}(N).
+\end{align*}
+For any positive integers $d,V,Q,g$, with no disjoint-support requirement,
+\[
+ \operatorname{rad}(dVQ^g)\le dVQ.
+\]
+\end{proposition}
+\begin{proof}
+Modulo $a$ and $c$, the norm $M$ reduces to $b^2$, and modulo $b$ it
+reduces to $a^2$. Hence $\gcd(M,abc)=1$. The identity $ab+M=c^2$
+shows that the first transform is primitive. Apply the same argument to
+the coprime pair $ab,M$; its norm $N$ is coprime to $abMc^2$ and therefore
+to $abcM$. Radical multiplicativity for coprime factors and invariance
+under positive powers give both equalities. For the last inequality use
+$\operatorname{rad}(xy)\mid\operatorname{rad}(x)\operatorname{rad}(y)$,
+$\operatorname{rad}(Q^g)=\operatorname{rad}(Q)$, and
+$\operatorname{rad}(x)\le x$ for positive $x$.
+\end{proof}
+
+\begin{theorem}[An integer sufficient condition for a disproof]
+\label{thm:rt-integer-gate}
+If coprime positive seeds $(a,b)$ satisfying
+\begin{equation}
+ \bigl(\operatorname{rad}(M)\operatorname{rad}(N)\bigr)^5\le c
+ \label{eq:rt-integer-gate}
+\end{equation}
+have unbounded $\log c$, then standard $abc$ is false.
+\end{theorem}
+\begin{proof}
+Write $R_2=\operatorname{rad}(abMNc^4)$. Since
+$\operatorname{rad}(abc)\le abc\le c^3$, the preceding proposition gives
+\[
+ R_2^5\le c^{15}
+   \bigl(\operatorname{rad}(M)\operatorname{rad}(N)\bigr)^5
+ \le c^{16}.
+\]
+Standard $abc$ with $\varepsilon=1/8$, applied to the actual primitive
+triple $(abM,N,c^4)$, would provide one constant $C$ such that
+\[
+ 4\log c\le \frac98\log R_2+C
+ \le\frac{18}{5}\log c+C.
+\]
+Thus $(2/5)\log c\le C$, contradicting the stated unboundedness.
+\end{proof}
+
+\paragraph{Formal contract and open premise.}
+The companion modules \texttt{RadicalTransport} and
+\texttt{TwoStepABCObstruction} use Mathlib's radical and identify it with
+the repository's product of distinct prime divisors. The last formal
+statement has conclusion \texttt{not ABCConjecture}, conditional on the
+explicit unbounded family in Theorem~\ref{thm:rt-integer-gate}. The source
+definition of \texttt{ABCConjecture} is imported without alteration.
+Neither the ordinary proof nor the formal implication constructs that
+family. In particular, the implication is not a formal disproof of $abc$.
+The new verification record states the checked source hashes, compiler,
+Mathlib revision, and axiom audit separately from the earlier algebra-only
+checkpoint.

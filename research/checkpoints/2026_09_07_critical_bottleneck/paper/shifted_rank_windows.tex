@@ -1,0 +1,334 @@
+\section{Shifted rank towers and uniform moving-prime windows}
+\label{sec:srw-start}
+\noindent\textbf{Status.} This second continuation proves exact local residue
+structures and uniform average estimates over moving prime ranges. It also
+controls a common exceptional set for bounded families of actual residuals and
+roots. These are ordinary mathematical results with the dependencies stated
+below. The full signed tail, individual exceptional indices, and standard
+$abc$ remain unresolved. The companion Lean module verifies actual residue
+counts and an actual stopping tower, with its narrower scope stated at the end.
+
+\subsection{Actual arithmetic inputs and shifted residue classes}
+Let $\mathcal O=\mathbb Z[\zeta]$, where $\zeta^2-\zeta+1=0$, and write
+$P(x+y\zeta)=xy(x+y)$. Let $w,v\in\mathcal O$ be primitive with compatible
+oriented split factors, with $w$ unramified and the ramified exponent of $v$
+at most one. Assume $Q=N(w)\ge7$, put $V=N(v)\ge1$, and set
+\[
+ A_n=|P(vw^n)|,\qquad B_n=|P(w^n)|\quad(n\ge1).
+\]
+All these elements are primitive. Their norms exceed one, so their boundaries
+are nonzero. Let $c_n$ be the height after positive unit rotation. Then
+\begin{equation}\label{eq:srw-size}
+ \log c_n\ge\tfrac12(\log V+n\log Q),\qquad
+ \log A_n\le\tfrac32(\log V+n\log Q).
+\end{equation}
+The second inequality follows directly from
+$|P(z)|\le 2N(z)^{3/2}/(3\sqrt3)\le N(z)^{3/2}$, which is a consequence
+of the cubic identity. The already proved full boundary overlap identity gives
+\[
+ \gcd(A_m,A_n)=\gcd(A_m,B_{n-m})\qquad(n>m\ge1).
+\]
+
+Fix a prime $p>3$ with $p\nmid VQ$, and put
+\[
+ \alpha=(w/\bar w)^3,\qquad \beta=(v/\bar v)^3,\qquad
+ d_p=\operatorname{ord}(\alpha\bmod p),\qquad
+ s_p=v_p(B_{d_p}).
+\]
+At split primes one can use the product residue algebra; conjugation makes
+the component orders and valuations agree. At inert primes use the quadratic
+residue field. With $\chi_p=1$ for $p\equiv1\pmod3$ and $-1$ otherwise,
+the norm-one group has order $p-\chi_p$. Since $\alpha$ is a cube,
+\begin{equation}\label{eq:srw-step}
+ d_p\mid(p-\chi_p)/3,\qquad
+ v_p(B_n)=
+ \begin{cases}
+ 0,&d_p\nmid n,\\
+ s_p+v_p(n/d_p),&d_p\mid n.
+ \end{cases}
+\end{equation}
+For the valuation formula, write $\alpha^{d_p}=1+p^{s_p}u$ in the
+unramified local algebra. Raising to a power prime to $p$ preserves the
+valuation, and raising to $p$ increases it by one, since the linear binomial
+term has uniquely least valuation. The cubic identity has unit prefactor at
+$p>3$, so it identifies this with the displayed rational integer valuation.
+
+\begin{theorem}[Exact shifted rank lattice]\label{thm:srw-lattice}
+For every $e\ge1$, the positive integers $n$ with $p^e\mid A_n$ form either
+an empty set or one residue class modulo
+\[
+ D_{p,e}=d_p p^{(e-s_p)_+}.
+\]
+Nonempty successive classes are coherent under reduction. In every interval
+of $N$ consecutive positive integers, the number of hits differs from
+$N/D_{p,e}$ by less than one for a nonempty class, and is zero for an empty
+class.
+\end{theorem}
+\begin{proof}
+The cubic identity and local units give
+$p^e\mid A_n$ if and only if $\beta\alpha^n=1\pmod {p^e}$. Once a
+solution exists, all solutions differ by multiples of the multiplicative order
+of $\alpha$ modulo $p^e$. Formula~\eqref{eq:srw-step} says that this order
+is exactly $D_{p,e}$. Reduction proves coherence. A single arithmetic
+progression has the stated interval count. In particular its residue need not
+be zero; homogeneous divisibility of the exponent cannot replace this class.
+\end{proof}
+
+\begin{theorem}[The three possible tower types]\label{thm:srw-tower}
+At a fixed good prime, either all levels are empty, the nonempty levels are
+exactly $1,\ldots,t_p$ for some $1\le t_p<s_p$, or every level is nonempty.
+\end{theorem}
+\begin{proof}
+Emptiness persists under projection. Let $G_e$ be the norm-one group of
+$(\mathcal O/p^e\mathcal O)^\times$. For $j\ge1$, the kernel of
+$G_{j+1}\to G_j$ consists of $1+p^ju$ with
+$\operatorname{Tr}(u)=0\pmod p$. Indeed its norm is
+$1+p^j\operatorname{Tr}(u)\pmod {p^{j+1}}$. Trace on the two-dimensional
+residue algebra is surjective because $\operatorname{Tr}(1)=2\ne0$.
+The kernel consequently has $p$ elements. Reduction is surjective: correct
+an arbitrary lift of norm $1+p^ja$ by a factor with trace $-a$.
+
+Thus $\ker(G_e\to G_{s_p})$ has size $p^{e-s_p}$. By
+\eqref{eq:srw-step}, $\alpha^{d_p}$ has exactly this order and generates
+the whole kernel. A solution at depth $s_p$ therefore extends to every depth
+$e\ge s_p$ by adding a multiple of $d_p$ to its exponent. This proves the
+classification.
+\end{proof}
+
+\subsection{Signed local density and its finite error}
+For $H\ge1$ define
+\[
+ D_{p,H}(n)=\sum_{e=1}^H{\bf1}_{p^e\mid A_n}
+             -3{\bf1}_{p\mid A_n}.
+\]
+When $H\ge v_p(A_n)$ this is zero on unsupported primes and is
+$v_p(A_n)-3$ otherwise, retaining first- and second-power credit. Let
+$\delta_{p,e}=1/D_{p,e}$ for nonempty levels and zero for empty levels.
+On any interval $I$ of $N$ consecutive positive integers,
+\begin{equation}\label{eq:srw-discrepancy}
+ \left|\sum_{n\in I}D_{p,H}(n)
+ -N\left(\sum_{e=1}^H\delta_{p,e}-3\delta_{p,1}\right)\right|
+ \le H+3.
+\end{equation}
+This follows by summing the actual progression errors from
+Theorem~\ref{thm:srw-lattice}; an empty level has exactly zero error.
+
+The corresponding infinite density is
+\begin{equation}\label{eq:srw-mu}
+ \mu_p=
+ \begin{cases}
+ 0,&\text{empty tower},\\
+ (t_p-3)/d_p,&\text{finite tower},\\
+ (s_p-3+1/(p-1))/d_p,&\text{full tower}.
+ \end{cases}
+\end{equation}
+For the last case sum the $s_p$ initial levels of density $1/d_p$ and the
+subsequent geometric series of total $1/(d_p(p-1))$. The finite case has
+exactly $t_p$ initial levels, all with period $d_p$. In particular,
+\[
+ \mu_p\le\frac{\max(0,s_p-3+1/(p-1))}{d_p}.
+\]
+Every nonempty tower with $s_p\le2$ has negative mean. At $s_p=3$, the only
+possible positive mean is $1/(d_p(p-1))$.
+
+\begin{proposition}[A fixed-finite-prime mean law]\label{prop:srw-cesaro}
+For fixed $v,w$ and a fixed finite set $S$ of good primes,
+\[
+ \frac1N\sum_{n=1}^N
+ \log\prod_{\substack{p\in S\\p\mid A_n}}p^{v_p(A_n)-3}
+ \longrightarrow\sum_{p\in S}\mu_p\log p.
+\]
+\end{proposition}
+\begin{proof}
+The first p-adic inequality of Bugeaud's Theorem 1.3
+\cite{EPBugeaud2022}, applied to the fixed $\beta,\alpha$ with exponents
+$1,n$, gives $v_p(A_n)\le K_p\log(4+n)$. All numbers are local units and
+the product is nontrivial because $A_n\ne0$. Choose $H_N=O(\log N)$
+covering the valuations for $p\in S$, $n\le N$, and tending to infinity.
+Then the capped quantities equal the actual signed valuations. Divide
+\eqref{eq:srw-discrepancy} by $N$: the finite-$S$ error is
+$O(\log N/N)$. The geometric sums tend to \eqref{eq:srw-mu}, proving the
+claim. This is the only external analytic input to this proposition; it does
+not justify replacing the fixed set $S$ by all primes.
+\end{proof}
+
+\subsection{An elementary estimate for a moving prime range}
+For real $Z\ge5$ set
+\[
+ F_Z(n)=\sum_{3<p\le Z}v_p(A_n)\log p.
+\]
+This is the full nonnegative prime-power mass in the specified range. The
+following estimate uses elementary height caps and actual residue counts.
+
+\begin{lemma}[First-rank density bound]\label{lem:srw-density}
+For every good prime,
+\[
+ \frac{s_p+1/(p-1)}{d_p}\log p\le2\log Q.
+\]
+\end{lemma}
+\begin{proof}
+The norm bound gives
+$s_p\log p\le\log B_{d_p}\le(3d_p/2)\log Q$.
+Also $\log p\le(p-1)/2$ for $p\ge5$: the difference
+$(x-1)/2-\log x$ is positive at five and increasing thereafter.
+The lifting contribution is therefore at most $1/2\le(\log Q)/2$.
+\end{proof}
+
+\begin{theorem}[Uniform moving-prime block bound]\label{thm:srw-moving}
+For every $N\ge2$ and $Z\ge5$,
+\begin{equation}\label{eq:srw-moving}
+ \frac1N\sum_{n=N}^{2N-1}\frac{F_Z(n)}{\log c_n}
+ \le\frac{10\pi(Z)}N.
+\end{equation}
+The constant is uniform over all compatible $v,w$, with no upper bound on
+$V$ or $Q$ and no small-$\rho$ assumption. Within each block the factors
+$v,w$ are fixed.
+\end{theorem}
+\begin{proof}
+Write $q=\log Q$, $v_0=\log V$, and
+$H_{\max}=\tfrac32v_0+3Nq$. By \eqref{eq:srw-size}, every valuation in
+the block is at most $H_p=\lfloor H_{\max}/\log p\rfloor$; this cap may
+be zero. Counting each layer with Theorem~\ref{thm:srw-lattice} gives
+\[
+ \sum_{n=N}^{2N-1}v_p(A_n)
+ \le N\frac{s_p+1/(p-1)}{d_p}+H_p.
+\]
+Use Lemma~\ref{lem:srw-density} and $H_p\log p\le H_{\max}$ to obtain
+\[
+ \sum_{n=N}^{2N-1}v_p(A_n)\log p
+ \le5Nq+\tfrac32v_0.
+\]
+Primes dividing $VQ$ have zero boundary support by the norm-boundary gcd.
+Sum the remaining primes and retain the full denominator
+$\log c_n\ge(v_0+Nq)/2$. The resulting bound is
+\[
+ \frac{\pi(Z)}N\frac{10Nq+3v_0}{Nq+v_0}
+ \le\frac{10\pi(Z)}N.
+\]
+Every endpoint error was included; no p-adic logarithmic-form cap is needed
+for this average estimate.
+\end{proof}
+
+\begin{lemma}[An elementary prime-counting bound]\label{lem:srw-chebyshev}
+For real $x\ge2$, one has $\pi(x)\le8x/\log x$.
+\end{lemma}
+\begin{proof}
+Every prime in $(m,2m]$ divides $\binom{2m}{m}$, so
+$\theta(2m)-\theta(m)\le2m\log2$. Sum at powers of two to obtain
+$\theta(2^k)<2^{k+1}\log2$, hence $\theta(x)\le4x\log2$.
+Separate primes at $\sqrt x$:
+\[
+ \pi(x)\le\sqrt x+\frac{2\theta(x)}{\log x}
+ \le\sqrt x+\frac{8(\log2)x}{\log x}.
+\]
+The function $\sqrt x-\log x$ has a positive minimum at $x=4$, so
+$\sqrt x\le x/\log x$. Finally $1+8\log2<8$; for example the trapezoid
+bound for the integral of $1/t$ on $[1,2]$ gives $\log2\le3/4$.
+\end{proof}
+
+\begin{corollary}[A linear prime range for almost all block indices]
+\label{cor:srw-linear}
+For all sufficiently large $N$, apart from at most
+$80N/\sqrt{\log N}$ indices in the block,
+\[
+ F_N(n)\le\frac{\log c_n}{\sqrt{\log N}}.
+\]
+\end{corollary}
+\begin{proof}
+At $Z=N$, Theorem~\ref{thm:srw-moving} and
+Lemma~\ref{lem:srw-chebyshev} give mean at most $80/\log N$. Apply Markov's
+inequality to the nonnegative normalized masses with threshold
+$1/\sqrt{\log N}$. More generally, \eqref{eq:srw-moving} applies to any
+moving range with $\pi(Z)=o(N)$.
+\end{proof}
+
+\subsection{A common exceptional set for bounded residuals and roots}
+There are at most $25B$ integer pairs with $0<N(v)\le B$, for $B\ge1$.
+Indeed the norm bounds both coordinates in absolute value by $2\sqrt B$,
+giving at most $(4\sqrt B+1)^2\le25B$ pairs. Primitivity or compatibility
+restrictions only reduce this count.
+
+\begin{theorem}[Simultaneous residual control]\label{thm:srw-residuals}
+Fix $w$, $N\ge2$, $B\ge1$, $Z\ge5$, and $\eta>0$. The proportion of
+indices in $[N,2N)$ for which some compatible actual residual $v$ of norm at
+most $B$ satisfies $F_Z(n)>\eta\log c_n$ is at most
+\[
+ \frac{250B\pi(Z)}{N\eta}.
+\]
+Thus, for fixed $0\le\beta<1$, $B=N^\beta$, $Z=N^{1-\beta}$, and
+$\eta=1/\sqrt{\log N}$, the exceptional proportion is at most
+\[
+ \frac{2000}{(1-\beta)\sqrt{\log N}}
+\]
+eventually. At every remaining index the bound holds simultaneously for all
+compatible residuals in the displayed norm range.
+\end{theorem}
+\begin{proof}
+Markov and \eqref{eq:srw-moving} bound each residual's bad indices by
+$10\pi(Z)/\eta$. Take the union over at most $25B$ actual residuals and
+divide by $N$. The specialized bound follows from
+Lemma~\ref{lem:srw-chebyshev}. Because the good set is common to the entire
+finite family, the residual may be chosen separately at each good index within
+that family.
+\end{proof}
+
+\begin{corollary}[Simultaneous roots and residuals]\label{cor:srw-pairs}
+If the roots are also restricted to $7\le N(w)\le C$, the exceptional
+proportion for some compatible pair is at most
+\[
+ \frac{6250BC\pi(Z)}{N\eta}.
+\]
+For fixed $\beta\ge0$, $\gamma>0$, $\beta+\gamma<1$, take
+$B=N^\beta$, $C=N^\gamma$, $Z=N^{1-\beta-\gamma}$ and
+$\eta=1/\sqrt{\log N}$. The bound becomes
+\[
+ \frac{50000}{(1-\beta-\gamma)\sqrt{\log N}}
+\]
+eventually.
+\end{corollary}
+\begin{proof}
+There are at most $625BC$ ordered pairs of small-norm factors. Sum the same
+uniform Markov bound over compatible pairs and use the elementary prime count.
+\end{proof}
+
+\subsection{Actual stopping examples and formal scope}
+For $p=5$, $w=(1,50)$ and $v=(1,5)$ have coprime norms $2551$ and $31$,
+neither divisible by three. Their products are primitive. Here $d_5=1$ and
+$s_5=v_5(2550)=2$. Since $w\equiv(1,0)\pmod {25}$,
+$vw^n\equiv(1,5)\pmod {25}$ and $P(vw^n)\equiv5\pmod {25}$ for every
+$n$. The tower stops at $t_5=1$. With the same $w$ and $v=(2,1)$ the
+boundary is constantly $6\pmod5$, giving an empty tower. A full-tower
+example is $w=(2,1)$, $v=(3,1)$: $d_5=2$, $s_5=1$, and a first hit exists.
+Exact replay gives depth-$e$ residues
+\[
+ (e,D_{5,e},a_{5,e})=(1,2,1),(2,10,7),(3,50,17),(4,250,67),(5,1250,567).
+\]
+The tower theorem supplies all higher depths; the finite replay is not used
+to prove its infinitude.
+
+The companion \texttt{ShiftedResidueCounts.lean} proves a bijective
+parameterization of actual residue hits before a bound, uniqueness, and the
+denominator-cleared count discrepancy. It also proves the actual recursive
+integer-pair stopping orbit's coordinates modulo $25$, its boundary's exact
+depth one, and the step's exact depth two. The finite norm-one group
+classification, real weighted means, moving-window theorems, factor
+compatibility, and external analytic estimate used in the fixed-finite-prime
+proposition remain ordinary mathematics in this section.
+
+\subsection{What remains in the signed tail}
+The new estimates control every prime power in the specified moving range
+for all but a quantified exceptional set of indices. In the simultaneous
+residual range $V\le N^\beta$, the shared parameter is uniformly
+$\rho=O(\log^2 N/N)$, so the established angular bound and pointwise
+treatment of primes two and three also apply. The unresolved signed product
+can therefore be placed beyond the new cutoff $Z$ on these good indices.
+A uniform $o(\log c_n)$ upper bound for the positive part of its logarithm
+would complete the usual
+conditional $1+\varepsilon$ absorption on those indices.
+
+No such large-prime bound is proved here. A chosen exponent could remain in
+the exceptional set, and unbounded roots or residuals are not covered by the
+finite-family union argument. The actual progression count, every endpoint
+error, and the precise bounded-family quantifiers are retained. These results
+provide a larger proved range and a smaller residual arithmetic task; they do
+not establish standard $abc$ or a closed Lean term of its type.

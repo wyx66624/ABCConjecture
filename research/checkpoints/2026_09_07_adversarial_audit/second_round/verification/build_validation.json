@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "round": "second round, separate from published first-round totals",
+  "command": "wsl -d Ubuntu-24.04 -- bash research/checkpoints/2026_09_07_adversarial_audit/second_round/wsl/verify_lean.sh",
+  "exit_code": 0,
+  "compiler": "Lean 4.32.0, x86_64-unknown-linux-gnu",
+  "compiler_commit": "8c9756b28d64dab099da31a4c09229a9e6a2ef35",
+  "imports": ["Std"],
+  "new_declarations": 8,
+  "warnings_as_errors": true,
+  "axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "sorry_or_custom_axiom": false,
+  "source_sha256": "bb77bbcf0383905065b03d1232e9209995cb7cf1103920c90d1fd2ff1db89974",
+  "lean_log_sha256": "2047be1f93ee896d4694d2967e7dab296ac64e91b1fdad0029104bcc9324f7e9",
+  "finite_results_sha256": "592028bac810492d82ab1012f5c800e76f9fc3a4f23d7d54c60d29746d457aa7",
+  "finite_results_encoding": "UTF-8 with LF, written as bytes for cross-platform replay",
+  "full_repository_build": false,
+  "general_tower_classification_formalized": false,
+  "weighted_real_global_tail_formalized": false,
+  "unconditional_abc_term": false
+}

@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, shared exponent generators, strict separation
-from all disjoint partition envelopes, cubic defect amplification and product-tripod rigidity.
+**Last synchronized:** 2026-09-07, remainder-proportion refinement, shifted-rank
+windows, successive norm transport and actual radical formalization.
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -33,6 +33,34 @@ rigorous complete-premise disproof.
 
 ## Shared exponent generators: September 7 positive frontier
 
+- [x] Refine both places to depend on `lambda=max(1,log V)/g` alone, with
+  normalized costs `O(lambda log(4/lambda))` and
+  `O(p^2 lambda log^2(4/lambda))`. Check all unit, ramified and dependent cases.
+- [x] Obtain actual profiles with lambda tending to zero and displayed rho
+  tending to infinity, while every old disjoint-partition penalty stays linear.
+- [x] Prove exact shifted rank lattices, the three local tower types, finite
+  signed discrepancies and the fixed-finite-prime mean law.
+- [x] Prove the elementary bound `mean(F_Z/log c)<=10*pi(Z)/N` for each fixed
+  residual/root block, uniformly in both norms; retain all endpoint errors.
+- [x] Establish a common good-index set for explicit growing finite boxes,
+  allowing adaptive choices of compatible residuals and roots there.
+- [ ] Control individual exceptional indices and the remaining signed mass
+  beyond the larger cutoff; a density-one bound is insufficient.
+- [x] Prove the homogeneous signed-rank packet identity and the conditional
+  rankwise polynomial-budget implication, with positive-part absorption.
+- [ ] Prove the actual arithmetic rankwise budget or refute its full premises.
+- [x] Construct an actual small-rho/content-one family refuting unchanged
+  transfer of the homogeneous lifting-divides-exponent rule to residuals.
+- [x] Establish exact one/two-step radical transport and a checked implication
+  from unbounded seeds satisfying `[rad(M0)rad(M1)]^5<=c` to standard ABC's negation.
+- [ ] Construct that unbounded family, or decide a precisely stated subfamily.
+- [x] Prove second-norm quartic-unit estimates and simultaneous arbitrary
+  local depth at 67 and 967 on actual primitive fixed-root families.
+- [x] Exclude second lambda tending to zero when the first root is fixed and
+  first lambda stays bounded; the refined lower bound is uniform in all
+  second representations under these exact conditions.
+- [ ] Decide the finite two-step compression threshold, or the case of first
+  roots with unbounded norm. The fixed-root asymptotic obstruction alone does neither.
 - [x] Prove actual reconstruction with a nonnegative exponent matrix, allowing
   the same oriented Eisenstein prime in different columns.
 - [x] Derive two-place logarithmic-form estimates with the same explicit

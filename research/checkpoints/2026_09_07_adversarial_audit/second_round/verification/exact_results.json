@@ -1,0 +1,179 @@
+{
+  "status": "passed, finite exact replay only",
+  "residue_count_cases": 50096,
+  "stopping_orbit_rows": 101,
+  "thirteen_modulus_cases": 28392,
+  "primary67": {
+    "p": 67,
+    "initial": 1,
+    "period": 66,
+    "delta": [
+      59,
+      23
+    ],
+    "initial_pair_mod_p": [
+      2,
+      1
+    ],
+    "derivative": 22,
+    "rows": [
+      {
+        "depth": 1,
+        "g": 1,
+        "modulus": 66,
+        "next_digit": 3
+      },
+      {
+        "depth": 2,
+        "g": 199,
+        "modulus": 4422,
+        "next_digit": 2
+      },
+      {
+        "depth": 3,
+        "g": 9043,
+        "modulus": 296274,
+        "next_digit": 25
+      },
+      {
+        "depth": 4,
+        "g": 7415893,
+        "modulus": 19850358,
+        "next_digit": 2
+      },
+      {
+        "depth": 5,
+        "g": 47116609,
+        "modulus": 1329973986,
+        "next_digit": 15
+      },
+      {
+        "depth": 6,
+        "g": 19996726399,
+        "modulus": 89108257062,
+        "next_digit": 1
+      },
+      {
+        "depth": 7,
+        "g": 109104983461,
+        "modulus": 5970253223154,
+        "next_digit": 48
+      },
+      {
+        "depth": 8,
+        "g": 286681259694853,
+        "modulus": 400006965951318,
+        "next_digit": 22
+      }
+    ]
+  },
+  "branch67": {
+    "p": 67,
+    "initial": 21,
+    "period": 66,
+    "delta": [
+      59,
+      23
+    ],
+    "initial_pair_mod_p": [
+      33,
+      66
+    ],
+    "derivative": 7,
+    "rows": [
+      {
+        "depth": 1,
+        "g": 21,
+        "modulus": 66,
+        "next_digit": 19
+      },
+      {
+        "depth": 2,
+        "g": 1275,
+        "modulus": 4422,
+        "next_digit": 20
+      },
+      {
+        "depth": 3,
+        "g": 89715,
+        "modulus": 296274,
+        "next_digit": 64
+      },
+      {
+        "depth": 4,
+        "g": 19051251,
+        "modulus": 19850358,
+        "next_digit": 19
+      },
+      {
+        "depth": 5,
+        "g": 396208053,
+        "modulus": 1329973986,
+        "next_digit": 7
+      },
+      {
+        "depth": 6,
+        "g": 9706025955,
+        "modulus": 89108257062,
+        "next_digit": 21
+      }
+    ]
+  },
+  "branch967": {
+    "p": 967,
+    "initial": 651,
+    "period": 966,
+    "delta": [
+      759,
+      279
+    ],
+    "initial_pair_mod_p": [
+      53,
+      172
+    ],
+    "derivative": 39,
+    "rows": [
+      {
+        "depth": 1,
+        "g": 651,
+        "modulus": 966,
+        "next_digit": 80
+      },
+      {
+        "depth": 2,
+        "g": 77931,
+        "modulus": 934122,
+        "next_digit": 808
+      },
+      {
+        "depth": 3,
+        "g": 754848507,
+        "modulus": 903295974,
+        "next_digit": 802
+      },
+      {
+        "depth": 4,
+        "g": 725198219655,
+        "modulus": 873487206858,
+        "next_digit": 807
+      },
+      {
+        "depth": 5,
+        "g": 705629374154061,
+        "modulus": 844662129031686,
+        "next_digit": 547
+      },
+      {
+        "depth": 6,
+        "g": 462735813954486303,
+        "modulus": 816788278773640362,
+        "next_digit": 67
+      }
+    ]
+  },
+  "crt_initial_residue": 7413,
+  "crt_initial_modulus": 10626,
+  "g199_second_norm_digits": 337,
+  "g199_exact_v67": 2,
+  "g199_full_factorization_attempted": false
+}

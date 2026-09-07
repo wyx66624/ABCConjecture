@@ -1,5 +1,18 @@
 # Research route registry
 
+Latest second continuation: September 7, 2026. A two-place refinement now
+depends on lambda alone, including all ramified, unit and dependent cases.
+It excludes a second lambda tending to zero for a fixed first root and
+bounded first lambda. This is an exact narrower obstruction: moving first
+roots and the finite two-step radical threshold remain undecided. Exact
+shifted-rank windows and their common finite-box good sets improve the
+forward route without eliminating exceptional indices or the large-prime
+tail. An actual two-norm radical condition has a checked implication to
+the negation of the original ABC definition; its unbounded family remains
+unconstructed. Full signed-tail budgets and all other unrefuted routes stay
+open. The signed-tail conclusion obtained from an upper bound is stated for
+its positive part, not as an unjustified two-sided limit.
+
 Latest continuation: September 7, 2026. Shared exponent generators remain a
 positive route with an explicit open signed large-prime tail. Their strict
 comparison with all previous disjoint partition envelopes is an ordinary

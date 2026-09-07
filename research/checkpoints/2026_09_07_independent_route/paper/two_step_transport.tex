@@ -1,0 +1,480 @@
+\section{Paid norm divisors and two-step compatibility}
+\label{tt-section}
+\noindent\textbf{Status.} This section contains ordinary mathematical proofs,
+checked by separate research agents, and separately identified exact finite
+computations. It proves sufficient criteria for an $abc$ counterexample
+family, but does not prove the existence premises of those criteria.
+Arbitrary depth at one or two primes is not identified with compression of
+an entire norm. No full Lean verification of this section is asserted.
+
+\subsection{From a shared representation to the complete norm radical}
+Let $a,b$ be coprime positive integers, $c=a+b$, and
+\[
+ z=a+b\zeta,\quad \zeta^2-\zeta+1=0,\quad
+ M=N(z)=a^2+ab+b^2,\quad
+ t=\log c,\quad r=\log\operatorname{rad}(abc),\quad q=t/r.
+\]
+Suppose there is an actual oriented representation
+\begin{equation}\label{tt-profile}
+ z=u(1+\zeta)^{e_0}v w^g,\qquad
+ e_0\in\{0,1\},\quad g\ge1,\quad V=N(v)\ge1,\quad Q=N(w)\ge7.
+\end{equation}
+Set $h_v=\max(1,\log V)$, $\lambda=h_v/g$,
+$\rho=\lambda\log(4+g)$, and $s=\log\operatorname{rad}(M)$.
+Here $\lambda$ is a positive real compression ratio, not the complex
+quotient used earlier in the logarithmic-form argument. The norm identity
+and height comparison give
+\begin{equation}\label{tt-norm-budget}
+ M=3^{e_0}VQ^g,\qquad M\le c^2,\qquad t\ge g\log7/2.
+\end{equation}
+
+\begin{theorem}[Complete norm radical bound]\label{tt-norm-radical}
+Every representation \eqref{tt-profile} satisfies
+\[
+ \operatorname{rad}(M)\le3^{e_0}VQ,
+ \qquad
+ s\le\frac{\log M}{g}
+   +\left(1-\frac1g\right)(\log V+e_0\log3)
+ \le\frac{2t}{g}+\log V+\log3.
+\]
+Consequently, with
+\[
+ K_*=2+\frac{2(1+\log3)}{\log7},
+\]
+one has
+\begin{equation}\label{tt-small-radical}
+ 0<\frac{s}{t}\le K_*\lambda
+ =\frac{K_*\rho}{\log(4+g)}.
+\end{equation}
+If $e_0=0$, the constant can be replaced by $2+2/\log7$.
+\end{theorem}
+\begin{proof}
+Radicals are invariant under positive powers and submultiplicative, so
+\[
+ \operatorname{rad}(3^{e_0}VQ^g)
+ \le3^{e_0}\operatorname{rad}(V)\operatorname{rad}(Q)
+ \le3^{e_0}VQ.
+\]
+Overlapping support of $V,Q$ only improves this bound. Write
+$x=\log V+e_0\log3$. The identity $\log M=x+g\log Q$ rewrites
+$s\le x+\log Q$ as the first logarithmic inequality. Then use $g\ge1$
+and \eqref{tt-norm-budget}. Finally
+\[
+ \frac{s}{t}\le\frac2g+
+ \frac{2(h_v+\log3)}{g\log7}
+ \le K_*\frac{h_v}{g},
+\]
+because $h_v\ge1$. Omitting the ramified factor proves the last assertion.
+\end{proof}
+
+This theorem controls the norm radical, not $\operatorname{rad}(abc)$.
+Neither it nor the established balance theorem implies that the input quality
+exceeds one half.
+
+\subsection{Exact quality transport and its quantified conditional criterion}
+The primitive mixed transform is
+\[
+ \mathcal T(a,b,c)=(ab,M,c^2).
+\]
+The norm-boundary gcd identity gives
+$\gcd(M,abc)=1$, hence its logarithmic height and radical are
+$t'=2t$ and $r'=r+s$. Therefore
+\begin{equation}\label{tt-quality}
+ q'=\frac{2q}{1+q(s/t)},\qquad
+ \frac1{q'}=\frac1{2q}+\frac{s}{2t},\qquad
+ \frac1{2q}\le\frac1{q'}\le\frac1{2q}+\frac{K_*}2\lambda.
+\end{equation}
+These identities follow by division of $t'=2t$ by $r'=r+s$.
+In particular, along a sequence with $\rho\to0$,
+$1/q'-1/(2q)\to0$. Claiming $q'/q\to2$ additionally requires
+$q(s/t)\to0$, for example bounded input qualities; it is not asserted
+without that extra condition.
+
+\begin{theorem}[Half-quality sufficient criterion]\label{tt-half-quality}
+Suppose a sequence of actual primitive triples admits
+\eqref{tt-profile}, has $\rho_n\to0$, and satisfies
+$q_n\ge q_0>1/2$ eventually for one fixed $q_0$. Then, for one fixed
+$\varepsilon>0$,
+\[
+ \frac{c_n^2}
+ {\bigl(\operatorname{rad}(a_nb_nc_n)\operatorname{rad}(M_n)\bigr)^{1+\varepsilon}}
+ \longrightarrow\infty.
+\]
+Thus such a sequence would disprove standard $abc$.
+\end{theorem}
+\begin{proof}
+Choose once and for all $0<\varepsilon<2q_0-1$, and put
+$d=2-(1+\varepsilon)/q_0>0$. The output excess is exactly
+\[
+ E'_\varepsilon
+ =\left(2-\frac{1+\varepsilon}{q}
+          -(1+\varepsilon)\frac{s}{t}\right)t.
+\]
+Equation~\eqref{tt-small-radical} implies $s_n/t_n\to0$, so eventually
+$E'_{\varepsilon,n}\ge dt_n/2$. Also $\rho_n\ge1/g_n$, hence
+$g_n\to\infty$, and \eqref{tt-norm-budget} gives $t_n\to\infty$.
+The fixed-epsilon excess therefore tends to infinity. Exponentiating defeats
+every uniform constant. The outputs remain primitive by the gcd identity.
+\end{proof}
+
+The same statement follows from $\limsup q_n>1/2$ by passage to a
+subsequence. No such sequence is constructed here. The previously constructed
+small-$\rho$ families are proved to be balanced; that does not prove this
+quality premise. The elementary bound
+$\operatorname{rad}(abc)\le abc\le c^3/4$ supplies only an asymptotic
+one-third lower bound for quality.
+
+\subsection{Fresh divisors over several steps}
+Iterate the actual transform by
+\[
+ (a_{j+1},b_{j+1},c_{j+1})=(a_jb_j,M_j,c_j^2),\qquad
+ M_j=a_j^2+a_jb_j+b_j^2.
+\]
+Every new $M_j$ is coprime to the entire accumulated support. Thus the
+$M_j$ are pairwise coprime and coprime to the initial boundary, and induction
+gives
+\begin{equation}\label{tt-telescope}
+ t_n=2^nt_0,\quad
+ R_n=R_0\prod_{j<n}\operatorname{rad}(M_j),\quad
+ r_n=r_0+\sum_{j<n}s_j.
+\end{equation}
+Writing $d_j=r_j/t_j$ and $\theta_j=s_j/t_j$, the exact recurrence and
+its iterated form are
+\[
+ d_{j+1}=(d_j+\theta_j)/2,\qquad
+ d_n=2^{-n}d_0+\sum_{j<n}2^{j-n}\theta_j.
+\]
+Every $\theta_j$ is charged from its actual new divisor; none is discarded.
+
+\begin{theorem}[Two-step sufficient criterion]\label{tt-two-step-criterion}
+If a seed and its first transform both admit \eqref{tt-profile}, with ratios
+$\lambda_0,\lambda_1$, then
+\[
+ \frac{r_2}{t_2}\le\frac34+
+       \frac{K_*}4(\lambda_0+2\lambda_1).
+\]
+If $\lambda_0+2\lambda_1\le1/(5K_*)$, the second transform has quality
+at least $5/4$. Unbounded seed heights satisfying this condition would
+disprove $abc$ at the fixed value $\varepsilon=1/8$.
+\end{theorem}
+\begin{proof}
+The elementary estimate $r_0\le3t_0$, the bounds
+$s_0\le K_*\lambda_0t_0$, $s_1\le2K_*\lambda_1t_0$, and
+\eqref{tt-telescope} give
+$r_2\le(3+K_*\lambda_0+2K_*\lambda_1)t_0$.
+Divide by $t_2=4t_0$. Under the stated condition this is
+$r_2/t_2\le4/5$. Therefore
+\[
+ E_{2,1/8}=4t_0-\frac98r_2
+ \ge4t_0-\frac98\frac{16}5t_0=\frac25t_0.
+\]
+An unbounded sequence of seed heights has a subsequence on which this
+fixed-epsilon excess tends to infinity.
+\end{proof}
+
+The arithmetic existence premise is open. A sequence with both
+$\rho_0\to0$ and $\rho_1\to0$ would suffice, but is not supplied by
+the theorem. The following analysis gives new local compatibility results
+and precise restrictions on attempts to construct that sequence.
+
+\subsection{The second norm and a fixed quartic unit}
+Put $U=ab$ and retain $M_0=a^2+ab+b^2$. The second norm is
+\begin{equation}\label{tt-second-norm}
+ M_1=U^2+UM_0+M_0^2=c^4-Uc^2+U^2=F(a,b),
+\end{equation}
+where
+\[
+ F(X,Y)=X^4+3X^3Y+5X^2Y^2+3XY^3+Y^4.
+\]
+Since $0<U/M_0\le1/3$,
+$M_0^2<M_1\le13M_0^2/9$. Moreover
+$\gcd(M_1,abcM_0)=1$, and
+\begin{equation}\label{tt-second-mod-three}
+ M_1\equiv1\pmod3.
+\end{equation}
+For the last assertion, reduce $F$ to $(a^2+b^2)^2$ modulo three; primitivity
+excludes the simultaneous zero residue and every remaining squared sum has
+square one.
+
+Let $K_0=\mathbb Q(\zeta)$ and let $\alpha$ satisfy
+\[
+ P(X)=X^2+(2-\zeta)X+1,
+ \qquad L=K_0(\alpha).
+\]
+The discriminant $-1-3\zeta$ has norm thirteen, so it is not a square in
+$K_0$ and $[L:\mathbb Q]=4$. The equality
+$\zeta=(\alpha+1)^2/\alpha$ shows $L=\mathbb Q(\alpha)$.
+Multiplying $P$ by its coefficient conjugate gives the irreducible polynomial
+$F(X,1)$, with polynomial discriminant $117$: the two discriminants have
+product thirteen and the squared resultant is nine. No maximal-order
+identification is needed for the following argument.
+
+\begin{lemma}[Actual unit coefficients]\label{tt-quartic-unit}
+One has
+\[
+ M_1=N_{L/\mathbb Q}(a-\alpha b),\qquad
+ (\alpha+\zeta)(\alpha+\bar\zeta)=-\bar\zeta\alpha.
+\]
+The element
+$\kappa=(\alpha+\zeta)/(\alpha+\bar\zeta)$ is an algebraic unit outside
+$K_0$, is not a root of unity, and satisfies, for $\nu=\kappa/\zeta$,
+\[
+ \nu+\nu^{-1}=1-3\zeta,\qquad
+ \nu^4+\nu^3+9\nu^2+\nu+1=0.
+\]
+Finally
+\begin{equation}\label{tt-linear-unit-identity}
+ a-\alpha b=
+ \frac{(\alpha+\zeta)\bar z-(\alpha+\bar\zeta)z}
+ {\zeta-\bar\zeta}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The relative norm is
+$a^2+(2-\zeta)ab+b^2=\zeta^{-1}(ab+\zeta M_0)$, whose norm to
+$\mathbb Q$ is $M_1$. The quadratic relation gives the product identity.
+As $\alpha$ is an algebraic unit, that identity makes both coefficient factors
+units. If $\kappa\in K_0$, it cannot equal one and
+$\alpha=(\zeta-\kappa\bar\zeta)/(\kappa-1)$ would belong to $K_0$,
+a contradiction. Directly taking the relative norm and trace of $\kappa$
+gives $\zeta^2$ and $3-2\zeta$. Division by $\zeta$ and multiplication
+by the coefficient conjugate give the two assertions about $\nu$.
+The nonreal value $1-3\zeta$ prevents $\nu$ from having complex absolute
+value one, so neither $\nu$ nor $\kappa$ is a root of unity. Solving the
+two linear equations $z=a+b\zeta$, $\bar z=a+b\bar\zeta$ proves
+\eqref{tt-linear-unit-identity}.
+\end{proof}
+
+\begin{theorem}[Second-norm small-prime mass]\label{tt-second-small-primes}
+Suppose the first profile is the actual pure-power representation
+\[
+ z=u(1+\zeta)^{e_0}w^g,\qquad e_0\in\{0,1\},\quad Q=N(w)\ge7.
+\]
+There is an effective absolute $D>0$, independent of $w$ and its support,
+such that
+\[
+ v_p(M_1)\le Dp^4\log Q\log(3+g)\quad(p\mid M_1),
+\]
+and, for $Y\ge2$,
+\[
+ \log\prod_{\substack{p\mid M_1\\p\le Y}}p^{v_p(M_1)}
+ \le D\log Q\log(3+g)Y^5\log Y.
+\]
+For $g\ge1024$, take $Y=g^{1/10}$. The ratio of this mass to $\log M_1$
+is at most
+$\frac D{20}\log(3+g)\log g/\sqrt g$, which tends to zero uniformly
+in the size and number of norm primes of $w$.
+\end{theorem}
+\begin{proof}
+Put $\eta=w/\bar w$ and
+$\kappa_{u,e_0}=\kappa u^{-2}\zeta^{-e_0}$. Since
+$z/\bar z=u^2\zeta^{e_0}\eta^g$, equation
+\eqref{tt-linear-unit-identity} gives, at every place above $p\mid M_1$,
+\[
+ v_P(a-\alpha b)=v_P(\eta^g\kappa_{u,e_0}^{-1}-1).
+\]
+Every omitted factor is a unit there: $p\nmid3Q$ by
+\eqref{tt-second-mod-three} and the norm-boundary gcd identity, the two
+coefficient factors are global units, and $\zeta-\bar\zeta$ is supported
+only above three. This includes the ramified prime thirteen.
+
+Apply the first inequality of Theorem 1.3 of
+\href{https://arxiv.org/html/2209.00275v1}{Bugeaud, \emph{B prime}},
+with coefficients $g,-1$ in a field of degree at most four. The product is
+not one since $\eta^g\in K_0$ and $\kappa_{u,e_0}\notin K_0$.
+One has $h^*(\eta)\le\log Q$, and the finite root-of-unity twists of
+$\kappa$ have fixed height. With normalized valuations $v_P(p)=1$, the
+source theorem gives the stated bound for each place, up to an absolute
+constant. For the rational norm one must sum the places:
+\[
+ v_p(M_1)=\sum_{P\mid p}f_P\operatorname{ord}_P(a-\alpha b)
+ =\sum_{P\mid p}e_Pf_Pv_P(a-\alpha b),\qquad
+ \sum_{P\mid p}e_Pf_P=4.
+\]
+Enlarge one absolute constant to obtain the assertion, including ramification.
+Summation uses $\sum_{p\le Y}p^4\log p\le Y^5\log Y$.
+Finally $\log M_1\ge2g\log Q$ and substitution of $Y=g^{1/10}$ give
+the displayed ratio.
+\end{proof}
+
+This positive distribution theorem does not bound the second radical from
+above. It forces any successful second compression to account for depth at
+moving large primes.
+
+\subsection{What fixed first roots force on second compression}
+\begin{theorem}[A fixed-root bound on second pure content]\label{tt-fixed-root-content}
+Fix $w$ in the preceding theorem. Let $h$ be the gcd of the positive prime
+exponents of $M_1$, and choose any $p\mid Q$ with $e=v_p(Q)>0$.
+If $C>2$ is the absolute constant of the established one-block two-place
+estimate, then
+\[
+ \frac{h}{\log(3+h)}\le
+ \frac{2C^2p^2}{e}(\log Q+\log4).
+\]
+In particular $h$ has an effective upper bound independent of $g$ and of the
+unit rotation choosing positive coordinates.
+\end{theorem}
+\begin{proof}
+By \eqref{tt-second-mod-three}, the oriented factorization of $z_1$ has no
+ramified factor. Dividing all its exponents by $h$ gives an actual
+representation $z_1=u_1W^h$. The boundary of the first transformed triple
+contains $M_0$, hence has $p$-valuation at least $ge$.
+The previously established one-block estimate applied to this triple yields,
+with $t_1=\log(c^2)$,
+\[
+ ge\le p^2 C^2\log(3+h)\log N(W)
+ \le2C^2p^2t_1\frac{\log(3+h)}h.
+\]
+Since $M_0\ge3c^2/4$,
+$t_1\le g\log Q+\log4$. Divide by $g$ and use $g\ge1$.
+Effectivity follows because $h/\log(3+h)\to\infty$.
+\end{proof}
+
+The following earlier $\rho$ estimate alone leaves a remainder window.
+More generally, if
+$z=u(1+\zeta)^{e_0}v_0w^{g_0}$ with fixed $w$, the established shared bound
+$v_p(T_1)\le A p^2\rho_1t_1$ for a representation of the first transform
+implies
+\[
+ \rho_1\ge
+ \frac{e}{A p^2(\log Q+\lambda_0+(\log4)/g_0)}.
+\]
+This follows from $v_p(T_1)\ge g_0e$ and
+$t_1\le g_0\log Q+\log N(v_0)+\log4$.
+If $\rho_0\to0$, then $\lambda_0\to0$, $g_0\to\infty$, and
+$\liminf\rho_1\ge e/(A p^2\log Q)>0$.
+Taken alone, this estimate does not exclude
+$\lambda_1=\rho_1/\log(4+g_1)\to0$ with a growing remainder.
+The subsequent refinement in Corollary~\ref{lr-fixed-root} proves a positive
+$\lambda_1$ floor when $w$ is fixed and $\lambda_0$ is bounded, closing
+that asymptotic window. Neither bound has been compared with
+Theorem~\ref{tt-two-step-criterion}'s finite lambda threshold, and roots
+with unbounded norm remain subject to the separate necessary conditions in
+Corollary~\ref{lr-moving-support}.
+
+\subsection{An exact local obstruction and positive arbitrary-depth lifting}
+\begin{theorem}[The thirteen-adic boundary]\label{tt-thirteen}
+For every primitive integer pair $(a,b)$,
+$13\mid F(a,b)$ if and only if $a\equiv b\pmod{13}$, and in that case
+$v_{13}(F(a,b))=1$.
+\end{theorem}
+\begin{proof}
+Modulo thirteen,
+$F(a,b)=(a-b)^2(a^2+5ab+b^2)$. The second quadratic has discriminant
+eight, outside the square residues $0,1,3,4,9,10,12$.
+If $b=0$ modulo thirteen, primitivity gives $F=a^4\ne0$; otherwise divide
+by $b^4$. This proves the equivalence. For the exact depth, write $a=b+d$:
+\[
+ F(b+d,b)=d^4+7bd^3+20b^2d^2+26b^3d+13b^4.
+\]
+At $d=13k$, this is $13b^4\not\equiv0\pmod{169}$.
+\end{proof}
+
+For the fixed root $w=2+\zeta$, exact arithmetic gives
+$w^{12}=1\pmod{13}$ and $w^{10}=6+6\zeta\pmod{13}$.
+Below, $F(w^g)$ denotes $F$ applied to the two integer coordinates of $w^g$.
+Infinitely many exponents $g=10+12n$ have positive raw coordinates:
+if $\theta=\arg w$, then $\theta/\pi$ is irrational, since a root-of-unity
+quotient $w/\bar w$ would equate its distinct oriented prime ideals above
+seven. The irrational rotation by $12\theta$ visits the open sector
+$(0,\pi/3)$ infinitely often. Density follows from the arbitrarily small
+angles in the closure of an infinite cyclic subgroup of the circle; positive
+orbits and their tails have that same closure.
+These actual positive pairs are primitive, because a common rational prime
+divisor would force a conjugate factor into $w^g$. Their first norm is $7^g$,
+while their second content is exactly one by Theorem~\ref{tt-thirteen}.
+This refutes automatic pure-content transfer, not a transfer with remainders.
+
+\begin{theorem}[Arbitrarily deep compatible contact at sixty-seven]
+\label{tt-sixty-seven}
+For each $k\ge1$ there is a unique class
+$g=g_k\pmod{66\cdot67^{k-1}}$ within the initial class $g=1\pmod{66}$
+for which $67^k\mid F(w^g)$. The classes lift compatibly, with
+$g_1=1$, $g_2=199$, $g_3=9043$, and $g_4=7415893$.
+For each fixed depth, infinitely many positive primitive pairs of first norm
+$7^g$ have this second-norm divisibility.
+\end{theorem}
+\begin{proof}
+Exact calculations give
+\[
+ F(2,1)=67,\qquad
+ w^{66}\equiv3954+1541\zeta
+ =1+67(59+23\zeta)\pmod{67^2}.
+\]
+Put $\Delta=(w^{66}-1)/67$. Modulo 67, its coordinates are $(59,23)$
+and those of $w\Delta$ are $(28,61)$. Since
+$\partial_aF(2,1)=91$, $\partial_bF(2,1)=86$, the exponent derivative is
+$91\cdot28+86\cdot61=22\pmod{67}$.
+The binomial theorem gives
+\[
+ (w^{66})^{67^{k-1}}\equiv1+67^k\Delta\pmod{67^{k+1}}.
+\]
+Inductively, all terms after the first order vanish at the required modulus
+on raising to the 67th power. A Taylor expansion of the quartic therefore gives
+\[
+ F(w^{g+66\cdot67^{k-1}j})
+ \equiv F(w^g)+22j67^k\pmod{67^{k+1}},
+\]
+since $w^g=w\pmod{67}$ in the initial class. Exactly one $j\pmod{67}$
+kills the next digit. The first is $j=3$, yielding $g_2=199$.
+Induction proves existence and uniqueness of the compatible classes.
+The irrational-rotation argument above gives positive raw coordinates
+infinitely often in each fixed class, and oriented factorization gives
+primitivity and first norm $7^g$.
+\end{proof}
+
+At $g=199$, multiplication of the negative raw coordinates by minus one gives
+a positive pair without changing the quartic. Exact division verifies that
+its 337-digit second norm has valuation exactly two at 67. Its full
+factorization is not asserted, and this local witness is not described as a
+compressed second norm.
+
+\begin{theorem}[Two distinct prime targets are simultaneously compatible]
+\label{tt-two-prime-lifting}
+For any $k,\ell\ge1$, infinitely many actual positive primitive pairs of
+first norm $7^g$ satisfy $67^k967^\ell\mid M_1$.
+\end{theorem}
+\begin{proof}
+Use the following exact local data; the derivative is along multiplication
+by $(w^d-1)/p$ in the exponent direction:
+\[
+\begin{array}{c|c|c|c|c|c}
+p&d&g_1&(w^d-1)/p\pmod p&w^{g_1}\pmod p&D_p\\\hline
+67&66&21&(59,23)&(33,66)&7\\
+967&966&651&(759,279)&(53,172)&39
+\end{array}
+\]
+Both quartic residues vanish, and both derivatives are units. The preceding
+binomial and Taylor argument gives a class modulo $66\cdot67^{k-1}$ and
+a class modulo $966\cdot967^{\ell-1}$. Their representatives remain three
+modulo six. Since $66=2\cdot3\cdot11$ and $966=2\cdot3\cdot7\cdot23$,
+the two moduli have gcd exactly six for every depth pair. The generalized
+Chinese remainder theorem supplies a common class, beginning with
+$g=7413\pmod{10626}$ at depth one. Positive raw pairs occur infinitely
+often in each common class by irrational rotation, and they remain primitive.
+\end{proof}
+
+These simultaneous local towers do not satisfy the whole-norm premise merely
+by construction. Indeed Theorem~\ref{tt-second-small-primes} shows that any
+fixed finite set of primes carries only $o(\log M_1)$ mass as $g\to\infty$.
+The unresolved requirement is high depth across enough of the full moving
+support, with the exact remainder norm below the two-step threshold.
+
+\subsection{Exact computation and remaining scope}
+The standalone integer replay \texttt{two\_step\_compatibility.py} verifies
+twelve complete second-norm factorizations for the first twelve positive
+rotations of $(2+\zeta)^g$. Primality is checked by trial division and each
+product is reconstructed exactly. All twelve are squarefree, which proves
+only that those twelve inputs do not meet the second compression threshold.
+The $g=199$ witness already refutes extrapolating universal squarefreeness.
+The same replay checks all relevant thirteen-adic residue cases, eight
+sixty-seven-adic lifting levels, and thirty-six simultaneous depth pairs
+between one and six at 67 and 967. Local checks never stand in for a missing
+complete factorization.
+
+The remaining branches are both active: fixed roots with growing second
+remainders, and moving roots of unbounded norm. The new quartic unit gives
+a concrete shifted residue target; the local towers prove nontrivial
+compatibility; and the small-prime theorem and fixed-root content bound give
+precise limitations. None establishes the unbounded family required by
+Theorem~\ref{tt-half-quality} or Theorem~\ref{tt-two-step-criterion}.

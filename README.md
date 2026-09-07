@@ -49,7 +49,7 @@ Neither end goal has been reached.
 | [`Lean/README.md`](Lean/README.md) | Lean package overview, conditional theorem audit, missing constructions, and build instructions |
 | [`Lean/verification/2026_09_03_incidence_endpoint_literature/README.md`](Lean/verification/2026_09_03_incidence_endpoint_literature/README.md) | Latest incidence/endpoint checkpoint replay protocol |
 | [`paper/ChatGPT_ABC_Uniformity_2026.tex`](paper/ChatGPT_ABC_Uniformity_2026.tex) | Current English manuscript source |
-| [`output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf`](output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf) | Current 360-page integrated manuscript, maintained at the user-designated filename; the filename is historical |
+| [`output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf`](output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf) | Current 379-page integrated manuscript, maintained at the user-designated filename; the filename is historical |
 
 The bottleneck ledger is the persistent entry point for new research rounds.
 An unchecked item stays open: difficulty, a missing bridge theorem, or a
@@ -75,6 +75,26 @@ target-equivalent axiom, an opaque existence assumption, or a structure whose
 inhabitation is merely another spelling of `ABCConjecture`.
 
 ## Current route map
+
+The second September 7 continuation strengthens the two-place estimates to
+depend on the remainder proportion `lambda=max(1,log N(v))/g` alone; see
+the [ordinary proof and exact source inputs](research/checkpoints/2026_09_07_independent_route/lambda_refinement.md).
+It includes actual representations with `lambda -> 0` while the older
+displayed `rho -> infinity`, and proves a positive second-lambda floor when
+the first root is fixed and its first lambda is bounded. Moving roots and
+the finite two-step threshold remain open. The
+[elementary moving-window theorem](research/checkpoints/2026_09_07_critical_bottleneck/next_moving_prime_window.md)
+controls full prime-power mass up to a linear prime cutoff for most block
+indices, uniformly in root and residual norms; explicit finite-box unions
+allow adaptive choices at a common set of good indices.
+
+The [actual radical bridge](research/checkpoints/2026_09_07_radical_transport/README.md)
+links two norm transforms to the repository's original ABC definition under
+an explicit, unproved unbounded-family premise. The second round adds
+13 radical/conditional statements and eight residue/orbit statements checked
+by Lean. The analytic refinement remains an ordinary proof using identified
+established theorems. No full signed-tail estimate, global construction,
+whole-manuscript formalization, or ABC proof is claimed.
 
 The September 7 continuation is recorded in the
 [shared-generator proof](research/checkpoints/2026_09_07_critical_bottleneck/ordinary_proofs.md)

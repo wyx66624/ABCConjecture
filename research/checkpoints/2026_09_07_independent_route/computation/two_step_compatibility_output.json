@@ -1,0 +1,530 @@
+{
+  "status": "passed",
+  "arithmetic": "integer and trial-division only",
+  "fully_factored_rows": [
+    {
+      "g": 1,
+      "rotation": 0,
+      "a": "2",
+      "b": "1",
+      "M0": "7",
+      "M1": "67",
+      "complete_prime_factors": [
+        "67"
+      ],
+      "squarefree": true,
+      "second_content": 1,
+      "any_second_compression_lambda_at_least": 1
+    },
+    {
+      "g": 2,
+      "rotation": 0,
+      "a": "3",
+      "b": "5",
+      "M0": "49",
+      "M1": "3361",
+      "complete_prime_factors": [
+        "3361"
+      ],
+      "squarefree": true,
+      "second_content": 1,
+      "any_second_compression_lambda_at_least": 1
+    },
+    {
+      "g": 3,
+      "rotation": 0,
+      "a": "1",
+      "b": "18",
+      "M0": "343",
+      "M1": "124147",
+      "complete_prime_factors": [
+        "124147"
+      ],
+      "squarefree": true,
+      "second_content": 1,
+      "any_second_compression_lambda_at_least": 1
+    },
+    {
+      "g": 4,
+      "rotation": 5,
+      "a": "39",
+      "b": "16",
+      "M0": "2401",
+      "M1": "7652401",
+      "complete_prime_factors": [
+        "7652401"
+      ],
+      "squarefree": true,
+      "second_content": 1,
+      "any_second_compression_lambda_at_least": 1
+    },
+    {
+      "g": 5,
+      "rotation": 5,
+      "a": "62",
+      "b": "87",
+      "M0": "16807",
+      "M1": "402227443",
+      "complete_prime_factors": [
+        "8779",
+        "45817"
+      ],
+      "squarefree": true,
+      "second_content": 1,
+      "any_second_compression_lambda_at_least": 1
+    },
+    {
+      "g": 6,
+      "rotation": 5,
+      "a": "37",
+      "b": "323",
+      "M0": "117649",
+      "M1": "15390136801",
+      "complete_prime_factors": [
+        "13",
+        "1183856677"
+      ],
+      "squarefree": true,
+      "second_content": 1,
+      "any_second_compression_lambda_at_least": 1
+    },
+    {
+      "g": 7,
+      "rotation": 4,
+      "a": "757",
+      "b": "249",
+      "M0": "823543",
+      "M1": "868984774597",
+      "complete_prime_factors": [
+        "967",
+        "898639891"
+      ],
+      "squarefree": true,
+      "second_content": 1,
+      "any_second_compression_lambda_at_least": 1
+    },
+    {
+      "g": 8,
+      "rotation": 4,
+      "a": "1265",
+      "b": "1504",
+      "M0": "5764801",
+      "M1": "47820544913761",
+      "complete_prime_factors": [
+        "47820544913761"
+      ],
+      "squarefree": true,
+      "second_content": 1,
+      "any_second_compression_lambda_at_least": 1
+    },
+    {
+      "g": 9,
+      "rotation": 4,
+      "a": "1026",
+      "b": "5777",
+      "M0": "40353607",
+      "M1": "1902729301576867",
+      "complete_prime_factors": [
+        "1171",
+        "1624875577777"
+      ],
+      "squarefree": true,
+      "second_content": 1,
+      "any_second_compression_lambda_at_least": 1
+    },
+    {
+      "g": 10,
+      "rotation": 3,
+      "a": "14632",
+      "b": "3725",
+      "M0": "282475249",
+      "M1": "98159061581797801",
+      "complete_prime_factors": [
+        "13",
+        "777181",
+        "9715493617"
+      ],
+      "squarefree": true,
+      "second_content": 1,
+      "any_second_compression_lambda_at_least": 1
+    },
+    {
+      "g": 11,
+      "rotation": 3,
+      "a": "25539",
+      "b": "25807",
+      "M0": "1977326743",
+      "M1": "5647440393239731717",
+      "complete_prime_factors": [
+        "10333",
+        "65881",
+        "8295929329"
+      ],
+      "squarefree": true,
+      "second_content": 1,
+      "any_second_compression_lambda_at_least": 1
+    },
+    {
+      "g": 12,
+      "rotation": 3,
+      "a": "25271",
+      "b": "102960",
+      "M0": "13841287201",
+      "M1": "234364801296241334161",
+      "complete_prime_factors": [
+        "3121",
+        "885169",
+        "84834483889"
+      ],
+      "squarefree": true,
+      "second_content": 1,
+      "any_second_compression_lambda_at_least": 1
+    }
+  ],
+  "roots_mod13": [
+    1
+  ],
+  "hensel_prime": 67,
+  "exponent_direction_derivative": 22,
+  "lift_rows": [
+    {
+      "depth": 1,
+      "exponent_class": "1",
+      "class_modulus": "66",
+      "next_digit": 1,
+      "correction": 3,
+      "next_exponent_class": "199",
+      "claim": "local divisibility only; full factorization not asserted"
+    },
+    {
+      "depth": 2,
+      "exponent_class": "199",
+      "class_modulus": "4422",
+      "next_digit": 23,
+      "correction": 2,
+      "next_exponent_class": "9043",
+      "claim": "local divisibility only; full factorization not asserted"
+    },
+    {
+      "depth": 3,
+      "exponent_class": "9043",
+      "class_modulus": "296274",
+      "next_digit": 53,
+      "correction": 25,
+      "next_exponent_class": "7415893",
+      "claim": "local divisibility only; full factorization not asserted"
+    },
+    {
+      "depth": 4,
+      "exponent_class": "7415893",
+      "class_modulus": "19850358",
+      "next_digit": 23,
+      "correction": 2,
+      "next_exponent_class": "47116609",
+      "claim": "local divisibility only; full factorization not asserted"
+    },
+    {
+      "depth": 5,
+      "exponent_class": "47116609",
+      "class_modulus": "1329973986",
+      "next_digit": 5,
+      "correction": 15,
+      "next_exponent_class": "19996726399",
+      "claim": "local divisibility only; full factorization not asserted"
+    },
+    {
+      "depth": 6,
+      "exponent_class": "19996726399",
+      "class_modulus": "89108257062",
+      "next_digit": 45,
+      "correction": 1,
+      "next_exponent_class": "109104983461",
+      "claim": "local divisibility only; full factorization not asserted"
+    },
+    {
+      "depth": 7,
+      "exponent_class": "109104983461",
+      "class_modulus": "5970253223154",
+      "next_digit": 16,
+      "correction": 48,
+      "next_exponent_class": "286681259694853",
+      "claim": "local divisibility only; full factorization not asserted"
+    },
+    {
+      "depth": 8,
+      "exponent_class": "286681259694853",
+      "class_modulus": "400006965951318",
+      "next_digit": 52,
+      "correction": 22,
+      "next_exponent_class": "9086834510623849",
+      "claim": "local divisibility only; full factorization not asserted"
+    }
+  ],
+  "local_witness": {
+    "g": 199,
+    "a": "864923273680781638761085717798860152098226674029878681764999238290517521478347454446",
+    "b": "533705597811360467011372891369340042838627710709483508460733533062842923950031029643",
+    "first_norm": "7^199",
+    "second_norm_67_valuation": 2,
+    "second_norm_decimal_digits": 337,
+    "full_second_norm_factorization": "not attempted; no compression claim"
+  },
+  "simultaneous_prime_pair": [
+    67,
+    967
+  ],
+  "simultaneous_lift_rows": [
+    {
+      "depth67": 1,
+      "depth967": 1,
+      "exponent_class": "7413",
+      "modulus": "10626",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 1,
+      "depth967": 2,
+      "exponent_class": "6616785",
+      "modulus": "10275342",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 1,
+      "depth967": 3,
+      "exponent_class": "8884512273",
+      "modulus": "9936255714",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 1,
+      "depth967": 4,
+      "exponent_class": "1598685426513",
+      "modulus": "9608359275438",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 1,
+      "depth967": 5,
+      "exponent_class": "3239615761249119",
+      "modulus": "9291283419348546",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 1,
+      "depth967": 6,
+      "exponent_class": "4546677207822688113",
+      "modulus": "8984671066510043982",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 2,
+      "depth967": 1,
+      "exponent_class": "49917",
+      "modulus": "711942",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 2,
+      "depth967": 2,
+      "exponent_class": "499833201",
+      "modulus": "688447914",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 2,
+      "depth967": 3,
+      "exponent_class": "257290905123",
+      "modulus": "665729132838",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 2,
+      "depth967": 4,
+      "exponent_class": "289849463689653",
+      "modulus": "643760071454346",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 2,
+      "depth967": 5,
+      "exponent_class": "291269401761054045",
+      "modulus": "622515989096352582",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 2,
+      "depth967": 6,
+      "exponent_class": "49470032540372908023",
+      "modulus": "601972961456172946794",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 3,
+      "depth967": 1,
+      "exponent_class": "32087307",
+      "modulus": "47700114",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 3,
+      "depth967": 2,
+      "exponent_class": "8761208169",
+      "modulus": "46126010238",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 3,
+      "depth967": 3,
+      "exponent_class": "28883643617157",
+      "modulus": "44603851900146",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 3,
+      "depth967": 4,
+      "exponent_class": "22821451964591763",
+      "modulus": "43131924787441182",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 3,
+      "depth967": 5,
+      "exponent_class": "30172036878385977981",
+      "modulus": "41708571269455622994",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 3,
+      "depth967": 6,
+      "exponent_class": "35565874758454576768869",
+      "modulus": "40332188417563587435198",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 4,
+      "depth967": 1,
+      "exponent_class": "2321692779",
+      "modulus": "3195907638",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 4,
+      "depth967": 2,
+      "exponent_class": "1392541515309",
+      "modulus": "3090442685946",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 4,
+      "depth967": 3,
+      "exponent_class": "2615907053825625",
+      "modulus": "2988458077309782",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 4,
+      "depth967": 4,
+      "exponent_class": "2438209240061297955",
+      "modulus": "2889838960758559194",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 4,
+      "depth967": 5,
+      "exponent_class": "2574394884315178980615",
+      "modulus": "2794474275053526740598",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 4,
+      "depth967": 6,
+      "exponent_class": "519552135769217625991245",
+      "modulus": "2702256623976760358158266",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 5,
+      "depth967": 1,
+      "exponent_class": "165312982317",
+      "modulus": "214125811746",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 5,
+      "depth967": 2,
+      "exponent_class": "196090430729907",
+      "modulus": "207059659958382",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 5,
+      "depth967": 3,
+      "exponent_class": "122154230146216905",
+      "modulus": "200226691179755394",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 5,
+      "depth967": 4,
+      "exponent_class": "5328048200819857149",
+      "modulus": "193619210370823465998",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 5,
+      "depth967": 5,
+      "exponent_class": "13752291984529285943007",
+      "modulus": "187229776428586291620066",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 5,
+      "depth967": 6,
+      "exponent_class": "8626322007699498700466043",
+      "modulus": "181051193806442943996603822",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 6,
+      "depth967": 1,
+      "exponent_class": "4019577593745",
+      "modulus": "14346429386982",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 6,
+      "depth967": 2,
+      "exponent_class": "9099655808940333",
+      "modulus": "13872997217211594",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 6,
+      "depth967": 3,
+      "exponent_class": "6529408347898389513",
+      "modulus": "13415188309043611398",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 6,
+      "depth967": 4,
+      "exponent_class": "4071331465988112643107",
+      "modulus": "12972487094845172221866",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 6,
+      "depth967": 5,
+      "exponent_class": "4881726479127772868064723",
+      "modulus": "12544395020715281538544422",
+      "claim": "simultaneous local divisibility only"
+    },
+    {
+      "depth67": 6,
+      "depth967": 6,
+      "exponent_class": "11595902725620047914483110651",
+      "modulus": "12130429985031677247772456074",
+      "claim": "simultaneous local divisibility only"
+    }
+  ]
+}
