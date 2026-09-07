@@ -1,0 +1,28 @@
+{
+  "wsl_memory": {
+    "MemTotal": "65746556 kB",
+    "MemAvailable": "64485476 kB",
+    "SwapTotal": "16777216 kB",
+    "SwapFree": "16777216 kB"
+  },
+  "cpus": 24,
+  "filesystems": {
+    "/root": {
+      "available_bytes": 891594567680,
+      "total_bytes": 1081101176832
+    },
+    "/mnt/e": {
+      "available_bytes": 179496460288,
+      "total_bytes": 1048575995904
+    }
+  },
+  "isolated_checkout": "/root/abc-flt-20260907",
+  "official_commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+  "checkout_disk": "13M\t/root/abc-flt-20260907",
+  "isolated_toolchain": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "unchanged_project_toolchain": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "full_build_started": false,
+  "comparator_started": false,
+  "nanoda_started": false,
+  "note": "Virtual filesystem free space is not the backing physical drive capacity; no full build started."
+}

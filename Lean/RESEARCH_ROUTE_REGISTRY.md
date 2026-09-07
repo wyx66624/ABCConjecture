@@ -1,6 +1,26 @@
 # Research route registry
 
-Latest thirteenth continuation: September 7, 2026. Uniform moments now
+Latest fourteenth continuation: September 7, 2026. Adaptive precision
+pays every positive layer at each q>8B with bound 13n log(8B), independent
+of an upper prime cutoff. Two actual maximal depths contain the high
+layers. The unbounded sum over changing prime labels is still uncontrolled.
+
+A cofactor-uniform Selberg argument gives an actual independent norm
+domain of density at least one half plus an absolute positive constant.
+The complete signed tail and complementary roots remain separate gates.
+The surviving cubic-unit branch is a genus-six quartic cover of a fixed
+elliptic curve, with reversible positivity and exact integral prime depth.
+Its two elliptic quotient factors are rationally three-isogenous.
+
+All 35 new local declarations and 15 old dependencies passed fresh Lean
+compilation and complete axiom audit. They prove the stated finite cores,
+not the analytic and geometric arguments. Official Fermat-library reuse
+has a separate successful small dependency import and an explicit unverified
+full-import boundary. Further bounded-length and descent candidates remain
+outside this batch until independently reviewed and validated.
+See `../research/checkpoints/2026_09_07_adaptive_precision/README.md`.
+
+Historical thirteenth continuation: September 7, 2026. Uniform moments now
 control every positive layer in (8B, Bn(log n)^(1-delta)] on an actual
 domain of asymptotic fraction at least one half. Explicit norm-support
 coloring gives (5-kappa)/8 at B n^kappa(log n)^(1-delta), with uniform

@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-07",
+  "status": "PASS: six source statements reviewed; all recorded 6+15 queries checked, no compiler rerun",
+  "manifest_sha256": "ae435be4c7bcec9eede6ba04a2ac1b513022e4193249f1ae26cd0495f16a3ae6",
+  "log_sha256": "9fbd559ffb854c0045fb25735fa47c5dd2cccf80e9fff68998da3700e1614e92",
+  "modules": [
+    {
+      "module": "UniformMomentArithmetic",
+      "sha256": "646308163a102479ea842b33b2f06eb8b1adf342e459f13cf8b4a51c597d1568",
+      "actual_theorem_count": 15,
+      "recorded_queries_checked": 15
+    },
+    {
+      "module": "AdaptiveOwnerArithmetic",
+      "sha256": "1d68641084484d161316930b2cdfeeb1ca3f294a172a9b56d8472f8a2af7544b",
+      "actual_theorem_count": 6,
+      "recorded_queries_checked": 6
+    }
+  ],
+  "recorded_build_status": "PASS: fresh adaptive-owner finite arithmetic, complete axiom audit",
+  "not_claimed": "No finite summed or weighted owner cost theorem occurs in this six-theorem source snapshot; no actual prime depths, torsion, density or tail membership are formalized here."
+}

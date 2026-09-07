@@ -1,0 +1,44 @@
+{
+  "status": "PASS: two exact finite replays with unchanged source and certificate bytes",
+  "records": [
+    {
+      "script": "research/checkpoints/2026_09_07_independent_route/fourteenth_round/replay_simultaneous_gate.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_independent_route/fourteenth_round/replay_simultaneous_gate.py": "59c47205119131743386759afb61f5f555a47bedf5bf0592e828a69491536039",
+        "research/checkpoints/2026_09_07_independent_route/fourteenth_round/verification/simultaneous_gate.json": "0b0d5f29025dcd6618c17bfac17791483eb8a5f09466bca0bc4ea026a437c301"
+      },
+      "result": {
+        "status": "PASS",
+        "identities": 15,
+        "signed_points": 80,
+        "positive_hits": 0,
+        "sha256": "0b0d5f29025dcd6618c17bfac17791483eb8a5f09466bca0bc4ea026a437c301"
+      }
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_adversarial_audit/fourteenth_round/replay_elliptic_gate_review.py",
+      "arguments": [
+        "--check"
+      ],
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_adversarial_audit/fourteenth_round/replay_elliptic_gate_review.py": "ee6ea79af52dcb2e9d1a9489bb87d726280ba863be1593bcc453747123d32678",
+        "research/checkpoints/2026_09_07_adversarial_audit/fourteenth_round/verification/elliptic_gate_identity_review.json": "264ea96c617c1958fc5dfca614714b26e00736db5d7898d3f8da016feac8d85d"
+      },
+      "result": {
+        "status": "PASS",
+        "polynomial_identities": 8,
+        "group_law_checks": 3,
+        "sha256": "264ea96c617c1958fc5dfca614714b26e00736db5d7898d3f8da016feac8d85d"
+      }
+    }
+  ],
+  "not_claimed": [
+    "ABC proof or disproof",
+    "all rational points",
+    "complete elliptic or Jacobian rank computation",
+    "analytic or geometric theorem proved by sampling"
+  ]
+}

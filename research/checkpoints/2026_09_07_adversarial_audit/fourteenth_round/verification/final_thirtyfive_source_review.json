@@ -1,0 +1,58 @@
+{
+  "status": "PASS: read-only final source semantics and recorded fresh evidence audit",
+  "reviewer": "adversarial_audit",
+  "new_declarations": 35,
+  "prior_dependencies": 15,
+  "actual_compiler_rerun_by_this_reviewer": false,
+  "manifest": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_adaptive_precision\\verification\\mathlib_validation.json",
+  "manifest_sha256": "0bc4d07fb9d9c90eab05bec0e7d29372455a149f17f75396d0003e3c5c442313",
+  "fresh_log": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_adaptive_precision\\verification\\fresh-mathlib-build.log",
+  "fresh_log_sha256": "0da67b6e7c5f03c0784853f0a174e0553d93d8a00c2ec204827fc94411dfbff6",
+  "modules": [
+    {
+      "module": "UniformMomentArithmetic",
+      "source": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_critical_bottleneck\\thirteenth_round\\Lean\\UniformMomentArithmetic.lean",
+      "sha256": "646308163a102479ea842b33b2f06eb8b1adf342e459f13cf8b4a51c597d1568",
+      "new": false,
+      "queries": 15,
+      "source_semantics_review": "PASS (prior frozen review for UniformMomentArithmetic)"
+    },
+    {
+      "module": "PrivateDensityMass",
+      "source": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_adaptive_precision\\Lean\\PrivateDensityMass.lean",
+      "sha256": "0796e0a4d2d40fc04fcf37a11048215d19aca4b7682d7349ee2f85dfb69ed463",
+      "new": true,
+      "queries": 11,
+      "source_semantics_review": "PASS (prior frozen review for UniformMomentArithmetic)"
+    },
+    {
+      "module": "AdaptiveOwnerArithmetic",
+      "source": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_critical_bottleneck\\fourteenth_round\\Lean\\AdaptiveOwnerArithmetic.lean",
+      "sha256": "9501eb516dac1f78bf1c9d54a16623b4aed7631beb034560f07699c334717e1a",
+      "new": true,
+      "queries": 12,
+      "source_semantics_review": "PASS (prior frozen review for UniformMomentArithmetic)"
+    },
+    {
+      "module": "SimultaneousEllipticArithmetic",
+      "source": "E:\\agent\\ABCConjecture\\research\\checkpoints\\2026_09_07_independent_route\\fourteenth_round\\Lean\\SimultaneousEllipticArithmetic.lean",
+      "sha256": "0f16c95fd1057018c73cd27090543e43938e1258ef35d0ef478675642a921d6b",
+      "new": true,
+      "queries": 12,
+      "source_semantics_review": "PASS (prior frozen review for UniformMomentArithmetic)"
+    }
+  ],
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "not_claimed": [
+    "p-adic input construction for owner depths",
+    "finite ring rigidity and torsion",
+    "Euler or sieve estimates",
+    "global signed membership",
+    "complete elliptic rational point locus",
+    "whole repository rebuild"
+  ]
+}

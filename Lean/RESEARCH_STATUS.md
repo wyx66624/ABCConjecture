@@ -1,5 +1,31 @@
 # Research status
 
+## September 7, 2026: adaptive precision, density and simultaneous elliptic depth
+
+The fourteenth continuation has 35 new finite Lean declarations and 15
+unchanged dependencies, freshly compiled together with all 50 axiom queries.
+They prove actual two-maximum selection and complete depth costs, a strict
+finite density gain including both remainder terms, and an exact p-adic
+depth equality from actual primitive elliptic and quartic equations.
+
+Reviewed ordinary proofs remove the upper-prime restriction from the
+individual complete cost bound and give an actual private norm domain
+strictly larger than one half. Simultaneous prime packets and a matching
+decomposition retain the actual integer arm structure. The surviving cubic
+branch has an exact positive quartic gate on a fixed elliptic curve and a
+rational three-isogeny between its two elliptic quotients.
+
+The official Anthropic FLT package has been pinned. One unchanged small
+dependency, the vanishing of weight-two cusp forms on Gamma0(2), has actually
+been imported and called with the existing compiler in isolation. Full FLT
+and its independent kernel replays have not been rerun locally. The separate
+reuse audit records its exact scope and all emitted deprecation warnings.
+
+The changing owners across primes, full signed tail, exceptional/smooth
+roots and simultaneous rational-point problem remain open. ABC is still
+unproved and undisproved. See
+`../research/checkpoints/2026_09_07_adaptive_precision/README.md`.
+
 ## September 7, 2026: uniform moments and cubic local gates
 
 The thirteenth continuation has 37 new finite Lean declarations, all freshly

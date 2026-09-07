@@ -1,0 +1,18 @@
+# Independent review of the simultaneous elliptic gate
+
+2026-09-07, adversarial_audit. SS1--SS4 full ordinary and primary-source review PASS.
+
+Reviewed source: research/checkpoints/2026_09_07_independent_route/fourteenth_round/simultaneous_elliptic_gate.md.
+SHA256: 6ba08108c253d878e7204becb43d08023ce54433e4ed074812a6e7831dfb1a36.
+
+SS1: The two genus-two square roots use the same parameter s. Direct substitution validates kappa, gamma and both square formulas. The quartic recovers kappa and all of Q(D) on a nonempty open; the established degree-two tower gives exact degree four, including geometrically. Thus its smooth projective model is D, not a spurious union of quartic components.
+
+SS2: Positivity excludes s=-1 and infinity by r=0, and h=0 by the same boundary. The forward Delta=f-Z^2=12h gamma gives precisely 0<Z^2<R and Yh>0. Rational w=0 cannot occur. Conversely X=0 is excluded by f=-9; X=-2 gives (Z^2-1)^2 with strict inequality Z^2<1, excluding it. Hence J is nonzero. Kappa=+/-1 would force X=-2. The reconstructed s is finite and not -1, and both original square equations hold there. Delta>108h^2 makes gamma nonzero and gives 0<r<1/3; Yh>0 gives v>0. Both signs of w give t>1 because v>|w| and w>-1. The discriminant-zero X=-9/4 has no rational Y. On this positive open the normalization introduces no additional branch choice. No assertion of a unique power-map point over each seed is made.
+
+SS3: The integral short-Weierstrass valuation argument supplies denominators d0^2 and d0^3 with the stated coprimality. The quartic in C=Z d0^3 is monic with integer coefficients, giving C integral. The cleared square identity implies integer divisibility by 6d0K, including its sign, because square divisibility gives the corresponding prime-exponent inequality. If p>3 divides d0K, its two cases are disjoint. In each case B is a unit; then C^2=B^2 and 3B^2+C^2=4B^2 modulo p are units. Exact valuation gives the complete depth allocation to one of B-C or B+C; no p=2 or p=3 conclusion has been smuggled in. No denominator or height bound results.
+
+SS4: The rational-function identity for the explicit map was checked after clearing (X+3)^6. The abscissa numerator has degree three and value -36 at -3, so there is no cancellation. The degree diagram gives degree three, and the poles give exactly O and (-3,+/-3i) as geometric kernel. The map fixes O. The standard morphism theorem makes it a homomorphism, and hence a rational isogeny. Combining the previous degree-two Jacobian decomposition therefore gives Jac(H1) isogenous to E squared over Q. This does not establish rank one, a basis, or emptiness of the simultaneous gate.
+
+Primary sources actually reopened and read: [Stacks 53.2.2 and 53.2.6](https://stacks.math.columbia.edu/tag/0BXX), giving extension of rational maps from normal curves and the function-field correspondence; [Milne, Elliptic Curves, II Proposition 1.5, printed page 49](https://www.jmilne.org/math/Books/EC2.pdf), whose definition of isogeny is a nonconstant origin-preserving regular map and whose proposition gives its group-homomorphism property.
+
+Independent exact supplement: replay_elliptic_gate_review.py was actually run with Python's standard library. It checks eight full integer polynomial coefficient identities, including the normalized two-square maps, elimination/factorization and degree-three isogeny, plus three exact rational group-law assertions. The output verification/elliptic_gate_identity_review.json has SHA256 264ea96c617c1958fc5dfca614714b26e00736db5d7898d3f8da016feac8d85d. This is not a point scan, completeness computation, numerical rank result or Lean verification. The ordinary domain and geometry review is separate from these arithmetic identities.

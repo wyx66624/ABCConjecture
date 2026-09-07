@@ -1,0 +1,219 @@
+\section{Very large prime incidence on the actual boundary arms}
+\label{vlg-section}
+
+Let \(n>324\) be prime, \(B=n^4\), \(r=\lceil\sqrt{6n}\rceil\),
+and \(L=\log(8B)\). Retain the actual roots
+\[
+ I_B=\{k\in\mathbb Z:B\leq k<2B\},\qquad
+ a_k=3k,\quad w_k=a_k+\zeta,
+\]
+\[
+ Q_k=a_k^2+a_k+1,\quad \alpha_k=w_k/\bar w_k,
+ \qquad \zeta^2=\zeta-1.
+\]
+Fix a subset \(I\subseteq I_B\) whose actual ratios are
+multiplicatively independent. The established private-norm set
+or any fixed color from Theorem~\ref{ncs-colors} supplies such a set.
+No independence assertion for an arbitrary subset of the whole block
+is made.
+
+Write \(w_k^n=A_k+C_k\zeta\), and set
+\[
+ b_{k,1}=|A_k|,\quad b_{k,2}=|C_k|,\quad
+ b_{k,3}=|A_k+C_k|,\qquad
+ T_k=\prod_{j=1}^3b_{k,j},\quad
+ c_k=\max_j b_{k,j},\quad t_k=\log c_k.
+\]
+These powers are primitive and unramified, so the arm sizes are
+positive and pairwise coprime. A zero boundary would make \(w_k^n\)
+a unit times a rational integer, contradicting the nonzero oriented
+split-prime valuations of \(w_k/\bar w_k\).
+The actual bounds \(9B^2\leq Q_k<36B^2\) give
+\begin{equation}\label{vlg-height}
+ n\log(3B)\leq t_k<nL.
+\end{equation}
+Indeed, \(c_k\geq Q_k^{n/2}\), while
+\[
+ c_k\leq\frac2{\sqrt3}Q_k^{n/2}
+       <\frac2{\sqrt3}(6B)^n<(8B)^n.
+\]
+The norm and each arm are coprime: reducing the norm modulo a prime
+dividing \(A_k\), \(C_k\), or \(A_k+C_k\) leaves the square of a
+nonzero coordinate.
+
+\begin{theorem}[Two endpoints at very large primes]\label{vlg-endpoints}
+For every rational prime \(q\) satisfying
+\begin{equation}\label{vlg-cutoff}
+ \log q\geq \frac r2 L,
+\end{equation}
+the set \(E_q=\{k\in I:v_q(T_k)\geq4\}\) has at most two elements.
+\end{theorem}
+\begin{proof}
+The cutoff gives \(q>8B>n\) and \(q^4\geq(8B)^{2r}\).
+Every hit supplies a unit norm and unit conjugate denominator
+modulo \(q^4\). The identity
+\[
+ (A+C\zeta)^3-(A+C\bar\zeta)^3
+   =3AC(A+C)(\zeta-\bar\zeta)
+\]
+therefore implies \(\alpha_k^{3n}=1\pmod{q^4}\).
+Since \(q\nmid3n\), the established split/inert simple-lifting count
+bounds this norm-one torsion group by \(3n\).
+
+The coordinate calculation in the proof of Lemma~\ref{um-rigidity}
+gives, for two actual products of \(r\) roots, a determinant bounded by
+\[
+ |D|\leq8r\,7^{2r-1}B^{2r-1}<(8B)^{2r}.
+\]
+The strict inequality is uniform in \(r\): after division, with
+\(x=49/64\), its upper bound is
+\[
+ \frac8{7B}r x^r
+ <\frac8{7B}\frac1{1-x}
+ =\frac{512}{105B}<1.
+\]
+Equal ratio products modulo \(q^4\) thus give \(q^4\mid D\), hence
+\(D=0\) and exact ratio equality in \(\mathbb Q(\zeta)\).
+Independence recovers every multiplicity. Consequently the multisets
+of length \(r\) from \(E_q\) inject into the torsion group, giving
+\[
+ \binom{|E_q|+r-1}{r}\leq3n
+\]
+when \(E_q\) is nonempty. If \(|E_q|\geq3\), its left side is at least
+\[
+ \binom{r+2}{2}=\frac{(r+1)(r+2)}2>\frac{r^2}2\geq3n,
+\]
+a contradiction. Empty hit sets cause no difficulty.
+\end{proof}
+
+\begin{theorem}[Actual simultaneous packets and arm degrees]
+\label{vlg-packets}
+Let \(V=I\times\{1,2,3\}\). Take as labels precisely the primes
+satisfying \eqref{vlg-cutoff} for which \(E_q\ne\varnothing\), and put
+\[
+ e(q)=\{(k,j):k\in E_q,\ q\mid b_{k,j}\}.
+\]
+Each label has one or two endpoints, with distinct roots in the
+two-endpoint case. For an incident endpoint \(v=(k,j)\), write
+\(\epsilon_v(q)=v_q(b_{k,j})\geq4\).
+For every subset \(U\subseteq V\) and every subset \(P\) of the labels,
+\begin{equation}\label{vlg-divisibility}
+ \prod_{q\in P}q^{\,\sum_{v\in U\cap e(q)}\epsilon_v(q)}
+       \ \bigm|\ \prod_{v\in U}b_v.
+\end{equation}
+Writing \(d_U(q)=|U\cap e(q)|\), this implies
+\begin{equation}\label{vlg-weighted}
+ 4\sum_q d_U(q)\log q
+ \leq\sum_q\sum_{v\in U\cap e(q)}\epsilon_v(q)\log q
+ \leq\sum_{v\in U}\log b_v.
+\end{equation}
+With \(d=\lfloor n/(2r)\rfloor\), every arm vertex has degree at most
+\(d\), and every root has at most \(3d\) incident prime labels.
+\end{theorem}
+\begin{proof}
+The arm sizes are pairwise coprime, so each hit root belongs to
+exactly one endpoint at this prime. Theorem~\ref{vlg-endpoints}
+then gives the endpoint count. The label set is finite, since its
+members divide the fixed nonzero integer \(\prod_{k\in I}T_k\).
+Different prime labels may have the same endpoint set, and singleton
+edges are allowed.
+
+For each prime \(q\), the exponent on the left of
+\eqref{vlg-divisibility} is at most its valuation in the integer on
+the right. Applying this simultaneously to the distinct primes
+proves the divisibility. Taking logarithms proves
+\eqref{vlg-weighted}. Primes omitted from the graph, including
+depths below four at other vertices, only add nonnegative mass on
+the right.
+
+If \(m\) labels meet a fixed arm \(v=(k,j)\), then
+\[
+ 2rLm\leq\sum_{q\ni v}4\log q
+       \leq\log b_v\leq t_k<nL.
+\]
+Thus \(m<n/(2r)\). Since \(n\) is odd and \(2r\) is even, this
+ratio is not an integer, giving \(m\leq d\). Summing over the
+three different arms gives the root-degree bound.
+\end{proof}
+
+The total number of labels is at most \(3d|I|\), by summing
+incidences. If every label had two endpoints, it would be at most
+\(3d|I|/2\); singleton labels have not been excluded. In particular,
+the available cardinality bound is \(O(|I|\sqrt n)\), and does not
+provide an \(o(B)\) estimate.
+
+\begin{theorem}[A joint matching decomposition]\label{vlg-matchings}
+The entire actual prime-labelled graph on arm vertices is a disjoint
+union of at most \(2d-1\) matchings. Within each matching, different
+prime labels have disjoint endpoint sets. They may use different
+arms of the same root.
+\end{theorem}
+\begin{proof}
+Here \(d\geq1\), since
+\(2r\leq2\sqrt{6n}+2<n\) for \(n>324\).
+Process the finite labels in increasing order. At an edge with two
+endpoints, at most \(2(d-1)\) earlier labels meet either endpoint:
+each endpoint has total degree at most \(d\), including the current
+edge. A singleton edge has at most \(d-1\) earlier neighbors.
+Multiple edges only cause overcounting in these upper bounds.
+Thus one of \(2d-1\) colors is absent from all earlier adjacent
+labels. Assign the first available color. Its color classes are the
+claimed matchings. If \(I\) is empty, there are no labels to color.
+This is a direct finite construction, without a multigraph-coloring
+or matroid-partition assumption.
+\end{proof}
+
+This statement applies to all of the actual labels simultaneously.
+It does not bound the total weight of a matching or resolve the
+independence of roots outside the established domain.
+
+\begin{proposition}[The remaining weighted budget]\label{vlg-net}
+For every subset \(U\) of the actual arm vertices,
+\begin{equation}\label{vlg-net-equation}
+ \sum_q\sum_{v\in U\cap e(q)}(\epsilon_v(q)-3)\log q
+ \leq\sum_{v\in U}\log b_v-3\sum_q d_U(q)\log q.
+\end{equation}
+For \(U=V\), its left side is precisely the positive excess in the
+region \eqref{vlg-cutoff}.
+\end{proposition}
+\begin{proof}
+Subtract \(3\sum_q d_U(q)\log q\) from the second inequality of
+\eqref{vlg-weighted}. Each incidence has depth at least four.
+Pairwise coprimality allocates the entire depth of \(T_k\) to its
+unique arm, proving the last assertion.
+\end{proof}
+
+This retains the graph's radical saving, but does not account for
+the negative contributions at depths one and two outside this
+positive graph. The estimates do not make its right side
+\(o(\sum_{k\in I}t_k)\).
+
+For a precise limitation of the finite inequalities alone, consider
+an abstract weighted ledger for sufficiently large \(n\). Give each
+of \(N\) formal roots three arms and
+\(m=\lfloor n/(4r)\rfloor\) private labels on each arm. Give every
+label depth four and logarithmic weight \(w=(r/2)L\). All edges are
+singletons, and the full mass on an arm is
+\[
+ 4mw=2rmL\leq nL/2.
+\]
+Its degree is at most \(d\), and every moment support at a fixed
+label has cardinality one. Yet its positive excess per root is
+\[
+ 3mw\sim \frac38 nL.
+\]
+Thus the degree, moment-cardinality and strict arm-cap inequalities
+alone permit a linear positive cost. These formal labels and
+weights have not been realized by distinct rational primes or by
+Eisenstein powers. This is not a counterexample to any actual
+root-family statement, to signed compensation, or to \(abc\).
+The stronger simultaneous integer structure in
+\eqref{vlg-divisibility} remains a possible source of improvement.
+
+The outstanding interfaces are actual private-label counts and
+weights, interactions between different primes, the omitted signed
+credits, and the roots outside the proved independent domain.
+None is declared automatically satisfied or impossible.
+All results in this section are ordinary proofs. No new formal
+Lean statement, prime-distribution certificate or density experiment
+is claimed.

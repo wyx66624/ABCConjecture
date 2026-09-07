@@ -1,0 +1,71 @@
+{
+  "reviewer": "adversarial_audit",
+  "status": "PASS",
+  "polynomial_identity_count": 8,
+  "polynomial_identities": [
+    {
+      "identity": "SS6 H^2-fR=J^2d",
+      "cleared_difference": [
+        0
+      ]
+    },
+    {
+      "identity": "SS17 cleared 3-isogeny",
+      "cleared_difference": [
+        0
+      ]
+    },
+    {
+      "identity": "SS5 kappa^2=4X+9",
+      "cleared_difference": [
+        0
+      ]
+    },
+    {
+      "identity": "SS5 B0 normalized=-3h",
+      "cleared_difference": [
+        0
+      ]
+    },
+    {
+      "identity": "SS5 gamma normalized",
+      "cleared_difference": [
+        0
+      ]
+    },
+    {
+      "identity": "SS5 first quotient Y^2=f",
+      "cleared_difference": [
+        0
+      ]
+    },
+    {
+      "identity": "SS5 second quotient Z^2=H+Jkappa",
+      "cleared_difference": [
+        0
+      ]
+    },
+    {
+      "identity": "SS11 normalized factorization",
+      "cleared_difference": [
+        0
+      ]
+    }
+  ],
+  "exact_group_law_checks": 3,
+  "group_law_results": {
+    "2P": [
+      "33/4",
+      "9/8"
+    ],
+    "3P": [
+      "-2",
+      "-37"
+    ],
+    "phi_Q": [
+      "-2",
+      "37"
+    ]
+  },
+  "scope": "Independent stdlib integer polynomial coefficient equalities and rational group-law checks only. Not rational-point completeness, geometry or Lean verification."
+}

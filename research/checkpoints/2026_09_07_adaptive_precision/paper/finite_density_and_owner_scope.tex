@@ -1,0 +1,141 @@
+\section{Finite density, actual owners and integer depth identities in Lean}
+\label{fdos-section}
+
+The following finite bridge records the mass inequalities behind the
+strict private-domain improvement. It retains actual indices and both
+arithmetic error terms.
+
+\begin{proposition}[An actual finite density gain]\label{fdos-density}
+Let $S$ be a finite set, $E\subseteq S$, and $w_i$ real weights.
+Let $B,\ell>0$, $0<\epsilon\le1/10$, $c\ge0$, and suppose
+\[
+ |S|\le B,\quad |E|\le C\epsilon B+R,\quad C\epsilon\le\frac14.
+\]
+Assume
+\[
+ (1-\lambda)B\ell\le\sum_{i\in S}w_i,\qquad
+ w_i\le2\ell+c\quad(i\in S),\qquad
+ w_i\le(2-\epsilon)\ell\quad(i\in S\setminus E).
+\]
+If
+\begin{equation}\label{fdos-loss}
+ \lambda+\frac{\epsilon R}{B}+\frac c\ell\le\frac\epsilon8,
+\end{equation}
+then
+\begin{equation}\label{fdos-gain}
+ \frac{|S|}{B}\ge\frac12+\frac{\epsilon}{8(2-\epsilon)}>\frac12.
+\end{equation}
+The weights need not be nonnegative for this proposition.
+\end{proposition}
+\begin{proof}
+At every actual index,
+\[
+ w_i\le(2-\epsilon)\ell+c+
+             \epsilon\ell\,\mathbf1_{i\in E}.
+\]
+Summing and using the two cardinality bounds gives
+\[
+ (1-\lambda)B\ell
+ \le (2-\epsilon)|S|\ell+C\epsilon^2B\ell+
+                 \epsilon R\ell+cB.
+\]
+Put $\lambda'=\lambda+\epsilon R/B+c/\ell$. Division by positive
+$B\ell(2-\epsilon)$ yields
+\[
+ \frac{|S|}{B}\ge\frac{1-C\epsilon^2-\lambda'}{2-\epsilon}
+ \ge\frac{1-3\epsilon/8}{2-\epsilon}
+ =\frac12+\frac{\epsilon}{8(2-\epsilon)}.
+\]
+The second inequality uses $C\epsilon\le1/4$ and
+\eqref{fdos-loss}; the final extra term is strictly positive.
+\end{proof}
+
+For the ordinary private-density argument, take $S$ to be the actual
+private norm support, $E$ its extreme-prime subset, $w_i=\log r_i$,
+$\ell=\log B$, and $c=\log49$. The full norm-mass error supplies
+$\lambda$ and the uniform sieve supplies $R$.
+For fixed sufficiently small $\epsilon$, their displayed bounds make
+\eqref{fdos-loss} hold eventually. The finite formal theorem keeps
+these estimates as explicit inputs; it does not itself prove their
+asymptotic decay.
+
+\begin{lemma}[A finite logarithmic weight cutoff]\label{fdos-cutoff}
+Let $D$ be a finite set of positive natural numbers with nonnegative
+real weights $u_d$, and let $z>1$. If
+\[
+ \sum_{d\in D}u_d\log d\le
+             \frac{\log z}{2}\sum_{d\in D}u_d,
+\]
+then the total weight on $d\le z$ is at least half the total.
+\end{lemma}
+\begin{proof}
+Terms with $d\le z$ have nonnegative logarithmic cost. Every term
+with $d>z$ costs at least $u_d\log z$. Thus the weight above $z$
+is at most half the total, since $\log z>0$. The exact finite
+partition gives the conclusion. No distribution of actual arithmetic
+roots is asserted by this deterministic weighted inequality.
+\end{proof}
+
+There are also two direct cofactor identities. For integers $b,m,c$
+with $9b^2+3b+1=mc$, set
+\[
+ f_{m,b,c}(t)=9mt^2+(18b+3)t+c.
+\]
+Expansion proves
+\[
+ m f_{m,b,c}(t)=9(b+mt)^2+3(b+mt)+1,
+ \qquad (18b+3)^2-4(9m)c=-27.
+\]
+These identities do not assume or establish the later sieve's local
+root-count formula.
+
+\paragraph{The 35 new formal declarations.}
+\texttt{PrivateDensity\allowbreak Mass} contains eleven declarations:
+the two actual cofactor identities, exact exceptional-indicator counting,
+finite mass cuts, strict numerical gains with and without error,
+the actual density connection including both remainders, and
+Lemma~\ref{fdos-cutoff}. The input weights and errors are explicit.
+
+\texttt{AdaptiveOwner\allowbreak Arithmetic} contains twelve declarations.
+They prove the cubic and two-owner binomial thresholds, actual natural
+ceilings, existence of the two largest depth indices in a finite set,
+containment of every sufficiently deep index in that selected set,
+and complete natural truncated-excess sums on its complement.
+For the two actual ceiling thresholds $h_0,h_1$, the final theorem
+produces an actual set $O$ of size $\min(2,|I|)$, with every depth
+in $O$ at least every remaining depth. Its remaining weighted cost is
+at most
+\[
+ (6|I_4|+2r|I_{h_0}|)L,
+\]
+and its total cost is at most this expression plus twice the supplied
+single-root cap. The high-depth multiset-count hypothesis is explicit;
+the arithmetic valuation and torsion-group construction is ordinary.
+The further fractional-power estimates giving $39$ and $78$ are not
+claimed as Lean statements here.
+
+\texttt{SimultaneousElliptic\allowbreak Arithmetic} contains twelve
+declarations for the actual quartic and conic polynomials, integral
+square divisibility, an integer conic lift, and exact prime depth.
+Writing $K=A+2d^2$, with $dK\ne0$ as in the positive chart,
+the actual primitive elliptic and quartic equations
+give, for every prime $p>3$ dividing $dK$,
+\[
+ v_p(B^2-C^2)=v_p(dK).
+\]
+The formal proof derives the needed unit from $\gcd(A,d)=1$ and the
+actual equation in $\mathbb Z/p\mathbb Z$; it does not assume the unit
+or this depth equality. It also verifies the rational three-isogeny
+formula's polynomial identity. The curve maps, geometric degree,
+Jacobian decomposition, rational-to-integral coordinate existence and
+complete prime allocation retain their separately stated ordinary scope.
+
+All 35 new declarations and 15 unchanged uniform-moment dependencies
+were freshly compiled together. All 50 explicit axiom queries passed
+with only \texttt{propext}, \texttt{Classical.choice} and
+\texttt{Quot.sound} in their union. The compiler is Lean 4.32.0 and
+Mathlib is pinned to
+\texttt{81a5d257c8e410db227a6665ed08f64fea08e997}; its compiled cache
+was reused. Source and ordinary-scope reviews preceded publication.
+These finite cores neither control the full signed tail nor determine
+all points of the remaining geometric curves.

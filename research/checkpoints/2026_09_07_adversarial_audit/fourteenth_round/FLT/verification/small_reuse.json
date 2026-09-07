@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "upstream_commit": "aa2d8b34692b16c70f699536de0d8e75b9a3e9ef",
+  "work_dir": "/root/abc-flt-small-432/fresh-reuse-lt3znl86",
+  "sources": [
+    {
+      "path": "P2M/Util.lean",
+      "sha256": "66f62069b83c0cf97531f88e5bd2c249e471df011ad873b0bd034eb959b1d8da",
+      "url": "https://raw.githubusercontent.com/anthropics/fermats-last-theorem/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/P2M/Util.lean"
+    },
+    {
+      "path": "P2M/Sol/S_ModularForm_S2_Gamma0_2_eq_zero.lean",
+      "sha256": "e9c16a42e589727cf2902879750087479c936629236ba07a943047bccd276d63",
+      "url": "https://raw.githubusercontent.com/anthropics/fermats-last-theorem/aa2d8b34692b16c70f699536de0d8e75b9a3e9ef/P2M/Sol/S_ModularForm_S2_Gamma0_2_eq_zero.lean"
+    }
+  ],
+  "bridge_sha256": "5313f35f98e4aa20854451456a574eee021fc04ba83317c0c871e8c0d08b58e7",
+  "runs": [
+    {
+      "source": "P2M/Util.lean",
+      "command": [
+        "/root/.elan/bin/elan",
+        "run",
+        "leanprover/lean4:v4.32.0",
+        "lean",
+        "-o",
+        "P2M/Util.olean",
+        "P2M/Util.lean"
+      ],
+      "exit_code": 0,
+      "log": "/root/abc-flt-small-432/fresh-reuse-lt3znl86/Util.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output": ""
+    },
+    {
+      "source": "P2M/Sol/S_ModularForm_S2_Gamma0_2_eq_zero.lean",
+      "command": [
+        "/root/.elan/bin/elan",
+        "run",
+        "leanprover/lean4:v4.32.0",
+        "lean",
+        "-o",
+        "P2M/Sol/S_ModularForm_S2_Gamma0_2_eq_zero.olean",
+        "P2M/Sol/S_ModularForm_S2_Gamma0_2_eq_zero.lean"
+      ],
+      "exit_code": 0,
+      "log": "/root/abc-flt-small-432/fresh-reuse-lt3znl86/S_ModularForm_S2_Gamma0_2_eq_zero.log",
+      "log_sha256": "8f466e567b433cfd34db2c16c22f56df730ffdda014cd5811baadfe54dce9bd5",
+      "output": "P2M/Sol/S_ModularForm_S2_Gamma0_2_eq_zero.lean:1:0: warning: Use `Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula` instead.\n'Mathlib.NumberTheory.ModularForms.DimensionFormulas.LevelOne' has been deprecated: please replace this import by\n\nimport Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula\nP2M/Sol/S_ModularForm_S2_Gamma0_2_eq_zero.lean:47:11: warning: `tendsto_finset_prod` has been deprecated: Use `tendsto_finsetProd` instead\n"
+    },
+    {
+      "source": "S2Bridge.lean",
+      "command": [
+        "/root/.elan/bin/elan",
+        "run",
+        "leanprover/lean4:v4.32.0",
+        "lean",
+        "-o",
+        "S2Bridge.olean",
+        "S2Bridge.lean"
+      ],
+      "exit_code": 0,
+      "log": "/root/abc-flt-small-432/fresh-reuse-lt3znl86/S2Bridge.log",
+      "log_sha256": "66dc1ffe57dbc88eaec555a2c66c50c34aba84ff31adb5ffc5155024a191f535",
+      "output": "'P2MW.S_ModularForm_S2_Gamma0_2_eq_zero.solution' depends on axioms: [propext, Classical.choice, Quot.sound]\n'abc_s2_gamma0_two_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\nabc_s2_gamma0_two_zero\n  (f : CuspForm (Subgroup.map (Matrix.SpecialLinearGroup.mapGL ℝ) (CongruenceSubgroup.Gamma0 2)) 2) : f = 0\n"
+    }
+  ],
+  "axiom_union": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "official_source_modified": false,
+  "full_FLT_import_verified": false,
+  "old_ABC_environment_modified": false,
+  "scope": "Two official sources freshly compiled; pinned existing Mathlib oleans reused"
+}

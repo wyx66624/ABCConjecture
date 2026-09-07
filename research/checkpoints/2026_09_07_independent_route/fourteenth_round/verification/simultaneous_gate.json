@@ -1,0 +1,95 @@
+{
+  "arithmetic": "Python standard-library integer polynomials and Fraction",
+  "bounded_point_scope": "Only the 80 signed multiples nP with 1<=n<=40; no basis or all-point claim.",
+  "isogeny_point_relation": {
+    "P": [
+      "-2",
+      "1"
+    ],
+    "Q": [
+      "6",
+      "9"
+    ],
+    "phi_P": [
+      "-2",
+      "37"
+    ],
+    "three_Q": [
+      "-2",
+      "-37"
+    ],
+    "two_Q": [
+      "33/4",
+      "9/8"
+    ]
+  },
+  "polynomial_identities": [
+    "quartic_discriminant_factor",
+    "degree_three_isogeny",
+    "kappa_square",
+    "normalized_b0",
+    "gamma_formula",
+    "first_quotient",
+    "first_gamma_square",
+    "second_gamma_square",
+    "second_square_branch",
+    "common_source_quartic",
+    "difference_gamma",
+    "weighted_conic",
+    "inverse_kappa",
+    "inverse_source",
+    "positive_ratio_expression"
+  ],
+  "polynomial_identity_count": 15,
+  "positive_hits": [],
+  "quartic_hits_with_kappa": [
+    [
+      1,
+      "-1",
+      "-1"
+    ],
+    [
+      1,
+      "-1",
+      "1"
+    ],
+    [
+      1,
+      "1",
+      "-1"
+    ],
+    [
+      1,
+      "1",
+      "1"
+    ],
+    [
+      -1,
+      "-1",
+      "-1"
+    ],
+    [
+      -1,
+      "-1",
+      "1"
+    ],
+    [
+      -1,
+      "1",
+      "-1"
+    ],
+    [
+      -1,
+      "1",
+      "1"
+    ]
+  ],
+  "scope": "Exact identities and a bounded check of specified rational points; not a complete rational-point computation or a Lean proof.",
+  "signed_multiple_count": 80,
+  "signed_points_and_images_sha256": "de9d50f06d14edde4d75d4e630e6f989db80b601deae0f6b32cc401370b21be2",
+  "source_square_hits": [
+    1,
+    -1
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,4 @@
+'P2MW.S_ModularForm_S2_Gamma0_2_eq_zero.solution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'abc_s2_gamma0_two_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+abc_s2_gamma0_two_zero
+  (f : CuspForm (Subgroup.map (Matrix.SpecialLinearGroup.mapGL ℝ) (CongruenceSubgroup.Gamma0 2)) 2) : f = 0

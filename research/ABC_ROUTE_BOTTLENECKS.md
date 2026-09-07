@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, uniform moments, colored norm support
-and cubic local/elliptic gates (thirteenth continuation).
+**Last synchronized:** 2026-09-07, adaptive precision, strict private density
+and simultaneous elliptic gates (fourteenth continuation).
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -32,6 +32,27 @@ rigorous complete-premise disproof.
 - [x] Maintain the English journal manuscript with author ChatGPT.
 
 ## Shared exponent generators: September 7 positive frontier
+
+- [x] Bound the complete positive cost at every individual q>8B without
+  an upper restriction; select actual two maximal depths with all other
+  layers paid. Prove simultaneous integer packets and arm matchings.
+- [x] Prove a cofactor-uniform Selberg bound with full error and use it
+  to enlarge the actual private domain to density strictly above one half.
+- [x] Construct a reversible same-source quartic over a fixed elliptic
+  curve, exact integral boundary depth and a rational three-isogeny.
+- [x] Freshly compile 35 new finite Lean statements and 15 unchanged
+  dependencies; audit all 50 axiom queries. Replay two exact supplements.
+- [x] Pin the official full Fermat source and successfully import one
+  useful small unchanged subproof in an isolated local environment.
+- [ ] Control total prime-dependent owner weight, signed credits and
+  complementary roots; per-prime budgets do not bound their full sum.
+- [ ] Resolve the surviving common-source rational-point condition and
+  uniform exponent, height and moving-residual interfaces.
+- [ ] Reuse larger applicable official Fermat closures with an actual
+  successful import; the verified small subproof does not verify full FLT.
+- Fourteenth-round proofs, formal scope and designated manuscript:
+  `checkpoints/2026_09_07_adaptive_precision/README.md`.
+
 
 - [x] Prove determinant rigidity uniformly for every finite moment at
   q>8B, and pay all positive layers up to Bn(log n)^(1-delta) on actual

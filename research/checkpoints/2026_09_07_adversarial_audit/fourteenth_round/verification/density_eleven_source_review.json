@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-07",
+  "reviewer": "adversarial_audit",
+  "status": "PASS: all eleven final statements semantically reviewed; independently rehashed source and audited eleven recorded axiom outputs; no compiler rerun",
+  "manifest_sha256": "ad29f70118d4d019398875340e216b1529176ea1b86defe88a6ef4ebd63c25c3",
+  "log_sha256": "194670cdca3d160ed072826c4a1f43c0cfa8c49aafb93527dc86b7e44f747357",
+  "modules": [
+    {
+      "module": "PrivateDensityMass",
+      "sha256": "0796e0a4d2d40fc04fcf37a11048215d19aca4b7682d7349ee2f85dfb69ed463",
+      "theorem_count": 11,
+      "queries_audited": 11
+    }
+  ],
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "application_interface": "Both the direct normalized theorem and the new actual_density_gain_with_remainders are reviewed. The latter includes actual exceptional remainder R, additive height c and total loss + eps*R/B + c/ell <= eps/8. Construction of the analytic inputs remains ordinary."
+}

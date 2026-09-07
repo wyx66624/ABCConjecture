@@ -1,0 +1,73 @@
+{
+  "reviewer": "independent_route",
+  "pdf": "E:/agent/ABCConjecture/tmp/abc_20260907/round14pdf/ChatGPT_ABC_Uniformity_2026.pdf",
+  "pdf_sha256": "86a0273b4cd06f877fbcfa19b2aaecb74749665200ad9cabfbdd64e62fe3b8a3",
+  "pdf_pages": 527,
+  "actual_review_pages": [
+    515,
+    516,
+    517,
+    518,
+    519
+  ],
+  "reviewed_pages": [
+    515,
+    516,
+    517,
+    518,
+    519
+  ],
+  "status": "PASS",
+  "checks": [
+    "actual rendered image inspection",
+    "formula and paragraph clipping",
+    "horizontal overflow",
+    "glyph legibility",
+    "section and proof page transitions"
+  ],
+  "pdf_and_raster_hashes_independently_recomputed": true,
+  "source_changes": false,
+  "pages": [
+    {
+      "page": 515,
+      "raster": "E:/agent/ABCConjecture/tmp/abc_20260907/round14pdf/view-515.png",
+      "sha256": "d180b08bd0dcf46dcc89bd1e3fcf8fcd9e4dea0002a72be8d1b70481064c2a9d",
+      "actually_viewed_with": "view_image",
+      "status": "PASS",
+      "note": "VG section 261 begins cleanly. Actual arms, cutoff, determinant and multiset inequalities and full proof of Theorem 261.1 fit within margins."
+    },
+    {
+      "page": 516,
+      "raster": "E:/agent/ABCConjecture/tmp/abc_20260907/round14pdf/view-516.png",
+      "sha256": "1a48e4a087d41d282d7f13c610d02aa032201e44d970b90afa863ecc5fd83f30",
+      "actually_viewed_with": "view_image",
+      "status": "PASS",
+      "note": "Packet divisibility, weighted incidence, degree and matching proofs and remaining weight proposition are legible. Proposition proof continues coherently to 517."
+    },
+    {
+      "page": 517,
+      "raster": "E:/agent/ABCConjecture/tmp/abc_20260907/round14pdf/view-517.png",
+      "sha256": "5e8c08326b3f8ff54112d9dc71b32a3cccc658ace87f0563893dff291b05c46b",
+      "actually_viewed_with": "view_image",
+      "status": "PASS",
+      "note": "VG proof and scope finish cleanly. Transition to SS section 262 and its quartic definition and theorem has no clipping or overlap."
+    },
+    {
+      "page": 518,
+      "raster": "E:/agent/ABCConjecture/tmp/abc_20260907/round14pdf/view-518.png",
+      "sha256": "83d1b24bdee335b47bde18ede0ee36e87568dd1fecd8714f8ebab15a1be71990",
+      "actually_viewed_with": "view_image",
+      "status": "PASS",
+      "note": "SS quotient maps, inverse formulas, degree proof and exact positive domain including all displayed formulas fit. Proof continuation is coherent."
+    },
+    {
+      "page": 519,
+      "raster": "E:/agent/ABCConjecture/tmp/abc_20260907/round14pdf/view-519.png",
+      "sha256": "f38367bdb709b4aa19153720ef8a98e7f707ab9acd38f9ff819666883c534df7",
+      "actually_viewed_with": "view_image",
+      "status": "PASS",
+      "note": "Positive-domain exceptional points finish cleanly. Integral factorization, exact prime depths and three-isogeny formulas are legible. The final proof continues onto 520, outside this review."
+    }
+  ],
+  "scope": "Actual visual inspection of exactly pages 515--519; no claim to have viewed other pages."
+}

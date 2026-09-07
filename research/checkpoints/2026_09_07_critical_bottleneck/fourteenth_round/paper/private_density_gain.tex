@@ -1,0 +1,251 @@
+\section{A private norm domain strictly larger than one half}
+\label{pdg-section}
+
+For a positive integer \(B\), put
+\[
+ I_B=\{k\in\mathbb Z:B\leq k<2B\},\qquad Q(k)=9k^2+3k+1.
+\]
+This section improves actual membership in the independent
+private-norm class. It does not estimate the unbounded boundary-prime
+tail.
+
+\begin{lemma}[A fixed discriminant after extracting a cofactor]
+\label{pdg-cofactor}
+Let \(\rho(m)\) count roots of \(Q\) modulo the positive integer \(m\).
+Then \(\rho\) is multiplicative, \(\rho(1)=1\), and
+\(\rho(p^j)=2\) for \(p\equiv1\pmod3\), \(j\geq1\), with zero
+otherwise. If \(\rho(m)>0\) and \(0\leq b<m\) is a root, the
+integer polynomial
+\[
+ f_{m,b}(t)=\frac{Q(b+mt)}m
+       =9mt^2+(18b+3)t+\frac{Q(b)}m
+\]
+has discriminant \(-27\). Its prime root counts are
+\[
+ \rho_m(\ell)=
+ \begin{cases}
+  2,&\ell\equiv1\pmod3,\ \ell\nmid m,\\
+  1,&\ell\mid m,\\
+  0,&\text{otherwise}.
+ \end{cases}
+\]
+They are independent of the chosen root \(b\).
+\end{lemma}
+\begin{proof}
+The prime-root and simple-lifting calculation for \(Q\) was used
+in Theorem~\ref{pn-private}; its discriminant is \(-27\) and it has
+no root modulo two or three. Expanding the new discriminant gives
+\[
+ (18b+3)^2-36Q(b)=-27.
+\]
+When \(\ell\nmid m\), the affine variable change and division by
+\(m\) are invertible. When \(\ell\mid m\), its quadratic coefficient
+vanishes and \(18b+3=Q'(b)\) is a unit, because the original root is
+simple. Thus it becomes a nonconstant linear polynomial.
+\end{proof}
+
+For squarefree \(d\), counting residue classes of the integer \(t\)
+in the real interval
+\([ (B-b)/m,(2B-b)/m )\) gives
+\begin{equation}\label{pdg-remainder}
+ \#\{t:d\mid f_{m,b}(t)\}
+   =\frac Bm\frac{\rho_m(d)}d+R_d,\qquad |R_d|\leq\rho_m(d).
+\end{equation}
+No distribution theorem for quadratic prime values is assumed.
+
+\begin{lemma}[A cofactor-uniform upper sieve]\label{pdg-sieve}
+Define
+\[
+ A(m)=\prod_{\ell\mid m}\frac{\ell}{\ell-2}.
+\]
+Uniformly for every allowed \(m,b\) and every real \(z\geq2\), the
+number of integers in the preceding interval for which \(f_{m,b}\)
+is prime and greater than \(z\) is at most
+\begin{equation}\label{pdg-sieve-bound}
+ C\frac{B A(m)}{m\log z}+z^4
+\end{equation}
+for an absolute constant \(C\).
+\end{lemma}
+\begin{proof}
+We use the finite upper-bound Selberg sieve of
+\href{https://ford126.web.illinois.edu/sieve2023.pdf}
+{Ford, \emph{Sieve Methods Lecture Notes}, Spring 2023},
+Theorem 4.1, printed page 45, with its parameter \(D=z^2\).
+For local density \(g(d)=\rho_m(d)/d\), the bound is
+\[
+ \frac{B/m}{J_m(z)}
+       +\sum_{\substack{d_1,d_2\leq z\\d_1,d_2\ {\rm squarefree}}}
+                 |R_{[d_1,d_2]}|,
+ \qquad
+ J_m(z)=\sum_{\substack{d\leq z\\d\ {\rm squarefree}}}h_m(d),
+ \quad h_m(\ell)=\frac{g(\ell)}{1-g(\ell)}.
+\]
+All sums are restricted to the sieving support. Its local densities
+are less than one. Ford's equations (4.2)--(4.5) give the minimizing
+weights with absolute value at most one, and hence precisely this
+complete least-common-multiple remainder.
+
+Put \(h_0(\ell)=2/(\ell-2)\) for \(\ell\equiv1\pmod3\), zero
+otherwise; extend multiplicatively on squarefree integers, and put
+it equal to zero on nonsquarefree integers. Write
+\(J_0(z)=\sum_{d\leq z}h_0(d)\). We first prove
+\begin{equation}\label{pdg-jzero}
+ J_0(z)\geq c\log z\qquad(z\geq2)
+\end{equation}
+with an absolute positive \(c\). The fixed-modulus prime estimate
+used in Theorem~\ref{pn-private}, from Theorem 1.2, formula (1.12),
+of \href{https://arxiv.org/abs/1802.00085v3}
+{Bennett, Martin, O'Bryant and Rechnitzer}, gives by partial summation
+\begin{align*}
+ \sum_{\substack{\ell\leq y\\\ell\equiv1\ (3)}}\frac1\ell
+   &=\frac12\log\log y+O(1),\\
+ \sum_{\substack{\ell\leq y\\\ell\equiv1\ (3)}}\frac{\log\ell}{\ell}
+   &=\frac12\log y+O(\log\log(3y)).
+\end{align*}
+The bounded error in the first line uses the extra logarithm in
+the integrated prime-counting error.
+
+The total \(h_0\)-weight of all squarefree divisors of the product of
+the supported primes through \(y\) is
+\[
+ E(y)=\prod_{\substack{\ell\leq y\\\ell\equiv1\ (3)}}
+                 (1+h_0(\ell))\asymp\log y.
+\]
+Its exact weighted mean of \(\log d\) equals
+\[
+ \sum_{\substack{\ell\leq y\\\ell\equiv1\ (3)}}
+        \frac{h_0(\ell)}{1+h_0(\ell)}\log\ell
+ =\sum_{\substack{\ell\leq y\\\ell\equiv1\ (3)}}\frac{2\log\ell}{\ell}.
+\]
+With \(y=z^{1/4}\), this mean is at most \(\tfrac12\log z\) for
+large \(z\). The finite weighted cutoff inequality puts at least
+half the total weight on \(d\leq z\). Thus \(J_0(z)\geq E(y)/2\),
+proving \eqref{pdg-jzero}; reducing \(c\) covers bounded \(z\geq2\).
+This auxiliary finite measure does not assert a distribution of
+the actual root parameters.
+
+Outside \(m\), the weights \(h_m\) equal \(h_0\); on \(m\) they are
+nonnegative. Splitting a squarefree \(d\) into its part supported on
+\(m\) and its coprime part proves
+\[
+ J_0(z)\leq
+ \left(\prod_{\ell\mid m}(1+h_0(\ell))\right)
+       \sum_{\substack{d\leq z\\(d,m)=1}}h_0(d)
+ \leq A(m)J_m(z).
+\]
+Therefore \(J_m(z)\geq c\log z/A(m)\), uniformly in both \(m,b\).
+Finally, \(\rho_m([d_1,d_2])\leq d_1d_2\), so the complete
+remainder in \eqref{pdg-remainder} is bounded by
+\[
+ \left(\sum_{1\leq d\leq z}d\right)^2\leq z^4.
+\]
+The asserted bound follows. In particular it contains no
+uncontrolled factor depending on \(\log\log m\).
+\end{proof}
+
+\begin{theorem}[An epsilon-uniform exceptional set]\label{pdg-extreme}
+There is an absolute \(C_0\) such that, uniformly for
+\(0<\epsilon\leq1/10\),
+\begin{equation}\label{pdg-extreme-bound}
+ \#\{k\in I_B:P^+(Q(k))>B^{2-\epsilon}\}
+ \leq C_0\epsilon B+
+       O\left(\frac B{\log B}+B^{3/5}\right).
+\end{equation}
+The constants and sufficiently-large threshold are independent
+of \(\epsilon\).
+\end{theorem}
+\begin{proof}
+For an indicated prime \(r=P^+(Q(k))\), put \(m=Q(k)/r\).
+Then \(1\leq m<X=49B^\epsilon\). Each parameter is in one of the
+\(\rho(m)\) classes of Lemma~\ref{pdg-sieve}. Take \(z=B^{1/10}\);
+then \(r>B^{2-\epsilon}>z\). Overcounting is harmless.
+
+The needed cofactor weight satisfies
+\[
+ \sum_{m\leq X}\frac{\rho(m)A(m)}m\ll\log(3X).
+\]
+Indeed, at every supported prime and every \(j\geq1\),
+\(\rho(p^j)A(p^j)=2p/(p-2)\). The unrestricted Euler product on
+primes through \(X\) majorizes the sum, with local factor
+\[
+ 1+\frac{2p}{(p-2)(p-1)}=1+\frac2p+O(p^{-2}).
+\]
+The reciprocal-prime estimate in the preceding proof gives the
+bound. It includes \(m=1\) and all prime powers.
+
+The main terms of \eqref{pdg-sieve-bound} now sum to
+\[
+ C B\frac{\log(3X)}{\log z}
+       \leq C_0\epsilon B+O(B/\log B).
+\]
+The entire error is bounded by
+\[
+ z^4\sum_{m\leq X}\rho(m)
+ \leq z^4\sum_{m\leq X}m
+ \ll X^2z^4\ll B^{2\epsilon+2/5}\leq B^{3/5}.
+\]
+The constants \(49\) and \(\log147\) are absolute, proving all the
+stated uniformities.
+\end{proof}
+
+\begin{theorem}[An actual domain strictly larger than one half]
+\label{pdg-domain}
+There exist absolute \(\delta_0>0\) and \(B_0\) such that
+\[
+ \mathcal S_B=\{k\in I_B:Q(k)\text{ has a prime divisor above }12B\}
+\]
+satisfies
+\[
+ |\mathcal S_B|\geq(1/2+\delta_0)B\qquad(B\geq B_0).
+\]
+All its actual ratios are multiplicatively independent.
+\end{theorem}
+\begin{proof}
+The full-block norm-mass calculation in Theorem~\ref{pn-private}
+gives
+\[
+ \sum_{k\in I_B}\sum_{r>12B}v_r(Q(k))\log r
+       \geq B\log B-O(B\log\log B).
+\]
+Every such prime is globally private to its parameter and has
+depth one. A norm has at most one of them, since
+\((12B)^2>49B^2>Q(k)\); denote it by \(r_k\).
+
+Fix \(0<\epsilon\leq1/10\) small enough that \(C_0\epsilon\leq1/4\).
+Let \(E_B\) be the exceptional count in \eqref{pdg-extreme-bound}.
+Outside that exceptional set, \(\log r_k\leq(2-\epsilon)\log B\);
+inside it, \(\log r_k\leq2\log B+\log49\). Hence the same full-block
+mass is at most
+\[
+ (2-\epsilon)|\mathcal S_B|\log B+
+               \epsilon E_B\log B+B\log49.
+\]
+Divide by \(B\log B\) and use Theorem~\ref{pdg-extreme} to obtain
+\[
+ \liminf_{B\to\infty}\frac{|\mathcal S_B|}{B}
+ \geq\frac{1-C_0\epsilon^2}{2-\epsilon}
+ \geq\frac{1-\epsilon/4}{2-\epsilon}
+ =\frac12+\frac{\epsilon}{4(2-\epsilon)}.
+\]
+Thus \(\delta_0=\epsilon/[8(2-\epsilon)]\) works for all sufficiently
+large \(B\). Private oriented prime valuations prove independence
+exactly as in Theorem~\ref{pn-private}.
+\end{proof}
+
+The established UM logarithmic window therefore holds on an actual
+domain of fraction at least \(1/2+\delta_0-o(1)\), with its same
+finite-window errors and unchanged unproved far signed term.
+No optimized numerical value of \(\delta_0\) is claimed.
+The argument uses an independent upper sieve for one exceptional set
+and the original full-block mass bound once. It does not iterate
+that mass bound on an arbitrary discarded subset.
+
+These are complete ordinary proofs using the explicitly located
+primary sieve and fixed-modulus prime inputs. Root's separate
+\texttt{Private\allowbreak Density\allowbreak Mass.lean} formalizes
+selected cofactor identities, actual finite mass cuts, the exact
+finite remainder-to-density inequality and the finite positive-index
+weighted logarithmic cutoff. It does not formalize the sieve,
+prime asymptotics, Euler weights or the full density theorem.
+The complementary roots and the unbounded boundary-prime tail
+remain unresolved.

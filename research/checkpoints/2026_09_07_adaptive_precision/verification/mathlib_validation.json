@@ -1,0 +1,106 @@
+{
+  "status": "PASS: fresh scoped source compilation and complete axiom audit",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "modules": {
+    "UniformMomentArithmetic": {
+      "source": "research/checkpoints/2026_09_07_critical_bottleneck/thirteenth_round/Lean/UniformMomentArithmetic.lean",
+      "sha256": "646308163a102479ea842b33b2f06eb8b1adf342e459f13cf8b4a51c597d1568",
+      "new": false,
+      "declarations": 15,
+      "queries": [
+        "ABCUniformMoment20260907.six_choose_three",
+        "ABCUniformMoment20260907.choose_three_exceeds_three_n",
+        "ABCUniformMoment20260907.count_le_three_of_multiset_bound",
+        "ABCUniformMoment20260907.explicit_root_threshold",
+        "ABCUniformMoment20260907.count_le_three_at_explicit_threshold",
+        "ABCUniformMoment20260907.low_layer_count_bound",
+        "ABCUniformMoment20260907.countAbove_eq_filter_length",
+        "ABCUniformMoment20260907.pointwise_complete_excess",
+        "ABCUniformMoment20260907.finite_complete_excess",
+        "ABCUniformMoment20260907.actual_depth_list_budget",
+        "ABCUniformMoment20260907.weighted_complete_prime_budget",
+        "ABCUniformMoment20260907.actual_depth_budget_from_multisets",
+        "ABCUniformMoment20260907.weighted_prime_budget_from_multisets",
+        "ABCUniformMoment20260907.normalized_prime_budget",
+        "ABCUniformMoment20260907.normalized_progression_budget"
+      ]
+    },
+    "PrivateDensityMass": {
+      "source": "research/checkpoints/2026_09_07_adaptive_precision/Lean/PrivateDensityMass.lean",
+      "sha256": "0796e0a4d2d40fc04fcf37a11048215d19aca4b7682d7349ee2f85dfb69ed463",
+      "new": true,
+      "declarations": 11,
+      "queries": [
+        "ABCPrivateDensityMass20260907.actual_cofactor_identity",
+        "ABCPrivateDensityMass20260907.actual_cofactor_discriminant",
+        "ABCPrivateDensityMass20260907.actual_exception_indicator",
+        "ABCPrivateDensityMass20260907.actual_finite_mass_cut",
+        "ABCPrivateDensityMass20260907.actual_private_mass_budget",
+        "ABCPrivateDensityMass20260907.strict_density_numerical_gain",
+        "ABCPrivateDensityMass20260907.positive_half_density_gap",
+        "ABCPrivateDensityMass20260907.finite_error_density_gain",
+        "ABCPrivateDensityMass20260907.actual_density_gain_from_mass",
+        "ABCPrivateDensityMass20260907.actual_density_gain_with_remainders",
+        "ABCPrivateDensityMass20260907.actual_natural_weighted_cutoff"
+      ]
+    },
+    "AdaptiveOwnerArithmetic": {
+      "source": "research/checkpoints/2026_09_07_critical_bottleneck/fourteenth_round/Lean/AdaptiveOwnerArithmetic.lean",
+      "sha256": "9501eb516dac1f78bf1c9d54a16623b4aed7631beb034560f07699c334717e1a",
+      "new": true,
+      "declarations": 12,
+      "queries": [
+        "ABCAdaptiveOwner20260907.cubic_count_bound",
+        "ABCAdaptiveOwner20260907.count_le_two",
+        "ABCAdaptiveOwner20260907.adaptive_ceiling_bounds",
+        "ABCAdaptiveOwner20260907.complete_middle_layers",
+        "ABCAdaptiveOwner20260907.exists_two_maximal",
+        "ABCAdaptiveOwner20260907.two_maximal_contains_deep",
+        "ABCAdaptiveOwner20260907.complete_finite_middle_budget",
+        "ABCAdaptiveOwner20260907.weighted_finite_middle_budget",
+        "ABCAdaptiveOwner20260907.removed_two_cost",
+        "ABCAdaptiveOwner20260907.finite_global_from_two_cost",
+        "ABCAdaptiveOwner20260907.two_stage_ceiling_bounds",
+        "ABCAdaptiveOwner20260907.exists_actual_two_owner_budget"
+      ]
+    },
+    "SimultaneousEllipticArithmetic": {
+      "source": "research/checkpoints/2026_09_07_independent_route/fourteenth_round/Lean/SimultaneousEllipticArithmetic.lean",
+      "sha256": "0f16c95fd1057018c73cd27090543e43938e1258ef35d0ef478675642a921d6b",
+      "new": true,
+      "declarations": 12,
+      "queries": [
+        "ABCSimultaneousElliptic20260907.discriminant_identity",
+        "ABCSimultaneousElliptic20260907.quartic_conic_identity",
+        "ABCSimultaneousElliptic20260907.homogeneous_quartic_conic",
+        "ABCSimultaneousElliptic20260907.actual_homogeneous_conic",
+        "ABCSimultaneousElliptic20260907.square_factor_divides",
+        "ABCSimultaneousElliptic20260907.square_factor_quotient",
+        "ABCSimultaneousElliptic20260907.actual_integer_conic_lift",
+        "ABCSimultaneousElliptic20260907.actual_curve_boundary_unit",
+        "ABCSimultaneousElliptic20260907.conic_cofactor_unit",
+        "ABCSimultaneousElliptic20260907.square_factor_exact_depth",
+        "ABCSimultaneousElliptic20260907.actual_boundary_exact_depth",
+        "ABCSimultaneousElliptic20260907.three_isogeny_rational_identity"
+      ]
+    }
+  },
+  "new_declarations": 35,
+  "dependency_declarations": 15,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "dependency_build_scope": "Pinned Mathlib compiled cache reused; listed source modules freshly compiled.",
+  "not_claimed": [
+    "ABC proof or disproof",
+    "whole repository or Mathlib rebuild",
+    "arithmetic private valuation construction",
+    "finite-ring torsion or lifting",
+    "arbitrary-root signed membership",
+    "divisor asymptotics or sieve",
+    "complete rational locus formalization"
+  ]
+}

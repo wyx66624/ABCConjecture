@@ -1,0 +1,247 @@
+\section{The simultaneous cubic-unit gate on a fixed elliptic curve}
+\label{ssg-section}
+Fix \(g=3,u=\zeta\). Write
+\[
+ A_0=s^3-3s-1,\quad B_0=3s(s+1),\quad A=-B_0,\quad B=A_0+B_0.
+\]
+The smooth projective normalization \(D=D_{3,\zeta}\) of
+\begin{equation}\label{ssg-source}
+ v^2=1+r(s),\qquad w^2=1-3r(s),\qquad r=A/B
+\end{equation}
+has genus six by HG. Its positive rational locus is
+\(0<r<1/3,\ v>0\); its seed parameter is \(t=(v+w+2)/(v-w)>1\).
+Both square roots must have the same \(s\). Their quotient coordinates are
+\[
+ y_1=Bv,\quad y_1^2=A_0(A_0+B_0),\qquad
+ y_2=Bw,\quad y_2^2=(A_0+B_0)(A_0+4B_0).
+\]
+
+\begin{theorem}[A quartic over the fixed elliptic quotient]\label{ssg-quartic}
+Put
+\begin{align*}
+ f&=X^3-9X-9,& h&=X+2,\\
+ H&=f+18h^2=X^3+18X^2+63X+63,&
+ R&=f-108h^2=X^3-108X^2-441X-441,\\
+ J&=6Xh,& d&=4X+9.
+\end{align*}
+Over \(E:Y^2=f(X)\), the equation
+\begin{equation}\label{ssg-equation}
+ Z^4-2H(X)Z^2+f(X)R(X)=0
+\end{equation}
+has smooth projective normalization isomorphic over \(\mathbb Q\) to
+\(D\). It is geometrically connected of genus six and has degree four over \(E\).
+\end{theorem}
+\begin{proof}
+On \(s\ne-1\), define
+\begin{align}
+ X&=-\frac{2s^2+5s+2}{(s+1)^2},&
+ Y&=\frac{y_1}{(s+1)^3},&
+ Z&=\frac{y_2}{(s+1)^3},\label{ssg-forward}\\
+ \kappa&=\frac{s-1}{s+1},&
+ \gamma&=\frac{A_0+B_0}{(s+1)^3}.&&\notag
+\end{align}
+The first quotient identity gives \(Y^2=f\). Clearing denominators gives
+\begin{align}
+ \kappa^2&=d,& \frac{B_0}{(s+1)^3}&=-3h,
+ &\gamma&=\frac{-X\kappa-3h}{2},\label{ssg-gamma}\\
+ Y^2&=\gamma^2+3h\gamma,&
+ Z^2&=\gamma^2-9h\gamma=H+J\kappa.&&\notag
+\end{align}
+Indeed \(A_0/(s+1)^3=\gamma+3h\). Multiplying the normalized
+cubic factors proves the square formulas; their sum is \(-X\kappa\).
+Expansion gives
+\begin{equation}\label{ssg-discriminant}
+ H^2-fR=J^2d.
+\end{equation}
+Eliminating \(\kappa\) proves the quartic.
+Conversely, on the open with nonzero denominators, put
+\begin{equation}\label{ssg-inverse}
+ \kappa=\frac{Z^2-H}{J},\quad
+ s=\frac{1+\kappa}{1-\kappa},\quad
+ y_1=Y(s+1)^3,\quad y_2=Z(s+1)^3.
+\end{equation}
+The quartic and \eqref{ssg-discriminant} imply \(\kappa^2=d\).
+The identities \eqref{ssg-gamma} recover the original two equations
+at this same \(s\). The maps are inverse on nonempty dense opens.
+
+The maps \(D\to H_1\) and \(H_1\to E\) both have degree two.
+Thus \(\mathbb Q(D)/\mathbb Q(E)\) has degree four; the inverse
+formulas show that \(Z\) generates it. The monic quartic is its
+minimal polynomial. The same argument over the algebraic closure
+proves geometric irreducibility. The function-field isomorphism
+extends to the smooth projective models by \cite{StacksCurves2026},
+Lemma 53.2.2 and Theorem 53.2.6.
+\end{proof}
+
+\begin{theorem}[The exact positive rational domain]\label{ssg-positive}
+The positive rational locus of \(D\) is in bijection with the rational
+triples satisfying
+\begin{equation}\label{ssg-positive-test}
+ Y^2=f(X),\quad Z^4-2HZ^2+fR=0,\quad
+ 0<Z^2<R(X),\quad Y(X+2)>0.
+\end{equation}
+This is a bijection of curve points with their power-map parameter,
+not a claim of a unique such point above each integer seed at \(g=3\).
+\end{theorem}
+\begin{proof}
+For a positive point, \(s=-1\) and \(s=\infty\) are impossible:
+both have homogeneous \(r\)-value zero. Hence \eqref{ssg-forward}
+is defined. Here \(r=3h/\gamma,\ v=Y/\gamma,\ w=Z/\gamma\), and
+\begin{equation}\label{ssg-delta}
+ \Delta:=Y^2-Z^2=12h\gamma,\qquad r=\frac{36h^2}{\Delta}.
+\end{equation}
+The value \(h=0\) forces \(s=0\) or \(\infty\) in the EQ
+projective abscissa relation, again with \(r=0\). Thus \(0<r<1/3\)
+implies \(\Delta>108h^2>0\) and \(Z^2<R\).
+A rational positive point cannot have \(w=0\), since this would give
+\(3v^2=4\). Therefore \(Z^2>0\). Since \(\gamma\) and \(h\) have
+the same sign, positivity of \(v\) is exactly \(Yh>0\).
+
+Conversely assume \eqref{ssg-positive-test}. The value \(X=0\) is
+impossible because \(f(0)=-9\). At \(X=-2\), one has
+\(f=H=R=1,J=0\); the quartic becomes \((Z^2-1)^2=0\), inconsistent
+with \(0<Z^2<R\). Thus \(J\ne0\).
+Formula \eqref{ssg-inverse} gives rational \(\kappa\) with
+\(\kappa^2=4X+9\). Neither \(\kappa=1\) nor \(-1\) occurs,
+since either would force \(X=-2\). The resulting \(s\) is finite
+and not \(-1\), and both hyperelliptic equations hold there. Set
+\begin{equation}\label{ssg-positive-inverse}
+ \Delta=f-Z^2,\quad \gamma=\frac{\Delta}{12h},\quad
+ v=\frac{Y}{\gamma},\quad w=\frac{Z}{\gamma}.
+\end{equation}
+The inequality gives \(\Delta>108h^2>0\).
+Equations \eqref{ssg-gamma} recover the normalized \(B\)-coordinate
+\(\gamma\), so \(r=36h^2/\Delta\in(0,1/3)\);
+\(Yh>0\) makes \(v>0\). Equivalently the quartic rearranges to
+\begin{equation}\label{ssg-conic}
+ (f-Z^2)^2=36h^2(3f+Z^2),
+\end{equation}
+giving \(3v^2+w^2=4\). These constructions are inverse.
+
+The point \(O\) of \(E\) corresponds to \(s=-1\), outside the positive
+locus. The repeated-discriminant value \(X=-9/4\) is not in
+\(E(\mathbb Q)\), since \(f(-9/4)=-9/64\).
+Positivity avoids all HG branch values; normalization therefore
+introduces no extra choice of local branch in this bijection.
+\end{proof}
+Together with CI and RL, this is a sufficient as well as necessary
+test for the actual unit-\(\zeta\) first-square/second-cube branch.
+A triple passing the test reconstructs the seed through \(t\).
+No such triple is asserted to exist. The two signs of \(Z\)
+retain the ordered seed directions.
+
+\begin{theorem}[Integral factorization and exact prime depth]\label{ssg-integral}
+Write a point of \eqref{ssg-positive-test} in primitive coordinates
+\[
+ X=A/d_0^2,\quad Y=B/d_0^3,\quad d_0>0,\quad
+ \gcd(A,d_0)=\gcd(B,d_0)=1.
+\]
+Then \(C=Zd_0^3\in\mathbb Z\). With \(K=A+2d_0^2\ne0\),
+\begin{align}
+ B^2&=A^3-9Ad_0^4-9d_0^6,\notag\\
+ (B^2-C^2)^2&=36d_0^2K^2(3B^2+C^2),\label{ssg-integral-conic}\\
+ L:=\frac{B^2-C^2}{6d_0K}&\in\mathbb Z,\qquad
+ L^2=3B^2+C^2.\notag
+\end{align}
+Every prime \(p>3\) dividing \(d_0K\) satisfies
+\begin{equation}\label{ssg-exact-depth}
+ v_p(B^2-C^2)=v_p(d_0K),\qquad p\nmid BCL.
+\end{equation}
+The entire \(p\)-primary part of \(d_0K\) divides exactly one of
+\(B-C\) and \(B+C\), with no excess depth there.
+\end{theorem}
+\begin{proof}
+The coordinates exist: at a prime of negative \(X\)-valuation,
+the cubic term is uniquely smallest in the equation, so that
+valuation is even and the \(Y\)-denominator exponent is three
+times the corresponding half-exponent. Elsewhere \(Y\) is integral.
+Both \(H_0=d_0^6H(A/d_0^2)\) and \(R_0=d_0^6R(A/d_0^2)\) are integers.
+Clearing the quartic makes \(C\) a rational root of the monic polynomial
+\[
+ C^4-2H_0C^2+B^2R_0=0,
+\]
+so it is an integer. Clearing \eqref{ssg-conic} gives
+\eqref{ssg-integral-conic}. The square of the nonzero integer \(6d_0K\)
+divides \((B^2-C^2)^2\); prime valuations imply
+\(6d_0K\mid B^2-C^2\), and hence the assertions about \(L\).
+
+One has \(\gcd(d_0,K)=1\). If \(p\mid d_0\), then
+\(B^2\equiv A^3\not\equiv0\pmod p\).
+If \(p\mid K\), then \(d_0\) is a unit and
+\(A\equiv-2d_0^2\), giving \(B^2\equiv d_0^6\not\equiv0\pmod p\).
+In either case \eqref{ssg-integral-conic} forces
+\(C^2\equiv B^2\pmod p\). Thus \(3B^2+C^2\equiv4B^2\) is a unit
+for \(p>3\). Taking valuations proves \eqref{ssg-exact-depth},
+and the equation for \(L\) gives \(p\nmid L\).
+Such an odd prime cannot divide both \(B-C\) and \(B+C\);
+their product is \(B^2-C^2\), proving the allocation.
+\end{proof}
+This necessary factorization gives no upper bound for \(A,d_0\)
+or the point height, and does not force a prime violating the allocation.
+
+\begin{theorem}[A three-isogeny between the elliptic quotients]\label{ssg-isogeny}
+For the curves in \eqref{eqg-elliptic-curves}, put
+\[
+ F_3(X)=X+\frac{36}{X+3}-\frac{36}{(X+3)^2},\qquad
+ F'_3(X)=1-\frac{36}{(X+3)^2}+\frac{72}{(X+3)^3}.
+\]
+The chart map
+\begin{equation}\label{ssg-isogeny-map}
+ \phi:E\longrightarrow E',\qquad
+ (X,Y)\longmapsto(F_3(X),YF'_3(X))
+\end{equation}
+extends to a degree-three isogeny over \(\mathbb Q\), with geometric
+kernel \(\{O,(-3,3i),(-3,-3i)\}\). Consequently
+\(\operatorname{Jac}(H_1)\sim_{\mathbb Q}E\times E\).
+\end{theorem}
+\begin{proof}
+Clearing \((X+3)^6\) verifies
+\begin{equation}\label{ssg-isogeny-identity}
+ f(X)F'_3(X)^2=F_3(X)^3-189F_3(X)+999.
+\end{equation}
+The nonconstant rational map extends between the smooth projective
+curves. At \(O\), \(F_3(X)\) has leading term \(X\), so \(O\)
+maps to \(O\). The origin-preserving morphism theorem
+(Milne, \emph{Elliptic Curves}, Chapter II, Proposition 1.5)
+makes it a homomorphism.
+The numerator of \(F_3\) is cubic, its denominator is \((X+3)^2\),
+and the numerator at \(-3\) is \(-36\). Thus its degree on
+\(\mathbb P^1\) is three. Both elliptic abscissa maps have degree
+two; their commutative diagram gives \(\deg\phi=3\).
+The poles are exactly \(O\) and the two points \(X=-3,Y^2=-9\);
+these are the preimages of \(O\).
+Composition with the established EQ isogeny proves the final assertion.
+\end{proof}
+For \(P=(-2,1)\), \(P'=(6,9)\), one has
+\[
+ \phi(P)=(-2,37)=-3P'.
+\]
+Indeed \(2P'=(33/4,9/8)\); its secant with \(P'\) has slope
+\(-7/2\), giving \(3P'=(-2,-37)\).
+Neither this identity nor the isogeny certifies a rank upper bound,
+a full Mordell--Weil basis, or the rational points passing
+\eqref{ssg-positive-test}.
+
+\paragraph{Verification and remaining scope.}
+Both peer routes and the root group reviewed the ordinary proofs
+in full. An exact standard-library replay checks fifteen polynomial
+identities and the displayed point relation. It also checks the
+eighty specified points \(nP\), \(1\leq |n|\leq40\), and their isogeny
+images; none passes the positive gate. This bounded check is not a
+complete group or rational-point computation.
+The twelve declarations in \texttt{SimultaneousEllipticArithmetic}
+also passed fresh compilation and all axiom queries with only the
+standard axioms. They prove the actual polynomial identities,
+the homogeneous elliptic/quartic-to-conic implication, integer
+square divisibility and its quotient, and the boundary unit from
+\(\operatorname{Int.gcd}(A,d_0)=1\). These are combined to prove
+the full product-depth equality in \eqref{ssg-exact-depth} from
+the actual homogeneous equations and stated prime hypotheses,
+without a supplied depth or unit conclusion. The rational
+three-isogeny identity is formalized as well.
+The monic rational-to-integer bridge, primitive rational-coordinate
+representation, projective point bijection, geometric isogeny
+degree/kernel, Jacobian statement and final allocation to one of
+the two linear factors remain ordinary-only.
+The simultaneous rational-point problem remains unresolved, as do
+the other nonidentity unit and the general ABC statement.

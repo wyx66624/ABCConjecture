@@ -1,0 +1,10 @@
+import FinalCheck
+
+/- This intended full bridge has NOT been compiled locally.
+It belongs to the separate official Lean 4.33.1 environment, not the ABC build. -/
+theorem abc_full_flt (n : ℕ) (hn : 3 ≤ n) (a b c : ℕ)
+    (ha : a ≠ 0) (hb : b ≠ 0) (hc : c ≠ 0) : a ^ n + b ^ n ≠ c ^ n :=
+  flt_mathlib n hn a b c ha hb hc
+
+#print axioms flt_mathlib
+#print axioms abc_full_flt

@@ -1,0 +1,50 @@
+name: Adaptive precision and simultaneous elliptic verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research/checkpoints/2026_09_07_adaptive_precision/**'
+      - 'research/checkpoints/2026_09_07_critical_bottleneck/fourteenth_round/**'
+      - 'research/checkpoints/2026_09_07_adversarial_audit/fourteenth_round/**'
+      - 'research/checkpoints/2026_09_07_independent_route/fourteenth_round/**'
+      - 'research/checkpoints/2026_09_07_critical_bottleneck/thirteenth_round/Lean/UniformMomentArithmetic.lean'
+      - 'Lean/lean-toolchain'
+      - '.github/workflows/abc-adaptive-precision.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  actual-owners-density-and-depth:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Install the pinned compiler
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: 'false'
+          build: 'false'
+          use-mathlib-cache: 'false'
+      - name: Prepare a Mathlib-only dependency project
+        run: python3 research/checkpoints/2026_09_07_adaptive_precision/prepare_mathlib_project.py
+      - name: Resolve exact Mathlib and restore required imports
+        working-directory: tmp/abc_20260907/adaptive-precision-ci-project
+        run: |
+          lake update
+          lake exe cache get Mathlib.Tactic Mathlib.Data.Finset.Max Mathlib.Algebra.Order.Floor.Ring Mathlib.Analysis.SpecialFunctions.Log.Basic Mathlib.NumberTheory.Padics.PadicVal.Basic Mathlib.Algebra.BigOperators.Group.Finset.Piecewise
+      - name: Fresh 35 new and 15 dependency declarations with complete axiom audit
+        run: python3 research/checkpoints/2026_09_07_adaptive_precision/verify_mathlib.py --project tmp/abc_20260907/adaptive-precision-ci-project
+      - name: Two exact simultaneous elliptic replays
+        run: python3 research/checkpoints/2026_09_07_adaptive_precision/verify_finite.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: adaptive-precision-and-elliptic-evidence
+          path: |
+            research/checkpoints/2026_09_07_adaptive_precision/verification/mathlib_validation.json
+            research/checkpoints/2026_09_07_adaptive_precision/verification/fresh-mathlib-build.log
+            research/checkpoints/2026_09_07_adaptive_precision/verification/finite_replay_validation.json
