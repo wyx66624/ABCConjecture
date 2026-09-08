@@ -1,0 +1,239 @@
+\section{Rational simplicity and positive rank of the remaining genus-two factors}
+\label{qs-section}
+
+This section gives reviewed ordinary proofs, supported by complete finite
+tables. It gives no upper rank or complete rational-point classification.
+For the fixed branch \(g=3,u=\zeta\), put
+\[
+ f_t(s)=s^3+3ts^2+(3t-3)s-1,
+ \qquad
+ H_1:y^2=f_0f_1,\quad H_2:y^2=f_1f_4,\quad H_3:y^2=f_0f_4.
+\]
+All curves mean their smooth projective models, and
+\(J_j=\operatorname{Jac}(H_j)\). These are the three actual quotients
+of Section~\ref{hg-section}.
+
+\begin{theorem}[Order-three symmetry and even ranks]\label{qs-symmetry}
+Each \(H_j\) has a rational automorphism of exact order three
+\[
+ \sigma(s,y)=\left(-\frac1{s+1},-\frac{y}{(s+1)^3}\right).
+\]
+Its quotient has genus zero. There is an embedding
+\(\mathbb Q(\sqrt{-3})\hookrightarrow
+\operatorname{End}_{\mathbb Q}(J_j)\otimes\mathbb Q\), and
+\(\operatorname{rank}J_j(\mathbb Q)\) is even.
+\end{theorem}
+\begin{proof}
+For every \(t\), homogeneous substitution gives
+\[
+ (s+1)^3 f_t\!\left(-\frac1{s+1}\right)=-f_t(s).
+\]
+The matrix \(\left(\begin{smallmatrix}0&-1\\1&1\end{smallmatrix}\right)\)
+has cube \(-I\), and the weight-three ordinate transformation has the
+corresponding sign, so \(\sigma^3=1\). Its action on \(s\) is nontrivial.
+The map extends to an automorphism of the smooth projective curve,
+including \(s=-1\) and infinity.
+
+Set \(A=-3s(s+1), B=f_1(s), r=A/B\). The two homogeneous cubic
+coordinates transform by the same factor. The invariant ordinate
+\(y/B\) satisfies, for the three curves respectively,
+\[
+ v^2=1+r,\qquad w^2=1-3r,\qquad z^2=(1+r)(1-3r).
+\]
+Since \(s\mapsto r\) has degree three, the extensions of these conic
+function fields have degree at most three; the automorphism of order
+three forces equality. These are therefore the fixed fields. Each conic
+is smooth of genus zero and has the rational point \((r,\text{ordinate})=(0,1)\).
+The norm followed by pullback factors through its zero Jacobian and is
+\(1+\sigma_*+\sigma_*^2\). Thus \(\sigma_*\) satisfies \(X^2+X+1=0\).
+The associated unital map from the quadratic field is injective.
+It makes \(J_j(\mathbb Q)\otimes\mathbb Q\) a vector space over that
+field, proving that its rational dimension is even, including rank zero.
+\end{proof}
+
+\begin{theorem}[Exact certificates at five]\label{qs-five}
+The curves \(H_2,H_3\) have good reduction at five, with counts
+\[
+\begin{array}{c|rr}
+ &\#H(\mathbb F_5)&\#H(\mathbb F_{25})\\\hline
+ H_2&6&36\\ H_3&6&12
+\end{array}
+\]
+Their Jacobian Frobenius characteristic polynomials are
+\begin{equation}\label{qs-five-polynomials}
+ P_2(X)=X^4+5X^2+25,\qquad P_3(X)=X^4-7X^2+25.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The discriminant of \(f_t\) is \(81(t^2-t+1)^2\), nonzero modulo
+five for \(t=0,1,4\). Distinct chosen factors differ by
+\(3(t-u)s(s+1)\), with nonzero coefficient, and have values \(-1,1\)
+at \(s=0,-1\). Hence their products have six distinct geometric roots
+modulo five. Their leading coefficient is one. In the infinity chart
+the two points have ordinate \(\pm1\) and are smooth. The two standard
+hyperelliptic charts give a smooth proper model over \(\mathbb Z_5\),
+and its Jacobian has good reduction.
+
+The sextic values for \(s=0,1,2,3,4\) are respectively
+\[
+ [1,3,2,3,1],\qquad[1,2,3,2,1].
+\]
+In both cases the character sum is \(1-1-1-1+1=-1\); adding the
+five affine baseline fibres and two points at infinity gives six.
+Here is the complete extension-field certificate. In
+\(\mathbb F_{25}=\mathbb F_5[\omega]\), \(\omega^2=2\), rows below
+index \(b=0,\ldots,4\) and columns \(a=0,\ldots,4\), for inputs
+\(a+b\omega\). The entries are quadratic characters of the sextic values:
+\[
+\begin{array}{c@{\qquad}c}
+ H_2&H_3\\[2pt]
+ \begin{pmatrix}
+ 1&1&1&1&1\\1&1&-1&1&1\\1&-1&-1&-1&1\\
+ 1&-1&-1&-1&1\\1&1&-1&1&1
+ \end{pmatrix}
+ &
+ \begin{pmatrix}
+ 1&1&1&1&1\\-1&-1&-1&-1&-1\\-1&-1&-1&-1&-1\\
+ -1&-1&-1&-1&-1\\-1&-1&-1&-1&-1
+ \end{pmatrix}
+\end{array}
+\]
+Their sums are \(9,-15\), giving \(25+9+2=36\) and
+\(25-15+2=12\). These entries can be checked using the Legendre
+symbol of \(a^2-2b^2\): the norm-character identity is
+\(\chi_{25}(x)=x^{12}=N_{25/5}(x)^2\), including the zero convention.
+There are no zero entries in these two tables.
+
+For \(S_1=6-\#H(\mathbb F_5)\), \(S_2=26-\#H(\mathbb F_{25})\),
+the curve/Jacobian trace formula and Newton's identity give
+\[
+ P(X)=X^4-S_1X^3+\frac{S_1^2-S_2}{2}X^2-5S_1X+25.
+\]
+Here \(S_1=0\) and \(S_2=-10,14\), proving
+\eqref{qs-five-polynomials}. The standard trace and good-Jacobian
+reduction inputs are \cite[Theorem~11.1, Corollaries~11.4 and~12.3]{MilneJV2021}.
+\end{proof}
+
+\begin{theorem}[No rational elliptic factors]\label{qs-simple}
+Both \(J_2,J_3\) are simple over \(\mathbb Q\) and are not
+\(\mathbb Q\)-isogenous to each other. Neither \(H_2\) nor \(H_3\)
+has a nonconstant morphism over \(\mathbb Q\) to a genus-one curve.
+\end{theorem}
+\begin{proof}
+If one of these abelian surfaces were not simple over \(\mathbb Q\),
+Poincare reducibility over the ground field would give an isogeny to
+\(E_a\times E_b\). Its good reduction at five, the rational Tate-module
+decomposition and the Neron--Ogg--Shafarevich criterion give good reduction
+at five for both elliptic factors; see
+\cite[I, Proposition~10.1; IV, Theorem~3.5 and Corollary~3.6]{MilneAVQS}.
+Writing their integer traces as \(a,b\) would give
+\[
+ P_j(X)=(X^2-aX+5)(X^2-bX+5).
+\]
+The cubic coefficient implies \(b=-a\), and the quadratic coefficient
+is then \(10-a^2\). For \(j=2\) one obtains \(a^2=5\); for \(j=3\),
+\(a^2=17\). Neither is possible for an integer.
+
+A nonconstant genus-one quotient induces a surjection from \(J_j\)
+to a dimension-one Jacobian, contrary to simplicity. One may also use
+the rational infinity point on \(H_j\) to identify the target with its
+elliptic Jacobian. An isogeny between \(J_2,J_3\) would identify their
+rational Tate modules and hence their polynomials at five, which differ.
+\end{proof}
+
+This is simplicity over \(\mathbb Q\), not absolute simplicity.
+Combining Sections~\ref{hg-section} and~\ref{gd-section} gives
+\begin{gather}\label{qs-decomposition}
+ \operatorname{Jac}(D_{3,\zeta})\sim_{\mathbb Q}E^2\times J_2\times J_3,
+ \\
+ \operatorname{rank}\operatorname{Jac}(D_{3,\zeta})(\mathbb Q)
+ =2+\operatorname{rank}J_2(\mathbb Q)+\operatorname{rank}J_3(\mathbb Q).
+\end{gather}
+There are no rational elliptic factors for the two remaining surfaces;
+working over an extension field or directly with those surfaces remains
+possible. This does not yet determine their ranks or the simultaneous
+positive source locus.
+
+\begin{theorem}[Trivial torsion and rank at least six]\label{qs-rank-lower}
+Both \(J_2(\mathbb Q)\) and \(J_3(\mathbb Q)\) have trivial torsion
+and rank at least two. The genus-six Jacobian in
+\eqref{qs-decomposition} therefore has rank at least six.
+\end{theorem}
+\begin{proof}
+The discriminants and factor differences used above also prove good
+reduction at seven. The sextic values at \(s=0,\ldots,6\) are
+\[
+ H_2:[1,0,1,0,3,0,1],\qquad H_3:[1,0,3,0,1,0,1].
+\]
+Both character sums are two and both curve counts are eleven.
+For a complete check over \(\mathbb F_{49}=\mathbb F_7[\omega]\),
+\(\omega^2=3\), the character tables, with rows \(b\) and columns
+\(a\) in \(a+b\omega\), are
+\[
+\begin{array}{c@{\quad}c}
+ H_2&H_3\\[2pt]
+ \begin{pmatrix}
+ 1&0&1&0&1&0&1\\
+ 1&-1&1&1&1&-1&1\\
+ 1&-1&-1&-1&1&1&1\\
+ -1&-1&1&-1&1&1&-1\\
+ -1&-1&1&-1&1&1&-1\\
+ 1&-1&-1&-1&1&1&1\\
+ 1&-1&1&1&1&-1&1
+ \end{pmatrix}
+ &
+ \begin{pmatrix}
+ 1&0&1&0&1&0&1\\
+ 1&-1&1&1&1&-1&1\\
+ 1&1&1&-1&-1&-1&1\\
+ -1&1&1&-1&1&-1&-1\\
+ -1&1&1&-1&1&-1&-1\\
+ 1&1&1&-1&-1&-1&1\\
+ 1&-1&1&1&1&-1&1
+ \end{pmatrix}
+\end{array}
+\]
+Both sums are ten, and \(\#H_j(\mathbb F_{49})=49+10+2=61\).
+The norm-character rule now uses \(a^2-3b^2\) modulo seven. Newton's
+identities give in both cases
+\[
+ P_7(X)=X^4+3X^3+10X^2+21X+49,\qquad \#J_j(\mathbb F_7)=84.
+\]
+At five, \eqref{qs-five-polynomials} gives
+\(\#J_2(\mathbb F_5)=31\), \(\#J_3(\mathbb F_5)=19\).
+Prime-to-\(p\) rational torsion injects into the special fibre at a
+good prime \(p\), by the finite etale multiplication kernels and
+smooth proper base change (equivalently the specialization used in
+\cite[IV, Theorem~3.5]{MilneAVQS}). For a torsion prime other than five
+or seven its full primary order must divide both \(84\) and \(31\),
+or both \(84\) and \(19\), impossible. Five-primary torsion is excluded
+at seven, and seven-primary torsion is excluded at five. All rational
+torsion therefore vanishes.
+
+On either \(H_j\), let \(P=(0,1)\) and let \(Q=\infty_+\) have
+leading ordinate \(+1\). The class \([P-Q]\) is nonzero. Otherwise a
+function with precisely the single simple pole \(Q\) would define a
+degree-one map to \(\mathbb P^1\), contrary to genus two. With torsion
+zero this class has infinite order. The rank is positive and, by
+Theorem~\ref{qs-symmetry}, even, hence at least two. Formula
+\eqref{qs-decomposition} completes the proof.
+\end{proof}
+
+These are lower bounds. They prevent directly using the classical strict
+rank-less-than-genus condition on \(D_{3,\zeta},H_2,H_3\); they do not
+exclude quadratic Chabauty, further descent, or methods over extension
+fields. No upper rank, Mordell--Weil basis, point-height bound or positive
+seed follows from these tables.
+
+\paragraph{Finite verification and ordinary scope.}
+The standard-library program
+\texttt{replay\_\allowbreak rational\_\allowbreak simple\_\allowbreak
+quotients.py --check} regenerates the
+complete four curve/prime certificate, directly counting square fibres
+and comparing them with norm-character tables. Its canonical SHA-256 is
+\texttt{6ba65a743aa19081\allowbreak 9b6d3b43c7e357d0\allowbreak
+f5aacb1e53508078\allowbreak cab882a46f240883}.
+Both peers independently recomputed the finite counts. The Jacobian,
+Frobenius, simplicity and Mordell--Weil conclusions are the ordinary
+arguments above with their cited inputs; finite arithmetic is not a
+formal proof of the complete geometric conclusions.

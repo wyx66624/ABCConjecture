@@ -1,0 +1,136 @@
+{
+  "status": "PASS: fresh scoped source compilation and complete axiom audit",
+  "compiler": "Lean (version 4.32.0, x86_64-w64-windows-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "modules": {
+    "EisensteinDescent": {
+      "source": "research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean",
+      "sha256": "e5e15c14c4771fcf6bffd1d87bac67d23895cf02f40606188b2059d4cf3c944e",
+      "new": false,
+      "declarations": 29,
+      "queries": [
+        "ABCEisenstein20260905.mul_comm",
+        "ABCEisenstein20260905.mul_assoc",
+        "ABCEisenstein20260905.mul_one",
+        "ABCEisenstein20260905.norm_mul",
+        "ABCEisenstein20260905.conjugate_product",
+        "ABCEisenstein20260905.rotate_boundary",
+        "ABCEisenstein20260905.rotate_norm",
+        "ABCEisenstein20260905.norm_height_identity",
+        "ABCEisenstein20260905.inverse_numerators",
+        "ABCEisenstein20260905.boundary_remainder_x",
+        "ABCEisenstein20260905.boundary_remainder_y",
+        "ABCEisenstein20260905.boundary_remainder_sum",
+        "ABCEisenstein20260905.step_is_mul",
+        "ABCEisenstein20260905.step_norm",
+        "ABCEisenstein20260905.orbit_norm",
+        "ABCEisenstein20260905.orbit_add",
+        "ABCEisenstein20260905.orbit_six",
+        "ABCEisenstein20260905.orbit_six_shift",
+        "ABCEisenstein20260905.orbit_mod_four",
+        "ABCEisenstein20260905.orbit_mod_seven",
+        "ABCEisenstein20260905.cubic_coordinate",
+        "ABCEisenstein20260905.boundary_step_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_recurrence",
+        "ABCEisenstein20260905.orbit_boundary_lucas",
+        "ABCEisenstein20260905.cubic_difference",
+        "ABCEisenstein20260905.orbit_cubic_difference",
+        "ABCEisenstein20260905.exact_small_orbits",
+        "ABCEisenstein20260905.boundary_factor_certificates",
+        "ABCEisenstein20260905.defect_ratio_increases"
+      ]
+    },
+    "ActualGramRigidity": {
+      "source": "research/checkpoints/2026_09_07_signed_moment_descent/Lean/ActualGramRigidity.lean",
+      "sha256": "611ab6ef50b8aade57b2173b6de73199b285fcc938e5f12fa8832069fd1adb1e",
+      "new": false,
+      "declarations": 4,
+      "queries": [
+        "ABCGramRigidity20260907.actual_norm_nonnegative",
+        "ABCGramRigidity20260907.actual_gram_identity",
+        "ABCGramRigidity20260907.actual_determinant_square_bound",
+        "ABCGramRigidity20260907.actual_determinant_zero_of_modulus"
+      ]
+    },
+    "ActualSignedProducts": {
+      "source": "research/checkpoints/2026_09_07_signed_moment_descent/Lean/ActualSignedProducts.lean",
+      "sha256": "0a184dda6e4a5979a16e42b0ec7a6908bb54ad1959b5281f3790994ef9429ddd",
+      "new": false,
+      "declarations": 12,
+      "queries": [
+        "ABCActualSignedProducts20260907.private_signed_valuation",
+        "ABCActualSignedProducts20260907.private_signed_coordinates_equal",
+        "ABCActualSignedProducts20260907.private_signed_product_injective",
+        "ABCActualSignedProducts20260907.actual_unit_normalized_injective",
+        "ABCActualSignedProducts20260907.actual_finite_signed_capacity",
+        "ABCActualSignedProducts20260907.actual_diamond_card",
+        "ABCActualSignedProducts20260907.actual_diamond_coordinates_injective",
+        "ABCActualSignedProducts20260907.absolute_sum_le_of_four_corners",
+        "ABCActualSignedProducts20260907.actual_diamond_radius",
+        "ABCActualSignedProducts20260907.actual_pair_vector_injective",
+        "ABCActualSignedProducts20260907.actual_private_diamond_injective",
+        "ABCActualSignedProducts20260907.actual_diamond_target_capacity"
+      ]
+    },
+    "JointPhasePackets": {
+      "source": "research/checkpoints/2026_09_07_joint_packets_and_jacobians/Lean/JointPhasePackets.lean",
+      "sha256": "50f85007b8fcfbd082b672f6ee0a209df8122b6f7d3968f3a4113c854aa3be22",
+      "new": true,
+      "declarations": 10,
+      "queries": [
+        "ABCJointPhasePackets20260907.actual_phase_addition",
+        "ABCJointPhasePackets20260907.actual_phase_norm",
+        "ABCJointPhasePackets20260907.cubic_discriminant_identity",
+        "ABCJointPhasePackets20260907.actual_phase_product_square_bound",
+        "ABCJointPhasePackets20260907.actual_phase_zero_of_modulus",
+        "ABCJointPhasePackets20260907.phase_divisor_dvd_product",
+        "ABCJointPhasePackets20260907.coprime_phase_moduli_dvd",
+        "ABCJointPhasePackets20260907.joint_phase_injective",
+        "ABCJointPhasePackets20260907.joint_phase_capacity",
+        "ABCJointPhasePackets20260907.private_independence_through_cube_kernel"
+      ]
+    },
+    "QuotientCurveArithmetic": {
+      "source": "research/checkpoints/2026_09_07_joint_packets_and_jacobians/Lean/QuotientCurveArithmetic.lean",
+      "sha256": "c1c62d326a1e72bfcbd3a16f25689d9e91c7cf30d1088f49bfb28c2ad353910a",
+      "new": true,
+      "declarations": 17,
+      "queries": [
+        "ABCQuotientCurveArithmetic20260907.actual_cubic_symmetry",
+        "ABCQuotientCurveArithmetic20260907.actual_mobius_cube",
+        "ABCQuotientCurveArithmetic20260907.actual_cubic_difference",
+        "ABCQuotientCurveArithmetic20260907.h2_five_base",
+        "ABCQuotientCurveArithmetic20260907.h3_five_base",
+        "ABCQuotientCurveArithmetic20260907.h2_five_quadratic",
+        "ABCQuotientCurveArithmetic20260907.h3_five_quadratic",
+        "ABCQuotientCurveArithmetic20260907.h2_seven_base",
+        "ABCQuotientCurveArithmetic20260907.h3_seven_base",
+        "ABCQuotientCurveArithmetic20260907.h2_seven_quadratic",
+        "ABCQuotientCurveArithmetic20260907.h3_seven_quadratic",
+        "ABCQuotientCurveArithmetic20260907.five_not_integer_square",
+        "ABCQuotientCurveArithmetic20260907.seventeen_not_integer_square",
+        "ABCQuotientCurveArithmetic20260907.h2_trace_factor_obstruction",
+        "ABCQuotientCurveArithmetic20260907.h3_trace_factor_obstruction",
+        "ABCQuotientCurveArithmetic20260907.actual_frobenius_arithmetic",
+        "ABCQuotientCurveArithmetic20260907.actual_torsion_divisor_obstructions"
+      ]
+    }
+  },
+  "new_declarations": 27,
+  "dependency_declarations": 45,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "dependency_build_scope": "Pinned Mathlib compiled cache reused; listed source modules freshly compiled.",
+  "not_claimed": [
+    "ABC proof or disproof",
+    "whole repository or Mathlib rebuild",
+    "actual modular phase-collision and signed-product separation constructions",
+    "finite-ring torsion or lifting",
+    "arbitrary-root signed membership",
+    "divisor asymptotics or sieve",
+    "complete rational locus formalization"
+  ]
+}

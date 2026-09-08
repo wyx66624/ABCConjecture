@@ -1,0 +1,155 @@
+\section{A prime-independent quotient and combined-precision packets}
+\label{sec-jp-packets}
+
+Let \(n>324\) be prime, \(B=n^4\), \(L=\log(8B)\), and
+\[
+ K=\mathbb Q(\zeta),\qquad \zeta^2-\zeta+1=0,\qquad
+ w_k=3k+\zeta,\qquad \alpha_k=w_k/\bar w_k
+ \quad(B\le k<2B).
+\]
+Here the indices are integers. Fix a subset \(I\) on which the actual
+\(\alpha_k\) are multiplicatively independent, and write
+\[
+ w_k^n=A_k+C_k\zeta,\qquad
+ T_k=\lvert A_kC_k(A_k+C_k)\rvert .
+\]
+The previously proved primitive-power arithmetic makes these three arms
+nonzero and pairwise coprime. Put
+\[
+ G=\{z\in K^\times:z\bar z=1\},\qquad
+ \mu_3=\{1,\zeta^2,\zeta^4\},\qquad a_k=[\alpha_k]\in G/\mu_3.
+\]
+This section keeps a single actual quotient while using distinct finite
+reductions. It does not estimate the number or total weight of different
+primes with different owners.
+
+\begin{lemma}[Actual quotient and finite reductions]
+\label{jp-quotient}
+The elements \(a_k\), \(k\in I\), are multiplicatively independent.
+For every prime \(q>8B\) and positive integer \(e\), the quotient of the
+norm-one residue group modulo \(q^e\) by its embedded \(\mu_3\) has an
+\(n\)-torsion subgroup of cardinality at most \(n\).
+If \(q^e\mid T_k\), the actual element \(a_k\) reduces into this subgroup.
+\end{lemma}
+\begin{proof}
+A relation \(\prod_k\alpha_k^{x_k}\in\mu_3\) becomes
+\(\prod_k\alpha_k^{3x_k}=1\) after cubing. Independence of the actual
+\(\alpha_k\) gives \(x_k=0\) for every integer exponent.
+
+Reduction is applied only to ratios whose numerator and denominator are
+\(q\)-units. Every marked root has this property, because a prime dividing
+one primitive boundary arm does not divide the norm. At precision one
+the norm-one group is cyclic of order \(q-\chi_q\), where
+\(\chi_q=(-3/q)\). Its quotient by the three distinct roots of unity has
+order \((q-\chi_q)/3\). At higher precision the reduction kernel is an
+abelian \(q\)-group. Since \(q\nmid n\), taking \(n\)-th powers is invertible
+on that kernel. Thus \(n\)-torsion injects into the precision-one quotient
+and has cardinality at most \(n\).
+
+The actual arm identities give
+\(\alpha_k^n\in\{1,\zeta^2,\zeta^4\}\pmod{q^e}\) when \(q^e\mid T_k\).
+Consequently the quotient class has \(n\)-th power one. This argument
+works in both the split and inert residue algebras.
+\end{proof}
+
+\begin{theorem}[Combined-precision rigidity]
+\label{jp-rigidity}
+Let \(S\) be a nonempty finite set of distinct primes \(q>8B\).
+Assign positive integer precisions \(e_q\), set
+\[
+ m=\prod_{q\in S}q^{e_q},
+\]
+and suppose \(J\subseteq I\) satisfies
+\[
+ q^{e_q}\mid T_k\qquad\hbox{for every }k\in J
+                   \hbox{ and every }q\in S.
+\]
+For a positive integer \(\nu\), assume
+\[
+ \log m\ge 6\nu L.
+\]
+Then the integer exponent vectors \(x=(x_k)_{k\in J}\) with
+\(\sum_k|x_k|\le\nu\) inject into the product of the finite
+\(n\)-torsion groups in Lemma~\ref{jp-quotient}.
+\end{theorem}
+\begin{proof}
+Represent the actual product \(\prod_k\alpha_k^{x_k}\) as
+\(z_x/\bar z_x\), using \(w_k\) for positive occurrences and
+\(\bar w_k\) for negative occurrences. The zero vector uses the empty
+product \(1\). These nonzero Eisenstein integers satisfy
+\[
+ |z_x|\le(6B)^\nu
+\]
+and are units at every marked prime.
+
+Suppose \(x,y\) have equal images in all the finite quotient groups.
+For each \(q\in S\) there is a unique \(\tau_q\in\mu_3\) such that their
+ratios differ by \(\tau_q\) modulo \(q^{e_q}\).
+For each of the three global \(\tau\), choose an Eisenstein unit \(v_\tau\)
+with \(v_\tau/\bar v_\tau=\tau\). Let \(D_\tau\) be the integer coordinate
+determinant of \(z_x\) and \(v_\tau z_y\).
+The conjugate cross difference and \(q>3\) give
+\(q^{e_q}\mid D_{\tau_q}\). Pairwise coprimality of the marked prime
+powers therefore gives the single integer divisibility
+\[
+ m\mid D_1D_{\zeta^2}D_{\zeta^4}.
+\]
+No common value of \(\tau_q\) is assumed.
+
+The actual Gram identity for Eisenstein coordinates gives
+\[
+ |D_\tau|
+ \le\frac{2}{\sqrt3}|z_x|\,|z_y|
+ \le\frac{2}{\sqrt3}(6B)^{2\nu}
+ <(8B)^{2\nu}.
+\]
+The last strict inequality holds for every positive integer \(\nu\),
+and multiplying by a unit does not change the norm. Hence
+\[
+ |D_1D_{\zeta^2}D_{\zeta^4}|<(8B)^{6\nu}\le m.
+\]
+An integer divisible by \(m\) and of smaller absolute value must vanish.
+Some \(D_\tau\) is zero, so the exact algebraic ratios differ by that
+global element of \(\mu_3\). Independence in Lemma~\ref{jp-quotient}
+forces \(x=y\).
+
+All signs, unequal product lengths and the empty vector are included.
+Equivalently one may partition the primes according to their three
+phases; some phase has product modulus at least \(m^{1/3}\).
+The integer-product argument also includes an empty phase class.
+\end{proof}
+
+\begin{corollary}[Exact product-target capacity]
+\label{jp-capacity}
+With the hypotheses of Theorem~\ref{jp-rigidity}, put
+\(M=|J|\) and \(s=|S|\). Then
+\[
+ \sum_{j=0}^{\min(M,\nu)}
+       2^j\binom{M}{j}\binom{\nu}{j}\le n^s.
+\]
+\end{corollary}
+\begin{proof}
+Choose the \(j\) nonzero coordinates and their signs. Their positive
+absolute values have sum at most \(\nu\), giving \(\binom{\nu}{j}\)
+choices by adjoining a slack coordinate. The \(j=0\) term is the zero
+vector. This counts precisely the domain of the injection; the product
+of the target cardinalities is at most \(n^s\).
+\end{proof}
+
+The theorem combines precision from several primes, but every root of
+\(J\) must satisfy every marked prime-power condition. Its domain is a
+common-hit rectangle in the actual incidence relation. The size of the
+product target cannot be replaced by \(n\) merely because every factor
+has exponent \(n\). For \(M=1\) the displayed bound is only
+\(2\nu+1\le n^s\); no claim of its optimality on a singleton is needed.
+If a separate premise supplied a common phase for every comparison at
+all marked primes, a single determinant and \(2\nu L\) would suffice.
+That additional premise is not used here.
+
+In particular the result neither bounds singleton prime labels nor
+controls their weighted depths. Repeated fixed-prime arguments do not
+produce a common finite target of cardinality \(n\). The full positive
+and signed far tails, roots outside the independent domain, and global
+ABC coverage remain unresolved. This section records the complete
+ordinary JP proof; it makes no additional Lean claim about residue
+groups, their actual arithmetic construction, or these open interfaces.

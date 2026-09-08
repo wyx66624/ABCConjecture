@@ -1,0 +1,13 @@
+{
+  "status": "PASS: actual negative-path checks in isolated temporary copies",
+  "checks": [
+    "CI reset invalidates both historical PASS files",
+    "Missing Mathlib preflight cannot preserve PASS",
+    "Missing finite certificate cannot preserve PASS"
+  ],
+  "sources_sha256": {
+    "initialize_ci_evidence.py": "b24a0006cae36f7ac8f4cf07029bcab992a70edf44571a97a90f0f6d2861b7bf",
+    "verify_mathlib.py": "66b29f4ce8431683f2134f2a15741ffd2c7022a90bb25d9a226873542756fa28",
+    "verify_finite.py": "f35f4d9e36ae33071a30ba8cd9388e8c2eab757af57cf7e6a7e5fd533e0883a2"
+  }
+}

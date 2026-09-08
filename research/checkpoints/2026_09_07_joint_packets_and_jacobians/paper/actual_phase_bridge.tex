@@ -1,0 +1,103 @@
+\section{An exact three-phase determinant and joint finite capacity}
+\label{jpb-section}
+
+The joint packet argument has an arithmetic refinement that keeps all
+three phases inside one actual additive relation. It improves a constant
+in the determinant comparison, without providing the missing global
+radical estimate.
+
+\begin{lemma}[The three actual phase determinants]\label{jpb-identity}
+For integer Eisenstein coordinate pairs $z,w$, put
+\[
+ N(a,b)=a^2+ab+b^2,\qquad R(a,b)=(-b,a+b),
+\]
+and define
+\[
+ x=\det(z,w),\quad y=\det(z,R^2w),\quad d=\det(z,Rw).
+\]
+Then
+\begin{align}
+ d&=x+y, & N(z)N(w)&=x^2+xy+y^2,\label{jpb-norm}\\
+ 4\bigl(N(z)N(w)\bigr)^3-27(xyd)^2
+   &=\bigl((x-y)(2x+y)(x+2y)\bigr)^2.\label{jpb-discriminant}
+\end{align}
+If an integer $m$ divides $xyd$ and
+\begin{equation}\label{jpb-size}
+ 4\bigl(N(z)N(w)\bigr)^3<27m^2,
+\end{equation}
+then at least one of $x,y,d$ is zero.
+\end{lemma}
+\begin{proof}
+Writing $z=(a,b)$ and $w=(c,e)$ gives
+$x=ae-bc$, $y=ac+bc+be$ and $d=ac+ae+be$.
+These expressions give \eqref{jpb-norm}. Expanding
+$4(x^2+xy+y^2)^3-27x^2y^2(x+y)^2$ proves
+\eqref{jpb-discriminant}. In particular
+$27(xyd)^2\le4(N(z)N(w))^3<27m^2$.
+But $m^2\mid(xyd)^2$, so this nonnegative integer strictly below
+$m^2$ must vanish. The strict premise excludes $m=0$ automatically;
+negative moduli and zero coordinate pairs require no extra convention.
+\end{proof}
+
+\begin{proposition}[Different phases, one product modulus]\label{jpb-moduli}
+Let $(m_i)_{i\in S}$ be finitely many pairwise coprime integer moduli.
+If each $m_i$ divides at least one of $x,y,d$, then
+$\prod_{i\in S}m_i\mid xyd$. If \eqref{jpb-size} holds for this
+product modulus, one phase determinant vanishes.
+\end{proposition}
+\begin{proof}
+Each modulus divides the full product $xyd$. Pairwise coprimality
+implies divisibility by their product, and Lemma~\ref{jpb-identity}
+applies. The selected phase may differ for every $i$.
+\end{proof}
+
+\begin{proposition}[A finite joint-capacity theorem]\label{jpb-capacity}
+Let $A$ and $S$ be finite sets, with $A$ represented by actual integer
+pairs $z_u$, and let $f_i:A\to H_i$ be maps to finite sets for $i\in S$.
+Suppose:
+\begin{enumerate}
+\item the integer moduli $m_i$ are pairwise coprime;
+\item $f_i(u)=f_i(v)$ forces $m_i$ to divide one of the three phase
+determinants for $z_u,z_v$;
+\item for every $u,v$, \eqref{jpb-size} holds with $z=z_u$, $w=z_v$
+and $m=\prod_i m_i$;
+\item a zero phase determinant for $z_u,z_v$ implies $u=v$.
+\end{enumerate}
+Then the joint map $u\mapsto(f_i(u))_{i\in S}$ is injective, and
+\[
+ |A|\le\prod_{i\in S}|H_i|\le n^{|S|}
+ \quad\text{if }n\in\mathbb N\text{ and }|H_i|\le n\text{ for every }i.
+\]
+\end{proposition}
+\begin{proof}
+Equality of the joint images gives a phase divisibility at every
+coordinate. Proposition~\ref{jpb-moduli} and the size bound force a
+zero determinant, so the separation premise identifies the two inputs.
+Counting the finite product target proves both inequalities.
+\end{proof}
+
+\begin{lemma}[Private independence survives a cubic kernel]
+\label{jpb-kernel}
+Let $G$ be a commutative group, $\phi:G\to H$ a group homomorphism
+whose kernel is killed by three, and $(a_i)_{i\in I}$ a finite family
+with integer-valued homomorphisms $v_i$ satisfying
+$v_i(a_j)=0$ for $j\ne i$ and $v_i(a_i)\ne0$.
+Then $x\mapsto\phi(\prod_i a_i^{x_i})$ is injective on $\mathbb Z^I$.
+\end{lemma}
+\begin{proof}
+Equality of two images places their quotient in the kernel. Cubing
+and applying $v_i$ gives $3v_i(a_i)(x_i-y_i)=0$. The nonzero diagonal
+value gives $x_i=y_i$ for every $i$, including negative exponents.
+\end{proof}
+
+\paragraph{Exact scope.}
+The formal module proves the displayed integer identities, product
+divisibility, kernel lemma and finite-capacity implication. In the JP
+application, actual modular reductions, the $n$-torsion sizes, product
+height bounds and separation of distinct signed vectors are supplied
+by the separate ordinary argument. The capacity theorem does not
+construct those objects by taking them as hypotheses. Moreover,
+$n^{|S|}$ cannot be replaced by $n$ merely because every target has
+exponent dividing $n$. The actual relation $d=x+y$ is also a warning:
+postulating an unproved radical bound for these three determinants
+would introduce another ABC-shaped estimate.

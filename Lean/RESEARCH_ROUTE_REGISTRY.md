@@ -1,5 +1,30 @@
 # Research route registry
 
+## Sixteenth continuation: joint packets and quotient Jacobians
+
+September 7, 2026. The reviewed ordinary JP theorem combines prime precisions
+using a single quotient by the global cubic units; its finite target bound is
+n^s on a common-hit rectangle. The new actual integer phase bridge retains
+that product-target exponent and proves the exact discriminant identity.
+It does not bound different singleton owners or the global signed tail.
+
+QS proves Q-simplicity of both remaining genus-two Jacobians, their distinct
+Frobenius polynomials and trivial rational torsion, and even ranks at least two.
+The genus-six Jacobian therefore has rank at least six. QH proves a finite
+five-adic container through the rank-two first quotient, using rational
+Neron--Severi rank at least three. The container is not computed or identified
+with the intrinsic level-two genus-six locus. Point classification and uniform
+control as exponents and residual parameters vary remain open.
+
+The exact formal scope is 27 new declarations plus 45 unchanged dependencies,
+with all 72 axiom queries checked in a fresh source build. Actual homogeneous
+identities, complete finite square-fibre counts and integer trace/gcd arithmetic
+are formal; the Jacobian, Picard, rank and Chabauty deductions remain reviewed
+ordinary mathematics. No proof or disproof of ABC is claimed.
+
+Checkpoint: `../research/checkpoints/2026_09_07_joint_packets_and_jacobians/README.md`.
+The following fifteenth and earlier entries are historical records.
+
 Latest fifteenth continuation: September 7, 2026. Actual signed moments
 and unit normalization improve the complete fixed-prime cost to (5/2)n log(8B)
 and put the deepest layers on one actual root. Different primes may have

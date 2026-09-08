@@ -1,0 +1,104 @@
+{
+  "status": "PASS",
+  "method": "Exact enumeration of actual square fibres; no rank API",
+  "field": "F5[omega]/(omega^2-2)",
+  "curves": {
+    "H2": {
+      "character_table_from_y_enumeration": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          -1,
+          -1,
+          1
+        ],
+        [
+          1,
+          -1,
+          -1,
+          -1,
+          1
+        ],
+        [
+          1,
+          1,
+          -1,
+          1,
+          1
+        ]
+      ],
+      "point_count_f5": 6,
+      "point_count_f25": 36,
+      "frobenius_polynomial_descending": [
+        1,
+        0,
+        5,
+        0,
+        25
+      ]
+    },
+    "H3": {
+      "character_table_from_y_enumeration": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "point_count_f5": 6,
+      "point_count_f25": 12,
+      "frobenius_polynomial_descending": [
+        1,
+        0,
+        -7,
+        0,
+        25
+      ]
+    }
+  },
+  "scope": "Finite point counts only; ordinary geometry and arithmetic inputs separate"
+}

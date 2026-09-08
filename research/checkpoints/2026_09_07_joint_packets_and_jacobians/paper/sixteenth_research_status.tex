@@ -1,0 +1,52 @@
+\section{Sixteenth continuation: verified scope and remaining dependencies}
+\label{jpj-status}
+
+Standard ABC remains unproved and undisproved. The present continuation
+adds the complete ordinary joint-packet argument, the rational simplicity
+and rank lower bounds for the two remaining genus-two factors, a finite
+quadratic Chabauty container through the first quotient, and the actual
+three-phase integer bridge. Their ordinary proofs preceded implementation
+and received independent internal review. This is not external peer review.
+
+The two new Lean modules contain 27 declarations: ten for actual phase
+arithmetic and joint finite capacity, and seventeen for homogeneous curve
+identities, complete finite square-fibre counts, integer trace obstructions
+and the resulting numerical gcds. All 27 new declarations and 45 unchanged
+local dependency declarations were freshly compiled with warnings treated
+as errors. Every one of the 72 declarations has an explicit axiom query;
+only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}
+occur. The checked compiler is Lean 4.32.0 and the exact Mathlib source pin is
+\texttt{81a5d257c8e410db227a6665ed08f64fea08e997}. Its compiled dependency
+cache was reused; the five listed local source modules were freshly built.
+
+The formal statements retain their mathematical inputs. In particular,
+the joint-capacity theorem assumes collision divisibility, actual pair
+heights, phase separation and the finite target sizes. It does not prove
+the construction of the arithmetic norm-one quotient or its torsion.
+The finite curve counts use the displayed quadratic pair multiplication
+and add two as the number of infinity points. Good reduction, the
+interpretation of those pairs as the extension field, the curve/Jacobian
+trace formula, rational simplicity, Mordell--Weil rank and torsion groups
+are supplied by the separately reviewed ordinary proof. The Chabauty
+criterion and the Neron--Severi arguments are also ordinary inputs, not
+Lean theorems in these modules.
+
+The mathematical dependency chain has two distinct open ends. For the
+analytic route, combined precision on a common-hit rectangle still gives
+the product target $n^{|S|}$. It does not control the nonrectangular
+incidence of different primes with different roots, the full signed
+far tail, exceptional individual roots, or global ABC coverage. For the
+geometric route, the existence of a finite five-adic container has not
+computed that container or determined its rational survivors. Even a
+complete classification of the fixed cubic branch would leave changing
+exponents and residual parameters, integral lifting and uniform point
+heights unresolved. None of these gaps is replaced by a formal hypothesis
+and then counted as a solved conjecture.
+
+The full verification logs and exact source hashes are recorded in the
+accompanying checkpoint. Its finite replay independently regenerates
+all four small-field curve certificates. Subsequent research candidates
+about collective input content, actual divisor partitions and local
+Jacobian closure are kept in the next continuation until their own
+proof, formal-scope and publication reviews are complete. No unrefuted
+parent route is abandoned.

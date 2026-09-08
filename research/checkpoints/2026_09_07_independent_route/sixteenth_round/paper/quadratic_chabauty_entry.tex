@@ -1,0 +1,144 @@
+\section{A quadratic Chabauty entry through the first quotient}
+\label{qh-section}
+
+We give the now independently reviewed ordinary application of the
+quadratic Chabauty finiteness criterion. No Chabauty set is computed in
+this section. Put \(D=D_{3,\zeta}\), let \(H_j\) be the three curves of
+Section~\ref{qs-section}, and let \(J_D=\operatorname{Jac}(D)\).
+The established decompositions and exact elliptic rank give
+\[
+ J_D\sim_{\mathbb Q} E^2\times J_2\times J_3,
+ \qquad J_1\sim_{\mathbb Q}E^2,
+ \qquad E:Y^2=X^3-9X-9,\quad\operatorname{rank}E(\mathbb Q)=1.
+\]
+The full projective morphism \(\pi:D\to H_1\) has degree two. On its
+dense chart it is \((s,v,w)\mapsto(s,y=Bv)\), where \(B=f_1(s)\).
+
+\begin{lemma}[Rational divisor classes and good reduction]\label{qh-hypotheses}
+For the Neron--Severi rank over the ground field,
+\[
+ \rho_{\mathbb Q}(J_1)\ge3,\qquad \rho_{\mathbb Q}(J_D)\ge5.
+\]
+Both \(H_1\) and \(D\) have rational basepoints and good reduction at five.
+\end{lemma}
+\begin{proof}
+On \(E^2\), the rational divisor classes of \(E\times\{O\}\),
+\(\{O\}\times E\) and the diagonal have intersection matrix
+\[
+ \begin{pmatrix}0&1&1\\1&0&1\\1&1&0\end{pmatrix},
+ \qquad\det=2.
+\]
+They are independent modulo algebraic equivalence since algebraically
+trivial divisors are numerically trivial. Hence \(\rho_{\mathbb Q}(E^2)\ge3\).
+Pullback by an isogeny is injective on Neron--Severi groups tensored with
+\(\mathbb Q\): the norm of a pulled-back line bundle is its
+degree-th tensor power, and norm preserves algebraic equivalence.
+There are isogenies in both directions, so the rational ranks agree.
+This proves the first inequality. On \(E^2\times J_2\times J_3\),
+add a rational ample class from each \(J_j\). Such classes exist by
+projectivity over \(\mathbb Q\). Restriction to the three factors proves
+the independence of all five classes, giving the second inequality.
+No assertion of equality, absolute Picard rank, or absence of CM is needed.
+
+The smoothness argument of Theorem~\ref{qs-five} applies to \(f_0f_1\)
+as well: both discriminants are units at five, their difference is
+\(3s(s+1)\), and neither vanishes at \(0,-1\). The two infinity points
+with leading ordinate \(\pm1\) are smooth; either is a rational basepoint.
+
+For \(D\), the three branch divisors on \(\mathbb P^1\) are the zeros
+of \(f_0,f_1,f_4\). Each is finite etale over \(\mathbb Z_5\) and
+they are disjoint. Normalize in the biquadratic extension
+\[
+ v^2=f_0/f_1,\qquad w^2=f_4/f_1.
+\]
+Away from these divisors the cover is etale. At a zero of \(f_0\) or
+\(f_4\), only one square root ramifies. Etale-locally on the base its
+normalized equation is \(z^2=t\) times a unit; it is smooth over
+\(\mathbb Z_5\) because the coefficient of the local parameter \(t\)
+is a unit. The other square root is an etale unit extension. At a zero
+of \(f_1\), use \(z=1/v\) and \(w/v\): the first gives the same simple
+ramification and the latter has square a unit. Thus the normalization
+is smooth at every branch. It is proper and finite over
+\(\mathbb P^1_{\mathbb Z_5}\) and has the smooth genus-six generic fibre,
+so it supplies good reduction. Infinity is unramified. The point
+\((s,v,w)=(0,1,1)\) is rational and nonbranch and supplies a basepoint.
+\end{proof}
+
+\begin{theorem}[A finite five-adic container through the first quotient]
+\label{qh-container}
+Let \(H_1(\mathbb Q_5)_2\) denote the quadratic Chabauty set of
+Balakrishnan--Dogra. Then
+\begin{gather*}
+ H_1(\mathbb Q_5)_2\text{ is finite},\\
+ \mathcal C_5=\{P\in D(\mathbb Q_5):\pi(P)\in H_1(\mathbb Q_5)_2\}
+ \text{ is finite},\\
+ D(\mathbb Q)\subseteq\mathcal C_5.
+\end{gather*}
+\end{theorem}
+\begin{proof}
+The exact GD rank is \(\operatorname{rank}J_1(\mathbb Q)=2\), while
+the preceding lemma gives
+\[
+ 2<2+\rho_{\mathbb Q}(J_1)-1,
+\]
+whose right side is at least four. All hypotheses of
+\cite[Lemma~3.2]{BalakrishnanDograQCI} apply: the field is \(\mathbb Q\),
+the curve is smooth geometrically integral and projective of genus
+greater than one, it has a rational basepoint, and five is a good
+reduction prime and splits completely in the base field. The Picard
+number in that criterion is precisely over \(\mathbb Q\).
+It follows that \(H_1(\mathbb Q_5)_2\) is finite; its defining Selmer
+condition includes \(H_1(\mathbb Q)\).
+
+The projective quotient \(\pi\) is finite of degree two. Every fibre
+over a \(\mathbb Q_5\)-point has at most two geometric points, including
+ramified fibres and all chart exceptions. Its inverse image of the
+finite set is therefore finite. Every rational point maps to a rational
+point of \(H_1\), proving the asserted inclusion.
+\end{proof}
+
+This theorem does not compute \(\mathcal C_5\), its cardinality or
+coordinates, or determine which of its points are rational. It does not
+identify \(\mathcal C_5\) with the intrinsic set \(D(\mathbb Q_5)_2\).
+The quotient entry avoids an upper rank bound for \(J_2,J_3\) for this
+container. It does not classify the positive common-source locus.
+An actual calculation still needs rigorous heights and integrals,
+finite local-height value sets, sufficient precision, and a rational-point
+or Mordell--Weil sieve. A finite search for multiples of a displayed
+elliptic point supplies none of these completeness assertions; GD by
+itself does not prove that point to be a global generator.
+
+\begin{proposition}[A separate conditional entry on the full curve]
+\label{qh-direct-conditional}
+If the additional bound
+\[
+ \operatorname{rank}J_2(\mathbb Q)+\operatorname{rank}J_3(\mathbb Q)\le6
+\]
+holds, then \(D(\mathbb Q_5)_2\) itself is finite.
+\end{proposition}
+\begin{proof}
+The bound would give \(\operatorname{rank}J_D(\mathbb Q)\le8\), while
+\[
+ \operatorname{genus}(D)+\rho_{\mathbb Q}(J_D)-1\ge6+5-1=10.
+\]
+The other source hypotheses were verified in Lemma~\ref{qh-hypotheses};
+the same finiteness criterion applies.
+\end{proof}
+The extra upper bound is unproved. The positive even lower bounds from
+Theorem~\ref{qs-rank-lower} mean that it would allow total genus-six
+Jacobian rank six or eight. If the total rank were ten or greater,
+the particular estimate \(\rho\ge5\) would simply not establish this
+criterion; larger Picard number or other constructions remain possible.
+
+\paragraph{Source and scope.}
+The setup and the exact criterion were checked in
+\cite[printed p.~3, Section~2, and Lemmas~3.1--3.2 on printed p.~12]{BalakrishnanDograQCI}.
+They concern general smooth projective curves, not only hyperelliptic
+ones, and use the ground-field Picard number. The explicit height formula
+in that paper's Theorem~1.2 has additional assumptions, including
+rank equal to genus and a finite-index closure of the rational Jacobian
+group in the local group. Those algorithmic assumptions are not claimed
+or needed by the abstract finiteness argument of this section. The
+intersection calculation and divisor norm argument above prove the
+stated Neron--Severi bounds. No Chabauty, Neron--Severi, rank or complete
+point-set theorem is claimed here as a Lean formalization.

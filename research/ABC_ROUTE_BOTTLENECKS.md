@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, signed moments, actual products
-and quadratic cube descents (fifteenth continuation).
+**Last synchronized:** 2026-09-07, joint prime packets, actual phase
+arithmetic and quotient Jacobians (sixteenth continuation).
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -32,6 +32,22 @@ rigorous complete-premise disproof.
 - [x] Maintain the English journal manuscript with author ChatGPT.
 
 ## Shared exponent generators: September 7 positive frontier
+
+- [x] Prove the prime-independent cubic quotient and combined-precision
+  injection on common-hit rectangles, with target size n^s.
+- [x] Prove the actual three-phase discriminant and finite-capacity bridge;
+  freshly compile 27 new declarations and 45 dependencies with all 72 axiom queries.
+- [x] Prove ordinary Q-simplicity, torsion zero and even ranks at least two
+  for both remaining genus-two factors; retain only the exact rank-criterion obstruction.
+- [x] Prove a finite five-adic container via the first genus-two quotient.
+- [ ] Compute that container, rigorously isolate all relevant roots and
+  classify its rational survivors and the simultaneous positive source locus.
+- [ ] Obtain a cross-prime saving on actual nonrectangular boundary incidence;
+  combined product precision alone does not control different singleton owners.
+- [ ] Close arbitrary-root coverage and uniform moving-parameter heights.
+- Sixteenth proof and exact formal scope:
+  `checkpoints/2026_09_07_joint_packets_and_jacobians/README.md`.
+
 
 - [x] Normalize actual root ratios coherently at a fixed prime and prove
   signed-ball injection into an n-element torsion target; get the complete
