@@ -2,8 +2,8 @@
 
 **Persistent entry point:** read this file before starting the next research
 round.
-**Last synchronized:** 2026-09-07, joint prime packets, actual phase
-arithmetic and quotient Jacobians (sixteenth continuation).
+**Last synchronized:** 2026-09-08, squared-unit descent, ramified cubic
+exclusion and all-owner shifted-boundary estimates.
 **Global target:** an unconditional Lean term of type ABCConjecture, or a
 rigorous complete-premise disproof.
 
@@ -30,6 +30,41 @@ rigorous complete-premise disproof.
 - [x] Keep all conditional reductions, finite searches, and source-dependent
   results visibly separate from either global conclusion.
 - [x] Maintain the English journal manuscript with author ChatGPT.
+
+## September 8: fixed cubic closures and the remaining universal gates
+
+- [x] Classify the six rational points of the earlier fixed genus-two
+  curve and the actual unit-zeta boundary, including all analytic zeros,
+  the finite sieve, and the same-source inverse.
+- [x] Prove the entire-Jacobian two-descent for the squared-unit quotient:
+  rank zero, rational group (2,2), three quotient points and six actual
+  boundary points. Include all closed-point norms and the prime two.
+- [x] Combine all three actual unit classes to exclude the primitive
+  M=a^2+ab+b^2 square and F=a^4+3a^3b+5a^2b^2+3ab^3+b^4 cube.
+- [x] Prove separately that an actual cube F forces 3 not to divide M;
+  exclude all specified ramified local common-source covers and propagate
+  the exact numerical statement when the second exponent is divisible
+  by three. Retain the locally soluble numerical example (a,b)=(1,4).
+- [x] Prove coprimality of all nonzero integer translates of the actual
+  boundary polynomial and its exact common-depth resultant bound.
+- [x] Control all actual paired owners above the block length, including
+  the degree factor and the finite-shift empty-set boundary.
+- [x] Freshly compile fifteen finite F13 theorems with all axiom queries,
+  replay two complete finite inputs, and preserve their limited scope.
+- [ ] Bound unmatched high prime-power layers across different primes
+  with every original shallow-prime negative credit retained.
+- [ ] Handle exceptional and dependent roots, growing selector data,
+  and the actual reduction covering arbitrary primitive ABC triples.
+- [ ] Obtain the required uniform height estimate as exponents and
+  nonunit residuals vary. Fixed cubic closures do not supply this theorem.
+- [ ] Formalize the complete ordinary descent and geometric proof chain;
+  finite arithmetic Lean theorems do not certify that entire chain.
+- Current full proofs and evidence:
+  `checkpoints/2026_09_08_descent_and_shift/README.md`.
+
+The entries below retain earlier research history. Their open fixed-cubic
+subcases are superseded precisely by the conclusions above; their moving
+families, universal estimates and all-triple obligations remain open.
 
 ## Shared exponent generators: September 7 positive frontier
 

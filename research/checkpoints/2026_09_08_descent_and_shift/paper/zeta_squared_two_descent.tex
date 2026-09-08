@@ -1,0 +1,537 @@
+\section{A complete two-descent and the actual square--cube exclusion}
+\label{zd2x-section}
+
+This section proves the rank-zero hypothesis left explicit in
+Lemma~\ref{z2x-rank-zero-points}. It uses a descent on the entire
+Jacobian, including closed points over finite local extensions.
+No software rank estimate, analytic rank, or unproved saturation
+claim enters the argument.
+
+\begin{lemma}[The monic model and its actual descent classes]
+\label{zd2x-model-descent}
+The change \(X=-3s,\ Y=9y\) identifies the smooth projective curve
+of~\eqref{z2x-quintic} with
+\begin{equation}
+ C:Y^2=F(X),\qquad
+ F(X)=X(X-3)g(X),\qquad g(X)=X^3-27X+27.
+ \label{zd2x-monic}
+\end{equation}
+Let \(O\) be its unique point at infinity, \(J=\operatorname{Jac}(C)\),
+and \(K=\mathbb Q(\theta)\), where \(\theta^3-3\theta-1=0\).
+Writing \(\alpha=-3\theta\), its descent algebra is
+\begin{equation}
+ L=\mathbb Q[T]/(F(T))=\mathbb Q\times\mathbb Q\times K,\qquad
+ T\longmapsto(0,3,\alpha),
+ \label{zd2x-algebra}
+\end{equation}
+with norm \(N(q_0,q_3,\beta)=q_0q_3N_{K/\mathbb Q}(\beta)\).
+The rational two-torsion classes
+\(D_0=[(0,0)-O]\), \(D_3=[(3,0)-O]\) have descent images
+\begin{equation}
+ \delta(D_0)=(-1,-3,3\theta),\qquad
+ \delta(D_3)=(3,-1,3(\theta+1))
+ \quad\bmod L^{*2}.
+ \label{zd2x-torsion-images}
+\end{equation}
+\end{lemma}
+\begin{proof}
+Direct substitution gives \(F(-3s)=81[-3s(s+1)(s^3-3s-1)]\).
+The rational affine change and its inverse extend over the unique
+smooth points at infinity. For clarity, the standard odd-degree
+descent input is used in the following precise form, for every
+characteristic-zero field \(k\):
+\begin{equation}
+ \delta_k:J(k)\longrightarrow
+ \ker\bigl(N:L_k^*/L_k^{*2}\longrightarrow k^*/k^{*2}\bigr),
+ \qquad \ker\delta_k=2J(k).
+ \label{zd2x-delta-kernel}
+\end{equation}
+The map is natural in \(k\). On a degree-zero rational divisor
+avoiding the Weierstrass points and \(O\), it evaluates \(X-T\),
+using closed-point norms and the actual divisor multiplicities.
+Every class of \(J(k)\) admits such a representative by the
+rational base point and divisor moving. Thus this is a map on
+all of \(J(k)\), not merely the image of \(C(k)\).
+These are the construction preceding Lemma~4.1 and Lemma~4.1 of
+\cite{StollTwoDescent2001}. The monic odd-degree hypotheses
+apply to~\eqref{zd2x-monic}; no fake-descent kernel for an
+even-degree model is being used.
+
+For a nonbranch point \(P\), the value on \(P-O\) is \(X(P)-T\).
+At a rational branch point \((a,0)\), its component at \(T=a\)
+is \(F'(a)\), and the other components are \(a-T\), modulo
+squares; this is \cite[Lemma~4.3]{StollTwoDescent2001}.
+Here
+\[
+ g(0)=27,\qquad g(3)=-27,\qquad F'(0)=F'(3)=-81.
+\]
+Substitution gives~\eqref{zd2x-torsion-images}; in particular
+the first component at \(D_0\) simplifies from \(-81\) to
+\(-1\), not to \(1\).
+\end{proof}
+
+\begin{lemma}[The cubic field and all positive unit square classes]
+\label{zd2x-field}
+One has
+\[
+ \mathcal O_K=\mathbb Z[\theta],\qquad
+ \operatorname{Disc}(K)=81,\qquad
+ \operatorname{Cl}(\mathcal O_K)=1.
+\]
+The element \(\pi=\theta-1\), of norm three, generates the unique
+prime above three, whose residue degree is one. Every totally
+positive unit of \(\mathcal O_K\) is a square.
+\end{lemma}
+\begin{proof}
+The polynomial \(h(U)=U^3-3U-1\) has no rational root, since its
+possible integral roots \(1,-1\) both fail. It has exactly three
+real roots, one in each interval
+\begin{equation}
+ 1<\theta_1<2,\qquad -2<\theta_2<-1,\qquad -1<\theta_3<0.
+ \label{zd2x-root-intervals}
+\end{equation}
+The intermediate value theorem supplies all three, and its
+discriminant is \(81\). If \(\mathbb Z[\theta]\) had nontrivial
+index in \(\mathcal O_K\), the index-discriminant identity
+would force \(\operatorname{Disc}(K)\le9\): the square of that
+index divides \(81\). The Minkowski bound for a totally real
+cubic field is \((2/9)\sqrt{\operatorname{Disc}(K)}\), by
+\cite[Theorem~4.3]{MilneANT2020}. It would then be at most
+\(2/3\), contradicting the positive integral norm of an ideal
+representative required by that bound. Thus the index is one.
+
+The actual bound is now exactly two. Modulo two, \(h\) is
+\(U^3+U+1\), which is irreducible since it has no root in
+\(\mathbb F_2\). In the established maximal monogenic order,
+two is therefore inert and there is no ideal of norm two.
+Every ideal class has an integral representative of norm one
+and is trivial.
+
+The shifted polynomial
+\[
+ h(1+U)=U^3+3U^2-3
+\]
+is Eisenstein at three. Thus there is a unique prime above
+three, of ramification degree three and residue degree one.
+The element \(\pi\) has norm three and generates that prime.
+This also proves that \(g\) is irreducible over \(\mathbb Q_3\).
+
+The units \(-1,\theta,\theta+1\) have norms \(-1,1,-1\).
+Their signatures in the ordering~\eqref{zd2x-root-intervals}
+are
+\begin{equation}
+ \begin{array}{c|ccc}
+  &\theta_1&\theta_2&\theta_3\\ \hline
+  -1&-&-&-\\
+  \theta&+&-&-\\
+  \theta+1&+&-&+
+ \end{array}
+ \label{zd2x-unit-signatures}
+\end{equation}
+and are independent over \(\mathbb F_2\).
+Dirichlet's theorem \cite[Theorem~5.1]{MilneANT2020} gives
+\(\mathcal O_K^*\simeq\{\pm1\}\times\mathbb Z^2\).
+Hence its quotient by squares has dimension three, and the
+signature map onto \(\{\pm1\}^3\) is an isomorphism. A totally
+positive unit is consequently a square. This argument needs
+only the displayed classes modulo squares; it makes no claim
+that \(\theta,\theta+1\) form a fundamental unit basis over
+\(\mathbb Z\), and invokes no regulator or class-group oracle.
+\end{proof}
+
+\begin{lemma}[All closed-point evaluations have even valuations away from three]
+\label{zd2x-even-valuations}
+For every \(Q\in J(\mathbb Q)\), each component of \(\delta(Q)\)
+has even ideal valuation at every prime not above three.
+Consequently its square class has a representative
+\begin{equation}
+ (q_0,q_3,u\pi^e),\qquad
+ q_0,q_3\in\{1,-1,3,-3\},\quad
+ e\in\{0,1\},\quad u\in\mathcal O_K^* .
+ \label{zd2x-global-classes}
+\end{equation}
+The valuation statement includes the prime two.
+\end{lemma}
+\begin{proof}
+We prove the stronger statement on all of \(J(\mathbb Q_\ell)\)
+for each prime \(\ell\ne3\). The discriminants of \(X(X-3)\)
+and \(g\) are \(3^2,3^{10}\), and their resultant is
+\(g(0)g(3)=-3^6\). Thus
+\[
+ \operatorname{Disc}(F)=3^{24}.
+\]
+It follows that all five roots of \(F\) are integral and have
+unit pairwise differences in some finite unramified extension
+\(U/\mathbb Q_\ell\). This remains true when \(\ell=2\).
+
+Let \(P\) be any closed point over \(\mathbb Q_\ell\), away
+from the excluded support of~\eqref{zd2x-delta-kernel}, with
+finite residue field \(E/\mathbb Q_\ell\). Write \(x=X(P)\),
+\(y=Y(P)\). The compositum \(E'=EU\) is unramified over \(E\).
+In its normalized integer-valued valuation, if \(v(x)<0\),
+then \(v(x-r_i)=v(x)\) for all five roots and
+\[
+ 2v(y)=5v(x).
+\]
+Hence every factor valuation is even. If \(v(x)\ge0\), all
+five factors are integral and at most one can be a nonunit,
+since the roots have unit differences. Its valuation is the
+whole valuation of \(F(x)=y^2\), and is again even.
+
+We spell out the norm transfer to avoid a restriction to
+rational points. Each field factor \(M\) of \(L_{\mathbb Q_\ell}\)
+is unramified over \(\mathbb Q_\ell\). Write
+\(E\otimes_{\mathbb Q_\ell}M=\prod_j V_j\).
+Each \(V_j/E\) is unramified. Extending it by \(U\), still
+unramified, splits all roots and gives the preceding valuation
+test. Thus \(x-T\) in each \(V_j\) has even normalized valuation.
+Its norm to \(M\) multiplies that valuation by the residue
+degree \(f(V_j/M)\), preserving evenness. The \(M\)-component
+of the closed-point evaluation is the product of these norms.
+Positive or negative divisor multiplicities preserve parity.
+Using a moved divisor for any class of \(J(\mathbb Q_\ell)\)
+proves the local assertion on the whole Jacobian. Naturality
+of~\eqref{zd2x-delta-kernel} proves the global assertion.
+
+Only even ideal valuation is claimed here. In particular it
+does not say that a quadratic square-class extension is
+unramified at two, nor assume good reduction of the equation
+at two. This direct argument supplies the condition at that
+prime instead of deleting it from a generic Selmer-prime list.
+
+The rational factors with even valuations away from three
+give the four choices for each \(q_i\). In \(K\), the
+fractional principal ideal of a representative \(\beta\)
+has the form
+\[
+ (\beta)=(\pi)^e\mathfrak a^2,\qquad e\in\{0,1\}.
+\]
+An even exponent at \(\pi\), including a negative one, is
+absorbed into \(\mathfrak a\). Lemma~\ref{zd2x-field} gives
+\(\mathfrak a=(\gamma)\), so
+\(\beta=u\pi^e\gamma^2\) for a unit \(u\).
+This proves~\eqref{zd2x-global-classes} with all denominators
+included.
+\end{proof}
+
+\begin{lemma}[The full three-adic image and global matching]
+\label{zd2x-three-adic}
+The four elements of \(\delta_{\mathbb Q_3}(J(\mathbb Q_3))\)
+are the images of \(0,D_0,D_3,D_0+D_3\).
+Multiplying any global image by a suitable one of these
+rational torsion images leaves an actual global image of
+the form \((1,1,u)\), with \(u\in\mathcal O_K^*\) and
+\(N_{K/\mathbb Q}(u)=1\).
+\end{lemma}
+\begin{proof}
+There are exactly three irreducible factors of \(F\) over
+\(\mathbb Q_3\), because \(g\) is irreducible there.
+The odd-degree branch-divisor description
+\cite[Lemma~4.3(3)]{StollTwoDescent2001} gives
+\[
+ \dim_{\mathbb F_2}J(\mathbb Q_3)[2]=3-1=2.
+\]
+The quotient by doubling has the same order, by
+\cite[Lemma~4.4(1)]{StollTwoDescent2001}. One may also see
+this directly. Take a compact open formal subgroup \(U\)
+of \(J(\mathbb Q_3)\) on which doubling is bijective: its
+linear term is the three-adic unit \(2\), and a sufficiently
+small formal chart gives its inverse by contraction.
+The quotient \(A=J(\mathbb Q_3)/U\) is finite. The groups
+\(J(\mathbb Q_3)/2J(\mathbb Q_3)\) and \(J(\mathbb Q_3)[2]\)
+identify respectively with \(A/2A\) and \(A[2]\).
+For the second assertion a lift of an element of \(A[2]\)
+is uniquely corrected by a half in \(U\).
+The equality \(|A/2A|=|A[2]|\) proves the order four.
+
+The first components \(-1,3\) of
+\eqref{zd2x-torsion-images} are independent in
+\(\mathbb Q_3^*/\mathbb Q_3^{*2}\): the first is a nonsquare
+unit and the second has odd valuation. Thus the two local
+images are independent and exhaust this four-element group.
+Furthermore, the four rational square classes
+\(\{1,-1,3,-3\}\) map injectively into that local square-class
+group. By Lemma~\ref{zd2x-even-valuations} and naturality,
+the first two global components are therefore one of
+\begin{equation}
+ (1,1),\qquad(-1,-3),\qquad(3,-1),\qquad(-3,3)
+ \quad\bmod\mathbb Q^{*2}.
+ \label{zd2x-local-matching}
+\end{equation}
+Multiplication by the corresponding actual rational torsion
+image leaves the first two components globally square.
+
+For this new global image write the remaining component as
+\(u\pi^e\) modulo squares, as in~\eqref{zd2x-global-classes}.
+The norm condition in~\eqref{zd2x-delta-kernel} says
+\(N(u)3^e\) is a rational square. Since \(N(u)=\pm1\)
+and \(e=0\) or \(1\), it follows that \(e=0\), \(N(u)=1\).
+The residue degree one of the unique prime above three
+is explicit in the equality \(N(\pi)=3\).
+\end{proof}
+
+\begin{theorem}[Rank zero and the complete three-point quotient]
+\label{zd2x-rank-and-points}
+For the curve~\eqref{z2x-quintic},
+\[
+ J(\mathbb Q)\simeq(\mathbb Z/2\mathbb Z)^2,\qquad
+ H(\mathbb Q)=\{P_0,P_{-1},P_\infty\}.
+\]
+\end{theorem}
+\begin{proof}
+We first kill the remaining unit in
+Lemma~\ref{zd2x-three-adic} using the entire real descent
+image. In the ordering of~\eqref{zd2x-root-intervals},
+put \(\alpha_i=-3\theta_i\). Then
+\[
+ \alpha_1<0<\alpha_3<3<\alpha_2.
+\]
+The real points of the monic quintic lie above
+\([\alpha_1,0]\), \([\alpha_3,3]\), and
+\([\alpha_2,\infty)\). Away from endpoints the signatures
+of \((x,x-3;x-\alpha_1,x-\alpha_2,x-\alpha_3)\) are
+\begin{equation}
+ \begin{array}{c|cc|ccc}
+  \text{interval}&x&x-3&x-\alpha_1&x-\alpha_2&x-\alpha_3\\ \hline
+  \text{lower}&-&-&+&-&-\\
+  \text{middle}&+&-&+&-&+\\
+  \text{upper}&+&+&+&+&+
+ \end{array}
+ \label{zd2x-real-table}
+\end{equation}
+The lower and middle vectors generate a four-element sign
+group, and their first two sign pairs are independent.
+Only its identity has both first signs positive.
+
+This restriction holds for all \(J(\mathbb R)\), not just
+for the Abel--Jacobi images of real points. Move a real
+divisor representative off the branch points and \(O\) as
+in~\eqref{zd2x-delta-kernel}. Real closed points contribute
+the vectors~\eqref{zd2x-real-table}. A nonreal closed point
+is a complex conjugate pair, whose norm of \(x-r\) at any
+real root \(r\) is a positive absolute-value square.
+Products and inverse powers still lie in the same sign
+group. This is also the explicit real-image description
+of \cite[Lemma~4.8]{StollTwoDescent2001}.
+
+Consequently an actual image \((1,1,u)\) has all three
+signs of \(u\) positive. A \(K\)-square cannot change
+those signs. Lemma~\ref{zd2x-field} therefore makes \(u\)
+a square. We have proved
+\begin{equation}
+ \delta(J(\mathbb Q))=
+ \langle\delta(D_0),\delta(D_3)\rangle,\qquad
+ |J(\mathbb Q)/2J(\mathbb Q)|=4.
+ \label{zd2x-four-global}
+\end{equation}
+The two known images are independent, so equality, rather
+than merely an upper bound, holds.
+
+By Mordell--Weil, \(J(\mathbb Q)\) is finitely generated.
+For such a group of rank \(r\), the quotient by doubling
+has size \(2^r\) times the size of its two-torsion subgroup.
+That subgroup has order four here, by the rational
+branch-factor calculation or Lemma~\ref{z2x-torsion-local}.
+Thus~\eqref{zd2x-four-global} forces \(r=0\).
+The complete torsion bound in
+Theorem~\ref{z2x-finite-jacobian} then gives
+\(J(\mathbb Q)\simeq(\mathbb Z/2\mathbb Z)^2\).
+The rank deduction itself did not use a reduction count.
+
+For completeness, the rational-point conclusion follows
+by the explicit degree-two argument, not simply by
+counting the group. The map \(R\mapsto[R-O]\) is injective.
+The fourth possible group element \(D_0+D_3\) cannot be
+its image: otherwise \(R+O\sim(0,0)+(3,0)\).
+The canonical class is \(2O\). The functions with sole
+pole at \(O\) of order at most two are the span of \(1,X\),
+since the pole orders of \(X,Y\) are two and five and the
+even and odd orders in \(a(X)+b(X)Y\) cannot cancel.
+No such linear function vanishes at both zero and three.
+Hence \((0,0)+(3,0)\not\sim2O\).
+Riemann--Roch gives \(h^0((0,0)+(3,0))=1\);
+its sole effective representative cannot be \(R+O\).
+Thus \(C(\mathbb Q)=\{(0,0),(3,0),O\}\), which transfers
+under \(s=-X/3\) to the stated three points.
+\end{proof}
+
+\begin{corollary}[The six squared-unit boundary points]
+\label{zd2x-six-boundary}
+The common-source curve \(D_{3,\zeta^2}\) has exactly six
+rational points. They lie above the source values
+\(s=0,-1,\infty\), with \(v=0\) and \(w=\pm2\) at each.
+Their conic parameter is \(t=-2\) when \(w=2\) and \(t=0\)
+when \(w=-2\). Its positive rational locus is empty.
+\end{corollary}
+\begin{proof}
+Every rational point maps to the first quotient \(H\).
+At each of its three rational points \(B_0=0\) and
+\(A_0\ne0\) homogeneously, hence \(r=-1,v=0\).
+The second square has the two values \(w=\pm2\).
+It is unramified on \(H\) at these points, being a unit
+square with two distinct roots. Thus each supplies
+exactly two rational points on the normalization, and
+there are no others. The values of \(t\) follow from
+Proposition~\ref{z2x-model}. None satisfies the strict
+positive condition~\eqref{z2x-positive}.
+\end{proof}
+
+\begin{theorem}[Exclusion of the actual primitive square--cube intersection]
+\label{zd2x-actual-exclusion}
+There are no positive integers \(a,b,U,Q\) with
+\(\gcd(a,b)=1\) satisfying
+\begin{equation}
+ a^2+ab+b^2=U^2,\qquad
+ a^4+3a^3b+5a^2b^2+3ab^3+b^4=Q^3.
+ \label{zd2x-actual-system}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Put \(c=a+b\), \(M=a^2+ab+b^2\), and denote the quartic
+by \(F(a,b)\). The actual second Eisenstein element is
+\[
+ z=ab+M\zeta,\qquad N(z)=(ab)^2+abM+M^2=F(a,b).
+\]
+It is primitive because \(\gcd(ab,M)=1\). Moreover
+\(F(a,b)\equiv(a^2+b^2)^2\equiv1\pmod3\) for a
+primitive pair. Thus this element is unramified at three.
+
+To retain the exact integral profile, use unique
+factorization in \(\mathbb Z[\zeta]\), as in
+Section~\ref{dc-section}. Its Euclidean norm proof is
+elementary: rounding the two real coordinates of a
+complex quotient in the basis \(1,\zeta\) leaves norm
+at most \(3/4<1\). An inert prime in \(N(z)\) would
+divide both integer coordinates. Both orientations
+of a split prime in \(z\) would do the same. Hence
+exactly one split orientation occurs at each norm
+prime, and its exponent is the corresponding
+rational exponent in \(F(a,b)\). Since this norm is
+a cube, there is an exact integral equality
+\begin{equation}
+ ab+M\zeta=\epsilon(S+T\zeta)^3,\qquad
+ \epsilon\in\{1,\zeta,\zeta^2\},
+ \label{zd2x-actual-cube}
+\end{equation}
+with \(\gcd(S,T)=1\), an unramified root, and root
+norm \(Q\). The original six units reduce to these
+three by absorbing their sign into the cube root.
+No nonunit residual or projective content factor has
+been removed. Also \(Q>1\), since \(F(a,b)\ge13\).
+
+The first norm is prime to three. Indeed, if
+\(a\not\equiv b\pmod3\), it is a unit; otherwise
+primitivity makes both units and
+\(M=(a-b)^2+3ab\) has three-adic valuation one.
+The latter is impossible for a square. Nor can
+\(a=b\), since then the primitive seed is \((1,1)\)
+and \(M=3\).
+Consequently the rational numbers
+\[
+ r=\frac{ab}{M},\qquad v=\frac cU,\qquad
+ w=\frac{a-b}{U}
+\]
+satisfy
+\[
+ 0<r<\frac13,\quad v>0,\qquad
+ v^2=1+r,\quad w^2=1-3r .
+\]
+The strict inequality follows from
+\(M-3ab=(a-b)^2>0\).
+Equation~\eqref{zd2x-actual-cube} supplies the very
+same projective source \([S:T]\) in
+\(D_{3,\epsilon}\), whose target denominator is
+the nonzero integer \(M\). Both square roots are
+nonzero, so this is its smooth positive chart.
+Its parameter is exactly
+\[
+ t=\frac{v+w+2}{v-w}=\frac{a+U}{b}>1,
+ \qquad v-w=\frac{2b}{U}\ne0 .
+\]
+This construction does not pair unrelated quotient
+points or omit an infinite root source.
+
+For \(\epsilon=1\), Section~\ref{cl-section}
+excludes the entire three-adic locus. In the present
+integral setting its second coordinate
+\(3ST(S+T)\) also directly contradicts \(3\nmid M\).
+For \(\epsilon=\zeta\), Theorem~\ref{cb-twelve-points}
+gives only the twelve boundary points with \(r=0\).
+For \(\epsilon=\zeta^2\),
+Corollary~\ref{zd2x-six-boundary} gives only the six
+boundary points with \(r=-1\).
+Each contradicts the displayed strict positive
+interval. These three cases exhaust all units
+without a conjugacy identification, proving
+\eqref{zd2x-actual-system}.
+\end{proof}
+
+\begin{corollary}[Same-coefficient propagation and its exact numerical scope]
+\label{zd2x-propagation}
+For every odd positive integer \(g\) divisible by
+three and every \(\epsilon\in\{1,\zeta,\zeta^2\}\),
+\(D_{g,\epsilon}\) has no rational point with finite
+\(t>1\). The same holds for its Gaussian cover.
+Numerically, for any positive integers \(Q,g\) with
+\(g\) divisible by three, there is no positive primitive pair with
+\(M\) a square and \(F=Q^g\).
+\end{corollary}
+\begin{proof}
+For the geometric claim let \(k=g/3\). The degree-\(n\)
+projective power map \(L_{\epsilon,n}\) is the
+coordinate ratio of \(\epsilon(S+T\zeta)^n\).
+Its two coordinates have no common projective zero.
+The exact power identity gives
+\[
+ L_{\epsilon,g}=L_{\epsilon,3}\circ L_{1,k}.
+\]
+On the dense fiber-product chart,
+\((t,s)\mapsto(t,L_{1,k}(s))\) defines a
+nonconstant rational map \(D_{g,\epsilon}\to
+D_{3,\epsilon}\), retaining the same \(t\).
+Equivalently it retains both \(v,w\) and changes
+only their common source. The odd-index curves
+are geometrically connected by
+Section~\ref{hg-section}; the function-field map
+extends over all points of their smooth
+projective models by
+\cite[Lemma~53.2.2 and Theorem~53.2.6]{StacksCurves2026}.
+Thus a rational point with finite \(t>1\), even
+with an infinite or ramified root input, would
+map to the empty positive cubic locus. The
+forgetful map proves the Gaussian assertion.
+No count of the remaining boundary preimages
+at larger \(g\) is asserted.
+
+For the numerical statement write
+\(F=(Q^{g/3})^3\) and apply
+Theorem~\ref{zd2x-actual-exclusion}. This also
+allows even \(g\), without making a connectedness
+claim for an even-index geometric model.
+\end{proof}
+
+\paragraph{Ordinary inputs, finite evidence, and remaining scope.}
+The descent kernel and its naturality in
+\eqref{zd2x-delta-kernel} are standard external
+ordinary inputs from \cite{StollTwoDescent2001}.
+The curve-specific field, valuation, local-image,
+signature and point-set arguments are proved
+above. The finite tables of
+Theorem~\ref{z2x-finite-jacobian} bound full
+torsion separately; they are not rank evidence.
+No complete Jacobian descent or rational-point
+classification is claimed formalized in Lean.
+
+In particular \(M=R^h,F=Q^g\), with positive integers
+\(R,Q,h,g\), even \(h\), and \(3\mid g\), is excluded for this
+positive primitive family even when \(h,g\)
+have no common prime factor. The exact total
+perfect-power conditions are what matter.
+The ramified first shape \(M=3R^h\) with \(h\)
+even is not a square and is not covered.
+A nonunit second residual is covered only
+when its total \(F\) is still a cube; arbitrary
+moving residuals, other indices and uniform
+point-height estimates remain open.
+This fixed-family exclusion is not a
+classification of all primitive ABC triples.

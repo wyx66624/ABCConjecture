@@ -1,0 +1,530 @@
+\section{Shifted boundary resultants and the complete unmatched depth}
+\label{srds-section}
+
+Let \(n>324\) be prime, \(B=n^4\), and
+\(\mathcal O=\mathbb Z[\zeta]\), where
+\(\zeta^2-\zeta+1=0\) and \(\operatorname{Im}\zeta>0\).
+For \(z=A+C\zeta\), put \(P(z)=AC(A+C)\), and define
+\[
+ P_n(a)=P((a+\zeta)^n),\qquad
+ T_n(X)=P_n(3X),\qquad F_n(X)=T_n(X)/3,\qquad d=3n-1.
+\]
+Section~\ref{cg19-section} proves that \(F_n\) is a primitive
+integer polynomial of degree \(d\), with
+\[
+ \|F_n\|_2\le\|F_n\|_1\le64^n.
+\]
+For every integer \(B\le k<2B\), write \(w_k=3k+\zeta\) and
+\(T_k=T_n(k)\). Its three arms are positive and pairwise coprime;
+every boundary prime is a unit for the actual input norm
+\(N(w_k)=9k^2+3k+1\).
+
+Fix a nonzero integer \(h\) with \(|h|<B\), and set
+\[
+ I_h=\{k\in\mathbb Z:B\le k<2B,\ B\le k+h<2B\}.
+\]
+This is a nonempty set of \(B-|h|\) actual pairs. The result below
+controls their common prime-power depths simultaneously even when
+different primes use different witness pairs. It retains all
+unmatched depth in the signed accounting.
+
+\begin{proposition}[Every nonzero integer translate is coprime]
+\label{srds-coprime}
+For every nonzero integer \(h\), without the additional restriction
+\(|h|<B\), one has
+\[
+ \gcd_{\mathbb Q[X]}(F_n(X),F_n(X+h))=1.
+\]
+\end{proposition}
+\begin{proof}
+Work first in the \(a\)-coordinate. Put
+\(\xi=\zeta^2\), \(K=\mathbb Q(\zeta)\), and
+\(L=\mathbb Q(\zeta,\eta)\), where \(\eta\) is a primitive
+\(n\)-th root of unity. The group
+\(\operatorname{Gal}(L/K)\) has order \(n-1\) and sends \(\eta\)
+to all \(\eta^j\), \(1\le j<n\). Indeed the cyclotomic field of
+conductor \(3n\) has degree \(2(n-1)\), and CRT permits every
+nonzero residue modulo \(n\) while fixing the residue modulo three.
+
+Write
+\((a+\zeta)^n=A_n(a)+C_n(a)\zeta\).
+A root of \(P_n\) is neither \(-\zeta\) nor \(-\bar\zeta\):
+at either exceptional value one power embedding is zero and the
+other nonzero, whereas any one of the three arm equations
+\(A_n=0\), \(C_n=0\), \(A_n+C_n=0\) would force both embeddings
+to vanish. The ratio
+\[
+ \alpha=\frac{a+\zeta}{a+\bar\zeta}
+\]
+is therefore defined and nonzero, and the exact arm conditions are
+\begin{equation}
+ \alpha^n=
+ \begin{cases}
+  1,&C_n=0,\\
+  \xi,&A_n=0,\\
+  \xi^2,&A_n+C_n=0.
+ \end{cases}
+ \label{srds-arm-phases}
+\end{equation}
+Conversely each equation implies its indicated arm equation by
+subtracting the two power embeddings. The value \(\alpha=1\)
+is impossible, and the inverse transformation is
+\begin{equation}
+ a=\frac{\zeta-\alpha\bar\zeta}{\alpha-1}.
+ \label{srds-ratio-inverse}
+\end{equation}
+Thus the roots are exactly the \(3n-1\) distinct images of
+\(\mu_{3n}\setminus\{1\}\). Their distinctness and the known degree
+also account for all multiplicities.
+
+The two elements in \(\mu_3\setminus\{1\}\) yield \(a=0,-1\).
+All other elements form the three full \(K\)-Galois orbits
+\[
+ \{\xi^j\eta^t:1\le t<n\},\qquad j=0,1,2,
+\]
+each of cardinality \(n-1\). The inverse
+\eqref{srds-ratio-inverse} preserves these orbit sizes.
+Since \(n\) is prime to three, one orbit lies in each arm after
+its possible rational root has been removed. This gives all
+\(3(n-1)+2\) roots.
+
+For every root \(a\), including a rational root, define
+\(\mu(a)=\operatorname{Tr}_{L/K}(a)/(n-1)\).
+The leading and next coefficients of the three arm polynomials
+give their total root sums:
+\[
+ \begin{array}{c|c|c}
+ \text{arm}&\text{leading terms}&\text{total root sum}\\ \hline
+ A_n&a^n+0a^{n-1}&0\\
+ C_n&na^{n-1}+\frac{n(n-1)}2a^{n-2}&-(n-1)/2\\
+ A_n+C_n&a^n+na^{n-1}&-n
+ \end{array}
+\]
+When \(n\equiv1\pmod6\), \(A_n\) has rational root zero and
+\(A_n+C_n\) has rational root \(-1\). When \(n\equiv5\pmod6\)
+these rational roots are interchanged. Consequently the three
+nonrational orbit means are
+\begin{equation}
+ \begin{array}{c|ccc}
+ n\bmod6&\multicolumn{3}{c}{\text{nonrational orbit means}}\\ \hline
+ 1&0&-1/2&-1\\
+ 5&1/(n-1)&-1/2&-n/(n-1).
+ \end{array}
+ \label{srds-trace-means}
+\end{equation}
+The rational roots have means zero and \(-1\). The diameter of
+the complete set of possible means is at most
+\((n+1)/(n-1)<3\).
+
+If \(F_n(X)\) and \(F_n(X+h)\) had a common root \(x\), the
+two roots \(a=3x\) and \(b=3x+3h\) of \(P_n\) would both lie in
+the same field \(L\). Linearity of its full normalized trace would
+give \(\mu(b)-\mu(a)=3h\), whose absolute value is at least three.
+This contradicts \eqref{srds-trace-means}. No assumption that the
+two roots have the same minimal polynomial was used.
+\end{proof}
+
+\begin{proposition}[The actual common-depth lcm]
+\label{srds-lcm}
+For \(0<|h|<B\), define the positive integers
+\[
+ C_F(h)=\mathop{\operatorname{lcm}}_{k\in I_h}
+       \gcd(F_n(k),F_n(k+h)),\qquad
+ C_T(h)=\mathop{\operatorname{lcm}}_{k\in I_h}
+       \gcd(T_k,T_{k+h}).
+\]
+Then
+\begin{equation}
+ \begin{split}
+ C_F(h)&\mid\operatorname{Res}(F_n(X),F_n(X+h)),\\
+ C_T(h)&=3C_F(h).
+ \end{split}
+ \label{srds-lcm-div}
+\end{equation}
+In particular, with
+\begin{equation}
+ H_n(h)=2dn\log64+d^2\log(1+|h|),
+ \label{srds-height-cost}
+\end{equation}
+one has
+\begin{equation}
+ \log C_T(h)\le H_n(h)+\log3.
+ \label{srds-lcm-height}
+\end{equation}
+For each fixed nonzero integer \(h\), this bound is \(O_h(n^2)\).
+\end{proposition}
+\begin{proof}
+For each prime \(p\), let
+\[
+ b_p=\max_{k\in I_h}
+       \min\{v_p(F_n(k)),v_p(F_n(k+h))\}.
+\]
+For every positive \(b_p\), choose an actual pair attaining it.
+Different primes may require different pairs. Both polynomials
+vanish at the chosen owner modulo \(p^{b_p}\), and
+Proposition~\ref{srds-coprime} proves their coprimality.
+
+For clarity, the integer resultant argument applies to full prime
+powers without monicity assumptions. The Sylvester matrix is the
+coefficient matrix of
+\((U,V)\mapsto UF+VG\) with the usual complementary degree
+bounds. Its adjugate applied to the constant coefficient vector
+gives integer polynomials with
+\[
+ UF+VG=\operatorname{Res}(F,G),
+\]
+up to a sign convention. Evaluation at the chosen owner proves
+\(p^{b_p}\) divides the nonzero resultant. Multiplication over
+the distinct primes proves the first assertion in
+\eqref{srds-lcm-div}.
+
+For every pair, \(\gcd(3F_n(k),3F_n(k+h))\) is three times the
+corresponding \(F_n\)-gcd. The lcm of a nonempty finite list
+commutes with this common scaling, proving the second assertion.
+Thus at three the maximum common \(T\)-depth is exactly one more
+than the maximum common \(F\)-depth; it is not assumed to be one.
+
+Translation satisfies
+\[
+ \|F_n(X+h)\|_2\le\|F_n(X+h)\|_1
+       \le\|F_n\|_1(1+|h|)^d,
+\]
+because the coefficient norm of \((X+h)^j\) is
+\((1+|h|)^j\). There are \(d\) shifted coefficient rows of each
+polynomial in the Sylvester matrix. Hadamard's inequality therefore
+gives
+\[
+ \begin{split}
+ \log|\operatorname{Res}(F_n,F_n(\,\cdot+h))|
+ &\le d\log\|F_n\|_2+d\log\|F_n(\,\cdot+h)\|_2\\
+ &\le2dn\log64+d^2\log(1+|h|).
+ \end{split}
+\]
+Combining this with \eqref{srds-lcm-div} proves the claim.
+\end{proof}
+
+The second polynomial has no packet modulus hidden in its degree
+or coefficient bound. Its degree can be much smaller than the
+number of distinct witness owners. This gives one simultaneous
+integer bound for the actual common-depth part, without any
+multiplicative-independence condition. It does not control excess
+depth at one owner beyond the depth at its partner.
+
+\begin{proposition}[The full signed residual]
+\label{srds-signed}
+Let \(\mathcal P\) be a finite set of distinct primes, each with
+an assigned owner \(k_p\in I_h\) and full depth
+\(e_p=v_p(T_{k_p})\ge1\). Set
+\[
+ b_p=\min\{e_p,v_p(T_{k_p+h})\},\qquad u_p=e_p-b_p,\qquad
+ \mathcal P_c=\{p\in\mathcal P:b_p>0\},\qquad
+ R_c=\prod_{p\in\mathcal P_c}p.
+\]
+The original signed packet has the exact identity
+\begin{equation}
+ \begin{split}
+ J_{\mathcal P}:=\sum_{p\in\mathcal P}(e_p-3)\log p
+   &=\sum_{p\in\mathcal P_c}(b_p-3)\log p
+       +\sum_{p\in\mathcal P_c}u_p\log p\\
+   &\quad+\sum_{p\in\mathcal P\setminus\mathcal P_c}
+                    (e_p-3)\log p.
+ \end{split}
+ \label{srds-exact-signed}
+\end{equation}
+If \(\delta_3\) indicates \(3\in\mathcal P_c\), its proved bound is
+\begin{equation}
+ \begin{split}
+ J_{\mathcal P}
+ &\le H_n(h)+\delta_3\log3-3\log R_c\\
+ &\quad+\sum_{p\in\mathcal P_c}u_p\log p
+       +\sum_{p\in\mathcal P\setminus\mathcal P_c}
+                    (e_p-3)\log p.
+ \end{split}
+ \label{srds-unmatched-bound}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Identity \eqref{srds-exact-signed} is termwise addition. Apply the
+resultant certificate to precisely the selected common packet,
+reducing its depth at three by one and omitting a zero depth.
+The \(T\)-modulus is three times the adjusted \(F\)-modulus when
+three is present. Restoring the original radical, exactly as in
+\eqref{cg19-full-signed}, gives
+\[
+ \sum_{p\in\mathcal P_c}(b_p-3)\log p
+       \le H_n(h)+\delta_3\log3-3\log R_c.
+\]
+Substitution proves \eqref{srds-unmatched-bound}. If the common
+packet is empty, its cost and radical logarithm are zero and the
+same inequality remains valid. All depth-one and depth-two terms
+remain on their actual supports with their negative signs.
+\end{proof}
+
+In particular the complete lcm has
+\[
+ J(C_T(h))\le H_n(h)+\log3-3\log\operatorname{rad}(C_T(h)),
+ \qquad J(M)=\log M-3\log\operatorname{rad}(M).
+\]
+The larger radical of this complete lcm cannot replace the
+radical of a selected subpacket. Signed sums are not monotone
+under the addition of depth-one or depth-two labels.
+
+\paragraph{Several allowed shifts and their cost.}
+Let \(\mathcal H\) be a finite set of nonzero integer shifts
+with \(|h|<B\). Allow each distinct prime its own selected
+shift \(h_p\in\mathcal H\) and actual pair in \(I_{h_p}\).
+Partitioning the primes by that shift gives
+\begin{equation}
+ \begin{split}
+ \log M_{\rm common}
+     &\le\sum_{h\in\mathcal H}H_n(h)+\delta_3\log3,\\
+ J_{\rm common}
+     &\le\sum_{h\in\mathcal H}H_n(h)+\delta_3\log3
+                 -3\log\operatorname{rad}(M_{\rm common}).
+ \end{split}
+ \label{srds-multishift}
+\end{equation}
+Only one \(\log3\) is restored, because three is a single assigned
+prime label. Every unmatched term in \eqref{srds-exact-signed}
+must still be added.
+
+For the actual full block scale
+\[
+ W_n=\sum_{B\le k<2B}n\log|3k+\zeta|
+       \ge Bn\log(3B),
+\]
+a fixed finite set \(\mathcal H\) has
+\(\sum_hH_n(h)/W_n\longrightarrow0\).
+More generally the same conclusion follows, for nonempty
+\(\mathcal H\), if
+\[
+ \frac{|\mathcal H|\,n\log(1+\max_{h\in\mathcal H}|h|)}
+      {B\log B}\longrightarrow0.
+\]
+Summing the proved bounds over all \(0<|h|<B\) instead costs
+\(O(Bn^2\log B)\), not \(o(Bn\log B)\).
+Neither a covering by few shifts nor control of all unmatched
+depth follows from this calculation.
+
+\begin{proposition}[Different positive labels in the original block]
+\label{srds-actual-example}
+For every prime \(n>324\), the original block contains two
+distinct pairs with common exact depths four at seven and five
+at thirteen, respectively; neither prime hits the other pair.
+\end{proposition}
+\begin{proof}
+Use the fixed integers
+\[
+ L_0=7^4\,13^5=891474493,\qquad
+ h=(L_0-1)/3=297158164.
+\]
+Let \(k_7\) be the first integer at least \(B\) satisfying
+\[
+ k_7\equiv7^4\pmod{7^5},\qquad k_7\equiv1\pmod{13},
+\]
+and define \(k_{13}\) by
+\[
+ k_{13}\equiv13^5\pmod{13^6},\qquad k_{13}\equiv1\pmod7.
+\]
+The respective CRT steps are \(218491\) and \(33787663\).
+Since
+\[
+ h+33787663<331000000<324^4<B,
+\]
+all four indices \(k_7,k_7+h,k_{13},k_{13}+h\) lie in the
+original block.
+
+The integral expansion \(P_n(a)=na+O(a^2)\) was proved in
+Section~\ref{cg19-section}. Also
+\[
+ P_n(-1-a)=P_n(a),\qquad P_n'(-1)=-n.
+\]
+Indeed \(-1-a+\zeta=-\overline{a+\zeta}\), \(n\) is odd,
+and \(P(-\bar z)=P(z)\). At \(k_q\) the expansion at zero
+gives exactly the depth \(e\) for
+\((q,e)=(7,4),(13,5)\), since \(n\) is a \(q\)-unit.
+At the shifted index,
+\[
+ 3(k_q+h)+1=3k_q+L_0.
+\]
+After division by \(q^e\), its residue is respectively
+\[
+ 3+13^5\equiv2\pmod7,\qquad
+ 3+7^4\equiv12\pmod{13}.
+\]
+Both are units, so the expansion at \(-1\) gives the same exact
+depth at the second owner. Primitivity and the norm-unit
+conditions follow from the actual original-block setup.
+
+For \(p=7,13\), \(\gcd(n,p-1)=1\). At an input of nonzero
+norm, the split ratio group has order \(p-1\).
+Equation \eqref{srds-arm-phases} then forces a boundary hit
+to have \(\alpha\in\mu_3\), hence \(a=0\) or \(-1\)
+modulo \(p\). At norm zero, primitivity and the norm identity
+exclude a boundary hit instead. At the other pair the two
+input values \(a=3k\) are \(3\) and \(2\) modulo \(p\), since
+\(k\equiv1\) and \(h\equiv-1/3\pmod p\). Neither is zero or
+\(-1\), proving absence of that prime throughout the other pair.
+The four owners are distinct: modulo seven the first pair has
+indices \(0,2\), and the second \(1,3\).
+\end{proof}
+
+The selected packet consequently has
+\[
+ M_{\rm selected}=7^4\,13^5,\qquad
+ J_{\rm selected}=\log7+2\log13>0.
+\]
+No factorization of the remaining boundary is assumed. This is
+an actual original-block nonemptiness witness, with different
+prime owners. Its marked primes are fixed and small; it is not
+a far-tail example or a claim of membership in the independent
+domain.
+
+\begin{proposition}[Assigned matched costs and their exact quantifier]
+\label{srds-assigned-markov}
+Fix \(n,B,h\) as above and put \(t_k=n\log|3k+\zeta|\),
+\(C_n(h)=H_n(h)+\log3\). For any finite set \(\mathcal P\)
+of distinct primes, choose one actual pair per prime, with
+\[
+ b_p=\min\{v_p(T_{k_p}),v_p(T_{k_p+h})\}\ge1.
+\]
+Define its assigned positive matched cost
+\[
+ L_h(k)=\sum_{\substack{p\in\mathcal P\\k_p=k}}
+                          (b_p-3)_+\log p,
+ \qquad x_+=\max(x,0).
+\]
+For every real \(\epsilon>0\),
+\begin{equation}
+ \begin{split}
+ \sum_{k\in I_h}L_h(k)&\le C_n(h),\\
+ \#\{k\in I_h:L_h(k)>\epsilon t_k\}
+       &<\frac{C_n(h)}{\epsilon n\log(3B)}.
+ \end{split}
+ \label{srds-assigned-bound}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Each selected common depth is at most its corresponding exponent
+in \(C_T(h)\). Distinctness of the assigned prime labels gives
+\[
+ \sum_k L_h(k)=\sum_{p\in\mathcal P}(b_p-3)_+\log p
+    \le\sum_{p\in\mathcal P}b_p\log p
+    \le\log C_T(h)\le C_n(h).
+\]
+Every exceptional owner's cost exceeds
+\(\epsilon t_k\ge\epsilon n\log(3B)\). Summing over the
+exceptional set proves the strict cardinality bound when it is
+nonempty; when it is empty, strictness holds because the displayed
+right side is positive.
+\end{proof}
+
+For fixed \(h\), the exception bound is
+\(O_h(n/(\epsilon\log n))\). Taking \(\epsilon_n=1/n\)
+gives \(O_h(n^2/\log n)=o(B)\) exceptions and cost at most
+\(t_k/n\) on every other assigned owner. The same finite
+argument for multiple shifts uses their total cost in
+\eqref{srds-multishift}; an empty shift set has zero cost
+and zero exceptions, with a non-strict zero bound.
+
+The quantifier is: for every specified prime/pair assignment
+there exists its corresponding exceptional set. It is not
+one common good set for all assignments. In this proposition
+a prime is assigned once; its common depth is not summed over
+every pair where it occurs. The positive-cost estimate also
+does not replace the complete signed identity
+\eqref{srds-exact-signed}.
+
+\paragraph{The precise remaining second-polynomial requirement.}
+For any assigned full \(T\)-packet, let \(R_T\) be its original
+radical and let \(\delta_3\) indicate whether three is present.
+A nonzero \(G\in\mathbb Z[X]\) coprime to \(F_n\) must satisfy
+the adjusted \(F_n\)-packet: the depth at three is \(e_3-1\)
+when positive and is omitted when zero; all other depths are
+unchanged. Define
+\[
+ D_n(G)=\deg(G)\log\|F_n\|_2+d\log\|G\|_2.
+\]
+The corrected full signed certificate is
+\begin{equation}
+ J_{\rm packet}\le D_n(G)+\delta_3\log3-3\log R_T.
+ \label{srds-second-certificate}
+\end{equation}
+It follows from the integer Sylvester bound and, for a nonzero
+constant \(G=c\), the direct case
+\(\operatorname{Res}(F_n,c)=c^d\).
+If a larger actual signed sum has the exact decomposition
+\(J_{\rm total}=J_{\rm packet}+J_{\rm remainder}\), a sufficient
+certificate at a positive scale \(W\) and tolerance \(\epsilon>0\)
+is
+\begin{equation}
+ D_n(G)\le3\log R_T-\delta_3\log3
+                   -J_{\rm remainder}+\epsilon W.
+ \label{srds-required-cost}
+\end{equation}
+For specified degree \(a\), this is equivalently
+\[
+ \log\|G\|_2\le
+ \frac{3\log R_T-\delta_3\log3-J_{\rm remainder}
+             +\epsilon W-a\log\|F_n\|_2}{d}.
+\]
+Replacing \(\log\|F_n\|_2\) by \(n\log64\) gives a stronger
+sufficient condition. A negative right side cannot be attained
+by a nonzero integer coefficient vector.
+
+The radical and remainder keep all original depth-one and
+depth-two credits. Criterion \eqref{srds-required-cost} does
+not construct \(G\). The automatic product of owner factors has
+resultant equal to the product of owner values and recovers their
+old height bound. Even degree reduction alone does not suffice:
+the actual CG packet also permits \(G=625(X-B)\), whose exact
+resultant \(625^dF_n(B)\) still pays the large original owner value.
+
+\paragraph{Coverage and the independent-domain singleton range.}
+Write \(L=\log(8B)\) and \(r=\lceil\sqrt{n/2}\rceil\).
+The previously proved unit-signed theorem says that in its
+multiplicatively independent domain \(\mathcal I\), a prime
+\(q>8B\) with \(\log q\ge rL/2\) has at most one root of
+depth at least four. Thus, when both endpoints of a pair lie
+in \(\mathcal I\), its common positive depth at such a prime
+is already zero. Under the stronger inequality
+\(\log q\ge2rL\), that domain has at most one positive-depth
+root, so it contains no distinct common-support pair at all.
+
+The shifted resultant permits a partner in the complete original
+block, including outside \(\mathcal I\). It proves neither that
+such a partner exists nor that it has comparable depth or uses
+one of a small set of shifts. In
+\eqref{srds-exact-signed}, all differences \(e_p-b_p\) and
+all unpaired labels are still present. There is no lower bound
+on the proportion of original positive depth contained in the
+matched portion.
+
+The \(O_h(n^2)\) fixed-shift cost is small on the full block
+scale \(Bn\log B\) but exceeds the individual scale of order
+\(n\log B\). Proposition~\ref{srds-assigned-markov} is a finite
+exceptional-set consequence for a specified assignment, not
+a bound for every root. All-shift summation removes its saving.
+Exceptional roots, the dependent-root complement, and the
+reduction covering arbitrary primitive ABC triples remain
+separate obligations.
+
+\paragraph{Evidence and scope.}
+The ordinary root-orbit, trace, integer resultant and signed
+proofs above were independently reviewed in full. The exact
+script \texttt{next\_replay\_shifted\_\allowbreak pairs.py}
+checks twelve literal binary Eisenstein powers for
+\(n=331,337,347\), the block conditions, primitivity, norm
+identities, exact marked depths and cross-prime absence.
+Its canonical output SHA256, concatenating the two lines, is
+\begin{center}
+\small\ttfamily
+980fc36976bda4a192a6caa0adae886547\\
+613aade9b97aabcec310c14e12265b
+\end{center}
+The author and root independently ran its check successfully.
+That finite replay does not prove the infinite root-orbit or
+resultant assertions, which have their ordinary proofs above.
+This section claims no new Lean theorem and no full ABC proof.
+Later simple-root or differential-certificate candidates are
+not included in these statements.

@@ -1,0 +1,337 @@
+\section{The ramified first norm and the three cubic unit classes}
+\label{rsx-section}
+
+Retain \(\zeta^2-\zeta+1=0\),
+\(\mathcal O=\mathbb Z[\zeta]\), and
+\(N(x+y\zeta)=x^2+xy+y^2\). For positive coprime integers
+\(a,b\), put
+\[
+ c=a+b,\quad d=a-b,\quad M=a^2+ab+b^2,\quad
+ F=a^4+3a^3b+5a^2b^2+3ab^3+b^4.
+\]
+This section treats \(M=3U^2\), retaining its ramified coefficient.
+Its proof does not apply the preceding theorem with \(M=U^2\).
+
+\begin{proposition}[The exact ramified common-source models]
+\label{rsx-models}
+Put
+\begin{align}
+ A_0&=S^3-3ST^2-T^3,& B_0&=3ST(S+T),\nonumber\\
+ C_0&=A_0+B_0=S^3+3S^2T-T^3.
+ \label{rsx-cubics}
+\end{align}
+The coordinates \((A,B)\) of
+\(\epsilon(S+T\zeta)^3\), for
+\(\epsilon=1,\zeta,\zeta^2\), respectively, are
+\begin{equation}
+ (A_0,B_0),\qquad(-B_0,C_0),\qquad(-C_0,A_0).
+ \label{rsx-unit-coordinates}
+\end{equation}
+Let \(L_{\epsilon,3}:[S:T]\mapsto[A:B]\), and let
+\(\mathcal K\) be the smooth projective conic with the indicated
+morphism to \(\mathbb P^1_r\):
+\begin{equation}
+ 3V^2+W^2=12L^2,\qquad
+ r=\frac{V^2-3L^2}{3L^2}.
+ \label{rsx-conic}
+\end{equation}
+The normalization \(D^{\rm ram}_{3,\epsilon}\) of their
+projective fiber product is geometrically connected of genus six.
+Its three genus-two quotients are the smooth projective models of
+\begin{align}
+ (H^{\rm ram}_1):\quad Y_1^2&=3B(A+B),\nonumber\\
+ (H^{\rm ram}_2):\quad Y_2^2&=3B(B-3A),\nonumber\\
+ (H^{\rm ram}_3):\quad Y_3^2&=(A+B)(B-3A).
+ \label{rsx-quotients}
+\end{align}
+These equations all use the same projective source \([S:T]\).
+\end{proposition}
+\begin{proof}
+Multiplication with \(\zeta^2=\zeta-1\) proves
+\eqref{rsx-cubics}--\eqref{rsx-unit-coordinates}.
+Over \(\mathbb Q(\zeta)\), the fractional linear map
+\[
+ \rho(x)=\frac{x+\zeta}{x+\bar\zeta}
+\]
+gives the identity of projective rational maps
+\begin{equation}
+ \rho(L_{\epsilon,3}(s))=\epsilon^2\rho(s)^3,\qquad s=S/T.
+ \label{rsx-conjugacy}
+\end{equation}
+Thus \(L_{\epsilon,3}\) is a degree-three morphism, its
+coordinates have no common projective zero, and its branch
+values are \(-\zeta,-\bar\zeta\). Each of
+\(\infty,-1,1/3\) therefore has three simple preimages,
+with the three fibers pairwise disjoint.
+
+The conic in \eqref{rsx-conic} is smooth. When \(L=0\),
+its coordinate \(V\) cannot vanish, so the two homogeneous
+coordinates defining \(r\) never vanish simultaneously.
+On \(L=1\), its equations become
+\begin{equation}
+ v^2=3(1+r),\qquad w^2=3(1-3r).
+ \label{rsx-affine-squares}
+\end{equation}
+The square classes of \(3(A+B)/B\) and \(3(B-3A)/B\)
+are independent over the geometric function field: each has
+three simple zeros absent from the other. The fiber product
+therefore has geometric degree four over \(\mathbb P^1_{[S:T]}\).
+Its nine branch points are the three fibers above
+\(\infty,-1,1/3\), with inertia two at each. At their
+common poles the ratio of the two functions is a geometric
+local unit, so the inertia is still two. Riemann--Hurwitz gives
+\[
+ 2g(D^{\rm ram}_{3,\epsilon})-2=4(-2)+9\cdot2=10.
+\]
+On \(B\ne0\), set \(Y_1=Bv\), \(Y_2=Bw\), and
+\(Y_3=Bvw/3\). These give \eqref{rsx-quotients}.
+Each right side has six distinct projective roots, proving
+the stated genera. In particular the third quotient is
+unchanged by the twist, while the first two are twisted by three.
+
+The normalization has morphisms to both the source projective
+line and the whole conic. Their morphisms to \(\mathbb P^1_r\)
+agree on a dense open chart and hence everywhere. Thus no
+affine presentation discards exceptional or infinite fibers.
+\end{proof}
+
+\begin{theorem}[Complete local exclusion of all three ramified covers]
+\label{rsx-local-empty}
+For each \(\epsilon\in\{1,\zeta,\zeta^2\}\),
+\[
+ D^{\rm ram}_{3,\epsilon}(\mathbb Q_3)=\varnothing .
+\]
+\end{theorem}
+\begin{proof}
+A point of \(\mathcal K(\mathbb Q_3)\) with \(L=0\)
+would give \(W^2=-3V^2\) with \(V\ne0\), impossible by
+valuation parity. Every such point is therefore affine.
+In
+\[
+ 3v^2+w^2=12
+\]
+the two nonzero terms on the left have valuations of opposite
+parity. They cannot cancel at the minimum, which must equal
+\(v_3(12)=1\). It must be the valuation of \(3v^2\).
+Also \(v=0\) would require a square of odd valuation.
+Allowing \(w=0\), this proves
+\begin{equation}
+ v\in\mathbb Z_3^\times,\qquad w\in3\mathbb Z_3,
+ \qquad v_3(r)=v_3((v^2-3)/3)=-1.
+ \label{rsx-required-depth}
+\end{equation}
+
+Now normalize any \([S:T]\in\mathbb P^1(\mathbb Q_3)\)
+to \(S,T\in\mathbb Z_3\), at least one a unit. This includes
+\(T=0\). If \(S\not\equiv T\pmod3\), then
+\[
+ A_0\equiv C_0\equiv(S-T)^3\not\equiv0\pmod3.
+\]
+One of \(S,T,S+T\) vanishes modulo three: if both coordinates
+are nonzero their distinct residues are opposite. Consequently
+\(B_0\in9\mathbb Z_3\). The three ratios in
+\eqref{rsx-unit-coordinates} have the following exhaustive
+possibilities:
+\begin{equation}
+\begin{array}{c|c}
+\epsilon& r=A/B\\ \hline
+1&v_3(r)\le-2,\ \text{or }r=\infty\\
+\zeta&v_3(r)\ge2,\ \text{or }r=0\\
+\zeta^2&v_3(r)=0 .
+\end{array}
+\label{rsx-unit-depths}
+\end{equation}
+
+If \(S\equiv T\pmod3\), both are units. Write \(S=T+3K\).
+The exact identities
+\begin{align}
+ A_0&=-3T^3+27K^2T+27K^3,\nonumber\\
+ B_0&=3ST(S+T),\nonumber\\
+ C_0&=3(T^3+9KT^2+18K^2T+9K^3)
+ \label{rsx-diagonal-expansion}
+\end{align}
+show that all three have valuation one: after division by three
+their residues are \(-T^3,2T^3,T^3\), respectively.
+Each of the three ratios is then a unit.
+
+No projective source for any of the three units has finite ratio
+of valuation \(-1\). A rational point on the normalization would
+have everywhere defined images on that source line and on
+\(\mathcal K\), with the same \(r\). This contradicts
+\eqref{rsx-required-depth}. The proof therefore includes every
+branch fiber, infinite source, and ramified input.
+\end{proof}
+
+\begin{theorem}[An actual integer cube forces an unramified first norm]
+\label{rsx-integer-gate}
+Let \(a,b,Q\) be positive integers with \(\gcd(a,b)=1\).
+Then
+\begin{equation}
+ F=Q^3\quad\Longrightarrow\quad3\nmid M.
+ \label{rsx-main-implication}
+\end{equation}
+In the exact integral cubic extraction
+\begin{equation}
+ ab+M\zeta=\epsilon(S+T\zeta)^3,\qquad
+ \epsilon\in\{1,\zeta,\zeta^2\},
+ \label{rsx-extraction}
+\end{equation}
+the identity unit \(\epsilon=1\) cannot occur.
+\end{theorem}
+\begin{proof}
+The actual element \(z=ab+M\zeta\) satisfies
+\begin{equation}
+ N(z)=(ab)^2+abM+M^2=F,\quad
+ \gcd(ab,M)=1,\quad F\equiv(a^2+b^2)^2\equiv1\pmod3.
+ \label{rsx-primitive-norm}
+\end{equation}
+Indeed a prime dividing \(ab,M\) would divide both \(a,b\).
+For the last congruence their squared sum modulo three is
+one or two, because they are not both zero.
+
+The ring \(\mathcal O\) is norm Euclidean: rounding the two
+real coordinates in the basis \(1,\zeta\) gives an error
+of norm at most \(3/4<1\). It is therefore a UFD; its units
+are the six powers of \(\zeta\). An inert rational prime in
+\(N(z)\) would divide \(z\) as a rational integer, contrary
+to primitivity. At a split prime, both conjugate prime
+factors cannot occur, since their product would divide both
+coordinates. The ramified prime above three is absent by
+\eqref{rsx-primitive-norm}. Every occurring orientation
+thus has exponent equal to its rational exponent in \(N(z)\).
+
+Under \(F=Q^3\) all those exponents are multiples of three.
+This proves \eqref{rsx-extraction}, with integral \(S,T\),
+\(\gcd(S,T)=1\), and \(N(S+T\zeta)=Q\). A sign is absorbed
+into the cube root to leave the three displayed units.
+Since \(3\nmid Q\),
+\begin{equation}
+ S\not\equiv T\pmod3 .
+ \label{rsx-unramified-root}
+\end{equation}
+This is an equality of actual integral elements. It neither
+divides a projective output by its content nor drops a
+nonunit residual.
+
+A primitive pair always has \(v_3(M)\in\{0,1\}\).
+Use \(M=(a-b)^2+3ab\). If \(a\not\equiv b\pmod3\),
+then \(M\) is a unit. Otherwise \(a,b\) are units, the
+second term has valuation one, and the first has valuation
+at least two.
+
+By \eqref{rsx-unramified-root}, \(A_0,C_0\) are units
+and \(B_0\in9\mathbb Z_3\). Thus the second coordinate in
+\eqref{rsx-unit-coordinates} is either zero or of valuation
+at least two for \(\epsilon=1\), and is a unit for each of
+the other two units. It cannot have valuation one.
+Since this coordinate is the positive integer \(M\)
+of valuation at most one, the identity unit is impossible
+and the other two force \(3\nmid M\).
+\end{proof}
+
+\begin{corollary}[The actual ramified square/cube family is empty]
+\label{rsx-square-cube}
+There are no positive integers \(a,b,U,Q\) with \(\gcd(a,b)=1\)
+and
+\[
+ M=3U^2,\qquad F=Q^3.
+\]
+\end{corollary}
+\begin{proof}
+Theorem~\ref{rsx-integer-gate} immediately contradicts \(3\mid M\).
+The full local curve obstruction gives a second presentation
+of the same implication, with its source checks as follows.
+The exact extraction \eqref{rsx-extraction} gives the source
+\([S:T]\) with \(r=ab/M\). Set \(v=c/U,w=d/U\).
+Since \(c^2=M+ab\) and \(d^2=M-3ab\), these satisfy
+\eqref{rsx-affine-squares} at that same source.
+Positivity gives
+\[
+ 0<r\le1/3,\quad v>0,\quad v>|w|,
+ \quad\text{equivalently}\quad \sqrt3<v\le2 .
+\]
+Equality \(r=1/3\) would force \(a=b=1,U=1,F=13\), which
+is not a cube. Hence \(0<r<1/3\), avoiding all three branch
+targets; this actual point lifts to the smooth normalization
+and contradicts Theorem~\ref{rsx-local-empty}.
+No converse for arbitrary rational points is used.
+\end{proof}
+
+\paragraph{Other elementary local checks.}
+The polynomial \(F\) is odd at each of the three nonzero pairs
+modulo two. Modulo five, its values \(F(S,1)\) for
+\(S=0,1,2,3,4\) are \(1,3,2,2,1\); when \(5\mid b\),
+one has \(F\equiv a^4\not\equiv0\).
+Thus \(2,3,5\nmid Q\) in an actual cubic profile.
+The ramified square profile would also have \(U\) odd and
+a three-adic unit. These are supplementary checks, not a
+claim of a complete list of local conditions.
+
+\begin{corollary}[Numerical and projective propagation]
+\label{rsx-propagation}
+For positive integers \(a,b,Q,g\), with \(\gcd(a,b)=1\) and
+\(3\mid g\), the equality \(F=Q^g\) implies \(3\nmid M\).
+In particular \(M=3R^h,F=Q^g\) is impossible for positive
+integers \(R,h\) under these assumptions.
+For every \(g=3k\), \(k\) a positive integer, and
+\(\epsilon\in\{1,\zeta,\zeta^2\}\), the analogous normalized
+ramified cover \(D^{\rm ram}_{g,\epsilon}\) has no
+\(\mathbb Q_3\)-point.
+\end{corollary}
+\begin{proof}
+Numerically rewrite \(Q^g=(Q^{g/3})^3\) and apply
+Theorem~\ref{rsx-integer-gate}; there is no parity restriction.
+For the geometric assertion let \(L_{\epsilon,g}\) be the
+coordinate ratio of \(\epsilon(S+T\zeta)^g\). Then
+\[
+ L_{\epsilon,g}=L_{\epsilon,3}\circ L_{1,k},
+ \qquad \rho(L_{\epsilon,g}(s))=\epsilon^2\rho(s)^g .
+\]
+Each of \(\infty,-1,1/3\) has \(g\) simple preimages,
+with the three fibers disjoint. The two square classes
+remain independent by their disjoint simple zeros, so the
+fiber-product normalization is geometrically connected,
+including when \(g\) is even. Retaining the conic coordinates
+and applying \(L_{1,k}\) to the source gives a nonconstant
+rational map \(D^{\rm ram}_{g,\epsilon}\to
+D^{\rm ram}_{3,\epsilon}\), retaining \(r\).
+It extends to the smooth projective models by
+\cite[Lemma~53.2.2 and Theorem~53.2.6]{StacksCurves2026}.
+A \(\mathbb Q_3\)-point would contradict
+Theorem~\ref{rsx-local-empty}.
+This geometric statement concerns these specified
+coefficients; it does not identify arbitrary unit classes
+modulo \(g\)-th powers with the three cubic classes.
+The numerical assertion needs no such identification.
+\end{proof}
+
+\paragraph{Why the global extraction cannot be replaced by a numerical
+local test.}
+The two numerical norm equations alone can be soluble over
+\(\mathbb Q_3\). At \(a=1,b=4\) one has \(M=21,F=541\).
+The equation \(U^2=7\) has a simple root modulo three and
+hence a root in \(\mathbb Q_3\). To solve \(Q^3=541\), put
+\(Q=1+3t\); the resulting equation is
+\[
+ t+3t^2+3t^3=60.
+\]
+Its reduction has the simple root \(t=0\) modulo three,
+so Hensel's lemma supplies \(Q\in\mathbb Q_3\).
+Thus local numerical solubility does not contradict
+Theorem~\ref{rsx-local-empty}. The latter concerns exact
+common-source covers with one of three global units.
+Their relevance to integer solutions comes from the
+primitive global UFD extraction, not from the numerical
+local norm alone.
+
+\paragraph{Ordinary proof and remaining scope.}
+The complete argument is ordinary mathematics; no Lean
+formalization of the UFD extraction, curve construction,
+or local exclusion is claimed. It is a fixed exact-profile
+result. It gives no uniform height estimate for varying
+residual coefficients and no theorem putting every possible
+ABC counterexample in these perfect-power families.
+Nonunit second residuals can change the cubic-unit equations;
+their coverage, other indices, and uniform point-height
+bounds remain open. The preceding unramified theorem
+retains its separate proof and hypotheses.

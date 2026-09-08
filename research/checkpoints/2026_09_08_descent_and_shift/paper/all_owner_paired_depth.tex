@@ -1,0 +1,121 @@
+\section{Simultaneous control of all paired owners above the block length}
+\label{apx-section}
+
+We now remove the choice of one owner per prime for a precisely specified
+paired part of the original boundary. This does not supply a partner for
+an isolated high-depth occurrence. Retain the original prime \(n>324\),
+\(B=n^4\), \(d=3n-1\), and the integer boundary \(T_k=3F_n(k)\).
+For a nonzero integer \(h\) with \(|h|<B\), write
+\[
+ I_h=\{k\in\mathbb Z:B\le k<2B,\ B\le k+h<2B\},\qquad
+ b_q(k,h)=\min\{v_q(T_k),v_q(T_{k+h})\}.
+\]
+Put \(b_q(h)=\max_{k\in I_h}b_q(k,h)\) and
+\begin{equation}
+ C_T(h)=\mathop{\mathrm{lcm}}_{k\in I_h}\gcd(T_k,T_{k+h}),\qquad
+ C_n(h)=2dn\log64+d^2\log(1+|h|)+\log3.
+ \label{apx-constants}
+\end{equation}
+The shifted-resultant theorem in the preceding section proves
+\(\log C_T(h)\le C_n(h)\). The interval \(I_h\) is nonempty,
+and every prime sum below has finite support on actual integer boundaries.
+
+\begin{theorem}[The complete sum over paired owners]
+\label{apx-all-owners}
+Define the actual nonnegative quantity
+\[
+ L_h^{>}(k)=\sum_{\substack{q>B\\q\ \mathrm{prime}}}
+                 \max\{b_q(k,h)-3,0\}\log q .
+\]
+Then
+\begin{equation}
+ \sum_{k\in I_h}L_h^{>}(k)
+ \le d\sum_{q>B}\max\{b_q(h)-3,0\}\log q
+ \le d\log C_T(h)\le dC_n(h).
+ \label{apx-total}
+\end{equation}
+\end{theorem}
+\begin{proof}
+The leading coefficient of \(F_n\) is \(n3^{3n-2}\).
+A prime \(q>B\) divides neither \(n\) nor three, so the reduction
+of \(F_n\) modulo \(q\) retains degree \(d\) and has at most
+\(d\) roots in \(\mathbb F_q\). The \(B\) consecutive integers
+in \([B,2B)\) have distinct residues modulo \(q\). Consequently
+at most \(d\) original indices have \(q\mid T_k\).
+Imposing the additional hit at \(k+h\) only decreases this number.
+For each \(q\), at most \(d\) summands are nonzero and each is
+at most \(\max\{b_q(h)-3,0\}\log q\). Interchanging the finite
+sums proves the first inequality. The exact exponent of \(q\) in
+the lcm \(C_T(h)\) is \(b_q(h)\). Termwise comparison proves
+the second inequality; the shifted-resultant bound proves the last.
+\end{proof}
+
+\begin{corollary}[One exceptional set for all these primes]
+\label{apx-exceptional}
+For \(t_k=n\log|3k+\zeta|\) and \(\varepsilon>0\), define
+\[
+ E_h(\varepsilon)=\{k\in I_h:L_h^{>}(k)>\varepsilon t_k\}.
+\]
+Then
+\begin{equation}
+ |E_h(\varepsilon)|<
+       \frac{dC_n(h)}{\varepsilon n\log(3B)}.
+ \label{apx-markov}
+\end{equation}
+In particular, for fixed nonzero \(h\),
+\[
+ |E_h(1/n)|=O_h(n^3/\log n)=o(B).
+\]
+At every index outside this set the paired quantity is at most
+\(t_k/n\). This exceptional set does not depend on choosing a
+prime-to-owner assignment.
+\end{corollary}
+\begin{proof}
+Throughout the block,
+\(|3k+\zeta|^2=9k^2+3k+1>(3B)^2\), so
+\(t_k\ge n\log(3B)\). Sum the strict inequalities defining the
+exceptional set and use~\eqref{apx-total}. If the set is empty,
+the strict bound still holds because the right side is positive.
+For fixed \(h\), \(C_n(h)=O_h(n^2)\) and \(d=O(n)\);
+substituting \(\varepsilon=1/n\) gives the asserted estimate.
+\end{proof}
+
+\begin{corollary}[Finitely many prescribed shifts]
+\label{apx-finite-shifts}
+Let \(H\) be a finite set of nonzero integer shifts with \(|h|<B\).
+At each original block index take the maximum of \(L_h^{>}(k)\)
+over its valid shifts, using zero when none is valid. The number of
+indices where this maximum exceeds \(\varepsilon t_k\) is at most
+\[
+ \frac{d\sum_{h\in H}C_n(h)}{\varepsilon n\log(3B)}.
+\]
+The bound is strict when \(H\ne\varnothing\). If \(H=\varnothing\),
+the maximum and the exceptional set are both zero.
+\end{corollary}
+\begin{proof}
+The maximum is bounded by the sum over valid shifts. Summing
+\eqref{apx-total} and applying the preceding counting argument gives
+the result. Positivity of the displayed numerator when \(H\ne
+\varnothing\) handles the empty exceptional set. No strict inequality
+is asserted for an empty shift set.
+\end{proof}
+
+\paragraph{Exact scope and the remaining signed contribution.}
+For one fixed shift, exactly \(|h|\) endpoints lack a valid partner
+inside the block; they must be accounted for in a whole-block assertion.
+More seriously, no lower bound has been proved on the fraction of the
+full positive prime-depth contribution captured by \(L_h^{>}\).
+A prime may have large \(v_q(T_k)\) and no other hit at the required
+depth. All excess above the partner's depth remains outside this sum.
+The earlier very-large-prime independent-domain theorem even bounds
+the common depth of two such independent endpoints by three. Allowing
+other endpoints here establishes neither their existence nor their depth.
+
+The theorem bounds a specified positive paired portion. The full signed
+identity from the preceding section, including negative depth-one and
+depth-two contributions on their original supports, remains unchanged.
+The factor \(d\) pays for counting a prime at every actual owner.
+For \(q\le B\), residues can repeat and the stated \(d\)-owner argument
+does not apply. There is no unproved interchange of a growing shift set
+with a fixed-shift estimate, no coverage of isolated primes, and no
+exceptional-root or arbitrary-ABC conclusion in these statements.

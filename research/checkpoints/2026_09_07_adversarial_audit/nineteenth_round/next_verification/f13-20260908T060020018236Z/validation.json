@@ -1,0 +1,133 @@
+{
+  "status": "PASS",
+  "utc_run_id": "20260908T060020018236Z",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "fresh_project": "/tmp/abc-f13-kernel-fresh-h2_ovi9l",
+  "cache_project": "/root/abc-lean-build",
+  "command": [
+    "lean",
+    "--root=/tmp/abc-f13-kernel-fresh-h2_ovi9l",
+    "-DwarningAsError=true",
+    "-o",
+    "/tmp/abc-f13-kernel-fresh-h2_ovi9l/F13FixedCurveArithmetic.olean",
+    "/tmp/abc-f13-kernel-fresh-h2_ovi9l/F13FixedCurveArithmetic.lean"
+  ],
+  "source": "/mnt/e/agent/ABCConjecture/research/checkpoints/2026_09_07_adversarial_audit/nineteenth_round/next_Lean/F13FixedCurveArithmetic.lean",
+  "source_sha256": "a459a5f16e8f0b8f6a2dd2dbfd742c672721f3963220463eed10e8b456e006ec",
+  "verifier_sha256": "c429f5f3f0fec012be8ea28911734f454b4a475af5276f22f01d0fa0dd6855fb",
+  "scope_sha256": "d0135616ccf588da1d5ee58288184fab8386b1e0344f21ac0c48390dfe0fb1e1",
+  "new_theorems": 15,
+  "old_project_theorems_recompiled": 0,
+  "queries": [
+    "ABCF13FixedCurve20260908.sextic_eval",
+    "ABCF13FixedCurve20260908.sextic_polynomial_bezout",
+    "ABCF13FixedCurve20260908.affine_table_exact",
+    "ABCF13FixedCurve20260908.affine_count",
+    "ABCF13FixedCurve20260908.elliptic_affine_counts",
+    "ABCF13FixedCurve20260908.infinity_signs",
+    "ABCF13FixedCurve20260908.complete_finite_model_count",
+    "ABCF13FixedCurve20260908.nonzero_projection_equations",
+    "ABCF13FixedCurve20260908.zero_projection_equation",
+    "ABCF13FixedCurve20260908.infinity_projection_equation",
+    "ABCF13FixedCurve20260908.numerator_substitution",
+    "ABCF13FixedCurve20260908.nonzero_chart_exclusion",
+    "ABCF13FixedCurve20260908.zero_chart_first_psi",
+    "ABCF13FixedCurve20260908.infinity_chart_second_numerator",
+    "ABCF13FixedCurve20260908.complete_finite_exclusion"
+  ],
+  "exit_code": 0,
+  "log_sha256": "9b802e7ef262bcb8ecb8508d3ad238ff5def73db1b1e01fdaf97ba92f0ae14df",
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "theorem_axioms": {
+    "ABCF13FixedCurve20260908.sextic_eval": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.sextic_polynomial_bezout": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.affine_table_exact": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.affine_count": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.elliptic_affine_counts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.infinity_signs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.complete_finite_model_count": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.nonzero_projection_equations": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.zero_projection_equation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.infinity_projection_equation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.numerator_substitution": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.nonzero_chart_exclusion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.zero_chart_first_psi": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.infinity_chart_second_numerator": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCF13FixedCurve20260908.complete_finite_exclusion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "olean_sha256": "f69d7c0a7794b364eae4c2c36889ecb7def307e8133dd46a11d18183edb6e6ad",
+  "dependency_scope": "Pinned Mathlib cache reused; only the one new module compiled.",
+  "excluded": [
+    "projective curve or elliptic group construction",
+    "abstract multiplication by three",
+    "p-adic analysis",
+    "global reduction and index bridge",
+    "rational-point completeness",
+    "ABC"
+  ]
+}

@@ -1,0 +1,19 @@
+# SR1--SR5: full independent ordinary review
+
+Reviewed source: `research/checkpoints/2026_09_07_critical_bottleneck/eighteenth_round/next_shifted_boundary_resultants.md`.
+
+SHA256: `3c7f8cce60282796ec07df5cc5f079c8958efff8eb3bdea048f9472633a51e03`.
+
+Verdict: full ordinary proof PASS. I read every section and rechecked the invoked CG1 and CG5--CG6 coefficient, resultant and three-adic conventions against their corrected source. This is a mathematical review; I did not claim a new finite replay or Lean verification of SR.
+
+SR1 uses the actual Eisenstein boundary polynomial. The exceptional inputs -zeta and -bar(zeta) cannot be roots of any arm. The three arm conditions are exactly alpha^n=1,xi,xi^2, and the injective inverse maps mu_(3n) excluding 1 onto all 3n-1 distinct roots. The two rational roots and three nonrational orbits exhaust the degree. Each orbit has n-1 elements over Q(zeta), so its root-sum mean is the full-field normalized trace, not an assumed minimal-polynomial coincidence. The leading and next arm coefficients give the stated means, including the n=5 mod6 exchange. Their diameter is less than 3. Two roots differing by 3h would contradict linearity of this same trace for every nonzero integer h. Thus actual rational-polynomial coprimality with every integer translate follows.
+
+SR2 takes, separately at each prime, an attaining pair for the maximum common valuation. These pairs need not agree. The integral Sylvester adjugate identity proves divisibility at the full prime-power depth without dividing by a leading coefficient. Distinct primes combine to the literal lcm, independently of its number of owners. The nonempty paired set justifies commuting lcm with multiplication by 3; this restores all three-adic depth through C_T=3C_F. Translation and the two degree-d row blocks give exactly 2dn log64+d^2 log(1+|h|). The fixed-shift budget is O_h(n^2).
+
+SR3 retains the complete signed decomposition. The common packet's original radical is retained after reducing its three-depth by one for F. The unmatched excess at a common prime and every unmatched label remain explicit, including negative depth-one/two contributions. A selected packet's radical is not replaced by the full lcm radical. Assigning each distinct prime to one shift gives only one three-correction. The stated many-shift normalization follows from d=3n-1 and W_n>=Bn log(3B); summing all shifts up to B fails to save the required factor. These are actual common-depth bounds and do not pay singleton excess.
+
+SR4 is a genuine original-block example for every permitted prime n. The CRT steps and h fit strictly inside B. The local expansions at a=0 and a=-1 give common depths exactly 4 and 5: the two leading normalized residues are 2 mod7 and 12 mod13. The split norm-one group argument excludes every arm at the other pair, including the case when that other input norm vanishes. The pairs are distinct modulo seven. The selected positive signed contribution is log7+2log13, without assuming any factorization of unselected boundary factors. Since the selected primes are fixed and small, this example is correctly not used as a far-tail witness.
+
+SR5 requires G to satisfy the actual adjusted packet congruences in addition to rational-polynomial coprimality. Under this stated certificate requirement, its degree/height bound and exact negative radical credit give the displayed sufficient inequality. This does not construct G, control a complementary ledger, or turn an averaged bound into a pointwise ABC estimate. The automatic owner product, even when its degree can be reduced, still has the stated large resultant cost. No parent route is excluded.
+
+The concrete gain is an unconditional coefficient-controlled certificate for a precisely defined, nonempty paired-depth portion of the original block. No number-of-labels assumption, independent-domain membership, shortened valuation, or hidden negative-credit omission occurs.

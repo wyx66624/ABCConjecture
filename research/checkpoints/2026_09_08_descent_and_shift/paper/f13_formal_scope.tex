@@ -1,0 +1,225 @@
+\section{The exact finite arithmetic certificate at thirteen}
+\label{sec-f13ds-formal-scope}
+
+The module
+\texttt{F13Fixed\allowbreak{}Curve\allowbreak{}Arithmetic.lean}
+contains fifteen new theorems about literal arithmetic over
+$\mathbb F_{13}$. These are distinct from the twenty-four selector
+theorems in the preceding publication. The new module imports no old
+ABC project module. Its finite data model, polynomial identities and
+chart predicates are described here in full; the geometric and
+global interpretations remain separate ordinary proofs.
+
+\paragraph{An identity of polynomials.}
+Let $F=\mathbb Z/13\mathbb Z$ and
+\[
+ S(X)=X^6-27X^4+99X^2-9\in F[X].
+\]
+The implementation separately defines its literal evaluation $S(z)$
+and proves agreement with polynomial evaluation for every $z\in F$.
+It also proves the equality
+\begin{equation}
+ (10+8X^2)S(X)+(6X+3X^3)S'(X)=1
+ \qquad\hbox{in }F[X].
+ \label{eq-f13ds-bezout}
+\end{equation}
+This is a coefficient identity in
+\texttt{Polynomial (ZMod 13)}, not an assertion of equality at only
+thirteen field elements. For an explicit verification, expansion
+over the integers gives
+\[
+ \begin{split}
+ &(10+8X^2)(X^6-27X^4+99X^2-9)\\
+ &\quad +(6X+3X^3)(6X^5-108X^3+198X)-1\\
+ &=13(-7+162X^2+36X^4-38X^6+2X^8).
+ \end{split}
+\]
+The Lean proof differentiates the literal polynomial and uses this
+linear combination of the coefficient equality $13=0$ in $F[X]$.
+
+\paragraph{Complete finite sets and their cardinalities.}
+The full affine set satisfying $W^2=S(z)$ is exactly
+\[
+ \begin{array}{c|c}
+ z&\text{permitted }W\\ \hline
+ 0&2,11\\
+ 1,12&5,8\\
+ 3,6,7,10&3,10
+ \end{array}
+\]
+and has fourteen elements. The two affine equations
+\[
+ \mathcal E_{a,b}(x,y):\quad y^2=x^3+ax+b,
+ \qquad (a,b)=(-9,-9),\;(-189,999)
+\]
+also each have fourteen solutions in $F^2$.
+These are affine cardinalities; the module does not construct the
+elliptic group or prove its order from these counts.
+
+For the complete finite chart model define the disjoint sum
+\[
+ \mathcal M=(F\times F)\sqcup F.
+\]
+An element in its first summand is valid when $W^2=S(z)$;
+an element $\varepsilon$ in its second summand is valid when
+$\varepsilon^2=1$. The latter condition is proved equivalent to
+$\varepsilon=1$ or $\varepsilon=-1$. The valid elements of
+$\mathcal M$ therefore number sixteen, as proved by a literal
+finite-set count. This disjoint-sum definition is not presented
+as a formal construction of a smooth projective curve.
+
+\paragraph{Actual affine coordinates on all three charts.}
+The field functions used in the source are
+\[
+ \begin{aligned}
+ x_1(z)&=\frac{z^2-9}{4},&
+ y_1(W)&=\frac W8,\\
+ x_2(z)&=\frac{33-9/z^2}{4},&
+ y_2(z,W)&=-\frac{9W}{8z^3}.
+ \end{aligned}
+\]
+For every $z,W\in F$ with $W^2=S(z)$ and $z\ne0$, the source proves
+both actual curve equations
+\[
+ \mathcal E_{-9,-9}(x_1(z),y_1(W)),\qquad
+ \mathcal E_{-189,999}(x_2(z),y_2(z,W)).
+\]
+For the zero chart it proves, for every $W^2=S(0)$,
+\[
+ \mathcal E_{-9,-9}\left(-\frac94,\frac W8\right).
+\]
+For every infinity sign $\varepsilon^2=1$, it proves
+\[
+ \mathcal E_{-189,999}\left(\frac{33}{4},-\frac{9\varepsilon}{8}\right).
+\]
+The missing affine coordinates in the last two cases are handled
+by the explicit finite predicates below. The geometric statement
+that the other projection is the elliptic point at infinity is
+not a theorem about an abstract elliptic group in this module.
+
+\paragraph{Literal division numerators and the finite obstruction.}
+For $a,b,x\in F$ define
+\[
+ \begin{aligned}
+ \Psi_{a,b}(x)&=3x^4+6ax^2+12bx-a^2,\\
+ D_{a,b}(x)&=x^6+5ax^4+20bx^3-5a^2x^2\\
+           &\hspace{9mm}-4abx-8b^2-a^3,\\
+ \Phi_{a,b}(x)&=x\Psi_{a,b}(x)^2
+                  -8(x^3+ax+b)D_{a,b}(x).
+ \end{aligned}
+\]
+For arbitrary $a,b,x,y\in F$ satisfying the actual equation
+$y^2=x^3+ax+b$, the formal substitution theorem is
+\[
+ \Phi_{a,b}(x)
+ =x\Psi_{a,b}(x)^2-(4yD_{a,b}(x))(2y).
+\]
+Put
+\[
+ N_2(x)=\Phi_{-189,999}(x)-11\Psi_{-189,999}(x)^2.
+\]
+The complete nonzero-chart exclusion is
+\[
+ \begin{gathered}
+ z,W\in F,\quad W^2=S(z),\quad z\ne0,\quad
+ \Psi_{-9,-9}(x_1(z))=0\\
+ \Longrightarrow\quad N_2(x_2(z))\ne0.
+ \end{gathered}
+\]
+The remaining two exact values are
+\[
+ \Psi_{-9,-9}(-9/4)=7,\qquad N_2(33/4)=9.
+\]
+They are identities in $F$ and in particular are nonzero.
+
+For clarity, the final assembled predicates on $\mathcal M$ are
+\[
+ \begin{array}{c|c|c}
+ p&\mathsf{FirstZero}(p)&\mathsf{SecondTarget}(p)\\ \hline
+ (z,W)&\Psi_{-9,-9}(x_1(z))=0&
+             z\ne0\ \text{and}\ N_2(x_2(z))=0\\
+ \varepsilon&\text{true}&N_2(33/4)=0 .
+ \end{array}
+\]
+The last theorem proves for every element of the finite model
+\[
+ \mathsf{Valid}(p)\ \Longrightarrow\
+ \neg\bigl(\mathsf{FirstZero}(p)\ \text{and}\
+                 \mathsf{SecondTarget}(p)\bigr).
+\]
+In particular the second condition on an affine element with $z=0$
+is false. The chart implications and this assembled theorem use
+all finite inputs, not a sample of rational points. The ordinary
+division-polynomial interpretation connects these numerators with
+the two signs of the elliptic target of abscissa eleven; that
+interpretation as multiplication by three remains outside the
+formal statements.
+
+\paragraph{The exact fifteen declarations.}
+The preceding statements correspond to the following theorem names,
+each with its own explicit axiom query:
+\begin{center}
+\small
+\begin{tabular}{r l}
+1&\texttt{sextic\_eval}\\
+2&\texttt{sextic\_polynomial\_bezout}\\
+3&\texttt{affine\_table\_exact}\\
+4&\texttt{affine\_count}\\
+5&\texttt{elliptic\_affine\_counts}\\
+6&\texttt{infinity\_signs}\\
+7&\texttt{complete\_finite\_model\_count}\\
+8&\texttt{nonzero\_projection\_equations}\\
+9&\texttt{zero\_projection\_equation}\\
+10&\texttt{infinity\_projection\_equation}\\
+11&\texttt{numerator\_substitution}\\
+12&\texttt{nonzero\_chart\_exclusion}\\
+13&\texttt{zero\_chart\_first\_psi}\\
+14&\texttt{infinity\_chart\_second\_numerator}\\
+15&\texttt{complete\_finite\_exclusion}
+\end{tabular}
+\end{center}
+
+\paragraph{Actual verification and its boundary.}
+The author compiled a literal source copy in a fresh isolated
+project, using Lean 4.32.0 and the pinned Mathlib cache. Root
+independently repeated that fresh compilation. Both runs passed
+with warnings treated as errors, and all fifteen printed axiom
+queries contain only \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}.
+The critical-bottleneck reviewer separately read the complete
+source, ordinary scope, verifier, manifest and compiler log and
+recomputed their hashes. That source review is not counted as
+another compiler execution.
+
+The source SHA256, with the following two lines concatenated, is
+\begin{center}
+\small\ttfamily
+a459a5f16e8f0b8f6a2dd2dbfd742c67\\
+2721f3963220463eed10e8b456e006ec
+\end{center}
+The two successful per-run records are identified by
+\begin{center}
+\small\ttfamily
+20260908T055706020261Z\\
+\textrm{and }20260908T060020018236Z
+\end{center}
+in the nineteenth-round
+\texttt{next\_verification} directory. They bind source, prior
+ordinary scope, verifier, full log, toolchain, dependency pin,
+all queries and the fresh olean. Earlier failed attempts remain
+separate failed records and are not proofs.
+
+Finite division expressions require direct kernel reduction through
+the \texttt{ZMod} inverse. The source uses
+\texttt{decide +kernel}; it does not use native evaluation,
+\texttt{sorry}, or a new axiom. The polynomial proof uses algebraic
+tactics on the actual coefficients.
+
+These fifteen theorems do not formalize the projective curve,
+abstract elliptic multiplication by three, good reduction, the
+global prime-to-five index, ranks, the two-descent, $p$-adic heights
+or zero certificates, or rational-point completeness. Those are
+separately stated ordinary mathematical inputs and conclusions.
+No such bridge is hidden as a hypothesis or axiom in this module.
+Neither this finite certificate nor the previously published
+twenty-four selector theorems prove the ABC conjecture.

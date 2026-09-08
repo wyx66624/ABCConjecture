@@ -3,7 +3,7 @@
 Author: ChatGPT
 
 > [!IMPORTANT]
-> **Global status as of September 7, 2026:** this repository does **not**
+> **Global status as of September 8, 2026:** this repository does **not**
 > contain an unconditional proof or disproof of the standard abc conjecture.
 > It contains verified local theorems, conditional reductions, exact no-go
 > results, source-dependent interfaces, and reproducible finite computations.
@@ -49,8 +49,10 @@ Neither end goal has been reached.
 | [`Lean/README.md`](Lean/README.md) | Lean package overview, conditional theorem audit, missing constructions, and build instructions |
 | [`Lean/verification/2026_09_03_incidence_endpoint_literature/README.md`](Lean/verification/2026_09_03_incidence_endpoint_literature/README.md) | Latest incidence/endpoint checkpoint replay protocol |
 | [`paper/ChatGPT_ABC_Uniformity_2026.tex`](paper/ChatGPT_ABC_Uniformity_2026.tex) | Current English manuscript source |
-| [`research/checkpoints/2026_09_07_collective_content_closure/README.md`](research/checkpoints/2026_09_07_collective_content_closure/README.md) | Current continuation: actual collective content, fixed-data affine compensation, exact local height target and actual radical-partition barriers; 40 new scoped Lean declarations |
-| [`output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf`](output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf) | Current 568-page integrated manuscript, maintained at the user-designated filename; the filename is historical |
+| [`research/checkpoints/2026_09_08_descent_and_shift/README.md`](research/checkpoints/2026_09_08_descent_and_shift/README.md) | Current continuation: complete squared-unit descent, actual square/cube and ramified exclusions, shifted boundaries and all-owner paired bounds; 15 new finite arithmetic Lean theorems |
+| [`research/checkpoints/2026_09_08_fixed_curve_closure/README.md`](research/checkpoints/2026_09_08_fixed_curve_closure/README.md) | Previous fixed six-point rational locus, actual cubic boundary and nonlinear selectors; 24 new scoped Lean theorems |
+| [`research/checkpoints/2026_09_07_collective_content_closure/README.md`](research/checkpoints/2026_09_07_collective_content_closure/README.md) | Earlier collective content, fixed-data affine compensation, local height target and radical-partition barriers |
+| [`output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf`](output/pdf/ChatGPT_ABC_Uniformity_2026_08_31.pdf) | Current 621-page integrated manuscript, maintained at the user-designated filename; the filename is historical |
 | [`research/checkpoints/2026_09_07_joint_packets_and_jacobians/README.md`](research/checkpoints/2026_09_07_joint_packets_and_jacobians/README.md) | Sixteenth continuation: joint prime packets, actual phase arithmetic, quotient Jacobians and a finite Chabauty container; 27 new scoped Lean declarations |
 | [`research/checkpoints/2026_09_07_signed_moment_descent/README.md`](research/checkpoints/2026_09_07_signed_moment_descent/README.md) | Fifteenth continuation: actual signed products, one maximal depth and quadratic cube descents; 55 new scoped Lean declarations |
 | [`research/checkpoints/2026_09_07_adaptive_precision/README.md`](research/checkpoints/2026_09_07_adaptive_precision/README.md) | Fourteenth continuation: adaptive precision, strict private density, actual prime incidence and simultaneous elliptic gates; 35 new scoped Lean declarations |
@@ -68,15 +70,17 @@ Neither end goal has been reached.
 
 The bottleneck ledger is the persistent entry point for new research rounds.
 
-The current continuation proves an exact complement cancellation, a primitive
-input-norm compression obstruction, a fixed-data affine family with full signed
-compensation, and the complete fixed-curve away-from-five local target
-`Omega={-(4/3)log_5(3)}`. It also certifies an actual endpoint where a proposed
-radical-partition penalty bound fails. The ordinary arguments, 40 new local
-Lean declarations and eight finite replay records have distinct scopes.
-Original cross-prime tails, affine-to-power transfer, all analytic zeros and
-rational survivors, moving-parameter heights and arbitrary ABC coverage remain
-open. See the linked current checkpoint for the full proofs and evidence.
+The current continuation completes an ordinary rank-zero two-descent for the
+squared-unit cubic quotient and excludes the actual primitive square/cube
+intersection. A separate ramified argument proves that a cube second norm
+forces the first norm to be prime to three. Shifted resultants and an
+all-owner theorem control specified paired depths on original blocks.
+The seven ordinary sources, fifteen new finite arithmetic Lean theorems,
+and two exact replays have distinct scopes. The earlier fixed six-point
+rational locus is also complete in ordinary mathematics. Unmatched
+cross-prime tails, moving-data transfer, uniform varying-family heights
+and arbitrary ABC coverage remain open. See the current checkpoint for
+the full proofs, verification evidence and precise remaining gaps.
 
 An unchecked item stays open: difficulty, a missing bridge theorem, or a
 finite search with no hit is never treated as a proof or as a reason to retire

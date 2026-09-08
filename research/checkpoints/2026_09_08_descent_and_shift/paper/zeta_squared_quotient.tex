@@ -1,0 +1,261 @@
+\section{The distinct squared-unit cubic quotient}
+\label{z2x-section}
+
+Retain \(\zeta^2-\zeta+1=0\) and the projective conventions of
+Sections~\ref{rl-section} and~\ref{hg-section}. Put
+\[
+ A_0=S^3-3ST^2-T^3,\qquad B_0=3ST(S+T).
+\]
+The actual multiplication identity is
+\[
+ \zeta^2(S+T\zeta)^3=-(A_0+B_0)+A_0\zeta .
+\]
+Thus the coefficient \(\zeta^2\) gives \(r=-(A_0+B_0)/A_0\).
+It is treated separately from the coefficient \(\zeta\); conjugation
+does not preserve the required positive interval for \(r\).
+
+\begin{proposition}[The first quotient and the common-source square gate]
+\label{z2x-model}
+The first hyperelliptic quotient of \(D_{3,\zeta^2}\) is the smooth
+projective curve
+\begin{equation}
+ H:y^2=-3s(s+1)(s^3-3s-1),\qquad s=S/T.
+ \label{z2x-quintic}
+\end{equation}
+It has genus two and the rational branch points \(P_0,P_{-1},P_\infty\)
+over \(s=0,-1,\infty\). On its nonbranch chart let \(v=y/A_0(s,1)\).
+The rational points that lift to the actual positive domain are
+exactly those for which
+\begin{equation}
+ 1<v<2/\sqrt3,\qquad 4-3v^2\text{ is a square in }\mathbb Q .
+ \label{z2x-positive}
+\end{equation}
+Both signs of its nonzero square root \(w\) are allowed.
+\end{proposition}
+\begin{proof}
+The equation \(v^2=1+r=-B_0/A_0\), after multiplication by \(A_0^2\),
+gives the homogeneous equation \(Y^2=-A_0B_0\), where \(Y\) has
+weight three. The cubic \(s^3-3s-1\) has discriminant \(81\) and no
+rational root: neither of the possible integral roots \(1,-1\)
+vanishes. Its values at \(0,-1\) are \(-1,1\). The quintic is
+therefore squarefree, and its smooth projective model has genus
+two and one branch point at infinity. The zeros of \(A_0\) are
+nonrational cubic sources. They are retained projectively, although
+none can be the source of a rational point.
+
+Every rational point of \(D_{3,\zeta^2}\) maps to \(H\). At the same
+source, the second square is exactly
+\[
+ w^2=1-3r=4+3B_0/A_0=4-3v^2.
+\]
+Condition~\eqref{z2x-positive} gives \(0<r=v^2-1<1/3\) and
+\[
+ t=\frac{v+w+2}{v-w}>1.
+\]
+Indeed \(v>1>|w|\), and the numerator exceeds the positive
+denominator by \(2(w+1)>0\). Conversely, the positive domain in
+Section~\ref{hg-section} gives precisely these conditions. Its
+two signs of \(w\) give the ordered seed orientations. Both square
+roots are nonzero, so this chart is smooth and normalization
+introduces no further branch there.
+
+At the three rational branch sources, \(B_0=0\), \(A_0\ne0\)
+homogeneously, and \(v=0,r=-1\). They lift with \(w=\pm2\).
+The original conic parameter is \(t=-2\) for \(w=2\), and \(t=0\)
+for \(w=-2\), by direct substitution in the displayed inverse or
+the original conic formulas. All lie outside
+\eqref{z2x-positive}. No exhaustive rational-point claim is used
+in this argument.
+\end{proof}
+
+\begin{proposition}[A rational cyclic cubic cover]
+\label{z2x-cubic-map}
+The rational function \(v=y/A_0\) defines a Galois morphism
+\(H\to\mathbb P^1_v\) of degree three over \(\mathbb Q\).
+Its generator is
+\begin{equation}
+ \rho(s,y)=\left(-\frac1{s+1},-\frac{y}{(s+1)^3}\right).
+ \label{z2x-rho}
+\end{equation}
+There are four branch values, the simple zeros of \(v^4-v^2+1\),
+each of ramification index three. Both \(v=0\) and \(v=\infty\)
+are unramified.
+\end{proposition}
+\begin{proof}
+The homogeneous substitution \((S,T)\mapsto(-T,S+T)\) sends
+both \(A_0,B_0\) to their negatives. It preserves \(-A_0B_0\)
+and induces~\eqref{z2x-rho}. The matrix has cube \(-I\);
+the indicated minus sign on the weight-three ordinate makes the
+lift have order three. Omitting that sign would instead give
+the hyperelliptic involution as its cube. The actual lift
+preserves \(v\), since \(y,A_0\) acquire the same multiplier.
+It extends over all projective points, including \(s=-1,\infty\).
+
+Rearranging \(v^2A_0+B_0=0\) gives
+\begin{equation}
+ v^2s^3+3s^2+(3-3v^2)s-v^2=0,\qquad
+ \operatorname{disc}_s=81(v^4-v^2+1)^2 .
+ \label{z2x-cubic-equation}
+\end{equation}
+The equation bounds the function-field degree by three, while
+the three distinct powers of \(\rho\) bound it below by three.
+Thus the fixed field is exactly \(\mathbb Q(v)\).
+
+A fixed source satisfies \(s^2+s+1=0\). There \(A_0=-3s\),
+\(B_0=-3\), and the two ordinates are nonzero. Moreover
+\((s+1)^3=-1\), so both ordinates are fixed by the signed lift.
+There are exactly four fixed geometric points. Their values
+satisfy \(v^2=-1/s\), hence \(v^4-v^2+1=0\), giving four
+distinct values. Away from fixed points the cyclic group acts
+freely, so there is no further ramification. The three points
+over \(v=0\) are the rational branch points at \(s=0,-1,\infty\);
+those over \(v=\infty\) are the three nonrational zeros of \(A_0\).
+The explicit discriminant in~\eqref{z2x-cubic-equation} follows
+from the cubic discriminant formula and agrees with this complete
+projective calculation.
+\end{proof}
+
+\begin{lemma}[Rational two-torsion and a full three-adic residue exclusion]
+\label{z2x-torsion-local}
+The classes \([P_0-P_\infty]\) and \([P_{-1}-P_\infty]\)
+generate a subgroup \((\mathbb Z/2\mathbb Z)^2\) of \(J(\mathbb Q)\),
+where \(J=\operatorname{Jac}(H)\). The whole primitive source residue
+\(S\equiv T\not\equiv0\pmod3\) is absent from \(H(\mathbb Q_3)\).
+\end{lemma}
+\begin{proof}
+The divisors of \(s\) and \(s+1\) are respectively
+\(2P_0-2P_\infty\) and \(2P_{-1}-2P_\infty\). Neither class
+vanishes, since a degree-one principal difference would force
+genus zero. Their sum cannot vanish either: the functions with
+sole pole at \(P_\infty\) of order at most two form the span of
+\(1,s\). Indeed the smooth affine ring is \(\mathbb Q[s,y]\);
+its unique expressions \(a(s)+b(s)y\) have even and odd pole
+orders, respectively, since \(s,y\) have orders two and five.
+They cannot cancel. A linear function of \(s\) cannot vanish
+at both zero and minus one. This proves independence.
+
+For a projective \(\mathbb Q_3\)-source choose integral \(S,T\)
+with at least one a unit. If \(S=T+3K\) and \(T\) is a unit,
+then
+\[
+ A_0=-3(T^3-9K^2T-9K^3),\qquad
+ B_0/3=ST(S+T)\equiv2T^3\pmod3.
+\]
+The valuation of \(-A_0B_0\) is exactly two, but its quotient
+by nine is \(2T^6\equiv-1\pmod3\), a nonsquare. The weight-three
+scaling of \(Y\) proves that the test covers every deeper source
+in that projective residue, including denominators.
+
+In the other primitive residues \(A_0\) is a unit. Unless one
+of \(S,T,S+T\) is zero, exactly one has positive three-adic
+valuation, which must be odd for \(-A_0B_0\) to be a square.
+The zero cases are the retained branch points. These are only
+necessary local conditions. In particular \(S\equiv T\) is
+already incompatible with the actual unramified root condition
+\(3\nmid S^2+ST+T^2\); its exclusion alone supplies no global
+rank or positive-locus result.
+\end{proof}
+
+\begin{theorem}[Finite reductions and the rational Jacobian]
+\label{z2x-finite-jacobian}
+The Jacobian \(J\) is \(\mathbb Q\)-simple, its rational torsion
+is exactly \((\mathbb Z/2\mathbb Z)^2\), and its rank is even.
+The complete reduction data are
+\begin{equation}
+\begin{array}{c|rr|l|r}
+ p&\#H(\mathbb F_p)&\#H(\mathbb F_{p^2})&
+ P_p(T)&P_p(1)\\ \hline
+ 5&3&25&T^4-3T^3+4T^2-15T+25&12\\
+ 7&9&37&T^4+T^3-6T^2+7T+49&52
+\end{array}
+\label{z2x-finite-table}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Reduction at five and seven is good: the cubic discriminant
+\(81\), its values \(-1,1\) at the two linear roots, their
+difference, and the leading coefficient \(-3\) are units.
+The odd degree also retains one smooth point at infinity.
+
+For completeness, the exact finite certificate uses
+\(\mathbb F_{25}=\mathbb F_5[u]/(u^2-2)\) and
+\(\mathbb F_{49}=\mathbb F_7[u]/(u^2-3)\). Each relation is
+irreducible. For every pair \(a+bu\), it evaluates the quintic
+and counts all ordinates by the complete square-fiber table.
+It separately enumerates all prime-field ordinates and adds
+the unique point at infinity. All 25 and 49 abscissa fibers
+are retained in the canonical result cited below. These
+exhaustive finite counts give~\eqref{z2x-finite-table} by
+\[
+ a_1=p+1-N_p,\qquad
+ a_2=\frac{N_{p^2}-p^2-1+a_1^2}{2},\qquad
+ P_p(T)=T^4-a_1T^3+a_2T^2-pa_1T+p^2.
+\]
+
+If \(J\) had a proper nonzero abelian subvariety over \(\mathbb Q\),
+it would be \(\mathbb Q\)-isogenous to two elliptic curves.
+As in Section~\ref{qs-section}, good reduction at five passes
+to the factors, and their Frobenius polynomials would give
+\[
+ P_5(T)=(T^2-aT+5)(T^2-bT+5),\qquad a,b\in\mathbb Z.
+\]
+The coefficients force \(a+b=3\), \(ab=-6\), so
+\((a-b)^2=33\), impossible. This proves simplicity over
+\(\mathbb Q\), without an absolute-simplicity assertion.
+
+Prime-to-\(p\) torsion reduces injectively at a good prime.
+The five-primary part injects into the order-52 group at seven
+and vanishes. The seven-primary part injects into the order-12
+group at five and vanishes. All other primary parts are bounded
+by both orders, so the full torsion order divides four. The
+four points in Lemma~\ref{z2x-torsion-local} attain this bound.
+
+The norm-pullback identity for the cyclic quotient in
+Proposition~\ref{z2x-cubic-map}, including ramified divisor
+multiplicities, gives \(1+\rho_*+\rho_*^2=0\) on \(J\), since
+the quotient has zero Jacobian. Thus \(\mathbb Q(\sqrt{-3})\)
+acts on \(J(\mathbb Q)\otimes\mathbb Q\), making its rational
+dimension even. This uses Mordell--Weil finite generation and
+does not infer a rank from the reduction counts.
+\end{proof}
+
+\begin{lemma}[The point-set consequence of rank zero]
+\label{z2x-rank-zero-points}
+If \(\operatorname{rank}J(\mathbb Q)=0\), then
+\[
+ H(\mathbb Q)=\{P_0,P_{-1},P_\infty\}.
+\]
+\end{lemma}
+\begin{proof}
+The Abel--Jacobi map \(R\mapsto[R-P_\infty]\) is injective,
+because a principal difference of distinct points would have
+degree one. Under the hypothesis its image lies in the
+four-element torsion group. Three elements are the images of
+the three stated points. If the fourth were the image of \(R\),
+then
+\[
+ R+P_\infty\sim P_0+P_{-1}.
+\]
+The divisor on the right is not equivalent to \(2P_\infty\),
+by the pole-space argument in Lemma~\ref{z2x-torsion-local}.
+The canonical class is \(2P_\infty\), so Riemann--Roch gives
+\(h^0(P_0+P_{-1})=1\). Its only effective representative is
+itself, which cannot equal \(R+P_\infty\). This excludes the
+fourth element. The hypothesis will be discharged by the
+actual descent in Section~\ref{zd2x-section}.
+\end{proof}
+
+\paragraph{Exact evidence and scope.}
+The standard-library program
+\texttt{next\_\allowbreak replay\_\allowbreak zeta\_\allowbreak
+squared\_\allowbreak reductions.py} exhaustively certifies the
+finite inputs. Its canonical JSON has SHA256
+\texttt{66ce937b9a33a530\allowbreak0f08b128f630b3b47\allowbreak
+ddaeee80b28b7f5a7\allowbreak7427ed30c06b6c}.
+The author and both independent reviewers actually replayed
+the certificate. No rank oracle or rational height cutoff is
+used. The statements above are ordinary proofs with exact
+finite arithmetic support, not full Lean formalizations.
+Even a complete fixed-curve classification does not settle
+ramified first norms, arbitrary residuals, varying indices,
+or uniform point-height estimates for the parent problem.

@@ -1,0 +1,81 @@
+{
+  "schema": "independent-descent-geometry-source-inventory-v1",
+  "tex_inputs": [
+    {
+      "path": "research/checkpoints/2026_09_08_descent_and_shift/paper/zeta_squared_quotient.tex",
+      "sha256": "597578f7da9a98a19ff272b0d4843c7a3b3d08731d3d4d95496d1f334a31a012"
+    },
+    {
+      "path": "research/checkpoints/2026_09_08_descent_and_shift/paper/zeta_squared_two_descent.tex",
+      "sha256": "7ee7c298f08d6ee2245d923309338fc7aaeb2cfe4ade05e66fe10c7d19efdd91"
+    },
+    {
+      "path": "research/checkpoints/2026_09_08_descent_and_shift/paper/bibliography_geometry.tex",
+      "sha256": "02384a34e3d293e466b007ed11781303394b523af67a3f06d672f1813d675b7c"
+    },
+    {
+      "path": "research/checkpoints/2026_09_08_descent_and_shift/paper/ramified_cubic_exclusion.tex",
+      "sha256": "3eb6c1b95c557d19790fade596a77049138dafc7af12ed81aa6f1a1c412cf4cf"
+    }
+  ],
+  "ordinary_sources": [
+    {
+      "path": "research/checkpoints/2026_09_07_independent_route/nineteenth_round/next_zeta_squared_quotient.md",
+      "sha256": "8175504e0746e69219401f123b81b822ba6ba0f7a036afc638425ec797e088d5"
+    },
+    {
+      "path": "research/checkpoints/2026_09_07_independent_route/nineteenth_round/next_zeta_squared_two_descent.md",
+      "sha256": "ecbd3ace69864dd32541157d013f82c6260fda2eac2274a54c839f967bb55d5a"
+    },
+    {
+      "path": "research/checkpoints/2026_09_07_independent_route/nineteenth_round/next_actual_square_cube_exclusion.md",
+      "sha256": "0c54700c944cc8d10df08d3af03d9f3ccff4407154cca89eeb2ec4b01a738fe4"
+    },
+    {
+      "path": "research/checkpoints/2026_09_07_independent_route/nineteenth_round/next_ramified_square_cube.md",
+      "sha256": "8c840dd90e2193b974a647b29133b9b8ce04d655b55e7cdbbb70c8088c685341"
+    }
+  ],
+  "finite_dependencies": [
+    {
+      "path": "research/checkpoints/2026_09_07_independent_route/nineteenth_round/next_replay_zeta_squared_reductions.py",
+      "sha256": "cf0563d5d31c67ce2c8d90fec0045eb38ca0050194b9c78f4f9c076a5ff9e661"
+    },
+    {
+      "path": "research/checkpoints/2026_09_07_independent_route/nineteenth_round/next_zeta_squared_reductions.json",
+      "sha256": "66ce937b9a33a5300f08b128f630b3b47ddaeee80b28b7f5a77427ed30c06b6c"
+    }
+  ],
+  "ordinary_review": {
+    "root": "full PASS",
+    "critical_bottleneck": "full PASS",
+    "adversarial_audit": "full PASS"
+  },
+  "transcription_review": {
+    "author": "Full source-to-TeX read of all own inputs and static environment/display/label checks PASS",
+    "root": "Full final transcription PASS, including final ZD2 domain/citation clarifications and RS",
+    "critical_bottleneck": "Full final transcription PASS, including final ZD2 domain/citation clarifications and RS",
+    "adversarial_audit": "Full final transcription PASS, including final ZD2 domain/citation clarifications and RS"
+  },
+  "scope": {
+    "proved_ordinary": "Whole-Jacobian rank-zero descent and exact rational loci for the squared-unit quotient; actual primitive unramified square/cube exclusion; separately all three ramified covers have no Q3 points, and an actual integer norm cube forces 3 not dividing M, propagated to all numerical exponents divisible by three",
+    "finite": "complete F5/F25/F7/F49 square fibers and resulting arithmetic inputs; author and two peers replayed",
+    "formal": "No full Jacobian descent, rational-point classification, UFD extraction, or ramified local curve theorem formalization claimed",
+    "publication": "New TeX inputs only; no author master/PDF/git edits or visual-review claim"
+  },
+  "review_records": {
+    "root": [
+      "research/checkpoints/2026_09_08_descent_and_shift/root_two_descent_review.md",
+      "research/checkpoints/2026_09_08_descent_and_shift/root_ramified_review.md",
+      "research/checkpoints/2026_09_08_descent_and_shift/root_transcription_review.md"
+    ],
+    "critical_bottleneck": [
+      "research/checkpoints/2026_09_07_critical_bottleneck/eighteenth_round/next_squared_unit_descent_review.md",
+      "research/checkpoints/2026_09_07_critical_bottleneck/eighteenth_round/next_ramified_cube_review.md"
+    ],
+    "adversarial_audit": [
+      "research/checkpoints/2026_09_07_adversarial_audit/nineteenth_round/next_geometry_transcription_review.md",
+      "research/checkpoints/2026_09_07_adversarial_audit/nineteenth_round/next_ramified_square_cube_review.md"
+    ]
+  }
+}
