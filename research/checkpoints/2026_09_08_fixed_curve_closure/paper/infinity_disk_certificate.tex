@@ -1,0 +1,127 @@
+\section{The two infinity disks and their rational double zeros}
+\label{sec-fixed-infinity-certificate}
+
+We give the full ordinary certificate IF1--IF3, including the central
+height identity. Put $q=1/z$, $v=Wq^3$, $v(0)=1$. Then
+\[
+\begin{split}
+ v^2&=1-27q^2+99q^4-9q^6,\\
+ R_1&=((q^{-2}-9)/4,v/(8q^3)),\qquad
+ R_2=((33-9q^2)/4,-9v/8).
+\end{split}
+\]
+Set $q=5s$ and $\mathcal A=\mathbb Z_5\langle s\rangle$, with its
+complete Gauss valuation.
+
+\paragraph{IF1: all denominators and tails on the entire disk.}
+The canceled expression
+$\Xi=q^{-81}\delta_1(R_1)/\delta_2(R_2)$ is an analytic unit, with
+\[
+ \Xi(q)=\Xi(0)(1+q^2 B(q^2)),\quad B\in\mathbb Z_5[[q^2]],\qquad
+ T_i\in5\mathcal A.
+\]
+Here is a formal-series proof. Hensel recursion gives
+$v\in1+q^2\mathbb Z_5[[q^2]]$ and
+$t_1=-2q(1-9q^2)/v$. On $E_1$, the zero-slope recursion gives
+$w=t^3U$, $U\in1+t^4\mathbb Z_5[[t^2]]$,
+$x=t^{-2}U^{-1}$ and $y=-t^{-3}U^{-1}$.
+The integral division polynomials have leading terms
+$\psi_9=9x^{40}$, $\phi_9=x^{81}$ and $D=9x^{120}$;
+see \cite[Lemma 5.22]{SutherlandDivisionPolynomials2023} for the first two,
+and differentiate to obtain the last. Therefore
+\[
+ t^{80}\psi_9\in9+t^2\mathbb Z_5[[t^2]],\quad
+ t^{162}\phi_9\in1+t^2\mathbb Z_5[[t^2]],\quad
+ t^{240}D\in9+t^2\mathbb Z_5[[t^2]].
+\]
+RD1, using the integral inverse of the last unit, yields
+\[
+ \delta_1(t)=t^{81}V(t^2),\quad V\in1+t^2\mathbb Z_5[[t^2]],\qquad
+ t([9]Q)\in t(9+t^2\mathbb Z_5[[t^2]]).
+\]
+Thus $q^{-81}\delta_1(R_1)$ is $(-2)^{81}$ times an even integral unit.
+The second quotient is an integral even point with center $(33/4,-9/8)$.
+Writing $e=q^2$, its actual first jets modulo five, and the full
+division recurrences applied to them, give
+\[
+ (x,y)=(2+4e,2+3e),\quad
+ \psi_9=3e,\quad \phi_9=4+3e,\quad \omega_9=2+e\pmod{(5,e^2)}.
+\]
+Consequently $\delta_2=-\phi_9/\omega_9$ is an even integral unit,
+and $T_2=-\phi_9\psi_9/\omega_9$ has constant in $5\mathbb Z_5$
+and remaining terms in $q^2\mathbb Z_5[[q^2]]$. Substitution $q=5s$
+gives restricted series and proves the assertions. Moreover
+\[
+ \log_5\Xi(q)-\log_5\Xi(0)\in25\mathcal A,
+\]
+because its $j$th logarithm term has valuation at least
+$2j-v_5(j)$, tending to infinity. This controls the entire tail.
+
+\paragraph{IF2: the central value is exactly zero.}
+The doubling law gives $2P_2=(33/4,9/8)$ for $P_2=(6,9)$, hence
+$R_2(0)=-2P_2$. As $q\to0$, the singular terms combine as
+\[
+ \lambda_{01}(R_1)-2\log_5z
+ =-2\log_5(t_1/q)-2R_{01}(t_1)\longrightarrow-2\log_5 2.
+\]
+Also $\log_{E_1}(R_1)\to0$. Evenness of local heights and the
+rank-one quadratic identity give
+\[
+ F_0(0)=-2\log_5 2-\lambda_{02}(2P_2)+H_{02}(2P_2).
+\]
+The height difference at this actual rational point can be computed
+at every place other than five. At two, $v_2(x)=-2$ and
+$3x^2-189$ has negative valuation, so Cremona case (a) in the
+previously fixed twice-Silverman normalization gives $2\log_5 2$.
+At three the exact tests are
+\[
+ v_3(x)=1,\quad v_3(y)=2,\quad A=5,\quad B=2,\quad C=6,\quad v_3(c_4)=4.
+\]
+Thus case (c), $C\ge3B$, gives $-(4/3)\log_5 3$. At all other
+primes different from five, the model has good reduction and the
+coordinates are integral, so the local height is zero. Changing
+the splitting affects only five. Therefore
+\[
+ H_{02}(2P_2)-\lambda_{02}(2P_2)
+ =2\log_5 2-\frac43\log_5 3,
+\]
+which proves $F_0(0)=-(4/3)\log_5 3$ and $f(0)=0$.
+No density of global rational points near infinity is assumed here.
+
+\paragraph{IF3: an exact even factor.}
+There is $U_\infty\in1+5\mathcal A$ such that
+\[
+ f(5s)=5s^2U_\infty(s).
+\]
+Indeed put $\ell_i=\log_{E_i}(R_i)$. The actual differential pullbacks give
+\[
+ \ell_1'=-2/v,\quad \ell_2'=2q/v,\quad
+ \ell_1(0)=0,\quad \ell_2(0)=-2\log_{E_2}(P_2).
+\]
+Integration of the integral even series $1/v$ and substitution $q=5s$
+give $\ell_1(5s)/5\equiv-2s\pmod{5\mathcal A}$ and
+$\ell_2(5s)-\ell_2(0)\in25\mathcal A$. At every degree $j$ the
+integration denominator is controlled by $j-v_5(j)\to\infty$;
+the omitted first degrees are three and two respectively.
+ZS puts $R_{0i}(T_i)$ and their center differences in $25\mathcal A$.
+The logarithm change has this same bound by IF1. The second squared
+logarithm changes by $125\mathcal A$, since its center is in
+$5\mathbb Z_5$ and its change is in $25\mathcal A$; multiplication
+by $\alpha_2^0$ of valuation $-1$ leaves $25\mathcal A$.
+Subtract the exact center value. The only surviving term in
+$g=f(5s)/5$ modulo five is
+\[
+ g\equiv-(5\alpha_1^0)(\ell_1(5s)/5)^2
+ \equiv-4s^2=s^2\pmod{5\mathcal A},
+\]
+using the exact digit $5\alpha_1^0\equiv1$. DS proves exact evenness
+and IF2 proves zero constant term. Dividing the restricted series by
+$s^2$ therefore gives $U_\infty\in1+5\mathcal A$. Its value is a
+unit at every $s\in\mathbb Z_5$. The only zero is the central rational
+infinity point and its multiplicity is exactly two. DS transports
+this statement to the other infinity disk.
+
+The exact replay records the division jets, doubling coordinates and
+height valuation tests. The all-tail estimates, height identity and
+zero factorization above are ordinary proofs, not consequences of
+finite numerical root sampling or of a completed Lean height theory.

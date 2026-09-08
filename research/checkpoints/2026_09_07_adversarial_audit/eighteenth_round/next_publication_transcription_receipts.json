@@ -1,0 +1,38 @@
+{
+  "status": "Complete ordinary proof transcriptions; root and critical full mathematical transfer reviews PASS",
+  "published_files_modified": false,
+  "git_changed": false,
+  "files": [
+    {
+      "path": "research/checkpoints/2026_09_08_fixed_curve_closure/paper/prime_chain_partition.tex",
+      "sha256": "08b165d55aae3e25ab0e4e1ae27ecf25348e6769a74fe0586a5b0b9d52154361",
+      "ordinary_source": "research/checkpoints/2026_09_07_adversarial_audit/eighteenth_round/next_prime_chain_partition.md",
+      "scope": "NG1-NG5; complete actual divisor gap, sufficient prime-prefix class, two certified endpoints, complete predecessor and Gaussian successor prime criteria",
+      "root_full_review": "PASS",
+      "critical_full_review": "PASS"
+    },
+    {
+      "path": "research/checkpoints/2026_09_08_fixed_curve_closure/paper/paired_packet_certificate.tex",
+      "sha256": "4771564ba932e31573e08db64f693e34b1d984bf2e5b5135f056305f527e3cb3",
+      "ordinary_source": "research/checkpoints/2026_09_07_adversarial_audit/eighteenth_round/next_paired_packet_certificate.md",
+      "scope": "PA1-PA3; actual m+1 monotone divisor chain, at most m exact updates, conditional input scope, reciprocal adjacent-divisor obstruction",
+      "root_full_review": "PASS",
+      "critical_full_review": "PASS"
+    },
+    {
+      "path": "research/checkpoints/2026_09_08_fixed_curve_closure/paper/nonlinear_selector_formal_scope.tex",
+      "sha256": "98feb67a48a552384ab46a5919fb1c530cb1e14379b80cae034fe4458ed64803",
+      "source_sha256": "38849679f2e456475bf9f9ef8dfaa0c55df2e0cba8d705d7ec579c2e111776e9",
+      "scope": "24 proved arithmetic declarations, literal products, full boundary, constructive coprimality, positivity domain, all boundary-prime norm units; both actual fresh-run scopes stated",
+      "root_full_review": "PASS before final typography-only hash wrapping",
+      "critical_full_review": "PASS before final typography-only hash wrapping",
+      "final_change": "Only two 64-digit SHA256 values put in centered 32+32-character lines; digits unchanged"
+    }
+  ],
+  "not_claimed": [
+    "new PDF visual review",
+    "full formal proof of density or CRT",
+    "complete rational-locus formalization",
+    "uniform ABC proof or disproof"
+  ]
+}

@@ -1,0 +1,229 @@
+\section{Actual prime chains and a medium-prime central barrier}
+\label{sec-ng18-prime-chain}
+
+For the actual endpoint $c=2^e3^f$, with integers $e,f\geq2$, put
+\[
+ M=2^e,\quad N=3^f,\quad A=M/2,\quad B=N/3,
+ \qquad Q=\operatorname{rad}(c-1).
+\]
+Retain both complete premises
+\[
+ \max(M,N)<2\min(M,N)-1,\qquad AB>Q.                 \tag{NG0}
+\]
+The previously proved DP no-proper-face calculation identifies the
+original FCRT/SCRT/PBT optimum as $D+\Gamma$, where
+\[
+ D=\log(AB/Q)>0,\qquad
+ \Gamma=\min_{H\mid Q}\operatorname{dist}
+       \bigl(\log H,[\log(Q/B),\log A]\bigr).
+\]
+All divisors here are divisors of the complete actual radical. Each
+prime is assigned once; in the original endpoint this assigns its
+entire prime-power contribution. The following results concern that
+same optimum.
+
+\paragraph{NG1: the exact largest divisor gap.}
+Let $Q>1$ be squarefree, with primes $p_1<\cdots<p_s$, and define
+\[
+ R_i=\prod_{j<i}p_j,\qquad
+ \Lambda(Q)=\max_{1\leq i\leq s}\frac{p_i}{R_i}.
+\]
+The largest difference of consecutive logarithms of divisors of $Q$
+is exactly $\log\Lambda(Q)$.
+
+\emph{Proof.} When $p_i$ is added, the previous divisor-log set $S$
+is replaced by $S\cup(S+a)$, where $a=\log p_i$ and $S$ has endpoints
+$0,T=\log R_i$. If $a>T$, the spans are disjoint and the largest gap
+is the maximum of the old gap and $a-T$. If $a\leq T$, the spans
+overlap. Every gap in the union is contained in a gap of at least one
+of the two sets, within that set's span, so it is at most the old
+maximum. Induction, starting with $\{0,\log p_1\}$, proves the upper
+bound.
+For the lower bound, if $p_i>R_i$, a divisor of the final $Q$ smaller
+than $p_i$ cannot contain $p_i$ or any later prime. It divides $R_i$
+and is at most $R_i$. Thus $R_i,p_i$ are consecutive divisors of the
+final integer. Since $p_1>1=R_1$, the largest of these positive gaps
+attains $\log\Lambda(Q)$. $\square$
+
+Once the full prime support is supplied, this is a test with one
+step per prime. It makes no assertion about the cost of factoring $Q$.
+
+\paragraph{NG2: a sufficient arithmetic class.}
+For any real $A,B\geq1$ with $AB>Q$, the same definitions give
+\[
+ \Gamma\leq\frac{\max(0,\log\Lambda(Q)-D)}2
+ \leq\frac{\max(0,\log P^+(Q)-D)}2.                 \tag{NG1}
+\]
+In particular,
+\[
+ p_i\leq (AB/Q)R_i\quad\hbox{for every }i             \tag{NG2}
+\]
+implies $\Gamma=0$.
+
+\emph{Proof.} If $\Gamma>0$, the central closed interval contains
+neither $0$ nor $\log Q$, since both are divisor logs. Because
+$A,B\geq1$, it therefore lies strictly inside $[0,\log Q]$, in one
+open gap $(u,v)$ of the full divisor-log set. Its length is $D$.
+The two endpoint distances sum to $v-u-D$, so their minimum is at
+most $(\log\Lambda(Q)-D)/2$. If $\Gamma=0$, the bound is immediate.
+Finally $R_i\geq1$ gives $\Lambda(Q)\leq P^+(Q)$, and (NG2) is
+exactly $\log\Lambda(Q)\leq D$. $\square$
+
+This proves a full arithmetic subclass, but not its membership for
+all endpoints. A large gap near an end of the divisor set can also
+make (NG2) fail when the required central partition succeeds.
+
+\paragraph{NG3: a certified nonsquare central success.}
+Take $e=41,f=26$. The complete factorization is
+\[
+ c-1=7^2\cdot439\cdot857\cdot2729\cdot292183\cdot380261663.
+                                                               \tag{NG3}
+\]
+All six factors are prime, with the deterministic certificates
+described below. Both premises (NG0) hold. The actual divisors
+\[
+ H=2729\cdot380261663=1037734078327,\qquad
+ J=7\cdot439\cdot857\cdot292183
+\]
+satisfy $HJ=Q$, $H\leq2^{40}=A$ and $J\leq3^{25}=B$ by integer
+comparison. Hence $\Gamma=0$, while
+$D=\log(7c/(6(c-1)))>0$. Since $e$ is odd, this endpoint is outside
+the earlier DP square family. Its global value $\Lambda(Q)=439/7$
+is larger than $AB/Q$. Thus (NG2) does not certify every successful
+central partition. This is one certified nonsquare endpoint, not an
+assertion of infinitely many such endpoints.
+
+\paragraph{NG4: a complete medium-prime bracket.}
+Let $Q=qR$ be squarefree, with $q$ prime and $p<r$ the two smallest
+prime factors of $R$. Suppose $A,B\geq1$, $AB>Q$, and
+\[
+ prq\leq R<r^2q,\qquad rq>\max(A,B).                \tag{NG4}
+\]
+Then $R/r,rq$ are consecutive divisors of the full $Q$, and
+\[
+ \Gamma=\log\frac{rq}{\max(A,B)}>0,\qquad
+ D+\Gamma=\log\frac{\min(A,B)}{R/r}.                \tag{NG5}
+\]
+
+\emph{Proof.} A divisor of $R$ below $r$ is either $1$ or $p$,
+because $R$ is squarefree. If $H\mid Q$ contains $q$ and $H<rq$,
+write $H=qd$ with $d\mid R,d<r$. Then $H\leq pq\leq R/r$.
+If $H$ omits $q$ and $H>R/r$, then $R/H<r$, so $H=R$ or $R/p$;
+both are at least $rq$. The endpoints themselves divide $Q$, are
+strictly ordered, and have product $Q$. Since $rq>A,B$, the entire
+central interval lies strictly between their logarithms. Its two
+distances are $\log(rq/B)$ and $\log(rq/A)$, proving both formulas.
+$\square$
+
+For an actual instance take $e=123,f=78$, the cube of the preceding
+endpoint. Put
+\[
+ \begin{split}
+ q&=257077829249200341434761489003997119,\\
+ R&=7\cdot31\cdot439\cdot857\cdot919\cdot2729
+      \cdot292183\cdot380261663\cdot4266021703.
+ \end{split}
+\]
+The complete factorization is $c-1=7qR$, hence $Q=qR$ without an
+unfactored remainder. Here $p=7,r=31$; both (NG0) and (NG4) hold.
+More strongly, every prime of $Q$ is at most $q$ and
+\[
+ 20q<\min(A,B),                                      \tag{NG6}
+\]
+where the exact integers are
+\[
+ \begin{aligned}
+ A&=5316911983139663491615228241121378304,\\
+ B&=5474401089420219382077155933569751763,\\
+ R/31&=3130566812026385226903752016561167657,\\
+ 31q&=7969412706725210584477606159123910689.
+ \end{aligned}
+\]
+Since $B>A$, the exact conclusions are
+\[
+ D=\log\frac{7c}{6(c-1)},\qquad
+ \Gamma=\log\frac{31q}{B}>2D>0,\qquad
+ D<\log(6/5)<1.                                      \tag{NG7}
+\]
+No decimal logarithm is needed: the two strict comparisons are
+\[
+ 31q[6(c-1)]^2>B(7c)^2,\qquad
+ 35c<36(c-1).
+\]
+The exact positive balance margin
+$2\min(M,N)-1-\max(M,N)$ is
+\[
+ 4844444664297995820229445163776257926.
+\]
+The verifier checks these comparisons and all $1024$ actual divisors.
+The proof of (NG5) separately establishes completeness of the bracket.
+
+Consequently (NG0), nonsquareness, $0<D<1$, and even
+$P^+(Q)<\min(A,B)/20$ do not imply $\Gamma=0$ or $\Gamma\leq D$.
+This excludes precisely those strengthened statements. It supplies
+neither a fixed-$\epsilon$ infinite counterexample nor a contradiction
+to a bound with an arbitrary additive $C_\epsilon$. It does not
+disprove ABC or another certificate with different, proved rules.
+Within the original rules, (NG5) is the exact optimum.
+
+\paragraph{NG5: deterministic primality and complete finite evidence.}
+The standard-library verifier
+\texttt{next\_replay\_medium\_\allowbreak{}partition.py} checks
+47 prime nodes and 134 witnesses: base $2$, 45 full predecessor
+nodes and one full Gaussian successor node. It uses no probable-prime
+predicate or factorization routine. For completeness, both criteria
+have elementary proofs.
+
+For a predecessor node $m>2$, factor $m-1$ completely into previously
+proved primes. For each distinct $r\mid m-1$, suppose an integer
+$a_r$ satisfies
+\[
+ a_r^{m-1}\equiv1\pmod m,\qquad
+ \gcd(a_r^{(m-1)/r}-1,m)=1.
+\]
+For every prime $\ell\mid m$, the order of $a_r$ modulo $\ell$
+divides $\ell-1$ and $m-1$ and contains the full $r$-part of $m-1$.
+It follows that $m-1\mid\ell-1$, hence $\ell\geq m$ and $\ell=m$.
+Thus $m$ is prime. A different witness for each $r$ is permitted.
+
+For a successor node let $m>2$ be odd and factor $m+1$ completely
+into previously proved smaller primes. For every $r\mid m+1$,
+suppose $z_r=a_r+b_ri$ in $(\mathbb Z/m\mathbb Z)[i]$ satisfies
+\[
+ a_r^2+b_r^2\equiv1\pmod m,\qquad z_r^{m+1}=1,\qquad
+ \gcd\bigl(N(z_r^{(m+1)/r}-1),m\bigr)=1.             \tag{NG8}
+\]
+For any prime $\ell\mid m$, the algebra $\mathbb F_\ell[i]$ is
+either $\mathbb F_\ell\times\mathbb F_\ell$ or
+$\mathbb F_{\ell^2}$, since $\ell$ is odd. Its norm-one group has
+order $\ell-1$ in the split case, where its elements are
+$(u,u^{-1})$, and $\ell+1$ in the field case, by the surjective
+finite-field norm. The last condition in (NG8) makes
+$z_r^{(m+1)/r}-1$ a unit modulo $\ell$, so the order of $z_r$ contains
+the full $r$-part of $m+1$. Therefore $m+1$ divides that norm-one
+group order for every $\ell\mid m$, giving $\ell\geq m$ and hence
+primality. No Jacobi-symbol test is being substituted for this proof.
+
+The sole successor node is
+\[
+ \begin{split}
+ m&=13098839766085821942054493478243,\\
+ m+1&=2^2\cdot3^5\cdot7\cdot23\cdot1427\cdot10691
+       \cdot40507\cdot135446661817793.
+ \end{split}
+\]
+All factors are earlier proved nodes. The largest endpoint prime
+has $q-1=2\cdot3\cdot3271\cdot m$, a full predecessor node.
+The Gaussian operations are literal integer-pair operations modulo
+$m$, and every supplied witness is checked.
+
+The verifier also checks both complete factorizations of $c-1$,
+primitivity, balance, nonsquareness, $D>0$, all $64$ and $1024$
+divisors, the maximum-gap formula, the central memberships and the
+strict rational comparisons. Generation and read-only
+\texttt{--check} actually passed; independent root and peer executions
+also passed. The canonical output SHA256 is
+\texttt{26d04f39748d763f\allowbreak{}5139794465afb780\allowbreak{}58f18474567b629f\allowbreak{}6937abcae2ec9af2}.
+These finite certificates and the complete elementary proofs above
+are separate from any Lean theorem, prime-value infinitude, or
+uniform ABC estimate.

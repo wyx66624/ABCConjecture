@@ -1,0 +1,135 @@
+{
+  "schema": "abc-geometry-transcription-v1",
+  "status": "complete transcriptions; root and both peers final full ordinary-to-TeX review PASS",
+  "scope": "ZS, UD, SU, ZD, CB ordinary proofs and exact finite inputs; no new Lean declarations; no varying-family height or ABC conclusion",
+  "inputs": [
+    {
+      "path": "research/checkpoints/2026_09_08_fixed_curve_closure/paper/zero_slope_expansion.tex",
+      "sha256": "e27976a6642c92a8ce65a3b3ebb4b69783e118abcb6c57233c760a7ca018e105",
+      "bytes": 11739,
+      "ordinary_sources": [
+        {
+          "path": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_zero_slope_sigma.md",
+          "sha256": "63814e40fe99f39f9d325c74a8b43058222d73a5a2e465a693bf36213d90d9ff",
+          "bytes": 12119
+        }
+      ]
+    },
+    {
+      "path": "research/checkpoints/2026_09_08_fixed_curve_closure/paper/certified_finite_disks.tex",
+      "sha256": "06af3f547a794c5687827bf8154452c3f7ad1cb2a4256e0a6ab1b69ac73a9e21",
+      "bytes": 18932,
+      "ordinary_sources": [
+        {
+          "path": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_unit_disk_certificate.md",
+          "sha256": "08decc8f07b2a5ef5c69b5f4682106ae2b74d3b225a5e87c9bc8502a00bed978",
+          "bytes": 9450
+        },
+        {
+          "path": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_second_unit_disk_certificate.md",
+          "sha256": "c92af5f48e1879dc107aeaa96c368eb1fa6a837aa04b3aecbb778602a8f8ac6b",
+          "bytes": 7559
+        },
+        {
+          "path": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_zero_fiber_certificate.md",
+          "sha256": "4d1a2d0ae7269448c8fe75e82f9f1c0fe4304afc1bf5274e1d60edf40af26c65",
+          "bytes": 6943
+        }
+      ]
+    },
+    {
+      "path": "research/checkpoints/2026_09_08_fixed_curve_closure/paper/cubic_same_source_boundary.tex",
+      "sha256": "8a473cdf7eaab52805ad73b84037d500af1b7043acf673f7804c58b70be5b9e8",
+      "bytes": 7358,
+      "ordinary_sources": [
+        {
+          "path": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_cubic_same_source_boundary.md",
+          "sha256": "e68c6dc1102248f1db9f3dcf772acc4bd79a679a122534efe6488e3986b90ff4",
+          "bytes": 6397
+        }
+      ]
+    },
+    {
+      "path": "research/checkpoints/2026_09_08_fixed_curve_closure/paper/geometry_bibliography_additions.tex",
+      "sha256": "0e626794a84d8603f91efa9aa3aa5601b7b77cf58474ee117e480bc68521004f",
+      "bytes": 300,
+      "ordinary_sources": []
+    }
+  ],
+  "replay_dependencies": [
+    {
+      "script": {
+        "path": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_replay_zero_slope.py",
+        "sha256": "37979b3897bbc53f64469bcfbb167851b752df2e1c336c03d97f65adc75e6316",
+        "bytes": 7422
+      },
+      "canonical_result": {
+        "path": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_zero_slope_exact.json",
+        "sha256": "13589e3cf79c01417786276a25394ad7ed1245decdcca36e984e01eeb744b0c9",
+        "bytes": 7714
+      },
+      "check_command": "python research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_replay_zero_slope.py --check",
+      "imports": []
+    },
+    {
+      "script": {
+        "path": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_replay_unit_disk.py",
+        "sha256": "caa29c57312979eb5809d3c46c242e3ff8f6c01f1b78123abcad42e5e557e25b",
+        "bytes": 6743
+      },
+      "canonical_result": {
+        "path": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_unit_disk_exact.json",
+        "sha256": "2f3d604e73a27acd59d2ed47b418595b40c717efa5588a78584e963ab9f00ce7",
+        "bytes": 4178
+      },
+      "check_command": "python research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_replay_unit_disk.py --check",
+      "imports": [
+        "next_replay_zero_slope.py"
+      ]
+    },
+    {
+      "script": {
+        "path": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_replay_second_unit_disk.py",
+        "sha256": "abaa1c39cfb23a0476d2180d0b3a450f34f40b2f099d41cc4bb20c129888afc1",
+        "bytes": 5469
+      },
+      "canonical_result": {
+        "path": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_second_unit_disk_exact.json",
+        "sha256": "9c41ff73fad3875408856ff49e32c340cd6e272819eb17db8889dcf037f06dfa",
+        "bytes": 5023
+      },
+      "check_command": "python research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_replay_second_unit_disk.py --check",
+      "imports": [
+        "next_replay_unit_disk.py",
+        "next_replay_zero_slope.py"
+      ]
+    },
+    {
+      "script": {
+        "path": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_replay_zero_fiber.py",
+        "sha256": "166e966051523d0c76d8f5ef3b23241cdc8004e3ef1597c26fac2bd535da9aa1",
+        "bytes": 3659
+      },
+      "canonical_result": {
+        "path": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_zero_fiber_exact.json",
+        "sha256": "077103d25ebfcb6102d2e30bf62b4f3d8d087dc3b1b72fa6725a4488273148fd",
+        "bytes": 2497
+      },
+      "check_command": "python research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_replay_zero_fiber.py --check",
+      "imports": [
+        "next_replay_unit_disk.py",
+        "next_replay_second_unit_disk.py",
+        "next_replay_zero_slope.py"
+      ]
+    }
+  ],
+  "primary_bibliography_key": "SutherlandDivisionPolynomials2023",
+  "checks": {
+    "author_prior_write_and_check": "PASS for all four canonical replays",
+    "current_transcription_static_check": "PASS: all four files, nested TeX environments, math delimiters, absence of control characters or single-backslash row endings; no PDF build or visual review claimed",
+    "root_full_final_transcription_review": "PASS for all three mathematical TeX files after the align, spacing, and psi-leading-term fixes",
+    "critical_bottleneck_full_final_transcription_review": "PASS: all three mathematical TeX files and bibliography, exact final hashes matched",
+    "adversarial_audit_full_final_transcription_review": "PASS: all three mathematical TeX files and bibliography, exact final hashes matched",
+    "post_review_label_change": "Only new CB section label renamed cb-section to cb19-section to avoid an existing eighth-round label; mathematical text unchanged; parent and peers notified."
+  }
+}

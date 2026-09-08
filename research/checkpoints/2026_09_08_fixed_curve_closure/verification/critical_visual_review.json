@@ -1,0 +1,38 @@
+{
+  "reviewer": "critical_bottleneck",
+  "date": "2026-09-07",
+  "status": "PASS",
+  "review_type": "Actual image inspection of every assigned full page",
+  "pdf_path": "E:/agent/ABCConjecture/tmp/abc_20260908/fixed_curve_pdf/ChatGPT_ABC_Uniformity_2026.pdf",
+  "pdf_sha256": "60732f02f13a00b3f8c057d5cdd9038f1ea39a7d3355cedaec5c223e11de9a72",
+  "pdf_sha256_independently_recomputed": true,
+  "assigned_pages_inclusive": [575, 587],
+  "viewed_page_count": 13,
+  "method": "Each local PNG was opened with view_image and emitted at full-page size for visual inspection. Text extraction was not substituted for viewing.",
+  "checked": [
+    "body text and visible page continuation",
+    "all equation rows, fractions, exponents and equation numbers",
+    "dual-number and residue tables",
+    "complete sixteen-row projective reduction table",
+    "section transitions and theorem/proof spacing",
+    "running headers, page numbers and bottom margins",
+    "absence of clipping, overlaps, missing glyphs and visible unresolved references"
+  ],
+  "pages": [
+    {"page": 575, "png": "tmp/abc_20260908/fixed_curve_pdf/qa/page-575.png", "sha256": "487581a2ea6efa4c2d5400686f021b3d7bba301c12968929be5f312e89633d14", "status": "PASS", "notes": "Models, splitting identities and division-polynomial formula remain legible and inside the margins."},
+    {"page": 576, "png": "tmp/abc_20260908/fixed_curve_pdf/qa/page-576.png", "sha256": "370e12aec6626754bec67ab4324ca234a1d93ec1a3ef1ebda02d6cf72d9756c1", "status": "PASS", "notes": "Integral recursions and the two-line height formula fit; theorem continuation is readable."},
+    {"page": 577, "png": "tmp/abc_20260908/fixed_curve_pdf/qa/page-577.png", "sha256": "199a0bccdc53dc6e72013cf216dfe83b1cf463d0ff1024f38c4c102e4666bc88", "status": "PASS", "notes": "Both exact-residue tables and local-chart list are aligned; final paragraph continues normally."},
+    {"page": 578, "png": "tmp/abc_20260908/fixed_curve_pdf/qa/page-578.png", "sha256": "dfb26ce26678429556954cf4b96fd22c6cb993c59022e628e13ebf99522ee2db", "status": "PASS", "notes": "Descent section, multiplication formulas and rational functions have clear spacing."},
+    {"page": 579, "png": "tmp/abc_20260908/fixed_curve_pdf/qa/page-579.png", "sha256": "292bc7d891bc51a37be8a59cbeff185504e640a7bfcc73e424f6d20698dbba1b", "status": "PASS", "notes": "Symmetry-to-finite-disk transition and normalized division-polynomial rows are intact."},
+    {"page": 580, "png": "tmp/abc_20260908/fixed_curve_pdf/qa/page-580.png", "sha256": "093c9c33a0c84b77d75844698b624d1f03e9ed2696bc8879971c1a45f1286b30", "status": "PASS", "notes": "All twelve dual-table rows and the adjacent function table are visible and separated."},
+    {"page": 581, "png": "tmp/abc_20260908/fixed_curve_pdf/qa/page-581.png", "sha256": "bb570a588febf04fe3395bdef315a0a8ddeb83c057aee8997929be960f934ac3", "status": "PASS", "notes": "Simple-zero proof, second-disk subsection and two residue tables fit without clipping."},
+    {"page": 582, "png": "tmp/abc_20260908/fixed_curve_pdf/qa/page-582.png", "sha256": "88c5c46ecb97b60362f432db492190cf47ffaed0db603e913f0c2eea2d0869d1", "status": "PASS", "notes": "Sharper tails, exact obstruction and start of the zero-fiber proof are legible."},
+    {"page": 583, "png": "tmp/abc_20260908/fixed_curve_pdf/qa/page-583.png", "sha256": "4e7644e8da9c59ec4c3d999b7ca8a906f70e3d1edb55ace0d1bc3faa9a35b049", "status": "PASS", "notes": "Removable-factor powers, normed series, central residue table and obstruction formulas are intact."},
+    {"page": 584, "png": "tmp/abc_20260908/fixed_curve_pdf/qa/page-584.png", "sha256": "b7c0c24bbc60e159786be53fbf43dbab334d48f26192474c83cf567bc12fcaa2", "status": "PASS", "notes": "Finite-evidence paragraph and infinity section fit; long script names wrap within the text area."},
+    {"page": 585, "png": "tmp/abc_20260908/fixed_curve_pdf/qa/page-585.png", "sha256": "c3da2ea4e6caaf4655f0f25137237095b7b1a3c497e6df1367f6e45d7f6dc65c", "status": "PASS", "notes": "Central-height calculations, double-zero factor and rational-locus heading are readable."},
+    {"page": 586, "png": "tmp/abc_20260908/fixed_curve_pdf/qa/page-586.png", "sha256": "09d09c917f099926542180f10a51d28340abbaccf75343ae3d51bd63b25d9997", "status": "PASS", "notes": "Entire sixteen-row projective quotient table is visible on one page; column rules and entries are clear."},
+    {"page": 587, "png": "tmp/abc_20260908/fixed_curve_pdf/qa/page-587.png", "sha256": "dc850c55de42e97158724188a06fdb6891e8e85209ba5a1e55176bd7cea384e9", "status": "PASS", "notes": "Disk-orbit count table, extra-zero exclusion and cubic boundary chart transition are unclipped."}
+  ],
+  "defects": [],
+  "scope_limit": "Only pages 575 through 587 were visually assigned and inspected here. Mathematical transcription audits are recorded separately. This record does not claim a new compiler run, a render run, or visual review of all 600 pages."
+}

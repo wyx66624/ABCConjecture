@@ -1,0 +1,56 @@
+{
+  "status": "PASS: fresh scoped source compilation and complete axiom audit",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "modules": {
+    "NonlinearPowerSelectors": {
+      "source": "research/checkpoints/2026_09_08_fixed_curve_closure/Lean/NonlinearPowerSelectors.lean",
+      "sha256": "38849679f2e456475bf9f9ef8dfaa0c55df2e0cba8d705d7ec579c2e111776e9",
+      "new": true,
+      "declarations": 24,
+      "queries": [
+        "ABCNonlinearPowerSelectors.root_norm_formula",
+        "ABCNonlinearPowerSelectors.root_norm_mod_three",
+        "ABCNonlinearPowerSelectors.root_norm_gt_one",
+        "ABCNonlinearPowerSelectors.square_coordinates",
+        "ABCNonlinearPowerSelectors.square_sum",
+        "ABCNonlinearPowerSelectors.square_norm",
+        "ABCNonlinearPowerSelectors.square_boundary",
+        "ABCNonlinearPowerSelectors.square_positive",
+        "ABCNonlinearPowerSelectors.square_coprime",
+        "ABCNonlinearPowerSelectors.cube_coordinates",
+        "ABCNonlinearPowerSelectors.cube_sum",
+        "ABCNonlinearPowerSelectors.cube_norm",
+        "ABCNonlinearPowerSelectors.cube_boundary",
+        "ABCNonlinearPowerSelectors.cube_positive",
+        "ABCNonlinearPowerSelectors.cube_coprime",
+        "ABCNonlinearPowerSelectors.coprime_arm_gcds",
+        "ABCNonlinearPowerSelectors.square_pairwise_gcd",
+        "ABCNonlinearPowerSelectors.cube_pairwise_gcd",
+        "ABCNonlinearPowerSelectors.boundary_norm_common_zero",
+        "ABCNonlinearPowerSelectors.primitive_boundary_norm_unit",
+        "ABCNonlinearPowerSelectors.square_boundary_root_norm_unit",
+        "ABCNonlinearPowerSelectors.cube_boundary_root_norm_unit",
+        "ABCNonlinearPowerSelectors.square_boundary_root_norm_not_dvd",
+        "ABCNonlinearPowerSelectors.cube_boundary_root_norm_not_dvd"
+      ]
+    }
+  },
+  "new_declarations": 24,
+  "dependency_declarations": 0,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "dependency_build_scope": "Pinned Mathlib compiled cache reused; listed source modules freshly compiled.",
+  "not_claimed": [
+    "ABC proof or disproof",
+    "whole repository or Mathlib rebuild",
+    "CRT, polynomial squarefree values, density or moving uniformity",
+    "p-adic closure or height normalization",
+    "arbitrary-root signed membership",
+    "divisor asymptotics or sieve",
+    "complete rational locus formalization"
+  ]
+}

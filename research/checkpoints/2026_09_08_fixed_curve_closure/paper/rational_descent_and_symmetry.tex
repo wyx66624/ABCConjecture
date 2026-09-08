@@ -1,0 +1,111 @@
+\section{Rational descent and four residue-disk orbits}
+\label{sec-fixed-rational-descent}
+
+This section concerns the single smooth projective curve
+\[
+ C:\quad W^2=z^6-27z^4+99z^2-9
+\]
+and the two minimal elliptic models and actual quotient maps
+\[
+\begin{aligned}
+ E_1 &: y^2=x^3-9x-9, &R_1&=((z^2-9)/4,W/8),\\
+ E_2 &: y^2=x^3-189x+999, &R_2&=((33-9/z^2)/4,-9W/(8z^3)).
+\end{aligned}
+\]
+The notation $F_0,T_i,\delta_i,\Xi,\alpha_i^0,R_{0i},L_i$ is that
+of the preceding zero-slope expansion. Put
+$f=F_0+(4/3)\log_5 3$. All statements here are ordinary proofs,
+with the established removable extensions on $C(\mathbb Q_5)$.
+
+\paragraph{RD1: an actual multiplication formula.}
+On either short model put $\psi=\psi_9$, $\phi=x\psi_9^2-\psi_{10}\psi_8$,
+and $D=\phi'\psi-2\phi\psi'$. These are integral polynomials in $x$:
+the two even-index factors contribute $(2y)^2=4(x^3+ax+b)$.
+Then the rational-function identities are
+\[
+ x([9]Q)=\frac\phi{\psi^2},\qquad
+ y([9]Q)=\frac{yD}{9\psi^3},\qquad
+ T(Q)=-\frac{9\phi\psi}{yD},\qquad
+ \delta(Q)=-\frac{9\phi}{yD}=-\frac\phi{\omega_9}.
+\]
+Indeed the first is the division-polynomial multiplication formula
+\cite{SutherlandDivisionPolynomials2023}. If $X=\phi/\psi^2$, the identity
+$[9]^*(dx/(2y))=9\,dx/(2y)$ gives
+$X'(x)/(2y([9]Q))=9/(2y)$ and $X'=D/\psi^3$.
+This fixes both the factor nine and the ordinate sign. The remaining
+identities follow from $t=-x/y$. They extend as rational identities;
+$D\ne0$ because $X$ is nonconstant in characteristic zero.
+
+\paragraph{RD2: descent to $u=z^2$.}
+Write $S(u)=u^3-27u^2+99u-9$, $x_1=(u-9)/4$, $x_2=(33-9/u)/4$.
+Define rational functions over $\mathbb Q$ by
+\[
+\begin{split}
+ \mathcal X(u)&=-9u^{39}\frac{\phi_1(x_1)D_2(x_2)}{\phi_2(x_2)D_1(x_1)},\\
+ V_1(u)&=\frac{5184\phi_1(x_1)^2\psi_1(x_1)^2}{S(u)D_1(x_1)^2},\\
+ V_2(u)&=\frac{64u^3\phi_2(x_2)^2\psi_2(x_2)^2}{S(u)D_2(x_2)^2}.
+\end{split}
+\]
+For actual local points $\Xi=\mathcal X(z^2)$ and $T_i^2=V_i(z^2)$.
+To check the constants, $y_2/y_1=-9/z^3$ makes the delta ratio times
+$z^{81}$ equal to the first expression, while
+$y_1^2=S/64$, $y_2^2=81S/(64u^3)$ give the other two.
+The identities on the common open chart extend to the previously
+proved removable values. Thus $\mathcal X$ is finite and nonzero and
+$V_i\in25\mathbb Z_5$ on the image of the actual local curve.
+These assertions are not made for arbitrary $u\in\mathbb Q_5$.
+
+\paragraph{RD3: a square-root-free expression.}
+There are unique rational series $\widehat R_i,\widehat M_i$ with
+$\widehat R_i(t^2)=R_{0i}(t)$ and $\widehat M_i(t^2)=L_i(t)^2$.
+On the actual curve image,
+\[
+\begin{split}
+ F_0={}&-\frac2{81}\left(\log_5\mathcal X(u)
+          +\widehat R_1(V_1(u))-\widehat R_2(V_2(u))\right)\\
+ &-\frac{\alpha_1^0}{81}\widehat M_1(V_1(u))
+   +\frac{\alpha_2^0}{81}\widehat M_2(V_2(u)).
+\end{split}
+\]
+This follows by regrouping the convergent even series and the convergent
+Cauchy product $L_i^2$. The proved tail bounds apply at the original
+$t$-degrees. For finite nonzero residue classes, $2z$ is a unit and
+$u$ is a local coordinate. At zero it has ramification order two;
+at infinity $1/u=q^2$ has order two. Algebraic cancellation alone does
+not supply analytic denominator or logarithm error bounds.
+
+\paragraph{DS1: exact symmetry.}
+The commuting involutions $\iota(z,W)=(z,-W)$ and $\sigma(z,W)=(-z,W)$
+generate a group of order four preserving $f$. Indeed
+\[
+ R_1\iota=-R_1,\quad R_2\iota=-R_2,\quad
+ R_1\sigma=R_1,\quad R_2\sigma=-R_2.
+\]
+Since $\psi_9$ depends only on $x$, $\delta(-Q)=-\delta(Q)$.
+The two delta signs cancel under $\iota$; under $\sigma$ the signs
+of $z^{81}$ and $\delta_2$ cancel. Thus $\Xi$ is invariant.
+The remaining terms are unchanged because $R_{0i}$ is even and
+$L_i^2$ is even. Analytic continuation proves invariance at the
+exceptional fibers too.
+
+\paragraph{DS2: complete coverage.}
+There are twelve smooth residue disks and exactly four orbits:
+two over $z=0$, four over $z=\pm1$, four over $z=\pm2$, and two at
+infinity. Modulo five the sextic takes value one at zero and four
+at every nonzero residue, with nonzero ordinates. The monic leading
+coefficient supplies the two infinities. The involutions give precisely
+the asserted orbits. Representatives can be chosen through
+$(0,\sqrt{-9})$, $(1,8)$, $(2,\sqrt{19})$, and $W/z^3=1$ at infinity.
+Their finite parameter $z-a$ or infinity parameter $q=1/z$ ranges over
+$5\mathbb Z_5$. Transport sends the parameter to itself or its negative,
+so is an analytic isomorphism and preserves each zero multiplicity.
+A complete certificate on each representative therefore covers all disks.
+
+\paragraph{DS3: even orders at the fixed fibers.}
+At zero the unique Hensel branch satisfies $W(-z)=W(z)$, and $\sigma$
+preserves the representative disk. At infinity let $v=Wq^3$; its equation
+is $v^2=1-27q^2+99q^4-9q^6$. The composite $\sigma\iota$ preserves
+$v(0)=1$ and sends $q$ to $-q$. Hence $f$ is exactly even in both
+parameters. Its central derivative vanishes. If its central value is
+zero and the series is nonzero, its order there is positive and even.
+The following disk certificates determine those values and orders.

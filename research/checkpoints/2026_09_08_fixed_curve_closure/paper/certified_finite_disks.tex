@@ -1,0 +1,485 @@
+\section{Complete certificates on the ten finite residue disks}
+\label{sec-fixed-finite-disks}
+
+Use the curves, exact constants \(\alpha_i=\alpha_i^0\), and
+\(f=F_0+\frac43\log_5 3\) of Section~\ref{zs-section}.
+For a disk coordinate \(s\), write
+\(\mathcal A=\mathbb Z_5\langle s\rangle\), the ring of restricted
+series, with Gauss valuation
+\(v_{\mathcal A}(\sum c_js^j)=\inf_jv_5(c_j)\).
+Its coefficients tend to zero, and its derivative belongs to the same
+ring. We prove congruences in this complete ring; evaluations at a few
+points do not replace the entire-series assertions.
+The involutions and four disk orbits are established in
+Section~\ref{sec-fixed-rational-descent}.
+
+\subsection{The representative disk above one}
+
+Take
+\begin{equation}
+ z=1+5s,\qquad W(1)=8,\qquad s\in\mathbb Z_5.
+ \label{ud-disk}
+\end{equation}
+The square-root branch is the unique one with this residue sign.
+For either short elliptic model put
+\begin{align}
+ \psi&=\psi_9,&\phi&=x\psi_9^2-\psi_{10}\psi_8,\\
+ \omega_9&=\frac{\psi_{11}\psi_8^2-\psi_7\psi_{10}^2}{4y},&
+ \delta&=-\phi/\omega_9,&T&=-\phi\psi/\omega_9.
+ \label{ud-division-functions}
+\end{align}
+These are the normalized division polynomials:
+\([9](x,y)=(\phi/\psi^2,\omega_9/\psi^3)\).
+Thus \(\delta=t([9]Q)/\psi_9(Q)\) and \(T=t([9]Q)\), with no
+remaining division by \(\psi_9\) at nine-torsion.
+
+\begin{lemma}[Integral functions and complete tails on the first disk]
+\label{ud-integral}
+On \eqref{ud-disk}, \(\phi_i,\omega_{9,i},\delta_i,\Xi\) are units
+of \(\mathcal A\), \(\psi_{9,i},T_i\in5\mathcal A\), and
+\(g=f/5\in\mathcal A\). If \(u=z-1\) and
+\(\beta=(d\log\Xi/du)(0)\), then
+\begin{equation}
+ \log_5\Xi(s)-\log_5\Xi(0)=5\beta s\pmod{25\mathcal A}.
+ \label{ud-log-tail}
+\end{equation}
+All series estimates remain valid after termwise differentiation in
+\(s\).
+\end{lemma}
+\begin{proof}
+The equation and \(2W(0)=16\) give
+\(W(u)\in8+u\mathbb Z_5[[u]]\), with \(W'(0)=6\).
+Both quotient coordinates are integral series and both ordinates
+are units. The division recurrences divide only by \(2y\) or
+\(4y\), which are units. The complete calculation below gives
+\(\psi_9=0,\phi=\omega_9=1\) modulo five at the center, for both
+quotients. An integral formal series with unit constant has an
+integral inverse. Substitution \(u=5s\) gives a restricted series
+whose degree-\(j\) coefficient is divisible by \(5^j\). It follows
+that \(\phi,\omega_9,\delta\) are units on the entire disk and that
+\(\psi_9,T\in5\mathcal A\). Since \(z\) is also a unit,
+\(\Xi=z^{81}\delta_1/\delta_2\) is a unit.
+
+The ratio \(\Xi(s)/\Xi(0)\) lies in \(1+5s\mathcal A\) and is
+\(1+5\beta s\) modulo \(25\mathcal A\). In \(\log(1+h)\),
+\(h\in5\mathcal A\), the terms \(h^j/j\), \(j\ge2\), have
+valuation at least \(j-v_5(j)\ge2\), tending to infinity.
+This proves \eqref{ud-log-tail} for the full tail. The constant
+\(\log_5\Xi(0)\) lies in \(5\mathbb Z_5\).
+
+Proposition~\ref{zs-tail} applies in the same complete algebra:
+\[
+ v_{\mathcal A}(r_jT_i^j)\ge j-2\lfloor\log_5j\rfloor,\qquad
+ v_{\mathcal A}(l_jT_i^j)\ge j-\lfloor\log_5j\rfloor.
+\]
+Both bounds tend to infinity. The composed tails beyond degree \(N\)
+have valuation at least \(\lceil(N+1)/2\rceil\). Since \(R_0\)
+starts in degree four, \(R_{0i}(T_i)\in25\mathcal A\);
+also \(L_i(T_i)/9\in5\mathcal A\).
+As \(v_5(\alpha_i)=-1\), their squared-log terms lie in
+\(5\mathcal A\). The same is true of \(\log_5\Xi\) and \(\Omega\),
+so \eqref{zs-height-formula} proves \(g\in\mathcal A\).
+Differentiation of a restricted integral series does not decrease
+its Gauss valuation. This supplies derivative control for all the
+tails, rather than only for a truncated polynomial.
+\end{proof}
+
+\begin{lemma}[The exact first reduction]
+\label{ud-reduction}
+On \eqref{ud-disk}, the full function satisfies
+\begin{equation}
+ g(s)=2s(s+1)\pmod{5\mathcal A}.
+ \label{ud-polynomial}
+\end{equation}
+\end{lemma}
+\begin{proof}
+The only new local constant is computed in
+\(\mathbb F_5[e]/(e^2)\), with \(z=1+e\), \(W=8+6e\).
+The two points are
+\((x_1,y_1)=(3+3e,1+2e)\),
+\((x_2,y_2)=(1+2e,1+4e)\).
+To specify the finite calculation completely, use
+\begin{align}
+ \psi_0&=0,&\psi_1&=1,&\psi_2&=2y,\\
+ \psi_3&=3x^4+6ax^2+12bx-a^2,\\
+ \psi_4&=4y(x^6+5ax^4+20bx^3-5a^2x^2-4abx-8b^2-a^3),\\
+ \psi_{2m+1}&=\psi_{m+2}\psi_m^3-\psi_{m-1}\psi_{m+1}^3,\\
+ \psi_{2m}&=\frac{\psi_m}{2y}
+       (\psi_{m+2}\psi_{m-1}^2-\psi_{m-2}\psi_{m+1}^2).
+ \label{ud-recurrences}
+\end{align}
+These agree with \cite[\S5.5]{SutherlandDivisionPolynomials2023}.
+Every denominator used here has nonzero constant. The entire table
+through the largest required index is as follows; entries are
+\((\text{constant},\text{coefficient of }e)\).
+\[
+\begin{array}{c|cc}
+ n&\psi_n(E_1)&\psi_n(E_2)\\\hline
+0&(0,0)&(0,0)\\1&(1,0)&(1,0)\\2&(2,4)&(2,3)\\
+3&(2,1)&(1,4)\\4&(2,2)&(4,1)\\5&(3,0)&(1,0)\\
+6&(3,3)&(4,2)\\7&(3,1)&(3,4)\\8&(4,4)&(4,2)\\
+9&(0,4)&(0,1)\\10&(1,0)&(1,0)\\11&(2,1)&(2,1)
+\end{array}
+\qquad
+\begin{array}{c|cc}
+ &E_1&E_2\\\hline
+ \phi&(1,1)&(1,3)\\
+ \omega_9&(1,4)&(1,2)\\
+ \delta&(4,3)&(4,4)\\
+ (\log\delta)'&2&1
+\end{array}
+\]
+Hence \(\beta=81+2-1=2\pmod5\). By \eqref{ud-log-tail}, the
+contribution to \((f(s)-f(0))/5\) from \(\log_5\Xi\) is
+\(-2\beta s/81=s\) modulo \(5\mathcal A\); the \(R_0\) terms
+make no contribution.
+
+Set \(\ell_i=L_i(T_i)/9\). Direct pullback gives
+\begin{equation}
+ \frac{d\ell_1}{dz}=\frac{2z}{W},\qquad
+ \frac{d\ell_2}{dz}=-\frac2W.
+ \label{ud-pullbacks}
+\end{equation}
+At the center these are \(1/4,-1/4\). Since
+\(R_1(0)=P_1\), \(R_2(0)=-P_2\), the exact residues
+\eqref{zs-small-constants} imply
+\begin{equation}
+ \ell_1/5=4+4s,\quad \ell_2/5=3+s\pmod{5\mathcal A},
+ \qquad 5\alpha_1=1,\quad5\alpha_2=3\pmod5.
+ \label{ud-logarithm-digits}
+\end{equation}
+These are whole-series congruences: the pullbacks have integral
+coefficients in \(u\), and integrating a term of degree \(j\ge1\)
+then putting \(u=5s\) gives valuation at least
+\(j+1-v_5(j+1)\ge2\), tending to infinity.
+The change in the squared-log terms, divided by five, is therefore
+\[
+ -(4+4s)^2+3(3+s)^2-(-4^2+3\cdot3^2)=s+2s^2\pmod5.
+\]
+Finally \(f(0)=0\) exactly: \((1,8)\) is a rational point in the
+finite chart, so the global-height identity and the full
+away-from-five set of Section~\ref{sec:local-height-values} give
+\(F_0(1,8)=\Omega\). Adding the logarithmic slope proves
+\eqref{ud-polynomial}.
+\end{proof}
+
+\begin{theorem}[Two simple zeros on the first representative disk]
+\label{ud-two-zeros}
+The disk \eqref{ud-disk} has exactly two zeros of \(f\), both simple:
+the point \((1,8)\), and a unique point with
+\(s=4\pmod5\), equivalently \(z=21,W=3\pmod{25}\).
+The four disks above \(z=\pm1\pmod5\) have exactly eight simple
+zeros in total, four known rational points and four further local
+points in one symmetry orbit.
+\end{theorem}
+\begin{proof}
+The only roots of \(2s(s+1)\) in \(\mathbb F_5\) are \(0,4\),
+with derivatives \(2,3\). For an integral restricted series the
+Taylor estimate
+\(g(x+h)=g(x)+hg'(x)\pmod{h^2\mathbb Z_5}\)
+holds termwise and extends by completeness. Thus Newton iteration
+gives a root in each of these two residue disks. For two roots
+\(x,y\) in the same disk,
+\[
+ g(x)-g(y)=(x-y)(g'(y)+(x-y)H),\qquad H\in\mathbb Z_5,
+\]
+whose second factor is a unit; uniqueness follows. The other residues
+are excluded by \eqref{ud-polynomial}. The first root is the exact
+center. The derivatives at both roots are units for \(g\), so
+\(f'=5g'\ne0\), giving simplicity. The expansion
+\(W=8+30s\pmod{25}\) gives the second ordinate residue.
+The two involutions from Section~\ref{sec-fixed-rational-descent}
+transport these roots and their multiplicities to the other three
+disks. This argument by itself makes no rationality assertion about
+the second orbit.
+\end{proof}
+
+\subsection{The representative disk above two}
+
+Take
+\begin{equation}
+ z=2+5s,\qquad W(2)=\sqrt{19}\equiv2\pmod5.
+ \label{su-disk}
+\end{equation}
+Here \(u=z-2\) again gives integral quotient coordinates with unit
+ordinates. The center reductions are
+\(\psi_{9,i}=0\), \((\phi_1,\phi_2)=(4,1)\),
+\((\omega_{9,1},\omega_{9,2})=(3,4)\) modulo five.
+Consequently the whole unit-series argument of Lemma~\ref{ud-integral}
+applies: \(T_i\in5\mathcal A\), \(\Xi\in\mathcal A^*\),
+and \(g=f/5\in\mathcal A\), with the same derivative and tail control.
+An integral series with unit constant is being inverted, so these
+assertions cover the disk, not just its center.
+
+\begin{lemma}[The first reduction above two]
+\label{su-reduction}
+On \eqref{su-disk},
+\begin{equation}
+ g(s)=4(s+1)^2\pmod{5\mathcal A}.
+ \label{su-first}
+\end{equation}
+\end{lemma}
+\begin{proof}
+The exact lift is \(W(2)=12\pmod{25}\), with
+\(W'=-138/W=1\pmod{25}\). The recurrences
+\eqref{ud-recurrences} give the following constant residues and dual
+values; the latter use \(z=2+e,W=2+e\).
+\[
+\begin{array}{c|cc}
+ \bmod25&E_1&E_2\\\hline
+ \psi_9&15&15\\\phi&24&1\\\omega_9&18&24\\
+ \delta&7&1\\T&5&15
+\end{array}
+\qquad
+\begin{array}{c|cc}
+ (\text{value},\text{derivative})\bmod5&E_1&E_2\\\hline
+ \phi&(4,0)&(1,3)\\\omega_9&(3,0)&(4,3)\\
+ \delta&(2,0)&(1,1)\\(\log\delta)'&0&1
+\end{array}
+\]
+Hence \(\beta=81/2+0-1=2\pmod5\), and the logarithmic local-height
+slope in \(g\) is one. The center calculation also gives
+\[
+ \Xi=14,\quad\log_5\Xi=10,\quad\log_5 3=20\pmod{25},
+ \qquad \ell_1/5=4,\quad\ell_2/5=2\pmod5.
+\]
+The differential values in \eqref{ud-pullbacks} are \(2,4\) modulo
+five. The full integrated-tail estimate used in
+\eqref{ud-logarithm-digits} therefore gives
+\[
+ \ell_1/5=4+2s,\qquad\ell_2/5=2+4s\pmod{5\mathcal A}.
+\]
+With \(5\alpha_i=(1,3)\) and \(\Omega/5=3\) modulo five,
+substitution in \eqref{zs-height-formula} yields constant \(4\),
+linear coefficient \(3\), and quadratic coefficient \(4\).
+This is \eqref{su-first}. The center has not been assumed rational
+or an exact zero.
+\end{proof}
+
+\begin{lemma}[Sharper tails at precision one hundred twenty-five]
+\label{su-sharp-tail}
+For either curve and any \(T\in5\mathcal A\),
+\[
+ R_0(T)\in5^4\mathcal A,\qquad L(T)-T\in5^4\mathcal A.
+\]
+Replacing \(L(T)/9\) by \(T/9\) in a squared-log term multiplied
+by \(\alpha_i\) makes an error in \(5^4\mathcal A\).
+For a five-adic unit \(q\), with \(h=q^4-1\),
+\begin{equation}
+ \log_5q=\tfrac14(h-h^2/2)\pmod{125}.
+ \label{su-unit-log}
+\end{equation}
+\end{lemma}
+\begin{proof}
+The even series \(R_0\) starts at degree four. The valuation bound
+for degree four is four; degree five is absent; degrees six and
+seven have bounds four and five; all degrees at least eight have
+bound \(\lceil j/2\rceil\ge4\). For \(L-T\), only degrees
+\(j\ge5\) occur, and \(j-\lfloor\log_5j\rfloor\ge4\).
+Both bounds tend to infinity, proving the claims for the entire
+compositions. The difference of the two squares is in
+\(5^5\mathcal A\), and \(v_5\alpha_i=-1\).
+Finally, for every \(j\ge3\), the omitted term \(h^j/j\) has
+valuation at least \(j-v_5(j)\ge3\), tending to infinity.
+Changing the unit representative modulo \(125\) also changes its
+logarithm only by a multiple of \(125\). This proves the exact
+logarithm congruence.
+\end{proof}
+
+\begin{theorem}[No zero above two]
+\label{su-no-zeros}
+There is no zero of \(f\) in \eqref{su-disk}, or in any of the four
+disks above \(z=\pm2\pmod5\).
+\end{theorem}
+\begin{proof}
+The only possible root residue in \eqref{su-first} is \(s=4\).
+At its exact center \(z=22\), the selected branch has
+\(W=32\pmod{125}\). This satisfies the sextic congruence with
+unit derivative. Unit denominators in \eqref{ud-division-functions}
+therefore make evaluation at this residue exact modulo \(125\).
+The same recurrences give
+\[
+ \Xi=24,\quad T_1=90,\quad T_2=10,\quad
+ \log_5\Xi=100,\quad\log_5 3=95\pmod{125}.
+\]
+The logarithms have the full-tail justification
+\eqref{su-unit-log}. Lemma~\ref{su-sharp-tail} allows omission of
+the \(R_0\) terms and replacement of \(\ell_i\) by \(T_i/9\)
+at this precision. Thus \(\ell_1/5=2,\ell_2/5=3\pmod{25}\).
+The exact constants \eqref{zs-small-constants} give
+\(5\alpha_1=16,5\alpha_2=3\pmod{25}\); equivalently these follow
+from \(21/9^2=16\), \(2/22^2=3\) modulo \(25\).
+All used digits lie within the previously proved nineteen-digit
+absolute error for \(\alpha_i\). Substitution now gives
+\begin{equation}
+ g(4)=-\frac2{81}\,20-16\cdot2^2+3\cdot3^2
+                     +\frac43\,19=15\pmod{25}.
+ \label{su-obstruction}
+\end{equation}
+Every denominator is a five-adic unit. The positive \(4/3\) sign
+comes from \(f=F_0-\Omega\).
+
+Since \(g\in\mathcal A\) and \(g'(4)=0\pmod5\), its entire
+Taylor expansion gives
+\[
+ g(4+5t)=g(4)+5tg'(4)=15\pmod{25\mathbb Z_5\langle t\rangle}.
+\]
+Every higher term is a multiple of \(25\). Completeness justifies
+this expansion for the full restricted series and every
+\(t\in\mathbb Z_5\). It excludes the only possible root residue;
+the other residues were already excluded by \eqref{su-first}.
+The involutions transport this exclusion to the three companion
+disks.
+\end{proof}
+
+\subsection{The zero fiber and its removable pole}
+
+Take
+\begin{equation}
+ z=5s,\qquad W(0)=W_0=\sqrt{-9}\equiv1\pmod5.
+ \label{zd-disk}
+\end{equation}
+Its center is not being assumed rational or a zero of the height
+function.
+
+\begin{lemma}[An integral even removable factor]
+\label{zd-removable}
+On \eqref{zd-disk}, \(\Xi\) extends to an integral even unit,
+\(T_i\in5\mathcal A\), and \(g=f/5\in\mathcal A\) is even.
+Its central value is obtained from
+\begin{equation}
+ \Xi(0)=\delta_1(-9/4,W_0/8)(-W_0/2)^{81}.
+ \label{zd-center-xi}
+\end{equation}
+\end{lemma}
+\begin{proof}
+For a good integral short model at five the integral formal group
+law and the leading coefficient of the odd division polynomial give
+\[
+ \frac{t([9]Q)}t=9+t\mathbb Z_5[[t]],\qquad
+ t^{80}\psi_9(Q)=9+t\mathbb Z_5[[t]].
+\]
+Indeed \(\psi_9\) is an integral polynomial in \(x\) of degree
+forty with leading coefficient nine, and
+\(x=t^{-2}(1+t\mathbb Z_5[[t]])\).
+Both constants are units at five. Hence
+\begin{equation}
+ d(t):=\frac{\delta(Q)}{t^{81}}
+   =\frac{t([9]Q)/t}{t^{80}\psi_9(Q)}
+       \in1+t\mathbb Z_5[[t]].
+ \label{zd-formal-ratio}
+\end{equation}
+This series is even, since \(\delta\) and \(t\) both change sign
+under negation. This step uses the rational formal group, not an
+unproved integrality assertion for zero-slope sigma.
+
+The exact original parameter of the second quotient is
+\[
+ \tau(z)=t(R_2)=\frac{2z(11z^2-3)}{3W(z)}.
+\]
+The ordinate is an even integral series with unit constant.
+Thus \(\tau\) is odd and \(\tau/z\) is a unit with constant
+\(-2/W_0\). The second quotient lies in the formal group throughout
+the disk, including \(O\) at its center. Consequently
+\[
+ \Xi(z)=\left(\frac z{\tau(z)}\right)^{81}
+          \frac{\delta_1(R_1(z))}{d_2(\tau(z))}.
+\]
+For the first quotient the center has
+\(\psi_9=0,\phi=4,\omega_9=2\pmod5\). Its integral series
+therefore gives \(\delta_1\) a unit and \(T_1\in5\mathcal A\),
+as in Lemma~\ref{ud-integral}. The second has
+\(\tau\in5\mathcal A\), so formal multiplication gives
+\(T_2\in5\mathcal A\). The displayed formula for \(\Xi\) is an
+even integral unit and gives \eqref{zd-center-xi}.
+
+All composition bounds of Lemma~\ref{ud-integral} now apply to both
+quotients, giving \(g\in\mathcal A\). Moreover
+\(\Xi(z)/\Xi(0)\in1+z^2\mathbb Z_5[[z]]\), so after \(z=5s\)
+its logarithmic change belongs to \(25s^2\mathcal A\).
+The logarithm converges in the Gauss norm with input in
+\(25\mathcal A\). The \(R_0\) terms have their established full
+tails. Finally, negating \(z\) fixes \(R_1\) and negates \(R_2\);
+the height and squared logarithms are unchanged. Thus \(g\) is even.
+\end{proof}
+
+\begin{theorem}[No zero in either zero-fiber disk]
+\label{zd-no-zeros}
+On \eqref{zd-disk},
+\begin{equation}
+ g(s)=2s^2\pmod{5\mathcal A},\qquad g(0)=20\pmod{25}.
+ \label{zd-obstruction}
+\end{equation}
+Consequently neither zero-fiber disk contains a zero of \(f\).
+\end{theorem}
+\begin{proof}
+The chosen central square root has Hensel residues
+\(W_0=21\pmod{25}\), \(W_0=46\pmod{125}\), with unit derivative.
+Evaluate \((-9/4,W_0/8)\) by \eqref{ud-recurrences} and the
+cancelled formula \eqref{zd-center-xi}. The exact finite inputs are
+\[
+\begin{array}{c|rr}
+ &\bmod25&\bmod125\\\hline
+ \Xi(0)&16&66\\
+ \log_5\Xi(0)&15&15\\
+ T_1(0)&20&95\\
+ \log_5 3&20&95
+\end{array}
+\]
+They give \(\ell_1(0)/5=1\pmod5\) and
+\(\ell_1(0)/5=16\pmod{25}\). Every rational denominator is a unit.
+The logarithms use \eqref{su-unit-log}; the entire error estimates
+of Lemma~\ref{su-sharp-tail} permit omission of \(R_0\) and
+replacement of \(\ell_1\) by \(T_1/9\) at precision \(125\).
+At the center \(R_2=O\), so \(T_2=\ell_2=0\) exactly.
+With \eqref{zs-small-constants}, first precision gives
+\[
+ g(0)=-\frac2{81}\,3-1^2+\frac43\,4=0\pmod5.
+\]
+The pullback differentials \eqref{ud-pullbacks}, integrated with
+their full coefficient bounds, give
+\[
+ \ell_1/5=1,\qquad \ell_2/5=(-2/W_0)s=3s\pmod{5\mathcal A}.
+\]
+The first differential has no constant term in \(z\); all terms
+after integration and substitution, apart from the stated linear
+term of the second logarithm, lie in \(25\mathcal A\).
+The \(\Xi\) variation and \(R_0\) tails contribute no nonconstant
+term modulo five to \(g\), by Lemma~\ref{zd-removable}.
+The squared-log contribution is therefore \(3(3s)^2=2s^2\).
+This proves the first congruence in \eqref{zd-obstruction}.
+
+At second precision the same table instead gives
+\[
+ g(0)=-\frac2{81}\,3-16\cdot16^2+\frac43\,19=20\pmod{25}.
+\]
+This is a direct value of the cancelled analytic formula; no
+rational-point identity has been applied to the algebraic center.
+Any zero would have \(s=0\pmod5\). Since \(g\) is even and
+integral restricted,
+\[
+ g(5t)=g(0)=20\pmod{25\mathbb Z_5\langle t\rangle}.
+\]
+All nonconstant even terms are divisible by \(25\), and
+completeness makes this an entire-series congruence. It excludes
+the only possible root residue. The hyperelliptic involution gives
+the same exclusion on the second zero-fiber disk.
+\end{proof}
+
+\paragraph{Finite evidence and proof boundary.}
+The three exact input certificates are replayed, respectively, by
+\texttt{next\_replay\_unit\_disk.py},
+\texttt{next\_replay\_second\_unit\_disk.py}, and
+\texttt{next\_replay\_zero\_fiber.py}. Their standard-library
+calculations include the normalized division recurrences, dual-number
+derivatives, Hensel square-root residues, exact unit logarithms and
+global constant residues. The canonical results, source hashes and
+check commands accompany the geometry inventory. The analytic proofs
+above separately establish the complete tails, unit denominators,
+derivative estimates, and exclusion or uniqueness on each whole disk.
+These are ordinary proofs with exact finite verification; no new Lean
+formalization of local heights or analytic zero counting is claimed.
+The separate infinity certificate supplies the last two disks, and
+the rational sieve decides the rationality of the additional first-disk
+orbit. Those subsequent conclusions do not change the individual
+local zero counts proved here.

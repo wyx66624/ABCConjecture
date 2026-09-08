@@ -1,0 +1,192 @@
+\section{The unit-zeta cubic locus consists of boundary points}
+\label{cb19-section}
+
+This section applies the complete fixed-curve classification of
+Section~\ref{sec-fixed-rational-locus} to the original, common-source
+biquadratic curve. The definitions and projective inverses are those
+of Sections~\ref{rl-section}, \ref{hg-section}, \ref{eqg-section}
+and~\ref{ssg-section}. Put \(\zeta^2-\zeta+1=0\), with the same
+Eisenstein coordinate convention as those sections.
+
+\begin{proposition}[The six points in the original first quotient]
+\label{cb-first-quotient}
+For the smooth projective curve
+\[
+ H:y^2=P(s):=s^6+3s^5-3s^4-11s^3-3s^2+3s+1,
+\]
+the complete rational locus consists of its two points over each of
+\(s=0,-1,\infty\).
+\end{proposition}
+\begin{proof}
+Writing \(S_C(z)=z^6-27z^4+99z^2-9\), the exact dense-chart maps are
+\begin{equation}
+ z=\frac{s-1}{s+1},\quad W=\frac{8y}{(s+1)^3},\qquad
+ s=\frac{1+z}{1-z},\quad y=\frac W{(1-z)^3}.
+ \label{cb-chart}
+\end{equation}
+They are the actual transformation of Theorem~\ref{eqg-quotients}:
+its intermediate coordinates are
+\(t=(s+1)/(s-1)\), \(v=y(t-1)^3\), with
+\(v^2=-9t^6+99t^4-27t^2+1\). Substitution \(z=1/t\),
+\(W=v/t^3\) gives \eqref{cb-chart}. Equivalently,
+\[
+ (s+1)^6S_C\left(\frac{s-1}{s+1}\right)=64P(s).
+\]
+The inverse dense maps extend to an isomorphism of smooth projective
+curves, by \cite[Lemmas~53.2.2 and 53.2.6]{StacksCurves2026}.
+
+The complete list
+\(C(\mathbb Q)=\{(\pm1,\pm8),\infty_+,\infty_-\}\)
+therefore transfers as follows:
+\[
+\begin{array}{c|c}
+ \text{point of }C&\text{point of }H\\\hline
+ z=-1,\ W=\pm8&s=0,\ y=\pm1\\
+ z=1,\ W=\pm8&s=\infty,\ y/s^3=\pm1\\
+ z=\infty,\ W/z^3=\epsilon&s=-1,\ y=-\epsilon
+\end{array}
+\]
+The exceptional rows follow from the actual chart limits
+\(y/s^3=W/(1+z)^3\) and
+\(y=(W/z^3)/(1/z-1)^3\). Thus every apparent zero denominator is
+accounted for, and the six listed points exhaust \(H(\mathbb Q)\).
+\end{proof}
+
+\begin{theorem}[The complete common-source cubic locus]
+\label{cb-twelve-points}
+Let
+\begin{align}
+ A_0&=S^3-3ST^2-T^3,&B_0&=3ST(S+T),\\
+ A&=-B_0,&B&=A_0+B_0,&r&=A/B.
+ \label{cb-forms}
+\end{align}
+The smooth projective normalization \(D=D_{3,\zeta}\) of
+\begin{equation}
+ v^2=1+r,\qquad w^2=1-3r
+ \label{cb-biquadratic}
+\end{equation}
+has exactly twelve rational points. Their source is
+\([S:T]=[0:1],[-1:1],[1:0]\), and at each source
+\((v,w)\) takes all four values in \(\{1,-1\}^2\).
+Their original projective parameter \(t\) is given by
+\begin{equation}
+\begin{array}{cc|c}
+ v&w&t\\\hline
+ 1&1&\infty\\1&-1&1\\-1&1&-1\\-1&-1&-1/2
+\end{array}
+ \label{cb-boundary-table}
+\end{equation}
+\end{theorem}
+\begin{proof}
+The first quotient of \eqref{cb-biquadratic} is exactly \(H\),
+with \(y_1=Bv\) and \(y_1^2=A_0(A_0+B_0)\).
+At the same source, the second quotient has \(y_2=Bw\) and
+\begin{equation}
+ y_2^2=(A_0+B_0)(A_0+4B_0).
+ \label{cb-second-square}
+\end{equation}
+Every rational point of \(D\) maps to a rational point of \(H\)
+under its projective quotient morphism. Proposition~\ref{cb-first-quotient}
+therefore restricts its source to the following three values:
+\[
+\begin{array}{c|rrrr}
+ s&A_0&B_0&A&B\\\hline
+ 0&-1&0&0&-1\\-1&1&0&0&1\\\infty&1&0&0&1
+\end{array}
+\]
+In particular \(B\ne0\) and \(r=0\) at each source. The second
+square \eqref{cb-second-square} is then \(B^2\), giving both
+rational choices \(w=\pm1\); the two first-quotient points give
+\(v=\pm1\). Points from different sources have not been paired.
+These are four distinct rational points at each source. Both square
+roots are nonzero, and \(r=0\) avoids the branch values
+\(-1,1/3,\infty\). The raw equations are smooth there, so normalization
+neither merges these points nor introduces another local branch.
+This proves the exact total of twelve.
+
+For the two middle rows of \eqref{cb-boundary-table}, the original
+inverse \eqref{hg-inverse} is
+\(t=(v+w+2)/(v-w)\). The first and last rows require its genuine
+projective continuation; the last gives an apparent \(0/0\).
+Use the original formulas instead:
+\[
+ v=\frac{t^2+2t}{t^2+t+1},\qquad
+ w=\frac{t^2-2t-2}{t^2+t+1}.
+\]
+At infinity both ratios are one, and at \(t=-1/2\) both are minus
+one. Also
+\[
+ r(t)=\frac{(t^2-1)(2t+1)}{(t^2+t+1)^2}
+\]
+has precisely the four simple projective zeros
+\(\infty,1,-1,-1/2\). These give all projective inverse values,
+including the removable \(0/0\) case.
+\end{proof}
+
+\begin{corollary}[Exclusion of the actual positive unit-zeta branch]
+\label{cb-positive-empty}
+The curve \(D_{3,\zeta}\), and its Gaussian cover over the same
+positive domain, have no rational point with finite original
+parameter \(t>1\). In particular there are no positive coprime
+integers \(a,b\) such that
+\[
+ M=a^2+ab+b^2=U^2,\qquad F(a,b)=Q^3,\qquad Q>1,
+\]
+whose actual oriented second Eisenstein decomposition has unit class
+\(\zeta\) modulo cubes of units. More generally the same positive
+locus of \(D_{g,\zeta}\) is empty for every positive odd integer
+\(g\) divisible by three.
+\end{corollary}
+\begin{proof}
+The exact positive inverse of Theorem~\ref{hg-positive} requires
+finite \(t>1\), equivalently \(0<r<1/3\) with \(v>0\).
+None of the points in \eqref{cb-boundary-table} has this property.
+For clarity, the homogeneous first-root output is
+\[
+ a_0=T_0^2-W_0^2,\qquad b_0=W_0(2T_0+W_0).
+\]
+At the four values of \(t=T_0/W_0\) in the table, its primitive
+signed pairs are respectively
+\((1,0),(0,1),(0,-1),(-1,0)\). The finite representatives at
+\(t=1,-1/2\) have content three, which must be divided out.
+Every primitive boundary pair has \(ab=0\) and \(M=F=1\);
+none is a positive seed or has \(Q>1\).
+
+An actual seed in the asserted unit class has, after absorbing a
+minus sign into the root,
+\[
+ ab+M\zeta=\zeta w_1^3.
+\]
+The exact projective inverse of Section~\ref{rl-section} then
+supplies the common source and \(t=(a+U)/b>1\), contradicting
+Theorem~\ref{cb-twelve-points}. That inverse included primitive,
+ramified, unit and infinite root inputs before imposing the positive
+domain. Thus none of these input exceptions restores a positive
+point. The previously proved converse on that domain makes this an
+exclusion of the actual branch, not just a necessary auxiliary square.
+
+For \(g=3k\) odd, the projective power maps satisfy the exact
+identity
+\[
+ L_{\zeta,g}=L_{\zeta,3}\circ L_{1,k}.
+\]
+It gives a nonconstant rational curve map
+\((t,s)\mapsto(t,L_{1,k}(s))\) from \(D_{g,\zeta}\) to
+\(D_{3,\zeta}\), extending to the smooth projective models as in
+\cite[Lemmas~53.2.2 and 53.2.6]{StacksCurves2026}.
+It retains \(t\); a rational point with finite \(t>1\) would map
+to the excluded positive locus. No enumeration of the boundary
+preimages for larger \(g\) is needed or asserted.
+\end{proof}
+
+\paragraph{Scope.}
+The identity cubic unit class already has its separate complete
+three-adic obstruction. The distinct class \(\zeta^2\) is not
+eliminated here: conjugation changes the target ratio \(r\) to
+\(-1-r\), which does not preserve \((0,1/3)\). It cannot silently
+be substituted for a positive-domain isomorphism. General second
+residuals, the ramified first norm, other exponents and uniform
+point-height bounds remain outside this conclusion. The theorem
+uses the complete ordinary and exact finite fixed-curve proof,
+together with the already proved projective inverses; it is not a
+new Lean formalization of a curve, rational locus or ABC statement.

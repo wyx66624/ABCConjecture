@@ -1,0 +1,171 @@
+{
+  "status": "PASS",
+  "utc_run_id": "20260908T044715848295Z",
+  "compiler": "Lean (version 4.32.0, x86_64-unknown-linux-gnu, commit 8c9756b28d64dab099da31a4c09229a9e6a2ef35, Release)",
+  "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997",
+  "fresh_project": "/tmp/abc-nonlinear-selectors-fresh-5p4b6p6a",
+  "cache_project": "/root/abc-lean-build",
+  "command": [
+    "lean",
+    "--root=/tmp/abc-nonlinear-selectors-fresh-5p4b6p6a",
+    "-DwarningAsError=true",
+    "-o",
+    "/tmp/abc-nonlinear-selectors-fresh-5p4b6p6a/NonlinearPowerSelectors.olean",
+    "/tmp/abc-nonlinear-selectors-fresh-5p4b6p6a/NonlinearPowerSelectors.lean"
+  ],
+  "source": "/mnt/e/agent/ABCConjecture/research/checkpoints/2026_09_07_adversarial_audit/eighteenth_round/next_Lean/NonlinearPowerSelectors.lean",
+  "source_sha256": "38849679f2e456475bf9f9ef8dfaa0c55df2e0cba8d705d7ec579c2e111776e9",
+  "verifier_sha256": "eae2b1af2d92b15f572b64817eae21a41892ffc5be01ee014c2075fde6913e64",
+  "scope_sha256": "b60d0b3ef122faf7d19dbb127b97b2bc4c4a8bc24d11a2d2bf78070cca488533",
+  "new_theorems": 24,
+  "old_project_theorems_recompiled": 0,
+  "queries": [
+    "ABCNonlinearPowerSelectors.root_norm_formula",
+    "ABCNonlinearPowerSelectors.root_norm_mod_three",
+    "ABCNonlinearPowerSelectors.root_norm_gt_one",
+    "ABCNonlinearPowerSelectors.square_coordinates",
+    "ABCNonlinearPowerSelectors.square_sum",
+    "ABCNonlinearPowerSelectors.square_norm",
+    "ABCNonlinearPowerSelectors.square_boundary",
+    "ABCNonlinearPowerSelectors.square_positive",
+    "ABCNonlinearPowerSelectors.square_coprime",
+    "ABCNonlinearPowerSelectors.cube_coordinates",
+    "ABCNonlinearPowerSelectors.cube_sum",
+    "ABCNonlinearPowerSelectors.cube_norm",
+    "ABCNonlinearPowerSelectors.cube_boundary",
+    "ABCNonlinearPowerSelectors.cube_positive",
+    "ABCNonlinearPowerSelectors.cube_coprime",
+    "ABCNonlinearPowerSelectors.coprime_arm_gcds",
+    "ABCNonlinearPowerSelectors.square_pairwise_gcd",
+    "ABCNonlinearPowerSelectors.cube_pairwise_gcd",
+    "ABCNonlinearPowerSelectors.boundary_norm_common_zero",
+    "ABCNonlinearPowerSelectors.primitive_boundary_norm_unit",
+    "ABCNonlinearPowerSelectors.square_boundary_root_norm_unit",
+    "ABCNonlinearPowerSelectors.cube_boundary_root_norm_unit",
+    "ABCNonlinearPowerSelectors.square_boundary_root_norm_not_dvd",
+    "ABCNonlinearPowerSelectors.cube_boundary_root_norm_not_dvd"
+  ],
+  "exit_code": 0,
+  "log_sha256": "9d87dfd1d55d6e71eb26807eccce156bd6f0178e10e939f742aad9fe2a321957",
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "theorem_axioms": {
+    "ABCNonlinearPowerSelectors.root_norm_formula": [
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.root_norm_mod_three": [
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.root_norm_gt_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.square_coordinates": [
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.square_sum": [
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.square_norm": [
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.square_boundary": [
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.square_positive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.square_coprime": [
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.cube_coordinates": [
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.cube_sum": [
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.cube_norm": [
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.cube_boundary": [
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.cube_positive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.cube_coprime": [
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.coprime_arm_gcds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.square_pairwise_gcd": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.cube_pairwise_gcd": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.boundary_norm_common_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.primitive_boundary_norm_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.square_boundary_root_norm_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.cube_boundary_root_norm_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.square_boundary_root_norm_not_dvd": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ABCNonlinearPowerSelectors.cube_boundary_root_norm_not_dvd": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "olean_sha256": "c56984804a7b2bdfcff12d8e3bc0a725f916495c8a39162ff960728ba8ae0540",
+  "dependency_scope": "Pinned Mathlib cache reused; only the one new module compiled.",
+  "excluded": [
+    "CRT and prescribed valuations",
+    "irreducibility and separability",
+    "squarefree density and sieve",
+    "infinite tail bounds",
+    "ABC"
+  ]
+}

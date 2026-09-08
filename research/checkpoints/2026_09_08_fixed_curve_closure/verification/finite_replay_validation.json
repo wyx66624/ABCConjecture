@@ -1,0 +1,54 @@
+{
+  "status": "PASS: eight complete exact finite replays",
+  "records": [
+    {
+      "script": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_replay_zero_slope.py",
+      "exit_code": 0,
+      "output": "PASS two curves; exact degree-40 ODE and all finite coefficient bounds; SHA256 13589e3cf79c01417786276a25394ad7ed1245decdcca36e984e01eeb744b0c9\n"
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_replay_unit_disk.py",
+      "exit_code": 0,
+      "output": "PASS actual dual jets at mod5 and mod25; two simple mod5 roots; SHA256 2f3d604e73a27acd59d2ed47b418595b40c717efa5588a78584e963ab9f00ce7\n"
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_replay_second_unit_disk.py",
+      "exit_code": 0,
+      "output": "PASS exact second-unit-disk obstruction; SHA256 9c41ff73fad3875408856ff49e32c340cd6e272819eb17db8889dcf037f06dfa\n"
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/next_replay_zero_fiber.py",
+      "exit_code": 0,
+      "output": "PASS exact zero-fiber obstruction; SHA256 077103d25ebfcb6102d2e30bf62b4f3d8d087dc3b1b72fa6725a4488273148fd\n"
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_collective_content_closure/next_replay_infinity_inputs.py",
+      "exit_code": 0,
+      "output": "PASS infinity quotient, units, height premises; SHA256 9671a4f70cd70faf3ffa41e9dcca440d246ad7f824ac38fbe92f587ab6c63c95\n"
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_collective_content_closure/next_replay_thirteen_sieve.py",
+      "exit_code": 0,
+      "output": "PASS all 16 projective F13 points, smoothness, orders and both signs; SHA256 46adefa954c349500510973f452e551ab82125bfc3d5ade6a6ab0efba65515da\n"
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_critical_bottleneck/eighteenth_round/next_replay_coefficient_packets.py",
+      "exit_code": 0,
+      "output": "PASS CG three original prime indices; six actual powers; SHA256 646285f84df9e53c2f547d5f4b208178525ef9c314ab267e834aee0afb0cbaa0\n"
+    },
+    {
+      "script": "research/checkpoints/2026_09_07_adversarial_audit/eighteenth_round/next_replay_medium_partition.py",
+      "exit_code": 0,
+      "output": "PASS 47 {'minus': 45, 'plus_gaussian': 1, 'witnesses': 134} 64+1024 full actual divisors 26d04f39748d763f5139794465afb78058f18474567b629f6937abcae2ec9af2\n"
+    }
+  ],
+  "input_inventory_sha256": "33bb397e8bb36c13153d3fb8d7958ade85bed92fb7ef125836e0fa54cd761866",
+  "not_claimed": [
+    "analytic tails",
+    "height identities",
+    "rational-point completeness",
+    "sieve or asymptotics",
+    "Lean proof",
+    "ABC"
+  ]
+}

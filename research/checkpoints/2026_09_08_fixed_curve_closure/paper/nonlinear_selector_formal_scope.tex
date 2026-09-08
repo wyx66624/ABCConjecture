@@ -1,0 +1,147 @@
+\section{The actual square and cube selector arithmetic in Lean}
+\label{sec-nps18-formal-scope}
+
+The new module
+\texttt{Nonlinear\allowbreak{}Power\allowbreak{}Selectors.lean}
+contains 24 theorems for the actual root-parameter families used in
+NP1 and CU1. Its definitions multiply the integer coordinate pair
+$(3k,1)$ literally. No output power representation or primitive
+Bezout witness is assumed for either concrete family.
+
+Write $\zeta^2=\zeta-1$, and for pairs of integers set
+\[
+ (a,b)(c,d)=(ac-bd,ad+bc+bd),\qquad
+ N(a,b)=a^2+ab+b^2,\quad T(a,b)=ab(a+b).
+\]
+For every integer $k$, let $w=(3k,1)$, $z_2=w^2$, $z_3=w^3$,
+and $N_k=9k^2+3k+1$. The implemented definitions of $z_2,z_3$
+are respectively the product of $w$ with itself and that product
+with $w$.
+
+\paragraph{Exact coordinates and the complete boundaries.}
+For all $k\in\mathbb Z$, the formal identities are
+\[
+ \begin{aligned}
+ N(w)&=N_k, & N_k&\equiv1\pmod3,\\
+ z_2&=(9k^2-1,6k+1), & (z_2)_1+(z_2)_2&=3k(3k+2),\\
+ z_3&=((3k)^3-3(3k)-1,\,3(3k)(3k+1)),\\
+ (z_3)_1+(z_3)_2&=(3k)^3+3(3k)^2-1,\\
+ N(z_2)&=N_k^2, & N(z_3)&=N_k^3.
+ \end{aligned}
+\]
+The entire boundary products, with no removed prime factors, are
+\[
+ \begin{split}
+ T(z_2)&=(3k-1)(3k+1)(6k+1)(3k)(3k+2),\\
+ T(z_3)&=3(3k)(3k+1)\bigl((3k)^3-3(3k)-1\bigr)\\
+       &\hspace{30mm}\cdot\bigl((3k)^3+3(3k)^2-1\bigr).
+ \end{split}
+\]
+These are obtained directly by expanding the coordinate products;
+the norm-power identities follow by substitution. The modulus-three
+claim follows from $N_k=3(3k^2+k)+1$.
+
+If $k\geq1$, both coordinates of each output, their sum and their
+boundary are positive, and $N_k>1$. For the cubic first coordinate,
+put $a=3k\geq3$; then $a^3-3a-1>0$, while the second coordinate
+is $3a(a+1)>0$. The square and norm claims are immediate from their
+displayed formulas. Positivity alone uses $k\geq1$; the polynomial
+identities and coprimality below hold for every integer $k$.
+
+\paragraph{Actual primitivity without an assumed witness.}
+For the square coordinates $A=9k^2-1$, $C=6k+1$, the integer
+identity
+\[
+ (-12k^2-1)A+3k^2(6k-1)C=1
+\]
+proves coprimality. For the cube put $a=3k$ and $F=a^3-3a-1$.
+The three identities
+\[
+ \begin{split}
+ -F+3(9k^3-3k)&=1,\\
+ -F+a(a^2-3)&=1,\\
+ F-(a+1)(a^2-a-2)&=1
+ \end{split}
+\]
+show that $F$ is coprime to $3$, $a$ and $a+1$, hence to the
+actual second coordinate $3a(a+1)$. The Lean proofs construct these
+witnesses and use integer coprimality lemmas.
+
+For any coprime integers $A,C$, if $uA+vC=1$ then
+\[
+ (u-v)A+v(A+C)=1,\qquad
+ (v-u)C+u(A+C)=1.
+\]
+Thus all three pairs of arms have gcd one. The module proves the
+corresponding actual equalities
+$\operatorname{Int.gcd}(A,C)=
+\operatorname{Int.gcd}(A,A+C)=
+\operatorname{Int.gcd}(C,A+C)=1$
+and applies them to both concrete outputs.
+
+\paragraph{Every boundary prime leaves the root norm a unit.}
+Over any field, the simultaneous equations
+\[
+ AC(A+C)=0,\qquad A^2+AC+C^2=0
+\]
+force $A=C=0$. If either coordinate is zero this follows from the
+square of the other; if $A+C=0$, subtract $A(A+C)$ from the norm
+equation to get $C^2=0$ and then $A=0$.
+For a primitive integer pair, a prime divisor $q$ of its full
+boundary therefore cannot divide its norm: reduction of a Bezout
+identity would give $0=1$ in $\mathbb Z/q\mathbb Z$.
+
+Apply this proved helper to $z_2$ and $z_3$, using their proved
+coprimality. Since their norms are $N_k^2$ and $N_k^3$, a zero
+root norm modulo $q$ would give a zero output norm, a contradiction.
+Consequently the final concrete theorems assert, for every
+$k\in\mathbb Z$ and natural prime $q$,
+\[
+ q\mid T(z_i)\ \Longrightarrow\
+ N_k\in(\mathbb Z/q\mathbb Z)^\times,
+ \qquad q\nmid N_k,\qquad i=2,3.
+\]
+They do not assume a marked prime or a lower cutoff; primes two and
+three are included. The statements use the literal full boundary,
+not a selected or prefactored part of it.
+
+\paragraph{Exact verification inventory.}
+The 24 theorem declarations consist of three root-norm statements;
+six square and six cube statements (coordinates, sum, norm, boundary,
+positivity, coprimality in each family); three arm-gcd statements;
+two generic field/primitive-pair statements; and four concrete
+root-norm unit and nondivisibility consequences. Definitions are
+not counted as theorem declarations.
+
+The source SHA256 is
+\begin{center}\small\ttfamily
+38849679f2e456475bf9f9ef8dfaa0c5\\
+5df2e0cba8d705d7ec579c2e111776e9
+\end{center}
+The independent fresh project compiled this single module with
+Lean 4.32.0 against the existing clean Mathlib cache at commit
+\texttt{81a5d257c8e410db\allowbreak{}227a6665ed08f64f\allowbreak{}ea08e997}.
+Compilation used warnings as errors, one compiler thread and a
+fresh output file, without native C generation. No old project
+theorem module was imported or recompiled. All 24 explicit
+\texttt{\#print axioms} queries completed, with union exactly
+\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}.
+There is no \texttt{sorry}, \texttt{native\_decide} or added axiom.
+The complete successful manifest and log are recorded separately;
+the manifest SHA256 is
+\begin{center}\small\ttfamily
+b01e02f2482bef62985243547185acf3\\
+c35b60fadd7cf088596a341fbeb22cc6
+\end{center}
+An independent full source, scope and evidence review passed.
+Root subsequently repeated the fresh compilation of the identical
+canonical release source; its separate
+\texttt{verification/\allowbreak{}mathlib\_validation.json} also
+records all 24 declarations and queries as passing.
+
+The formal result does not assert CRT packet selection, exact
+prescribed prime depths, cubic-factor irreducibility or separability,
+squarefree-value density, moving-data uniformity, infinite-tail
+control, or ABC. Those assertions were not inserted as hypotheses
+or axioms. The module proves the concrete finite arithmetic that
+the ordinary selector arguments use.

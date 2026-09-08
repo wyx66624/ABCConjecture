@@ -1,0 +1,216 @@
+\section{Nonlinear selectors preserving an actual pure square}
+\label{np19-section}
+
+Imposing the different-owner congruences on the root parameter before
+squaring preserves the exact power representation. The following
+ordinary proof concerns exponent two and fixed marked data. It does
+not concern the original moving prime-index block.
+
+Retain \(\mathcal O=\mathbb Z[\zeta]\) and
+\(\zeta^2-\zeta+1=0\). For \(k\ge1\) integral put
+\[
+ (3k+\zeta)^2=A_k+C_k\zeta,\qquad c_k=A_k+C_k,\qquad
+ T(k)=A_kC_kc_k.
+\]
+
+\begin{proposition}[The actual square and its full boundary]
+\label{np19-actual}
+The three arms are positive and pairwise coprime, with
+\[
+ A_k=9k^2-1,\qquad C_k=6k+1,\qquad c_k=3k(3k+2),
+\]
+and
+\begin{equation}
+ T(k)=(3k-1)(3k+1)(6k+1)(3k)(3k+2).
+ \label{np19-boundary}
+\end{equation}
+The input norm \(9k^2+3k+1\) is \(1\pmod3\). Every prime divisor
+of the full boundary \(T(k)\) is a unit for this input norm.
+\end{proposition}
+\begin{proof}
+Squaring in the stated ring gives the coordinate formulas and
+factorization. If a positive integer divides both \(A_k,C_k\),
+it divides \(4A_k-C_k^2=-2C_k-3\) and \(2C_k\), hence divides
+\(3\). Since \(A_k\equiv-1\pmod3\), their gcd is one.
+The other arm gcds follow from \(c_k=A_k+C_k\).
+
+Norm multiplicativity gives
+\[
+ (9k^2+3k+1)^2=A_k^2+A_kC_k+C_k^2.
+\]
+At a prime dividing any one of the three pairwise coprime arms,
+the right side is the square of a unit, including the case that
+the sum arm vanishes. Thus the input norm is nonzero modulo that
+prime. No factorization of the unmarked primes is assumed.
+\end{proof}
+
+\begin{theorem}[Exact finite packets with different actual owners]
+\label{np19-packet}
+Fix a finite nonempty set \(\mathcal S\) of primes \(q>5\).
+For each \(q\), choose a positive integer \(k(q)\) with actual
+depth \(e_q=v_q(T(k(q)))\ge1\). Choose a positive integer \(k_0\)
+by CRT satisfying
+\[
+ k_0\equiv k(q)\pmod{q^{e_q+1}}\quad(q\in\mathcal S).
+\]
+Put
+\[
+ \mathcal E=\mathcal S\cup\{2,3,5\},\qquad
+ F_p=v_p(T(k_0)),\qquad
+ H=\prod_{p\in\mathcal E}p^{F_p+1},\quad
+ K=\prod_{p\in\mathcal E}p^{F_p}.
+\]
+For every integer \(j\ge1\), set \(k_j=k_0+Hj\).
+Then \((3k_j+\zeta)^2\) is a positive primitive unramified pure
+square with exact depth \(F_p\) at every \(p\in\mathcal E\).
+In particular its marked depths are \(e_q\), and its entire
+selected signed cost is
+\[
+ \sum_{q\in\mathcal S}(e_q-3)\log q.
+\]
+\end{theorem}
+\begin{proof}
+The integer polynomial \(T\) preserves its value modulo each
+\(q^{e_q+1}\). Fixing one digit beyond the actual valuation
+therefore gives \(F_q=e_q\), and
+\(\prod_{q\in\mathcal S}q^{e_q+1}\mid H\).
+For every \(p\in\mathcal E\),
+\(k_j\equiv k_0\pmod{p^{F_p+1}}\), so its exact depth remains
+\(F_p\). Proposition~\ref{np19-actual} gives positivity,
+primitivity and all norm-unit conclusions. The signed sum keeps
+the terms of depths one and two as well as the positive ones.
+\end{proof}
+
+\begin{theorem}[Full squarefree sieve on the unchanged pure family]
+\label{np19-density}
+With all data in Theorem~\ref{np19-packet} fixed, there is a set
+\(\mathcal G\) of positive integers of natural density
+\[
+ d(\mathcal G)=\prod_{p\notin\mathcal E}(1-5/p^2)\ge\frac16
+\]
+such that every \(j\in\mathcal G\) has
+\[
+ T(k_j)=KR_j,\qquad R_j\text{ squarefree},\qquad
+ \gcd(K,R_j)=1,
+\]
+and all prime divisors of \(R_j\) lie outside \(\mathcal E\).
+For the complete signed sum \(J(T)=\sum_{p\mid T}(v_p(T)-3)\log p\),
+\begin{equation}
+ J(T(k_j))=-2\log T(k_j)+3\log\frac K{\operatorname{rad}K}.
+ \label{np19-signed}
+\end{equation}
+Along these good indices,
+\[
+ \frac{J(T(k_j))}{\log c_{k_j}}\longrightarrow-5,\qquad
+ \frac{\log\operatorname{rad}(T(k_j))}{\log c_{k_j}}
+ \longrightarrow\frac52.
+\]
+Every good index satisfies
+\begin{equation}
+ c_{k_j}\le
+ \frac{15}{324^{2/5}}
+ \left(\frac K{\operatorname{rad}K}\right)^{2/5}
+ \operatorname{rad}(T(k_j))^{2/5}.
+ \label{np19-radical}
+\end{equation}
+\end{theorem}
+\begin{proof}
+For every \(p\notin\mathcal E\), the five factors of
+\eqref{np19-boundary} become affine polynomials in \(j\) with
+\(p\)-unit slopes. In the coordinate \(a=3k\), their roots are
+\[
+ 1,\quad -1,\quad -\tfrac12,\quad 0,\quad -2.
+\]
+They are distinct modulo \(p>3\): multiply them by two and note
+that every nonzero difference between \(2,-2,-1,0,-4\) has
+prime divisors only \(2,3\). The change \(a=3k_0+3Hj\) is
+invertible modulo \(p^2\). Thus exactly five simple residue
+classes modulo \(p^2\) are forbidden. Since the factors have
+distinct roots already modulo \(p\), a square divisor \(p^2\)
+of their product must divide one individual factor.
+
+For \(1\le j\le X\), every positive factor is at most \(C_0X\),
+where \(C_0=6(k_0+H)+1\). A prime square dividing a factor has
+\(p\le\sqrt{C_0X}\). Counting its five residue classes gives the
+complete large-prime estimate
+\begin{equation}
+ \begin{split}
+ &\#\{1\le j\le X:\exists p>Y,\ p\notin\mathcal E,\
+                    p^2\mid T(k_j)\}\\
+ &\hspace{12mm}\le5X\sum_{p>Y}p^{-2}+5\sqrt{C_0X}.
+ \end{split}
+ \label{np19-tail}
+\end{equation}
+For a fixed finite cutoff \(Y\), CRT gives the finite product
+density. Divide \eqref{np19-tail} by \(X\), first let \(X\) tend
+to infinity, and then let \(Y\) tend to infinity. The upper and
+lower finite-CRT bounds establish the exact natural density.
+Since all omitted primes are at least seven,
+\[
+ \sum_{p\notin\mathcal E}\frac5{p^2}
+ \le5\sum_{m\ge7}m^{-2}
+ <5\int_6^\infty x^{-2}\,dx=\frac56.
+\]
+The finite inequality \(\prod(1-u_i)\ge1-\sum u_i\), followed
+by the convergent product limit, proves the density lower bound.
+This treats all prime squares; there is no unbounded-degree
+squarefree-value assumption or unexamined large-prime range.
+
+The frozen depths inside \(\mathcal E\) and squarefreeness
+outside it give \(T=KR_j\) and
+\[
+ \operatorname{rad}T=T/(K/\operatorname{rad}K).
+\]
+This proves \eqref{np19-signed}, including every negative term.
+The five affine factors give \(\log T=5\log j+O(1)\), while
+\(\log c=2\log j+O(1)\), proving the two limits.
+
+For all \(k\ge1\), the five lower bounds
+\(2k,3k,6k,3k,3k\) give \(T(k)\ge324k^5\), and
+\(c_k\le15k^2\). Eliminating \(k\) and using the radical identity
+gives \eqref{np19-radical}.
+\end{proof}
+
+The set of resulting root indices has density \(d(\mathcal G)/H>0\)
+among all positive integers. It consists of actual pure squares
+satisfying the fixed marked data, not merely compatible local labels.
+
+\paragraph{A positive-cost packet and the boundary of the conclusion.}
+Take the two actual owners
+\[
+ \begin{split}
+ k(19)&=4973918=21720+2\cdot19^5,\\
+ k(13)&=4888691=61882+13^6.
+ \end{split}
+\]
+Their second arms are \(19^4\cdot229\) and \(13^5\cdot79\).
+At \(q>3\) dividing \(6k+1\), the other coordinate is
+\(-3/4\pmod q\), and the input norm is \(3/4\pmod q\).
+The whole depths are therefore exactly four and five.
+The other owner has no hit: \(k(19)\equiv1\pmod{13}\) and
+\(k(13)\equiv10\pmod{19}\), and substitution in the five
+factors proves all are units at that other prime. The selected
+cost is \(\log19+2\log13>0\). Theorem~\ref{np19-density}
+then supplies infinitely many actual pure-square outputs with
+this fixed positive packet and the full negative credit in
+\eqref{np19-signed}. The earlier finite selector certificate
+checks the displayed owner arithmetic; it is not an infinite
+squarefree-density proof.
+
+The residual coefficient remains one and the exponent is two,
+so the earlier convention \(\lambda=1/n\) gives the fixed value
+\(1/2\), which does not approach zero. All packet primes, depths,
+\(k_0,H,K,C_0\) are fixed in the density limit. The size of
+\(K/\operatorname{rad}K\), the progression step and the effective
+tail threshold can depend on the full packet. The construction
+does not give a moving-packet estimate in the original
+\(n>324\) prime, \(B=n^4\) block.
+
+The elementary arithmetic of these literal squares is separately
+amenable to the scoped selector Lean module. The CRT, complete
+sieve, natural density and asymptotic statements here are ordinary
+proofs, not claims of complete formalization. The original far
+signed tail, its exceptions, dependent-root complement, general
+residuals and full ABC coverage remain open. The linear-factor
+proof above cannot be applied to an arbitrary higher-degree
+boundary without first checking its actual factors.

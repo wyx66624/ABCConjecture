@@ -1,0 +1,248 @@
+\section{Actual pure-cube selectors and a proved squarefree-value input}
+\label{cu19-section}
+
+The following construction imposes the marked congruences on the root
+before cubing. A published unconditional theorem supplies the complete
+squarefree-value asymptotic after its hypotheses have been checked on
+the resulting integer polynomial. Its constants depend on the fixed
+packet; no assertion for changing exponents is made.
+
+Work in \(\mathcal O=\mathbb Z[\zeta]\), where
+\(\zeta^2-\zeta+1=0\). For a positive integer \(k\), put \(a=3k\) and
+\[
+ (a+\zeta)^3=A+C\zeta,\qquad c=A+C,\qquad T_3(k)=ACc.
+\]
+
+\begin{proposition}[The actual cube and every irreducible factor]
+\label{cu19-actual}
+The three arms are positive and pairwise coprime, with
+\[
+ A=a^3-3a-1,\qquad C=3a(a+1),\qquad c=a^3+3a^2-1.
+\]
+In particular,
+\begin{equation}
+ T_3(k)=3a(a+1)f(a)g(a),\qquad
+ f(a)=a^3-3a-1,\quad g(a)=a^3+3a^2-1.
+ \label{cu19-boundary}
+\end{equation}
+Both cubics are irreducible over \(\mathbb Q\), each of discriminant
+\(81\), and \(a(a+1)f(a)g(a)\) is squarefree over \(\mathbb Q\).
+Modulo every prime \(p>3\) this product has no repeated root over an
+algebraic closure and has at most eight roots in \(\mathbb F_p\).
+Every prime dividing the full boundary is a unit for the actual input
+norm \(a^2+a+1\), which is \(1\pmod3\).
+\end{proposition}
+\begin{proof}
+Direct multiplication gives the formulas and positivity for \(a\ge3\).
+The values of \(f\) at zero and minus one are respectively \(-1,1\);
+also \(f(a)\equiv-1\pmod3\) for \(a=3k\).
+Thus \(A\) is coprime to \(3a(a+1)=C\). The other two gcds follow
+by taking their sum \(c\). Norm multiplicativity gives
+\[
+ (a^2+a+1)^3=A^2+AC+C^2.
+\]
+At a prime dividing one of the three coprime arms, the right side
+is a nonzero square modulo that prime. This proves the norm-unit
+assertion for every boundary prime.
+
+The rational-root test at \(1,-1\) proves irreducibility of both
+monic cubics. The cubic discriminant formula gives \(81\) for each.
+Moreover \(g-f=3a(a+1)\), while \(f(0)=-1\) and \(f(-1)=1\).
+Outside characteristic three, these identities exclude common
+roots between the cubics or between a cubic and a linear factor.
+The discriminants exclude repeated roots inside either cubic.
+They also prove the corresponding assertions over \(\mathbb Q\).
+The substitution \(a=3k\) preserves these conclusions outside three.
+\end{proof}
+
+\begin{theorem}[Exact packets and the actual quotient polynomial]
+\label{cu19-packet}
+Fix a finite nonempty set \(\mathcal S\) of primes \(q>7\). For each
+\(q\), fix an actual positive owner \(k(q)\) with
+\(e_q=v_q(T_3(k(q)))\ge1\). Choose a positive integer \(k_0\) with
+\[
+ k_0\equiv k(q)\pmod{q^{e_q+1}}\qquad(q\in\mathcal S).
+\]
+Define
+\[
+ \mathcal E=\mathcal S\cup\{2,3,5,7\},\qquad
+ F_p=v_p(T_3(k_0)),\qquad
+ K=\prod_{p\in\mathcal E}p^{F_p},\qquad
+ H=\prod_{p\in\mathcal E}p^{F_p+1}.
+\]
+For \(j\ge1\) integral put \(k_j=k_0+Hj\). The outputs
+\((3k_j+\zeta)^3\) remain positive primitive unramified pure cubes,
+and their exact depths at all \(p\in\mathcal E\) are \(F_p\).
+In particular the marked depths remain \(e_q\).
+
+The literal polynomial
+\begin{equation}
+ G(J)=T_3(k_0+HJ)/K
+ \label{cu19-quotient}
+\end{equation}
+belongs to \(\mathbb Z[J]\). It is nonconstant and squarefree over
+\(\mathbb Q\), each irreducible factor has degree at most three,
+and it has no fixed prime divisor.
+\end{theorem}
+\begin{proof}
+CRT applies to the pairwise coprime prime powers. An integer
+polynomial preserves its value modulo these powers, so the extra
+digit gives \(F_q=e_q\). Since \(H\) contains \(p^{F_p+1}\) for
+every \(p\in\mathcal E\), all these exact valuations remain fixed
+along the progression. Proposition~\ref{cu19-actual} proves the
+actual power, gcd and norm assertions.
+
+To prove the stronger assertion \(G\in\mathbb Z[J]\), its constant
+coefficient is divisible by \(K\), and every nonconstant coefficient
+of \(T_3(k_0+HJ)\) is divisible by \(H\). This follows by expanding
+each integer monomial. Since \(K\mid H\), division by \(K\) is
+coefficientwise integral.
+
+For \(p\in\mathcal E\), the constant \(T_3(k_0)/K\) is a \(p\)-unit,
+whereas all nonconstant coefficients after division are multiples
+of \(H/K\), which is divisible by \(p\). Thus \(G\) is a fixed
+nonzero constant modulo \(p\). For \(p\notin\mathcal E\), the
+quantities \(3,H,K\) are units and \(p\ge11\). The affine substitution
+is invertible; Proposition~\ref{cu19-actual} gives a nonzero
+squarefree polynomial of degree eight with at most eight roots
+modulo \(p\). It cannot vanish at every residue class. This excludes
+a fixed divisor at every prime. A nonzero affine substitution and
+a nonzero scalar preserve factor degrees and squarefreeness over
+\(\mathbb Q\), proving the remaining claims.
+\end{proof}
+
+\begin{theorem}[Positive density with the complete signed budget]
+\label{cu19-density}
+Keep all data of Theorem~\ref{cu19-packet} fixed. There is a set
+\(\mathcal G\) of positive integers of natural density
+\[
+ d(\mathcal G)=\prod_p\left(1-\frac{\rho_G(p^2)}{p^2}\right)
+ \ge\frac15,\qquad
+ \rho_G(m)=\#\{j\bmod m:G(j)\equiv0\pmod m\},
+\]
+such that each \(j\in\mathcal G\) has
+\[
+ T_3(k_j)=KR_j,\qquad R_j\text{ squarefree},\qquad
+ \gcd(K,R_j)=1,
+\]
+and the prime divisors of \(R_j\) all lie outside \(\mathcal E\).
+For \(J(T)=\sum_{p\mid T}(v_p(T)-3)\log p\), the exact identity is
+\begin{equation}
+ J(T_3(k_j))=-2\log T_3(k_j)+3\log\frac K{\operatorname{rad}K}.
+ \label{cu19-signed}
+\end{equation}
+Along these good indices tending to infinity,
+\[
+ \frac{J(T_3(k_j))}{\log c_{k_j}}\longrightarrow-\frac{16}{3},
+ \qquad
+ \frac{\log\operatorname{rad}(T_3(k_j))}{\log c_{k_j}}
+ \longrightarrow\frac83.
+\]
+Every good output satisfies the explicit bound
+\begin{equation}
+ c_{k_j}\le
+ 2\left(\frac K{\operatorname{rad}K}\right)^{3/8}
+ \operatorname{rad}(T_3(k_j))^{3/8}.
+ \label{cu19-radical}
+\end{equation}
+\end{theorem}
+\begin{proof}
+The precise external input is Booker--Browning
+\cite[Theorem~1.2, printed p.~4]{BookerBrowning2016Squarefree}.
+For a nonconstant squarefree integer polynomial with no fixed
+prime divisor and irreducible factors of degree at most three,
+their theorem gives
+\begin{equation}
+ \sum_{1\le j\le X}\mu^2(G(j))
+ =X\prod_p\left(1-\frac{\rho_G(p^2)}{p^2}\right)
+   +O_G(X/\log X).
+ \label{cu19-bb}
+\end{equation}
+The no-fixed-prime assumption is imposed in the authors' opening
+setup on printed p.~1; their equation~(2) defines \(\rho\).
+All these hypotheses were individually checked in
+Theorem~\ref{cu19-packet}. The theorem is unconditional; its
+large-square input is proved using the low-degree results described
+in their Section~4. We do not substitute an elementary degree-eight
+union estimate for that input, and no ABC conjecture is assumed.
+
+For \(p\in\mathcal E\), the polynomial is always a \(p\)-unit, so
+\(\rho_G(p^2)=0\). Outside \(\mathcal E\), its at most eight simple
+roots lift uniquely to \(p^2\), so \(\rho_G(p^2)\le8\). Hence
+\[
+ \sum_{p\notin\mathcal E}\frac{\rho_G(p^2)}{p^2}
+ \le8\sum_{m\ge11}m^{-2}
+ <8\int_{10}^{\infty}x^{-2}\,dx=\frac45.
+\]
+The product inequality \(\prod(1-u_i)\ge1-\sum u_i\), followed
+by a convergent product limit, proves the lower bound \(1/5\).
+Take \(\mathcal G\) to be the indices for which \(G(j)\) is squarefree.
+All original factors are positive for \(j\ge1\); exact freezing
+excludes \(\mathcal E\) from \(G(j)\). Thus \(R_j=G(j)\) has all
+the asserted properties.
+
+Now
+\[
+ \operatorname{rad}(T_3(k_j))
+ =T_3(k_j)/(K/\operatorname{rad}K).
+\]
+This proves \eqref{cu19-signed}, retaining every frozen depth and
+every unmarked negative contribution. The polynomial degrees give
+\(\log T_3=8\log j+O(1)\) and \(\log c=3\log j+O(1)\), which prove
+the limits. For \(a\ge3\),
+\[
+ f(a)\ge a^3/2,\qquad g(a)\ge a^3,\qquad 3a(a+1)\ge3a^2.
+\]
+The first inequality follows from \(a^3-6a-2\ge0\), increasing on
+\([3,\infty)\). Therefore \(T_3\ge a^8\), while
+\(c=a^3+3a^2-1\le2a^3\). Eliminating \(a\) and using the radical
+identity proves \eqref{cu19-radical}.
+\end{proof}
+
+\paragraph{Actual distinct owners and arbitrary fixed positive depths.}
+At \(k=1,2\), respectively, the literal triples are
+\[
+ (A,C,c)=(17,36,53),\qquad (197,126,323).
+\]
+The integers \(53\) and \(197\) are prime by trial division up to
+their square roots. The first triple has no factor \(197\), and
+the second no factor \(53\). They already give a nonempty
+different-owner packet.
+
+Larger prescribed finite depths do not require prime values of a
+polynomial. At \(k=1\), the derivative of the \(c\) factor is \(135\),
+a unit modulo \(53\); the other arms are units. At \(k=2\), the
+derivative of the \(A\) factor is \(315\), a unit modulo \(197\),
+and again the other arms are units. For either simple root, the
+expansion
+\[
+ F(r+q^j u)\equiv F(r)+q^j uF'(r)\pmod{q^{j+1}}
+\]
+has exactly one digit retaining the root. Lift to depth \(e\), then
+choose a different next digit; the resulting residue has exact
+depth \(e\). This realizes every prescribed positive integer
+depth. CRT can additionally require the \(53\)-owner to be
+\(1\pmod{197}\) and the \(197\)-owner to be \(2\pmod{53}\),
+which excludes the other marked prime at each owner. Positive
+representatives exist. For example depths four and five give
+the marked cost \(\log53+2\log197>0\).
+Theorem~\ref{cu19-density} supplies infinitely many actual pure
+cubes retaining that fixed cost and the full new negative support.
+
+The constant in \eqref{cu19-bb} depends on the fixed polynomial
+\(G\), whose coefficients depend on the whole packet and its CRT
+representative. The good root indices have density
+\(d(\mathcal G)/H>0\) among positive integers, with no uniform
+threshold for moving packets. The residual coefficient is one
+and the exponent remains three, so the earlier convention
+\(\lambda=1/n\) gives the fixed value \(1/3\).
+
+These are fixed low-degree nonlinear selectors. The result does
+not control the original \(n>324\) prime, \(B=n^4\) block, nor
+allow the squarefree theorem to be invoked at an arbitrary changing
+exponent without checking its irreducible factors and constants.
+The elementary literal-cube identities have a separate scoped
+Lean verification; CRT, squarefree density and its analytic input
+remain ordinary proofs here. Other roots, general residuals,
+exceptional sets, the independent-domain complement and full ABC
+coverage remain open.

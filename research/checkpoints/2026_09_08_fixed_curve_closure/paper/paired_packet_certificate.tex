@@ -1,0 +1,150 @@
+\section{Constructive paired packets and reciprocal adjacent divisors}
+\label{sec-pa18-paired-packets}
+
+All factors in this section belong to the complete actual squarefree
+$Q=\operatorname{rad}(c-1)$. For $c=2^e3^f$, retain (NG0),
+$A=2^{e-1}$, $B=3^{f-1}$, $D=\log(AB/Q)>0$, and the same original
+optimum $D+\Gamma$. The elementary divisor assertions also apply to
+any squarefree $Q>1$ and real $A,B\geq1$ with $AB>Q$.
+
+\paragraph{PA1: a certificate with at most $m$ exact updates.}
+Suppose there is an exact integer factorization
+\[
+ Q=R\prod_{i=1}^mU_iV_i,\qquad m\geq1,\quad
+ R\geq1,\quad 1<U_i<V_i.
+\]
+All its nonunit factors are squarefree and pairwise coprime. They
+may be composite packets. Choose an actual positive divisor $K\mid R$
+and define
+\[
+ h_{\min}=K\prod_iU_i,\qquad h_{\max}=K\prod_iV_i,
+ \qquad \rho=\max_i(V_i/U_i)>1.
+\]
+If
+\[
+ h_{\min}\leq A,\qquad h_{\max}\geq Q/B,              \tag{PA1}
+\]
+then
+\[
+ \Gamma\leq\frac{\max(0,\log\rho-D)}2,\qquad
+ D+\Gamma\leq\max\left(D,\frac{D+\log\rho}{2}\right).
+                                                               \tag{PA2}
+\]
+In particular $\rho\leq AB/Q$ implies $\Gamma=0$.
+
+\emph{Proof.} For each subset $J$ of packet indices, the two integers
+\[
+ H_J=K\prod_{i\notin J}U_i\prod_{i\in J}V_i,\qquad
+ Q/H_J=(R/K)\prod_{i\notin J}V_i\prod_{i\in J}U_i
+\]
+recover $Q$ exactly. Every prime is used in exactly one output, so
+this is a legal subfamily of the original divisor certificate.
+Only $m+1$ members are necessary. Fix the given order and put
+\[
+ H_j=K\prod_{i\leq j}V_i\prod_{i>j}U_i,
+             \qquad 0\leq j\leq m.
+\]
+This chain is strictly increasing from $h_{\min}$ to $h_{\max}$,
+with $H_j/H_{j-1}=V_j/U_j\leq\rho$. Let $j$ be the first index
+with $H_j\geq Q/B$, which exists by (PA1). If $H_j\leq A$, a
+central divisor has been found. Otherwise $j\geq1$, since
+$H_0\leq A$, and
+\[
+ H_{j-1}<Q/B\leq A<H_j.
+\]
+The distances from the central interval to these two genuine
+divisors sum to $\log(H_j/H_{j-1})-D\leq\log\rho-D$.
+Their minimum bounds the optimum over all actual divisors, proving
+the first assertion of (PA2). Adding $D$ proves the second. $\square$
+
+After this factor certificate is supplied, the construction is an
+exact bounded algorithm. Start at $H_0$ and update
+$H_j=(H_{j-1}/U_j)V_j$; division is exact because that packet has
+not yet been replaced. At most $m$ updates find a central divisor
+or its two brackets. For integer endpoints, all tests are integer
+comparisons $BH_j\geq Q$ and $H_j\leq A$. In the bracket case
+compare the positive rational numbers $Q/(BH_{j-1})$ and $H_j/A$
+to choose the smaller logarithmic penalty. There is no $2^m$ search
+or floating-point comparison. This is not an efficient factorization
+algorithm or a universal theorem supplying suitable packets.
+
+\paragraph{PA2: an actual instance and its conditional scope.}
+For the completely certified $c=2^{41}3^{26}$ of NG3, choose
+\[
+ \begin{split}
+ U_1&=2729,\qquad V_1=3073=7\cdot439,\\
+ R&=857\cdot292183\cdot380261663,\qquad K=380261663.
+ \end{split}
+\]
+These factors recover the complete $Q$. The exact inequalities
+\[
+ K\cdot2729\leq2^{40},\qquad K\cdot3073\cdot3^{25}\geq Q,
+ \qquad 3073Q<2729\cdot2^{40}\cdot3^{25}
+\]
+give (PA1) and $\rho<AB/Q$, hence $\Gamma=0$. The endpoint is
+nonsquare, while its global gap parameter $439/7$ exceeds $AB/Q$.
+The local packet certificate is therefore a strictly sharper
+sufficient test in this actual example. Its added information is a
+pair of close composite packets in the required location.
+
+For a sequence of actual endpoints with $Q\to\infty$, if
+$D/\log Q\to0$ and certificates satisfying (PA1) can be supplied
+with $\log\rho/\log Q\to0$, then (PA2) gives
+$(D+\Gamma)/\log Q\to0$. Likewise the two inequalities
+\[
+ D\leq\epsilon\log Q+C,\qquad
+ \log\rho\leq\epsilon\log Q+C
+\]
+give $D+\Gamma\leq\epsilon\log Q+C$ with the same constants.
+Neither hypothesis is established for all endpoints. In this
+stratum
+\[
+ D=\log c-\log\operatorname{rad}(c(c-1)),
+\]
+so the first hypothesis already contains the restricted scalar ABC
+problem. The paired-packet supply is a separate unproved arithmetic
+condition, not a consequence of one example or a moderate largest
+prime factor.
+
+\paragraph{PA3: the general reciprocal obstruction.}
+Let $Q=qR$ be squarefree with $q$ prime, let $d>1$ be a divisor of
+$R$, and set
+\[
+ t=\max\{u:u\mid R,\ u<d\}.
+\]
+This maximum exists since $1<d$. If
+\[
+ dtq\leq R<d^2q,                                    \tag{PA3}
+\]
+then $R/d,dq$ are consecutive actual divisors of $Q$. If also
+$dq>\max(A,B)$, then
+\[
+ \Gamma=\log\frac{dq}{\max(A,B)},\qquad
+ D+\Gamma=\log\frac{\min(A,B)}{R/d}.                 \tag{PA4}
+\]
+
+\emph{Proof.} If a divisor $H$ contains $q$ and is below $dq$,
+write $H=qv$ with $v\mid R,v<d$; then $H\leq qt\leq R/d$.
+If it omits $q$ and is above $R/d$, then $R/H<d$, hence
+$R/H\leq t$ and $H\geq R/t\geq dq$. Both endpoints divide $Q$,
+are strictly ordered, and have product $Q$. The central interval
+and its distances are therefore exactly as in NG4, proving (PA4).
+$\square$
+
+There is a prime-prefix specialization without a search for $t$.
+If $d$ is a prime factor of $R$ and $T$ is the product of every
+prime of $R$ smaller than $d$, the additional condition $T<d$
+gives $t=T$. Indeed, a divisor below $d$ cannot contain a larger
+prime, and $T$ itself is such a divisor. Thus
+$dTq\leq R<d^2q$ suffices; NG4 is the case that $d$ is the second
+smallest prime of $R$.
+
+This invariant uses the full actual $R=Q/q$ and a certified divisor
+threshold. Largest-prime size alone does not contain that information.
+An exact obstruction of this kind prevents a PA1 certificate with
+$\rho\leq AB/Q$ for the same central interval, since their proved
+conclusions would contradict one another. It does not exclude a
+different certificate with different proved rules, nor the parent
+ABC routes. All accounting above uses actual radicals and whole
+prime packets. No infinite fixed-$\epsilon$ counterexample or new
+Lean theorem is claimed.

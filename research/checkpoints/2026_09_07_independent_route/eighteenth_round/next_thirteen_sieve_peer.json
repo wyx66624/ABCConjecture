@@ -1,0 +1,546 @@
+{
+  "E1_points": [
+    null,
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      10
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      6,
+      6
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      10,
+      2
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      11,
+      1
+    ],
+    [
+      11,
+      12
+    ],
+    [
+      12,
+      5
+    ],
+    [
+      12,
+      8
+    ]
+  ],
+  "E2_points": [
+    null,
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      8,
+      5
+    ],
+    [
+      8,
+      8
+    ],
+    [
+      9,
+      1
+    ],
+    [
+      9,
+      12
+    ],
+    [
+      11,
+      2
+    ],
+    [
+      11,
+      11
+    ],
+    [
+      12,
+      2
+    ],
+    [
+      12,
+      11
+    ]
+  ],
+  "forbidden_pair_hits": 0,
+  "forbidden_pairs": [
+    [
+      null,
+      [
+        11,
+        2
+      ]
+    ],
+    [
+      null,
+      [
+        11,
+        11
+      ]
+    ]
+  ],
+  "method": "complete square-fiber enumeration; chord/tangent intersection cubic divided by both known roots",
+  "modulus": 13,
+  "order_five_multiples": [
+    [
+      null,
+      [
+        3,
+        2
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        3,
+        11
+      ]
+    ],
+    [
+      null,
+      [
+        11,
+        2
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        11,
+        11
+      ]
+    ]
+  ],
+  "projective_curve_count": 16,
+  "rows": [
+    {
+      "R1": [
+        1,
+        10
+      ],
+      "R2": null,
+      "source": [
+        "finite",
+        0,
+        2
+      ],
+      "three_R1": [
+        3,
+        11
+      ],
+      "three_R2": null
+    },
+    {
+      "R1": [
+        1,
+        3
+      ],
+      "R2": null,
+      "source": [
+        "finite",
+        0,
+        11
+      ],
+      "three_R1": [
+        3,
+        2
+      ],
+      "three_R2": null
+    },
+    {
+      "R1": [
+        11,
+        12
+      ],
+      "R2": [
+        6,
+        9
+      ],
+      "source": [
+        "finite",
+        1,
+        5
+      ],
+      "three_R1": [
+        3,
+        11
+      ],
+      "three_R2": [
+        11,
+        2
+      ]
+    },
+    {
+      "R1": [
+        11,
+        1
+      ],
+      "R2": [
+        6,
+        4
+      ],
+      "source": [
+        "finite",
+        1,
+        8
+      ],
+      "three_R1": [
+        3,
+        2
+      ],
+      "three_R2": [
+        11,
+        11
+      ]
+    },
+    {
+      "R1": [
+        0,
+        2
+      ],
+      "R2": [
+        8,
+        8
+      ],
+      "source": [
+        "finite",
+        3,
+        3
+      ],
+      "three_R1": [
+        11,
+        1
+      ],
+      "three_R2": [
+        11,
+        11
+      ]
+    },
+    {
+      "R1": [
+        0,
+        11
+      ],
+      "R2": [
+        8,
+        5
+      ],
+      "source": [
+        "finite",
+        3,
+        10
+      ],
+      "three_R1": [
+        11,
+        12
+      ],
+      "three_R2": [
+        11,
+        2
+      ]
+    },
+    {
+      "R1": [
+        10,
+        2
+      ],
+      "R2": [
+        9,
+        1
+      ],
+      "source": [
+        "finite",
+        6,
+        3
+      ],
+      "three_R1": null,
+      "three_R2": null
+    },
+    {
+      "R1": [
+        10,
+        11
+      ],
+      "R2": [
+        9,
+        12
+      ],
+      "source": [
+        "finite",
+        6,
+        10
+      ],
+      "three_R1": null,
+      "three_R2": null
+    },
+    {
+      "R1": [
+        10,
+        2
+      ],
+      "R2": [
+        9,
+        12
+      ],
+      "source": [
+        "finite",
+        7,
+        3
+      ],
+      "three_R1": null,
+      "three_R2": null
+    },
+    {
+      "R1": [
+        10,
+        11
+      ],
+      "R2": [
+        9,
+        1
+      ],
+      "source": [
+        "finite",
+        7,
+        10
+      ],
+      "three_R1": null,
+      "three_R2": null
+    },
+    {
+      "R1": [
+        0,
+        2
+      ],
+      "R2": [
+        8,
+        5
+      ],
+      "source": [
+        "finite",
+        10,
+        3
+      ],
+      "three_R1": [
+        11,
+        1
+      ],
+      "three_R2": [
+        11,
+        2
+      ]
+    },
+    {
+      "R1": [
+        0,
+        11
+      ],
+      "R2": [
+        8,
+        8
+      ],
+      "source": [
+        "finite",
+        10,
+        10
+      ],
+      "three_R1": [
+        11,
+        12
+      ],
+      "three_R2": [
+        11,
+        11
+      ]
+    },
+    {
+      "R1": [
+        11,
+        12
+      ],
+      "R2": [
+        6,
+        4
+      ],
+      "source": [
+        "finite",
+        12,
+        5
+      ],
+      "three_R1": [
+        3,
+        11
+      ],
+      "three_R2": [
+        11,
+        11
+      ]
+    },
+    {
+      "R1": [
+        11,
+        1
+      ],
+      "R2": [
+        6,
+        9
+      ],
+      "source": [
+        "finite",
+        12,
+        8
+      ],
+      "three_R1": [
+        3,
+        2
+      ],
+      "three_R2": [
+        11,
+        2
+      ]
+    },
+    {
+      "R1": null,
+      "R2": [
+        5,
+        7
+      ],
+      "source": [
+        "infinity",
+        1
+      ],
+      "three_R1": null,
+      "three_R2": [
+        8,
+        8
+      ]
+    },
+    {
+      "R1": null,
+      "R2": [
+        5,
+        6
+      ],
+      "source": [
+        "infinity",
+        -1
+      ],
+      "three_R1": null,
+      "three_R2": [
+        8,
+        5
+      ]
+    }
+  ],
+  "scope": "independent finite F13 table; the ordinary QL prime-to-five index and logarithm bridge are separate inputs",
+  "sextic_derivative_euclidean_sequence_mod13": [
+    [
+      1,
+      0,
+      12,
+      0,
+      8,
+      0,
+      4
+    ],
+    [
+      6,
+      0,
+      9,
+      0,
+      3,
+      0
+    ],
+    [
+      4,
+      0,
+      1,
+      0,
+      4
+    ],
+    [
+      1,
+      0,
+      10,
+      0
+    ],
+    [
+      4
+    ],
+    []
+  ],
+  "status": "PASS",
+  "three_P1": [
+    3,
+    2
+  ],
+  "three_P2": [
+    11,
+    2
+  ]
+}

@@ -1,0 +1,143 @@
+\section{A five-primary sieve at thirteen and the complete fixed rational locus}
+\label{sec-fixed-rational-locus}
+
+The ordinary arguments QL, HT, LH, ZS, DS, UD, SU, ZD and IF, followed
+by the exact sieve below, prove
+\[
+ C(\mathbb Q)=\{(1,8),(1,-8),(-1,8),(-1,-8),\infty_+,\infty_-\}.
+\]
+Here $C$ is the smooth projective completion of
+$W^2=z^6-27z^4+99z^2-9$, with $W/z^3=\pm1$ at its two infinities.
+This is a theorem for one fixed curve. Its complete height and local
+analytic dependency chain has not been formalized in Lean.
+
+\paragraph{SM1: transport through the global rational group.}
+Let $P_1=(-2,1)$ on $E_1$ and $P_2=(6,9)$ on $E_2$.
+QL2 proves that $E_i(\mathbb Q)$ is torsion-free of rank one and
+$d_i=[E_i(\mathbb Q):\mathbb ZP_i]$ is finite and prime to five.
+QL1 gives nonzero logarithms of valuation one. For any
+$Q\in E_i(\mathbb Q)$ put $m_i(Q)=\log_{E_i}(Q)/\log_{E_i}(P_i)$.
+If the good reduction at thirteen has order fifteen, then
+\[
+ m_i(Q)\in\mathbb Z_5,\qquad
+ [3]\operatorname{red}_{13}(Q)
+ =[m_i(Q)\bmod5]\,[3]\operatorname{red}_{13}(P_i).
+ \tag{SM1}
+\]
+To prove this, the finite quotient of order $d_i$ gives an integer
+$a$ with $[d_i]Q=[a]P_i$. Apply the logarithm to get $m_i(Q)=a/d_i$.
+Reduce the integer group relation at thirteen and multiply by three.
+Both resulting points are killed by five, so multiplication by $d_i$
+is invertible on them; its inverse modulo five proves (SM1).
+The residue of $a/d_i$ is exactly that of the five-adic coefficient.
+This does not reduce a value of $\mathbb Q_5$ modulo thirteen.
+It needs neither a global generator assertion $d_i=1$ nor saturation
+at thirteen.
+
+\paragraph{SM2: the complete obstruction over $\mathbb F_{13}$.}
+There is no $X\in C(\mathbb F_{13})$ satisfying
+\[
+ [3]R_1(X)=O,\qquad [3]R_2(X)\in\{(11,2),(11,11)\}.
+ \tag{SM2}
+\]
+Both reduced elliptic groups have order fifteen, and
+$[3]\operatorname{red}_{13}(P_2)=(11,2)$.
+Here is an exhaustive finite proof. The two discriminants are
+respectively $3$ and $9$ modulo thirteen. Their complete affine point
+lists, in addition to $O$, are
+\[
+\begin{split}
+ E_1:&\ (0,\pm2),(1,\pm3),(3,\pm2),(6,\pm6),
+       (10,\pm2),(11,\pm1),(12,\pm5),\\
+ E_2:&\ (3,\pm2),(5,\pm6),(6,\pm4),(8,\pm5),
+       (9,\pm1),(11,\pm2),(12,\pm2).
+\end{split}
+\]
+Testing the thirteen possible abscissas and ordinates proves exhaustion
+and hence order fifteen in each case. The reduced sextic is
+$F=z^6+12z^4+8z^2+4$, and the polynomial identity
+\[
+ (10+8z^2)F+(6z+3z^3)F'=1\quad\text{in }\mathbb F_{13}[z]
+\]
+proves squarefreeness even over the algebraic closure. The monic
+even-degree model is smooth at its two infinities too.
+The complete projective quotient table is
+\begin{center}
+\begin{tabular}{c|c|c}
+ $X$ on $C$ & $[3]R_1(X)$ & $[3]R_2(X)$\\\hline
+ $(0,2)$ & $(3,11)$ & $O$\\
+ $(0,11)$ & $(3,2)$ & $O$\\
+ $(1,5)$ & $(3,11)$ & $(11,2)$\\
+ $(1,8)$ & $(3,2)$ & $(11,11)$\\
+ $(3,3)$ & $(11,1)$ & $(11,11)$\\
+ $(3,10)$ & $(11,12)$ & $(11,2)$\\
+ $(6,3)$ & $O$ & $O$\\
+ $(6,10)$ & $O$ & $O$\\
+ $(7,3)$ & $O$ & $O$\\
+ $(7,10)$ & $O$ & $O$\\
+ $(10,3)$ & $(11,1)$ & $(11,2)$\\
+ $(10,10)$ & $(11,12)$ & $(11,11)$\\
+ $(12,5)$ & $(3,11)$ & $(11,11)$\\
+ $(12,8)$ & $(3,2)$ & $(11,2)$\\
+ $\infty_+$ & $O$ & $(8,8)$\\
+ $\infty_-$ & $O$ & $(8,5)$
+\end{tabular}
+\end{center}
+The fourteen affine points exhaust the same thirteen-by-thirteen
+enumeration. At $z=0$ the projective quotient values are
+$R_2=O$, $R_1=(-9/4,W/8)$; at infinity of sign $\epsilon$ they are
+$R_1=O$, $R_2=(33/4,-9\epsilon/8)$. Applying chord and tangent
+addition gives the displayed triples and $[3]P_2$.
+The six rows with $[3]R_1=O$ establish (SM2).
+
+The reduction table applies to every rational point, including points
+outside the integral affine chart. If $z$ is thirteen-adically integral,
+then $W$ is integral. If $z$ reduces to zero, $R_2$ has negative
+$x$-valuation and reduces to $O$, while $R_1$ is regular. If $z$ has
+negative valuation, put $q=1/z$ and $v=Wq^3$: then $q$ reduces to zero
+and $v$ to $\pm1$, with the stated infinity quotient values. In the
+remaining cases all displayed affine denominators are units. Thus
+reduction of the rational quotient images agrees with the table.
+
+Three independent finite implementations reproduce the full table,
+using chord and tangent arithmetic, division polynomials, and cubic
+line intersection. The primary canonical certificate also contains
+the smoothness identity, both entire elliptic point lists and both
+forbidden signs. Finite computation here proves only these finite inputs.
+
+\paragraph{SM3: exclude the four extra local zeros.}
+The complete ordinary disk certificates give exactly ten distinct
+$\mathbb Q_5$ zeros of $f$, counted with total multiplicity twelve:
+\begin{center}
+\begin{tabular}{c|c|c}
+ disk orbit & distinct zeros & multiplicities\\\hline
+ $z\equiv\pm1$ & $8$ & all simple\\
+ $z\equiv\pm2$ & $0$ & none\\
+ $z\equiv0$ & $0$ & none\\
+ infinity & $2$ & both double
+\end{tabular}
+\end{center}
+DS covers all twelve residue disks. Four of the unit-disk zeros are
+the known rational points $(\pm1,\pm8)$. The other four are the
+orbit of the extra UD zero on $z=1+5s$, $W(1)=8$, with $s\equiv4$.
+On that whole disk UD gives
+\[
+ \ell_1/5\equiv4+4s,\qquad \ell_2/5\equiv3+s\pmod5,
+\]
+while QL gives $\log_{E_1}(P_1)/5\equiv4$ and
+$\log_{E_2}(P_2)/5\equiv2$. The extra zero therefore has
+$(m_1(R_1),m_2(R_2))\equiv(0,1)\pmod5$. Under DS, either both
+quotient points change sign or only the second does. All four extra
+zeros thus have coefficients $(0,\pm1)$ modulo five.
+If one were rational, (SM1) would force its reduced quotients to
+satisfy (SM2), a contradiction. None of the four is rational.
+
+Every finite nonzero rational point satisfies $f=0$ by LH and QL7.
+The zero fiber has no rational point because $W^2=-9$; the infinity
+points were treated directly in IF2. The list is therefore exhaustive.
+Conversely the sextic takes value $64$ at $z=\pm1$ and its leading
+coefficient is one, so all six displayed rational points exist.
+This completes the fixed-curve ordinary proof. The subsequent exact
+inverse tests the second square at the same source and the real
+positive domain of the original problem. No varying-curve or
+varying-residual uniform height theorem follows from this classification.

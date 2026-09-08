@@ -1,0 +1,9 @@
+# CU1–CU4 complete ordinary and primary-source review
+
+Status: PASS. Full ordinary source actually read; SHA256 `db9966f807294442002161f46f2defcf0a141fd128b9c0ec1c01dfd382d4c3bf`.
+
+I actually opened Booker–Browning, https://arxiv.org/pdf/1511.00601 v3, printed page 1 (opening assumptions), page 4 (Theorem 1.2 and rho definition) and the Section 4 large-square decomposition. It supplies the stated unconditional squarefree-value asymptotic for fixed squarefree integer polynomials with no fixed prime divisor and irreducible factors of degree at most three. This is a cited established theorem, not a new proof of the difficult cubic tail.
+
+The actual cube coordinates and positivity are correct. The two cubics are distinct irreducible monic polynomials with discriminant 81; their difference and values at 0,-1 prove the entire product separable outside 3. Thus the affine transformed quotient polynomial is of degree eight but has irreducible factors of degree at most three. Every nonconstant coefficient is divisible by H before division by K, so G is genuinely in Z[J]. At exceptional primes H/K is divisible by p and the constant term is a unit. Outside them p>=11 and the separable degree-eight polynomial cannot vanish at all residues. This checks the complete no-fixed-prime hypothesis.
+
+The bound rho(p^2)<=8 and the convergent product prove density >=1/5. Complete fixed depths and squarefree complement yield the exact signed identity; T>=a^8 and c<=2a^3 give the claimed all-good-index radical inequality. The derivative values 135/315, exact Hensel depths and additional cross-owner residues give nonempty actual positive-cost packets without a prime-value conjecture. Fixed n=3 and fixed packet dependence remain explicit; no uniform moving-index or ABC consequence is inferred. No independent new finite run was performed for CU.

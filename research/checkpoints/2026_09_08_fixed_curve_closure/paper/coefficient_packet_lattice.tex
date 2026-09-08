@@ -1,0 +1,423 @@
+\section{Actual coefficient packets and the coprime resultant test}
+\label{cg19-section}
+
+This section returns to the original block. It disproves a proposed
+bound based on one short primitive coefficient vector, using actual
+different owners, and then proves the correct two-polynomial
+certificate with its full signed accounting. The second polynomial
+must be coprime to the boundary polynomial; constructing it with a
+useful degree and height remains a separate problem.
+
+Let \(n>324\) be prime, \(B=n^4\), and
+\(\mathcal O=\mathbb Z[\zeta]\), where \(\zeta^2-\zeta+1=0\) with
+positive imaginary part. Put
+\[
+ P(A+C\zeta)=AC(A+C),\qquad
+ w_k=3k+\zeta,\quad z_k=w_k^n,\quad T_k=P(z_k)
+ \quad(B\le k<2B).
+\]
+Here and throughout the block indices are integers. These three
+raw arms are positive: if \(\theta=\arg w_k\), then
+\(0<n\theta<n/(3k)\le1/3\), so the first coordinate is
+\[
+ |w_k|^n\left(\cos(n\theta)-\frac{\sin(n\theta)}{\sqrt3}\right)>0,
+\]
+and the second is positive as well.
+
+The powers are primitive. For a prime \(p\ne3\), the algebra
+\(\mathcal O/p\mathcal O\) is reduced because the discriminant is
+\(-3\). Thus \(w_k^n=0\) in this algebra would imply \(w_k=0\),
+contrary to its second coordinate being one. At \(p=3\), the norm
+\(9k^2+3k+1\) is a unit, so again the two coordinates of the power
+cannot vanish. Hence the three arms are pairwise coprime. A prime
+dividing one arm has nonzero norm at the power and at its root.
+
+A full assigned \(T\)-packet means a finite set of distinct rational
+primes \(p\), an actual block owner \(k(p)\) for each, and its full
+positive depth \(e_p=v_p(T_{k(p)})\). For a degree limit \(d\) its
+evaluation lattice is
+\[
+ \mathcal L=\{G\in\mathbb Z[X]_{\le d}:
+     G(k(p))\equiv0\pmod{p^{e_p}}\text{ for every packet prime}\}.
+\]
+The statement being tested is that one nonzero primitive vector of
+small coefficient height in this lattice bounds its index by a fixed
+power of that height, uniformly in \(n\).
+
+\begin{proposition}[Literal primitive boundary polynomial]
+\label{cg19-content}
+Set
+\[
+ P_n(a)=P((a+\zeta)^n),\qquad T_n(X)=P_n(3X),\qquad
+ F_n(X)=T_n(X)/3.
+\]
+The content of \(T_n\) is exactly three. Consequently \(F_n\) is
+a nonzero primitive integer polynomial of degree \(d=3n-1\), and
+\begin{equation}
+ \|F_n\|_1\le64^n/3\le64^n.
+ \label{cg19-height}
+\end{equation}
+Moreover there is an \(R_n\in\mathbb Z[a]\) such that
+\begin{equation}
+ P_n(a)=na+a^2R_n(a).
+ \label{cg19-taylor}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The sixth roots of unity have coordinate pairs
+\[
+ (1,0),(0,1),(-1,1),(-1,0),(0,-1),(1,-1).
+\]
+Since \(n\equiv1\) or \(5\pmod6\), one has \(P_n(0)=0\) and
+\(P_n'(0)=n\). In the first case \(\zeta^n=\zeta\); the zero
+first arm has derivative \(n\). In the second case
+\(\zeta^n=1-\zeta\); the zero sum arm has derivative \(-n\) and
+the product of the other two arms is \(-1\). This proves
+\eqref{cg19-taylor}. All coefficients of \(T_n\) are divisible
+by three, and its linear coefficient is \(3n\).
+
+Frobenius in \((\mathcal O/n\mathcal O)[X]\) gives
+\begin{equation}
+ T_n(X)\equiv
+ \begin{cases}
+  (3X)^n((3X)^n+1)&n\equiv1\pmod6,\\
+  -(3X)^n((3X)^n+1)&n\equiv5\pmod6
+ \end{cases}\pmod n.
+ \label{cg19-frobenius}
+\end{equation}
+This is a nonzero polynomial over \(\mathbb F_n\). The content
+divides \(3n\) and is not divisible by \(n\), so it is exactly
+three.
+
+Writing \(w_X^n=A_n(X)+C_n(X)\zeta\), the degrees of
+\(A_n,C_n,A_n+C_n\) are \(n,n-1,n\), with leading coefficients
+\(3^n,n3^{n-1},3^n\). Thus \(\deg F_n=3n-1\).
+Every coordinate and the coordinate sum of \(\zeta^j\) has absolute
+value at most one. The binomial expansion consequently bounds each
+of the three coefficient \(\ell^1\)-norms by
+\(\sum_j\binom nj3^{n-j}=4^n\). Submultiplicativity, followed by
+division by three, proves \eqref{cg19-height}.
+\end{proof}
+
+\begin{proposition}[Two different actual positive-depth owners]
+\label{cg19-owners}
+For \(k_0=B\),
+\[
+ v_3(T_{k_0})=1,\qquad v_n(T_{k_0})=5,\qquad v_5(T_{k_0})=0.
+\]
+There is an integer \(k_1\in[B,2B)\) with
+\[
+ k_1\equiv5^4\pmod{5^5},\qquad k_1\equiv1\pmod n.
+\]
+Every such \(k_1\) satisfies
+\[
+ v_5(T_{k_1})=4,\qquad v_n(T_{k_1})=0.
+\]
+Thus the two actual distinct owners supply the positive signed
+contributions \(2\log n\) and \(\log5\), respectively.
+\end{proposition}
+\begin{proof}
+Since \(3\nmid nB\), equation~\eqref{cg19-taylor} at \(a=3B\)
+gives \(v_3(T_B)=1\). At the prime \(n\), use \(a=3n^4\).
+At \(a=0\) exactly one arm vanishes, with linear term \(\pm na\)
+of valuation five. Every term of degrees two through \(n-1\)
+has valuation at least \(1+4\cdot2=9\), since the corresponding
+binomial coefficient is divisible by \(n\); the final term has
+valuation \(4n\). The other two arms remain units modulo \(n\).
+This proves the full depth five.
+
+Modulo five, \(B=n^4=1\), so \(w_B=3+\zeta\) in \(\mathbb F_{25}\).
+Its norm is \(13=3\pmod5\), whence \((3+\zeta)^6=3\), and
+its fifth power is its conjugate \(4-\zeta\).
+As \(n\equiv1\) or \(5\pmod6\), the power \(w_B^n\) is a nonzero
+scalar multiple of one of these two elements. Their \(P\)-values
+are \(12,-12\), both nonzero modulo five.
+
+CRT supplies the stated congruences with modulus \(3125n\).
+The least solution at least \(B\) is less than \(B+3125n<2B\),
+because \(n^3>3125\). Its five-adic depth as an index is four.
+Equation~\eqref{cg19-taylor} then has linear term \(3nk_1\)
+of five-adic depth four and every later term of depth at least
+eight. Finally \eqref{cg19-frobenius} at \(k_1\equiv1\pmod n\)
+gives \(T_{k_1}\equiv\pm12\pmod n\), a unit.
+The owners differ modulo \(n\), so they are distinct.
+\end{proof}
+
+These primes are small relative to the moving far-tail cutoffs.
+The construction is not a counterexample to a far-tail estimate,
+and makes no claim that these particular owners lie in the
+multiplicatively independent subdomain.
+
+\begin{theorem}[Exact index and the complete selected ledger]
+\label{cg19-index}
+Let \(m_0=F_n(B)=T_B/3\). Assign every prime dividing \(m_0\) to
+\(k_0\), with its full depth in \(T_B\), and assign the additional
+prime five to \(k_1\), with depth four. Then all labels are norm
+units at their actual owners, and
+\begin{equation}
+ M=625m_0,\qquad [\mathbb Z^{d+1}:\mathcal L]=M,\qquad
+ F_n\in\mathcal L.
+ \label{cg19-index-eq}
+\end{equation}
+This is not a common-hit rectangle: \(n\) hits only the first of
+these owners, and five only the second. For the complete
+\(J(T)=\log T-3\log\operatorname{rad}T\), its selected ledger is
+\begin{equation}
+ \sum_{p\mid m_0}(v_p(m_0)-3)\log p+\log5
+ =J(T_B)+2\log3+\log5.
+ \label{cg19-ledger}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Proposition~\ref{cg19-owners} gives \(\gcd(m_0,15)=1\).
+Primitivity in the setup proves the norm-unit assertion.
+The additive homomorphism
+\[
+ \mathbb Z[X]_{\le d}\longrightarrow
+ \left(\prod_{p\mid m_0}\mathbb Z/p^{v_p(m_0)}\mathbb Z\right)
+ \times\mathbb Z/625\mathbb Z
+\]
+given by evaluation at the assigned owners is surjective:
+constant polynomials already realize all residue tuples by CRT.
+Its kernel is \(\mathcal L\), proving the index assertion.
+The polynomial \(F_n\) satisfies each first-owner congruence by
+its value \(m_0\), and at \(k_1\) it has exact five-adic depth
+four because division by three does not affect that depth.
+Its coefficient vector is primitive by
+Proposition~\ref{cg19-content}, and its value \(F_n(B)=m_0\)
+is positive. Thus this is neither the zero polynomial nor a
+vanishing integer evaluation used in an additive selector kernel.
+
+The only prime removed from \(T_B\) is three at depth one, whose
+contribution to \(J(T_B)\) is \(-2\log3\). The added five-adic
+depth four contributes \(\log5\). This proves
+\eqref{cg19-ledger}, with every depth-one and depth-two term
+retained. Neither its sign nor its asymptotic size is asserted.
+\end{proof}
+
+\begin{theorem}[Failure of a fixed-power short-vector bound]
+\label{cg19-obstruction}
+For \(H_n=\max(2,\|F_n\|_1)\), every fixed \(C,C_0>0\) satisfies
+\[
+ [\mathbb Z^{d+1}:\mathcal L]>C_0H_n^C
+\]
+for all sufficiently large prime \(n\) in the construction above.
+\end{theorem}
+\begin{proof}
+Put \(r=|3B+\zeta|\ge3B\) and \(u=n\arg(3B+\zeta)\in(0,1/3)\).
+The inequalities \(\cos u\ge1-u^2/2\) and \(\sin u\le u\)
+give
+\[
+ A_B=r^n(\cos u-\sin u/\sqrt3)>r^n/2.
+\]
+The second coordinate \(C_B\) is a positive integer, and
+\(A_B+C_B>A_B\). Therefore
+\[
+ T_B>(3B)^{2n}/4,\qquad M>(625/12)(3B)^{2n}.
+\]
+Together with \eqref{cg19-height}, this yields
+\[
+ \log M>8n\log n+2n\log3+\log(625/12),\qquad
+ \log H_n\le n\log64.
+\]
+The ratio tends to infinity along primes, proving the assertion.
+\end{proof}
+
+Only bounds with an absolute fixed exponent based on one primitive
+short coefficient vector are refuted. The dimension grows with \(n\).
+A dimension-dependent bound, a bound paying the evaluation height
+\(B\), and Hadamard applied to a full independent basis are not
+refuted. In particular, one short primitive lattice vector is
+insufficient evidence for a small covolume.
+
+\begin{theorem}[A coprime second polynomial certificate]
+\label{cg19-resultant}
+Let \(F,G\in\mathbb Z[X]\setminus\{0\}\), of actual degrees
+\(d,e\ge1\), be coprime over \(\mathbb Q\).
+For a finite set of distinct primes, positive integers \(h_p\),
+and arbitrary integer owners \(a_p\), suppose
+\[
+ p^{h_p}\mid F(a_p),\qquad p^{h_p}\mid G(a_p).
+\]
+Then
+\begin{equation}
+ \prod_p p^{h_p}\mid\operatorname{Res}(F,G),\qquad
+ \sum_p h_p\log p\le e\log\|F\|_2+d\log\|G\|_2.
+ \label{cg19-resultant-bound}
+\end{equation}
+No monicity or invertibility of a leading coefficient is required.
+The empty packet is allowed, with modulus product one.
+\end{theorem}
+\begin{proof}
+The integer Sylvester determinant is nonzero by coprimality.
+View its matrix as the coefficient map
+\((U,V)\mapsto UF+VG\), for \(\deg U<e\) and \(\deg V<d\).
+Applying its integer adjugate to the constant basis vector gives
+\(U,V\in\mathbb Z[X]\) satisfying
+\[
+ UF+VG=\pm\operatorname{Res}(F,G).
+\]
+Evaluation at each assigned owner proves divisibility by the full
+prime power \(p^{h_p}\). Multiplying these pairwise coprime
+divisibilities proves the first assertion. This argument never
+passes to a field root or divides by a leading coefficient.
+
+The Sylvester determinant has \(e\) shifted coefficient rows of
+\(F\) and \(d\) of \(G\). Their Euclidean lengths are respectively
+\(\|F\|_2,\|G\|_2\). Hadamard's inequality gives
+\[
+ |\operatorname{Res}(F,G)|\le\|F\|_2^e\|G\|_2^d.
+\]
+Taking logarithms of the nonzero integer multiple proves the
+second assertion, including all prime-power depths.
+\end{proof}
+
+For a nonzero constant \(G=c\), the direct identity
+\(\operatorname{Res}(F,c)=c^d\) covers the degree-zero case.
+Each packet modulus must then divide \(c\); it is no useful short
+certificate unless the modulus is already small.
+Theorem~\ref{cg19-resultant} genuinely allows different primes
+to have different owners. It requires one coprime second
+polynomial, rather than a complete lattice basis, but its saving
+depends on constructing that polynomial with suitable height.
+
+\begin{proposition}[Automatic owner polynomial and the exact correction at three]
+\label{cg19-automatic}
+First take a nonempty full assigned \(T\)-packet whose primes
+are different from three, and let \(\mathcal K\) be its set of
+distinct owners, \(s=|\mathcal K|\). Then
+\[
+ G_{\mathcal K}(X)=\prod_{k\in\mathcal K}(X-k)
+\]
+is a coprime second certificate for \(F_n\), with
+\begin{align}
+ |\operatorname{Res}(F_n,G_{\mathcal K})|
+   &=\prod_{k\in\mathcal K}F_n(k), \label{cg19-auto-res}\\
+ \|G_{\mathcal K}\|_2\le\|G_{\mathcal K}\|_1
+   &=\prod_{k\in\mathcal K}(1+k)\le(2B)^s. \label{cg19-auto-norm}
+\end{align}
+Thus its Sylvester estimate gives only
+\[
+ \log M\le s\log\|F_n\|_2+(3n-1)s\log(2B).
+\]
+
+For an arbitrary nonempty full \(T\)-packet including three, let
+\(k_3\) be its assigned owner. Its exact depth is
+\begin{equation}
+ e_3=1+v_3(k_3).
+ \label{cg19-three-depth}
+\end{equation}
+Form the adjusted \(F_n\)-packet with \(h_p=e_p\) for \(p\ne3\)
+and \(h_3=e_3-1\), omitting three when \(h_3=0\). Its product
+\(M_F\) and the original product \(M_T\) satisfy
+\begin{equation}
+ M_T=3M_F.
+ \label{cg19-three-product}
+\end{equation}
+The same owner polynomial is a certificate for the adjusted
+packet, even when it is empty, and the logarithmic bound gains
+exactly one \(\log3\) for \(M_T\).
+For the respective positive-depth signed supports,
+\begin{equation}
+ J_T=
+ \begin{cases}
+  J_F-2\log3,&e_3=1,\\
+  J_F+\log3,&e_3\ge2.
+ \end{cases}
+ \label{cg19-three-signed}
+\end{equation}
+\end{proposition}
+\begin{proof}
+At every owner \(F_n(k)=T_k/3>0\); hence none is a root of \(F_n\),
+so the owner polynomial is coprime to it. It vanishes as an
+integer at every owner, proving all adjusted congruences.
+The product formula for the resultant with its monic linear
+factors proves \eqref{cg19-auto-res}. Since every \(k>0\), the
+absolute elementary symmetric coefficients sum to
+\(\prod(1+k)\); this proves \eqref{cg19-auto-norm}.
+Theorem~\ref{cg19-resultant} gives the displayed bound.
+
+Division by three is the reason the first assertion excluded
+that prime. For a general block owner, substitute \(a=3k_3\)
+into \eqref{cg19-taylor}. The linear term has valuation
+\(1+v_3(k_3)\), because \(3\nmid n\); every later term has
+valuation at least \(2+2v_3(k_3)\). This proves
+\eqref{cg19-three-depth}, with no assumption that \(k_3\) is a
+three-adic unit. Division of the value by three reduces this
+depth by exactly one, proving \eqref{cg19-three-product}.
+
+If \(e_3=1\), then
+\(\operatorname{rad}M_T=3\operatorname{rad}M_F\); if \(e_3\ge2\)
+their radicals are equal. Subtracting three times their radical
+logs from \(\log M_T=\log M_F+\log3\) proves
+\eqref{cg19-three-signed}. Thus even the depth-one and depth-two
+negative contributions are translated exactly.
+\end{proof}
+
+\begin{corollary}[Signed degree-height test with the original radical]
+\label{cg19-signed-certificate}
+Let \(G\in\mathbb Z[X]\setminus\{0\}\) be coprime to \(F_n\)
+over \(\mathbb Q\) and satisfy the
+adjusted \(F_n\)-packet congruences. For the adjusted packet,
+\[
+ J_F\le
+ \deg(G)\log\|F_n\|_2+(3n-1)\log\|G\|_2
+       -3\log\operatorname{rad}M_F.
+\]
+Equivalently, for its original full \(T\)-packet,
+\begin{equation}
+ J_T\le
+ \deg(G)\log\|F_n\|_2+(3n-1)\log\|G\|_2
+       +\delta_3\log3-3\log\operatorname{rad}M_T,
+ \label{cg19-full-signed}
+\end{equation}
+where \(\delta_3\) is one if three is present and zero otherwise.
+\end{corollary}
+\begin{proof}
+For positive degree apply Theorem~\ref{cg19-resultant} to the
+adjusted product; for constant \(G=c\ne0\), use the preceding
+direct case \(\operatorname{Res}(F_n,c)=c^{3n-1}\).
+Then use \(J=\log M-3\log\operatorname{rad}M\).
+If three is present, use \eqref{cg19-three-product}; otherwise
+the products coincide. This gives \eqref{cg19-full-signed}
+without discarding a negative term.
+\end{proof}
+
+\paragraph{What the automatic certificate does and does not prove.}
+Equation~\eqref{cg19-auto-res} recovers the bound obtained by
+assigning each prime power to its owner and multiplying the
+owner values. In the actual two-owner example it is
+\((X-B)(X-k_1)\), with resultant \(F_n(B)F_n(k_1)\). This pays
+the old owner height and is consistent with
+Theorem~\ref{cg19-obstruction}. It does not itself supply the
+negative prime-depth compensation needed for a signed saving.
+
+A genuine new gain requires a coprime certificate whose
+\[
+ \deg(G)\log\|F_n\|_2+(3n-1)\log\|G\|_2
+\]
+improves the relevant full signed budget. A small lattice
+vector may simply be a multiple of \(F_n\), while the automatic
+product of owner factors gives \eqref{cg19-auto-res}. None of
+the results cited here constructs the required shorter coprime
+certificate on the original independent domain, and no
+dependence on the packet modulus is hidden in its claimed height.
+
+\paragraph{Ordinary and finite scope.}
+The arguments in this section are complete ordinary proofs.
+The separate exact coefficient-packet replay checks three prime
+indices \(331,337,347\), six actual powers, coefficient content
+and degree, independent polynomial evaluation, both exact marked
+depths and CRT indices, and the automatic resultant divisibility.
+It neither fully factors the first-owner boundary nor computes
+its full signed ledger, and finite cases are not the proof of
+the asymptotic obstruction. No Lean formalization of this
+resultant and lattice chain is claimed here.
+
+The positive fixed-exponent selector families of
+Sections~\ref{np19-section} and~\ref{cu19-section} are separate.
+These results do not exclude useful small intersections or
+other nonlinear maps, do not control the original far signed
+tail, and do not close its exceptional set, the dependent-root
+complement, or the reduction from this special block to every
+primitive ABC triple.

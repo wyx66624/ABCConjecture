@@ -1,0 +1,163 @@
+\section{Affine outputs and the original power-root chart}
+\label{ai19-section}
+
+This section gives complete ordinary intersection bounds for the
+one-parameter chart of actual Eisenstein powers. The bounds include
+integer residual coefficients. They concern a fixed exponent and this
+root chart; they do not describe all two-coordinate roots.
+
+Let \(\mathcal O=\mathbb Z[\zeta]\), where
+\(\zeta^2-\zeta+1=0\) and \(\operatorname{Im}\zeta>0\). In the basis
+\((1,\zeta)\), write \(\det\) for the coordinate determinant and
+\(N(a+b\zeta)=a^2+ab+b^2\). Fix integers \(n\ge2\), \(B\ge n\), and set
+\[
+ Z(x)=(3x+\zeta)^n=A(x)+C(x)\zeta,\qquad x\ge B.
+\]
+All lines below are affine lines in these two real coordinates.
+
+\begin{proposition}[Strict curvature of the complete chart]
+\label{ai19-curvature}
+Both \(A'(x)\) and \(C'(x)\) are positive, and
+\[
+ \det(Z'(x),Z''(x))
+ =-27n^2(n-1)N(3x+\zeta)^{n-2}<0.
+\]
+Every real affine line meets this chart in at most two points. The same
+bound holds after any invertible real linear change of coordinates.
+\end{proposition}
+\begin{proof}
+Put \(\theta(x)=\arg(3x+\zeta)\). Then
+\(0<\theta(x)<1/(3x)\), so \(0<(n-1)\theta(x)<\pi/3\).
+Consequently \(Z'(x)=3n(3x+\zeta)^{n-1}\) has both coordinates positive.
+Also \(Z''(x)=9n(n-1)(3x+\zeta)^{n-2}\).
+Multiplication by an element \(W\) scales coordinate determinants by
+\(N(W)\), while \(\det(3x+\zeta,1)=-1\). Factoring the common
+\((3x+\zeta)^{n-2}\) proves the displayed determinant identity.
+
+Since \(A'>0\), use \(A\) as a coordinate and write \(C=F(A)\). Then
+\[
+ F''(A(x))=\frac{\det(Z'(x),Z''(x))}{A'(x)^3}<0.
+\]
+A vertical line meets this graph at most once. Three intersections
+with a nonvertical line would contradict strict concavity at the
+middle abscissa, using the chord through the outer two intersections.
+An invertible linear map takes affine lines to affine lines under its
+inverse, so it preserves the bound.
+\end{proof}
+
+\begin{proposition}[Fixed-content and unfrozen affine selectors]
+\label{ai19-selectors}
+Let \(Z_i=Z(k_i)\), where \(B\le k_2<k_1\), put
+\(D=Z_1-Z_2\) and \(\Delta=\det(Z_1,Z_2)>0\). In a fixed-content
+selector progression
+\[
+ V_j=\frac{Z_2+(t_*+Hj)D}{g},\qquad j\ge1,
+\]
+with \(H,g>0\), the distinct outputs lie on the line
+\[
+ \det(D,V_j)=\Delta/g.
+\]
+At most two outputs equal \(Z(k)\) for an integer \(k\ge B\).
+If \(g=1\) and the two nonempty disjoint CRT packets exclude the
+selector parameters \(t=0,1\), there are no such equalities.
+
+For all CRT selectors of these same two roots before content is frozen,
+there are at most \(2\tau(|\Delta|)\) parameters whose primitive output
+equals \(Z(k)\) for an integer \(k\ge B\).
+\end{proposition}
+\begin{proof}
+Both coordinates of \(D\) are positive, and \(H/g>0\), so the
+progression is injective. Taking its determinant with \(D\) gives
+the stated line because \(\det(D,Z_2)=\Delta\).
+Proposition~\ref{ai19-curvature} bounds the intersection by two.
+For \(g=1\), the two known intersections are already \(Z(k_2)\)
+and \(Z(k_1)\). No third intersection is possible, and equality to
+these two outputs forces \(t=0\) and \(t=1\), respectively.
+
+The actual content theorem for affine selectors,
+Theorem~\ref{lm-exact-selector}, gives
+\(g_t\mid|\Delta|\). For each possible positive divisor \(g_t\),
+the outputs lie on its one determinant line and have at most two
+possible values \(Z(k)\). For fixed content and output, the
+nonzero vector \(D\) determines \(t\) uniquely. Sum over the
+positive divisors of \(|\Delta|\). This is an upper bound only,
+with no assertion that any of those intersections exists.
+\end{proof}
+
+\begin{theorem}[Uniform counting with every small integer residual]
+\label{ai19-residuals}
+Let \(V_j=V_0+jV_1\) be any affine integer progression in
+\(\mathcal O\), with \(V_1\ne0\), and let \(X\ge1\) be real.
+The number of positive integer parameters \(j\) admitting
+\[
+ V_j=\tau(3k+\zeta)^n,\qquad
+ \tau\in\mathcal O\setminus\{0\},\quad N(\tau)\le X,\quad
+ k\in\mathbb Z,\quad k\ge B
+\]
+is at most
+\[
+ 2\left[\left(2\lfloor\sqrt{2X}\rfloor+1\right)^2-1\right]
+ <30X.
+\]
+If the conjugate of \((3k+\zeta)^n\) is also allowed, the bound is
+less than \(60X\). These constants are independent of \(n,B\),
+the affine line, and any packet primes or depths. Unit multipliers
+are already included among the possible \(\tau\).
+\end{theorem}
+\begin{proof}
+For each fixed nonzero \(\tau\), multiplication by \(\tau\) is
+invertible over \(\mathbb R\), with determinant \(N(\tau)>0\).
+Its image of the power chart meets the progression line at most
+twice by Proposition~\ref{ai19-curvature}. Since \(V_1\ne0\),
+each output determines \(j\) uniquely. Summing these bounds may
+overcount multiple representations, which is harmless.
+
+For \(\tau=a+b\zeta\), one has
+\(N(\tau)\ge(a^2+b^2)/2\). Thus both coordinates are at most
+\(\lfloor\sqrt{2X}\rfloor\) in absolute value, giving at most
+\((2\lfloor\sqrt{2X}\rfloor+1)^2-1\) nonzero pairs. For \(X\ge1\),
+\[
+ (2\sqrt{2X}+1)^2
+ \le(9+4\sqrt2)X<15X.
+\]
+This proves the first bound. Conjugation is an additional invertible
+real linear transformation, so summing the two orientation bounds
+gives \(60X\). No power-free or coprimality restriction on the
+residual was used; such restrictions could only reduce the count.
+\end{proof}
+
+\begin{corollary}[Scope of transfer from the paid affine family]
+\label{ai19-transfer}
+Apply Theorem~\ref{ai19-residuals} to a fixed-data progression in
+Theorem~\ref{lm-paid-affine-family}. For every real \(L\ge0\), fewer
+than \(60e^{nL}\) parameters in the entire progression admit either
+orientation with
+\[
+ \log N(\tau)\le nL.
+\]
+More generally, if \(X(J)\ge1\) and \(X(J)=o(J)\), then only \(o(J)\)
+indices \(1\le j\le J\) admit such a representation with
+\(N(\tau)\le X(J)\). All but \(o(J)\) of the paid good indices
+up to \(J\) have no such representation. In particular, for fixed
+\(0<\eta<1\), the good indices with a representation satisfying
+\(N(\tau)\le j^\eta\) form a zero-density subset.
+\end{corollary}
+\begin{proof}
+Use \(X=e^{nL}\) for the first assertion and \(X=X(J)\) for the
+second. Intersecting the resulting bound with the good set can
+only decrease it; that good set has fixed-data density at least
+\(1/4\) by Theorem~\ref{lm-paid-affine-family}. For the last assertion,
+\(j\le J\) and \(N(\tau)\le j^\eta\) imply \(N(\tau)\le J^\eta\);
+the exceptional count is therefore less than \(60J^\eta=o(J)\).
+\end{proof}
+
+These bounds explain a specific obstruction to identifying the
+affine outputs with many same-index outputs in the original root
+chart. They do not exclude a finite useful intersection, a different
+two-coordinate root chart, a changing exponent, a transfer between
+different outputs, or a nonlinear selector. The \(60X\) bound is
+uniform, whereas the paid affine density has fixed-data thresholds.
+No uniform statement for moving packets, no original far-tail
+budget, and no control of the dependent-root complement follows.
+The results in this section are ordinary proofs, not a claim of
+complete Lean formalization.
