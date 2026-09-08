@@ -1,0 +1,268 @@
+\section{Exact height transport to the quadratic Chabauty models}
+\label{sec:height-normalization}
+
+The fixed minimal elliptic curves and rational points are
+\[
+ E:y^2=x^3-9x-9,\quad P=(-2,1),\qquad
+ E':y^2=x^3-189x+999,\quad P'=(6,9).
+\]
+The monic even-sextic chart of the genus-two curve and its standard
+elliptic quotients are
+\begin{align}
+ C&:W^2=z^6-27z^4+99z^2-9,\\
+ F_1&:Y^2=X^3-27X^2+99X-9,\\
+ F_2&:Y^2=X^3+99X^2+243X+81.
+ \label{ht-standard-models}
+\end{align}
+The isomorphisms from the minimal models are
+\begin{equation}
+ i_1(x,y)=(4x+9,8y),\qquad
+ i_2(x,y)=(4x-33,8y).
+ \label{ht-isomorphisms}
+\end{equation}
+Thus both have scale \(u=2\), and translation \(r=9\) or \(-33\),
+in the notation \(X=u^2x+r,\ Y=u^3y\).
+The two displayed short models are globally minimal: their discriminants
+are \(2^4 3^6\) and \(2^4 3^{10}\), respectively. At each prime the
+valuation is below twelve, whereas replacing an integral model by one
+with smaller integral discriminant would decrease that valuation by
+a positive multiple of twelve. The curve substitutions in
+\eqref{ht-isomorphisms} are exact polynomial identities.
+
+\paragraph{The height convention.}
+We use the cyclotomic character
+\[
+ \chi_5=\log_5,\quad \log_5(5)=0,\qquad
+ \chi_\ell(a)=-v_\ell(a)\log_5(\ell)\quad(\ell\ne5),
+\]
+the unit-root splitting at five, and the diagonal canonical height
+\(H_E(Q)\). This is twice Silverman's local-height normalization,
+as explicitly fixed in
+\cite[\S8.3, printed p.~35]{BalakrishnanDograQCI}.
+It differs from the introductory scalar \(h_p\) of
+\cite{MazurSteinTateHeight}: that scalar uses character \(\log_p/p\)
+and is \(-1/2\) of the corresponding diagonal pairing.
+For an infinite-order rational point \(Q\) and a positive integer \(m\),
+after this conversion formula~(1.1) of that source reads
+\begin{equation}
+ H_E(Q)=-\frac{2}{m^2}
+       \log_5\!\left(\frac{\sigma_E(mQ)}{d(mQ)}\right),
+ \label{ht-sigma-height}
+\end{equation}
+where \(mQ\) lies in the formal group at five and in the identity
+components at the bad primes, and \(d(mQ)\) is the positive square
+root of its minimal-model \(x\)-denominator.
+
+\begin{theorem}[Scalar transport and the differential basis]
+\label{ht-transport}
+For either isomorphism \(i:E_i\longrightarrow F_i\), let
+\(\omega=dx/(2y)\), \(\eta=x\omega\), and let \(s\) be the slope
+for which \(\eta+s\omega\) spans the unit-root line. The exact
+transport laws are
+\begin{align}
+ H_{F_i}(iQ)&=H_{E_i}(Q),&
+ \log_{F_i}(iQ)&=u^{-1}\log_{E_i}(Q),\\
+ s_{F_i}&=u^2s_{E_i}-r,&
+ \alpha_{F_i}&=u^2\alpha_{E_i},
+ \label{ht-transport-laws}
+\end{align}
+where \(\alpha_E=H_E(P)/\log_E(P)^2\) for a nonzero infinite-order
+rational point. In particular, the two height/logarithm-square ratios
+in the standard quotient models are four times those on the minimal
+models.
+\end{theorem}
+\begin{proof}
+Direct pullback gives
+\begin{equation}
+ i^*\omega_F=u^{-1}\omega_E,\qquad
+ i^*\eta_F=u\eta_E+(r/u)\omega_E.
+ \label{ht-differential-pullback}
+\end{equation}
+Frobenius commutes with the isomorphism, so uniqueness of the ordinary
+unit-root line implies
+\[
+ i^*(\eta_F+s_F\omega_F)=u(\eta_E+s_E\omega_E).
+\]
+This is exactly the asserted formula for \(s_F\). Integration from
+the origin gives the logarithm formula on the formal group;
+multiplication by a common integer extends it to all local points.
+
+The scalar height is intrinsic. In this case its invariance can also
+be checked directly in the sigma construction.
+Theorem~1.3 of \cite{MazurSteinTateHeight} characterizes the normalized
+odd integral sigma function by its differential equation. The changes
+of formal parameter are integral at five because \(u=2\) is a unit.
+Together with \eqref{ht-differential-pullback} and the slope formula,
+the defining differential equation and its leading coefficient give
+\begin{equation}
+ \sigma_F(iQ)=u^{-1}\sigma_E(Q).
+ \label{ht-sigma-transport}
+\end{equation}
+Indeed the parameter change is odd with leading coefficient \(1/u\),
+and both sides have coefficient one when expressed in the parameter
+on \(F\). Uniqueness proves the equality.
+In the four-point sigma quotient defining the local pairing,
+\cite[\S2.3]{MazurSteinTateHeight}, there are two factors in each of
+the numerator and denominator; all four factors \(1/u\) cancel.
+At primes away from five the construction uses the intrinsic minimal
+N\'eron model, \cite[\S2.4]{MazurSteinTateHeight}, and is unchanged
+under this isomorphism. Bilinearity extends the equality from the
+four-point representations to the rational group. Equivalently all
+auxiliary local data may be transported through \(i\).
+This proves invariance of \(H\); division by the squared logarithm
+proves the formula for \(\alpha\).
+The rank-one quadraticity argument requires no assertion that the
+chosen point generates the full Mordell--Weil group.
+\end{proof}
+
+For local integration, the complementary differential scales by \(u\)
+and \(\omega\) by \(1/u\), consistently transporting their cup-dual
+normalization. Individual tangential-basepoint constants must still be
+fixed explicitly. The theorem does not identify an arbitrary local
+software output with an intrinsically normalized scalar.
+
+\begin{proposition}[The pinned raw-output transformation]
+\label{ht-pari-inverse}
+In the official PARI/GP 2.15.4 source, let \([a,b]\) denote the vector
+returned on the minimal model and \([A,B]\) the vector returned on
+\(F\) for the corresponding point. For the changes above, the source
+performs
+\begin{equation}
+ A=\frac{a+rb}{u},\qquad B=ub.
+ \label{ht-raw-transform}
+\end{equation}
+Its inverse and the recovery of the intrinsically normalized scalar are
+\begin{align}
+ a&=uA-rB/u,& b&=B/u,\\
+ H_E&=uA-\frac{r+s_E}{u}B
+     =uA-\frac{(u^2+1)r+s_F}{u^3}B.
+ \label{ht-recovered-scalar}
+\end{align}
+Consequently the uncorrected expression \(A-s_FB\) cannot in general
+be used as the canonical scalar on this nonminimal model.
+\end{proposition}
+\begin{proof}
+This first assertion is a version-specific source statement.
+In \cite{PARIHeightSource2154},
+\texttt{src/\allowbreak basemath/\allowbreak ellpadic.c},
+lines 688--689 obtain the global
+minimal model and transform the point to it. Lines 741--748 perform
+the final transformation \eqref{ht-raw-transform}.
+The direction of the change is also explicit in
+\texttt{src/\allowbreak basemath/\allowbreak elliptic.c},
+lines 4993--5016, and in the official
+\texttt{ellchangecurve} documentation \cite{PARIEllipticHeights}:
+the coordinates satisfy \(X=u^2x+r\),
+\(Y=u^3y+su^2x+t\). Here the latter \(s,t\) are zero and are
+unrelated to the unit-root slope.
+Inverting the two-by-two transformation is ordinary rational linear
+algebra. On the minimal model the canonical scalar is \(a-s_Eb\);
+substitution proves the first recovery formula. Substituting
+\(s_E=(s_F+r)/u^2\) proves the second.
+
+For the scalar convention, on the minimal short model the source
+computes
+\[
+ a=-2m^{-2}\log_5(\sigma_0(mP)/d),\qquad
+ b=-m^{-2}\log_E(mP)^2.
+\]
+The routine \texttt{ellformallogsigma\_t}, lines 427--440 of
+\texttt{ellpadic.c}, implements the zero-slope differential equation.
+Replacing \(\sigma_0\) by
+\(\sigma_s=\sigma_0\exp(-s_E\log_E^2/2)\) gives \(a-s_Eb\)
+and exactly \eqref{ht-sigma-height}.
+Thus the raw final vector transformation and the unit-root slope
+do not yield the same scalar through the uncorrected combination.
+The discrepancy is not a rounding effect. This conclusion is about
+these pinned source bytes and inputs; it is not a statement about
+every PARI release or every convention for a vector-valued height.
+\end{proof}
+
+The simplest implementation computes \([a,b]\) and \(s_E\) on the
+minimal model, forms \(H_E=a-s_Eb\) there, and then uses
+\eqref{ht-transport-laws} for the standard-model logarithm and ratio.
+It need not compute the nonminimal raw vector at all.
+
+\begin{theorem}[An exact leading-digit discrepancy]
+\label{ht-mod25}
+For each of the actual points \(P,P'\), the difference
+\(A-s_FB-H_E(P)\) has five-adic valuation exactly one. This statement
+has a finite integer proof independent of PARI's height algorithm.
+\end{theorem}
+\begin{proof}
+Write the exact ninefold point as
+\(9P=(A_0/d^2,B_0/d^3)\), with \(d>0\), and similarly for \(P'\).
+Integer elliptic addition and reduction modulo 25 give
+\[
+\begin{array}{c|cc}
+ &E&E'\\ \hline
+ -A_0/B_0\pmod {25}&14&4\\
+ \log_5(-A_0/B_0)\pmod {25}&10&20\\
+ H(P)\pmod {25}&5&10
+\end{array}
+\]
+We justify the last row with an error bound for the entire omitted
+sigma series. The exact ninefold coordinates are nonsingular at both
+bad primes 2 and 3: if a prime divides the denominator the point
+reduces to the origin; otherwise at least one of
+\(2y\), \(3x^2+a\) is nonzero in the residue field. These alternatives
+are checked by integer arithmetic in the certificate below.
+The formal parameter \(t\) at five has valuation one, as proved in
+the preceding closure calculation. The normalized sigma function is
+odd and belongs to \(t\mathbb Z_5[[t]]\), by
+\cite[Theorem~1.3]{MazurSteinTateHeight}. Therefore
+\[
+ \frac{\sigma(t)}t\in1+t^2\mathbb Z_5[[t]],\qquad
+ \log_5\frac{\sigma(t)}t\in25\mathbb Z_5.
+\]
+Since \(t/d=-A_0/B_0\), formula \eqref{ht-sigma-height} gives
+\[
+ H(P)\equiv-\frac2{81}\log_5(-A_0/B_0)\pmod {25}.
+\]
+For any unit \(q\in\mathbb Z_5^\times\),
+\(\log_5(q)\equiv(q^4-1)/4\pmod {25}\): write \(q^4=1+5k\)
+and bound every subsequent logarithm term in \(25\mathbb Z_5\).
+This evaluates all entries using modular inverses. The same argument
+applies to \(P'\).
+
+Finally \(b=-\log_E(P)^2\) has valuation two, both slopes are
+integral, and \(u=2\) is a unit. Equations
+\eqref{ht-raw-transform}--\eqref{ht-recovered-scalar} imply
+\[
+ A-s_FB-H_E(P)\equiv(1/2-1)H_E(P)\pmod {25}.
+\]
+The residues are 10 and 20, respectively. Each is a nonzero multiple
+of five modulo 25, proving the exact valuation. No comparison between
+two numerical truncations is used for this conclusion.
+\end{proof}
+
+\paragraph{Reproducible evidence and remaining scope.}
+The standard-library script
+\texttt{replay\_height\_\allowbreak transport.py --check}
+first performs an independent binary elliptic addition, the exact
+modulo-25 proof, and rational inverse-matrix checks. It then checks
+the source-predicted relations with explicit PARI five-adic balls at
+precisions 12 and 24. In each run every relation must vanish to the
+common declared absolute precision; mere agreement of the two runs
+is not the proof of Theorem~\ref{ht-mod25}. The canonical certificate
+has SHA256
+\texttt{70ec75594f205336\allowbreak 757496605750b130\allowbreak
+2e5f3b271afd6acf\allowbreak 5b12275a36c9de05}.
+The high-precision sigma and Frobenius routines remain trusted PARI
+computations. The exact algebra, scalar transport and leading-digit
+error proof are the ordinary mathematical arguments given above.
+No new Lean verification of height theory is claimed.
+
+The official source archive used for this analysis has SHA256
+\texttt{c3545bfee0c6dfb4\allowbreak 0b77fb4bbabaf999\allowbreak
+d82e60069b9f6d28\allowbreak bcb6cf004c8c5c0f}.
+Local copies of the relevant C files and function documentation were
+inspected during the audit. They can be recovered from the pinned
+versioned archive; those copies are not distributed with this publication.
+No installed library was patched.
+The result supplies the global height coefficients in the prospective
+quadratic Chabauty expression. Local-height value sets, compatible
+local integrals and chart constants require their own proofs;
+certification of every analytic zero and the rational sieve remain
+further tasks. Neither a Jacobian rank calculation nor a complete
+rational-point classification is asserted here.

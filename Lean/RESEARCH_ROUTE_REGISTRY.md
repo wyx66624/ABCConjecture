@@ -1,5 +1,26 @@
 # Research route registry
 
+## Collective content, affine compensation and local heights
+
+September 7, 2026. Retire only two specific collective shortcuts: CD proves
+that the common-complement map returns the original primitive boundary, and
+CP proves the stated macroscopic interval aggregate cannot furnish a small
+compression residual. LM supplies a positive fixed-data affine output theorem,
+but its transfer to the original power family and its moving-packet uniformity
+remain open. Preserve other additive, nonlinear and richer-output routes.
+
+The geometry line now has the full fixed-curve away-from-five value set
+Omega={-(4/3)log_5(3)}, after actual model normalization and two independent
+ordinary/source reviews. Complete five-adic zeros, rational sieve, same-source
+tests and all varying-exponent/residual obligations remain open. LP's actual
+large-prime example refutes only Gamma=0 and Gamma<=D; no infinite prime-value
+family has been proved, so the parent uniform certificate gate stays active.
+
+The fresh formal scope is 40 new and 55 unchanged declarations with all 95
+axiom queries; eight finite records are separate evidence. None supplies a
+proof or disproof of ABC. Current source and continuation:
+`../research/checkpoints/2026_09_07_collective_content_closure/README.md`.
+
 ## Sixteenth continuation: joint packets and quotient Jacobians
 
 September 7, 2026. The reviewed ordinary JP theorem combines prime precisions

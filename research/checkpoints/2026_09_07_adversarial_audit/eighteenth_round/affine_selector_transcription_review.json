@@ -1,0 +1,21 @@
+{
+  "status": "PASS: full final TeX transcription after two resolved corrections",
+  "source": "research/checkpoints/2026_09_07_critical_bottleneck/eighteenth_round/paper/affine_owner_selectors.tex",
+  "sha256": "52e3ea1c36aef356be026ae2ed5f135181fa02346e1d2bdc301d4ee11050bfc8",
+  "resolved": [
+    "Corrected w_{k+j}^{,n} to w_{k+j}^{n}",
+    "Made n,B positive integers explicit in the isolated power-height specialization"
+  ],
+  "checks": [
+    "Literal finite-difference kernel in actual block",
+    "CRT exact selected depths and gcd-content divisibility",
+    "Post-content Gram height bound",
+    "Fixed-data freezing of all exceptional content and depths",
+    "All-prime squarefree tail O(X/Y)+O(sqrt(X)) and exact density product",
+    "Complete signed credit including low depths",
+    "Primitive-power proof from reduced algebra outside 3 and norm unit at 3",
+    "Depth-4/5 actual example and explicit separation from original US domain"
+  ],
+  "scope": "Ordinary transcription and full finite script review; no new compilation, infinite-sieve sampling claim or original far-tail membership claim",
+  "layout_followup": "Exact reverse-edit byte check restores fully reviewed prior source: LP section label namespace only; LM script allowbreak only."
+}

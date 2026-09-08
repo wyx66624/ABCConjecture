@@ -1,0 +1,247 @@
+\section{Exact five-adic closure for the first genus-two quotient}
+\label{sec-padic-closure}
+
+This section proves the local closure and saturation input for the
+fixed curve \(H=H_1\). It does not determine all rational points or a
+global Mordell--Weil basis. Use the previously established curves
+\[
+ E:y^2=x^3-9x-9,\quad P=(-2,1),\qquad
+ E':y^2=x^3-189x+999,\quad P'=(6,9),
+\]
+and
+\[
+ H:y^2=s^6+3s^5-3s^4-11s^3-3s^2+3s+1.
+\]
+Write \(J=\operatorname{Jac}(H)\). The two degree-two morphisms
+\(\pi_1:H\to E\), \(\pi_2:H\to E'\) from the earlier explicit
+quotient construction induce
+\[
+ \Phi=(\pi_{1*},\pi_{2*}):J\longrightarrow E\times E',\qquad
+ \Psi=\pi_1^*+\pi_2^*:E\times E'\longrightarrow J.
+\]
+The reviewed norm--pullback identities give \(\Psi\Phi=[2]\).
+Both maps are isogenies, and hence \(\Phi\Psi=[2]\) as well:
+compose the first identity with \(\Phi\) and use its geometric
+surjectivity. All maps and identities are defined over \(\mathbb Q\).
+The ordinary descent has proved
+\(\operatorname{rank}E(\mathbb Q)=\operatorname{rank}E'(\mathbb Q)=1\),
+\(\operatorname{rank}J(\mathbb Q)=2\), and \(E(\mathbb Q)[3]=0\).
+
+\begin{lemma}[The formal logarithm at five]\label{ql-formal-log}
+For an integral Weierstrass model smooth at five, let \(E_1(\mathbb Q_5)\)
+be the kernel of reduction and put \(t=-x/y\). Its formal logarithm is
+a topological group isomorphism
+\[
+ \log_E:E_1(\mathbb Q_5)\xrightarrow{\sim}5\mathbb Z_5,
+ \qquad \log_E(Q)\equiv t(Q)\pmod {25}.
+\]
+\end{lemma}
+\begin{proof}
+The integral formal group and the identification of its parameters with
+the reduction kernel are the usual Weierstrass constructions
+(\cite{MilneEC2Descent}, II.2.7 and II.4.4). Its invariant differential is
+\((1+\sum_{m\geq1}b_mt^m)\,dt\), with \(b_m\in\mathbb Z_5\).
+Termwise integration gives
+\[
+ L(t)=t+\sum_{m\geq1}\frac{b_m}{m+1}t^{m+1}.
+\]
+For \(n\geq2\), \(n-v_5(n)\geq2\). Thus \(L(t)-t\in25\mathbb Z_5\)
+on \(5\mathbb Z_5\). The difference of the degree-\(n\) term at
+\(t,u\in5\mathbb Z_5\) has valuation at least
+\[
+ v_5(t-u)+(n-1)-v_5(n)\geq v_5(t-u)+1.
+\]
+Consequently \(L(t)-t\) is a strict contraction. Successive
+approximation proves that \(L\) is a bijective isometry of
+\(5\mathbb Z_5\). Invariance of the differential, followed by
+differentiation and evaluation at zero, gives
+\(L(F(t,u))=L(t)+L(u)\). This proves the topology and group assertions.
+\end{proof}
+
+\begin{theorem}[Two dense cyclic local groups]\label{ql-elliptic-density}
+Both elliptic curves have good ordinary reduction at five, and
+\[
+ \overline{\mathbb ZP}=E(\mathbb Q_5),\qquad
+ \overline{\mathbb ZP'}=E'(\mathbb Q_5).
+\]
+\end{theorem}
+\begin{proof}
+Their discriminants are \(11664\) and \(944784\), both units at five.
+Complete finite enumeration gives nine points on each reduced curve;
+the reductions of \(P,P'\) each have order nine. Their exact multiples
+are as follows, with the two coordinates displayed separately:
+\begin{align*}
+ x(9P)&=-\frac{1625193766960369990795405419794}
+                   {1135192428045421857524125001025},\\
+ y(9P)&=\frac{1179179153363180072193201096933126009785708521}
+                  {1209495420803976369128841727712564695256198625},\\
+ x(9P')&=\frac{31544182486}{4119714225},\qquad
+ y(9P')=-\frac{229868810028359}{264423857531625}.
+\end{align*}
+In both cases \(v_5(x)=-2\), \(v_5(y)=-3\), and exact rational
+arithmetic gives
+\begin{equation}\label{ql-ninefold-units}
+ \frac{t(9P)}5\equiv1\pmod5,\qquad
+ \frac{t(9P')}5\equiv3\pmod5.
+\end{equation}
+The points lie in the respective reduction kernels. By
+Lemma~\ref{ql-formal-log}, their logarithms are five times units.
+Integer multiples of either logarithm are dense in \(5\mathbb Z_5\),
+so the multiples of \(9P\), respectively \(9P'\), are dense in those
+kernels. The multiples of \(P,P'\) already fill all nine reduction
+cosets, proving the asserted density. The common Frobenius trace is
+\(6-9=-3\), so the good reduction is ordinary.
+\end{proof}
+
+\begin{corollary}[Finite index and five-saturation]\label{ql-elliptic-saturation}
+Both rational elliptic groups are torsion-free. The displayed cyclic
+subgroups have finite index, and both indices are prime to five.
+\end{corollary}
+\begin{proof}
+The local reduction kernels are torsion-free by
+Lemma~\ref{ql-formal-log}; hence any finite local subgroup injects into
+the reduction group of order nine. The already proved
+\(E(\mathbb Q)[3]=0\) excludes rational torsion on \(E\).
+The ordinary descent's bijective rational homomorphism
+\(\psi:E'(\mathbb Q)\to E(\mathbb Q)\) gives the same result for \(E'\).
+The rank-one Mordell--Weil theorem gives finite index.
+
+Neither displayed point is divisible by five even locally. If \(P=5R\),
+then \(5\operatorname{red}(9R)=0\) in a group of order nine, so
+\(9R\in E_1\). This would give
+\(\log_E(9P)=5\log_E(9R)\in25\mathbb Z_5\), contradicting
+\eqref{ql-ninefold-units}. The proof for \(P'\) is identical.
+In a torsion-free rank-one group, an index divisible by five would
+make the corresponding point divisible by five. This proves the claim.
+It does not determine either index at all other primes.
+\end{proof}
+
+\begin{theorem}[An explicit dense divisor lattice]\label{ql-jacobian-density}
+Let \(\infty_+,\infty_-\) be the two rational points of \(H\) with
+\(y/s^3\) tending to \(+1,-1\), respectively. Set
+\[
+ A=(0,1),\qquad D_1=[A-\infty_+],\qquad
+ D_2=[\infty_--\infty_+]\in J(\mathbb Q).
+\]
+Then
+\begin{equation}\label{ql-divisor-images}
+ \Phi(D_1)=(0,2P'),\qquad \Phi(D_2)=(-2P,2P'),\qquad
+ \overline{\mathbb ZD_1+\mathbb ZD_2}=J(\mathbb Q_5).
+\end{equation}
+The rational group \(J(\mathbb Q)\) is torsion-free, and this lattice
+has finite index prime to five in \(J(\mathbb Q)\).
+\end{theorem}
+\begin{proof}
+The exact projective quotient formulas give all six images
+\[
+\begin{array}{c|ccc}
+ &A&\infty_+&\infty_-\\ \hline
+ \pi_1&P&P&-P\\
+ \pi_2&P'&-P'&P'
+\end{array}
+\]
+including the leading-term limits at infinity. They prove the first
+two identities in \eqref{ql-divisor-images}. In the rational bases
+\(P,P'\) their columns are \(\left(\begin{smallmatrix}0&-2\\2&2\end{smallmatrix}\right)\),
+with determinant four.
+
+The earlier smooth-model proof gives good reduction of \(H\) and \(J\)
+at five. Moreover \(\#J(\mathbb F_5)=81\), either from the isogeny
+and good-reduction Frobenius polynomial or from the full counts
+\(\#H(\mathbb F_5)=12\), \(\#H(\mathbb F_{25})=28\). The latter give
+trace \(-6\), middle coefficient \(19\), and
+\(1+6+19+30+25=81\).
+Multiplication by two is bijective on the formal kernel of \(J\),
+since its linear coefficient is a unit, and on its finite reduction
+group of odd order. Hence it is bijective on \(J(\mathbb Q_5)\),
+which in particular has no two-torsion. The same argument applies to
+the elliptic local groups.
+
+It follows from \(\Psi\Phi=\Phi\Psi=[2]\) that
+\(\Phi:J(\mathbb Q_5)\to E(\mathbb Q_5)\times E'(\mathbb Q_5)\)
+is a topological isomorphism. Its kernel is killed by two and its
+image contains twice every point of the target. Continuity of the
+inverse follows from compactness and the Hausdorff property.
+Now \(\Phi(D_1)=(0,2P')\) and
+\(\Phi(D_2-D_1)=(-2P,0)\). Their generated image is exactly
+\(2\mathbb ZP\times2\mathbb ZP'\), dense by
+Theorem~\ref{ql-elliptic-density} and invertibility of doubling.
+This uses the two coordinate axes separately; it does not apply a
+cross-coordinate integer matrix to two different elliptic groups.
+
+The two classes are independent by their images and hence have finite
+index, since \(\operatorname{rank}J(\mathbb Q)=2\).
+Any rational torsion maps to zero in the torsion-free elliptic groups
+and lies in the two-torsion kernel of \(\Phi\); it is therefore zero.
+If \(5D=mD_1+nD_2\) with \(D\in J(\mathbb Q)\), apply \(\Phi\)
+and Corollary~\ref{ql-elliptic-saturation} to obtain
+\(5\mid n\) and \(5\mid(m+n)\), hence \(5\mid m\).
+Subtract the corresponding integral combination from \(D\).
+The result is five-torsion and is zero. Thus the lattice is
+five-saturated, equivalently its finite index is prime to five.
+\end{proof}
+
+There is also an actual logarithm determinant certificate. Extend the
+elliptic logarithm by \(\log_E(Q)=\log_E(9Q)/9\), and similarly for
+\(E'\). Equation~\eqref{ql-ninefold-units} gives
+\(\log_E(P)/5\equiv4\), \(\log_{E'}(P')/5\equiv2\pmod5\).
+In product differential coordinates, the logarithm columns of
+\(D_1,D_2\), divided by five, are therefore
+\[
+ \begin{pmatrix}0&2\\4&4\end{pmatrix}\pmod5,
+ \qquad \det\equiv2\pmod5.
+\]
+Their determinant has valuation exactly two in these coordinates;
+no conjectural regulator enters the argument.
+
+\paragraph{The available height formula and what remains.}
+The earlier QH theorem proves that \(H(\mathbb Q_5)_2\) is finite.
+The additional hypotheses of \cite{BalakrishnanDograQCI},
+Theorem~1.2(ii), now hold as well: rank equals genus two, the rational
+Neron--Severi rank is at least three, and the rational group has
+finite-index closure in \(J(\mathbb Q_5)\), in fact index one.
+The rational basepoint and good ordinary reduction at five have also
+been verified. Once the correspondence and local-height data are
+specified, that theorem supplies an explicit height expression whose
+finite level set contains the quadratic Chabauty locus on its stated
+open chart. The excluded finite correspondence-support set must be
+handled separately. No such set has yet been completely computed here.
+
+For either rank-one elliptic group, a fixed quadratic \(5\)-adic
+height \(h\) satisfies
+\[
+ h(Q)=\alpha\log_E(Q)^2\quad(Q\in E(\mathbb Q)),\qquad
+ \alpha=\frac{h(P)}{\log_E(P)^2}.
+\]
+Indeed write \(P=mG,Q=nG\) in the torsion-free rank-one group and use
+quadraticity and additivity. Thus a nonzero infinite-order point
+suffices to compute the ratio; proving that \(P\) is a global
+generator is unnecessary for this step. A later Mordell--Weil sieve
+still needs its own appropriate saturation information.
+
+The unresolved computation is to certify the height normalization
+between minimal elliptic models and the chosen even-sextic chart,
+determine the bad-prime local-height value sets, construct analytic
+expressions in all necessary five-adic charts, and certify every zero
+and its multiplicity before a rational sieve. In particular neither
+bounded saturation nor agreement of two precision runs gives a
+complete rational-point set. The separate numerical normalization
+probe is not part of the proof above. Finally, lifting from \(H\) to
+\(D_{3,\zeta}\) requires the second square at the same source and the
+positive real conditions. Even a complete fixed-curve classification
+does not settle varying exponents, nonunit residuals, integral content,
+or the uniform point-height problem.
+
+\paragraph{Exact evidence and formal scope.}
+The standard-library replay
+\texttt{replay\_padic\_\allowbreak entry.py --check}
+recomputes both complete elliptic tables modulo five, exact ninefold
+coordinates, valuation and unit tests, a full \(\mathbb F_{25}\)
+hyperelliptic count, and the integer matrix arithmetic. Its canonical
+certificate has SHA256
+\texttt{2bc0673769cc10ab\allowbreak ba959725e1683676\allowbreak
+d162918afa7fbf89\allowbreak a463f664c9b24696}.
+These are finite arithmetic checks. The formal logarithm, topological
+closure, Jacobian functoriality and quadratic Chabauty input remain the
+complete ordinary proofs and explicitly cited standard results; this
+section makes no new Lean claim for those theories.

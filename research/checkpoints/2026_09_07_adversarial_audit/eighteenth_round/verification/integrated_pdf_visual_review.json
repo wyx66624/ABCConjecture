@@ -1,0 +1,116 @@
+{
+  "reviewer": "adversarial_audit",
+  "method": "Actual view_image inspection of every listed final PNG, not PDF text extraction",
+  "pdf": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round17pdf\\ChatGPT_ABC_Uniformity_2026.pdf",
+  "pdf_sha256": "e713f1761293c12bd8cd46e83d9f4c31c1250c9a8c1e38268317453ad381c55a",
+  "actual_pdf_hash_checked": true,
+  "pdf_pages": 568,
+  "reviewed_pages": [
+    559,
+    560,
+    561,
+    562,
+    563,
+    564,
+    565,
+    566,
+    567,
+    568
+  ],
+  "actual_review_pages": [
+    559,
+    560,
+    561,
+    562,
+    563,
+    564,
+    565,
+    566,
+    567,
+    568
+  ],
+  "status": "PASS",
+  "pages": [
+    {
+      "page": 559,
+      "raster": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round17pdf\\view-559.png",
+      "sha256": "0b09f6c84fe147f4a14d0a18eca48be31b69aa35f3a60b2cb917d8fc9579a7af",
+      "status": "PASS",
+      "actual_view_image": true,
+      "findings": "DP residue exponents including the odd 2r+1 factor, fixed-k infinite-family proof and ordinary/finite scope are legible; no clipped display or footer."
+    },
+    {
+      "page": 560,
+      "raster": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round17pdf\\view-560.png",
+      "sha256": "814c1855a4ab8c1689a2fcd38188b4ffdf3aa8cc352bb48fbf95ca31d579162d",
+      "status": "PASS",
+      "actual_view_image": true,
+      "findings": "LP setup, exact full-divisor gap theorem and large integer endpoint values are clearly aligned with visible theorem/page numbers."
+    },
+    {
+      "page": 561,
+      "raster": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round17pdf\\view-561.png",
+      "sha256": "6b303278a9febebc0a9285f3d13ca22ce9e97dc2c0961a9dcc8e50185ac5bd89",
+      "status": "PASS",
+      "actual_view_image": true,
+      "findings": "Strict integer comparison, scalar-control counterexample and conditional-infinite-family statement are legible; proof continues normally to page 562."
+    },
+    {
+      "page": 562,
+      "raster": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round17pdf\\view-562.png",
+      "sha256": "453348de29018d1d51327dd7d6924ceab81dcba14c7ffef271cb9a46e53a64b7",
+      "status": "PASS",
+      "actual_view_image": true,
+      "findings": "Conditional proof concludes clearly; recursive Lucas argument and certificate hash are legible; transition to the 40/55/95 formal scope fits without overlap."
+    },
+    {
+      "page": 563,
+      "raster": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round17pdf\\view-563.png",
+      "sha256": "97c6023cb361351dfd6e8d0332130cc2afc968b58880c47a35a039d72ed458db",
+      "status": "PASS",
+      "actual_view_image": true,
+      "findings": "Formal scope shows T>0, exact prime-profile premises and eight replay limits; references begin with adequate spacing, no overlap."
+    },
+    {
+      "page": 564,
+      "raster": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round17pdf\\view-564.png",
+      "sha256": "e5cacfa139c59c9ea076c4bf84a084e14eeb549362d3164f768ca864b0946164",
+      "status": "PASS",
+      "actual_view_image": true,
+      "findings": "Bibliography items 8-42, formulas, citations and wrapped links fit margins; no clipping or broken glyphs."
+    },
+    {
+      "page": 565,
+      "raster": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round17pdf\\view-565.png",
+      "sha256": "ef33b0b3c881c62682d1d4f9fa0a62b6e30d1f9db7414db13d52a660a962b230",
+      "status": "PASS",
+      "actual_view_image": true,
+      "findings": "Bibliography items 43-74 and long source descriptions wrap cleanly within margins."
+    },
+    {
+      "page": 566,
+      "raster": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round17pdf\\view-566.png",
+      "sha256": "8b6b69a145862716a98336696f151c436e5d7b8512df37a1c0d1d64d4a24479b",
+      "status": "PASS",
+      "actual_view_image": true,
+      "findings": "Bibliography items 75-105, repository names and toolchain URLs are legible with proper wrapping."
+    },
+    {
+      "page": 567,
+      "raster": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round17pdf\\view-567.png",
+      "sha256": "cbb1c946a449e78ed9a2011a9d3956e5c58a6e3ce1964c81c14ee9d2d8eb026e",
+      "status": "PASS",
+      "actual_view_image": true,
+      "findings": "Bibliography items 106-132, long formal-source paths and Cremona source link fit without clipping."
+    },
+    {
+      "page": 568,
+      "raster": "E:\\agent\\ABCConjecture\\tmp\\abc_20260907\\round17pdf\\view-568.png",
+      "sha256": "abfdc4a2995edef55249608766b83ef894c0f9d2f19cfea87353f0be9dc008e1",
+      "status": "PASS",
+      "actual_view_image": true,
+      "findings": "Final bibliography items 133-147, the new BD/MST/PARI entries and URL wraps are legible; final whitespace and page number are normal."
+    }
+  ],
+  "scope": "Only pages 559-568 were actually viewed for this record. No all-page visual claim. No source or PDF edits performed."
+}

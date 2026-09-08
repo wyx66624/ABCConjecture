@@ -1,0 +1,35 @@
+{
+  "ht_ordinary": {
+    "sha256": "3acc2d7e711f931588c19e52e3813f3af38ad1c6b9e535c7bc5e785d4820a93c",
+    "status": "two-peer full ordinary, primary, source and replay PASS; archive-description wording subsequently rebound"
+  },
+  "ht_tex": {
+    "sha256": "6be950a2e4b3f74c24500bfd3f741a83bb00627c57d260de25e2e3a31d5e4d72",
+    "status": "two-peer full transcription PASS including archive scope; final two path allowbreaks are layout only"
+  },
+  "lh_ordinary": {
+    "sha256": "05572c7e4740badfe093aad999f719fcbca892bda8a47252feb6173df6cad22a",
+    "status": "two-peer full ordinary and primary PASS"
+  },
+  "lh_tex": {
+    "sha256": "2a1dba0357ff6dbe7c1dd1e678fb5e19e891ee37cc81f86d86835fbb2802fcba",
+    "status": "two-peer full final transcription PASS"
+  },
+  "pdf_visual_review": {
+    "actual_review_pages": [
+      549,
+      550,
+      551,
+      552,
+      553,
+      554,
+      555,
+      556,
+      557,
+      558
+    ],
+    "pdf_sha256": "e713f1761293c12bd8cd46e83d9f4c31c1250c9a8c1e38268317453ad381c55a",
+    "status": "PASS for ten actually viewed pages only"
+  },
+  "scope": "ordinary plus explicitly bounded exact/source replay; no Lean or PDF QA claim"
+}

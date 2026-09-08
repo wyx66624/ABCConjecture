@@ -1,0 +1,21 @@
+{
+  "status": "PASS: full source review and current evidence hash binding; no new compilation or download",
+  "paths_sha256": {
+    "research/checkpoints/2026_09_07_collective_content_closure/paper/formal_scope.tex": "73885fec667a8f79c67aa28876e3dcb37e8a43b908e356f949f4f1f563e91593",
+    ".github/workflows/abc-collective-content-closure.yml": "57c20e660d9819622bf7293463028bd1c12fe121f9dc9b2ed9714ac26fe62e41",
+    "research/checkpoints/2026_09_07_collective_content_closure/verify_mathlib.py": "e9107a6a67ad9c469170a621a9fde902228e49bca50eb0ba53105f179487ed49",
+    "research/checkpoints/2026_09_07_collective_content_closure/verify_finite.py": "4c4cb191f2d2c61f0b7657e39ab1eb745895f3ed45df3cebd758b463768f428a",
+    "research/checkpoints/2026_09_07_collective_content_closure/verify_height_exact.py": "c3dedce60b96cb4b6f684eef67da9543eb488b3667de6a8eb60640e1202d1a22",
+    "research/checkpoints/2026_09_07_collective_content_closure/initialize_ci_evidence.py": "b24a0006cae36f7ac8f4cf07029bcab992a70edf44571a97a90f0f6d2861b7bf",
+    "research/checkpoints/2026_09_07_collective_content_closure/verify_ci_failure_paths.py": "e9de1a7d49e1d79e269050f602c994d63463fab580dcd8c9e8344e49d5d60d14",
+    "research/checkpoints/2026_09_07_collective_content_closure/prepare_mathlib_project.py": "0b34cea4bb6885a7d18d97a1541ec1fd991fe44e320ed8b0b1c9d3625c00a1d8",
+    "research/checkpoints/2026_09_07_collective_content_closure/verification/ci_negative_path_validation.json": "2b09e160951250c9e1928dd9912f4fd8b3c6707b5ec34f82eaacb03409781a29",
+    "research/checkpoints/2026_09_07_collective_content_closure/verification/finite_replay_validation.json": "2c73d83b80a4bd7c3e09b2e7c1a8da04d934047d0df1f13884d3db1e6153bdb1"
+  },
+  "negative_cases_checked_in_source_and_record": 3,
+  "finite_replay_records_bound": 8,
+  "fresh_theorem_scope": "40 new + 55 prior, 95 axiom queries; separate root_content_formal_review.json",
+  "cache_closure_note": "The additional direct Finset.Basic import is included by Fintype.BigOperators -> Finset.Piecewise -> Finset.Basic.",
+  "HT_CI_scope": "exact leading digits and arithmetic of pinned recorded balls; does not recompute PARI heights",
+  "LM_scope": "Full source read and all current source/certificate hashes checked; exact 10 selectors, 256 progression rows, 162 prime rows, 6 kernels. No independent rerun of LM or aggregate in this review."
+}

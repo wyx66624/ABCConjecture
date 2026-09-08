@@ -1,0 +1,197 @@
+\section{Scalar-optimal actual radical partitions without reusable flags}
+\label{dp-section}
+
+This section gives an arithmetic subclass of the unchanged FCRT problem.
+It neither bounds the scalar ABC defect from above nor constructs an ABC
+counterexample. All divisors below are divisors of actual integer radicals.
+
+For the primitive endpoint \((1,c-1,c)\), with
+\(c=2^e3^f\) and integers \(e,f\ge2\), put
+\[
+ M=2^e,\quad N=3^f,\quad A=M/2,\quad B=N/3,
+ \quad Q=\operatorname{rad}(c-1).
+\]
+The previously established exact optimization on the stratum
+\[
+ \max(M,N)<2\min(M,N)-1,\qquad AB>Q
+\]
+is
+\begin{gather}
+ B_{\rm FCRT}=B_{\rm SCRT}=B_{\rm PBT}
+ =D+\min_{H\mid Q}\operatorname{dist}
+       \bigl(\log H,[\log(Q/B),\log A]\bigr),\label{dp-exact}\\
+ D=\log(AB/Q)=\log\!\left(\frac{c}{\operatorname{rad}(c(c-1))}\right)>0.
+ \label{dp-defect}
+\end{gather}
+Here no nonempty proper compatible face exists at either source, and
+every sink prime is assigned with its entire power in the endpoint.
+We recall the two inherited facts needed for this reduction.
+
+If \(p^e\Vert c\), \(m=p^e\), and \(c-1=du\) with \(d,u>1\)
+and \(u\equiv-1\pmod m\), then \(c\ge m(2m-1)\).
+Indeed, write \(c=mC\), \(d=mt+1\), \(u=ms-1\) with positive
+integers \(s,t\). Exactness of \(p^e\Vert c\) excludes \(C=m\).
+Expansion gives \(C+t=s(mt+1)\). If \(s=t=1\) then \(C=m\),
+excluded; otherwise \(C\ge2m-1\). The balance condition above
+therefore excludes every proper compatible packet for both exact source
+moduli. Every compatible block must use the full sink set; a block with
+both sources is unsaturated, and a singleton block cannot improve on
+giving all sinks to that source. Thus the full optimization is
+\[
+ \log\min_{H\mid Q}\max(A/H,1)\max(BH/Q,1).
+\]
+Splitting into the three positions of \(\log H\) relative to the stated
+interval proves \eqref{dp-exact}. These are the ordinary no-face and
+optimization results used here; no uncompiled draft is reclassified as
+a Lean proof.
+
+\begin{theorem}[A complete two-factor partition]\label{dp-partition}
+Let \(u,v\ge1\) and \(k\ge2\) be integers, set \(x=2^u3^v\),
+\(e=2u\), \(f=2v\), and suppose
+\begin{equation}\label{dp-hypotheses}
+ x>6,\qquad \frac34\le\rho:=\frac{2^u}{3^v}\le\frac43,
+ \qquad 7^k\mid x-1,\quad 5^k\mid x+1.
+\end{equation}
+Then the hypotheses of \eqref{dp-exact} hold, all proper flags are absent,
+and the actual coprime radicals
+\[
+ H=\operatorname{rad}(x-1),\qquad
+ J=\operatorname{rad}(x+1),\qquad Q=HJ
+\]
+satisfy \(H\le A\) and \(J\le B\). Consequently
+\begin{equation}\label{dp-scalar-optimum}
+ B_{\rm FCRT}=D>(k-1)\log35-\log6.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Since \(x\) is even, \(x-1,x+1\) are odd and coprime. Their radicals
+therefore multiply to exactly \(Q=\operatorname{rad}(x^2-1)\).
+For any positive integer \(m\) with \(p^k\mid m\),
+\(\operatorname{rad}(m)\le m/p^{k-1}\), regardless of all other
+prime powers. Hence
+\[
+ H\le\frac{x-1}{7^{k-1}}<\frac{x}{7},\qquad
+ J\le\frac{x+1}{5^{k-1}}\le\frac{x+1}{5}\le\frac{x}{4}.
+\]
+The last inequality uses \(x\ge4\). Meanwhile
+\[
+ A=\frac{x\rho}{2}\ge\frac{3x}{8},\qquad
+ B=\frac{x}{3\rho}\ge\frac{x}{4}.
+\]
+Thus \(Q/B\le H\le A\). The first packet uses all prime powers of
+\(x-1\), and the second all prime powers of \(x+1\). They are disjoint
+and exhaust every sink, with no duplicated credit or putative subface.
+
+For the no-flag hypothesis, \(M=x\rho\), \(N=x/\rho\),
+\(\max(M,N)/\min(M,N)\le16/9\), and \(\min(M,N)\ge3x/4\).
+Therefore
+\[
+ 2\min(M,N)-\max(M,N)
+ \ge\frac29\min(M,N)\ge\frac{x}{6}>1.
+\]
+The powers \(M,N\) are exact full prime powers in \(c\), so the
+no-face result applies. Moreover
+\[
+ Q\le\frac{x^2-1}{35^{k-1}}<\frac{x^2}{6}=AB.
+\]
+The exhibited divisor makes the distance in \eqref{dp-exact} zero, while
+\[
+ \frac{AB}{Q}\ge
+ \frac{35^{k-1}x^2}{6(x^2-1)}>\frac{35^{k-1}}6.
+\]
+Taking logarithms proves \eqref{dp-scalar-optimum}. No factorization
+of the remaining parts of \(x-1\) or \(x+1\) was required.
+\end{proof}
+
+\begin{lemma}[Simultaneous actual residues]\label{dp-residues}
+For every integer \(k\ge2\), put \(L=12\cdot35^{k-1}\).
+For integers \(r\ge0\), \(s\ge1\), define
+\begin{equation}\label{dp-exponents}
+ u=Lr+L/2=6\cdot35^{k-1}(2r+1),\qquad v=Ls.
+\end{equation}
+Then \(x=2^u3^v\) satisfies \(7^k\mid x-1\) and \(5^k\mid x+1\).
+\end{lemma}
+\begin{proof}
+The binomial induction
+\(z\equiv1\pmod p\Rightarrow z^{p^{k-1}}\equiv1\pmod{p^k}\)
+gives
+\[
+ 2^{3\cdot7^{k-1}}\equiv1\pmod{7^k},\qquad
+ 2^{2\cdot5^{k-1}}\equiv-1\pmod{5^k}.
+\]
+For the second congruence apply it to \(-4\equiv1\pmod5\) and use
+that \(5^{k-1}\) is odd. The exponent \(u\) is a multiple of
+\(3\cdot7^{k-1}\), while
+\[
+ \frac{u}{2\cdot5^{k-1}}=3\cdot7^{k-1}(2r+1)
+\]
+is odd. Thus \(2^u\) has the required signs at both moduli.
+The same induction applied to \(3^6\equiv1\pmod7\) and
+\(3^4\equiv1\pmod5\), together with the respective divisibilities
+\(6\cdot7^{k-1}\mid v\) and \(4\cdot5^{k-1}\mid v\), gives
+\(3^v\equiv1\) at both moduli. Multiplication finishes the proof.
+\end{proof}
+
+\begin{theorem}[Infinitely many scalar-optimal no-flag endpoints]
+\label{dp-infinite}
+For every fixed integer \(k\ge2\), infinitely many pairs \(r,s\) in
+\eqref{dp-exponents} satisfy \eqref{dp-hypotheses}; they may be chosen
+with \(\rho\to1\) and \(x\to\infty\). Across these fixed-\(k\)
+families, the absolute scalar defect \(D\) is unbounded, while the
+radical partition penalty in \eqref{dp-exact} is identically zero.
+\end{theorem}
+\begin{proof}
+Let \(\alpha=\log3/\log2\), irrational by unique factorization.
+Pigeonhole approximation gives positive integers \(q_j\) and integers
+\(a_j\) with \(\beta_j=|q_j\alpha-a_j|>0\) tending to zero.
+Choose a positive integer \(h_j\) nearest to \(1/(2\beta_j)\).
+Then \(h_j\beta_j\to1/2\). For \(s_j=h_jq_j\), the fractional
+part of \(\alpha s_j\) tends to \(1/2\), whether the approximation
+error has positive or negative sign. Also \(s_j\to\infty\).
+Take \(r_j=\lfloor\alpha s_j\rfloor\), eventually positive. For
+the fixed number \(L=12\cdot35^{k-1}\),
+\[
+ r_j+\tfrac12-\alpha s_j\longrightarrow0,
+ \qquad
+ \log\rho_j=L\log2\,(r_j+\tfrac12-\alpha s_j)\longrightarrow0.
+\]
+Thus the balance conditions and \(x>6\) hold eventually, while
+Lemma~\ref{dp-residues} supplies both divisibilities.
+Theorem~\ref{dp-partition} applies to all those actual inputs.
+
+For any real threshold \(T\), first choose \(k\) so that
+\((k-1)\log35-\log6>T\), and then take arbitrarily large members of
+that fixed-\(k\) family. Their defects exceed \(T\). A diagonal choice
+makes both \(c\) and \(D\) increase without bound. The radical
+partition penalty stays zero throughout.
+\end{proof}
+
+This disproves the particular added claim that absence of proper flags
+and sufficiently large absolute defect force a positive partition penalty.
+It does not disprove FCRT-1 or SCRT-0. In particular, no fixed
+\(\varepsilon>0\) is exhibited for which the ABC excess
+\(\log c-(1+\varepsilon)\log\operatorname{rad}(c(c-1))\)
+is unbounded. Nor is an upper bound for that expression, for \(D\),
+or for the partition penalty on all other endpoints proved here.
+
+The global maximum consecutive divisor gap of \(Q\) can be much less
+relevant than the required central interval. The present proof supplies
+one actual divisor in that interval, without estimating the maximum gap
+over the entire divisor set. All unspecified prime factors remain in
+their full integer packets. The surviving general problem includes both
+the scalar defect and actual central divisor gaps when such witnesses
+are unavailable.
+
+\paragraph{Ordinary and finite verification scope.}
+The complete ordinary argument received independent internal review.
+The standard-library program
+\texttt{replay\_\allowbreak divisor\_\allowbreak partition.py --check}
+checks three actual balanced inputs by exact integer inequalities and
+the prescribed prime-power divisibilities, together with 66 residue-only
+instances for \(k=2,\ldots,12\). The latter are not asserted to be balanced.
+Its canonical certificate SHA-256 is
+\texttt{6b7a363b91b7fad5\allowbreak c570696ed8b5fcd5\allowbreak
+0be50d73607a7d0c\allowbreak 0d829bc1b75c551d}.
+It neither factors the remaining neighbours nor computes their radicals
+or logarithms, and it does not prove the infinite-family theorem.
+No new Lean theorem is claimed in this section.

@@ -1,0 +1,456 @@
+\section{Collective content, primitive norm profiles, and exact complement cancellation}
+\label{sec-cc-collective-profile}
+
+Throughout this section let
+\[
+ \mathcal O=\mathbb Z[\zeta],\qquad \zeta^2-\zeta+1=0,\qquad
+ N(a+b\zeta)=a^2+ab+b^2.
+\]
+For a nonzero \(Z=A+C\zeta\), put
+\[
+ \operatorname{cont}(Z)=\gcd(|A|,|C|)>0,
+ \qquad Z_{\rm prim}=Z/\operatorname{cont}(Z).
+\]
+Fix an integer \(B\ge2\), and define the actual input block
+\[
+ K_B=\{B,\ldots,2B-1\},\qquad w_k=3k+\zeta,
+ \qquad Q_k=N(w_k)=9k^2+3k+1.
+\]
+The results below concern these input norms. They do not identify their
+prime factors with the boundary primes of \(P(w_k^n)\), nor assume that
+the whole block of ratios \(w_k/\bar w_k\) is multiplicatively independent.
+
+\subsection{The exact oriented content and its interval average}
+
+Each \(Q_k\) is odd, is one modulo three, and has only split prime
+factors \(p\equiv1\pmod3\). For each such prime choose the two conjugate
+prime ideals \((\pi_p),(\bar\pi_p)\), and write
+\[
+ d_{k,p}=v_{\pi_p}(w_k)-v_{\bar\pi_p}(w_k).
+\]
+The two valuations cannot both be positive, since the coordinates
+\((3k,1)\) are primitive. Hence \(|d_{k,p}|=v_p(Q_k)\).
+
+\begin{lemma}[CC1: exact signed incidence and content]
+\label{cc-signed-content}
+For arbitrary integers \(x_k\), \(k\in K_B\), define the canonical product
+\[
+ Z_x=\prod_{x_k>0}w_k^{x_k}
+           \prod_{x_k<0}\bar w_k^{-x_k},\qquad
+ U_p(x)=\sum_k|x_k|v_p(Q_k),\qquad
+ D_p(x)=\sum_k x_k d_{k,p}.
+\]
+The empty product is one. Then
+\begin{align*}
+ 2v_p(\operatorname{cont}(Z_x))&=U_p(x)-|D_p(x)|,\\
+ \log N((Z_x)_{\rm prim})&=\sum_p|D_p(x)|\log p.
+\end{align*}
+All sums have finite support.
+\end{lemma}
+\begin{proof}
+Let \(E_p^+,E_p^-\) be the two ideal valuations of \(Z_x\). Their sum
+is \(U_p(x)\), and their difference is \(D_p(x)\). A rational power
+\(p^j\) divides both integer coordinates exactly when it divides both
+conjugate ideal factors, so
+\[
+ v_p(\operatorname{cont}(Z_x))=\min(E_p^+,E_p^-).
+\]
+Now \(2\min(s,t)=s+t-|s-t|\) proves the first identity. Moreover
+\[
+ N(Z_x)=\prod_k Q_k^{|x_k|},\qquad
+ N((Z_x)_{\rm prim})=
+       N(Z_x)/\operatorname{cont}(Z_x)^2.
+\]
+Taking logarithms and using the first identity proves the second.
+Neither the ramified prime three nor an inert prime occurs. The proof
+includes an empty product and individual zero coordinates.
+\end{proof}
+
+\begin{lemma}[CC2: support of collective content]
+\label{cc-content-cutoff}
+For every subset \(J\subseteq K_B\), put \(W_J=\prod_{k\in J}w_k\).
+Every prime dividing \(\operatorname{cont}(W_J)\) is at most \(12B-5\).
+The same bound holds for the canonical signed products in
+Lemma~\ref{cc-signed-content}.
+\end{lemma}
+\begin{proof}
+A content prime occurs with both orientations. Primitivity of each
+root forces occurrences at two distinct indices \(k,l\). If
+\(p>12B-5\), then
+\[
+ p\mid Q_k-Q_l=3(k-l)\bigl(3(k+l)+1\bigr).
+\]
+But \(p>3\), \(0<|k-l|\le B-1<p\), and
+\(0<3(k+l)+1\le12B-5<p\), a contradiction.
+For a canonical signed product a prime above this cutoff can occur
+at only one index and in only its selected orientation, giving the
+same conclusion. Opposite occurrences of the same index must first
+be cancelled: the statement is false for unrestricted products such
+as \(w_k\bar w_k=Q_k\).
+\end{proof}
+
+\begin{theorem}[CC3: uniform interval content]
+\label{cc-interval-content}
+For every interval \(J=\{a,\ldots,a+H-1\}\subseteq K_B\), where
+\(0\le H\le B\) is an integer, as \(B\to\infty\),
+\begin{align*}
+ \log\operatorname{cont}(W_J)
+       &=\frac H2\log B+O(H\log\log B+B),\\
+ \log N((W_J)_{\rm prim})
+       &=H\log B+O(H\log\log B+B).
+\end{align*}
+The constants are absolute and independent of \(a,H\). In particular,
+\begin{align*}
+ \log\operatorname{cont}(W_{K_B})
+       &=(1/2+o(1))B\log B,\\
+ \log N((W_{K_B})_{\rm prim})
+       &=(1+o(1))B\log B,
+\end{align*}
+whereas \(\log N(W_{K_B})=2B\log B+O(B)\).
+\end{theorem}
+\begin{proof}
+The polynomial \(9X^2+3X+1\) has discriminant \(-27\). At each
+split prime \(p\ge7\), its two roots modulo \(p\) are simple and each
+lifts uniquely at every prime power. Label the two towers by the two
+orientations. Since \(9B^2<Q_k<36B^2\), put
+\[
+ h_p=\left\lfloor\frac{\log(36B^2)}{\log p}\right\rfloor .
+\]
+No individual valuation exceeds \(h_p\). For either fixed tower, the
+number of points in an interval of \(H\) consecutive integers belonging
+to its residue class modulo \(p^j\) differs from \(H/p^j\) by at most
+one. Therefore the total oriented valuation satisfies
+\[
+ \left|E_p^\pm(J)-\frac H{p-1}\right|\le h_p+1.
+\]
+Indeed the first \(h_p\) errors sum to at most \(h_p\), and the omitted
+geometric tail is
+\[
+ \frac H{p^{h_p}(p-1)}<1,
+\]
+using \(p^{h_p+1}>36B^2\), \(H\le B\), and \(p\ge7\).
+The minimum of the two valuations obeys the same error bound.
+Lemma~\ref{cc-content-cutoff} then gives
+\begin{align*}
+ \log\operatorname{cont}(W_J)
+ &=H\sum_{\substack{p\le12B\\p\equiv1\ (3)}}
+       \frac{\log p}{p-1}
+   +O\!\left(\sum_{p\le12B}(h_p+1)\log p\right).
+\end{align*}
+The endpoint sum is \(O(B)\): each summand is at most
+\(\log(36B^2)+\log(12B)\), and the elementary Chebyshev bound gives
+\(\pi(12B)=O(B/\log B)\). This estimate includes primes absent from
+\(W_J\); their zero contributions still satisfy the oriented error bound.
+
+The only progression-distribution input is the fixed-modulus estimate
+\[
+ \vartheta(x;3,1)=x/2+O(x/\log x).
+\]
+It follows from Theorem~1.2, equation~(1.12), printed page~5 of
+\href{https://arxiv.org/abs/1802.00085v3}
+{M.~A.~Bennett, G.~Martin, K.~O'Bryant and A.~Rechnitzer,
+\emph{Explicit bounds for primes in arithmetic progressions}}.
+That theorem gives explicit positive constants for each fixed modulus;
+only modulus three is used here. Partial summation yields
+\[
+ \sum_{\substack{p\le x\\p\equiv1\ (3)}}\frac{\log p}{p}
+       =\frac12\log x+O(\log\log x).
+\]
+The difference obtained by replacing \(1/p\) with \(1/(p-1)\) is
+bounded by the convergent series \(\sum_{m\ge2}\log m/(m(m-1))\).
+Substitution proves the first assertion. Finally
+\(\log Q_k=2\log B+O(1)\) uniformly in \(K_B\), and
+\[
+ N(W_J)=\operatorname{cont}(W_J)^2 N((W_J)_{\rm prim})
+\]
+proves the remaining formulas. The asymptotic formulation avoids any
+small-\(B\) convention for \(\log\log B\).
+\end{proof}
+
+\begin{lemma}[CC4: the exact deletion cost]
+\label{cc-deletion}
+If \(K_B=J\sqcup F\), then
+\[
+ \operatorname{cont}(W_{K_B})\mid
+ \operatorname{cont}(W_J)\frac{N(W_F)}{\operatorname{cont}(W_F)}.
+\]
+The right side is an integer. Consequently
+\[
+ \log\operatorname{cont}(W_J)
+ \ge\log\operatorname{cont}(W_{K_B})-\sum_{k\in F}\log Q_k.
+\]
+\end{lemma}
+\begin{proof}
+At a split prime write \((a,b)\) for the valuations of \(W_J\) and
+\((c,d)\) for those of \(W_F\). Then
+\[
+ \min(a+c,b+d)\le\min(a,b)+\max(c,d),
+ \qquad \max(c,d)=c+d-\min(c,d).
+\]
+These are exactly the primewise divisibility inequalities. They also
+show that \(N(W_F)/\operatorname{cont}(W_F)\) is an integer. Taking
+logarithms and discarding the nonnegative \(\log\operatorname{cont}(W_F)\)
+proves the weaker displayed lower bound.
+\end{proof}
+
+Deleting \(o(B)\) arbitrary roots preserves the full-block main term.
+Deleting a fixed positive fraction has a charged cost; this lemma does
+not transfer that main term to the known independent domains of roughly
+half the block. More fundamentally, the primes cancelled here divide
+input norms \(Q_k\), whereas a boundary prime dividing
+\(P(w_k^n)\) does not divide \(Q_k\). No formula above identifies the
+cancelled input content with the negative boundary contributions
+\((3-v_q(P(w_k^n)))_+\log q\). A prime hitting just one boundary need
+not make the full-product ratio an \(n\)-torsion element, because the
+unhit factors remain.
+
+\subsection{Exact cancellation for a common multiplier and complement}
+
+Write \(R(a,b)=(-b,a+b)\) and
+\(\det((a,b),(c,d))=ad-bc\). Let \(W=(a,b)\) be primitive and let
+\(V\ne0\) be an Eisenstein integer. Put
+\[
+ c=\operatorname{cont}(VW),\quad d=\operatorname{cont}(V),\quad
+ U=VW/c,\quad V_0=V/d,
+\]
+and define
+\[
+ x=\det(U,V_0),\qquad D=\det(U,RV_0),\qquad
+ y=\det(U,R^2V_0).
+\]
+Primitivity makes \(W\ne0\), so \(c,d\) are positive integers and
+\(U,V_0\) are actual primitive pairs.
+
+\begin{theorem}[CD1: the precise common scalar]
+\label{cd-exact-scalar}
+There is a positive integer \(r\) such that
+\[
+ N(V)=cdr,\qquad (x,D,y)=r(-b,a,a+b),
+ \qquad \gcd(|x|,|D|,|y|)=r.
+\]
+\end{theorem}
+\begin{proof}
+Multiplication by \(V=v_0+v_1\zeta\) has integer matrix
+\[
+ \begin{pmatrix}v_0&-v_1\\v_1&v_0+v_1\end{pmatrix}
+\]
+of determinant \(N(V)\), and commutes with \(R\). Apply this determinant
+identity to \(W\) and \(1,\zeta,\zeta^2\), and clear the positive
+denominators \(c,d\). The result is
+\[
+ cdx=-bN(V),\qquad cdD=aN(V),\qquad cdy=(a+b)N(V).
+\]
+Choose integers \(u,v\) with \(ua+vb=1\). Then
+\[
+ N(V)=cd(uD-vx).
+\]
+Thus \(cd\mid N(V)\), and \(r=N(V)/(cd)\) is a positive integer.
+Cancelling \(cd\) proves the three coordinates. Their common gcd is
+\(r\), since \(\gcd(a,b,a+b)=1\). The proof permits individual zero
+coordinates of \(W\); only its primitivity and \(V\ne0\) are needed.
+In particular integrality of \(r\) follows from B\'ezout, not merely
+from knowing that the three determinants are integers separately.
+\end{proof}
+
+\begin{corollary}[CD2: the primitive boundary ledger is unchanged]
+\label{cd-ledger}
+Assume \(ab(a+b)\ne0\). Dividing by the full common content in
+Theorem~\ref{cd-exact-scalar} gives the additive relation
+\(-b+(a+b)=a\). The absolute primitive boundary product is
+\[
+ |(x/r)(D/r)(y/r)|=|ab(a+b)|.
+\]
+Its radical and its complete signed depth sum are therefore exactly
+those of \(W\):
+\[
+ \sum_{q\mid |(x/r)(D/r)(y/r)|}
+       \bigl(v_q(|(x/r)(D/r)(y/r)|)-3\bigr)\log q
+ =\sum_{q\mid |ab(a+b)|}\bigl(v_q(ab(a+b))-3\bigr)\log q.
+\]
+\end{corollary}
+\begin{proof}
+These identities follow from the three exact coordinates, including
+their signs. Before division the determinant product is
+\(-r^3ab(a+b)\). If \(r>1\), that triple is not primitive and cannot
+be inserted into a primitive radical assertion before cancelling \(r\).
+There is no omitted content term in the stated equalities.
+\end{proof}
+
+\begin{corollary}[CD3: simultaneous audit of every complement owner]
+\label{cd-complements}
+In the actual primitive unramified power block, let \(n\) be a positive
+integer, and take any finite set \(J\) of indices and any \(k\in J\). Set
+\[
+ W=w_k^n,\qquad V=\prod_{l\in J\setminus\{k\}}w_l^n.
+\]
+The empty complement is one. The preceding identities hold for every
+\(k\) simultaneously, and the primitive three-phase output is precisely
+that owner's original additive triple.
+\end{corollary}
+\begin{proof}
+The actual unramified primitive-power statement makes \(W\) primitive
+with nonzero boundary arms, and every complement factor is nonzero.
+Apply Theorem~\ref{cd-exact-scalar} and Corollary~\ref{cd-ledger}
+separately to each \(k\); neither argument imposes a common boundary
+prime condition across the other indices.
+\end{proof}
+
+This nonrectangular construction retains a different complement for
+each owner but returns exactly the original primitive ledger. It audits
+this particular common-multiplier map, without ruling out other mixed
+determinants, divided differences, or additional relations between their
+primitive outputs.
+
+\subsection{The powerful part of the primitive collective input norm}
+
+For an interval \(J\subseteq K_B\) of length \(H\), define
+\[
+ N_J=N((W_J)_{\rm prim}),\qquad
+ R_J=\prod_{\substack{p>12B\\p\mid Q_k\text{ for some }k\in J}}p,
+ \qquad
+ M_B=\prod_{\substack{p\le12B\\p\equiv1\ (3)}}p^{h_p},
+\]
+where \(h_p=\lfloor\log(36B^2)/\log p\rfloor\). These are finite
+products of actual rational primes.
+
+\begin{theorem}[CP1: localization of the entire powerful part]
+\label{cp-localization}
+There is a positive integer \(D_J\) such that
+\[
+ N_J=R_JD_J,\qquad \gcd(R_J,D_J)=1,\qquad D_J\mid M_B.
+\]
+Moreover
+\[
+ \frac{N_J}{\operatorname{rad}(N_J)}\mid D_J\mid M_B,
+ \qquad 0\le\log N_J-\log\operatorname{rad}(N_J)
+                \le\log M_B=O(B).
+\]
+The implied constant is absolute; the divisibilities include an empty
+interval.
+\end{theorem}
+\begin{proof}
+For \(p\le12B\), let \(N_j^+,N_j^-\) count the two oriented residue
+classes modulo \(p^j\) in \(J\). Each is either
+\(\lfloor H/p^j\rfloor\) or \(\lceil H/p^j\rceil\). Thus
+\( |N_j^+-N_j^-|\le1\), and Lemma~\ref{cc-signed-content} gives
+\[
+ v_p(N_J)=|E_p^+-E_p^-|
+    =\left|\sum_{j=1}^{h_p}(N_j^+-N_j^-)\right|\le h_p.
+\]
+If \(p>12B\), the difference-of-norms argument in
+Lemma~\ref{cc-content-cutoff} shows that it divides at most one norm
+in the entire block. Its depth is one because
+\(p^2>(12B)^2>36B^2>Q_k\). Its sole orientation survives primitive
+cancellation. These are exactly the primes of \(R_J\). No inert or
+ramified primes occur. The actual prime factorization proves all the
+divisibilities. Finally the Chebyshev bound gives
+\[
+ \log M_B\le\pi(12B)\log(36B^2)=O(B).
+\]
+No prime number theorem in a progression is used for this last bound.
+\end{proof}
+
+\begin{corollary}[CP2: radical mass of the primitive input norm]
+\label{cp-radical-mass}
+For each fixed \(\delta>0\), uniformly on intervals with \(H\ge\delta B\),
+as \(B\to\infty\),
+\begin{align*}
+ \log N_J&=H\log B+O(H\log\log B+B),\\
+ \log R_J&=H\log B+O(H\log\log B+B),\\
+ \frac{\log\operatorname{rad}(N_J)}{\log N_J}
+          &\ge1-O_\delta(1/\log B).
+\end{align*}
+\end{corollary}
+\begin{proof}
+The first formula is Theorem~\ref{cc-interval-content}. Subtracting
+\(\log D_J=O(B)\) proves the second. For all sufficiently large \(B\)
+depending only on \(\delta\),
+\(\log N_J\ge(\delta/2)B\log B\). Divide the logarithmic powerful-part
+bound of Theorem~\ref{cp-localization} by this lower bound to obtain
+the last assertion. The constants in the first two errors are absolute.
+\end{proof}
+
+\begin{theorem}[CP3: obstruction to compressing this aggregate]
+\label{cp-compression}
+Suppose positive integers \(V,Q,g\) satisfy
+\[
+ N_J=VQ^g,\qquad Q>1,\qquad g\ge2.
+\]
+Then
+\[
+ R_J\mid V,\qquad Q^g\mid D_J,\qquad
+ \frac{\log V}{g}\ge
+     \frac{(\log2)(\log R_J)}{\log D_J}.
+\]
+Here \(D_J>1\). For every fixed \(\delta>0\), there are positive
+\(c_\delta,B_\delta\) such that for every integer \(B\ge B_\delta\),
+every interval \(H\ge\delta B\), and every such representation,
+\[
+ \frac{\max(1,\log V)}g\ge c_\delta\log B.
+\]
+No power-free condition on \(V\), or coprimality of \(V,Q\), is assumed.
+\end{theorem}
+\begin{proof}
+Every prime of \(R_J\) has total depth one. Since \(g\ge2\), its
+exponent in \(Q\) must be zero and its exponent in \(V\) must be one.
+All prime factors of \(Q\) instead belong to \(D_J\), and their
+\(g\)-fold exponents are bounded by the corresponding exponents in
+\(D_J\). This proves the two divisibilities. Since \(Q\ge2\),
+\[
+ g\log2\le g\log Q\le\log D_J.
+\]
+Combine this with \(\log V\ge\log R_J\). For the uniform conclusion,
+use \(\log D_J\le CB\) with one absolute \(C\), and
+\(\log R_J\ge(\delta/2)B\log B\) for sufficiently large \(B\).
+If \(D_J=1\), no representation with \(Q>1\) exists.
+\end{proof}
+
+\begin{theorem}[CP4: a primewise exponent ceiling and linear obstruction]
+\label{cp-linear-obstruction}
+Under the hypotheses of Theorem~\ref{cp-compression},
+\[
+ g\le\frac{\log(36B^2)}{\log7},\qquad
+ \frac{\log V}{g}\ge
+       \frac{(\log7)(\log R_J)}{\log(36B^2)}.
+\]
+Consequently, for every fixed \(\delta>0\), all sufficiently large
+integers \(B\), all intervals \(H\ge\delta B\), and every representation
+in that theorem,
+\[
+ \frac{\max(1,\log V)}g\ge\frac{\delta\log7}{6}B.
+\]
+\end{theorem}
+\begin{proof}
+Choose an actual prime \(p\mid Q\), possible because \(Q>1\).
+It divides \(D_J\), is split, and is at least seven. The actual exponent
+comparison and Theorem~\ref{cp-localization} give
+\[
+ g\le g v_p(Q)\le v_p(D_J)\le h_p
+             \le\frac{\log(36B^2)}{\log7}.
+\]
+Together with \(\log V\ge\log R_J\), this proves both finite bounds.
+When \(\log R_J=0\), the second bound is still the valid zero lower
+bound. On the specified macroscopic intervals,
+\(\log R_J\ge(\delta/2)B\log B\) for sufficiently large \(B\), and
+\(B\ge36\) gives \(\log(36B^2)\le3\log B\). Substitution proves the
+linear lower bound. The ceiling uses a single actual prime of \(Q\),
+not merely the total mass \(\log D_J\).
+\end{proof}
+
+The height decrease of the primitive collective product is genuine, and
+almost all of its input norm mass is radical mass. Nevertheless this
+specific object cannot produce small-\(\lambda\) compressed norm seeds
+on macroscopic intervals: every possible displayed representation has
+\(\lambda\) growing at least linearly in \(B\). This excludes neither
+useful representations of original roots nor a different combined map.
+
+The proofs in this section are ordinary proofs. The sole progression
+input has been stated with its primary theorem and exact fixed-modulus
+scope. Separate finite replays of the content identities, complement
+identities, and norm profiles test exact instances; they supply no
+evidence in place of the asymptotic proofs or their universal quantifiers.
+This section makes no additional Lean claim. Any separately formalized
+arithmetic core has its own explicit signatures and verification scope.
+In particular the unrestricted boundary signed tail, individual exceptional
+roots, the independent-domain complement, and general ABC coverage remain
+open.

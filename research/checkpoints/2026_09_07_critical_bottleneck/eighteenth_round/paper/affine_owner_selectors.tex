@@ -1,0 +1,399 @@
+\section{Actual affine prime selectors and complete signed compensation}
+\label{sec:affine-owner-selectors}
+
+This section gives an additive construction in which different primes
+may select different actual input roots. Its output is a new primitive
+Eisenstein integer. In particular, preserving the selected prime powers
+does not preserve the input power representation. All data in the
+positive-density theorem below are fixed before the parameter tends
+to infinity.
+
+Write
+\[
+ \mathcal O=\mathbb Z[\zeta],\qquad \zeta^2-\zeta+1=0,
+ \qquad N(a+b\zeta)=a^2+ab+b^2,
+\]
+and identify an element with its pair of integer coordinates. Put
+\[
+ P(a+b\zeta)=ab(a+b),\qquad |Z|=\sqrt{N(Z)}.
+\]
+For nonzero \(Z\), its content is the positive gcd of its coordinates.
+When \(P(Z)\ne0\), the complete signed boundary cost is
+\begin{equation}
+ J(Z)=\sum_{p\mid |P(Z)|}\bigl(v_p(P(Z))-3\bigr)\log p
+     =\log|P(Z)|-3\log\operatorname{rad}(|P(Z)|).
+ \label{lm-signed-cost}
+\end{equation}
+In particular, depth one and depth two contribute respectively
+\(-2\log p\) and \(-\log p\). These terms are retained throughout.
+
+\begin{proposition}[The actual additive quotient and a short kernel]
+\label{lm-additive-kernel}
+For a finite set \(I\) and a positive integer \(n\), let
+\[
+ S:\mathbb Z^I\longrightarrow\mathcal O,\qquad
+ S(c)=\sum_{k\in I}c_k w_k^n,\qquad w_k=3k+\zeta.
+\]
+Its integer image has rank at most two. Every family of homogeneous
+congruences depending only on \(S(c)\), such as
+\(\ell_q(S(c))\equiv0\pmod {q^{e_q}}\) for integer linear forms
+\(\ell_q\), contains \(\ker S\). On any \(n+2\) consecutive indices,
+there is the actual identity
+\begin{equation}
+ \sum_{j=0}^{n+1}(-1)^j\binom{n+1}{j}w_{k+j}^{n}=0.
+ \label{lm-finite-difference}
+\end{equation}
+Its coefficient vector is nonzero and every coefficient has absolute
+value at most \(2^{n+1}\).
+\end{proposition}
+\begin{proof}
+Both coordinates of \((3X+\zeta)^n\) are integer polynomials of degree
+at most \(n\). For a monomial of degree \(m\le n\), apply
+\((T\,d/dT)^m\) to \((1-T)^{n+1}\) and evaluate at \(T=1\).
+Every resulting term still vanishes there. Expanding gives the
+alternating binomial identity, and linearity gives
+\eqref{lm-finite-difference}. Its first coefficient is one, while
+\(\sum_j\binom{n+1}{j}=2^{n+1}\) bounds each coefficient.
+The rank statement follows from the literal identification
+\(\mathcal O=\mathbb Z^2\), and every displayed congruence vanishes
+on the kernel.
+\end{proof}
+
+For prime \(n>324\), the block \(B=n^4\), \(B\le k<2B\), contains
+such consecutive indices. Thus a nonzero coefficient vector satisfying
+arbitrarily many congruences need not have nonzero actual output.
+This is a counterexample to that inference on the original block.
+It does not exclude an argument that separately proves escape from
+the kernel or retains a higher-dimensional actual output.
+
+\begin{theorem}[An exact selector for different actual owners]
+\label{lm-exact-selector}
+Let \(Z_1,Z_2\in\mathcal O\) be primitive, with
+\[
+ \Delta=\det(Z_1,Z_2)\ne0,\qquad P(Z_1)P(Z_2)\ne0.
+\]
+For \(i=1,2\), let \(S_i\) be a nonempty finite set of primes
+greater than three, with \(S_1\cap S_2=\varnothing\). For every
+\(q\in S_i\) assume
+\[
+ e_q=v_q(P(Z_i))\ge1,\qquad q\nmid N(Z_i).
+\]
+Set
+\[
+ M_i=\prod_{q\in S_i}q^{e_q+1},\qquad M=M_1M_2.
+\]
+For every integer \(t\) satisfying
+\begin{equation}
+ t\equiv1\pmod {M_1},\qquad t\equiv0\pmod {M_2},
+ \label{lm-selector-crt}
+\end{equation}
+define \(U_t=tZ_1+(1-t)Z_2\), \(g_t=\operatorname{cont}(U_t)\),
+and \(V_t=U_t/g_t\). These elements are well-defined and
+\begin{equation}
+ g_t\mid |\Delta|,\qquad \gcd(g_t,M)=1,\qquad
+ v_q(P(V_t))=e_q\quad(q\in S_1\cup S_2).
+ \label{lm-content-and-depth}
+\end{equation}
+In particular the exact selected signed cost is
+\begin{equation}
+ \sum_{q\in S_1\cup S_2}\bigl(v_q(P(V_t))-3\bigr)\log q
+   =\sum_{i=1}^2\sum_{q\in S_i}(e_q-3)\log q.
+ \label{lm-selected-signed}
+\end{equation}
+There are infinitely many such integers \(t\).
+\end{theorem}
+\begin{proof}
+The two moduli are coprime, so the integer Chinese remainder theorem
+gives one residue class modulo \(M\). Linear independence of
+\(Z_1,Z_2\) over \(\mathbb Q\) makes \(U_t\ne0\), since \(t\)
+and \(1-t\) cannot both vanish. The actual determinant identities
+\[
+ \det(U_t,Z_2)=t\Delta,\qquad
+ \det(U_t,Z_1)=-(1-t)\Delta
+\]
+imply \(g_t\mid\Delta\) by subtraction. For \(q\in S_i\),
+\(U_t\equiv Z_i\pmod {q^{e_q+1}}\). The integer cubic therefore
+has exactly valuation \(e_q\), and \(N(U_t)\) is a \(q\)-unit.
+Consequently \(q\nmid g_t\), and dividing the cubic by \(g_t^3\)
+preserves the exact valuation. This proves both asserted identities.
+\end{proof}
+
+There is no requirement that both input roots hit each marked prime.
+The additional digit in \(q^{e_q+1}\) fixes the depth exactly,
+including depths one and two. The theorem by itself makes no claim
+about unmarked primes.
+
+\begin{proposition}[The cost after actual primitive cancellation]
+\label{lm-primitive-height}
+For every selector in Theorem~\ref{lm-exact-selector},
+\begin{align}
+ |t|&\ge M_2,& |1-t|&\ge M_1,\notag\\
+ \log|V_t|&\ge\log(\sqrt3/2)
+       +\max\{\log M_2-\log|Z_2|,
+                  \log M_1-\log|Z_1|\}.
+ \label{lm-height-lower}
+\end{align}
+If \(n,B\) are positive integers and \(Z_i=w_{k_i}^n\) for integers
+\(B\le k_i<2B\), then
+\begin{equation}
+ \log|V_t|\ge\tfrac12\log M-n\log(6B)+\log(\sqrt3/2).
+ \label{lm-power-height-lower}
+\end{equation}
+The representative \(0\le t<M\) also satisfies
+\begin{equation}
+ |V_t|\le |U_t|<M(|Z_1|+|Z_2|).
+ \label{lm-height-upper}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The congruences exclude \(t=0,1\). Thus the nonzero integers \(t\)
+and \(1-t\) are respectively multiples of \(M_2\) and \(M_1\).
+The Gram determinant inequality in these coordinates is
+\[
+ |\det(X,Y)|\le \frac2{\sqrt3}|X|\,|Y|.
+\]
+Apply it to \((V_t,Z_2)\). Since \(|\Delta|/g_t\) is a positive
+integer, it gives
+\[
+ \frac2{\sqrt3}|V_t|\,|Z_2|
+     \ge |t|\frac{|\Delta|}{g_t}\ge |t|.
+\]
+The other determinant gives the analogous inequality for
+\(|1-t|\) and \(Z_1\). Taking logarithms proves
+\eqref{lm-height-lower}. The bounds \(|w_k|<6B\) and
+\(\max(\log M_1,\log M_2)\ge\tfrac12\log M\) prove
+\eqref{lm-power-height-lower}. For the chosen representative,
+\(t\ne0,1\), \(|t|<M\), and \(|1-t|<M\); the triangle
+inequality and \(g_t\ge1\) give \eqref{lm-height-upper}.
+\end{proof}
+
+The modulus cost is therefore present in an actual integer selector;
+it does not disappear just by dividing out content. This is a bound
+for this construction, not an optimality assertion for every map.
+
+\begin{theorem}[A fixed-data positive-density family with full credit]
+\label{lm-paid-affine-family}
+Fix all the data of Theorem~\ref{lm-exact-selector}. Suppose also
+\[
+ Z_2=(a_2,b_2),\qquad Z_1-Z_2=(a_0,b_0),\qquad a_0,b_0>0.
+\]
+Choose a positive \(t_*\) in the CRT class with \(U_{t_*}\) having
+positive coordinates. Let \(\mathcal E\) be the finite set of primes
+dividing the nonzero integer
+\[
+ 6M\Delta a_0b_0(a_0+b_0).
+\]
+For \(p\in\mathcal E\) put \(F_p=v_p(P(U_{t_*}))\), and define
+\begin{gather}
+ H=\prod_{p\in\mathcal E}p^{F_p+1},\qquad
+ t(j)=t_*+Hj\quad(j\ge1),\qquad g=\operatorname{cont}(U_{t_*}),
+ \notag\\
+ f_p=F_p-3v_p(g),\qquad
+ K=\prod_{p\in\mathcal E}p^{f_p}.
+ \label{lm-frozen-data}
+\end{gather}
+Then \(M\mid H\), \(f_p\ge0\), and for every positive integer \(j\),
+the actual primitive output
+\[
+ V_j=U_{t(j)}/g=(a_j,b_j)
+\]
+has positive coordinates. Its three arms are affine integer
+polynomials in \(j\), with positive slopes.
+
+There is a set \(\mathcal G\) of positive integers with natural density
+\begin{equation}
+ d(\mathcal G)=\prod_{p\notin\mathcal E}(1-3/p^2)\ge\tfrac14
+ \label{lm-positive-density}
+\end{equation}
+such that, for every \(j\in\mathcal G\),
+\begin{equation}
+ T_j=a_jb_j(a_j+b_j)=K R_j,
+ \quad R_j\text{ squarefree},\quad \gcd(K,R_j)=1,
+ \label{lm-full-squarefree-support}
+\end{equation}
+and all primes of \(R_j\) lie outside \(\mathcal E\). The complete
+signed identity and its limit are
+\begin{align}
+ J(V_j)&=-2\log T_j+3\log\frac{K}{\operatorname{rad}(K)},
+ \label{lm-full-signed-identity}\\
+ \frac{J(V_j)}{\log(a_j+b_j)}&\longrightarrow-6
+       \quad(j\in\mathcal G,\ j\to\infty).
+ \label{lm-signed-limit}
+\end{align}
+For a constant \(C\) depending on these fixed data,
+\(a_j+b_j\le C\operatorname{rad}(T_j)^{1/3}\) for every
+\(j\in\mathcal G\).
+\end{theorem}
+\begin{proof}
+At a marked prime, the selector theorem gives \(F_q=e_q\), so
+\(M\mid H\). For any \(p\in\mathcal E\), the congruence
+\(U_{t(j)}\equiv U_{t_*}\pmod {p^{F_p+1}}\) preserves the exact
+cubic valuation. It also preserves the common coordinate valuation:
+if \(v=\min(v_p(a_*),v_p(b_*))\), then \(F_p\ge3v\), whence
+\(F_p+1>v\), and a coordinate of valuation \(v\) retains it.
+No prime outside \(\mathcal E\) divides the content, by
+\eqref{lm-content-and-depth}. Thus \(\operatorname{cont}(U_{t(j)})=g\)
+for every \(j\). In particular \(g\mid H\), so the quotient arms
+are affine integer polynomials, with positive slopes and positive
+initial coordinates. Dividing the cubic by \(g^3\) gives the
+nonnegative exact depths \(f_p\).
+
+For \(p\notin\mathcal E\), all three slopes are \(p\)-units.
+The determinant of the slope and constant coordinate pairs is
+\(H\Delta/g^2\), up to sign, and is also a \(p\)-unit. Each
+of the three affine arms therefore has one simple root modulo
+\(p^2\), and their roots are distinct already modulo \(p\).
+Exactly three classes modulo \(p^2\) are forbidden by
+\(p^2\mid T_j\). Notice that every such prime is at least five.
+
+For any fixed cutoff \(Y\), finite CRT gives density
+\(\prod_{p\le Y,\ p\notin\mathcal E}(1-3/p^2)\) for avoiding
+these finitely many classes. The entire omitted tail is elementary.
+There is a fixed \(C_0>0\) such that every individual positive
+affine arm at \(1\le j\le X\) is at most \(C_0X\), for every
+real \(X\ge1\). Distinct roots modulo \(p\) ensure that
+\(p^2\mid T_j\) forces \(p^2\) to divide one arm, rather than
+arising from two different arms. Such a prime is at most
+\(\sqrt{C_0X}\). Counting the three residue classes gives
+\begin{equation}
+ \#\{1\le j\le X:\exists p>Y,\ p\notin\mathcal E,
+                         \ p^2\mid T_j\}
+ \le3X\sum_{p>Y}p^{-2}+3\sqrt{C_0X}.
+ \label{lm-complete-square-tail}
+\end{equation}
+Divide by \(X\), let \(X\to\infty\), and then let \(Y\to\infty\).
+The finite CRT upper and lower bounds prove existence of the natural
+density and its exact infinite product. Its lower bound follows from
+\[
+ \sum_{p\ge5}\frac3{p^2}
+ \le3\sum_{m\ge5}\frac1{m^2}
+ <3\int_4^\infty x^{-2}\,dx=\tfrac34
+\]
+and the finite inequality \(\prod(1-u_i)\ge1-\sum u_i\) for
+\(0\le u_i\le1\). Passing to the convergent product proves
+\eqref{lm-positive-density}; removing additional primes in
+\(\mathcal E\) only increases it. No distribution theorem for
+primes is needed.
+
+At each prime of \(\mathcal E\) the exact depth is \(f_p\).
+Outside it a good parameter has depth zero or one. This proves
+\eqref{lm-full-squarefree-support}, and hence
+\[
+ \operatorname{rad}(T_j)=\operatorname{rad}(K)R_j
+      =\frac{T_j}{K/\operatorname{rad}(K)}.
+\]
+Substitution in \eqref{lm-signed-cost} gives
+\eqref{lm-full-signed-identity}. The positive affine slopes imply
+\[
+ \log T_j=3\log j+O(1),\qquad
+ \log(a_j+b_j)=\log j+O(1),
+\]
+which prove \eqref{lm-signed-limit}. They also give
+\(T_j\ge c_0(a_j+b_j)^3\) for a fixed \(c_0>0\), decreasing
+\(c_0\) if necessary for finitely many small indices. The radical
+identity proves the last bound.
+\end{proof}
+
+The data, progression and threshold in this theorem are fixed. The
+numbers \(K\) and \(C_0\) can be very large when the input roots or
+packets change. The density lower bound is a natural-density statement
+in this fixed progression; it is not a density statement in a moving
+original root block.
+
+\begin{proposition}[Actual source roots and nonempty examples]
+\label{lm-actual-source-roots}
+Let \(n\ge2\), \(B\ge n\) be integers, and let
+\(B\le k_2<k_1<2B\). The two actual powers
+\(Z_i=(3k_i+\zeta)^n\) are primitive and unramified, have
+\(P(Z_i)>0\), are nonparallel, and have both coordinates of
+\(Z_1-Z_2\) positive.
+\end{proposition}
+\begin{proof}
+The element \(3k+\zeta\) is primitive and its norm is one modulo
+three. Its powers remain primitive: modulo any prime other than
+three the Eisenstein algebra is a product of fields or a field, so
+an element with zero power is zero; the coordinate one prevents that.
+At three the norm is a unit. This proves the required property at
+every prime and also nonramification.
+
+For real \(x\ge B\), put
+\[
+ \theta(x)=\arg(3x+\zeta)
+       =\arctan\frac{\sqrt3}{6x+1}.
+\]
+This function is positive, strictly decreasing, and less than
+\(1/(3x)\). Thus \(0<n\theta(x)<1/3<\pi/3\), so each power
+lies in the open positive coordinate cone. Their two arguments
+are distinct and differ by less than \(\pi\), proving
+nonparallelism. Finally
+\[
+ (3k_1+\zeta)^n-(3k_2+\zeta)^n
+    =\int_{k_2}^{k_1}3n(3x+\zeta)^{n-1}\,dx.
+\]
+Since \(n\ge2\), the integrand lies strictly in the same cone;
+both coordinates of its integral are positive.
+\end{proof}
+
+For \(n=2\), \(B=2\), the roots \(w_2=6+\zeta\),
+\(w_3=9+\zeta\) give
+\[
+ Z_2=(35,13),\quad P(Z_2)=35\cdot13\cdot48,
+ \qquad Z_1=(80,19),\quad P(Z_1)=80\cdot19\cdot99.
+\]
+The prime 19 belongs only to the first boundary, and 13 only to the
+second. Their depths are one and their selected norms are units.
+The choices \(S_1=\{19\}\), \(S_2=\{13\}\) therefore give a
+nonempty infinite actual output family in
+Theorem~\ref{lm-paid-affine-family}.
+
+Positive signed costs can also be exhibited with different owners.
+Still take \(n=2\), and set
+\[
+ k_1=21720+2\cdot19^5=4973918,\qquad
+ k_2=61882+13^6=4888691.
+\]
+Both belong to the extended block \(B=4880000\). Their second
+coordinates are respectively \(19^4\cdot229\) and
+\(13^5\cdot79\). If \(q>3\) divides the second coordinate
+\(6k+1\), the first coordinate \((3k)^2-1\) is
+\(-3/4\pmod q\). Thus the actual whole boundary depths are
+four and five. The other owner's boundary is a unit at the marked
+prime, as follows from \(k_1\equiv1\pmod {13}\) and
+\(k_2\equiv10\pmod {19}\). The selected positive signed cost
+is exactly \(\log19+2\log13\). The selector preserves it, while
+the new squarefree support in the proved affine family pays it.
+
+These examples have exponent two. They belong to the extended
+actual-power family of Proposition~\ref{lm-actual-source-roots};
+they do not satisfy the original restrictions of prime \(n>324\),
+\(B=n^4\), or large marked primes beyond that block. The selector
+lemma applies to roots in that original block when the required
+actual packets are supplied, but these examples do not establish
+such moving-block membership.
+
+\paragraph{Evidence and the remaining arithmetic constraint.}
+The standard-library script
+\texttt{replay\_affine\_\allowbreak selectors.py --check} checks ten exact CRT
+selectors, including the depth-four and depth-five packet, 256 actual
+fixed-progression content/depth rows, and the three distinct simple
+roots modulo \(p^2\) for 162 eligible primes up to 997. It also checks
+six literal finite-difference identities at exponents
+\(2,5,7,11,17,331\); the last is in the original block \(B=n^4\).
+The canonical certificate SHA256 is
+\begin{quote}\ttfamily
+70945a8da8fdecee\allowbreak 2a8857dd9ea71ab2\allowbreak
+bb12f9054a8f25b3\allowbreak 5ad87f342df6d767.
+\end{quote}
+These are finite integer checks. They do not factor every unmarked
+arm or prove density by sampling. The complete infinite tail and
+density proof is \eqref{lm-complete-square-tail}, with the finite
+prime exceptions retained in \(K\). There is no new Lean claim here.
+
+The positive theorem is about new primitive affine outputs and their
+full signed costs. It neither bounds the original inputs' tails nor
+proves that the outputs are powers or have small-residual power
+representations. Its constants cannot be applied uniformly to moving
+packets. The additional constraint would be to retain useful original
+compression while proving a sufficient supply of new negative credit.
+Original boundary tails, exceptional roots, the complement of the
+independent domain, and general ABC coverage remain open.

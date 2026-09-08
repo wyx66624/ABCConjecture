@@ -1,0 +1,64 @@
+{
+  "status": "PASS: eight finite replays; HT checks exact leading digits and recorded balls only",
+  "records": [
+    {
+      "output": "PASS {\"blocks\": 70, \"deletion_checks\": 280, \"distinct_norm_factorizations\": 2046, \"full_root_occurrences\": 4368, \"interval_checks\": 280, \"signed_vector_checks\": 3275} cbb9f7a0a1de88576c9c2014e02da2c7fe32f03e17e6b3ccef8fabbba7a5ff34",
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_critical_bottleneck/seventeenth_round/replay_collective_content.py": "dea1d00f7d690050bd8ce40ea0134278c1be3230820d58af2aac8caa13c683f4",
+        "research/checkpoints/2026_09_07_critical_bottleneck/seventeenth_round/verification/collective_content_exact.json": "cbb9f7a0a1de88576c9c2014e02da2c7fe32f03e17e6b3ccef8fabbba7a5ff34"
+      }
+    },
+    {
+      "output": "PASS {\"actual_prime_index_complements\": 9, \"small_pairs\": 50688, \"zero_arm_pairs\": 1728} c87bc0a10dd7e357a2cb0dc7248edead501fe496dbacf081efbac1b0a9f5c1b6",
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_critical_bottleneck/seventeenth_round/replay_complement_determinants.py": "947c0280e5832f85632ad251978db42882d33f4f651b67b1ca0fc52275548508",
+        "research/checkpoints/2026_09_07_critical_bottleneck/seventeenth_round/verification/complement_determinants_exact.json": "c87bc0a10dd7e357a2cb0dc7248edead501fe496dbacf081efbac1b0a9f5c1b6"
+      }
+    },
+    {
+      "output": "PASS {\"maximal_power_extractions\": 20, \"profiles\": 70} 6716dca74364d0faa8acb4636f52bf545bcb2097dd2939d79c58d8839903df1c",
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_critical_bottleneck/seventeenth_round/replay_collective_profile.py": "63a316ed7574bfa6aec57ee194708392f4116bd93f3498b997d3995efb41c4ba",
+        "research/checkpoints/2026_09_07_critical_bottleneck/seventeenth_round/verification/collective_profile_exact.json": "6716dca74364d0faa8acb4636f52bf545bcb2097dd2939d79c58d8839903df1c"
+      }
+    },
+    {
+      "output": "PASS 2bc0673769cc10abba959725e1683676d162918afa7fbf89a463f664c9b24696",
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_independent_route/seventeenth_round/replay_padic_entry.py": "362b2941c216544bf717542626134939de314d692c9cd60620e25a5f81ebef42",
+        "research/checkpoints/2026_09_07_independent_route/seventeenth_round/verification/padic_entry_exact.json": "2bc0673769cc10abba959725e1683676d162918afa7fbf89a463f664c9b24696"
+      }
+    },
+    {
+      "output": "PASS {\"actual_balanced_inputs\": 3, \"residue_only_inputs\": 66} 6b7a363b91b7fad5c570696ed8b5fcd50be50d73607a7d0c0d829bc1b75c551d",
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_adversarial_audit/seventeenth_round/replay_divisor_partition.py": "181c626672e51bf68b45ce50797249064ec62a5a2d55dc865a8959277ddca205",
+        "research/checkpoints/2026_09_07_adversarial_audit/seventeenth_round/verification/divisor_partition_exact.json": "6b7a363b91b7fad5c570696ed8b5fcd50be50d73607a7d0c0d829bc1b75c551d"
+      }
+    },
+    {
+      "output": "PASS 25 prime nodes; 70 witnesses; canonical SHA256 3b4de60c0f5fb1fcba68b7def3b655db4b406047de5ea764f7b29b66f729fb51",
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_adversarial_audit/eighteenth_round/replay_large_prime_partition.py": "34b78afd79458a6d66221102b207540bea663c07dff880ee30942ed52491b126",
+        "research/checkpoints/2026_09_07_adversarial_audit/eighteenth_round/verification/large_prime_partition_exact.json": "3b4de60c0f5fb1fcba68b7def3b655db4b406047de5ea764f7b29b66f729fb51",
+        "research/checkpoints/2026_09_07_adversarial_audit/eighteenth_round/verification/large_prime_lucas_certificate.json": "4eaf7cbf2c57391ae18261b258b8fa0c5514bcfdd5e05af6f46f3a70ecc0d1c4"
+      }
+    },
+    {
+      "output": "PASS: exact HT leading digits and recorded-ball arithmetic; PARI heights not recomputed",
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_collective_content_closure/verify_height_exact.py": "c3dedce60b96cb4b6f684eef67da9543eb488b3667de6a8eb60640e1202d1a22",
+        "research/checkpoints/2026_09_07_independent_route/eighteenth_round/replay_height_transport.py": "8628c32ddd775ed13d45f7b7d518e27ad3ae414ae373f4315947a012362d8515",
+        "research/checkpoints/2026_09_07_independent_route/eighteenth_round/replay_height_transport.gp": "8e4f09237c83aade53d3ac9f22c6f5174dca440548a9817bd1d1e7ef472c6426",
+        "research/checkpoints/2026_09_07_independent_route/eighteenth_round/verification/height_transport.json": "70ec75594f205336757496605750b1302e5f3b271afd6acf5b12275a36c9de05"
+      }
+    },
+    {
+      "output": "PASS 70945a8da8fdecee2a8857dd9ea71ab2bb12f9054a8f25b35ad87f342df6d767 10 actual selectors; 256 fixed progression rows; 162 local prime rows; 6 actual kernels",
+      "files_sha256": {
+        "research/checkpoints/2026_09_07_critical_bottleneck/eighteenth_round/replay_affine_selectors.py": "b899c3fb814f8e1cfda4bb570255c23219777c467b94fc30bcf12ea80cc9e674",
+        "research/checkpoints/2026_09_07_critical_bottleneck/eighteenth_round/verification/affine_selector_exact.json": "70945a8da8fdecee2a8857dd9ea71ab2bb12f9054a8f25b35ad87f342df6d767"
+      }
+    }
+  ]
+}

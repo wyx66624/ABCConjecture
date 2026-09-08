@@ -1,0 +1,53 @@
+{
+  "status": "PASS: full semantic read and read-only final evidence audit; no recompile by reviewer",
+  "modules": {
+    "EisensteinDescent": {
+      "sha256": "e5e15c14c4771fcf6bffd1d87bac67d23895cf02f40606188b2059d4cf3c944e",
+      "declarations": 29,
+      "new": false
+    },
+    "ActualGramRigidity": {
+      "sha256": "611ab6ef50b8aade57b2173b6de73199b285fcc938e5f12fa8832069fd1adb1e",
+      "declarations": 4,
+      "new": false
+    },
+    "ActualSignedProducts": {
+      "sha256": "0a184dda6e4a5979a16e42b0ec7a6908bb54ad1959b5281f3790994ef9429ddd",
+      "declarations": 12,
+      "new": false
+    },
+    "JointPhasePackets": {
+      "sha256": "50f85007b8fcfbd082b672f6ee0a209df8122b6f7d3968f3a4113c854aa3be22",
+      "declarations": 10,
+      "new": false
+    },
+    "ComplementContent": {
+      "sha256": "5ce0713043405dffb2bc15e111b9082d6ea9a5335a7b7e80ecedd3de3c806b3d",
+      "declarations": 24,
+      "new": true
+    },
+    "SquarefreePowerExtraction": {
+      "sha256": "a51957c6846595f7dd2b760f3f5aa80211bdf7002645c905325bc5ace426c745",
+      "declarations": 16,
+      "new": true
+    }
+  },
+  "new_declarations": 40,
+  "dependency_declarations": 55,
+  "queries_actually_matched": 95,
+  "queries_with_empty_axioms": 3,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "manifest_sha256": "1a640b38fea8bc3708db6708a04293c88d39f44bc399f2ba95950ad674c3ce7e",
+  "log_sha256": "c53a786d3c8c16024295ee9e7de6df0f5d8d14e8fd87406ea2b41fc1032ab43e",
+  "ordinary_scope_sha256": "a54156307e89ddacb700df2c90bdadec3f3dc0f5138aff3d7cf27e8dae7054af",
+  "not_claimed": [
+    "independent compilation",
+    "construction of the actual interval prime profile or its asymptotics in Lean",
+    "arbitrary-root boundary improvement",
+    "ABC proof or disproof"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PASS: full final TeX transcription review",
+  "source": "research/checkpoints/2026_09_07_independent_route/eighteenth_round/paper/local_height_value_set.tex",
+  "sha256": "2a1dba0357ff6dbe7c1dd1e678fb5e19e891ee37cc81f86d86835fbb2802fcba",
+  "checks": [
+    "All finite nonzero valuations at 3; case (a)/(c) of Cremona with actual minimal models",
+    "All 2-adic cases and every good prime other than 5, including extra cancellation at 11",
+    "Both infinities and zero-fiber local existence and limits",
+    "Equal local scale-u=2 constants cancel; exact negative-sum Omega singleton",
+    "Direct BD Theorem 1.4 expression; no assumption zero-fiber point is Q-rational",
+    "No certified five-adic zero list, rational sieve or moving-height conclusion"
+  ],
+  "scope": "Ordinary proof transcription, not new Lean or numerical sampling"
+}

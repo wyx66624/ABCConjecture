@@ -1,0 +1,60 @@
+name: Collective content and primitive extraction verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research/checkpoints/2026_09_07_collective_content_closure/**'
+      - 'research/checkpoints/2026_09_07_critical_bottleneck/seventeenth_round/**'
+      - 'research/checkpoints/2026_09_07_adversarial_audit/seventeenth_round/**'
+      - 'research/checkpoints/2026_09_07_independent_route/seventeenth_round/**'
+      - 'research/checkpoints/2026_09_07_critical_bottleneck/eighteenth_round/**'
+      - 'research/checkpoints/2026_09_07_adversarial_audit/eighteenth_round/**'
+      - 'research/checkpoints/2026_09_07_independent_route/eighteenth_round/**'
+      - 'research/checkpoints/2026_09_07_joint_packets_and_jacobians/Lean/JointPhasePackets.lean'
+      - 'research/checkpoints/2026_09_07_signed_moment_descent/Lean/ActualGramRigidity.lean'
+      - 'research/checkpoints/2026_09_07_signed_moment_descent/Lean/ActualSignedProducts.lean'
+      - 'research/checkpoints/2026_09_05_eisenstein_descent/Lean/EisensteinDescent.lean'
+      - 'Lean/lean-toolchain'
+      - '.github/workflows/abc-collective-content-closure.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  collective-content-and-extraction:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - name: Invalidate historical verification outputs before dependency work
+        run: python3 research/checkpoints/2026_09_07_collective_content_closure/initialize_ci_evidence.py
+      - name: Verify failed preflights cannot retain historical PASS
+        run: python3 research/checkpoints/2026_09_07_collective_content_closure/verify_ci_failure_paths.py
+      - name: Install the pinned compiler
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: Lean
+          auto-config: 'false'
+          build: 'false'
+          use-mathlib-cache: 'false'
+      - name: Prepare a Mathlib-only dependency project
+        run: python3 research/checkpoints/2026_09_07_collective_content_closure/prepare_mathlib_project.py
+      - name: Resolve exact Mathlib and restore required imports
+        working-directory: tmp/abc_20260907/collective-content-closure-ci-project
+        run: |
+          lake update
+          lake exe cache get Mathlib.Tactic Mathlib.RingTheory.Coprime.Lemmas Mathlib.Data.Fintype.BigOperators Mathlib.Algebra.Group.TypeTags.Basic Mathlib.Data.Int.GCD Mathlib.Data.Nat.Squarefree Mathlib.Data.Nat.Factorization.Basic Mathlib.Analysis.SpecialFunctions.Log.Basic
+      - name: Fresh 40 new and 55 dependency declarations with complete axiom audit
+        run: python3 research/checkpoints/2026_09_07_collective_content_closure/verify_mathlib.py --project tmp/abc_20260907/collective-content-closure-ci-project
+      - name: Exact aggregate, divisor and local-entry finite replay
+        run: python3 research/checkpoints/2026_09_07_collective_content_closure/verify_finite.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: collective-content-and-extraction-evidence
+          path: |
+            research/checkpoints/2026_09_07_collective_content_closure/verification/mathlib_validation.json
+            research/checkpoints/2026_09_07_collective_content_closure/verification/fresh-mathlib-build.log
+            research/checkpoints/2026_09_07_collective_content_closure/verification/finite_replay_validation.json

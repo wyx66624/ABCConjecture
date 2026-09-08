@@ -1,0 +1,249 @@
+\section{The complete local height-value set away from five}
+\label{sec:local-height-values}
+
+Let \(C\) be the smooth projective curve
+\[
+ W^2=z^6-27z^4+99z^2-9.
+\]
+The standard elliptic quotients in
+\cite[Theorem~1.4]{BalakrishnanDograQCI} are
+\begin{align}
+ F_1&:Y^2=X^3-27X^2+99X-9,&
+ f_1(z,W)&=(z^2,W),\\
+ F_2&:Y^2=X^3+99X^2+243X+81,&
+ f_2(z,W)&=(-9/z^2,-9W/z^3).
+ \label{lh-standard-maps}
+\end{align}
+The maps extend to the smooth projective curves. Their globally minimal
+models and corresponding points are
+\begin{align}
+ E&:y^2=x^3-9x-9,&
+ R_1&=((z^2-9)/4,W/8),\\
+ E'&:y^2=x^3-189x+999,&
+ R_2&=((33-9/z^2)/4,-9W/(8z^3)).
+ \label{lh-minimal-maps}
+\end{align}
+Both isomorphisms have scale \(u=2\), although their translations differ.
+Their minimal discriminants are \(2^4 3^6\) and \(2^4 3^{10}\).
+
+For a finite prime \(\ell\ne5\), put
+\(\chi_\ell(a)=-v_\ell(a)\log_5(\ell)\), where \(\log_5(5)=0\).
+Use local N\'eron heights \(h_{E,\ell},h_{E',\ell}\) in twice
+Silverman's normalization on these minimal models. The local-height
+coefficient is the ordinary rational coefficient of the real local
+height, with \(\log(\ell)\) replaced by \(\log_5(\ell)\).
+In particular, at a point of nonsingular reduction it is
+\[
+ h_{E,\ell}(R)=\max(0,-v_\ell(x(R)))\log_5(\ell).
+\]
+At singular reduction we will use precisely the valuation formula stated
+below.
+
+On the standard \(F_i\) models use the corresponding Weierstrass
+tangential normalization. The exact change-of-variables rule is
+\begin{equation}
+ h_{F_i,\ell}(f_i(P))
+   =h_{E_i,\ell}(R_i(P))+2\chi_\ell(2),
+ \qquad E_1=E,\quad E_2=E'.
+ \label{lh-local-transport}
+\end{equation}
+Indeed, the normalized local N\'eron function for \(2O\) has principal
+term \(-2\chi_\ell(t)\), with \(t=-x/y\). Under
+\(X=u^2x+r,\ Y=u^3y\), one has
+\(t_F=t_E/u+O(t_E^3)\). Thus its tangential normalization changes by
+\(2\chi_\ell(u)\), and uniqueness with this normalization proves
+\eqref{lh-local-transport}. This also agrees with the local addition
+identity of \cite[Lemma~7.4]{BalakrishnanDograQCI}, since
+\(x_F(P)-x_F(Q)=u^2(x_E(P)-x_E(Q))\).
+The global scalar is unchanged because \(\sum_v\chi_v(u)=0\);
+the local functions individually have the stated constants.
+
+Those two constants are equal and cancel. Hence the exact combination
+used in Theorem~1.4 of that source is
+\begin{align}
+ J_\ell(P)
+ &=h_{F_1,\ell}(f_1(P))-h_{F_2,\ell}(f_2(P))
+                                  -2\chi_\ell(z)\notag\\
+ &=h_{E,\ell}(R_1(P))-h_{E',\ell}(R_2(P))
+                                  -2\chi_\ell(z).
+ \label{lh-combination}
+\end{align}
+Initially \(z\) is finite and nonzero. The locally constant extensions
+over zero and infinity are included in the proofs; we do not insert a
+separate infinite height of an elliptic origin into this expression.
+
+We recall the two cases of the local theorem that suffice here.
+For a minimal Weierstrass model let
+\begin{align*}
+ A&=v_\ell(3x^2+2a_2x+a_4-a_1y),\\
+ B&=v_\ell(2y+a_1x+a_3),\\
+ C_0&=v_\ell(3x^4+b_2x^3+3b_4x^2+3b_6x+b_8).
+\end{align*}
+If \(A\le0\) or \(B\le0\), the height coefficient is
+\(\max(0,-v_\ell(x))\). Otherwise, if \(v_\ell(c_4)>0\) and
+\(C_0\ge3B\), the coefficient is \(-2B/3\).
+These are cases (a) and (c) of
+\cite[Proposition~3.4.1, printed pp.~72--73]{Cremona1997Algorithms}.
+The text explicitly states its applicability to points over
+\(\mathbb Q_\ell\) and the twice-Silverman normalization.
+We use \(v_\ell(0)=+\infty\). No inference from a software Kodaira
+type or a finite table is required.
+
+\begin{theorem}[The full three-adic value set]
+\label{lh-three}
+For every \(P\in C(\mathbb Q_3)\), with the extended convention above,
+\[
+ J_3(P)=\frac43\log_5(3).
+\]
+Thus the full local value set is the displayed singleton.
+\end{theorem}
+\begin{proof}
+First suppose \(z\ne0,\infty\) and let \(m=v_3(z)\).
+If \(m>0\), the right side of the sextic has valuation exactly two
+and nonsquare unit part \(-1\) modulo three: the other three
+valuations are \(6m,3+4m,2+2m\), all larger than two.
+At \(z=0\) the same obstruction is \(W^2=-9\).
+Thus every finite point has \(m\le0\). If \(m=0\), then \(W\) is
+a unit; if \(m<0\), the leading term is uniquely dominant, so
+\(v_3(W)=3m\).
+
+For the second minimal point \((x,y)=R_2(P)\), both cases give
+\begin{equation}
+ v_3(x)=1,\qquad v_3(y)=2,\qquad
+ X:=x/3=\frac{11}4-\frac3{4z^2}\equiv2\pmod3.
+ \label{lh-three-coordinates}
+\end{equation}
+For \(E'\) the third division polynomial has the identities
+\begin{align}
+ \psi_3(x)&=3x^4-1134x^2+11988x-35721,\\
+ \psi_3(3X)&=3^5(X^4+148X)-3^6(14X^2+49).
+ \label{lh-division-polynomial}
+\end{align}
+Since \(X\equiv2\pmod3\), one has \(X^4+148X\equiv0\pmod3\);
+hence \(C_0\ge6\). Also
+\[
+ B=2,\qquad A=v_3(27(X^2-7))>0,\qquad v_3(c_4(E'))=4>0.
+\]
+The second stated case of the local theorem therefore applies and gives
+\[
+ h_{E',3}(R_2)=-\frac43\log_5(3).
+\]
+For \(E\), when \(m=0\) the ordinate \(W/8\) is a unit, so case (a)
+gives zero. When \(m<0\), the abscissa has valuation \(2m\) and
+\(v_3(3x^2-9)=1+4m<0\), giving
+\(h_{E,3}(R_1)=-2m\log_5(3)\).
+Thus that latter formula holds for both ranges \(m\le0\).
+The term \(-2\chi_3(z)=2m\log_5(3)\) cancels it, proving the result
+on the finite chart.
+
+There are two rational points at infinity because the sextic is monic.
+Every sufficiently close punctured three-adic neighborhood has \(m<0\),
+where the combination is the same constant. It extends with that value
+at both infinity points. There is no zero-fiber point over
+\(\mathbb Q_3\), as already shown. This exhausts the smooth projective
+local curve. Finally \((z,W)=(1,8)\) is a rational point, proving
+nonemptiness and therefore equality of the value set with the singleton.
+\end{proof}
+
+\begin{theorem}[Two and all remaining primes away from five]
+\label{lh-other-primes}
+For every finite prime \(\ell\ne3,5\) and every
+\(P\in C(\mathbb Q_\ell)\), the extended combination is
+\[
+ J_\ell(P)=0.
+\]
+\end{theorem}
+\begin{proof}
+At two, put \(m=v_2(z)\) on the finite nonzero chart.
+If \(m<0\), the two abscissae in \eqref{lh-minimal-maps} have
+valuations \(2m-2\) and \(-2\). If \(m>0\), their valuations are
+\(-2\) and \(-2m-2\). For either short model and any negative
+abscissa valuation, the derivative \(3x^2+a_4\) has valuation
+\(2v_2(x)<0\). The local theorem gives height
+\(-v_2(x)\log_5(2)\). Subtracting the two heights and adding
+\(2m\log_5(2)\) gives zero in both ranges.
+
+If \(m=0\), then \(z^2\equiv1\pmod8\). Both abscissae are integral
+and even, since \(z^2-9\equiv0\pmod8\) and
+\(33-9/z^2\equiv0\pmod8\). The two cubic equations then force the
+ordinates to be integral odd units. The derivative \(3x^2+a_4\)
+is odd, so both heights vanish; this also covers an abscissa equal
+to zero. The character term vanishes as well. Thus every valuation
+range gives \(J_2=0\).
+The fiber \(z=0\) has no \(\mathbb Q_2\)-point because \(-1\) is
+not a square in \(\mathbb Q_2\). At either infinity point the
+constant punctured neighborhoods with \(m<0\) give the extension.
+
+Now let \(\ell>3\), \(\ell\ne5\). Both minimal elliptic curves have
+good reduction. With \(m=v_\ell(z)\), if \(m<0\), \(R_1\) has
+abscissa valuation \(2m\) and \(R_2\) is integral. If \(m>0\),
+\(R_1\) is integral and \(R_2\) has abscissa valuation \(-2m\).
+For \(m=0\) both are integral. Possible divisibility of the constant
+33 causes no exception: when \(-9/z^2\) is dominant its coefficient
+is a unit, and otherwise extra cancellation leaves an integral
+abscissa. The good-reduction height formula and the term
+\(2m\log_5(\ell)\) again cancel exactly in all three cases.
+
+At any local point above \(z=0\) or infinity, sufficiently close points
+outside that fiber have respectively \(m>0\) or \(m<0\), so the
+combination extends as zero. This covers every projective exception.
+The rational point \((1,8)\) ensures nonemptiness at every prime.
+\end{proof}
+
+\begin{corollary}[The exact target value in quadratic Chabauty]
+\label{lh-omega}
+With the stated character and height conventions, the set \(\Omega\)
+of \cite[Theorem~1.4]{BalakrishnanDograQCI} for this curve and \(p=5\)
+is exactly
+\[
+ \Omega=\left\{-\frac43\log_5(3)\right\}.
+\]
+\end{corollary}
+\begin{proof}
+That theorem defines \(\Omega\) as the values of
+\(-\sum_{\ell\ne5}J_\ell(P_\ell)\) on the product of the local curves.
+Theorems~\ref{lh-three} and \ref{lh-other-primes} evaluate every
+summand on its entire local domain, and their domains are nonempty.
+Only the summand at three is nonzero, with the value asserted above.
+\end{proof}
+
+For the next calculation, the minimal-model expression on the finite
+nonzero five-adic chart can be written
+\begin{align}
+ \mathcal F(P)
+  ={}&h_{E,5}(R_1)-h_{E',5}(R_2)-2\log_5(z)\notag\\
+    &-\alpha_E\log_E(R_1)^2
+      +\alpha_{E'}\log_{E'}(R_2)^2.
+ \label{lh-five-equation}
+\end{align}
+The equal local model constants cancel. Moreover the exact scaling of
+Section~\ref{sec:height-normalization} gives
+\(\alpha_F\log_F^2=\alpha_E\log_E^2\).
+Thus this is the standard expression, with its models and signs fixed.
+Every rational point in that chart satisfies
+\[
+ \mathcal F(P)=-\frac43\log_5(3).
+\]
+One can independently check the sign by summing the local heights
+and using the rank-one global quadratic identities.
+Since \(b=(1,8)\) is rational, the same equation is
+\(\mathcal F(P)-\mathcal F(b)=0\). This relative form cancels a
+uniform additive convention if the same convention is used at both
+points.
+
+No analytic zero list or multiplicity calculation is claimed here.
+The remaining work is to construct compatible Coleman or sigma
+expressions, prove complete truncation bounds on all required
+five-adic charts, certify every analytic zero, and apply the rational
+sieve. The zero fiber is over \(\mathbb Q(i)\); it has
+\(\mathbb Q_5\)-points but no rational points. The two infinity points
+are rational and must be recorded separately if omitted from a chart.
+In particular the translated formula cannot simply assume that
+\(Q_1=(0,3i)\in F_1\) is rational over \(\mathbb Q\); the direct
+Theorem~1.4 expression was used above.
+After a classification of \(C(\mathbb Q)\), the second square and
+positive common-source conditions for the original curve \(D\)
+remain additional tests. Moving exponents, residuals and the uniform
+point-height problem are unchanged. These universal local-value
+statements are ordinary proofs with stated standard inputs, not
+a numerical sampling result or a new Lean formalization.

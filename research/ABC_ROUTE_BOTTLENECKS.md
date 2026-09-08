@@ -33,6 +33,34 @@ rigorous complete-premise disproof.
 
 ## Shared exponent generators: September 7 positive frontier
 
+- [x] Prove exact collective content and the primitive input-norm profile;
+  derive the macroscopic linear lower bound on every power extraction's
+  residual cost. Keep this separate from the original boundary radical.
+- [x] Prove that the common-product/complement determinant map returns the
+  original primitive boundary and exactly preserves its radical/signed ledger.
+- [x] Construct actual affine selectors with different prime owners, exact
+  retained depths and explicit post-content height cost; prove the fixed-data
+  positive-density squarefree-complement theorem and complete signed identity.
+- [x] Prove the five-adic Jacobian closure, exact height/model normalization,
+  and the full away-from-five local target Omega={-(4/3)log_5(3)}.
+- [x] Prove actual endpoint partition formulas and the complete-primality
+  example Gamma>52D with 0<D<1; retire only Gamma=0 and Gamma<=D on that class.
+- [x] Freshly compile 40 new declarations and 55 unchanged dependencies with
+  all 95 axiom queries; replay eight finite records with their explicit scope.
+- [ ] Transfer affine compensation to the original power/small-residual family
+  with constants uniform over moving packets, or find a full-premise barrier.
+- [ ] Control the complete different-prime signed ledger, exceptional roots,
+  independent-domain complement and arbitrary ABC representation.
+- [ ] Certify all five-adic analytic zeros and rational survivors for the
+  fixed curve, including the common-source inverse conditions; then address
+  uniform point heights over varying exponents and residuals.
+- [ ] Construct a new admissible certificate overcoming the actual large-prime
+  partition barrier, or prove the necessary uniform estimate for the old rules.
+- Current combined proof and exact scope:
+  `checkpoints/2026_09_07_collective_content_closure/README.md`.
+
+The following entries retain the earlier milestones and their open domains.
+
 - [x] Prove the prime-independent cubic quotient and combined-precision
   injection on common-hit rectangles, with target size n^s.
 - [x] Prove the actual three-phase discriminant and finite-capacity bridge;

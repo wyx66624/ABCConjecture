@@ -1,0 +1,236 @@
+\section{An actual large-prime obstruction to central radical partitions}
+\label{lp18-section}
+
+Let \(e,f\ge2\) be integers, and set
+\[
+ c=2^e3^f,\qquad M=2^e,\quad N=3^f,\qquad
+ A=M/2,\quad B=N/3,\quad Q=\operatorname{rad}(c-1).
+\]
+Throughout this section impose the complete balanced two-source hypotheses
+\begin{equation}\label{lp-domain}
+ \max(M,N)<2\min(M,N)-1,\qquad AB>Q.
+\end{equation}
+The endpoint \((1,c-1,c)\) is primitive, and its exact source prime
+powers are \(M,N\). The no-proper-face theorem and optimization proved
+in Section~\ref{dp-section} give
+\begin{align}
+ \mathcal B_{\rm FCRT}=\mathcal B_{\rm SCRT}=\mathcal B_{\rm PBT}
+     &=D+\Gamma,\label{lp-budget}\\
+ D&=\log(AB/Q)>0,\notag\\
+ \Gamma&=\min_{H\mid Q}
+    \operatorname{dist}\bigl(\log H,[\log(Q/B),\log A]\bigr).\notag
+\end{align}
+Every divisor in this formula is a divisor of the full actual squarefree
+integer \(Q\). When a prime is assigned to a packet, its full prime power
+on the original endpoint is assigned. No unknown cofactor is omitted.
+
+\begin{theorem}[The exact large-prime partition formula]
+\label{lp-exact-barrier}
+Under \eqref{lp-domain}, suppose an actual prime \(q\mid c-1\)
+satisfies \(q>\max(A,B)\). Put \(R=Q/q\). Then
+\[
+ \Gamma=\log\frac{q}{\max(A,B)}>0,\qquad
+ D+\Gamma=\log\frac{\min(A,B)}R.
+\]
+No primality condition on \(R\), prescription of the remaining prime
+depths, or square condition on \(c\) is required.
+\end{theorem}
+\begin{proof}
+Since \(AB>qR\) and \(q>\max(A,B)\),
+\[
+ R<\min(A,B),\qquad R<Q/B,\qquad A<q.
+\]
+Each divisor \(H\mid Q\) either omits \(q\), hence divides \(R\)
+and satisfies \(H\le R\), or contains \(q\), hence satisfies
+\(H\ge q\). Both extremal choices \(R,q\) are actual divisors.
+The central interval is nonempty because \(AB>Q\), and lies strictly
+between their logarithms. The distances from its endpoints to the
+nearest divisor below and above are therefore
+\[
+ \log\frac{Q/B}{R}=\log\frac qB,\qquad \log\frac qA.
+\]
+Their minimum proves the formula for \(\Gamma\). Adding
+\(\log(AB/(qR))\) proves the budget formula. This optimizes over all
+actual divisors. There is at most one such large prime, since two would
+give \(Q>\max(A,B)^2\ge AB\).
+\end{proof}
+
+\begin{theorem}[A fully certified nonsquare endpoint]
+\label{lp-actual-example}
+Take \(e=64,f=41\), and put
+\[
+ q=3981112602195296746201614890054671463.
+\]
+Then \(q\) is prime, \eqref{lp-domain} holds, and
+\begin{align*}
+ c&=672808029771005150108072916419239477248=13^2q+1,\\
+ M&=18446744073709551616,
+       &N&=36472996377170786403,\\
+ A&=9223372036854775808,
+       &B&=12157665459056928801,\\
+ Q&=51754463828538857700620993570710729019=13q.
+\end{align*}
+The exact optimum is
+\[
+ D=\log\frac{c}{78q},\qquad
+ \Gamma=\log\frac q{3^{40}},\qquad
+ \mathcal B_{\rm FCRT}=\log\frac{2^{63}}{13}.
+\]
+Moreover \(0<D<1\) and \(\Gamma>52D\).
+\end{theorem}
+\begin{proof}
+Primality is established by the complete recursive certificate proved
+below. Direct integer arithmetic gives
+\[
+ 2\min(M,N)-1-\max(M,N)=420491770248316828>0.
+\]
+The full factorization is \(c-1=13^2q\); thus the four divisors of its
+radical are exactly \(1,13,q,13q\). Also
+\[
+ AB/Q=c/(78q)>1,\qquad q>B>A>13.
+\]
+The preceding theorem gives all three logarithmic formulas. The exact
+integer comparison
+\begin{equation}\label{lp-integer-gap-comparison}
+ q(78q)^{52}>3^{40}c^{52}
+\end{equation}
+is checked by the integer certificate, and implies \(\Gamma>52D\)
+by strict monotonicity of the logarithm. Finally
+\[
+ 1<\frac{169q+1}{78q}<\frac73<\exp(1)
+\]
+proves \(0<D<1\). The last inequality follows, for example, from
+\(\exp(1)>1+1+1/2>7/3\). No decimal approximation proves any of these
+strict inequalities. Since \(f=41\) is odd, \(c\) is not a square,
+so this example does not belong to the DP square family.
+\end{proof}
+
+For scale only, \(D\) is approximately \(0.77319\), \(\Gamma\)
+approximately \(40.33013\), and their sum approximately \(41.10332\).
+The exact formulas and comparison \eqref{lp-integer-gap-comparison}
+are the mathematical statements.
+
+\begin{corollary}[A scalar-control strengthening fails]
+\label{lp-scalar-control-fails}
+The assertion that every actual endpoint satisfying
+\eqref{lp-domain} has \(\Gamma\le D\) is false, even if one adds
+\(0<D<1\). In particular, universal vanishing of \(\Gamma\) on that
+class is false.
+\end{corollary}
+\begin{proof}
+The fully factored endpoint of Theorem~\ref{lp-actual-example}
+satisfies every premise and \(\Gamma>52D>D>0\).
+\end{proof}
+
+This is a finite counterexample to the two displayed strengthenings.
+It does not disprove a bound with an unspecified additive constant
+\(C_\varepsilon\), the parent FCRT uniform gate, or ABC. All reusable
+proper flags are absent by the same inherited theorem used in
+\eqref{lp-budget}; no flag or radical factor has been suppressed to
+manufacture the failure.
+
+\begin{proposition}[A conditional distinction between two uniform gates]
+\label{lp-conditional-infinite}
+Fix a prime \(p\ge7\). If there are infinitely many distinct balanced
+endpoints \(c=2^e3^f\), \(e,f\ge2\), such that
+\[
+ c-1=p^2q,\qquad q\text{ prime},
+\]
+then, along these endpoints as \(c\to\infty\),
+\begin{align*}
+ D&=\log(p/6)+o(1),\\
+ \mathcal B_{\rm FCRT}&=\tfrac12\log c+O_p(1),\\
+ \log\operatorname{rad}(c(c-1))&=\log c+O_p(1).
+\end{align*}
+Consequently the particular budget in \eqref{lp-budget} would fail
+its \(\varepsilon\)-log-radical upper bound, with any additive constant,
+for each fixed \(0<\varepsilon<1/2\). Meanwhile the scalar ABC excess
+\[
+ \log c-(1+\varepsilon)\log\operatorname{rad}(c(c-1))
+\]
+would tend to minus infinity for every fixed \(\varepsilon>0\).
+\end{proposition}
+\begin{proof}
+The distinct positive integers \(c\) tend to infinity along any increasing
+enumeration. The balance condition gives \(1/2<M/N<2\); hence \(A,B\)
+are comparable to \(\sqrt c\), with absolute constants. Eventually
+\(q=(c-1)/p^2\) is distinct from \(p\) and larger than both \(A,B\).
+Then \(Q=pq\),
+\[
+ D=\log\frac{c}{6pq}\longrightarrow\log(p/6)>0.
+\]
+All hypotheses of Theorem~\ref{lp-exact-barrier} eventually hold, and
+it gives
+\[
+ \mathcal B_{\rm FCRT}=\log\frac{\min(A,B)}p
+       =\tfrac12\log c+O_p(1).
+\]
+Since \(\operatorname{rad}(c(c-1))=6pq=6(c-1)/p\), the radical
+asymptotic follows. Subtracting the corresponding multiples of
+\(\log c\) proves the two contrasting conclusions.
+\end{proof}
+
+No infinitude of these prime values has been proved or used. This
+conditional proposition identifies an additional arithmetic input
+which would separate this specific certificate gate from scalar ABC.
+It must not be reported as an actual infinite counterexample. An
+equivalence proved for a different canonical ABC gate does not give
+the reverse implication for the present FCRT optimization.
+
+\subsection{A deterministic recursive primality and endpoint certificate}
+
+\begin{lemma}[Full predecessor-factor certificate]
+\label{lp-lucas-criterion}
+Let \(m>2\) be an integer whose complete factorization of \(m-1\)
+into proved primes is known. Suppose that for every prime
+\(r\mid m-1\) there is an integer \(a_r\) satisfying
+\[
+ a_r^{m-1}\equiv1\pmod m,\qquad
+ \gcd\bigl(a_r^{(m-1)/r}-1,m\bigr)=1.
+\]
+Then \(m\) is prime. The witnesses for different primes need not agree.
+\end{lemma}
+\begin{proof}
+Let \(\ell\) be any prime divisor of \(m\). The order of \(a_r\)
+modulo \(\ell\) divides \(m-1\), but does not divide \((m-1)/r\).
+Its \(r\)-adic valuation is therefore the entire \(r\)-adic valuation
+of \(m-1\). This order also divides \(\ell-1\). Applying this to
+each prime \(r\mid m-1\) shows \(m-1\mid\ell-1\), whence
+\(\ell\ge m\). Since \(\ell\mid m\), we obtain \(m=\ell\).
+Induction on \(m\), beginning with the elementary prime two,
+justifies a recursive certificate using only smaller prime nodes.
+\end{proof}
+
+For the prime in Theorem~\ref{lp-actual-example}, the top decomposition is
+\[
+ q-1=2\cdot61\cdot563\cdot921889\cdot2532974063
+             \cdot24821433536218331.
+\]
+The witnesses for these six factors are respectively \(5,2,2,2,2,2\).
+The complete data contains the predecessor factorizations and witnesses
+for all smaller factors, and a node proving thirteen. The standard-library
+program \texttt{replay\_large\_prime\_partition.py} checks all twenty-five
+prime nodes and seventy modular/gcd witnesses. It uses no factorization
+oracle or probable-prime predicate. Thus generation of candidate data
+with a computer algebra system leaves no primality-test assumption in
+the verifier's proof chain.
+
+After primality, the program checks the exact endpoint factorization,
+balance, positive defect, the complete four-divisor list, the rational
+identity
+\[
+ \exp(D)\exp(\Gamma)=\exp(\mathcal B_{\rm FCRT}),
+\]
+and \eqref{lp-integer-gap-comparison}, using only integers and rational
+numbers. Default mode writes a canonical result; \texttt{--check}
+recomputes it and compares bytes without changing it. Both modes
+have actually returned PASS. The canonical result SHA256 is
+\begin{quote}\ttfamily
+3b4de60c0f5fb1fc\allowbreak ba68b7def3b655db\allowbreak
+4b406047de5ea764\allowbreak f7b29b66f729fb51.
+\end{quote}
+This certifies one endpoint and its deterministic primality inputs.
+The full-class optimization and the conditional implication retain
+their ordinary proofs above. Neither the certificate nor this section
+adds a Lean theorem, prime-value infinitude, a fixed-\(\varepsilon\)
+ABC counterexample, or a proof or disproof of the parent route.

@@ -1,5 +1,28 @@
 # Research status
 
+## Collective content, affine compensation and the exact local target
+
+September 7, 2026. The current continuation integrates reviewed CC/CD/CP,
+QL, DP and the reviewed LM/HT/LH/LP supplements. Actual content and primitive
+power extraction have 40 new Lean declarations, freshly compiled with 55
+unchanged dependencies and all 95 axiom queries. The axiom union is only
+propext, Classical.choice and Quot.sound. Eight finite replay records have
+separate scope; the portable height record does not recompute PARI balls.
+
+Ordinary proofs establish a fixed-data affine family with complete signed
+compensation and the exact fixed-curve local target Omega={-(4/3)log_5(3)}.
+The common-complement map exactly preserves the original boundary; the
+specified primitive interval product cannot supply small-residual compression.
+A fully certified actual endpoint refutes Gamma=0 and Gamma<=D, not the
+parent FCRT gate. Infinite sieve, prime asymptotics, p-adic heights and complete
+local-value geometry remain ordinary proofs, not newly kernel-checked results.
+
+The original full signed tail, exceptional roots, varying-parameter estimates,
+all five-adic zeros and rational survivors, and arbitrary ABC coverage remain
+open. ABC is unproved and undisproved. See
+`../research/checkpoints/2026_09_07_collective_content_closure/README.md`.
+The following entries are historical milestones with their original scope.
+
 ## Sixteenth continuation: joint packets and quotient Jacobians
 
 September 7, 2026. The reviewed ordinary JP theorem combines prime precisions

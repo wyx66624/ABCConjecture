@@ -1,0 +1,69 @@
+\section{Formal scope of primitive content and power extraction}
+\label{sec-collective-formal-scope}
+
+The ordinary arguments in the preceding new sections were completed before
+their selected integer and real-arithmetic consequences were formalized.
+The present formal supplement contains forty new declarations:
+twenty-four in \texttt{ComplementContent.lean} and sixteen in
+\texttt{SquarefreePowerExtraction.lean}.
+All forty were freshly compiled together with fifty-five unchanged
+dependency declarations. Every one of these ninety-five declarations has
+an explicit axiom query. The axiom union is precisely
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+The compiler is Lean 4.32.0 and the Mathlib revision is
+\texttt{81a5d257c8e410db227a6665ed08f64fea08e997}.
+Only the Mathlib compiled cache is reused; the six listed project modules
+are compiled from their recorded source bytes in a fresh directory.
+
+The first module uses the actual integer-pair Eisenstein multiplication,
+its positive norm, the integer gcd of the coordinates, and exact integer
+division to define primitive reduction. It constructs the actual
+normalizer \(c d\) and proves its divisibility into \(N(V)\) by B\'ezout.
+It then proves the three recovered phase coordinates, their exact common
+gcd, and equality of the primitive absolute boundary product. Its radical
+is the product of the actual natural prime factors; for \(T>0\), its signed ledger is
+\[
+ \sum_{p\mid T}\bigl(v_p(T)-3\bigr)\log p.
+\]
+Both functions are therefore exactly unchanged. The cleared phase
+equalities and the integrality of the common multiplier are proved from
+the actual map, not supplied as hypotheses to its final theorem.
+
+The second module starts with the explicit natural-number profile
+\[
+ RD=VQ^g,\quad R\text{ squarefree},\quad (R,D)=1,\quad g\ge2.
+\]
+It proves \(R\mid V\) and \(Q^g\mid D\) without requiring
+\((V,Q)=1\). For \(Q>1\), an actual prime divisor of \(Q\) bounds
+\(g\) by its multiplicity in \(D\). The module derives both logarithmic
+compression inequalities and, from the explicitly stated prime profile
+and mass hypotheses, the lower bound
+\[
+ \frac{\log V}{g}\ge\frac{\delta\log7}{6}B.
+\]
+The hypotheses realizing this profile in the interval product, and its
+large-\(B\) mass estimate, remain the preceding ordinary proofs. They
+have not been made formal by passing their finite consequences.
+
+Eight finite replay records cover the collective content, complement
+determinants, primitive power profile, elliptic local-entry coordinates,
+actual divisor-partition witnesses, the recursive Lucas certificates for
+the large-prime partition example, the height-transport check, and the
+affine selectors' exact depths, content, finite local roots and kernels.
+The portable height check recomputes the exact rational leading-digit
+calculations and checks algebra on the recorded precision balls; it does
+not recompute those balls with PARI. The separate full PARI 2.15.4 replay
+was actually run locally and is distinguished from this portable check.
+These replays do not prove prime
+asymptotics, an infinite family, a formal-logarithm theorem, Jacobian
+closure, a height pairing, or rational-point completeness. Those results
+retain their ordinary proofs and source attributions. The independent
+reviews are internal mathematical reviews, not external peer review.
+
+The completed statements do not bound the full boundary signed tail,
+cover every actual root or every ABC triple, compute a complete quadratic
+Chabauty set, or establish uniform point heights as exponents and residuals
+vary. Standard ABC remains unproved and undisproved. In particular, the
+input-norm height gain cannot be counted as boundary radical credit;
+the exact complement theorem identifies one specific construction where
+that proposed credit disappears under primitive normalization.
